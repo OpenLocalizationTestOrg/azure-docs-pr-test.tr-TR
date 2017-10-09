@@ -1,6 +1,6 @@
 ---
-title: "StorSimple 8000 serisi aygıt için CHAP yapılandırma | Microsoft Docs"
-description: "Karşılıklı Kimlik Doğrulama Protokolü (CHAP) StorSimple cihazında yapılandırılması açıklanmaktadır."
+title: "StorSimple 8000 serisi cihaz için CHAP aaaConfigure | Microsoft Docs"
+description: "Nasıl tooconfigure hello karşılıklı kimlik doğrulama protokolü (CHAP) StorSimple cihazında açıklar."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,160 +14,160 @@ ms.tgt_pltfrm: na
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 61e0877187759d76b6f7efcef0a5ed8bec8500fe
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3351184b0317da7e3deae398bc0d63c3e5bd930f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>StorSimple cihazınız için CHAP yapılandırma
 
-Bu öğretici, StorSimple cihazınız için CHAP yapılandırma açıklanmaktadır. Bu makalede ayrıntılı yordam StorSimple 8000 serisi cihazlar için geçerlidir.
+Bu öğretici nasıl tooconfigure StorSimple cihazınız için CHAP açıklanmaktadır. Bu makalede ayrıntılı hello yordam tooStorSimple 8000 serisi cihazlar geçerlidir.
 
-CHAP karşılıklı kimlik doğrulama protokolü için anlamına gelir. Bu sunucuları tarafından uzak istemcilerin kimliğini doğrulamak için kullanılan bir kimlik doğrulama düzeni olur. Doğrulama bir paylaşılan parola veya gizli temel alır. CHAP (tek yönlü) bir yolu olabilir veya karşılıklı (çift yönlü). Hedef Başlatıcı doğruladığında bir CHAP yoludur. Karşılıklı veya ters CHAP Başlatıcı Hedef doğrular ve hedef Başlatıcı kimliğini doğrular. Başlatıcı kimlik doğrulaması olmadan hedef kimlik doğrulaması uygulanabilir. Ancak, yalnızca başlatıcı kimlik doğrulaması aynı zamanda uygulanırsa, hedef kimlik doğrulama uygulanabilir.
+CHAP karşılıklı kimlik doğrulama protokolü için anlamına gelir. Itanium tabanlı sistemler için sunucuları toovalidate hello kimliği uzak istemci tarafından kullanılan bir kimlik doğrulama düzeni değil. Merhaba doğrulama bir paylaşılan parola veya gizli temel alır. CHAP (tek yönlü) bir yolu olabilir veya karşılıklı (çift yönlü). Merhaba hedef Başlatıcı doğruladığında bir CHAP yoludur. Karşılıklı veya ters CHAP hello hedef hello Başlatıcı kimliğini doğrular ve hello hedef hello Başlatıcı kimliğini doğrular. Başlatıcı kimlik doğrulaması olmadan hedef kimlik doğrulaması uygulanabilir. Ancak, yalnızca başlatıcı kimlik doğrulaması aynı zamanda uygulanırsa, hedef kimlik doğrulama uygulanabilir.
 
-En iyi uygulama, iSCSI güvenliğini artırmak için CHAP kullanmanızı öneririz.
+En iyi uygulama, CHAP tooenhance iSCSI güvenlik kullanmanızı öneririz.
 
 > [!NOTE]
 > IPSec StorSimple cihazlarda şu anda desteklenmiyor aklınızda bulundurun.
 
-StorSimple cihazında CHAP ayarları aşağıdaki yollarla yapılandırılabilir:
+Merhaba StorSimple cihazı Hello CHAP ayarları yolları aşağıdaki hello yapılandırılabilir:
 
 * Tek yönlü veya tek yönlü kimlik doğrulaması
 * Çift yönlü veya karşılıklı veya ters kimlik doğrulaması
 
-Her durumda, cihaz ve sunucu iSCSI Initiator yazılımı için portal yapılandırılması gerekiyor. Bu yapılandırma için ayrıntılı adımlar aşağıdaki öğreticide açıklanmaktadır.
+Her durumda, hello portal hello cihaz ve hello sunucu iSCSI Initiator yazılımı için yapılandırılmış toobe gerekir. Merhaba bu yapılandırma için ayrıntılı adımlar öğreticiyi izleyerek hello açıklanmıştır.
 
 ## <a name="unidirectional-or-one-way-authentication"></a>Tek yönlü veya tek yönlü kimlik doğrulaması
 
-Tek yönlü kimlik doğrulamada hedef Başlatıcı kimliğini doğrular. Bu kimlik doğrulama StorSimple cihazı ve iSCSI başlatıcısı yazılımı CHAP Başlatıcı ayarları yapılandırmanız gerekir. StorSimple cihazı ve Windows ana bilgisayar için ayrıntılı yordamlar sonraki açıklanmaktadır.
+Tek yönlü kimlik doğrulamada hello hedef hello Başlatıcı kimliğini doğrular. Bu kimlik doğrulama hello StorSimple cihaz ve hello iSCSI Initiator yazılımı hello konaktaki hello CHAP Başlatıcı ayarları yapılandırmanız gerekir. StorSimple cihazınız için ayrıntılı yordamlar hello ve Windows ana bilgisayar sonraki açıklanmıştır.
 
-#### <a name="to-configure-your-device-for-one-way-authentication"></a>Tek yönlü kimlik doğrulama için Cihazınızı yapılandırmak için
+#### <a name="tooconfigure-your-device-for-one-way-authentication"></a>tooconfigure cihazınız için tek yönlü kimlik doğrulama
 
-1. Azure portalında StorSimple cihaz Yöneticisi hizmetinize gidin. Tıklatın **aygıtları** seçin ve istediğiniz CHAP yapılandırmak için bir cihaza tıklayın. Git **Aygıt Ayarları > Güvenlik**. İçinde **güvenlik ayarları** dikey penceresinde tıklatın **CHAP**.
+1. Hello Azure portal, tooyour StorSimple cihaz Yöneticisi hizmeti gidin. Tıklatın **aygıtları** seçin ve tooconfigure CHAP istediğiniz bir cihaza tıklayın için. Çok Git**Aygıt Ayarları > Güvenlik**. Merhaba, **güvenlik ayarları** dikey penceresinde tıklatın **CHAP**.
    
     ![CHAP Başlatıcı](./media/storsimple-8000-configure-chap/configure-chap5.png)
-2. İçinde **CHAP** dikey penceresinde ve **CHAP Başlatıcı** bölümü:
+2. Merhaba, **CHAP** dikey penceresinde ve hello **CHAP Başlatıcı** bölümü:
    
    1. CHAP başlatıcı için bir kullanıcı adı sağlayın.
    2. CHAP başlatıcı için bir parola sağlayın.
       
     > [!IMPORTANT]
-    > CHAP kullanıcı adı 233'den az karakter içermelidir. CHAP parolası 12 ile 16 karakter arasında olmalıdır. Uzun bir kullanıcı adı ve parola kimlik doğrulama hatası Windows ana bilgisayardaki sonuçlanır.
+    > Merhaba CHAP kullanıcı adı 233'den az karakter içermelidir. Merhaba CHAP parolası 12 ile 16 arasında karakter olması gerekir. Uzun bir kullanıcı adı ve parola kimlik doğrulama hatası hello Windows ana bilgisayarda sonuçlanır.
    
-   3. Parolayı onaylayın.
+   3. Merhaba parolayı onaylayın.
 
        ![CHAP Başlatıcı](./media/storsimple-8000-configure-chap/configure-chap6.png)
-3. **Kaydet** düğmesine tıklayın. Bir onay iletisi görüntülenir. Değişiklikleri kaydetmek için **Tamam**’a tıklayın.
+3. **Kaydet** düğmesine tıklayın. Bir onay iletisi görüntülenir. Tıklatın **Tamam** toosave hello değişiklikleri.
 
-#### <a name="to-configure-one-way-authentication-on-the-windows-host-server"></a>Windows ana bilgisayar sunucusunda tek yönlü kimlik doğrulamasını yapılandırmak için
-1. Windows ana bilgisayarı sunucusunda, iSCSI başlatıcısı başlatın.
-2. İçinde **iSCSI başlatıcısı özellikleri** penceresinde, aşağıdaki adımları gerçekleştirin:
+#### <a name="tooconfigure-one-way-authentication-on-hello-windows-host-server"></a>tooconfigure tek yönlü kimlik doğrulama hello Windows ana bilgisayar sunucusu
+1. Merhaba Windows ana bilgisayar sunucusunda hello iSCSI başlatıcısı başlatın.
+2. Merhaba, **iSCSI başlatıcısı özellikleri** penceresinde hello aşağıdaki adımları gerçekleştirin:
    
-   1. Tıklatın **bulma** sekmesi.
+   1. Merhaba tıklatın **bulma** sekmesi.
       
        ![iSCSI başlatıcısı özellikleri](./media/storsimple-configure-chap/IC740944.png)
    2. Tıklatın **Portal Bul**.
-3. İçinde **Hedef Portal Bul** iletişim kutusunda:
+3. Merhaba, **Hedef Portal Bul** iletişim kutusunda:
    
-   1. Cihazınızı IP adresini belirtin.
+   1. Cihazınızı Hello IP adresini belirtin.
    2. Tıklatın **Gelişmiş**.
       
        ![Hedef portalı Bul](./media/storsimple-configure-chap/IC740945.png)
-4. İçinde **Gelişmiş ayarları** iletişim kutusunda:
+4. Merhaba, **Gelişmiş ayarları** iletişim kutusunda:
    
-   1. Seçin **CHAP'yi etkinleştir oturum** onay kutusu.
-   2. İçinde **adı** alanında, Klasik portalda CHAP başlatıcı için belirtilen kullanıcı adı girin.
-   3. İçinde **hedef gizli** alan, Klasik portalda CHAP başlatıcı için belirtilen parola sağlayın.
+   1. Select hello **CHAP'yi etkinleştir oturum** onay kutusu.
+   2. Merhaba, **adı** alan, hello CHAP Başlatıcı hello Klasik Portalı'nda için belirtilen kaynağı hello kullanıcı adı.
+   3. Merhaba, **hedef gizli** alan, hello CHAP Başlatıcı hello Klasik Portalı'nda için belirtilen kaynağı hello parola.
    4. **Tamam** düğmesine tıklayın.
       
        ![Gelişmiş ayarlar genel](./media/storsimple-configure-chap/IC740946.png)
-5. Üzerinde **hedefleri** sekmesinde **iSCSI başlatıcısı özellikleri** penceresinde, cihaz durumu olarak görünmelidir **bağlı**. Bir StorSimple 1200 cihaz kullanıyorsanız, her birimin bir iSCSI hedefi olarak bağlı. Bu nedenle, 3-4 arası adımlar, her birim için yinelenmesi gerekir.
+5. Merhaba üzerinde **hedefleri** hello sekmesinde **iSCSI başlatıcısı özellikleri** penceresinde hello Aygıt durumu olarak görünmelidir **bağlı**. Bir StorSimple 1200 cihaz kullanıyorsanız, her birimin bir iSCSI hedefi olarak bağlı. Bu nedenle, 3-4 arası adımlar, her birim için yinelenen toobe gerekir.
    
     ![Ayrı hedefleri olarak takılı birimleri](./media/storsimple-configure-chap/chap4.png)
    
    > [!IMPORTANT]
-   > İSCSI adını değiştirirseniz, yeni ad yeni iSCSI oturumları için kullanılır. Yeni ayarları oturumunuzu kapattığınızda kadar oturumlar var ve oturum açma için tekrar kullanılmaz.
+   > Merhaba iSCSI adını değiştirirseniz, hello yeni ad yeni iSCSI oturumları için kullanılır. Yeni ayarları oturumunuzu kapattığınızda kadar oturumlar var ve oturum açma için tekrar kullanılmaz.
 
-Windows ana bilgisayar sunucusunda CHAP yapılandırma hakkında daha fazla bilgi için Git [ek hususlar](#additional-considerations).
+Merhaba Windows ana bilgisayar sunucusunda CHAP yapılandırma hakkında daha fazla bilgi için çok Git[ek hususlar](#additional-considerations).
 
 ## <a name="bidirectional-or-mutual-authentication"></a>Çift yönlü veya karşılıklı kimlik doğrulaması
 
-Çift yönlü kimlik doğrulama, hedef Başlatıcı kimliğini doğrular ve hedef Başlatıcı kimliğini doğrular. Bu yordam kullanıcıya CHAP Başlatıcı ayarlarını yapılandırabilir, cihaz ve iSCSI başlatıcısı yazılımı ters CHAP ayarları gerektirir. Aşağıdaki yordamlar, Windows ana bilgisayar ve aygıt üzerinde karşılıklı kimlik doğrulaması yapılandırmak için gereken adımları açıklar.
+Çift yönlü kimlik doğrulama, hello hedef hello Başlatıcı kimliğini doğrular ve hello hedef hello Başlatıcı kimliğini doğrular. Bu yordamı hello kullanıcı tooconfigure hello CHAP Başlatıcı Ayarları gerektirir, hello cihaz ve iSCSI Initiator yazılımı hello ana bilgisayarda ters CHAP ayarları. Merhaba aşağıdaki yordamlar hello adımları tooconfigure karşılıklı kimlik doğrulaması hello cihazda ve hello Windows ana bilgisayarda açıklar.
 
-#### <a name="to-configure-your-device-for-mutual-authentication"></a>Karşılıklı kimlik doğrulama için Cihazınızı yapılandırmak için
+#### <a name="tooconfigure-your-device-for-mutual-authentication"></a>tooconfigure cihazınız karşılıklı kimlik doğrulaması için
 
-1. Azure portalında StorSimple cihaz Yöneticisi hizmetinize gidin. Tıklatın **aygıtları** seçin ve istediğiniz CHAP yapılandırmak için bir cihaza tıklayın. Git **Aygıt Ayarları > Güvenlik**. İçinde **güvenlik ayarları** dikey penceresinde tıklatın **CHAP**.
+1. Hello Azure portal, tooyour StorSimple cihaz Yöneticisi hizmeti gidin. Tıklatın **aygıtları** seçin ve tooconfigure CHAP istediğiniz bir cihaza tıklayın için. Çok Git**Aygıt Ayarları > Güvenlik**. Merhaba, **güvenlik ayarları** dikey penceresinde tıklatın **CHAP**.
    
     ![CHAP hedefi](./media/storsimple-8000-configure-chap/configure-chap5.png)
-2. Bu sayfada ve buna aşağı kaydırın **CHAP hedefi** bölümü:
+2. Aşağı kaydırın, bu sayfada ve hello **CHAP hedefi** bölümü:
    
    1. Sağlayan bir **ters CHAP kullanıcı adı** cihazınız için.
    2. Tedarik bir **ters CHAP parolası** cihazınız için.
-   3. Parolayı onaylayın.
-3. İçinde **CHAP Başlatıcı** bölümü:
+   3. Merhaba parolayı onaylayın.
+3. Merhaba, **CHAP Başlatıcı** bölümü:
    
    1. Sağlayan bir **kullanıcı adı** cihazınız için.
    2. Sağlayan bir **parola** cihazınız için.
-   3. Parolayı onaylayın.
+   3. Merhaba parolayı onaylayın.
 
        ![CHAP Başlatıcı](./media/storsimple-8000-configure-chap/configure-chap11.png)
-4. **Kaydet** düğmesine tıklayın. Bir onay iletisi görüntülenir. Değişiklikleri kaydetmek için **Tamam**’a tıklayın.
+4. **Kaydet** düğmesine tıklayın. Bir onay iletisi görüntülenir. Tıklatın **Tamam** toosave hello değişiklikleri.
 
-#### <a name="to-configure-bidirectional-authentication-on-the-windows-host-server"></a>Windows ana bilgisayar sunucusunda çift yönlü kimlik doğrulamasını yapılandırmak için
+#### <a name="tooconfigure-bidirectional-authentication-on-hello-windows-host-server"></a>Merhaba Windows tooconfigure çift yönlü kimlik doğrulamasını ana bilgisayar sunucusu
 
-1. Windows ana bilgisayarı sunucusunda, iSCSI başlatıcısı başlatın.
-2. İçinde **iSCSI başlatıcısı özellikleri** penceresinde tıklatın **yapılandırma** sekmesi.
+1. Merhaba Windows ana bilgisayar sunucusunda hello iSCSI başlatıcısı başlatın.
+2. Merhaba, **iSCSI başlatıcısı özellikleri** penceresinde hello tıklatın **yapılandırma** sekmesi.
 3. Tıklatın **CHAP**.
-4. İçinde **iSCSI Başlatıcı Karşılıklı CHAP parolası** iletişim kutusunda:
+4. Merhaba, **iSCSI Başlatıcı Karşılıklı CHAP parolası** iletişim kutusunda:
    
-   1. Tür **ters CHAP parolası** Azure Portalı'nda yapılandırılmış.
+   1. Türü hello **ters CHAP parolası** hello Azure portal yapılandırılmış.
    2. **Tamam** düğmesine tıklayın.
       
        ![iSCSI Başlatıcı Karşılıklı CHAP parolası](./media/storsimple-configure-chap/IC740949.png)
-5. Tıklatın **hedefleri** sekmesi.
-6. Tıklatın **Bağlan** düğmesi. 
-7. İçinde **bağlanmak için hedef** iletişim kutusu, tıklatın **Gelişmiş**.
-8. İçinde **Gelişmiş Özellikler** iletişim kutusunda:
+5. Merhaba tıklatın **hedefleri** sekmesi.
+6. Merhaba tıklatın **Bağlan** düğmesi. 
+7. Merhaba, **tooTarget bağlanmak** iletişim kutusu, tıklatın **Gelişmiş**.
+8. Merhaba, **Gelişmiş Özellikler** iletişim kutusunda:
    
-   1. Seçin **CHAP'yi etkinleştir oturum** onay kutusu.
-   2. İçinde **adı** alanında, Klasik portalda CHAP başlatıcı için belirtilen kullanıcı adı girin.
-   3. İçinde **hedef gizli** alan, Klasik portalda CHAP başlatıcı için belirtilen parola sağlayın.
-   4. Seçin **gerçekleştirme karşılıklı kimlik doğrulaması** onay kutusu.
+   1. Select hello **CHAP'yi etkinleştir oturum** onay kutusu.
+   2. Merhaba, **adı** alan, hello CHAP Başlatıcı hello Klasik Portalı'nda için belirtilen kaynağı hello kullanıcı adı.
+   3. Merhaba, **hedef gizli** alan, hello CHAP Başlatıcı hello Klasik Portalı'nda için belirtilen kaynağı hello parola.
+   4. Select hello **gerçekleştirme karşılıklı kimlik doğrulaması** onay kutusu.
       
        ![Gelişmiş ayarlar karşılıklı kimlik doğrulaması](./media/storsimple-configure-chap/IC740950.png)
-   5. Tıklatın **Tamam** CHAP yapılandırmasını tamamlamak için
+   5. Tıklatın **Tamam** toocomplete hello CHAP yapılandırma
 
-Windows ana bilgisayar sunucusunda CHAP yapılandırma hakkında daha fazla bilgi için Git [ek hususlar](#additional-considerations).
+Merhaba Windows ana bilgisayar sunucusunda CHAP yapılandırma hakkında daha fazla bilgi için çok Git[ek hususlar](#additional-considerations).
 
 ## <a name="additional-considerations"></a>Diğer konular
 
-**Hızlı Bağlan** özelliği etkinleştirilmiş CHAP sahip bağlantıları desteklemiyor. CHAP etkinleştirildiğinde kullandığınızdan emin olun **Bağlan** kullanılabilir düğmesi **hedefleri** sekmesinde bir hedef bağlanmak için.
+Merhaba **Hızlı Bağlan** özelliği etkinleştirilmiş CHAP sahip bağlantıları desteklemiyor. CHAP etkin olduğunda, hello kullandığınızdan emin olun **Bağlan** hello üzerinde kullanılabilir düğmesi **hedefleri** sekmesini tooconnect tooa hedef.
 
-![Hedefe Bağlan](./media/storsimple-configure-chap/IC740947.png)
+![Tootarget Bağlan](./media/storsimple-configure-chap/IC740947.png)
 
-İçinde **hedef Bağlan** sunulur, iletişim kutusu seç **Bu bağlantı sık kullanılan hedefler listesine eklemek** onay kutusu. Bu seçim, bilgisayar yeniden başlatıldığında her girişiminde bağlantı iSCSI sık kullanılan hedefler geri yüklemek için yapılan sağlar.
+Merhaba, **tooTarget bağlanmak** sunulan, select hello iletişim kutusuna **bu sık kullanılan hedefler bağlantı toohello listesine eklemek** onay kutusu. Bu seçim, her zaman hello bilgisayarı yeniden başlatır, girişiminde toorestore hello bağlantı toohello iSCSI sık kullanılan hedefler yapılmasını sağlar.
 
 ## <a name="errors-during-configuration"></a>Yapılandırma sırasında hatalar
 
-CHAP yapılandırması doğru değil sonra görmek büyük olasılıkla bir **kimlik doğrulama hatası** hata iletisi.
+CHAP yapılandırması doğru değil sonra büyük olasılıkla toosee olduğunuz bir **kimlik doğrulama hatası** hata iletisi.
 
 ## <a name="verification-of-chap-configuration"></a>Doğrulama CHAP yapılandırma
 
-Aşağıdaki adımları tamamlayarak CHAP kullanılmakta olduğunu doğrulayabilirsiniz.
+CHAP hello aşağıdaki adımları tamamlayarak kullanılmakta olduğunu doğrulayabilirsiniz.
 
-#### <a name="to-verify-your-chap-configuration"></a>CHAP yapılandırmasını doğrulamak için
+#### <a name="tooverify-your-chap-configuration"></a>tooverify CHAP yapılandırma
 1. Tıklatın **sık kullanılan hedefler**.
-2. Kimlik doğrulamasının etkin hedef seçin.
+2. Kimlik doğrulamasının etkin hello hedef seçin.
 3. Tıklatın **ayrıntıları**.
    
     ![iSCSI Başlatıcı özellikleri sık kullanılan hedefler](./media/storsimple-configure-chap/IC740951.png)
-4. İçinde **sık kullanılan hedef ayrıntıları** iletişim kutusunda, giriş Not **kimlik doğrulaması** alan. Yapılandırma başarılı olup olmadığını, yazması gerekir **CHAP**.
+4. Merhaba, **sık kullanılan hedef ayrıntıları** iletişim kutusu, Not hello hello girişi **kimlik doğrulaması** alan. Merhaba yapılandırma başarılı olup olmadığını, yazması gerekir **CHAP**.
    
     ![Sık kullanılan hedef ayrıntıları](./media/storsimple-configure-chap/IC740952.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Daha fazla bilgi edinmek [StorSimple güvenlik](storsimple-8000-security.md).
-* Daha fazla bilgi edinmek [StorSimple Cihazınızı yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanarak](storsimple-8000-manager-service-administration.md).
+* Daha fazla bilgi edinmek [StorSimple Cihazınızı hello StorSimple cihaz Yöneticisi hizmeti tooadminister kullanarak](storsimple-8000-manager-service-administration.md).
 

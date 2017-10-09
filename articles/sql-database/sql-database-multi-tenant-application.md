@@ -1,5 +1,5 @@
 ---
-title: "Çok kiracılı SaaS uygulaması Azure SQL Database ile kullanma | Microsoft Docs"
+title: "Azure SQL Database aaaImplement çok kiracılı SaaS uygulaması | Microsoft Docs"
 description: "Çok kiracılı SaaS uygulamasına Azure SQL Database uygulayın."
 services: sql-database
 documentationcenter: 
@@ -16,23 +16,23 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/08/2017
 ms.author: AyoOlubek
-ms.openlocfilehash: 0aea69d86a51c38c99a72f46737de1eea27bef83
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b87b8f296e2c20a8f674b56375f43fdc92df76d3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="implement-a-multi-tenant-saas-application-using-azure-sql-database"></a>Azure SQL veritabanı kullanarak çok kiracılı SaaS uygulaması kullanma
 
-Çok kiracılı uygulama bulut ortamında bulunan bir uygulamasıdır ve Hizmetleri yüzlerce veya binlerce kimin etmeyin paylaşma veya diğer kişilerin verileri görmek kiracılar için aynı kümesini sağlar. Bulut tarafından barındırılan bir ortamda kiracıların hizmetleri sağlayan bir SaaS uygulaması örneğidir. Bu model verileri için her bir kiracı yalıtır ve maliyet kaynakları dağıtımını iyileştirir. 
+Çok kiracılı uygulama bulut ortamında bulunan bir uygulamasıdır ve aynı Hizmetleri toohundreds ya da kimin etmeyin paylaşma veya diğer kişilerin verileri görmek kiracılar binlerce kümesidir hello sağlar. Bulut tarafından barındırılan bir ortamda Hizmetleri tootenants sağlayan bir SaaS uygulaması örneğidir. Bu model, her bir kiracı için hello veri yalıtır ve hello dağıtım maliyeti için kaynakların en iyi duruma getirir. 
 
-Bu öğretici, Azure SQL veritabanı kullanarak çok kiracılı SaaS uygulamasının nasıl oluşturulacağını gösterir.
+Bu öğretici gösterir nasıl toocreate Azure SQL Database kullanan çok kiracılı SaaS uygulamasına.
 
 Bu öğreticide, öğreneceksiniz:
 > [!div class="checklist"]
-> * Kiracı başına veritabanı modeli kullanarak bir çok kiracılı SaaS uygulaması desteklemek için bir veritabanı ortamını ayarlama
+> * Bir veritabanı ortamı toosupport hello Kiracı başına veritabanı modeli kullanarak bir çok kiracılı SaaS uygulaması ayarlayın
 > * Kiracı katalog oluşturma
-> * Bir kiracı veritabanı sağlamak ve Kiracı Kataloğu'nda kaydetme
+> * Bir kiracı veritabanı sağlamak ve hello Kiracı kataloğunda kaydetme
 > * Bir örnek Java uygulama ayarlama 
 > * Erişim Kiracı veritabanları basit bir Java konsol uygulaması
 > * Bir kiracı Sil
@@ -41,23 +41,23 @@ Bir Azure aboneliğiniz yoksa [ücretsiz bir hesap oluşturma](https://azure.mic
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğreticiyi tamamlamak için olduğundan emin olun:
+toocomplete Bu öğretici, yapma emin olduğunuz:
 
-* PowerShell en yeni sürümünün yüklü ve [en son Azure PowerShell SDK'sı](http://azure.microsoft.com/downloads/)
+* PowerShell ve hello en yeni sürümü yüklü hello [en son Azure PowerShell SDK'sı](http://azure.microsoft.com/downloads/)
 
-* En son sürümü yüklü [SQL Server Management Studio](http://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). SQL Server Management Studio'yu yükleme SQLPackage, bir dizi veritabanı geliştirme görevlerini otomatikleştirmek için kullanılan bir komut satırı yardımcı programı en son sürümünü yükler.
+* Yüklü hello en son sürümünü [SQL Server Management Studio](http://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). SQL Server Management Studio'yu yükleme hello SQLPackage, kullanılan tooautomate veritabanı geliştirme görevleri bir dizi olabilir bir komut satırı yardımcı programı en son sürümünü yükler.
 
-* Yüklü [Java Çalışma zamanı ortamı (JRE) 8](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ve [en son JAVA Geliştirme Seti (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) makinenize yüklü. 
+* Yüklü hello [Java Çalışma zamanı ortamı (JRE) 8](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ve hello [en son JAVA Geliştirme Seti (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) makinenize yüklü. 
 
-* Yüklü [Apache Maven](https://maven.apache.org/download.cgi). Maven bağımlılıkları yönetme, derleme, test ve örnek Java projesi çalıştırma yardımcı olmak için kullanılır.
+* Yüklü [Apache Maven](https://maven.apache.org/download.cgi). Maven kullanılacak toohelp bağımlılıkları yönetme, derleme, test ve hello örnek Java projesi çalıştırma
 
 ## <a name="set-up-data-environment"></a>Veri ortamını ayarlama
 
-Kiracı başına bir veritabanı sağlama. Kiracı başına veritabanı modeli en yüksek derecede az DevOps maliyeti ile kiracılar arasında yalıtım sağlar. Bulut kaynakları maliyetini en iyi duruma getirme, ayrıca Kiracı veritabanı grubu için fiyat performansı iyileştirmek izin veren bir esnek havuz içine sağlayacaksınız. Başka bir veritabanında modelleri sağlama hakkında bilgi edinmek için [Burada gördüğünüz](sql-database-design-patterns-multi-tenancy-saas-applications.md#multi-tenant-data-models).
+Kiracı başına bir veritabanı sağlama. Merhaba Kiracı başına veritabanı modeli hello yüksek derecede az DevOps maliyeti ile kiracılar arasında yalıtım sağlar. toooptimize hello maliyet bulut kaynaklarının, aynı zamanda hello Kiracı veritabanları veritabanları grubu için toooptimize hello fiyat performans sağlayan bir esnek havuz içine sağlayacaksınız. modelleri sağlama diğer veritabanıyla ilgili toolearn [Burada gördüğünüz](sql-database-design-patterns-multi-tenancy-saas-applications.md#multi-tenant-data-models).
 
-Bir SQL server ve tüm Kiracı veritabanlarını barındıracak bir esnek havuz oluşturmak için aşağıdaki adımları izleyin. 
+Bu adımları toocreate bir SQL server ve tüm Kiracı veritabanlarını barındıracak bir esnek havuz izleyin. 
 
-1. Öğreticinin geri kalanını kullanılacak değerlerini depolamak için değişkenler oluşturun. IP adresi eklemek için IP adresi değişken değiştirdiğinizden emin olun 
+1. Değişkenleri kullanılacak toostore değerleri hello öğreticinin hello kalan oluşturun. IP adresiniz emin toomodify başlangıç IP adresi değişken tooinclude olun 
    
    ```PowerShell 
    # Set an admin login and password for your database
@@ -69,15 +69,15 @@ Bir SQL server ve tüm Kiracı veritabanlarını barındıracak bir esnek havuz 
    $tenant1 = "geolamice"
    $tenant2 = "ranplex"
    
-   # Store current client IP address (modify to include your IP address)
+   # Store current client IP address (modify tooinclude your IP address)
    $startIpAddress = 0.0.0.0 
    $endIpAddress = 0.0.0.0
    ```
    
-2. Azure oturum açma ve SQL server ve esnek havuz oluşturma 
+2. Oturum açma tooAzure ve SQL server ve esnek havuz oluşturma 
    
    ```PowerShell
-   # Login to Azure 
+   # Login tooAzure 
    Login-AzureRmAccount
    
    # Create resource group 
@@ -105,9 +105,9 @@ Bir SQL server ve tüm Kiracı veritabanlarını barındıracak bir esnek havuz 
    
 ## <a name="create-tenant-catalog"></a>Kiracı Katalog Oluştur 
 
-Çok kiracılı bir SaaS uygulaması bir kiracı için bilgi depolandığı bilmeniz önemlidir. Bu, genellikle bir katalog veritabanında depolanır. Katalog veritabanı, bir kiracı ve bu kiracının veri depolandığı bir veritabanı arasında bir eşleme tutmak için kullanılır.  Tek Kiracı veritabanı kullanılan veya bir çok kiracılı olup olmadığını temel deseni uygular.
+Çok kiracılı bir SaaS uygulaması bir kiracı için bilgi depolandığı önemli tooknow değil. Bu, genellikle bir katalog veritabanında depolanır. başlangıç kataloğu kullanılan toohold bir kiracı ve bu kiracının veri depolandığı bir veritabanı arasında bir eşleme veritabanıdır.  tek Kiracı veritabanı kullanılan veya bir çok kiracılı olup olmadığını Hello temel deseni uygular.
 
-Örnek SaaS uygulaması için bir katalog veritabanı oluşturmak için aşağıdaki adımları izleyin.
+Bu adımları toocreate Merhaba örnek SaaS uygulaması için bir katalog veritabanı izleyin.
 
 ```PowerShell
 # Create empty database in pool
@@ -116,7 +116,7 @@ New-AzureRmSqlDatabase  -ResourceGroupName "myResourceGroup" `
     -DatabaseName "tenantCatalog" `
     -ElasticPoolName "myElasticPool"
 
-# Create table to track mapping between tenants and their databases
+# Create table tootrack mapping between tenants and their databases
 $commandText = "
 CREATE TABLE Tenants
 (
@@ -138,7 +138,7 @@ Invoke-SqlCmd `
 ```
 
 ## <a name="provision-database-for-tenant1-and-register-in-tenant-catalog"></a>Veritabanı için 'tenant1' sağlamak ve Kiracı kataloğunda kaydetme 
-Bir veritabanı için yeni bir kiracı 'tenant1' sağlamak ve bu Kiracı kataloğa kaydetmek için PowerShell kullanın. 
+PowerShell tooprovision bir veritabanı için yeni bir kiracı 'tenant1' kullanın ve bu Kiracı hello kataloğunda kaydedin. 
 
 ```PowerShell
 # Create empty database in pool for 'tenant1'
@@ -147,7 +147,7 @@ New-AzureRmSqlDatabase  -ResourceGroupName "myResourceGroup" `
     -DatabaseName $tenant1 `
     -ElasticPoolName "myElasticPool"
 
-# Create table WhoAmI and insert tenant name into the table 
+# Create table WhoAmI and insert tenant name into hello table 
 $commandText = "
 CREATE TABLE WhoAmI (TenantName NVARCHAR(128) NOT NULL);
 INSERT INTO WhoAmI VALUES ('Tenant $tenant1');"
@@ -161,7 +161,7 @@ Invoke-SqlCmd `
     -Query $commandText `
     -EncryptConnection
 
-# Register 'tenant1' in the tenant catalog 
+# Register 'tenant1' in hello tenant catalog 
 $commandText = "
 INSERT INTO Tenants VALUES ('$tenant1', '$tenant1');"
 Invoke-SqlCmd `
@@ -175,7 +175,7 @@ Invoke-SqlCmd `
 ```
 
 ## <a name="provision-database-for-tenant2-and-register-in-tenant-catalog"></a>Veritabanı için 'tenant2' sağlamak ve Kiracı kataloğunda kaydetme
-Bir veritabanı için yeni bir kiracı 'tenant2' sağlamak ve bu Kiracı kataloğa kaydetmek için PowerShell kullanın. 
+PowerShell tooprovision bir veritabanı için yeni bir kiracı 'tenant2' kullanın ve bu Kiracı hello kataloğunda kaydedin. 
 
 ```PowerShell
 # Create empty database in pool for 'tenant2'
@@ -184,7 +184,7 @@ New-AzureRmSqlDatabase  -ResourceGroupName "myResourceGroup" `
     -DatabaseName $tenant2 `
     -ElasticPoolName "myElasticPool"
 
-# Create table WhoAmI and insert tenant name into the table 
+# Create table WhoAmI and insert tenant name into hello table 
 $commandText = "
 CREATE TABLE WhoAmI (TenantName NVARCHAR(128) NOT NULL);
 INSERT INTO WhoAmI VALUES ('Tenant $tenant2');"
@@ -198,7 +198,7 @@ Invoke-SqlCmd `
     -Query $commandText `
     -EncryptConnection
 
-# Register tenant 'tenant2' in the tenant catalog 
+# Register tenant 'tenant2' in hello tenant catalog 
 $commandText = "
 INSERT INTO Tenants VALUES ('$tenant2', '$tenant2');"
 Invoke-SqlCmd `
@@ -213,13 +213,13 @@ Invoke-SqlCmd `
 
 ## <a name="set-up-sample-java-application"></a>Örnek Java uygulama ayarlama 
 
-1. Bir maven projesi oluşturun. Bir komut istemi penceresinde aşağıdaki komutu yazın:
+1. Bir maven projesi oluşturun. Bir komut istemi penceresinde Hello aşağıdakileri yazın:
    
    ```
    mvn archetype:generate -DgroupId=com.microsoft.sqlserver -DartifactId=mssql-jdbc -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    ```
    
-2. Bu bağımlılık, dil düzeyi ekleyin ve bildirim dosyası pom.xml dosyasını Kavanoz desteklemek için seçeneği yapılandırın:
+2. Bu bağımlılık, dil düzeyi ekleyin ve seçeneği toosupport bildirim dosyalarında Kavanoz toohello pom.xml dosyasını oluşturun:
    
    ```XML
    <dependency>
@@ -251,7 +251,7 @@ Invoke-SqlCmd `
    </build>
    ```
 
-3. Aşağıdaki App.java dosyasını içine ekleyin:
+3. Merhaba App.java dosyasına Hello aşağıdakileri ekleyin:
 
    ```java 
    package com.sqldbsamples;
@@ -306,7 +306,7 @@ Invoke-SqlCmd `
    
    System.out.println(" " + CMD_QUERY + " <NAME> - connect and tenant query tenant <NAME>");
    
-   System.out.println(" " + CMD_QUIT + " - quit the application\n");
+   System.out.println(" " + CMD_QUIT + " - quit hello application\n");
    
    try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
    
@@ -352,7 +352,7 @@ Invoke-SqlCmd `
    
    private static void listTenants() {
    
-   // List all tenants that currently exist in the system
+   // List all tenants that currently exist in hello system
    
    String sql = "SELECT TenantName FROM Tenants";
    
@@ -380,7 +380,7 @@ Invoke-SqlCmd `
    
    private static void queryTenant(String name) {
    
-   // Query the data that was previously inserted into the primary database from the geo replicated database
+   // Query hello data that was previously inserted into hello primary database from hello geo replicated database
    
    String url = null;
    
@@ -445,21 +445,21 @@ Invoke-SqlCmd `
    }
    ```
 
-4. Dosyayı kaydedin.
+4. Merhaba dosyasını kaydedin.
 
-5. Komut konsoluna gidin ve yürütme
+5. Toocommand Konsolu gidin ve yürütme
 
    ```bash
    mvn package
    ```
 
-6. Bunu yaptıktan sonra uygulamayı çalıştırmak için aşağıdakileri yürütün 
+6. Tamamlandığında, toorun Merhaba uygulaması aşağıdaki hello yürütme 
    
    ```
    mvn -q -e exec:java "-Dexec.mainClass=com.sqldbsamples.App"
    ```
    
-Başarıyla tamamlanırsa çıktı şuna benzeyecektir:
+başarıyla tamamlanırsa hello çıktı şuna benzeyecektir:
 
 ```
 ############################
@@ -474,15 +474,15 @@ LIST - list tenants
 
 QUERY <NAME> - connect and tenant query tenant <NAME>
 
-QUIT - quit the application
+QUIT - quit hello application
 
-* List the tenants
+* List hello tenants
 
 * Query tenants you created
 ```
 
 ## <a name="delete-first-tenant"></a>İlk Kiracı Sil 
-İlk Kiracı için Kiracı veritabanı ve Katalog girişi silmek için PowerShell kullanın.
+Veritabanı ve Katalog PowerShell toodelete hello Kiracı girişi hello ilk Kiracı için kullanın.
 
 ```PowerShell
 # Remove 'tenant1' from catalog 
@@ -502,15 +502,15 @@ Remove-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" `
     -DatabaseName $tenant1
 ```
 
-'Tenant1' bağlanmayı deneyin Java uygulaması kullanarak. Kiracı mevcut olmadığını bildiren bir hata alırsınız.
+Bağlanmayı deneyin çok 'tenant1' kullanarak izin ver hello Java uygulaması. Merhaba Kiracı yok bildiren bir hata alırsınız.
 
 ## <a name="next-steps"></a>Sonraki adımlar 
 
 Bu öğreticide için öğrenilen:
 > [!div class="checklist"]
-> * Kiracı başına veritabanı modeli kullanarak bir çok kiracılı SaaS uygulaması desteklemek için bir veritabanı ortamını ayarlama
+> * Bir veritabanı ortamı toosupport hello Kiracı başına veritabanı modeli kullanarak bir çok kiracılı SaaS uygulaması ayarlayın
 > * Kiracı katalog oluşturma
-> * Bir kiracı veritabanı sağlamak ve Kiracı Kataloğu'nda kaydetme
+> * Bir kiracı veritabanı sağlamak ve hello Kiracı kataloğunda kaydetme
 > * Bir örnek Java uygulama ayarlama 
 > * Erişim Kiracı veritabanları basit bir Java konsol uygulaması
 > * Bir kiracı Sil

@@ -1,6 +1,6 @@
 ---
-title: "Azure Danışmanı performans önerileri | Microsoft Docs"
-description: "Azure dağıtımlarınızı performansını iyileştirmek için Danışmanı'nı kullanın."
+title: "aaaAzure Danışmanı performans önerileri | Microsoft Docs"
+description: "Advisor toooptimize hello Azure dağıtımlarınızı performansını kullanın."
 services: advisor
 documentationcenter: NA
 author: kumudd
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 5fb86c60b2d1f258dde5636ff8854b6f30f7f1c8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: eb3d928664717f6f322132ac740f42015f56b76e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="advisor-performance-recommendations"></a>Advisor performans önerileri
 
-Azure Danışmanı performans önerileri hızı ve kritik iş uygulamalarının yanıtlama hızını geliştirilmesine yardımcı olun. Performans öneriler danışmanına alın **performans** Danışmanı Pano sekmesi.
+Azure Danışmanı performans önerileri hello hızı ve kritik iş uygulamalarının yanıtlama hızını geliştirilmesine yardımcı olun. Merhaba üzerinde danışmanına performans önerileri alabilirsiniz **performans** hello Danışmanı Pano sekmesi.
 
 ![Advisor performans sekmesi](./media/advisor-performance-recommendations/advisor-performance-tab.png)
 
 ## <a name="improve-database-performance-with-sql-db-advisor"></a>SQL DB Danışmanı ile veritabanı performansı
 
-Advisor önerileri tüm Azure kaynakları için tutarlı, birleştirilmiş bir görünümünü sağlar. SQL Azure veritabanının performansını geliştirmek için öneriler getirmek için SQL Database Advisor ile tümleşir. SQL veritabanı Danışmanı, SQL Azure veritabanının performansını kullanım geçmişiniz çözümleyerek değerlendirir. Ardından, veritabanının tipik iş yükünü çalıştırmak için en uygun öneriler sunar. 
+Advisor önerileri tüm Azure kaynakları için tutarlı, birleştirilmiş bir görünümünü sağlar. Bu SQL veritabanı Danışmanı toobring ile SQL Azure veritabanı hello performansı artırmak için öneriler tümleştirir. SQL veritabanı Danışmanı'nı kullanım geçmişiniz çözümleyerek SQL Azure veritabanlarınızı hello performansını değerlendirir. Ardından, hello veritabanının tipik iş yükünü çalıştırmak için en uygun öneriler sunar. 
 
 > [!NOTE]
-> Önerileri almak için bir veritabanı hakkında kullanım haftada olması gerekir ve bu hafta içinde var. bazı tutarlı etkinlik olması gerekir. SQL veritabanı Danışmanı daha kolay rastgele WINS'e etkinlik için tutarlı bir sorgu modelleri için en iyi duruma getirebilirsiniz.
+> tooget öneriler, bir veritabanı kullanımı haftada hakkında sahip olması gerekir ve bu hafta içinde var. bazı tutarlı etkinlik olması gerekir. SQL veritabanı Danışmanı daha kolay rastgele WINS'e etkinlik için tutarlı bir sorgu modelleri için en iyi duruma getirebilirsiniz.
 
 SQL Database Advisor hakkında daha fazla bilgi için bkz: [SQL veritabanı Danışmanı'nı](https://azure.microsoft.com/en-us/documentation/articles/sql-database-advisor/).
 
@@ -39,7 +39,7 @@ SQL Database Advisor hakkında daha fazla bilgi için bkz: [SQL veritabanı Dan�
 
 ## <a name="improve-redis-cache-performance-and-reliability"></a>Redis önbelleği performansı ve güvenilirliği iyileştirmek
 
-Advisor burada performansını olumsuz yönde yüksek bellek kullanımı, sunucu iş yükü, ağ bant genişliği veya çok sayıda istemci bağlantıları tarafından etkilenebilir Redis önbelleği örnekleri tanımlar. Advisor en iyi yöntemler, olası sorunları önlemenize yardımcı olacak öneriler de sağlar. Redis önbelleği öneriler hakkında daha fazla bilgi için bkz: [Redis önbelleği Danışmanı](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#redis-cache-advisor).
+Advisor burada performansını olumsuz yönde yüksek bellek kullanımı, sunucu iş yükü, ağ bant genişliği veya çok sayıda istemci bağlantıları tarafından etkilenebilir Redis önbelleği örnekleri tanımlar. Danışmanı da iyi sağlar olası sorunları önlemek önerileri toohelp yöntemler. Redis önbelleği öneriler hakkında daha fazla bilgi için bkz: [Redis önbelleği Danışmanı](https://azure.microsoft.com/en-us/documentation/articles/cache-configure/#redis-cache-advisor).
 
 
 ## <a name="improve-app-service-performance-and-reliability"></a>Uygulama hizmeti performans ve güvenilirlik geliştirmek
@@ -51,27 +51,27 @@ Azure Danışmanı uygulama hizmetleri deneyiminizi geliştirmek ve ilgili platf
 Uygulama Hizmetleri öneriler hakkında daha fazla bilgi için bkz: [Azure App Service için en iyi uygulamaları](https://azure.microsoft.com/en-us/documentation/articles/app-service-best-practices/).
 ![Uygulama Hizmetleri önerileri](./media/advisor-performance-recommendations/advisor-performance-app-service.png)
 
-## <a name="how-to-access-performance-recommendations-in-advisor"></a>Performans önerileri Danışmanı erişme
+## <a name="how-tooaccess-performance-recommendations-in-advisor"></a>Nasıl tooaccess Danışmanı performans önerileri
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
 
-2. Sol bölmede **daha fazla hizmet**.
+2. Merhaba sol bölmede **daha fazla hizmet**.
 
-3. Hizmet menü bölmesinde altında **izleme ve Yönetim**, tıklatın **Azure Danışmanı**.  
- Advisor Panosu görüntülenir.
+3. Hello menü bölmesi altında hizmet **izleme ve Yönetim**, tıklatın **Azure Danışmanı**.  
+ Merhaba Danışmanı Panosu görüntülenir.
 
-4. Advisor Panoda tıklatın **performans** sekmesi.
+4. Hello Danışmanı Panoda hello tıklatın **performans** sekmesi.
 
-5. Önerileri almak ve ardından istediğiniz aboneliği seçin **alma önerileri**.
+5. Kendisi için tooreceive önerileri istediğiniz ve ardından hello aboneliği seçin **alma önerileri**.
 
 > [!NOTE]
-> Advisor önerileri erişmek için öncelikle *aboneliğinizi kaydetmek* Danışmanı ile. Bir abonelik kayıtlı olduğunda bir *abonelik sahibi* Danışmanı Pano başlatır ve tıkladığında **alma önerileri** düğmesi. Bu bir *tek seferlik işlem*. Abonelik kaydedildikten sonra Advisor önerileri olarak erişebilir *sahibi*, *katkıda bulunan*, veya *okuyucu* bir abonelik, bir kaynak grubu ya da belirli bir kaynak için.
+> tooaccess Advisor önerileri, şunları yapmalısınız ilk *aboneliğinizi kaydetmek* Danışmanı ile. Bir abonelik kayıtlı olduğunda bir *abonelik sahibi* başlatır hello Danışmanı Pano ve tıklama hello **alma önerileri** düğmesi. Bu bir *tek seferlik işlem*. Merhaba abonelik kaydedildikten sonra Advisor önerileri olarak erişebilir *sahibi*, *katkıda bulunan*, veya *okuyucu* abonelik, bir kaynak grubu için veya bir belirli kaynak.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Advisor önerileri hakkında daha fazla bilgi için bkz:
+Advisor önerileri hakkında daha fazla toolearn bakın:
 
-* [Advisor giriş](advisor-overview.md)
+* [Giriş tooAdvisor](advisor-overview.md)
 * [Danışman’ı kullanmaya başlama](advisor-get-started.md)
 * [Advisor maliyet önerileri](advisor-performance-recommendations.md)
 * [Advisor yüksek kullanılabilirlik önerileri](advisor-high-availability-recommendations.md)

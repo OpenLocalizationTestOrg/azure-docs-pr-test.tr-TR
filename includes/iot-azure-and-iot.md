@@ -1,57 +1,57 @@
 
 # <a name="azure-and-internet-of-things"></a>Azure ve Nesnelerin İnterneti
 
-Microsoft Azure’a ve Nesnelerin İnterneti’ne (IOT) Hoş Geldiniz. Bu makalede, Azure hizmetlerini kullanarak dağıtabileceğiniz IoT çözümünün genel özelliklerini açıklayan bir IOT çözüm mimarisi tanıtılmaktadır. IoT çözümleri, sayıları milyonları bulabilecek cihazlar arasında güvenli, çift yönlü iletişim ve çözüm arka ucu gerektirir. Örneğin, cihaz - bulut olay akışınızda sezgileri açığa çıkarmak için otomatik, tahmine dayalı analizleri kullanan bir çözüm arka ucu gerekir.
+Nesnelerin interneti (IOT) hello ve tooMicrosoft Azure Hoş Geldiniz. Bu makalede hello Azure hizmetlerini kullanarak dağıtabileceğiniz IOT çözümünün genel özelliklerini açıklayan bir IOT çözüm mimarisi tanıtılmaktadır. IOT çözümleri güvenli, büyük olasılıkla hello milyonlarca ve çözüm arka ucu olabilen cihazlar arasında iki yönlü iletişim gerektirir. Örneğin, bir çözüm arka ucu, cihaz-bulut olay akışının otomatik, Tahmine dayalı analizleri toouncover Öngörüler kullanabilirsiniz.
 
 Azure IoT Hub’ı, Azure hizmetlerini kullanarak bu IoT çözüm mimarisini uyguladığınızda önemli bir yapı taşıdır. IoT Paketi, belirli IoT senaryoları için bu mimarinin eksiksiz, uçtan uca uygulamalarını sağlar. Örneğin:
 
-* *Uzaktan izleme* çözümü, satış makineleri gibi cihazların durumunu takip etmeniz sağlar.
-* *Tahmine dayalı bakım* çözümü, uzak pompa istasyonlarındaki pompalar gibi cihazların bakım gereksinimlerini tahmin etmenize ve zamansız zaman kayıplarından kaçınmanıza yardımcı olur.
-* *Bağlı fabrika* çözümü sektörel cihazlarınızı bağlamanıza ve izlemenize yardımcı olur.
+* Merhaba *Uzaktan izleme* çözüm toomonitor hello satış makineleri gibi cihazların durumunu sağlar.
+* Merhaba *Tahmine dayalı Bakım* çözüm yardımcı olan uzak pompa istasyonlarındaki ve tooavoid zamanlanmamış kapalı kalma süresi Pompalar gibi cihazların bakım gereksinimlerini tooanticipate.
+* Merhaba *bağlı Fabrika* çözüm endüstriyel aygıtlarınızı izlemek ve tooconnect yardımcı olur.
 
 ## <a name="iot-solution-architecture"></a>IOT çözüm mimarisi
 
-Aşağıdaki diyagram tipik bir IoT çözüm mimarisini göstermektedir. Belirli Azure hizmetlerinin adları görülemese de, genel IoT çözüm mimarisinin önemli öğelerini açıklamaktadır. Bu mimaride, IoT cihazları bulut ağ geçidine gönderdikleri verileri toplar. Bulut ağ geçidi, başka arka uç hizmetleriyle işlenmesi için verileri kullanıma hazır hale getirir; buralardan veriler başka iş kolu uygulamalarına veya bir pano veya başka bir sunu cihazıyla insan kullanıcılara dağıtılır.
+Tipik bir IOT çözüm mimarisi diyagramı aşağıdaki hello gösterir. Merhaba diyagramı belirli Azure hizmetlerinin hello adlarını dahil değildir, ancak bir genel IOT çözüm mimarisinde hello anahtar öğeleri açıklar. Bu mimaride, IOT cihazları bulut ağ geçidi tooa gönderdikleri veri toplar. Hello bulut ağ geçidi, veri tooother satır iş kolu uygulamaları veya bir Pano veya başka bir sunu cihazıyla toohuman işleçleri burada teslim diğer arka uç hizmetlerin işleme hello verileri için kullanılabilir yapar.
 
 ![IOT çözüm mimarisi][img-solution-architecture]
 
 > [!NOTE]
-> IoT mimarisinin ayrıntılı incelemesi için bkz. [Microsoft Azure IoT Başvuru Mimarisi][lnk-refarch].
+> IOT mimarisinin ayrıntılı incelemesi için bkz: Merhaba [Microsoft Azure IOT başvuru mimarisi][lnk-refarch].
 
 ### <a name="device-connectivity"></a>Cihaz bağlantısı
 
-Bu IoT çözüm mimarisinde cihazlar pompa istasyonuna ait sensör okumaları gibi telemetriyi depolanması ve işlenmesi amacıyla bulut uç noktasına gönderir. Tahmine dayalı bakım senaryosunda çözüm arka ucu, belirli bir pompanın ne zaman bakıma gerek duyacağını saptamak için sensör verilerinin akışını kullanabilir. Cihazlar, bulut uç noktasına ait iletileri okuyarak buluttan cihaza iletileri de alıp yanıtlayabilir. Örneğin, tahmine dayalı bakım senaryosunda çözüm arka ucu, bakımın başlamasından hemen önce akışların yeniden yönlendirilmesini başlatmak amacıyla pompa istasyonundaki diğer pompalara da ileti gönderebilir. Bu yordam, bakım mühendisinin ulaşır ulaşmaz işe başlamasını sağlar.
+Bu IOT çözüm mimarisinde cihazlar pompa istasyonuna, depolama tooa bulut uç noktasına ait sensör okumaları ve işleme gibi telemetri gönderin. Belirli bir pompanın bakım gerektirdiğinde bir Tahmine dayalı bakım senaryosunda, algılayıcı verileri toodetermine hello akışı hello çözüm arka ucu kullanabilir. Cihazları da alabilir ve bulut uç noktasına ait iletileri okuyarak toocloud aygıt iletilerine yanıt. Örneğin, hello Tahmine dayalı bakım senaryo hello çözümde arka uç iletileri tooother Pompalar yalnızca bakım önce akışları yeniden yönlendirilmesine istasyon toobegin Pompalama hello gönderebilir toostart. Bu yordamı aynen ulaşır ulaşmaz hello bakım mühendisinin başladığından emin olunmasını sağlar.
 
-IoT projelerinin karşılaştığı en büyük zorluklardan biri de, cihazların güvenle ve güvenilir olarak çözüm arka uçlarına nasıl bağlanacaklarıdır. IoT cihazlarında, tarayıcılar ve mobil uygulamalar gibi diğer istemcilerle karşılaştırıldığında farklı özellikler bulunur. IoT cihazları:
+IOT projelerinin karşılaştığı hello en büyük zorluklardan biri nasıl tooreliably ve güvenli bir şekilde aygıtları toohello çözüm arka ucu bağlanın. IOT cihazları karşılaştırılan tooother istemcileri tarayıcılar ve mobil uygulamalar gibi farklı özelliklere sahip. IoT cihazları:
 
 * İnsan olan bir operatörü bulunmayan ve genellikle katıştırılmış sistemlerdir.
 * Fiziksel erişimin pahalı olduğu uzak konumlarda dağıtılabilir.
-* Yalnızca çözüm arka ucu aracılığıyla erişilebilir. Cihazla etkileşime geçmek için başka bir yol yoktur.
+* Yalnızca hello çözüm arka ucu aracılığıyla erişilebilir. Herhangi bir şekilde toointeract hello aygıtla yoktur.
 * Sınırlı güç ve işleme kaynaklarına sahip olabilir.
 * Aralıklı, yavaş veya pahalı bir ağ bağlantısına sahip olabilir.
-* Mülkiyete ait, özel veya sektöre özgü uygulama protokolleri kullanması gerekebilir.
+* Toouse mülkiyete ait, özel veya sektöre özgü uygulama protokolleri gerekebilir.
 * Büyük bir popüler donanım ve yazılım platformu kümesi kullanılarak oluşturulabilir.
 
-Yukarıdaki gereksinimlere ek olarak, tüm IoT çözümlerinin ölçek, güvenlik ve güvenilirlik de sunması gerekir. Elde edilen bağlantı gereksinimleri kümesi, web kapsayıcıları ve mesajlaşma aracıları gibi geleneksel teknolojiler kullanıldığında uygulaması zor ve zaman alıcı olabilir. Azure IoT Hub ve IoT cihaz SDK'ları bu gereksinimleri karşılayan çözümlerin uygulanmasını kolaylaştırır.
+Ayrıca yukarıdaki toohello gereksinimler, tüm IOT çözümlerinin de ölçek, güvenlik ve güvenilirlik de sunması gerekir. Merhaba elde edilen bağlantı gereksinimleri web kapsayıcıları gibi geleneksel teknolojiler kullanarak ve mesajlaşma aracıları zor ve zaman alıcı tooimplement kümesidir. Azure IOT Hub ve hello Azure IOT cihaz SDK'ları bu gereksinimleri karşılayan daha kolay tooimplement çözümleri olun.
 
-Cihaz doğrudan bir bulut ağ geçidi uç noktasıyla iletişim kurabilir veya cihaz bulut ağ geçidinin desteklediği iletişim protokollerinin hiçbirini kullanamıyorsa bir ara ağ geçidiyle bağlanabilir. Örneğin, cihazlar IoT Hub'ın desteklediği protokollerden herhangi birini kullanamıyorsa [Azure IoT protokol ağ geçidi][lnk-protocol-gateway] tarafından protokol çevirisi gerçekleştirilebilir.
+Bir cihaz doğrudan bir bulut ağ geçidi uç noktasıyla iletişim kurabilir veya hello cihaz bulut ağ geçidi destekler hello hello iletişim protokollerinin hiçbirini kullanamıyorsanız, bir ara ağ geçidiyle bağlanabilir. Örneğin, hello [Azure IOT protokolü ağ geçidini] [ lnk-protocol-gateway] cihazlar IOT hub'ı destekleyen hello protokolleri hiçbirini kullanamıyorsanız protokol çevirisi gerçekleştirebilirsiniz.
 
 ### <a name="data-processing-and-analytics"></a>Veri işleme ve analizi
 
-Bulutta IoT çözüm arka ucu, telemetri filtreleme ve yığma ve bunu diğer hizmetlere yönlendirme gibi veri işlemenin büyük kısmının gerçekleştiği yerdedir. IoT çözüm arka ucu:
+Merhaba bulutta bir IOT çözüm arka ucu burada hello veri işleme çoğunu, filtreleme ve telemetri toplama ve yönlendirme tooother Hizmetleri gibi gerçekleşir. Merhaba IOT çözüm arka ucu:
 
-* Telemetriyi cihazlarınızdan ölçekli alır ve bu verilerin nasıl işleneceğini ve depolanacağını saptar. 
-* Komutları buluttan belirli bir cihaza göndermenizi sağlar.
-* Cihazları hazırlamanızı ve hangi cihazların altyapıya bağlanmasına izin verildiğini denetlemenizi sağlayan cihaz kaydı becerileri sağlar.
-* Cihazlarınızın durumunu izlemenizi ve etkinliklerini takip etmenizi sağlar.
+* Cihazlarınızdan ölçekli telemetri alır ve belirler nasıl tooprocess ve bu verileri depolar. 
+* Toosend komutları hello bulut toospecific aygıttan sağlayabilir.
+* Tooprovision cihazları ve hangi cihazların tooconnect tooyour altyapı izin verilen toocontrol sağlayan cihaz kaydı özellikler sağlar.
+* Tootrack cihazlarınızın durumunu hello ve bunların etkinliklerini izlemenize olanak tanır.
 
-Tahmine dayalı bakım senaryosunda, çözüm arka ucu geçmiş telemetri verilerini depolar. Çözüm arka ucu, bu verileri belirli bir pompada bakım zamanının geldiğini belirten desenleri görmek amacıyla kullanabilir.
+Merhaba Tahmine dayalı bakım senaryosunda hello çözüm arka ucu geçmiş telemetri verilerini depolar. Merhaba çözüm arka ucu belirli bir pompada Bakım olan belirtmek bu verileri toouse tooidentify kalıplar kullanabilirsiniz.
 
-IOT çözümlerinde otomatik geri bildirim döngüleri bulunabilir. Örneğin, çözüm arka ucundaki analitik bir modül, belirli bir cihazdaki sıcaklığın normal çalışma seviyesinin üzerinde olduğunu telemetriden tanımlayabilir. Ardından çözüm cihaza, doğru işlemi yapması için talimat veren bir komut gönderebilir.
+IOT çözümlerinde otomatik geri bildirim döngüleri bulunabilir. Örneğin, belirli bir cihazdaki hello sıcaklık normal çalışma seviyesinin üzerinde olduğunu telemetri gelen hello çözüm arka uçtaki analitik bir modül tanımlayabilirsiniz. Merhaba çözüm sonra tootake düzeltme eylemi söyleyen bir komut toohello aygıt gönderebilir.
 
 ### <a name="presentation-and-business-connectivity"></a>Sunu ve iş bağlantısı
 
-Sunu ve iş bağlantı katmanı son kullanıcıların IoT çözümü ve cihazlarla etkileşime geçmesini sağlar. Kullanıcıların kendi cihazlarından toplanan verileri görüntülemelerini ve çözümlemelerini sağlar. Bu görünümler panolar veya hem geçmiş verileri, hem de yakın gerçek zamanlı verileri görüntüleyebilen BI raporu biçiminde olabilir. Örneğin, bir kullanıcı belirli bir pompa istasyonunun durumunu denetleyebilir ve sistem tarafından gerçekleştirilen tüm uyarıları görebilir. Bu katman, kurumsal iş süreçlerine veya iş akışlarına bağlanmak üzere var olan iş kolu uygulamalarına sahip IoT çözüm arka ucunun tümleştirilmesini de sağlar. Örneğin, tahmine dayalı bakım çözümü, çözüm bir pompaya bakım gerektiğini tanımladığında mühendisin pompayı ziyaretini ayarlayan zamanlama sistemiyle tümleştirilebilir.
+Merhaba sunu ve iş bağlantı katmanı son kullanıcıların hello IOT çözüm ile toointeract ve hello aygıtları sağlar. Kullanıcıların tooview sağlar ve cihazlarından toplanan hello verileri analiz edin. Bu görünümler panolar veya hem geçmiş verileri görüntüleyebilen BI raporları veya yakın gerçek zamanlı verileri hello form alabilir. Örneğin, bir işleç belirli pompa istasyonunun hello durumunu denetleyin ve hello sistem tarafından gerçekleştirilen tüm uyarıları görebilir. Bu katman de hello IOT çözümü arka ucu mevcut iş kolu satır uygulamaları tootie ile tümleştirme kurumsal iş süreçlerine veya iş akışları sağlar. Merhaba çözüm bir pompaya bakım gerekli belirlediğinde, örneğin, hello Tahmine dayalı bakım çözümü bir zamanlama sistemiyle o books mühendislik toovisit pompa istasyonuna tümleştirebilirsiniz.
 
 ![IoT çözüm panosu][img-dashboard]
 

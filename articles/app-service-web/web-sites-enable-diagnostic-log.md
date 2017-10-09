@@ -1,6 +1,6 @@
 ---
-title: "Azure App Service'te web uygulamalarını için tanılama günlüğünü etkinleştirme"
-description: "Azure tarafından günlüğe kaydedilen bilgi erişmek nasıl yanı sıra tanılama günlük kaydını etkinleştirmek ve araçları uygulamanıza eklemek nasıl öğrenin."
+title: "Azure App Service'te web uygulamalarını için aaaEnable Tanılama Günlüğü"
+description: "Bilgi nasıl tooenable tanılama günlük ve Azure tarafından günlüğe kaydedilen bilgi tooaccess hello nasıl araçları tooyour uygulama, de ekleyin."
 services: app-service
 documentationcenter: .net
 author: cephalin
@@ -14,275 +14,275 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 7b125aeb9c0ee1dcbb199da98b0ce079820ea85c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 4b2903ff31cc93180552cf51196c33505ffbaf07
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Azure App Service'te web uygulamalarını için tanılama günlüğünü etkinleştirme
 ## <a name="overview"></a>Genel Bakış
-Azure hata ayıklamaya yardımcı olması için yerleşik tanılama sağlayan bir [App Service web uygulaması](http://go.microsoft.com/fwlink/?LinkId=529714). Bu makalede, Azure tarafından günlüğe kaydedilen bilgi erişmek nasıl yanı sıra tanılama günlük kaydını etkinleştirmek ve araçları uygulamanıza eklemek nasıl öğreneceksiniz.
+Azure ayıklama yerleşik tanılama tooassist sağlayan bir [App Service web uygulaması](http://go.microsoft.com/fwlink/?LinkId=529714). Bu makalede, öğreneceksiniz nasıl tooenable tanılama günlük ve Azure tarafından günlüğe kaydedilen bilgi tooaccess hello nasıl araçları tooyour uygulama, de ekleyin.
 
-Bu makalede kullanan [Azure Portal](https://portal.azure.com), tanılama günlükleri ile çalışmak için Azure PowerShell ve Azure komut satırı arabirimi (Azure CLI). Visual Studio kullanarak tanılama günlükleri ile çalışma hakkında daha fazla bilgi için bkz: [Visual Studio'da Azure sorun giderme](web-sites-dotnet-troubleshoot-visual-studio.md).
+Bu makalede hello kullanan [Azure Portal](https://portal.azure.com), Azure PowerShell ve tanılama günlükleri ile hello Azure komut satırı arabirimi (Azure CLI) toowork. Visual Studio kullanarak tanılama günlükleri ile çalışma hakkında daha fazla bilgi için bkz: [Visual Studio'da Azure sorun giderme](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="whatisdiag"></a>Web sunucusu tanılama ve uygulama tanılama
-App Service web uygulamalarının web sunucusu ve web uygulamasının içinden bilgileri günlüğe kaydetme için tanılama işlevsellik sağlar. Bu mantıksal olarak ayrılmış **web sunucusu tanılama** ve **uygulama tanılama**.
+App Service web apps hello web sunucusu ve hello web uygulamasının içinden bilgileri günlüğe kaydetme için tanılama işlevsellik sağlar. Bu mantıksal olarak ayrılmış **web sunucusu tanılama** ve **uygulama tanılama**.
 
 ### <a name="web-server-diagnostics"></a>Web sunucu tanıları
-Etkinleştirmek veya günlükleri şu tür devre dışı bırakabilirsiniz:
+Etkinleştirmek veya tür günlüğe aşağıdaki hello devre dışı bırakabilirsiniz:
 
-* **Hata günlüğü ayrıntılı** -ayrıntılı hata bilgileri (durum kodu 400 veya daha büyük) hatası olduğunu gösteren HTTP durum kodları için. Bu neden sunucu döndürülen hata kodu belirlemek yardımcı olabilecek bilgiler içerebilir.
-* **Başarısız istek izleme** -ayrıntılı izleme istek ve her bileşenin geçen süre işlemek için kullanılan IIS bileşenlerini de dahil olmak üzere, başarısız istekler hakkında bilgi. Bu site performansını artırabilir ya da döndürülecek belirli bir HTTP hata neden olan yalıtmak çalıştığınız durumlarda yararlı olabilir.
-* **Web sunucusu günlüğe kaydetme** -kullanarak HTTP işlemler hakkında bilgi [W3C Genişletilmiş günlük dosyası biçimi](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Bu, belirli bir IP adresinden işlenen isteklerin ya da kaç istek sayısı gibi genel site ölçümleri belirlerken yararlıdır.
+* **Hata günlüğü ayrıntılı** -ayrıntılı hata bilgileri (durum kodu 400 veya daha büyük) hatası olduğunu gösteren HTTP durum kodları için. Bu neden hello sunucu hello hata kodunu döndürdü belirlemenize yardımcı olabilecek bilgiler içerebilir.
+* **Başarısız istek izleme** -ayrıntılı izleme hello IIS kullanılan bileşenler tooprocess hello isteği ve her bileşenin geçen hello süre dahil olmak üzere, başarısız istekler hakkında bilgi. Döndürülen belirli bir HTTP hata toobe neden olan ayırmak veya tooincrease site performansını çalışıyorsunuz, bu yararlı olabilir.
+* **Web sunucusu günlüğe kaydetme** -hello kullanarak HTTP işlemler hakkında bilgi [W3C Genişletilmiş günlük dosyası biçimi](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Bu, işlenen istek hello sayısı gibi genel site ölçümleri veya belirli bir IP adresinden kaç isteklerdir belirlerken yararlıdır.
 
 ### <a name="application-diagnostics"></a>Uygulama tanılama
-Uygulama Tanılama web uygulama tarafından üretilen bilgileri yakalamanıza olanak sağlar. ASP.NET uygulamaları kullanabileceğiniz [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) bilgi uygulama tanılama günlüğüne sınıfı. Örneğin:
+Uygulama Tanılama web uygulama tarafından üretilen toocapture bilgileri sağlar. ASP.NET uygulamaları hello kullanabileceğiniz [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) sınıfı toolog bilgi toohello uygulama tanılama günlük. Örneğin:
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
-Çalışma zamanında, sorun giderme konusunda yardımcı olmak için bu günlükleri alabilirsiniz. Daha fazla bilgi için bkz: [Visual Studio'daki sorun giderme Azure web uygulamaları](web-sites-dotnet-troubleshoot-visual-studio.md).
+Çalışma zamanında, sorun giderme Bu günlükleri toohelp alabilirsiniz. Daha fazla bilgi için bkz: [Visual Studio'daki sorun giderme Azure web uygulamaları](web-sites-dotnet-troubleshoot-visual-studio.md).
 
-Bir web uygulaması için içerik yayımladığınızda, app Service web apps dağıtım bilgileri de oturum açın. Bu otomatik olarak gerçekleşir ve dağıtım günlüğü için herhangi bir yapılandırma ayarları. Dağıtım günlüğü neden bir dağıtımı başarısız belirlemenize olanak tanır. Örneğin, bir özel dağıtım komut dosyası kullanıyorsanız, komut dosyası neden başarısız olduğunu belirlemek için dağıtım günlüğü kullanabilirsiniz.
+İçerik tooa web uygulama yayımladığınızda, app Service web apps dağıtım bilgileri de oturum açın. Bu otomatik olarak gerçekleşir ve dağıtım günlüğü için herhangi bir yapılandırma ayarları. Dağıtım günlüğü neden bir dağıtımı başarısız toodetermine sağlar. Örneğin, bir özel dağıtım komut dosyası kullanıyorsanız, dağıtım günlüğü toodetermine hello betik neden başarısız kullanabilirsiniz.
 
-## <a name="enablediag"></a>Tanılama etkinleştirme
-Tanılama'etkinleştirmek için [Azure Portal](https://portal.azure.com), web uygulamanız için dikey penceresine gidin ve tıklatın **Ayarları > tanılama günlükleri**.
+## <a name="enablediag"></a>Nasıl tooenable tanılama
+Merhaba tooenable tanılamada [Azure Portal](https://portal.azure.com), web uygulamanız için toohello dikey penceresine gidin ve tıklatın **Ayarları > tanılama günlükleri**.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Günlükleri bölümü](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-Etkinleştirdiğinizde **uygulama tanılama** ayrıca tercih **düzeyi**. Bu ayar için yakalanan bilgilerin filtrelemenizi sağlar **bilgilendirme**, **uyarı** veya **hata** bilgi. Bu ayar **ayrıntılı** uygulama tarafından üretilen tüm bilgileri kaydeder.
+Etkinleştirdiğinizde **uygulama tanılama** hello ayrıca tercih **düzeyi**. Bu ayar çok yakalanan toofilter hello bilgilerin sağlar**bilgilendirme**, **uyarı** veya **hata** bilgi. Bu çok ayarı**ayrıntılı** hello uygulama tarafından üretilen tüm bilgileri kaydeder.
 
 > [!NOTE]
-> Web.config dosyasını değiştirme farklı olarak, uygulama Tanılama'yı etkinleştirme ya da tanılama günlük düzeylerini değiştirme içinde uygulamanın çalıştığı uygulama etki alanı dönüştürülmeyeceği.
+> Merhaba web.config değiştirme aksine, uygulama Tanılama'yı etkinleştirme veya tanılama günlük düzeylerini değiştirme dosyası içinde Merhaba uygulaması çalıştıran hello uygulama etki alanı dönüştürülmeyeceği.
 >
 >
 
-İçinde [Klasik portal](https://manage.windowsazure.com) Web uygulaması **yapılandırma** seçebileceğiniz sekmesinde **depolama** veya **dosya sistemi** için **web sunucusu günlüğü**. Seçme **depolama** bir depolama hesabı ve günlüklere yazılır bir blob kapsayıcısını seçmenize olanak sağlar. İçin tüm diğer günlükler **site tanılama** yalnızca dosya sistemine yazılır.
+Merhaba, [Klasik portal](https://manage.windowsazure.com) Web uygulaması **yapılandırma** seçebileceğiniz sekmesinde **depolama** veya **dosya sistemi** için **web sunucusu Günlük kaydı**. Seçme **depolama** tooselect bir depolama hesabı ve hello günlüklerine yazılır bir blob kapsayıcı sağlar. İçin tüm diğer günlükler **site tanılama** yalnızca toohello dosya sistemi yazılır.
 
-[Klasik portal](https://manage.windowsazure.com) Web uygulaması **yapılandırma** sekmesinde de uygulama tanılama için ek ayarlar vardır:
+Merhaba [Klasik portal](https://manage.windowsazure.com) Web uygulaması **yapılandırma** sekmesinde de uygulama tanılama için ek ayarlar vardır:
 
-* **Dosya sistemi** -web uygulama dosya sistemi için uygulama tanılama bilgilerini depolar. Bu dosyalar FTP tarafından erişilen veya Zip arşivini Azure PowerShell veya Azure komut satırı arabirimi (Azure CLI) kullanılarak indirilir.
-* **Tablo depolama** -belirtilen Azure depolama hesabı ve tablo adı uygulama tanılama bilgilerini depolar.
-* **BLOB Depolama** -belirtilen Azure depolama hesabı ve blob kapsayıcısında uygulama tanılama bilgilerini depolar.
-* **Saklama dönemi** -varsayılan olarak, günlükleri otomatik olarak silinir değil **blob depolama**. Seçin **ayarlamak bekletme** ve otomatik olarak günlükleri silmek isterseniz, günlükleri tutulacağı gün sayısı girin.
+* **Dosya sistemi** -depoları hello uygulama tanılama bilgileri toohello web app dosya sistemi. Bu dosyalar FTP tarafından erişilen veya Zip arşivini hello Azure PowerShell veya Azure komut satırı arabirimi (Azure CLI) kullanılarak indirilir.
+* **Tablo depolama** -depoları hello uygulama tanılama bilgilerini hello belirtilen Azure depolama hesabı ve tablo adı.
+* **BLOB Depolama** -depoları hello hello belirtilen Azure depolama hesabı ve blob kapsayıcısında uygulama tanılama bilgileri.
+* **Saklama dönemi** -varsayılan olarak, günlükleri otomatik olarak silinir değil **blob depolama**. Seçin **ayarlamak bekletme** ve hello tooautomatically istiyorsanız tookeep günlüklerini silme günlükleri gün sayısını girin.
 
 > [!NOTE]
-> Varsa, [depolama hesabınızın erişim anahtarlarını yeniden](../storage/common/storage-create-storage-account.md), güncelleştirilmiş anahtarları kullanmak için ilgili günlük yapılandırmasını sıfırlamanız gerekir. Bunu yapmak için:
+> Varsa, [depolama hesabınızın erişim anahtarlarını yeniden](../storage/common/storage-create-storage-account.md), hello ilgili günlük kaydı yapılandırması toouse güncelleştirilmiş hello anahtarları sıfırlamanız gerekir. toodo bu:
 >
-> 1. İçinde **yapılandırma** sekmesinde, ilgili günlük özelliğini ayarlamak **devre dışı**. Ayarınız kaydedin.
-> 2. Depolama hesabı blob veya tablo için günlüğe kaydetme, yeniden etkinleştirin. Ayarınız kaydedin.
+> 1. Merhaba, **yapılandırma** sekmesinde, hello ilgili günlük özelliğini çok belirleyin**devre dışı**. Ayarınız kaydedin.
+> 2. Günlük toohello depolama hesabı blob veya tablo yeniden etkinleştirin. Ayarınız kaydedin.
 >
 >
 
-Dosya sistemi, tablo depolama veya blob depolama herhangi bir bileşimini aynı anda etkinleştirilebilir ve ayrı Günlük düzeyi yapılandırmaları vardır. Örneğin, hataları ve Uyarıları ile ayrıntılı bir düzeyde dosya sistemi günlük etkinleştirirken uzun vadeli günlük bir çözüm, blob depolama için oturum isteyebilirsiniz.
+Dosya sistemi, tablo depolama veya blob depolama herhangi bir bileşimini aynı saat ve ayrı Günlük düzeyi yapılandırmalarının hello etkinleştirilebilir. Örneğin, size toolog hataları ve Uyarıları tooblob depolama uzun vadeli günlük bir çözüm, dosya sistemi günlük ile ayrıntılı bir düzeyde etkinleştirirken isteyebilir.
 
-Tüm üç depolama konumları aynı temel bilgileri günlüğe kaydedilen olayları için sunarken **tablo depolama** ve **blob depolama** oturum örnek kimliği, iş parçacığı kimliği ve günlük tutmayı'den daha ayrıntılı bir zaman damgası (onay biçimi) gibi ek bilgileri **dosya sistemi**.
+Tüm üç depolama konumları hello sunarken aynı temel bilgileri günlüğe kaydedilen olayları için **tablo depolama** ve **blob depolama** oturum hello örnek kimliği, iş parçacığı kimliği ve daha gibi ek bilgiler oturum çok daha ayrıntılı zaman damgası (onay biçimi)**dosya sistemi**.
 
 > [!NOTE]
-> İçinde depolanan bilgileri **tablo depolama** veya **blob depolama** yalnızca bir depolama istemcisi veya doğrudan bu depolama sistemleri ile çalışabilirsiniz uygulamanın kullanılarak erişilebilir. Örneğin, Visual Studio 2013 tablo veya blob depolama keşfetmek için kullanılan bir Depolama Gezgini içerir ve Hdınsight blob storage'da depolanan verilere erişebilir. Ayrıca Azure Storage birini kullanarak erişen bir uygulama yazabilirsiniz [Azure SDK'ları](/downloads/#).
+> İçinde depolanan bilgileri **tablo depolama** veya **blob depolama** yalnızca bir depolama istemcisi veya doğrudan bu depolama sistemleri ile çalışabilirsiniz uygulamanın kullanılarak erişilebilir. Örneğin, Visual Studio 2013 kullanılan tooexplore tablo veya blob depolama olabilir bir Depolama Gezgini içerir ve Hdınsight blob storage'da depolanan verilere erişebilir. Ayrıca Azure Storage hello birini kullanarak erişen bir uygulama yazabilirsiniz [Azure SDK'ları](/downloads/#).
 >
 > [!NOTE]
-> Tanılama Azure Powershell'den de etkinleştirilebilir kullanarak **kümesi AzureWebsite** cmdlet'i. Azure PowerShell yüklü değil ya da Azure aboneliğinizi kullanacak şekilde yapılandırmadıysanız, bkz: [Azure PowerShell kullanmak için nasıl](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> Tanılama hello kullanarak Azure Powershell'den de etkinleştirilebilir **kümesi AzureWebsite** cmdlet'i. Azure PowerShell yüklü değil veya toouse yapılandırmadıysanız, Azure aboneliğinize bkz [nasıl tooUse Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 >
 >
 
 ## <a name="download"></a>Nasıl yapılır: indirme günlükleri
-Web uygulaması dosya sistemine depolanan tanılama bilgileri FTP kullanarak doğrudan erişilebilir. Ayrıca Azure PowerShell veya Azure komut satırı arabirimi kullanarak Zip arşivini indirilebilir.
+Tanılama bilgileri depolanan toohello web app dosya sistemi, FTP kullanarak doğrudan erişilebilir. Ayrıca Azure PowerShell veya hello Azure komut satırı arabirimi kullanarak Zip arşivini indirilebilir.
 
-Günlükleri depolanmış dizin yapısı aşağıdaki gibidir:
+Merhaba günlükleri depolanmış hello dizin yapısı aşağıdaki gibidir:
 
 * **Uygulama günlüklerini** -/LogFiles/uygulama /. Bu klasör uygulama günlüğü tarafından üretilen bilgileri içeren bir veya daha fazla metin dosyalarını içerir.
-* **Başarısız istek izlemelerin** -/ LogFiles/W3SVC ### /. Bu klasör bir XSL dosyası ve bir veya daha fazla XML dosyalarını içerir. XSL dosyasını biçimlendirme ve Internet Explorer'da görüntülendiğinde XML dosyaları içeriğini filtreleme işlevselliği sağladığından XML dosyaları gibi aynı dizine XSL dosyasını karşıdan emin olun.
+* **Başarısız istek izlemelerin** -/ LogFiles/W3SVC ### /. Bu klasör bir XSL dosyası ve bir veya daha fazla XML dosyalarını içerir. Internet Explorer'da görüntülendiğinde hello hello XSL dosyasını biçimlendirme ve hello XML Merhaba içeriğine filtreleme işlevselliği sağladığından XML dosyaları ile aynı dizinde dosya hello içine hello XSL dosyasını karşıdan emin olun.
 * **Ayrıntılı Hata günlüklerini** -/LogFiles/DetailedErrors /. Bu klasör oluşan HTTP hataları için kapsamlı bilgi sağlayan bir veya daha fazla .htm dosyalarını içerir.
-* **Web sunucu günlükleri** -/LogFiles/http/RawLogs. Bu klasör içeriyor ya da daha fazla metin dosyaları olarak biçimlendirilmiş kullanarak [W3C Genişletilmiş günlük dosyası biçimi](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
-* **Dağıtım günlükleri** -/ LogFiles/Git. Bu klasör Azure web uygulamaları tarafından kullanılan iç dağıtım işlemler tarafından oluşturulan günlükleri içeren, aynı zamanda Git dağıtımları için günlüğe kaydeder.
+* **Web sunucu günlükleri** -/LogFiles/http/RawLogs. Merhaba kullanılarak biçimlendirilmiş bir veya daha fazla metin dosyaları bu klasörde [W3C Genişletilmiş günlük dosyası biçimi](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
+* **Dağıtım günlükleri** -/ LogFiles/Git. Bu klasör Azure web uygulamaları tarafından kullanılan hello iç dağıtım işlemler tarafından oluşturulan günlükleri içeren, aynı zamanda Git dağıtımları için günlüğe kaydeder.
 
 ### <a name="ftp"></a>FTP
-FTP kullanarak tanılama bilgilerine erişmek için ziyaret **Pano** , web uygulamanızın [Klasik portal](https://manage.windowsazure.com). İçinde **Hızlı Bakış** bölümünde, kullanmak **FTP tanılama günlükleri** FTP kullanarak günlük dosyalarına erişmek için bağlantı. **Dağıtım/FTP kullanıcısı** girişi FTP sitesine erişmek için kullanılması gereken kullanıcı adını listeler.
+FTP, ziyaret hello kullanarak tooaccess tanılama bilgilerini **Pano** web uygulamanızın hello [Klasik portal](https://manage.windowsazure.com). Merhaba, **Hızlı Bakış** bölümünde, hello kullan **FTP tanılama günlükleri** bağlantı FTP kullanarak tooaccess hello günlük dosyaları. Merhaba **dağıtım/FTP kullanıcısı** girişi kullanılan tooaccess hello FTP sitesi olmalıdır hello kullanıcı adını listeler.
 
 > [!NOTE]
-> Varsa **dağıtım/FTP kullanıcısı** girişi ayarlanmamışsa, veya bu kullanıcı için parolanızı unuttuysanız, yeni bir kullanıcı ve parola kullanarak oluşturabilirsiniz **sıfırlama dağıtım kimlik bilgileri** bağlamak **Hızlı Bakış** bölümünü **Pano**.
+> Merhaba, **dağıtım/FTP kullanıcısı** girişi ayarlanmamışsa, veya bu kullanıcının parolasını hello unuttuysanız, hello kullanarak yeni bir kullanıcı ve parola oluşturabilirsiniz **sıfırlama dağıtım kimlik bilgileri** hello bağlantıyı**Hızlı Bakış** hello bölümünü **Pano**.
 >
 >
 
 ### <a name="download-with-azure-powershell"></a>Azure PowerShell ile indirme
-Günlük Dosyaları indirmek için Azure PowerShell yeni bir örneğini başlatın ve aşağıdaki komutu kullanın:
+toodownload hello günlük dosyaları, Azure PowerShell yeni bir örneğini başlatın ve hello aşağıdaki komutu kullanın:
 
     Save-AzureWebSiteLog -Name webappname
 
-Bu günlükler tarafından belirtilen web uygulaması için kaydeder **-adı** adlı bir dosyaya parametre **logs.zip** geçerli dizin.
+Bu hello tarafından belirtilen hello web uygulaması için hello günlüklerini kaydeder **-adı** adlı parametre tooa dosya **logs.zip** hello geçerli dizinde.
 
 > [!NOTE]
-> Azure PowerShell yüklü değil ya da Azure aboneliğinizi kullanacak şekilde yapılandırmadıysanız, bkz: [Azure PowerShell kullanmak için nasıl](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> Azure PowerShell yüklü değil veya toouse yapılandırmadıysanız, Azure aboneliğinize bkz [nasıl tooUse Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 >
 >
 
 ### <a name="download-with-azure-command-line-interface"></a>Azure komut satırı arabirimi ile indirme
-Azure komut satırı arabirimini kullanarak günlük dosyalarını indirmek için yeni bir komut istemi, PowerShell, Bash veya Terminal oturumu açın ve aşağıdaki komutu girin:
+Hello Azure komut satırı arabirimi kullanarak toodownload hello günlük dosyaları yeni komut istemi, PowerShell, Bash veya Terminal oturumu açın ve hello aşağıdaki komutu girin:
 
     azure site log download webappname
 
-Bu günlükler adlı bir dosyaya ' webappname' adlı web uygulamasının kaydeder **diagnostics.zip** geçerli dizin.
+Bu adında 'webappname' tooa dosya adlı hello web uygulaması için hello günlüklerini kaydeder **diagnostics.zip** hello geçerli dizinde.
 
 > [!NOTE]
-> Azure komut satırı arabirimi (Azure CLI) yüklü değil ya da Azure aboneliğinizi kullanacak şekilde yapılandırmadıysanız, bkz: [Azure CLI kullanma nasıl](../cli-install-nodejs.md).
+> Yüklü değilse Azure komut satırı arabirimi (Azure CLI) hello veya toouse yapılandırmadıysanız, Azure aboneliğinizin bkz [nasıl tooUse Azure CLI](../cli-install-nodejs.md).
 >
 >
 
 ## <a name="how-to-view-logs-in-application-insights"></a>Nasıl yapılır: View Application Insights'ta günlüğe kaydeder
-Visual Studio Application Insights filtreleme ve günlükleri arama ve günlükleri istekleri ve diğer olaylarla ilişkilendirme için araçlar sağlar.
+Visual Studio Application Insights filtreleme ve günlükleri arama ve hello günlükleri istekleri ve diğer olaylarla ilişkilendirme için araçlar sağlar.
 
-1. Projeniz Visual Studio'da Application Insights SDK ekleyin.
+1. Visual Studio'da Hello Application Insights SDK'sı tooyour projeye ekleyin.
    * Çözüm Gezgini'nde, projenize sağ tıklayın ve Application Insights Ekle'ı seçin. Application Insights kaynağı oluşturma dahil adımlarda size kılavuzluk. [Daha fazla bilgi](../application-insights/app-insights-asp-net.md)
-2. İzleme dinleyicisi paketini projenize ekleyin.
+2. Merhaba İzleme dinleyicisi paket tooyour projeye ekleyin.
    * Projenize sağ tıklayın ve NuGet paketlerini Yönet'i seçin. Seçin `Microsoft.ApplicationInsights.TraceListener` [daha fazla bilgi edinin](../application-insights/app-insights-asp-net-trace-logs.md)
-3. Projenizi karşıya yükleme ve günlük verileri oluşturmak için çalıştırın.
-4. İçinde [Azure Portal](https://portal.azure.com/), yeni Application Insights kaynağınıza göz atın ve Aç **arama**. İstek, kullanım ve diğer telemetri ile birlikte günlük verilerinizi görürsünüz. Birkaç telemetri gelmesi birkaç dakika sürebilir: Yenile'yi tıklatın. [Daha fazla bilgi](../application-insights/app-insights-diagnostic-search.md)
+3. Projenizi karşıya yükleme ve toogenerate günlük verilerini çalıştırın.
+4. Merhaba, [Azure Portal](https://portal.azure.com/)tooyour yeni Application Insights kaynağı göz atın ve Aç **arama**. İstek, kullanım ve diğer telemetri ile birlikte günlük verilerinizi görürsünüz. Birkaç telemetri birkaç dakika tooarrive alabilir: Yenile'yi tıklatın. [Daha fazla bilgi](../application-insights/app-insights-diagnostic-search.md)
 
 [Application Insights ile izleme performansı hakkında daha fazla bilgi edinin](../application-insights/app-insights-azure-web-apps.md)
 
 ## <a name="streamlogs"></a>Nasıl yapılır: akış günlükleri
-Bir uygulama geliştirirken, genellikle neredeyse gerçek zamanlı günlük bilgileri görmek yararlı olacaktır. Bu günlük kaydı bilgileri Azure PowerShell veya Azure komut satırı arabirimi kullanarak geliştirme ortamınıza akış tarafından gerçekleştirilebilir.
+Bir uygulama geliştirirken, yararlı toosee günlük kaydı bilgilerini neredeyse gerçek zamanlı genellikle olur. Bu günlük kaydı bilgileri tooyour geliştirme ortamı Azure PowerShell veya hello Azure komut satırı arabirimi kullanarak akış tarafından gerçekleştirilebilir.
 
 > [!NOTE]
-> Günlük arabellek bazı türleri akış bozuk olayları sonuçlanabilir günlük dosyasına yazar. Örneğin, bir kullanıcı bir sayfayı ziyaret ettiğinde oluşan bir uygulama günlük girişi sayfa isteği için karşılık gelen HTTP günlük girişi önce akışında görüntülenebilir.
+> Günlük arabellek bazı türleri hello akış bozuk olayları sonuçlanabilir toohello günlük dosyası yazma. Örneğin, bir kullanıcı bir sayfayı ziyaret ettiğinde oluşan bir uygulama günlük girişi hello karşılık gelen HTTP günlük girişi hello sayfa isteği için önce hello akışında görüntülenebilir.
 >
 > [!NOTE]
-> Günlük akış de akış depolanan herhangi bir metin dosyası için yazılan bilgilerin **D:\\ev\\LogFiles\\**  klasör.
+> Günlük akış de akış hello depolanan tooany metin dosyası yazılan bilgilerin **D:\\ev\\LogFiles\\**  klasör.
 >
 >
 
 ### <a name="streaming-with-azure-powershell"></a>Azure PowerShell ile akış
-Günlük kaydı bilgileri akış, Azure PowerShell yeni bir örneğini başlatmak ve aşağıdaki komutu kullanmak için:
+toostream günlük kaydı bilgileri, Azure PowerShell yeni bir örneğini başlatın ve hello aşağıdaki komutu kullanın:
 
     Get-AzureWebSiteLog -Name webappname -Tail
 
-Bu tarafından belirtilen web uygulamasına bağlanır **-Name** parametre ve web uygulamasında günlüğü olaylarını ortaya çıktığında PowerShell penceresinde bilgileri akış başlayın. /LogFiles dizininde (d:/home/günlük dosyaları) depolanan .txt, .log veya .htm bitiş dosyaları yazılan herhangi bir bilgi yerel konsola akışı.
+Bu hello tarafından belirtilen toohello web uygulamasına bağlanır **-Name** parametre ve bilgileri toohello PowerShell penceresinde hello web uygulamasında günlüğü olaylarını ortaya çıktığında akış başlayın. Merhaba /LogFiles directory (d:/home/günlük dosyaları) depolanan .txt, .log veya .htm bitiş toofiles yazılmış herhangi bir bilgi toohello yerel konsol akışı.
 
-Hataları gibi belirli olayları filtrelemek için kullanmak **-ileti** parametresi. Örneğin:
+hataları gibi toofilter belirli olayları kullanmak hello **-ileti** parametresi. Örneğin:
 
     Get-AzureWebSiteLog -Name webappname -Tail -Message Error
 
-HTTP gibi belirli günlük türleri filtrelemek için kullanmak **-yol** parametresi. Örneğin:
+HTTP gibi toofilter belirli günlük türlerini kullanan hello **-yol** parametresi. Örneğin:
 
     Get-AzureWebSiteLog -Name webappname -Tail -Path http
 
-Kullanılabilir yolların listesini görmek için - ListPath parametresini kullanın.
+toosee kullanılabilir yollar, kullanım hello - ListPath parametre listesi.
 
 > [!NOTE]
-> Azure PowerShell yüklü değil ya da Azure aboneliğinizi kullanacak şekilde yapılandırmadıysanız, bkz: [Azure PowerShell kullanmak için nasıl](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> Azure PowerShell yüklü değil veya toouse yapılandırmadıysanız, Azure aboneliğinize bkz [nasıl tooUse Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
 >
 >
 
 ### <a name="streaming-with-azure-command-line-interface"></a>Azure komut satırı arabirimi ile akış
-Günlük kaydı bilgileri akış, yeni komut istemi, PowerShell, Bash veya Terminal oturumu açın ve aşağıdaki komutu girin için:
+toostream günlük kaydı bilgileri, yeni komut istemi, PowerShell, Bash veya Terminal oturumu açın ve hello aşağıdaki komutu girin:
 
     azure site log tail webappname
 
-Bu, 'webappname' adlı web uygulamasına bağlanmak ve web uygulamasında günlüğü olaylarını ortaya çıktığında penceresine bilgi akış başlayın. /LogFiles dizininde (d:/home/günlük dosyaları) depolanan .txt, .log veya .htm bitiş dosyaları yazılan herhangi bir bilgi yerel konsola akışı.
+Bu, 'webappname' adlı toohello web uygulamasına bağlanmak ve bilgileri toohello penceresinde hello web uygulamasında günlüğü olaylarını ortaya çıktığında akış başlayın. Merhaba /LogFiles directory (d:/home/günlük dosyaları) depolanan .txt, .log veya .htm bitiş toofiles yazılmış herhangi bir bilgi toohello yerel konsol akışı.
 
-Hataları gibi belirli olayları filtrelemek için kullanmak **--filtre** parametresi. Örneğin:
+hataları gibi toofilter belirli olayları kullanmak hello **--filtre** parametresi. Örneğin:
 
     azure site log tail webappname --filter Error
 
-HTTP gibi belirli günlük türleri filtrelemek için kullanmak **--yolu** parametresi. Örneğin:
+HTTP gibi toofilter belirli günlük türlerini kullanan hello **--yolu** parametresi. Örneğin:
 
     azure site log tail webappname --path http
 
 > [!NOTE]
-> Azure komut satırı arabirimi yüklü değil ya da Azure aboneliğinizi kullanacak şekilde yapılandırmadıysanız, bkz: [nasıl için Azure komut satırı arabirimi kullanmak](../cli-install-nodejs.md).
+> Yüklü değilse Azure komut satırı arabirimi hello veya toouse yapılandırmadıysanız, Azure aboneliğinizin bkz [nasıl tooUse Azure komut satırı arabirimi](../cli-install-nodejs.md).
 >
 >
 
 ## <a name="understandlogs"></a>Nasıl yapılır: Tanılama günlükleri anlama
 ### <a name="application-diagnostics-logs"></a>Uygulama tanılama günlükleri
-Uygulama tanılama günlükleri dosya sistemi, tablo depolama veya blob depolama depoladığınız bağlı olarak, .NET uygulamaları için belirli bir biçimde bilgileri depolar. Temel depolanan verileri aynı tüm üç depolama türlerine - tarih ve saat olayı, olay türü (bilgi, uyarı, hata) ve olay iletisi üretilen işlem kimliği olayın gerçekleştiği kümesidir.
+Uygulama Tanılama, günlükleri toohello dosya sistemi, table storage depolamak veya blob depolamaya bağlı olarak, .NET uygulamaları için belirli bir biçimde bilgileri depolar. Merhaba temel depolanan verileri kümesidir aynı tüm üç depolama türlerine hello - başlangıç tarihi ve saati hello olayı oluştu, hello olay, hello olay türü (bilgi, uyarı, hata) ve hello olay iletisi üretilen hello işlem kimliği.
 
 **Dosya sistemi**
 
-Dosya sistemine oturum veya akış kullanılarak alınan her bir satır şu biçimde olacaktır:
+Günlüğe kaydedilen toohello dosya sistemi veya akış kullanılarak alınan her satırı biçimini izleyen hello olacaktır:
 
     {Date}  PID[{process id}] {event type/level} {message}
 
-Örneğin, bir hata olayı aşağıdakine benzer görünür:
+Örneğin, bir hata olayı benzer toohello aşağıdaki görünür:
 
-    2014-01-30T16:36:59  PID[3096] Error       Fatal error on the page!
+    2014-01-30T16:36:59  PID[3096] Error       Fatal error on hello page!
 
-Dosya sistemine günlüğü yalnızca zaman, işlem kimliği, olay düzeyi ve ileti sağlayan üç kullanılabilir yöntemleri, en temel bilgileri sağlar.
+Toohello dosya sistemi günlük hello en temel bilgileri yalnızca başlangıç saati, işlem kimliği, olay düzeyi ve ileti sağlama hello üç kullanılabilir yöntemleri sağlar.
 
 **Tablo depolama**
 
-Tablo depolama için oturum açarken ek özellikler Tablo yanı sıra olay hakkında daha ayrıntılı bilgi depolanan veri arama kolaylaştırmak için kullanılır. Aşağıdaki özellikleri (sütunları) tabloda depolanan her varlık (satır) için kullanılır.
+Tootable depolama oturum açarken ek hello olay hakkında daha ayrıntılı bilgi yanı sıra hello tablo depolanan hello veri arama kullanılan toofacilitate özelliklerdir. Merhaba aşağıdaki özellikleri (sütunları) hello tablosunda depolanan her varlık (satır) için kullanılır.
 
 | Özellik adı | Değer/biçimi |
 | --- | --- |
-| PartitionKey |Tarih/saat yyyyMMddHH biçiminde olay |
+| PartitionKey |Tarih/saat yyyyMMddHH biçiminde hello olay |
 | RowKey |Bu varlık benzersiz olarak tanımlayan bir GUID değeri |
-| zaman damgası |Olayın saat ve tarihi |
-| EventTickCount |Değer çizgilerinin biçiminde (büyük duyarlık) olayın gerçekleştiği saat ve tarihi |
-| ApplicationName |Web uygulaması adı |
+| zaman damgası |Başlangıç tarihi ve olay hello saat oluştu |
+| EventTickCount |Başlangıç tarihi ve olay hello saat, değer çizgisi biçiminde (büyük duyarlık) oluştu |
+| ApplicationName |Merhaba web uygulaması adı |
 | Düzey |Olay düzeyi (uyarı, bilgi örneğin hata) |
-| Olay Kimliği |Bu olayın olay kimliği<p><p>Varsayılanları hiçbiri belirtilmişse 0 |
-| örnek kimliği |Hatta oluştu. web uygulaması örneği |
+| Olay Kimliği |Bu olayın Hello olay kimliği<p><p>Too0 belirtilmezse varsayılan olarak |
+| örnek kimliği |Hatta hello hello web uygulaması örneğini oluştu. |
 | PID |İşlem kimliği |
-| komutu |Olay üretilen iş parçacığı iş parçacığı kimliği |
+| komutu |Merhaba olay üretilen hello iş parçacığının Hello iş parçacığı kimliği |
 | İleti |Olay Ayrıntısı iletisi |
 
 **Blob depolama**
 
-Blob depolama için oturum açarken verileri virgülle ayrılmış değerler (CSV) biçiminde depolanır. Table storage benzer olay hakkında daha ayrıntılı bilgi sağlamak için ek alanlar kaydedilir. Aşağıdaki özellikler, CSV her satır için kullanılır:
+Tooblob depolama günlüğe kaydedildiğinde, verileri virgülle ayrılmış değerler (CSV) biçiminde depolanır. Benzer tootable depolama, ek alanlardır oturum tooprovide hello olay hakkında daha ayrıntılı bilgi. Merhaba aşağıdaki özellikleri hello CSV her satır için kullanılır:
 
 | Özellik adı | Değer/biçimi |
 | --- | --- |
-| Tarih |Olayın saat ve tarihi |
+| Tarih |Başlangıç tarihi ve olay hello saat oluştu |
 | Düzey |Olay düzeyi (uyarı, bilgi örneğin hata) |
-| ApplicationName |Web uygulaması adı |
-| örnek kimliği |Olayın oluştuğu web uygulaması örneği |
-| EventTickCount |Değer çizgilerinin biçiminde (büyük duyarlık) olayın gerçekleştiği saat ve tarihi |
-| Olay Kimliği |Bu olayın olay kimliği<p><p>Varsayılanları hiçbiri belirtilmişse 0 |
+| ApplicationName |Merhaba web uygulaması adı |
+| örnek kimliği |Olay hello hello web uygulaması örneğini oluştu. |
+| EventTickCount |Başlangıç tarihi ve olay hello saat, değer çizgisi biçiminde (büyük duyarlık) oluştu |
+| Olay Kimliği |Bu olayın Hello olay kimliği<p><p>Too0 belirtilmezse varsayılan olarak |
 | PID |İşlem kimliği |
-| komutu |Olay üretilen iş parçacığı iş parçacığı kimliği |
+| komutu |Merhaba olay üretilen hello iş parçacığının Hello iş parçacığı kimliği |
 | İleti |Olay Ayrıntısı iletisi |
 
-Blob içinde depolanan verileri aşağıdakine benzer görünür:
+blob içinde depolanan hello verileri benzer toohello aşağıdaki görünür:
 
     date,level,applicationName,instanceId,eventTickCount,eventId,pid,tid,message
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> Günlüğün ilk satırı sütun başlığı Bu örnekte belirtildiği şekilde içerir.
+> Hello ilk satırı hello günlüğünün bu örnekte belirtildiği şekilde hello sütun üst bilgileri içerir.
 >
 >
 
 ### <a name="failed-request-traces"></a>İstek izlemelerin başarısız oldu
-Başarısız istek izlemelerin adlı XML dosyalarında saklanır **fr ### .xml**. Günlüğe kaydedilen bilgileri görüntülemek kolaylaştırmak için bir XSL stil adlı **freb.xsl** XML dosyaları ile aynı dizinde sağlanır. XML dosyalarından birini Internet Explorer'da açma XSL stil sayfası izleme bilgilerini biçimlendirilmiş bir görünümünü sağlamak için kullanır. Bu, aşağıdakine benzer görünecektir:
+Başarısız istek izlemelerin adlı XML dosyalarında saklanır **fr ### .xml**. toomake bunu daha kolay tooview oturum hello bilgileri, adlandırılmış bir XSL stil **freb.xsl** hello aynı sağlanan XML dosyaları hello gibi dizin. Merhaba XML dosyalarından birini Internet Explorer'da açma hello XSL stil sayfası tooprovide hello izleme bilgilerini biçimlendirilmiş bir görüntüsünü kullanır. Bu benzer toohello aşağıdaki görünür:
 
-![tarayıcıda görüntülenen başarısız istek](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
+![Merhaba tarayıcıda görüntülenen başarısız istek](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
 ### <a name="detailed-error-logs"></a>Ayrıntılı hata günlükleri
 Ayrıntılı Hata günlüklerini oluşan HTTP hataları daha ayrıntılı bilgi sağlayan HTML belgelerdir. Bunlar yalnızca HTML belgeleri olduğundan, bir web tarayıcısı kullanarak görüntülenebilir.
 
 ### <a name="web-server-logs"></a>Web sunucu günlükleri
-Web sunucu günlükleri kullanılarak biçimlendirilmiş [W3C Genişletilmiş günlük dosyası biçimi](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Bu bilgileri bir metin düzenleyicisi kullanarak okunabilir veya yardımcı programlarını kullanarak Ayrıştırılan [günlük ayrıştırıcısı](http://go.microsoft.com/fwlink/?LinkId=246619).
+Merhaba web sunucu günlükleri hello kullanılarak biçimlendirilmiş [W3C Genişletilmiş günlük dosyası biçimi](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Bu bilgileri bir metin düzenleyicisi kullanarak okunabilir veya yardımcı programlarını kullanarak Ayrıştırılan [günlük ayrıştırıcısı](http://go.microsoft.com/fwlink/?LinkId=246619).
 
 > [!NOTE]
-> Azure web uygulamaları tarafından oluşturulan günlükleri desteklemeyen **s-computername**, **s-ip**, veya **cs-version** alanları.
+> Hello Azure web uygulamaları tarafından oluşturulan günlükleri hello desteklemeyen **s-computername**, **s-ip**, veya **cs-version** alanları.
 >
 >
 
 ## <a name="nextsteps"></a> Sonraki adımlar
-* [Web uygulamaları izleme](http://docs.microsoft.com/en-us/azure/app-service-web/web-sites-monitor)
+* [Nasıl tooMonitor Web uygulamaları](http://docs.microsoft.com/en-us/azure/app-service-web/web-sites-monitor)
 * [Visual Studio'daki Azure web uygulamaları sorunlarını giderme](web-sites-dotnet-troubleshoot-visual-studio.md)
 * [Analiz web uygulama günlüklerini Hdınsight'ta](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
 > [!NOTE]
-> Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’te hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin](https://azure.microsoft.com/try/app-service/) sayfasına gidin. Kredi kartı ve taahhüt gerekmez.
+> Azure hesabı için kaydolmadan önce Azure App Service ile başlatılan tooget istiyorsanız, çok Git[App Service'i deneyin](https://azure.microsoft.com/try/app-service/), burada hemen bir kısa süreli başlangıç web uygulaması App Service'te oluşturabilirsiniz. Kredi kartı ve taahhüt gerekmez.
 >
 >
 
 ## <a name="whats-changed"></a>Yapılan değişiklikler
-* Web Sitelerinden App Service’e kadar değiştirme kılavuzu için bkz. [Azure App Service ve Mevcut Azure Hizmetlerine Etkileri](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Yeni portalı eski portalına değiştirme kılavuzu için bkz: [Azure portalında gezinme için başvuru](http://go.microsoft.com/fwlink/?LinkId=529715)
+* Web siteleri tooApp hizmet değişikliği Kılavuzu toohello için bkz: [Azure App Service ve mevcut Azure hizmetlerine etkileri](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Yeni portalı eski portal toohello hello değişikliği Kılavuzu toohello için bkz: [gezinme için başvuru hello Azure portalı](http://go.microsoft.com/fwlink/?LinkId=529715)

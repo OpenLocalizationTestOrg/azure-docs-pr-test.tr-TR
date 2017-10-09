@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Bus uygulama kesintiler ve olağanüstü karşı insulating | Microsoft Docs"
-description: "Uygulamaların olası bir hizmet veri yolu kesinti karşı koruma için kullanabileceğiniz teknikleri açıklar."
+title: "aaaInsulating Azure Service Bus uygulama kesintiler ve olağanüstü karşı | Microsoft Docs"
+description: "Olası bir hizmet veri yolu kesinti karşı tooprotect uygulamalar kullanabileceğiniz teknikleri açıklar."
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -14,77 +14,77 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/12/2017
 ms.author: sethm
-ms.openlocfilehash: bc84dbe5c26a834b2cff5f71ba5f541e94ba0b38
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 349b4968456c9f15375753d83495246f5a3ddfdb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Hizmet veri yolu kesintileri ve olağanüstü karşı uygulamalar insulating için en iyi uygulamalar
-Görev açısından kritik uygulamalar, Planlanmayan kesintiler veya olağanüstü varlığında olsa bile sürekli olarak çalışması gerekir. Bu konu, hizmet veri yolu uygulamaları potansiyel hizmet kesintisi veya olağanüstü durum karşı korumak için kullanabileceğiniz teknikleri açıklar.
+Görev açısından kritik uygulamalar bile hello bulunması planlanmayan kesintiler veya olağanüstü sürekli olarak çalışması gerekir. Bu konu tooprotect hizmet veri yolu uygulamaları potansiyel hizmet kesintisi veya olağanüstü durum karşı kullanabilir teknikleri açıklar.
 
-Bir kesinti geçici olarak kullanım dışı kalması Azure hizmet veri yolu tanımlanır. Kesinti Service Bus Mesajlaşma deposu veya hatta tüm veri merkezi gibi bazı bileşenleri etkileyebilir. Sorun çözüldükten sonra hizmet veri yolu yeniden kullanılabilir hale gelir. Genellikle, bir kesinti iletileri veya diğer veri kaybına neden olmaz. Belirli bir Mesajlaşma deposu kullanılamama bileşeni hatası örnektir. Bir güç kesintisi datacenter ya da hatalı veri merkezi ağ anahtarı, bir veri merkezi çapında kesinti örnektir. Bir kesinti birkaç dakika ile birkaç gün sürebilir.
+Bir kesinti hello geçici olarak kullanım dışı kalması Azure hizmet veri yolu tanımlanır. Merhaba kesinti Service Bus Mesajlaşma deposu veya veri merkezinin tamamı bile hello gibi bazı bileşenleri etkileyebilir. Merhaba sorun çözüldükten sonra hizmet veri yolu yeniden kullanılabilir hale gelir. Genellikle, bir kesinti iletileri veya diğer veri kaybına neden olmaz. Belirli bir Mesajlaşma deposu hello kullanılamama bileşeni hatası örnektir. Bir güç kesintisi hello datacenter ya da hatalı veri merkezi ağ anahtarı, bir veri merkezi çapında kesinti örnektir. Bir kesinti birkaç dakika tooa birkaç gün sürebilir.
 
-Bir olağanüstü durum kalıcı kaybı Service Bus ölçek birimi veya veri merkezi tanımlanır. Veri merkezi olabilir veya yeniden kullanılabilir duruma gelebilir. Genellikle bir olağanüstü durum bazı veya tüm iletileri veya diğer veri kaybına neden olur. Yangın, taşmasını veya deprem afetler örnekleridir.
+Bir olağanüstü durum hello kalıcı kaybı bir Service Bus ölçek birimi veya veri merkezi tanımlanır. Merhaba datacenter olabilir ya da yeniden kullanılabilir duruma gelebilir. Genellikle bir olağanüstü durum bazı veya tüm iletileri veya diğer veri kaybına neden olur. Yangın, taşmasını veya deprem afetler örnekleridir.
 
 ## <a name="current-architecture"></a>Geçerli mimari
-Service Bus kuyrukları veya konuları gönderilen iletileri depolamak için birden çok Mesajlaşma deposu kullanır. Bölümlenmemiş kuyruk veya konu bir Mesajlaşma deposuna atanır. Bu ileti deposunu kullanılamıyorsa, kuyruk veya konu tüm işlemler başarısız olur.
+Service Bus tooqueues veya konular gönderilen birden çok Mesajlaşma depoları toostore iletileri kullanır. Bölümlenmemiş kuyruk veya konu deposu Mesajlaşma tooone atanır. Bu ileti deposunu kullanılamıyorsa, kuyruk veya konu tüm işlemler başarısız olur.
 
-Bir veri merkezi ile bağlantılı bir hizmet ad alanındaki tüm Service Bus Mesajlaşma varlıkları (kuyruklar, konular, geçişler) bulunur. Service Bus otomatik coğrafi çoğaltma veri etkinleştirmez veya birden çok veri merkezi span bir ad alanı izin vermez.
+Bir veri merkezi ile bağlantılı bir hizmet ad alanındaki tüm Service Bus Mesajlaşma varlıkları (kuyruklar, konular, geçişler) bulunur. Service Bus otomatik coğrafi çoğaltma veri etkinleştirmez veya birden çok veri merkezi bir ad alanı toospan izin vermez.
 
 ## <a name="protecting-against-acs-outages"></a>ACS kesintilere karşı koruma
-ACS kimlik bilgilerini kullandığını ve ACS kullanılamaz hale, istemciler artık belirteçleri alabilir. ACS arıza zaman bir belirteç olan istemcileri belirteçleri süresi dolana kadar Service Bus kullanmaya devam edebilirsiniz. Varsayılan belirteç ömrü 3 saattir.
+ACS kimlik bilgilerini kullandığını ve ACS kullanılamaz hale, istemciler artık belirteçleri alabilir. Merhaba belirteçleri süresi dolana kadar ACS arıza hello zamanında bir belirteç olan istemcileri toouse Service Bus devam edebilirsiniz. Merhaba varsayılan belirteç ömrü 3 saattir.
 
-ACS kesintilere karşı korumak için paylaşılan erişim imzası (SAS) belirteçleri kullanın. Bu durumda, istemci gizli bir anahtar ile bir kendi kendine minted belirteç imzalama tarafından doğrudan Service Bus ile kimliğini doğrular. ACS çağrıları artık gerekli değildir. SAS belirteci hakkında daha fazla bilgi için bkz: [Service Bus kimlik doğrulama][Service Bus authentication].
+ACS kesintilere karşı tooprotect paylaşılan erişim imzası (SAS) belirteçleri kullanın. Bu durumda, hello istemci gizli bir anahtar ile bir kendi kendine minted belirteç imzalama tarafından doğrudan Service Bus ile kimliğini doğrular. Çağrıları tooACS artık gerekli değildir. SAS belirteci hakkında daha fazla bilgi için bkz: [Service Bus kimlik doğrulama][Service Bus authentication].
 
 ## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Kuyruklar ve konu başlıkları deposu başarısızlıkları Mesajlaşma karşı koruma
-Bölümlenmemiş kuyruk veya konu bir Mesajlaşma deposuna atanır. Bu ileti deposunu kullanılamıyorsa, kuyruk veya konu tüm işlemler başarısız olur. Bölümlenmiş bir sıra diğer taraftan, birden çok parçalarını oluşur. Her parça farklı bir Mesajlaşma deposunda depolanır. Bölümlenmiş kuyruk veya konu için bir ileti gönderildiğinde, hizmet veri yolu ileti parçasının birine atar. Hizmet veri yolu ileti için farklı bir parçası, karşılık gelen ileti deposu kullanılamıyorsa, mümkünse yazar. Bölümlenen varlıklar hakkında daha fazla bilgi için bkz: [bölümlenmiş Mesajlaşma varlıkları][Partitioned messaging entities].
+Bölümlenmemiş kuyruk veya konu deposu Mesajlaşma tooone atanır. Bu ileti deposunu kullanılamıyorsa, kuyruk veya konu tüm işlemler başarısız olur. A hello üzerinde sıra diğer yandan bölümlenmiş, birden çok parçalarını oluşur. Her parça farklı bir Mesajlaşma deposunda depolanır. Bir ileti tooa bölümlenmiş kuyruk veya konu gönderildiğinde, Service Bus hello ileti tooone hello parçaların atar. Merhaba karşılık gelen ileti deposu kullanılamıyorsa, hizmet veri yolu hello ileti tooa farklı parça, mümkünse yazar. Bölümlenen varlıklar hakkında daha fazla bilgi için bkz: [bölümlenmiş Mesajlaşma varlıkları][Partitioned messaging entities].
 
 ## <a name="protecting-against-datacenter-outages-or-disasters"></a>Veri Merkezi kesintilerini veya olağanüstü karşı koruma
-İki veri merkezi arasında bir yük devretme için izin vermek için her veri merkezinde bir Service Bus hizmeti ad alanı oluşturabilirsiniz. Örneğin, Service Bus hizmeti ad alanı **contosoPrimary.servicebus.windows.net** Amerika Birleşik Devletleri Kuzey/Orta bölgesinde bulunan ve **contosoSecondary.servicebus.windows.net** BİZE Güney/Orta bölgesinde bulunan. Service Bus varlık Mesajlaşma bir veri merkezi kesintisinden varlığında erişilebilir kalması gereken, varlığın her iki ad alanları oluşturabilirsiniz.
+tooallow iki veri merkezi arasında bir yük devretme için her veri merkezinde bir Service Bus hizmeti ad alanı oluşturabilirsiniz. Örneğin, Service Bus hizmeti ad alanı hello **contosoPrimary.servicebus.windows.net** hello Amerika Birleşik Devletleri Kuzey/Orta bölgesinde bulunan ve **contosoSecondary.servicebus.windows.net**hello BİZE Güney/Orta bölgesinde bulunan. Service Bus varlık Mesajlaşma bir veri merkezi kesintisinden hello bulunması erişilebilir kalması gereken, varlığın her iki ad alanları oluşturabilirsiniz.
 
-Daha fazla bilgi için "Service Bus Azure veri merkezi içinde hatası" bölümüne bakın [zaman uyumsuz desenleri ve yüksek kullanılabilirlik Mesajlaşma][Asynchronous messaging patterns and high availability].
+Daha fazla bilgi için "Service Bus Azure veri merkezi içinde hatası" bölümünde hello bkz [zaman uyumsuz desenleri ve yüksek kullanılabilirlik Mesajlaşma][Asynchronous messaging patterns and high availability].
 
 ## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>Veri Merkezi kesintilerini veya olağanüstü karşı koruma geçiş uç noktaları
-Coğrafi çoğaltma geçiş uç noktaları varlığında Service Bus kesintileri erişilebilir olması için bir geçiş uç noktası kullanıma sunan bir hizmet sağlar. Coğrafi çoğaltma elde etmek için hizmet, farklı ad alanlarında iki geçiş uç noktalar oluşturmanız gerekir. Ad alanları farklı veri merkezlerinde bulunmalıdır ve iki uç nokta adları farklı olmalıdır. Örneğin, birincil bir uç nokta altında ulaşılabilen **contosoPrimary.servicebus.windows.net/myPrimaryService**altında ikincil kendisine karşılık gelen ulaşılabilen yaparken **contosoSecondary.servicebus.windows.net/mySecondaryService**.
+Coğrafi çoğaltma geçiş uç noktaları Service Bus kesintileri hello bulunması erişilebilir bir geçiş uç nokta toobe kullanıma sunan bir hizmet sağlar. tooachieve coğrafi çoğaltma, hello hizmeti farklı ad alanlarında iki geçiş uç noktalar oluşturmanız gerekir. Merhaba ad alanları farklı veri merkezlerinde bulunmalıdır ve hello iki uç nokta adları farklı olmalıdır. Örneğin, birincil bir uç nokta altında ulaşılabilen **contosoPrimary.servicebus.windows.net/myPrimaryService**altında ikincil kendisine karşılık gelen ulaşılabilen yaparken **contosoSecondary.servicebus.windows.net/mySecondaryService**.
 
-Hizmet ardından her iki bitiş noktasında dinler ve bir istemci hizmeti ya da uç nokta ile çağırabilirsiniz. Bir istemci uygulaması rastgele geçişler birini birincil uç noktası olarak seçer ve isteğini etkin uç noktasına gönderir. İşlem hata kodu ile başarısız olursa geçiş uç noktası kullanılamıyor bu hatayı gösterir. Uygulama yedekleme uç noktası için bir kanal açar ve isteği yeniden yayımlar. Bu noktada rolleri etkin ve yedekleme uç noktaları geçiş: istemci uygulamasının yeni yedekleme uç noktası ve yeni etkin uç noktası için eski yedekleme uç noktası için eski etkin uç noktası olarak değerlendirir. Her ikisi de işlemleri başarısız gönderirseniz, iki varlık rolleri değişmeden kalır ve bir hata döndürdü.
+Merhaba hizmeti sonra her iki bitiş noktasında dinler ve bir istemci ya da uç noktası aracılığıyla hello hizmet çağırabilirsiniz. Bir istemci uygulaması rastgele birincil endpoint hello gibi hello geçişler birini seçer ve kendi isteği toohello etkin uç gönderir. Merhaba işlemi bir hata kodu ile başarısız olursa, o hello geçiş uç noktası kullanılamıyor bu hatayı gösterir. Merhaba uygulaması bir kanal toohello yedekleme uç nokta açar ve hello isteği yeniden yayımlar. Bu noktada rolleri hello etkin ve hello yedekleme uç noktaları geçiş: Merhaba istemci uygulaması hello eski etkin uç nokta toobe hello yeni yedekleme uç noktası ve hello eski yedekleme endpoint toobe hello yeni etkin uç noktası göz önünde bulundurur. Her ikisi de işlemleri başarısız gönderirseniz hello iki varlık hello rolleri değişmeden kalır ve bir hata döndürdü.
 
-[Coğrafi çoğaltma ile Service Bus geçişli iletileri] [ Geo-replication with Service Bus relayed Messages] örnek geçişler çoğaltmak nasıl gösterir.
+Merhaba [coğrafi çoğaltma ile Service Bus geçişli iletileri] [ Geo-replication with Service Bus relayed Messages] örnek gösterilmektedir nasıl tooreplicate iletir.
 
 ## <a name="protecting-queues-and-topics-against-datacenter-outages-or-disasters"></a>Kuyruklar ve konu başlıkları datacenter kesintileri ya da olağanüstü karşı koruma
-Hizmet veri yolu kullanarak aracılı Mesajlaşma, veri merkezi kesintilere karşı esnekliği elde etmek için iki yaklaşım destekler: *etkin* ve *pasif* çoğaltma. Belirtilen kuyruk veya konu veri merkezi kesintisinden varlığında erişilebilir kalması gereken varsa her bir yaklaşım, her iki ad alanları oluşturabilirsiniz. Her iki varlık aynı ada sahip olabilir. Örneğin, birincil bir kuyruk altında ulaşılabilen **contosoPrimary.servicebus.windows.net/myQueue**altında ikincil kendisine karşılık gelen ulaşılabilen yaparken **contosoSecondary.servicebus.windows.net/myQueue**.
+tooachieve esnekliği kullanarak aracılı Mesajlaşma, veri merkezi kesintilere karşı Service Bus iki yaklaşım destekler: *etkin* ve *pasif* çoğaltma. Belirtilen kuyruk veya konu bir veri merkezi kesintisinden hello bulunması erişilebilir kalması gereken varsa her bir yaklaşım, her iki ad alanları oluşturabilirsiniz. Her iki varlığa hello olabilir aynı adı. Örneğin, birincil bir kuyruk altında ulaşılabilen **contosoPrimary.servicebus.windows.net/myQueue**altında ikincil kendisine karşılık gelen ulaşılabilen yaparken **contosoSecondary.servicebus.windows.net/myQueue**.
 
-Uygulama kalıcı gönderenin alıcı iletişim gerektirmiyorsa, uygulama ileti kaybını önlemek için ve geçici hizmet veri yolu hataları gönderenden korunamadı dayanıklı bir istemci-tarafı sıra uygulayabilirsiniz.
+Merhaba uygulaması kalıcı gönderenin alıcı iletişim gerektirmiyorsa Merhaba uygulaması bir dayanıklı istemci-tarafı sıra tooprevent ileti kaybına ve tooshield hello gönderenden geçici hizmet veri yolu hataları uygulayabilirsiniz.
 
 ## <a name="active-replication"></a>Etkin çoğaltma
-Etkin çoğaltma varlıklar her işlem için her iki ad kullanır. Bir ileti gönderen herhangi bir istemci aynı ileti iki kopyasını gönderir. İlk kopyayı birincil varlığa gönderilen (örneğin, **contosoPrimary.servicebus.windows.net/sales**), ve iletiyi ikinci bir kopyası ikincil varlığa gönderilen (örneğin, **contosoSecondary.servicebus.windows.net/sales**).
+Etkin çoğaltma varlıklar her işlem için her iki ad kullanır. Bir ileti gönderen herhangi bir istemci hello iki kopyasını gönderir aynı ileti. Merhaba ilk kopyayı toohello birincil varlık gönderilen (örneğin, **contosoPrimary.servicebus.windows.net/sales**), ve hello ikinci bir kopyası selamlama iletisine toohello ikincil varlık gönderilen (örneğin,  **contosoSecondary.servicebus.windows.net/sales**).
 
-Bir istemci, her iki sıralarından iletilerini alır. İletinin ilk kopyasını alıcı işler ve ikinci kopya engellenir. Yinelenen iletileri bastırmak için gönderen her iletinin benzersiz bir tanımlayıcı etiketlemeniz gerekir. İletinin her iki kopyası aynı tanımlayıcıyla etiketlenmelidir. Kullanabileceğiniz [BrokeredMessage.MessageId] [ BrokeredMessage.MessageId] veya [BrokeredMessage.Label] [ BrokeredMessage.Label] özellikleri ya da ileti etiketlemek için özel bir özellik. Alıcı zaten aldığı iletileri listesini bulundurmanız gerekir.
+Bir istemci, her iki sıralarından iletilerini alır. ilk iletinin kopyasını Hello alıcısı işlemler hello ve hello ikinci kopya engellenir. toosuppress yinelenen iletileri hello gönderen her iletinin benzersiz bir tanımlayıcı etiketlemeniz gerekir. Her iki kopyasını selamlama iletisine ile Merhaba etiketlenmelidir aynı tanımlayıcısı. Merhaba kullanabilirsiniz [BrokeredMessage.MessageId] [ BrokeredMessage.MessageId] veya [BrokeredMessage.Label] [ BrokeredMessage.Label] özellikleri ya da bir özel özellik tootag hello İleti. Merhaba alıcı zaten aldığı iletileri listesini bulundurmanız gerekir.
 
-[Service Bus aracılı iletiler coğrafi çoğaltma] [ Geo-replication with Service Bus Brokered Messages] örnek Mesajlaşma, etkin çoğaltma gösterir.
+Merhaba [Service Bus aracılı iletiler coğrafi çoğaltma] [ Geo-replication with Service Bus Brokered Messages] örnek Mesajlaşma, etkin çoğaltma gösterir.
 
 > [!NOTE]
-> Etkin çoğaltma yaklaşım işlemlerinin sayısı iki katına çıkarır, bu nedenle, bu yaklaşım için daha yüksek maliyet yol açabilir.
+> Merhaba etkin çoğaltma yaklaşım hello işlemlerinin sayısı iki katına çıkarır, bu nedenle, bu yaklaşım toohigher maliyet yol açabilir.
 > 
 > 
 
 ## <a name="passive-replication"></a>Pasif çoğaltma
-Hataya serbest durumda pasif çoğaltma iki Mesajlaşma varlıkları yalnızca birini kullanır. Bir istemcinin etkin varlığa iletisi gönderir. Etkin varlık üzerinde işlem etkin varlık barındıran veri merkezinde kullanılamayabilir belirten bir hata kodu ile başarısız olursa, istemci yedekleme varlığa iletinin bir kopyasını gönderir. Bu noktada etkin ve yedekleme varlıkları rollerini değiştirmek: Yeni yedekleme varlığı olarak eski active varlık gönderen istemci göz önünde bulundurur ve eski yedekleme varlık yeni etkin varlıktır. Her ikisi de işlemleri başarısız gönderirseniz, iki varlık rolleri değişmeden kalır ve bir hata döndürdü.
+Merhaba hataya serbest durumda pasif çoğaltma hello iki Mesajlaşma varlıkları yalnızca birini kullanır. Bir istemci hello ileti toohello etkin varlık gönderir. Merhaba işlem hello etkin varlıkta konakları hello etkin varlık kullanılamayabilir hello datacenter belirten bir hata kodu ile başarısız olursa, hello istemci hello ileti toohello yedekleme varlık bir kopyasını gönderir. Bu noktada hello etkin ve hello yedekleme varlıkları rolleri geçiş: hello gönderen istemci hello eski etkin varlık toobe hello yeni yedekleme varlık göz önünde bulundurur ve hello eski yedekleme varlıktır hello yeni etkin varlık. Her ikisi de işlemleri başarısız gönderirseniz hello iki varlık hello rolleri değişmeden kalır ve bir hata döndürdü.
 
-Bir istemci, her iki sıralarından iletilerini alır. Alıcı aynı ileti iki kopyasını alır şansı olduğundan, alıcı yinelenen iletilerini gerekir. Etkin çoğaltma için açıklandığı gibi aynı şekilde çoğaltmaları gizleyebilirsiniz.
+Bir istemci, her iki sıralarından iletilerini alır. Bir fırsat olduğundan bu hello alıcı aynı iletisi, hello hello iki kopyasını alır alıcı yinelenen iletileri bastırmak gerekir. Gözardı edebileceğini aynı şekilde etkin çoğaltma için açıklandığı gibi hello çoğaltır.
 
-Genel olarak, çoğu durumda yalnızca bir işlem yapıldığından pasif çoğaltma etkin çoğaltma daha ekonomik. Gecikme süresi, üretilen iş ve parasal maliyeti çoğaltılmamış senaryo ile aynıdır.
+Genel olarak, çoğu durumda yalnızca bir işlem yapıldığından pasif çoğaltma etkin çoğaltma daha ekonomik. Gecikme süresi, üretilen iş ve para maliyet aynı toohello çoğaltılmamış senaryosu verilebilir.
 
-Pasif çoğaltma kullanırken, aşağıdaki senaryolarda iletileri kaybolabilir veya iki kez alındı:
+Pasif çoğaltma kullanırken hello aşağıdaki senaryoları iletileri kaybolabilir veya iki kez alındı:
 
-* **İleti gecikme veya kayıp**: Gönderenin iletiyi m1 birincil kuyruğuna başarıyla gönderildi. ve ardından alıcı m1 almadan önce sıranın kullanılamaz hale varsayılır. Gönderici bir sonraki iletiyi m2 ikincil kuyruğuna gönderir. Birincil kuyruk geçici olarak devre dışı ise, sıranın yeniden kullanılabilir hale geldikten sonra alıcı m1 alır. Bir olağanüstü durumda alıcı hiçbir zaman m1 alabilirsiniz.
-* **Alma yinelenen**: gönderenin birincil kuyruğuna ileti m gönderir varsayalım. Hizmet veri yolu başarıyla m işler ancak yanıt gönderme başarısız olur. Gönderme işlemi zaman aşımına sonra gönderen ikincil kuyruğuna m özdeş bir kopyasını gönderir. Alıcı birincil kuyruk kullanılamaz hale önce m ilk kopyasına almak mümkün ise, alıcı yaklaşık aynı zamanda m iki kopyasını alır. Alıcı birincil kuyruk kullanılamaz hale önce m ilk kopyasına almak mümkün değilse, alıcı başlangıçta yalnızca ikinci bir kopyası m alır, ancak birincil kuyruk kullanılabilir hale geldiğinde m ikinci bir kopyasını alır.
+* **İleti gecikme veya kayıp**: hello gönderen bir ileti m1 toohello birincil sırası gönderildi ve ardından hello alıcı m1 almadan önce hello sıra kullanılamaz hale varsayılır. Merhaba gönderen bir sonraki ileti m2 toohello ikincil sırası gönderir. Merhaba birincil kuyruk geçici olarak devre dışı ise, hello sıra yeniden kullanılabilir hale geldikten sonra hello alıcı m1 alır. Bir olağanüstü durumda hello alıcı hiçbir zaman m1 alabilirsiniz.
+* **Alma yinelenen**: Bu hello gönderen bir ileti m toohello birincil sırası gönderir varsayalım. Hizmet veri yolu başarıyla m işler ancak toosend yanıt başarısız olur. İşlem zaman aşımına Hello gönderdikten sonra hello gönderen m toohello ikincil sıra özdeş bir kopyasını gönderir. Merhaba alıcı mümkün tooreceive hello ilk kopyasını m ise Hello birincil kuyruk kullanılamaz hale önce hello alıcı yaklaşık hello m ve her iki kopyalarını alan aynı anda. Merhaba birincil kuyruk kullanılamaz hale önce hello alıcı mümkün tooreceive hello ilk kopyasını m değilse, hello alıcı başlangıçta yalnızca hello ikinci bir kopyası m alır, ancak hello birincil kuyruk kullanılabilir hale geldiğinde m ikinci bir kopyasını alır.
 
-[Coğrafi çoğaltma ile Service Bus aracılı ileti] [ Geo-replication with Service Bus Brokered Messages] örnek Mesajlaşma, pasif çoğaltma gösterir.
+Merhaba [coğrafi çoğaltma ile Service Bus aracılı ileti] [ Geo-replication with Service Bus Brokered Messages] örnek Mesajlaşma, pasif çoğaltma gösterir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Olağanüstü durum kurtarma hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
+Olağanüstü durum kurtarma hakkında daha fazla toolearn bu makalelere bakın:
 
 * [Azure SQL veritabanı iş sürekliliği][Azure SQL Database Business Continuity]
 * [Azure için esnek uygulamalar tasarlama][Azure resiliency technical guidance]

@@ -1,6 +1,6 @@
 ---
-title: "Azure Notification Hubs .NET arka ucu ile iOS için Kullanıcılara Bildirme"
-description: "Azure kullanıcılara anında iletme bildirimleri göndermek öğrenin. Objective-C ve .NET API arka uç için yazılan kod örnekleri."
+title: ".NET arka ucu ile iOS için Notification Hubs kullanıcılara bildirme aaaAzure"
+description: "Nasıl toosend anında iletme bildirimleri toousers Azure'da öğrenin. Objective-C ve hello .NET API hello arka uç için yazılan kod örnekleri."
 documentationcenter: ios
 author: ysxu
 manager: erikre
@@ -14,68 +14,68 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
-ms.openlocfilehash: 0fa7a886e1ecb0a90b6aebc1dbf9ef0c6ce1acf1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 56aed5b04d2d985b3f0e50c58991607f07b61248
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-notification-hubs-notify-users-for-ios-with-net-backend"></a>Azure Notification Hubs .NET arka ucu ile iOS için Kullanıcılara Bildirme
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Azure'da anında iletme bildirimi desteği, kullanımı kolay, multiplatform ve mobil platformlar için tüketici ve kurumsal uygulama için anında iletme bildirimleri uyarlamasını büyük ölçüde basitleştirir ölçeklendirilmiş gönderim altyapısı erişmenize olanak tanır. Bu öğreticide, belirli bir cihazdaki belirli bir uygulama kullanıcısına anında iletme bildirimleri göndermek için Azure Bildirim Hub'larını nasıl kullanacağınız gösterilir. Bir ASP.NET Webapı arka istemcilerin kimliğini doğrulamak ve bildirimleri oluşturmak için Kılavuzu konusundaki gösterildiği gibi kullanılır [uygulama arka ucunuzdan kaydetme](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend).
+Azure'da anında iletme bildirimi destek tooaccess kullanımı kolay, multiplatform ve Mobile Tüketiciler, kurumsal uygulamalar için anında iletme bildirimleri hello uyarlamasını büyük ölçüde basitleştirir ölçeklendirilmiş gönderim altyapısı sağlar Platform. Bu öğretici nasıl toouse Azure Notification Hubs toosend anında iletme bildirimleri tooa belirli uygulama kullanıcısı belirli bir cihazda gösterir. Bir ASP.NET Webapı arka kullanılan tooauthenticate istemcileri ve toogenerate bildirimleri hello Kılavuzu konusundaki gösterildiği gibidir [uygulama arka ucunuzdan kaydetme](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend).
 
 > [!NOTE]
-> Bu öğreticide oluşturduğunuz ve bildirim hub'ınızı açıklandığı şekilde yapılandırılmış varsayar [bildirim hub'ları (iOS) ile çalışmaya başlama](notification-hubs-ios-apple-push-notification-apns-get-started.md). Bu öğreticinin ayrıca için ön koşuldur [güvenli itme (iOS)](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) Öğreticisi.
-> Mobile Apps arka uç hizmetinizin kullanmak istiyorsanız, bkz: [Mobile Apps ile çalışmaya başlama itme](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
+> Bu öğreticide oluşturduğunuz ve bildirim hub'ınızı açıklandığı şekilde yapılandırılmış varsayar [bildirim hub'ları (iOS) ile çalışmaya başlama](notification-hubs-ios-apple-push-notification-apns-get-started.md). Bu öğretici aynı zamanda hello önkoşul toohello olan [güvenli itme (iOS)](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) Öğreticisi.
+> Merhaba toouse Mobile Apps arka uç hizmetinizin istiyorsanız bkz [Mobile Apps ile çalışmaya başlama itme](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
 > 
 > 
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## <a name="modify-your-ios-app"></a>İOS uygulamanızı değiştirme
-1. Oluşturduğunuz tek sayfa görünümü uygulamasını açın [bildirim hub'ları (iOS) ile çalışmaya başlama](notification-hubs-ios-apple-push-notification-apns-get-started.md) Öğreticisi.
+1. Açık hello hello oluşturduğunuz uygulamayı görüntüle tek sayfa [bildirim hub'ları (iOS) ile çalışmaya başlama](notification-hubs-ios-apple-push-notification-apns-get-started.md) Öğreticisi.
    
    > [!NOTE]
-   > Bu bölümde, projenizin bir boş kuruluş adı ile yapılandırıldığını varsayar. Aksi durumda, tüm sınıf adları için kuruluşunuzun adı başına gerekecektir.
+   > Bu bölümde, projenizin bir boş kuruluş adı ile yapılandırıldığını varsayar. Aksi durumda, kuruluş adını tooall sınıf adları tooprepend gerekir.
    > 
    > 
-2. Main.storyboard nesne kitaplığından ekran görüntüsünde gösterilen bileşenleri ekleyin.
+2. Main.storyboard hello nesne kitaplığından hello ekran görüntüsü gösterildiği hello bileşenleri ekleyin.
    
     ![][1]
    
-   * **Kullanıcı adı**: A UITextField yer tutucu metinle *kullanıcı adı girin*hemen sonuçları etiket ve sol ve sağ kenar boşlukları kısıtlı Gönder altındaki ve gönderme sonuçları etiketinin altına.
-   * **Parola**: A UITextField yer tutucu metinle *parolasını girin*, kullanıcı adı hemen altındaki metin alan ve sağ ve sol kenar boşluklarına ve kullanıcı adı metin alanı altında kısıtlanmış. Denetleme **güvenli metin girişi** özniteliği Denetçisi'nde altında seçeneği *dönüş anahtar*.
-   * **Oturum açma**: A UIButton hemen parola metin alanı etiketli ve işaretini **etkin** öznitelikleri Denetçisi'nde altında seçeneği *denetimi içeriğini*
-   * **WNS**: Etiket ve anahtarı Windows bildirim hizmeti bildirim hub'ında Kurulum yüklediyse gönderilmesine izin vermek için. Bkz: [Windows başlarken](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) Öğreticisi.
-   * **GCM**: Etiket ve anahtarı Google bulut Mesajlaşma için bildirim hub'ında Kurulum yüklediyse gönderilmesine izin vermek için. Bkz: [Android Başlarken](notification-hubs-android-push-notification-google-gcm-get-started.md) Öğreticisi.
-   * **APNS**: Etiket ve anahtar için Apple Platform bildirim hizmet bildirimi gönderilmesine izin vermek için.
-   * **Recipent kullanıcıadı**: A UITextField yer tutucu metinle *alıcı kullanıcı adı etiketi*, hemen GCM etiket ve sağ ve sol kenar boşluklarına ve GCM etiketinin altına kısıtlı.
+   * **Kullanıcı adı**: A UITextField yer tutucu metinle *kullanıcı adı girin*, hemen hello sonuçları etiketi ve sol kısıtlanmış toohello göndermek ve sağ kenar boşlukları ve sonuçları etiketi altında hello Gönder.
+   * **Parola**: A UITextField yer tutucu metinle *parolasını girin*, hemen beneath hello kullanıcı adı metin alanı ve kısıtlı toohello sol ve sağ kenar boşlukları ve hello username metin alanı altında. Merhaba denetleyin **güvenli metin girişi** hello özniteliği denetçisi altında seçeneği *dönüş anahtar*.
+   * **Oturum açma**: A UIButton hemen hello parola metin alanı altında etiketli ve hello işaretini **etkin** hello öznitelikleri denetçisi altında seçeneği *denetimi içeriğini*
+   * **WNS**: Etiket ve anahtar tooenable gönderme hello hub'ındaki Kurulum yüklediyse bildirim Windows bildirim hizmeti hello. Merhaba bkz [Windows başlarken](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) Öğreticisi.
+   * **GCM**: Etiket ve anahtar tooenable gönderme hello hub'ındaki Kurulum yüklediyse bildirim tooGoogle Cloud Messaging hello. Bkz: [Android Başlarken](notification-hubs-android-push-notification-google-gcm-get-started.md) Öğreticisi.
+   * **APNS**: Etiket ve anahtar tooenable gönderme hello bildirim toohello Apple Platform bildirim hizmeti.
+   * **Recipent kullanıcıadı**: A UITextField yer tutucu metinle *alıcı kullanıcı adı etiketi*, hemen GCM hello etiket ve kısıtlı toohello sol ve sağ kenar boşlukları ve GCM hello etiket.
 
-    Bazı bileşenler eklenmiştir [bildirim hub'ları (iOS) ile çalışmaya başlama](notification-hubs-ios-apple-push-notification-apns-get-started.md) Öğreticisi.
+    Bazı bileşenler hello eklenen [bildirim hub'ları (iOS) ile çalışmaya başlama](notification-hubs-ios-apple-push-notification-apns-get-started.md) Öğreticisi.
 
-1. **CTRL** görünümünde bileşenlerinden ViewController.h için sürükleyin ve bu yeni çıkışlar ekleyin.
+1. **CTRL** hello görünüm tooViewController.h hello bileşenlerden sürükleyin ve bu yeni çıkışlar ekleyin.
    
         @property (weak, nonatomic) IBOutlet UITextField *UsernameField;
         @property (weak, nonatomic) IBOutlet UITextField *PasswordField;
         @property (weak, nonatomic) IBOutlet UITextField *RecipientField;
         @property (weak, nonatomic) IBOutlet UITextField *NotificationField;
    
-        // Used to enable the buttons on the UI
+        // Used tooenable hello buttons on hello UI
         @property (weak, nonatomic) IBOutlet UIButton *LogInButton;
         @property (weak, nonatomic) IBOutlet UIButton *SendNotificationButton;
    
-        // Used to enabled sending notifications across platforms
+        // Used tooenabled sending notifications across platforms
         @property (weak, nonatomic) IBOutlet UISwitch *WNSSwitch;
         @property (weak, nonatomic) IBOutlet UISwitch *GCMSwitch;
         @property (weak, nonatomic) IBOutlet UISwitch *APNSSwitch;
    
         - (IBAction)LogInAction:(id)sender;
-2. ViewController.h içinde aşağıdaki ekleme `#define` içeri aktarma deyimlerini hemen altında. Yedek *< girin bilgisayarınızı arka uç nokta\>*  yer tutucusunu, uygulamanızın arka ucuna önceki bölümdeki dağıtmak için kullanılan hedef URL ile. Örneğin, *http://you_backend.azurewebsites.net*.
+2. ViewController.h içinde hello aşağıdakileri ekleyin `#define` içeri aktarma deyimlerini hemen altında. Yedek hello *< girin bilgisayarınızı arka uç nokta\>*  yer tutucusunu hello hedef kullandığınız toodeploy, uygulamanızın arka ucuna hello önceki bölümde URL ile. Örneğin, *http://you_backend.azurewebsites.net*.
    
         #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
-3. Projenizde, yeni bir oluşturma **Cocoa Touch sınıfı** adlı **RegisterClient** oluşturduğunuz ASP.NET arka uç ile arabirim oluşturmak için. İçinden devralma sınıfı oluşturmak `NSObject`. Ardından aşağıdaki kodu RegisterClient.h ekleyin.
+3. Projenizde, yeni bir oluşturma **Cocoa Touch sınıfı** adlı **RegisterClient** toointerface hello oluşturduğunuz ASP.NET uç ile. İçinden devralma hello sınıfı oluşturmak `NSObject`. Ardından hello hello RegisterClient.h kodu ekleyin.
    
         @interface RegisterClient : NSObject
    
@@ -87,7 +87,7 @@ Azure'da anında iletme bildirimi desteği, kullanımı kolay, multiplatform ve 
         -(instancetype) initWithEndpoint:(NSString*)Endpoint;
    
         @end
-4. RegisterClient.m Güncelleştirmesi'nde `@interface` bölümü:
+4. Merhaba RegisterClient.m hello güncelleştirme `@interface` bölümü:
    
         @interface RegisterClient ()
    
@@ -102,7 +102,7 @@ Azure'da anında iletme bildirimi desteği, kullanımı kolay, multiplatform ve 
                     tags:(NSSet*)tags andCompletion:(void(^)(NSURLResponse*, NSError*))completion;
    
         @end
-5. Değiştir `@implementation` aşağıdaki kodla RegisterClient.m bölümünde.
+5. Hello yerine `@implementation` hello RegisterClient.m koddan hello ile bölümünde.
 
         @implementation RegisterClient
 
@@ -261,32 +261,32 @@ Azure'da anında iletme bildirimi desteği, kullanımı kolay, multiplatform ve 
 
         @end
 
-    Yukarıdaki kod Kılavuzu makalesinde açıklanan mantığını uygular [uygulama arka ucunuzdan kaydetme](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) NSURLSession kullanarak REST gerçekleştirmek için uygulamanızın arka ucuna çağırır ve RegistrationId yerel olarak depolamak için NSUserDefaults bildirim hub'ı döndürdü.
+    Yukarıdaki Hello kod hello Kılavuzu makalesinde açıklandığı hello mantığı uygular [uygulama arka ucunuzdan kaydetme](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) NSURLSession kullanarak tooperform REST tooyour uygulama arka ucu ve NSUserDefaults toolocally deposu hello çağırır Merhaba bildirim hub'ı tarafından döndürülen RegistrationId.
 
-    Bu sınıf, özelliğinin gerektirdiğini Not **authorizationHeader** düzgün çalışması için ayarlanacak. Bu özelliği ayarlamak **ViewController** günlüğünde sonra sınıfı.
+    Bu sınıf, özelliğinin gerektirdiğini Not **authorizationHeader** toobe sipariş toowork düzgün ayarlanmadı. Bu özellik tarafından hello ayarlanır **ViewController** hello oturum açtıktan sonra sınıfı.
 
-1. ViewController.h içinde eklemek bir `#import` RegisterClient.h bildirimi. Daha sonra cihaz belirteci için bir bildirim ekler ve başvuru bir `RegisterClient` örneğini `@interface` bölümü:
+1. ViewController.h içinde eklemek bir `#import` RegisterClient.h bildirimi. Ardından hello cihaz belirteci için bir bildirim eklemek ve tooa başvuru `RegisterClient` hello örneğinde `@interface` bölümü:
    
         #import "RegisterClient.h"
    
         @property (strong, nonatomic) NSData* deviceToken;
         @property (strong, nonatomic) RegisterClient* registerClient;
-2. Bir özel yöntem bildiriminde ViewController.m içinde eklemek `@interface` bölümü:
+2. Merhaba özel yöntem bildiriminde ViewController.m içinde eklemek `@interface` bölümü:
    
         @interface ViewController () <UITextFieldDelegate, NSURLConnectionDataDelegate, NSXMLParserDelegate>
    
-        // create the Authorization header to perform Basic authentication with your app back-end
+        // create hello Authorization header tooperform Basic authentication with your app back-end
         -(void) createAndSetAuthenticationHeaderWithUsername:(NSString*)username
                         AndPassword:(NSString*)password;
    
         @end
 
 > [!NOTE]
-> Aşağıdaki kod parçacığında güvenli kimlik doğrulama düzeni değil, uygulaması yerine kullanmalısınız **createAndSetAuthenticationHeaderWithUsername:AndPassword:** kaydı istemci sınıfı tarafından örneğin OAuth, Active Directory kullanılması için bir kimlik doğrulama belirteci oluşturur, özel kimlik doğrulama mekanizması ile.
+> Merhaba aşağıdaki kod parçacığında güvenli kimlik doğrulama düzeni, hello hello uygulaması yerine kullanmalısınız **createAndSetAuthenticationHeaderWithUsername:AndPassword:** , özel kimlik doğrulama mekanizması ile Merhaba kaydı istemci sınıfı tarafından örneğin OAuth, Active Directory kullanılan bir kimlik doğrulama belirteci toobe oluşturan.
 > 
 > 
 
-1. Ardından `@implementation` ViewController.m bölümünü cihaz belirteci ve kimlik doğrulama üstbilgisi ayarlamak için uygulama ekleyen aşağıdaki kodu ekleyin.
+1. Merhaba sonra `@implementation` ViewController.m bölümünü hello uygulama ayarı, hello cihaz belirteci ve kimlik doğrulama üstbilgisi ekleyen koddan hello ekleyin.
    
         -(void) setDeviceToken: (NSData*) deviceToken
         {
@@ -311,8 +311,8 @@ Azure'da anında iletme bildirimi desteği, kullanımı kolay, multiplatform ve 
             return YES;
         }
    
-    Cihaz belirteci ayarı Oturum Aç düğmesini nasıl sağladığını unutmayın. Uygulama arka ucu ile anında iletme bildirimleri için Görünüm denetleyicisini oturum açma eylemin bir parçası olarak kaydettirir olmasıdır. Bu nedenle, biz cihaz belirteci düzgün şekilde ayarlanmış kadar erişilebilir olmasını oturum eylem istemezsiniz. Eski ikinci önce gerçekleşir sürece iletme kaydı içinde günlüğünden ayırırsınız.
-2. Eylem yöntemi için uygulamak için aşağıdaki kod parçacıkları ViewController.m içinde kullanmak, **oturum** düğmesi ve ASP.NET arka ucu kullanarak bildirim iletisini göndermek için bir yöntem.
+    Ayar hello cihaz belirteci hello Oturum Aç düğmesini nasıl sağladığını unutmayın. Merhaba uygulama arka ucu ile anında iletme bildirimleri için hello görünüm denetleyicisini hello oturum açma eylemin bir parçası olarak kaydeder olmasıdır. Merhaba cihaz belirteci düzgün şekilde ayarlanmış kadar bu nedenle, oturum eylem toobe erişilebilir istiyoruz değil. Merhaba eski hello ikinci önce gerçekleşir sürece hello günlüğünden içinde hello anında iletme kayıt ayırırsınız.
+2. Parçacıkları tooimplement hello eylem yöntemi için aşağıdaki hello ViewController.m içinde kullanmak, **oturum** düğmesi ve yöntemi toosend hello bildirim iletisini kullanarak bir ASP.NET arka hello.
    
        - (IBAction) LogInAction: (ID) gönderen {/ / kimlik doğrulama üst bilgisi oluşturun ve kayıt istemci NSString * kullanıcı ayarlayın self =. UsernameField.text;   NSString * parola self =. PasswordField.text;
    
@@ -322,15 +322,15 @@ Azure'da anında iletme bildirimi desteği, kullanımı kolay, multiplatform ve 
 
         -(void) SendNotificationASPNETBackend: (NSString*) pns UsernameTag: (NSString*) usernameTag ileti: (NSString*) ileti {NSURLSession* oturum = [NSURLSession sessionWithConfiguration: [NSURLSessionConfiguration defaultSessionConfiguration] temsilci: nil delegateQueue:nil];
 
-            Pns ve kullanıcı adı etiketi için ASP.NET arka uç NSURL * requestURL REST URL ile parametre olarak geçirmek = [NSURL URLWithString: [NSString stringWithFormat:@"%@/api/notifications? pns = % @& to_tag = % @", BACKEND_ENDPOINT, pns, usernameTag]];
+            Merhaba pns ve kullanıcı adı etiketi hello REST URL'sini toohello ASP.NET arka uç NSURL * requestURL ile parametre olarak geçirmek = [NSURL URLWithString: [NSString stringWithFormat:@"%@/api/notifications? pns = % @& to_tag = % @", BACKEND_ENDPOINT, pns, usernameTag]];
 
             NSMutableURLRequest * isteği [NSMutableURLRequest requestWithURL:requestURL] =;    [setHTTPMethod:@"POST istek"];
 
-            Sahte authenticationheader kayıt istemciden NSString * authorizationHeaderValue alma = [NSString stringWithFormat:@"Basic % @", self.registerClient.authenticationHeader];    [setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization istek"];
+            Merhaba sahte authenticationheader hello kayıt istemciden NSString * authorizationHeaderValue alma = [NSString stringWithFormat:@"Basic % @", self.registerClient.authenticationHeader];    [setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization istek"];
 
-            Bildirim ileti gövdesi ekleme [setValue:@"application/json;charset=utf-8 istek" forHTTPHeaderField:@"Content-Type"];    [setHTTPBody istek: [ileti dataUsingEncoding:NSUTF8StringEncoding]];
+            Merhaba bildirim ileti gövdesi ekleme [setValue:@"application/json;charset=utf-8 istek" forHTTPHeaderField:@"Content-Type"];    [setHTTPBody istek: [ileti dataUsingEncoding:NSUTF8StringEncoding]];
 
-            REST API gönderme bildirim ASP.NET arka uç NSURLSessionDataTask * dataTask üzerinde yürütme = [oturum dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) yanıt;        varsa (hata || httpResponse.statusCode! = 200) {NSString* Durum = [% NSString stringWithFormat:@"Error durum @: % d\nError: %@\n", pns, httpResponse.statusCode, hata];            dispatch_async(dispatch_get_main_queue(), ^ {/ / tüm 3 PNS çağrıları bilgileri [self.sendResults setText:[self.sendResults.text stringByAppendingString:status] görünümüne sahip olabileceği için metin Ekle];            });            NSLog(status);        }
+            Merhaba gönderme bildirim REST API hello ASP.NET arka uç NSURLSessionDataTask * dataTask üzerinde yürütme [oturum dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError  *= hata) {NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) yanıt;        varsa (hata || httpResponse.statusCode! = 200) {NSString* Durum = [% NSString stringWithFormat:@"Error durum @: % d\nError: %@\n", pns, httpResponse.statusCode, hata];            dispatch_async(dispatch_get_main_queue(), ^ {/ / tüm 3 PNS çağrıları bilgi tooview [self.sendResults setText:[self.sendResults.text stringByAppendingString:status] sahip olabileceği için metin Ekle];            });            NSLog(status);        }
 
                 if (data != NULL)
                 {
@@ -341,7 +341,7 @@ Azure'da anında iletme bildirimi desteği, kullanımı kolay, multiplatform ve 
             }];    [dataTask Sürdür]; }
 
 
-1. Eylem için güncelleştirme **bildirim gönder** düğmesine ASP.NET arka kullanın ve bir anahtar tarafından etkin PNS gönderin.
+1. Merhaba eylemin hello için güncelleştirme **bildirim gönder** düğmesini toouse hello ASP.NET arka ve tooany bir anahtar tarafından etkin PNS gönderin.
 
         - (IBAction)SendNotificationMessage:(id)sender
         {
@@ -368,15 +368,15 @@ Azure'da anında iletme bildirimi desteği, kullanımı kolay, multiplatform ve 
 
 
 
-1. İşlevde **ViewDidLoad**, RegisterClient örneği oluşturmak için aşağıdaki örneği ve metin alanları için temsilci Ayarla ekleyin.
+1. İşlevde **ViewDidLoad**tooinstantiate hello RegisterClient örneği aşağıdaki hello ekleyin ve metin alanları için hello temsilci ayarlayın.
    
        self.UsernameField.delegate = self;
        self.PasswordField.delegate = self;
        self.RecipientField.delegate = self;
        self.registerClient = [[RegisterClient alloc] initWithEndpoint:BACKEND_ENDPOINT];
-2. Artık **AppDelegate.m**, yönteminin tüm içeriğini kaldırın **uygulama: didRegisterForPushNotificationWithDeviceToken:** ve görünüm denetleyicisini APNs alınan son cihaz belirteci içerdiğinden emin olmak için aşağıdakilerle değiştirin:
+2. Artık **AppDelegate.m**, tüm hello içeriği hello yönteminin Kaldır **uygulama: didRegisterForPushNotificationWithDeviceToken:** ve görünüm hello toomake emin aşağıdaki hello ile değiştirin Denetleyici hello APNs alınan son cihaz belirteci içerir:
    
-       // Add import to the top of the file
+       // Add import toohello top of hello file
        #import "ViewController.h"
    
        - (void)application:(UIApplication *)application
@@ -385,23 +385,23 @@ Azure'da anında iletme bildirimi desteği, kullanımı kolay, multiplatform ve 
            ViewController* rvc = (ViewController*) self.window.rootViewController;
            rvc.deviceToken = deviceToken;
        }
-3. Son olarak, **AppDelegate.m**, aşağıdaki yöntemi olduğundan emin olun:
+3. Son olarak, **AppDelegate.m**, yöntem aşağıdaki hello olduğundan emin olun:
    
        - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
            NSLog(@"%@", userInfo);
            [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
        }
 
-## <a name="test-the-application"></a>Uygulamayı test etme
-1. Xcode'da, uygulamayı fiziksel bir iOS cihazında (anında iletme bildirimleri benzeticisinde çalışmaz) çalıştırın.
-2. İOS uygulaması UI'da, bir kullanıcı adı ve parola girin. Bunlar herhangi bir dize olabilir, ancak her ikisi de aynı dize değeri olması gerekir. Ardından **oturum**.
+## <a name="test-hello-application"></a>Test hello uygulama
+1. Xcode'da, fiziksel bir iOS cihazında (anında iletme bildirimleri hello benzeticisinde çalışmaz) hello uygulamayı çalıştırın.
+2. Merhaba iOS uygulama kullanıcı Arabirimi, bir kullanıcı adı ve parola girin. Bunlar herhangi bir dize olabilir, ancak her ikisi de hello olması gerekir aynı dize değeri. Ardından **oturum**.
    
     ![][2]
 3. Kayıt başarılı size bildiren bir açılır pencere görmeniz gerekir. **Tamam** düğmesine tıklayın.
    
     ![][3]
-4. İçinde **alıcı kullanıcı adı etiketi* metin alanında, başka bir cihaz kaydından ile kullanılan kullanıcı adı etiketi girin.
-5. Bir bildirim iletisi girin ve tıklayın **bildirim gönder**.  Alıcı kullanıcı adı etiketi ile kayıt olan cihazları bildirim iletisini alırsınız.  Ayrıca, bu kullanıcılara yalnızca gönderilir.
+4. Merhaba, **alıcı kullanıcı adı etiketi* metin alanında, başka bir aygıt hello kaydından ile kullanılan hello kullanıcı adı etiketi girin.
+5. Bir bildirim iletisi girin ve tıklayın **bildirim gönder**.  Merhaba alıcı kullanıcı adı etiketi ile kayıt olan hello aygıtların hello bildirim iletisi alırsınız.  Ayrıca, toothose kullanıcılar yalnızca gönderilir.
    
     ![][4]
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery yönetmek için rol tabanlı erişim denetimini kullanma | Microsoft Docs"
-description: "Bu makalede nasıl uygulanacağını ve Azure Site Recovery dağıtımlarınızı yönetmek için rol tabanlı erişim denetimi (RBAC) kullanın"
+title: "aaaUsing rol tabanlı erişim denetimi toomanage Azure Site Recovery | Microsoft Docs"
+description: "Rol tabanlı erişim tooapply ve kullanım nasıl kontrol bu makalede (RBAC) toomanage Azure Site Recovery dağıtımlarınızı"
 services: site-recovery
 documentationcenter: 
 author: mayanknayar
@@ -14,36 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: manayar
-ms.openlocfilehash: 9dd74014bf05234a83c7678b67b42b96cd8b8d64
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7b721090351e561b28317ccdcf0ff283e0b146ca
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>Azure Site Recovery dağıtımları yönetmek için rol tabanlı erişim denetimi kullanma
+# <a name="use-role-based-access-control-toomanage-azure-site-recovery-deployments"></a>Rol tabanlı erişim denetimi toomanage Azure Site Recovery dağıtımları kullanın
 
-Azure Rol Tabanlı Erişim Denetimi (RBAC), Azure için ayrıntılı erişim yönetimi sağlar. RBAC kullanarak, ekibiniz içinde sorumlulukları kurabilmeleri ve belirli işlerini gerçekleştirmek için gereken şekilde kullanıcılara yalnızca belirli erişim izinleri verin.
+Azure Rol Tabanlı Erişim Denetimi (RBAC), Azure için ayrıntılı erişim yönetimi sağlar. RBAC kullanarak, ekibiniz içinde sorumlulukları kurabilmeleri ve yalnızca belirli erişim izinleri toousers gerekli tooperform belirli işler olarak verin.
 
-Azure Site Recovery Site Recovery yönetim işlemlerini denetlemek için 3 yerleşik roller sağlar. Daha fazla bilgi almak [Azure RBAC yerleşik rolleri](../active-directory/role-based-access-built-in-roles.md)
+Azure Site Recovery 3 yerleşik roller toocontrol Site Recovery yönetim işlemlerini sağlar. Daha fazla bilgi almak [Azure RBAC yerleşik rolleri](../active-directory/role-based-access-built-in-roles.md)
 
-* [Site kurtarma katkıda bulunan](../active-directory/role-based-access-built-in-roles.md#site-recovery-contributor) -bu rol bir kurtarma Hizmetleri kasası Azure Site Recovery işlemlerini yönetmek için gerekli tüm izinlere sahiptir. Bu rolüne sahip bir kullanıcı ancak oluşturmak veya bir kurtarma Hizmetleri kasası silemez veya diğer kullanıcıların erişim hakları atayın. Bu rol etkinleştirin ve olağanüstü durum kurtarma uygulamaları ya da tüm kuruluşlar için olarak durumda may olmak yönetmek olağanüstü durum kurtarma yöneticileri için uygundur.
-* [Site kurtarma işleci](../active-directory/role-based-access-built-in-roles.md#site-recovery-operator) -yürütme izni ve yük devretme ve yeniden çalışma operations manager bu rolü vardır. Bu rolüne sahip bir kullanıcı etkinleştirmek veya çoğaltma devre dışı bırakmak, oluşturmak veya kasalarını silmek, yeni altyapı kaydedilemiyor veya diğer kullanıcıların erişim hakları atayın. Bu rol kimin yük devretme sanal makinelerin olağanüstü durum kurtarma işleci için uygundur veya uygulama sahipleri ve gerçek veya sanal olağanüstü durumda bir DR gibi BT yöneticileri tarafından istendiğinde uygulamaları ayrıntıya gidin. POST olağanüstü durum çözümlemesi, DR işleci yeniden koruyabilir ve geri dönme sanal makineler.
-* [Site kurtarma okuyucu](../active-directory/role-based-access-built-in-roles.md#site-recovery-reader) -bu rol tüm Site Recovery yönetim işlemlerini görüntülemek için gerekli izinlere sahip. Bu rol kimin koruma geçerli durumunu izleyebilir ve Destek biletlerini gerekli olursa BT izleme yöneticinin için uygundur.
+* [Site kurtarma katkıda bulunan](../active-directory/role-based-access-built-in-roles.md#site-recovery-contributor) -bu rol tüm izinleri gerekli toomanage Azure Site kurtarma işlemlerinin bir kurtarma Hizmetleri kasasına sahiptir. Bu role sahip bir kullanıcı ancak oluşturmak veya bir kurtarma Hizmetleri kasası silemez veya erişim hakları tooother kullanıcılar atayın. Merhaba durumda olabileceğinden bu rolü etkinleştirin ve olağanüstü durum kurtarma uygulamaları ya da tüm kuruluşlar için yönetmek olağanüstü durum kurtarma Yöneticiler için idealdir.
+* [Site kurtarma işleci](../active-directory/role-based-access-built-in-roles.md#site-recovery-operator) -bu rol izinleri tooexecute ve manager yük devretme ve yeniden çalışma işlemlerini sahiptir. Bu rolüne sahip bir kullanıcı etkinleştirmek veya çoğaltma devre dışı bırakmak, oluşturmak veya kasalarını silmek, yeni altyapı kaydedilemiyor veya erişim hakları tooother kullanıcılar atayın. Bu rol kimin yük devretme sanal makinelerin olağanüstü durum kurtarma işleci için uygundur veya uygulama sahipleri ve gerçek veya sanal olağanüstü durumda bir DR gibi BT yöneticileri tarafından istendiğinde uygulamaları ayrıntıya gidin. POST hello olağanüstü durum çözümlemesi, hello DR işleci yeniden koruyabilir ve geri dönme hello sanal makineler.
+* [Site kurtarma okuyucu](../active-directory/role-based-access-built-in-roles.md#site-recovery-reader) -bu rol izinleri tooview tüm Site Recovery yönetim işlemlerinin sahiptir. Bu rol kimin hello geçerli koruma durumunu izleyebilir ve Destek biletlerini gerekli olursa BT izleme yöneticinin için uygundur.
 
-Daha fazla denetim için kendi rolleri tanımlamak için arıyorsanız, bkz: nasıl yapılır [özel roller yapı](../active-directory/role-based-access-control-custom-roles.md) Azure.
+Daha fazla denetim için kendi rolleri toodefine arıyorsanız, bkz. nasıl çok[özel roller yapı](../active-directory/role-based-access-control-custom-roles.md) Azure.
 
-## <a name="permissions-required-to-enable-replication-for-new-virtual-machines"></a>Yeni sanal makineler için çoğaltmayı etkinleştirme için gereken izinler
-Yeni bir sanal makine için Azure Site Kurtarma'yı kullanarak Azure çoğaltıldığında ilişkili kullanıcının erişim düzeyleri kullanıcı için Site Recovery sağlanan Azure kaynaklarını kullanmak için gerekli izinlere sahip olduğundan emin olmak için doğrulanır.
+## <a name="permissions-required-tooenable-replication-for-new-virtual-machines"></a>TooEnable çoğaltma yeni sanal makineler için gereken izinler
+Yeni bir sanal makine Azure Site RECOVERY'yi kullanarak çoğaltılmış tooAzure olduğunda, kullanıcı hello doğrulanmış tooensure ilişkili hello kullanıcının erişim düzeyleri olan hello izinleri toouse hello sağlanan Azure kaynakları tooSite kurtarma istedi.
 
-Yeni bir sanal makine için çoğaltmayı etkinleştirmek için bir kullanıcı olması gerekir:
-* Seçili kaynak grubuna bir sanal makine oluşturma izni
-* Seçilen sanal ağ içinde bir sanal makine oluşturma izni
-* Seçili depolama hesabına yazma izni
+Yeni bir sanal makine için çoğaltma tooenable, bir kullanıcı olması gerekir:
+* İzni toocreate hello seçili kaynak grubu içindeki bir sanal makineye
+* İzni toocreate hello seçilen sanal ağ içindeki bir sanal makineye
+* Depolama hesabı izni toowrite toohello seçili
 
-Bir kullanıcının yeni bir sanal makinenin tam çoğaltma aşağıdaki izinleri gerekir.
+Bir kullanıcının izinleri toocomplete yeni bir sanal makine çoğaltmasını aşağıdaki hello gerekir.
 
 > [!IMPORTANT]
->İlgili izinleri dağıtım modeli eklendiğinden emin olun (Resource Manager / Klasik) kaynak dağıtımı için kullanılır.
+>İlgili izinleri hello dağıtım modeli eklendiğinden emin olun (Resource Manager / Klasik) kaynak dağıtımı için kullanılır.
 
 | **Kaynak Türü** | **Dağıtım modeli** | **İzni** |
 | --- | --- | --- |
@@ -73,11 +73,11 @@ Bir kullanıcının yeni bir sanal makinenin tam çoğaltma aşağıdaki izinler
 | Kaynak Grubu | Resource Manager | Microsoft.Resources/deployments/* |
 |  |  | Microsoft.Resources/subscriptions/resourceGroups/read |
 
-'Sanal makine Katılımcısı' ve 'Klasik sanal makine Katılımcısı' kullanmayı düşünün [yerleşik roller](../active-directory/role-based-access-built-in-roles.md) için Resource Manager ve klasik dağıtım modelleri sırasıyla.
+Merhaba 'Sanal makine Katılımcısı' ve 'Klasik sanal makine Katılımcısı' kullanmayı düşünün [yerleşik roller](../active-directory/role-based-access-built-in-roles.md) için Resource Manager ve klasik dağıtım modelleri sırasıyla.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md): Azure portalında RBAC ile çalışmaya başlama.
-* Erişimle yönetmeyi öğrenin:
+* [Rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md): hello Azure portalında RBAC ile çalışmaya başlama.
+* Toomanage nasıl erişim ile bilgi edinin:
   * [PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
   * [Azure CLI](../active-directory/role-based-access-control-manage-access-azure-cli.md)
   * [REST API](../active-directory/role-based-access-control-manage-access-rest.md)

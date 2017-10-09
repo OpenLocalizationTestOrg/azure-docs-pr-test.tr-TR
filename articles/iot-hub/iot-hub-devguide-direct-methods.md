@@ -1,6 +1,6 @@
 ---
-title: "Azure IOT hub'ı doğrudan yöntemlerini anlama | Microsoft Docs"
-description: "Geliştirici Kılavuzu - kod cihazlarınızda service uygulamasından çağırmak için doğrudan yöntemlerini kullanın."
+title: "Azure IOT Hub aaaUnderstand doğrudan yöntemleri | Microsoft Docs"
+description: "Geliştirici Kılavuzu - cihazlarınızda service uygulamasından doğrudan yöntemleri tooinvoke kod kullanın."
 services: iot-hub
 documentationcenter: .net
 author: nberdy
@@ -15,50 +15,50 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 77e788a32097edbcb1cd4faaa45f35812eabd94a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 0d15d44a0c3e1d1cda1669c1ed011c2f932e3d92
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Anlama ve IOT hub'ı doğrudan yöntemleri çağırma
 ## <a name="overview"></a>Genel Bakış
-IOT Hub, bulutta cihazlarda doğrudan yöntemlerini çağırmasına olanak sağlar. Başarılı veya başarısız hemen (bir kullanıcı tarafından belirtilen zaman aşımından sonra), bir HTTP çağrısıyla benzer bir cihaz istek-yanıt etkileşim doğrudan yöntemleri temsil eder. Acil eylem seyri aygıt bir aygıtı (çevrimdışı SMS yöntem çağrısı daha pahalı olması) ise, bir SMS Uyandırma bir cihaza gönderme gibi yanıt verebilmesini olmasına bağlı olarak farklı olduğu senaryolar için kullanışlıdır.
+IOT hub'ı hello buluta cihazlarda özelliği tooinvoke doğrudan yöntemleri sağlar. Doğrudan yöntemleri HTTP çağrı başarılı veya başarısız hemen (bir kullanıcı tarafından belirtilen zaman aşımından sonra), bir cihaz benzer tooan istek-yanıt etkileşim temsil eder. Acil eylem hello seyri hello aygıt bir aygıtı (çevrimdışı SMS yöntem çağrısı daha pahalı olması) ise bir SMS Uyandırma tooa aygıt gönderme gibi mümkün toorespond olmasına bağlı olarak farklı olduğu senaryolar için kullanışlıdır.
 
-Her cihaz yöntemi tek bir cihazı hedefler. [İşlerini] [ lnk-devguide-jobs] doğrudan yöntemlerini birden çok aygıta çağırmak için bir yol sağlar ve zamanlama yöntem çağırma bağlantısı kesilmiş aygıtları için.
+Her cihaz yöntemi tek bir cihazı hedefler. [İşlerini] [ lnk-devguide-jobs] şekilde tooinvoke birden fazla cihazda doğrudan yöntemleri sağlar ve zamanlama yöntem çağırma bağlantısı kesilmiş aygıtları için.
 
 Herkesle **service bağlanma** IOT Hub üzerindeki izinleri bir aygıtta bir yöntemi çağırma.
 
-### <a name="when-to-use"></a>Kullanılması gereken durumlar
-Doğrudan yöntemleri istek-yanıt desenler izleyen ve örneğin fan üzerinde etkinleştirmek aygıtın genellikle etkileşimli denetimini kendi sonucunun hemen onay gerektiren iletişimleri için yöneliktir.
+### <a name="when-toouse"></a>Zaman toouse
+Doğrudan yöntemleri bir istek-yanıt desen izleyin ve kendi sonucunun hello aygıtın, örneğin tooturn fan üzerinde genellikle etkileşimli denetimini hemen onay gerektiren iletişimleri için yöneliktir.
 
-Başvurmak [bulut-cihaz iletişimi Kılavuzu] [ lnk-c2d-guidance] istenen özelliklerini kullanarak arasında emin değilseniz, yöntemler veya Bulut-cihaz iletilerini doğrudan.
+Çok başvuran[bulut-cihaz iletişimi Kılavuzu] [ lnk-c2d-guidance] istenen özelliklerini kullanarak arasında emin değilseniz, yöntemler veya Bulut-cihaz iletilerini doğrudan.
 
 ## <a name="method-lifecycle"></a>Yöntem yaşam döngüsü
-Doğrudan yöntemleri cihazda uygulanır ve doğru örneği oluşturmak için yöntem yükte sıfır veya daha fazla girdi gerektirebilir. Bir hizmet dönük URI üzerinden doğrudan bir yöntemi çağırma (`{iot hub}/twins/{device id}/methods/`). Bir aygıt bir aygıta özgü MQTT konu aracılığıyla doğrudan yöntemleri alır (`$iothub/methods/POST/{method name}/`). Doğrudan yöntemleri ek cihaz tarafındaki ağ protokollerini temel gelecekte destekliyoruz.
+Doğrudan yöntemleri hello aygıtta uygulanır ve sıfır gerektirebilir veya hello yöntemi yükü toocorrectly içinde daha fazla giriş örneği. Bir hizmet dönük URI üzerinden doğrudan bir yöntemi çağırma (`{iot hub}/twins/{device id}/methods/`). Bir aygıt bir aygıta özgü MQTT konu aracılığıyla doğrudan yöntemleri alır (`$iothub/methods/POST/{method name}/`). Doğrudan yöntemleri protokollerine ek cihaz tarafındaki ağ hello gelecekteki destekliyoruz.
 
 > [!NOTE]
-> Bir cihazda doğrudan bir yöntemini çağırdığınızda, özellik adları ve değerleri yalnızca US-ASCII yazdırılabilir içerebilir herhangi aşağıdaki kümesindeki dışında alfasayısal: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
+> Bir cihazda doğrudan bir yöntemini çağırdığınızda, özellik adları ve değerleri yalnızca US-ASCII yazdırılabilir içerebilir kümesi aşağıdaki hello birinde dışında alfasayısal: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
 > 
 > 
 
-Zaman uyumlu yöntemleri ve ya da başarılı doğrudan veya zaman aşımı süresinden sonra başarısız (varsayılan: 30 saniye, 3600 saniye olarak ayarlanabilir kurma). Doğrudan yöntemler, bir Phone ışığı kapatma gibi çevrimiçi ve alıcı komutları, cihaz, yalnızca ve yalnızca, görev yapması için bir aygıt istediğiniz etkileşimli senaryolarda kullanışlıdır. Bu senaryolarda, bulut hizmeti sonucuna mümkün olan en kısa sürede hareket etmesini sağlamak bir hemen başarı veya başarısızlık görmek istediğinizi açıklayın. Cihaz bazı ileti gövdesi yöntemi sonucunda döndürebilir ancak yöntemi bunu yapmak gerekli değildir. Garanti sıralama üzerinde veya tüm eşzamanlılık semantiği yöntem çağrılarını üzerinde yok.
+Doğrudan yöntemleri zaman uyumlu ve ya da başarılı veya başarısız hello zaman aşımı süresinden sonra (varsayılan: 30 saniye, too3600 saniyeleri ayarlanabilir). Doğrudan yöntemler, bir Phone ışığı kapatma gibi çevrimiçi ve alıcı komutları hello aygıttır ve yalnızca, bir aygıt tooact istediğiniz etkileşimli senaryolarda kullanışlıdır. Merhaba bulut hizmeti hello sonucuna mümkün olan en kısa sürede hareket etmesini sağlamak bu senaryolarda, toosee bir hemen başarı veya başarısızlık istiyor. Merhaba aygıt hello yöntemi sonucunda bazı ileti gövdesi döndürebilir ancak hello yöntemi toodo için gerekli değildir şekilde. Garanti sıralama üzerinde veya tüm eşzamanlılık semantiği yöntem çağrılarını üzerinde yok.
 
-Doğrudan yöntemini yalnızca HTTP bulut taraftaki ve yalnızca MQTT aygıt taraftaki.
+Doğrudan yöntemini yalnızca HTTP hello bulut taraftaki ve yalnızca MQTT hello aygıt taraftaki.
 
-Yöntem istekleri ve yanıtları için yükü, bir JSON belgesi en fazla 8 KB ' dir.
+yöntem istekleri ve yanıtları için Hello yükü too8KB yukarı JSON belgedir.
 
 ## <a name="reference-topics"></a>Başvuru konuları:
-Aşağıdaki başvuru konuları doğrudan yöntemler kullanma hakkında daha fazla bilgi sağlar.
+Merhaba aşağıdaki başvuru konuları doğrudan yöntemler kullanma hakkında daha fazla bilgi sağlar.
 
 ## <a name="invoke-a-direct-method-from-a-back-end-app"></a>Bir arka uç uygulamasından doğrudan bir yöntem çağırma
 ### <a name="method-invocation"></a>Yöntem çağırma
 Bir cihazda doğrudan yöntem çağrılarını oluşturan HTTP çağrıları vardır:
 
-* *URI* aygıta belirli (`{iot hub}/twins/{device id}/methods/`)
-* POST *yöntemi*
-* *Üstbilgileri* yetkilendirme içeren, istek kimliği, içerik türü ve içerik kodlaması
-* Saydam JSON *gövde* şu biçimde:
+* Merhaba *URI* belirli toohello aygıt (`{iot hub}/twins/{device id}/methods/`)
+* Merhaba POST *yöntemi*
+* *Üstbilgileri* hello yetkilendirme içeren, istek kimliği, içerik türü ve içerik kodlaması
+* Saydam JSON *gövde* biçimini izleyen hello içinde:
 
 ```
 {
@@ -71,14 +71,14 @@ Bir cihazda doğrudan yöntem çağrılarını oluşturan HTTP çağrıları var
 }
 ```
 
-Zaman aşımı saniye cinsindendir. Zaman aşımı ayarlanmamışsa 30 saniye olarak varsayılan olarak ayarlanır.
+Zaman aşımı saniye cinsindendir. Zaman aşımı ayarlanmamışsa too30 varsayılan olarak saniye.
 
 ### <a name="response"></a>Yanıt
-Arka uç uygulama içeren bir yanıt alır:
+Merhaba arka uç uygulama içeren bir yanıt alır:
 
-* *HTTP durum kodu*, IOT Hub'ından gelen hatalara kullanıldığı, 404 hatası cihazlar için şu anda da dahil olmak üzere bağlı
-* *Üstbilgileri* ETag içeren, istek kimliği, içerik türü ve içerik kodlaması
-* JSON *gövde* şu biçimde:
+* *HTTP durum kodu*, IOT hub'ı hello gelen hatalara kullanıldığı, 404 hatası cihazlar için şu anda da dahil olmak üzere bağlı
+* *Üstbilgileri* hello ETag içeren, istek kimliği, içerik türü ve içerik kodlaması
+* JSON *gövde* biçimini izleyen hello içinde:
 
 ```
 {
@@ -87,13 +87,13 @@ Arka uç uygulama içeren bir yanıt alır:
 }
 ```
 
-   Her ikisi de `status` ve `body` cihaz tarafından sağlanan ve cihazın kendi durum kodu ve/veya açıklama ile yanıtlamak için kullanılır.
+   Her ikisi de `status` ve `body` hello aygıt tarafından sağlanan ve toorespond hello cihazın kendi durum kodu ve/veya açıklama ile kullanılır.
 
 ## <a name="handle-a-direct-method-on-a-device"></a>Bir cihazda doğrudan bir yöntem işleme
 ### <a name="method-invocation"></a>Yöntem çağırma
-Cihazlar, MQTT konusunda doğrudan yöntem isteği alır:`$iothub/methods/POST/{method name}/?$rid={request id}`
+Cihazlar hello MQTT konuda doğrudan yöntem isteği alır:`$iothub/methods/POST/{method name}/?$rid={request id}`
 
-Cihaz alan gövdesi aşağıdaki biçimdedir:
+hangi hello aygıtından alan hello gövde biçimi aşağıdaki hello şöyledir:
 
 ```
 {
@@ -105,28 +105,28 @@ Cihaz alan gövdesi aşağıdaki biçimdedir:
 Yöntemi, QoS 0 isteklerdir.
 
 ### <a name="response"></a>Yanıt
-Cihaz yanıtlarını gönderir `$iothub/methods/res/{status}/?$rid={request id}`, burada:
+Merhaba cihaz gönderir yanıtları çok`$iothub/methods/res/{status}/?$rid={request id}`, burada:
 
-* `status` Yöntemi yürütme aygıt tarafından sağlanan durumunu bir özelliktir.
-* `$rid` IOT Hub'ından alınan yöntemi çağırma isteği Kimliğinden bir özelliktir.
+* Merhaba `status` hello aygıt tarafından sağlanan durumunu yöntemi yürütme bir özelliktir.
+* Merhaba `$rid` hello isteği IOT Hub'ından alınan hello yöntemi çağırma Kimliğinden bir özelliktir.
 
-Gövde aygıt tarafından ayarlanır ve herhangi bir durum olabilir.
+Merhaba gövde hello aygıt tarafından ayarlanır ve herhangi bir durum olabilir.
 
 ## <a name="additional-reference-material"></a>Ek başvuru bilgileri
-IOT Hub Geliştirici Kılavuzu'ndaki diğer başvuru konuları içerir:
+Merhaba IOT Hub Geliştirici Kılavuzu diğer başvuru konularına şunları içerir:
 
-* [IOT Hub uç noktaları] [ lnk-endpoints] her IOT hub'ı çalışma zamanı ve yönetim işlemleri için kullanıma sunan çeşitli uç noktaları açıklar.
-* [Azaltma ve kotaları] [ lnk-quotas] IOT Hub hizmeti ve azaltma davranışı hizmetini kullandığınızda beklediğiniz uygulama kotaları açıklar.
-* [Azure IOT cihaz ve hizmet SDK'ları] [ lnk-sdks] çeşitli dil IOT Hub ile etkileşim hem cihaz hem de hizmet uygulamaları geliştirirken kullanabilir SDK'ları listeler.
-* [IOT Hub cihaz çiftlerini, işler ve ileti yönlendirme için sorgu dili] [ lnk-query] IOT Hub'ından, cihaz çiftlerini ve işleri hakkında bilgi almak için kullanabileceğiniz IOT hub'ı sorgu dili açıklar.
-* [IOT Hub MQTT Destek] [ lnk-devguide-mqtt] IOT hub'ı desteği hakkında daha fazla bilgi için MQTT Protokolü sağlar.
+* [IOT Hub uç noktaları] [ lnk-endpoints] açıklar çalışma zamanı ve yönetim işlemleri için her IOT hub'ı sunan çeşitli uç noktaları hello.
+* [Azaltma ve kotaları] [ lnk-quotas] toohello IOT Hub hizmetine uygulamak ve hello hizmetini kullandığınızda azaltma davranışı tooexpect hello hello kotaları açıklar.
+* [Azure IOT cihaz ve hizmet SDK'ları] [ lnk-sdks] listeleri hello çeşitli dil SDK'ları, IOT Hub ile etkileşim hem cihaz hem de hizmet uygulamaları geliştirdiğinizde kullanabilirsiniz.
+* [IOT Hub cihaz çiftlerini, işler ve ileti yönlendirme için sorgu dili] [ lnk-query] hello tooretrieve bilgilerini IOT hub'dan cihaz çiftlerini ve işleri kullanabileceğiniz IOT hub'ı sorgu dili açıklar.
+* [IOT Hub MQTT Destek] [ lnk-devguide-mqtt] hello MQTT protokolü için IOT hub'ı desteği hakkında daha fazla bilgi sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Doğrudan yöntemlerini kullanmayı öğrendiniz artık aşağıdaki IOT Hub Geliştirici Kılavuzu konusundaki ilgi olabilir:
+Şimdi nasıl toouse doğrudan yöntemleri, IOT Hub Geliştirici Kılavuzu konusundaki aşağıdaki hello ilgilenebilirsiniz öğrendiniz:
 
 * [Birden çok aygıta işleri zamanla][lnk-devguide-jobs]
 
-Bu makalede açıklanan kavramları bazıları denemek istiyorsanız, aşağıdaki IOT hub'ı öğreticide ilgilenen olabilir:
+Bu makalede açıklanan hello kavramların bazıları çıkışı tootry isterseniz, IOT hub'ı öğreticiyi izleyerek hello ilgilenen olabilir:
 
 * [Doğrudan yöntemleri kullanın][lnk-methods-tutorial]
 

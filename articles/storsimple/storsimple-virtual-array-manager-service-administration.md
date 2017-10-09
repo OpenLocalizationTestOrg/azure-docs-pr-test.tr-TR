@@ -1,6 +1,6 @@
 ---
-title: "Microsoft Azure StorSimple Yöneticisi Sanal dizinin Yönetim | Microsoft Docs"
-description: "Azure portalında StorSimple cihaz Yöneticisi hizmetini kullanarak StorSimple şirket içi sanal dizinizi yönetmeyi öğrenin."
+title: "Azure StorSimple Yöneticisi Sanal dizinin yönetim aaaMicrosoft | Microsoft Docs"
+description: "Azure portal, StorSimple sanal dizinin hello StorSimple Aygıt Yöneticisi'ni hizmetinde kullanarak şirket içi toomanage hello nasıl öğrenin."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,67 +14,67 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/1/2016
 ms.author: alkohli
-ms.openlocfilehash: a74a160eae88a2d03460a1346479c333d8f9d524
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1fabf9ca524b461266346a6cabf49aef772032ea
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-virtual-array"></a>StorSimple sanal dizinizi yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanma
+# <a name="use-hello-storsimple-device-manager-service-tooadminister-your-storsimple-virtual-array"></a>StorSimple sanal dizinizi Hello StorSimple cihaz Yöneticisi hizmeti tooadminister kullanın
 ![Kurulum işlem akışı](./media/storsimple-virtual-array-manager-service-administration/manage4.png)
 
 ## <a name="overview"></a>Genel Bakış
-Bu makalede, onu ve çeşitli seçenekleri, bağlanmak nasıl dahil olmak üzere StorSimple cihaz Yöneticisi hizmet arabirimden açıklar ve bu kullanıcı Arabirimi gerçekleştirilebilir belirli iş akışları için bağlantılar sağlar.
+Bu makalede tooconnect tooit ve çeşitli kullanılabilir seçenekleri ve bağlantıları toohello belirli iş akışları sağlayan hello bu kullanıcı Arabirimi nasıl gerçekleştirilebilir dahil olmak üzere, hello StorSimple cihaz Yöneticisi hizmeti arabirimi açıklanmaktadır.
 
 Bu makaleyi okuduktan sonra şunları öğrenmiş olacaksınız nasıl yapılır:
 
-* StorSimple cihaz Yöneticisi hizmetine bağlanmak
-* StorSimple Aygıt Yöneticisi'ni UI gidin
-* StorSimple sanal dizinizi StorSimple cihaz Yöneticisi hizmeti aracılığıyla yönetmek
+* Toohello StorSimple cihaz Yöneticisi hizmetine bağlanın
+* Merhaba StorSimple cihaz Yöneticisi kullanıcı Arabirimi gidin
+* StorSimple sanal dizinizi hello StorSimple cihaz Yöneticisi hizmeti aracılığıyla yönetmek
 
 > [!NOTE]
-> StorSimple 8000 serisi cihaz için yönetim seçenekleri görüntülemek için şu adrese gidin [StorSimple Cihazınızı yönetmek için StorSimple Yöneticisi hizmetini kullanma](storsimple-manager-service-administration.md).
+> tooview hello yönetim seçenekleri hello StorSimple 8000 serisi aygıt için Git çok[kullanım StorSimple Cihazınızı StorSimple Yöneticisi hizmet tooadminister hello](storsimple-manager-service-administration.md).
 > 
 > 
 
-## <a name="connect-to-the-storsimple-device-manager-service"></a>StorSimple cihaz Yöneticisi hizmetine bağlanmak
-StorSimple cihaz Yöneticisi hizmeti Microsoft Azure üzerinde çalışır ve birden çok StorSimple sanal diziler bağlanır. Bu cihazları yönetmek için bir tarayıcıda çalışan merkezi bir Microsoft Azure portalını kullanın. StorSimple cihaz Yöneticisi hizmetine bağlanmak için aşağıdakileri yapın.
+## <a name="connect-toohello-storsimple-device-manager-service"></a>Toohello StorSimple cihaz Yöneticisi hizmetine bağlanın
+Merhaba StorSimple cihaz Yöneticisi hizmeti Microsoft Azure üzerinde çalışır ve toomultiple StorSimple sanal diziler bağlanır. Bu aygıtlar bir tarayıcı toomanage çalıştıran merkezi bir Microsoft Azure portalını kullanın. tooconnect toohello StorSimple cihaz Yöneticisi hizmeti hello aşağıdaki.
 
-#### <a name="to-connect-to-the-service"></a>Hizmete bağlanmak için
-1. Git [https://ms.portal.azure.com](https://ms.portal.azure.com).
-2. Microsoft hesabı kimlik bilgilerinizi kullanarak (sağ üst tarafında bölmesinin bulunur) Microsoft Azure portalında oturum açın.
-3. Gitmek için Gözat 'Filtrele' belirli bir aboneliğe tüm cihaz yöneticileri görüntülemek üzere StorSimple cihaz yöneticileri üzerinde-->.
+#### <a name="tooconnect-toohello-service"></a>tooconnect toohello hizmeti
+1. Çok Git[https://ms.portal.azure.com](https://ms.portal.azure.com).
+2. Toohello Microsoft Azure Portal'da (Merhaba sağ üst tarafında hello bölmesinin bulunur), Microsoft hesabı kimlik bilgilerinizi kullanarak oturum açın.
+3. Gezinme tooBrowse--> 'Filter' StorSimple cihaz yöneticileri tooview üzerinde belirli bir aboneliğe tüm cihaz yöneticileri.
 
-## <a name="use-the-storsimple-device-manager-service-to-perform-management-tasks"></a>Yönetim görevlerini gerçekleştirmek için StorSimple cihaz Yöneticisi hizmetini kullanma
-Aşağıdaki tabloda genel yönetim görevleri ve StorSimple cihaz Yöneticisi hizmeti Özet Dikey içinde gerçekleştirilebilir karmaşık iş akışları bir özetini gösterir. Bu görevler üzerinde bunlar başlatılan Kanatlar göre düzenlenir.
+## <a name="use-hello-storsimple-device-manager-service-tooperform-management-tasks"></a>Merhaba StorSimple cihaz Yöneticisi hizmeti tooperform yönetimi görevlerini kullanma
+Merhaba aşağıdaki tabloda tüm hello genel yönetim görevleri ve içinde hello StorSimple cihaz Yöneticisi hizmeti dikey penceresinde Özet gerçekleştirilebilir karmaşık iş akışları bir özetini gösterir. Bu görevler üzerinde bunlar başlatılan hello Kanatlar göre düzenlenir.
 
-Her bir iş akışı hakkında daha fazla bilgi için tablodaki uygun yordamı tıklatın.
+Her bir iş akışı hakkında daha fazla bilgi için hello tablosundaki hello uygun yordamı tıklatın.
 
 #### <a name="storsimple-device-manager-workflows"></a>StorSimple cihaz Manager iş akışları
-| Bunu yapmak istiyorsanız... | Bu yordamı kullanın |
+| Bu toodo isterseniz... | Bu yordamı kullanın |
 | --- | --- | --- |
-| Hizmet oluşturma</br>Bir hizmeti silin</br>Hizmet kayıt anahtarı alma</br>Hizmet kayıt anahtarını yeniden oluşturma |[StorSimple cihaz Yöneticisi hizmetini dağıtma](storsimple-virtual-array-manage-service.md) |
-| Etkinlik günlükleri görüntüleme |[StorSimple hizmet özeti kullanın](storsimple-virtual-array-service-summary.md) |
+| Hizmet oluşturma</br>Bir hizmeti silin</br>Merhaba hizmet kayıt anahtarını alın</br>Merhaba hizmet kayıt anahtarını yeniden oluşturma |[Merhaba StorSimple cihaz Yöneticisi hizmetini dağıtma](storsimple-virtual-array-manage-service.md) |
+| Merhaba etkinlik günlüklerini görüntüle |[Merhaba StorSimple hizmeti Özet kullanın](storsimple-virtual-array-service-summary.md) |
 | Sanal bir dizi devre dışı bırakma</br>Sanal bir dizi Sil |[Sanal bir dizi silmek veya devre dışı bırakma](storsimple-virtual-array-deactivate-and-delete-device.md) |
 | Olağanüstü durum kurtarma ve aygıt yük devretme</br>Yük devretme önkoşulları</br>İş sürekliliği olağanüstü durum kurtarma (BCDR)</br>Olağanüstü durum kurtarma sırasında hatalar |[Olağanüstü durum kurtarma ve aygıt yük devretme, StorSimple sanal dizini](storsimple-virtual-array-failover-dr.md) |
-| Paylaşımları ve birimler yedekleme</br>El ile yedekleyin</br>Yedekleme zamanlamasını değiştirme</br>Var olan yedekleri görüntüleyin |[StorSimple sanal dizinizi yedekleyin](storsimple-virtual-array-backup.md) |
+| Paylaşımları ve birimler yedekleme</br>El ile yedekleyin</br>Merhaba yedekleme zamanlamasını değiştirme</br>Var olan yedekleri görüntüleyin |[StorSimple sanal dizinizi yedekleyin](storsimple-virtual-array-backup.md) |
 | Bir yedekleme kümesinden kopya paylaşımları</br>Bir yedekleme kümesi birimlerden kopyalama</br>Öğe düzeyinde Kurtarma (yalnızca dosya sunucusu) |[StorSimple sanal dizinizi yedekten kopyalama](storsimple-virtual-array-clone.md) |
-| Depolama hesapları hakkında</br>Depolama hesabı ekleme</br>Bir depolama hesabı Düzenle</br>Bir depolama hesabını silme |[StorSimple sanal dizi için depolama hesaplarını yönetme](storsimple-virtual-array-manage-storage-accounts.md) |
-| Erişim denetimi kayıtları hakkında</br>Ekleyin veya bir erişim denetimi kaydı değiştirin </br>Bir erişim denetimi kaydını sil |[StorSimple sanal dizi için erişim denetim kayıtlarını yönetme](storsimple-virtual-array-manage-acrs.md) |
+| Depolama hesapları hakkında</br>Depolama hesabı ekleme</br>Bir depolama hesabı Düzenle</br>Bir depolama hesabını silme |[Merhaba StorSimple sanal dizi depolama hesaplarını yönetme](storsimple-virtual-array-manage-storage-accounts.md) |
+| Erişim denetimi kayıtları hakkında</br>Ekleyin veya bir erişim denetimi kaydı değiştirin </br>Bir erişim denetimi kaydını sil |[Merhaba StorSimple sanal dizi için erişim denetim kayıtlarını yönetme](storsimple-virtual-array-manage-acrs.md) |
 | İş ayrıntılarını görüntüleme |[StorSimple sanal dizinin işlerini yönetme](storsimple-virtual-array-manage-jobs.md) |
-| Uyarı ayarlarını yapılandırma</br>Uyarı bildirimleri alma</br>Uyarıları yönetme</br>Uyarıları gözden geçirin |[Uyarıları görüntüleyin ve StorSimple sanal dizi için yönetin](storsimple-virtual-array-manage-alerts.md) |
-| Cihaz Yöneticisi parolasını değiştirme |[StorSimple sanal dizinin cihaz Yöneticisi parolasını değiştirme](storsimple-virtual-array-change-device-admin-password.md) |
+| Uyarı ayarlarını yapılandırma</br>Uyarı bildirimleri alma</br>Uyarıları yönetme</br>Uyarıları gözden geçirin |[Merhaba StorSimple sanal dizinin için uyarıları görüntüleyin ve yönetin](storsimple-virtual-array-manage-alerts.md) |
+| Merhaba cihaz Yöneticisi parolasını değiştirme |[Merhaba StorSimple sanal dizinin cihaz Yöneticisi parolasını değiştirme](storsimple-virtual-array-change-device-admin-password.md) |
 | Yazılım güncelleştirmelerini yükle |[Sanal dizinizi güncelleştir](storsimple-virtual-array-install-update.md) |
 
 > [!NOTE]
-> Kullanmalısınız [yerel web kullanıcı Arabirimi](storsimple-ova-web-ui-admin.md) aşağıdaki görevler için:
+> Merhaba kullanmalısınız [yerel web kullanıcı Arabirimi](storsimple-ova-web-ui-admin.md) görevleri aşağıdaki hello için:
 > 
-> * [Hizmet verileri şifreleme anahtarı alma](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key)
+> * [Merhaba hizmet verileri şifreleme anahtarı alma](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key)
 > * [Bir destek paketi oluştur](storsimple-ova-web-ui-admin.md#generate-a-log-package)
 > * [Durdurun ve sanal dizinin yeniden başlatın](storsimple-ova-web-ui-admin.md#shut-down-and-restart-your-device)
 > 
 > 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Web kullanıcı Arabirimi hakkında bilgi ve nasıl kullanılacağını için Git [StorSimple sanal dizinizi yönetmek için StorSimple web kullanıcı arabirimini kullanın](storsimple-ova-web-ui-admin.md).
+Web kullanıcı Arabirimi hello hakkında bilgi için ve nasıl toouse, çok Git[kullanın, StorSimple sanal dizinizi StorSimple web kullanıcı Arabirimi tooadminister hello](storsimple-ova-web-ui-admin.md).
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure AD Connect Health Aracısı yüklemesi | Microsoft Belgeleri"
-description: "Bu Azure AD Connect Health sayfasında, AD FS ve Eşitleme için aracı yükleme işlemi açıklanmıştır."
+title: "aaaAzure AD Connect Health Aracısı yüklemesi | Microsoft Docs"
+description: "Bu, AD FS ve eşitleme için aracı yüklemesini hello açıklayan hello Azure AD Connect Health sayfasıdır."
 services: active-directory
 documentationcenter: 
 author: karavar
@@ -14,52 +14,52 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 8ef8a1cc2393f0befbf83c3124b67b405ae06898
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 9019628ec1d4c477496e08910cfd668ed1933a62
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Aracısı Yüklemesi
-Bu belge, Azure AD Connect Health Aracılarını yüklemenize ve yapılandırmanıza yardımcı olur. Aracıları [buradan](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent) indirebilirsiniz.
+Bu belge yükleme ve hello Azure AD Connect Health aracıları yapılandırma anlatılmaktadır. Merhaba aracılardan indirebilirsiniz [burada](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent).
 
 ## <a name="requirements"></a>Gereksinimler
-Aşağıdaki tabloda Azure AD Connect Health kullanımına ilişkin gereksinimler listelenmiştir.
+Aşağıdaki tablonun hello Azure AD Connect Health kullanma gereksinimleri listelenmiştir.
 
 | Gereksinim | Açıklama |
 | --- | --- |
-| Azure AD Premium |Azure AD Connect Health, bir Azure AD Premium özelliği olup Azure AD Premium gerektirir. </br></br>Daha fazla bilgi için bkz. [Azure AD Premium ile Çalışmaya Başlama](../active-directory-get-started-premium.md) </br>30 günlük ücretsiz denemeyi başlatmak için bkz. [Denemeyi başlatma.](https://azure.microsoft.com/trial/get-started-active-directory/) |
-| Azure AD Connect Health ile çalışmaya başlamak için Azure AD'nizin genel yöneticisi olmanız gerekir. |Varsayılan olarak yalnızca genel yöneticiler; çalışmaya başlamak üzere durum aracılarını yükleyip yapılandırabilir, portala erişebilir ve Azure AD Connect Health'te işlem gerçekleştirebilir. Daha fazla bilgi için bkz. [Azure AD dizininizi yönetme](../active-directory-administer.md). <br><br> Rol Tabanlı Erişim Denetimini kullanarak kuruluşunuzdaki diğer kullanıcılara Azure AD Connect Health erişim izni verebilirsiniz. Daha fazla bilgi için bkz. [Azure AD Connect Health için Rol Tabanlı Erişim Denetimi.](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control) </br></br>**Önemli:** Aracıları yüklerken kullanılan hesap bir iş veya okul hesabı olmalıdır. Bir Microsoft hesabı olamaz. Daha fazla bilgi için bkz. [Azure'a kuruluş olarak kaydolma](../sign-up-organization.md) |
-| Azure AD Connect Health Aracısı, hedeflenen tüm sunucularda yüklüdür | Azure AD Connect Health, veri almak ve İzleme ve Analiz özelliklerini sağlamak için hedeflenen sunucularda Sistem Durumu Aracılarının yüklü ve yapılandırılmış olmasını gerektirir </br></br>Örneğin, AD FS altyapınızdan veri alabilmek için AD FS sunucularında ve Web Uygulaması Proxy sunucularında aracının yüklü olması gerekir. Benzer şekilde, şirket içi AD DS altyapınızdaki verileri almak için aracının etki alanı denetleyicilerine yüklenmesi gerekir. </br></br> |
-| Azure hizmet uç noktalarına giden bağlantı | Yükleme ve çalışma zamanı sırasında, aracı ile Azure AD Connect Health hizmet uç noktaları arasında bağlantı kurulması gerekir. Giden bağlantı Güvenlik Duvarları kullanılarak engellenirse aşağıdaki uç noktaların izin verilenler listesine eklendiğinden emin olun: </br></br><li>&#42;.blob.core.windows.net </li><li>&#42;.servicebus.windows.net - Bağlantı Noktası: 5671 </li><li>&#42;.adhybridhealth.azure.com/</li><li>https://management.azure.com </li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
-|IP Adreslerini temel alan giden bağlantı | Güvenlik duvarlarında IP adresine göre filtreleme için bkz. [Azure IP Aralıkları](https://www.microsoft.com/en-us/download/details.aspx?id=41653).|
-| Giden trafik için SSL İncelemesi filtrelenmiş ya da devre dışı | Ağ katmanında giden trafik için SSL incelemesi veya sonlandırması mevcutsa aracı kaydı adımı veya veri yükleme işlemleri başarısız olabilir. |
-| Aracıyı çalıştıran sunucudaki güvenlik duvarı bağlantı noktaları. |Aracının Azure AD Health hizmet uç noktaları ile iletişim kurabilmesi için aşağıdaki güvenlik duvarı bağlantı noktalarının açık olması gerekir.</br></br><li>TCP bağlantı noktası 443</li><li>TCP bağlantı noktası 5671</li> |
-| IE Artırılmış Güvenlik etkinse aşağıdaki web sitelerine izin verin |IE Artırılmış Güvenlik etkinse aracının yükleneceği sunucuda aşağıdaki web sitelerine izin verilmesi gerekir.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Kuruluşunuz için Azure Active Directory tarafından güvenilen federasyon sunucusu. Örnek: https://sts.contoso.com</li> |
+| Azure AD Premium |Azure AD Connect Health, bir Azure AD Premium özelliği olup Azure AD Premium gerektirir. </br></br>Daha fazla bilgi için bkz. [Azure AD Premium ile Çalışmaya Başlama](../active-directory-get-started-premium.md) </br>Ücretsiz 30 günlük deneme toostart bakın [bir deneme başlatın.](https://azure.microsoft.com/trial/get-started-active-directory/) |
+| Bir genel olmalıdır, Azure AD tooget Yöneticisi Azure AD Connect Health ile başlatıldı |Varsayılan olarak, yalnızca hello genel yöneticiler yükleyebilir ve başlatıldı, hello sistem durumu aracısı tooget erişim hello portal, yapılandırma ve Azure AD Connect Health içinde hiçbir işlem gerçekleştiremezsiniz. Daha fazla bilgi için bkz. [Azure AD dizininizi yönetme](../active-directory-administer.md). <br><br> Rol tabanlı erişim denetimini kullanarak, erişim tooAzure AD Connect Health tooother kullanıcılar, kuruluşunuzda izin verebilirsiniz. Daha fazla bilgi için bkz. [Azure AD Connect Health için Rol Tabanlı Erişim Denetimi.](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control) </br></br>**Önemli:** hello hello aracılarını yükleme bir iş veya Okul hesabı olmalıdır sırasında kullanılan hesap. Bir Microsoft hesabı olamaz. Daha fazla bilgi için bkz. [Azure'a kuruluş olarak kaydolma](../sign-up-organization.md) |
+| Azure AD Connect Health Aracısı, hedeflenen tüm sunucularda yüklüdür | Azure AD Connect Health hello Health aracıları toobe yüklü ve hedeflenen sunucu tooreceive hello verileri üzerinde yapılandırılmış ve hello izleme ve analiz yetenekleri sağlamak gerektirir </br></br>Örneğin, hello Aracısı, AD FS altyapınızın tooget verilerden hello AD FS ve Web uygulaması Proxy sunucularının yüklenmesi gerekir. Benzer şekilde, şirket içi tooget verileri AD DS altyapı hello Aracısı hello etki alanı denetleyicileri üzerinde yüklü olmalıdır. </br></br> |
+| Giden bağlantı toohello Azure hizmet uç noktaları | Yükleme ve çalışma zamanı sırasında hello Aracısı bağlantısı tooAzure AD Connect Health hizmet uç noktaları gerektirir. Güvenlik duvarları kullanarak giden bağlantı engellenirse uç noktaları aşağıdaki o hello toohello izin verilen listesine eklenen emin olun: </br></br><li>&#42;.blob.core.windows.net </li><li>&#42;.servicebus.windows.net - Bağlantı Noktası: 5671 </li><li>&#42;.adhybridhealth.azure.com/</li><li>https://management.azure.com </li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
+|IP Adreslerini temel alan giden bağlantı | İçin IP adresi tabanlı güvenlik duvarları üzerinde filtreleme başvurun toohello [Azure IP aralıkları](https://www.microsoft.com/en-us/download/details.aspx?id=41653).|
+| Giden trafik için SSL İncelemesi filtrelenmiş ya da devre dışı | SSL denetleme veya sonlandırma hello ağ katmanında giden trafik için ise hello aracı kayıt adım veya verileri karşıya yükleme işlemleri başarısız olabilir. |
+| Merhaba Aracısı çalıştıran hello sunucusunda güvenlik duvarı bağlantı noktaları. |Merhaba aracının güvenlik duvarı bağlantı noktalarının toobe açık hello Aracısı toocommunicate hello Azure AD Health hizmet uç noktaları için sırayla aşağıdaki hello gerekir.</br></br><li>TCP bağlantı noktası 443</li><li>TCP bağlantı noktası 5671</li> |
+| IE Artırılmış Güvenlik etkinse aşağıdaki Web siteleri hello izin ver |IE Artırılmış Güvenlik etkinse, ardından hello aşağıdaki Web sitelerine giderek toohave hello aracısı yüklü olan hello sunucusuna izin verilmelidir.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Kuruluşunuzda Azure Active Directory tarafından güvenilen Federasyon sunucusu Hello. Örnek: https://sts.contoso.com</li> |
 |FIPS’yi devre dışı bırakma|FIPS, Azure AD Connect Health aracıları tarafından desteklenmez.|
 
-## <a name="installing-the-azure-ad-connect-health-agent-for-ad-fs"></a>AD FS için Azure AD Connect Health Aracısını yükleme
-Aracı yüklemesini başlatmak için indirdiğiniz .exe dosyasına çift tıklayın. İlk ekranda Yükle'ye tıklayın.
+## <a name="installing-hello-azure-ad-connect-health-agent-for-ad-fs"></a>Merhaba AD FS için Azure AD Connect Health aracısını yükleme
+toostart Merhaba aracı yüklemesi, indirdiğiniz hello .exe dosyasına çift tıklayın. Merhaba ilk ekranda Yükle'yi tıklatın.
 
 ![Azure AD Connect Health'i doğrulama](./media/active-directory-aadconnect-health-requirements/install1.png)
 
-Yükleme tamamlandıktan sonra Şimdi Yapılandır'a tıklayın.
+Merhaba yükleme tamamlandıktan sonra Şimdi Yapılandır'ı tıklatın.
 
 ![Azure AD Connect Health'i doğrulama](./media/active-directory-aadconnect-health-requirements/install2.png)
 
-Bu durum, aracı kaydı işlemini başlatmak üzere bir PowerShell penceresi açar. İstendiğinde, aracı kaydını gerçekleştirme erişimi olan bir Azure AD hesabıyla oturum açın. Varsayılan olarak, Genel Yönetici hesabı erişime sahiptir.
+Bu, bir PowerShell penceresi tooinitiate hello aracı kayıt işlemini başlatır. İstendiğinde, erişim tooperform Aracısı kaydı olan bir Azure AD hesabıyla oturum açın. Varsayılan olarak genel yönetici hesabı hello erişebilir.
 
 ![Azure AD Connect Health'i doğrulama](./media/active-directory-aadconnect-health-requirements/install3.png)
 
-Oturum açtıktan sonra PowerShell işleme devam eder. İşlem tamamlandıktan sonra PowerShell'i kapatabilirsiniz ve yapılandırma tamamlanmış olur.
+Oturum açtıktan sonra PowerShell işleme devam eder. İşlem tamamlandıktan sonra PowerShell'i kapatabilirsiniz ve hello yapılandırma tamamlanmış olur.
 
-Bu noktada, aracı hizmetleri, aracının gerekli verileri bulut hizmetine güvenli bir şekilde yüklemesine izin vermek üzere otomatik olarak başlatılmalıdır.
+Bu noktada, hello Hizmetleri olmalıdır Aracısı otomatik olarak izin verme hello Aracısı karşıya yükleme gerekli hello veri toohello bulut hizmeti güvenli bir şekilde başlatıldı.
 
-Önceki bölümlerde belirtilen önkoşulların tümünü yerine getirmediyseniz PowerShell penceresinde uyarılar görüntülenir. Aracıyı yüklemeden önce [buradaki](active-directory-aadconnect-health-agent-install.md#requirements) gereksinimleri karşıladığınızdan emin olun. Bu hataların bir örneğini aşağıdaki ekran görüntüsünde görebilirsiniz.
+Merhaba önceki bölümlerde belirtilen tüm hello ön koşullar karşılanmadığı takdirde uyarılar hello PowerShell penceresinde görünür. Emin toocomplete hello olması [gereksinimleri](active-directory-aadconnect-health-agent-install.md#requirements) hello aracı yüklemeden önce. Aşağıdaki ekran görüntüsü hello bu hataların bir örnektir.
 
 ![Azure AD Connect Health'i doğrulama](./media/active-directory-aadconnect-health-requirements/install4.png)
 
-Aracının yüklü olduğunu doğrulamak için sunucuda aşağıdaki hizmetleri arayın. Yapılandırmayı tamamladıysanız bu hizmetlerin çalışır durumda olması gerekir. Aksi halde bu hizmetler yapılandırma tamamlanıncaya kadar durdurulur.
+tooverify hello aracısı yüklü, hello sunucudaki hizmetler aşağıdaki hello arayın. Merhaba yapılandırmayı tamamladıysanız zaten çalışmalıdır. Merhaba yapılandırma tamamlanıncaya kadar Aksi halde, durdurulmuş.
 
 * Azure AD Connect Health AD FS Tanılama Hizmeti
 * Azure AD Connect Health AD FS Öngörü Hizmeti
@@ -70,61 +70,61 @@ Aracının yüklü olduğunu doğrulamak için sunucuda aşağıdaki hizmetleri 
 ### <a name="agent-installation-on-windows-server-2008-r2-servers"></a>Windows Server 2008 R2 Sunucularında aracı yüklemesi
 Windows Server 2008 R2 sunucuları için adımlar:
 
-1. Sunucunun Hizmet Paketi 1 veya daha yüksek bir sürümde çalıştığından emin olun.
+1. Bu hello server Service Pack 1 veya daha yüksek çalıştığından emin olun.
 2. Aracı yüklemesi için IE ESC'yi devre dışı bırakın:
-3. AD Health aracısını yüklemeden önce her bir sunucuya Windows PowerShell 4.0 sürümünü yükleyin. Windows PowerShell 4.0 sürümünü yüklemek için:
-   * Çevrimdışı yükleyiciyi indirmek için aşağıdaki bağlantıyı kullanarak [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=40779) sürümünü yükleyin.
+3. Merhaba AD Health aracısını yükleme öncesinde hello sunucuların her birinde Windows PowerShell 4.0 sürümünü yükleyin. Windows PowerShell 4.0 tooinstall:
+   * Yükleme [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=40779) bağlantı toodownload hello çevrimdışı Yükleyici aşağıdaki hello kullanarak.
    * PowerShell ISE'yi yükleme (Windows Özelliklerinden)
-   * [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) sürümünü yükleyin.
-   * Sunucuda Internet Explorer 10 veya sonraki bir sürümünü yükleyin. (Sistem Sağlığı Hizmeti tarafından Azure Yönetici kimlik bilgileriniz kullanılarak kimliğinizin doğrulanması için gereklidir.)
-4. Windows Server 2008 R2'ye Windows PowerShell 4.0 sürümünü yüklemek üzere daha fazla bilgi almak için [buradaki](http://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx) wiki makalesine bakın.
+   * Merhaba yüklemek [Windows Management Framework 4.0.](https://www.microsoft.com/download/details.aspx?id=40855)
+   * Internet Explorer sürüm 10 veya üstü hello sunucusunda. (Azure yönetici kimlik bilgilerinizi kullanarak hello sistem durumu hizmeti tooauthenticate tarafından gereklidir.)
+4. Windows Server 2008 R2'de Windows PowerShell 4.0 sürümünü yükleme hakkında daha fazla bilgi için hello wiki makalesine bakın [burada](http://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx).
 
 ### <a name="enable-auditing-for-ad-fs"></a>AD FS için Denetimi Etkinleştirme
 > [!NOTE]
-> Bu bölüm yalnızca AD FS sunucuları için geçerlidir. Web Uygulaması Ara Sunucularında bu adımları izlemeniz gerekmez.
+> Bu bölüm, yalnızca tooAD FS sunucuları geçerlidir. Merhaba Web Uygulama Proxy sunucuları üzerinde aşağıdaki adımları toofollow sahip değil.
 >
 
-Kullanım Analizi özelliğinin verileri toplaması ve analiz edebilmesi için, Azure AD Connect Health aracılarının AD FS Denetim Günlüklerindeki bilgilere ihtiyacı vardır. Bu günlükler varsayılan olarak etkin değildir. AD FS denetimini etkinleştirmek ve AD FS denetim günlüklerini bulmak için AD FS sunucularınızda aşağıdaki yordamları kullanın.
+Kullanım analizi toogather özellik ve analiz hello sırayla verileri, hello Azure AD Connect Health Aracısı hello AD FS denetim günlüklerini bilgilerinde hello. Bu günlükler varsayılan olarak etkin değildir. Kullanım hello tooenable AD FS denetim yordamları izleyerek ve toolocate hello AD FS denetim günlükleri, AD FS sunucularınızda.
 
-#### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2008-r2"></a>Windows Server 2008 R2'de AD FS için denetimi etkinleştirme
-1. **Başlat** menüsüne tıklayın, **Programlar** ve daha sonra **Yönetim Araçları**'nın üzerine gidin ve ardından **Yerel Güvenlik İlkesi**'ne tıklayın.
-2. **Güvenlik Ayarları\Yerel İlkeler\Kullanıcı Hakları Yönetimi** klasörüne gidin ve Güvenlik denetimleri oluştur'a çift tıklayın.
-3. **Yerel Güvenlik Ayarları** sekmesinde AD FS 2.0 hizmet hesabının listelenmiş olduğunu doğrulayın. Listelenmediyse **Kullanıcı veya Grup Ekle**'ye tıklayın, hizmet hesabını listeye ekleyin ve ardından **Tamam**'a tıklayın.
-4. Denetimi etkinleştirmek için yükseltilmiş ayrıcalıklara sahip bir komut istemi açın ve şu komutu çalıştırın: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
-5. Yerel Güvenlik İlkesi'ni kapatın ve ardından Yönetim ek bileşenini açın. Yönetim ek bileşenini açmak için **Başlat**'a tıklayın, **Programlar** ve **Yönetim Araçları**'nın üzerine gidin ve ardından AD FS 2.0 Yönetimi'ne tıklayın.
-6. Eylemler bölmesinde Edit Federation Service Properties (Federasyon Hizmeti Özelliklerini Düzenle) seçeneğine tıklayın.
-7. **Federation Service Properties (Federasyon Hizmeti Özellikleri)** iletişim kutusunda **Events (Olaylar)** sekmesine tıklayın.
-8. **Success audits (Başarı denetimleri)** ve **Failure audits (Hata denetimleri)** onay kutularını seçin.
-9. **OK (Tamam)** düğmesine tıklayın.
+#### <a name="tooenable-auditing-for-ad-fs-on-windows-server-2008-r2"></a>Windows Server 2008 R2 üzerinde AD FS için tooenable denetleme
+1. Tıklatın **Başlat**, çok noktası**programları**, çok noktası**Yönetimsel Araçlar**ve ardından **yerel güvenlik ilkesi**.
+2. Toohello gidin **Güvenlik Ayarları\Yerel İlkeler\Kullanıcı Hakları Yönetimi** klasörünü ve güvenlik denetimleri oluştur çift tıklatın.
+3. Merhaba üzerinde **yerel güvenlik ayarları** sekmesinde, başlangıç AD FS 2.0 hizmet hesabının listelenmiş olduğunu doğrulayın. Mevcut değilse tıklatın **kullanıcı veya Grup Ekle** toohello listeye ekleyin ve ardından **Tamam**.
+4. tooenable denetleme, yükseltilmiş ayrıcalıklarla bir komut istemi açın ve hello aşağıdaki komutu çalıştırın:<code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
+5. Yerel Güvenlik İlkesi kapatın ve hello Yönetimi ek bileşenini açın. Yönetimi ek bileşenini, tooopen hello tıklatın **Başlat**, çok noktası**programları**, çok noktası**Yönetimsel Araçlar**ve ardından AD FS 2.0 yönetimi.
+6. Merhaba Eylemler bölmesinde, Federasyon Hizmeti özelliklerini Düzenle'yi tıklatın.
+7. Merhaba, **Federasyon Hizmeti özelliklerini** iletişim kutusunda, hello **olayları** sekmesi.
+8. Select hello **başarı denetimleri** ve **hata denetimleri** onay kutuları.
+9. **Tamam** düğmesine tıklayın.
 
-#### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2012-r2"></a>Windows Server 2012 R2'de AD FS için denetimi etkinleştirme
-1. Başlat ekranından **Sunucu Yöneticisi**'ni açarak **Yerel Güvenlik İlkesi**'ni veya masaüstünde bulunan görev çubuğundan Sunucu Yöneticisi'ni açıp **Araçlar/Yerel Güvenlik İlkesi**'ne tıklayın.
-2. **Güvenlik Ayarları\Yerel İlkeler\Kullanıcı Hakları Ataması** klasörüne gidin ve **Güvenlik denetimleri oluştur**'a çift tıklayın.
-3. **Yerel Güvenlik Ayarları** sekmesinde AD FS hizmet hesabının listelenmiş olduğunu doğrulayın. Listelenmediyse **Kullanıcı veya Grup Ekle**'ye tıklayın, hizmet hesabını listeye ekleyin ve ardından **Tamam**'a tıklayın.
-4. Denetimi etkinleştirmek için yükseltilmiş ayrıcalıklara sahip bir komut istemi açın ve şu komutu çalıştırın: ```auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable```.
-5. **Yerel Güvenlik İlkesi**'ni kapatın ve ardından **AD FS Yönetimi** ek bileşenini açın. (Sunucu Yöneticisi'nde Araçlar'a tıklayın ve AD FS Yönetimi'ni seçin).
-6. Eylemler bölmesinde **Edit Federation Service Properties (Federasyon Hizmeti Özelliklerini Düzenle)** seçeneğine tıklayın.
-7. Federation Service Properties (Federasyon Hizmeti Özellikleri) iletişim kutusunda **Events (Olaylar)** sekmesine tıklayın.
-8. **(Success audits and Failure audits) Başarı denetimleri ve Hata denetimleri** onay kutularını seçin ve **OK (Tamam)** düğmesine tıklayın.
+#### <a name="tooenable-auditing-for-ad-fs-on-windows-server-2012-r2"></a>Windows Server 2012 R2 AD FS için tooenable denetleme
+1. Açık **yerel güvenlik ilkesi** açarak **Sunucu Yöneticisi'ni** hello başlangıç ekranında veya Sunucu Yöneticisi'nde hello Masaüstü hello çubuğunda, ardından **Araçlar/yerel güvenlik ilkesi**.
+2. Toohello gidin **Güvenlik Ayarları\Yerel İlkeler\Kullanıcı Hakları Ataması** klasörü ve çift tıklatarak **güvenlik denetimleri oluştur**.
+3. Merhaba üzerinde **yerel güvenlik ayarları** sekmesinde, başlangıç AD FS hizmet hesabının listelenmiş olduğunu doğrulayın. Mevcut değilse tıklatın **kullanıcı veya Grup Ekle** toohello listeye ekleyin ve ardından **Tamam**.
+4. tooenable denetleme, yükseltilmiş ayrıcalıklarla bir komut istemi açın ve hello aşağıdaki komutu çalıştırın: ```auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable```.
+5. Kapat **yerel güvenlik ilkesi**ve ardından hello açın **AD FS Yönetimi** ek bileşenini (Sunucu Yöneticisi ' nde Araçlar'ı tıklatın ve ardından AD FS Yönetimi'ni seçin).
+6. Merhaba Eylemler bölmesinde **Federasyon Hizmeti özelliklerini Düzenle**.
+7. Merhaba Hello Federasyon Hizmeti Özellikleri iletişim kutusunda tıklatın **olayları** sekmesi.
+8. Select hello **başarı denetimleri ve hata denetimleri** onay kutularını işaretleyin ve ardından **Tamam**.
 
-#### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2016"></a>Windows Server 2016'da AD FS için denetimi etkinleştirme
-1. Başlat ekranından **Sunucu Yöneticisi**'ni açarak **Yerel Güvenlik İlkesi**'ni veya masaüstünde bulunan görev çubuğundan Sunucu Yöneticisi'ni açıp **Araçlar/Yerel Güvenlik İlkesi**'ne tıklayın.
-2. **Güvenlik Ayarları\Yerel İlkeler\Kullanıcı Hakları Ataması** klasörüne gidin ve **Güvenlik denetimleri oluştur**'a çift tıklayın.
-3. **Yerel Güvenlik Ayarları** sekmesinde AD FS hizmet hesabının listelenmiş olduğunu doğrulayın. Mevcut değilse, **Kullanıcı veya Grup Ekle**'ye tıklayın, AD FS hizmet hesabını listeye ekleyin ve ardından **Tamam**'a tıklayın.
-4. Denetimi etkinleştirmek için yükseltilmiş ayrıcalıklara sahip bir komut istemi açın ve şu komutu çalıştırın: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
-5. **Yerel Güvenlik İlkesi**'ni kapatın ve ardından **AD FS Yönetimi** ek bileşenini açın. (Sunucu Yöneticisi'nde Araçlar'a tıklayın ve AD FS Yönetimi'ni seçin).
-6. Eylemler bölmesinde **Edit Federation Service Properties (Federasyon Hizmeti Özelliklerini Düzenle)** seçeneğine tıklayın.
-7. Federation Service Properties (Federasyon Hizmeti Özellikleri) iletişim kutusunda **Events (Olaylar)** sekmesine tıklayın.
-8. **(Success audits and Failure audits) Başarı denetimleri ve Hata denetimleri** onay kutularını seçin ve **OK (Tamam)** düğmesine tıklayın. Bu seçenek varsayılan olarak etkindir.
-9. Bir PowerShell penceresi açın ve şu komutu çalıştırın: ```Set-AdfsProperties -AuditLevel Verbose```.
+#### <a name="tooenable-auditing-for-ad-fs-on-windows-server-2016"></a>AD FS Windows Server 2016 için tooenable denetleme
+1. Açık **yerel güvenlik ilkesi** açarak **Sunucu Yöneticisi'ni** hello başlangıç ekranında veya Sunucu Yöneticisi'nde hello Masaüstü hello çubuğunda, ardından **Araçlar/yerel güvenlik ilkesi**.
+2. Toohello gidin **Güvenlik Ayarları\Yerel İlkeler\Kullanıcı Hakları Ataması** klasörü ve çift tıklatarak **güvenlik denetimleri oluştur**.
+3. Merhaba üzerinde **yerel güvenlik ayarları** sekmesinde, başlangıç AD FS hizmet hesabının listelenmiş olduğunu doğrulayın. Mevcut değilse tıklatın **kullanıcı veya Grup Ekle** hello AD FS hizmet hesabı toohello listeye ekleyin ve ardından **Tamam**.
+4. tooenable denetleme, yükseltilmiş ayrıcalıklarla bir komut istemi açın ve hello aşağıdaki komutu çalıştırın:<code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
+5. Kapat **yerel güvenlik ilkesi**ve ardından hello açın **AD FS Yönetimi** ek bileşenini (Sunucu Yöneticisi ' nde Araçlar'ı tıklatın ve ardından AD FS Yönetimi'ni seçin).
+6. Merhaba Eylemler bölmesinde **Federasyon Hizmeti özelliklerini Düzenle**.
+7. Merhaba Hello Federasyon Hizmeti Özellikleri iletişim kutusunda tıklatın **olayları** sekmesi.
+8. Select hello **başarı denetimleri ve hata denetimleri** onay kutularını işaretleyin ve ardından **Tamam**. Bu seçenek varsayılan olarak etkindir.
+9. Bir PowerShell penceresi açın ve hello aşağıdaki komutu çalıştırın: ```Set-AdfsProperties -AuditLevel Verbose```.
 
-"Temel" denetim düzeyi varsayılan olarak etkindir. [Windows Server 2016’da AD FS Denetimini geliştirme](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016) hakkında daha fazla bilgi edinin
+"Temel" denetim düzeyi varsayılan olarak etkindir. Merhaba hakkında daha fazla bilgiyi [Windows Server 2016 AD FS denetim geliştirme](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016)
 
 
-#### <a name="to-locate-the-ad-fs-audit-logs"></a>AD FS denetim günlüklerini bulma
+#### <a name="toolocate-hello-ad-fs-audit-logs"></a>toolocate hello AD FS denetim günlükleri
 1. **Olay Görüntüleyicisi**'ni açın.
-2. Windows Günlüklerine gidin ve **Security (Güvenlik)** seçeneğini belirleyin.
-3. Sağ tarafta bulunan **Filter Current Logs (Geçerli Günlükleri Filtrele)** seçeneğine tıklayın.
+2. TooWindows günlükleri gidip seçin **güvenlik**.
+3. Sağ Hello üzerinde tıklatın **filtresi geçerli günlükleri**.
 4. Event Source (Olay Kaynağı) altındaki **AD FS Auditing (AD FS Denetimi)** seçeneğini belirleyin.
 
 ![AD FS denetim günlükleri](./media/active-directory-aadconnect-health-requirements/adfsaudit.png)
@@ -134,10 +134,10 @@ Kullanım Analizi özelliğinin verileri toplaması ve analiz edebilmesi için, 
 >
 
 
-## <a name="installing-the-azure-ad-connect-health-agent-for-sync"></a>Eşitleme için Azure AD Connect Health aracısını yükleme
-Eşitleme için Azure AD Connect Health aracısı, Azure AD Connect'in en son derlemesinde otomatik olarak yüklenir. Azure AD Connect'i eşitleme için kullanmak üzere, Azure AD Connect'in en son sürümünü indirip yüklemeniz gerekir. En son sürümü [buradan](http://www.microsoft.com/download/details.aspx?id=47594) indirebilirsiniz.
+## <a name="installing-hello-azure-ad-connect-health-agent-for-sync"></a>Eşitleme için Hello Azure AD Connect Health aracısını yükleme
+Hello Azure AD Connect Health aracısını eşitleme için Azure AD Connect hello son sürüme otomatik olarak yüklenir. toouse Azure AD Connect eşitleme, Azure AD Connect toodownload hello en son sürümü gerekir ve yükleyin. Merhaba en son sürümünü indirebilirsiniz [burada](http://www.microsoft.com/download/details.aspx?id=47594).
 
-Aracının yüklü olduğunu doğrulamak için sunucuda aşağıdaki hizmetleri arayın. Yapılandırmayı tamamladıysanız bu hizmetlerin çalışır durumda olması gerekir. Aksi halde bu hizmetler yapılandırma tamamlanıncaya kadar durdurulur.
+tooverify hello aracısı yüklü, hello sunucudaki hizmetler aşağıdaki hello arayın. Merhaba yapılandırmayı tamamladıysanız zaten çalışmalıdır. Merhaba yapılandırma tamamlanıncaya kadar Aksi halde, durdurulmuş.
 
 * Azure AD Connect Health Eşitleme Öngörü Hizmeti
 * Azure AD Connect Health Eşitleme İzleme Hizmeti
@@ -145,62 +145,62 @@ Aracının yüklü olduğunu doğrulamak için sunucuda aşağıdaki hizmetleri 
 ![Eşitleme için Azure AD Connect Health'i doğrulama](./media/active-directory-aadconnect-health-sync/services.png)
 
 > [!NOTE]
-> Azure AD Connect Health'in kullanılabilmesi için Azure AD Premium'un gerekli olduğunu unutmayın. Azure AD Premium'unuz yoksa Azure portalında yapılandırmayı tamamlayamazsınız. Daha fazla bilgi için [gereksinim sayfasına](active-directory-aadconnect-health-agent-install.md#requirements) bakın.
+> Azure AD Connect Health'in kullanılabilmesi için Azure AD Premium'un gerekli olduğunu unutmayın. Azure AD Premium yoksa oluşturulamıyor toocomplete hello yapılandırma hello Azure portal'ın verilmiştir. Daha fazla bilgi için bkz: Merhaba [gereksinimler sayfası](active-directory-aadconnect-health-agent-install.md#requirements).
 >
 >
 
 ## <a name="manual-azure-ad-connect-health-for-sync-registration"></a>El ile Eşitleme için Azure AD Connect Health kaydı
-Azure AD Connect'i başarıyla yükledikten sonra Eşitleme aracısı kaydı için Azure AD Connect Health başarısız olursa aracıyı el ile kaydetmek için aşağıdaki PowerShell komutunu kullanabilirsiniz.
+Hello Azure AD Connect Health eşitleme Aracısı kaydı için Azure AD Connect'i başarıyla yükledikten sonra başarısız olursa, aşağıdaki PowerShell komutunu toomanually kaydetmek hello Aracısı hello kullanabilirsiniz.
 
 > [!IMPORTANT]
-> Bu PowerShell komutunun, yalnızca Azure AD Connect yüklendikten sonra aracı kaydının başarısız olması halinde kullanılması gerekir.
+> Bu PowerShell komutunu kullanarak, yalnızca hello aracı kaydı Azure AD Connect yüklendikten sonra başarısız olursa gereklidir.
 >
 >
 
-Aşağıdaki PowerShell komutu, YALNIZCA Azure AD Connect'in başarılı bir şekilde yüklenip yapılandırılmasına rağmen durum aracısı kaydının başarısız olması halinde gereklidir. Aracı başarılı bir şekilde kaydolduktan sonra Azure AD Connect Health hizmetleri başlatılır.
+Merhaba aşağıdaki PowerShell komutunu yalnızca hello durum Aracısı kaydının bile başarılı yüklemesinden ve Azure AD Connect yapılandırma sonra başarısız olursa gereklidir. hello Azure AD Connect Health Hizmetleri Hello Aracısı başarıyla kaydedildikten sonra başlar.
 
-Eşitleme için Azure AD Connect Health aracısını, aşağıdaki PowerShell komutunu kullanarak el ile kaydedebilirsiniz:
+Merhaba aşağıdaki PowerShell komutunu kullanarak eşitleme için hello Azure AD Connect Health aracısını el ile kaydedebilirsiniz:
 
 `Register-AzureADConnectHealthSyncAgent -AttributeFiltering $false -StagingMode $false`
 
-Komut için şu parametreler kullanılır:
+Merhaba komutu parametreleri alır:
 
-* AttributeFiltering: Azure AD Connect varsayılan özniteliği eşitlemiyor ve filtrelenmiş bir öznitelik kümesini kullanmak üzere özelleştirildiyse $true (varsayılan). Aksi halde $false değerini alır.
-* StagingMode: Azure AD Connect sunucusu, hazırlama modunda DEĞİLSE $false (varsayılan) değerini; sunucu hazırlama moduna yapılandırıldıysa $true değerini alır.
+* AttributeFiltering: $true (varsayılan) - Azure AD Connect hello varsayılan öznitelik kümesi eşitlemiyor ve filtrelenmiş bir öznitelik özelleştirilmiş toouse olup olmadığını belirleyin. Aksi halde $false değerini alır.
+* StagingMode: $false (varsayılan) - hello Azure AD Connect sunucusu hello sunucusuysa hazırlama modu, $true içinde değilse, hazırlama modunda toobe yapılandırılmış.
 
-Kimliğinizi doğrulamanız istendiğinde, Azure AD Connect'in yapılandırılması için kullanılan genel yönetici hesabını (örneğin, admin@domain.onmicrosoft.com) kullanmanız gerekir.
+Kimlik doğrulaması için istendiğinde kullanması gereken hello aynı genel yönetici hesabını (gibi admin@domain.onmicrosoft.com) Azure AD Connect'in yapılandırılması için kullanıldı.
 
-## <a name="installing-the-azure-ad-connect-health-agent-for-ad-ds"></a>AD DS için Azure AD Connect Health Aracısını yükleme
-Aracı yüklemesini başlatmak için indirdiğiniz .exe dosyasına çift tıklayın. İlk ekranda Yükle'ye tıklayın.
+## <a name="installing-hello-azure-ad-connect-health-agent-for-ad-ds"></a>Merhaba AD DS için Azure AD Connect Health aracısını yükleme
+toostart Merhaba aracı yüklemesi, indirdiğiniz hello .exe dosyasına çift tıklayın. Merhaba ilk ekranda Yükle'yi tıklatın.
 
 ![Azure AD Connect Health'i doğrulama](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install1.png)
 
-Yükleme tamamlandıktan sonra Şimdi Yapılandır'a tıklayın.
+Merhaba yükleme tamamlandıktan sonra Şimdi Yapılandır'ı tıklatın.
 
 ![Azure AD Connect Health'i doğrulama](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install2.png)
 
-Bir komut istemi başlatılır ve ardından bazı PowerShell uygulamaları tarafından Register-AzureADConnectHealthADDSAgent komutu yürütülür. Azure’da oturum açmanız istendiğinde devam edin ve oturum açın.
+Bir komut istemi başlatılır ve ardından bazı PowerShell uygulamaları tarafından Register-AzureADConnectHealthADDSAgent komutu yürütülür. İstendiğinde toosign tooAzure içinde Git şimdi ne zaman ve oturum açın.
 
 ![Azure AD Connect Health'i doğrulama](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install3.png)
 
-Oturum açtıktan sonra PowerShell işleme devam eder. İşlem tamamlandıktan sonra PowerShell'i kapatabilirsiniz ve yapılandırma tamamlanmış olur.
+Oturum açtıktan sonra PowerShell işleme devam eder. İşlem tamamlandıktan sonra PowerShell'i kapatabilirsiniz ve hello yapılandırma tamamlanmış olur.
 
-Bu noktada, hizmetler otomatik olarak başlatılarak verilerin aracı tarafından izlenip toplanmasına izin verilir. Önceki bölümlerde belirtilen önkoşulların tümünü yerine getirmediyseniz PowerShell penceresinde uyarılar görüntülenir. Aracıyı yüklemeden önce [buradaki](active-directory-aadconnect-health-agent-install.md#requirements) gereksinimleri karşıladığınızdan emin olun. Bu hataların bir örneğini aşağıdaki ekran görüntüsünde görebilirsiniz.
+Bu noktada, hello hizmetleri otomatik olarak hello Aracısı toomonitor izin vererek başlatılmalıdır ve verileri toplayın. Merhaba önceki bölümlerde belirtilen tüm hello ön koşullar karşılanmadığı takdirde uyarılar hello PowerShell penceresinde görünür. Emin toocomplete hello olması [gereksinimleri](active-directory-aadconnect-health-agent-install.md#requirements) hello aracı yüklemeden önce. Aşağıdaki ekran görüntüsü hello bu hataların bir örnektir.
 
 ![AD DS için Azure AD Connect Health'i doğrulama](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install4.png)
 
-Aracının yüklü olduğunu doğrulamak için etki alanı denetleyicisinde aşağıdaki hizmetleri arayın.
+tooverify hello aracısı yüklü, hizmetleri hello etki alanı denetleyicisinde aşağıdaki hello arayın.
 
 * Azure AD Connect Health AD DS Insights Hizmeti
 * Azure AD Connect Health AD DS İzleme Hizmeti
 
-Yapılandırmayı tamamladıysanız bu hizmetlerin çalışır durumda olması gerekir. Aksi halde bu hizmetler yapılandırma tamamlanıncaya kadar durdurulur.
+Merhaba yapılandırmayı tamamladıysanız hizmetlerin zaten çalıştırması gerekir. Merhaba yapılandırma tamamlanıncaya kadar Aksi halde, durdurulmuş.
 
 ![Azure AD Connect Health'i doğrulama](./media/active-directory-aadconnect-health/aadconnect-health-adds-agent-install5.png)
 
 
 ### <a name="agent-registration-using-powershell"></a>PowerShell kullanarak Aracı Kaydı
-Uygun aracı setup.exe dosyasını yükledikten sonra role bağlı olarak aşağıdaki PowerShell komutlarını kullanarak aracı kaydı adımını gerçekleştirebilirsiniz. Bir PowerShell penceresi açın ve uygun komutu yürütün:
+Merhaba uygun Aracısı setup.exe yükledikten sonra hello aracı kayıt adımı PowerShell komutlarını hello rolüne bağlı olarak aşağıdaki hello kullanarak gerçekleştirebilirsiniz. Bir PowerShell penceresi açın ve hello uygun komutu çalıştırın:
 
 ```
     Register-AzureADConnectHealthADFSAgent
@@ -209,10 +209,10 @@ Uygun aracı setup.exe dosyasını yükledikten sonra role bağlı olarak aşağ
 
 ```
 
-Bu komutlar "Credential"’ı, kayıt işlemini etkileşimli olmayan bir şekilde veya bir Sunucu Çekirdeği makinesinde tamamlamaya yönelik bir parametre olarak kabul eder.
-* Credential, parametre olarak geçirilen bir PowerShell değişkeninde yakalanabilir.
-* Aracıları kaydetme erişimi olan ve MFA özelliği etkin olmayan herhangi bir Azure AD Kimliği sağlayabilirsiniz.
-* Varsayılan olarak, Genel Yöneticiler aracı kaydını gerçekleştirme erişimine sahiptir. Ayrıca, daha az ayrıcalıklı diğer kimliklerin bu adımı uygulamasına izin verebilirsiniz. [Rol Tabanlı Access Control](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control) hakkında daha fazla bilgi edinin.
+Bu komutları "Kimlik" Etkileşimli olmayan bir şekilde ya da bir sunucu çekirdeği makinede bir parametre toocomplete hello kayıt olarak kabul eder.
+* Merhaba kimlik bilgileri, bir parametre olarak geçirilen PowerShell değişkeninde yakalanır.
+* Erişim tooregister hello aracıları ve MFA etkin olmayan tüm Azure AD Identity sağlayabilir.
+* Varsayılan olarak genel yönetici erişimi tooperform aracı kaydı. Ayrıca diğer daha az ayrıcalıklı kimlikleri tooperform bu adımı izin verebilirsiniz. [Rol Tabanlı Access Control](active-directory-aadconnect-health-operations.md#manage-access-with-role-based-access-control) hakkında daha fazla bilgi edinin.
 
 ```
     $cred = Get-Credential
@@ -220,38 +220,38 @@ Bu komutlar "Credential"’ı, kayıt işlemini etkileşimli olmayan bir şekild
 
 ```
 
-## <a name="configure-azure-ad-connect-health-agents-to-use-http-proxy"></a>Azure AD Connect Health Aracılarını HTTP Ara Sunucusunu kullanacak şekilde yapılandırma
-Azure AD Connect Health Aracılarını bir HTTP Ara Sunucusunu kullanacak şekilde yapılandırabilirsiniz.
+## <a name="configure-azure-ad-connect-health-agents-toouse-http-proxy"></a>Azure AD Connect Health aracılarını toouse HTTP proxy'sini yapılandırma
+Bir HTTP Proxy'si ile Azure AD Connect Health aracılarını toowork yapılandırabilirsiniz.
 
 > [!NOTE]
-> * Aracı, web isteklerinde bulunmak için Microsoft Windows HTTP Hizmetlerinin yerine System.Net hizmetini kullandığından "Netsh WinHttp set ProxyServerAddress" seçeneğini kullanmanız desteklenmez.
-> * Şifrelenmiş Https iletilerinin geçilmesi için, yapılandırılan Http Ara Sunucu adresi kullanılır.
+> * Hello aracı Microsoft Windows HTTP Hizmetleri yerine System.Net toomake web istekleri kullandığından "Netsh WinHttp set proxyserveraddress" kullanımı desteklenmiyor.
+> * Merhaba yapılandırılan Http proxy'si kullanılan toopass aracılığıyla şifrelenmiş Https iletilerinin adresidir.
 > * HTTPBasic kullanılarak kimliği doğrulanmış ara sunucular desteklenmez.
 >
 >
 
 ### <a name="change-health-agent-proxy-configuration"></a>Durum Aracısı Ara Sunucu Yapılandırmasını Değiştirme
-Azure AD Connect Health Aracısını bir HTTP Ara Sunucusunu kullanacak şekilde yapılandırmak üzere aşağıdaki seçeneklere sahipsiniz.
+Seçenekler tooconfigure Azure AD Connect Health Aracısı toouse bir HTTP Proxy aşağıdaki hello var.
 
 > [!NOTE]
-> Proxy ayarlarının güncelleştirilmesi için tüm Azure AD Connect Health Aracısı hizmetlerinin yeniden başlatılması gerekir. Şu komutu çalıştırın:<br>
+> Tüm Azure AD Connect Health Aracısı hizmetleri, güncelleştirilmiş hello proxy ayarları toobe sırayla yeniden başlatılması gerekir. Merhaba aşağıdaki komutu çalıştırın:<br>
 > Restart-Service AdHealth*
 >
 >
 
 #### <a name="import-existing-proxy-settings"></a>Var olan ara sunucu Ayarlarını içeri aktarma
 ##### <a name="import-from-internet-explorer"></a>Internet Explorer'dan içeri aktarma
-Internet Explorer HTTP proxy ayarları Azure AD Connect Health Aracıları tarafından kullanılmak üzere içeri aktarılabilir. Health aracısını çalıştıran sunucuların her birinde aşağıdaki PowerShell komutunu yürütün:
+Internet Explorer HTTP proxy ayarlarını aktarılabilir, toobe Azure AD Connect Health aracılarını hello tarafından kullanılır. Sunucuların her birinde hello durum aracısını çalıştıran Merhaba, PowerShell komutunu aşağıdaki hello yürütün:
 
     Set-AzureAdConnectHealthProxySettings -ImportFromInternetSettings
 
 ##### <a name="import-from-winhttp"></a>WinHTTP'den içeri aktarma
-WinHTTP proxy ayarları Azure AD Connect Health Aracıları tarafından kullanılmak üzere içeri aktarılabilir. Health aracısını çalıştıran sunucuların her birinde aşağıdaki PowerShell komutunu yürütün:
+WinHTTP proxy ayarları aktarılabilir, toobe Azure AD Connect Health aracılarını hello tarafından kullanılır. Sunucuların her birinde hello durum aracısını çalıştıran Merhaba, PowerShell komutunu aşağıdaki hello yürütün:
 
     Set-AzureAdConnectHealthProxySettings -ImportFromWinHttp
 
 #### <a name="specify-proxy-addresses-manually"></a>Ara sunucu adreslerini el ile belirtme
-Health Aracısını çalıştıran sunucuların her birinde aşağıdaki PowerShell komutunu yürüterek bir proxy sunucusunu elle belirtebilirsiniz:
+Merhaba aşağıdaki PowerShell komutunu yürüterek hello sistem durumu aracısı çalıştıran hello sunucuların her birinde bir proxy sunucusu el ile belirtebilirsiniz:
 
     Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
 
@@ -261,36 +261,36 @@ Health Aracısını çalıştıran sunucuların her birinde aşağıdaki PowerSh
 * "bağlantı noktası" atlanabilir. Atlanması durumunda varsayılan bağlantı noktası olarak 443 seçilir.
 
 #### <a name="clear-existing-proxy-configuration"></a>Var olan ara sunucu yapılandırmasını silme
-Aşağıdaki komutu çalıştırarak var olan proxy sunucu yapılandırmasını silebilirsiniz:
+Merhaba aşağıdaki komutu çalıştırarak hello mevcut proxy yapılandırmasını silebilirsiniz:
 
     Set-AzureAdConnectHealthProxySettings -NoProxy
 
 
 ### <a name="read-current-proxy-settings"></a>Geçerli ara sunucu ayarlarını okuma
-Aşağıdaki komutu çalıştırarak geçerli olarak yapılandırılmış olan proxy sunucu ayarlarını okuyabilirsiniz:
+Merhaba aşağıdaki komutu çalıştırarak şu anda yapılandırılmış hello proxy ayarlarını okuyabilirsiniz:
 
     Get-AzureAdConnectHealthProxySettings
 
 
-## <a name="test-connectivity-to-azure-ad-connect-health-service"></a>Azure AD Connect Health Hizmeti için Bağlantı Testi
-Azure AD Connect Health aracısıyla Azure AD Connect Health hizmeti arasındaki bağlantının kesilmesine neden olabilecek sorunlar meydana gelebilir. Ağ sorunları, izin sorunları veya diğer çeşitli nedenler bunlara dahildir.
+## <a name="test-connectivity-tooazure-ad-connect-health-service"></a>Test bağlantısı tooAzure AD Connect Health hizmeti
+Sorunları hello Azure AD Connect Health Aracısı toolose bağlantı hello Azure AD Connect Health hizmeti ile neden kaynaklanabilecek mümkündür. Ağ sorunları, izin sorunları veya diğer çeşitli nedenler bunlara dahildir.
 
-Aracı iki saatten uzun bir süre boyunca Azure AD Connect Health hizmetine veri gönderemezse portalda şu uyarı ile gösterilir: "Health Hizmeti verileri güncel değil." Aşağıdaki PowerShell komutunu çalıştırarak, etkilenen Azure AD Connect Health aracısının Azure AD Connect Health hizmetine veri yükleyebildiğini onaylayabilirsiniz:
+Merhaba Aracısı yüklenemiyor toosend veri toohello Azure AD Connect Health hizmeti iki saat daha uzun ise, uyarı hello Portalı'nda aşağıdaki hello ile belirtilir: "sistem sağlığı hizmeti verileri değil toodate." Merhaba aşağıdaki PowerShell komutunu çalıştırarak etkilenen hello Azure AD Connect Health Aracısı mümkün tooupload veri toohello Azure AD Connect Health hizmeti olup olmadığını doğrulayabilirsiniz:
 
     Test-AzureADConnectHealthConnectivity -Role ADFS
 
-Rol parametresi şu anda şu değerleri alır:
+Merhaba rol parametresi şu anda değerleri aşağıdaki hello alır:
 
 * ADFS
 * Sync
 * EKLER
 
-Ayrıntılı günlükleri görüntülemek için komut içinde -ShowResults bayrağını kullanabilirsiniz. Şu örneği kullanın:
+Merhaba komutu tooview hello - ShowResults bayrağını kullanabilirsiniz ayrıntılı günlükleri. Aşağıdaki örnek hello kullan:
 
     Test-AzureADConnectHealthConnectivity -Role Sync -ShowResult
 
 > [!NOTE]
-> Bağlantı aracını kullanabilmek için öncelikle aracı kaydını tamamlamanız gerekir. Aracı kaydını tamamlayamıyorsanız Azure AD Connect Health için tüm [gereksinimleri](active-directory-aadconnect-health-agent-install.md#requirements) karşıladığınızdan emin olun. Bu bağlantı testi, aracı kaydı sırasında varsayılan olarak gerçekleştirilir.
+> toouse hello bağlantı aracını, ilk tam hello aracı kaydı gerekir. Mümkün toocomplete hello aracı kaydı olmayan tüm hello karşıladığınızdan emin olun [gereksinimleri](active-directory-aadconnect-health-agent-install.md#requirements) Azure AD Connect Health için. Bu bağlantı testi, aracı kaydı sırasında varsayılan olarak gerçekleştirilir.
 >
 >
 

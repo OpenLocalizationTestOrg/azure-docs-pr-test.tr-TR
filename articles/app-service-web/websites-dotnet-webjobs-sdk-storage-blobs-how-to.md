@@ -1,6 +1,6 @@
 ---
-title: "WebJobs SDK ile Azure Blob Storage kullanımı"
-description: "WebJobs SDK ile Azure blob depolama kullanmayı öğrenin. Yeni bir blob bir kapsayıcıda görüntülendiğinde bir işlem tetikleyebilir ve 'zararlı BLOB' tanıtıcı."
+title: aaaHow toouse hello WebJobs SDK ile Azure blob storage
+description: "Nasıl toouse Azure blob depolama hello WebJobs SDK ile bilgi edinin. Yeni bir blob bir kapsayıcıda görüntülendiğinde bir işlem tetikleyebilir ve 'zararlı BLOB' tanıtıcı."
 services: app-service\web, storage
 documentationcenter: .net
 author: ggailey777
@@ -14,30 +14,30 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/01/2016
 ms.author: glenga
-ms.openlocfilehash: e0a792ccdf8097d5cde254d6d4690a64838378ea
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b34ea8cffee7c0475641886150dee521130a3132
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-azure-blob-storage-with-the-webjobs-sdk"></a>WebJobs SDK ile Azure Blob Storage kullanımı
+# <a name="how-toouse-azure-blob-storage-with-hello-webjobs-sdk"></a>Nasıl toouse Azure blob depolama hello WebJobs SDK ile
 ## <a name="overview"></a>Genel Bakış
-Bu kılavuz, Azure blob oluşturulduğunda veya bir işlem tetiklemek nasıl gösteren C# kod örnekleri sağlar. Kod örnekleri kullan [WebJobs SDK](websites-dotnet-webjobs-sdk.md) sürüm 1.x.
+Bu kılavuz C# sağlar kod örnekleri gösteren nasıl tootrigger bir Azure blob oluşturulduğunda veya bir işlem. Merhaba kod örnekleri kullan [WebJobs SDK](websites-dotnet-webjobs-sdk.md) sürüm 1.x.
 
-BLOB'ları oluşturmak nasıl gösteren kod örnekleri için bkz: [WebJobs SDK ile Azure kuyruk depolama kullanma](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
+BLOB'nasıl toocreate gösteren kod örnekleri için bkz: [nasıl toouse Azure kuyruk depolama hello WebJobs SDK ile](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
-Bildiğiniz Kılavuzu varsayar [bağlantıyla Visual Studio'da bir Web işi projesi oluşturma, depolama hesabınıza o noktadan dizeleri](websites-dotnet-webjobs-sdk-get-started.md) veya [birden çok depolama hesabı](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
+Merhaba Kılavuzu varsayar bildiğiniz [nasıl toocreate bağlantısı ile Visual Studio'da bir Web işi projesi bu noktası tooyour depolama hesabı dizeleri](websites-dotnet-webjobs-sdk-get-started.md) veya çok[birden çok depolama hesabı](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
 
-## <a id="trigger"></a>Bir blob oluşturulduğunda veya bir işlev tetikleme
-Bu bölümde nasıl kullanılacağını gösterir `BlobTrigger` özniteliği. 
+## <a id="trigger"></a>Nasıl tootrigger blob oluşturulduğunda veya bir işlevi
+Bu bölümde gösterilmiştir nasıl toouse hello `BlobTrigger` özniteliği. 
 
 > [!NOTE]
-> Web işleri SDK'si için yeni veya değiştirilmiş BLOB'lar izlemek için günlük dosyalarını tarar. Bu işlem, gerçek zamanlı değildir; blob oluşturulduktan sonra bir işlev birkaç dakika kadar veya daha uzun tetiklenen değil. Ayrıca, [depolama günlüklerine "en iyi çaba" üzerinde oluşturulan](https://msdn.microsoft.com/library/azure/hh343262.aspx) temel; tüm olayları Yakalanacak garantisi yoktur. Bazı koşullarda günlükleri eksik. Blob Tetikleyicileri hızı ve güvenilirliği sınırlamaları, uygulamanız için kabul edilebilir değilse, blob oluşturma ve kullanma, bir kuyruk iletisi oluşturmak için önerilen yöntem olduğu [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) yerineözniteliği`BlobTrigger` blob işler işlevi özniteliği.
+> Yeni veya değiştirilmiş BLOB'lar için Web işleri SDK'si taramaları günlük dosyaları toowatch hello. Bu işlem, gerçek zamanlı değildir; Merhaba blob oluşturulduktan sonra bir işlev birkaç dakika kadar veya daha uzun tetiklenen değil. Ayrıca, [depolama günlüklerine "en iyi çaba" üzerinde oluşturulan](https://msdn.microsoft.com/library/azure/hh343262.aspx) temel; tüm olayları Yakalanacak garantisi yoktur. Bazı koşullarda günlükleri eksik. Merhaba hızı ve güvenilirliği sınırlamaları blob tetikleyicileri, uygulamanız için kabul edilebilir değilse, hello yöntemi toocreate bir kuyruk iletisi hello blob oluşturun ve hello kullandığınızda önerilir [QueueTrigger](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) yerine özniteliği Merhaba `BlobTrigger` hello blob işler hello işlevi özniteliği.
 > 
 > 
 
 ### <a name="single-placeholder-for-blob-name-with-extension"></a>Blob adı uzantısı için tek bir yer tutucu
-Aşağıdaki kod örneği görünen metin BLOB'ları kopyalar *giriş* kapsayıcıya *çıkış* kapsayıcı:
+Merhaba aşağıdaki kod örneği görüntülenen metin BLOB'ları hello kopyalar *giriş* kapsayıcı toohello *çıkış* kapsayıcı:
 
         public static void CopyBlob([BlobTrigger("input/{name}")] TextReader input,
             [Blob("output/{name}")] out string output)
@@ -45,9 +45,9 @@ Aşağıdaki kod örneği görünen metin BLOB'ları kopyalar *giriş* kapsayıc
             output = input.ReadToEnd();
         }
 
-Öznitelik oluşturucunun kapsayıcı adı hem de blob adı için bir yer tutucu belirten bir dize parametresi alan. Bu örnekte, bir blob adlandırırsanız *Blob1.txt* oluşturulur *giriş* kapsayıcı, işlev oluşturur adlı bir blob *Blob1.txt* içinde *çıkış* kapsayıcı. 
+Merhaba öznitelik oluşturucunun hello kapsayıcı adı ve hello blob adı için bir yer tutucu belirten bir dize parametresi alan. Bu örnekte, bir blob adlandırırsanız *Blob1.txt* hello oluşturulur *giriş* kapsayıcısının hello işlev oluşturur adlı bir blob *Blob1.txt* hello içinde *çıkış*  kapsayıcı. 
 
-Aşağıdaki kod örneğinde gösterildiği gibi blob adı yer tutucu ile adı deseni belirtebilirsiniz:
+Aşağıdaki kod örneği hello gösterildiği gibi hello blob adı tutucuyla adı düzeni belirtebilirsiniz:
 
         public static void CopyBlob([BlobTrigger("input/original-{name}")] TextReader input,
             [Blob("output/copy-{name}")] out string output)
@@ -55,9 +55,9 @@ Aşağıdaki kod örneğinde gösterildiği gibi blob adı yer tutucu ile adı d
             output = input.ReadToEnd();
         }
 
-Bu kodu "özgün-" ile başlayan adlara sahip yalnızca BLOB'ları kopyalar. Örneğin, *özgün Blob1.txt* içinde *giriş* kapsayıcı kopyalanır *kopya Blob1.txt* içinde *çıkış* kapsayıcı.
+Bu kodu "özgün-" ile başlayan adlara sahip yalnızca BLOB'ları kopyalar. Örneğin, *özgün Blob1.txt* hello içinde *giriş* kapsayıcı çok kopyalanan*kopya Blob1.txt* hello içinde *çıkış* kapsayıcı.
 
-Süslü ayraçlar sahip blob adları için bir ad deseni belirtmeniz gerekiyorsa, süslü ayraçlar çift. Örneğin, BLOB'ları bulmak istiyorsanız *görüntüleri* böyle adlara sahip kapsayıcı:
+Süslü ayraçlar hello sahip blob adları için toospecify adı deseni gerekiyorsa hello süslü ayraçlar çift. Merhaba toofind blobları isterseniz, örneğin, *görüntüleri* böyle adlara sahip kapsayıcı:
 
         {20140101}-soundfile.mp3
 
@@ -65,10 +65,10 @@ Bu, düzeni için kullanın:
 
         images/{{20140101}}-{name}
 
-Örnekte, *adı* yer tutucu değerini olacaktır *soundfile.mp3*. 
+Merhaba örnekte hello *adı* yer tutucu değerini olacaktır *soundfile.mp3*. 
 
 ### <a name="separate-blob-name-and-extension-placeholders"></a>Ayrı bir blob adı ve uzantısı yer tutucuları
-Görünen BLOB'ları kopyalar olarak aşağıdaki kod örneği dosya uzantısını değiştiren *giriş* kapsayıcıya *çıkış* kapsayıcı. Kod uzantısını günlüklerini *giriş* blob ve genişletilmesi ayarlar *çıkış* için blob *.txt*.
+hello görünür BLOB'ları kopyalar hello aşağıdaki kod örnek değişikliklerini dosya uzantısı hello *giriş* kapsayıcı toohello *çıkış* kapsayıcı. Merhaba kodunu günlüğe yazar hello hello uzantısı *giriş* blob ve hello hello uzantısı ayarlar *çıkış* çok blob*.txt*.
 
         public static void CopyBlobToTxtFile([BlobTrigger("input/{name}.{ext}")] TextReader input,
             [Blob("output/{name}.txt")] out string output,
@@ -81,8 +81,8 @@ Görünen BLOB'ları kopyalar olarak aşağıdaki kod örneği dosya uzantısın
             output = input.ReadToEnd();
         }
 
-## <a id="types"></a>BLOB'larını bağlayabilirsiniz türleri
-Kullanabileceğiniz `BlobTrigger` özniteliği aşağıdaki türler:
+## <a id="types"></a>Tooblobs bağlayabilirsiniz türleri
+Merhaba kullanabilirsiniz `BlobTrigger` şu türlerini hello özniteliği:
 
 * `string`
 * `TextReader`
@@ -96,12 +96,12 @@ Kullanabileceğiniz `BlobTrigger` özniteliği aşağıdaki türler:
 * `IEnumerable<CloudPageBlob>`
 * Tarafından seri diğer türleri [ICloudBlobStreamBinder](#icbsb) 
 
-Azure depolama hesabı ile doğrudan çalışmak isterseniz, ayrıca ekleyebileceğiniz bir `CloudStorageAccount` yöntem imzası parametresi.
+Hello Azure depolama hesabı ile doğrudan toowork isterseniz, ayrıca ekleyebileceğiniz bir `CloudStorageAccount` parametre toohello yöntemi imzası.
 
-Örnekler için bkz: [blob Github.com'u azure webjobs sdk havuzda bağlama kodda](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/BlobBindingEndToEndTests.cs).
+Merhaba örnekler için bkz [blob Github.com'u hello azure webjobs sdk havuzda bağlama kodda](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/BlobBindingEndToEndTests.cs).
 
-## <a id="string"></a>Dize bağlayarak metin blob içeriği alma
-Metin BLOB'ları beklenir, `BlobTrigger` uygulanabilir bir `string` parametresi. Aşağıdaki kod örneği için metin blob bağlar bir `string` adlı parametre `logMessage`. İşlevi için Web işleri SDK'si Pano blob içeriğini yazmak için bu parametresini kullanır. 
+## <a id="string"></a>Bağlama toostring tarafından metin blob içeriği alma
+Metin BLOB'ları beklenir, `BlobTrigger` uygulanan tooa olabilir `string` parametresi. Merhaba aşağıdaki kod örneği bağlar metin blob tooa `string` adlı parametre `logMessage`. Merhaba işlevi hello blob toohello WebJobs SDK Pano Bu parametre toowrite hello içeriğini kullanır. 
 
         public static void WriteLog([BlobTrigger("input/{name}")] string logMessage,
             string name, 
@@ -113,7 +113,7 @@ Metin BLOB'ları beklenir, `BlobTrigger` uygulanabilir bir `string` parametresi.
         }
 
 ## <a id="icbsb"></a>Blob içeriğinin ICloudBlobStreamBinder kullanarak serileştirilen alma
-Aşağıdaki kod örneği uygulayan bir sınıf kullanır `ICloudBlobStreamBinder` etkinleştirmek için `BlobTrigger` bir blobu bağlamak için öznitelik `WebImage` türü.
+Merhaba aşağıdaki kod örneği kullanan uygulayan bir sınıf `ICloudBlobStreamBinder` tooenable hello `BlobTrigger` toobind blob toohello özniteliği `WebImage` türü.
 
         public static void WaterMark(
             [BlobTrigger("images3/{name}")] WebImage input,
@@ -132,7 +132,7 @@ Aşağıdaki kod örneği uygulayan bir sınıf kullanır `ICloudBlobStreamBinde
             output = input.Resize(width, height);
         }
 
-`WebImage` Kod bağlama sağlanır bir `WebImageBinder` öğesinden türetilen sınıf `ICloudBlobStreamBinder`.
+Merhaba `WebImage` kod bağlama sağlanır bir `WebImageBinder` öğesinden türetilen sınıf `ICloudBlobStreamBinder`.
 
         public class WebImageBinder : ICloudBlobStreamBinder<WebImage>
         {
@@ -149,8 +149,8 @@ Aşağıdaki kod örneği uygulayan bir sınıf kullanır `ICloudBlobStreamBinde
             }
         }
 
-## <a name="getting-the-blob-path-for-the-triggering-blob"></a>Blob yolu için tetikleyici blob alma
-İşlevi tetikleyen blob blob adını ve kapsayıcı adını almak için içeren bir `blobTrigger` işlev imzası parametresinde dize.
+## <a name="getting-hello-blob-path-for-hello-triggering-blob"></a>Blob tetikleme Merhaba Hello blob yolu alınıyor
+tooget hello kapsayıcı adı ve hello işlevi tetikleyen hello blobu blob adını içeren bir `blobTrigger` hello işlev imzası parametresinde dize.
 
         public static void WriteLog([BlobTrigger("input/{name}")] string logMessage,
             string name,
@@ -163,20 +163,20 @@ Aşağıdaki kod örneği uygulayan bir sınıf kullanır `ICloudBlobStreamBinde
         }
 
 
-## <a id="poison"></a>Zararlı BLOB'ları nasıl ele alınacağını
-Zaman bir `BlobTrigger` işlevi başarısız oldu, SDK çağırır onu yeniden durumunda hata geçici bir hata neden oldu. Blob içerik tarafından hatasına neden oldu blob işlemeye çalıştığında her zaman işlevi başarısız olur. Varsayılan olarak, SDK'sı bir işlev en fazla 5 kez için belirli bir blob çağırır. Beşinci başarısız çalışırsanız, SDK bir ileti adlandırılan bir kuyruğun ekler. *webjobs blobtrigger poison*.
+## <a id="poison"></a>Nasıl toohandle poison BLOB
+Zaman bir `BlobTrigger` işlevi başarısız oldu, hello SDK çağırır onu yeniden durumda hello hatası tarafından geçici bir hata neden oldu. Merhaba blob hello içeriğe göre Hello hatasına neden oldu tooprocess hello blob çalışır her zaman hello işlevi başarısız olur. Varsayılan olarak, hello SDK too5 kez bir işlev için belirli bir blob çağırır. Merhaba beşinci deneme başarısız olursa, hello SDK adlı bir ileti tooa sırası ekler *webjobs blobtrigger poison*.
 
-En fazla yeniden deneme sayısı yapılandırılabilir. Aynı [MaxDequeueCount](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#configqueue) ayarı zararlı blob işleme ve zararlı sıraya ileti işleme için kullanılır. 
+Merhaba en fazla yeniden deneme sayısı yapılandırılabilir. aynı hello [MaxDequeueCount](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#configqueue) ayarı zararlı blob işleme ve zararlı sıraya ileti işleme için kullanılır. 
 
-Kuyruk iletisini zararlı BLOB'lar için aşağıdaki özellikleri içeren bir JSON nesnesidir:
+Merhaba kuyruk iletisi zararlı BLOB'lar için aşağıdaki özelliklere hello içeren bir JSON nesnesi şudur:
 
-* FunctionId (biçimde *{Web işi adı}*. İşlevler. *{İşlev adı}*, örneğin: WebJob1.Functions.CopyBlob)
+* FunctionId (Merhaba biçiminde *{Web işi adı}*. İşlevler. *{İşlev adı}*, örneğin: WebJob1.Functions.CopyBlob)
 * BlobType ("BlockBlob" veya "PageBlob")
 * Kapsayıcı adı
 * BlobName
 * ETag (örneğin bir blob sürüm tanıtıcısını: "0x8D1DC6E70A277EF")
 
-Aşağıdaki kod örneğinde, `CopyBlob` işlev her çağrıldığında başarısız olmasına neden kodu bulunur. Sonra en fazla yeniden deneme sayısı için çağırır SDK, zararlı blob sıraya bir ileti oluşturulur ve bu iletiyi tarafından işlenen `LogPoisonBlob` işlevi. 
+Merhaba aşağıdaki örnek, hello kod `CopyBlob` işlev her çağrıldığında, toofail neden olan kod bulunur. Sonra Hello SDK çağrıları, hello en fazla yeniden deneme sayısı için hello zararlı blob sırada bir ileti oluşturulur ve bu ileti hello tarafından işlenir `LogPoisonBlob` işlevi. 
 
         public static void CopyBlob([BlobTrigger("input/{name}")] TextReader input,
             [Blob("textblobs/output-{name}")] out string output)
@@ -196,7 +196,7 @@ Aşağıdaki kod örneğinde, `CopyBlob` işlev her çağrıldığında başarı
             logger.WriteLine("ETag: {0}", message.ETag);
         }
 
-SDK JSON ileti otomatik olarak seri durumdan çıkarır. Burada `PoisonBlobMessage` sınıfı: 
+Merhaba SDK hello JSON ileti otomatik olarak seri durumdan çıkarır. Merhaba işte `PoisonBlobMessage` sınıfı: 
 
         public class PoisonBlobMessage
         {
@@ -208,40 +208,40 @@ SDK JSON ileti otomatik olarak seri durumdan çıkarır. Burada `PoisonBlobMessa
         }
 
 ### <a id="polling"></a>BLOB yoklama algoritması
-WebJobs SDK tarafından belirtilen tüm kapsayıcıları tarar `BlobTrigger` uygulama başlangıcında öznitelikleri. Yeni BLOB'lar bulunan önce biraz olabilir şekilde büyük depolama hesabı bu tarama biraz zaman alabilir ve `BlobTrigger` işlevleri çalıştırılır.
+Merhaba WebJobs SDK tarafından belirtilen tüm kapsayıcıları tarar `BlobTrigger` uygulama başlangıcında öznitelikleri. Yeni BLOB'lar bulunan önce biraz olabilir şekilde büyük depolama hesabı bu tarama biraz zaman alabilir ve `BlobTrigger` işlevleri çalıştırılır.
 
-SDK'sı, uygulama başladıktan sonra yeni veya değiştirilmiş BLOB'lar algılamak için blob depolama günlüklerinden düzenli aralıklarla okur. Blob günlükleri arabelleğe alınmış ve yalnızca fiziksel olarak her 10 dakikada yazılan veya bu nedenle, bu nedenle önemli gecikme olabileceğini blob oluşturulmuş veya karşılık gelen önce güncelleştirilmiş sonra `BlobTrigger` işlevi yürütür. 
+toodetect yeni veya değiştirilmiş BLOB'lar uygulama başlatma sonra SDK düzenli aralıklarla hello blob depolama alanından okur hello günlüğe kaydeder. Merhaba blob günlükleri arabelleğe alınmış ve yalnızca fiziksel olarak her 10 dakikada yazılan veya bu nedenle, bu nedenle önemli gecikme olabileceğini blob oluşturulmuş veya hello karşılık gelen önce güncelleştirilmiş sonra `BlobTrigger` işlevi yürütür. 
 
-Kullanarak oluşturduğunuz BLOB'ları için bir özel durum var. `Blob` özniteliği. WebJobs SDK yeni blob oluşturduğunda, bunu yeni blob hemen eşleşen tüm geçirir `BlobTrigger` işlevleri. Blob girişleri ve çıkışları zinciri varsa, bu nedenle SDK bunları verimli bir şekilde işleyebilir. Ancak, düşük gecikme süresi, blob işleme işlevleri için oluşturulmuş veya başka yollarla güncelleştirilmiş BLOB'ları çalıştıran istiyorsanız, kullanmanızı öneririz `QueueTrigger` yerine `BlobTrigger`.
+Hello kullanarak oluşturduğunuz BLOB'ları için bir özel durum var. `Blob` özniteliği. Merhaba WebJobs SDK yeni blob oluşturduğunda, hello yeni blob hemen geçtikten tooany eşleşen `BlobTrigger` işlevleri. Blob girişleri ve çıkışları zinciri varsa, bu nedenle hello SDK bunları verimli bir şekilde işleyebilir. Ancak, düşük gecikme süresi, blob işleme işlevleri için oluşturulmuş veya başka yollarla güncelleştirilmiş BLOB'ları çalıştıran istiyorsanız, kullanmanızı öneririz `QueueTrigger` yerine `BlobTrigger`.
 
 ### <a id="receipts"></a>BLOB giriş
-WebJobs SDK emin yapıyorsa hiçbir `BlobTrigger` işlevi için aynı yeni veya güncelleştirilmiş blob birden çok kez çağrıldığından. Bunu tutarak yapar *blob giriş* verilen blob sürümü işlenen belirlemek için.
+Merhaba WebJobs SDK emin olur hiçbir `BlobTrigger` işlevi birden çok kez Merhaba aynı yeni adlı veya blob güncelleştirildi. Bunu tutarak yapar *blob giriş* verilen blob sürümü işlediğinde sipariş toodetermine içinde.
 
-BLOB giriş adlı bir kapsayıcıda depolanır *azure Web işleri konakları* AzureWebJobsStorage bağlantı dizesi tarafından belirtilen Azure depolama hesabı. Bir blob giriş aşağıdaki bilgileri içerir:
+BLOB giriş adlı bir kapsayıcıda depolanır *azure Web işleri konakları* hello AzureWebJobsStorage bağlantı dizesi tarafından belirtilen hello Azure depolama hesabı. Bir blob giriş bilgisinden hello sahiptir:
 
-* İçin blob çağrıldı işlevi ("*{Web işi adı}*. İşlevler. *{İşlev adı}*", örneğin:"WebJob1.Functions.CopyBlob")
-* Kapsayıcı adı
-* Blob türü ("BlockBlob" veya "PageBlob")
-* Blob adı
-* ETag (örneğin bir blob sürüm tanıtıcısını: "0x8D1DC6E70A277EF")
+* Merhaba hello blobu çağrıldı işlevi ("*{Web işi adı}*. İşlevler. *{İşlev adı}*", örneğin:"WebJob1.Functions.CopyBlob")
+* Merhaba kapsayıcı adı
+* Merhaba blob türü ("BlockBlob" veya "PageBlob")
+* Merhaba blob adı
+* Merhaba ETag (örneğin bir blob sürüm tanıtıcısını: "0x8D1DC6E70A277EF")
 
-Bir blob yeniden işlemeyerek zorlamak istiyorsanız, o blobundan blob giriş el ile silebilirsiniz *azure Web işleri konakları* kapsayıcı.
+Tooforce bir blob yeniden işleme istiyorsanız, o blob için hello blob giriş hello el ile silebilirsiniz *azure Web işleri konakları* kapsayıcı.
 
-## <a id="queues"></a>Kuyruklar makalesiyle kapsanan ilgili konular
-İşleme, senaryoları blob özgü olmayan Web işleri SDK'si veya nasıl bir kuyruk iletisi tarafından tetiklenen blob işleme yönetileceği hakkında bilgi için bkz [WebJobs SDK ile Azure kuyruk depolama kullanma](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
+## <a id="queues"></a>Merhaba sıraları makalesiyle kapsanan ilgili konular
+Nasıl toohandle blob işleme bir kuyruk iletisi tarafından veya WebJobs SDK senaryoları tetiklenen değil hakkında bilgi için işleme, belirli tooblob bakın [nasıl toouse Azure kuyruk depolama hello WebJobs SDK ile](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
-Bu makalede ele alınan ilgili konular şunlardır:
+Bu makalede ele alınan ilgili konular hello şunları içerir:
 
 * Zaman uyumsuz işlevleri
 * Birden çok örneği
 * Kapama
-* Web işleri SDK'si öznitelikleri bir işlev gövdesine kullanın
-* Kod içinde SDK bağlantı dizelerini ayarlayın.
+* Web işleri SDK'si özniteliklerini işlevinin hello gövdesindeki kullanın
+* Kodda Hello SDK bağlantı dizelerini ayarlayın.
 * Değerleri için Web işleri SDK'si Oluşturucu parametreleri kodda ayarlama
 * Yapılandırma `MaxDequeueCount` zararlı blob işleme.
 * Tetik el ile bir işlevi
 * Günlüklerini yazma
 
 ## <a id="nextsteps"></a> Sonraki adımlar
-Bu kılavuz, Azure BLOB'ları ile çalışmak için genel senaryolar nasıl ele alınacağını gösteren kod örnekleri sağlamıştır. Azure Web işleri ve WebJobs SDK nasıl kullanılacağı hakkında daha fazla bilgi için bkz: [Azure Web işleri önerilen kaynakları](http://go.microsoft.com/fwlink/?linkid=390226).
+Bu kılavuz, nasıl Azure çalışmak için genel senaryolar toohandle BLOB gösteren kod örnekleri sağlamıştır. Toouse Azure Web işleri ve hello Web işleri SDK'si nasıl görürüm hakkında daha fazla bilgi için [Azure Web işleri önerilen kaynakları](http://go.microsoft.com/fwlink/?linkid=390226).
 

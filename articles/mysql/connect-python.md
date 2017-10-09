@@ -1,6 +1,6 @@
 ---
-title: "Python’dan MySQL için Azure Veritabanı'na bağlanma | Microsoft Docs"
-description: "Bu hızlı başlangıçta, MySQL için Azure Veritabanı'na bağlanmak ve buradan veri sorgulamak için kullanabileceğiniz birkaç Python kod örneği sağlanmıştır."
+title: "Python'dan MySQL için tooAzure veritabanına bağlanma | Microsoft Docs"
+description: "Bu Hızlı Başlangıç, kod örnekleri tooconnect ve sorgu verileri Azure veritabanından MySQL için kullanabileceğiniz birkaç Python sağlar."
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
@@ -11,79 +11,79 @@ ms.custom: mvc
 ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/12/2017
-ms.openlocfilehash: 4c3a2e65b83fab6fe5b8b7778782a747bb5e9cf9
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: 9df5211adcab886a502fd138347aed8fb587cd5c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>MySQL için Azure Veritabanı: Python'u kullanarak bağlanma ve veri sorgulama
-Bu hızlı başlangıçta [Python](https://python.org) kullanarak MySQL için Azure Veritabanı'na nasıl bağlanacağınız gösterilmiştir. Mac OS, Ubuntu Linux ve Windows platformlarındaki veritabanında yer alan verileri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerini kullanır. Bu makaledeki adımlarda, Python kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve MySQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
+# <a name="azure-database-for-mysql-use-python-tooconnect-and-query-data"></a>Azure veritabanı için MySQL: kullanım Python tooconnect ve sorgu verileri
+Bu hızlı başlangıç gösteren nasıl toouse [Python](https://python.org) tooconnect tooan Azure veritabanı için MySQL. Mac OS, Ubuntu Linux ve Windows platformları hello veritabanında SQL deyimleri tooquery, ekleme, güncelleştirme ve silme verilerini kullanır. Bu makalede Hello adımlarda Python kullanarak geliştirme ile bilgi sahibiyseniz ve yeni tooworking Azure veritabanı MySQL için sahip olduğunuz varsayılır.
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu hızlı başlangıçta, başlangıç noktası olarak şu kılavuzlardan birinde oluşturulan kaynaklar kullanılmaktadır:
+Bu hızlı başlangıç Bu kılavuzlara birini başlangıç noktası olarak oluşturulan hello kaynakları kullanır:
 - [Azure portalını kullanarak MySQL için Azure Veritabanı sunucusu oluşturma](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Azure CLI kullanarak MySQL için Azure Veritabanı sunucusu oluşturma](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
-## <a name="install-python-and-the-mysql-connector"></a>Python’u ve MySQL bağlayıcısını yükleme
-[Python](https://www.python.org/downloads/)’u ve [Python için MySQL bağlayıcısı](https://dev.mysql.com/downloads/connector/python/)’nı kendi makinenize yükleyin. Platformunuza bağlı olarak, şu adımları izleyin:
+## <a name="install-python-and-hello-mysql-connector"></a>Python'ı yükleyin ve MySQL bağlayıcı hello
+Yükleme [Python](https://www.python.org/downloads/) ve hello [Python MySQL bağlayıcı](https://dev.mysql.com/downloads/connector/python/) kendi makinede. Platformunuz bağlı olarak hello adımları izleyin:
 
 ### <a name="windows"></a>Windows
 1. Python 2.7’yi [python.org](https://www.python.org/downloads/windows/) adresinden indirin ve yükleyin. 
-2. Komut istemini başlatarak Python yüklemesini denetleyin. Sürüm numarasını görmek için büyük harf V anahtarını kullanarak `C:\python27\python.exe -V` komutunu çalıştırın.
-3. Python sürümünüze karşılık gelen MySQL için Python bağlayıcısını [mysql.com](https://dev.mysql.com/downloads/connector/python/) adresinden yükleyin.
+2. Merhaba Python yükleme hello komut istemi başlatarak denetleyin. Merhaba komutu çalıştırmak `C:\python27\python.exe -V` hello büyük V anahtar toosee hello sürüm numarasını kullanarak.
+3. Merhaba Python bağlayıcı MySQL'den Yükle [mysql.com](https://dev.mysql.com/downloads/connector/python/) Python ilgili tooyour sürümü.
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
-1. Linux’ta (Ubuntu), Python normalde varsayılan yükleme kapsamında yüklenir.
-2. Bash kabuğunu başlatarak Python yüklemesini denetleyin. Sürüm numarasını görmek için büyük harf V anahtarını kullanarak `python -V` komutunu çalıştırın.
-3. Sürüm numarasını görmek için `pip show pip -V` komutunu çalıştırarak PIP yüklemesini denetleyin. 
-4. PIP, Python’un bazı sürümlerine eklenmiş olabilir. PIP yüklenmediyse, `sudo apt-get install python-pip` komutunu çalıştırarak [PIP] (https://pip.pypa.io/en/stable/installing/) paketini yükleyebilirsiniz.
-5. `pip install -U pip` komutunu çalıştırarak PIP’yi en son sürüme güncelleştirin.
-6. Şu PIP komutunu kullanarak Python için MySQL bağlayıcısını ve onun bağımlılıklarını yükleyin:
+1. Linux (Ubuntu), Python genellikle hello varsayılan yüklemesinin bir parçası yüklenir.
+2. Merhaba Python yükleme hello bash kabuğunda başlatarak denetleyin. Merhaba komutu çalıştırmak `python -V` hello büyük V anahtar toosee hello sürüm numarasını kullanarak.
+3. Merhaba çalıştırarak Hello PIP yükleme denetimi `pip show pip -V` komut toosee hello sürüm numarası. 
+4. PIP, Python’un bazı sürümlerine eklenmiş olabilir. PIP yüklü değilse hello [PIP] (https://pip.pypa.io/en/stable/installing/) yükleyebilir komutunu çalıştırarak paket `sudo apt-get install python-pip`.
+5. Merhaba çalıştırarak güncelleştirme PIP toohello en son sürümü, `pip install -U pip` komutu.
+6. Merhaba MySQL bağlayıcı Python ve bağımlılıklarını hello PIP komutunu kullanarak yükleyin:
 
    ```bash
    sudo pip install mysql-connector-python-rf
    ```
  
 ### <a name="macos"></a>macOS
-1. Mac OS’ta, Python normalde varsayılan işletim sistemi yüklemesi kapsamında yüklenir.
-2. Bash kabuğunu başlatarak Python yüklemesini denetleyin. Sürüm numarasını görmek için büyük harf V anahtarını kullanarak `python -V` komutunu çalıştırın.
-3. Sürüm numarasını görmek için `pip show pip -V` komutunu çalıştırarak PIP yüklemesini denetleyin.
-4. PIP, Python’un bazı sürümlerine eklenmiş olabilir. PIP yüklü değilse, [PIP](https://pip.pypa.io/en/stable/installing/) paketini yükleyebilirsiniz.
-5. `pip install -U pip` komutunu çalıştırarak PIP’yi en son sürüme güncelleştirin.
-6. Şu PIP komutunu kullanarak Python için MySQL bağlayıcısını ve onun bağımlılıklarını yükleyin:
+1. MAC'te Python genellikle hello varsayılan işletim sistemi yüklemesinin bir parçası yüklenir.
+2. Merhaba Python yükleme hello bash kabuğunda başlatarak denetleyin. Merhaba komutu çalıştırmak `python -V` hello büyük V anahtar toosee hello sürüm numarasını kullanarak.
+3. Merhaba çalıştırarak Hello PIP yükleme denetimi `pip show pip -V` komut toosee hello sürüm numarası.
+4. PIP, Python’un bazı sürümlerine eklenmiş olabilir. PIP yüklü değilse hello yükleyebilir [PIP](https://pip.pypa.io/en/stable/installing/) paket.
+5. Merhaba çalıştırarak güncelleştirme PIP toohello en son sürümü, `pip install -U pip` komutu.
+6. Merhaba MySQL bağlayıcı Python ve bağımlılıklarını hello PIP komutunu kullanarak yükleyin:
 
    ```bash
    pip install mysql-connector-python-rf
    ```
 
 ## <a name="get-connection-information"></a>Bağlantı bilgilerini alma
-MySQL için Azure Veritabanı'na bağlanmak üzere gereken bağlantı bilgilerini alın. Tam sunucu adına ve oturum açma kimlik bilgilerine ihtiyacınız vardır.
+Merhaba bağlantı gerekli bilgileri tooconnect toohello Azure veritabanı için MySQL alın. Tam sunucu adını ve oturum açma kimlik bilgileri hello gerekir.
 
-1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. Azure portalında sol taraftaki menüden **Tüm kaynaklar**'a tıklayın ve oluşturduğunuz sunucuyu (örneğin, **myserver4demo**) arayın.
-3. **myserver4demo** sunucu adına tıklayın.
-4. Sunucunun **Özellikler** sayfasını seçin. **Sunucu adını** ve **Sunucu yöneticisi oturum açma adını** not edin.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com/).
+2. Merhaba sol taraftaki menüden Azure portalında, **tüm kaynakları** ve aramak için creased, gibi hello sunucu **myserver4demo**.
+3. Merhaba sunucu adına tıklatarak **myserver4demo**.
+4. Select hello sunucunun **özellikleri** sayfası. Merhaba Not **sunucu adı** ve **sunucu yönetici oturum açma adı**.
  ![MySQL için Azure Veritabanı - Sunucu Yöneticisi Oturum Açma](./media/connect-python/1_server-properties-name-login.png)
-5. Sunucunuzun oturum açma bilgilerini unuttuysanız **Genel Bakış** sayfasına giderek Sunucu yöneticisi oturum açma adını görüntüleyin ve gerekirse parolayı sıfırlayın.
+5. Sunucu oturum açma bilgilerinizi unutursanız, toohello gidin **genel bakış** tooview hello sunucu yönetici oturum açma adı sayfasında ve gerekirse sıfırlamak hello parola.
    
 
 ## <a name="run-python-code"></a>Python Kodunu Çalıştırma
-- Kodu bir metin dosyasına yapıştırın ve dosyayı .py uzantısıyla bir proje klasörüne kaydedin; örneğin, C:\pythonmysql\createtable.py veya /home/username/pythonmysql/createtable.py
-- Kodu çalıştırmak için komut istemi veya bash kabuğu başlatın. Dizini, proje klasörünüzle değiştirin (`cd pythonmysql`). Sonra uygulamayı çalıştırmak için python komutunu ve ardından `python createtable.py` dosya adını yazın. Windows işletim sisteminde, python.exe bulunamazsa yürütülebilir dosyanın tam yolunu sağlayabilir veya yol ortam değişkenine Python yolunu ekleyebilirsiniz. `C:\python27\python.exe createtable.py`
+- Merhaba kod bir metin dosyasına yapıştırın ve proje klasörüne C:\pythonmysql\createtable.py veya /home/username/pythonmysql/createtable.py gibi dosya uzantısı .py ile Merhaba dosyasını kaydedin
+- toorun hello kod hello komut istemi başlatın veya kabuk bash. Dizini, proje klasörünüzle değiştirin (`cd pythonmysql`). Merhaba dosya adından hello python komut yazarak `python createtable.py` toorun Merhaba uygulaması. Hello Windows işletim sistemi, Python.exe'yi bulunmazsa, hello tam yolu toohello yürütülebilir sağlayın veya hello Python yolu hello yol ortam değişkenine ekleyin. `C:\python27\python.exe createtable.py`
 
 ## <a name="connect-create-table-and-insert-data"></a>Bağlanma, tablo oluşturma ve veri ekleme
-Sunucuya bağlanmak, tablo oluşturmak ve **INSERT** SQL deyimini kullanarak verileri yüklemek için aşağıdaki kodu kullanın. 
+Kullanım hello aşağıdaki kod tooconnect toohello sunucu, bir tablo oluşturun ve verileri hello kullanarak yük bir **Ekle** SQL deyimi. 
 
-Kodda, mysql.connector kitaplığı içeri aktarılır. Yapılandırma koleksiyonundaki [bağlantı bağımsız değişkenleri](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) kullanılarak MySQL için Azure Veritabanı’na bağlanmak üzere, [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) işlevi kullanılır. Kod bağlantıda bir imleç kullanır ve [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) yöntemi MySQL veritabanında SQL sorgusunu yürütür. 
+Merhaba kodda hello mysql.connector kitaplığı içeri aktarılır. Merhaba [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) işlevidir kullanılan tooconnect tooAzure hello kullanarak MySQL veritabanı [bağlantı bağımsız değişkenleri](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) hello config koleksiyonundaki. Merhaba kod hello bağlantıda bir imleç kullanır ve [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) yöntemi MySQL veritabanı hello SQL sorgusunu çalıştırır. 
 
-`host`, `user`, `password` ve `database` parametrelerini, sunucu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin.
+Hello yerine `host`, `user`, `password`, ve `database` parametrelerini hello sunucu ve veritabanı oluşturduğunuzda belirttiğiniz hello değerlerle.
 
 ```Python
 import mysql.connector
 from mysql.connector import errorcode
 
-# Obtain connection string information from the portal
+# Obtain connection string information from hello portal
 config = {
   'host':'myserver4demo.mysql.database.azure.com',
   'user':'myadmin@myserver4demo',
@@ -97,7 +97,7 @@ try:
    print("Connection established")
 except mysql.connector.Error as err:
   if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-    print("Something is wrong with the user name or password")
+    print("Something is wrong with hello user name or password")
   elif err.errno == errorcode.ER_BAD_DB_ERROR:
     print("Database does not exist")
   else:
@@ -129,17 +129,17 @@ else:
 ```
 
 ## <a name="read-data"></a>Verileri okuma
-Bağlanmak ve **SELECT** SQL deyimi kullanarak verileri okumak için aşağıdaki kodu kullanın. 
+Kullanım hello aşağıdaki tooconnect kod ve hello kullanarak verileri okuyun bir **seçin** SQL deyimi. 
 
-Kodda, mysql.connector kitaplığı içeri aktarılır. Yapılandırma koleksiyonundaki [bağlantı bağımsız değişkenleri](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) kullanılarak MySQL için Azure Veritabanı’na bağlanmak üzere, [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) işlevi kullanılır. Kod bağlantıda bir imleç kullanır ve [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) yöntemi MySQL veritabanında SQL deyimini yürütür. Veri satırları, [fetchall()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-fetchall.html) yöntemi kullanılarak okunur. Sonuç kümesi koleksiyon satırında tutulur ve satırlarda döngü yapmak için bir yineleyici kullanılır.
+Merhaba kodda hello mysql.connector kitaplığı içeri aktarılır. Merhaba [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) işlevidir kullanılan tooconnect tooAzure hello kullanarak MySQL veritabanı [bağlantı bağımsız değişkenleri](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) hello config koleksiyonundaki. Merhaba kod hello bağlantıda bir imleç kullanır ve [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) yöntemi MySQL veritabanında hello SQL deyimini yürütür. Merhaba veri satırına hello kullanarak okunur [fetchall()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-fetchall.html) yöntemi. Merhaba sonuç kümesi bir koleksiyon satırda tutulur ve yineleyici hello satır üzerinde kullanılan tooloop için.
 
-`host`, `user`, `password` ve `database` parametrelerini, sunucu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin.
+Hello yerine `host`, `user`, `password`, ve `database` parametrelerini hello sunucu ve veritabanı oluşturduğunuzda belirttiğiniz hello değerlerle.
 
 ```Python
 import mysql.connector
 from mysql.connector import errorcode
 
-# Obtain connection string information from the portal
+# Obtain connection string information from hello portal
 config = {
   'host':'myserver4demo.mysql.database.azure.com',
   'user':'myadmin@myserver4demo',
@@ -153,7 +153,7 @@ try:
    print("Connection established")
 except mysql.connector.Error as err:
   if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-    print("Something is wrong with the user name or password")
+    print("Something is wrong with hello user name or password")
   elif err.errno == errorcode.ER_BAD_DB_ERROR:
     print("Database does not exist")
   else:
@@ -178,17 +178,17 @@ else:
 ```
 
 ## <a name="update-data"></a>Verileri güncelleştirme
-Bağlanmak ve **UPDATE** SQL deyimi kullanarak verileri güncelleştirmek için aşağıdaki kodu kullanın. 
+Kullanım hello aşağıdaki tooconnect kod ve hello kullanarak veri güncelleştirme bir **güncelleştirme** SQL deyimi. 
 
-Kodda, mysql.connector kitaplığı içeri aktarılır.  Yapılandırma koleksiyonundaki [bağlantı bağımsız değişkenleri](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) kullanılarak MySQL için Azure Veritabanı’na bağlanmak üzere, [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) işlevi kullanılır. Kod bağlantıda bir imleç kullanır ve [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) yöntemi MySQL veritabanında SQL deyimini yürütür. 
+Merhaba kodda hello mysql.connector kitaplığı içeri aktarılır.  Merhaba [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) işlevidir kullanılan tooconnect tooAzure hello kullanarak MySQL veritabanı [bağlantı bağımsız değişkenleri](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) hello config koleksiyonundaki. Merhaba kod hello bağlantıda bir imleç kullanır ve [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) yöntemi MySQL veritabanında hello SQL deyimini yürütür. 
 
-`host`, `user`, `password` ve `database` parametrelerini, sunucu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin.
+Hello yerine `host`, `user`, `password`, ve `database` parametrelerini hello sunucu ve veritabanı oluşturduğunuzda belirttiğiniz hello değerlerle.
 
 ```Python
 import mysql.connector
 from mysql.connector import errorcode
 
-# Obtain connection string information from the portal
+# Obtain connection string information from hello portal
 config = {
   'host':'myserver4demo.mysql.database.azure.com',
   'user':'myadmin@myserver4demo',
@@ -202,7 +202,7 @@ try:
    print("Connection established")
 except mysql.connector.Error as err:
   if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-    print("Something is wrong with the user name or password")
+    print("Something is wrong with hello user name or password")
   elif err.errno == errorcode.ER_BAD_DB_ERROR:
     print("Database does not exist")
   else:
@@ -210,7 +210,7 @@ except mysql.connector.Error as err:
 else:
   cursor = conn.cursor()
 
-  # Update a data row in the table
+  # Update a data row in hello table
   cursor.execute("UPDATE inventory SET quantity = %s WHERE name = %s;", (200, "banana"))
   print("Updated",cursor.rowcount,"row(s) of data.")
 
@@ -222,17 +222,17 @@ else:
 ```
 
 ## <a name="delete-data"></a>Verileri silme
-Bağlanmak ve **DELETE** SQL deyimini kullanarak verileri kaldırmak için aşağıdaki kodu kullanın. 
+Kullanım hello aşağıdaki tooconnect kod ve verileri kullanarak kaldırma bir **silmek** SQL deyimi. 
 
-Kodda, mysql.connector kitaplığı içeri aktarılır.  Yapılandırma koleksiyonundaki [bağlantı bağımsız değişkenleri](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) kullanılarak MySQL için Azure Veritabanı’na bağlanmak üzere, [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) işlevi kullanılır. Kod bağlantıda bir imleç kullanır ve [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) yöntemi MySQL veritabanında SQL sorgusunu yürütür. 
+Merhaba kodda hello mysql.connector kitaplığı içeri aktarılır.  Merhaba [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) işlevidir kullanılan tooconnect tooAzure hello kullanarak MySQL veritabanı [bağlantı bağımsız değişkenleri](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) hello config koleksiyonundaki. Merhaba kod hello bağlantıda bir imleç kullanır ve [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) yöntemi MySQL veritabanı hello SQL sorgusunu çalıştırır. 
 
-`host`, `user`, `password` ve `database` parametrelerini, sunucu ve veritabanını oluştururken belirttiğiniz değerlerle değiştirin.
+Hello yerine `host`, `user`, `password`, ve `database` parametrelerini hello sunucu ve veritabanı oluşturduğunuzda belirttiğiniz hello değerlerle.
 
 ```Python
 import mysql.connector
 from mysql.connector import errorcode
 
-# Obtain connection string information from the portal
+# Obtain connection string information from hello portal
 config = {
   'host':'myserver4demo.mysql.database.azure.com',
   'user':'myadmin@myserver4demo',
@@ -246,7 +246,7 @@ try:
    print("Connection established.")
 except mysql.connector.Error as err:
   if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-    print("Something is wrong with the user name or password.")
+    print("Something is wrong with hello user name or password.")
   elif err.errno == errorcode.ER_BAD_DB_ERROR:
     print("Database does not exist.")
   else:
@@ -254,7 +254,7 @@ except mysql.connector.Error as err:
 else:
   cursor = conn.cursor()
 
-  # Delete a data row in the table
+  # Delete a data row in hello table
   cursor.execute("DELETE FROM inventory WHERE name=%(param1)s;", {'param1':"orange"})
   print("Deleted",cursor.rowcount,"row(s) of data.")
 

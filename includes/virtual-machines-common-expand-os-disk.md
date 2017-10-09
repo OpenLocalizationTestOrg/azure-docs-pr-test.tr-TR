@@ -1,18 +1,18 @@
 ## <a name="overview"></a>Genel Bakış
-Bir Kaynak Grubunda [Azure Market](https://azure.microsoft.com/marketplace/)’ten edinilen bir görüntüyü dağıtarak yeni bir sanal makine (VM) oluşturduğunuzda, varsayılan işletim sistemi sürücüsü 127 GB’tır. VM’ye veri diskleri eklemek (kaç tane ekleyebileceğiniz seçtiğiniz SKU’ya bağlıdır) mümkün olmasına, hatta uygulamaları ve yoğun CPU kullanımlı iş yüklerini bu ek disklere yüklemeniz önerilmesine rağmen, sıklıkla müşterilerin aşağıdaki gibi belirli senaryoları etkinleştirmesi için işletim sistemi sürücüsünü genişletmesi gerekir:
+Oluşturduğunuzda, yeni bir sanal makine (VM) bir kaynak grubunda bir görüntüden dağıtarak [Azure Marketi](https://azure.microsoft.com/marketplace/), hello varsayılan işletim sistemi sürücüsü olan 127 GB. Olası tooadd veri diskleri toohello (kaç bağlı olarak SKU hello sırasında seçtiğiniz) VM, ayrıca önerilen tooinstall uygulamaları ve CPU yoğun iş yükleri bu eki disklerdeki ise rağmen müşterilerin tooexpand hello OS görmemeleri gerekir aşağıdaki gibi belirli senaryolar toosupport sürücü:
 
 1. İşletim sistemi sürücüsüne bileşen yükleyen eski uygulamaları destekleme.
 2. Fiziksel bir bilgisayarı veya sanal makineyi daha büyük bir işletim sistemi sürücüsüne sahip şirket içi kaynaktan geçirme.
 
 > [!IMPORTANT]
-> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır: Resource Manager ve Klasik. Bu makalede Resource Manager modelinin kullanımı anlatılmaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir.
+> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır: Resource Manager ve Klasik. Bu makalede, hello Resource Manager modelini kullanarak yer almaktadır. Microsoft, en yeni dağıtımların hello Resource Manager modelini kullanmasını önerir.
 > 
 > 
 
-## <a name="resize-the-os-drive"></a>İşletim sistemi sürücüsünü yeniden boyutlandırma
-Bu makalede, [Azure Powershell](/powershell/azureps-cmdlets-docs)’in kaynak yöneticisi modüllerini kullanarak işletim sistemi sürücüsünü yeniden boyutlandırma görevini gerçekleştireceğiz. Powershell ISE veya Powershell pencerenizi yönetim modunda açın ve aşağıdaki adımları izleyin:
+## <a name="resize-hello-os-drive"></a>Merhaba işletim sistemi sürücüsü yeniden boyutlandırma
+Bu makalede biz hello işletim sistemi sürücüsü resource manager modüllerini kullanarak yeniden boyutlandırma, hello görevi [Azure Powershell](/powershell/azureps-cmdlets-docs). Yönetici modunda Powershell ISE veya Powershell penceresi açın ve aşağıdaki hello adımları izleyin:
 
-1. Aşağıdakileri yaparak Microsoft Azure hesabınızda kaynak yönetimi modunda oturum açın ve aboneliğinizi seçin:
+1. Oturum açma tooyour Microsoft Azure kaynak yönetimi modunda hesabınızı ve aboneliğinizi aşağıdaki gibi seçin:
    
    ```Powershell
    Login-AzureRmAccount
@@ -24,17 +24,17 @@ Bu makalede, [Azure Powershell](/powershell/azureps-cmdlets-docs)’in kaynak y�
    $rgName = 'my-resource-group-name'
    $vmName = 'my-vm-name'
    ```
-3. Aşağıdakileri yaparak sanal makineniz için bir başvuru edinin:
+3. Başvuru tooyour VM aşağıdaki gibi alın:
    
    ```Powershell
    $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
    ```
-4. Aşağıdakileri yaparak diski yeniden boyutlandırmadan önce VM’yi durdurun:
+4. Merhaba VM hello disk aşağıdaki gibi yeniden boyutlandırma önce durdurun:
    
     ```Powershell
     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
     ```
-5. İşte beklediğimiz an geldi! Aşağıdakileri yaparak işletim sistemi diskinin boyutunu istenen değere ayarlayın ve VM’yi güncelleştirin:
+5. Ve biz beklediğinden hello şu anda İşte! Merhaba işletim sistemi disk istenen toohello değeri Hello boyutunu ayarlayın ve hello VM şu şekilde güncelleştirin:
    
    ```Powershell
    $vm.StorageProfile.OSDisk.DiskSizeGB = 1023
@@ -42,19 +42,19 @@ Bu makalede, [Azure Powershell](/powershell/azureps-cmdlets-docs)’in kaynak y�
    ```
    
    > [!WARNING]
-   > Yeni boyut mevcut disk boyutundan büyük olmalıdır. İzin verilen en büyük boyut 1023 GB’tır.
+   > Merhaba yeni boyutu hello mevcut disk boyutundan daha büyük olmalıdır. Merhaba izin verilen en fazla 1023 GB'tır.
    > 
    > 
-6. VM güncelleştirmesi biraz zaman alabilir. Komutun yürütülmesi tamamlandığında aşağıdakileri yaparak VM’yi yeniden başlatın:
+6. Güncelleştirme hello VM birkaç saniye sürebilir. Hello VM Hello komutu yürütme tamamlandıktan sonra aşağıdaki gibi yeniden başlatın:
    
    ```Powershell
    Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
    ```
 
-Hepsi bu! Şimdi RDP ile sanal makinenize girin, Bilgisayar Yönetimi’ni (veya Disk Yönetimi) açın ve yeni ayrılan alanı kullanarak sürücüyü genişletin.
+Hepsi bu! Şimdi hello VM RDP'ye Bilgisayar Yönetimi (veya Disk Yönetimi) açın ve yeni ayrılmış alanı hello kullanarak hello sürücüyü genişletin.
 
 ## <a name="summary"></a>Özet
-Bu makalede, PowerShell’in Azure Resource Manager modüllerini kullanarak bir IaaS sanal makinesinin işletim sistemi sürücüsünü genişlettik. Aşağıda başvurabilmeniz için betiğin tamamının kopyası verilmiştir:
+Bu makalede, Azure Resource Manager modüllerini Powershell tooexpand hello bir Iaas sanal makinenin işletim sistemi sürücüsü kullandık. Aşağıda çoğaltılamaz hello daha sonra başvurmak üzere tam komut dosyası vardır:
 
 ```Powershell
 Login-AzureRmAccount
@@ -69,16 +69,16 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Bu makalede öncelikli olarak sanal makinenin işletim sistemi diskini genişletmeye odaklanmış olsak da geliştirilen betik, tek bir kod satırının değiştirilmesiyle VM’ye bağlı veri disklerinin genişletilmesi için de kullanılabilir. Örneğin, VM’ye bağlı ilk veri diskini genişletmek için ```StorageProfile``` öğesinin ```OSDisk``` nesnesini ```DataDisks``` dizisi ile değiştirin ve aşağıda gösterildiği gibi sayısal bir dizin kullanarak ilk bağlanan veri diskinin başvurusunu edinin:
+Bu makalede, biz öncelikle hello VM hello işletim sistemi diski genişletme üzerinde odaklanmış olsa hello geliştirilmiş komut dosyası ayrıca tek satırlık bir kod değiştirerek hello veri diskleri ekli toohello VM genişletmek için kullanılabilir. Örneğin, tooexpand hello ilk veri diski ekli toohello VM, hello yerine ```OSDisk``` nesnesinin ```StorageProfile``` ile ```DataDisks``` dizi ve sayısal dizin tooobtain bir başvuru toofirst ekli veri diski aşağıda gösterildiği gibi kullanın:
 
 ```Powershell
 $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 ```
-Benzer şekilde, yukarıdaki gibi bir dizini ya da diskin ```Name``` özelliğini aşağıda gösterildiği gibi kullanarak sanal makinenize bağlı diğer veri disklerine de başvurabilirsiniz:
+Benzer şekilde, diğer veri diskleri ekli toohello VM, yukarıda gösterildiği gibi bir dizin kullanarak ya da başvuru veya hello ```Name``` aşağıda gösterildiği gibi hello disk özelliği:
 
 ```Powershell
 ($vm.StorageProfile.DataDisks | Where {$_.Name -eq 'my-second-data-disk'})[0].DiskSizeGB = 1023
 ```
 
-Azure Resource Manager sanal makinesine disk bağlama hakkında bilgi edinmek istiyorsanız bu [makaleyi](../articles/virtual-machines/windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) inceleyin.
+Nasıl tooattach tooan Azure Resource Manager VM diskleri çıkışı toofind istiyorsanız, bunu işaretleyin [makale](../articles/virtual-machines/windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

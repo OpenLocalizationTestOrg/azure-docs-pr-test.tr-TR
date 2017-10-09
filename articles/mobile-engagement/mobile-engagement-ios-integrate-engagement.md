@@ -1,5 +1,5 @@
 ---
-title: "Azure Mobile Engagement iOS SDK tümleştirmesi | Microsoft Docs"
+title: "aaaAzure Mobile Engagement iOS SDK tümleştirmesi | Microsoft Docs"
 description: "En son güncelleştirmeler ve iOS için Azure Mobile Engagement SDK'sı için yordamlar"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,13 +14,13 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.openlocfilehash: 01fdbb43c21ac6932e8462f4a6507fc63e50542d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 66ce34efabede7d882caa8a91431a8df71e4fb59
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-integrate-engagement-on-ios"></a>Katılım tümleştirmek için iOS hakkında
+# <a name="how-toointegrate-engagement-on-ios"></a>Nasıl tooIntegrate Engagement iOS
 > [!div class="op_single_selector"]
 > * [Windows Evrensel](mobile-engagement-windows-store-integrate-engagement.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -29,24 +29,24 @@ ms.lasthandoff: 08/03/2017
 >
 >
 
-Bu yordam, Engagement analizi ve izleme işlevlerine iOS uygulamanızda etkinleştirmek için en basit yolu açıklar.
+Bu yordam, hello en basit yolu tooactivate Engagement analizi ve izleme işlevlerine iOS uygulamanızda açıklar.
 
-Engagement SDK'sı iOS7 + ve Xcode 8 + gerektirir: uygulamanızı dağıtım hedefi en az olmalıdır iOS 7.
+Merhaba Engagement SDK'sı iOS7 + ve Xcode 8 + gerektirir: hello dağıtım hedef uygulamanızın en az olmalıdır iOS 7.
 
 > [!NOTE]
-> XCode 7'de gerçekten bağımlı sonra kullanabilirsiniz [iOS Engagement SDK'sı v3.2.4](https://aka.ms/r6oouh). Bir bilinen hata varsa bu önceki sürüm Reach modülünü 10 iOS aygıtları bakın çalıştırılırken [reach modülü tümleştirme](mobile-engagement-ios-integrate-engagement-reach.md) daha fazla ayrıntı için. SDK v3.2.4 kullanın sonra yalnızca atlamak seçerseniz `UserNotifications.framework` sonraki adımda içeri aktarın.
+> XCode 7'de gerçekten bağımlı sonra hello kullanabilir [iOS Engagement SDK'sı v3.2.4](https://aka.ms/r6oouh). Bir bilinen hata varsa bu önceki sürümünü Reach modülünü hello 10 iOS aygıtları bakın çalıştırılırken [hello reach modülü tümleştirme](mobile-engagement-ios-integrate-engagement-reach.md) daha fazla ayrıntı için. Toouse hello SDK v3.2.4 belirtin, sonra yalnızca hello Atla varsa `UserNotifications.framework` hello sonraki adımda içeri aktarın.
 >
 >
 
-Aşağıdaki adım kullanıcıları, oturumlar, etkinlikleri, kilitlenme ve Technicals ilgili tüm istatistikleri işlem için gereken günlükleri rapor etkinleştirmek için yeterli değildir. Olaylar, hatalar ve işleri gibi diğer istatistikleri işlem için gereken günlükleri rapor katılım API kullanarak el ile yapılması gerekir (bkz [iOS uygulamanızı API etiketleme Gelişmiş Mobile Engagement kullanmayı](mobile-engagement-ios-use-engagement-api.md) Bu istatistikler olduğundan uygulamaya bağlıdır.
+Aşağıdaki adımları hello günlüklerinin yeterli tooactivate hello rapor kullanıcıları, oturumlar, etkinlikleri, kilitlenme ve Technicals ilgili tüm istatistikleri toocompute gerekli ' dir. Günlükler Hello rapor olaylar, hatalar ve işleri hello katılım API kullanarak el ile yapılmalıdır gibi bu toocompute diğer istatistiklerin gerekli (bkz [nasıl toouse hello Mobile Engagement iOS uygulamanızı API etiketleme Gelişmiş](mobile-engagement-ios-use-engagement-api.md) Bu istatistikler itibaren Uygulama bağımlıdır.
 
-## <a name="embed-the-engagement-sdk-into-your-ios-project"></a>Engagement SDK'sı iOS projenize ekleme
-* İOS SDK'sı yükle gelen [burada](http://aka.ms/qk2rnj).
-* Engagement SDK'sı iOS projenize ekleyin: Xcode'da, sağ, proje seçin tıklayın ve **"Ekle dosyaları..."** ve `EngagementSDK` klasör.
-* Katılım çalışmak için ek çerçeveleri gerektirir: Proje Gezgini'nde proje bölmesini açın ve doğru hedef seçin. Ardından, açın **"Derleme aşamaları"** sekmesi ve **"Bağlantı ikiliyi kitaplıklara"** menüsünde bu çerçeveleri ekleyin:
+## <a name="embed-hello-engagement-sdk-into-your-ios-project"></a>Merhaba Engagement SDK'sı iOS projenize ekleme
+* Merhaba iOS SDK'sı yükle gelen [burada](http://aka.ms/qk2rnj).
+* Ekle hello Engagement SDK'sı tooyour iOS projesi: Xcode'da, sağ, proje seçin tıklayın ve **"çok dosyaları Ekle..."** ve hello seçin `EngagementSDK` klasör.
+* Katılım ek çerçeveler toowork gerektirir: hello proje Gezgini'nde, proje bölmesini açın ve doğru hedef hello seçin. Merhaba açın **"Derleme aşamaları"** sekmesi ve hello **"Bağlantı ikiliyi kitaplıklara"** menüsünde bu çerçeveleri ekleyin:
 
-  * `UserNotifications.framework`-bağlantı olarak ayarla`Optional`
-  * `AdSupport.framework`-bağlantı olarak ayarla`Optional`
+  * `UserNotifications.framework`-kümesi hello bağlantı olarak`Optional`
+  * `AdSupport.framework`-kümesi hello bağlantı olarak`Optional`
   * `SystemConfiguration.framework`
   * `CoreTelephony.framework`
   * `CFNetwork.framework`
@@ -54,18 +54,18 @@ Aşağıdaki adım kullanıcıları, oturumlar, etkinlikleri, kilitlenme ve Tech
   * `libxml2.dylib`
 
 > [!NOTE]
-> AdSupport framework kaldırılabilir. Katılım IDFA toplamak için bu framework gerekir. Ancak, IDFA toplamayı devre \<ios-sdk-engagement-ıdfa\> bu kimliğiyle ilgili yeni Apple ilkesiyle uyum sağlamak için
+> Merhaba AdSupport framework kaldırılabilir. Katılım bu framework toocollect hello IDFA gerekir. Ancak, IDFA toplamayı devre \<ios-sdk-engagement-ıdfa\> toocomply bu kimliğiyle ilgili yeni Apple politikasını hello ile
 >
 >
 
-## <a name="initialize-the-engagement-sdk"></a>Engagement SDK'yı başlatma
-Uygulama temsilcinizi değiştirme gerekir:
+## <a name="initialize-hello-engagement-sdk"></a>Merhaba Engagement SDK'yı başlatma
+Uygulama temsilcinizi toomodify gerekir:
 
-* Uygulama dosyanızı üst kısmında, katılım Aracısı'nı içeri aktarın:
+* Uygulama dosyanızı Hello üstünde hello katılım Aracısı içeri aktarın:
 
       [...]
       #import "EngagementAgent.h"
-* Katılım Initialize yöntemi içinde '**applicationDidFinishLaunching:**'veya'**uygulama: didFinishLaunchingWithOptions:**':
+* Katılım Initialize hello yöntemi içinde '**applicationDidFinishLaunching:**'veya'**uygulama: didFinishLaunchingWithOptions:**':
 
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
       {
@@ -76,7 +76,7 @@ Uygulama temsilcinizi değiştirme gerekir:
 
 ## <a name="basic-reporting"></a>Temel raporlama
 ### <a name="recommended-method-overload-your-uiviewcontroller-classes"></a>Önerilen yöntem: aşırı yükleme, `UIViewController` sınıfları
-Rapor kullanıcıları, oturumlar, etkinlikleri, kilitlenme ve teknik istatistikleri işlem katılım tarafından gerekli tüm günlüklerin etkinleştirmek için yalnızca tüm yapabilirsiniz, `UIViewController` alt sınıfları `EngagementViewController` sınıfları (aynı kural için`UITableViewController`  -\> `EngagementTableViewController`).
+Sipariş tooactivate hello raporunda katılım toocompute kullanıcıları, oturumlar, etkinlikleri, kilitlenme ve teknik istatistikleri gerekli tüm hello günlükler, yalnızca tüm yapabileceğiniz, `UIViewController` alt sınıfları devral hello `EngagementViewController` sınıfları (aynı kural için `UITableViewController`  - \> `EngagementTableViewController`).
 
 **Katılım:**
 
@@ -104,24 +104,24 @@ Rapor kullanıcıları, oturumlar, etkinlikleri, kilitlenme ve teknik istatistik
     @property (nonatomic, retain) IBOutlet UITextField* myTextField2;
 
 ### <a name="alternate-method-call-startactivity-manually"></a>Alternatif yöntem: çağrı `startActivity()` el ile
-Olamaz ya da tekrar etmek istiyor musunuz, `UIViewController` sınıfları, bunun yerine, çağırarak etkinliklerinizi başlatabilirsiniz `EngagementAgent`'s doğrudan yöntemleri.
+Olamaz ya da toooverload istiyor musunuz, `UIViewController` sınıfları, bunun yerine, çağırarak etkinliklerinizi başlatabilirsiniz `EngagementAgent`'s doğrudan yöntemleri.
 
 > [!IMPORTANT]
-> SDK otomatik olarak çağıran iOS `endActivity()` uygulama kapatıldığında yöntemi. Bu nedenle, olan *yüksek oranda* çağırmak için önerilen `startActivity` kullanıcı etkinliği değiştirdiğinizde, yöntemi ve *hiçbir zaman* çağrısı `endActivity` bu yöntemi çağırmadan geçerli zorlar beri yöntemi tamamlandı olarak oturumu.
+> Merhaba iOS SDK'sı otomatik olarak çağırır hello `endActivity()` hello uygulama kapatıldığında yöntemi. Bu nedenle, olan *yüksek oranda* toocall hello önerilen `startActivity` hello kullanıcının hello etkinliği değiştirdiğinizde, yöntemi ve çok*hiçbir zaman* çağrısı hello `endActivity` bu yöntem zorlar arama itibaren yöntemi Merhaba geçerli oturum toobe sona erdi.
 >
 >
 
 ## <a name="location-reporting"></a>Konum raporlama
-Hizmet Koşulları Apple uygulamaları konum yalnızca istatistikleri amaçla izleme kullanmaya izin vermez. Bu nedenle, yalnızca uygulamanız konumu başka bir nedenle izleme de kullanıyorsanız konumu raporları etkinleştirmek için önerilir.
+Hizmet Koşulları Apple uygulamaları toouse konum yalnızca istatistikleri amaçla izleme izin vermez. Bu nedenle, yalnızca uygulamanız hello konumu başka bir nedenle izleme de kullanıyorsanız tooenable konumu raporları önerilir.
 
-İOS 8 ile başlayarak, anahtar için bir dize ayarlayarak uygulamanızı konum hizmetleri nasıl kullandığı için bir açıklama sağlamalısınız [NSLocationWhenInUseUsageDescription] veya [NSLocationAlwaysUsageDescription]uygulamanızın Info.plist dosyasında. Rapor konumu engagement arka planda istiyorsanız NSLocationAlwaysUsageDescription anahtarı ekleyin. Diğer durumlarda, NSLocationWhenInUseUsageDescription anahtarı ekleyin. Rapor arka plan konumu iOS 11 NSLocationAlwaysAndWhenInUseUsageDescription ve NSLocationWhenInUseUsageDescription gerekir unutmayın.
+İOS 8 ile başlayarak, uygulamanızı hello anahtarı için bir dize ayarlayarak konum hizmetleri nasıl kullandığı için bir açıklama sağlamalısınız [NSLocationWhenInUseUsageDescription] veya [NSLocationAlwaysUsageDescription]uygulamanızın Info.plist dosyasında. Engagement hello arka planda tooreport konumu istiyorsanız hello anahtar NSLocationAlwaysUsageDescription ekleyin. Diğer durumlarda, başlangıç anahtarı NSLocationWhenInUseUsageDescription ekleyin. İOS 11 NSLocationAlwaysAndWhenInUseUsageDescription ve NSLocationWhenInUseUsageDescription tooreport arka plan konumu gerektiğini unutmayın.
 
 ### <a name="lazy-area-location-reporting"></a>Yavaş alan konumu raporlama
-Yavaş alan konumu raporlama ülke, bölgeye ve yere göre cihazlara ilişkili rapor oluşturmaya olanak tanır. Bu tür konumu raporlama yalnızca ağ konumlarını (hücre kimliği veya WIFI göre) kullanır. Aygıt alanına oturum başına en fazla bir kez bildirilir. GPS hiçbir zaman kullanılmaz ve bu nedenle bu konumu rapor çok az (no değil söylemeniz) türü pil üzerindeki etkisi.
+Yavaş alan konumu raporlama sağlar tooreport hello ülke, bölgeye ve yere göre ilişkili toodevices. Bu tür konumu raporlama yalnızca ağ konumlarını (hücre kimliği veya WIFI göre) kullanır. Merhaba aygıt alanına oturum başına en fazla bir kez bildirilir. Merhaba GPS hiçbir zaman kullanılmaz ve bu nedenle bu konumu rapor çok az türü (değil toosay yok) hello pil üzerindeki etkisi.
 
-Bildirilen alanları kullanıcıları, oturumlar, olayları ve hataları ile ilgili coğrafi istatistikleri hesaplamak için kullanılır. Reach kampanyaları ölçütü olarak de kullanılabilir. Bir aygıt teşekkürler alınabilir için son bilinen alanı bildirilen [aygıt API].
+Kullanıcılar, oturumlar, olayları ve hataları ile ilgili kullanılan toocompute coğrafi istatistikleri bildirilen alanlarıdır. Reach kampanyaları ölçütü olarak de kullanılabilir. bir aygıtı alınırsa teşekkürler toohello olabilir raporlanan alanı bilinen son hello [aygıt API].
 
-Yavaş alan konumu raporlama etkinleştirmek için katılım Aracısı'nı başlatma sonra aşağıdaki satırı ekleyin:
+tooenable yavaş alan konumu raporlama satır hello katılım Aracısı başlatma sonra aşağıdaki hello ekleyin:
 
     - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     {
@@ -131,60 +131,60 @@ Yavaş alan konumu raporlama etkinleştirmek için katılım Aracısı'nı başl
     }
 
 ### <a name="real-time-location-reporting"></a>Gerçek zamanlı konum raporlama
-Gerçek zamanlı konum raporlama enlem ve boylam cihazlara ilişkili rapor oluşturmaya olanak tanır. Varsayılan olarak, bu tür konumu raporlama yalnızca ağ konumlarını (hücre kimliği veya WIFI göre) kullanır ve uygulama ön planda (yani oturumu sırasında) çalıştığında raporlama yalnızca etkindir.
+Gerçek zamanlı konum raporlama sağlar tooreport hello enlem ve boylam ilişkili toodevices. Varsayılan olarak, bu tür konumu raporlama yalnızca ağ konumlarını (hücre kimliği veya WIFI göre) kullanır ve hello uygulama ön planda (yani oturumu sırasında) çalıştığında hello raporlama yalnızca etkindir.
 
-Gerçek zamanlı konumlarının *değil* istatistikleri hesaplamak için kullanılır. Gerçek zamanlı coğrafi yalıtma kullanımına izin vermek için kendi tek amacı olan \<Reach-İzleyici-bölge sınırlaması\> Reach kampanyaları ölçütü.
+Gerçek zamanlı konumlarının *değil* toocompute istatistikleri kullanılır. Yalnızca amaçlarına tooallow hello gerçek zamanlı coğrafi yalıtma kullanımıdır \<Reach-İzleyici-bölge sınırlaması\> Reach kampanyaları ölçütü.
 
-Gerçek zamanlı konum raporlama etkinleştirmek için katılım Aracısı'nı başlatma sonra aşağıdaki satırı ekleyin:
+tooenable gerçek zamanlı konum raporlama satır hello katılım Aracısı başlatma sonra aşağıdaki hello ekleyin:
 
     [[EngagementAgent shared] setRealtimeLocationReport:YES];
 
 #### <a name="gps-based-reporting"></a>Raporlama GPS dayalı
-Varsayılan olarak, gerçek zamanlı konum raporlama ağ tabanlı konum yalnızca kullanır. (Olan daha kesin) tabanlı GPS konumları kullanımını etkinleştirmek için ekleyin:
+Varsayılan olarak, gerçek zamanlı konum raporlama ağ tabanlı konum yalnızca kullanır. GPS tooenable hello kullanımı (olan daha kesin) konumları tabanlı, ekleyin:
 
     [[EngagementAgent shared] setFineRealtimeLocationReport:YES];
 
 #### <a name="background-reporting"></a>Arka plan raporlama
-Uygulama ön planda (yani oturumu sırasında) çalıştırdığında, varsayılan olarak, gerçek zamanlı konum raporlama yalnızca etkindir. Aynı zamanda arka planda raporlamayı etkinleştirmek için ekleyin:
+Merhaba uygulama ön planda (yani oturumu sırasında) çalıştırdığında, varsayılan olarak, gerçek zamanlı konum raporlama yalnızca etkindir. aynı zamanda arka planda raporlama tooenable hello ekleyin:
 
     [[EngagementAgent shared] setBackgroundRealtimeLocationReport:YES withLaunchOptions:launchOptions];
 
 > [!NOTE]
-> Tabanlı ağ konumları yalnızca uygulama arka planda çalıştığında raporlanır, GPS etkin olsa bile.
+> Merhaba uygulaması arka planda çalıştığında, ağ tabanlı konumlar sadece bildirilir, etkinleştirilmiş olsa bile GPS hello.
 >
 >
 
-Bu işlev uygulaması çağıracaktır [startMonitoringSignificantLocationChanges] uygulamanızın arka planda gittiğinde. Otomatik olarak yeni bir konum olay gelirse arka uygulamanıza yeniden başlatmak olduğunu unutmayın.
+Bu işlev uygulaması çağıracaktır [startMonitoringSignificantLocationChanges] uygulamanızı hello arka plana gittiğinde. Otomatik olarak yeni bir konum olay gelirse hello arka plan uygulamanıza yeniden başlatmak olduğunu unutmayın.
 
 ## <a name="advanced-reporting"></a>Gelişmiş raporlama
-Uygulama belirli olaylar, hatalar ve işleri rapor istiyorsanız, isteğe bağlı olarak, katılım API yöntemlerini kullanmanız gerekebilir `EngagementAgent` sınıfı. Bu sınıfın bir nesnesi çağırarak alınabilir `[EngagementAgent shared]` statik yöntemi.
+Tooreport uygulama belirli olaylar, hatalar ve işleri istiyorsanız, isteğe bağlı olarak, hello hello yöntemleri aracılığıyla toouse hello katılım API gerekir `EngagementAgent` sınıfı. Bu sınıfın bir nesnesi tarafından arama hello alınabilir `[EngagementAgent shared]` statik yöntemi.
 
-Katılım API tüm Engagement'ın gelişmiş özelliklerinden kullanacak şekilde sağlar ve nasıl ayrıntılı İos'ta katılım API kullanmak için (teknik belgeleri olarak yanı `EngagementAgent` sınıfı).
+Merhaba katılım API toouse tüm Engagement'ın gelişmiş özelliklerinden sağlar ve hello nasıl ayrıntılı tooUse iOS katılım API (Merhaba teknik belgelerine hello gibi yanı `EngagementAgent` sınıfı).
 
 ## <a name="disable-idfa-collection"></a>IDFA toplamayı devre dışı bırak
-Varsayılan olarak, katılım kullanacağı [IDFA] bir kullanıcıyı benzersiz şekilde tanımlamak için. Ancak başka bir uygulamada reklam kullanmıyorsanız, App Store gözden geçirme işlemi tarafından reddedilmiş. IDFA toplamayı önişlemci makrosu ekleyerek devre dışı bırakılacak `ENGAGEMENT_DISABLE_IDFA` pch dosyanızdaki (veya `Build Settings` uygulamanızın). Bu başvuru olduğundan emin `ASIdentifierManager`, `advertisingIdentifier` veya `isAdvertisingTrackingEnabled` uygulama oluşturma.
+Varsayılan olarak, katılım hello kullanacağı [IDFA] toouniquely kullanıcı tanımlayın. Ancak başka bir yerde hello uygulamada reklam kullanmıyorsanız hello App Store gözden geçirme işlemi tarafından reddedilmiş. IDFA toplamayı hello önişlemci makrosu ekleyerek devre dışı bırakılacak `ENGAGEMENT_DISABLE_IDFA` pch dosyanızdaki (veya hello `Build Settings` uygulamanızın). Bu olduğunu başvuru çok sağlayacak`ASIdentifierManager`, `advertisingIdentifier` veya `isAdvertisingTrackingEnabled` hello uygulama derlemede.
 
-Tümleştirme sırasında **prefix.pch** dosyası:
+Merhaba tümleştirme **prefix.pch** dosyası:
 
     #define ENGAGEMENT_DISABLE_IDFA
     ...
 
-IDFA toplamayı düzgün uygulamanızda katılım test günlüklerinin denetleyerek devre dışı olduğunu doğrulayabilirsiniz. Bkz: tümleştirme sınama\<ios-sdk-engagement-test-ıdfa\> daha fazla bilgi için.
+Merhaba IDFA toplamayı düzgün uygulamanızda hello katılım test günlüklerinin denetleyerek devre dışı olduğunu doğrulayabilirsiniz. Merhaba tümleştirme Test bkz\<ios-sdk-engagement-test-ıdfa\> daha fazla bilgi için.
 
 ## <a name="disable-log-reporting"></a>Günlük bildirimini devre dışı bırak
 ### <a name="using-a-method-call"></a>Yöntem çağrısı kullanma
-Engagement'ın günlükleri göndermek durdurmak istiyorsanız, çağırabilirsiniz:
+Katılım toostop günlükleri göndermek istiyorsanız, çağırabilirsiniz:
 
     [[EngagementAgent shared] setEnabled:NO];
 
-Bu çağrı kalıcıdır: kullandığı `NSUserDefaults` bilgileri depolamak için.
+Bu çağrı kalıcıdır: kullandığı `NSUserDefaults` toostore hello bilgi.
 
-Yeniden ile aynı işlevini çağırarak raporlama günlüğü etkinleştirebilirsiniz `YES`.
+Aynı işlevi ile Merhaba çağırarak yeniden raporlama günlüğü etkinleştirebilirsiniz `YES`.
 
 ### <a name="integration-in-your-settings-bundle"></a>Ayarlar paketi tümleştirme
-Bu işlevi çağırmak yerine, ayrıca bu ayarı doğrudan var olan tümleştirebilirsiniz `Settings.bundle` dosya. Dize `engagement_agent_enabled` olarak kullanılması gereken bir tercih tanımlayıcısı ve bir geçiş anahtara ilişkilendirilmiş olması gerekir (`PSToggleSwitchSpecifier`).
+Bu işlevi çağırmak yerine, ayrıca bu ayarı doğrudan var olan tümleştirebilirsiniz `Settings.bundle` dosya. Merhaba dize `engagement_agent_enabled` ilişkili tooa geçiş anahtar hello tercih tanımlayıcısı ve olarak kullanılmalıdır (`PSToggleSwitchSpecifier`).
 
-Aşağıdaki örnekte `Settings.bundle` uyguladıktan gösterilmektedir:
+Merhaba örneği `Settings.bundle` gösterir nasıl tooimplement onu:
 
     <dict>
         <key>PreferenceSpecifiers</key>

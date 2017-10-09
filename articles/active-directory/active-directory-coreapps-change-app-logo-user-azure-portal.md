@@ -1,6 +1,6 @@
 ---
-title: "Adını veya bir kuruluş uygulama Azure Active Directory'de logosunu değiştirme | Microsoft Docs"
-description: "Adı veya logosu Azure Active Directory'de özel Kurumsal uygulama için nasıl değiştirileceğini"
+title: "aaaChange hello adı veya logosu Kurumsal uygulama Azure Active Directory'de | Microsoft Docs"
+description: "Toochange nasıl hello adı veya bir özel kuruluş uygulama Azure Active Directory'de logosu"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -14,33 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: curtand
-ms.openlocfilehash: 3e44e876dcbac704a9809ae5b3957bf94be21c48
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b660e1f0f6c7ffd626e17e2e3399e7169f6e8bc8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="change-the-name-or-logo-of-an-enterprise-app-in-azure-active-directory"></a>Adını veya bir kuruluş uygulama Azure Active Directory'de logosunu değiştirme
-Ad veya Azure Active Directory'de (Azure AD) bir özel Kurumsal uygulama için logosunu değiştirmek çok kolaydır. Bu değişiklikleri yapmak için uygun izinlere sahip olmalıdır ve özel uygulama oluşturucusu olmalıdır.
+# <a name="change-hello-name-or-logo-of-an-enterprise-app-in-azure-active-directory"></a>Merhaba adını veya bir kuruluş uygulama Azure Active Directory'de logosunu değiştirme
+Kolay toochange hello veya Azure Active Directory (Azure AD) bir özel kuruluş uygulamasında logosu adıdır. Bu değişiklikler hello uygun izinleri toomake olmalıdır ve hello özel uygulama hello oluşturucusu olması gerekir.
 
 ## <a name="how-do-i-change-an-enterprise-apps-name-or-logo"></a>Bir kurumsal uygulamanın adı veya logosu nasıl değiştiririm?
-1. Oturum [Azure portal](https://portal.azure.com) dizini için genel yönetici olan bir hesapla.
-2. Seçin **daha fazla hizmet**, girin **Azure Active Directory** metin kutusuna ve ardından **Enter**.
-3. Üzerinde **Azure Active Directory - *directoryname***  (diğer bir deyişle, Azure AD dikey yönettiğiniz dizin için), dikey penceresinde seçin **kurumsal uygulamalar**.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com) hello dizin için genel yönetici olan bir hesapla.
+2. Seçin **daha fazla hizmet**, girin **Azure Active Directory** hello metin kutusuna ve ardından **Enter**.
+3. Merhaba üzerinde **Azure Active Directory - *directoryname***  dikey penceresinde (diğer bir deyişle, hello Azure AD dikey penceresinde hello dizin yönettiğiniz için) seçin **kurumsal uygulamalar**.
 
     ![Açılış Kurumsal uygulamaları](./media/active-directory-coreapps-change-app-logo-azure-portal/open-enterprise-apps.png)
-4. Üzerinde **kurumsal uygulamalar** dikey penceresinde, select **tüm uygulamaları**. Yönetebileceğiniz uygulamaların bir listesini görürsünüz.
-5. Üzerinde **kurumsal uygulamalar - tüm uygulamaları** dikey penceresinde, bir uygulama seçin.
-6. Üzerinde ***appname*** dikey penceresinde (diğer bir deyişle, dikey penceresinde seçili uygulamasının başlık adı ile) seçin **özellikleri**.
+4. Merhaba üzerinde **kurumsal uygulamalar** dikey penceresinde, select **tüm uygulamaları**. Yönetebileceğiniz hello uygulamaların bir listesini görürsünüz.
+5. Merhaba üzerinde **kurumsal uygulamalar - tüm uygulamaları** dikey penceresinde, bir uygulama seçin.
+6. Merhaba üzerinde ***appname*** dikey penceresinde (diğer bir deyişle, hello dikey penceresinde hello adıyla hello başlığında hello seçilen uygulama) seçin **özellikleri**.
 
-    ![Özellikler komutu seçme](./media/active-directory-coreapps-change-app-logo-azure-portal/select-app.png)
-7. Üzerinde ***appname*** **-özellikleri** dikey penceresinde, yeni bir logo olarak kullanın veya uygulama adını veya her ikisi de düzenlemek bir dosya için göz atın.
+    ![Merhaba Özellikler komutu seçme](./media/active-directory-coreapps-change-app-logo-azure-portal/select-app.png)
+7. Merhaba üzerinde ***appname*** **-özellikleri** dikey penceresinde, yeni bir logo olarak dosya toouse gözatın veya hello uygulama adı ya da her ikisini düzenleyin.
 
-    ![Uygulama logosu veya nameproperties komutu değiştirme](./media/active-directory-coreapps-change-app-logo-azure-portal/change-logo.png)
-8. Seçin **kaydetmek** komutu.
+    ![Merhaba uygulama logosu veya nameproperties komutu değiştirme](./media/active-directory-coreapps-change-app-logo-azure-portal/change-logo.png)
+8. Select hello **kaydetmek** komutu.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Tüm my gruplarının bakın](active-directory-groups-view-azure-portal.md)
-* [Bir kullanıcı veya grup için bir kuruluş uygulama atama](active-directory-coreapps-assign-user-azure-portal.md)
+* [Bir kullanıcı veya grup tooan kuruluş uygulama atama](active-directory-coreapps-assign-user-azure-portal.md)
 * [Bir kullanıcı veya grup ataması Kurumsal uygulamadan Kaldır](active-directory-coreapps-remove-assignment-azure-portal.md)
 * [Kullanıcı oturum açma işlemleri bir kurumsal uygulama için devre dışı bırak](active-directory-coreapps-disable-app-azure-portal.md)

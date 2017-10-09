@@ -1,4 +1,4 @@
-Veri Fabrikası aboneliklerini birbirlerinin iş yüklerini korunan emin olmak için yerinde aşağıdaki varsayılan sınırları sahip çok kiracılı bir hizmettir. Birçok sınırları kolayca sınırına kadar aboneliğiniz için desteğe başvurarak yükseltilebilir.
+Veri Fabrikası yer toomake aboneliklerini birbirlerinin iş yüklerini koruma dikkat varsayılan sınırları aşağıdaki hello sahip çok kiracılı bir hizmettir. Merhaba sınırları çoğunu kolayca aboneliğinizi toohello sınırı ayarlamak için desteğe başvurarak yükseltilebilir.
 
 | **Kaynak** | **Varsayılan Sınır** | **Üst Sınır** |
 | --- | --- | --- |
@@ -12,11 +12,11 @@ Veri Fabrikası aboneliklerini birbirlerinin iş yüklerini korunan emin olmak i
 | Bulut veri taşıma birimi <sup>3</sup> |32 |[Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Yeniden deneme sayısı ardışık düzen etkinlik çalışması |1000 |MAXINT (32 bit) |
 
-<sup>1</sup> ardışık düzeni, veri kümesi ve bağlantılı hizmet nesneleri temsil eden İş yükünüzün mantıksal bir gruplandırması. Bu nesneler için sınırları taşıyın ve Azure Data Factory hizmetiyle işlem veri miktarı ile ilgili değildir. Veri Fabrikası petabaytlarca verileri işlemek için ölçeklendirmek için tasarlanmıştır.
+<sup>1</sup> ardışık düzeni, veri kümesi ve bağlantılı hizmet nesneleri temsil eden İş yükünüzün mantıksal bir gruplandırması. Bu nesneler için sınırları taşıyın ve hello Azure Data Factory hizmetiyle işlem veri tooamount ilgili değildir. Veri Fabrikası tasarlanmış tooscale toohandle petabaytlarca verileri ' dir.
 
-<sup>2</sup> isteğe bağlı Hdınsight çekirdek, veri fabrikası içeren abonelik dışında ayrılır. Sonuç olarak, yukarıdaki Data Factory isteğe bağlı Hdınsight çekirdek çekirdek sınırını zorunlu ve Azure aboneliğinizle ilişkili çekirdek sınırına farklıdır sınırlıdır.
+<sup>2</sup> isteğe bağlı Hdınsight çekirdek hello veri fabrikası içeren hello abonelik dışında ayrılır. Sonuç olarak, sınır üstü hello Data Factory isteğe bağlı Hdınsight çekirdek çekirdek sınırını zorunlu ve Azure aboneliğinizle ilişkili hello çekirdek sınırına farklıdır hello ' dir.
 
-<sup>3</sup> bulut veri taşıma birimi (DMU) bir Bulut Bulut kopyalama işleminde kullanılıyor. Veri Fabrikası'nda tek bir birimi (CPU, bellek ve ağ kaynağı ayırma birleşimi) gücünü temsil eden bir ölçüsüdür. Bazı senaryolar için daha fazla DMUs yararlanarak daha yüksek kopyalama verimlilik elde edebilirsiniz. Başvurmak [bulut veri taşıma birimleri](../articles/data-factory/data-factory-copy-activity-performance.md#cloud-data-movement-units) ayrıntıları bölümü.
+<sup>3</sup> bulut veri taşıma birimi (DMU) bir Bulut Bulut kopyalama işleminde kullanılıyor. Veri Fabrikası'nda tek bir birimi (CPU, bellek ve ağ kaynağı ayırma birleşimi) gücünü hello temsil eden bir ölçüsüdür. Bazı senaryolar için daha fazla DMUs yararlanarak daha yüksek kopyalama verimlilik elde edebilirsiniz. Çok başvuran[bulut veri taşıma birimleri](../articles/data-factory/data-factory-copy-activity-performance.md#cloud-data-movement-units) ayrıntıları bölümü.
 
 | **Kaynak** | **Varsayılan alt sınırı** | **Alt sınırı** |
 | --- | --- | --- |
@@ -25,4 +25,4 @@ Veri Fabrikası aboneliklerini birbirlerinin iş yüklerini korunan emin olmak i
 | Zaman aşımı değeri yeniden deneyin |1 saniye |1 saniye |
 
 ### <a name="web-service-call-limits"></a>Web hizmeti çağrısı sınırları
-Azure Resource Manager API çağrıları için sınırları vardır. İçinde bir hızda API çağrıları yapma [Azure Kaynak Yöneticisi API'si sınırlar](../articles/azure-subscription-service-limits.md#resource-group-limits).
+Azure Resource Manager API çağrıları için sınırları vardır. API çağrıları hello içinde bir hızda yapabileceğiniz [Azure Kaynak Yöneticisi API'si sınırlar](../articles/azure-subscription-service-limits.md#resource-group-limits).

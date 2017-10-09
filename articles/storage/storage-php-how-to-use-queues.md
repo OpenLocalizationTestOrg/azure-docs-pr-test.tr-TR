@@ -1,6 +1,6 @@
 ---
-title: Php'den kuyruk depolama kullanma | Microsoft Docs
-description: "Oluşturmak ve Kuyruklar silmek için Azure kuyruk depolama hizmeti kullanmayı öğrenin ve Ekle, Al ve iletilerini silin. Örnekleri PHP ile yazılmıştır."
+title: aaaHow toouse php'den kuyruk depolama | Microsoft Docs
+description: "Nasıl toouse hello Azure kuyruk depolama hizmeti toocreate ve delete kuyruklar ve Ekle, Al ve iletileri silmek öğrenin. Örnekleri PHP ile yazılmıştır."
 documentationcenter: php
 services: storage
 author: robinsh
@@ -14,42 +14,42 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
-ms.openlocfilehash: 3c8f799a917cfc9d74412d90f27f2ea8c21265d4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5034faf3b5f28f72d5b56ac1ce7a5723be697ce6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-queue-storage-from-php"></a>PHP’den Kuyruk depolama kullanma
+# <a name="how-toouse-queue-storage-from-php"></a>Nasıl toouse php'den kuyruk depolama
 [!INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Bu kılavuz Azure kuyruk depolama hizmetini kullanarak yaygın senaryolar gerçekleştirmek nasıl yapacağınızı gösterir. Örnekler, PHP için Windows SDK sınıfları yazılır. Kapsanan senaryolar ekleme, gözatma, alma ve kuyruk iletileri silme yanı sıra oluşturma ve silme içerir.
+Bu kılavuz size nasıl tooperform yaygın senaryolar kullanarak Azure kuyruk depolama hizmeti hello gösterir. Merhaba örnekleri sınıfları PHP için Windows SDK hello yazılır. Hello kapsanan senaryolar ekleme gözatma, alma ve iletileri kuyruğa silme yanı sıra oluşturma ve silme yer alır.
 
 [!INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-php-application"></a>PHP uygulaması oluşturma
-Azure kuyruk depolamaya erişen bir PHP uygulaması oluşturmak için yalnızca Azure SDK'sını sınıflardan, PHP'nin için kodunuzu içinde başvuran gereksinimdir. Not Defteri dahil olmak üzere uygulamanızı oluşturmak için tüm geliştirme araçlarını kullanabilirsiniz.
+Azure kuyruk depolamaya erişen bir PHP uygulaması oluşturmak için gereksinim hello yalnızca hello hello Azure SDK sınıfları, PHP'nin için kodunuzu içinde başvuruyor. Uygulamanızın, Not Defteri dahil olmak üzere tüm geliştirme araçları toocreate kullanabilirsiniz.
 
 Bu kılavuzda, bir PHP uygulamanızda yerel olarak veya bir Azure web rolü, çalışan rolü veya Web sitesi içinde çalışan kodu çağrılabilir kuyruk depolama özelliklerini kullanır.
 
-## <a name="get-the-azure-client-libraries"></a>Azure istemci kitaplıkları Al
+## <a name="get-hello-azure-client-libraries"></a>Hello Azure istemci kitaplıkları Al
 [!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
 
-## <a name="configure-your-application-to-access-queue-storage"></a>Kuyruk depolama erişmek için uygulamanızı yapılandırın
-Azure kuyruk depolama API'leri kullanmak için aktarmanız gerekir:
+## <a name="configure-your-application-tooaccess-queue-storage"></a>Uygulama tooaccess kuyruk depolama yapılandırma
+toouse hello API'leri Azure kuyruk depolama için gerekir:
 
-1. Otomatik Yükleyici dosyasını kullanarak başvuru [require_once] deyimi.
+1. Hello kullanarak referans hello otomatik Yükleyiciden dosyasına [require_once] deyimi.
 2. Kullanabileceğinize sınıfları başvuru.
 
-Aşağıdaki örnek otomatik Yükleyiciden dosya ve başvuru dahil gösterilmektedir **ServicesBuilder** sınıfı.
+Merhaba aşağıdaki örnekte nasıl tooinclude hello otomatik Yükleyiciden dosya ve başvuru hello gösterir **ServicesBuilder** sınıfı.
 
 > [!NOTE]
-> Bu örnek (ve diğer örnekleri bu makalede) oluşturucu aracılığıyla Azure için PHP istemci kitaplıkları yüklediğinizi varsayar. Kitaplıkları el ile yüklediyseniz, başvuru gerekir `WindowsAzure.php` otomatik yükleyici dosyası.
+> Bu örnek (ve diğer örnekleri bu makalede) hello PHP istemci kitaplıkları oluşturucu aracılığıyla Azure yüklediğinizi varsayar. Merhaba kitaplıklarını el ile yüklediyseniz, tooreference hello gerekir `WindowsAzure.php` otomatik yükleyici dosyası.
 > 
 > 
 
@@ -59,10 +59,10 @@ use WindowsAzure\Common\ServicesBuilder;
 
 ```
 
-Aşağıdaki örneklerde `require_once` deyimi her zaman gösterilecek ancak örneğin yürütmek için gerekli olan sınıfları başvurulacak.
+Merhaba aşağıdaki örnekte, hello `require_once` deyimi her zaman gösterilecek ancak hello örnek tooexecute için gerekli olan hello sınıfları başvurulur.
 
 ## <a name="set-up-an-azure-storage-connection"></a>Bir Azure depolama bağlantı kurma
-Bir Azure kuyruk depolama istemcisi örneği oluşturmak için öncelikle geçerli bir bağlantı dizesi olması gerekir. Kuyruk hizmeti bağlantı dizesi biçimi aşağıdaki gibidir.
+bir Azure kuyruk depolama istemcisi tooinstantiate, öncelikle geçerli bir bağlantı dizesi olması gerekir. Merhaba kuyruk hizmeti bağlantı dizesini Hello biçimi aşağıdaki gibidir.
 
 Canlı hizmetine erişmek için:
 
@@ -70,20 +70,20 @@ Canlı hizmetine erişmek için:
 DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[yourKey]
 ```
 
-Öykünücü depolama erişmek için:
+Merhaba öykünücüsü depolama erişmek için:
 
 ```php
 UseDevelopmentStorage=true
 ```
 
-Herhangi bir Azure hizmeti istemcisi oluşturmak için kullanmanız gerekir **ServicesBuilder** sınıfı. Aşağıdaki yöntemlerden birini kullanabilirsiniz:
+toocreate herhangi bir Azure hizmeti istemci toouse hello gereksinim **ServicesBuilder** sınıfı. Teknikleri izleyerek hello birini kullanabilirsiniz:
 
-* Bağlantı dizesi doğrudan geçirin.
-* Kullanım **CloudConfigurationManager (CCM)** bağlantı dizesi için dış kaynaklardan denetlemek için:
+* Merhaba bağlantı geçirmek doğrudan tooit dize.
+* Kullanım **CloudConfigurationManager (CCM)** toocheck birden çok dış kaynaklardan hello bağlantı dizesi:
   * Bir dış kaynağa desteği ile birlikte varsayılan olarak, — ortam değişkenleri.
-  * Genişleterek yeni kaynakları ekleyebilirsiniz **ConnectionStringSource** sınıfı.
+  * Merhaba genişleterek yeni kaynakları ekleyebilirsiniz **ConnectionStringSource** sınıfı.
 
-Burada özetlenen örnekler için bağlantı dizesi doğrudan geçirilir.
+Burada özetlenen hello örnekler için başlangıç bağlantı dizesi doğrudan geçirilir.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -94,7 +94,7 @@ $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connection
 ```
 
 ## <a name="create-a-queue"></a>Bir kuyruk oluşturma
-A **QueueRestProxy** nesnesi kullanarak bir kuyruk oluşturma olanak tanır **createQueue** yöntemi. Bir kuyruk oluştururken, sıranın seçeneklerini ayarlayabilirsiniz, ancak bunun nedenle gerekli değildir. (Aşağıdaki örnekte nasıl bulunan bir sıra meta veri ayarlanacağını gösterir.)
+A **QueueRestProxy** nesne hello kullanarak bir kuyruk oluşturma olanak tanır **createQueue** yöntemi. Bir kuyruk oluştururken hello sıra seçeneklerini ayarlayabilirsiniz, ancak bunun nedenle gerekli değildir. (gösterir aşağıdaki örnekte nasıl hello bir kuyruk tooset meta.)
 
 ```php
 require_once 'vendor/autoload.php';
@@ -126,12 +126,12 @@ catch(ServiceException $e){
 ```
 
 > [!NOTE]
-> Meta veri anahtarları için büyük/küçük harfe duyarlılık dayanarak doğrulamamalısınız. Tüm anahtarları küçük hizmetinden salt okunurdur.
+> Meta veri anahtarları için büyük/küçük harfe duyarlılık dayanarak doğrulamamalısınız. Tüm anahtarları küçük hello hizmetinden salt okunurdur.
 > 
 > 
 
-## <a name="add-a-message-to-a-queue"></a>Kuyruğa bir ileti Ekle
-Kuyruğa bir ileti eklemek için kullanın **QueueRestProxy -> CreateMessage nesne**. Yöntem, kuyruk adı, ileti metni ve (olan isteğe bağlı) ileti seçeneklerini alır.
+## <a name="add-a-message-tooa-queue"></a>Bir ileti tooa sırası Ekle
+tooadd bir ileti tooa sırası kullanmak **QueueRestProxy -> CreateMessage nesne**. Merhaba yöntemi hello kuyruk adı, hello ileti metni ve (olan isteğe bağlı) ileti seçeneklerini alır.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -158,8 +158,8 @@ catch(ServiceException $e){
 }
 ```
 
-## <a name="peek-at-the-next-message"></a>Sonraki iletiye gözatın
-Size bir ileti (ya da iletileri) bir sıranın öne sıradan çağırarak kaldırmadan iletiye göz atabilirsiniz **QueueRestProxy -> peekMessages**. Varsayılan olarak, **peekMessage** yöntemi tek bir ileti döndürür, fakat kullanarak bu değeri değiştirebilirsiniz **PeekMessagesOptions -> setNumberOfMessages** yöntemi.
+## <a name="peek-at-hello-next-message"></a>Merhaba sonraki iletiye gözatın
+Size bir ileti (ya da iletileri) bir sıranın Merhaba öne hello sıradan çağırarak kaldırmadan iletiye göz atabilirsiniz **QueueRestProxy -> peekMessages**. Varsayılan olarak, hello **peekMessage** yöntemi tek bir ileti döndürür, fakat hello kullanarak bu değeri değiştirebilirsiniz **PeekMessagesOptions -> setNumberOfMessages** yöntemi.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -204,8 +204,8 @@ else{
 }
 ```
 
-## <a name="de-queue-the-next-message"></a>Sonraki iletiyi sıradan çıkarmak
-Kodunuzun bir iletiyi bir kuyruktan iki adımda kaldırır. İlk olarak, arama **QueueRestProxy -> listMessages**, hangi yapar iletiyi sıradan okuyan herhangi bir kod görünmez. Varsayılan olarak, bu ileti 30 saniye görünmez kalır. (İleti bu dönemde silinmez, onu yeniden sıraya görünür olur.) İletiyi kuyruktan kaldırmayı tamamlamak için çağırmalısınız **QueueRestProxy -> deleteMessage**. Bir ileti kaldırmanın bu iki adımlı işlem donanım veya yazılım hatası nedeniyle bir ileti işlemek kodunuzu başarısız olduğunda, kodunuzu başka bir örneği aynı ileti alma ve yeniden deneyin sağlar. Kod çağrılarınızı **deleteMessage** ileti işlendikten sonra sağ.
+## <a name="de-queue-hello-next-message"></a>Merhaba sonraki iletiyi sıradan çıkarmak
+Kodunuzun bir iletiyi bir kuyruktan iki adımda kaldırır. İlk olarak, arama **QueueRestProxy -> listMessages**, hello sırasından okuma başka bir kod hello ileti görünmez tooany yapar. Varsayılan olarak, bu ileti 30 saniye görünmez kalır. (Selamlama iletisine bu dönemde silinmez, onu yeniden hello sırasına görünür olur.) toofinish kaldırma selamlama iletisine hello sırasından çağırmalıdır **QueueRestProxy -> deleteMessage**. Aynı iletiyi ve try toohardware veya yazılım hatası, başka bir örneği kodunuzu nedeniyle bir ileti alabilir, kod başarısız tooprocess yeniden hello zaman bir ileti kaldırmanın bu iki adımlı işlem, sağlar. Kod çağrılarınızı **deleteMessage** hello ileti işlendikten sonra sağ.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -243,8 +243,8 @@ catch(ServiceException $e){
 }
 ```
 
-## <a name="change-the-contents-of-a-queued-message"></a>Kuyruğa alınan iletinin içeriğini değiştirme
-Çağırarak bir ileti yerinde sırasındaki içeriğini değiştirebilirsiniz **QueueRestProxy -> updateMessage**. Eğer ileti bir iş görevini temsil ediyorsa, bu özelliği kullanarak iş görevinin durumunu güncelleştirebilirsiniz. Aşağıdaki kod kuyruk iletisini yeni içeriklerle güncelleştirir ve görünürlük zaman aşımını 60 saniye daha uzatır ayarlar. Bu iletiyle ilişkili iş durumunu kaydeder ve istemciye ileti üzerinde çalışmaya devam etmek için bir dakika daha zaman verir. Bir işleme adımı donanım veya yazılım arızasından dolayı başarısız olursa baştan başlamanıza gerek kalmadan kuyruk iletilerindeki çok adımlı iş akışlarını izlemek için bu yöntemi kullanabilirsiniz. Genellikle bir yeniden deneme sayacı tutmanı gerekir ve bir ileti *n* seferden daha fazla yeniden denenirse, silebilirsiniz. Bu, her işlendiğinde bir uygulama hatası tetikleyen bir iletiye karşı koruma sağlar.
+## <a name="change-hello-contents-of-a-queued-message"></a>Merhaba kuyruğa alınan iletinin içeriğini değiştirme
+Bir ileti yerinde hello sırasındaki Merhaba içeriğine çağırarak değiştirebileceğiniz **QueueRestProxy -> updateMessage**. Merhaba ileti bir iş görevini temsil ediyorsa, bu özellik tooupdate hello durumu hello iş görevi kullanabilirsiniz. koddan hello hello kuyruk iletisini yeni içeriklerle güncelleştirir ve 60 saniye hello görünürlük zaman aşımı tooextend ayarlar. Bu hello hello ileti ile ilişkili iş durumunu kaydeder ve hello istemci selamlama iletisine üzerinde çalışan başka bir dakika toocontinue sağlar. Bir işleme adımı toohardware veya yazılım hatası başarısız olursa hello başından üzerinden toostart gerek kalmadan kuyruk iletilerindeki bu teknik tootrack çok adımlı iş akışlarını kullanabilirsiniz. Genellikle, bir yeniden deneme sayısı da tutacak ve hello olursa ileti denenir birden fazla  *n*  kez silmeniz. Bu, her işlendiğinde bir uygulama hatası tetikleyen bir iletiye karşı koruma sağlar.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -287,7 +287,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="additional-options-for-de-queuing-messages"></a>Çıkarılması iletileri için ek seçenekleri
-Bir sıradan ileti alma özelleştirebilirsiniz iki yolu vardır. İlk olarak toplu iletiler alabilirsiniz (en fazla 32). İkinci olarak, kodunuzun her iletiyi tamamen işlemesi için zaman daha az veya daha fazla izin vererek daha uzun veya kısaysa görünürlük zaman aşımını ayarlayabilirsiniz. Aşağıdaki kod örneğinde **getMessages** tek çağrıda 16 iletileri almak için yöntemi. Kullanarak her ileti işler sonra bir **için** döngü. Ayrıca her ileti için görünmezlik zaman aşımı beş dakika olarak ayarlanır.
+Bir sıradan ileti alma özelleştirebilirsiniz iki yolu vardır. İlk olarak toplu iletiler (yukarı too32) elde edebilirsiniz. İkinci olarak, kodunuzu daha fazla izin vererek daha uzun veya kısaysa görünürlük zaman aşımını ayarlayabilirsiniz veya daha az zaman toofully her ileti işlenemedi. Merhaba aşağıdaki kod örneği kullanır hello **getMessages** bir çağrı yöntemi tooget 16 iletileri. Kullanarak her ileti işler sonra bir **için** döngü. Ayrıca, her ileti için hello görünmezlik zaman aşımı toofive dakika ayarlar.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -335,7 +335,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="get-queue-length"></a>Kuyruk uzunluğu alma
-Bir kuyruktaki ileti sayısı ile ilgili bir tahmin alabilirsiniz. **QueueRestProxy -> getQueueMetadata** yöntemi kuyruk hakkındaki meta verileri döndürmek için sıra hizmeti sorar. Çağırma **getApproximateMessageCount** yöntemi döndürülen nesne üzerinde kaç iletiler bir kuyrukta olan sayısına sağlar. İletileri eklenen veya sıra hizmeti isteğinize yanıt sonra kaldırıldığı için yalnızca yaklaşık sayısıdır.
+Bir kuyruktaki ileti sayısı hello tahmini alabilirsiniz. Merhaba **QueueRestProxy -> getQueueMetadata** yöntemi hello sırası hakkında hello kuyruk hizmeti tooreturn meta verileri sorar. Arama hello **getApproximateMessageCount** hello yöntemi döndürülen nesnenin kaç iletiler bir kuyrukta olan sayısına sağlar. iletileri eklenen veya hello sıra hizmeti tooyour isteği yanıtlar sonra kaldırıldığı için hello yalnızca yaklaşık sayısıdır.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -364,7 +364,7 @@ echo $approx_msg_count;
 ```
 
 ## <a name="delete-a-queue"></a>Bir kuyruk silme
-Bir kuyruk ve tüm iletileri silmek için arama **QueueRestProxy -> deleteQueue** yöntemi.
+bir kuyruk ve içerisindeki tüm Merhaba iletileri toodelete çağrısı hello **QueueRestProxy -> deleteQueue** yöntemi.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -390,11 +390,11 @@ catch(ServiceException $e){
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Artık Azure kuyruk depolamanın temellerini öğrendiğinize göre daha karmaşık depolama görevleri hakkında bilgi edinmek için aşağıdaki bağlantıları izleyin:
+Artık Azure kuyruk depolama hello temellerini öğrendiğinize göre bu bağlantıları toolearn daha karmaşık depolama görevleri hakkında izleyin:
 
-* Ziyaret [Azure Storage ekibi blog'u](http://blogs.msdn.com/b/windowsazurestorage/).
+* Merhaba ziyaret [Azure Storage ekibi blog'u](http://blogs.msdn.com/b/windowsazurestorage/).
 
-Daha fazla bilgi için Ayrıca bkz. [PHP Geliştirici Merkezi](/develop/php/).
+Daha fazla bilgi için hello Ayrıca bkz. [PHP Geliştirici Merkezi](/develop/php/).
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [require_once]: http://www.php.net/manual/en/function.require-once.php

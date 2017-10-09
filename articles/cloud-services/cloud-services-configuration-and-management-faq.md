@@ -1,6 +1,6 @@
 ---
-title: "Yapılandırması ve yönetimi sorunları için Microsoft Azure bulut Hizmetleri ile ilgili SSS | Microsoft Docs"
-description: "Bu makalede, yapılandırması ve yönetimi için Microsoft Azure bulut hizmetleri hakkında sık sorulan sorular listelenmektedir."
+title: "aaaConfiguration ve yönetimi sorunları için Microsoft Azure bulut Hizmetleri ile ilgili SSS | Microsoft Docs"
+description: "Bu makalede, yapılandırması ve yönetimi için Microsoft Azure bulut hizmetleri hakkında sık sorulan sorular hello listelenmektedir."
 services: cloud-services
 documentationcenter: 
 author: genlin
@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/10/2017
 ms.author: genli
-ms.openlocfilehash: 42b5d2947df92b4486fe149d046168208083dde2
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 62ece142ac0ef5d45081cab333375b1a0a8f0ab7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure bulut Hizmetleri için yapılandırma ve yönetme sorununu: sık sorulan sorular (SSS)
 
-Bu makale için yapılandırması ve yönetimi sorunları hakkında sık sorulan sorular içerir [Microsoft Azure bulut Hizmetleri](https://azure.microsoft.com/services/cloud-services). Ayrıca başvurabilirsiniz [bulut Hizmetleri VM boyutu sayfa](cloud-services-sizes-specs.md) boyutu bilgi.
+Bu makale için yapılandırması ve yönetimi sorunları hakkında sık sorulan sorular içerir [Microsoft Azure bulut Hizmetleri](https://azure.microsoft.com/services/cloud-services). Merhaba de başvurabilirsiniz [bulut Hizmetleri VM boyutu sayfa](cloud-services-sizes-specs.md) boyutu bilgi.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="how-do-i-add-nosniff-to-my-website"></a>My Web sitesine nasıl "nosniff" eklensin mi?
-MIME türleri algılaması istemcilerin önlemek için bir ayar ekleyin, *web.config* dosya.
+## <a name="how-do-i-add-nosniff-toomy-website"></a>"Nosniff" toomy Web sitesi nasıl eklenir?
+Merhaba MIME türleri algılaması istemcilerinden tooprevent bir ayar ekleyin, *web.config* dosya.
 
 ```xml
 <configuration>
@@ -42,25 +42,25 @@ MIME türleri algılaması istemcilerin önlemek için bir ayar ekleyin, *web.co
 </configuration>
 ```
 
-Ayrıca bu ayarı IIS'de olarak ekleyebilirsiniz. Aşağıdaki komutla kullanmak [ortak başlangıç görevleri](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe) makalesi.
+Ayrıca bu ayarı IIS'de olarak ekleyebilirsiniz. Kullanım hello aşağıdaki komut ile Merhaba [ortak başlangıç görevleri](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe) makalesi.
 
 ```cmd
 %windir%\system32\inetsrv\appcmd set config /section:httpProtocol /+customHeaders.[name='X-Content-Type-Options',value='nosniff']
 ```
 
 ## <a name="how-do-i-customize-iis-for-a-web-role"></a>Web rolü için nasıl IIS özelleştirebilir?
-IIS başlangıç komut dosyasını kullanın [ortak başlangıç görevleri](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe) makalesi.
+Merhaba IIS Başlangıç hello betikten kullanmak [ortak başlangıç görevleri](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe) makalesi.
 
 ## <a name="i-cannot-scale-beyond-x-instances"></a>X ölçeklendirme olamaz örnekleri
-Azure aboneliğinizi kullanabileceğiniz çekirdek sayısına bir sınır vardır. Kullanılabilir tüm çekirdek kullanılırsa ölçeklendirme çalışmaz. Bir sınır 100 çekirdek varsa, örneğin, bu 100 A1 boyuta sahip sanal makine örneklerini bulut hizmetiniz için olabilir veya sanal makine örnekleri 50 A2 boyutu anlamına gelir.
+Azure aboneliğinizi hello kullanabileceğiniz çekirdek sayısına bir sınır vardır. Kullanılabilir tüm hello çekirdek kullanılırsa ölçeklendirme çalışmaz. Bir sınır 100 çekirdek varsa, örneğin, bu 100 A1 boyuta sahip sanal makine örneklerini bulut hizmetiniz için olabilir veya sanal makine örnekleri 50 A2 boyutu anlamına gelir.
 
 ## <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>Nasıl ı bulut Hizmetleri için rol tabanlı erişim uygulayabilirsiniz?
-Bulut Hizmetleri bir Azure Resource Manager temelli hizmeti olmadığından rol tabanlı erişim denetimi (RBAC) modelini desteklemez.
+Bulut Hizmetleri bir Azure Resource Manager temelli hizmeti olmadığından hello rol tabanlı erişim denetimi (RBAC) modelini desteklemez.
 
 Bkz: [Klasik abonelik yöneticileri ve Azure RBAC](../active-directory/role-based-access-control-what-is.md#azure-rbac-vs-classic-subscription-administrators).
 
-## <a name="how-do-i-set-the-idle-timeout-for-azure-load-balancer"></a>Boşta kalma zaman aşımı için Azure yük dengeleyici nasıl ayarlarım?
-Bu gibi hizmet tanımı (csdef) dosyanızdaki zaman aşımı belirtebilirsiniz:
+## <a name="how-do-i-set-hello-idle-timeout-for-azure-load-balancer"></a>Merhaba boşta kalma zaman aşımı için Azure yük dengeleyici nasıl ayarlarım?
+Bu gibi hizmet tanımı (csdef) dosyanızdaki hello zaman aşımı belirtebilirsiniz:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -80,57 +80,57 @@ Bu gibi hizmet tanımı (csdef) dosyanızdaki zaman aşımı belirtebilirsiniz:
 ```
 Bkz: [yeni: yapılandırılabilir boşta kalma zaman aşımı Azure yük dengeleyici için](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/) daha fazla bilgi için.
 
-## <a name="can-microsoft-internal-engineers-rdp-to-cloud-service-instances-without-permission"></a>Bulut hizmet örneklerine izni olmadan Microsoft iç mühendisleri RDP kullanabilir?
-Microsoft iç mühendisleri RDP için bulut hizmetiniz (e-posta veya diğer yazılı iletişimde) yazılı izni olmadan uygulamasına izin vermez katı bir işlem sahibi veya kendi yetkilinin izler.
+## <a name="can-microsoft-internal-engineers-rdp-toocloud-service-instances-without-permission"></a>Microsoft iç mühendisleri RDP toocloud hizmet örnekleri izniniz olmadan kullanabilir?
+Bulut hizmeti olmadan içine tooRDP iç izin vermez katı bir işlem mühendisleri Microsoft aşağıdaki hello sahibi veya kendi yetkilinin izni (e-posta veya diğer yazılı iletişimde) yazılır.
 
-## <a name="why-is-the-certificate-chain-of-my-cloud-service-ssl-certificate-incomplete"></a>Neden my bulut hizmeti SSL sertifikası sertifika zinciri eksik mi?
-Müşteriler yalnızca Yaprak sertifikası yerine tam sertifika zinciri (Yaprak sertifikası, Ara sertifikaları ve kök sertifika) yüklemenizi öneririz. Yalnızca Yaprak sertifikası yüklediğinizde, CTL adım adım ilerlemenizi sağlayarak sertifika zinciri oluşturmak üzere Windows bağlıdır. Sertifikayı doğrulamak Windows çalışırken aralıklı ağ veya DNS sorunlarına Azure veya Windows Update meydana gelirse, sertifika geçersiz kabul. Tam sertifika zinciri yükleyerek bu sorun önlenebilir. Konumundaki blog [zincirleme bir SSL sertifikasını nasıl yükleyeceğinize](https://blogs.msdn.microsoft.com/azuredevsupport/2010/02/24/how-to-install-a-chained-ssl-certificate/) bunun nasıl yapılacağı gösterilmektedir.
+## <a name="why-is-hello-certificate-chain-of-my-cloud-service-ssl-certificate-incomplete"></a>Neden hello sertifika zinciri my bulut hizmeti SSL sertifikası eksik mi?
+Müşteriler hello tam sertifika zinciri (Yaprak sertifikası, Ara sertifikaları ve kök sertifika) yalnızca Yaprak sertifikası hello yerine yüklemenizi öneririz. Yalnızca hello Yaprak sertifikası yüklediğinizde, Windows toobuild hello sertifika zinciri üzerinde hello CTL adım adım ilerlemenizi sağlayarak kullanır. Windows toovalidate hello sertifika çalışırken aralıklı ağ veya DNS sorunlarına Azure veya Windows Update meydana gelirse, hello sertifika geçersiz kabul. Merhaba tam sertifika zinciri yükleyerek bu sorun önlenebilir. blog adresindeki hello [nasıl tooinstall zincirleme bir SSL sertifikası](https://blogs.msdn.microsoft.com/azuredevsupport/2010/02/24/how-to-install-a-chained-ssl-certificate/) gösterir nasıl toodo bu.
 
-## <a name="how-do-i-associate-a-static-ip-address-to-my-cloud-service"></a>Bulut Hizmetimi nasıl statik bir IP adresi ilişkilendirmek?
-Bir statik IP adresi ayarlamak için ayrılmış bir IP oluşturmanız gerekir. Bu ayrılmış IP yeni bir bulut hizmeti veya var olan bir dağıtıma ilişkili olabilir. Ayrıntılar için aşağıdaki belgelere bakın:
-* [Ayrılmış bir IP adresi oluşturma](../virtual-network/virtual-networks-reserved-public-ip.md#manage-reserved-vips)
-* [Var olan bir bulut hizmetini, IP adresi ayırın](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
-* [Ayrılmış IP'si yeni bir bulut hizmeti ile ilişkilendirme](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-new-cloud-service)
-* [Ayrılmış IP'si çalışan dağıtımının ile ilişkilendirme](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-running-deployment)
-* [Hizmet yapılandırma dosyası kullanarak bir bulut hizmeti için ayrılmış bir IP ilişkilendirin](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
+## <a name="how-do-i-associate-a-static-ip-address-toomy-cloud-service"></a>Bir statik IP adresi toomy bulut hizmeti nasıl ilişkilendirmek?
+tooset statik bir IP adresi yukarı toocreate ayrılmış IP gerekir. Bu ayrılmış IP ilişkili tooa yeni bulut hizmeti veya tooan mevcut dağıtımı olabilir. Ayrıntılar için belgelere aşağıdaki hello bakın:
+* [Nasıl toocreate ayrılmış bir IP adresi](../virtual-network/virtual-networks-reserved-public-ip.md#manage-reserved-vips)
+* [Var olan bir bulut hizmetinin başlangıç IP adresi ayırın](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
+* [Ayrılmış IP tooa yeni bir bulut hizmeti ilişkilendirme](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-new-cloud-service)
+* [Dağıtım çalıştıran ayrılmış bir IP tooa ilişkilendirme](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-running-deployment)
+* [Hizmet yapılandırma dosyası kullanarak bir ayrılmış IP tooa bulut hizmeti ilişkilendirin](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
-## <a name="what-is-the-quota-limit-for-my-cloud-service"></a>My bulut hizmeti için kota sınırı nedir?
+## <a name="what-is-hello-quota-limit-for-my-cloud-service"></a>Merhaba kota sınırını my bulut hizmeti nedir?
 Bkz: [hizmete özgü sınırlar](../azure-subscription-service-limits.md#subscription-limits).
 
-## <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>My bulut hizmeti VM sürücüde çok az boş disk alanı neden Göster?
-Bu beklenen davranıştır ve uygulamanız için herhangi bir sorun neden döndürmemelidir. % Uproot için temelde çift dosyaları normalde kapladığı alanı miktarını tüketir Azure PaaS VM'ler % sürücüde günlük kaydı etkinleştirilir. Ancak aslında, dikkate etmeniz gereken birkaç nokta vardır, bu bir olmayan-sorunu yaşayıp açın.
+## <a name="why-does-hello-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>My bulut hizmeti VM hello sürücüde çok az boş disk alanı neden Göster?
+Bu beklenen davranıştır ve herhangi bir sorun tooyour uygulama neden döndürmemelidir. Merhaba % uproot için temelde çift hello dosyaları normalde kapladığı alanı miktarını tüketir Azure PaaS VM'ler % sürücüde günlük kaydı etkinleştirilir. Ancak, farkında toobe temelde bir olmayan-sorunu bu Aç birkaç şey vardır.
 
-% Approot % sürücü boyutu hesaplanan < .cspkg + max günlük boyutu boyutunu > + Kenar boşluğu boş alan olarak ya da 1,5 GB, hangisi daha büyüktür. VM boyutu şifrelemeyle Bu hesaplamayı vardır. (VM boyutu yalnızca geçici C: sürücüsü boyutunu etkiler.) 
+Merhaba % approot % sürücü boyutu hesaplanır < .cspkg + max günlük boyutu boyutunu > + Kenar boşluğu boş alan olarak ya da 1,5 GB, hangisi daha büyüktür. VM Hello boyutu bu hesaplamayı şifrelemeyle vardır. (Merhaba VM boyutu yalnızca hello geçici C: sürücüsü hello boyutunu etkiler.) 
 
-% Approot % diske yazmak için desteklenmiyor. Azure VM yazıyorsanız, bunu bir geçici LocalStorage kaynak yapmalısınız (veya başka bir seçeneği gibi Blob Depolama, Azure dosyaları, vb..). Bu nedenle % approot % klasöründeki boş alan miktarını anlamı yoktur. Uygulamanızı % approot % diske yazma olup olmadığından emin değilseniz, hizmetiniz birkaç gün boyunca çalıştırın ve ardından karşılaştırın her zaman izin verebilir "önce" ve "sonra" boyutları. 
+Desteklenmeyen toowrite toohello % approot % sürücü değil. Azure VM toohello yazıyorsanız, bunu bir geçici LocalStorage kaynak yapmalısınız (veya başka bir seçeneği gibi Blob Depolama, Azure dosyaları, vb..). Bu nedenle hello hello % approot % klasöründeki boş alan miktarını anlamı yoktur. Uygulamanızı toohello % approot % sürücüsünü yazarken emin değilseniz, hizmetiniz birkaç gün boyunca çalıştırın ve ardından "önce" ve "sonra" boyutları hello karşılaştırın her zaman izin verebilirsiniz. 
 
-Azure herhangi bir şey % approot % diske yazma değil. VHD, .cspkg oluşturup Azure VM'de oturum takılı sonra bu sürücüye yazabilir tek şey, uygulamasıdır. 
+Azure herhangi bir şey yazmayacak toohello % approot % sürücü. Merhaba VHD, .cspkg oluşturulur ve Azure VM hello takılı sonra toothis sürücü yazabilir hello tek şey, uygulamasıdır. 
 
-Kapatamaz şekilde günlük yapılandırılamayan, ayarlardır.
+kapatamaz şekilde hello günlük yapılandırılamayan, ayarlardır.
 
-## <a name="what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides"></a>Azure temel IP'leri/Kimlikleri ve DDOS sağlayan özellikleri ve yetenekleri nelerdir?
-Azure veri merkezi fiziksel sunucuları tehditlere karşı korumak için IP'leri/Kimlikler sahiptir. Buna ek olarak, müşteriler, web uygulaması güvenlik duvarı, ağ güvenlik duvarları, kötü amaçlı yazılımdan koruma, izinsiz giriş algılama, önleme sistemleri (Kimlikleri/IP) ve daha fazla gibi üçüncü taraf güvenlik çözümleri dağıtabilirsiniz. Daha fazla bilgi için bkz: [veri ve varlıkların korumak ve genel güvenlik standartları ile uyum](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity).
+## <a name="what-are-hello-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides"></a>Azure temel IP'leri/Kimlikleri ve DDOS sağlayan hello özellikleri ve yetenekleri nelerdir?
+Azure veri merkezi fiziksel sunucuları toodefend tehditlere karşı IP'leri/Kimlikler sahiptir. Buna ek olarak, müşteriler, web uygulaması güvenlik duvarı, ağ güvenlik duvarları, kötü amaçlı yazılımdan koruma, izinsiz giriş algılama, önleme sistemleri (Kimlikleri/IP) ve daha fazla gibi üçüncü taraf güvenlik çözümleri dağıtabilirsiniz. Daha fazla bilgi için bkz: [veri ve varlıkların korumak ve genel güvenlik standartları ile uyum](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity).
 
-Microsoft, sunucuları, ağları ve tehditleri algılamak için uygulamaları sürekli olarak izler. Azure'nın multipronged tehdit Yönetimi yaklaşımı kullanır izinsiz giriş algılama dağıtılmış hizmet reddi (DDoS) saldırı önleme, sızma sınama, davranış analizi, anomali algılama ve makine sürekli kendi savunma güçlendirmek öğrenme ve riskleri azaltın. Azure için Microsoft Antimalware Azure bulut Hizmetleri ve sanal makineleri korur. Web uygulaması güvenlik duvarları, ağ güvenlik duvarları, kötü amaçlı yazılımdan koruma, izinsiz giriş algılama ve önleme sistemleri (Kimlikleri/IP) ve daha fazlası gibi ek olarak, üçüncü taraf güvenlik çözümlerini dağıtmak için seçeneğiniz vardır.
+Microsoft, sunucuları, ağları ve uygulamaları toodetect tehditleri sürekli olarak izler. Azure'nın multipronged tehdit Yönetimi yaklaşımı kullanır izinsiz giriş algılama, dağıtılmış--hizmet engelleme (DDoS) saldırısı önleme, sızma sınama, davranış analizi, anomali algılama ve makine öğrenme tooconstantly güçlendirme, savunma ve riskleri azaltın. Azure için Microsoft Antimalware Azure bulut Hizmetleri ve sanal makineleri korur. Hello seçeneği toodeploy üçüncü taraf güvenlik çözümleri Ayrıca, web uygulaması güvenlik duvarları, ağ güvenlik duvarları, kötü amaçlı yazılımdan koruma, izinsiz giriş algılama ve önleme sistemleri (Kimlikleri/IP) ve daha fazlası gibi sahiptir.
 
-## <a name="why-does-iis-stop-writing-to-the-log-directory"></a>IIS Günlük dizini yazmak neden Durdur?
-Günlük dizini yazmak için yerel depolama kotası azaltılmıştır. Bu sorunu gidermek için işlemlerden birini yapabilirsiniz:
-* IIS için tanılamayı etkinleştirin ve tanılama düzenli aralıklarla BLOB depolamaya taşınmış.
-* El ile günlük dosyalarını günlük dizininden kaldırın.
+## <a name="why-does-iis-stop-writing-toohello-log-directory"></a>IIS toohello günlük dizini yazma neden durdurur?
+Toohello günlük dizini yazmak için yerel depolama kotası hello azaltılmıştır. Bu sorunu gidermek için işlemlerden birini yapabilirsiniz:
+* IIS için tanılamayı etkinleştirin ve hello tanılama düzenli aralıklarla tooblob depolama taşınmış.
+* El ile günlük dosyalarının dizin günlüğü hello kaldırın.
 * Yerel kaynaklar için kota sınırını artırın.
 
-Daha fazla bilgi için aşağıdaki belgelere bakın:
+Daha fazla bilgi için aşağıdaki belgeleri hello bakın:
 * [Azure Depolama’daki tanılama verilerini depolama ve görüntüleme](cloud-services-dotnet-diagnostics-storage.md)
 * [Bulut hizmetinde yazma IIS günlüklerini durdurur](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
 
-## <a name="what-is-the-purpose-of-the-windows-azure-tools-encryption-certificate-for-extensions"></a>"Windows Azure Araçları şifreleme sertifikası için uzantıları" amacı nedir?
-Bulut hizmeti uzantı eklendiğinde bu sertifikaları otomatik olarak oluşturulur. En yaygın olarak, bu WAD uzantısı veya RDP uzantısı, ancak diğer kötü amaçlı yazılımdan koruma veya günlük Toplayıcı uzantısı gibi olabilir. Bu sertifikalar yalnızca şifreleme ve uzantı özel yapılandırması şifresini çözmek için kullanılır. Sertifikanın süresi dolmuşsa önemli değildir şekilde sona erme tarihini hiçbir zaman denetlenir. 
+## <a name="what-is-hello-purpose-of-hello-windows-azure-tools-encryption-certificate-for-extensions"></a>Merhaba "Windows Azure Araçları şifreleme sertifikası için uzantıları" Merhaba amacı nedir?
+Toohello bulut hizmeti uzantı eklendiğinde bu sertifikaları otomatik olarak oluşturulur. En yaygın olarak, bu hello WAD uzantısı veya hello RDP uzantısı, ancak diğer kötü amaçlı yazılımdan koruma veya günlük Toplayıcı uzantısını hello gibi olabilir. Bu sertifikalar yalnızca şifreleme ve hello uzantısı için özel yapılandırma hello şifresini çözmek için kullanılır. Merhaba sertifika süresi dolmuşsa önemli değildir şekilde hello sona erme tarihi hiçbir zaman denetlenir. 
 
-Bu sertifikalar yoksayabilirsiniz. Sertifikaları temizlemek isterseniz, tüm silerek deneyebilirsiniz. Azure, kullanımda olan bir sertifikayı silmeye çalışırsanız bir hata durum oluşturur.
+Bu sertifikalar yoksayabilirsiniz. Merhaba sertifikaları temizlemek isterseniz, tüm silerek deneyebilirsiniz. Toodelete çalışırsanız azure kullanımda olan bir sertifikayı bir hata özel durum oluşturacak.
 
-## <a name="how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance"></a>Nasıl t bir sertifika imzalama isteği (CSR) "RDP-lık" olmadan içinde örneğine oluşturabilir miyim?
-Aşağıdaki yönergeler belgesine bakın:
+## <a name="how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-toohello-instance"></a>Nasıl t bir sertifika imzalama isteği (CSR) "RDP-lık" olmadan toohello örneğinde oluşturabilir miyim?
+Kılavuzu belge aşağıdaki hello bakın:
 
 >[Windows Azure Web siteleri (WAWS) ile kullanılacak bir sertifika edinme](https://azure.microsoft.com/blog/obtaining-a-certificate-for-use-with-windows-azure-web-sites-waws/)
 
-Bir CSR yalnızca bir metin dosyası olduğunu unutmayın. Bu makineden oluşturulacak sertifika sonuçta nerede kullanılacak yok. Bu belgede bir uygulama hizmeti için yazılmış olsa da CSR oluşturma geneldir ve bulut Hizmetleri için de geçerlidir.
+Bir CSR yalnızca bir metin dosyası olduğunu unutmayın. Merhaba makineden oluşturulan toobe hello sertifika sonuçta nerede kullanılacak yok. Bu belgede bir uygulama hizmeti için yazılmış olsa da hello CSR oluşturma geneldir ve bulut Hizmetleri için de geçerlidir.

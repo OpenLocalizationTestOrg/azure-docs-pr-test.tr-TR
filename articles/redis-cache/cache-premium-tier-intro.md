@@ -1,6 +1,6 @@
 ---
-title: "Azure Redis önbelleği Premium katmanına giriş | Microsoft Docs"
-description: "Oluşturma ve Redis kalıcılığı yönetmek, kümeleme Redis ve Premium katmanı Azure Redis önbelleği örnekleri için VNET destek öğrenin"
+title: "aaaIntroduction toohello Azure Redis önbelleği Premium katmanına | Microsoft Docs"
+description: "Bilgi nasıl toocreate Redis kalıcılığı, Redis Kümeleme ve Premium katmanı Azure Redis önbelleği örnekleri VNET desteği ve yönetme"
 services: redis-cache
 documentationcenter: 
 author: steved0x
@@ -14,57 +14,57 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: sdanie
-ms.openlocfilehash: c7a70e74f8b275ed9e10118b0ae9e81309f97ba3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5b58a03647fbf1198509ac6f1acd04f1b682ad95
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-the-azure-redis-cache-premium-tier"></a>Azure Redis Önbelleği Premium katmanına giriş
-Azure Redis önbelleği verilerinizi Süper hızlı erişim sağlayarak yüksek oranda ölçeklenebilir ve esnek uygulamalar oluşturmanıza yardımcı olan dağıtılmış, yönetilen bir önbelleğidir. 
+# <a name="introduction-toohello-azure-redis-cache-premium-tier"></a>Giriş toohello Azure Redis önbelleği Premium katmanına
+Azure Redis önbelleği Süper hızlı erişim tooyour veri sağlayarak yüksek oranda ölçeklenebilir ve esnek uygulamalar oluşturmanıza yardımcı olan dağıtılmış, yönetilen bir önbelleğidir. 
 
-Yeni Premium katmanı tüm standart katman özellikleri ve daha iyi performans, daha büyük iş yükleri, olağanüstü durum kurtarma, içeri/dışarı aktarma ve Gelişmiş güvenlik gibi daha fazlasını içeren bir kuruluş hazır Katmanı ' dir. Premium önbellek katmanının ek özellikler hakkında daha fazla bilgi için okumaya devam edin.
+Tüm hello standart katman özellikleri ve daha iyi performans, daha büyük iş yükleri, olağanüstü durum kurtarma, içeri/dışarı aktarma gibi daha fazlasını içerir ve Gelişmiş güvenlik bir kurumsal hazır katmanı, yeni Premium katmanı olan hello. Okuma toolearn hello Premium önbellek katmanının hello ek özellikler hakkında daha fazla devam edin.
 
-## <a name="better-performance-compared-to-standard-or-basic-tier"></a>Standart ya da temel katmana göre daha iyi performans
-**Performans katmanı standart üzerinden veya temel daha iyi.** Premium katmanındaki önbellekleri daha hızlı bir işlemciye sahip ve temel veya standart katman karşılaştırıldığında daha iyi performans sunan donanımda dağıtılır. Premium katmanı önbellekleri daha yüksek verimlilik ve düşük gecikme vardır. 
+## <a name="better-performance-compared-toostandard-or-basic-tier"></a>Daha iyi performans tooStandard veya temel katmana karşılaştırma
+**Performans katmanı standart üzerinden veya temel daha iyi.** Merhaba Premium katmanındaki önbellekleri daha hızlı bir işlemciye sahip ve daha iyi karşılaştırıldığında performansı toohello temel veya standart katman sunan donanımda dağıtılır. Premium katmanı önbellekleri daha yüksek verimlilik ve düşük gecikme vardır. 
 
-**Standart katmanı karşılaştırıldığında Premium'da aynı boyutta önbelleği için işleme yüksektir.** Örneğin, 53 GB'a P4 üretimini (Premium) önbelleğidir C6 150 K karşılaştırıldığında saniyede 250K istekler (standart).
+**Üretim hello için aynı boyutta önbelleği karşılaştırılan tooStandard katman olarak Premium'da daha yüksektir.** Örneğin, hello verimini 53 GB'a P4 (Premium) önbelleğidir C6 için karşılaştırılan too150K olarak saniyede 250K istekler (standart).
 
 Boyut, işleme ve premium önbelleklere sahip bant genişliği hakkında daha fazla bilgi için bkz: [Azure Redis önbelleği SSS](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
 ## <a name="redis-data-persistence"></a>Redis veri kalıcılığını
-Premium katmanı, bir Azure depolama hesabındaki önbellek verilerini sürdürülmesi olanak sağlar. Basic/standart önbellekteki tüm verileri yalnızca bellekte depolanır. Altyapının durumunda sorunlar var. olası veri kaybı olabilir. Redis veri kalıcılığını özelliği, veri kaybına karşı dayanıklılığı artırmak için Premium katmanındaki kullanmanızı öneririz. Azure Redis önbelleği seçeneklerinde RDB ve (yakında) AOF sunar [Redis kalıcılığı](http://redis.io/topics/persistence). 
+Hello Premium katman bir Azure depolama hesabında toopersist hello önbellek verileri sağlar. Basic/standart önbelleğinde tüm hello verileri yalnızca bellekte depolanır. Altyapının durumunda sorunlar var. olası veri kaybı olabilir. Veri kaybına karşı hello Premium katmanı tooincrease dayanıklılık içinde hello Redis veri kalıcılığını özelliğini kullanmanızı öneririz. Azure Redis önbelleği seçeneklerinde RDB ve (yakında) AOF sunar [Redis kalıcılığı](http://redis.io/topics/persistence). 
 
-Kalıcılığın yapılandırılması hakkında yönergeler için bkz. [Premium Azure Redis Cache için kalıcılığı yapılandırma](cache-how-to-premium-persistence.md).
+Kalıcılığı yapılandırma ile ilgili yönergeler için bkz: [nasıl Premium Azure Redis önbelleği için kalıcılığı tooconfigure](cache-how-to-premium-persistence.md).
 
 ## <a name="redis-cluster"></a>Redis kümesi
-Önbellekleri 53 GB'den büyük oluşturmak veya birden çok Redis düğümünde parça verileri istediğiniz istiyorsanız, Premium katmanında kullanılabilir olduğu kümeleme Redis kullanabilirsiniz. Her düğüm, yüksek kullanılabilirlik için Azure tarafından yönetilen bir birincil/çoğaltma önbelleği çifti oluşur. 
+Toocreate önbellekleri 53 GB'den büyük istediğiniz veya birden çok Redis düğümünde tooshard veri istiyorsanız hello Premium katmanında kullanılabilir olduğu kümeleme Redis kullanabilirsiniz. Her düğüm, yüksek kullanılabilirlik için Azure tarafından yönetilen bir birincil/çoğaltma önbelleği çifti oluşur. 
 
-**Redis kümeleme en fazla ölçek ve verimlilik sağlar.** Kümedeki parça (düğümlerin) sayısını artırmak üretilen işi doğrusal olarak artar. Ör. 10 parça P4 kümesi oluşturun, sonra kullanılabilir verimlilik 250 K'dır, * 10 saniye başına 2,5 milyon istek =. Lütfen bakın [Azure Redis önbelleği SSS](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) boyut, işleme ve premium önbelleklere sahip bant genişliği hakkında daha fazla ayrıntı için.
+**Redis kümeleme en fazla ölçek ve verimlilik sağlar.** Parça (düğümler) hello kümedeki hello sayısını artırmak üretilen işi doğrusal olarak artar. Ör. 10 parça P4 kümesi oluşturun ardından hello kullanılabilir verimlilik olduğu 250 K * 10 saniye başına 2,5 milyon istek =. Lütfen hello bakın [Azure Redis önbelleği SSS](cache-faq.md#what-redis-cache-offering-and-size-should-i-use) boyut, işleme ve premium önbelleklere sahip bant genişliği hakkında daha fazla ayrıntı için.
 
-Kümeleme ile çalışmaya başlamak için bkz: [Premium Azure Redis önbelleği için kümeleri yapılandırma](cache-how-to-premium-clustering.md).
+Kümeleme ile başlatılan tooget bkz [nasıl bir Premium Azure Redis önbelleği için kümeleri tooconfigure](cache-how-to-premium-clustering.md).
 
 ## <a name="enhanced-security-and-isolation"></a>Geliştirilmiş güvenlik ve yalıtım
-Temel veya standart katmanında oluşturduğunuzu önbellekleri ortak Internet üzerinden erişilebilir. Önbelleğe erişim erişim anahtarı temel sınırlıdır. Premium katmanı ile daha fazla yalnızca belirtilen ağ istemcileri önbelleğe erişebilir emin olabilirsiniz. Redis Önbelleği'nde dağıtabileceğiniz bir [Azure sanal ağ (VNet)](https://azure.microsoft.com/services/virtual-network/). Redis’e erişimi daha da fazla kısıtlamak için alt ağlar, erişim denetimi, ilkeler gibi VNet’in tüm özelliklerini ve diğer özellikleri kullanabilirsiniz.
+Merhaba temel veya standart katmanında oluşturduğunuzu önbellekleri üzerinde erişilebilir genel internet hello. Erişim toohello önbellek kısıtlı göre hello erişim anahtardır. Merhaba Premium katmanı ile ilgili daha fazla, yalnızca belirtilen ağ istemcileri hello önbellek erişebildiğinden emin olun. Redis Önbelleği'nde dağıtabileceğiniz bir [Azure sanal ağ (VNet)](https://azure.microsoft.com/services/virtual-network/). Alt ağlar, erişim denetimi ilkeleri ve diğer özellikleri toofurther erişim tooRedis kısıtlamak gibi vnet'in tüm hello özelliklerini kullanabilirsiniz.
 
-Daha fazla bilgi için bkz. [Premium Azure Redis Cache için Sanal Ağ desteğini yapılandırma](cache-how-to-premium-vnet.md).
+Daha fazla bilgi için bkz: [tooconfigure sanal ağ Premium Azure Redis önbelleği için nasıl destek](cache-how-to-premium-vnet.md).
 
 ## <a name="importexport"></a>İçeri/Dışarı Aktarma
-İçeri/dışarı aktarma veri Azure Redis önbelleğine alma veya içeri aktarma ve Redis önbelleği veritabanı'nı (RDB) anlık görüntü premium önbellekten bir Azure sayfa blobu verme Azure Redis Önbelleği'nden veri verme olanak tanıyan bir Azure Redis önbelleği veri yönetimi işlemdir Depolama hesabı. Bu, farklı Azure Redis önbelleği örnekleri arasında geçirmek veya önbellek kullanmadan önce verileri ile doldurmak sağlar.
+İçeri/dışarı aktarma tooimport veri Azure Redis önbelleği veya Azure Redis önbelleği verileri dışa aktarma ve Redis önbelleği veritabanı'nı (RDB) anlık bir Azure premium önbellek tooa sayfa blobu dışarı aktarma sağlayan bir Azure Redis önbelleği veri yönetimi işlemdir Depolama hesabı. Bu, farklı Azure Redis önbelleği örnekleri arasında toomigrate etkinleştirir veya hello önbellek kullanmadan önce verilerle doldurma.
 
-İçeri aktarma, herhangi bir bulut veya ortamını Linux, Windows ya da herhangi bir bulut sağlayıcısına Amazon Web Hizmetleri ve diğerleri gibi çalışan Redis çalıştıran herhangi bir Redis sunucudan Redis uyumlu RDB dosyaları getirmek için kullanılabilir. Veri alma, önceden doldurulmuş haldedir verilerle önbellek oluşturmak için kolay bir yoludur. İçeri aktarma işlemi sırasında Azure Redis önbelleği RDB dosyaları Azure Storage'dan belleğe yükler ve ardından anahtarları önbelleğe ekler.
+İçeri aktarma kullanılan toobring Redis uyumlu RDB dosyaları herhangi bir bulut veya ortamını Linux, Windows ya da herhangi bir bulut sağlayıcısına Amazon Web Hizmetleri ve diğerleri gibi çalışan Redis çalıştıran herhangi bir Redis sunucudan olabilir. Veri alma kolay bir yolu toocreate önceden doldurulmuş haldedir verilerle bir önbellek olur. Merhaba içeri aktarma işlemi sırasında Azure Redis önbelleği hello RDB dosyaları Azure Storage'dan belleğe yükler ve sonra hello anahtarları hello önbelleğine ekler.
 
-Dışarı aktarma, Azure Redis uyumlu RDB dosyaları Redis için önbellekte depolanan veriler vermenize olanak sağlar. Verileri bir Azure Redis önbelleği örneğinden diğerine veya başka bir Redis sunucuya taşımak için bu özelliği kullanın. Dışa aktarma işlemi sırasında geçici bir dosya Azure Redis önbelleği sunucu örneğini barındıran VM oluşturulur ve dosya belirtilen depolama hesabına yüklenir. Ya da durumunu başarı veya hata ile dışarı aktarma işlemi tamamlandıktan sonra geçici dosya silindi.
+Dışarı aktarma Azure Redis önbelleği tooRedis uyumlu RDB dosyasında depolanan tooexport hello verileri sağlar. Bu özellik toomove verilerden bir Azure Redis önbelleği örneği tooanother veya tooanother Redis sunucusu kullanabilirsiniz. Hello dışa aktarma işlemi sırasında Azure Redis önbelleği sunucu örneği konakları hello ve depolama hesabı belirlenmiş karşıya yüklenen toohello hello dosyadır VM hello üzerinde geçici bir dosya oluşturulur. Merhaba dışa aktarma işlemi ya da durumunu başarı veya hata ile tamamlandığında hello geçici dosya silindi.
 
-Daha fazla bilgi için bkz: [içine veriler aktarmak ve Azure Redis Önbelleği'nden veri vermek nasıl](cache-how-to-import-export-data.md).
+Daha fazla bilgi için bkz: [nasıl tooimport verisine ve Azure Redis Önbelleği'nden veri dışarı aktarma](cache-how-to-import-export-data.md).
 
 ## <a name="reboot"></a>Yeniden başlatma
-Premium katmanı, önbellek isteğe bağlı bir veya daha fazla düğümlerinin yeniden başlatılmasını sağlar. Bu, bir hata oluşması durumunda esneklik için uygulamanızı test etmek sağlar. Aşağıdaki düğümler yeniden başlatabilirsiniz.
+Merhaba premium katmanı tooreboot sağlar, önbellek isteğe bağlı bir veya daha fazla düğümlerinin. Tootest bu sayede uygulamanız hello olay dayanıklılık için bir hata. Düğümleri aşağıdaki hello yeniden başlatabilirsiniz.
 
 * Önbelleğinizi ana düğümünün
 * Önbelleğinizi ikincil düğümü
 * Önbelleğinizi hem ana hem de ikincil düğümlerinin
-* Premium önbelleği Kümeleme ile kullanırken, ana, ikincil veya tek tek parça önbelleğinde için her iki düğüm yeniden başlatılabilir
+* Premium önbelleği Kümeleme ile kullanırken, hello ana, ikincil veya tek tek parça hello önbelleğinde için her iki düğüm yeniden başlatılabilir
 
 Daha fazla bilgi için bkz: [yeniden](cache-administration.md#reboot) ve [yeniden SSS](cache-administration.md#reboot-faq).
 
@@ -74,31 +74,31 @@ Daha fazla bilgi için bkz: [yeniden](cache-administration.md#reboot) ve [yenide
 >
 
 ## <a name="schedule-updates"></a>Güncelleştirmeleri zamanlama
-Zamanlanmış güncelleştirmeler özelliği önbelleğiniz için bir bakım penceresi tanımlamanızı sağlar. Bakım penceresi belirtildiğinde, herhangi bir Redis sunucu güncelleştirme sırasında bu pencereyi yapılır. Pencere bir bakım penceresi belirlemek, istediğiniz günleri seçin ve Bakım belirtmek için her gün saat başlatın. Bakım penceresi saati UTC biçiminde olduğunu unutmayın. 
+Merhaba zamanlanmış güncelleştirmeler özelliği toodesignate önbelleğiniz için bir bakım penceresi sağlar. Merhaba bakım penceresi belirtildiğinde, herhangi bir Redis sunucu güncelleştirme sırasında bu pencereyi yapılır. toodesignate bir bakım penceresi istenen hello günleri seçin ve her gün için hello bakım penceresi başlangıç saati belirtin. Merhaba bakım penceresi saati UTC biçiminde olduğunu unutmayın. 
 
 Daha fazla bilgi için bkz: [zamanlama güncelleştirmeleri](cache-administration.md#schedule-updates) ve [SSS güncelleştirmeleri zamanla](cache-administration.md#schedule-updates-faq).
 
 > [!NOTE]
-> Yalnızca sunucu zamanlanmış bakım penceresi sırasında yapılan güncelleştirmeler Redis. Bakım penceresi uygulanmaz Azure güncelleştirmeleri veya VM işletim sisteminde güncelleştirmeler.
+> Yalnızca sunucu güncelleştirmeleri hello zamanlanmış bakım penceresi sırasında yapılan Redis. Merhaba bakım penceresi tooAzure güncelleştirmeleri uygulanmaz veya toohello VM işletim sistemi güncelleştirir.
 > 
 > 
 
 ## <a name="geo-replication"></a>Coğrafi çoğaltma
 
-**Coğrafi çoğaltma** iki Premium katmanı Azure Redis önbelleği örnekleri bağlama için bir mekanizma sağlar. Bir önbellek birincil bağlantılı önbellek ve diğer ikincil bağlantılı önbelleği olarak atanır. İkincil bağlantılı önbellek salt okunur hale gelir ve birincil önbelleğe yazılan veri ikincil bağlantılı önbelleğine çoğaltılır. Bu işlev, Azure bölgeler arasında bir önbellek çoğaltmak için kullanılabilir.
+**Coğrafi çoğaltma** iki Premium katmanı Azure Redis önbelleği örnekleri bağlama için bir mekanizma sağlar. Bir önbellek hello birincil bağlantılı önbellek ve hello hello ikincil bağlantılı önbelleği gibi diğer olarak atanır. Merhaba ikincil bağlantılı önbellek salt okunur olur ve yazılı toohello birincil önbelleği veri toohello ikincil bağlantılı önbellek çoğaltılır. Bu işlev Azure bölgeler arasında kullanılan tooreplicate bir önbellek olabilir.
 
-Daha fazla bilgi için bkz: [Azure Redis önbelleği için coğrafi çoğaltma yapılandırma](cache-how-to-geo-replication.md).
+Daha fazla bilgi için bkz: [nasıl Azure Redis önbelleği için coğrafi çoğaltma tooconfigure](cache-how-to-geo-replication.md).
 
 
-## <a name="to-scale-to-the-premium-tier"></a>Premium katmanı için
-Premium katmanı için bir premium katmanı seçmeniz yeterlidir **fiyatlandırma katmanı değişikliği** dikey. Ayrıca PowerShell ve CLI kullanarak premium katmanına önbelleğiniz ölçeklendirebilirsiniz. Adım adım yönergeler için bkz: [ölçek Azure Redis önbelleği nasıl](cache-how-to-scale.md) ve [bir ölçeklendirme işlemi otomatikleştirmek nasıl](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
+## <a name="tooscale-toohello-premium-tier"></a>tooscale toohello premium katmanı
+tooscale toohello premium katmanı, bir hello premium katmanı hello seçmeniz yeterlidir **fiyatlandırma katmanı değişikliği** dikey. Ayrıca PowerShell ve CLI kullanarak önbellek toohello premium katman ölçeklendirebilirsiniz. Adım adım yönergeler için bkz: [nasıl tooScale Azure Redis önbelleği](cache-how-to-scale.md) ve [nasıl tooautomate bir ölçeklendirme işlemi](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Önbellek oluşturmak ve yeni premium katmanı özellikleri keşfedin.
+Önbellek oluşturmak ve hello yeni premium katmanı özellikleri keşfedin.
 
-* [Premium Azure Redis Cache için kalıcılığı yapılandırma](cache-how-to-premium-persistence.md)
-* [Premium Azure Redis Cache için Sanal Ağ desteğini yapılandırma](cache-how-to-premium-vnet.md)
-* [Premium Azure Redis Cache için kümeleri yapılandırma](cache-how-to-premium-clustering.md)
-* [Azure Redis önbelleği içine veri içeri aktar ve dışarı aktarma veri nasıl](cache-how-to-import-export-data.md)
-* [Azure Redis önbelleği yönetme](cache-administration.md)
+* [Nasıl tooconfigure kalıcılığını Premium Azure Redis önbelleği](cache-how-to-premium-persistence.md)
+* [Sanal ağ tooconfigure Premium Azure Redis önbelleği için nasıl destekler](cache-how-to-premium-vnet.md)
+* [Nasıl bir Premium Azure Redis önbelleği için kümeleri tooconfigure](cache-how-to-premium-clustering.md)
+* [Nasıl tooimport verisine ve Azure Redis Önbelleği'nden veri dışarı aktarma](cache-how-to-import-export-data.md)
+* [Nasıl tooadminister Azure Redis önbelleği](cache-administration.md)
 

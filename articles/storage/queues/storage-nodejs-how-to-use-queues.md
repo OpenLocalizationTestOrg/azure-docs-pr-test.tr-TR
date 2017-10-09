@@ -1,6 +1,6 @@
 ---
-title: Node.js'den kuyruk depolama kullanma | Microsoft Docs
-description: "Oluşturmak ve Kuyruklar silmek için Azure Queue hizmetini kullanmayı öğrenin ve Ekle, Al ve iletilerini silin. Node.js içinde yazılmış örneklerini içerir."
+title: aaaHow toouse node.js'den kuyruk depolama | Microsoft Docs
+description: "Nasıl toouse hello Azure kuyruk hizmeti toocreate ve delete kuyruklar ve Ekle, Al ve iletileri silmek öğrenin. Node.js içinde yazılmış örneklerini içerir."
 services: storage
 documentationcenter: nodejs
 author: robinsh
@@ -14,33 +14,33 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
-ms.openlocfilehash: 15c1d3cb6eac8fc14837277c4a4275dea91701cd
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7e9778da4efa69f2e9d8fd480b9b6f5ace85951e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-queue-storage-from-nodejs"></a>Node.js’den Kuyruk depolama kullanma
+# <a name="how-toouse-queue-storage-from-nodejs"></a>Nasıl toouse node.js'den kuyruk depolama
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-check-out-samples-all](../../../includes/storage-check-out-samples-all.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Bu kılavuz Microsoft Azure Queue hizmetini kullanarak yaygın senaryolar gerçekleştirme gösterir. Örnekler, Node.js API kullanılarak yazılır. Kapsamdaki senaryolar dahil **ekleme**, **gözatma**, **alma**, ve **silme** kuyruk iletileri yanı **oluşturma ve silme**.
+Bu kılavuz size nasıl Microsoft Azure Queue hizmetini kullanarak tooperform genel senaryolar hello gösterir. Merhaba örnekleri hello Node.js API kullanılarak yazılır. Merhaba kapsamdaki senaryolar da dahil **ekleme**, **gözatma**, **alma**, ve **silme** kuyruk iletileri yanı  **oluşturma ve silme**.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-nodejs-application"></a>Bir Node.js uygulaması oluşturma
-Boş bir Node.js uygulaması oluşturun. Bir Node.js uygulaması oluşturma yönergeleri için bkz: [Azure App Service'te bir Node.js web uygulaması oluşturma](../../app-service-web/app-service-web-get-started-nodejs.md), [derleme ve Azure bulut hizmeti bir Node.js uygulamasını dağıtma](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) Windows PowerShell kullanarak veya [derleme ve Web Matrix Azure'u Node.js web uygulamasına dağıtma](https://www.microsoft.com/web/webmatrix/).
+Boş bir Node.js uygulaması oluşturun. Bir Node.js uygulaması oluşturma yönergeleri için bkz: [Azure App Service'te bir Node.js web uygulaması oluşturma](../../app-service-web/app-service-web-get-started-nodejs.md), [derleme ve bir Node.js uygulaması tooan Azure bulut hizmeti dağıtma](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) Windows PowerShell veya kullanma[ Derleme ve Web Matrix kullanarak bir Node.js web uygulaması tooAzure dağıtma](https://www.microsoft.com/web/webmatrix/).
 
-## <a name="configure-your-application-to-access-storage"></a>Uygulamanızı erişimli depolama için yapılandırın
-Azure depolama kullanmak için bir dizi depolama REST Hizmetleri ile iletişim kolaylık kitaplıkları içerir Node.js için Azure depolama SDK'sı gerekir.
+## <a name="configure-your-application-tooaccess-storage"></a>Uygulamanızı tooAccess depolama yapılandırma
+Azure depolama toouse hello storage REST Hizmetleri ile iletişim kuran bir dizi kolaylık içerir Node.js için hello Azure depolama SDK'sı gerekir.
 
-### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Paket elde etmek için düğüm paketi Yöneticisi (NPM) kullanın
-1. Bir komut satırı arabirimi gibi kullandığınız **PowerShell** (Windows) **Terminal** (Mac) veya **Bash** (UNIX) örnek uygulamanızı oluşturduğunuz klasöre gidin.
-2. Tür **npm yükleme azure depolama** komut penceresinde. Komut çıktısı aşağıdaki örneğe benzer.
+### <a name="use-node-package-manager-npm-tooobtain-hello-package"></a>Düğüm paketi Yöneticisi (NPM) tooobtain hello paketini kullanın
+1. Bir komut satırı arabirimi gibi kullandığınız **PowerShell** (Windows) **Terminal** (Mac) veya **Bash** (UNIX) örnek uygulamanızı oluşturulduğu toohello klasörüne gidin.
+2. Tür **npm yükleme azure depolama** hello komut penceresinde. Merhaba komut çıktısı aşağıdaki örneğine benzer toohello ' dir.
  
     ```
     azure-storage@0.5.0 node_modules\azure-storage
@@ -55,28 +55,28 @@ Azure depolama kullanmak için bir dizi depolama REST Hizmetleri ile iletişim k
     +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
     ```
 
-3. El ile çalıştırabilirsiniz **ls** doğrulamak için komutu bir **düğümü\_modülleri** klasörü oluşturuldu. Bu klasör içinde bulacaksınız **azure depolama** depolama birimine erişmesi gereken kitaplıkları içeren paket.
+3. Merhaba el ile çalıştırabilirsiniz **ls** komutu tooverify, bir **düğümü\_modülleri** klasörü oluşturuldu. Bu klasöre hello bulacaksınız **azure depolama** depolama birimine erişmesi gereken hello kitaplıkları içeren paket.
 
-### <a name="import-the-package"></a>Paket alma
-Not Defteri'nde veya başka bir metin düzenleyicisi kullanarak, en üstüne aşağıdakileri ekleyin **server.js** uygulamanın dosya depolama kullanmayı düşündüğünüz burada:
+### <a name="import-hello-package"></a>Merhaba paketi İçeri Aktar
+Not Defteri'nde veya başka bir metin düzenleyicisi kullanarak ekleyin toohello üst aşağıdaki hello **server.js** toouse depolama burada düşündüğünüz dosya hello uygulamasının:
 
 ```
 var azure = require('azure-storage');
 ```
 
 ## <a name="setup-an-azure-storage-connection"></a>Bir Azure depolama bağlantı Kur
-Azure modülü AZURE ortam değişkenleri okur\_depolama\_HESABINI ve AZURE\_depolama\_erişim\_anahtar ya da AZURE\_depolama\_bağlantı\_Azure depolama hesabınıza bağlanmak için gerekli bilgileri DİZESİ. Bu ortam değişkenleri ayarlanmamışsa çağrılırken hesap bilgileri belirtmelisiniz **createQueueService**.
+Hello azure modülü hello ortam değişkenleri AZURE okuma\_depolama\_HESABINI ve AZURE\_depolama\_erişim\_anahtar ya da AZURE\_depolama\_bağlantı \_Gerekli bilgileri tooconnect tooyour Azure depolama hesabı için dize. Bu ortam değişkenleri ayarlanmamışsa çağrılırken hello hesap bilgileri belirtmelisiniz **createQueueService**.
 
-Ortam değişkenlerini ayarlama örnek için [Azure Portal](https://portal.azure.com) [Azure tablo hizmeti kullanarak Node.js web uygulaması] bir Azure Web sitesi için bkz.
+Hello hello ortam değişkenlerini ayarlama örneği için [Azure Portal](https://portal.azure.com) [Node.js web uygulamasını Azure tablo hizmeti hello kullanarak] bir Azure Web sitesi için bkz.
 
 ## <a name="how-to-create-a-queue"></a>Nasıl yapılır: bir sıra oluşturun
-Aşağıdaki kod oluşturur bir **QueueService** kuyruklarla çalışmanıza olanak tanır nesnesi.
+Merhaba aşağıdaki kod oluşturur bir **QueueService** toowork kuyruklarla sağlayan nesne.
 
 ```
 var queueSvc = azure.createQueueService();
 ```
 
-Kullanım **createQueueIfNotExists** zaten var veya zaten yoksa, belirtilen ada sahip yeni bir sıra oluşturur, belirtilen sırada döndüren yöntemi.
+Kullanım hello **createQueueIfNotExists** hello belirtilen sırayı zaten var veya zaten yoksa, hello belirtilen adla yeni bir sıra oluşturur döndüren yöntemi.
 
 ```
 queueSvc.createQueueIfNotExists('myqueue', function(error, result, response){
@@ -86,24 +86,24 @@ queueSvc.createQueueIfNotExists('myqueue', function(error, result, response){
 });
 ```
 
-Sıranın oluşturduysanız, `result.created` doğrudur. Sıranın varsa `result.created` false olur.
+Merhaba sıra oluşturduysanız, `result.created` doğrudur. Merhaba sırası varsa, `result.created` false olur.
 
 ### <a name="filters"></a>Filtreler
-İsteğe bağlı filtreleme işlemleri kullanarak gerçekleştirilen işlemler için uygulanabilir **QueueService**. İşlemleri filtreleme içerebilir günlüğe kaydetme, otomatik olarak yeniden deneniyor, vs. İmzalı bir yöntem uygulayan nesneler filtreleri şunlardır:
+İsteğe bağlı filtreleme operations kullanılarak gerçekleştirilen uygulanan toooperations olabilir **QueueService**. İşlemleri filtreleme içerebilir günlüğe kaydetme, otomatik olarak yeniden deneniyor, vs. Filtreleri hello imza yöntemiyle uygulayan nesneler şunlardır:
 
 ```
 function handle (requestOptions, next)
 ```
 
-İstek seçenekleri önişleme yaptıktan sonra "İleri" aşağıdaki imzalı bir geri çağırma geçirme çağrılacak yöntemi gerekir:
+Kendi hello isteği seçenekleri ön işleme yaptıktan sonra "İleri" imza aşağıdaki hello ile bir geri çağırma geçirme toocall hello yöntemi gerekir:
 
 ```
 function (returnObject, finalCallback, next)
 ```
 
-Bu geri çağırma ve (sunucunun istek yanıtı) returnObject işlemden sonra geri çağırma diğer filtreleri işleme devam etmek için varsa sonraki çağırma veya yalnızca finalCallback Aksi halde hizmet başlatma sonuna çağırma gerekiyor.
+Bu geri çağırma ve hello returnObject (Merhaba isteği toohello sunucusundan hello yanıt) işlemden sonra hello geri çağırma tooeither gereken diğer filtreleri işleme toocontinue varsa sonraki çağırma veya yalnızca finalCallback çağırma aksi tooend hello ayarlama Hizmet başlatma.
 
-Yeniden deneme mantığını uygulaması iki filtre Node.js için Azure SDK'sı ile birlikte **ExponentialRetryPolicyFilter** ve **LinearRetryPolicyFilter**. Aşağıdaki oluşturur bir **QueueService** kullanan nesneyi **ExponentialRetryPolicyFilter**:
+Yeniden deneme mantığını uygulaması iki filtre hello Node.js için Azure SDK ile birlikte **ExponentialRetryPolicyFilter** ve **LinearRetryPolicyFilter**. Merhaba aşağıdaki oluşturur bir **QueueService** hello kullanan nesneyi **ExponentialRetryPolicyFilter**:
 
 ```
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
@@ -111,7 +111,7 @@ var queueSvc = azure.createQueueService().withFilter(retryOperations);
 ```
 
 ## <a name="how-to-insert-a-message-into-a-queue"></a>Nasıl yapılır: bir sıraya bir ileti Ekle
-Kuyruğa bir ileti eklemek için kullanın **CreateMessage nesne** yeni bir ileti oluşturun ve sıraya eklemek için yöntem.
+bir kuyruk, kullanım hello iletiye tooinsert **CreateMessage nesne** yeni bir ileti oluşturun ve toohello sırası eklemek için yöntem.
 
 ```
 queueSvc.createMessage('myqueue', "Hello world!", function(error, result, response){
@@ -121,8 +121,8 @@ queueSvc.createMessage('myqueue', "Hello world!", function(error, result, respon
 });
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Nasıl yapılır: sonraki iletiye
-Kuyruğun önündeki iletiye sıradan çağırarak kaldırmadan iletiye göz atabilirsiniz **peekMessages** yöntemi. Varsayılan olarak, **peekMessages** tek bir ileti iletiye göz atar.
+## <a name="how-to-peek-at-hello-next-message"></a>Nasıl yapılır: sonraki iletiyi hello Gözat
+Bir sıra Merhaba öne hello iletiye tarafından arama hello hello kuyruktan kaldırmadan iletiye göz atabilirsiniz **peekMessages** yöntemi. Varsayılan olarak, **peekMessages** tek bir ileti iletiye göz atar.
 
 ```
 queueSvc.peekMessages('myqueue', function(error, result, response){
@@ -132,20 +132,20 @@ queueSvc.peekMessages('myqueue', function(error, result, response){
 });
 ```
 
-`result` İleti içerir.
+Merhaba `result` selamlama iletisine içerir.
 
 > [!NOTE]
-> Kullanarak **peekMessages** sıraya ileti olduğunda ileti döndürdü ancak bir hata döndürmez.
+> Kullanarak **peekMessages** hello sıraya ileti olduğunda ileti döndürdü ancak bir hata döndürmez.
 > 
 > 
 
-## <a name="how-to-dequeue-the-next-message"></a>Nasıl yapılır: sonraki iletiyi sıradan çıkarma
+## <a name="how-to-dequeue-hello-next-message"></a>Nasıl yapılır: hello sonraki iletiyi sıradan çıkarma
 İleti işlenirken iki aşamalı bir işlemdir:
 
-1. İleti dequeue.
-2. İletiyi silin.
+1. Selamlama iletisine dequeue.
+2. Merhaba iletiyi silin.
 
-Bir ileti dequeue için kullanmak **getMessages**. Diğer bir istemcileri onları işleyebilmek için iletiler kuyrukta görünmez kılar. Uygulamanızı bir ileti işlediğinde çağrısı **deleteMessage** kuyruktan silinemiyor. Aşağıdaki örnek bir ileti alır, ardından da siler:
+toodequeue bir ileti kullanmak **getMessages**. Diğer bir istemcileri onları işleyebilmek için karışılama iletileri hello sırada görünmez kılar. Uygulamanızı bir ileti işlediğinde çağrısı **deleteMessage** toodelete onu hello sırasından. Aşağıdaki örneğine hello bir ileti alır, ardından da siler:
 
 ```
 queueSvc.getMessages('myqueue', function(error, result, response){
@@ -162,20 +162,20 @@ queueSvc.getMessages('myqueue', function(error, result, response){
 ```
 
 > [!NOTE]
-> Varsayılan olarak, bir ileti 30 saniye, daha sonra diğer istemcilere görünür yalnızca gizlenir. Kullanarak farklı bir değer belirtebilirsiniz `options.visibilityTimeout` ile **getMessages**.
+> Varsayılan olarak, bir ileti yalnızca 30 saniye boyunca geçmesi görünür tooother istemcileri olan gizlenir. Kullanarak farklı bir değer belirtebilirsiniz `options.visibilityTimeout` ile **getMessages**.
 > 
 > [!NOTE]
-> Kullanarak **getMessages** sıraya ileti olduğunda ileti döndürdü ancak bir hata döndürmez.
+> Kullanarak **getMessages** hello sıraya ileti olduğunda ileti döndürdü ancak bir hata döndürmez.
 > 
 > 
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Nasıl yapılır: kuyruğa alınan iletinin içeriğini değiştirme
-Bir ileti sırası kullanarak yerinde içeriğini değiştirebilirsiniz **updateMessage**. Aşağıdaki örnek ileti metnini güncelleştirir:
+## <a name="how-to-change-hello-contents-of-a-queued-message"></a>Nasıl yapılır: bir sıraya ileti hello içeriğini değiştirme
+Bir ileti sırası hello kullanarak yerinde hello içeriğini değiştirebilirsiniz **updateMessage**. Aşağıdaki örneğine hello hello metin iletisinin güncelleştirir:
 
 ```
 queueSvc.getMessages('myqueue', function(error, result, response){
   if(!error){
-    // Got the message
+    // Got hello message
     var message = result[0];
     queueSvc.updateMessage('myqueue', message.messageId, message.popReceipt, 10, {messageText: 'new text'}, function(error, result, response){
       if(!error){
@@ -189,10 +189,10 @@ queueSvc.getMessages('myqueue', function(error, result, response){
 ## <a name="how-to-additional-options-for-dequeuing-messages"></a>Nasıl yapılır: kuyruktan alma için ek seçenekler iletileri
 Bir sıradan ileti alma özelleştirebilirsiniz iki yolu vardır:
 
-* `options.numOfMessages`-Almak toplu iletiler (en fazla 32.)
+* `options.numOfMessages`-Almak toplu iletiler (yukarı too32.)
 * `options.visibilityTimeout`-Daha uzun veya kısaysa görünmezlik zaman aşımı ayarlayın.
 
-Aşağıdaki örnek kullanır **getMessages** tek çağrıda 15 iletileri almak için yöntemi. Her bir iletiyi kullanarak işler sonra bir döngü için. Ayrıca bu yöntem tarafından döndürülen tüm iletiler için beş dakika için görünmezlik zaman aşımı ayarlar.
+Merhaba aşağıdaki örnek kullanır hello **getMessages** bir çağrı yöntemi tooget 15 iletileri. Her bir iletiyi kullanarak işler sonra bir döngü için. Ayrıca, bu yöntem tarafından döndürülen tüm iletiler için hello görünmezlik zaman aşımı toofive dakika ayarlar.
 
 ```
 queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, function(error, result, response){
@@ -211,8 +211,8 @@ queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, 
 });
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Nasıl yapılır: kuyruk uzunluğu alma
-**GetQueueMetadata** iletiler kuyrukta yaklaşık sayısı dahil olmak üzere kuyruk hakkındaki meta verileri döndürür.
+## <a name="how-to-get-hello-queue-length"></a>Nasıl yapılır: hello kuyruk uzunluğu alma
+Merhaba **getQueueMetadata** hello yaklaşık hello kuyrukta ileti sayısı dahil olmak üzere hello kuyruk hakkındaki meta verileri döndürür.
 
 ```
 queueSvc.getQueueMetadata('myqueue', function(error, result, response){
@@ -223,20 +223,20 @@ queueSvc.getQueueMetadata('myqueue', function(error, result, response){
 ```
 
 ## <a name="how-to-list-queues"></a>Nasıl yapılır: Sorgular listesi
-Kuyrukların listesini almak için kullanın **listQueuesSegmented**. Belirli bir önek tarafından filtre uygulanmış bir listesini almak için kullanmak **listQueuesSegmentedWithPrefix**.
+tooretrieve kuyrukların, kullanım listesini **listQueuesSegmented**. tooretrieve listesini filtre tarafından belirli bir önek, kullanın **listQueuesSegmentedWithPrefix**.
 
 ```
 queueSvc.listQueuesSegmented(null, function(error, result, response){
   if(!error){
-    // result.entries contains the list of queues
+    // result.entries contains hello list of queues
   }
 });
 ```
 
-Tüm Kuyruklar döndürülemez, `result.continuationToken` ilk parametresi olarak kullanılabilir **listQueuesSegmented** veya öğesinin ikinci parametresi, **listQueuesSegmentedWithPrefix** daha fazla sonuç almak için.
+Tüm Kuyruklar döndürülemez, `result.continuationToken` öğesinin ilk parametresi, hello olarak kullanılan **listQueuesSegmented** veya ikinci parametresi, hello **listQueuesSegmentedWithPrefix** tooretrieve daha fazla sonuç.
 
 ## <a name="how-to-delete-a-queue"></a>Nasıl yapılır: bir kuyruk silme
-Bir kuyruk ve içerdiği tüm iletileri silmek için arama **deleteQueue** nesnesinde yöntemi.
+toodelete bir sıra ve tüm karışılama iletileri bulunan içinde arama **deleteQueue** hello nesnesinde yöntemi.
 
 ```
 queueSvc.deleteQueue(queueName, function(error, response){
@@ -246,14 +246,14 @@ queueSvc.deleteQueue(queueName, function(error, response){
 });
 ```
 
-Silmeden bir Sıraya alınan tüm iletileri silmek için kullanın **clearMessages**.
+tüm iletileri silmeden, bir kuyruktan tooclear kullanan **clearMessages**.
 
 ## <a name="how-to-work-with-shared-access-signatures"></a>Nasıl yapılır: paylaşılan erişim imzaları ile çalışma
-Paylaşılan erişim imzaları (SAS) depolama hesabı adı veya anahtarları sağlamadan sıraları ayrıntılı erişim sağlamak için güvenli bir yoludur. SAS genellikle iletiler göndermek bir mobil uygulama izin verme gibi sıralar, sınırlı erişim sağlamak için kullanılır.
+Paylaşılan erişim imzaları (SAS) depolama hesabı adı veya anahtarları sağlamadan güvenli şekilde tooprovide ayrıntılı erişim tooqueues ' dir. SAS toosubmit iletileri bir mobil uygulama izin verme gibi sınırlı kullanılan tooprovide tooyour sıralarına erişim, çoğunlukla olur.
 
-SAS kullanarak bulut tabanlı bir hizmete gibi güvenilir bir uygulama oluşturur **generateSharedAccessSignature** , **QueueService**ve güvenilmeyen veya yarı güvenilir uygulama sağlar. Örneğin, bir mobil uygulama. SAS SAS sahibi verilen erişim düzeyini yanı sıra SAS geçerli olduğu başlangıç ve bitiş tarihleri açıklar, bir ilke kullanılarak oluşturulur.
+Bir bulut tabanlı hizmeti gibi güvenilir bir uygulama hello kullanarak bir SAS oluşturur **generateSharedAccessSignature** Merhaba, **QueueService**, tooan sağlar ve güvenilmeyen veya yarı güvenilir uygulama. Örneğin, bir mobil uygulama. Hello SAS hello başlangıç tanımlayan bir ilke ve bitiş tarihleri sırasında hangi hello SAS geçerlidir kullanılarak oluşturulan, aynı zamanda erişim düzeyi verilen toohello SAS sahibi hello.
 
-Aşağıdaki örnek, iletileri kuyruğa eklemek SAS sahibi izin veren yeni bir paylaşılan erişim ilkesi oluşturur ve 100 dakika oluşturulduktan sonra süresi dolar.
+Aşağıdaki örnek hello hello SAS sahibi tooadd iletileri toohello sırası izin veren yeni bir paylaşılan erişim ilkesi oluşturur ve 100 dakika hello zaman oluşturulduktan sonra süresi dolar.
 
 ```
 var startDate = new Date();
@@ -273,9 +273,9 @@ var queueSAS = queueSvc.generateSharedAccessSignature('myqueue', sharedAccessPol
 var host = queueSvc.host;
 ```
 
-SAS sahibi sıranın erişmeyi denediğinde, gerekli olduğu gibi konak bilgileri'nin de, sağlanan gerekir unutmayın.
+Gerekli olduğu gibi aynı zamanda, hello SAS sahibi tooaccess hello sıra çalıştığında sağlanan hello ana bilgisayar bilgilerini olması gerektiğini unutmayın.
 
-İstemci uygulama ile SAS kullanan **QueueServiceWithSAS** sıranın karşı işlemlerini gerçekleştirmek için. Aşağıdaki örnek, sıraya bağlanır ve bir ileti oluşturur.
+ile SAS kullanır hello sonra istemci uygulaması Hello **QueueServiceWithSAS** hello sıra karşı tooperform işlemleri. Aşağıdaki örnek hello toohello sıra bağlanır ve bir ileti oluşturur.
 
 ```
 var sharedQueueService = azure.createQueueServiceWithSas(host, queueSAS);
@@ -286,12 +286,12 @@ sharedQueueService.createMessage('myqueue', 'Hello world from SAS!', function(er
 });
 ```
 
-Okuma, güncelleştirme veya iletileri silme girişiminde yapılmışsa SAS Ekle erişimle oluşturulmasının üzerinden bir hata döndürülür.
+Update veya delete iletileri tooread girişiminde yapılmışsa hello SAS Ekle erişimle oluşturulmasının üzerinden, bir hata döndürülür.
 
 ### <a name="access-control-lists"></a>Erişim denetimi listeleri
-Erişim ilkesi için bir SAS ayarlamak için erişim denetim listesi (ACL) da kullanabilirsiniz. Bu kuyruğa erişim, ancak her istemci için farklı erişim ilkeleri sağlamak birden çok istemciye izin vermek istiyorsanız yararlıdır.
+Erişim denetimi listesi (ACL) tooset hello erişim ilkesi için bir SAS de kullanabilirsiniz. Birden çok istemcileri tooaccess hello sıra tooallow istiyor, ancak her istemci için farklı erişim ilkeleri sağlar, bu yararlı olur.
 
-Bir ACL her ilkesiyle ilişkili bir Kimliğe sahip bir dizi erişim ilkeleri kullanılarak uygulanır. Aşağıdaki örnek, iki ilke tanımlar; bir 'Kullanıcı1' ve 'kullanıcı2' için:
+Bir ACL her ilkesiyle ilişkili bir Kimliğe sahip bir dizi erişim ilkeleri kullanılarak uygulanır. Aşağıdaki örnek hello iki ilke tanımlar; bir 'Kullanıcı1' ve 'kullanıcı2' için:
 
 ```
 var sharedAccessPolicy = {
@@ -308,7 +308,7 @@ var sharedAccessPolicy = {
 };
 ```
 
-Aşağıdaki örnek için geçerli ACL alır **Sıram**, yeni ilkeleri kullanılarak ekler **setQueueAcl**. Bu yaklaşım sağlar:
+Aşağıdaki örnek alır hello hello geçerli ACL'si **Sıram**, hello yeni ilkeleri kullanılarak ekler **setQueueAcl**. Bu yaklaşım sağlar:
 
 ```
 var extend = require('extend');
@@ -324,25 +324,25 @@ queueSvc.getQueueAcl('myqueue', function(error, result, response) {
 });
 ```
 
-ACL ayarladıktan sonra daha sonra bir ilke kimliği dayalı bir SAS oluşturabilirsiniz. Aşağıdaki örnek, 'kullanıcı2' için yeni bir SAS oluşturur:
+Bir kez hello ACL ayarlayın, hello Kimliği İlkesi için temel bir SAS sonra oluşturabilirsiniz. Aşağıdaki örnek hello 'kullanıcı2' için yeni bir SAS oluşturur:
 
 ```
 queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 ```
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Kuyruk depolamanın temellerini öğrendiğinize göre daha karmaşık depolama görevleri hakkında bilgi edinmek için aşağıdaki bağlantıları izleyin.
+Kuyruk depolamanın hello temel bilgileri öğrendiğinize göre bu bağlantıları toolearn daha karmaşık depolama görevleri hakkında izleyin.
 
-* [Azure depolama ekibi blogu] ziyaret [Azure depolama ekibi blogu].
-* Ziyaret [düğümü için Azure depolama SDK'sı] [ Azure Storage SDK for Node] github'daki.
+* Merhaba [Azure depolama ekibi blogu] [Azure depolama ekibi blogu] ziyaret edin.
+* Merhaba ziyaret [düğümü için Azure depolama SDK'sı] [ Azure Storage SDK for Node] github'daki.
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
-[using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
+[using hello REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
 [Azure Portal]: https://portal.azure.com
 [Azure App Service'te bir Node.js web uygulaması oluşturma](../../app-service-web/app-service-web-get-started-nodejs.md)   
-[Azure tablo hizmeti kullanarak Node.js web uygulaması](../../app-service-web/storage-nodejs-use-table-storage-web-site.md)
+[Hello Azure tablo hizmeti kullanarak Node.js web uygulaması](../../app-service-web/storage-nodejs-use-table-storage-web-site.md)
   
 
 
-[Derleme ve Azure bulut hizmeti bir Node.js uygulamasını dağıtma](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)   
-[Azure depolama ekibi blogu]: http://blogs.msdn.com/b/windowsazurestorage/ [derleme ve Web Matrix Azure'u Node.js web uygulamasına dağıtma]: https://www.microsoft.com/web/webmatrix/   
+[Derleme ve bir Node.js uygulaması tooan Azure bulut hizmeti dağıtma](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)   
+[Azure depolama ekibi blogu]: http://blogs.msdn.com/b/windowsazurestorage/ [derleme ve Web Matrix kullanarak bir Node.js web uygulaması tooAzure dağıtma]: https://www.microsoft.com/web/webmatrix/   

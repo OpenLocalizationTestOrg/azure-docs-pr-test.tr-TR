@@ -1,6 +1,6 @@
 ---
-title: "Kullanıcı profili şablonları Azure API Management | Microsoft Docs"
-description: "Azure API Management'ta Geliştirici portalını kullanıcı profili sayfalarında içeriğini özelleştirmeyi öğrenin."
+title: "aaa \"kullanıcı profili şablonları Azure API Management | Microsoft Docs\""
+description: "Azure API Management'te hello Geliştirici portalında hello kullanıcı profili toocustomize Merhaba içeriğine nasıl sayfaları hakkında bilgi edinin."
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 9a11bd5800068a5725ab2f099043993bff0b28d8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c8f153b310221164809acf58e4af236928ceb41d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Azure API Management'te kullanıcı profil şablonları
-Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandırma şablonları kümesini kullanarak içeriği özelleştirme yeteneği sağlar. Kullanarak [DotLiquid](http://dotliquidmarkup.org/) sözdizimi ve düzenleyiciyi, gibi [DotLiquid tasarımcıları için](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ve sağlanan bir dizi yerelleştirilmiş [dize kaynakları](api-management-template-resources.md#strings), [karakter kaynakları](api-management-template-resources.md#glyphs), ve [sayfa denetimleri](api-management-page-controls.md), bu şablonları kullanarak uygun gördüğünüz şekilde sayfaların yapılandırmak için büyük esneklik vardır.  
+Azure API Management yeteneği toocustomize hello Geliştirici portal sayfalarına içeriklerini yapılandırma şablonları kümesini kullanarak içeriğini hello sağlar. Kullanarak [DotLiquid](http://dotliquidmarkup.org/) sözdizimi ve hello düzenleyiciyi, gibi [tasarımcıları için DotLiquid](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ve sağlanan bir dizi yerelleştirilmiş [dize kaynakları](api-management-template-resources.md#strings), [ Karakter kaynakları](api-management-template-resources.md#glyphs), ve [sayfasında denetimleri](api-management-page-controls.md), bu şablonları kullanarak uygun gördüğünüz şekilde hello sayfaların büyük esneklik tooconfigure hello içeriğe sahip.  
   
- Bu bölümdeki şablonları Geliştirici Portalı kullanıcı profili sayfalarında içeriğini özelleştirmenize olanak sağlar.  
+ Bu bölümdeki Hello şablonları hello Geliştirici Portalı'nda hello kullanıcı profili sayfalarını toocustomize hello içeriği sağlar.  
   
 -   [Profili](#Profile)  
   
@@ -34,10 +34,10 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
 -   [Hesap bilgilerini güncelleştir](#UpdateAccountInfo)  
   
 > [!NOTE]
->  Örnek varsayılan şablonları aşağıdaki belgelerde yer alır ancak değişikliği sürekli geliştirmeler nedeniyle tabidir. İstenen tek tek şablonları giderek Geliştirici Portalı'nda Canlı varsayılan şablonları görüntüleyebilirsiniz. Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [şablonları kullanarak API Management Geliştirici Portalı nasıl özelleştireceğinizi](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Örnek varsayılan şablonları belgelerine aşağıdaki hello dahil olan, ancak konu toochange toocontinuous geliştirmeler nedeniyle. İstenen toohello tek tek şablonları giderek hello Canlı varsayılan şablonları hello Geliştirici Portalı'nda görüntüleyebilirsiniz. Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [nasıl toocustomize hello şablonları kullanarak API Management Geliştirici Portalı](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
 ##  <a name="Profile"></a>Profili  
- **Profil** şablon kullanıcı profili sayfasını Geliştirici Portalı'nda kullanıcı profili bölümünü özelleştirmenizi sağlar.  
+ Merhaba **profil** şablon toocustomize hello kullanıcı profili hello kullanıcı profili sayfasını hello Geliştirici Portalı'nda bölümünü sağlar.  
   
  ![Kullanıcı profili sayfasını](./media/api-management-user-profile-templates/APIM-User-Profile-Page.png "APIM kullanıcı profili sayfası")  
   
@@ -99,21 +99,21 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
 ### <a name="data-model"></a>Veri modeli  
   
 > [!NOTE]
->  [Profil](#Profile), [uygulamaları](#Applications), ve [abonelikleri](#Subscriptions) şablonları aynı veri modeli paylaşma ve aynı şablon verileri alma.  
+>  Merhaba [profil](#Profile), [uygulamaları](#Applications), ve [abonelikleri](#Subscriptions) şablonlarını paylaşmak aynı veri modeli ve hello alma hello aynı şablon verileri.  
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|FirstName|Dize|Geçerli kullanıcının adı.|  
-|Soyadı|Dize|Geçerli kullanıcının soyadı.|  
-|Şirket adı|Dize|Geçerli kullanıcının şirket adı.|  
-|addresserEmail|Dize|Geçerli kullanıcının e-posta adresi.|  
-|developersUsageStatisticsLinkk|Dize|Geçerli kullanıcı için analiz görüntülemek için göreli URL'si.|  
-|Abonelikleri|Koleksiyonu [abonelik](api-management-template-data-model-reference.md#Subscription) varlıklar.|Geçerli kullanıcı için abonelikler.|  
-|uygulamalar|Koleksiyonu [uygulama](api-management-template-data-model-reference.md#Application) varlıklar.|Geçerli kullanıcının uygulamalar.|  
-|changePasswordUrl|Dize|Geçerli kullanıcının parolasını değiştirmek için göreli URL'si.|  
-|changeNameOrEmailUrl|Dize|Geçerli kullanıcı için e-posta ve adını değiştirmek için göreli URL'si.|  
-|canChangePassword|Boole değeri|Olup geçerli kullanıcı parolalarını değiştirebilir.|  
-|isSystemUser|Boole değeri|Geçerli kullanıcının yerleşik bir üyesi olup [grupları](api-management-key-concepts.md#groups).|  
+|FirstName|Dize|Merhaba geçerli kullanıcı adı.|  
+|Soyadı|Dize|Merhaba geçerli kullanıcının soyadı.|  
+|Şirket adı|Dize|Merhaba geçerli kullanıcı Hello şirket adı.|  
+|addresserEmail|Dize|Merhaba geçerli kullanıcının e-posta adresi.|  
+|developersUsageStatisticsLinkk|Dize|Göreli URL tooview analytics hello geçerli kullanıcı için.|  
+|Abonelikleri|Koleksiyonu [abonelik](api-management-template-data-model-reference.md#Subscription) varlıklar.|Merhaba abonelikler hello geçerli kullanıcı için.|  
+|uygulamalar|Koleksiyonu [uygulama](api-management-template-data-model-reference.md#Application) varlıklar.|Merhaba geçerli kullanıcının Hello uygulamalar.|  
+|changePasswordUrl|Dize|Merhaba göreli URL toochange hello geçerli kullanıcının parolası.|  
+|changeNameOrEmailUrl|Dize|göreli URL toochange hello adı ve e-posta hello geçerli kullanıcı için hello.|  
+|canChangePassword|Boole değeri|Olup hello geçerli kullanıcı parolalarını değiştirebilir.|  
+|isSystemUser|Boole değeri|Merhaba geçerli kullanıcı hello yerleşik bir üyesi olup [grupları](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Örnek şablon verileri  
   
@@ -130,7 +130,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
             "Id": "57026e30de15d80041070001",  
             "ProductId": "57026e30de15d80041060001",  
             "ProductTitle": "Starter",  
-            "ProductDescription": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",  
+            "ProductDescription": "Subscribers will be able toorun 5 calls/minute up tooa maximum of 100 calls/week.",  
             "ProductDetailsUrl": "/Products/57026e30de15d80041060001",  
             "State": "Active",  
             "DisplayName": "Starter  (default)",  
@@ -153,7 +153,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
             "Id": "57026e30de15d80041070002",  
             "ProductId": "57026e30de15d80041060002",  
             "ProductTitle": "Unlimited",  
-            "ProductDescription": "Subscribers have completely unlimited access to the API. Administrator approval is required.",  
+            "ProductDescription": "Subscribers have completely unlimited access toohello API. Administrator approval is required.",  
             "ProductDetailsUrl": "/Products/57026e30de15d80041060002",  
             "State": "Active",  
             "DisplayName": "Unlimited  (default)",  
@@ -182,7 +182,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
 ```  
   
 ##  <a name="Subscriptions"></a>Abonelikleri  
- **Abonelikleri** şablon kullanıcı profili sayfasını Geliştirici portalında abonelikleri bölümünü özelleştirmenizi sağlar.  
+ Merhaba **abonelikleri** şablon toocustomize hello abonelikleri hello kullanıcı profili sayfasını hello Geliştirici Portalı'nda bölümünü sağlar.  
   
  ![Kullanıcı abonelik sayfası](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "APIM kullanıcı abonelik sayfası")  
   
@@ -313,28 +313,28 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
 ```  
   
 ### <a name="controls"></a>Denetimler  
- Bu şablon aşağıdaki kullanabilir [sayfasında denetimleri](api-management-page-controls.md).  
+ Bu şablon hello aşağıdaki kullanabilir [sayfasında denetimleri](api-management-page-controls.md).  
   
 -   [aboneliği iptal etme](api-management-page-controls.md#subscription-cancel)  
   
 ### <a name="data-model"></a>Veri modeli  
   
 > [!NOTE]
->  [Profil](#Profile), [uygulamaları](#Applications), ve [abonelikleri](#Subscriptions) şablonları aynı veri modeli paylaşma ve aynı şablon verileri alma.  
+>  Merhaba [profil](#Profile), [uygulamaları](#Applications), ve [abonelikleri](#Subscriptions) şablonlarını paylaşmak aynı veri modeli ve hello alma hello aynı şablon verileri.  
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|FirstName|Dize|Geçerli kullanıcının adı.|  
-|Soyadı|Dize|Geçerli kullanıcının soyadı.|  
-|Şirket adı|Dize|Geçerli kullanıcının şirket adı.|  
-|addresserEmail|Dize|Geçerli kullanıcının e-posta adresi.|  
-|developersUsageStatisticsLinkk|Dize|Geçerli kullanıcı için analiz görüntülemek için göreli URL'si.|  
-|Abonelikleri|Koleksiyonu [abonelik](api-management-template-data-model-reference.md#Subscription) varlıklar.|Geçerli kullanıcı için abonelikler.|  
-|uygulamalar|Koleksiyonu [uygulama](api-management-template-data-model-reference.md#Application) varlıklar.|Geçerli kullanıcının uygulamalar.|  
-|changePasswordUrl|Dize|Geçerli kullanıcının parolasını değiştirmek için göreli URL'si.|  
-|changeNameOrEmailUrl|Dize|Geçerli kullanıcı için e-posta ve adını değiştirmek için göreli URL'si.|  
-|canChangePassword|Boole değeri|Olup geçerli kullanıcı parolalarını değiştirebilir.|  
-|isSystemUser|Boole değeri|Geçerli kullanıcının yerleşik bir üyesi olup [grupları](api-management-key-concepts.md#groups).|  
+|FirstName|Dize|Merhaba geçerli kullanıcı adı.|  
+|Soyadı|Dize|Merhaba geçerli kullanıcının soyadı.|  
+|Şirket adı|Dize|Merhaba geçerli kullanıcı Hello şirket adı.|  
+|addresserEmail|Dize|Merhaba geçerli kullanıcının e-posta adresi.|  
+|developersUsageStatisticsLinkk|Dize|Göreli URL tooview analytics hello geçerli kullanıcı için.|  
+|Abonelikleri|Koleksiyonu [abonelik](api-management-template-data-model-reference.md#Subscription) varlıklar.|Merhaba abonelikler hello geçerli kullanıcı için.|  
+|uygulamalar|Koleksiyonu [uygulama](api-management-template-data-model-reference.md#Application) varlıklar.|Merhaba geçerli kullanıcının Hello uygulamalar.|  
+|changePasswordUrl|Dize|Merhaba göreli URL toochange hello geçerli kullanıcının parolası.|  
+|changeNameOrEmailUrl|Dize|göreli URL toochange hello adı ve e-posta hello geçerli kullanıcı için hello.|  
+|canChangePassword|Boole değeri|Olup hello geçerli kullanıcı parolalarını değiştirebilir.|  
+|isSystemUser|Boole değeri|Merhaba geçerli kullanıcı hello yerleşik bir üyesi olup [grupları](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Örnek şablon verileri  
   
@@ -351,7 +351,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
             "Id": "57026e30de15d80041070001",  
             "ProductId": "57026e30de15d80041060001",  
             "ProductTitle": "Starter",  
-            "ProductDescription": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",  
+            "ProductDescription": "Subscribers will be able toorun 5 calls/minute up tooa maximum of 100 calls/week.",  
             "ProductDetailsUrl": "/Products/57026e30de15d80041060001",  
             "State": "Active",  
             "DisplayName": "Starter  (default)",  
@@ -374,7 +374,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
             "Id": "57026e30de15d80041070002",  
             "ProductId": "57026e30de15d80041060002",  
             "ProductTitle": "Unlimited",  
-            "ProductDescription": "Subscribers have completely unlimited access to the API. Administrator approval is required.",  
+            "ProductDescription": "Subscribers have completely unlimited access toohello API. Administrator approval is required.",  
             "ProductDetailsUrl": "/Products/57026e30de15d80041060002",  
             "State": "Active",  
             "DisplayName": "Unlimited  (default)",  
@@ -403,7 +403,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
 ```  
   
 ##  <a name="Applications"></a>Uygulamaları  
- **Uygulamaları** şablon kullanıcı profili sayfasını Geliştirici portalında abonelikleri bölümünü özelleştirmenizi sağlar.  
+ Merhaba **uygulamaları** şablon toocustomize hello abonelikleri hello kullanıcı profili sayfasını hello Geliştirici Portalı'nda bölümünü sağlar.  
   
  ![Kullanıcı hesabı uygulamalar sayfası](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "APIM kullanıcı hesabı uygulamalar sayfası")  
   
@@ -476,28 +476,28 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
 ```  
   
 ### <a name="controls"></a>Denetimler  
- Bu şablon aşağıdaki kullanabilir [sayfasında denetimleri](api-management-page-controls.md).  
+ Bu şablon hello aşağıdaki kullanabilir [sayfasında denetimleri](api-management-page-controls.md).  
   
 -   [Uygulama eylemleri](api-management-page-controls.md#app-actions)  
   
 ### <a name="data-model"></a>Veri modeli  
   
 > [!NOTE]
->  [Profil](#Profile), [uygulamaları](#Applications), ve [abonelikleri](#Subscriptions) şablonları aynı veri modeli paylaşma ve aynı şablon verileri alma.  
+>  Merhaba [profil](#Profile), [uygulamaları](#Applications), ve [abonelikleri](#Subscriptions) şablonlarını paylaşmak aynı veri modeli ve hello alma hello aynı şablon verileri.  
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|FirstName|Dize|Geçerli kullanıcının adı.|  
-|Soyadı|Dize|Geçerli kullanıcının soyadı.|  
-|Şirket adı|Dize|Geçerli kullanıcının şirket adı.|  
-|addresserEmail|Dize|Geçerli kullanıcının e-posta adresi.|  
-|developersUsageStatisticsLinkk|Dize|Geçerli kullanıcı için analiz görüntülemek için göreli URL'si.|  
-|Abonelikleri|Koleksiyonu [abonelik](api-management-template-data-model-reference.md#Subscription) varlıklar.|Geçerli kullanıcı için abonelikler.|  
-|uygulamalar|Koleksiyonu [uygulama](api-management-template-data-model-reference.md#Application) varlıklar.|Geçerli kullanıcının uygulamalar.|  
-|changePasswordUrl|Dize|Geçerli kullanıcının parolasını değiştirmek için göreli URL'si.|  
-|changeNameOrEmailUrl|Dize|Geçerli kullanıcı için e-posta ve adını değiştirmek için göreli URL'si.|  
-|canChangePassword|Boole değeri|Olup geçerli kullanıcı parolalarını değiştirebilir.|  
-|isSystemUser|Boole değeri|Geçerli kullanıcının yerleşik bir üyesi olup [grupları](api-management-key-concepts.md#groups).|  
+|FirstName|Dize|Merhaba geçerli kullanıcı adı.|  
+|Soyadı|Dize|Merhaba geçerli kullanıcının soyadı.|  
+|Şirket adı|Dize|Merhaba geçerli kullanıcı Hello şirket adı.|  
+|addresserEmail|Dize|Merhaba geçerli kullanıcının e-posta adresi.|  
+|developersUsageStatisticsLinkk|Dize|Göreli URL tooview analytics hello geçerli kullanıcı için.|  
+|Abonelikleri|Koleksiyonu [abonelik](api-management-template-data-model-reference.md#Subscription) varlıklar.|Merhaba abonelikler hello geçerli kullanıcı için.|  
+|uygulamalar|Koleksiyonu [uygulama](api-management-template-data-model-reference.md#Application) varlıklar.|Merhaba geçerli kullanıcının Hello uygulamalar.|  
+|changePasswordUrl|Dize|Merhaba göreli URL toochange hello geçerli kullanıcının parolası.|  
+|changeNameOrEmailUrl|Dize|göreli URL toochange hello adı ve e-posta hello geçerli kullanıcı için hello.|  
+|canChangePassword|Boole değeri|Olup hello geçerli kullanıcı parolalarını değiştirebilir.|  
+|isSystemUser|Boole değeri|Merhaba geçerli kullanıcı hello yerleşik bir üyesi olup [grupları](api-management-key-concepts.md#groups).|  
   
 ### <a name="sample-template-data"></a>Örnek şablon verileri  
   
@@ -514,7 +514,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
             "Id": "57026e30de15d80041070001",  
             "ProductId": "57026e30de15d80041060001",  
             "ProductTitle": "Starter",  
-            "ProductDescription": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",  
+            "ProductDescription": "Subscribers will be able toorun 5 calls/minute up tooa maximum of 100 calls/week.",  
             "ProductDetailsUrl": "/Products/57026e30de15d80041060001",  
             "State": "Active",  
             "DisplayName": "Starter  (default)",  
@@ -537,7 +537,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
             "Id": "57026e30de15d80041070002",  
             "ProductId": "57026e30de15d80041060002",  
             "ProductTitle": "Unlimited",  
-            "ProductDescription": "Subscribers have completely unlimited access to the API. Administrator approval is required.",  
+            "ProductDescription": "Subscribers have completely unlimited access toohello API. Administrator approval is required.",  
             "ProductDetailsUrl": "/Products/57026e30de15d80041060002",  
             "State": "Active",  
             "DisplayName": "Unlimited  (default)",  
@@ -566,7 +566,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
 ```  
   
 ##  <a name="UpdateAccountInfo"></a>Hesap bilgilerini güncelleştir  
- **Uodate hesap bilgisi** şablonu özelleştirmenizi sağlar **güncelleştirme hesap bilgileri** Geliştirici portalında sayfası.  
+ Merhaba **Uodate hesap bilgisi** şablon toocustomize hello sağlar **güncelleştirme hesap bilgileri** hello Geliştirici portalında sayfası.  
   
  ![Kullanıcı hesabı bilgileri sayfasında Geliştirici Portalı şablonlarını](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "APIM kullanıcı hesabı bilgileri sayfasında Geliştirici Portalı şablonları")  
   
@@ -623,4 +623,4 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [şablonları kullanarak API Management Geliştirici Portalı nasıl özelleştireceğinizi](api-management-developer-portal-templates.md).
+Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [nasıl toocustomize hello şablonları kullanarak API Management Geliştirici Portalı](api-management-developer-portal-templates.md).

@@ -9,9 +9,9 @@
 | İşletim sistemi sürümü | Windows Server 2012 R2 |
 | İşletim sistemi yerel ayarı | İngilizce (en-us)|
 | VMware vSphere PowerCLI sürümü | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")|
-| Windows Server rolleri | Aşağıdaki rolleri etkinleştirmeyin: <br> - Active Directory Domain Services <br>- İnternet Bilgi Hizmetleri <br> - Hyper-V |
+| Windows Server rolleri | Rolleri aşağıdaki hello etkinleştirmeyin: <br> - Active Directory Domain Services <br>- İnternet Bilgi Hizmetleri <br> - Hyper-V |
 | **Ağ** | |
 | Ağ arabirimi kart türü | VMXNET3 |
 | IP adresi türü | Statik |
-| İnternet erişimi | Sunucunun aşağıdaki URL'lere doğrudan veya bir ara sunucu üzerinden erişebilmesi gerekir: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (Genişleme İşlem Sunucuları için gerekli değildir) <br> - time.nist.gov <br> - time.windows.com |
+| İnternet erişimi | Merhaba sunucu, doğrudan veya bir proxy sunucu üzerinden aşağıdaki URL'lere mümkün tooaccess hello olmalıdır: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (Genişleme İşlem Sunucuları için gerekli değildir) <br> - time.nist.gov <br> - time.windows.com |
 | Bağlantı Noktaları | 443 (Denetim kanalı düzenleme)<br>9443 (Veri aktarımı)|

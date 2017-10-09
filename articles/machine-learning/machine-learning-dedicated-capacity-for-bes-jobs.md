@@ -1,5 +1,5 @@
 ---
-title: "Machine Learning toplu yürütme hizmeti işleri için kapasite ayrılmış | Microsoft Docs"
+title: "Machine Learning toplu yürütme hizmeti işleri için kapasite aaaDedicated | Microsoft Docs"
 description: "Machine Learning işleri için Azure Batch hizmetlerine genel bakış."
 services: machine-learning
 documentationcenter: 
@@ -13,44 +13,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 3879eb3d0c6fa9d74fff01b07f5c07d3991dfbbd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bba7970bb31c50e5b0b9d5f4ff4f0d2dacf942e1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-batch-service-for-machine-learning-jobs"></a>Machine Learning işleri için Azure Batch hizmeti
 
-Machine Learning Batch havuzundaki işlem Azure Machine Learning toplu yürütme hizmeti için müşteri tarafından yönetilen ölçek sağlar. Machine learning eşzamanlı iş sayısını sınırlayan bir çok kiracılı ortamında, gerçekleşir için Klasik toplu işleme gönderebilir ve işler ilk olarak ilk çıkar temelinde kuyruğa alınır. Bu belirsizlik, doğru şekilde işinizi ne zaman çalışacağını tahmin edilemez olduğunu anlamına gelir.
+Machine Learning Batch havuzundaki işlem müşteri tarafından yönetilen ölçek hello Azure Machine Learning toplu yürütme hizmeti sağlar. Klasik toplu işleme Machine learning için ilk olarak ilk çıkar temelinde kuyruğa alınan hangi sınırları hello gönderebilir ve işleri eşzamanlı iş sayısı bir ortamda çok kiracılı, gerçekleşir. Bu belirsizlik, doğru şekilde işinizi ne zaman çalışacağını tahmin edilemez olduğunu anlamına gelir.
 
-Batch havuzu işleme toplu işleri gönderebilmek için havuzları oluşturmanıza olanak sağlar. Havuz boyutunu denetlemek ve hangi havuz iş gönderildiğinde. BES işinizi tahmin edilebilir işlem performansı ve gönderdiğiniz işleme yükünü karşılık gelen kaynak havuzları oluşturmanıza olanak sağlayan kendi işleme alan çalıştırır.
+Batch havuzu işleme toocreate havuzları toplu işleri gönderme sağlar. Merhaba havuzu hello boyutunu denetlemek ve toowhich havuzu hello iş gönderilir. BES işinizi kendi alanı sağlamak işleme tahmin edilebilir işlem performansı ve gönderdiğiniz toohello işleme yükünü karşılık hello özelliği toocreate kaynak havuzları çalışır.
 
-## <a name="how-to-use-batch-pool-processing"></a>Batch havuzundaki işlem kullanma
+## <a name="how-toouse-batch-pool-processing"></a>Nasıl toouse Batch havuzu işleme
 
-Azure portalı üzerinden yapılandırma havuzu toplu işlem şu anda kullanılamıyor. Batch havuzundaki işlem kullanmak için şunları yapmalısınız:
+Havuz toplu işleme yapılandırması hello Azure portal şu anda kullanılabilir değil. toouse Batch havuzundaki işlem yapmanız gerekir:
 
--   Batch havuzu hesabı oluşturmak ve bir havuz hizmet URL'sini ve bir yetkilendirme anahtarını elde etmek için CSS çağırın
+-   Batch havuzu hesabı CSS toocreate çağırın ve bir havuz hizmet URL'si ve bir yetkilendirme anahtarı edinin
 -   Yeni kaynak tabanlı Manager web hizmeti ve fatura planı oluşturma
 
-Hesabınızı oluşturmak için Microsoft Müşteri Hizmetleri ve desteği (CSS) arayın ve abonelik kimliğinizi sağlayın CSS senaryonuz için uygun kapasitesini belirlemek için sizinle birlikte çalışır. CSS sonra hesabınızı maksimum sayısı havuzu oluşturabilirsiniz ve her havuzda yerleştirebilirsiniz sanal makineler (VM'ler) üst sınırını yapılandırır. Hesabınızı yapılandırıldıktan sonra havuzu hizmet URL'niz ve bir yetkilendirme anahtarı sağlanır.
+toocreate hesabınızı Microsoft Müşteri Hizmetleri ve desteği (CSS) arayın ve abonelik kimliğinizi girin CSS, toodetermine hello uygun kapasiteli senaryonuz için çalışır. CSS hesabınızı oluşturun ve her havuzda yerleştirebilirsiniz sanal makineler (VM) sayısı hello havuzları hello sayısı ardından yapılandırır. Hesabınızı yapılandırıldıktan sonra havuzu hizmet URL'niz ve bir yetkilendirme anahtarı sağlanır.
 
-Hesabınızı oluşturduktan sonra Batch havuzundaki havuzu yönetim işlemlerini gerçekleştirmek için havuz hizmet URL'sini ve yetkilendirme tuşunu kullanın.
+Hesabınızı oluşturduktan sonra hello havuz hizmet URL'si ve yetkilendirme anahtar tooperform havuzu yönetim işlemlerini Batch havuzu kullanın.
 
 ![Batch havuzu hizmet mimarisi.](media/machine-learning-dedicated-capacity-for-bes-jobs/pool-architecture.png)
 
-CSS size sağlanan havuz hizmet URL'si havuzu oluştur işlemi çağırarak havuzları oluşturun. Bir havuz oluşturduğunuzda, Machine Learning web hizmeti VM'ler ve Yeni Kaynak Yöneticisi'nin swagger.json URL'sini sayısına dayalı belirtin. Bu web Hizmeti'nin, fatura ilişkisi kurmak için sağlanır. Batch havuzu hizmeti swagger.json havuzunu bir faturalandırma planı ile ilişkilendirmek için kullanır. Web hizmeti, iki yeni Resource Manager temelli herhangi BES çalıştırabilir ve klasik, havuzu seçin.
+Bu sağlanan CSS tooyou hello havuzu hizmeti URL'si hello havuzu oluştur işlemi çağırarak havuzları oluşturun. Bir havuz oluşturduğunuzda, Machine Learning web hizmeti VM'ler ve hello swagger.json Yeni Kaynak Yöneticisi'nin hello URL'sini hello sayısına dayalı belirtin. Bu web Hizmeti'nin tooestablish hello fatura ilişkilendirme sağlanır. Hello Batch havuzu hizmeti ile bir faturalandırma planı hello swagger.json tooassociate hello havuzu kullanır. Klasik, hello havuzunda seçtiğiniz ve web hizmeti, iki yeni Resource Manager temelli herhangi BES çalıştırabilirsiniz.
 
-Tüm yeni Resource Manager temelli web hizmetini kullanır, ancak işleri için fatura ücretlendirilirsiniz, hizmetle ilişkili faturalandırma planı karşı unutmayın. Bir web hizmeti ve özellikle Batch havuzu işlerini çalıştırmak için yeni fatura planı oluşturmak isteyebilirsiniz.
+Tüm yeni Resource Manager temelli web hizmetini kullanır, ancak hello faturalama hello işleri için ücretlendirilirsiniz, hizmetle ilişkili hello fatura planı karşı unutmayın. Özellikle Batch havuzu işlerini çalıştırmak için bir web hizmeti ve yeni faturalandırma planı toocreate isteyebilirsiniz.
 
 Web hizmetleri oluşturma hakkında daha fazla bilgi için bkz: [bir Azure Machine Learning web hizmetini dağıtma](machine-learning-publish-a-machine-learning-web-service.md).
 
-Bir havuzu oluşturduktan sonra toplu iş isteklerini URL için web hizmetini kullanarak BES işi gönderin. Bir havuz veya Klasik toplu işleme göndermek seçebilirsiniz. Toplu işlem havuzu için bir işi göndermek için iş gönderme istek gövdesi aşağıdaki parametresini ekleyin:
+Bir havuzu oluşturduktan sonra hello BES gönderme işlemini kullanarak toplu istekleri URL hello web hizmeti için hello. Toosubmit seçebilirsiniz, tooa havuzu veya tooclassic toplu işleme. bir iş tooBatch havuzu işleme toosubmit, parametre toohello iş gönderme istek gövdesi aşağıdaki hello ekleyin:
 
 "AzureBatchPoolId": "&lt;kimliği havuzu&gt;"
 
-Parametresini eklemezseniz iş Klasik toplu işlem ortamında çalıştırılır. Kullanılabilir kaynak havuzu varsa, iş çalıştırdıktan hemen başlar. Havuz kaynakları serbest bırakmak yoksa, bir kaynak kullanılabilir hale gelene kadar işinizi sıraya alındı.
+Merhaba parametresini eklemezseniz hello iş hello Klasik toplu işlem ortamında çalıştırılır. Merhaba havuzu kullanılabilir kaynakları varsa hello iş çalıştırdıktan hemen başlar. Merhaba havuzu kaynakları serbest bırakmak yoksa, bir kaynak kullanılabilir hale gelene kadar işinizi sıraya alındı.
 
-Düzenli olarak, havuzlarınızı kapasitesini ulaşmak ve artan kapasite gerektiğini fark ederseniz, CSS çağırın ve, kotalar artırmak için bir temsilcisi ile çalışır.
+Düzenli olarak, havuzlarınızı hello kapasitesini ulaşmak ve artan kapasite gerektiğini fark ederseniz, CSS çağırın ve, kotaları temsilcisi tooincrease ile çalışır.
 
 Örnek isteği:
 
@@ -97,7 +97,7 @@ https://ussouthcentral.Services.azureml.NET/Subscriptions/80c77c7674ba4c8c82294c
 
 ## <a name="considerations-when-using-batch-pool-processing"></a>Batch havuzundaki işlem kullanmayla ilgili konular
 
-Havuz toplu işleme bir her zaman açık Faturalanabilir hizmetidir ve bir Resource Manager temelli fatura planı ile ilişkilendirmenizi gerektirir. Havuz çalışan saat tutarında işlem için yalnızca faturalandırılır; o zaman havuzunu sırasında çalıştırmak işlerin sayısı ne olursa olsun. Bir havuzu oluşturursanız, havuzu silinene kadar toplu iş havuzda çalıştırıyor olsanız bile, her bir sanal makine havuzundaki işlem saatlik için faturalandırılır. Sanal makineler için fatura sağlama bittiğinde, başlatır ve silinmiş zaman durdurur. Bulunan planları birini kullanabilirsiniz [Machine Learning fiyatlandırması sayfa](https://azure.microsoft.com/pricing/details/machine-learning/).
+Havuz toplu işleme bir her zaman açık Faturalanabilir hizmetidir ve Resource Manager ile fatura planı temel tooassociate olmasını gerektirir. İşlem saatleri hello havuzu çalıştıran hello sayısı için yalnızca faturalandırılır; o zaman havuzunu sırasında çalıştırmak işlerin sayısı Hello bağımsız olarak. Bir havuzu oluşturursanız, hello havuzu silinene kadar toplu iş hello havuzunda çalıştırıyor olsanız bile, her sanal makinenin hello havuzunda hello işlem saatleri için faturalandırılır. Merhaba sanal makineler için fatura sağlama bittiğinde, başlatır ve silinmiş zaman durdurur. Merhaba planı üzerinde hello bulunamadı birini kullanabilirsiniz [Machine Learning fiyatlandırması sayfa](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 Faturalama örnek:
 
@@ -105,9 +105,9 @@ Faturalama örnek:
 
 4 sanal makinelerle Batch havuzu oluşturma ve 12 saat sonra silerseniz, faturalandırma planınıza ayrıca borç kaydedilen 48 işlem saattir.
 
-İşlerini tamamlandığında belirlemek için işin durumunu yoklama öneririz. Çalışan tüm işleri tamamladığınızda, sanal makine sayısı sıfır havuzuna ayarlamak için havuzu yeniden boyutlandırma işlemi çağırın. Çalışan tüm işleri tamamladığınızda havuzu kaynaklardaki kısa ve örneğin farklı bir fatura planı karşı faturalandırmak yeni bir havuz oluşturmak ihtiyacınız varsa havuzu yerine silebilirsiniz.
+İşlerini tamamladığınızda hello iş durumu toodetermine yoklamak öneririz. Çalışan tüm işleri tamamladığınızda hello boyutlandırma havuzu işlemi tooset hello sanal makine sayısı hello havuzu toozero çağırın. Çalışan tüm işleri tamamladığınızda havuzu kaynaklardaki kısa ve toocreate yeni bir havuz örneğin farklı bir fatura planı karşı toobill ihtiyacınız varsa hello havuzu yerine silebilirsiniz.
 
 
 | **Batch havuzundaki işlemesini kullanın**    | **Klasik toplu ne zaman işleme kullanın**  |
 |---|---|
-|Çok sayıda işlerini çalıştırmanız gerekir<br>Veya<br/>İşleriniz hemen çalışacağını bilmeniz gerekir<br/>Veya<br/>Garantili işleme gerekir. Örneğin, belirli bir zaman dilimi içinde iş sayısı çalıştırın ve ihtiyaçlarınızı karşılamak için işlem kaynaklarınızı ölçeklendirmek istediğiniz gerekir.    | Yalnızca birkaç işleri çalıştırma<br/>Ve<br/> İşlerin hemen çalıştırmanız gerekmez |
+|Toorun çok sayıda işleri gerekir<br>Veya<br/>İşleriniz hemen çalışacak tooknow gerekir<br/>Veya<br/>Garantili işleme gerekir. Örneğin, toorun işleri belirli bir zaman çerçevesi içinde bir dizi gereksinim ve tooscale, işlem kaynakları toomeet gereksinimlerinizi istiyor.    | Yalnızca birkaç işleri çalıştırma<br/>Ve<br/> Merhaba işleri toorun hemen gerekmez |

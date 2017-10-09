@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: eae4c112accaefa8bd1bf85f7b43badc2f491dfd
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: cc7add6273e66aadeca9a4915a44f5edf61a0a59
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshooting"></a>Sorun giderme
 
@@ -28,21 +28,21 @@ ms.lasthandoff: 08/03/2017
 
 ### <a name="ti-sensortag-cannot-be-connected"></a>TI SensorTag bağlı
 
-SensorTag bağlantı sorunlarını gidermek için kullanmak [SensorTag uygulama](http://processors.wiki.ti.com/index.php/SensorTag_User_Guide#SensorTag_App_user_guide).
+tootroubleshoot SensorTag bağlantı sorunları, hello kullan [SensorTag uygulama](http://processors.wiki.ti.com/index.php/SensorTag_User_Guide#SensorTag_App_user_guide).
 
 ### <a name="have-an-issue-with-intel-nuc"></a>Intel NUC ile ilgili bir sorun olması
 
-Önyükleme sorunlarını gidermek için bkz [Intel NUC üzerinde Hayır önyükleme sorunlarını giderme](http://www.intel.com/content/www/us/en/support/boards-and-kits/000005845.html).
+tootroubleshoot önyükleme sorunlarını başvurmak çok[Intel NUC üzerinde Hayır önyükleme sorunlarını giderme](http://www.intel.com/content/www/us/en/support/boards-and-kits/000005845.html).
 
-İşletim sistemi sorunlarını gidermek için bkz [Intel NUC üzerinde işletim sistemi sorunlarını giderme](http://www.intel.com/content/www/us/en/support/boards-and-kits/000006018.html).
+tootroubleshoot işletim sistemi sorunları başvurmak çok[Intel NUC üzerinde işletim sistemi sorunlarını giderme](http://www.intel.com/content/www/us/en/support/boards-and-kits/000006018.html).
 
-Diğer sorunları gidermek için bkz [Blink kodları ve Intel NUC kodları bip sesi](http://www.intel.com/content/www/us/en/support/boards-and-kits/intel-nuc-boards/000005854.html).
+tootroubleshoot diğer sorunlar başvurmak çok[Blink kodları ve Intel NUC kodları bip sesi](http://www.intel.com/content/www/us/en/support/boards-and-kits/intel-nuc-boards/000005854.html).
 
 ## <a name="nodejs-package-issues"></a>Node.js paket sorunları
 
 ### <a name="no-response-during-gulp-tasks"></a>Gulp görevler sırasında yanıt yok
 
-Ekleyebileceğiniz gulp görevleri çalıştırma sorunlarla karşılaşmanız halinde, `--verbose` hata ayıklama seçeneği. Geçerli gulp görevleri kullanarak sonlandırmak deneyin `Ctrl + C`, hata ayıklama iletileri aşağıdaki görmek için konsol penceresinde komutunu çalıştırın. Ayrıntılı hata iletileri, konsol çıktısı görebilirsiniz.
+Çalışan gulp görevleri sorunlarla karşılaşırsanız, hello ekleyebilirsiniz `--verbose` hata ayıklama seçeneği. Tooterminate geçerli gulp görevleri kullanarak deneyin `Ctrl + C`, ve ardından çalışma hello aşağıdaki konsol penceresi toosee hata ayıklama iletileri komutu. Ayrıntılı hata iletileri, konsol çıktısı görebilirsiniz.
 
 ```bash
 gulp --verbose
@@ -50,35 +50,35 @@ gulp --verbose
 
 ### <a name="device-discovery-issues"></a>Aygıt Bulma sorunları
 
-İlgili genel sorunları gidermede yardım için `discover-sensortag` komutu, onay [wiki sayfa](https://wiki.archlinux.org/index.php/bluetooth#Bluetoothctl).
+İlgili hello ortak sorunları gidermede yardım için `discover-sensortag` komutu, hello denetleyin [wiki sayfa](https://wiki.archlinux.org/index.php/bluetooth#Bluetoothctl).
 
 ### <a name="npm-issues"></a>npm sorunları
 
-Aşağıdaki komutu çalıştırarak npm paket güncelleştirmeyi deneyin:
+Tooupdate hello aşağıdaki komutu çalıştırarak npm paket deneyin:
 
 ```bash
 npm install -g npm
 ```
 
-Sorun devam ederse, bu makalenin sonunda yorumlarınızı bırakın veya bir GitHub sorunu oluşturmak bizim [örnek depo](https://github.com/azure-samples/iot-hub-c-intel-nuc-gateway-getting-started).
+Merhaba sorun devam ederse, bu makalenin hello sonunda yorumlarınızı bırakın veya bir GitHub sorunu oluşturmak bizim [örnek depo](https://github.com/azure-samples/iot-hub-c-intel-nuc-gateway-getting-started).
 
 ## <a name="remote-debugging"></a>Uzaktan hata ayıklama
 > Bu öğreticide kullanılan node.js komut hata ayıklama için aşağıdaki yönergeleri yöneliktir.
-### <a name="run-the-sample-application-in-debug-mode"></a>Örnek uygulamayı hata ayıklama modunda çalıştırın
+### <a name="run-hello-sample-application-in-debug-mode"></a>Hata ayıklama modunda Hello örnek uygulamayı çalıştırın
 
-Örnek uygulama, aşağıdaki komutu çalıştırarak hata ayıklama modunda çalıştırın:
+Merhaba örnek uygulaması hello aşağıdaki komutu çalıştırarak hata ayıklama modunda çalıştırın:
 
 ```bash
 gulp run --debug
 ```
 
-Hata ayıklama altyapısı hazır olduğunda, görmelisiniz `Debugger listening on port 5858` konsol çıkışı.
+Merhaba hata ayıklama altyapısı hazır olduğunda, görmelisiniz `Debugger listening on port 5858` hello konsol çıkışı.
 
-### <a name="configure-visual-studio-code-to-connect-to-the-remote-device"></a>Visual Studio Code uzak cihaza bağlanmak için yapılandırın
+### <a name="configure-visual-studio-code-tooconnect-toohello-remote-device"></a>Visual Studio Code tooconnect toohello uzak aygıt yapılandırma
 
-1. Açık **hata ayıklama** sol tarafındaki paneli.
-2. Yeşil tıklatın **hata ayıklamayı Başlat** (F5) düğmesi. Visual Studio Code açılır bir `launch.json` dosyası.
-3. Güncelleştirme `launch.json` dosya aşağıdaki içeriğe sahip. Değiştir `[device hostname or IP address]` gerçek aygıt IP adresi veya ana bilgisayar adı.
+1. Açık hello **hata ayıklama** hello yan sol panelde.
+2. Merhaba yeşil tıklatın **hata ayıklamayı Başlat** (F5) düğmesi. Visual Studio Code açılır bir `launch.json` dosyası.
+3. Güncelleştirme hello `launch.json` içeriği aşağıdaki hello dosyasıyla. Değiştir `[device hostname or IP address]` Merhaba, gerçek cihaz IP adresi veya ana bilgisayar adı ile.
 
    ``` json
    {
@@ -102,23 +102,23 @@ Hata ayıklama altyapısı hazır olduğunda, görmelisiniz `Debugger listening 
 
 ![Uzaktan hata ayıklama yapılandırması](./media/iot-hub-gateway-kit-lessons/troubleshooting/remote_debugging_configuration.png)
 
-### <a name="attach-to-the-remote-application"></a>Uzak uygulamasına ekleme
+### <a name="attach-toohello-remote-application"></a>Toohello uzak uygulama ekleme
 
-Yeşil tıklatın **hata ayıklamayı Başlat** hata ayıklamayı başlatmak için (F5) düğmesini.
+Merhaba yeşil tıklatın **hata ayıklamayı Başlat** (F5) düğmesini toostart hata ayıklama.
 
-Okuma [JavaScript VS code'da](https://code.visualstudio.com/docs/languages/javascript#_debugging) hata ayıklayıcı hakkında daha fazla bilgi için.
+Okuma [JavaScript VS code'da](https://code.visualstudio.com/docs/languages/javascript#_debugging) toolearn hello hata ayıklayıcı hakkında daha fazla.
 
 ![Hata ayıklama bırak örnek](./media/iot-hub-gateway-kit-lessons/troubleshooting/debugging_ble_sample.png)
 
 ## <a name="azure-cli-issues"></a>Azure CLI sorunları
 
-Azure komut satırı arabirimi (Azure CLI) önizleme yapıdır. Çözümleri aramak için kullanabileceğiniz [Önizleme Yükleme Kılavuzu](https://github.com/Azure/azure-cli/blob/master/doc/preview_install_guide.md).
+Hello Azure komut satırı arabirimi (Azure CLI) önizleme yapıdır. tooseek çözümleri hello kullanabilir [Önizleme Yükleme Kılavuzu](https://github.com/Azure/azure-cli/blob/master/doc/preview_install_guide.md).
 
-Tüm hatalar aracı ile karşılaşırsanız, dosya bir [sorunu](https://github.com/Azure/azure-cli/issues) içinde **sorunları** GitHub depo bölümü.
+Tüm hatalar hello aracı ile karşılaşırsanız, dosya bir [sorunu](https://github.com/Azure/azure-cli/issues) hello içinde **sorunları** hello GitHub deposuna bölümü.
 
-Sık karşılaşılan sorunları giderme konusunda yardım için kontrol [Benioku](https://github.com/Azure/azure-cli/blob/master/README.rst).
+Sık karşılaşılan sorunları giderme konusunda yardım için hello denetleyin [Benioku](https://github.com/Azure/azure-cli/blob/master/README.rst).
 
-Lütfen "gereksinimini karşılayan bir sürüm bulunamadı" karşılıyorsa, PIP en son sürümüne yükseltmek için aşağıdaki komutu çalıştırın.
+"Merhaba gereksinimini karşılayan bir sürüm bulunamadı", lütfen karşılıyorsa çalışma hello aşağıdaki tooupgrade PIP toolastest sürüm komutu.
 
 ```bash
 python -m pip install --upgrade pip
@@ -128,47 +128,47 @@ python -m pip install --upgrade pip
 
 ### <a name="legacy-installation-issues-macos"></a>Eski yükleme sorunları (macOS)
 
-PIP yüklüyorsanız, eski paketleri ile yüklendiğinde izin hatası atılır **su** izinleri. Python brew (macOS) kullanarak önceki bir yüklemesini tümüyle kaldırılmamış. Bu durum oluşur. Önceki yüklemeye ait bazı PIP paketler izni hataya neden olan kök tarafından oluşturuldu. Kök tarafından yüklenen bu paketleri kaldırmak için çözümüdür. Bu görevi tamamlamak için aşağıdaki adımları kullanın:
+PIP yüklüyorsanız, eski paketleri ile yüklendiğinde izin hatası atılır **su** izinleri. Python brew (macOS) kullanarak önceki bir yüklemesini tümüyle kaldırılmamış. Bu durum oluşur. Önceki yüklemeye ait bazı PIP paketler hello izni hatasına neden oluyor kök tarafından oluşturuldu. Merhaba çözüm tooremove bu paketleri kök tarafından yüklü değil. Aşağıdaki adımları toocomplete hello bu görevi kullanın:
 
-1. Şuraya gidin: `/usr/local/lib/python2.7/site-packages`
+1. Çok gidin`/usr/local/lib/python2.7/site-packages`
 2. Kök tarafından oluşturulan listesi paketler:`ls -l | grep root`
 3. Paketler, adım 2 ' Kaldır:`sudo rm -rf {package name}`
 4. Python yeniden yükleyin.
 
 ## <a name="azure-iot-hub-issues"></a>Azure IOT hub'ı sorunları
 
-Azure CLI ile Azure IOT hub'ınızı başarıyla kaynak sağlandı ve IOT hub'ınıza bağlanan cihazları yönetmek için bir aracı ihtiyacınız varsa aşağıdaki araçları deneyin.
+Hello Azure CLI ile Azure IOT hub'ınızı başarıyla kaynak sağlandı ve tooyour IOT hub'a bağlanan bir aracı toomanage hello aygıtları ihtiyacınız varsa araçları aşağıdaki hello deneyin.
 
 ### <a name="device-explorer"></a>Cihaz Gezgini
 
-[Cihaz Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) Windows yerel makinenizde çalıştırır ve Azure IOT hub'ınıza bağlanır. Aşağıdaki ile iletişim kurar [IOT Hub uç noktaları](https://azure.microsoft.com/en-us/documentation/articles/iot-hub-devguide/):
+[Cihaz Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) Windows yerel makinenizde çalıştırır ve azure'da tooyour IOT hub'ı bağlar. Merhaba aşağıdaki ile iletişim kurar [IOT Hub uç noktaları](https://azure.microsoft.com/en-us/documentation/articles/iot-hub-devguide/):
 
-- Cihaz Kimlik Yönetimi sağlamak ve cihazları yönetmek için IOT hub'ınıza kayıtlı.
-- Cihazınızın IOT hub'ına gönderilen iletileri izleyebilmek cihaz bulut alırsınız.
-- IOT hub'ından aygıtlarınıza iletileri gönderebilmesi bulut cihaz gönderin.
+- Cihaz Kimlik Yönetimi tooprovision ve IOT hub'ınıza kayıtlı cihazları yönetme.
+- Cihaz bulut alır, böylece cihaz tooyour IOT hub'dan gönderilen iletileri izleyebilirsiniz.
+- IOT hub'ından tooyour aygıtları iletileri gönderebilmesi bulut cihaz gönderin.
 
-IOT hub bağlantı dizenizi tüm özellikleri kullanmak için bu aracı içinde yapılandırın.
+IOT hub bağlantı dizenizi bu aracı toouse içindeki tüm özelliklerini yapılandırın.
 
 ### <a name="iothub-explorer"></a>ıothub Gezgini
 
-[ıothub explorer](https://github.com/Azure/iothub-explorer) aygıt istemcileri yönetmek için bir örnek çok platformlu CLI aracıdır. Cihaz kimlik kayıt defterinde yönetmek, cihaz bulut iletilerini izlemek ve bulut-cihaz komutlarını göndermek için aracını kullanabilirsiniz.
+[ıothub explorer](https://github.com/Azure/iothub-explorer) bir örnek çok platformlu CLI toomanage aygıt istemcileri aracıdır. Merhaba kimlik kayıt defterinde hello aracı toomanage hello aygıtları'nı kullanın, cihaz bulut iletilerini izlemek ve bulut cihaza komut gönderme.
 
-Iothub explorer Aracı (ön) en son sürümünü yüklemek için aşağıdaki komutu çalıştırın:
+(tooinstall hello en son ön) sürümünü hello ıothub explorer aracı, hello aşağıdaki komutu çalıştırın:
 
 ```bash
 npm install -g iothub-explorer@latest
 ```
 
-Tüm ıothub explorer komutları ve bunların parametreleri hakkında ek Yardım almak için aşağıdaki komutu çalıştırın:
+Tüm hakkında ek Yardım tooget iothub-explorer komutlar ve bunların parametrelerini Merhaba, hello aşağıdaki komutu çalıştırın:
 
 ```bash
 iothub-explorer help
 ```
 
-### <a name="the-azure-portal"></a>Azure portalı
+### <a name="hello-azure-portal"></a>Hello Azure portalı
 
-Tam CLI deneyimi oluşturma ve Azure kaynaklarınızı yönetmenize yardımcı olur. Kullanmak isteyebilirsiniz [Azure portal](https://azure.microsoft.com/en-us/documentation/articles/azure-portal-overview/) sağlama Yardım, yönetmek ve Azure kaynaklarınızı hata ayıklamak için.
+Tam CLI deneyimi oluşturma ve Azure kaynaklarınızı yönetmenize yardımcı olur. Toouse hello isteyebilirsiniz [Azure portal](https://azure.microsoft.com/en-us/documentation/articles/azure-portal-overview/) toohelp sağlamanıza, yönetmek ve Azure kaynaklarınızı hata ayıklama.
 
 ## <a name="azure-storage-issues"></a>Azure depolama sorunları
 
-[Microsoft Azure Storage Gezgini (Önizleme)](http://storageexplorer.com/) Windows, macOS ve Linux Azure Storage verilerle çalışmak için kullanabileceğiniz bir Microsoft tek başına uygulamadır. Bu aracı kullanarak tablonuza bağlanabilir ve içindeki verilerin bakın. Azure Storage sorunlarını gidermek için bu aracı kullanabilirsiniz.
+[Microsoft Azure Storage Gezgini (Önizleme)](http://storageexplorer.com/) toowork Windows, macOS ve Linux Azure Storage veri ile kullanabileceğiniz Microsoft tek başına uygulamadır. Bu aracı kullanarak tooyour tablo bağlanabilir ve hello verilerde bakın. Bu aracı tootroubleshoot Azure depolama sorunlarınızı kullanabilirsiniz.

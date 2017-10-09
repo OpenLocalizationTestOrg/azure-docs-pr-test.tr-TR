@@ -1,6 +1,6 @@
 ---
-title: "Azure Resource Manager şablonları oluşturma ve bir günlük analizi çalışma alanı yapılandırılacağı | Microsoft Docs"
-description: "Azure Resource Manager şablonları oluşturmak ve günlük analizi çalışma alanları yapılandırmak için kullanabilirsiniz."
+title: "aaaUse Azure Resource Manager şablonları tooCreate ve günlük analizi çalışma alanı yapılandırma | Microsoft Docs"
+description: "Azure Resource Manager şablonları toocreate kullanın ve günlük analizi çalışma alanları yapılandırın."
 services: log-analytics
 documentationcenter: 
 author: richrundmsft
@@ -14,43 +14,43 @@ ms.devlang: json
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: richrund
-ms.openlocfilehash: 505b741d14c594b22108298466c646bf723ce2d4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c8f413e982f5eeed73f463524ff6f239f26c9127
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Günlük analizi Azure Resource Manager şablonları kullanarak yönetme
-Kullanabileceğiniz [Azure Resource Manager şablonları](../azure-resource-manager/resource-group-authoring-templates.md) oluşturmak ve günlük analizi çalışma alanları yapılandırmak için. Şablonları ile gerçekleştirebileceğiniz görevler örnekleri şunlardır:
+Kullanabileceğiniz [Azure Resource Manager şablonları](../azure-resource-manager/resource-group-authoring-templates.md) toocreate ve günlük analizi çalışma alanları yapılandırın. Şablonları ile gerçekleştirebileceğiniz hello görevler örnekleri şunlardır:
 
 * Çalışma alanı oluşturma
 * Bir çözüm Ekle
 * Kaydedilen Aramalar oluşturun
 * Bir bilgisayar grubu oluşturun
-* Windows aracısının yüklü olduğu IIS günlüklerinin bilgisayarlardan toplamayı etkinleştir
+* Merhaba Windows aracısının yüklü olduğu IIS günlüklerinin bilgisayarlardan toplamayı etkinleştir
 * Linux ve Windows bilgisayarlarından performans sayaçlarını Topla
 * Linux bilgisayarlarda syslog olaylarını Topla 
 * Windows olay günlüklerini olaylarını Topla
 * Özel olay günlüklerini toplayın
-* Bir Azure sanal makinesi için günlük analizi Aracısı Ekle
-* Azure Tanılama'yı kullanarak toplanan dizin verileri için günlük analizi yapılandırın
+* Merhaba günlük analizi aracı tooan Azure sanal makine ekleyin
+* Günlük analizi tooindex verileri Azure Tanılama'yı kullanarak toplanan yapılandırma
 
-Bu makalede bir şablon bazı şablonlardan gerçekleştirebileceğiniz yapılandırmasının göstermek örnekleri sağlar.
+Bu makalede bir şablon bazı şablonlardan gerçekleştirebilirsiniz hello yapılandırmasının göstermek örnekleri sağlar.
 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Oluşturma ve yapılandırma günlük analizi çalışma alanı
-Aşağıdaki şablonu örnek göstermektedir nasıl yapılır:
+Merhaba aşağıdaki şablon örneği gösterilmektedir nasıl yapılır:
 
 1. Ayar veri saklama dahil olmak üzere bir çalışma alanı oluşturma
-2. Çalışma Alanı'na çözümleri Ekle
+2. Çözümleri toohello çalışma Ekle
 3. Kaydedilen Aramalar oluşturun
 4. Bir bilgisayar grubu oluşturun
-5. Windows aracısının yüklü olduğu IIS günlüklerinin bilgisayarlardan toplamayı etkinleştir
+5. Merhaba Windows aracısının yüklü olduğu IIS günlüklerinin bilgisayarlardan toplamayı etkinleştir
 6. Mantıksal Disk performans sayaçlarını Linux bilgisayarından toplar (% kullanılan Inode; Boş megabayt; % Kullanılan alan; Disk aktarımı/sn; Disk Okuma/sn; Disk Yazma/sn)
 7. Linux bilgisayarlardan Syslog olaylarını Topla
-8. Uygulama olay günlüğü'ndeki Windows bilgisayarlardan hata ve uyarı olaylarını Topla
+8. Merhaba uygulama olay günlüğüne Windows bilgisayarlardan hata ve uyarı olayları toplar
 9. Windows bilgisayarlardan bellek kullanılabilir MBayt performans sayacı Topla
 10. Özel günlük Topla 
-11. IIS ve Windows olay günlükleri Azure altyapınıza bir depolama hesabına yazılan Topla
+11. IIS ve Windows olay günlükleri Azure tanılama tooa depolama hesabı tarafından yazılmış Topla
 
 ```
 {
@@ -95,13 +95,13 @@ Aşağıdaki şablonu örnek göstermektedir nasıl yapılır:
     "applicationDiagnosticsStorageAccountName": {
         "type": "string",
         "metadata": {
-          "description": "Name of the storage account with Azure diagnostics output"
+          "description": "Name of hello storage account with Azure diagnostics output"
         }
     },
     "applicationDiagnosticsStorageAccountResourceGroup": {
         "type": "string",
         "metadata": {
-          "description": "The resource group name containing the storage account with Azure diagnostics output"
+          "description": "hello resource group name containing hello storage account with Azure diagnostics output"
         }
     }
   },
@@ -426,12 +426,12 @@ Aşağıdaki şablonu örnek göstermektedir nasıl yapılır:
 }
 
 ```
-### <a name="deploying-the-sample-template"></a>Örnek şablon dağıtma
-Örnek şablonu dağıtmak için:
+### <a name="deploying-hello-sample-template"></a>Merhaba örnek şablonu dağıtma
+toodeploy hello örnek şablonu:
 
-1. Ekli örnek bir dosyaya, örneğin kaydedin`azuredeploy.json` 
-2. İstediğiniz yapılandırmasına sahip olmak şablonunu düzenleyin.
-3. Şablonu dağıtmak için PowerShell veya komut satırını kullanın
+1. Örneğin bir dosyada Hello ekli örnek kaydedin`azuredeploy.json` 
+2. İstediğiniz hello şablonu toohave hello yapılandırmasını düzenle
+3. PowerShell veya hello komut satırı toodeploy hello şablonu kullanın
 
 #### <a name="powershell"></a>PowerShell
 `New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json`
@@ -444,15 +444,15 @@ azure group deployment create <my-resource-group> <my-deployment-name> --Templat
 
 
 ## <a name="example-resource-manager-templates"></a>Örnek Resource Manager şablonları
-Azure hızlı başlangıç Şablon Galerisi dahil olmak üzere günlük analizi için çeşitli şablonlar içerir:
+Hello Azure hızlı başlangıç Şablon Galerisi dahil olmak üzere günlük analizi için çeşitli şablonlar içerir:
 
-* [Günlük analizi VM uzantısı ile Windows çalıştıran bir sanal makine dağıtma](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
-* [Günlük analizi VM uzantısı ile Linux çalıştıran bir sanal makine dağıtma](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
+* [Windows hello günlük analizi VM uzantısı ile çalışan bir sanal makine dağıtma](https://azure.microsoft.com/documentation/templates/201-oms-extension-windows-vm/)
+* [Günlük analizi VM uzantısı hello ile Linux çalıştıran bir sanal makine dağıtma](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
 * [Azure Site Recovery varolan bir günlük analizi çalışma alanını kullanarak izleme](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
 * [Varolan bir günlük analizi çalışma alanını kullanarak Azure Web uygulamaları İzle](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
 * [SQL Azure varolan bir günlük analizi çalışma alanını kullanarak izleme](https://azure.microsoft.com/documentation/templates/101-sqlazure-oms-monitoring/)
 * [Service Fabric kümesi dağıtma ve var olan bir günlük analizi çalışma ile izleme](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
-* [Service Fabric kümesi dağıtmak ve izlemek için günlük analizi çalışma alanı oluşturma](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
+* [Service Fabric kümesi dağıtma ve günlük analizi çalışma alanı toomonitor oluşturun,](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Resource Manager şablonları kullanarak VM'ler aracılar dağıtma](log-analytics-azure-vm-extension.md)

@@ -1,6 +1,6 @@
 ---
-title: "Bağlantı noktaları ve listesi URL'leri güvenilir listeye için Azure RemoteApp dağıtılan müşteri sanal ağındaki | Microsoft Docs"
-description: "Hangi bağlantı noktalarının ve URL'leri Azure RemoteApp aracılığıyla iletişimi yapılandırmanız gerekir öğrenin."
+title: "Azure RemoteApp dağıtılan için bağlantı noktalarını ve URL'leri toowhitelist müşteri sanal ağındaki aaaList | Microsoft Docs"
+description: "Hangi bağlantı noktalarının ve Azure RemoteApp aracılığıyla iletişimi tooconfigure gerekir URL'leri öğrenin."
 services: remoteapp
 documentationcenter: 
 author: mghosh1616
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: mbaldwin
-ms.openlocfilehash: c17ff8d5441ca92f7b893edb541a1e9730c2a847
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 039866f7b64ac763ca833d66031ade3def1d3543
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="list-of-ports-and-urls-to-permit-access-for-azure-remoteapp-deployed-in-customer-virtual-network"></a>Bağlantı noktaları ve URL'leri erişim Azure RemoteApp dağıtılan için müşteri sanal ağ izin vermek için listesi
+# <a name="list-of-ports-and-urls-toopermit-access-for-azure-remoteapp-deployed-in-customer-virtual-network"></a>Listesi bağlantı noktaları ve URL'leri toopermit erişim için Azure RemoteApp dağıtılan müşteri sanal ağ
 > [!IMPORTANT]
-> Azure RemoteApp 31 Ağustos 2017’de kullanımdan kaldırılacaktır. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
+> Azure RemoteApp 31 Ağustos 2017’de kullanımdan kaldırılacaktır. Okuma hello [duyuru](https://go.microsoft.com/fwlink/?linkid=821148) Ayrıntılar için.
 > 
 > 
 
-Bir sanal ağ (VNET) içinde bir Azure RemoteApp Bulut veya karma koleksiyonu dağıtıyorsanız, aşağıdaki bağlantı noktası bilgilerini gözden geçirin. Sanal ağlar hakkında daha fazla bilgi için okuma [Virtual Network'e genel bakış](../virtual-network/virtual-networks-overview.md). Sanal ağ kaynaklarına koleksiyonunuzdaki trafiği kısıtlama bir ağ güvenlik grubu (NSG) oluşturduysanız, erişilebilir ve sanal ağda güvenlik ilkeleri aracılığıyla izin verilen aşağıdaki bağlantı noktaları olduğundan emin olun. Ağ güvenlik grupları hakkında daha fazla bilgi için okuma [bir ağ güvenlik grubu nedir? (NSG) ](../virtual-network/virtual-networks-nsg.md).
+Bir sanal ağ (VNET) içinde bir Azure RemoteApp Bulut veya karma koleksiyonu dağıtıyorsanız, bağlantı noktası bilgilerini aşağıdaki hello gözden geçirin. Sanal ağlar hakkında daha fazla bilgi için okuma [Virtual Network'e genel bakış](../virtual-network/virtual-networks-overview.md). Trafik toohello sanal ağ kaynaklarına koleksiyonunuzdaki kısıtlayarak ağ güvenlik grubu (NSG) oluşturduysanız, erişilebilir ve hello sanal ağda hello güvenlik ilkeleri aracılığıyla izin verilen bağlantı noktaları aşağıdaki hello olduğundan emin olun. Ağ güvenlik grupları hakkında daha fazla bilgi için okuma [bir ağ güvenlik grubu nedir? (NSG) ](../virtual-network/virtual-networks-nsg.md).
 
-## <a name="azure-remoteapp-subnet-needs-access-to-these-endpoints-and-urls"></a>Azure RemoteApp alt Bu uç noktaları ve URL'leri erişimi olmalıdır:
+## <a name="azure-remoteapp-subnet-needs-access-toothese-endpoints-and-urls"></a>Azure RemoteApp alt ağ erişim toothese uç noktaları ve URL'leri gerekir:
 * *. servicebus.windows.net
 * *. servicebus.net
 * https://*.RemoteApp.windowsazure.com  
@@ -37,11 +37,11 @@ Bir sanal ağ (VNET) içinde bir Azure RemoteApp Bulut veya karma koleksiyonu da
 * Giden: TCP: TCP: 443, 9351, 9352, 10101 10175 
 * İsteğe bağlı – UDP: 10201 10275  
 
-## <a name="azure-remoteapp-clients-need-access-to-these-endpoints-and-urls"></a>Azure RemoteApp istemcilerin bu uç noktaları ve URL'leri erişim gerekir:
-İstemciler tarafından ı masaüstleri, vb. kişilerin kullanmak Azure RemoteApp koleksiyonunda dağıtılan uygulamalar bağlanmak için cihazları anlamına gelir.
+## <a name="azure-remoteapp-clients-need-access-toothese-endpoints-and-urls"></a>Azure RemoteApp istemcileri toothese uç noktaları ve URL'leri erişim:
+Hello kullan tooconnect toohello uygulamaları Azure RemoteApp koleksiyonu dağıtılan ı masaüstleri, cihazları vb. kişilerin hello anlamına istemciler tarafından.
 
 * https://telemetry.RemoteApp.windowsazure.com  
-* (isteğe bağlı UDP bağlantı noktaları için bu adresi olan) https://*.remoteapp.windowsazure.com 
+* https://*.RemoteApp.windowsazure.com (Merhaba isteğe bağlı UDP bağlantı noktalarının bu adres için) 
 * https://login.windows.net  
 * https://login.microsoftonline.com  
 * https://www.RemoteApp.windowsazure.com 

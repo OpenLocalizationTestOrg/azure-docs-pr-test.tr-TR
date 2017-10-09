@@ -1,6 +1,6 @@
 ---
-title: "Azure Windows VM yeniden boyutlandırmak için PowerShell kullanın | Microsoft Docs"
-description: "Azure Powershell kullanarak Resource Manager dağıtım modelinde oluşturulmuş bir Windows sanal makine yeniden boyutlandırın."
+title: aaaUse PowerShell tooresize Azure Windows VM | Microsoft Docs
+description: "Azure Powershell kullanarak hello Resource Manager dağıtım modelinde oluşturulmuş bir Windows sanal makinenin yeniden boyutlandırın."
 services: virtual-machines-windows
 documentationcenter: 
 author: Drewm3
@@ -15,31 +15,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: drewm
-ms.openlocfilehash: 742efd1496de9ce76b1e5636297ef30f546bd108
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a4a80f3bc99911e4f1a095f0ce63aca00fa50694
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="resize-a-windows-vm"></a>Bir Windows VM yeniden boyutlandırma
-Bu makalede Windows Azure Powershell kullanarak Resource Manager dağıtım modelinde oluşturulan bir VM'yi yeniden boyutlandırın gösterilmiştir.
+Bu makalede nasıl tooresize bir Windows VM oluşturulan Azure Powershell kullanarak hello Resource Manager dağıtım modelinde gösterilmektedir.
 
-Bir sanal makine (VM) oluşturduktan sonra VM boyutunu değiştirerek yukarı veya aşağı VM ölçeklendirebilirsiniz. Bazı durumlarda, ilk VM ayırması gerekir. Yeni boyutu VM'i şu anda barındırma donanım kümede kullanılabilir değilse, bu durum oluşabilir.
+Bir sanal makine (VM) oluşturduktan sonra hello VM boyutu değiştirerek yukarı veya aşağı hello VM ölçeklendirebilirsiniz. Bazı durumlarda, ilk hello VM ayırması gerekir. Merhaba yeni boyutu şu anda hello VM barındırma hello donanım kümede kullanılabilir değilse, bu durum oluşabilir.
 
 ## <a name="resize-a-windows-vm-not-in-an-availability-set"></a>Bir kullanılabilirlik kümesinde olmayan bir Windows VM yeniden boyutlandırma
-1. VM barındırıldığı donanım kümede kullanılabilir VM boyutları listeler. 
+1. Merhaba VM barındırıldığı hello donanım kümede kullanılabilir hello VM boyutları listeler. 
    
     ```powershell
     Get-AzureRmVMSize -ResourceGroupName <resourceGroupName> -VMName <vmName> 
     ```
-2. İstenen boyut listeleniyorsa, VM yeniden boyutlandırmak için aşağıdaki komutları çalıştırın. İstenen boyut listelenmemişse, 3. adıma geçin.
+2. Merhaba boyutu listelenen isterseniz, aşağıdaki komutları tooresize hello VM hello çalıştırın. Merhaba boyutu listelenmeyen isterseniz, 3 toostep üzerinde gidin.
    
     ```powershell
     $vm = Get-AzureRmVM -ResourceGroupName <resourceGroupName> -VMName <vmName>
     $vm.HardwareProfile.VmSize = "<newVMsize>"
     Update-AzureRmVM -VM $vm -ResourceGroupName <resourceGroupName>
     ```
-3. İstenen boyut, VM serbest bırakma için aşağıdaki komutları çalıştırın listelenmemişse yeniden boyutlandırabilir ve VM'yi yeniden başlatın.
+3. Merhaba boyutu listelenmeyen isterseniz, toodeallocate VM Merhaba, yeniden boyutlandırabilir ve hello VM yeniden başlatma komutlarını aşağıdaki hello çalıştırın.
    
     ```powershell
     $rgname = "<resourceGroupName>"
@@ -52,27 +52,27 @@ Bir sanal makine (VM) oluşturduktan sonra VM boyutunu değiştirerek yukarı ve
     ```
 
 > [!WARNING]
-> VM serbest bırakma VM'ye atanan dinamik IP adreslerini serbest bırakır. İşletim sistemi ve veri diskleri etkilenmez. 
+> Serbest bırakma hello VM toohello VM atanan dinamik IP adreslerini serbest bırakır. Merhaba işletim sistemi ve veri diskleri etkilenmez. 
 > 
 > 
 
 ## <a name="resize-a-windows-vm-in-an-availability-set"></a>Bir kullanılabilirlik kümesinde Windows VM yeniden boyutlandırma
-Yeni bir kullanılabilirlik kümesinde bir VM boyutu şu anda VM barındırma donanım kümede kullanılabilir durumda değilse, tüm sanal makineleri kullanılabilirlik kümesindeki VM yeniden boyutlandırmak için serbest gerekecektir. Bir VM yeniden boyutlandırılmış sonra kullanılabilirlik diğer VM'ler boyutunu güncelleştirme gerekebilir. Bir kullanılabilirlik kümesinde bir VM'yi yeniden boyutlandırmak için aşağıdaki adımları gerçekleştirin.
+Merhaba yeni bir kullanılabilirlik kümesinde bir VM boyutu hello donanım kümede kullanılabilir değilse, şu anda hello barındırma VM sonra hello kullanılabilirlik kümesindeki tüm VM'ler tooresize hello VM serbest toobe gerekir. Merhaba kullanılabilirlik bir VM yeniden boyutlandırılmış sonra kümesindeki diğer VM'lerin tooupdate hello boyutu da gerekebilir. tooresize bir kullanılabilirlik kümesinde bir VM hello aşağıdaki adımları gerçekleştirin.
 
-1. VM barındırıldığı donanım kümede kullanılabilir VM boyutları listeler.
+1. Merhaba VM barındırıldığı hello donanım kümede kullanılabilir hello VM boyutları listeler.
    
     ```powershell
     Get-AzureRmVMSize -ResourceGroupName <resourceGroupName> -VMName <vmName>
     ```
-2. İstenen boyut listeleniyorsa, VM yeniden boyutlandırmak için aşağıdaki komutları çalıştırın. Listelenmiyorsa, 3. adıma gidin.
+2. Merhaba boyutu listelenen isterseniz, aşağıdaki komutları tooresize hello VM hello çalıştırın. Listelenmiyorsa, toostep 3 gidin.
    
     ```powershell
     $vm = Get-AzureRmVM -ResourceGroupName <resourceGroupName> -VMName <vmName>
     $vm.HardwareProfile.VmSize = "<newVmSize>"
     Update-AzureRmVM -VM $vm -ResourceGroupName <resourceGroupName>
     ```
-3. İstenen boyut listelenmemişse kullanılabilirlik kümesindeki tüm VM'ler ayırması, sanal makineleri yeniden boyutlandırma ve bunları yeniden başlatmak için aşağıdaki adımlarla devam edin.
-4. Kullanılabilirlik kümesindeki tüm VM'ler durdurun.
+3. Hello boyutu listelenmeyen isterseniz, tüm VM'ler hello kullanılabilirlik kümesindeki adımları toodeallocate aşağıdaki hello ile devam, sanal makineleri yeniden boyutlandırma ve bunları yeniden başlatın.
+4. Merhaba kullanılabilirlik kümesindeki tüm VM'ler durdurun.
    
    ```powershell
    $rg = "<resourceGroupName>"
@@ -84,7 +84,7 @@ Yeni bir kullanılabilirlik kümesinde bir VM boyutu şu anda VM barındırma do
      Stop-AzureRmVM -ResourceGroupName $rg -Name $vmName -Force
    } 
    ```
-5. Yeniden boyutlandırma ve kullanılabilirlik kümesindeki sanal makineleri yeniden başlatın.
+5. Yeniden boyutlandırma ve hello VM'ler hello kullanılabilirlik kümesinde yeniden başlatın.
    
    ```powershell
    $rg = "<resourceGroupName>"

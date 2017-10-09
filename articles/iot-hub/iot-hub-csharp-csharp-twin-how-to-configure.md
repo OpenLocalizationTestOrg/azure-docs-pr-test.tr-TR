@@ -1,6 +1,6 @@
 ---
-title: "Azure IOT Hub cihaz çifti özellikleri (.NET/.NET) kullanın | Microsoft Docs"
-description: "Azure IOT Hub cihaz çiftlerini cihazları yapılandırmak için nasıl kullanılacağını. Sanal cihaz uygulaması ve Azure IOT hizmeti SDK'sını cihaz çifti kullanarak bir aygıt yapılandırmasını değiştirir bir hizmet uygulaması uygulamak .NET için uygulamak için Azure IOT cihaz SDK'sı .NET için kullanın."
+title: "aaaUse Azure IOT Hub cihaz çifti özellikleri (.NET/.NET) | Microsoft Docs"
+description: "Nasıl toouse Azure IOT Hub cihaz tooconfigure cihaz çiftlerini. .NET tooimplement sanal cihaz uygulaması için hello Azure IOT cihaz SDK'sı ve hello .NET tooimplement cihaz çifti kullanarak bir aygıt yapılandırmasını değiştirir bir hizmet uygulaması için Azure IOT hizmeti SDK'sını kullanın."
 services: iot-hub
 documentationcenter: .net
 author: dsk-2015
@@ -14,67 +14,67 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2017
 ms.author: dkshir
-ms.openlocfilehash: 679cda28bf3ce9fb207fe3693a3453b355f1de15
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: 486436d29abfd5158c253adc5abf5935e0e1fdba
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-desired-properties-to-configure-devices"></a>İstenen özelliklerde cihazları yapılandırmak için kullanın
+# <a name="use-desired-properties-tooconfigure-devices"></a>İstenen özelliklerde tooconfigure aygıtları'nı kullanın
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
-Bu öğreticinin sonunda iki .NET konsol uygulamaları olacaktır:
+Bu öğreticinin Hello sonunda, iki .NET konsol uygulamaları olacaktır:
 
-* **SimulateDeviceConfiguration**, istenen yapılandırma güncelleştirmesi bekler ve benzetimli yapılandırmasını güncelleştirme işleminin durumunu raporlar bir sanal cihaz uygulaması.
-* **SetDesiredConfigurationAndQuery**, istenen yapılandırma bir cihazda ayarlar ve yapılandırmayı güncelleştirme işlemini sorgular bir arka uç uygulaması.
+* **SimulateDeviceConfiguration**, istenen yapılandırma güncelleştirmesi bekler ve benzetimli yapılandırma güncellemeyi hello durumunu raporlar sanal cihaz uygulaması.
+* **SetDesiredConfigurationAndQuery**hello ayarlar bir arka uç uygulaması istenen bir cihazda yapılandırma ve sorguları hello yapılandırma güncelleştirme işlemi.
 
 > [!NOTE]
-> Makaleyi [Azure IOT SDK'ları] [ lnk-hub-sdks] hem cihaz hem de arka uç uygulamalar oluşturmak için kullanabileceğiniz Azure IOT SDK'ları hakkında bilgi sağlar.
+> Merhaba makale [Azure IOT SDK'ları] [ lnk-hub-sdks] toobuild kullanabileceğiniz hello Azure IOT SDK'ları hakkında bilgi sağlayan cihaz ve arka uç uygulamalar.
 > 
 > 
 
-Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
+toocomplete hello aşağıdaki gereksinim Bu öğretici:
 
 * Visual Studio 2015 veya Visual Studio 2017.
 * Etkin bir Azure hesabı. Hesabınız yoksa, yalnızca birkaç dakika içinde [ücretsiz bir hesap][lnk-free-trial] oluşturabilirsiniz.
 
-İzlediyseniz [cihaz çiftlerini ile çalışmaya başlama] [ lnk-twin-tutorial] öğretici, zaten sahip olduğunuz bir IOT hub ve adlı bir cihaz kimliği **myDeviceId**. Bu durumda, atlayabilirsiniz [sanal cihaz uygulaması oluşturma] [ lnk-how-to-configure-createapp] bölümü.
+Merhaba izlediyseniz [cihaz çiftlerini ile çalışmaya başlama] [ lnk-twin-tutorial] öğretici, zaten sahip olduğunuz bir IOT hub ve adlı bir cihaz kimliği **myDeviceId**. Bu durumda, toohello atlayabilirsiniz [oluşturma hello sanal cihaz uygulamasının] [ lnk-how-to-configure-createapp] bölümü.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
 <a id="#create-the-simulated-device-app"></a>
-## <a name="create-the-simulated-device-app"></a>Sanal cihaz uygulaması oluşturma
-Bu bölümde, hub'ınıza bağlanan bir .NET konsol uygulaması oluşturma **myDeviceId**, istenen yapılandırma güncelleştirmesi bekler ve daha sonra güncelleştirmeleri benzetimli yapılandırmasını güncelleştirme işlemini raporlar.
+## <a name="create-hello-simulated-device-app"></a>Merhaba sanal cihaz uygulaması oluşturma
+Bu bölümde, tooyour hub olarak bağlanan bir .NET konsol uygulaması oluşturma **myDeviceId**, istenen yapılandırma güncelleştirmesi bekler ve daha sonra güncelleştirmeleri benzetimli hello yapılandırmasını güncelleştirme işlemi raporlar.
 
-1. Visual Studio kullanarak yeni bir Visual C# Windows Klasik Masaüstü projesi oluşturma **konsol uygulaması** proje şablonu. Proje adı **SimulateDeviceConfiguration**.
+1. Visual Studio'da hello kullanarak yeni bir Visual C# Windows Klasik Masaüstü projesi oluşturma **konsol uygulaması** proje şablonu. Ad hello proje **SimulateDeviceConfiguration**.
    
     ![Yeni Visual C# Klasik Windows cihaz uygulaması][img-createdeviceapp]
 
-1. Çözüm Gezgini'nde sağ **SimulateDeviceConfiguration** proje ve ardından **NuGet paketlerini Yönet...** .
-1. İçinde **NuGet Paket Yöneticisi** penceresinde, seçin **Gözat** arayın ve **microsoft.azure.devices.client**. Seçin **yükleme** yüklemek için **Microsoft.Azure.Devices.Client** paketini ve kullanım koşullarını kabul edin. Bu yordam indirir, yükler ve bir başvuru ekler [Azure IOT cihaz SDK'sı] [ lnk-nuget-client-sdk] NuGet paketi ve bağımlılıklarını.
+1. Çözüm Gezgini'nde hello sağ **SimulateDeviceConfiguration** proje ve ardından **NuGet paketlerini Yönet...** .
+1. Merhaba, **NuGet Paket Yöneticisi** penceresinde, seçin **Gözat** arayın ve **microsoft.azure.devices.client**. Seçin **yükleme** tooinstall hello **Microsoft.Azure.Devices.Client** paketini ve hello kullanım koşullarını kabul edin. Bu yordam indirir, yükler ve başvuru toohello ekler [Azure IOT cihaz SDK'sı] [ lnk-nuget-client-sdk] NuGet paketi ve bağımlılıklarını.
    
     ![NuGet Paket Yöneticisi penceresi istemci uygulaması][img-clientnuget]
-1. Aşağıdaki `using` deyimlerini **Program.cs** dosyasının üst kısmına ekleyin:
+1. Merhaba aşağıdakileri ekleyin `using` deyimleri hello hello üstündeki **Program.cs** dosyası:
    
         using Microsoft.Azure.Devices.Client;
         using Microsoft.Azure.Devices.Shared;
         using Newtonsoft.Json;
 
-1. **Program** sınıfına aşağıdaki alanları ekleyin. Yer tutucu değerini önceki bölümünde belirtildiği cihaz bağlantı dizesini değiştirin.
+1. Aşağıdaki alanları toohello hello eklemek **Program** sınıfı. Merhaba yer tutucu değerini hello önceki bölümünde belirtildiği hello cihaz bağlantı dizesini değiştirin.
    
         static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
         static DeviceClient Client = null;
         static TwinCollection reportedProperties = new TwinCollection();
 
-1. **Program** sınıfına aşağıdaki yöntemi ekleyin:
+1. Yöntem toohello aşağıdaki hello eklemek **Program** sınıfı:
  
         public static void InitClient()
         {
             try
             {
-                Console.WriteLine("Connecting to hub");
+                Console.WriteLine("Connecting toohub");
                 Client = DeviceClient.CreateFromConnectionString(DeviceConnectionString, TransportType.Mqtt);
             }
             catch (Exception ex)
@@ -83,9 +83,9 @@ Bu bölümde, hub'ınıza bağlanan bir .NET konsol uygulaması oluşturma **myD
                 Console.WriteLine("Error in sample: {0}", ex.Message);
             }
         }
-    **İstemci** nesne ihtiyaç duyduğunuz etkileşim kurmak için cihaz çiftlerini aygıttan ile tüm yöntemleri gösterir. Yukarıda gösterilen koddan başlatır **istemci** nesne ve cihaz çiftinin alır **myDeviceId**.
+    Merhaba **istemci** nesne cihaz çiftlerini hello aygıttan ile toointeract duyduğunuz tüm hello yöntemler sunar. Merhaba, yukarıda gösterilen kodu başlatır hello **istemci** nesne ve alır hello cihaz çiftinin **myDeviceId**.
 
-1. Aşağıdaki yöntemi ekleyin **Program** sınıfı. Bu yöntem yerel cihazda telemetri ilk değerlerini ayarlar ve cihaz çifti güncelleştirir.
+1. Yöntem toohello aşağıdaki hello eklemek **Program** sınıfı. Bu yöntem hello başlangıç değerleri telemetri hello yerel cihazda ayarlar ve ardından güncelleştirmeleri cihaz çifti hello.
 
         public static async void InitTelemetry()
         {
@@ -116,7 +116,7 @@ Bu bölümde, hub'ınıza bağlanan bir .NET konsol uygulaması oluşturma **myD
             }
         }
 
-1. Aşağıdaki yöntemi ekleyin **Program** sınıfı. Bu değişikliği algılar bir geri çağırma olduğu *özelliklerini istenen* cihaz çiftine.
+1. Yöntem toohello aşağıdaki hello eklemek **Program** sınıfı. Bu değişikliği algılar bir geri çağırma olduğu *özelliklerini istenen* hello cihaz çiftine.
 
         private static async Task OnDesiredPropertyChanged(TwinCollection desiredProperties, object userContext)
         {
@@ -154,9 +154,9 @@ Bu bölümde, hub'ınıza bağlanan bir .NET konsol uygulaması oluşturma **myD
             }
         }
 
-    Bu yöntem yerel cihaz çifti nesnesindeki bildirilen özellikleri yapılandırma güncelleştirme isteği ile güncelleştirir ve durumunu ayarlar **bekleyen**, hizmette cihaz çifti güncelleştirir. Cihaz çifti başarıyla güncelleştirdikten sonra yapılandırma değişikliği yöntemini çağırarak tamamlanmadan `CompleteConfigChange` sonraki noktasında açıklanmaktadır.
+    Bu yöntem güncelleştirmeleri hello bildirilen nesnesindeki özellikleri hello yerel cihaz çifti hello yapılandırmasıyla güncelleştirme isteği ve kümelerini hello durumu çok**bekleyen**, cihaz çifti hello hizmetinde güncelleştirmeleri hello sonra. Merhaba cihaz çifti başarıyla güncelleştirdikten sonra hello yapılandırma değişikliği hello yöntemini çağırarak tamamlanmadan `CompleteConfigChange` hello sonraki noktasında açıklanmaktadır.
 
-1. Aşağıdaki yöntemi ekleyin **Program** sınıfı. Bu yöntem bir cihaz sıfırlama benzetimini yapar, sonra güncelleştirmeleri yerel bildirilen durum ayarını özellikleri **başarı** ve kaldırır **pendingConfig** öğesi. Ardından, cihaz çifti hizmette güncelleştirir. 
+1. Yöntem toohello aşağıdaki hello eklemek **Program** sınıfı. Bu yöntem bir cihaz sıfırlama benzetimini yapar, sonra güncelleştirmeleri hello hello durumu çok ayarı yerel bildirilen özellikleri**başarı** ve kaldırır hello **pendingConfig** öğesi. Ardından, hello cihaz çifti hello hizmetinde güncelleştirir. 
 
         public static async void CompleteConfigChange()
         {
@@ -174,7 +174,7 @@ Bu bölümde, hub'ınıza bağlanan bir .NET konsol uygulaması oluşturma **myD
                 currentTelemetryConfig["pendingConfig"] = null;
 
                 await Client.UpdateReportedPropertiesAsync(reportedProperties);
-                Console.WriteLine("Config change complete \nPress any key to exit.");
+                Console.WriteLine("Config change complete \nPress any key tooexit.");
             }
             catch (AggregateException ex)
             {
@@ -191,7 +191,7 @@ Bu bölümde, hub'ınıza bağlanan bir .NET konsol uygulaması oluşturma **myD
             }
         }
 
-1. Son olarak aşağıdaki satırları ekleyin **ana** yöntemi:
+1. Son satırları toohello aşağıdaki hello ekleyin **ana** yöntemi:
 
         try
         {
@@ -217,31 +217,31 @@ Bu bölümde, hub'ınıza bağlanan bir .NET konsol uygulaması oluşturma **myD
         }
 
    > [!NOTE]
-   > Bu öğretici herhangi davranışı eşzamanlı yapılandırma güncelleştirmelerini benzetimini değil. Bazı yapılandırma güncelleştirme işlemleri hedef yapılandırma değişiklikleri güncelleştirme çalışan bazı bunları kuyruğuna olabilir ve bazı bir hata durumu reddedebilirsiniz sırada karşılamak mümkün olabilir. Belirli bir yapılandırma işlemi için istenen davranışı dikkate aldığınızdan emin olun ve yapılandırma değişikliğini başlatmadan önce uygun mantığı ekleyin.
+   > Bu öğretici herhangi davranışı eşzamanlı yapılandırma güncelleştirmelerini benzetimini değil. Merhaba güncelleştirme çalışırken bazı yapılandırma güncelleştirme işlemleri hedef yapılandırmasının mümkün tooaccommodate değişiklikler olabilir, bazı ve bazı bunları bir hata durumu reddedebilirsiniz tooqueue olabilir. Belirli bir yapılandırma işlemi için istenen davranışı hello ve hello yapılandırma değişikliği başlatmadan önce hello uygun mantığı ekleyin emin tooconsider olun.
    > 
    > 
-1. Çözümü derlemek ve tıklayarak bu cihaz uygulaması Visual Studio'dan çalıştırma **F5**. Çıktı konsolda sanal cihazınız cihaz çifti alıyor belirten, telemetri ayarlama ve istenen özellik değişikliği için bekleyen iletileri görmeniz gerekir. Uygulamayı çalıştıran tutun.
+1. Hello çözümü oluşturmak ve ardından hello cihaz uygulaması tıklayarak Visual Studio'dan çalıştırma **F5**. Merhaba çıkış konsolda sanal cihazınız hello cihaz çifti alma, hello telemetri ayarlama ve istenen özellik değişikliği için bekleyen belirten Merhaba iletileri görmeniz gerekir. Çalışan hello uygulama tutun.
 
-## <a name="create-the-service-app"></a>Hizmet Uygulaması Oluştur
-Bu bölümde, güncelleştirmeleri bir .NET konsol uygulaması oluşturacak *özelliklerini istenen* ilişkili cihaz çifti üzerinde **myDeviceId** ile yeni bir telemetri yapılandırma nesnesi. IOT hub'ı depolanan cihaz çiftlerini sorgular ve cihazın istenen ve bildirilen yapılandırmaları arasındaki farkı gösterir.
+## <a name="create-hello-service-app"></a>Merhaba service uygulaması oluşturma
+Bu bölümde, bu güncelleştirmeleri hello bir .NET konsol uygulaması oluşturacak *özelliklerini istenen* hello cihaz çifti ile ilişkili üzerinde **myDeviceId** ile yeni bir telemetri yapılandırma nesnesi. Ardından hello IOT hub'da depolanan hello cihaz çiftlerini sorgular ve hello hello birbirinden istenen ve hello cihaz yapılandırmalarını bildirilen gösterir.
 
-1. Visual Studio'da **Konsol Uygulaması** proje şablonunu kullanarak geçerli çözüme bir Visual C# Windows Klasik Masaüstü projesi ekleyin. Proje adı **SetDesiredConfigurationAndQuery**.
+1. Visual Studio'da hello kullanarak bir Visual C# Windows Klasik Masaüstü projesi toohello geçerli çözüme ekleyin **konsol uygulaması** proje şablonu. Ad hello proje **SetDesiredConfigurationAndQuery**.
    
     ![Yeni Visual C# Windows Klasik Masaüstü projesi][img-createapp]
-1. Çözüm Gezgini'nde sağ **SetDesiredConfigurationAndQuery** proje ve ardından **NuGet paketlerini Yönet...** .
-1. **NuGet Paket Yöneticisi** penceresinde **Gözat**'ı seçin, **microsoft.azure.devices**'ı aratın, **Microsoft.Azure.Devices** paketini yüklemek için **Yükle**'yi seçin ve kullanım koşullarını kabul edin. Bu yordam ile [Azure IoT hizmet SDK'sı][lnk-nuget-service-sdk] NuGet paketi ve bağımlılıkları indirilir, yüklenir ve bu pakete bir başvuru eklenir.
+1. Çözüm Gezgini'nde hello sağ **SetDesiredConfigurationAndQuery** proje ve ardından **NuGet paketlerini Yönet...** .
+1. Merhaba, **NuGet Paket Yöneticisi** penceresinde, seçin **Gözat**, arama **microsoft.azure.devices**seçin **yükleme** tooinstall Merhaba **Microsoft.Azure.Devices** paketini ve hello kullanım koşullarını kabul edin. Bu yordam indirir, yükler ve başvuru toohello ekler [Azure IOT hizmeti SDK'sını] [ lnk-nuget-service-sdk] NuGet paketi ve bağımlılıklarını.
    
     ![NuGet Paket Yöneticisi penceresi][img-servicenuget]
-1. Aşağıdaki `using` deyimlerini **Program.cs** dosyasının üst kısmına ekleyin:
+1. Merhaba aşağıdakileri ekleyin `using` deyimleri hello hello üstündeki **Program.cs** dosyası:
    
         using Microsoft.Azure.Devices;
         using System.Threading;
         using Newtonsoft.Json;
-1. **Program** sınıfına aşağıdaki alanları ekleyin. Yer tutucu değerini, önceki bölümde hub için oluşturduğunuz IoT Hub bağlantı dizesiyle değiştirin.
+1. Aşağıdaki alanları toohello hello eklemek **Program** sınıfı. Merhaba hello önceki bölümde oluşturduğunuz hello hub'ın IOT Hub bağlantı dizesine sahip Hello yer tutucu değerini değiştirin.
    
         static RegistryManager registryManager;
         static string connectionString = "{iot hub connection string}";
-1. **Program** sınıfına aşağıdaki yöntemi ekleyin:
+1. Yöntem toohello aşağıdaki hello eklemek **Program** sınıfı:
    
         static private async Task SetDesiredConfigurationAndQuery()
         {
@@ -275,37 +275,37 @@ Bu bölümde, güncelleştirmeleri bir .NET konsol uygulaması oluşturacak *öz
             }
         }
    
-    **Kayıt defteri** nesne cihaz çiftlerini hizmet ile etkileşim kurmak için gereken tüm yöntemleri gösterir. Bu kod başlatır **kayıt defteri** nesnesi, cihaz çiftinin alır **myDeviceId**ve ardından yeni bir telemetri yapılandırma nesnesi ile istenen özelliklerini güncelleştirir.
-    Bundan sonra IOT hub'ı 10 saniyede depolanan cihaz çiftlerini sorgular ve istenen ve bildirilen telemetri yapılandırmaları yazdırır. Başvurmak [IOT hub'ı sorgu dili] [ lnk-query] tüm cihazlarınızda zengin raporlar üretmek hakkında bilgi edinmek için.
+    Merhaba **kayıt defteri** nesne cihaz çiftlerini hello hizmetinden ile tüm hello yöntemleri gerekli toointeract kullanıma sunar. Bu kod hello başlatır **kayıt defteri** nesnesi alır, cihaz çiftinin hello **myDeviceId**ve ardından yeni bir telemetri yapılandırma nesnesi ile istenen özelliklerini güncelleştirir.
+    Bundan sonra 10 saniyede hello IOT hub'da depolanan hello cihaz çiftlerini sorgular ve baskı siparişi hello istenen ve telemetri yapılandırmaları bildirdi. Toohello başvuran [IOT hub'ı sorgu dili] [ lnk-query] nasıl toogenerate zengin raporları, tüm aygıtlarda toolearn.
    
    > [!IMPORTANT]
-   > Bu uygulama yalnızca tanım amaçlıdır her 10 saniye IOT hub'ı sorgular. Sorguları birçok cihaz arasında kullanıcı dönük raporları oluşturmak ve değil değişikliklerini algılamak için kullanın. Çözümünüz cihaz olayların gerçek zamanlı bildirimler gerektiriyorsa, kullanın [twin bildirimleri][lnk-twin-notifications].
+   > Bu uygulama yalnızca tanım amaçlıdır her 10 saniye IOT hub'ı sorgular. Kullanım toogenerate kullanıcı dönük raporları birçok cihaz ve toodetect değişiklikleri arasında sorgular. Çözümünüz cihaz olayların gerçek zamanlı bildirimler gerektiriyorsa, kullanın [twin bildirimleri][lnk-twin-notifications].
    > 
    > 
-1. Son olarak, **Main** yöntemine aşağıdaki satırları ekleyin:
+1. Son olarak, aşağıdaki satırları toohello hello eklemek **ana** yöntemi:
    
         registryManager = RegistryManager.CreateFromConnectionString(connectionString);
         SetDesiredConfigurationAndQuery();
-        Console.WriteLine("Press any key to quit.");
+        Console.WriteLine("Press any key tooquit.");
         Console.ReadLine();
-1. Çözüm Gezgini'nde açık **başlangıç projelerini Ayarla...**  ve emin olun **eylem** için **SetDesiredConfigurationAndQuery** projedir **Başlat**. Çözümü oluşturun.
-1. İle **SimulateDeviceConfiguration** cihaz uygulamasının çalışıyor, Visual Studio kullanarak hizmet uygulama çalıştırma **F5**. Çıkarılıp bildirilen yapılandırma görmelisiniz **bekleyen** için **başarı** 24 saat yerine beş dakikalık sıklığı yeni etkin gönderin.
+1. Merhaba Hello Çözüm Gezgini, açık **başlangıç projelerini Ayarla...**  ve emin hello **eylem** için **SetDesiredConfigurationAndQuery** projedir **Başlat**. Merhaba çözümü oluşturun.
+1. İle **SimulateDeviceConfiguration** cihaz uygulamasının çalışıyor, Visual Studio kullanarak çalışma hello service uygulaması **F5**. Merhaba bildirilen yapılandırma çıkarılıp görmelisiniz **bekleyen** çok**başarı** hello yeni etkin ile 24 saat yerine beş dakikalık sıklığı Gönder.
 
  ![Cihaz başarıyla yapılandırıldı][img-deviceconfigured]
    
    > [!IMPORTANT]
-   > Cihaz rapor işlemi ve sorgu sonucu arasında bir dakika kadar bir gecikme yoktur. Bu, çok yüksek ölçekli olarak çalışmak sorgu altyapısı olanak sağlamasıdır. Bir tek cihaz çifti kullanımı tutarlı görünümleri almak için **getDeviceTwin** yönteminde **kayıt defteri** sınıfı.
+   > Merhaba aygıt rapor işlemi hello sorgu sonucu arasındaki tooa minute yukarı bir gecikme yoktur. Çok yüksek ölçekli tooenable hello sorgu altyapısı toowork budur. tooretrieve tutarlı bir tek cihaz çifti görünümlerini kullanın hello **getDeviceTwin** hello yönteminde **kayıt defteri** sınıfı.
    > 
    > 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, istenen yapılandırma olarak kümesi *özellikleri istenen* çözümden arka uç ve bu değişikliği algılar ve durumunu bildirilen özellikleri aracılığıyla raporlama çok adımlı güncelleştirme işleminin benzetimini yapmak için bir cihaz uygulaması yazıldı.
+Bu öğreticide, istenen yapılandırma olarak kümesi *özellikleri istenen* hello çözümden arka uç ve değiştirebilir ve durumunu bildirilen hello aracılığıyla raporlama çok adımlı güncelleştirme işleminin benzetimini cihaz uygulama toodetect yazıldı Özellikler.
 
-Bilgi edinmek için aşağıdaki kaynakları kullanın nasıl yapılır:
+Kaynakları toolearn nasıl aşağıdaki kullanım hello için:
 
-* aygıtlarla telemetri gönderen [IOT Hub ile çalışmaya başlama] [ lnk-iothub-getstarted] öğretici
-* zamanlama veya aygıtları bakın büyük kümeleri işlemleri [zamanlama ve yayın işleri] [ lnk-schedule-jobs] Öğreticisi.
-* ile etkileşimli olarak (örneğin, kullanıcı tarafından denetlenen bir uygulamadan fan etkinleştirdikten), cihazları denetleme [doğrudan yöntemleri kullanın] [ lnk-methods-tutorial] Öğreticisi.
+* Merhaba aygıtlarla telemetri gönderen [IOT Hub ile çalışmaya başlama] [ lnk-iothub-getstarted] öğretici
+* zamanlama veya gerçekleştirmek aygıtların büyük kümeleri üzerinde işlemler bkz hello [zamanlama ve yayın işleri] [ lnk-schedule-jobs] Öğreticisi.
+* Merhaba ile etkileşimli olarak (örneğin, kullanıcı tarafından denetlenen bir uygulamadan fan etkinleştirdikten), cihazları denetleme [doğrudan yöntemleri kullanın] [ lnk-methods-tutorial] Öğreticisi.
 
 <!-- images -->
 [img-servicenuget]: media/iot-hub-csharp-csharp-twin-how-to-configure/servicesdknuget.png

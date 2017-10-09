@@ -1,8 +1,8 @@
-Bir istemci sertifikası oluşturduğunuzda, onu oluşturmak için kullanılan bilgisayarda otomatik olarak yüklenir. İstemci sertifikası başka bir istemci bilgisayara yüklemek istiyorsanız, oluşturulan istemci sertifikasını dışarı aktarmanız gerekmez.                              
+Bir istemci sertifikası oluşturduğunuzda, onu otomatik olarak toogenerate kullanılan hello bilgisayarda yüklü. Başka bir istemci bilgisayarda tooinstall hello istemci sertifikası istiyorsanız, oluşturulan tooexport hello istemci sertifikası gerekir.                              
 
-1. Bir istemci sertifikasını dışarı aktarmak için **Kullanıcı sertifikalarını yönet** menüsünü açın. Oluşturulan istemci sertifikalarını varsayılan olarak, 'Sertifikalar - Geçerli User\Personal\Certificates' bulunan. İstediğiniz dışarı aktarmak için istemci sertifikasına sağ **tüm görevler**ve ardından **verme** açmak için **Sertifika Verme Sihirbazı**.
-2. Sihirbazda **İleri**’ye tıklayın, **Evet, özel anahtarı dışarı aktar**’ı seçin ve **İleri**’ye tıklayın.
-3. **Dışarı Aktarma Dosyası Biçimi** sayfasında, varsayılan ayarları seçili bırakın. **Mümkünse sertifika yolundaki tüm sertifikaları ekle** seçeneğinin işaretli olduğundan emin olun. Bu seçeneğin seçilmesi, başarılı kimlik doğrulaması için kök sertifika bilgileri verir. Ardından **İleri**'ye tıklayın.
-4. **Güvenlik** sayfasında, özel anahtarı korumanız gerekir. Bir parola kullanmayı seçerseniz, bu sertifika için ayarladığınız parolayı kaydettiğinizden ya da unutmayacağınızdan emin olun. Ardından **İleri**'ye tıklayın.
-5. **Dışarı Aktarılan Dosya** sayfasında **Gözat**'a tıklayarak sertifika için dışarı aktarma konumunu seçin. **Dosya adı** alanına, sertifika dosyası için bir ad girin. Ardından **İleri**'ye tıklayın.
-6. Sertifikayı dışarı aktarmak için **Son**'a tıklayın.
+1. bir istemci sertifikası tooexport açmak **kullanıcı sertifikaları yönetme**. Ürettiğiniz hello istemci sertifikalarını varsayılan olarak, 'Sertifikalar - Geçerli User\Personal\Certificates' bulunan. Sağ hello istemci sertifikası tooexport, istediğiniz tıklatın **tüm görevler**ve ardından **verme** tooopen hello **Sertifika Verme Sihirbazı**.
+2. Hello Sihirbazı, tıklatın **sonraki**seçeneğini belirleyip **Evet, hello özel anahtarı dışarı aktar**ve ardından **sonraki**.
+3. Merhaba üzerinde **dışarı aktarma dosyası biçimi** sayfasında, seçilen hello Varsayılanları bırakabilir. Olduğundan emin olun **mümkünse hello sertifika yolundaki tüm sertifikaları dahil et** seçilir. Bu seçeneğin seçilmesi, başarılı kimlik doğrulaması için gerekli olan hello kök sertifika bilgiler verir. Ardından **İleri**'ye tıklayın.
+4. Merhaba üzerinde **güvenlik** sayfasında, özel anahtarı hello korumanız gerekir. Toouse seçerseniz bir parola toorecord emin olun veya bu sertifika için ayarladığınız hello parolayı unutmayın. Ardından **İleri**'ye tıklayın.
+5. Merhaba üzerinde **dosya tooExport**, **Gözat** toohello konumu toowhich tooexport hello sertifika istiyor. İçin **dosya adı**, ad hello sertifika dosyası. Ardından **İleri**'ye tıklayın.
+6. Tıklatın **son** tooexport hello sertifika.

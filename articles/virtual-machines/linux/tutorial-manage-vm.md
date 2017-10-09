@@ -1,6 +1,6 @@
 ---
-title: "Oluşturma ve Azure CLI ile Linux sanal makineleri yönetme | Microsoft Docs"
-description: "Öğretici - oluşturma ve Linux VM'ler Azure CLI ile yönetme"
+title: "aaaCreate ve Linux sanal makineleri yönetme hello Azure CLI | Microsoft Docs"
+description: "Öğretici - oluşturmak ve yönetmek Linux VM'ler ile hello Azure CLI"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: neilpeterson
@@ -16,18 +16,18 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c163c715eb1438a0d6b0ab53cbb43816ca8dbbb4
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 05f7c1cf860f809bc13f110778d3bddd619ac6f1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Oluşturma ve Linux VM'ler Azure CLI ile yönetme
+# <a name="create-and-manage-linux-vms-with-hello-azure-cli"></a>Oluşturma ve yönetme Linux VM'ler ile Azure CLI hello
 
 Azure sanal makineler tam olarak yapılandırılabilir ve esnek bir bilgi işlem ortamı sağlar. Bu öğretici, bir VM boyutu seçerek, bir VM görüntüsü seçme ve bir VM dağıtma gibi temel Azure sanal makine dağıtım öğeleri kapsar. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Oluşturma ve bir VM'ye bağlanın
+> * Oluştur ve tooa VM Bağlan
 > * Seçin ve VM görüntüleri kullanmak
 > * Görüntüleme ve belirli VM boyutları kullanma
 > * VM’yi yeniden boyutlandırma
@@ -36,23 +36,23 @@ Azure sanal makineler tam olarak yapılandırılabilir ve esnek bir bilgi işlem
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Yüklemek ve CLI yerel olarak kullanmak seçerseniz, Bu öğretici, Azure CLI Sürüm 2.0.4 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Tooinstall seçin ve hello CLI yerel olarak kullanırsanız, Bu öğretici hello Azure CLI Sürüm 2.0.4 çalıştırmasını gerektirir veya sonraki bir sürümü. Çalıştırma `az --version` toofind hello sürümü. Tooinstall veya yükseltme gerekirse bkz [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-resource-group"></a>Kaynak grubu oluşturma
 
-[az group create](https://docs.microsoft.com/cli/azure/group#create) komutuyla bir kaynak grubu oluşturun. 
+Bir kaynak grubu ile Merhaba oluşturmak [az grubu oluşturma](https://docs.microsoft.com/cli/azure/group#create) komutu. 
 
-Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Bir kaynak grubu bir sanal makine önce oluşturulması gerekir. Bu örnekte, bir kaynak grubu adında *myResourceGroupVM* oluşturulan *eastus* bölge. 
+Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Bir kaynak grubu bir sanal makine önce oluşturulması gerekir. Bu örnekte, bir kaynak grubu adında *myResourceGroupVM* hello oluşturulan *eastus* bölge. 
 
 ```azurecli-interactive 
 az group create --name myResourceGroupVM --location eastus
 ```
 
-Kaynak grubu oluştururken veya değiştirirken Bu öğretici görülebilir bir VM belirtilir.
+Merhaba kaynak grubu oluştururken veya değiştirirken Bu öğretici görülebilir bir VM belirtilir.
 
 ## <a name="create-virtual-machine"></a>Sanal makine oluşturma
 
-Bir sanal makine oluşturma [az vm oluşturma](https://docs.microsoft.com/cli/azure/vm#create) komutu. 
+Merhaba ile bir sanal makine oluşturmak [az vm oluşturma](https://docs.microsoft.com/cli/azure/vm#create) komutu. 
 
 Bir sanal makine oluştururken, işletim sistemi görüntüsü, disk boyutlandırma ve yönetici kimlik bilgileri gibi birkaç seçenek bulunur. Bu örnekte, bir sanal makine adı ile oluşturulan *myVM* Ubuntu Server çalıştıran. 
 
@@ -60,7 +60,7 @@ Bir sanal makine oluştururken, işletim sistemi görüntüsü, disk boyutlandı
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
-VM oluşturulduktan sonra Azure CLI VM hakkında bilgi verir. Not edin `publicIpAddress`, bu adres sanal makine erişmek için kullanılan... 
+Bir kez hello VM oluşturulduktan sonra hello Azure CLI hello VM bilgilerini çıkarır. Merhaba not edin `publicIpAddress`, bu adres kullanılan tooaccess hello sanal makineye bağlanabilir... 
 
 ```azurecli-interactive 
 {
@@ -75,15 +75,15 @@ VM oluşturulduktan sonra Azure CLI VM hakkında bilgi verir. Not edin `publicIp
 }
 ```
 
-## <a name="connect-to-vm"></a>VM'ye bağlanın
+## <a name="connect-toovm"></a>TooVM Bağlan
 
-SSH kullanarak VM şimdi bağlanabilir. Örnek IP adresiyle değiştirin `publicIpAddress` önceki adımda not ettiğiniz.
+Şimdi toohello VM bağlanabilir SSH kullanarak. Merhaba örnek IP adresi ile hello yerine `publicIpAddress` hello önceki adımda not ettiğiniz.
 
 ```bash
 ssh 52.174.34.95
 ```
 
-VM ile işlemi tamamladıktan sonra SSH oturumu kapatın. 
+Merhaba VM ile işlemi tamamladıktan sonra hello SSH oturumu kapatın. 
 
 ```bash
 exit
@@ -91,15 +91,15 @@ exit
 
 ## <a name="understand-vm-images"></a>VM görüntüleri anlama
 
-Azure Market VM'ler oluşturmak için kullanılan çok sayıda görüntü içerir. Önceki adımlarda, bir sanal makine bir Ubuntu görüntü kullanılarak oluşturuldu. Bu adımda, Azure CLI sonra ikinci bir sanal makineyi dağıtmak için kullanılan bir CentOS görüntüsü Market aramak için kullanılır.  
+Hello Azure Market kullanılan toocreate VM'ler olabilecek çok sayıda görüntü içerir. Merhaba önceki adımlarda, bir sanal makine bir Ubuntu görüntü kullanılarak oluşturuldu. Bu adımda, Azure CLI ise bir CentOS görüntü için kullanılan toosearch hello Market olduğu hello toodeploy ikinci bir sanal makinede kullanılır.  
 
-Bir liste en yaygın olarak kullanılan görüntüleri görmek için [az vm görüntü listesi](/cli/azure/vm/image#list) komutu.
+toosee hello listesi en yaygın olarak kullanılan görüntüleri, hello kullan [az vm görüntü listesi](/cli/azure/vm/image#list) komutu.
 
 ```azurecli-interactive 
 az vm image list --output table
 ```
 
-Komut çıktısı Azure üzerinde en popüler VM görüntüleri döndürür.
+Merhaba komutu çıktısı Azure'da hello en popüler VM görüntüleri döndürür.
 
 ```bash
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
@@ -117,7 +117,7 @@ Debian         credativ                8                   credativ:Debian:8:lat
 CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
 ```
 
-Ekleyerek tam bir listesi görülebilir `--all` bağımsız değişkeni. Resim listesi de göre filtrelenebilir `--publisher` veya `–-offer`. Bu örnekte, tüm görüntüleri için eşleşen bir teklif ile listesi filtrelenir *CentOS*. 
+Merhaba ekleyerek tam bir listesi görülebilir `--all` bağımsız değişkeni. Merhaba resim listesi ayrıca göre filtrelenmiş `--publisher` veya `–-offer`. Bu örnekte, tüm görüntüleri için eşleşen bir teklif ile Merhaba listesi filtrelenir *CentOS*. 
 
 ```azurecli-interactive 
 az vm image list --offer CentOS --all --output table
@@ -136,7 +136,7 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309     
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
 ```
 
-Belirli bir görüntüsünü kullanan bir VM'yi dağıtmak için değeri not edin *Urn* sütun. Görüntü belirtirken, görüntü sürüm numarası ile "son", hangi dağıtım en son sürümünü seçer değiştirilebilir. Bu örnekte, `--image` bağımsız değişkeni bir CentOS 6.5 görüntüsü en son sürümünü belirtmek için kullanılır.  
+belirli bir görüntü kullanarak bir VM'i toodeploy hello hello değeri not alın *Urn* sütun. Merhaba görüntü belirtirken, hello görüntü sürüm numarası ile "son", hangi hello dağıtım en son sürümünü hello seçer değiştirilebilir. Bu örnekte, hello `--image` kullanılan toospecify hello en son sürümünü CentOS 6.5 görüntü değişkendir.  
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
@@ -144,17 +144,17 @@ az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:C
 
 ## <a name="understand-vm-sizes"></a>VM boyutları anlama
 
-Bir sanal makine boyutu, sanal makine için kullanılabilir hale getirilir işlem kaynaklarını CPU, GPU ve bellek gibi miktarını belirler. Sanal makineler, beklenen iş yükü için uygun boyutta olması gerekir. İş yükü artarsa, var olan bir sanal makine yeniden boyutlandırılabilir.
+Bir sanal makine boyutu, kullanılabilir toohello sanal makine yapılan işlem kaynaklarını CPU, GPU ve bellek gibi hello miktarını belirler. Sanal makinelerin beklendiği hello iş yükü için uygun şekilde boyutlandırılmış toobe gerekir. İş yükü artarsa, var olan bir sanal makine yeniden boyutlandırılabilir.
 
 ### <a name="vm-sizes"></a>VM boyutları
 
-Aşağıdaki tabloda, kullanım örneklerine boyutları kategorilere ayırır.  
+Aşağıdaki tablonun hello boyutları kullanım örneklerine kategorilere ayırır.  
 
 | Tür                     | Boyutlar           |    Açıklama       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Genel amaçlı](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Dengeli CPU bellekten. Geliştirme için ideal / test ve küçük ve orta uygulamaları ve verileri çözümler.  |
+| [Genel amaçlı](sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Dengeli CPU bellekten. Geliştirme için ideal / test ve küçük toomedium uygulamaları ve verileri çözümler.  |
 | [İşlem için iyileştirilmiş](sizes-compute.md)   | FS, F             | Yüksek CPU bellekten. Orta düzey trafik uygulamalar, ağ uygulamaları ve toplu işlemler için iyidir.        |
-| [Bellek için iyileştirilmiş](../virtual-machines-windows-sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Yüksek bellek için-çekirdek. İlişkisel veritabanları, Orta ve büyük önbellekler ve bellek içi analizi için mükemmel.                 |
+| [Bellek için iyileştirilmiş](../virtual-machines-windows-sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Yüksek bellek için-çekirdek. İlişkisel veritabanları, Orta toolarge önbellekleri ve bellek içi analizi için mükemmel.                 |
 | [Depolama için iyileştirilmiş](../virtual-machines-windows-sizes-storage.md)      | Ls                | Yüksek disk aktarım hızı ve GÇ. Büyük Veri, SQL ve NoSQL veritabanları için ideal.                                                         |
 | [GPU](sizes-gpu.md)          | NV, NC            | Yoğun Grafik işleme ve video düzenleme için hedeflenen özel VM'ler.       |
 | [Yüksek performans](sizes-hpc.md) | H, A8-11          | Bizim en güçlü CPU VM'ler isteğe bağlı yüksek verimlilik ağ arabirimlerine (RDMA) sahip. 
@@ -162,7 +162,7 @@ Aşağıdaki tabloda, kullanım örneklerine boyutları kategorilere ayırır.
 
 ### <a name="find-available-vm-sizes"></a>Kullanılabilir VM boyutları Bul
 
-Belirli bir bölgede kullanılabilir VM boyutlarının listesini görmek için [az vm listesi-boyutları](/cli/azure/vm#list-sizes) komutu. 
+toosee VM listesi boyutları kullanılabilen belirli bir bölgede, hello kullan [az vm listesi-boyutları](/cli/azure/vm#list-sizes) komutu. 
 
 ```azurecli-interactive 
 az vm list-sizes --location eastus --output table
@@ -193,7 +193,7 @@ Kısmi çıktı:
 
 ### <a name="create-vm-with-specific-size"></a>Belirli boyutuyla VM oluşturma
 
-Önceki VM oluşturma örnekte, bir boyut değil sağlanmadığından, varsayılan boyutu sonuçlanır. Oluşturma zamanı kullanarak bir VM boyutu seçilebilir [az vm oluşturma](/cli/azure/vm#create) ve `--size` bağımsız değişkeni. 
+Merhaba önceki VM oluşturma örnekte, bir boyut değil sağlanmadığından, varsayılan boyutu sonuçlanır. Oluşturma zamanı kullanarak bir VM boyutu seçilebilir [az vm oluşturma](/cli/azure/vm#create) ve hello `--size` bağımsız değişkeni. 
 
 ```azurecli-interactive 
 az vm create \
@@ -206,32 +206,32 @@ az vm create \
 
 ### <a name="resize-a-vm"></a>VM’yi yeniden boyutlandırma
 
-Bir VM dağıtıldıktan sonra artırmak veya kaynak ayırma azaltmak için yeniden boyutlandırılabilir.
+Bir VM dağıtıldıktan sonra onu yeniden boyutlandırılan tooincrease olması veya kaynak ayırma azaltın.
 
-Bir VM'yi yeniden boyutlandırılırken önce istenen boyut geçerli Azure kümede kullanılabilir olup olmadığını denetleyin. [Az vm listesi-vm-yeniden boyutlandırma-seçenekleri](/cli/azure/vm#list-vm-resize-options) komut boyutlarının listesi döndürür. 
+Merhaba istenen boyuta hello geçerli Azure kümede kullanılabilir durumdaysa bir VM'yi yeniden boyutlandırılırken önce denetleyin. Merhaba [az vm listesi-vm-yeniden boyutlandırma-seçenekleri](/cli/azure/vm#list-vm-resize-options) döndürür hello boyutlarının listesi komutu. 
 
 ```azurecli-interactive 
 az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --query [].name
 ```
-İstenen boyut varsa, işlemi sırasında yeniden başlatılıncaya kadar ancak VM bir gücü açma durumundan boyutlandırılabilir. Kullanım [az VM'yi yeniden boyutlandırın]( /cli/azure/vm#resize) boyutlandırma gerçekleştirmek için komutu.
+Merhaba boyutu kullanılabilir isterseniz, hello işlemi sırasında yeniden başlatılıncaya kadar ancak hello VM bir gücü açma durumundan yeniden boyutlandırılabilir. Kullanım hello [az VM'yi yeniden boyutlandırın]( /cli/azure/vm#resize) komutu tooperform hello yeniden boyutlandırın.
 
 ```azurecli-interactive 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
-İstenen boyut geçerli kümede değilse, VM yeniden boyutlandırma işlemi oluşabilmesi için öncelikle serbest gerekir. Kullanım [az vm serbest bırakma]( /cli/azure/vm#deallocate) durdurun ve VM serbest bırakma için komutu. Not, VM geri açık olduğundan, geçici diskteki tüm verilerin kaldırılmış olabilir. Genel IP adresini de statik IP adresi kullanılmadığı sürece değiştirir. 
+Merhaba istenen boyut hello geçerli kümede hello VM hello yeniden boyutlandırma önce işlemi serbest toobe oluşabilir gereksinimlerini değildir. Kullanım hello [az vm serbest bırakma]( /cli/azure/vm#deallocate) komut toostop ve hello VM serbest bırakma. Merhaba, Not VM geri desteklenir, hello geçici diskteki tüm verilerin kaldırılmış olabilir. Merhaba genel IP adresi statik bir IP adresi kullanılmadığı sürece da değişir. 
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupVM --name myVM
 ```
 
-Yeniden boyutlandırma, serbest sonra ortaya çıkabilir. 
+Serbest sonra hello boyutlandırma ortaya çıkabilir. 
 
 ```azurecli-interactive 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_GS1
 ```
 
-Sonra yeniden boyutlandırmak, VM başlatılabilir.
+Merhaba yeniden boyutlandırıldıktan sonra hello VM başlatılabilir.
 
 ```azurecli-interactive 
 az vm start --resource-group myResourceGroupVM --name myVM
@@ -239,23 +239,23 @@ az vm start --resource-group myResourceGroupVM --name myVM
 
 ## <a name="vm-power-states"></a>VM güç durumları
 
-Bir Azure VM birçok güç durumlarını birine sahip. Bu durum, hiper yönetici açısından VM geçerli durumunu temsil eder. 
+Bir Azure VM birçok güç durumlarını birine sahip. Bu durum hello hiper yönetici hello açısından hello VM hello geçerli durumunu temsil eder. 
 
 ### <a name="power-states"></a>Güç durumları
 
 | Güç durumu | Açıklama
 |----|----|
-| Başlangıç | Sanal makinenin başlatıldığı gösterir. |
-| Çalışıyor | Sanal makinenin çalıştığını gösterir. |
-| Durduruluyor | Sanal makinenin durdurulması olduğunu gösterir. | 
-| Durduruldu | Sanal makine durdurulduğunda gösterir. Sanal makine durdurulmuş durumunda hala işlem ücretleri.  |
-| Ayırmayı kaldırma | Sanal makine ayırması olduğunu gösterir. |
-| Serbest bırakıldı | Sanal makine hiper yönetici alanından kaldırılacak, ancak denetim düzeyi hala kullanılabilir olduğunu gösterir. Deallocated durumunda sanal makineler bilgi işlem ücretleri değil. |
-| - | Sanal makinenin güç durumunun bilinmediğini gösterir. |
+| Başlangıç | Merhaba sanal makinenin başlatıldığı gösterir. |
+| Çalışıyor | Merhaba sanal makinenin çalışmadığını gösterir. |
+| Durduruluyor | Bu hello sanal makinenin durdurulması gösterir. | 
+| Durduruldu | Bu hello sanal makine durdurulduğunda gösterir. Sanal makineler hello durdurulmuş durumda hala işlem ücretleri.  |
+| Ayırmayı kaldırma | Merhaba sanal makinenin serbest gösterir. |
+| Serbest bırakıldı | Merhaba sanal makinenin hello hiper Yöneticisi'nden kaldırıldı ancak hello denetim düzlemi hala kullanılabilir olduğunu gösterir. Merhaba Deallocated durumu içindeki sanal makineler bilgi işlem ücretleri değil. |
+| - | Merhaba güç hello sanal makinenin durumunu bilinmediğini gösterir. |
 
 ### <a name="find-power-state"></a>Güç durumu Bul
 
-Belirli bir VM durumunu almak için kullanın [az vm örnek görünümünü Al](/cli/azure/vm#get-instance-view) komutu. Bir sanal makine ve kaynak grubu için geçerli bir ad belirttiğinizden emin olun. 
+belirli bir VM, kullanım hello tooretrieve hello durumu [az vm örnek görünümünü Al](/cli/azure/vm#get-instance-view) komutu. Emin toospecify bir sanal makine ve kaynak grubu için geçerli bir ad olabilir. 
 
 ```azurecli-interactive 
 az vm get-instance-view \
@@ -274,11 +274,11 @@ PowerState/running  VM running       Info
 
 ## <a name="management-tasks"></a>Yönetim görevleri
 
-Yaşam döngüsü sırasında sanal makinenin, başlatma, durdurma veya bir sanal makine silme gibi yönetim görevleri çalıştırmak isteyebilirsiniz. Ayrıca, yinelenen veya karmaşık görevleri otomatikleştirmek için komut dosyaları oluşturmak isteyebilirsiniz. Azure CLI kullanarak, birçok ortak yönetim görevlerinin komut satırından veya komut dosyalarında çalıştırabilirsiniz. 
+Merhaba yaşam döngüsü sırasında sanal makinenin, başlatma, durdurma veya bir sanal makine silme gibi yönetim görevleri toorun isteyebilirsiniz. Ayrıca, toocreate, komut dosyaları tooautomate yineleyen veya karmaşık görevleri isteyebilirsiniz. Hello Azure CLI kullanarak, birçok ortak yönetim görevlerinin hello komut satırından veya komut dosyalarında çalıştırabilirsiniz. 
 
 ### <a name="get-ip-address"></a>IP adresi al
 
-Bu komut, bir sanal makine özel ve genel IP adreslerini döndürür.  
+Bu komut, bir sanal makinenin hello özel ve genel IP adresleri döndürür.  
 
 ```azurecli-interactive 
 az vm list-ip-addresses --resource-group myResourceGroupVM --name myVM --output table
@@ -309,13 +309,13 @@ az group delete --name myResourceGroupVM --no-wait --yes
 Bu öğreticide, temel VM oluşturmayı ve yönetmeyi nasıl gibi hakkında öğrenilen:
 
 > [!div class="checklist"]
-> * Oluşturma ve bir VM'ye bağlanın
+> * Oluştur ve tooa VM Bağlan
 > * Seçin ve VM görüntüleri kullanmak
 > * Görüntüleme ve belirli VM boyutları kullanma
 > * VM’yi yeniden boyutlandırma
 > * Görüntüleyin ve VM durumunu anlamak
 
-VM diskleri hakkında bilgi edinmek için sonraki öğretici ilerleyin.  
+Toohello sonraki öğretici toolearn VM disklerle ilgili ilerleyin.  
 
 > [!div class="nextstepaction"]
 > [Oluşturma ve yönetme VM diskleri](./tutorial-manage-disks.md)

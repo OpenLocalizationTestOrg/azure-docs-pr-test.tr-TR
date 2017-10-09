@@ -1,6 +1,6 @@
 ---
-title: "Hdınsight'ta - Azure Hadoop ile MapReduce ve SSH bağlantısı | Microsoft Docs"
-description: "MapReduce işleri Hdınsight'ta Hadoop kullanarak çalıştırmak için SSH kullanmayı öğrenin."
+title: "aaaMapReduce ve hdınsight'ta - Azure Hadoop ile SSH bağlantısı | Microsoft Docs"
+description: "Hdınsight'ta Hadoop kullanarak nasıl toouse SSH toorun MapReduce işleri öğrenin."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,86 +16,86 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/31/2017
 ms.author: larryfr
-ms.openlocfilehash: eaf6278f97cd5ddd7e049ff4745181f39d7949a0
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 9626577687fc5cc119a39d65a9c45298f57f81c2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-mapreduce-with-hadoop-on-hdinsight-with-ssh"></a>Hdınsight ile SSH Hadoop ile MapReduce kullanma
 
 [!INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
 
-Güvenli Kabuk (SSH) bağlantısı MapReduce işleri hdınsight'a gönderme öğrenin.
+Nasıl bir güvenli Kabuk (SSH) bağlantısı tooHDInsight toosubmit MapReduce işleri öğrenin.
 
 > [!NOTE]
-> Linux tabanlı Hadoop sunucuları kullanarak bilginiz, ancak yeni Hdınsight için, bkz: [Linux tabanlı Hdınsight ipuçları](hdinsight-hadoop-linux-information.md).
+> Zaten biliyorsanız Linux tabanlı Hadoop kullanmaya sunucuları, ancak yeni tooHDInsight bkz [Linux tabanlı Hdınsight ipuçları](hdinsight-hadoop-linux-information.md).
 
 ## <a id="prereq"></a>Önkoşullar
 
 * Linux tabanlı Hdınsight (Hadoop hdınsight) küme
 
   > [!IMPORTANT]
-  > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+  > Linux hello yalnızca Hdınsight sürüm 3.4 veya büyük kullanılan işletim sistemini ' dir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Bir SSH istemcisi. Daha fazla bilgi için bkz: [Hdınsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## <a id="ssh"></a>SSH ile bağlanma
 
-SSH kullanarak kümeye bağlanın. Örneğin, aşağıdaki komutu adlı bir kümeye bağlanır **myhdinsight**:
+SSH kullanarak toohello kümesine bağlanın. Örneğin, komutu aşağıdaki hello adlı tooa küme bağlayan **myhdinsight**:
 
 ```bash
 ssh admin@myhdinsight-ssh.azurehdinsight.net
 ```
 
-**SSH kimlik doğrulaması için bir sertifika anahtarı kullanırsanız**, örneğin, istemci sisteminizde özel anahtarı konumunu belirtmeniz gerekebilir:
+**SSH kimlik doğrulaması için bir sertifika anahtarı kullanırsanız**, örneğin, istemci sisteminizde toospecify hello hello özel anahtarın konumunu gerekebilir:
 
 ```bash
 ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.net
 ```
 
-**SSH kimlik doğrulaması için bir parola kullanıyorsanız**, istendiğinde parolayı sağlamanız gerekir.
+**SSH kimlik doğrulaması için bir parola kullanıyorsanız**, istendiğinde tooprovide hello parolası gerekir.
 
 Hdınsight ile SSH kullanma hakkında daha fazla bilgi için bkz: [Hdınsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a id="hadoop"></a>Hadoop komutları kullanın
 
-1. Hdınsight kümesine bağlandıktan sonra bir MapReduce işi başlatmak için aşağıdaki komutu kullanın:
+1. Bağlı toohello Hdınsight kümesi olduktan sonra komutu toostart bir MapReduce işi aşağıdaki hello kullan:
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/WordCountOutput
     ```
 
-    Bu komut başlatır `wordcount` bulunan sınıfı `hadoop-mapreduce-examples.jar` dosya. Kullandığı `/example/data/gutenberg/davinci.txt` belge giriş ve çıkış olarak depolandı `/example/data/WordCountOutput`.
+    Bu komut hello başlatır `wordcount` hello bulunan sınıfı `hadoop-mapreduce-examples.jar` dosya. Merhaba kullanan `/example/data/gutenberg/davinci.txt` belge giriş ve çıkış olarak depolandı `/example/data/WordCountOutput`.
 
     > [!NOTE]
-    > Bu MapReduce işi ve örnek veriler hakkında daha fazla bilgi için bkz: [hdınsight'ta Hadoop içinde kullanım MapReduce](hdinsight-use-mapreduce.md).
+    > Bu MapReduce işi ve hello örnek veriler hakkında daha fazla bilgi için bkz: [hdınsight'ta Hadoop içinde kullanım MapReduce](hdinsight-use-mapreduce.md).
 
-2. İş, işler ve iş tamamlandığında, bilgileri aşağıdaki metni benzer döndürür gibi ayrıntıları gösterir:
+2. Merhaba iş, işler ve metin hello işi tamamlandığında aşağıdaki bilgileri benzer toohello döndürür Ayrıntılar gösterir:
 
         File Input Format Counters
         Bytes Read=1395666
         File Output Format Counters
         Bytes Written=337623
 
-3. İş tamamlandığında, çıkış dosyaları listelemek için aşağıdaki komutu kullanın:
+3. Merhaba işi tamamlandığında, aşağıdaki komut toolist hello çıktı dosyaları hello kullan:
 
     ```bash
     hdfs dfs -ls /example/data/WordCountOutput
     ```
 
-    Bu komut, iki dosya görüntülemek `_SUCCESS` ve `part-r-00000`. `part-r-00000` Dosyası bu iş için çıktıyı içerir.
+    Bu komut, iki dosya görüntülemek `_SUCCESS` ve `part-r-00000`. Merhaba `part-r-00000` dosyası hello çıktı bu iş için içerir.
 
     > [!NOTE]
-    > Bazı MapReduce işleri sonuçları birden çok bölme **bölümü r ###** dosyaları. Bu durumda, kullanın ### dosyaların sırasını belirtmek için soneki.
+    > Bazı MapReduce işleri hello sonuçları birden çok bölme **bölümü r ###** dosyaları. Öyleyse, hello kullan ### soneki hello dosyalarının tooindicate hello sırası.
 
-4. Çıktı görüntülemek için aşağıdaki komutu kullanın:
+4. tooview hello çıkışı, komutu aşağıdaki hello kullan:
 
     ```bash
     hdfs dfs -cat /example/data/WordCountOutput/part-r-00000
     ```
 
-    Bu komut bulunan sözcüklerin listesini görüntüler **wasb://example/data/gutenberg/davinci.txt** dosya ve her sözcüğün yapma sayısı. Aşağıdaki metin dosyasında bulunan verileri örneğidir:
+    Bu komut hello içerdiği hello sözcüklerin listesini görüntüler **wasb://example/data/gutenberg/davinci.txt** dosya ve hello sayısı her sözcüğün oluştu. Merhaba aşağıdaki metni hello dosyasında yer alan hello veri örneğidir:
 
         wreathed        3
         wreathing       1
@@ -107,7 +107,7 @@ Hdınsight ile SSH kullanma hakkında daha fazla bilgi için bkz: [Hdınsight il
 
 ## <a id="summary"></a>Özet
 
-Gördüğünüz gibi Hadoop komutları bir Hdınsight küme MapReduce işleri çalıştırma ve iş çıktısı görüntülemek için kolay bir yol sağlar.
+Gördüğünüz gibi Hadoop komutları bir Hdınsight kümesi ve sonra Görünüm hello iş çıktısı MapReduce işleri kolay bir yolu toorun sağlar.
 
 ## <a id="nextsteps"></a>Sonraki adımlar
 

@@ -1,5 +1,5 @@
 ---
-title: "Zamanlanmış bildirimleri göndermek nasıl | Microsoft Docs"
+title: "aaaHow toosend zamanlanmış bildirimleri | Microsoft Docs"
 description: "Bu konuda, Azure Notification Hubs ile zamanlanmış bildirimleri kullanmayı açıklar."
 services: notification-hubs
 documentationcenter: .net
@@ -15,17 +15,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: efac6e1ecc00359f1622d380333140bc055c83e0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9b3ba715dad6f5d824a615e83f2863b0db47b533
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="how-to-send-scheduled-notifications"></a>Nasıl yapılır: Zamanlanmış bildirimleri gönderme
 ## <a name="overview"></a>Genel Bakış
-Bir senaryo, belirli bir noktada gelecekte bir bildirim göndermek istiyor ancak uyandırmak için kolay bir yol arka uç kodunuzun bildirim göndermek için yoksa varsa. Standart katmanı bildirim hub'ları bildirimleri gelecekte 7 gün için zamanlamanıza olanak sağlayan bir özellik destekler.
+Toosend istediğiniz bir senaryo varsa bir bildirim bazı hello gelecekteki noktası ancak kolay bir yolu toowake, arka uç kodu toosend hello bildirimi gerekmez. Standart katmanı bildirim hub'ları hello gelecekteki too7 günde tooschedule bildirimleri sağlayan bir özellik destekler.
 
-Bir bildirim göndererek, yalnızca kullanın [ScheduledNotification](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) aşağıdaki örnekte gösterildiği gibi bildirim hub'ları SDK'da sınıfı:
+Bir bildirim göndererek, yalnızca hello kullanın [ScheduledNotification](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) hello aşağıdaki örnekte gösterildiği gibi hello Notification Hubs SDK'sı sınıfı:
 
     Notification notification = new AppleNotification("{\"aps\":{\"alert\":\"Happy birthday!\"}}");
     var scheduled = await hub.ScheduleNotificationAsync(notification, new DateTime(2014, 7, 19, 0, 0, 0));
@@ -34,5 +34,5 @@ Ayrıca, kendi notificationId kullanarak daha önce zamanlanmış bir bildirim i
 
     await hub.CancelNotificationAsync(scheduled.ScheduledNotificationId);
 
-Zamanlanmış bildirim gönderebilirsiniz sayısı sınırı vardır.
+Zamanlanmış bildirim gönderebilirsiniz hello sayısı sınırı vardır.
 

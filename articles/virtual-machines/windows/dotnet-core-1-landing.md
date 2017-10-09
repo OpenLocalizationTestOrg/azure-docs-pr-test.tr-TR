@@ -1,5 +1,5 @@
 ---
-title: "Azure Windows sanal makine DotNet çekirdek Öğreticisi 1 | Microsoft Docs"
+title: "Windows sanal makine DotNet çekirdek Öğreticisi 1 aaaAzure | Microsoft Docs"
 description: "Azure sanal makinesi DotNet çekirdek Öğreticisi"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,48 +16,48 @@ ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfb3a27d20e8cdcff8dff75e4dfb2685e2781d45
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8df69c496f44acb02d8afc45695349ec1f558f99
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="automating-application-deployments-to-windows-virtual-machines"></a>Uygulama dağıtımları için Windows sanal makineleri otomatikleştirme
+# <a name="automating-application-deployments-toowindows-virtual-machines"></a>Uygulama dağıtımlarını tooWindows sanal makineleri otomatikleştirme
 
-Bu dört bölümlü seri dağıtma ve Azure kaynak ve uygulamaları Azure Resource Manager şablonları kullanarak yapılandırma ayrıntılarını verir. Bu serideki örnek şablonu dağıtılır ve dağıtım şablonu inceledi. Azure kaynakları arasındaki ilişkiyi bilgilendirin ve ellere tam olarak tümleşik Azure Resource Manager şablonları dağıtımı deneyimi sağlamak için bu dizinin hedefidir. Bu belge temel düzeyde bir bilgi Azure Resource Manager ile varsayar, bu öğreticiye başlamadan önce temel Azure Resource Manager kavramları öğrenmeniz.
+Bu dört bölümlü seri dağıtma ve Azure kaynak ve uygulamaları Azure Resource Manager şablonları kullanarak yapılandırma ayrıntılarını verir. Bu serideki örnek şablonu dağıtılır ve dağıtım şablonu incelenmesi hello. Bu serinin Hello hedef hello ilişkideki Azure kaynakları arasında tooeducate ve tam olarak tümleşik Azure Resource Manager şablonları dağıtımı deneyimi tooprovide aktarır. Bu belge temel düzeyde bir bilgi Azure Resource Manager ile varsayar, bu öğreticiye başlamadan önce temel Azure Resource Manager kavramları öğrenmeniz.
 
 ## <a name="music-store-application"></a>Müzik deposu uygulama
-Bu serideki kullanılan örnek bir .net olan çekirdek uygulama deneyimi alışveriş müzik deposu benzetimini yapma. Bu uygulama için bir Linux veya Windows sanal makine dağıtılabilir, örnek dağıtımları her ikisi için oluşturulmuş. Uygulama bir web uygulaması ve SQL veritabanı içerir. Bu serideki makaleleri okumadan önce bu sayfada bulunan dağıtım düğmesini kullanarak uygulamayı dağıtın. Tam olarak dağıtıldığında, uygulama / Azure Mimarisi Aşağıdaki diyagramda gibi görünüyor. 
+Merhaba bu dizide kullanılan örnek olan bir .net Core uygulama deneyimi alışveriş müzik deposu benzetimini yapma. Bu uygulama, dağıtılan tooeither bir Linux veya Windows sanal sistem, örnek dağıtımları her ikisi için oluşturulmuş olabilir. Merhaba uygulama bir web uygulaması ve SQL veritabanı içerir. Bu serideki Hello makaleleri okumadan önce bu sayfada bulunan hello dağıtım düğmesini kullanarak hello uygulamayı dağıtın. Tam olarak dağıtıldığında, hello uygulama / Azure Mimarisi diyagramı aşağıdaki hello gibi görünüyor. 
 
-Müzik deposu Resource Manager şablonu burada bulunabilir [müzik deposu Windows şablonu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)
+Merhaba müzik deposu Resource Manager şablonu burada bulunabilir [müzik deposu Windows şablonu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)
 
 ![Müzik deposu uygulama](./media/dotnet-core-1-landing/music-store.png)
 
-İlişkilendirme şablon JSON dahil olmak üzere, bu bileşenlerin her birini aşağıdaki dört makalelerinde incelenir.
+Merhaba dahil olmak üzere, bu bileşenlerin her birini JSON dört makaleler hello incelenir şablon ilişkilendirin.
 
-* [**Uygulama Mimarisi** ](dotnet-core-2-architecture.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) – uygulama bileşenleri gibi web siteleri ve veritabanları sanal makineler ve Azure SQL veritabanları gibi Azure bilgisayar kaynakları üzerinde barındırılması gerekir. Bu belge eşleme işlem gerek Azure kaynakları ve Azure Resource Manager şablonu ile bu kaynakları dağıtma anlatılmaktadır. 
-* [**Erişim ve güvenliği** ](dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) – Azure uygulamalarda barındırma uygulamayı nasıl erişilir ve nasıl farklı uygulama bileşenleri erişim birbirine göz önünde bulundurmanız gereken olur. Bu belge, sağlama ve uygulamaya internet erişimi ve uygulama bileşenleri arasında erişimi güvenli hale getirme ayrıntıları.
-* [**Kullanılabilirlik ve ölçek** ](dotnet-core-4-availability-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) – kullanılabilirliğini ve ölçeğini uygulamaları özelliği altyapı kapalı kalma süresi sırasında çalışan kalır ve uygulama talebi karşılamak üzere işlem kaynaklarını ölçeklendirme olanağı bakın. Bu belge ayrıntıları bir yük dengeli dağıtmak için gereken bileşenler ve yüksek oranda kullanılabilir uygulama.
-* [**Uygulama dağıtımı** ](dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) - uygulamaları üzerine Azure sanal makineler tarafından uygulama ikili dosyaları sanal makineye yüklenir yöntemi dağıtma dikkate alınmalıdır. Bu belge, Azure sanal makine özel komut dosyası uzantılarını kullanarak otomatik otomatikleştirme uygulama yükleme ayrıntıları.
+* [**Uygulama Mimarisi** ](dotnet-core-2-architecture.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) – uygulama bileşenleri gibi web siteleri ve veritabanları sanal makineler ve Azure SQL veritabanları gibi Azure bilgisayar kaynaklarına barındırılan toobe gerekir. Bu belge eşleme işlem gereksinimi, tooAzure kaynakları ve Azure Resource Manager şablonu ile bu kaynakları dağıtma anlatılmaktadır. 
+* [**Erişim ve güvenliği** ](dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) – Azure uygulamalarda barındırma gerekli tooconsider Merhaba uygulaması erişilen nasıl ve farklı uygulama bileşenleri birbirine erişim nasıl olur. Bu belge, sağlama ve Internet erişimi tooan uygulama ve uygulama bileşenleri arasında erişimi güvenli hale getirme ayrıntıları.
+* [**Kullanılabilirlik ve ölçek** ](dotnet-core-4-availability-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) – kullanılabilirliğini ve ölçeğini altyapı kapalı kalma süresi sırasında çalışan toohello uygulamaları özelliği toostay bakın ve hello özelliği tooscale işlem kaynakları toomeet uygulama isteğe bağlı. Bu belge ayrıntıları hello bileşenlerini bir yük dengeli toodeploy ve yüksek oranda kullanılabilir uygulama gerekli.
+* [**Uygulama dağıtımı** ](dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) - uygulamaları üzerine Azure sanal makineler, hangi hello tarafından uygulama ikili dosyaları yüklü hello sanal makine üzerinde hello yöntemi dağıtma dikkate alınmalıdır. Bu belge, Azure sanal makine özel komut dosyası uzantılarını kullanarak otomatik otomatikleştirme uygulama yükleme ayrıntıları.
 
-Azure Resource Manager şablonları geliştirirken Azure altyapısı ve yüklenmesini ve yapılandırılmasını bu Azure altyapı üzerinde barındırılan herhangi bir uygulama dağıtımını otomatik hale getirmek için belirtilir. Bu makaleler aracılığıyla çalışma bu deneyim ilişkin bir örnek sağlar.
+Azure Resource Manager şablonları geliştirirken hello tooautomate hello dağıtım Azure altyapısı ve hello yükleme ve yapılandırma bu Azure altyapı üzerinde barındırılan tüm uygulamaların hedeftir. Bu makaleler aracılığıyla çalışma bu deneyim ilişkin bir örnek sağlar.
 
-## <a name="deploy-the-music-store-application"></a>Müzik deposu uygulama dağıtma
-Müzik deposu uygulama bu düğmesi kullanılarak dağıtılabilir.
+## <a name="deploy-hello-music-store-application"></a>Merhaba müzik deposu uygulaması dağıtma
+Bu düğme kullanarak Hello müzik deposu uygulama dağıtılabilir.
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fdotnet-core-sample-templates%2Fmaster%2Fdotnet-core-music-windows%2Fazuredeploy.json" target="_blank"> <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
-Azure Resource Manager şablonu aşağıdaki parametre değerleri gerektirir.
+Hello Azure Resource Manager şablonu parametre değerlerini aşağıdaki hello gerektirir.
 
 | Parametre Adı | Açıklama |
 | --- | --- |
-| ADMINUSERNAME |Sanal makine ve Azure SQL veritabanı üzerinde kullanılan yönetici kullanıcı adı. |
-| ADMINPASSWORD |SQL Database ve Azure sanal makine üzerinde kullanılan parola. |
-| NUMBEROFINSTANCES |Oluşturulacak sanal makine sayısı. Bu sanal makinelerin her konak müzik deposu web uygulaması ve bunları dengelendiği tüm trafiğidir. |
-| PUBLICIPADDRESSDNSNAME |Genel IP adresi ile ilişkili genel benzersiz DNS adı. |
+| ADMINUSERNAME |Merhaba sanal makine ve hello Azure SQL veritabanı üzerinde kullanılan yönetici kullanıcı adı. |
+| ADMINPASSWORD |Hello Azure sanal makinesi ve SQL veritabanı üzerinde kullanılan parola. |
+| NUMBEROFINSTANCES |oluşturulan sanal makineler toobe Hello sayısı. Her bu sanal makineleri ana bilgisayar Merhaba müzik deposu web uygulaması ve tüm trafiği bunları dengelendiği ' dir. |
+| PUBLICIPADDRESSDNSNAME |Merhaba genel IP adresi ile ilişkili genel benzersiz DNS adı. |
 
-Şablon dağıtımı tamamlandığında, herhangi bir internet tarayıcı kullanarak genel IP adresine göz atın. .Net Core müzik site sunulabilir.
+Merhaba şablon dağıtımı tamamlandığında, ortak IP adresi herhangi bir internet tarayıcı kullanarak toohello göz atın. Merhaba .net Core müzik site sunulabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 <hr>

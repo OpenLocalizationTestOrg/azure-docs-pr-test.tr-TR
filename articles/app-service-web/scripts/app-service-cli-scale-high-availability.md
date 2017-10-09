@@ -1,5 +1,5 @@
 ---
-title: "Azure CLI komut dosyası örneği - ölçek yüksek availabilty mimarisiyle dünya çapında bir web uygulaması | Microsoft Docs"
+title: "aaaAzure CLI komut dosyası örneği - bir web uygulaması dünya çapında yüksek availabilty mimarisi ile ölçeklendirin | Microsoft Docs"
 description: "Azure CLI komut dosyası örneği - ölçek yüksek availabilty mimarisiyle dünya çapında bir web uygulaması"
 services: appservice
 documentationcenter: appservice
@@ -16,32 +16,32 @@ ms.workload: web
 ms.date: 06/19/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: c368bdc48f197ff5b491d1796d85abfd339051a6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b72fbccd7f2aaab58e4b4721e14dca14146c7c72
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="scale-a-web-app-worldwide-with-a-high-availability-architecture"></a>Bir web uygulaması dünya çapında yüksek kullanılabilirlik mimarisi ile ölçeklendirin
 
-Bu senaryoda, bir kaynak grubu, iki uygulama hizmeti planları, iki web uygulamaları, trafik Yöneticisi profili ve iki trafik Yöneticisi uç noktaları oluşturur. Alıştırma tamamlandıktan sonra bir yüksek kullanılabilir olacaktır sağlayan mimari web uygulamanızın üzerinde en düşük ağ gecikmesini genel kullanılabilirlik sağlar.
+Bu senaryoda, bir kaynak grubu, iki uygulama hizmeti planları, iki web uygulamaları, trafik Yöneticisi profili ve iki trafik Yöneticisi uç noktaları oluşturur. Merhaba alıştırma tamamlandıktan sonra bir yüksek kullanılabilir olacaktır sağlayan mimari hello en düşük ağ gecikmesine bağlı, web uygulamanızın genel kullanılabilirlik sağlar.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Tooinstall seçin ve hello CLI yerel olarak kullanırsanız, bu konuda hello Azure CLI Sürüm 2.0 veya üstü çalıştığını gerektirir. Çalıştırma `az --version` toofind hello sürümü. Tooinstall veya yükseltme gerekirse bkz [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="sample-script"></a>Örnek komut dosyası
 
-[!code-azurecli-interactive[Ana](../../../cli_scripts/app-service/scale-geographic/scale-geographic.sh "coğrafi ölçek")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/scale-geographic/scale-geographic.sh "Geographic Scale")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## <a name="script-explanation"></a>Komut dosyası açıklaması
 
-Bu komut, bir kaynak grubu, web uygulaması, trafik Yöneticisi profili ve tüm ilgili kaynaklar oluşturmak için aşağıdaki komutları kullanır. Komut belirli belgeleri tablo bağlanan her komut.
+Bu komut dosyasını aşağıdaki komutları toocreate bir kaynak grubu, web uygulaması, trafik Yöneticisi profili hello kullanır ve ilişkili tüm kaynakları. Her komut hello tablosundaki toocommand belirli belgeleri bağlar.
 
 | Komut | Notlar |
 |---|---|
@@ -49,10 +49,10 @@ Bu komut, bir kaynak grubu, web uygulaması, trafik Yöneticisi profili ve tüm 
 | [az uygulama hizmeti planı oluşturma](https://docs.microsoft.com/cli/azure/appservice/plan#create) | App Service planı oluşturur. Bu, Azure web uygulamanız için bir sunucu grubu gibidir. |
 | [az webapp oluşturma](https://docs.microsoft.com/cli/azure/webapp#create) | Azure web uygulaması oluşturur. |
 | [az ağ trafik Yöneticisi profili oluştur](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile#create) | Bir Azure Traffic Manager profilini oluşturur. |
-| [az ağ trafik Yöneticisi uç noktası oluşturma](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint#create) | Bir uç noktası için bir Azure Traffic Manager profili ekler. |
+| [az ağ trafik Yöneticisi uç noktası oluşturma](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint#create) | Uç nokta tooan Azure trafik Yöneticisi profili ekler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).
+Hello Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).
 
-Ek uygulama hizmeti CLI kod örnekleri bulunabilir [Azure App Service belgeleri](../app-service-cli-samples.md).
+Ek uygulama hizmeti CLI kod örnekleri hello bulunabilir [Azure App Service belgeleri](../app-service-cli-samples.md).

@@ -1,6 +1,6 @@
 ---
-title: "Web sitesi günlüğü analizi - Azure Hdınsight Hadoop ile Hive kullanma | Microsoft Docs"
-description: "Web sitesi günlüklerini çözümlemek için Hdınsight ile Hive kullanma öğrenin. Bir Hdınsight tabloya giriş olarak bir günlük dosyası kullanmak ve verileri sorgulamak için HiveQL kullanma."
+title: "Web sitesi günlüğü analizi - Azure Hdınsight için Hadoop ile Hive aaaUse | Microsoft Docs"
+description: "Toouse Hive Hdınsight tooanalyze Web sitesiyle nasıl günlüğe yazacağını öğrenin. Bir Hdınsight tabloya giriş olarak bir günlük dosyasını kullanın ve HiveQL tooquery hello verileri kullanmak."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -16,44 +16,44 @@ ms.topic: article
 ms.date: 05/17/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: e1cdb786bb6049980aafc0213abf53013e342618
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9cbce3cc8cf8bc3ad104dc4ca6a5628802c8fe89
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Web sitesi günlüklerini çözümlemek için Windows tabanlı Hdınsight ile Hive kullanma
-Bir Web sitesi günlüklerini çözümlemek için Hdınsight ile HiveQL kullanmayı öğrenin. Web sitesi günlüğü analizi benzer etkinliklere dayalı kitlenizi segmentlere, site ziyaretçilerini demografisine göre kategorilere ayırmak ve bulmak için içeriği teslim bunlar görünümü, Web siteleri geliyor ve benzeri kullanılabilir.
+# <a name="use-hive-with-windows-based-hdinsight-tooanalyze-logs-from-websites"></a>Web siteleri tooanalyze günlüklerinden Windows tabanlı Hdınsight ile Hive kullanma
+Bir Web sitesinden toouse HiveQL Hdınsight tooanalyze ile nasıl oturum öğrenin. Web sitesi günlüğü analizi kullanılan toosegment kitlenizi benzer etkinliklere dayalı olması, site ziyaretçilerini demografisine ve toofind görüntüledikleri hello içerik, geliyor hello Web siteleri ve benzeri tarafından kategorilere ayırma.
 
 > [!IMPORTANT]
-> Bu belgede yer alan adımlar, yalnızca Windows tabanlı Hdınsight kümeleri ile çalışır. Hdınsight yalnızca Windows'da Hdınsight 3.4 ' düşük sürümleri için kullanılabilir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Merhaba Windows tabanlı Hdınsight kümeleri ile bu belgeyi yalnızca çalışma adımları. Hdınsight yalnızca Windows'da Hdınsight 3.4 ' düşük sürümleri için kullanılabilir. Linux hello yalnızca Hdınsight sürüm 3.4 veya büyük kullanılan işletim sistemini ' dir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-Bu örnekte, ziyaretlerin sıklığını Web sitesine dış Web sitelerinden bir gün içinde bir anlayış almak için Web sitesinin günlük dosyalarını çözümlemek için Hdınsight kümesi kullanır. Ayrıca, kullanıcının karşılaştığı Web sitesi hatalarının özetini oluşturacaksınız. Şunları öğreneceksiniz nasıl yapılır:
+Bu örnekte, bir günde bir Hdınsight kümesi tooanalyze Web sitesi günlük dosyaları tooget fikirler dış Web sitelerini ziyaret toohello sitesinden hello sıklığını kullanır. Ayrıca hello kullanıcı deneyimi Web sitesi hatalarının özetini oluşturacaksınız. Şunları öğreneceksiniz nasıl yapılır:
 
-* Web sitesinin günlük dosyalarını içeren ve Azure Blob Depolama birimine bağlayın.
-* HIVE tablolarını Bu günlükleri sorgu oluşturun.
-* Verileri çözümlemek için HIVE sorguları oluşturun.
-* Hdınsight'a (açık veritabanı bağlantısı (ODBC) çözümlenen verileri almak üzere kullanarak. bağlanmak için Microsoft Excel kullanın
+* Tooa Web sitesinin günlük dosyalarını içeren Azure Blob depolama alanına bağlayın.
+* Oluşturma HIVE tabloları tooquery Bu günlükleri.
+* HIVE sorguları tooanalyze hello veri oluşturun.
+* Microsoft Excel tooconnect tooHDInsight kullanın (açık veritabanı bağlantısı (ODBC) tooretrieve analiz hello verileri kullanarak.
 
 ![HDI. Samples.Website.Log.Analysis][img-hdi-weblogs-sample]
 
 ## <a name="prerequisites"></a>Ön koşullar
 * Azure Hdınsight Hadoop kümesinde sağlanması gerekir. Yönergeler için bkz: [sağlama Hdınsight kümeleri][hdinsight-provision].
 * Excel 2010 yüklü veya Microsoft Excel 2013 yüklü olmalıdır.
-* Bilmeniz gereken [Microsoft Hive ODBC sürücüsü](http://www.microsoft.com/download/details.aspx?id=40886) kovanından Excel'e veri almak için.
+* Bilmeniz gereken [Microsoft Hive ODBC sürücüsü](http://www.microsoft.com/download/details.aspx?id=40886) Hive Excel'e tooimport verileri.
 
-## <a name="to-run-the-sample"></a>Örneği çalıştırmak için
-1. Gelen [Azure Portal](https://portal.azure.com/), (küme var. sabitlenmiş varsa) Sabitle gelen istediğiniz örneği çalıştırmak küme kutucuğa tıklayın.
-2. Küme dikey penceresinden altında **hızlı bağlantılar**, tıklatın **küme Panosu**ve sonra **küme Panosu** dikey penceresinde tıklatın **Hdınsight küme Panosu**. Alternatif olarak, aşağıdaki URL'yi kullanarak Pano doğrudan açabilirsiniz:
+## <a name="toorun-hello-sample"></a>toorun hello örnek
+1. Merhaba gelen [Azure Portal](https://portal.azure.com/), Hello ifadesini (Merhaba küme sabitlenmiş varsa) sabitlemek istediğiniz toorun hello örnek hello küme kutucuğa tıklayın.
+2. Hello dikey penceresinde altında küme **hızlı bağlantılar**, tıklatın **küme Panosu**ve sonra hello **küme Panosu** dikey penceresinde'ı tıklatın **Hdınsight kümesi Pano**. Alternatif olarak, URL aşağıdaki hello kullanarak hello Pano doğrudan açabilirsiniz:
 
          https://<clustername>.azurehdinsight.net
 
-    İstendiğinde, yönetici kullanıcı adını ve küme hazırlama sırasında kullanılan parola kullanarak kimlik doğrulaması.
-3. Web açan sayfasından tıklatın **alma başlatıldı galeri** sekmesi ve ardından **örnek verilerle çözümleri** kategorisi, tıklatın **Web sitesi günlüğü analizi** örnek.
-4. Örnek tamamlamak için web sayfasında sağlanan yönergeleri izleyin.
+    İstendiğinde, hello yönetici kullanıcı adını ve hello küme hazırlama sırasında kullanılan parola kullanarak kimlik doğrulaması.
+3. Hello web açan sayfasından hello tıklatın **alma başlatıldı galeri** sekmesinde hello altında ve **örnek verilerle çözümleri** kategorisi, hello tıklatın **Web sitesi günlüğü analizi** örnek.
+4. Merhaba web sayfası toofinish hello örnek üzerinde sağlanan hello yönergeleri izleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Aşağıdaki örnek deneyin: [Hdınsight ile Hive kullanma algılayıcı verilerini çözümleme](hdinsight-hive-analyze-sensor-data.md).
+Aşağıdaki örnek hello deneyin: [Hdınsight ile Hive kullanma algılayıcı verilerini çözümleme](hdinsight-hive-analyze-sensor-data.md).
 
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-sensor-data-sample]: ../hdinsight-use-hive-sensor-data-analysis.md

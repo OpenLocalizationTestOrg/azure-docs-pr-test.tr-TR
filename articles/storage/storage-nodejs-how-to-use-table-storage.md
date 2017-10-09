@@ -1,6 +1,6 @@
 ---
-title: Azure Table storage node.js'den kullanma | Microsoft Docs
-description: "Bir NoSQL veri deposu olan Azure Table Storage kullanarak bulutta yapılandırılmış veri depolayın."
+title: "aaaHow toouse Node.js Azure tablo depolamasından | Microsoft Docs"
+description: "Bir NoSQL veri deposu olan Azure Table storage kullanılarak hello bulutta yapılandırılmış veri depolayın."
 services: storage
 documentationcenter: nodejs
 author: mmacy
@@ -14,35 +14,35 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
-ms.openlocfilehash: f004408910aecc380e20f7da54dbd155d179aaa5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 990a71337b806d759d0277a7691712346db7b355
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-azure-table-storage-from-nodejs"></a>Node.js'den Azure Table storage kullanma
+# <a name="how-toouse-azure-table-storage-from-nodejs"></a>Nasıl toouse Node.js Azure tablo depolamasından
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Bu konu Azure tablo hizmetinde bir Node.js uygulaması kullanarak genel senaryolar gerçekleştirme gösterir.
+Bu konu, nasıl tooperform yaygın senaryolar hello Azure Table kullanarak bir Node.js uygulamasında hizmet gösterir.
 
-Bu konuda kod örnekleri, bir Node.js uygulaması zaten olduğunu varsayın. Azure'da bir Node.js uygulaması oluşturma hakkında daha fazla bilgi için aşağıdaki konulardan birini bakın:
+Bu konudaki Hello kod örnekleri, bir Node.js uygulaması zaten olduğunu varsayın. Hakkında bilgi için toocreate Azure, bir Node.js uygulamasında aşağıdaki konulardan birini bakın:
 
 * [Azure App Service'te bir Node.js web uygulaması oluşturma](../app-service-web/app-service-web-get-started-nodejs.md)
-* [Derleme ve Webmatrix'i kullanarak Azure Node.js web uygulamasına dağıtma](../app-service-web/web-sites-nodejs-use-webmatrix.md)
-* [Derleme ve Azure bulut hizmeti bir Node.js uygulamasını dağıtma](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (Windows PowerShell kullanarak)
+* [Derleme ve Webmatrix'i kullanarak bir Node.js web uygulaması tooAzure dağıtma](../app-service-web/web-sites-nodejs-use-webmatrix.md)
+* [Derleme ve bir Node.js uygulaması tooan Azure bulut hizmeti dağıtma](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (Windows PowerShell kullanarak)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-## <a name="configure-your-application-to-access-azure-storage"></a>Azure depolama alanına erişmek için uygulamanızı yapılandırın
-Azure Storage kullanmak için bir dizi depolama REST Hizmetleri ile iletişim kolaylık kitaplıkları içerir Node.js için Azure depolama SDK'sı gerekir.
+## <a name="configure-your-application-tooaccess-azure-storage"></a>Uygulama tooaccess Azure Storage yapılandırın
+toouse Azure Storage, hello storage REST Hizmetleri ile iletişim kuran bir dizi kolaylık içerir Node.js için Azure depolama SDK'sını hello gerekir.
 
-### <a name="use-node-package-manager-npm-to-install-the-package"></a>Paketi yüklemek için düğüm paketi Yöneticisi (NPM) kullanın
-1. Bir komut satırı arabirimi gibi kullandığınız **PowerShell** (Windows) **Terminal** (Mac) veya **Bash** (UNIX) ve uygulamanızı oluşturduğunuz klasöre gidin.
-2. Tür **npm yükleme azure depolama** komut penceresinde. Komut çıktısı aşağıdaki örneğe benzer.
+### <a name="use-node-package-manager-npm-tooinstall-hello-package"></a>Düğüm paketi Yöneticisi (NPM) tooinstall hello paketini kullanın
+1. Bir komut satırı arabirimi gibi kullandığınız **PowerShell** (Windows) **Terminal** (Mac) veya **Bash** (UNIX) ve uygulamanızı oluşturulduğu toohello klasörüne gidin.
+2. Tür **npm yükleme azure depolama** hello komut penceresinde. Merhaba komut çıktısı aşağıdaki örneğine benzer toohello ' dir.
 
        azure-storage@0.5.0 node_modules\azure-storage
        +-- extend@1.2.1
@@ -54,28 +54,28 @@ Azure Storage kullanmak için bir dizi depolama REST Hizmetleri ile iletişim ko
        +-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
        +-- xml2js@0.2.7 (sax@0.5.2)
        +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
-3. El ile çalıştırabilirsiniz **ls** doğrulamak için komutu bir **düğümü\_modülleri** klasörü oluşturuldu. Bu klasör içinde bulacaksınız **azure depolama** depolama birimine erişmesi gereken kitaplıkları içeren paket.
+3. Merhaba el ile çalıştırabilirsiniz **ls** komutu tooverify, bir **düğümü\_modülleri** klasörü oluşturuldu. Bu klasöre hello bulacaksınız **azure depolama** tooaccess depolama ihtiyacınız hello kitaplıklarını içeren paket.
 
-### <a name="import-the-package"></a>Paket alma
-En üst kısmına aşağıdaki kodu ekleyin **server.js** uygulamanızı dosyasında:
+### <a name="import-hello-package"></a>Merhaba paketi İçeri Aktar
+Kod toohello hello üstündeki aşağıdaki hello eklemek **server.js** uygulamanızı dosyasında:
 
 ```nodejs
 var azure = require('azure-storage');
 ```
 
 ## <a name="set-up-an-azure-storage-connection"></a>Bir Azure depolama bağlantı kurma
-Azure modülü AZURE ortam değişkenleri okur\_depolama\_HESABINI ve AZURE\_depolama\_erişim\_anahtar ya da AZURE\_depolama\_bağlantı\_Azure depolama hesabınıza bağlanmak için gerekli bilgileri DİZESİ. Bu ortam değişkenleri ayarlanmamışsa çağrılırken hesap bilgileri belirtmelisiniz **TableService**.
+Hello azure modülü hello ortam değişkenleri AZURE okuma\_depolama\_HESABINI ve AZURE\_depolama\_erişim\_anahtar ya da AZURE\_depolama\_bağlantı \_Gerekli bilgileri tooconnect tooyour Azure depolama hesabı için dize. Bu ortam değişkenleri ayarlanmamışsa çağrılırken hello hesap bilgileri belirtmelisiniz **TableService**.
 
-Ortam değişkenlerini ayarlama örnek için [Azure portal](https://portal.azure.com) bir Azure Web sitesi için bkz: [Azure tablo hizmeti kullanarak Node.js web uygulaması](../app-service-web/storage-nodejs-use-table-storage-web-site.md).
+Hello hello ortam değişkenlerini ayarlama örneği için [Azure portal](https://portal.azure.com) bir Azure Web sitesi için bkz: [Node.js web app kullanarak hello Azure tablo hizmeti](../app-service-web/storage-nodejs-use-table-storage-web-site.md).
 
 ## <a name="create-a-table"></a>Bir tablo oluşturma
-Aşağıdaki kod oluşturur bir **TableService** nesne ve yeni bir tablo oluşturmak için kullanır. Aşağıdaki üst kısmına yakın ekleyin **server.js**.
+Merhaba aşağıdaki kod oluşturur bir **TableService** nesne ve toocreate yeni bir tablo kullanır. Merhaba üstündeki yakın Hello aşağıdakileri ekleyin **server.js**.
 
 ```nodejs
 var tableSvc = azure.createTableService();
 ```
 
-Çağrı **createTableIfNotExists** zaten yoksa, belirtilen ada sahip yeni bir tablo oluşturur. Aşağıdaki örnek, zaten yoksa, 'mytable' adlı yeni bir tablo oluşturur:
+Çağrı çok hello**createTableIfNotExists** zaten yoksa, hello belirtilen adla yeni bir tablo oluşturur. Merhaba aşağıdaki örnekte zaten yoksa, 'mytable' adlı yeni bir tablo oluşturur:
 
 ```nodejs
 tableSvc.createTableIfNotExists('mytable', function(error, result, response){
@@ -85,45 +85,45 @@ tableSvc.createTableIfNotExists('mytable', function(error, result, response){
 });
 ```
 
-`result.created` Olacaktır `true` yeni bir tablo oluşturduysanız ve `false` tablo zaten varsa. `response` İsteğiyle ilgili bilgileri içerir.
+Merhaba `result.created` olacaktır `true` yeni bir tablo oluşturduysanız ve `false` hello tablo zaten varsa. Merhaba `response` hello isteğiyle ilgili bilgileri içerir.
 
 ### <a name="filters"></a>Filtreler
-İsteğe bağlı filtreleme işlemleri kullanarak gerçekleştirilen işlemler için uygulanabilir **TableService**. İşlemleri filtreleme içerebilir günlüğe kaydetme, otomatik olarak yeniden deneniyor, vs. İmzalı bir yöntem uygulayan nesneler filtreleri şunlardır:
+İsteğe bağlı filtreleme operations kullanılarak gerçekleştirilen uygulanan toooperations olabilir **TableService**. İşlemleri filtreleme içerebilir günlüğe kaydetme, otomatik olarak yeniden deneniyor, vs. Filtreleri hello imza yöntemiyle uygulayan nesneler şunlardır:
 
 ```nodejs
 function handle (requestOptions, next)
 ```
 
-İstek seçenekleri önişleme yaptıktan sonra yöntemi "İleri", çağırmak bir geri çağırma aşağıdaki imzayla geçirme gerekir:
+Kendi hello isteği seçenekleri ön işleme yaptıktan sonra hello yöntemi toocall "İleri", bir geri çağırma imza aşağıdaki hello ile geçirme gerekir:
 
 ```nodejs
 function (returnObject, finalCallback, next)
 ```
 
-Bu geri çağırma ve (sunucunun istek yanıtı) returnObject işlemden sonra geri çağırma diğer filtreleri işleme devam etmek için varsa sonraki çağırma veya yalnızca finalCallback Aksi halde hizmet başlatma sonuna çağırma gerekiyor.
+Bu geri çağırma ve hello returnObject (Merhaba isteği toohello sunucusundan hello yanıt) işlemden sonra hello geri çağırma tooeither gereken diğer filtreleri işleme toocontinue varsa sonraki çağırma veya yalnızca finalCallback çağırma aksi tooend hello Hizmet başlatma.
 
-Yeniden deneme mantığını uygulaması iki filtre Node.js için Azure SDK'sı ile birlikte **ExponentialRetryPolicyFilter** ve **LinearRetryPolicyFilter**. Aşağıdaki oluşturur bir **TableService** kullanan nesneyi **ExponentialRetryPolicyFilter**:
+Yeniden deneme mantığını uygulaması iki filtre hello Node.js için Azure SDK ile birlikte **ExponentialRetryPolicyFilter** ve **LinearRetryPolicyFilter**. Merhaba aşağıdaki oluşturur bir **TableService** hello kullanan nesneyi **ExponentialRetryPolicyFilter**:
 
 ```nodejs
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
 var tableSvc = azure.createTableService().withFilter(retryOperations);
 ```
 
-## <a name="add-an-entity-to-a-table"></a>Tabloya bir varlık ekleme
-Bir varlık eklemek için önce varlık özelliklerinizi tanımlayan bir nesne oluşturun. Tüm varlıklar içermesi gereken bir **PartitionKey** ve **RowKey**, varlık için benzersiz tanımlayıcı olduğu.
+## <a name="add-an-entity-tooa-table"></a>Bir varlık tooa tablo ekleme
+bir varlık tooadd ilk varlık özelliklerinizi tanımlayan bir nesne oluşturun. Tüm varlıklar içermesi gereken bir **PartitionKey** ve **RowKey**, hello varlık için benzersiz tanımlayıcı olduğu.
 
-* **PartitionKey** -varlık depolanan bölüm belirler
-* **RowKey** - benzersiz olarak varlığın bölüm içinde tanımlar
+* **PartitionKey** -hello varlık depolanan hello bölüm belirler
+* **RowKey** - benzersiz şekilde hello varlığın hello bölüm içinde tanımlar
 
-Her ikisi de **PartitionKey** ve **RowKey** dize değerleri olmalıdır. Daha fazla bilgi için bkz: [tablo hizmeti veri modelini anlama](http://msdn.microsoft.com/library/azure/dd179338.aspx).
+Her ikisi de **PartitionKey** ve **RowKey** dize değerleri olmalıdır. Daha fazla bilgi için bkz: [anlama hello tablo hizmeti veri modelini](http://msdn.microsoft.com/library/azure/dd179338.aspx).
 
-Bir varlık tanımlayan bir örnek verilmiştir. Unutmayın **vade tarihi** bir türü olarak tanımlanmış **Edm.DateTime**. Türünü belirtme isteğe bağlıdır ve türleri çıkarımı yapılan belirtilen yoksa.
+Merhaba, bir varlığın tanımlama örneği aşağıdadır. Unutmayın **vade tarihi** bir türü olarak tanımlanmış **Edm.DateTime**. Belirten hello türü isteğe bağlıdır ve türleri çıkarımı yapılan belirtilen yoksa.
 
 ```nodejs
 var task = {
   PartitionKey: {'_':'hometasks'},
   RowKey: {'_': '1'},
-  description: {'_':'take out the trash'},
+  description: {'_':'take out hello trash'},
   dueDate: {'_':new Date(2015, 6, 20), '$':'Edm.DateTime'}
 };
 ```
@@ -133,19 +133,19 @@ var task = {
 >
 >
 
-Aynı zamanda **entityGenerator** varlıklar oluşturmak için. Aşağıdaki örnek, varlık aynı görevini kullanarak oluşturur **entityGenerator**.
+Merhaba de kullanabilirsiniz **entityGenerator** toocreate varlıklar. Merhaba aşağıdaki örnekte oluşturur hello hello kullanarak aynı görev varlık **entityGenerator**.
 
 ```nodejs
 var entGen = azure.TableUtilities.entityGenerator;
 var task = {
   PartitionKey: entGen.String('hometasks'),
   RowKey: entGen.String('1'),
-  description: entGen.String('take out the trash'),
+  description: entGen.String('take out hello trash'),
   dueDate: entGen.DateTime(new Date(Date.UTC(2015, 6, 20))),
 };
 ```
 
-Bir varlığı tablonuza eklemek için varlık nesnesine geçirmek **insertEntity** yöntemi.
+bir varlık tooyour tablosu tooadd geçirmek hello varlık nesnesi toohello **insertEntity** yöntemi.
 
 ```nodejs
 tableSvc.insertEntity('mytable',task, function (error, result, response) {
@@ -155,7 +155,7 @@ tableSvc.insertEntity('mytable',task, function (error, result, response) {
 });
 ```
 
-İşlem başarılı olursa `result` içerecek [ETag](http://en.wikipedia.org/wiki/HTTP_ETag) eklenen kaydın ve `response` işlemi hakkında bilgi içerir.
+Merhaba işlemi başarılı olursa `result` hello içerecek [ETag](http://en.wikipedia.org/wiki/HTTP_ETag) kayda Merhaba eklenen ve `response` hello işlemiyle ilgili bilgi içerir.
 
 Örnek yanıt:
 
@@ -164,21 +164,21 @@ tableSvc.insertEntity('mytable',task, function (error, result, response) {
 ```
 
 > [!NOTE]
-> Varsayılan olarak, **insertEntity** parçası olarak eklenen varlık döndürmüyor `response` bilgi. Planı bu varlık üzerinde başka işlemler gerçekleştirmek ya da bilgilerini önbelleğe istiyorsanız, bir parçası olarak döndürülen yararlı olabilir `result`. Etkinleştirerek bunu yapabilirsiniz **echoContent** gibi:
+> Varsayılan olarak, **insertEntity** hello bir parçası olarak eklenen hello varlık döndürmüyor `response` bilgi. Planı bu varlık üzerinde başka işlemler gerçekleştirmek ya da toocache hello bilgi istiyor hello bir parçası olarak döndürdüğü yararlı toohave olabilir `result`. Etkinleştirerek bunu yapabilirsiniz **echoContent** gibi:
 >
 > `tableSvc.insertEntity('mytable', task, {echoContent: true}, function (error, result, response) {...}`
 >
 >
 
 ## <a name="update-an-entity"></a>Bir varlığı güncelleştirir
-Var olan bir varlığı güncelleştirmek için kullanılabilir birden çok yöntemi vardır:
+Var olan bir varlığı birden çok yöntemleri kullanılabilir tooupdate vardır:
 
 * **replaceEntity** -değiştirme tarafından var olan bir varlığı güncelleştirir
-* **mergeEntity** -var olan varlık kümesine yeni özellik değerlerinin birleştirerek var olan bir varlığı güncelleştirir
+* **mergeEntity** -hello varolan varlık kümesine yeni özellik değerlerinin birleştirerek var olan bir varlığı güncelleştirir
 * **insertOrReplaceEntity** -değiştirme tarafından var olan bir varlığı güncelleştirir. Hiçbir varlık varsa, yeni bir tane eklenir
-* **insertOrMergeEntity** -mevcut yeni özellik değerlerinin birleştirerek var olan bir varlığı güncelleştirir. Hiçbir varlık varsa, yeni bir tane eklenir
+* **insertOrMergeEntity** -hello varolan içine yeni özellik değerlerinin birleştirerek var olan bir varlığı güncelleştirir. Hiçbir varlık varsa, yeni bir tane eklenir
 
-Aşağıdaki örnek, bir varlık kullanarak güncelleştirme gösterir **replaceEntity**:
+Merhaba aşağıdaki örneği kullanarak bir varlık güncelleştirme gösterir **replaceEntity**:
 
 ```nodejs
 tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response){
@@ -189,36 +189,36 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 ```
 
 > [!NOTE]
-> Varsayılan olarak, bir varlık güncelleştirme güncelleştirilen veri daha önce başka bir işlem tarafından değiştirilip değiştirilmediğini görmek için kontrol etmez. Eşzamanlı güncelleştirmelerini desteklemek için:
+> Güncelleştirilmekte hello veri daha önce başka bir işlem tarafından değiştirilmiş, varsayılan olarak, bir varlık güncelleştirme toosee denetlemez. toosupport eşzamanlı güncelleştirmeleri:
 >
-> 1. Güncelleştirilecek nesnenin ETag alın. Bu bir parçası olarak döndürülür `response` tüm ilgili varlık işlemi için ve alınabilir `response['.metadata'].etag`.
-> 2. Bir varlık üzerinde bir güncelleştirme işlemi gerçekleştirirken, daha önce yeni varlığa alınan ETag bilgileri ekleyin. Örneğin:
+> 1. Merhaba güncelleştirilmekte hello nesnesinin ETag alın. Bu hello bir parçası olarak döndürülür `response` tüm ilgili varlık işlemi için ve alınabilir `response['.metadata'].etag`.
+> 2. Bir varlık, bir güncelleştirme işlemi gerçekleştirilirken eklediğinizde hello ETag bilgi toohello yeni varlık daha önce alındı. Örneğin:
 >
 >       entity2 ['.metadata'] .etag currentEtag; =
-> 3. Güncelleştirme işlemi gerçekleştirin. Varlık, uygulamanızın başka bir örneği gibi ETag değeri alınan beri değiştirilmişse bir `error` istekte belirtilen güncelleştirme koşulu karşılanmadı belirten döndürülür.
+> 3. Merhaba güncelleştirme işlemini gerçekleştirin. Uygulamanızın, başka bir örneği gibi hello ETag değeri, alınan bu yana hello varlık güncellendiyse bir `error` hello istekte belirtilen hello güncelleştirme koşulu karşılanmadı belirten döndürülür.
 >
 >
 
-İle **replaceEntity** ve **mergeEntity**, güncelleştirilen varlığı yoksa güncelleştirme işlemi başarısız olur. Bu nedenle bir varlık depolamak istiyorsanız bakılmaksızın, zaten var olup, kullanın **insertOrReplaceEntity** veya **insertOrMergeEntity**.
+İle **replaceEntity** ve **mergeEntity**, güncelleştirilen hello varlık yoksa hello güncelleştirme işlemi başarısız olur. Bu nedenle olup zaten var. bakılmaksızın bir varlık toostore istiyorsanız, kullanmak **insertOrReplaceEntity** veya **insertOrMergeEntity**.
 
-`result` Başarılı güncelleştirmesi işlemleri içerecek **Etag** güncelleştirilmiş varlık.
+Merhaba `result` başarılı güncelleştirmesi işlemleri hello içerecek **Etag** Merhaba varlık güncelleştirildi.
 
 ## <a name="work-with-groups-of-entities"></a>Varlıkları gruplarıyla çalışma
-Bazen birden çok sunucu tarafından işleme atomik emin olmak için birlikte toplu iş işlemlerinde göndermek için mantıklıdır. Bunu yapmaya yönelik kullanmak **TableBatch** toplu oluşturmak için sınıf ve sonra **executeBatch** yöntemi **TableService** toplu işlemleri gerçekleştirmek için.
+Bazen algılama toosubmit birden çok operations birlikte bir toplu tooensure atomik hello sunucusu tarafından işleme kolaylaştırır. kullanan, hello tooaccomplish **TableBatch** sınıf toocreate toplu ve sonra hello **executeBatch** yöntemi **TableService** tooperform hello toplu işlemler.
 
- Aşağıdaki örnek, bir toplu işte iki varlık gönderme gösterir:
+ bir toplu işte iki varlık gönderme aşağıdaki örneğine hello gösterir:
 
 ```nodejs
 var task1 = {
   PartitionKey: {'_':'hometasks'},
   RowKey: {'_': '1'},
-  description: {'_':'Take out the trash'},
+  description: {'_':'Take out hello trash'},
   dueDate: {'_':new Date(2015, 6, 20)}
 };
 var task2 = {
   PartitionKey: {'_':'hometasks'},
   RowKey: {'_': '2'},
-  description: {'_':'Wash the dishes'},
+  description: {'_':'Wash hello dishes'},
   dueDate: {'_':new Date(2015, 6, 20)}
 };
 
@@ -234,41 +234,41 @@ tableSvc.executeBatch('mytable', batch, function (error, result, response) {
 });
 ```
 
-Başarılı toplu işlemler için `result` her bir toplu işlemde için bilgiler içerir.
+Başarılı toplu işlemler için `result` hello toplu her işlem için bilgiler içerir.
 
 ### <a name="work-with-batched-operations"></a>Toplu işlemleri ile çalışma
-Bir toplu iş eklenen işlemleri görüntüleyerek Denetlenmekte `operations` özelliği. İşlemleri ile çalışmak için aşağıdaki yöntemleri de kullanabilirsiniz:
+Operations eklenen tooa toplu hello görüntüleyerek sahip denetlenir `operations` özelliği. İşlemlerle yöntemleri toowork aşağıdaki hello de kullanabilirsiniz:
 
 * **Clear** -tüm işlemler bir batch temizler
-* **getOperations** -bir işlem toplu işten alır
-* **hasOperations** -toplu işlemler varsa true değerini döndürür
+* **getOperations** -hello toplu işlemindeki bir işlem alır
+* **hasOperations** -hello toplu işlemler varsa true değerini döndürür
 * **removeOperations** -bir işlem kaldırır
-* **boyutu** -toplu işlemde işlemlerinin sayısını döndürür
+* **boyutu** -döndürür hello hello toplu işlemi sayısı
 
 ## <a name="retrieve-an-entity-by-key"></a>Anahtara göre bir varlık alma
-Göre belirli bir varlık döndürülecek **PartitionKey** ve **RowKey**, kullanın **retrieveEntity** yöntemi.
+belirli bir varlık üzerinde hello dayalı tooreturn **PartitionKey** ve **RowKey**, hello kullan **retrieveEntity** yöntemi.
 
 ```nodejs
 tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
   if(!error){
-    // result contains the entity
+    // result contains hello entity
   }
 });
 ```
 
-Bu işlem tamamlandıktan sonra `result` varlık içerir.
+Bu işlem tamamlandıktan sonra `result` hello varlık içerir.
 
 ## <a name="query-a-set-of-entities"></a>Varlık kümesi sorgulama
-Bir tabloyu sorgulamak için kullanın **TableQuery** nesne aşağıdaki yan tümceleri kullanarak bir sorgu ifadesi oluşturmak için:
+tooquery bir tablo kullanmak hello **TableQuery** toobuild yan tümceleri aşağıdaki hello kullanarak bir sorgu ifadesi yukarı nesnesi:
 
-* **seçin** -sorgudan döndürülecek alanları
-* **Burada** -where yan tümcesi
+* **seçin** -hello alanları toobe hello sorgudan döndürülen
+* **Burada** - hello nerede yan tümcesi
 
   * **ve** - bir `and` koşul
   * **veya** - bir `or` koşul
-* **üst** -getirmek için öğe sayısı
+* **üst** -hello öğeleri toofetch sayısı
 
-Aşağıdaki örnek, bir PartitionKey 'hometasks' ın üst beş öğeleri döndürülecek bir sorgu oluşturur.
+Merhaba aşağıdaki örnek ilk beş öğelerinin bir PartitionKey ile 'hometasks' hello döndürülecek bir sorgu oluşturur.
 
 ```nodejs
 var query = new azure.TableQuery()
@@ -276,7 +276,7 @@ var query = new azure.TableQuery()
   .where('PartitionKey eq ?', 'hometasks');
 ```
 
-Bu yana **seçin** , tüm alanları döndürülecek kullanılmaz. Tablo sorgusu gerçekleştirmek için kullanın **queryEntities**. Aşağıdaki örnekte, varlıklar 'mytable' döndürmek için bu sorguyu kullanır.
+Bu yana **seçin** , tüm alanları döndürülecek kullanılmaz. Tablo, kullanım tooperform hello sorgusu **queryEntities**. Merhaba aşağıdaki örnekte bu 'mytable' sorgu tooreturn varlıklardan kullanır.
 
 ```nodejs
 tableSvc.queryEntities('mytable',query, null, function(error, result, response) {
@@ -286,11 +286,11 @@ tableSvc.queryEntities('mytable',query, null, function(error, result, response) 
 });
 ```
 
-Başarılı olursa, `result.entries` sorguyla eşleşen varlıkları dizisi içerir. Sorgu tüm varlıkları döndüremedi varsa `result.continuationToken` olmayan olacaktır*null* ve üçüncü parametresi olarak kullanılabilir **queryEntities** daha fazla sonuç alınamadı. İlk sorguyu için *null* üçüncü parametre.
+Başarılı olursa, `result.entries` hello sorguyla eşleşen varlıkları dizisi içerir. Merhaba sorgu oluşturulamıyor tooreturn ise tüm varlıkları `result.continuationToken` olmayan olacaktır*null* ve üçüncü parametresi, hello olarak kullanılan **queryEntities** tooretrieve daha fazla sonuç. Merhaba ilk sorguyu *null* hello üçüncü parametre için.
 
 ### <a name="query-a-subset-of-entity-properties"></a>Giriş özellikleri alt kümesi sorgulama
-Sorguda bir tabloya bir varlık birkaç alanları alabilir.
-Bu, bant genişliğini azaltır ve özellikle büyük varlıklar için sorgu performansını iyileştirebilir. Kullanım **seçin** yan tümcesi ve döndürülecek alanların adlarını geçirin. Örneğin, aşağıdaki sorguyu yalnızca döndürülecek **açıklama** ve **vade tarihi** alanları.
+Bir sorgu tooa tablosu yalnızca birkaç alanları bir varlıktan alabilir.
+Bu, bant genişliğini azaltır ve özellikle büyük varlıklar için sorgu performansını iyileştirebilir. Kullanım hello **seçin** hello alanları toobe yan tümcesi ve geçişi hello adlarını döndürdü. Örneğin, hello aşağıdaki sorguyu yalnızca hello döndürülecek **açıklama** ve **vade tarihi** alanları.
 
 ```nodejs
 var query = new azure.TableQuery()
@@ -300,7 +300,7 @@ var query = new azure.TableQuery()
 ```
 
 ## <a name="delete-an-entity"></a>Bir varlığı silme
-Bir varlığın bölüm ve satır anahtarını kullanarak silebilirsiniz. Bu örnekte, **task1** nesnesini içeren **RowKey** ve **PartitionKey** silinecek varlığın değerleri. Nesne geçirilir sonra **deleteEntity** yöntemi.
+Bir varlığın bölüm ve satır anahtarını kullanarak silebilirsiniz. Bu örnekte, hello **task1** nesnesini içeren hello **RowKey** ve **PartitionKey** silinmiş hello varlık toobe değerleri. Merhaba nesne toohello geçirilen sonra **deleteEntity** yöntemi.
 
 ```nodejs
 var task = {
@@ -316,12 +316,12 @@ tableSvc.deleteEntity('mytable', task, function(error, response){
 ```
 
 > [!NOTE]
-> Öğeleri silerken bir öğe başka bir işlem tarafından değiştirilip değiştirilmediğini emin olmak için Etag'ler kullanmayı düşünün. Bkz: [bir varlığı güncelleştirmek](#update-an-entity) Etag'ler kullanma hakkında bilgi için.
+> Öğe, öğe hello tooensure silme başka bir işlem tarafından değiştirilip değiştirilmediğini Etag'ler kullanmayı göz önünde bulundurun. Bkz: [bir varlığı güncelleştirmek](#update-an-entity) Etag'ler kullanma hakkında bilgi için.
 >
 >
 
 ## <a name="delete-a-table"></a>Bir tablo silme
-Aşağıdaki kod, bir depolama hesabından bir tablo siler.
+koddan hello bir depolama hesabından bir tablo siler.
 
 ```nodejs
 tableSvc.deleteTable('mytable', function(error, response){
@@ -331,14 +331,14 @@ tableSvc.deleteTable('mytable', function(error, response){
 });
 ```
 
-Tablo var olup olmadığından emin değilseniz kullanmak **deleteTableIfExists**.
+Merhaba tablo var olup olmadığından emin değilseniz kullanmak **deleteTableIfExists**.
 
 ## <a name="use-continuation-tokens"></a>Devamlılık belirteçleri kullanın
-İçin devamlılık belirteci tablolar için sonuçları büyük miktarlarda sorgulanırken arayın. Sorgunuz için bir devamlılık belirteci bulunduğunda tanımak için oluşturacağınız değil, farkına varmazsınız kullanılabilir büyük miktarlarda verinin olabilir.
+İçin devamlılık belirteci tablolar için sonuçları büyük miktarlarda sorgulanırken arayın. Sorgunuz için bir devamlılık belirteci mevcut olduğunda, toorecognize derleme değil, farkına varmazsınız olduğunu kullanılabilir büyük miktarlarda verinin olabilir.
 
-Sonuçlar nesne döndürülen varlık kümeleri sorgulama sırasında bir `continuationToken` böyle bir belirteç bulunduğunda özelliği. Ardından bu sorgu gerçekleştirirken bölüm ve tablo varlıkları arasında taşımak devam etmek için kullanabilirsiniz.
+Merhaba sonuçları nesne döndürülen varlık kümeleri sorgulama sırasında bir `continuationToken` böyle bir belirteç bulunduğunda özelliği. Bu işlemi daha sonra bir sorgu toocontinue toomove hello bölüm ve tablo varlıkları arasında gerçekleştirirken da kullanabilirsiniz.
 
-Sorgulama yapıldığında continuationToken parametre sorgu nesne örneği ile geri çağırma işlevi arasında sağlanabilir:
+Sorgularken, continuationToken parametresi hello sorgu nesne örneği ile Merhaba geri çağırma işlevi arasında sağlanabilir:
 
 ```nodejs
 var nextContinuationToken = null;
@@ -357,16 +357,16 @@ dc.table.queryEntities(tableName,
     });
 ```
 
-İnceleyin, `continuationToken` nesnesi bulacaksınız özellikler gibi `nextPartitionKey`, `nextRowKey` ve `targetLocation`, tüm sonuçları yinelemek için kullanılabilecek.
+Merhaba inceleyin, `continuationToken` nesnesi bulacaksınız özellikler gibi `nextPartitionKey`, `nextRowKey` ve `targetLocation`, tüm hello sonuçları aracılığıyla kullanılan tooiterate olabilir.
 
-Github'daki Azure depolama Node.js deposu içinde devamlılık örnek yoktur. Ara `examples/samples/continuationsample.js`.
+Devamlılık örnek hello Azure depolama Node.js bağlantıların github'da içinde yok. Ara `examples/samples/continuationsample.js`.
 
 ## <a name="work-with-shared-access-signatures"></a>Paylaşılan erişim imzaları ile çalışma
-Paylaşılan erişim imzaları (SAS) depolama hesabı adı veya anahtarları sağlamadan tabloları ayrıntılı erişim sağlamak için güvenli bir yoludur. SAS genellikle, verileri kayıtlarını sorgulamak için mobil uygulama izin verme gibi sınırlı erişim sağlamak için kullanılır.
+Paylaşılan erişim imzaları (SAS) depolama hesabı adı veya anahtarları sağlamadan güvenli şekilde tooprovide ayrıntılı erişim tootables ' dir. SAS genellikle bir mobil uygulama tooquery kayıtları izin verme gibi sınırlı kullanılan tooprovide erişim tooyour, verilerdir.
 
-SAS kullanarak bulut tabanlı bir hizmete gibi güvenilir bir uygulama oluşturur **generateSharedAccessSignature** , **TableService**ve bir mobil uygulama gibi güvenilmeyen veya yarı güvenilir bir uygulama sağlar. SAS SAS sahibi verilen erişim düzeyini yanı sıra SAS geçerli olduğu başlangıç ve bitiş tarihleri açıklar, bir ilke kullanılarak oluşturulur.
+Bir bulut tabanlı hizmeti gibi güvenilir bir uygulama hello kullanarak bir SAS oluşturur **generateSharedAccessSignature** Merhaba, **TableService**, tooan sağlar ve güvenilmeyen veya yarı güvenilir uygulama Mobil uygulama gibi. Hello SAS hello başlangıç tanımlayan bir ilke ve bitiş tarihleri sırasında hangi hello SAS geçerlidir kullanılarak oluşturulan, aynı zamanda erişim düzeyi verilen toohello SAS sahibi hello.
 
-Aşağıdaki örnek, sorgu ('r') tablo için SAS sahibi izin veren yeni bir paylaşılan erişim ilkesi oluşturur ve 100 dakika oluşturulduktan sonra süresi dolar.
+Merhaba aşağıdaki örnek hello SAS sahibi tooquery ('r') hello tablo izin veren yeni bir paylaşılan erişim ilkesi oluşturur ve 100 dakika hello zaman oluşturulduktan sonra süresi dolar.
 
 ```nodejs
 var startDate = new Date();
@@ -386,9 +386,9 @@ var tableSAS = tableSvc.generateSharedAccessSignature('mytable', sharedAccessPol
 var host = tableSvc.host;
 ```
 
-SAS sahibi tablo erişmeyi denediğinde, gerekli olduğu gibi konak bilgileri'nin de, sağlanan gerekir unutmayın.
+Gerekli olduğu gibi aynı zamanda, hello SAS sahibi tooaccess hello tablo çalıştığında sağlanan hello ana bilgisayar bilgilerini olması gerektiğini unutmayın.
 
-İstemci uygulama ile SAS kullanan **TableServiceWithSAS** tablo karşı işlemlerini gerçekleştirmek için. Aşağıdaki örnek, tabloya bağlanır ve bir sorgu gerçekleştirir.
+ile SAS kullanır hello sonra istemci uygulaması Hello **TableServiceWithSAS** hello tabloda tooperform işlemleri. Aşağıdaki örnek hello toohello tablo bağlanır ve bir sorgu gerçekleştirir.
 
 ```nodejs
 var sharedTableService = azure.createTableServiceWithSas(host, tableSAS);
@@ -397,17 +397,17 @@ var query = azure.TableQuery()
 
 sharedTableService.queryEntities(query, null, function(error, result, response) {
   if(!error) {
-    // result contains the entities
+    // result contains hello entities
   }
 });
 ```
 
-Ekle, Güncelleştir veya varlıklarını silme girişiminde yapılmışsa SAS yalnızca sorgu erişimle oluşturulmasının üzerinden bir hata döndürülür.
+Güncelleştirme veya silme varlıklar tooinsert girişiminde yapılmışsa hello SAS yalnızca sorgu erişimle oluşturulmasının üzerinden, bir hata döndürülür.
 
 ### <a name="access-control-lists"></a>Erişim denetim listeleri
-Erişim ilkesi için bir SAS ayarlamak için erişim denetim listesi (ACL) da kullanabilirsiniz. Bu tabloya erişim, ancak her istemci için farklı erişim ilkeleri sağlamak birden çok istemciye izin vermek istiyorsanız yararlıdır.
+Erişim denetimi listesi (ACL) tooset hello erişim ilkesi için bir SAS de kullanabilirsiniz. Birden çok istemcileri tooaccess hello tablo tooallow istiyor, ancak her istemci için farklı erişim ilkeleri sağlar, bu yararlı olur.
 
-Bir ACL her ilkesiyle ilişkili bir Kimliğe sahip bir dizi erişim ilkeleri kullanılarak uygulanır. Aşağıdaki örnekte, iki ilke, 'User1' diğeri için 'kullanıcı2' tanımlar:
+Bir ACL her ilkesiyle ilişkili bir Kimliğe sahip bir dizi erişim ilkeleri kullanılarak uygulanır. iki ilke, 'User1' diğeri için 'kullanıcı2' hello aşağıdaki örneğine tanımlar:
 
 ```nodejs
 var sharedAccessPolicy = {
@@ -424,7 +424,7 @@ var sharedAccessPolicy = {
 };
 ```
 
-Aşağıdaki örnek için geçerli ACL alır **hometasks** tablo ve yeni ilkeleri kullanılarak ekler **setTableAcl**. Bu yaklaşım sağlar:
+Örnek alır aşağıdaki hello hello hello geçerli ACL'si **hometasks** tablo ve hello yeni ilkeleri kullanılarak ekler **setTableAcl**. Bu yaklaşım sağlar:
 
 ```nodejs
 var extend = require('extend');
@@ -440,16 +440,16 @@ if(!error){
 });
 ```
 
-ACL ayarladıktan sonra daha sonra bir ilke kimliği dayalı bir SAS oluşturabilirsiniz. Aşağıdaki örnek, 'kullanıcı2' için yeni bir SAS oluşturur:
+Bir kez hello ACL ayarlayın, hello Kimliği İlkesi için temel bir SAS sonra oluşturabilirsiniz. Aşağıdaki örnek hello 'kullanıcı2' için yeni bir SAS oluşturur:
 
 ```nodejs
 tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi için aşağıdaki kaynaklara bakın.
+Daha fazla bilgi için kaynakları aşağıdaki hello bakın.
 
-* [Microsoft Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md), Microsoft’un Windows, macOS ve Linux üzerinde Azure Depolama verileriyle görsel olarak çalışmanızı sağlayan ücretsiz ve tek başına uygulamasıdır.
+* [Microsoft Azure Storage Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md) Windows, macOS ve Linux Azure Storage verilerle görsel olarak toowork sağlayan Microsoft boş bir tek başına uygulamadır.
 * [Azure depolama SDK'sı düğüm için](https://github.com/Azure/azure-storage-node) github'daki.
 * [Node.js Geliştirici Merkezi](/develop/nodejs/)
-* [Bir Azure Web sitesine bir Node.js uygulama oluşturun ve dağıtın](../app-service-web/app-service-web-get-started-nodejs.md)
+* [Oluşturma ve bir Node.js uygulaması tooan Azure Web sitesi dağıtma](../app-service-web/app-service-web-get-started-nodejs.md)

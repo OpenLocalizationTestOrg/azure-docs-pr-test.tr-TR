@@ -1,6 +1,6 @@
 ---
-title: "SQL veri ambarı tehdit algılama ile çalışmaya başlama"
-description: "Tehdit algılama ile çalışmaya nasıl başlayacağınız"
+title: "SQL veri ambarı tehdit algılama ile aaaGet başlatıldı"
+description: "Tooget tehdit algılama ile çalışmaya nasıl"
 services: sql-data-warehouse
 documentationcenter: 
 author: ronortloff
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-ms.openlocfilehash: f4a2376fe4fb710d031c35ca7fdbf4c7bb0f3caa
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: dec0b734849e7f52434e099db0b38fbf0bf6ad53
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-threat-detection"></a>Tehdit algılama ile çalışmaya başlama
 > [!div class="op_single_selector"]
@@ -29,49 +29,49 @@ ms.lasthandoff: 07/11/2017
 > 
 
 ## <a name="overview"></a>Genel Bakış
-Tehdit algılama veritabanına olası güvenlik tehditlerini gösteren anormal veritabanı etkinliklerini algılar. Tehdit algılama Önizleme aşamasındadır ve SQL Data Warehouse için desteklenir.
+Tehdit algılama, olası güvenlik tehditlerine toohello veritabanı gösteren anormal veritabanı etkinliklerini algılar. Tehdit algılama Önizleme aşamasındadır ve SQL Data Warehouse için desteklenir.
 
-Tehdit algılama, müşterilerin algılamak ve anormal etkinlikler güvenlik uyarıları sağlayarak göründüklerinde olası risklere yanıt sağlayan bir güvenlik yeni bir katman sağlar. Kullanıcıları kullanarak şüpheli olayları Araştır [Azure SQL veri ambarı denetimi](sql-data-warehouse-auditing-overview.md) bunlar erişim, ihlal ya da veri ambarındaki yararlanma girişimi sonucu olmadığını belirlemek için.
-Tehdit algılama adresi olası tehditlere Uzman güvenlik olması veya sistemleri izleme Gelişmiş Güvenlik yönetmek zorunda kalmadan veri ambarına basit kolaylaştırır.
+Tehdit algılama müşteriler toodetect sağlar ve güvenlik uyarıları anormal etkinlikler sağlayarak göründüklerinde toopotential tehditlerine yanıt güvenliği, yeni bir katman sağlar. Kullanıcıları kullanarak hello şüpheli olayları Araştır [Azure SQL veri ambarı denetimi](sql-data-warehouse-auditing-overview.md) bir girişim tooaccess sağlamazsa toodetermine ihlal etme veya hello veri ambarındaki yararlanma.
+Tehdit algılama toohello veri hello gerek toobe bir güvenlik Uzman ambar veya sistemleri izleme Gelişmiş Güvenlik yönetmek basit tooaddress olası tehditler kolaylaştırır.
 
-Örneğin, tehdit algılama olası SQL ekleme girişimlerini gösteren belirli anormal veritabanı etkinliklerini algılar. SQL ekleme veri güdümlü uygulamaları saldırmak için kullanılıyorsa Internet üzerinde ortak Web uygulaması güvenlik sorunlarını biridir. Saldırganlar ihlal veya veritabanındaki verileri değiştirmek için uygulama giriş alanları, kötü amaçlı SQL deyimleri eklemesine uygulama güvenlik açıkları yararlanın.
+Örneğin, tehdit algılama olası SQL ekleme girişimlerini gösteren belirli anormal veritabanı etkinliklerini algılar. SQL ekleme hello ortak Web uygulaması güvenlik sorunlarını hello Internet, veri güdümlü kullanılan tooattack uygulamalar üzerinde biridir. Saldırganlar uygulama güvenlik açıkları tooinject kötü amaçlı SQL deyimlerini ihlal veya hello veritabanındaki verileri değiştirmek için uygulama giriş alanları içine yararlanın.
 
 ## <a name="set-up-threat-detection-for-your-database"></a>Tehdit algılama veritabanınız için ayarlama
-1. Azure portalında başlatma [https://portal.azure.com](https://portal.azure.com).
-2. İzlemek istediğiniz SQL veri ambarı yapılandırma dikey penceresine gidin. Ayarlar dikey penceresinde seçin **denetim ve tehdit algılama**.
+1. Başlatma hello Azure portalında [https://portal.azure.com](https://portal.azure.com).
+2. Merhaba SQL Data Warehouse toomonitor istediğiniz toohello yapılandırma dikey gidin. Hello ayarları dikey penceresinde, seçin **denetim ve tehdit algılama**.
    
     ![Gezinti Bölmesi][1]
-3. İçinde **denetim ve tehdit algılama** yapılandırma dikey Aç **ON** denetleme, hangi görüntüler tehdit algılama ayarlar.
+3. Merhaba, **denetim ve tehdit algılama** yapılandırma dikey Aç **ON** denetleme, hangi görüntüler hello tehdit algılama ayarları.
    
     ![Gezinti Bölmesi][2]
 4. Kapatma **ON** tehdit algılama.
-5. Güvenlik Uyarıları anormal veri ambarı etkinlikler algılandığında alacak e-postaları listesini yapılandırın.
-6. Tıklatın **kaydetmek** içinde **denetim ve tehdit algılama** yeni veya güncelleştirilmiş denetim kaydetmek ve tehdit algılama ilkesi için yapılandırma dikey penceresi.
+5. Güvenlik Uyarıları anormal veri ambarı etkinlikler algılandığında alacak e-postaları Hello listesini yapılandırın.
+6. Tıklatın **kaydetmek** hello içinde **denetim ve tehdit algılama** yapılandırma dikey toosave hello yeni veya güncelleştirilmiş denetim ve tehdit algılama ilkesi.
    
     ![Gezinti Bölmesi][3]
 
 ## <a name="explore-anomalous-data-warehouse-activities-upon-detection-of-a-suspicious-event"></a>Anormal veri ambarı etkinlikleri şüpheli bir olay algılandığında keşfedin
 1. Anormal veritabanı etkinliklerini algılandığında bir e-posta bildirimi alırsınız. <br/>
-   E-posta anormal etkinlikler, veritabanı adı, sunucu adını ve olay süresi yapısını dahil olmak üzere şüpheli güvenlik olayı üzerinde bilgi sağlar. Ayrıca, olası nedenler bilgileri sağlarız ve önerilen eylemleri araştırmak ve veritabanına olası tehdidi azaltmak için.<br/>
+   Merhaba e-posta hello şüpheli güvenlik olayı hello yapısını hello anormal etkinlikler, veritabanı adı, sunucu adını ve hello olay zaman dahil olmak üzere bilgileri sağlarız. Ayrıca, olası nedenler bilgileri sağlarız Eylemler tooinvestigate önerilen ve hello olası tehdit toohello veritabanı etkisini azaltır.<br/>
    
     ![Gezinti Bölmesi][4]
-2. E-posta ile tıklayın **Azure SQL denetim günlüğü** Azure Klasik Portalı'nı başlatın ve ilgili denetim kayıtları şüpheli olay sırada geçici göstermek bağlantı.
+2. Hello postada hello üzerinde tıklatın **Azure SQL denetim günlüğü** hello Klasik Azure portalı başlatın ve hello ilgili denetim kayıtları hello şüpheli olay hello sırada geçici Göster bağlantı.
    
     ![Gezinti Bölmesi][5]
-3. Denetim kayıtlarının SQL deyimini gibi şüpheli veritabanı etkinlikleri hakkında daha fazla ayrıntı görüntülemek için tıklatın başarısızlık nedeni ve istemci IP.
+3. SQL deyimi gibi hello veritabanı kuşkulu etkinlikleri hakkında daha fazla ayrıntı Hello denetim kayıtları tooview üzerinde tıklatın başarısızlık nedeni ve istemci IP.
    
     ![Gezinti Bölmesi][6]
-4. Denetim kayıtlarının dikey penceresinde tıklayın **Excel'de açın** açmak için önceden yapılandırılmış excel almak ve daha derin denetim günlüğü şüpheli olay sırada geçici analizini çalıştırmak için şablon.<br/>
-   **Not:** Excel 2010 veya üzeri, güç sorgu ve **hızlı Birleştir** ayarı gereklidir
+4. Merhaba denetimi kayıtları dikey penceresinde tıklayın **Excel'de Aç** tooopen önceden yapılandırılmış excel şablonu tooimport ve hello denetim günlüğü hello şüpheli olay hello sırada geçici çalışma daha derin çözümlenmesi.<br/>
+   **Not:** Excel 2010 veya üzeri, Power Query ve hello **hızlı Birleştir** ayarı gereklidir
    
     ![Gezinti Bölmesi][7]
-5. Yapılandırmak için **hızlı Birleştir** - ayarlamayı **POWER QUERY** Şerit sekmesi, select **seçenekleri** Seçenekleri iletişim kutusunu görüntülemek için. Gizlilik bölümünü seçin ve ikinci seçeneği 'Gizlilik düzeylerini yoksayın ve potansiyel performansı geliştirin' - belirtin:
+5. tooconfigure hello **hızlı Birleştir** ayarında - hello **POWER QUERY** Şerit sekmesi, select **seçenekleri** toodisplay hello Seçenekleri iletişim kutusu. Merhaba gizlilik bölümünü seçin ve 'Hello gizlilik düzeylerini yoksayın ve potansiyel performansı geliştirin' hello ikinci seçeneği - belirtin:
    
     ![Gezinti Bölmesi][8]
-6. SQL denetim günlüklerini yüklemek için sekme doğru ayarlandığından ve 'Data' Şerit'i seçin ve 'Tümünü Yenile' düğmesini tıklatın ayarlarını parametrelerinde emin olun.
+6. tooload SQL denetim günlüklerini hello parametreleri hello Ayarlar sekmesinde doğru ayarlandığından ve ardından hello 'Verileri' Şerit'i seçin ve hello 'Tümünü Yenile' düğmesini tıklatın emin olun.
    
     ![Gezinti Bölmesi][9]
-7. Sonuçları görünür **SQL denetim günlüklerini** algılandı anormal etkinlikler daha derin çözümlenmesi çalıştırın ve güvenlik olay uygulamanızda etkisini olanak tanıyan sayfası.
+7. Merhaba sonuçları görünen hello **SQL denetim günlüklerini** toorun daha derin algılanan ve uygulamanızda hello güvenlik olayı hello etkisini hello anormal etkinlikler analizini sağlayan sayfası.
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-security-threat-detection/1_td_click_on_settings.png

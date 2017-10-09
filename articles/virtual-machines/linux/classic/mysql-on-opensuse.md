@@ -1,6 +1,6 @@
 ---
-title: "MySQL bir OpenSUSE VM olanağına yükle | Microsoft Docs"
-description: "Azure'da OpenSUSE Linux VMirtual makine MySQL yüklemek öğrenin."
+title: aaaInstall OpenSUSE VM'de MySQL | Microsoft Docs
+description: "Tooinstall MySQL, azure'da OpenSUSE Linux VMirtual makinede öğrenin."
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -15,28 +15,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2016
 ms.author: cynthn
-ms.openlocfilehash: 01b798a25575b66f89057315ce80d6cc0cde53b5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8f96d29f29cb9c466dd7fdaf92b378783fdaacd6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Azure'da OpenSUSE Linux çalıştıran bir sanal makineye MySQL yükleme
-[MySQL] [ MySQL] popüler, açık kaynaklı bir SQL veritabanı. Bu öğretici OpenSUSE Linux çalıştıran bir sanal makine oluşturun ve MySQL yükleme gösterilmektedir.
+[MySQL] [ MySQL] popüler, açık kaynaklı bir SQL veritabanı. Bu öğreticide gösterilmiştir nasıl toocreate OpenSUSE Linux çalıştıran bir sanal makine kurun MySQL.
 
 > [!IMPORTANT] 
-> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir.
+> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, hello Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, en yeni dağıtımların hello Resource Manager modelini kullanmasını önerir.
 
 <br>
 
 ## <a name="create-a-virtual-machine-running-opensuse-linux"></a>OpenSUSE Linux çalıştıran bir sanal makine oluşturma
 [!INCLUDE [create-and-configure-opensuse-vm-in-portal](../../../../includes/create-and-configure-opensuse-vm-in-portal.md)]
 
-## <a name="install-and-run-mysql-on-the-virtual-machine"></a>Yükleme ve sanal makinede MySQL çalıştırma
+## <a name="install-and-run-mysql-on-hello-virtual-machine"></a>Yükleyin ve MySQL hello sanal makinede çalıştırın
 [!INCLUDE [install-and-run-mysql-on-opensuse-vm](../../../../includes/install-and-run-mysql-on-opensuse-vm.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-MySQL hakkında daha fazla ayrıntı için bkz: [MySQL belgeleri][MySQLDocs].
+Merhaba MySQL hakkında daha fazla bilgi için bkz [MySQL belgeleri][MySQLDocs].
 
 [MySQLDocs]:http://dev.mysql.com/doc/index-topic.html
 [MySQL]:http://www.mysql.com

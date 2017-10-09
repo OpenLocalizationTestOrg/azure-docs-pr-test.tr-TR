@@ -14,13 +14,13 @@
 ## [Veri kaynaklarını keşfetme](data-catalog-how-to-discover.md)
 ## [Veri kaynaklarına açıklama ekleme](data-catalog-how-to-annotate.md)
 ## [Veri kaynaklarını belgeleme](data-catalog-how-to-documentation.md)
-## [Veri kaynaklarına bağlanma](data-catalog-how-to-connect.md)
+## [Toodata kaynaklarına bağlanın](data-catalog-how-to-connect.md)
 ## [Büyük veri kaynaklarıyla çalışma](data-catalog-how-to-big-data.md)
 ## [Veri profili veri kaynakları](data-catalog-how-to-data-profile.md)
 ## [Veri varlıklarını yönetme](data-catalog-how-to-manage.md)
 ## [Aramaları kaydetme ve veri varlıklarını sabitleme](data-catalog-how-to-save-pin.md)
-## [İş sözlüğünü ayarlama](data-catalog-how-to-business-glossary.md)
-## [Veri kataloğuna güvenli erişim](data-catalog-how-to-secure-catalog.md)
+## [Merhaba iş sözlüğünü ayarlama](data-catalog-how-to-business-glossary.md)
+## [Güvenli erişim toodata Kataloğu](data-catalog-how-to-secure-catalog.md)
 ## [İlgili veri varlıklarını görüntüleme](data-catalog-how-to-view-related-data-assets.md) 
 
 # Başvuru

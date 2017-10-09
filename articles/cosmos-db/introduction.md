@@ -1,5 +1,5 @@
 ---
-title: "Azure Cosmos DB’ye Giriş | Microsoft Belgeleri"
+title: aaaIntroduction tooAzure Cosmos DB | Microsoft Docs
 description: "Azure Cosmos DB hakkında bilgi edinin. Bu genel olarak dağıtılan çok modelli veritabanı; düşük gecikme süresi, esnek ölçeklenebilirlik ve yüksek kullanılabilirlik için oluşturulmuştur."
 services: cosmos-db
 author: mimig1
@@ -15,32 +15,32 @@ ms.topic: get-started-article
 ms.date: 07/14/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: c9d04ae0bc11b99f893e5f003f136fbfe0dfccc9
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: f2acbe99f425b2f07a62bbbb4324aa48f1037481
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB’ye hoş geldiniz
+# <a name="welcome-tooazure-cosmos-db"></a>TooAzure Cosmos DB Hoş Geldiniz
 
-Azure Cosmos DB, Microsoft’un genel olarak dağıtılan çok modelli veritabanıdır. Azure Cosmos DB, bir düğmeye tıklayarak aktarım hızı ile depolamayı dilediğiniz sayıda Azure coğrafi bölgesinde esnek ve birbirinden bağımsız bir şekilde ölçeklendirmenize olanak tanır. Diğer veritabanı hizmetlerinin sunamadığı kapsamlı [hizmet düzeyi sözleşmeleri](https://aka.ms/acdbsla) (SLA) ile birlikte aktarım hızı, gecikme süresi, kullanılabilirlik ve tutarlılık garantileri sunar.
+Azure Cosmos DB, Microsoft’un genel olarak dağıtılan çok modelli veritabanıdır. Bir düğme Hello tıklatmayla Azure Cosmos DB tooelastically ve bağımsız olarak ölçek işleme ve depolama Azure'un coğrafi bölgeler arasında herhangi bir sayı sağlar. Diğer veritabanı hizmetlerinin sunamadığı kapsamlı [hizmet düzeyi sözleşmeleri](https://aka.ms/acdbsla) (SLA) ile birlikte aktarım hızı, gecikme süresi, kullanılabilirlik ve tutarlılık garantileri sunar.
 
 ![Azure Cosmos DB, Microsoft'un esnek ölçek artırma, garantili düşük gecikme süresi, beş tutarlılık modeli ve kapsamlı SLA garantisi ile genel olarak dağıtılmış veritabanı hizmetidir](./media/introduction/azure-cosmos-db.png)
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Azure Cosmos DB'den yararlanan çözümler
 
-Çeşitli veriler için düşük yanıt süreleri içinde [küresel](distribute-data-globally.md) ölçekte muazzam miktarlarda okuma ve yazma işlemlerini işlemesi gereken tüm [web, mobil, oyun ve IoT uygulamaları](use-cases.md) Azure Cosmos DB'nin [garantili](https://azure.microsoft.com/support/legal/sla/cosmos-db/) kullanılabilirliğinden, yüksek aktarım hızından, düşük gecikme süresinden ve ayarlanabilir tutarlılığından yararlanır.
+Tüm [web, mobil, oyun ve IOT uygulamaları](use-cases.md) , gereksinim okuma ve yazma işlemleri oldukça büyük miktardaki toohandle üzerinde bir [genel](distribute-data-globally.md) çok çeşitli verileri Azure Cosmos DB'den 's faydalanırsınız için düşük yanıt süreleri ile ölçeklendirin [garanti](https://azure.microsoft.com/support/legal/sla/cosmos-db/) kullanılabilirlik, yüksek performans, düşük gecikme süresi ve ince ayarlanabilir tutarlılık.
 
 ## <a name="key-capabilities"></a>Temel işlevler
-Genel olarak dağıtılan bir veritabanı hizmeti olarak Azure Cosmos DB, ölçeklenebilir, son derece hızlı yanıt veren uygulamalar oluşturmanıza yardımcı olacak aşağıdaki özellikleri sağlar:
+Genel olarak dağıtılmış veritabanı hizmet olarak Azure Cosmos DB ölçeklenebilir, yüksek oranda yanıt veren uygulamaları derleme yetenekleri toohelp aşağıdaki hello sağlar:
 
 * **Anahtar teslimi genel dağıtım**
-    * [Tek bir düğmeye tıklayarak](tutorial-global-distribution-documentdb.md) istediğiniz kadar çok [Azure bölgesine](https://azure.microsoft.com/regions/) [verilerinizi dağıtabilirsiniz](distribute-data-globally.md). Bu, verilerinizi kullanıcılarınızın bulunduğu yere yerleştirerek müşterileriniz için mümkün olan en düşük gecikme süresini sağlamanıza olanak tanır. 
-    * Azure Cosmos DB'nin çok girişli API'lerini kullanarak, uygulama her zaman en yakın bölgenin yerini bilir ve istekleri en yakın veri merkezine gönderir. Bunların tümü yapılandırma değişikliğine gerek kalmadan yapılabilir; yazma bölgenizi ve istediğiniz kadar çok okuma bölgesini ayarlarsınız, kalan işlemler sizin yerinize yapılır.
+    * Yapabilecekleriniz [verilerinizi dağıtmak](distribute-data-globally.md) tooany sayısı [Azure bölgeleri](https://azure.microsoft.com/regions/), hello ile [bir düğmesini tıklatın](tutorial-global-distribution-documentdb.md). Bu, tooput verilerinizi burada kullanıcılarınızın hello düşük olası gecikme tooyour müşteriler sağlama olan sağlar. 
+    * Azure Cosmos veritabanı kullanarak çok girişli API'leri, hello uygulama her zaman burada bölgeye en yakın hello ve istekleri toohello en yakın veri merkezinin göndereceğiniz bilir. Tüm olası hiçbir yapılandırma değişiklikleri, yazma bölgenizi ayarlamak ve istediğiniz ve hello gibi birçok salt okunur bölgeler rest sizin için gerçekleştirilir.
 
 * **Çoklu veri modelleri ve verilere erişim ile veri sorgulamaya yönelik popüler API’ler**
-    * Azure Cosmos DB'nin üzerine yapılandırıldığı ve atom kayıt sırasını (ARS) temel alan veri modeli; belge, grafik, anahtar-değer, tablo ve sütunlu veri modelleri de dahil olmak üzere ancak bunlarla sınırlı kalmamak kaydıyla birçok veri modelini yerel olarak destekler.
-    * Aşağıdaki veri modellerinin API'leri, birden çok dilde sağlanan SDK'larla desteklenir:
+    * Azure Cosmos DB yerel olarak oluşturulmuş hello atom kayıt sırası (ARS) tabanlı veri modeli, bunlarla sınırlı toodocument, grafik, anahtar-değer, tablo ve sütun veri modelleri dahil olmak üzere birden çok veri modelleri destekler.
+    * Veri modelleri aşağıdaki hello API'ler, SDK'ları birden çok dilde kullanılabilir ile desteklenir:
         * [DocumentDB API'si](documentdb-introduction.md)
         * [MongoDB API’si](mongodb-introduction.md)
         * [Tablo API’si](table-introduction.md)
@@ -49,19 +49,19 @@ Genel olarak dağıtılan bir veritabanı hizmeti olarak Azure Cosmos DB, ölçe
 
 * **Aktarım hızı ve depolamayı dünyanın dört bir yanında, talep üzerine esnek bir şekilde ölçeklendirin**
     * Veritabanı aktarım hızını [saniye başına](request-units.md) ayrıntı düzeyinde kolayca ölçeklendirin ve dilediğiniz zaman değiştirin. 
-    * Boyut gereksinimlerinizi şimdi ve sonsuza dek karşılamak için depolama boyutunuzu [şeffaf ve otomatik bir şekilde](partition-data.md) ölçeklendirin.
+    * Depolama boyutunu [saydam ve otomatik olarak](partition-data.md) toohandle boyutu gereksinimlerinizi şimdi ve sonsuza kadar.
 
 * **Yüksek hızda yanıt veren ve görev açısından kritik uygulamalar oluşturun**
-    * Azure Cosmos DB, müşterilerine 99. yüzdebirlik dilimde uçtan uca düşük gecikme süresi garanti etmektedir. 
-    * Cosmos DB, tipik bir 1 KB’lik öğe için aynı Azure bölgesindeki 99. yüzdebirlik dilimde 10 ms’nin altında okumalar ve 15 ms’nin altında dizini oluşturulmuş yazmalar için uçtan uca gecikme süresi garanti eder. Ortalama gecikme süreleri çok daha düşüktür (5 ms’nin altında).
+    * Azure Cosmos DB uçtan uca hello en düşük gecikme süresi 99 yüzdelik tooits müşteriler güvence altına alır. 
+    * Bir tipik 1 KB öğesi için Cosmos DB okuma uçtan uca gecikme altında 10 ms garanti eder ve dizinli yazma hello 99, en altında 15 ms içinde hello aynı Azure bölgesi. Merhaba Medyan gecikme sürelerini önemli ölçüde düşebilir (5 ms altında).
 
 * **"Her zaman açık" özelliği ile kullanılabilirlik endişeniz olmaz**
     * Tek bir bölge içinde %99,99 kullanılabilirlik.
-    * Daha yüksek kullanılabilirlik için dilediğiniz sayıda [Azure bölgesine](https://azure.microsoft.com/regions) dağıtın.
+    * Tooany sayısı dağıtmak [Azure bölgeleri](https://azure.microsoft.com/regions) yüksek kullanılabilirlik için.
     * Sıfır veri kaybı garantisi ile bir veya daha fazla bölgenin [hata benzetimini gerçekleştirin](regional-failover.md). 
 
-* **Genel olarak dağıtılan uygulamaları, doğru şekilde yazın**
-    * Beş [tutarlılık modeli](consistency-levels.md), NoSQL benzeri nihai tutarlılığa kadar giden ve aradaki her şeyi içeren, güçlü SQL benzeri tutarlılık spektrumu sağlar. 
+* **Genel olarak dağıtılmış uygulamaların hello yazma sağ yolu**
+    * Beş [tutarlılık modelleri](consistency-levels.md) modelleri tooNoSQL benzeri şekilde nihai tutarlılık ve her şey arasındaki tüm hello güçlü SQL benzeri tutarlılık yelpazesini sağlar. 
   
 * **Para iadesi garantisi**
     * Verileriniz gitmesi gereken yere hızlı bir şekilde ulaşmazsa paranız iade edilir. 
@@ -69,15 +69,15 @@ Genel olarak dağıtılan bir veritabanı hizmeti olarak Azure Cosmos DB, ölçe
 
 * **Veritabanı şema/dizin yönetimi yok**
     * Veritabanı şema ve dizinlerinizi uygulamanızın şemasıyla eşitleme konusunda endişelenmeyi bırakın. Bizde şema yok. 
-    * Azure Cosmos DB’nin veritabanı altyapısı tam olarak şemadan bağımsızdır; aldığı tüm verileri, herhangi bir şema veya dizin gerektirmeden otomatik olarak dizine alır ve ışık hızında sorgular sunar. 
+    * Azure Cosmos veritabanı veritabanı altyapısıdır tam şema belirsiz – herhangi bir şema veya dizinleri gerek kalmadan alır ve üstün hızlı sorguları hizmet tüm hello verileri otomatik olarak dizinler. 
 
 * **Düşük sahip olma maliyeti**
-    * Yönetilmeyen bir çözüme göre beş ila on kat [daha uygun maliyetli](https://aka.ms/cosmos-db-tco-paper).
+    * Tooten beş [daha düşük maliyetli](https://aka.ms/cosmos-db-tco-paper) yönetilmeyen bir çözümden.
     * DynamoDB’den üç kat daha ucuz.
 
 ## <a name="capability-comparison"></a>Özellik karşılaştırması
 
-Azure Cosmos DB, ilişkisel ve ilişkisel olmayan veritabanlarının en iyi özelliklerini sağlar.
+Azure Cosmos DB ilişkisel ve ilişkisel olmayan veritabanlarının hello en iyi yetenekleri sağlar.
 
 | Özellikler | İlişkisel veritabanları   | İlişkisel olmayan (NoSQL) veritabanları |    Azure Cosmos DB |
 | --- | --- | --- | --- |

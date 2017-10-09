@@ -1,5 +1,5 @@
 ---
-title: "Akış analizi için veri analizi işlem işi oluşturma | Microsoft Docs"
+title: "Akış analizi için bir veri analizi işleme işi aaaHow toocreate | Microsoft Docs"
 description: "Akış analizi için veri analizi işlem işi oluşturma | yol kesimi öğrenme."
 keywords: "veri analizi işleme"
 documentationcenter: 
@@ -15,35 +15,35 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 05fdf1e20efd129cdfc27e1d37bc9e124edf5dcd
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: d4a3c89d8862d59688d06a1719b063efa2ab1c93
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-create-a-data-analytics-processing-job-for-stream-analytics"></a>Akış analizi için veri analizi işlem işi oluşturma
-Üst düzey Azure akış analizi, akış analizi işi kaynaktır.  Bir veya daha fazla giriş veri kaynağı, veri dönüştürme ifade bir sorgu ve sonuçları yazılan bir veya daha fazla çıkış hedefleri oluşur. Birlikte bu veri analitik veri senaryoları akış için işleme gerçekleştirmek kullanıcının etkinleştirir.
+# <a name="how-toocreate-a-data-analytics-processing-job-for-stream-analytics"></a>Nasıl toocreate veri analizi işleme iş akış analizi için
+Merhaba en üst düzey Azure akış analizi, akış analizi işi kaynaktır.  Aşağıdakilerden birini oluşur veya daha fazla veri kaynakları, hello veri dönüştürme ifade bir sorgu ve sonuçları yazılan bir veya daha fazla çıkış hedefleri giriş. Bunlar birlikte hello kullanıcı tooperform veri analizi için veri akışı işleme senaryolarına etkinleştirin.
 
-Stream Analytics kullanmaya başlamak için yeni bir akış analizi işi oluşturarak başlayın.  İş başlatılana kadar bu eylem hiçbir fatura şifrelemelerini unutmayın.
+Akış analizi kullanarak toostart yeni bir akış analizi işi oluşturarak başlayın.  Merhaba İş başlayana kadar bu eylem hiçbir fatura şifrelemelerini unutmayın.
 
-1. Online'da oturum [Klasik Azure portalı](http://manage.windowsazure.com) veya [Azure portal](https://portal.azure.com/).
-2. Portalda: **Yeni'yi**, ardından **Veri Hizmetleri** veya **veri analizi** portal ve ardından bağlı olarak **Azure akış analizi**veya **akış analizi** ve ardından **hızlı Oluştur**.
+1. Çevrimiçi Hello üzerinde oturum [Klasik Azure portalı](http://manage.windowsazure.com) veya hello [Azure portal](https://portal.azure.com/).
+2. Merhaba portalında: **Yeni'yi**, ardından **Veri Hizmetleri** veya **veri analizi** portal ve ardından bağlı olarak **Azure akış analizi** veya **akış analizi** ve ardından **hızlı Oluştur**.
    
    ![Veri analizi işleme işi Sihirbazı](./media/stream-analytics-create-a-job/1-stream-analytics-create-a-job.png)  
    
    ![İş işleme veri analizi oluşturma](./media/stream-analytics-create-a-job/4-stream-analytics-create-a-job.png)  
-3. Stream Analytics işi için istenen yapılandırmayı belirtin.
+3. Merhaba hello Stream Analytics işi için istenen yapılandırmayı belirtin.
    
-   * İçinde **iş adı** kutusuna, Stream Analytics işi tanımlamak için bir ad girin. Zaman **iş adı** doğrulandı, iş adı kutusunda yeşil bir onay işareti görünür. **İş adı** yalnızca alfasayısal karakterler içerebilir ve '-' karakteri ve 3 ile 63 karakter arasında olmalıdır.
-   * Kullanım **bölge** Azure portalında veya **konumu** , işi çalıştırmak istediğiniz coğrafi konumu belirtmek için Azure Portalı'nda.
-   * Azure portalını kullanıyorsanız, seçin veya olarak kullanılmak üzere depolama hesabı oluşturma **bölgesel izleme depolama hesabı**. Bu depolama hesabı, bu bölgede çalışan tüm Stream Analytics işleri izleme verilerini depolamak için kullanılır.
-   * Azure Portalı'nı kullanarak, yeni bir belirtin veya varolan **kaynak grubu** uygulamanız için ilgili kaynakları tutmak için.
-4. Yeni akış analizi işi seçenekleri yapılandırıldıktan sonra tıklatın **Stream Analytics işi oluşturmak**. Akış analizi işinin oluşturulması birkaç dakika sürebilir. Durumu denetlemek için bildirim hub'ında ilerlemesini izleyebilirsiniz.
+   * Merhaba, **iş adı** kutusunda, bir ad tooidentify hello akış analizi işi'ni girin. Ne zaman hello **iş adı** doğrulandı, hello iş adı kutusunda yeşil bir onay işareti görünür. Merhaba **iş adı** yalnızca alfasayısal karakterler ve hello içerebilir '-' karakteri ve 3 ile 63 karakter arasında olmalıdır.
+   * Kullanım **bölge** hello Azure portal'ın veya **konumu** hello Azure portal toospecify hello toorun hello iş coğrafi konumu.
+   * Azure portal kullanarak Merhaba, seçin veya bir depolama hesabı toouse hello olarak oluşturun **bölgesel izleme depolama hesabı**. Bu bölgede çalıştıran tüm Stream Analytics işleri için veri izleme kullanılan toostore bu depolama hesabıdır.
+   * Azure portal kullanarak Merhaba, yeni bir belirtin veya varolan **kaynak grubu** toohold ilgili uygulamanız için kaynakları.
+4. Merhaba yeni akış analizi işi seçenekleri yapılandırıldıktan sonra tıklatın **Stream Analytics işi oluşturmak**. Oluşturulan hello Stream Analytics işi toobe birkaç dakika sürebilir. toocheck hello durum hello bildirimler hub'ındaki hello ilerlemesini izleyebilirsiniz.
    
    ![Veri analizi işleme iş bildirimler hub'ı](./media/stream-analytics-create-a-job/2-stream-analytics-create-a-job.png)  
    
    ![Azure portal veri analitik işleme işi oluştur işi](./media/stream-analytics-create-a-job/5-stream-analytics-create-a-job.png)  
-5. Yeni iş durumunu gösterecektir **oluşturulan**. Dikkat **Başlat** düğmesi devre dışıdır. İş başlamadan önce iş girişi, sorgu ve çıkış yapılandırın.
+5. Merhaba yeni iş durumunu gösterir **oluşturulan**. Bu hello fark **Başlat** düğmesi devre dışıdır. Merhaba işi başlatmadan önce hello iş girişi, sorgu ve çıktı yapılandırın.
    
    ![Veri analizi işleme iş durumu](./media/stream-analytics-create-a-job/3-stream-analytics-create-a-job.png)  
    
@@ -53,7 +53,7 @@ Stream Analytics kullanmaya başlamak için yeni bir akış analizi işi oluştu
 Daha fazla yardım için [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) deneyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure Stream Analytics'e giriş](stream-analytics-introduction.md)
+* [Giriş tooAzure akış analizi](stream-analytics-introduction.md)
 * [Azure Akış Analizi'ni kullanmaya başlama](stream-analytics-real-time-fraud-detection.md)
 * [Azure Akış Analizi işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
 * [Azure Akış Analizi Sorgu Dili Başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)

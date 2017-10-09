@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric DNS hizmeti | Microsoft Docs
-description: "Service Fabric'in dns hizmeti mikro hizmetler küme içindeki bulmak için kullanın."
+title: Service Fabric DNS hizmeti aaaAzure | Microsoft Docs
+description: "Gelen mikro bulmak için Service Fabric'in dns hizmetini kullanmak hello küme içindeki."
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/27/2017
 ms.author: msfussell
-ms.openlocfilehash: 9871bc5aa4e74ab0faef401d67c4e9558eb5e14b
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: fa536f0e41f52c4942702d0a1bdcd3ed7d418d6d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service Fabric DNS hizmeti
-DNS hizmeti DNS protokolünü kullanarak diğer hizmetleri bulmak için kümeyi olanak veren bir isteğe bağlı sistem hizmetidir.
+Merhaba DNS hizmeti hizmettir, küme toodiscover olanak veren bir isteğe bağlı sistem hello DNS protokolünü kullanarak diğer hizmetler.
 
-Birçok hizmetler, özellikle kapsayıcılı hizmetler var olan bir URL adına sahip olabilir ve standart DNS Protokolü (adlandırma hizmeti Protokolü yerine) kullanarak bunları gidermek için özellikle "kaldırın ve shift" senaryolarda tercih edilir. DNS hizmeti, bir hizmet adı DNS adlarını eşlemek ve bu nedenle uç noktası IP adreslerini çözümlemesine olanak sağlar. 
+Birçok hizmetler, özellikle kapsayıcılı hizmetler var olan bir URL adı ve mümkün tooresolve olması olabilir bunları hello standart DNS Protokolü (Merhaba adlandırma hizmeti Protokolü yerine) kullanarak özellikle "kaldırın ve shift" senaryolarda önerilir. Merhaba DNS hizmeti, toomap DNS adları tooa hizmet adı sağlar ve bu nedenle uç nokta IP adresleri çözümleyin. 
 
-DNS hizmeti sırayla Adlandırma Hizmeti uç noktası döndürmek için hizmet tarafından çözümlenen hizmet adları için DNS adlarını eşler. Hizmeti için DNS ad oluşturma sırasında sağlanır. 
+Merhaba DNS hizmeti sırayla hello adlandırma hizmeti tooreturn hello hizmet uç noktası tarafından çözümlenen DNS adlarını tooservice adlarını eşler. Merhaba hizmeti için Hello DNS ad hello oluşturma sırasında sağlanır. 
 
 ![Hizmet uç noktaları][0]
 
-## <a name="enabling-the-dns-service"></a>DNS hizmeti etkinleştirme
-İlk DNS hizmeti kümenizdeki etkinleştirmeniz gerekir. Şablonu dağıtmak istediğiniz kümenin alın. Kullanabilir [örnek şablonlarından](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) veya Resource Manager şablonu oluşturun. Aşağıdaki adımlarla DNS hizmeti etkinleştirebilirsiniz:
+## <a name="enabling-hello-dns-service"></a>Merhaba DNS hizmetini etkinleştirme
+İlk kümenizdeki tooenable hello DNS hizmeti gerekir. Merhaba şablonu toodeploy istediğiniz hello küme için alın. Ya da kullanım hello yapabilecekleriniz [örnek şablonlarından](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) veya Resource Manager şablonu oluşturun. Aşağıdaki adımları hello ile Merhaba DNS hizmeti etkinleştirebilirsiniz:
 
-1. Denetleyin `apiversion` ayarlanır `2017-07-01-preview` için `Microsoft.ServiceFabric/clusters` kaynak ve aksi durumda aşağıdaki kod parçacığında gösterildiği gibi güncelleştirebilirsiniz:
+1. Bu hello denetleyin `apiversion` çok ayarlanır`2017-07-01-preview` hello için `Microsoft.ServiceFabric/clusters` kaynak ve aksi durumda, hello aşağıdaki kod parçacığında gösterildiği gibi güncelleştirebilirsiniz:
 
     ```json
     {
@@ -44,7 +44,7 @@ DNS hizmeti sırayla Adlandırma Hizmeti uç noktası döndürmek için hizmet t
     }
     ```
 
-2. DNS hizmeti aşağıdakileri ekleyerek şimdi etkinleştirmek `addonFeatures` sonra bölümünde `fabricSettings` bölümünde aşağıdaki kod parçacığında gösterildiği gibi: 
+2. Merhaba aşağıdakileri ekleyerek hello DNS hizmeti şimdi etkinleştirmek `addonFeatures` bölümünden hello sonra `fabricSettings` bölümünde hello aşağıdaki kod parçacığında gösterildiği gibi: 
 
     ```json
         "fabricSettings": [
@@ -55,18 +55,18 @@ DNS hizmeti sırayla Adlandırma Hizmeti uç noktası döndürmek için hizmet t
         ],
     ```
 
-3. Küme şablonunuzu önceki değişiklikleriyle güncelleştirdikten sonra bunları uygulamak ve yükseltme izin tamamlandı. Tamamlandıktan sonra DNS sistem hizmetini başlatır çağrılan kümenizde çalışan `fabric:/System/DnsService` sistem hizmeti bölümünde bulunan Service Fabric explorer. 
+3. Değişiklikleri önceki hello ile küme şablonunuzu güncelleştirdikten sonra bunları uygulamak ve yükseltme tamamlandı hello sağlayabilirsiniz. Tamamlandıktan sonra hello DNS sistem hizmeti başlatır çağrılan kümenizde çalışan `fabric:/System/DnsService` sistem hizmeti hello Service Fabric explorer bölümünde. 
 
-Alternatif olarak, küme oluşturma sırasında portal üzerinden DNS hizmeti etkinleştirebilirsiniz. DNS hizmeti için kutuyu işaretleyerek etkin hale getirilebilir `Include DNS service` içinde `Cluster configuration` aşağıdaki ekran görüntüsünde gösterildiği gibi menüsü:
+Alternatif olarak, küme oluşturma hello aynı anda hello DNS hizmeti hello portal üzerinden etkinleştirebilirsiniz. Merhaba DNS hizmeti için hello kutuyu işaretleyerek etkinleştirilebilir `Include DNS service` hello içinde `Cluster configuration` hello ekran aşağıdaki gösterildiği gibi menüsü:
 
-![DNS hizmeti portal üzerinden etkinleştirme][2]
+![DNS hizmeti hello portal üzerinden etkinleştirme][2]
 
 
-## <a name="setting-the-dns-name-for-your-service"></a>Hizmetiniz için DNS adı ayarlama
-DNS hizmeti kümenizdeki çalışmaya başladıktan sonra hizmetleriniz için bir DNS adı ya da varsayılan Hizmetleri için bildirimli olarak ayarlayabileceğiniz `ApplicationManifest.xml` veya Powershell komutları ile.
+## <a name="setting-hello-dns-name-for-your-service"></a>Merhaba DNS adı hizmetiniz için ayarlama
+Kümenizdeki Hello DNS hizmeti çalışmaya başladıktan sonra hizmetleriniz için bir DNS adı ya da varsayılan hizmetler için bildirimli olarak hello ayarlayabileceğiniz `ApplicationManifest.xml` veya Powershell komutları ile.
 
-### <a name="setting-the-dns-name-for-a-default-service-in-the-applicationmanifestxml"></a>Varsayılan hizmet için DNS adı ApplicationManifest.xml ayarlama
-Visual Studio veya tercih ettiğiniz Düzenleyicisi projenizi açın ve açık `ApplicationManifest.xml` dosya. Varsayılan Hizmetleri bölümüne gidin ve her hizmet için ekleyin `ServiceDnsName` özniteliği. Aşağıdaki örnek hizmeti DNS adı ayarlamak nasıl gösterir`service1.application1`
+### <a name="setting-hello-dns-name-for-a-default-service-in-hello-applicationmanifestxml"></a>Varsayılan hizmet için Hello DNS adı hello ApplicationManifest.xml ayarlama
+Projeniz Visual Studio'da veya tercih ettiğiniz Düzenleyicisi ve açın hello `ApplicationManifest.xml` dosya. Toohello varsayılan Hizmetleri bölümüne gidin ve her hizmet Ekle hello için `ServiceDnsName` özniteliği. Aşağıdaki örnek hello nasıl tooset hello hello hizmetin DNS adı çok gösterir`service1.application1`
 
 ```xml
     <Service Name="Stateless1" ServiceDnsName="service1.application1">
@@ -75,12 +75,12 @@ Visual Studio veya tercih ettiğiniz Düzenleyicisi projenizi açın ve açık `
     </StatelessService>
     </Service>
 ```
-Uygulama dağıtıldığında, Service Fabric Explorer'da hizmet örneği aşağıdaki resimde gösterildiği gibi bu örneği için DNS adını gösterir: 
+Merhaba uygulama dağıtıldığında, hello hizmet örneği hello Service Fabric explorer içinde hello aşağıdaki şekilde gösterildiği gibi hello DNS adı bu örneğin gösterir: 
 
 ![Hizmet uç noktaları][1]
 
-### <a name="setting-the-dns-name-for-a-service-using-powershell"></a>Powershell kullanarak bir hizmet için DNS adı ayarlama
-Bir hizmet için DNS adını kullanarak oluştururken ayarlayabilirsiniz `New-ServiceFabricService` Powershell. Aşağıdaki örnek, DNS adıyla yeni bir durum bilgisiz hizmeti oluşturur`service1.application1`
+### <a name="setting-hello-dns-name-for-a-service-using-powershell"></a>Powershell kullanarak bir hizmet için Hello DNS adı ayarlama
+Hello kullanarak oluştururken hello DNS adı bir hizmet için ayarlayabileceğiniz `New-ServiceFabricService` Powershell. Merhaba aşağıdaki örnek yeni bir durum bilgisiz hizmet hello DNS adıyla oluşturur`service1.application1`
 
 ```powershell
     New-ServiceFabricService `
@@ -94,9 +94,9 @@ Bir hizmet için DNS adını kullanarak oluştururken ayarlayabilirsiniz `New-Se
 ```
 
 ## <a name="using-dns-in-your-services"></a>DNS, Hizmetleri'ni kullanarak
-Birden fazla hizmet dağıtırsanız, uç noktaları ile bir DNS adı kullanarak iletişim kurmak için diğer hizmetlerin bulabilirsiniz. DNS hizmeti, yalnızca DNS protokolü durum bilgisi olan Hizmetleri ile iletişim kuramıyor beri durum bilgisi olmayan hizmetler için geçerlidir. Durum bilgisi olan hizmetler için belirli bir hizmet bölümü çağırmak için yerleşik bir ters proxy http çağrıları için kullanabilirsiniz.
+Birden fazla hizmet dağıtırsanız, DNS adını kullanarak hello uç noktaları ile diğer hizmetleri toocommunicate bulabilirsiniz. Merhaba DNS protokolü durum bilgisi olan Hizmetleri ile iletişim kuramıyor hello DNS hizmeti yalnızca geçerli toostateless Hizmetleri taşımaktadır. Durum bilgisi olan hizmetler için http çağrıları toocall belirli bir hizmet bölümü hello yerleşik ters proxy kullanabilirsiniz.
 
-Aşağıdaki kod, yalnızca bir normal http bağlantı noktası ve isteğe bağlı bir yoldur URL'SİNİN bir parçası verdiğiniz çağrıdır başka bir hizmete çağrı gösterilmektedir.
+Merhaba aşağıdaki kod toocall yalnızca normal HTTP başka bir hizmet nasıl çağrı hello bağlantı noktası ve isteğe bağlı bir yoldur hello URL'SİNİN bir parçası verdiğiniz gösterir.
 
 ```csharp
 public class ValuesController : Controller
@@ -125,7 +125,7 @@ public class ValuesController : Controller
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Hizmet iletişimi ile küme içindeki hakkında daha fazla bilgi [bağlanmak ve Hizmetleri ile iletişim](service-fabric-connect-and-communicate-with-services.md)
+Hizmet iletişimi ile Merhaba kümedeki hakkında daha fazla bilgi [bağlanmak ve Hizmetleri ile iletişim](service-fabric-connect-and-communicate-with-services.md)
 
 [0]: ./media/service-fabric-connect-and-communicate-with-services/dns.png
 [1]: ./media/service-fabric-dnsservice/servicefabric-explorer-dns.PNG

@@ -1,6 +1,6 @@
 ---
-title: "Şablonları kullanarak API Management Geliştirici portalını özelleştirme-Azure | Microsoft Docs"
-description: "Şablonları kullanarak Azure API Management Geliştirici Portalı nasıl özelleştireceğinizi öğrenin."
+title: "şablonları kullanarak aaaCustomize hello API Management Geliştirici Portalı-Azure | Microsoft Docs"
+description: "Nasıl toocustomize hello Azure API Management Geliştirici Portalı şablonları kullanma hakkında bilgi edinin."
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,58 +14,58 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 40d25726d31d2018785b77d169a8811c565316bf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b00d5f1534e9466f30ff3920e7aae048feb8b8c4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Şablonları kullanarak Azure API Management Geliştirici Portalı nasıl özelleştireceğinizi
+# <a name="how-toocustomize-hello-azure-api-management-developer-portal-using-templates"></a>Nasıl toocustomize hello Azure API Management Geliştirici Portalı şablonlarını kullanma
 
-Azure API Management'ta geliştirici portalını özelleştirmek için kullanılabilecek üç temel yöntem vardır:
+Azure API Management'te üç temel şekilde toocustomize hello Geliştirici Portalı vardır:
 
-* [Statik sayfaların ve sayfa düzeni öğelerinin içeriğini düzenleme][modify-content-layout]
-* [Geliştirici portalının tamamında sayfa öğeleri için kullanılan stilleri güncelleştirme][customize-styles]
-* [Portal tarafından oluşturulan sayfalar için kullanılan şablonları değiştirmek] [ portal-templates] (Bu kılavuzda açıklanan)
+* [Statik sayfaları ve sayfa düzeni öğelerini Hello içeriğini düzenleme][modify-content-layout]
+* [Merhaba Geliştirici Portalı sayfası öğeleri için kullanılan güncelleştirme hello stilleri][customize-styles]
+* [Merhaba portal tarafından oluşturulan sayfalar için kullanılan hello şablonları değiştirmek] [ portal-templates] (Bu kılavuzda açıklanan)
 
-Şablonlar, sistem tarafından oluşturulan Geliştirici portal sayfalarına (örneğin API belgeleri, ürünler, kullanıcı kimlik doğrulaması, vb.) içeriğini özelleştirmek için kullanılır. Kullanarak [DotLiquid](http://dotliquidmarkup.org/) sözdizimi ve yerelleştirilmiş dize kaynakları, simgeler ve sayfa denetimleri, sağlanan bir dizi sayfaların içeriğini uygun gördüğünüz şekilde yapılandırmak için büyük esneklik vardır.
+Sistem tarafından oluşturulan Geliştirici portal sayfalarına (örneğin API belgeleri, ürünler, kullanıcı kimlik doğrulaması, vb.) içerik kullanılan toocustomize hello şablonlarıdır. Kullanarak [DotLiquid](http://dotliquidmarkup.org/) sözdizimi ve yerelleştirilmiş dize kaynakları, simgeler ve sayfa denetimleri, sağlanan bir dizi uygun gördüğünüz şekilde hello sayfaların büyük esneklik tooconfigure hello içeriğe sahip.
 
 ## <a name="developer-portal-templates-overview"></a>Geliştirici Portalı şablonlarına genel bakış
-Şablonları düzenleme gelen yapılır **Geliştirici Portalı** yönetici olarak oturum açmış oluştu. Var. Azure Portalı'nı Aç almak ilk ve tıklatın için **yayımcı portalına** , API Management örneğinin hizmet araç çubuğundan.
+Şablonları düzenleme hello yapılır **Geliştirici Portalı** yönetici olarak oturum açmış oluştu. tooget var. önce hello Azure Portal açın ve tıklatın **yayımcı portalına** , API Management örneğinin hello hizmet araç çubuğundan.
 
 ![Yayımcı portalı][api-management-management-console]
 
-Ardından sağ üst köşedeki **Geliştirici portalı**'na tıklayın. 
+Tıklayın **Geliştirici Portalı** hello sağ üst üzerinde. 
 
 ![Geliştirici portal menüsü][api-management-developer-portal-menu]
 
-Geliştirici Portalı şablonları erişmek için Özelleştir özelleştirme menüsünü görüntüleme ve'ı tıklatın soldaki simgesini **şablonları**.
+tooaccess Geliştirici Portalı şablonları Merhaba, hello tıklatın hello sol toodisplay hello özelleştirme menüsündeki simgesini özelleştirmek ve tıklayın **şablonları**.
 
 ![Geliştirici Portalı şablonları][api-management-customize-menu]
 
-Geliştirici Portalı'nda farklı sayfaları kapsayan şablonları çeşitli kategorileri şablonları listesini görüntüler. Her şablon farklıdır, ancak bunları düzenleyebilir ve değişiklikleri yayımlamak için adımları aynıdır. Bir şablonu düzenlemek için şablon adına tıklayın.
+Merhaba şablonları listesini hello Geliştirici Portalı farklı sayfalarında hello kapsayan şablonlarının çeşitli kategorileri görüntüler. Her şablon farklıdır ancak hello adımları tooedit bunları ve yayımlama hello değişiklikleri olan, hello aynı. tooedit bir şablon hello hello şablonunun adını tıklatın.
 
 ![Geliştirici Portalı şablonları][api-management-templates-menu]
 
-Bir şablon tıklamak Bu şablon tarafından özelleştirilebilir Geliştirici Portalı sayfasına götürür. Bu örnekte **ürün listesi** şablonu görüntülenir. **Ürün listesi** şablonu kırmızı dikdörtgeni tarafından belirtilen ekran alanının denetler. 
+Bir şablon tıklamak Bu şablon tarafından özelleştirilebilir toohello Geliştirici portal sayfası götürür. Bu örnek hello içinde **ürün listesi** şablonu görüntülenir. Merhaba **ürün listesi** şablonu denetimleri hello hello ekranının hello kırmızı dikdörtgeni tarafından belirtilen alan. 
 
 ![Ürün şablonu listesi][api-management-developer-portal-templates-overview]
 
-Bazı şablonlar ister **kullanıcı profili** şablonları, aynı sayfa farklı kısımlarını özelleştirin. 
+Hello gibi bazı şablonlar **kullanıcı profili** şablonlarını özelleştirme hello farklı kısımlarını aynı sayfa. 
 
 ![Kullanıcı profil şablonları][api-management-user-profile-templates]
 
-Her Geliştirici Portalı şablonu Düzenleyicisi sayfasının en altında görüntülenen iki bölümü vardır. Sol taraftaki şablon düzenleme bölmesi ve şablon için veri modeli ve sağ taraftaki görüntüler. 
+Her Geliştirici Portalı şablonu için başlangıç Düzenleyicisi hello sayfasının hello altında görüntülenen iki bölümü vardır. Merhaba taraftaki hello bölmesini hello şablonu için düzenleme ve hello sağ taraftaki hello veri modeli hello şablonu için görüntüler. 
 
-Şablon bölmesinde düzenleme görünümü ve davranışı Geliştirici portalında karşılık gelen sayfasının denetimleri biçimlendirme içeriyor. Şablon biçimlendirmede kullanan [DotLiquid](http://dotliquidmarkup.org/) sözdizimi. Bir popüler düzenleyicisidir DotLiquid için [DotLiquid tasarımcıları için](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers). Düzenleme sırasında şablona yapılan değişiklikler gerçek zamanlı olarak görüntülenen tarayıcıda, ancak dek müşterileriniz için görünür değildir [kaydetmek](#to-save-a-template) ve [yayımlama](#to-publish-a-template) şablonu.
+Merhaba Şablon bölmesinde düzenleme hello görünümünü ve davranışını hello Geliştirici Portalı'nda hello karşılık gelen sayfasının denetimleri hello biçimlendirme içeriyor. hello şablon Hello biçimlendirmede kullanan hello [DotLiquid](http://dotliquidmarkup.org/) sözdizimi. Bir popüler düzenleyicisidir DotLiquid için [DotLiquid tasarımcıları için](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers). Düzenleme sırasında herhangi bir yapılan değişiklikler toohello şablonu görüntülenir, hello tarayıcıda, ancak görünür tooyour müşteriler dek gerçek zamanlı [kaydetmek](#to-save-a-template) ve [yayımlama](#to-publish-a-template) hello şablonu.
 
 ![Şablon biçimlendirme][api-management-template]
 
-**Şablon verileri** bölmesi, belirli bir şablon kullanmak için kullanılabilir varlıklar için veri modeli için bir kılavuz sağlar. Bu kılavuz, Geliştirici Portalı'nda görüntülenmekte olan canlı verileri görüntüleyerek sağlar. Sağ üst köşesindeki dikdörtgen tıklayarak şablon bölmeleri genişletebilirsiniz **şablon verileri** bölmesi.
+Merhaba **şablon verileri** bölmesi toohello veri bir kılavuz sağlar belirli bir şablon kullanmak için kullanılabilir hello varlıklar için model. Bu kılavuz, şu anda hello Geliştirici Portalı'nda görüntülenen hello canlı verileri görüntüleyerek sağlar. Merhaba dikdörtgen hello hello sağ üst köşesindeki tıklayarak hello şablon bölmeleri genişletebilirsiniz **şablon verileri** bölmesi.
 
 ![Şablon veri modeli][api-management-template-data]
 
-Önceki örnekte içinde görüntülenen verileri alındı Geliştirici Portalı'nda görüntülenen iki ürün yok **şablon verileri** bölmesinde, aşağıdaki örnekte gösterildiği gibi.
+Merhaba önceki örnekte hello görüntülenen hello veri alındı hello Geliştirici Portalı'nda görüntülenen iki ürün yok **şablon verileri** hello aşağıdaki örnekte gösterildiği gibi bölmesi.
 
 ```json
 {
@@ -84,7 +84,7 @@ Her Geliştirici Portalı şablonu Düzenleyicisi sayfasının en altında gör�
         {
             "Id": "56ec64c380ed850042060001",
             "Title": "Starter",
-            "Description": "Subscribers will be able to run 5 calls/minute up to a maximum of 100 calls/week.",
+            "Description": "Subscribers will be able toorun 5 calls/minute up tooa maximum of 100 calls/week.",
             "Terms": "",
             "ProductState": 1,
             "AllowMultipleSubscriptions": false,
@@ -93,7 +93,7 @@ Her Geliştirici Portalı şablonu Düzenleyicisi sayfasının en altında gör�
         {
             "Id": "56ec64c380ed850042060002",
             "Title": "Unlimited",
-            "Description": "Subscribers have completely unlimited access to the API. Administrator approval is required.",
+            "Description": "Subscribers have completely unlimited access toohello API. Administrator approval is required.",
             "Terms": null,
             "ProductState": 1,
             "AllowMultipleSubscriptions": false,
@@ -103,7 +103,7 @@ Her Geliştirici Portalı şablonu Düzenleyicisi sayfasının en altında gör�
 }
 ```
 
-Biçimlendirme **ürün listesi** şablonu bilgileri ve bağlantı için ayrı ayrı her ürünün görüntülenecek ürünleri koleksiyonu üzerinden yineleme tarafından istenen çıkış sağlamak üzere verileri işler. Not `<search-control>` ve `<page-control>` biçimlendirme öğeleri. Bu, arama ve sayfadaki denetimleri disk belleği görünümünü denetler. `ProductsStrings|PageTitleProducts`içeren bir yerelleştirilmiş dize başvuru `h2` sayfa için üstbilgi metni. Dize kaynakları, sayfa denetimleri ve simgeleri Geliştirici Portalı şablonlarındaki kullanıma listesi için bkz [API Management Geliştirici Portalı şablonları başvurusu](api-management-developer-portal-templates-reference.md).
+Merhaba Hello biçimlendirmede **ürün listesi** şablon işlemleri ürünleri toodisplay bilgileri ve bağlantı tooeach bireysel ürün hello toplulukta yineleme tarafından veri tooprovide hello istenen çıkış hello. Not hello `<search-control>` ve `<page-control>` hello biçimlendirme öğeleri. Bu, arama ve disk belleği'hello sayfadaki denetimleri hello hello görünümünü denetler. `ProductsStrings|PageTitleProducts`Merhaba içeren bir yerelleştirilmiş dize başvuru `h2` hello sayfa için üstbilgi metni. Dize kaynakları, sayfa denetimleri ve simgeleri Geliştirici Portalı şablonlarındaki kullanıma listesi için bkz [API Management Geliştirici Portalı şablonları başvurusu](api-management-developer-portal-templates-reference.md).
 
 ```html
 <search-control></search-control>
@@ -131,59 +131,59 @@ Biçimlendirme **ürün listesi** şablonu bilgileri ve bağlantı için ayrı a
 </div>
 ```
 
-## <a name="to-save-a-template"></a>Şablon kaydetmek için
-Bir şablonu kaydetmek için şablon Düzenleyicisi'nde Kaydet'i tıklatın.
+## <a name="toosave-a-template"></a>toosave bir şablonu
+toosave bir şablon tıklatın kaydetme hello Şablon Düzenleyicisi'nde.
 
 ![Şablonu kaydetme][api-management-save-template]
 
-Bunlar yayımlanan kadar değişiklikleri kaydedildi Geliştirici Portalı'nda Canlı değildir.
+Bunlar yayımlanan kadar değişiklikleri kaydedildi hello Geliştirici Portalı'nda Canlı değildir.
 
-## <a name="to-publish-a-template"></a>Bir şablon yayımlamak için
-Tek tek veya birlikte kaydedilen şablonları yayımlanabilir. Tıklatın tek tek bir şablonu yayımlamak için şablon Düzenleyicisi'nde yayımlayın.
+## <a name="toopublish-a-template"></a>toopublish bir şablonu
+Tek tek veya birlikte kaydedilen şablonları yayımlanabilir. toopublish tek tek bir şablon, yayınla hello Şablon Düzenleyicisi'nde ' yı tıklatın.
 
 ![Yayın şablonu][api-management-publish-template]
 
-Tıklatın **Evet** onaylamak ve şablonun sağlamak için dinamik Geliştirici Portalı.
+Tıklatın **Evet** tooconfirm ve hello şablon hello Geliştirici portalında Canlı.
 
 ![Onayla yayımlama][api-management-publish-template-confirm]
 
-Tüm şu anda yayımdan şablonu sürümleri yayımlamak için tıklatın **Yayımla** şablonları listesinde. Yayımdan şablonları şablonu adından bir yıldız işaretiyle belirtilir. Bu örnekte, **ürün listesi** ve **ürün** şablonları yayımlanır.
+toopublish olan tüm yayımlanmamış şablonu sürümleri, tıklatın **Yayımla** hello şablonları listesinde. Yayımdan şablonları hello şablonu adından bir yıldız işaretiyle belirtilir. Bu örnekte, hello **ürün listesi** ve **ürün** şablonları yayımlanır.
 
 ![Şablonlarını yayınlama][api-management-publish-templates]
 
-Tıklatın **özelleştirmeleri yayımlamak** onaylamak için.
+Tıklatın **özelleştirmeleri yayımlamak** tooconfirm.
 
 ![Onayla yayımlama][api-management-publish-customizations]
 
-Yeni yayımlanan şablonların Geliştirici Portalı'nda hemen etkili olur.
+Yeni yayımlanan şablonların hemen hello Geliştirici Portalı'nda etkili olur.
 
-## <a name="to-revert-a-template-to-the-previous-version"></a>Bir şablonu önceki sürüme geri döndürmek için
-Tıklatın bir şablon önceki yayımlanan sürümüne geri dönmek için şablon Düzenleyicisi'nde geri dönün.
+## <a name="toorevert-a-template-toohello-previous-version"></a>toorevert şablon toohello önceki bir sürümü
+Şablon toohello önceki yayımlanmış bir sürüm toorevert, tıklatın hello Şablon Düzenleyicisi'nde geri dönün.
 
 ![Şablon geri][api-management-revert-template]
 
-Onaylamak için **Evet**’e tıklayın.
+Tıklatın **Evet** tooconfirm.
 
 ![Onayla][api-management-revert-template-confirm]
 
-Geri döndürme işlemi tamamlandıktan sonra önceden yayımlanmış bir şablon Geliştirici Portalı'nda Canlı sürümüdür.
+daha önce yayımlanmış bir sürüm bir şablon hello geri sonra işlem hello Geliştirici Portalı'nda Canlı hello tamamlanır.
 
-## <a name="to-restore-a-template-to-the-default-version"></a>Bir şablonu varsayılan sürüme geri yüklemek için
-Şablonlar kullanıcıların varsayılan sürümüne geri yüklemek iki adımlı bir işlemdir. Şablonları ilk geri gerekir ve ardından geri yüklenen sürümleri yayımlanması gerekir.
+## <a name="toorestore-a-template-toohello-default-version"></a>toorestore şablon toohello varsayılan sürümü
+Geri yükleme şablonları tootheir varsayılan sürüm iki adımlı bir işlemdir. İlk hello şablonları geri gerekir ve ardından geri hello sürümleri yayımlanması gerekir.
 
-Varsayılan sürüm için tek bir şablon geri yüklemek için geri yükleme şablonu Düzenleyicisi'ni tıklatın.
+toorestore tek şablonu toohello varsayılan sürümü hello şablonu Düzenleyicisi'ni geri yükleme'yi tıklatın.
 
 ![Şablon geri][api-management-reset-template]
 
-Onaylamak için **Evet**’e tıklayın.
+Tıklatın **Evet** tooconfirm.
 
 ![Onayla][api-management-reset-template-confirm]
 
-Tüm şablonları varsayılan sürümlerine geri yüklemek için **geri varsayılan şablonları** şablon listesinde.
+Tüm Şablonları tootheir varsayılan sürümler, toorestore tıklatın **geri varsayılan şablonları** hello şablon listesinde.
 
 ![Şablonları geri yükleme][api-management-restore-templates]
 
-Geri yüklenen şablonları sonra ayrı ayrı veya tümünü bir defada içindeki adımları izleyerek yayımlanmalıdır [şablon yayımlamak için](#to-publish-a-template).
+Merhaba geri yüklenen şablonları sonra ayrı ayrı veya tümünü bir defada hello adımları izleyerek yayımlanmalıdır [toopublish bir şablon](#to-publish-a-template).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Geliştirici Portalı şablonları, dize kaynaklarını, simgeler ve sayfa denetimleri için başvuru bilgileri için bkz: [API Management Geliştirici Portalı şablonları başvurusu](api-management-developer-portal-templates-reference.md).

@@ -1,6 +1,6 @@
 ---
-title: "Azure Güvenlik Merkezi'nde yeni nesil güvenlik duvarı ekleme | Microsoft Docs"
-description: "Bu belgede Azure Güvenlik Merkezi önerileri uygulamak gösterilmiştir ** bir sonraki nesil güvenlik duvarı ** ekleyin ve ** yalnızca rota traffice NGFW aracılığıyla **."
+title: "aaaAdd yeni nesil güvenlik duvarı Azure Güvenlik Merkezi'nde | Microsoft Docs"
+description: "Bu belge size nasıl tooimplement hello Azure Güvenlik Merkezi önerilerini gösterir. ** bir sonraki nesil güvenlik duvarı ** ekleyin ve ** yalnızca rota traffice NGFW aracılığıyla **."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,59 +14,59 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 30589d0a943517c03394a3aae7c03c8094e78c1f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9a80f12571ba08eadf3361728c6321388c863235
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde yeni nesil güvenlik duvarı ekleme
-Azure Güvenlik Merkezi bir Microsoft iş ortağı güvenlik korumaları artırmak için yeni nesil Güvenlik Duvarı (NGFW) eklediğiniz önerebilir. Bu belge, bunun nasıl yapılacağı örneği aracılığıyla açıklanmaktadır.
+Azure Güvenlik Merkezi, yeni nesil Güvenlik Duvarı (NGFW) bir Microsoft iş ortağı tooincrease güvenlik korumaları eklemenizi öneririz. Bu belge, nasıl bir örnek üzerinden anlatan toodo bu.
 
 > [!NOTE]
-> Bu belge, örnek bir dağıtım kullanarak hizmeti tanıtır.  Bu, adım adım ilerleyen bir kılavuz değildir.
+> Bu belge, örnek bir dağıtım kullanarak hello hizmeti sunar.  Bu, adım adım ilerleyen bir kılavuz değildir.
 >
 >
 
-## <a name="implement-the-recommendation"></a>Öneriyi uygulamayı
-1. İçinde **önerileri** dikey penceresinde, select **yeni nesil güvenlik duvarı ekleme**.
+## <a name="implement-hello-recommendation"></a>Merhaba öneriyi uygulamayı
+1. Merhaba, **önerileri** dikey penceresinde, select **yeni nesil güvenlik duvarı ekleme**.
    ![Yeni Nesil Güvenlik Duvarı ekleme][1]
-2. İçinde **yeni nesil güvenlik duvarı ekleme** dikey penceresinde, bir uç nokta seçin.
+2. Merhaba, **yeni nesil güvenlik duvarı ekleme** dikey penceresinde, bir uç nokta seçin.
    ![Bir uç nokta seçin][2]
-3. İkinci bir **yeni nesil güvenlik duvarı ekleme** dikey pencere açılır. Varsa varolan bir çözümü kullanmayı seçebilirsiniz veya yeni bir tane oluşturabilirsiniz. Bu örnekte, yok varolan çözüm bir NGFW oluşturuyoruz şekilde.
+3. İkinci bir **yeni nesil güvenlik duvarı ekleme** dikey pencere açılır. Toouse varsa varolan bir çözümü seçebilir veya yeni bir tane oluşturabilirsiniz. Bu örnekte, yok varolan çözüm bir NGFW oluşturuyoruz şekilde.
    ![Yeni nesil güvenlik duvarı oluşturma][3]
-4. Bir NGFW oluşturmak için bir çözüm tümleşik ortakları listesinden seçin. Bu örnekte, biz seçin **Check Point**.
+4. toocreate bir NGFW hello tümleşik ortakları listesinden bir çözümü seçin. Bu örnekte, biz seçin **Check Point**.
    ![Yeni nesil güvenlik duvarı çözümü seçin][4]
-5. **Check Point** dikey pencere açılır iş ortağı çözümü hakkında bilgi sağlar. Seçin **oluşturma** bilgi dikey penceresinde.
+5. Merhaba **Check Point** dikey pencere açılır hello iş ortağı çözümü hakkında bilgi sağlar. Seçin **oluşturma** hello bilgi dikey penceresinde.
    ![Güvenlik Duvarı bilgileri dikey penceresi][5]
-6. **Sanal makine oluşturma** dikey pencere açılır. Buraya bir NGFW'nun çalıştıran sanal makineyi (VM) dönmesi için gerekli bilgileri girebilirsiniz. Aşağıdaki adımları uygulayın ve gerekli NGFW bilgileri sağlayın. Uygulamak için Tamam'ı seçin.
-   ![NGFW çalıştırmak için sanal makine oluşturma][6]
+6. Merhaba **sanal makine oluşturma** dikey pencere açılır. Buraya bir çalıştıran sanal makineyi (VM) ayarlama gerekli toospin hello NGFW bilgiler girebilirsiniz. Merhaba adımları ve gerekli hello NGFW bilgileri sağlayın. Tamam tooapply seçin.
+   ![Sanal makine toorun NGFW oluşturma][6]
 
 ## <a name="route-traffic-through-ngfw-only"></a>Trafiği yalnızca NGFW aracılığıyla yönlendir
-Geri dönüp **önerileri** dikey. Güvenlik Merkezi, adlı aracılığıyla bir NGFW eklendikten sonra yeni bir giriş oluşturulan **rota yalnızca trafiği NGFW aracılığıyla**. Bu öneri, yalnızca Güvenlik Merkezi aracılığıyla, NGFW yüklediyseniz oluşturulur. Internet'e yönelik uç noktaları varsa, Güvenlik Merkezi, NGFW aracılığıyla, VM'ye gelen trafiği zorla ağ güvenlik grubu kurallarını yapılandırmak önerir.
+Toohello iade **önerileri** dikey. Güvenlik Merkezi, adlı aracılığıyla bir NGFW eklendikten sonra yeni bir giriş oluşturulan **rota yalnızca trafiği NGFW aracılığıyla**. Bu öneri, yalnızca Güvenlik Merkezi aracılığıyla, NGFW yüklediyseniz oluşturulur. Internet'e yönelik uç noktaları varsa, Güvenlik Merkezi gelen trafiği tooyour, NGFW aracılığıyla VM zorla ağ güvenlik grubu kurallarını yapılandırmak önerir.
 
-1. İçinde **öneriler dikey**seçin **rota yalnızca trafiği NGFW aracılığıyla**.
+1. Merhaba, **öneriler dikey**seçin **rota yalnızca trafiği NGFW aracılığıyla**.
    ![Trafiği yalnızca NGFW aracılığıyla yönlendirme][7]
-2. Bu dikey pencere açılır **rota yalnızca trafiği NGFW aracılığıyla**, trafiği yönlendirebilir sanal makineleri listeler. VM listeden seçin.
+2. Bu hello dikey pencere açılır **rota yalnızca trafiği NGFW aracılığıyla**, trafiği yönlendirebilir sanal makineleri listeler. Bir VM hello listeden seçin.
    ![Bir VM seçin][8]
-3. İlgili gelen kuralları görüntüleme seçili VM için bir dikey pencere açılır. Bir açıklama olası sonraki adımlar hakkında daha fazla bilgi sağlar. Seçin **gelen kuralları Düzenle** bir gelen kuralı düzenleme ile devam etmek için. Beklentisi **kaynak** ayarlanmazsa **herhangi** NGFW'nun ile bağlantılı Internet'e yönelik uç noktalar için. Gelen kuralı özellikleri hakkında daha fazla bilgi için bkz: [NSG kuralları](../virtual-network/virtual-networks-nsg.md#nsg-rules).
-   ![Erişimi sınırlamak için kurallar Yapılandır][9]
+3. Hello için dikey penceresinde seçili VM açar, ilgili gelen kuralları görüntüleme. Bir açıklama olası sonraki adımlar hakkında daha fazla bilgi sağlar. Seçin **gelen kuralları Düzenle** bir gelen kuralı düzenleme ile tooproceed. Merhaba beklenir, **kaynak** çok ayarlanmadı**herhangi** hello Internet'e yönelik uç noktalar ile bağlantılı için NGFW hello. toolearn hello gelen kuralı hello özellikleri hakkında daha fazla bilgi görmek [NSG kuralları](../virtual-network/virtual-networks-nsg.md#nsg-rules).
+   ![Kuralları toolimit erişimi yapılandırma][9]
    ![düzenleme gelen kuralı][10]
 
 ## <a name="see-also"></a>Ayrıca bkz.
-Bu belgede Güvenlik Merkezi öneri "Ekleme yeni nesil güvenlik duvarı." uygulamak nasıl oluşturulacağını gösterir NGFWs ve denetim noktası iş ortağı çözümü hakkında daha fazla bilgi için aşağıdakilere bakın:
+Bu belge size nasıl tooimplement hello Güvenlik Merkezi öneri "Ekleme yeni nesil güvenlik duvarı." gösterdi. toolearn NGFWs ve hello denetim noktası iş ortağı çözümü hakkında daha fazla hello aşağıdaki bakın:
 
 * [Yeni nesil güvenlik duvarı](https://en.wikipedia.org/wiki/Next-Generation_Firewall)
 * [Denetim noktası vSEC](https://azure.microsoft.com/marketplace/partners/checkpoint/check-point-r77-10/)
 
-Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
+Güvenlik Merkezi hakkında daha fazla toolearn hello aşağıdaki bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) --güvenlik ilkeleri yapılandırmayı öğrenin.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) --öğrenin nasıl tooconfigure güvenlik ilkeleri.
 * [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md) --nasıl önerilerin Azure kaynaklarınızı korumanıza yardımcı öğrenin.
-* [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) --Azure kaynaklarınızı sağlığını izlemek öğrenin.
-* [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) -- Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
-* [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) - İş ortağı çözümlerinizin sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
-* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) -- Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
+* [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) --nasıl toomonitor hello Azure kaynaklarınızın sistem durumunu öğrenin.
+* [Azure Güvenlik Merkezi'nde Uyarıları yönetme ve yanıt toosecurity](security-center-managing-and-responding-alerts.md) --öğrenin nasıl toomanage ve yanıt toosecurity uyarıları.
+* [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) --nasıl toomonitor hello iş ortağı çözümlerinizin sistem durumunu öğrenin.
+* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) --hello hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
 * [Azure güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/) --Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz.
 
 <!--Image references-->

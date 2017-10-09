@@ -1,22 +1,22 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="to-mount-initialize-and-format-a-volume"></a>Birimi bağlamak, başlatmak ve biçimlendirmek için
-1. Microsoft iSCSI başlatıcısını başlatın.
-2. **iSCSI Başlatıcısı Özellikleri** penceresinin **Keşif** sekmesinde, **Portal Bul**’a tıklayın.
-3. **Hedef Portal Bul** iletişim kutusuna iSCSI etkin ağ arabiriminin IP adresini girin ve ardından **Tamam**’a tıklayın. 
-4. **iSCSI Başlatıcısı Özellikleri** penceresinin **Hedefler** sekmesinde **Bulunan hedefler**’i bulun. Cihaz durumu **Etkin Olmayan** olarak görünmelidir.
-5. Hedef cihazı seçin ve ardından **Bağlan**’a tıklayın. Cihaz bağlandıktan sonra durum **Bağlandı** olarak değişmelidir. (Microsoft iSCSI başlatıcısını kullanma hakkında daha fazla bilgi için bkz. [Microsoft iSCSI Başlatıcısını Yükleme ve Yapılandırma][1]).
-6. Windows konağında Windows Logo + X tuşlarına basıp **Çalıştır**’a tıklayın. 
-7. **Çalıştır** iletişim kutusuna **Diskmgmt.msc** yazın. **Tamam**’a tıklayın, **Disk Yönetimi** iletişim kutusu görüntülenir. Sağ bölmede, konaktaki birimler gösterilir.
-8. **Disk Yönetimi** penceresinde bağlanan birimler aşağıdaki çizimde gösterildiği gibi görünür. Bulunan birime sağ tıklayın (disk adına tıklayın) ve ardından **Çevrimiçi**’ne tıklayın.
+#### <a name="toomount-initialize-and-format-a-volume"></a>toomount, başlatın ve bir birimi biçimlendirme
+1. Merhaba Microsoft iSCSI başlatıcısını başlatın.
+2. Merhaba, **iSCSI başlatıcısı özellikleri** penceresinde hello **bulma** sekmesini tıklatın, **Portal Bul**.
+3. Merhaba, **Hedef Portal Bul** iletişim kutusu, Merhaba, iSCSI etkin ağ arabiriminin IP adresini girin ve ardından **Tamam**. 
+4. Merhaba, **iSCSI başlatıcısı özellikleri** penceresinde hello **hedefleri** sekmesinde, hello bulun **bulunan hedefler**. Merhaba Aygıt durumu olarak görünmelidir **devre dışı**.
+5. Merhaba hedef cihazı seçin ve ardından **Bağlan**. Merhaba cihaz bağlandıktan sonra hello durumu çok değişmelidir**bağlı**. (Merhaba Microsoft iSCSI başlatıcısını kullanma hakkında daha fazla bilgi için bkz: [yükleme ve yapılandırma Microsoft iSCSI başlatıcısı][1]).
+6. Windows konağında, hello Windows logosu tuşu + X tuşlarına basın ve ardından **çalıştırmak**. 
+7. Merhaba, **çalıştırmak** iletişim kutusuna **Diskmgmt.msc**. Tıklatın **Tamam**ve hello **Disk Yönetimi** iletişim kutusu görüntülenir. Merhaba sağ bölmede, konaktaki hello birimleri gösterir.
+8. Merhaba, **Disk Yönetimi** penceresinde hello takılan birimler görünür hello aşağıdaki çizimde gösterildiği gibi. Merhaba bulunan birime sağ tıklayın (Merhaba disk adına tıklayın) ve ardından **çevrimiçi**.
    
      ![Birim biçimlendirmeyi başlatma](./media/storsimple-8000-mount-initialize-format-volume/step7initializeformatvolume.png) 
-9. Birime bir kez daha sağ tıklayın (disk adına tıklayın) ve ardından **Başlat**’a tıklayın.
-10. Basit bir birimi biçimlendirmek için aşağıdaki adımları gerçekleştirin:
+9. Merhaba birime sağ tıklayın (Merhaba disk adına tıklayın) yeniden ve ardından **başlatma**.
+10. tooformat basit bir birimi hello aşağıdaki adımları gerçekleştirin:
     
-    1. Birimi seçip sağ tıklayın (sağ alanı tıklayın) ve **Yeni Basit Birim**’e tıklayın.
-    2. Yeni Basit Birim sihirbazında birim boyutunu ve sürücü harfini belirtip birimi NTFS dosya sistemi olarak yapılandırın.
-    3. 64 KB ayırma birimi boyutu belirtin. Bu ayırma birimi boyutu, StorSimple çözümde kullanılan yinelenenleri kaldırma algoritmalarıyla iyi çalışır.
+    1. Merhaba birimi seçin, sağ tıklayın (Merhaba sağ alanı tıklayın) tıklatıp **yeni basit birim**.
+    2. Hello yeni basit birim sihirbazında hello birim boyutunu ve sürücü harfini belirtin ve hello birim bir NTFS dosya sistemi olarak yapılandırın.
+    3. 64 KB ayırma birimi boyutu belirtin. Bu ayırma birimi boyutu iyi hello yinelenenleri kaldırma algoritmalarıyla hello StorSimple çözüm kullanılan çalışır.
     4. Hızlı biçimlendirme gerçekleştirin.
 
 <!--Link references-->

@@ -1,24 +1,24 @@
 ### <a name="troubleshoot-azure-diagnostics"></a>Azure Tanılama Sorunlarını Giderme
 
-Aşağıdaki hata iletisini alırsanız, Microsoft.insights kaynak sağlayıcısı kayıtlı değildir:
+Merhaba aşağıdaki hata iletisini alırsanız, hello Microsoft.ınsights kaynak sağlayıcısı kayıtlı değil:
 
-`Failed to update diagnostics for 'resource'. {"code":"Forbidden","message":"Please register the subscription 'subscription id' with Microsoft.Insights."}`
+`Failed tooupdate diagnostics for 'resource'. {"code":"Forbidden","message":"Please register hello subscription 'subscription id' with Microsoft.Insights."}`
 
-Kaynak sağlayıcısını kaydetmek için Azure portalında aşağıdaki adımları uygulayın:
+tooregister hello kaynak sağlayıcısı hello Azure Portalı'ndaki adımları izleyerek hello gerçekleştirin:
 
-1.  Sol gezinti bölmesinde *Abonelikler*’e tıklayın
-2.  Hata iletisinde belirtilen aboneliği seçin
+1.  Merhaba Gezinti hello sol taraftaki bölmede *abonelikleri*
+2.  Merhaba hata iletisinde belirtilen hello aboneliği seçin
 3.  *Kaynak Sağlayıcıları*’ne tıklayın
-4.  *Microsoft.insights* sağlayıcısını bulun
-5.  *Kaydet* bağlantısına tıklayın
+4.  Hello bulur *Microsoft.ınsights* sağlayıcısı
+5.  Merhaba tıklatın *kaydetmek* bağlantı
 
 ![Microsoft.insights kaynak sağlayıcısını kaydetme](./media/log-analytics-troubleshoot-azure-diagnostics/log-analytics-register-microsoft-diagnostics-resource-provider.png)
 
-*Microsoft.insights* kaynak sağlayıcısı kaydedildikten sonra tanılama yapılandırmasını yeniden deneyin.
+Bir kez hello *Microsoft.ınsights* kaynak sağlayıcısı kayıtlı, tanılamaları yapılandırmayı yeniden deneyin.
 
 
-PowerShell'de aşağıdaki hata iletisini alırsanız, PowerShell sürümünüz güncelleştirmeniz gerekir:
+Merhaba aşağıdaki hata iletisini alırsanız, PowerShell'de tooupdate PowerShell sürümünüz ihtiyacınız:
 
 `Set-AzureRmDiagnosticSetting : A parameter cannot be found that matches parameter name 'WorkspaceId'.`
 
-PowerShell sürümünüz güncelleştirme Kasım 2016 (v2.3.0) ya da daha sonra ' ndaki yönergeleri kullanarak serbest [Azure PowerShell cmdlet'leri kullanmaya başlama](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) makalesi.
+Kasım 2016 (v2.3.0) PowerShell toohello uygulamanızın sürümünü güncelleştirin veya hello hello yönergeleri kullanarak daha sonra serbest [Azure PowerShell cmdlet'leri kullanmaya başlama](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) makalesi.

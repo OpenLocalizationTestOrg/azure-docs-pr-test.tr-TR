@@ -6,61 +6,61 @@
 > 
 
 ## <a name="scenario-overview"></a>Senaryoya genel bakış
-Bu senaryoda aşağıdaki telemetriyi önceden yapılandırılmış uzaktan izleme [çözümüne][lnk-what-are-preconfig-solutions] gönderen bir cihaz oluşturacaksınız:
+Bu senaryoda, telemetri toohello Uzaktan izleme aşağıdaki hello gönderir bir cihaz oluşturma [önceden yapılandırılmış çözüm][lnk-what-are-preconfig-solutions]:
 
 * Dış ortam sıcaklığı
 * İç ortam sıcaklığı
 * Nem oranı
 
-Örneği basitleştirmek amacıyla cihaz üzerindeki kod örnek değerler oluşturmaktadır. Ancak cihazınıza gerçek sensörler bağlayıp gerçek telemetri verileri göndererek örneği ileri taşımanızı öneririz.
+Basitleştirmek için örnek değerler hello cihazda hello kodu oluşturur, ancak siz tooextend hello örnek gerçek algılayıcılar tooyour aygıt bağlanma ve gerçek telemetri göndermesini öneririz.
 
-Cihaz ayrıca çözüm panosundan çağrılan yöntemlere ve çözüm panosunda ayarlanan istenen özellik değerlerine yanıt verebilir.
+Merhaba de mümkün toorespond toomethods hello çözüm panodan çağrılır ve özellik değerleri hello çözüm panosunda istenen aygıttır.
 
-Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü][lnk-free-trial].
+toocomplete Bu öğretici, etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü][lnk-free-trial].
 
 ## <a name="before-you-start"></a>Başlamadan önce
 Cihazınız için kod yazmadan önce, önceden yapılandırılmış uzaktan izleme çözümünüzü ve bu çözümde yeni bir özel cihaz hazırlamanız gerekir.
 
 ### <a name="provision-your-remote-monitoring-preconfigured-solution"></a>Önceden yapılandırılmış uzaktan izleme çözümünüzü sağlama
-Bu öğreticide oluşturduğunuz cihaz, önceden yapılandırılmış bir [uzaktan izleme][lnk-remote-monitoring] çözümü örneğine veri göndermektedir. Önceden yapılandırılmış uzaktan izleme çözümünüzü henüz Azure hesabınızda hazırlamadıysanız aşağıdaki adımları uygulayın:
+Bu öğreticide oluşturduğunuz hello cihaz gönderir veri tooan hello örneği [Uzaktan izleme] [ lnk-remote-monitoring] çözüm önceden yapılandırılmış. Uzaktan izleme çözümü Azure hesabınızda hello sağladığınız zaten yapmadıysanız, hello aşağıdaki adımları kullanın:
 
-1. <https://www.azureiotsuite.com/> sayfasında çözüm oluşturmak için **+** öğesine tıklayın.
-2. Çözümünüzü oluşturmak için **Uzaktan izleme** panelindeki **Seç**'e tıklayın.
-3. **Uzaktan izleme çözümü oluştur** sayfasında bir **Çözüm adı** belirleyin, dağıtmak istediğiniz **Bölgeyi** seçin ve kullanmak istediğiniz Azure aboneliğini belirtin. Ardından **Çözüm oluştur**'a tıklayın.
-4. Sağlama işleminin tamamlanmasını bekleyin.
+1. Merhaba üzerinde <https://www.azureiotsuite.com/> sayfasında,  **+**  toocreate bir çözüm.
+2. Tıklatın **seçin** hello üzerinde **Uzaktan izleme** çözümünüzü toocreate panel.
+3. Hello üzerinde **Uzaktan izleme çözümü oluşturma** want bir **çözüm adı** seçiminizi, hello seçin **bölge** toodeploy için istediğiniz ve hello Azure seçin Abonelik toowant toouse. Ardından **Çözüm oluştur**'a tıklayın.
+4. Merhaba sağlama işlemi tamamlanana kadar bekleyin.
 
 > [!WARNING]
-> Önceden yapılandırılmış çözümler, faturalanabilir Azure hizmetlerini kullanır. Gereksiz ücretlerden kaçınmak için işinizi tamamladıktan sonra önceden yapılandırılmış çözümü aboneliğinizden kaldırmayı unutmayın. Önceden yapılandırılmış çözümü aboneliğinizden tamamen kaldırmak için <https://www.azureiotsuite.com/> sayfasını ziyaret edin.
+> Merhaba önceden yapılandırılmış çözümleri Faturalanabilir Azure Hizmetleri kullanın. Tooremove hello aboneliğiniz önceden yapılandırılmış çözümü ile bittiğinde mutlaka tooavoid gereksiz herhangi bir ücret. Merhaba ziyaret ederek önceden yapılandırılmış bir çözüm aboneliğinizden tamamen kaldırabilirsiniz <https://www.azureiotsuite.com/> sayfası.
 > 
 > 
 
-Uzaktan izleme çözümü için sağlama işlemi tamamlandıktan sonra çözüm panosunu tarayıcınızda açmak için **Başlat**'a tıklayın.
+Sağlama işlemi hello Uzaktan izleme çözümü için hello tamamlandığında, tıklatın **başlatma** tooopen hello çözüm Panosu tarayıcınızda.
 
 ![Çözüm panosu][img-dashboard]
 
-### <a name="provision-your-device-in-the-remote-monitoring-solution"></a>Cihazınızı uzaktan izleme çözümünde sağlama
+### <a name="provision-your-device-in-hello-remote-monitoring-solution"></a>Cihazınızı Uzaktan izleme çözümü hello sağlama
 > [!NOTE]
-> Çözümünüzde önceden bir cihaz hazırladıysanız bu adımı atlayabilirsiniz. İstemci uygulamasını oluştururken cihaz kimlik bilgilerini bilmeniz gerekir.
+> Çözümünüzde önceden bir cihaz hazırladıysanız bu adımı atlayabilirsiniz. Merhaba istemci uygulaması oluşturduğunuzda tooknow hello cihaz kimlik bilgileri gerekir.
 > 
 > 
 
-Bir cihazın önceden yapılandırılmış çözüme bağlanabilmesi için geçerli kimlik bilgileriyle kendini IoT Hub üzerinde tanıtması gerekir. Cihaz kimlik bilgilerini çözüm panosundan alabilirsiniz. Cihaz kimlik bilgilerini bu öğreticinin sonraki adımlarında istemci uygulamanıza ekleyebilirsiniz.
+Bir cihaz tooconnect toohello önceden yapılandırılmış çözümü kendisini tooIoT Hub tanımlamak gerekir geçerli kimlik bilgilerini kullanarak. Merhaba çözüm panodan hello aygıt kimlik bilgilerini alabilirsiniz. Bu öğreticide daha sonra istemci uygulamanızda hello cihaz kimlik bilgileri içerir.
 
-Uzaktan izleme çözümünüze cihaz eklemek için çözüm panosunda aşağıdaki adımları tamamlayın:
+tooadd bir aygıt tooyour Uzaktan izleme çözümü, aşağıdaki tam hello hello çözüm panosunda adımlar:
 
-1. Panonun sol alt köşesinde **Cihaz ekle**'ye tıklayın.
+1. Merhaba sol alt köşedeki hello Pano, tıklatın **bir cihaz ekleme**.
    
    ![Cihaz ekleme][1]
-2. **Özel Cihaz** panelinde **Yeni ekle**'ye tıklayın.
+2. Merhaba, **özel cihaz** öğesine tıklayın **yeni Ekle**.
    
    ![Özel cihaz ekleme][2]
-3. **Kendi Cihaz Kimliğimi tanımlamama izin ver**'i seçin. **cihazım** gibi bir Cihaz Kimliği girin, adın kullanımda olmadığını doğrulamak için **Kimliği denetle**'ye tıklayın ve ardından cihazı hazırlamak için **Oluştur**'a tıklayın.
+3. **Kendi Cihaz Kimliğimi tanımlamama izin ver**'i seçin. Bir cihaz kimliği girin **mydevice**, tıklatın **denetleyin kimliği** tooverify bu ad zaten kullanımda olmadığından ve ardından **oluşturma** tooprovision hello aygıt.
    
    ![Cihaz kimliği ekleme][3]
-4. Cihaz kimlik bilgilerini (Cihaz Kimliği, IoT Hub Ana Bilgisayar Adı ve Cihaz Anahtarı) not edin. İstemci uygulamanız uzaktan izleme çözümüne bağlanmak için bu değerleri kullanır. Sonra da **Bitti**’ye tıklayın.
+4. Kimlik bilgilerini (cihaz kimliği, IOT Hub ana bilgisayar adına ve aygıt anahtarı) not hello aygıt olun. İstemci uygulamanız bu değerleri tooconnect toohello Uzaktan izleme çözümü gerekir. Sonra da **Bitti**’ye tıklayın.
    
     ![Cihaz kimlik bilgilerini görüntüleme][4]
-5. Çözüm panosundaki cihaz listesinden cihazınızı seçin. Ardından **Cihaz Ayrıntıları** panelinde **Cihazı Etkinleştir**'e tıklayın. Cihazınızın durumu **Çalışıyor** olarak değişir. Uzaktan izleme çözümü artık cihazınızdan telemetri verileri alabilir ve cihazınızda yöntemler çağırabilir.
+5. Merhaba çözüm Panosu hello aygıt listesinde aygıtınızı seçin. Ardından hello **cihaz ayrıntıları** öğesine tıklayın **aygıtı etkinleştir**. Merhaba Cihazınızı durumudur şimdi **çalıştıran**. Merhaba Uzaktan izleme çözümü şimdi aygıtınızdan telemetri almasına ve hello aygıtta yöntemleri çağırma.
 
 [img-dashboard]: ./media/iot-suite-selector-connecting/dashboard.png
 [1]: ./media/iot-suite-selector-connecting/suite0.png

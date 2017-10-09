@@ -1,6 +1,6 @@
 ---
-title: "Klasik Windows VM ilişkin teknik makaleler | Microsoft Azure"
-description: "Microsoft Azure belge makalelerini Klasik dağıtım modelinde Windows sanal makineler için tam bir listesi"
+title: "Klasik Windows sanal makineleri için aaaTechnical makaleleri | Microsoft Azure"
+description: "Microsoft Azure belge makalelerini hello Klasik dağıtım modelinde Windows sanal makineler için tam bir listesi"
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,22 +15,22 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/13/2017
 ms.author: danlep
-ms.openlocfilehash: 2df7ea6a143ad0d64e4fd75223c7e5a9a2a5e87e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 262e0d9397e4a20bf25dd4516629a0539a059829
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="technical-articles-for-windows-vms-in-the-classic-deployment-model"></a>Klasik dağıtım modelinde Windows sanal makineleri için teknik makaleler
-Oluşturmanız ve Windows tabanlı Azure sanal makineleri Klasik dağıtım modelinde yönetmek için gereken tüm belgeleri bulur.
+# <a name="technical-articles-for-windows-vms-in-hello-classic-deployment-model"></a>Merhaba Klasik dağıtım modelinde Windows sanal makineleri için teknik makaleler
+Toocreate gerekir ve Windows tabanlı Azure sanal makineleri hello Klasik dağıtım modelinde yönetmek tüm hello belgeleri bulur.
 
 > [!IMPORTANT] 
-> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir.
+> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md). Bu makalede, hello Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, en yeni dağıtımların hello Resource Manager modelini kullanmasını önerir.
 
 ## <a name="overview"></a>Genel Bakış
 [Sanal makineler hakkında](windows/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Sık sorulan soruya hakkında Azure Klasik dağıtım modeliyle oluşturulan sanal makineler](windows/classic/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Sık sorulan sorular hakkında Azure hello Klasik dağıtım modeliyle oluşturulan sanal makineler](windows/classic/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [VM'leri, web sitelerini ve bulut hizmetlerini karşılaştırma](../app-service-web/choose-web-site-cloud-service-vm.md)
 
@@ -46,9 +46,9 @@ Oluşturmanız ve Windows tabanlı Azure sanal makineleri Klasik dağıtım mode
 ## <a name="get-started"></a>başlarken
 [Windows sanal makineleri için öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
 
-[Klasik Azure portalında bir Windows sanal makine oluşturma](windows/classic/tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Merhaba Klasik Azure portalında bir Windows sanal makine oluşturma](windows/classic/tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Klasik sanal makineye Windows Server çalıştıran oturum açma](windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Nasıl toolog tooa Klasik Windows Server çalıştıran sanal makine üzerinde](windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="plan"></a>Planlama
 [Klasik sanal makineler için görüntüler hakkında](windows/classic/about-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
@@ -66,7 +66,7 @@ Oluşturmanız ve Windows tabanlı Azure sanal makineleri Klasik dağıtım mode
 ## <a name="deploy"></a>Dağıtma
 [Windows çalıştıran özel bir sanal makine oluşturma](windows/classic/createportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Klasik dağıtım modelinde oluşturulmuş bir Windows sanal makinesi yakalama](windows/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Merhaba Klasik dağıtım modelinde oluşturulmuş bir Windows sanal makinesi yakalama](windows/classic/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [Oluşturma ve PowerShell kullanarak Klasik Windows Server VHD yükleme](windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
@@ -79,42 +79,42 @@ Oluşturmanız ve Windows tabanlı Azure sanal makineleri Klasik dağıtım mode
 ## <a name="manage"></a>Yönet
 [Azure PowerShell kullanarak sanal makinelerinizi yönetme](windows/classic/manage-psh.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Klasik sanal ağlar için yeni sanal ağlara bağlanma](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
+[Klasik sanal ağlar toonew sanal ağlara bağlanma](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 
-[Sanal makine aracısı ve uzantılar hakkında](windows/classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Merhaba sanal makine aracısı ve uzantılar hakkında](windows/classic/agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [Sanal makine uzantıları Yönet](windows/classic/manage-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [Klasik Windows sanal makineler için özel betik uzantısı](windows/classic/extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Platform desteklenen geçiş Klasik Azure Kaynak Yöneticisi](windows/migration-classic-resource-manager-deep-dive.md)
+[Klasik tooAzure Resource Manager Platform desteklenen geçiş](windows/migration-classic-resource-manager-deep-dive.md)
 
 ## <a name="configure"></a>Yapılandırma
-[Bir parola veya bir Windows VM için Uzak Masaüstü hizmetini sıfırlama](windows/reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Nasıl tooreset bir parola veya hello Uzak Masaüstü hizmet için bir Windows VM](windows/reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Sanal makine uzantıları ve özellikleri hakkında](windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Yükleme ve Symantec Endpoint Protection bir Windows VM yapılandırma](windows/classic/install-symantec.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Nasıl tooinstall ve Symantec Endpoint Protection bir Windows VM yapılandırma](windows/classic/install-symantec.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Yükleme ve bir Windows VM bir hizmet olarak eğilimi mikro derin güvenliği yapılandırma](windows/classic/install-trend.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Nasıl tooinstall ve bir Windows VM bir hizmet olarak eğilimi mikro derin güvenliği yapılandırma](windows/classic/install-trend.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Kullanılabilirlik kümesi Klasik dağıtım modelinde sanal makineler için yapılandırma](windows/classic/configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Nasıl tooconfigure hello Klasik dağıtım modelinde sanal makineler için kullanılabilirlik kümesi](windows/classic/configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Uç noktaları Klasik Azure sanal makinede kurma](windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Nasıl tooset uç noktaları Klasik Azure sanal makinede ayarlama](windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="storage"></a>Depolama
 [Diskleri ve Azure sanal makineleri için VHD'ler hakkında](../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Nasıl bir Klasik Windows sanal makineye bir veri diski Ekle](windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Nasıl tooattach bir veri diski tooa Klasik Windows sanal makine](windows/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Nasıl bir Klasik Windows sanal makine veri diski kullanımdan çıkarın](windows/classic/detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Nasıl toodetach bir veri diski Klasik Windows sanal makineden](windows/classic/detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Bir Windows VM üzerinde bir veri sürücüsü olarak kullanmak üzere D sürücü](windows/change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Bir Windows VM üzerinde bir veri sürücüsü olarak Hello D sürücü kullanın](windows/change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a name="networking"></a>Ağ
 [Sanal ağ genel bakış](../virtual-network/virtual-networks-overview.md)
 
-[Bir sanal ağ veya Bulut hizmeti ile klasik dağıtım modeliyle oluşturulan sanal makineleri Bağlan](windows/classic/connect-vms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Bir sanal ağ veya Bulut hizmeti ile Merhaba Klasik dağıtım modeliyle oluşturulan sanal makineleri Bağlan](windows/classic/connect-vms.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [Azure PowerShell kullanarak NSG’leri yönetme](../virtual-network/virtual-networks-create-nsg-classic-ps.md)
 
@@ -125,7 +125,7 @@ Oluşturmanız ve Windows tabanlı Azure sanal makineleri Klasik dağıtım mode
 
 [Visual Studio ile web uygulaması için bir sanal makine oluşturma](windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[Bir sanal makinede Java'da işlem yoğunluklu görev çalıştırma](windows/classic/java-run-compute-intensive-task.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+[Nasıl toorun işlem yoğunluklu görev Java sanal bir makinede](windows/classic/java-run-compute-intensive-task.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 [Windows Server VM üzerinde Django Hello World web uygulaması](windows/classic/python-django-web-app.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
@@ -154,9 +154,9 @@ Oluşturmanız ve Windows tabanlı Azure sanal makineleri Klasik dağıtım mode
 [Azure Hizmet Yönetimi PowerShell cmdlet başvurusu belgeleri](/powershell/azure/overview?view=azuresmps-3.7.0)
 
 ## <a name="troubleshooting"></a>Sorun giderme
-[Windows çalıştıran bir Azure sanal makinesiyle Uzak Masaüstü bağlantı sorunlarını giderme](windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Uzak Masaüstü bağlantıları tooan Azure sorun giderme Windows çalıştıran sanal makine](windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Bir Azure sanal makine üzerinde çalışan bir uygulamaya erişim sorunlarını giderme](windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[Erişim tooan uygulama çalıştıran bir Azure sanal makine sorunlarını giderme](windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [Oluşturduğunuzda, yeniden başlatın veya azure'da VM yeniden boyutlandırma ayırma hatalarını giderme](windows/allocation-failure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

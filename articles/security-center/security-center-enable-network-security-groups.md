@@ -1,6 +1,6 @@
 ---
-title: "Ağ güvenlik grupları Azure Güvenlik Merkezi'nde etkinleştirme | Microsoft Docs"
-description: "Bu belgede Azure Güvenlik Merkezi öneriyi uygulamayı gösterilmiştir ** etkinleştirmek ağ güvenlik grupları **."
+title: "Ağ güvenlik grupları Azure Güvenlik Merkezi'nde aaaEnable | Microsoft Docs"
+description: "Bu belge size nasıl tooimplement hello Azure Güvenlik Merkezi öneri gösterir. ** etkinleştirmek ağ güvenlik grupları **."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,51 +14,51 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 1e034d59d8847f237fa0d4c772344d45cd618576
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2f70fe432aa452f833a5c322d13102ebbd6dbb69
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="enable-network-security-groups-in-azure-security-center"></a>Ağ güvenlik grupları Azure Güvenlik Merkezi'nde etkinleştir
-Azure Güvenlik Merkezi bir zaten etkin değilse, bir ağ güvenlik grubu (NSG) etkinleştirmenizi önerir. Nsg'ler izin veren veya bir sanal ağ üzerindeki VM örneklerinize ağ trafiğinin reddeden erişim denetimi listesi (ACL) kurallarının bir listesini içerir. NSG'ler alt ağlarla veya bu alt ağların içindeki tekil VM örnekleriyle ilişkili olabilir. NSG bir alt ağ ile ilişkili olduğunda ACL kuralları bu alt ağdaki tüm VM örnekleri için geçerli olur. Ayrıca, tekil bir VM trafik kısıtlanabilir başka bir NSG doğrudan bu VM ilişkilendirerek. Daha fazla bilgi edinmek için [bir ağ güvenlik grubu (NSG) nedir?](../virtual-network/virtual-networks-nsg.md)
+Azure Güvenlik Merkezi bir zaten etkin değilse, bir ağ güvenlik grubu (NSG) etkinleştirmenizi önerir. Nsg'ler izin veren veya bir sanal ağ tooyour VM örnekleri ağ trafiği reddeden erişim denetimi listesi (ACL) kurallarının bir listesini içerir. NSG'ler alt ağlarla veya bu alt ağların içindeki tekil VM örnekleriyle ilişkili olabilir. Bir NSG'yi bir alt ağ ile ilişkili olduğunda hello ACL kuralları bu alt ağdaki tooall hello VM örnekleri uygulayın. Buna ek olarak, trafiği tooan tek tek VM kısıtlanabilir başka bir NSG ilişkilendirerek doğrudan toothat VM. toolearn daha fazla [bir ağ güvenlik grubu (NSG) nedir?](../virtual-network/virtual-networks-nsg.md)
 
-Nsg'ler etkin yoksa Güvenlik Merkezi iki önerileri size gösterir: alt ağları ve ağ güvenlik grupları sanal makinelerde etkinleştir üzerinde ağ güvenlik grupları etkinleştirin. Hangi düzeyinde, alt ağ veya Nsg'ler uygulamak için VM seçin.
+Nsg'ler etkin yoksa Güvenlik Merkezi iki önerileri tooyou sunar: alt ağları ve ağ güvenlik grupları sanal makinelerde etkinleştir üzerinde ağ güvenlik grupları etkinleştirin. Hangi düzeyinde, alt ağ veya VM, tooapply Nsg'ler seçin.
 
 > [!NOTE]
-> Bu belge, örnek bir dağıtım kullanarak hizmeti tanıtır.  Bu, adım adım ilerleyen bir kılavuz değildir.
+> Bu belge, örnek bir dağıtım kullanarak hello hizmeti sunar.  Bu, adım adım ilerleyen bir kılavuz değildir.
 >
 >
 
-## <a name="implement-the-recommendation"></a>Öneriyi uygulamayı
-1. İçinde **önerileri** dikey penceresinde, select **etkinleştirmek ağ güvenlik grupları** alt ağlarda veya sanal makinelerde.
+## <a name="implement-hello-recommendation"></a>Merhaba öneriyi uygulamayı
+1. Merhaba, **önerileri** dikey penceresinde, select **etkinleştirmek ağ güvenlik grupları** alt ağlarda veya sanal makinelerde.
    ![Ağ Güvenlik Gruplarını Etkinleştirme][1]
-2. Bu dikey pencere açılır **eksik ağ güvenlik gruplarını yapılandırma** alt ağlar için veya seçtiğiniz öneri bağlı olarak sanal makineler için. Bir alt ağ ya da bir NSG yapılandırmak için bir sanal makineyi seçin.
+2. Bu hello dikey pencere açılır **eksik ağ güvenlik gruplarını yapılandırma** alt ağlar için veya seçtiğiniz hello öneri bağlı olarak sanal makineler için. Bir alt ağ veya sanal makine tooconfigure bir NSG seçin.
 
    ![Alt ağı için NSG yapılandırma][2]
 
    ![VM için NSG yapılandırma][3]
-3. Üzerinde **ağ güvenlik grubunu seçme** dikey penceresinde, varolan bir NSG veya seçin **Yeni Oluştur** bir NSG oluşturmak için.
+3. Merhaba üzerinde **ağ güvenlik grubunu seçme** dikey penceresinde, varolan bir NSG veya seçin **Yeni Oluştur** toocreate bir NSG.
 
    ![Ağ güvenlik grubu seç][4]
 
-Bir NSG'yi oluşturursanız, adımları [Azure portalını kullanarak Nsg'ler yönetme](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) bir NSG oluşturmak ve güvenlik kuralları ayarlamak için.
+Bir NSG oluşturursanız, hello adımları [nasıl Azure portal kullanarak toomanage Nsg'ler hello](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) toocreate bir NSG ve güvenlik kuralları ayarlayın.
 
 ## <a name="see-also"></a>Ayrıca bkz.
-Bu makalenin alt ağlar ya da sanal makineleri için Güvenlik Merkezi öneri "Ağ güvenlik grupları'ı etkinleştir" uygulamak nasıl oluşturulacağını gösterir. Nsg'ler etkinleştirme hakkında daha fazla bilgi edinmek için aşağıdakilere bakın:
+Bu makalede nasıl tooimplement hello Güvenlik Merkezi öneri "etkinleştirmek ağ güvenlik grupları" alt ağ veya sanal makineleri için gösterdi. Nsg'ler, etkinleştirme hakkında daha fazla toolearn hello aşağıdaki bakın:
 
 * [Ağ Güvenlik Grubu (NSG) Nedir?](../virtual-network/virtual-networks-nsg.md)
-* [Azure portalını kullanarak Nsg'ler yönetme](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [Azure portal kullanarak toomanage Nsg'ler nasıl hello](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 
-Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
+Güvenlik Merkezi hakkında daha fazla toolearn hello aşağıdaki bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) --öğrenin nasıl tooconfigure Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkeleri.
 * [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md) --nasıl önerilerin Azure kaynaklarınızı korumanıza yardımcı öğrenin.
-* [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) --Azure kaynaklarınızı sağlığını izlemek öğrenin.
-* [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) -- Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
-* [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) - İş ortağı çözümlerinizin sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
-* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) -- Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
-* [Azure güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/) --en son Azure güvenlik haberlerini ve bilgilerini edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) --nasıl toomonitor hello Azure kaynaklarınızın sistem durumunu öğrenin.
+* [Azure Güvenlik Merkezi'nde Uyarıları yönetme ve yanıt toosecurity](security-center-managing-and-responding-alerts.md) --öğrenin nasıl toomanage ve yanıt toosecurity uyarıları.
+* [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) --nasıl toomonitor hello iş ortağı çözümlerinizin sistem durumunu öğrenin.
+* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) --hello hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
+* [Azure güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/) --hello en son Azure güvenlik haberlerini ve bilgilerini alın.
 
 <!--Image references-->
 [1]: ./media/security-center-enable-nsg/enable-nsg.png

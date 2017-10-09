@@ -1,6 +1,6 @@
 ---
 title: "C#: Azure SQL Veritabanı'nı kullanmaya başlama | Microsoft Docs"
-description: "SQL ve C# uygulamalarını geliştirmek için SQL Database kullanmayı deneyin ve .NET için SQL Database Kitaplığı'nı kullanarak C# ile bir Azure SQL Database oluşturun."
+description: "SQL ve C# uygulamalarını geliştirmek için SQL veritabanı deneyin ve .NET için SQL Database kitaplığı hello kullanarak C# ile bir Azure SQL veritabanı oluşturma."
 keywords: SQL, sql c# deneyin
 services: sql-database
 documentationcenter: 
@@ -16,53 +16,53 @@ ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
-ms.openlocfilehash: c8a2703da1ee3687f8d134e768dd8d31dc4f316b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e880ebabd53546bea37a13186b0f1a13db35b684
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-c-to-create-a-sql-database-with-the-sql-database-library-for-net"></a>C# kullanarak .NET için SQL Veritabanı Kitaplığı ile bir SQL veritabanı oluşturma
+# <a name="use-c-toocreate-a-sql-database-with-hello-sql-database-library-for-net"></a>C# toocreate bir SQL veritabanı hello SQL Database kitaplığı ile .NET için kullanın.
 
-[.NET için Microsoft Azure SQL Yönetim Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql) ile bir Azure SQL veritabanı oluşturmak üzere C# dilini nasıl kullanacağınızı öğrenin. Bu makalede SQL ve C# ile tek bir veritabanını oluşturma işlemi açıklanmaktadır. Elastik havuz oluşturmak için bkz. [Elastik havuz oluşturma](sql-database-elastic-pool-manage-csharp.md).
+Nasıl toouse C# toocreate bir Azure SQL veritabanı ile Merhaba öğrenin [.NET için Microsoft Azure SQL Yönetimi Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Bu makalede nasıl toocreate tek bir veritabanı SQL ve C# ile açıklanır. bkz: toocreate esnek havuzlarını [bir esnek havuz oluşturma](sql-database-elastic-pool-manage-csharp.md).
 
-.NET için Azure SQL Veritabanı Yönetim Kitaplığı [Resource Manager tabanlı SQL Veritabanı REST API'sini](https://docs.microsoft.com/rest/api/sql/) sarmalayan [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) tabanlı bir API sağlar.
-
-> [!NOTE]
-> SQL Veritabanı’nın pek çok yeni özelliği, yalnızca [Azure Resource Manager dağıtım modeli](../azure-resource-manager/resource-group-overview.md) kullanıldığında desteklenir. Bu nedenle .NET için her zaman en son **Azure SQL Veritabanı Yönetim Kitaplığını ([docs](https://docs.microsoft.com/dotnet/api/overview/azure/sql?view=azure-dotnet) | [NuGet Paketi](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)) kullanmanız gerekir**. Eski [klasik dağıtım modeli tabanlı kitaplıklar](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql), yalnızca geriye dönük uyumluluk için desteklenir. Bu nedenle daha yeni Resource Manager tabanlı kitaplıkları kullanmanızı öneririz.
-> 
-> 
-
-Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
-
-* Azure aboneliği. Bir Azure aboneliğine ihtiyacınız varsa bu sayfanın üst kısmındaki **ÜCRETSİZ HESAP**'a tıklamanız yeterlidir; ardından makaleyi tamamlamak için geri dönün.
-* Visual Studio. Ücretsiz bir Visual Studio kopyası için [Visual Studio İndirmeleri](https://www.visualstudio.com/downloads/download-visual-studio-vs) sayfasına göz atın.
+Merhaba .NET için Azure SQL veritabanı yönetimi kitaplığı sağlayan bir [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)-hello sarmalar API tabanlı [Resource Manager tabanlı SQL Database REST API'sini](https://docs.microsoft.com/rest/api/sql/).
 
 > [!NOTE]
-> Bu makalede, yeni ve boş bir SQL veritabanı oluşturulmuştur. Veritabanlarını kopyalamak, veritabanlarını ölçeklendirmek, havuzda bir veritabanı oluşturmak vb. için aşağıdaki örnekte *CreateOrUpdateDatabase(...)* yöntemini değiştirin.  
+> Merhaba kullanılırken SQL veritabanı'nın birçok yeni özellik yalnızca desteklenen [Azure Resource Manager dağıtım modeli](../azure-resource-manager/resource-group-overview.md), hello son her zaman kullanmalısınız **.NET için Azure SQL veritabanı yönetimi kitaplığı ([belgeleri](https://docs.microsoft.com/dotnet/api/overview/azure/sql?view=azure-dotnet) | [NuGet paketi](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Merhaba eski [tabanlı kitaplıkları Klasik dağıtım modeli](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) hello yeni Resource Manager temelli kitaplıkları kullanmanızı öneririz, böylece yalnızca geriye dönük uyumluluk için desteklenir.
+> 
 > 
 
-## <a name="create-a-console-app-and-install-the-required-libraries"></a>Bir konsol uygulaması oluşturun ve gerekli kitaplıkları yükleyin
+Bu makaledeki toocomplete hello adımları, hello aşağıdaki gerekir:
+
+* Azure aboneliği. Yalnızca bir Azure aboneliğine ihtiyacınız varsa tıklatın **ücretsiz hesap** üstündeki hello bu sayfa ve toofinish bu makalenin geri dönün.
+* Visual Studio. Visual Studio'nun Ücretsiz bir kopya hello bkz [Visual Studio indirmeleri](https://www.visualstudio.com/downloads/download-visual-studio-vs) sayfası.
+
+> [!NOTE]
+> Bu makalede, yeni ve boş bir SQL veritabanı oluşturulmuştur. Merhaba değiştirme *CreateOrUpdateDatabase(...)*  yöntemi örnek toocopy veritabanları aşağıdaki hello ölçeklendirme veritabanları, bir havuz, vb. bir veritabanı oluşturun.  
+> 
+
+## <a name="create-a-console-app-and-install-hello-required-libraries"></a>Bir konsol uygulaması oluşturun ve hello gerekli kitaplıkları yükleme
 1. Visual Studio’yu çalıştırın.
 2. **Dosya** > **Yeni** > **Proje**’ye tıklayın.
 3. Bir C# **Konsol Uygulaması** oluşturun ve şu şekilde adlandırın: *SqlDbConsoleApp*
 
-C# ile bir SQL veritabanı oluşturmak için gerekli yönetim kitaplıklarını yükleyin ([paket yöneticisi konsolunu](http://docs.nuget.org/Consume/Package-Manager-Console) kullanarak):
+SQL veritabanı ile C#, yük hello toocreate gerekli yönetim kitaplıklarını (hello kullanarak [Paket Yöneticisi konsolunda](http://docs.nuget.org/Consume/Package-Manager-Console)):
 
 1. **Araçlar** > **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**’na tıklayın.
-2. En son [Microsoft Azure SQL Yönetim Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)’nı yüklemek için `Install-Package Microsoft.Azure.Management.Sql -Pre` yazın.
-3. [Microsoft Azure Resource Manager Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager)’nı yüklemek için `Install-Package Microsoft.Azure.Management.ResourceManager -Pre` yazın.
-4. [Microsoft Azure Sık Kullanılan Kimlik Doğrulama Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication)’nı yüklemek için `Install-Package Microsoft.Azure.Common.Authentication -Pre` yazın. 
+2. Tür `Install-Package Microsoft.Azure.Management.Sql -Pre` tooinstall hello son [Microsoft Azure SQL Yönetimi Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
+3. Tür `Install-Package Microsoft.Azure.Management.ResourceManager -Pre` tooinstall hello [Microsoft Azure Resource Manager Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
+4. Tür `Install-Package Microsoft.Azure.Common.Authentication -Pre` tooinstall hello [Microsoft Azure ortak kimlik doğrulama Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication). 
 
 > [!NOTE]
-> Bu makaledeki örneklerde, temel alınan hizmet üzerindeki REST çağrısı tamamlanana kadar her bir API isteğinin ve bloğunun zaman uyumlu bir biçimi kullanıldı. Zaman uyumsuz yöntemler de kullanılabilir.
+> Merhaba bu makaledeki örneklerde her bir API isteğinin ve bloğunun zaman uyumlu bir form üzerinde arka plandaki hizmet hello hello REST çağrısı tamamlanmasından kadar kullanın. Zaman uyumsuz yöntemler de kullanılabilir.
 > 
 > 
 
 ## <a name="create-a-sql-database-server-firewall-rule-and-sql-database---c-example"></a>Bir SQL Veritabanı sunucusu, güvenlik duvarı kuralı ve SQL veritabanı oluşturma - C# örneği
-Aşağıdaki örnekte bir kaynak grubu, sunucu güvenlik duvarı kuralı ve bir SQL veritabanı oluşturulmuştur. `_subscriptionId, _tenantId, _applicationId, and _applicationSecret` değişkenlerini almak için bkz. [Kaynaklara erişmek için hizmet sorumlusu oluşturma](#create-a-service-principal-to-access-resources).
+Aşağıdaki örnek hello bir kaynak grubu, sunucu, güvenlik duvarı kuralı ve bir SQL veritabanı oluşturur. Bakın, [bir hizmet asıl tooaccess kaynakları oluşturmak](#create-a-service-principal-to-access-resources) tooget hello `_subscriptionId, _tenantId, _applicationId, and _applicationSecret` değişkenleri.
 
-**Program.cs** dosyasının içeriğini aşağıdakilerle değiştirin ve `{variables}` öğesini uygulama değerlerinizle güncelleştirin (`{}` öğesini dahil etmeyin).
+Hello Değiştir **Program.cs** hello aşağıdaki ve güncelleştirme hello `{variables}` , uygulama değerlerle (Merhaba içermez `{}`).
 
     using Microsoft.Azure;
     using Microsoft.Azure.Management.ResourceManager;
@@ -83,7 +83,7 @@ Aşağıdaki örnekte bir kaynak grubu, sunucu güvenlik duvarı kuralı ve bir 
         static string _applicationId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}";
         static string _applicationSecret = "{your-password}";
 
-        // Create management clients for the Azure resources your app needs to work with.
+        // Create management clients for hello Azure resources your app needs toowork with.
         // This app works with Resource Groups, and Azure SQL Database.
         static ResourceManagementClient _resourceMgmtClient;
         static SqlManagementClient _sqlMgmtClient;
@@ -137,7 +137,7 @@ Aşağıdaki örnekte bir kaynak grubu, sunucu güvenlik duvarı kuralı ve bir 
             Console.WriteLine("Database: " + dbr.Id);
 
 
-            Console.WriteLine("Press any key to continue...");
+            Console.WriteLine("Press any key toocontinue...");
             Console.ReadKey();
         }
 
@@ -178,7 +178,7 @@ Aşağıdaki örnekte bir kaynak grubu, sunucu güvenlik duvarı kuralı ve bir 
 
         static Database CreateOrUpdateDatabase(SqlManagementClient sqlMgmtClient, string resourceGroupName, string serverName, string databaseName, string databaseEdition, string databasePerfLevel)
         {
-            // Retrieve the server that will host this database
+            // Retrieve hello server that will host this database
             Server currentServer = sqlMgmtClient.Servers.Get(resourceGroupName, serverName);
 
             // Create a database: configure create or update parameters and properties explicitly
@@ -209,19 +209,19 @@ Aşağıdaki örnekte bir kaynak grubu, sunucu güvenlik duvarı kuralı ve bir 
 
 
 
-## <a name="create-a-service-principal-to-access-resources"></a>Kaynaklara erişmek için hizmet sorumlusu oluşturma
-Aşağıdaki PowerShell betiği Active Directory (AD) uygulamasını ve C# uygulamamızda kimlik doğrulamak için gereken hizmet sorumlusunu oluşturur. Betik önceki C# örneği için gereken değerleri çıkarır. Ayrıntılı bilgi için bkz. [Kaynaklara erişmek üzere hizmet sorumlusu oluşturmak için Azure PowerShell kullanma](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+## <a name="create-a-service-principal-tooaccess-resources"></a>Bir hizmet asıl tooaccess kaynakları oluşturun
+Merhaba aşağıdaki PowerShell betiğini hello Active Directory (AD) uygulama ve hello hizmet asıl tooauthenticate C# uygulamamıza ihtiyacımız olmadığını oluşturur. Merhaba betik Merhaba önceki C# örnek değerleri çıkarır. Ayrıntılı bilgi için bkz: [kullanım Azure PowerShell toocreate bir hizmet sorumlusu tooaccess kaynakları](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
-    # Sign in to Azure.
+    # Sign in tooAzure.
     Add-AzureRmAccount
 
-    # If you have multiple subscriptions, uncomment and set to the subscription you want to work with.
+    # If you have multiple subscriptions, uncomment and set toohello subscription you want toowork with.
     #$subscriptionId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}"
     #Set-AzureRmContext -SubscriptionId $subscriptionId
 
     # Provide these values for your new AAD app.
-    # $appName is the display name for your app, must be unique in your directory.
-    # $uri does not need to be a real uri.
+    # $appName is hello display name for your app, must be unique in your directory.
+    # $uri does not need toobe a real uri.
     # $secret is a password you create.
 
     $appName = "{app-name}"
@@ -231,19 +231,19 @@ Aşağıdaki PowerShell betiği Active Directory (AD) uygulamasını ve C# uygul
     # Create a AAD app
     $azureAdApplication = New-AzureRmADApplication -DisplayName $appName -HomePage $Uri -IdentifierUris $Uri -Password $secret
 
-    # Create a Service Principal for the app
+    # Create a Service Principal for hello app
     $svcprincipal = New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 
-    # To avoid a PrincipalNotFound error, I pause here for 15 seconds.
+    # tooavoid a PrincipalNotFound error, I pause here for 15 seconds.
     Start-Sleep -s 15
 
-    # If you still get a PrincipalNotFound error, then rerun the following until successful. 
+    # If you still get a PrincipalNotFound error, then rerun hello following until successful. 
     $roleassignment = New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
 
 
-    # Output the values we need for our C# application to successfully authenticate
+    # Output hello values we need for our C# application toosuccessfully authenticate
 
-    Write-Output "Copy these values into the C# sample app"
+    Write-Output "Copy these values into hello C# sample app"
 
     Write-Output "_subscriptionId:" (Get-AzureRmContext).Subscription.SubscriptionId
     Write-Output "_tenantId:" (Get-AzureRmContext).Tenant.TenantId
@@ -253,9 +253,9 @@ Aşağıdaki PowerShell betiği Active Directory (AD) uygulamasını ve C# uygul
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-SQL Database'i ve C# ile bir veritabanını ayarlamayı denediğinize göre şu makaleler için hazırsınız:
+SQL Database'i ve C# ile bir veritabanını ayarlama göre hello makaleler için hazırsınız:
 
-* [SQL Server Management Studio ile SQL Veritabanı’na bağlanma ve bir örnek T-SQL sorgusu gerçekleştirme](sql-database-connect-query-ssms.md)
+* [TooSQL veritabanı SQL Server Management Studio ile bağlanma ve örnek T-SQL sorgusu gerçekleştirin](sql-database-connect-query-ssms.md)
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 * [SQL Veritabanı](https://azure.microsoft.com/documentation/services/sql-database/)

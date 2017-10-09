@@ -1,19 +1,19 @@
-1. [Azure Portal] oturum açın.
+1. İçinde toohello oturum [Azure portal].
 
 2. **Yeni**’ye tıklayın.
 
-3. Arama kutusuna **Mobile Apps**.
+3. Merhaba arama kutusuna yazın **Mobile Apps**.
 
-    ![Azure portal ile Mobile Apps vurgulanmış hızlı başlangıç][quickstart]
+    ![Mobile Apps Hızlı Başlangıcın vurgulandığı Azure Portal][quickstart]
 
-4. Sonuçlar listesinde **Mobile Apps Quickstart**ve ardından **oluşturma**.
+4. Merhaba sonuçları listesinden seçmek **Mobile Apps Quickstart**ve ardından **oluşturma**.
  
-5. Altında **kaynak grubu**, varolan bir kaynak grubu seçin veya (aynı adı kullanarak) yeni bir tane oluşturun.
+5. Altında **kaynak grubu**, varolan bir kaynak grubu seçin veya yeni bir tane oluşturun (uygulamanızın adıyla aynı hello kullanarak).
 
-6. **Oluştur**'a tıklayın. Devam etmeden önce hizmetin sorunsuz dağıtılması için birkaç dakika bekleyin.
+6. **Oluştur**'a tıklayın. Devam etmeden önce başarıyla dağıtılan hello hizmet toobe birkaç dakika bekleyin.
 
 <!-- Images. -->
 [quickstart]: ./media/app-service-mobile-dotnet-backend-create-new-service/search-mobile-apps-quickstart.png
 
 <!-- URLs. -->
-[Azure Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/

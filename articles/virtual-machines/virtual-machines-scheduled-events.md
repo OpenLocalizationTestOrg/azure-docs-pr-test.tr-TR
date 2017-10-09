@@ -1,6 +1,6 @@
 ---
-title: "Azure meta veri hizmeti olaylarla zamanlanmış | Microsoft Docs"
-description: "Gerçekleşmeden önce sanal makinenizde Impactful olaylarına tepki."
+title: aaaScheduled Azure meta veri hizmeti olaylarla | Microsoft Docs
+description: "Gerçekleşmeden önce tooImpactful sanal makineniz olaylarına tepki."
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: 
 author: zivraf
@@ -15,60 +15,60 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/10/2016
 ms.author: zivr
-ms.openlocfilehash: 793803bfc12059a68ec881da9de37116f7a0eb8c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: b5c0849958c3ab48fa9c2cbff7db62f2e9d7daf1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-metadata-service---scheduled-events-preview"></a>Azure meta veri hizmeti - zamanlanmış olaylar (Önizleme)
 
 > [!NOTE] 
-> Kullanım koşullarını kabul ediyorum koşuluyla önizlemeleri için kullanılabilir hale getirilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Microsoft Azure Ek Kullanım Koşulları](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
+> Önizlemeler kullanılabilir tooyou toohello kullanım koşullarını kabul ediyorum hello koşula yapılır. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Microsoft Azure Ek Kullanım Koşulları](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
 >
 
-Zamanlanmış olaylar biridir alt Servisleri Azure meta veri hizmeti altında. Yaklaşan olayları ile ilgili bilgiler görünmesini sorumludur (örneğin, yeniden başlatma) uygulamanız için hazırlamak ve sınırlamak için kesintisi. PaaS ve Iaas dahil olmak üzere tüm Azure sanal makine türleri için kullanılabilir. Zamanlanmış olayları olay etkisini en aza indirmek için önleyici görevleri gerçekleştirmek için sanal makine zaman verir. 
+Zamanlanmış olaylar biridir hello alt Servisleri hello Azure meta veri hizmeti altında. Yaklaşan olayları ile ilgili bilgiler görünmesini sorumludur (örneğin, yeniden başlatma) uygulamanız için hazırlamak ve sınırlamak için kesintisi. PaaS ve Iaas dahil olmak üzere tüm Azure sanal makine türleri için kullanılabilir. Zamanlanmış olaylar toominimize hello etkisi bir olay, sanal makine zaman tooperform önleyici görevlerinizi sağlar. 
 
 ## <a name="introduction---why-scheduled-events"></a>Giriş - neden zamanlanmış olayları?
 
-Zamanlanmış olaylarla platform intiated Bakım veya hizmetinizi kullanıcı tarafından başlatılan Eylemler etkisini sınırlamak üzere adım atabilirsiniz. 
+Zamanlanmış olaylarla hizmetinizde toolimit hello etkisini platform intiated Bakım veya kullanıcı tarafından başlatılan Eylemler adımlar atabilirsiniz. 
 
-Durumunu korumak için çoğaltma tekniklerini kullanın, çok örnekli iş yükleri arasında birden çok örneği gerçekleştiği kesintileri etkilenebilir. Bu tür kayıpları, pahalı görevler (örneğin, yeniden dizinler) veya çoğaltma kaybına neden olabilir. 
+Çoğaltma teknikleri toomaintain durumu kullanın, çok örnekli iş yükleri arasında birden çok örneği gerçekleştiği savunmasız toooutages olabilir. Bu tür kayıpları, pahalı görevler (örneğin, yeniden dizinler) veya çoğaltma kaybına neden olabilir. 
 
-Çoğu durumda, genel hizmet kullanılabilirliği geliştirilmiş bir kapama sırası gibi gerçekleştirerek (el ile yük devretme) kümedeki diğer Vm'lerle görevlere yeniden atama ya da sanal kaldırılması Tamamlanıyor (veya iptal etme) yürütülen işlemler, Ağ Yük Dengeleyici havuzuna makineden. 
+Diğer birçok durumda hello genel hizmet kullanılabilirliği kapama dizisi gibi gerçekleştirerek iyileştirilebilir (el ile yük devretme) hello kümedeki görevleri tooother VM'ler yeniden atama veya hello kaldırılması Tamamlanıyor (veya iptal etme) yürütülen işlemler, Sanal makine bir ağ yük dengeleyici havuzundan. 
 
-Burada yöneticinin yaklaşan bir olay hakkında bilgilendirmek veya böyle bir olay günlüğü yardımcı bakım yapılabilirliğini bulutta barındırılan uygulamalar geliştirme durumlar vardır.
+Burada, yönetici yaklaşan bir olay hakkında bilgilendirmek veya böyle bir olay günlüğü yardımcı hello bakım yapılabilirliğini hello bulutta barındırılan uygulamalar geliştirme durumlar vardır.
 
-Azure meta veri hizmeti zamanlanmış olayları aşağıdaki kullanım örneklerini ortaya çıkarır:
+Azure meta veri hizmeti yüzeyleri zamanlanmış olayları hello aşağıdaki durumlarda kullanın:
 -   Başlatılan platform Bakım (örneğin, ana bilgisayar işletim sistemi dağıtımı)
 -   Kullanıcı tarafından başlatılan çağrıları (örneğin, kullanıcı yeniden başlatma veya yeniden dağıtır VM)
 
 
-## <a name="scheduled-events---the-basics"></a>Zamanlanmış etkinlikleri - temel  
+## <a name="scheduled-events---hello-basics"></a>Zamanlanmış etkinlikleri - hello temelleri  
 
-Azure meta veri hizmeti REST uç noktasını VM içinden erişilebilen kullanarak sanal makineleri çalıştırma hakkında bilgi gösterir. Böylece dışında VM gösterilmeyen bilgileri yönlendirilemeyen bir IP kullanılabilir.
+Azure meta veri hizmeti REST uç noktasını hello VM içinde erişilebilir kullanarak sanal makineleri çalıştırma hakkında bilgi gösterir. Böylece VM hello dışında gösterilmeyen hello bilgi yönlendirilemeyen bir IP kullanılabilir.
 
 ### <a name="scope"></a>Kapsam
-Zamanlanmış olaylar, tüm sanal makineler bir bulut hizmetinde veya bir kullanılabilirlik kümesindeki tüm sanal makineleri çıkmış. Sonuç olarak, denetlemelisiniz `Resources` hangi VM'ler etkilenir olacak tanımlamak için olay alanındaki. 
+Zamanlanmış olaylar ortaya tooall sanal makineler bir bulut hizmetinde veya bir kullanılabilirlik kümesindeki sanal makineleri tooall verilmiştir. Sonuç olarak, hello denetlemelisiniz `Resources` VM'ler etkilenen toobe kalacaklarını hello olay tooidentify alanındaki. 
 
-### <a name="discovering-the-endpoint"></a>Uç nokta keşfetme
-Bir sanal makine bir sanal ağ (VNet) içinde oluşturulduğu olduğu durumda meta veri hizmeti bir statik yönlendirilemeyen bir IP, kullanılabilir `169.254.169.254`.
-Bulut Hizmetleri ve klasik sanal makineleri için varsayılan durumlar bir sanal ağ içinde sanal makine oluşturulmamışsa ek mantık kullanmak için uç nokta bulmak için gereklidir. Bilgi edinmek için bu örneğe bakın nasıl [konak uç noktası bulunamadı](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
+### <a name="discovering-hello-endpoint"></a>Bulan hello uç noktası
+Bir sanal makine bir sanal ağ (VNet) içinde oluşturulduğu burada hello durumda hello meta veri hizmeti bir statik yönlendirilemeyen bir IP, kullanılabilir `169.254.169.254`.
+İlave bir mantık gerekli toodiscover hello uç nokta toouse ise Hello sanal makine bulut Hizmetleri ve klasik sanal makineleri için hello varsayılan durumlar bir sanal ağ içinde oluşturulmaz. Toothis örnek toolearn nasıl çok başvuran[hello konak uç noktası bulunamadı](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
 ### <a name="versioning"></a>Sürüm oluşturma 
-Örnek meta veri sürümü tutulan hizmetidir. Sürümleri zorunludur ve geçerli sürümü `2017-03-01`.
+Merhaba örneği meta veri hizmeti sürümü tutulan ' dir. Sürümleri zorunludur ve hello geçerli sürümü `2017-03-01`.
 
 > [!NOTE] 
-> Önceki Önizleme sürümleri {son} API sürümü desteklenen zamanlanmış olaylar. Bu biçim artık desteklenmemektedir ve gelecekte kullanım dışı kalacaktır.
+> Önceki Önizleme sürümleri {son} hello api sürümü desteklenen zamanlanmış olaylar. Bu biçim artık desteklenmemektedir ve hello gelecekteki kullanım dışı kalacaktır.
 
 ### <a name="using-headers"></a>Üst bilgileri kullanma
-Meta veri hizmeti sorguladığınızda başlık sağlamalısınız `Metadata: true` istek istemeden yönlendirilmeyen emin olmak için.
+Merhaba meta veri hizmeti sorguladığınızda hello üstbilgi sağlamalısınız `Metadata: true` tooensure hello talep istemeden yönlendirilmeyen.
 
 ### <a name="enabling-scheduled-events"></a>Zamanlanmış olayları etkinleştirme
-Zamanlanmış olaylar, istekte ilk kez Azure örtük olarak sanal makinenizde özelliği sağlar. Sonuç olarak, iki dakika içinde ilk çağrıda Gecikmeli yanıt beklemelisiniz.
+Merhaba zamanlanmış olaylar, istekte ilk kez Azure örtük olarak hello özelliği, sanal makinenizde sağlar. Sonuç olarak, ilk çağrısında tootwo dakika yukarı Gecikmeli yanıt beklemelisiniz.
 
 ### <a name="user-initiated-maintenance"></a>Kullanıcı tarafından başlatılan bakım
-Sanal makine Bakımı API, CLI, Azure Portalı aracılığıyla kullanıcı tarafından başlatılan veya PowerShell zamanlanmış olayları neden olur. Bu bakım hazırlık mantığı uygulamanıza test etmenizi sağlar ve kullanıcı tarafından başlatılan bakım için hazırlamak uygulamanızı sağlar.
+Sanal makine Bakımı hello Azure portal, API, CLI, aracılığıyla kullanıcı tarafından başlatılan veya PowerShell zamanlanmış olayları neden olur. Bu, uygulamanızda tootest hello bakım hazırlık mantığı sağlar ve kullanıcı tarafından başlatılan bakım için uygulama tooprepare sağlar.
 
 Bir olay türüne sahip bir sanal makinenin yeniden başlatılması zamanlama `Reboot`. Bir olay türüne sahip bir sanal makine yeniden zamanlama `Redeploy`.
 
@@ -78,17 +78,17 @@ Bir olay türüne sahip bir sanal makinenin yeniden başlatılması zamanlama `R
 > [!NOTE] 
 > Şu anda zamanlanmış olayları kaynaklanan kullanıcı tarafından başlatılan bakım yapılandırılabilir değildir. Yapılandırılabilirlik gelecekteki bir sürümde planlanmaktadır.
 
-## <a name="using-the-api"></a>API'yi kullanma
+## <a name="using-hello-api"></a>Merhaba API'yi kullanma
 
 ### <a name="query-for-events"></a>Olaylar için sorgu
-Aşağıdaki çağrıyı yaparak zamanlanmış olaylar için sorgulama yapabilirsiniz:
+Zamanlanmış olaylar için çağrı hello aşağıdakileri yaparak sorgulayabilirsiniz:
 
 ```
 curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
 ```
 
 Bir yanıt zamanlanmış olaylar dizisini içerir. Boş bir dizi var. şu anda zamanlanmış bir olay yok demektir.
-Durumda Zamanlanmış olaylar olduğu yanıtı olaylar dizisini içerir: 
+Merhaba durumda Zamanlanmış olaylar olduğu hello yanıt olaylar dizisini içerir: 
 ```
 {
     "DocumentIncarnation": {IncarnationID},
@@ -109,14 +109,14 @@ Durumda Zamanlanmış olaylar olduğu yanıtı olaylar dizisini içerir:
 |Özellik  |  Açıklama |
 | - | - |
 | Olay Kimliği | Bu olay için genel benzersiz tanımlayıcı. <br><br> Örnek: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| Olay türü | Bu olaya neden olan etkisi. <br><br> Değerler: <br><ul><li> `Freeze`: Sanal makine, birkaç saniye duraklatmak için zamanlandı. CPU askıya alınır, ancak bellek, açık dosyalar veya ağ bağlantıları üzerinde hiçbir etkisi yoktur. <li>`Reboot`: Sanal makine yeniden başlatma için planlanmıştır (kalıcı olmayan bellek kaybolur). <li>`Redeploy`: Sanal makine başka bir düğüme taşımak için planlanmıştır (kısa ömürlü diskleri kaybolur). |
+| Olay türü | Bu olaya neden olan etkisi. <br><br> Değerler: <br><ul><li> `Freeze`: hello sanal makine için birkaç saniye zamanlanmış toopause değil. Merhaba CPU askıya alınır ancak bellek, açık dosyalar veya ağ bağlantıları üzerinde hiçbir etkisi yoktur. <li>`Reboot`: sanal makine için yeniden başlatma Zamanlanmış Başlangıç (kalıcı olmayan bellek kaybolur). <li>`Redeploy`: hello sanal makine olan zamanlanmış toomove tooanother düğümü (kısa ömürlü diskleri kaybolur). |
 | ResourceType | Bu olay etkiler kaynak türü. <br><br> Değerler: <ul><li>`VirtualMachine`|
-| Kaynaklar| Bu olay etkiler kaynakların listesi. Bu en fazla bir makinelerden içeren garanti [güncelleştirme etki alanı](windows/manage-availability.md), UD tüm makinelerde içerebilir ancak. <br><br> Örnek: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
-| Olay durumu | Bu olay durumu. <br><br> Değerler: <ul><li>`Scheduled`: Bu olay belirtilen süre sonra başlayacak şekilde zamanlanırsa `NotBefore` özelliği.<li>`Started`: Bu olay başlatıldı.</ul> Hayır `Completed` veya benzer durumu hiç sağlanır; olay tamamlandığında, artık olay döndürülür.
+| Kaynaklar| Bu olay etkiler kaynakların listesi. Bu toocontain makineler en fazla bir garanti [güncelleştirme etki alanı](windows/manage-availability.md), hello UD tüm makinelerde içerebilir ancak. <br><br> Örnek: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| Olay durumu | Bu olay durumu. <br><br> Değerler: <ul><li>`Scheduled`: Bu olay hello belirtilen başlangıç saati zamanlanmış toostart sonradır `NotBefore` özelliği.<li>`Started`: Bu olay başlatıldı.</ul> Hayır `Completed` veya benzer durumu hiç sağlanır; hello olay, artık hello olay tamamlandığında döndürülecek.
 | NotBefore| Süre geçtikten sonra bu olay başlayabilir. <br><br> Örnek: <br><ul><li> 2016-09-19T18:29:47Z  |
 
 ### <a name="event-scheduling"></a>Olay planlama
-Her olay zamanlanmış bir minimum süre gelecekte olay türüne bağlı. Bu süre bir olayın içinde yansıtılır `NotBefore` özelliği. 
+Her olay zamanlanmış bir minimum süreyi hello gelecekteki olay türüne bağlı. Bu süre bir olayın içinde yansıtılır `NotBefore` özelliği. 
 
 |Olay türü  | Minimum dikkat edin |
 | - | - |
@@ -126,23 +126,23 @@ Her olay zamanlanmış bir minimum süre gelecekte olay türüne bağlı. Bu sü
 
 ### <a name="starting-an-event-expedite"></a>Bir olayı başlatılıyor (hızlandırmak)
 
-Yaklaşan olay öğrenilen ve normal olarak kapatmak için mantığınızı tamamlandı sonra yaparak bekleyen olay onaylayabilirsiniz bir `POST` çağrısı ile meta veri hizmetine `EventId`. Bu, en düşük bildirim kısaltabilir Azure'a gösterir (uygunsa) süresi. 
+Yaklaşan olay öğrenilen ve normal olarak kapatmak için mantığınızı tamamlandı sonra yaparak hello bekleyen olay onaylayabilirsiniz bir `POST` çağrısı toohello meta veri hizmeti ile Merhaba `EventId`. Bu hello minimum bildirim kısaltabilir tooAzure gösterir (uygunsa) süresi. 
 
 ```
 curl -H Metadata:true -X POST -d '{"DocumentIncarnation":"5", "StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-03-01
 ```
 
 > [!NOTE] 
-> Bir olay aktarımının tüm devam etmek olay izni verdiği `Resources` olay bildirir yalnızca sanal makine durumunda. Bu nedenle ilk makine olarak basit bildirim koordine etmek için bir kılavuz seçmediğiniz seçebileceği `Resources` alan.
+> Bir olay aktarımının izni verdiği hello olay tooproceed tüm `Resources` hello olayda hello olay kabul ettikten sanal makine yalnızca hello. Bu nedenle hello ilk makine hello olarak basit bir kılavuz toocoordinate hello bildirim tooelect tercih edebilirsiniz `Resources` alan.
 
 ## <a name="samples"></a>Örnekler
 
 ### <a name="powershell-sample"></a>PowerShell örnek 
 
-Aşağıdaki örnek, zamanlanmış olaylar için meta veri hizmeti sorgular ve her bekleyen olay onaylar.
+Merhaba aşağıdaki örnek sorgularda zamanlanmış olaylar için meta veri hizmeti hello ve her bekleyen olay onaylar.
 
 ```PowerShell
-# How to get scheduled events 
+# How tooget scheduled events 
 function GetScheduledEvents($uri)
 {
     $scheduledEvents = Invoke-RestMethod -Headers @{"Metadata"="true"} -URI $uri -Method get
@@ -151,19 +151,19 @@ function GetScheduledEvents($uri)
     return $scheduledEvents
 }
 
-# How to approve a scheduled event
+# How tooapprove a scheduled event
 function ApproveScheduledEvent($eventId, $docIncarnation, $uri)
 {    
-    # Create the Scheduled Events Approval Document
+    # Create hello Scheduled Events Approval Document
     $startRequests = [array]@{"EventId" = $eventId}
     $scheduledEventsApproval = @{"StartRequests" = $startRequests; "DocumentIncarnation" = $docIncarnation} 
     
-    # Convert to JSON string
+    # Convert tooJSON string
     $approvalString = ConvertTo-Json $scheduledEventsApproval
 
-    Write-Host "Approving with the following: `n" $approvalString
+    Write-Host "Approving with hello following: `n" $approvalString
 
-    # Post approval string to scheduled events endpoint
+    # Post approval string tooscheduled events endpoint
     Invoke-RestMethod -Uri $uri -Headers @{"Metadata"="true"} -Method POST -Body $approvalString
 }
 
@@ -174,7 +174,7 @@ function HandleScheduledEvents($scheduledEvents)
 
 ######### Sample Scheduled Events Interaction #########
 
-# Set up the scheduled events URI for a VNET-enabled VM
+# Set up hello scheduled events URI for a VNET-enabled VM
 $localHostIP = "169.254.169.254"
 $scheduledEventURI = 'http://{0}/metadata/scheduledevents?api-version=2017-03-01' -f $localHostIP 
 
@@ -199,7 +199,7 @@ foreach($event in $scheduledEvents.Events)
 
 ### <a name="c-sample"></a>C\# örnek 
 
-Meta veri hizmeti ile iletişim kuracağını basit bir istemci, aşağıdaki örnek verilmiştir.
+Merhaba aşağıdaki hello meta veri hizmeti ile iletişim kuracağını basit bir istemcinin örnektir.
 
 ```csharp
 public class ScheduledEventsClient
@@ -207,7 +207,7 @@ public class ScheduledEventsClient
     private readonly string scheduledEventsEndpoint;
     private readonly string defaultIpAddress = "169.254.169.254"; 
 
-    // Set up the scheduled events URI for a VNET-enabled VM
+    // Set up hello scheduled events URI for a VNET-enabled VM
     public ScheduledEventsClient()
     {
         scheduledEventsEndpoint = string.Format("http://{0}/metadata/scheduledevents?api-version=2017-03-01", defaultIpAddress);
@@ -236,7 +236,7 @@ public class ScheduledEventsClient
 }
 ```
 
-Zamanlanmış olaylar aşağıdaki veri yapılarını kullanılarak temsil edilebilir:
+Zamanlanmış olaylar veri yapılarını aşağıdaki hello kullanılarak temsil edilebilir:
 
 ```csharp
 public class ScheduledEventsDocument
@@ -273,7 +273,7 @@ public class StartRequest
 }
 ```
 
-Aşağıdaki örnek, zamanlanmış olaylar için meta veri hizmeti sorgular ve her bekleyen olay onaylar.
+Merhaba aşağıdaki örnek sorgularda zamanlanmış olaylar için meta veri hizmeti hello ve her bekleyen olay onaylar.
 
 ```csharp
 public class Program
@@ -292,7 +292,7 @@ public class Program
             HandleEvents(scheduledEventsDocument.Events);
 
             // Wait for user response
-            Console.WriteLine("Press Enter to approve executing events\n");
+            Console.WriteLine("Press Enter tooapprove executing events\n");
             Console.ReadLine();
 
             // Approve events
@@ -316,7 +316,7 @@ public class Program
                 client.ApproveScheduledEvents(approveEventsJsonDocument);
             }
 
-            Console.WriteLine("Complete. Press enter to repeat\n\n");
+            Console.WriteLine("Complete. Press enter toorepeat\n\n");
             Console.ReadLine();
             Console.Clear();
         }
@@ -331,7 +331,7 @@ public class Program
 
 ### <a name="python-sample"></a>Python örneği 
 
-Aşağıdaki örnek, zamanlanmış olaylar için meta veri hizmeti sorgular ve her bekleyen olay onaylar.
+Merhaba aşağıdaki örnek sorgularda zamanlanmış olaylar için meta veri hizmeti hello ve her bekleyen olay onaylar.
 
 ```python
 #!/usr/bin/python
@@ -375,6 +375,6 @@ if __name__ == '__main__':
 
 ## <a name="next-steps"></a>Sonraki Adımlar 
 
-- Kullanılabilen API'leri hakkında daha fazla bilgiyi [örnek meta veri hizmeti](virtual-machines-instancemetadataservice-overview.md).
+- Merhaba hello kullanılabilir API'ler hakkında daha fazla bilgiyi [örnek meta veri hizmeti](virtual-machines-instancemetadataservice-overview.md).
 - Hakkında bilgi edinin [planlı bakım azure'da Windows sanal makineler için](windows/planned-maintenance.md).
 - Hakkında bilgi edinin [planlı bakım için Linux sanal makineleri azure'da](linux/planned-maintenance.md).

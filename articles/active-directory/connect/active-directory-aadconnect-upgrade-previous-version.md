@@ -1,6 +1,6 @@
 ---
 title: "Azure AD Connect: Önceki bir sürümden yükseltme | Microsoft Docs"
-description: "Azure Active Directory yerinde yükseltme ve esnek geçiş dahil olmak üzere Connect, en son sürümüne yükseltmek için farklı yöntemler açıklanmaktadır."
+description: "Merhaba farklı yöntemler tooupgrade toohello en son sürümü Azure Active Directory yerinde yükseltme ve esnek geçiş dahil olmak üzere Connect, açıklanmaktadır."
 services: active-directory
 documentationcenter: 
 author: AndKjell
@@ -14,104 +14,104 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 52fd9375c71c42feaf87f4a0f4220e1cb3889e63
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 57bd5b094654e4983cafa303b6f3daecadafb01c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: En son önceki bir sürümünden yükseltme
-Bu konuda, Azure Active Directory (Azure AD) Bağlan yüklemenizi en son sürümüne yükseltme için kullanabileceğiniz farklı yöntemler açıklanmaktadır. Kendiniz Azure AD Connect sürümleriyle geçerli tutmanızı öneririz. Ayrıca içindeki adımları kullanın [çarpma geçiş](#swing-migration) önemli bir yapılandırma değişikliği yaptığınızda bölüm.
+# <a name="azure-ad-connect-upgrade-from-a-previous-version-toohello-latest"></a>Azure AD Connect: Bir önceki sürüm toohello en son yükseltme
+Bu konuda, Azure Active Directory (Azure AD) Bağlan yükleme toohello en son sürüm tooupgrade kullanabileceğiniz hello farklı yöntemler açıklanmaktadır. Kendiniz hello sürümlerine sahip Azure AD Connect geçerli tutmanızı öneririz. Merhaba adımları hello de [çarpma geçiş](#swing-migration) önemli bir yapılandırma değişikliği yaptığınızda bölüm.
 
-Dirsync'ten yükseltme istiyorsanız, bkz: [Azure AD eşitleme aracından (DirSync) yükseltme](active-directory-aadconnect-dirsync-upgrade-get-started.md) yerine.
+Dirsync'ten tooupgrade istiyorsanız, bkz: [Azure AD eşitleme aracından (DirSync) yükseltme](active-directory-aadconnect-dirsync-upgrade-get-started.md) yerine.
 
-Azure AD Connect yükseltmek için kullanabileceğiniz birkaç farklı stratejiler vardır.
+Azure AD Connect tooupgrade kullanabileceğiniz birkaç farklı stratejiler vardır.
 
 | Yöntem | Açıklama |
 | --- | --- |
-| [Otomatik yükseltme](active-directory-aadconnect-feature-automatic-upgrade.md) |Hızlı yükleme sahip müşteriler için en kolay yöntem budur. |
-| [Yerinde yükseltme](#in-place-upgrade) |Tek bir sunucu varsa, yükleme yerinde aynı sunucuda yükseltebilirsiniz. |
-| [Esnek geçiş](#swing-migration) |İki sunucu ile yeni sürümü veya yapılandırma sunucularıyla birini hazırlamak ve hazır olduğunuzda etkin sunucunun değiştirin. |
+| [Otomatik yükseltme](active-directory-aadconnect-feature-automatic-upgrade.md) |Hızlı yükleme sahip müşteriler için hello en kolay yöntem budur. |
+| [Yerinde yükseltme](#in-place-upgrade) |Tek bir sunucu varsa, üzerinde hello yükleme yerinde yükseltme yapabilirsiniz hello aynı sunucu. |
+| [Esnek geçiş](#swing-migration) |İki sunucu ile Merhaba sunucularıyla hello yeni sürümü veya yapılandırma birini hazırlamak ve hazır olduğunuzda hello active server değiştirin. |
 
-İzinler için bilgi [yükseltme için gereken izinler](active-directory-aadconnect-accounts-permissions.md#upgrade).
+İzinleri hello bilgi için [yükseltme için gereken izinler](active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 > [!NOTE]
-> Değişiklikleri Azure ad eşitleme başlatmak, yeni Azure AD Connect sunucusu etkinleştirdikten sonra DirSync veya Azure AD Sync kullanılarak geri gerekir. DirSync ve Azure AD eşitleme gibi eski istemciler için Azure AD Connect'ten eski sürüme düşürmeyi desteklenmez ve veri kaybı gibi sorunları Azure AD'de yol açabilir.
+> Yeni Azure AD Connect sunucusu toostart eşitleme değişiklikleri tooAzure AD etkinleştirdikten sonra toousing DirSync veya Azure AD eşitleme geri gerekir. DirSync ve Azure AD eşitleme dahil olmak üzere Azure AD Connect toolegacy istemcilerden önceki sürüme indirme desteklenmiyor ve Azure AD içinde veri kaybı gibi tooissues yol açabilir.
 
 ## <a name="in-place-upgrade"></a>Yerinde yükseltme
 Azure AD eşitleme veya Azure AD Connect taşımak için bir yerinde yükseltme çalışır. Forefront Identity Manager (FIM) + Azure AD Bağlayıcısı ile bir çözüm veya Dirsync'ten taşıma için çalışmıyor.
 
-Tek bir sunucu ve değerinden yaklaşık 100.000 nesneye sahip olduğunda bu tercih edilen bir yöntemdir. Out-of-box eşitleme kuralları herhangi bir değişiklik varsa, bir tam içeri aktarma ve tam eşitleme yükseltme işleminden sonra oluşur. Bu yöntem, yeni yapılandırma sistemde var olan tüm nesnelere uygulanmasını sağlar. Bu farklı çalıştır eşitleme altyapısı kapsamındaki nesneleri sayısına bağlı olarak birkaç saat sürebilir. (Bu, varsayılan olarak 30 dakikada bir eşitlenir) normal delta Eşitleme Zamanlayıcısı askıya alındı, ancak parola eşitleme devam eder. Bir hafta sırasında yerinde yükseltme yapılması düşünebilirsiniz. Varsa yeni Azure AD Connect ile out-of-box yapılandırmada değişiklik yapılmadan sürüm, normal delta alma/eşitlemesi yerine başlatır.  
+Tek bir sunucu ve değerinden yaklaşık 100.000 nesneye sahip olduğunda bu tercih edilen bir yöntemdir. Toohello out-of-box eşitleme kuralları herhangi bir değişiklik olursa, bir tam içeri aktarma ve tam eşitleme hello yükseltmeden sonra oluşur. Bu yöntem, hello yeni yapılandırmayı uygulanan tooall varolan nesneleri hello sistemde sağlar. Bu farklı çalıştır hello hello eşitleme altyapısı kapsamındaki nesnelerin sayısı bağlı olarak birkaç saat sürebilir. (Bu, varsayılan olarak 30 dakikada bir eşitlenir) hello normal delta Eşitleme Zamanlayıcısı askıya alındı, ancak parola eşitleme devam eder. Bir hafta sırasında hello yerinde yükseltme yapılması düşünebilirsiniz. Merhaba yeni Azure AD Connect sürümüyle değişiklikleri toohello out-of-box yapılandırma yoksa, sonra normal delta alma/eşitleme başlar yerine.  
 ![Yerinde yükseltme](./media/active-directory-aadconnect-upgrade-previous-version/inplaceupgrade.png)
 
-Out-of-box eşitleme kuralları için değişiklik yaptıysanız, ardından bu kurallar geri yükseltmeden varsayılan yapılandırmaya ayarlanır. Yapılandırmanızı arasında yükseltme tutulur emin olmak için açıklandığı gibi değişiklikler yaptığınızdan emin olun [en iyi uygulamalar varsayılan yapılandırmasını değiştirmek için](active-directory-aadconnectsync-best-practices-changing-default-configuration.md).
+Değişiklikleri toohello out-of-box eşitleme kuralları yaptıysanız, ardından bu kurallar geri toohello varsayılan yapılandırması yükseltme sırasında ayarlanır. toomake yapılandırmanızı yükseltmeler arasında tutulmasını açıklandığı gibi değişiklikler yapmak emin olun [en iyi uygulamalar hello varsayılan yapılandırmasını değiştirmek için](active-directory-aadconnectsync-best-practices-changing-default-configuration.md).
 
-Yerinde yükseltme sırasında olabilir (tam alma adımı ve tam eşitleme adımı dahil) belirli eşitleme etkinliklerini yükseltme işlemi tamamlandıktan sonra çalıştırılacak gerektiren sunulan değişiklikler. Bu tür etkinlikler erteleme bölümüne bakın. [yükselttikten sonra tam eşitleme erteleme nasıl](#how-to-defer-full-synchronization-after-upgrade).
+Yerinde yükseltme sırasında olabilir sunulan değişiklikler, yükseltme işlemi tamamlandıktan sonra çalıştırılan belirli eşitleme (tam alma adımı ve tam eşitleme adımı dahil) etkinlikleri toobe gerektirir. toodefer bu tür etkinlikler başvuran toosection [nasıl toodefer tam eşitleme yükselttikten sonra](#how-to-defer-full-synchronization-after-upgrade).
 
 ## <a name="swing-migration"></a>Swing geçişi
-Karmaşık bir dağıtım veya çok sayıda nesne varsa, Canlı sistem üzerinde bir yerinde yükseltme yapmak için pratik olabilir. Bazı müşteriler için bu işlem birden fazla gün--sürebilir ve bu süre boyunca hiçbir delta değişiklikleri işlenir. Ayrıca yapılandırmanızı önemli değişiklikler yapmayı planlayın ve buluta gönderilen önce bunları denemenin istediğinizde bu yöntemi kullanabilirsiniz.
+Karmaşık bir dağıtım veya çok sayıda nesne varsa, pratik toodo bir yerinde yükseltme hello Canlı sistem üzerinde olabilir. Bazı müşteriler için bu işlem birden fazla gün--sürebilir ve bu süre boyunca hiçbir delta değişiklikleri işlenir. Ayrıca toomake önemli değişiklikler tooyour yapılandırmasını planlama ve tootry istediğinizde bu yöntemi kullanabilirsiniz toohello bulut gönderilen önce bunları çıkışı.
 
-Bu senaryolar için önerilen yöntem, esnek geçiş kullanmaktır. (En az) iki sunucu--bir etkin sunucu ve bir Hazırlama sunucusu gerekir. (Aşağıdaki resimde düz mavi çizgilerle gösterilir) etkin sunucu için etkin üretim yükü sorumludur. Hazırlama sunucunun (kesikli mor çizgilerle gösterilir) yeni sürüm veya yapılandırma hazırlanır. Tam olarak hazır olduğunda, bu sunucu etkinleştirilir. Şimdi eski sürüm veya yapılandırma yüklü olduğundan, hazırlama Server'a yapılan ve yükseltildiğinde önceki active sunucu.
+yöntemi bu senaryoları için önerilen hello toouse esnek geçiş ' dir. (En az) iki sunucu--bir etkin sunucu ve bir Hazırlama sunucusu gerekir. Merhaba active server (resim aşağıdaki hello düz mavi çizgilerle gösterilir) hello etkin üretim yük sorumludur. Sunucu (kesikli mor çizgilerle gösterilir) hazırlama hello hello yeni sürüm veya yapılandırma hazırlanır. Tam olarak hazır olduğunda, bu sunucu etkinleştirilir. artık eski sürümünü veya yüklü yapılandırma hello sahiptir, hello önceki active server, hello hazırlama Server'a yapılan ve yükseltilir.
 
-İki sunucu farklı sürümlerini kullanabilirsiniz. Örneğin, Azure AD eşitleme yetkisini almayı planladığınız active server kullanabilirsiniz ve yeni hazırlama sunucunun Azure AD Connect kullanabilirsiniz. Yeni bir yapılandırma geliştirmek için esnek geçiş kullanırsanız, iki sunucularında aynı sürümlerde iyi bir fikirdir.  
+Merhaba iki sunucu farklı sürümlerini kullanabilirsiniz. Örneğin, hello active server toodecommission planlama Azure AD eşitleme kullanabilir ve Azure AD Connect hello yeni hazırlama sunucu kullanabilirsiniz. Esnek geçiş toodevelop kullanırsanız, yeni bir yapılandırma, onun bir fikir toohave üzerinde aynı sürümde hello iki sunucu hello.  
 ![Hazırlama sunucusu](./media/active-directory-aadconnect-upgrade-previous-version/stagingserver1.png)
 
 > [!NOTE]
-> Bazı müşteriler, bu senaryo için üç veya dört sunucuların sahip olması tercih edilir. Hazırlama sunucusu yükseltildiğinde için yedek bir sunucu yok [olağanüstü durum kurtarma](active-directory-aadconnectsync-operations.md#disaster-recovery). Üç veya dört sunucularıyla her zaman almaya hazır olan bir Hazırlama sunucusu olduğunu sağlayan yeni sürümle birincil/bekleme sunucularının bir kümesi hazırlayabilirsiniz.
+> Bazı müşteriler, bu senaryo için üç veya dört toohave sunucuları tercih eder. Sunucu hazırlama hello yükseltildiğinde için yedek bir sunucu yok [olağanüstü durum kurtarma](active-directory-aadconnectsync-operations.md#disaster-recovery). Üç veya dört sunucularıyla olduğundan her zaman hazır tootake üzerinden bir Hazırlama sunucusu sağlar hello yeni sürümle birincil/bekleme sunucularının bir kümesi hazırlayabilirsiniz.
 
-Bu adımlar, Azure AD eşitleme veya FIM + Azure AD Bağlayıcısı çözümüyle taşımak için de geçerlidir. Bu adımları DirSync için çalışmaz, ancak (paralel dağıtım olarak da bilinir) aynı esnek geçiş yöntem adımlara DirSync için [yükseltme Azure Active Directory eşitleme (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md).
+Bu adımları da Azure AD eşitleme veya FIM + Azure AD Bağlayıcısı ile bir çözüm toomove çalışır. DirSync için şu adımları çalışmaz, ancak (paralel dağıtım olarak da bilinir) aynı esnek geçiş yöntemi ile DirSync için adımları hello konusu [yükseltme Azure Active Directory eşitleme (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md).
 
-### <a name="use-a-swing-migration-to-upgrade"></a>Yükseltme için esnek geçiş işlemini kullanın
-1. Sunucularda hem de Azure AD Connect kullanıyorsanız ve yalnızca bir yapılandırma değiştirmek, olduğundan emin olun yapmayı planladığınız etkin sunucu ve hazırlama sunucu her ikisi de aynı sürümünü kullanıyor. Bu değişiklikleri daha sonra karşılaştırın kolaylaştırır. Azure AD eşitleme'den yükseltme yapıyorsanız, bu sunucular farklı sürümlerde. Azure AD Connect eski bir sürümden yükseltirken, aynı sürümü kullanan iki sunucu ile başlatmak için iyi bir fikirdir, ancak gerekli değildir.
-2. Özel yapılandırma yapmış olduğunuz ve hazırlama sunucunuz varsa değil, adımları altında [özel bir yapılandırma etkin sunucudan hazırlama sunucuya taşıyın](#move-custom-configuration-from-active-to-staging-server).
-3. Azure AD Connect, önceki bir sürümünden yükseltme yapıyorsanız hazırlama sunucuyu en son sürüme yükseltin. Azure AD eşitleme'den taşıyorsanız, Azure AD Connect'i hazırlama sunucunuza yükleyin.
-4. Tam içeri aktarma ve tam eşitleme hazırlama sunucunuzda çalışan eşitleme altyapısı sağlar.
-5. Doğrulayın "Doğrula" altındaki adımları kullanarak beklenmeyen değişiklikler yeni yapılandırmayı neden olduğunu kaydetmedi [bir sunucunun yapılandırmasını doğrulama](active-directory-aadconnectsync-operations.md#verify-the-configuration-of-a-server). Bir şey beklendiği gibi değilse, düzeltmek için alma çalıştırın ve eşitleme ve adımları izleyerek iyi görünüyor kadar verileri doğrulayın.
-6. Etkin sunucusu olarak hazırlama sunucuya geçiş. Bu son adım "Anahtar active server" olarak [bir sunucunun yapılandırmasını doğrulama](active-directory-aadconnectsync-operations.md#verify-the-configuration-of-a-server).
-7. Azure AD Connect yükseltiyorsanız, en son sürüm için hazırlama modunda sunulmuştur sunucusunu yükseltin. Yükseltme yapılandırma ve verileri almak için önce aynı adımları izleyin. Azure AD eşitleme'den yükseltme yaptıysanız, şimdi kapatmak ve eski sunucunuz yetkisini.
+### <a name="use-a-swing-migration-tooupgrade"></a>Esnek geçiş tooupgrade kullanın
+1. Azure AD Connect hem sunucu hem de planı tooonly yapma bir yapılandırma değişikliği kullanırsanız, active server ve hazırlama server hem de olduğundan emin olun kullanarak hello aynı sürümü. Daha kolay toocompare farklar daha sonra kolaylaştırır. Azure AD eşitleme'den yükseltme yapıyorsanız, bu sunucular farklı sürümlerde. Azure AD Connect eski bir sürümden yükseltirken, iyi bir fikir toostart hello iki sunucuları ile olan hello aynı sürümü kullanan, ancak gerekli değildir.
+2. Özel yapılandırma yapmış olduğunuz ve hazırlama sunucunuz, yoksa, hello altındaki adımları [özel bir yapılandırma sunucusu hazırlama hello active server toohello taşıma](#move-custom-configuration-from-active-to-staging-server).
+3. Azure AD Connect, önceki bir sürümünden yükseltiyorsanız, sunucu toohello en son sürümü hazırlama hello yükseltin. Azure AD eşitleme'den taşıyorsanız, Azure AD Connect'i hazırlama sunucunuza yükleyin.
+4. Merhaba eşitleme Çalıştır motoru tam içeri aktarma ve tam eşitleme hazırlama sunucunuzda olanak tanır.
+5. Bu hello yeni yapılandırma kaydetmedi neden beklenmeyen değişiklikleri "Doğrula" altında hello adımları kullanarak doğrulayın [sunucusunun doğrula hello yapılandırmasını](active-directory-aadconnectsync-operations.md#verify-the-configuration-of-a-server). Bir şeyler değilse olarak beklenen, doğru hello içeri aktarma ve eşitleme çalıştırın ve hello adımları izleyerek iyi görünüyor kadar hello verileri doğrulayın.
+6. Sunucu toobe hello active server hazırlama hello geçin. Bu hello son "Anahtar active server" aşamasıdır [sunucusunun doğrula hello yapılandırmasını](active-directory-aadconnectsync-operations.md#verify-the-configuration-of-a-server).
+7. Azure AD Connect yükseltiyorsanız, şimdi de modu toohello en son sürüm hazırlama hello sunucusunu yükseltin. Merhaba tooget hello veri ve yükseltme yapılandırma gibi önce aynı adımları izleyin. Azure AD eşitleme'den yükseltme yaptıysanız, şimdi kapatmak ve eski sunucunuz yetkisini.
 
-### <a name="move-a-custom-configuration-from-the-active-server-to-the-staging-server"></a>Özel yapılandırma etkin sunucudan hazırlama sunucuya taşıyın.
-Yapılandırma değişiklikleri etkin sunucunun yaptıysanız, aynı değişiklikleri hazırlama sunucuya uygulanan emin olmanız gerekir. Bu taşıma ile yardımcı olmak için kullanabileceğiniz [Azure AD Connect yapılandırma Belgeleyici'yi](https://github.com/Microsoft/AADConnectConfigDocumenter).
+### <a name="move-a-custom-configuration-from-hello-active-server-toohello-staging-server"></a>Özel yapılandırma hello active server toohello hazırlama sunucudan taşıma
+Yapılandırma değişiklikleri toohello active server yaptıysanız, toomake emin olun, aynı hello gereksinim duyduğunuz sunucu hazırlama uygulanan toohello değişir. Bu toohelp taşımak, hello kullanabileceğiniz [Azure AD Connect yapılandırma Belgeleyici'yi](https://github.com/Microsoft/AADConnectConfigDocumenter).
 
-PowerShell kullanarak oluşturduktan özel eşitleme kuralları taşıyabilirsiniz. Aynı şekilde diğer değişiklikler her iki sistemde uygulamanız gerekir ve değişiklikler geçiremezsiniz. [Yapılandırma Belgeleyici'yi](https://github.com/Microsoft/AADConnectConfigDocumenter) aynı olduklarından emin olmak için iki sistem karşılaştırma yardımcı olabilir. Bu bölümde bulunan adımları getirmede aracı de yardımcı olabilir.
+PowerShell kullanarak oluşturduktan hello özel eşitleme kuralları taşıyabilirsiniz. Diğer değişiklikler hello uygulamalısınız hem sistemleri ve aynı şekilde hello değişiklikleri geçirilemiyor. Merhaba [yapılandırma Belgeleyici'yi](https://github.com/Microsoft/AADConnectConfigDocumenter) hello iki sistemleri toomake aynı olduklarından emin karşılaştırma yardımcı olabilir. Bu bölümde bulunan hello adımlarını otomatik hale getirmede Hello aracı de yardımcı olabilir.
 
-Şunları sunucularda hem de aynı şekilde yapılandırmanız gerekir:
+Tooconfigure hello aşağıdakiler şeyler hello aynı şekilde her iki sunucuda:
 
-* Aynı orman bağlantısı
+* Bağlantı toohello aynı ormanlar
 * Tüm etki alanı ve OU filtreleme
-* Parola Eşitleme ve parola geri yazma gibi aynı isteğe bağlı özellikler
+* Parola Eşitleme ve parola geri yazma gibi aynı isteğe bağlı özellikler hello
 
 **Özel eşitleme kuralları taşıma**  
-Özel eşitleme kuralları taşımak için aşağıdakileri yapın:
+toomove özel eşitleme kuralları hello aşağıdaki:
 
 1. Açık **eşitleme kuralları Düzenleyicisi** etkin sunucunuzda.
-2. Özel bir kural seçin. Tıklatın **verme**. Bir not defteri pencereyi getirir. Geçici dosya bir PS1 uzantısıyla kaydedin. Bu, bir PowerShell komut dosyası sağlar. PS1 dosyası hazırlama sunucusuna kopyalayın.  
+2. Özel bir kural seçin. Tıklatın **verme**. Bir not defteri pencereyi getirir. Merhaba geçici dosya bir PS1 uzantısıyla kaydedin. Bu, bir PowerShell komut dosyası sağlar. Sunucu hazırlama hello PS1 dosyası toohello kopyalayın.  
    ![Eşitleme kuralı dışarı aktarma](./media/active-directory-aadconnect-upgrade-previous-version/exportrule.png)
-3. Bağlayıcı GUID hazırlama sunucusunda farklıdır ve değiştirmeniz gerekir. GUID almak için başlangıç **eşitleme kuralları Düzenleyicisi**, aynı bağlı sistemini temsil eder ve out-of-box kurallardan biri seçin **verme**. GUID PS1 dosyası hazırlama sunucusundan GUID ile değiştirin.
-4. Bir PowerShell komut isteminde PS1 dosyasını çalıştırın. Bu hazırlama sunucusunda özel eşitleme kuralı oluşturur.
+3. Merhaba bağlayıcı GUID sunucu hazırlama hello üzerinde farklıdır ve değiştirmeniz gerekir. tooget hello GUID, başlangıç **eşitleme kuralları Düzenleyicisi**, hello out-of-box kurallardan biri aynı bağlı sistem ve'ı tıklatın, temsil hello seçin **verme**. Merhaba PS1 dosyanızdaki GUID hello GUID hello sunucu hazırlama alanından değiştirin.
+4. Bir PowerShell komut isteminde hello PS1 dosyasını çalıştırın. Bu, sunucu hazırlama hello üzerinde hello özel eşitleme kuralı oluşturur.
 5. Bu, özel kurallarınızı için işlemi yineleyin.
 
-## <a name="how-to-defer-full-synchronization-after-upgrade"></a>Yükseltmeden sonra tam eşitleme erteleme nasıl
-Yerinde yükseltme sırasında olabilir (tam alma adımı ve tam eşitleme adımı dahil) belirli eşitleme etkinliklerini yürütülecek gerektiren sunulan değişiklikler. Örneğin, bağlayıcı şema değişiklikleri gerektirir **tam alma** adım ve out-of-box eşitleme kuralı değişiklik gerektiren **tam eşitleme** etkilenen bağlayıcılar yürütülmek üzere adım. Yükseltme sırasında Azure AD Connect eşitleme etkinlikleri gerekli olduğunu belirler ve bunları olarak kaydeder *geçersiz kılmaları*. Aşağıdaki eşitleme döngüsü Eşitleme Zamanlayıcısı'nı bu geçersiz kılma işlemleri seçer ve bunları yürütür. Bir geçersiz kılma başarılı bir şekilde yürütüldükten sonra kaldırılır.
+## <a name="how-toodefer-full-synchronization-after-upgrade"></a>Nasıl toodefer tam eşitleme yükselttikten sonra
+Yerinde yükseltme sırasında olabilir yürütülen belirli eşitleme (tam alma adımı ve tam eşitleme adımı dahil) etkinlikleri toobe gerektiren sunulan değişiklikler. Örneğin, bağlayıcı şema değişiklikleri gerektirir **tam alma** adım ve out-of-box eşitleme kuralı değişiklik gerektiren **tam eşitleme** etkilenen bağlayıcıların yürütülen toobe adım. Yükseltme sırasında Azure AD Connect eşitleme etkinlikleri gerekli olduğunu belirler ve bunları olarak kaydeder *geçersiz kılmaları*. Merhaba, eşitleme döngüsü aşağıdaki hello Eşitleme Zamanlayıcısı bu geçersiz kılma işlemleri seçer ve bunları yürütür. Bir geçersiz kılma başarılı bir şekilde yürütüldükten sonra kaldırılır.
 
-Burada hemen yükseltmeden sonra gerçekleşmesi için bu geçersiz kılmaları istemediğiniz durumlar olabilir. Örneğin, çok sayıda eşitlenmiş nesneleri sahip ve çalışma saatlerinden gerçekleşmesi için eşitleme adımları istersiniz. Bu geçersiz kılmaları kaldırmak için:
+Burada, bu geçersiz kılmaları tootake yer hemen yükseltmeden sonra istemediğiniz durumlar olabilir. Örneğin, çok sayıda eşitlenmiş nesneleri varsa ve bu eşitleme adımları toooccur çalışma saatlerinden istersiniz. Bu geçersiz kılmaları tooremove:
 
-1. Yükseltme sırasında **işaretini** seçeneği **Yapılandırma tamamlandıktan sonra eşitleme işlemini başlatmak**. Bu Eşitleme Zamanlayıcısı'nı devre dışı bırakır ve geçersiz kılmalar kaldırılmadan önce eşitleme döngüsü alma yerden otomatik olarak engeller.
+1. Yükseltme sırasında **işaretini** hello seçeneği **Yapılandırma tamamlandığında hello eşitleme işlemini başlatmak**. Bu hello Eşitleme Zamanlayıcısı'nı devre dışı bırakır ve hello geçersiz kılmaları kaldırılmadan önce eşitleme döngüsü alma yerden otomatik olarak engeller.
 
    ![DisableFullSyncAfterUpgrade](./media/active-directory-aadconnect-upgrade-previous-version/disablefullsync01.png)
 
-2. Yükseltme tamamlandıktan sonra hangi geçersiz kılmaları eklenmiş olan bulmak için aşağıdaki cmdlet'i çalıştırın:`Get-ADSyncSchedulerConnectorOverride | fl`
+2. Yükseltme tamamlandıktan sonra hangi geçersiz kılmaları eklenen çıkışı cmdlet toofind aşağıdaki hello çalıştırın:`Get-ADSyncSchedulerConnectorOverride | fl`
 
    >[!NOTE]
-   > Geçersiz kılmalar bağlayıcı özgüdür. Aşağıdaki örnekte, tam alma adımı ve tam eşitleme adımı her iki şirket içi AD Bağlayıcısı ve Azure AD Bağlayıcısı eklenmiştir.
+   > Merhaba geçersiz kılmaları bağlayıcı özgüdür. Hello aşağıdaki örnekte, tam alma adımı ve tam eşitleme adım tooboth hello şirket içi AD Bağlayıcısı eklenmiştir ve Azure AD Bağlayıcısı.
 
    ![DisableFullSyncAfterUpgrade](./media/active-directory-aadconnect-upgrade-previous-version/disablefullsync02.png)
 
-3. Eklenen varolan geçersiz kılmaları unutmayın.
+3. Eklenen hello varolan geçersiz kılmaları unutmayın.
    
-4. Tam içeri aktarma ve rasgele bir bağlayıcı üzerinde tam eşitleme için geçersiz kılmaları kaldırmak için aşağıdaki cmdlet'i çalıştırın:`Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
+4. tam içeri aktarma ve hello aşağıdaki cmdlet'i çalıştırın, rasgele bir bağlayıcı üzerinde tam eşitleme tooremove hello kılmalarının:`Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
 
-   Tüm bağlayıcılar üzerinde geçersiz kılmaları kaldırmak için aşağıdaki PowerShell betiğini yürütün:
+   tüm bağlayıcılar üzerinde tooremove hello geçersiz kılmaları PowerShell Betiği aşağıdaki hello yürütün:
 
    ```
    foreach ($connectorOverride in Get-ADSyncSchedulerConnectorOverride)
@@ -120,12 +120,12 @@ Burada hemen yükseltmeden sonra gerçekleşmesi için bu geçersiz kılmaları 
    }
    ```
 
-5. Zamanlayıcı sürdürmek için aşağıdaki cmdlet'i çalıştırın:`Set-ADSyncScheduler -SyncCycleEnabled $true`
+5. tooresume hello Zamanlayıcı ' hello aşağıdaki cmdlet'i çalıştırın:`Set-ADSyncScheduler -SyncCycleEnabled $true`
 
    >[!IMPORTANT]
-   > Erken kolaylık olması gereken eşitleme adımları yürütmek unutmayın. El ile Eşitleme Hizmeti Yöneticisi'ni kullanarak aşağıdaki adımları yürütün veya Set-ADSyncSchedulerConnectorOverride cmdlet'ini kullanarak geçersiz kılmaları geri ekleyin.
+   > Erken kolaylık tooexecute gerekli hello eşitleme adımları unutmayın. El ile hello Eşitleme Hizmeti Yöneticisi'ni kullanarak aşağıdaki adımları yürütme veya geri hello kümesi ADSyncSchedulerConnectorOverride cmdlet'ini kullanarak hello geçersiz kılmaları ekleyin.
 
-Rastgele bir bağlayıcı üzerinde tam içeri aktarma ve tam eşitleme için geçersiz kılmalar eklemek için aşağıdaki cmdlet'i çalıştırın:`Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
+tam içeri aktarma ve hello aşağıdaki cmdlet'i çalıştırın, rasgele bir bağlayıcı üzerinde tam eşitleme tooadd hello kılmalarının:`Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazla bilgi edinmek [şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md).

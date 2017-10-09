@@ -1,6 +1,6 @@
 ---
-title: "Aramaları kaydetme ve Azure veri Kataloğu'nda veri varlıklarının Sabitle | Microsoft Docs"
-description: "Nasıl yapılır makalesi veri kaynakları ve daha sonra kullanmak için veri varlıklarını kaydetme için Azure veri Kataloğu özellikleri vurgulama."
+title: "aaaSave arar ve Azure veri Kataloğu'nda PIN veri varlıkları | Microsoft Docs"
+description: "Veri kaynakları ve daha sonra kullanmak için veri varlıklarını kaydetme nasıl tooarticle vurgulama yetenekleri Azure veri Kataloğu'nda."
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -15,72 +15,72 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.openlocfilehash: 8c319d0dcbe8b95af11b8be2368a9348b260446c
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 0ad0a31d4b84782fed9d80acc2734912eecd6d74
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="save-searches-and-pin-data-assets-in-azure-data-catalog"></a>Azure veri Kataloğu'nda arama ve PIN veri varlıklarını kaydetme
 ## <a name="introduction"></a>Giriş
-Azure veri Kataloğu, veri kaynağı bulma için yetenekleri sağlar. Hızlı bir şekilde arayın ve veri kaynaklarını bulmak ve bunların amacı anlamak için katalog daha kolay elinizdeki iş için doğru verileri bulmak filtre.
+Azure veri Kataloğu, veri kaynağı bulma için yetenekleri sağlar. Hızlı bir şekilde arayın ve da hello katalog toolocate veri kaynakları filtre ve amaçlarının, elinizdeki hello işi için daha kolay toofind hello doğru verilerin sağlama anlama.
 
-Ancak düzenli olarak aynı verilerle çalışmak ne gerekir? Ve ne sizin ve diğer kullanıcıların düzenli olarak bilginiz kataloğunda aynı veri kaynaklarına katkıda? Bu durumlarda, art arda aynı aramaları vermek verimsiz olabilir. Kayıtlı arama ve sabitlenmiş veri varlıkları olduğu yardımcı olabilir budur.
+Ancak tooregularly ihtiyacınız yoksa ne hello ile aynı iş veri? Ve ne sizin ve diğer kullanıcıların düzenli olarak bilgi toohello katkıda hello katalog aynı veri kaynaklarında? Bu durumda, aynı hello toorepeatedly sorun yaşıyor aramaları verimsiz olabilir. Kayıtlı arama ve sabitlenmiş veri varlıkları olduğu yardımcı olabilir budur.
 
 ## <a name="saved-searches"></a>Kaydedilen aramalar
-Veri Kataloğu'nda kaydedilmiş bir aramayı bir yeniden kullanılabilir, kullanıcı başına arama tanımıdır. Arama terimleri, etiketler ve diğer filtreleri gibi bir arama tanımlamak ve kaydedin. Daha sonra kendi arama ölçütleriyle eşleşen hiçbir veri varlıklarını döndürmek için kayıtlı arama tanımı yeniden çalıştırabilirsiniz.
+Veri Kataloğu'nda kaydedilmiş bir aramayı bir yeniden kullanılabilir, kullanıcı başına arama tanımıdır. Arama terimleri, etiketler ve diğer filtreleri gibi bir arama tanımlamak ve kaydedin. Kaydedilen hello arama tanımı yeniden çalıştırabilirsiniz sonraki tooreturn kendi arama ölçütleriyle eşleşen hiçbir veri varlıklarını.
 
 ### <a name="create-a-saved-search"></a>Kaydedilmiş bir aramayı oluşturma
-Kaydedilmiş bir aramayı oluşturmak için aşağıdakileri yapın:
-1. Azure veri Kataloğu portalında içinde **geçerli aramayı** penceresinde tıklatın **kaydetmek**. 
+toocreate kaydedilmiş bir aramayı hello aşağıdaki:
+1. Hello Azure veri Kataloğu portalında, hello **geçerli aramayı** penceresinde tıklatın **kaydetmek**. 
 
     ![Geçerli arama ayarları Kaydet bağlantısı](./media/data-catalog-how-to-save-pin/01-save-option.png) 
 
-2. Yeniden kullanmak ve ardından istediğiniz arama ölçütlerini girin **kaydetmek**.
+2. Tooreuse istediğiniz ve ardından hello arama ölçütlerini girin **kaydetmek**.
 
     ![Kaydedilen arama adı geçerli arama ayarları](./media/data-catalog-how-to-save-pin/02-name.png)
 
-3. İstendiğinde, kayıtlı arama için bir ad girin. Anlamlı bir ad seçin ve araması tarafından döndürülen veri varlıklarını açıklar.
+3. İstendiğinde, kaydedilmiş aramayı hello için bir ad girin. Anlamlı bir ad seçin ve hello araması tarafından döndürülen hello veri varlıklarını açıklar.
 
 ### <a name="manage-saved-searches"></a>Kaydedilmiş aramaları Yönet
-Bir veya daha fazla aramalar, kaydettiğiniz sonra bir **kayıtlı aramaları** seçeneği altında görüntülenir **geçerli aramayı** kutusu. Liste genişletildiğinde tüm kaydedilmiş aramaları görüntülenir.
+Bir veya daha fazla aramalar, kaydettiğiniz sonra bir **kayıtlı aramaları** seçeneği hello altında görüntülenen **geçerli aramayı** kutusu. Merhaba listesi genişletildiğinde tüm kaydedilmiş aramaları görüntülenir.
 
  ![Kaydedilmiş aramaları listesi](./media/data-catalog-how-to-save-pin/03-list.png)
 
-Aşağıdakilerden birini yapın:
+Merhaba aşağıdakilerden birini yapın:
 
-* Bir arama yürütmek için kaydedilmiş bir aramayı listeden seçin.
+* bir arama tooexecute kaydedilmiş bir aramayı hello listesinde seçin.
 
-* Kayıtlı bir aramaya Yönetimi seçeneklerinin bir listesini görüntülemek için arama adının yanındaki aşağı oka tıklayın.
+* tooview kaydedilmiş bir aramayı Yönetimi seçeneklerinin listesi hello aşağı ok sonraki toohello arama adını tıklatın.
 
     ![Kaydedilmiş aramaları yönetmek için Seçenekler](./media/data-catalog-how-to-save-pin/04-managing.png)
 
-* Kayıtlı arama için yeni bir ad girmeyi seçin **yeniden adlandırma**. Arama tanımı değiştirilmez.
+* tooenter hello kaydedilen arama için yeni bir ad seçin **yeniden adlandırma**. Merhaba arama tanımı değiştirilmez.
 
-* Kayıtlı arama listenizden kaldırmayı seçin **silmek**ve silme işlemini onaylayın.
+* tooremove hello kaydedilen arama seçin, listeden **silmek**ve ardından hello silme işlemini onaylayın.
 
-* Kayıtlı arama varsayılan aramanızı olarak işaretlemek için seçin **varsayılan olarak Kaydet**. Azure veri Kataloğu giriş sayfasından bir "boş" araması gerçekleştirirseniz, varsayılan aramanızı yürütülür. Varsayılan arama olarak işaretlenmiş arama en üstünde ek olarak, görüntülenen **kayıtlı aramaları** listesi.
+* toomark hello kaydedilen arama seçin, varsayılan arama olarak **varsayılan olarak Kaydet**. "Boş" arama hello Azure veri Kataloğu giriş sayfasından gerçekleştirirseniz, varsayılan aramanızı yürütülür. Ayrıca, hello varsayılan arama hello hello üst kısmında görüntülenir olarak işaretlenen arama hello **kayıtlı aramaları** listesi.
 
 ### <a name="organizational-saved-searches"></a>Kuruluş Kaydedilmiş aramaları
-Kuruluşunuzdaki tüm kullanıcı kendi kullanmak için aramaları kaydedebilirsiniz. Veri Kataloğu yöneticileri kuruluş içindeki tüm kullanıcılar için aramaları da kaydedebilirsiniz. Yöneticiler bir aramayı kaydettiğinizde, bunlar ile sunulan bir **paylaşımı şirket içinde** seçeneği. Bu seçeneğin belirlenmesi, kuruluşunuzdaki tüm kullanıcılar için kayıtlı arama paylaşır.
+Kuruluşunuzdaki tüm kullanıcı kendi kullanmak için aramaları kaydedebilirsiniz. Veri Kataloğu yöneticilerinin hello kuruluşunuzdaki tüm kullanıcılar için aramaları da kaydedebilirsiniz. Yöneticiler bir aramayı kaydettiğinizde, bunlar ile sunulan bir **paylaşımı hello şirket içinde** seçeneği. Bu seçenek paylaşımları hello kaydedilmiş hello kuruluşunuzdaki tüm kullanıcılar için arama seçme.
 
  ![Kuruluş Kaydedilmiş aramaları](./media/data-catalog-how-to-save-pin/08-organizational-saved-search.png)
 
 ## <a name="pinned-data-assets"></a>Sabitlenmiş veri varlıklarını
-Kaydedilmiş aramaları ile kaydedebilir ve arama tanımları yeniden kullanabilirsiniz. Aramaları tarafından döndürülen veri varlıklarını katalog değişiklik içeriğini olarak zaman içinde değişebilir. Veri varlıklarını PIN zaman bir arama kullanmaya gerek kalmadan daha kolay erişim sağlamak için belirli veri varlıklarını açıkça tanımlayabilirsiniz.
+Kaydedilmiş aramaları ile kaydedebilir ve arama tanımları yeniden kullanabilirsiniz. Merhaba aramaları tarafından döndürülen hello veri varlıklarını hello katalog değişiklik Merhaba içeriğine olarak zaman içinde değişebilir. Veri varlıklarını PIN ne zaman, belirli veri varlıklarını toomake açıkça tanımlayabilirsiniz bunları toouse arama gerek olmadan daha kolay tooaccess.
 
-Bir veri varlığına sabitleme basittir. Veri varlığına sabitlenmiş listenize eklemek için tıklayın **PIN** simgesi. Simge varlık döşemenin döşeme görünümünü ve Azure veri Kataloğu portalını liste görünümünde en sol sütununda köşesinde görüntülenir.
+Bir veri varlığına sabitleme basittir. tooadd hello veri varlık sabitlenmiş tooyour listesi, yalnızca tıklattığınız hello **PIN** simgesi. Merhaba simgesi hello köşesine hello varlık hello döşeme görünümünü ve hello en solundaki sütun hello Azure veri Kataloğu portalında hello liste görünümünde görüntülenir.
 
-![Veri varlığına PIN simgesi](./media/data-catalog-how-to-save-pin/05-pinning.png)
+![Merhaba veri varlığına PIN simgesi](./media/data-catalog-how-to-save-pin/05-pinning.png)
 
-Bir veri varlığına kaldırıldığında eşit olarak açıktır. Tıklamanız yeterlidir **sabitleme** simgesi seçili varlık ayarını değiştirin.
+Bir veri varlığına kaldırıldığında eşit olarak açıktır. Merhaba tıklamanız yeterlidir **sabitleme** hello seçili varlık için simge tootoggle hello ayarı.
 
-![Veri varlığına sabitleme simgesi](./media/data-catalog-how-to-save-pin/06-unpinning.png)
+![Merhaba veri varlığına sabitleme simgesi](./media/data-catalog-how-to-save-pin/06-unpinning.png)
 
-## <a name="the-my-assets-section"></a>My varlıklar bölümü
-Veri Kataloğu portalı giriş sayfasına içeren bir **My varlıklar** ilgi varlıklar geçerli kullanıcı için görüntüler bölümü. Bu bölümde her iki sabitlenmiş varlıkları içerir ve kayıtlı aramalar.
+## <a name="hello-my-assets-section"></a>Merhaba My varlıklar bölümü
+Merhaba veri Kataloğu portalı giriş sayfasını içeren bir **My varlıklar** ilgi toohello geçerli kullanıcının varlıklar görüntüler bölümü. Bu bölümde her iki sabitlenmiş varlıkları içerir ve kayıtlı aramalar.
 
-![Giriş sayfasında My varlıklar bölümü](./media/data-catalog-how-to-save-pin/07-my-assets.png)
+![Merhaba hello giriş sayfasındaki My varlıklar bölümü](./media/data-catalog-how-to-save-pin/07-my-assets.png)
 
 ## <a name="summary"></a>Özet
-Azure veri Kataloğu sizin ve diğer kuruluş üyelerinin verileri ve daha fazla süre ile çalışmak için arayan daha az zaman harcayabilir için gereksinim duyduğunuz, veri kaynaklarını bulmasına kolaylaştırmak yetenekleri sağlar. Kayıtlı aramalar ve kullanıcılar ile art arda çalıştıkları veri kaynaklarını kolayca tanıyacak şekilde varlıklar bu çekirdek özellikler yapı veri sabitlenir.
+Azure veri Kataloğu sizin ve diğer kuruluş üyelerinin verileri ve daha fazla süre ile çalışmak için arayan daha az süre beklemesini, böylece daha kolay toodiscover hello veri kaynakları ihtiyacınız olun yetenekleri sağlar. Kayıtlı aramalar ve kullanıcılar ile art arda çalıştıkları veri kaynaklarını kolayca tanıyacak şekilde varlıklar bu çekirdek özellikler yapı veri sabitlenir.

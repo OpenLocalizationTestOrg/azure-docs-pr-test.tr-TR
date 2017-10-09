@@ -1,6 +1,6 @@
 ---
 title: "MySQL için işlem birimleri Azure veritabanındaki açıklayan | Microsoft Docs"
-description: "Azure DB MySQL için: Bu makalede işlem birimleri ve işleminizi iş yükü en fazla işlem birimleri ulaştığında olanlar kavramlarını açıklar."
+description: "Azure DB MySQL için: Bu makalede, işlem birimleri ve İş yükünüzün ulaştığında olanlar hello kavramlarını hello en fazla işlem birimleri açıklanmaktadır."
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
@@ -9,38 +9,38 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 05/23/2017
-ms.openlocfilehash: a82c283df688d36cd284973312e276f30ed893c0
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 751b4fff2760e55565e2bc80d49db17a57397779
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="explaining-compute-units-in-azure-database-for-mysql"></a>Azure veritabanı işlem birimleri için MySQL açıklayan
-Bu makalede kavramını işlem birimleri ve işleminizi iş yükü en fazla işlem birimleri ulaştığında ne olacağını açıklar.
+Bu makalede, işlem birimleri hello kavramını ve en fazla işlem birimleri, iş yükü ulaştığında hello ne olur açıklanmaktadır.
 
 ## <a name="what-are-compute-units"></a>İşlem birimleri nelerdir?
-MySQL sunucusu için tek bir Azure veritabanı için kullanılabilir olmasını garanti CPU işleme verimlilik ölçü birimleridir işlem. Bir işlem CPU ve bellek kaynakları oluşan karışık bir ölçüyü birimdir. Genel olarak, 50 işlem birimleri yarısı çekirdek eşitlemek. 100 işlem birimleri için bir çekirdek eşitlemek. Garantili işleme sn'ye sunucunuza kullanılabilir yirmi çekirdekleri 2000 işlem birimleri eşitlemek.
+Birimleridir toobe kullanılabilir tooa garanti CPU işleme verimlilik ölçüsü işlem tek Azure veritabanı için MySQL sunucu. Bir işlem CPU ve bellek kaynakları oluşan karışık bir ölçüyü birimdir. Genel olarak, bir çekirdek toohalf 50 işlem birimleri eşitlemek. 100 işlem birimleri tooone çekirdek eşitlemek. 2000 işlem birimleri tootwenty çekirdek garantili işleme verimlilik kullanılabilir tooyour sunucusunun eşitlemek.
 
-İşlem birim başına bellek miktarını temel ve standart fiyatlandırma katmanları için optimize edilmiştir. Performans düzeyinin artırarak işlem birimleri Katlama, kaynağın tek Azure veritabanına kullanılabilir kümesi MySQL için Katlama için karşılık gelir.
+İşlem birim başına bellek miktarını Hello hello temel ve standart fiyatlandırma katmanları için optimize edilmiştir. Merhaba performans düzeyi artırarak Hello işlem birimleri Katlama karşılık gelir toodoubling hello kaynak kullanılabilir toothat kümesi Azure veritabanı için MySQL tek.
 
-Örneğin, bir standart 800 işlem birimleri 8 x daha fazla CPU işleme ve standart 100 işlem birimleri yapılandırma daha bellek sağlar. Ancak, standart 100 işlem birimleri temel 100 birimlerine işlem karşılaştırıldığında aynı CPU verimliliği sağlayın, ancak standart fiyatlandırma katmanında önceden yapılandırılmış bellek miktarı çift temel fiyatlandırma katmanı için yapılandırılmış bellek miktarı ' dir. Bu nedenle, daha iyi iş yükü performans standart fiyatlandırma katmanı sağlar ve aynı işlem birimleri ile temel fiyatlandırma katmanı daha düşük işlem gecikme seçtiniz.
+Örneğin, bir standart 800 işlem birimleri 8 x daha fazla CPU işleme ve standart 100 işlem birimleri yapılandırma daha bellek sağlar. Ancak, standart 100 işlem birimleri sunarken aynı hello CPU işleme tooBasic 100 işlem birimleri karşılaştırıldığında, hello fiyatlandırma katmanı standart olarak önceden yapılandırılmış olan bellek miktarıdır çift hello fiyatlandırma katmanı Basic için yapılandırılmış bellek miktarı. Bu nedenle, daha iyi iş yükü performansını ve temel fiyatlandırma katmanı ile aynı işlem birimleri seçili hello daha düşük işlem gecikme standart fiyatlandırma katmanı sağlar.
 
-## <a name="how-can-i-determine-the-number-of-compute-units-needed-for-my-workload"></a>İşlem my iş yükü için gereken birim sayısını nasıl belirleyebilirim?
-Şirket içi çalıştıran mevcut bir MySQL server geçirmek için aradığınız isterseniz bir sanal makinede, iş yükü işleme sn'ye kaç çekirdek gerekiyor tahminlerle işlem birim sayısını belirleyebilirsiniz. 
+## <a name="how-can-i-determine-hello-number-of-compute-units-needed-for-my-workload"></a>My iş yükü için gerekli birimlerin işlem hello sayısını nasıl belirleyebilirim?
+Bir sanal makinede veya toomigrate şirket içi çalıştıran mevcut bir MySQL sunucu arıyorsanız, iş yükü işleme sn'ye kaç çekirdek gerekiyor tahminlerle hello işlem birim sayısı belirleyebilirsiniz. 
 
 Mevcut şirket içi veya sanal makine sunucu şu anda 4 çekirdek (CPU hiper iş parçacığı sayımı olmadan) kullanılarak olduğundan, MySQL server için Azure veritabanınızın 400 işlem birimleri yapılandırarak başlatın. İşlem birimleri dinamik olarak yukarı veya aşağı neredeyse hiçbir uygulama kapalı kalma süresi ile iş yükü gereksinimlerinize bağlı olarak genişletilebilir. 
 
-Ölçümleri Azure portalında grafik veya Azure CLI yazma İzleyicisi - işlem birimleri ölçmek için kullanılan komutlar. İzlemek için ilgili işlem birim yüzdesi ve işlem birim sınırı ölçümleridir.
+İzleyicisi Merhaba ölçümleri hello Azure portal ya da yazma Azure CLI komutları - toomeasure grafiğinde birimleri işlem. İlgili ölçümleri toomonitor hello işlem birim yüzdesi ve birim işlem sınırı olan.
 
 >[!IMPORTANT]
-> En büyük IOPS tam olarak kullanılmaz depolama bulursanız, işlem birimleri kullanımı da izleme göz önünde bulundurun. İşlem birimleri oluşturma sınırlı CPU veya bellek nedeniyle performans düşüklüğü lessening tarafından daha yüksek g/ç işleme için izin verebilir.
+> Toohello maksimum IOPS tam olmayan depolama kullanılan bulursanız, hello işlem birimleri kullanımı da izleme göz önünde bulundurun. Merhaba işlem birimleri oluşturma hello performans düşüklüğü toolimited CPU veya bellek nedeniyle lessening tarafından daha yüksek g/ç işleme için izin verebilir.
 
 ## <a name="what-happens-when-i-hit-my-maximum-compute-units"></a>My en fazla işlem birimleri isabet ne olur?
-Performans düzeyleri kalibre ve veritabanının yükünüzü seçilen fiyatlandırma katmanını ve performans düzeyi için en fazla sınırlarına kadar çalıştırmak için kaynaklar sağlamak için kapsamındadır. 
+Performans düzeyleri ayarlandığından ve veritabanının yükünüzü hello seçilen fiyatlandırma katmanı ve performans düzeyi için en fazla sınırları toohello yukarı tooprovide kaynakları toorun kapsamındadır. 
 
-İş yükünüzün ya da işlem birimleri en fazla sınırları veya sağlanan IOPS sınırları ulaşırsa, en çok izin verilen düzeyi kaynakları kullanmaya devam edebilirsiniz, ancak sorgularınızı daha yüksek gecikme görmeniz olasıdır. Yavaşlama zaman aşımı sorgular nedenle önemli hale sürece bu sınırları hataları, ancak bunun yerine iş yavaşlama neden değil. 
+İş yükünüzün da hello işlem birimleri en fazla sınırları hello veya sağlanan IOPS sınırları ulaşırsa, hello izin verilen en yüksek düzeyde tooutilize hello kaynakları devam edebilirsiniz, ancak sorgularınızı artan büyük olasılıkla toosee gecikmeleri şunlardır. Merhaba yavaşlama zaman aşımı sorgular nedenle önemli hale sürece bu sınırları hataları, ancak yerine yavaşlama hello iş yükü içinde neden değil. 
 
-İş yükünüzün en fazla bağlantı sayısı sınırlamaları ulaşırsa, açık hatalar ortaya çıkar. Kaynakları sınırları hakkında daha fazla bilgi için bkz: [MySQL için Azure veritabanındaki sınırlamaları](concepts-limits.md).
+İş yükünüzün hello en fazla bağlantı sayısı sınırlamaları ulaşırsa, açık hatalar ortaya çıkar. Kaynakları sınırları hakkında daha fazla bilgi için bkz: [MySQL için Azure veritabanındaki sınırlamaları](concepts-limits.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Fiyatlandırma katmanları hakkında daha fazla bilgi için bkz: [Azure veritabanı fiyatlandırma katmanlarına MySQL için](./concepts-service-tiers.md).

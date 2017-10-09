@@ -1,6 +1,6 @@
 ---
-title: "Modelinizi Azure Machine Learning Studio'da dağıtımına hazırlamak nasıl | Microsoft Docs"
-description: "Tahmine dayalı bir deneme Machine Learning Studio'da eğitim denemenizi dönüştürerek eğitilen modelinizi bir web hizmeti olarak dağıtımına hazırlamak nasıl."
+title: "aaaHow tooprepare modelinizi Azure Machine Learning Studio'daki dağıtımı için | Microsoft Docs"
+description: "Tooprepare eğitilen modelinizi bir Web dağıtımı için hizmet nasıl dönüştürerek Machine Learning Studio'da eğitim tooa Tahmine dayalı denemeye denemeler yapın."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,88 +14,88 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
 ms.author: garye
-ms.openlocfilehash: 716a9a9b723df7ff6eb111fa40f2b5941d57d67a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d25bc68be63679a803bfc24a9e29e009a9263f5f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Modelinizi Azure Machine Learning Studio'daki dağıtımı için hazırlama
+# <a name="how-tooprepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Nasıl tooprepare modelinizi Azure Machine Learning Studio'daki dağıtımı için
 
-Azure Machine Learning Studio'da Tahmine dayalı bir analiz modeli geliştirmek ve bir Azure web hizmeti olarak dağıtarak faaliyete için ihtiyacınız olan araçları sağlar.
+Model ve bir Azure web hizmeti olarak dağıtarak faaliyete toodevelop Tahmine dayalı bir analiz gereken araçları hello azure Machine Learning Studio sağlar.
 
-Bunu yapmak için Studio adlı bir denemeyi - oluşturmak için kullandığınız bir *eğitim denemenizi* - burada eğitme, Puanlama ve modelinizi Düzenle. Memnun kaldıktan sonra model eğitim denemenizi dönüştürerek dağıtmaya hazırlanırken bir *Tahmine dayalı denemeye* puan kullanıcı verilerini yapılandırılır.
+toodo bunu Studio toocreate adlı bir denemeyi - kullandığınız bir *eğitim denemenizi* - burada eğitme, Puanlama ve modelinizi Düzenle. Memnun kaldıktan sonra modeli hazır toodeploy eğitim deneme tooa dönüştürerek aldığınız *Tahmine dayalı denemeye* tooscore kullanıcı verilerini yapılandırdı.
 
 Bu işlemde örneği görebilirsiniz [izlenecek yol: Azure Machine Learning kredi riski değerlendirmesi için Tahmine dayalı analiz çözümü geliştirme](machine-learning-walkthrough-develop-predictive-solution.md).
 
-Bu makalede derinlemesine eğitim denemenizi Tahmine dayalı bir deneme nasıl dönüştürüldüğü ve bu Tahmine dayalı denemeye nasıl dağıtıldığını ayrıntılarını içine alır. Bu ayrıntılar anlayarak, dağıtılan modelinizi daha etkili olması için yapılandırmak nasıl öğrenebilirsiniz.
+Bu makalede derinlemesine eğitim denemenizi Tahmine dayalı bir deneme nasıl dönüştürüldüğü ve bu Tahmine dayalı denemeye nasıl dağıtıldığını hello ayrıntılarını içine alır. Bu ayrıntılar anlayarak öğrenebilir nasıl tooconfigure dağıtılan modeli toomake daha etkili onu.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## <a name="overview"></a>Genel Bakış 
 
-Tahmine dayalı bir deneme eğitim denemenizi dönüştürme işlemi üç adımdan oluşur:
+Eğitim deneme tooa Tahmine dayalı denemeye dönüştürme hello işlemi üç adımdan oluşur:
 
-1. Makine öğrenimi algoritması modüller, eğitilen model ile değiştirin.
-2. Puanlama için gerekli olan modülleri denemede kesim. Eğitim denemenizi eğitim için gerekli olan, ancak model eğitildi sonra gerekli olmayan modülleri sayısını içerir.
-3. Modelinizi web hizmeti kullanıcı verileri nasıl kabul ettiği ve hangi verilerin döndürülür tanımlayın.
+1. Merhaba machine learning eğitilen model algoritması modüllerle değiştirin.
+2. Merhaba deneme tooonly Puanlama için gerekli olan bu modüller kesim. Eğitim denemenizi eğitim için gerekli olan, ancak hello modeli eğitildi sonra gerekli olmayan modülleri sayısını içerir.
+3. Modelinizi hello web hizmeti kullanıcı verileri nasıl kabul ettiği ve hangi verilerin döndürülür tanımlayın.
 
 > [!TIP]
-> Eğitim denemenizi eğitim ve puanlama kendi verilerinizi kullanarak modelinizi ilgilenen. Ancak uygulama dağıtıldıktan sonra kullanıcılar modelinize yeni veri göndermek ve tahmin sonuçlarını döndürür. Dağıtım için hazır hale getirmek için Tahmine dayalı bir deneme eğitim denemenizi dönüştürmek gibi bu nedenle, nasıl model başkaları tarafından kullanılacak göz önünde bulundurun.
+> Eğitim denemenizi eğitim ve puanlama kendi verilerinizi kullanarak modelinizi ilgilenen. Ancak uygulama dağıtıldıktan sonra kullanıcıların yeni veri tooyour modeli gönderir ve tahmin sonuçlarını döndürür. Dağıtım için hazır, eğitim deneme tooa Tahmine dayalı denemeye tooget dönüştürme gibi bu nedenle, nasıl hello model başkaları tarafından kullanılacak göz önünde bulundurun.
 > 
 > 
 
 ## <a name="set-up-web-service-button"></a>Web hizmetinin ayarı düğmesi
-Denemenizi çalıştırdıktan sonra (tıklatın **çalıştırmak** deneme tuvalinin altındaki), tıklatın **Web hizmetinin ayarı** düğmesini (seçin **Tahmine dayalı Web hizmeti** seçeneği). **Web hizmetinin ayarı** sizin için Tahmine dayalı bir deneme eğitim denemenizi dönüştürme üç adımları gerçekleştirir:
+Denemenizi çalıştırdıktan sonra (tıklatın **çalıştırmak** hello deneme tuvalinin hello sonundaki), hello'ı tıklatın **Web hizmetinin ayarı** düğmesini (select hello **Tahmine dayalı Web hizmeti** seçenek). **Web hizmetinin ayarı** eğitim deneme tooa Tahmine dayalı denemenizi dönüştürme üç adımı hello için gerçekleştirir:
 
-1. Eğitilmiş modelinizi kaydeder **eğitilmiş modeller** modül paletindeki (deneme tuvalinin sol) bölümü. Ardından makine öğrenme algoritmasının yerine geçer ve [Train Model] [ train-model] kaydedilmiş eğitilen model modüllerle.
+1. Merhaba eğitilen model kaydeder **eğitilmiş modeller** hello modül paleti (Merhaba deneme tuvalinin solundaki toohello) bölümü. Ardından hello makine öğrenme algoritmasının yerine geçer ve [Train Model] [ train-model] kaydedilmiş hello modüllerle eğitilmiş model.
 2. Denemenizi analiz eder ve yalnızca eğitim için açıkça kullanılmış ve artık gerekmeyen modülleri kaldırır.
 3. Bunu ekler _Web hizmeti girişi_ ve _çıkış_ denemenizi (Bu modülleri kabul etmek ve kullanıcı verilerini dönmek) varsayılan konumlarda modüllerine.
 
-Örneğin, aşağıdaki deneme örnek census verileri kullanarak iki sınıflı artırılmış karar ağacı modeli eğitir:
+Örneğin, hello aşağıdaki örnek census verileri kullanarak iki sınıflı artırılmış karar ağacı modeli trenler deneyin:
 
 ![Eğitim denemenizi][figure1]
 
-Bu deneme modülleri temelde dört farklı işlevleri gerçekleştirir:
+Bu deneme Hello modülleri temelde dört farklı işlevleri gerçekleştirir:
 
 ![Modül işlevleri][figure2]
 
-Bu eğitim denemenizi Tahmine dayalı bir deneme dönüştürürken bazı bu modüllerin artık gerekli olmayan veya farklı bir amaç şimdi verdikleri:
+Bu eğitim deneme tooa Tahmine dayalı denemeye dönüştürürken bazı bu modüllerin artık gerekli olmayan veya farklı bir amaç şimdi verdikleri:
 
-* **Veri** -Bu örnek veri kümesindeki veriler Puanlama sırasında kullanılmaz - web hizmeti kullanıcı belirtmek için veri sağlayacak. Ancak, veri türleri gibi bu veri kümesi meta verileri eğitilen modeli tarafından kullanılır. Bu nedenle böylece bu meta verileri sağlayabilir Tahmine dayalı denemeye dataset tutmanız gerekir.
+* **Veri** -Bu örnek veri kümesi hello verilerde Puanlama sırasında kullanılmaz - hello kullanıcı hello web hizmetinin skoru hello veri toobe tedarik. Ancak, bu veri kümesi veri türleri gibi hello meta verilerini hello eğitilen modeli tarafından kullanılır. Bu nedenle böylece bu meta verileri sağlayabilir tookeep hello hello Tahmine dayalı denemeye kümesinde gerekir.
 
-* **Hazırlığı** - Puanlama için bu modülleri olabilir veya gelen verileri işlemek gerekli olmayabilir gönderilecek kullanıcı verilere bağlı olarak. **Web hizmetinin ayarı** düğmesi bu touch değil - nasıl bunları işlemek istediğinize karar vermeniz gerekir.
+* **Hazırlığı** - Puanlama için bu modülleri olabilir veya gerekli tooprocess hello gelen veri olmayabilir gönderilecek hello kullanıcı verilere bağlı olarak. Merhaba **Web hizmetinin ayarı** düğmesi bu touch değil - toodecide gerek toohandle istediğiniz bunları.
   
-    Örneğin, örnek veri kümesi olabilir eksik değerleri, bu nedenle bu örnekte bir [Clean Missing Data] [ clean-missing-data] modülü bunlarla dağıtılacak dahil. Ayrıca, örnek veri kümesi modeli eğitmek için gerekli olmayan sütunları içerir. Bu nedenle bir [Select Columns in Dataset sütun] [ select-columns] modülü veri akışından bu ek sütunları hariç tutulacak dahil. Web hizmeti aracılığıyla Puanlama için gönderilen veri eksik değerleri olmaz ve ardından, kaldırabilirsiniz biliyorsanız [Clean Missing Data] [ clean-missing-data] modülü. Ancak, bu yana [Select Columns in Dataset sütun] [ select-columns] modülü yardımcı olan eğitilen model bekliyor veri sütunlarının tanımlamak, bu modül kalması gerekir.
+    Örneğin, bu örnekte hello örnek veri kümesi eksik değerleri böylece olabilir bir [Clean Missing Data] [ clean-missing-data] modül, bunlarla birlikte toodeal. Ayrıca, gerekli tootrain hello modeli olmayan sütunları hello örnek veri kümesi içerir. Bu nedenle bir [Select Columns in Dataset sütun] [ select-columns] modül, dahil edilen tooexclude bu fazladan sütunlarından hello veri akışı. Puanlama için gönderilen bu hello verileri biliyorsanız hello web hizmeti eksik değerleri olmaz ve ardından hello kaldırabilirsiniz [Clean Missing Data] [ clean-missing-data] modülü. Ancak, hello bu yana [Select Columns in Dataset sütun] [ select-columns] modülü yardımcı hello sütunları tanımlamak verilerin Merhaba, eğitilen model bekler, bu modülün tooremain gerekir.
 
-* **Eğitmek** -Bu modüller modeli eğitmek için kullanılır. Tıkladığınızda **Web hizmetinin ayarı**, bu modüller, eğitilmiş model içeren tek bir modülü ile değiştirilir. Bu yeni modül kaydedilir **eğitilmiş modeller** modül paleti bölümü.
+* **Tren** -bu modülleri kullanılan tootrain hello modeli vardır. Tıkladığınızda **Web hizmetinin ayarı**, bu modüller, eğitilmiş hello modeli içeren tek bir modülü ile değiştirilir. Bu yeni modül hello kaydedilir **eğitilmiş modeller** hello modül paleti bölümü.
 
-* **Puan** - Bu örnekte, [bölünmüş veri] [ split] modülü, veri akışı test verileri ve eğitim veri bölmek için kullanılır. Tahmine dayalı denemesinde biz artık, bunu Eğitim değil [bölünmüş veri] [ split] kaldırılabilir. Benzer şekilde, ikinci [Score Model] [ score-model] modülü ve [Evaluate Model] [ evaluate-model] modülü, bu nedenle test verileri sonuçları karşılaştırmak için kullanılır Bu modüller Tahmine dayalı denemeye gerekli değildir. Kalan [Score Model] [ score-model] modülü, ancak, web hizmeti aracılığıyla bir puan sonuca dönmek için gereklidir.
+* **Puan** - Bu örnekte, hello [bölünmüş veri] [ split] test verileri ve eğitim verileri içinde kullanılan toodivide hello veri akışı modülüdür. Merhaba Tahmine dayalı denemeye, biz artık, bunu Eğitim değil [bölünmüş veri] [ split] kaldırılabilir. Benzer şekilde, hello ikinci [Score Model] [ score-model] modülü ve hello [Evaluate Model] [ evaluate-model] modülü hello test kullanılan toocompare sonuçları Bu modüller olmayacak şekilde veri hello Tahmine dayalı denemeler. Merhaba kalan [Score Model] [ score-model] modülü, ancak gerekli tooreturn hello web hizmeti aracılığıyla bir puan sonuç olur.
 
 İşte tıkladıktan sonra örneğimizde nasıl göründüğünü **Web hizmetinin ayarı**:
 
 ![Dönüştürülen tahmini deneme][figure3]
 
-Çalışmanın **Web hizmetinin ayarı** denemenizi bir web hizmeti olarak dağıtılması için hazırlamak yeterli olabilir. Ancak, bazı ek iş denemenizi için belirli yapmak isteyebilirsiniz.
+işlerini Hello **Web hizmetinin ayarı** yeterli tooprepare bir web hizmeti olarak dağıtılmış, deneme toobe olabilir. Ancak, bazı ek iş belirli tooyour deneme toodo isteyebilirsiniz.
 
 ### <a name="adjust-input-and-output-modules"></a>Giriş ve çıkış modülleri Ayarla
-Eğitim denemenizi bir eğitim veri kümesi kullanılan ve makine öğrenme algoritmasını gerekli bir formda veri almak için bazı işleme vermedi. Web hizmeti aracılığıyla almaya beklediğiniz verileri bu işlem gerekmez, atlayabilirsiniz: çıkışına bağlayın **Web hizmeti giriş Modülü** denemenizi farklı bir modüle için. Kullanıcının verileri artık bu konumda modelindeki ulaşırsınız.
+Eğitim denemenizi bazı işleme tooget gerekli makine öğrenme algoritmasını hello formdaki verileri sonra hello vermedi ve eğitim veri kümesi kullanılır. Merhaba web hizmeti aracılığıyla tooreceive beklediğiniz hello verileri bu işlem gerekmez, atlayabilirsiniz: hello hello çıkışına bağlayın **Web hizmeti giriş Modülü** tooa farklı denemenizi modülünde. Merhaba kullanıcının verileri artık bu konumda hello modelindeki ulaşırsınız.
 
-Örneğin, varsayılan olarak **Web hizmetinin ayarı** koyar **Web hizmeti girişi** Yukarıdaki şekilde gösterildiği gibi veri akışı üstündeki modülü. Ancak biz el ile yerleştirebilirsiniz **Web hizmeti girişi** veri işleme modülleri geçmiş:
+Örneğin, varsayılan olarak **Web hizmetinin ayarı** yerleştirmelerin hello **Web hizmeti girişi** hello yukarıda gösterildiği gibi veri akışı hello üstündeki modülü. Ancak biz el ile Merhaba yerleştirebilirsiniz **Web hizmeti girişi** hello veri işleme modülleri geçmiş:
 
-![Web hizmeti girişi taşıma][figure4]
+![Taşıma hello web hizmeti girişi][figure4]
 
-Web hizmeti aracılığıyla sağlanan giriş verileri, herhangi bir önişleme olmadan doğrudan Score Model modüle şimdi geçer.
+Merhaba web hizmeti artık doğrudan hello Score Model modülünün herhangi bir önişleme olmadan geçecek sağlanan hello verileri girin.
 
-Benzer şekilde, varsayılan olarak **Web hizmetinin ayarı** Web hizmeti çıkış modülü, veri akışı sonundaki koyar. Bu örnekte, web hizmeti çıktısını kullanıcıya döndürülecek [Score Model] [ score-model] tam giriş verisi vektör artı Puanlama sonuçları içeren modülü.
-Farklı bir şey döndürmek tercih ediyorsanız, ancak daha sonra önce ek modüller ekleyebilirsiniz **Web hizmeti çıkış** modülü. 
+Benzer şekilde, varsayılan olarak **Web hizmetinin ayarı** koyar hello Web hizmeti çıkış modülü, veri akışı hello sonundaki. Bu örnekte, toohello kullanıcı hello hello çıktısını hello web hizmeti döndürülecek [Score Model] [ score-model] hello tam giriş verisi vektör artı sonuçları Puanlama hello içeren modülü.
+Tooreturn bir şey farklı tercih ediyorsanız, ancak daha sonra hello önce ek modüller ekleyebilirsiniz **Web hizmeti çıkış** modülü. 
 
-Örneğin, yalnızca Puanlama sonuçları ve giriş verileri değil tüm vektörü döndürmek için ekleyin bir [Select Columns in Dataset sütun] [ select-columns] Puanlama sonuçları hariç tüm sütunlar hariç tutulacak modülü. Ardından taşıma **Web hizmeti çıkış** çıktısını modülüne [Select Columns in Dataset sütun] [ select-columns] modülü. Denemeyi şöyle görünür:
+Örneğin, tooreturn yalnızca hello Puanlama sonuçları hello tüm vektör değil giriş verilerinin ekleyip bir [Select Columns in Dataset sütun] [ select-columns] dışındaki tüm sütunları hello sonuçları Puanlama modülü tooexclude. Merhaba taşıma **Web hizmeti çıkış** modülü toohello hello çıktısını [Select Columns in Dataset sütun] [ select-columns] modülü. Merhaba deneme şöyle görünür:
 
-![Web hizmeti çıkış taşıma][figure5]
+![Merhaba web hizmeti çıkış taşıma][figure5]
 
 ### <a name="add-or-remove-additional-data-processing-modules"></a>Ek veri işleme modülleri Ekle Kaldır
-Puanlama sırasında ihtiyaç bildiğiniz denemenizi daha fazla modülleri varsa bunlar kaldırılabilir. Örneğin, biz taşınmış olduğundan **Web hizmeti girişi** noktasında veri işleme modülleri sonra modülü, biz kaldırabilirsiniz [Clean Missing Data] [ clean-missing-data] Modülü Tahmine dayalı denemeye.
+Puanlama sırasında ihtiyaç bildiğiniz denemenizi daha fazla modülleri varsa bunlar kaldırılabilir. Örneğin, biz hello taşınmış olduğundan **Web hizmeti girişi** modülü tooa noktası hello modülleri işleme verileri, biz hello kaldırabilirsiniz sonra [Clean Missing Data] [ clean-missing-data] Modülü Merhaba tahmini deneme.
 
 Bizim Tahmine dayalı denemeye şimdi şöyle görünür:
 
@@ -103,21 +103,21 @@ Bizim Tahmine dayalı denemeye şimdi şöyle görünür:
 
 
 ### <a name="add-optional-web-service-parameters"></a>İsteğe bağlı Web hizmeti parametreleri ekleme
-Bazı durumlarda, hizmet erişildiğinde modülleri davranışını değiştirmek kullanıcı web hizmetinizin izin vermek isteyebilirsiniz. *Web hizmeti parametreleri* bu yapmanıza olanak sağlar.
+Bazı durumlarda, Hello hizmet erişildiğinde tooallow hello kullanıcı, web hizmeti toochange hello davranış modüllerin isteyebilir. *Web hizmeti parametreleri* toodo izin bu.
 
-Yaygın bir örnek ayarlama bir [veri içeri aktarma] [ import-data] web hizmeti erişildiğinde dağıtılan web hizmeti kullanıcı farklı bir veri kaynağına belirtebilmeniz modülü. Veya yapılandırma bir [verileri dışa aktar] [ export-data] modülü böylece farklı bir hedef belirtilebilir.
+Yaygın bir örnek ayarlama bir [veri içeri aktarma] [ import-data] hello web hizmeti erişildiğinde hello hello kullanıcısı web hizmeti dağıtılmış şekilde modülü farklı bir veri kaynağına belirtebilirsiniz. Veya yapılandırma bir [verileri dışa aktar] [ export-data] modülü böylece farklı bir hedef belirtilebilir.
 
-Web hizmeti parametreleri tanımlamak ve bir veya daha fazla modülü parametreleri ile ilişkilendirmek ve gerekli veya isteğe bağlı oldukları belirtebilirsiniz. Web hizmeti kullanıcı hizmete erişme ve modül Eylemler uygun şekilde değiştirilir Bu parametreler için değerler sağlar.
+Web hizmeti parametreleri tanımlamak ve bir veya daha fazla modülü parametreleri ile ilişkilendirmek ve gerekli veya isteğe bağlı oldukları belirtebilirsiniz. Merhaba kullanıcı hello web hizmetinin hello hizmete erişme ve hello modülü Eylemler uygun şekilde değiştirilir Bu parametreler için değerler sağlar.
 
-Web hizmeti parametreleri nedir ve bunların nasıl kullanılacağını hakkında daha fazla bilgi için bkz: [kullanarak Azure Machine Learning Web hizmeti parametreleri][webserviceparameters].
+Hangi Web hizmeti parametreleri hakkında daha fazla bilgi ve bunları nasıl toouse görmek için [kullanarak Azure Machine Learning Web hizmeti parametreleri][webserviceparameters].
 
 [webserviceparameters]: machine-learning-web-service-parameters.md
 
 
-## <a name="deploy-the-predictive-experiment-as-a-web-service"></a>Tahmine dayalı denemeye bir web hizmeti olarak dağıtma
-Tahmine dayalı denemeye yeterince hazırlandı, bir Azure web hizmeti olarak dağıtabilirsiniz. Web hizmetini kullanarak, kullanıcılar modelinize veri gönderebilir ve model kendi tahminleri döndürür.
+## <a name="deploy-hello-predictive-experiment-as-a-web-service"></a>Bir web hizmeti olarak Hello tahmini deneme dağıtma
+Merhaba Tahmine dayalı denemeye yeterince hazırlandı, bir Azure web hizmeti olarak dağıtabilirsiniz. Merhaba web hizmetini kullanarak, kullanıcılar veri tooyour modeli gönderebilir ve hello modeli kendi tahminleri döndürür.
 
-Tam dağıtım işlemi hakkında daha fazla bilgi için bkz: [bir Azure Machine Learning web hizmetini dağıtma][deploy]
+Merhaba tam dağıtım işlemi hakkında daha fazla bilgi için bkz: [bir Azure Machine Learning web hizmetini dağıtma][deploy]
 
 [deploy]: machine-learning-publish-a-machine-learning-web-service.md
 

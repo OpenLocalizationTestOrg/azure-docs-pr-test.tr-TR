@@ -1,6 +1,6 @@
 ---
-title: Azure Vm'leri yedekleme | Microsoft Docs
-description: "Bul, kaydetme ve Azure sanal makineleri bir kurtarma Hizmetleri kasasına yedekleme."
+title: Azure Vm'leri yedekleme aaaBack | Microsoft Docs
+description: "Bul kaydolun ve Azure sanal makineleri tooa kurtarma Hizmetleri kasasını yedekleyin."
 services: backup
 documentationcenter: 
 author: markgalioto
@@ -16,92 +16,92 @@ ms.topic: article
 ms.date: 8/15/2017
 ms.author: trinadhk;jimpark;markgal;
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40983a3de104238d09b976b5fcf2419da42c1bba
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: a204a42726450a7fd89b5563a786b5070578b113
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="back-up-azure-virtual-machines-to-a-recovery-services-vault"></a>Azure sanal makinelerini bir Kurtarma Hizmetleri kasasına yedekleme
+# <a name="back-up-azure-virtual-machines-tooa-recovery-services-vault"></a>Geri Azure sanal makinelerini tooa kurtarma Hizmetleri kasası
 > [!div class="op_single_selector"]
-> * [Vm'leri kurtarma Hizmetleri kasasına yedekleme](backup-azure-arm-vms.md)
-> * [Yedekleme Kasası'na Vm'leri yedekleme](backup-azure-vms.md)
+> * [Sanal makineleri tooRecovery Hizmetleri kasasını yedekleyin](backup-azure-arm-vms.md)
+> * [Sanal makineleri tooBackup kasasını yedekleyin](backup-azure-vms.md)
 >
 >
 
-Bu makalede Azure Vm'leri (Resource Manager tarafından dağıtılan ve klasik dağıtılan) bir kurtarma Hizmetleri kasasına yedekleme konusunda ayrıntılı olarak açıklanmaktadır. İşlerin çoğunu VM'lerin yedeklenmesi için hazırlık olur. Yedeklemek veya VM korumak için önce tamamlamanız gereken [Önkoşullar](backup-azure-arm-vms-prepare.md) Vm'lerinizi koruma için ortamınızı hazırlamak için. Sonra önkoşulları tamamladıktan sonra VM anlık görüntülerini almak için yedekleme işlemi başlatabilirsiniz.
+Bu makalede nasıl tooback yukarı Azure VM'ler (Resource Manager tarafından dağıtılan ve klasik dağıtılan) tooa kurtarma Hizmetleri kasası ayrıntıları verilmektedir. Vm'leri yedekleme için hello çalışmanın çoğu hello hazırlık olur. Yedeklemek veya VM koruma önce hello tamamlamalısınız [Önkoşullar](backup-azure-arm-vms-prepare.md) tooprepare Vm'lerinizi koruma için ortamınızı. Merhaba önkoşulları tamamladıktan sonra hello yedekleme işlemi tootake VM anlık görüntülerini işlemi başlatabilirsiniz.
 
 
 [!INCLUDE [learn about backup deployment models](../../includes/backup-deployment-models.md)]
 
-Daha fazla bilgi için üzerinde makalelerine bakın [azure'da VM yedekleme altyapınızı planlama](backup-azure-vms-introduction.md) ve [Azure sanal makineleri](https://azure.microsoft.com/documentation/services/virtual-machines/).
+Daha fazla bilgi için üzerinde hello makalelerine bakın [azure'da VM yedekleme altyapınızı planlama](backup-azure-vms-introduction.md) ve [Azure sanal makineleri](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
-## <a name="triggering-the-backup-job"></a>Yedekleme işini tetiklemeden
-Kurtarma Hizmetleri kasası ile ilişkili yedekleme İlkesi, Yedekleme işleminin ne sıklıkta ve ne zaman çalışması tanımlar. Varsayılan olarak, ilk zamanlanmış yedekleme ilk yedeklemedir. İlk yedekleme gerçekleştirilene kadar, **Yedekleme İşleri** dikey penceresindeki Son Yedekleme Durumu **Uyarı (ilk yedekleme bekleme)** olarak gösterilir.
+## <a name="triggering-hello-backup-job"></a>Tetikleyici hello yedekleme işi
+Kurtarma Hizmetleri kasası hello ile ilişkili hello yedekleme İlkesi hello Yedekleme işleminin ne sıklıkta ve ne zaman çalışması tanımlar. Varsayılan olarak, ilk zamanlanmış yedekleme hello hello ilk yedeklemedir. Merhaba ilk yedekleme gerçekleşene kadar son yedekleme durumu hello üzerinde hello **yedekleme işleri** dikey gösterildiğinden **uyarı (ilk yedekleme bekleme)**.
 
 ![Yedekleme beklemede](./media/backup-azure-vms-first-look-arm/initial-backup-not-run.png)
 
-İlk yedeklemeniz kısa süre içinde başlamazsa **Şimdi Yedekle** seçeneğini çalıştırmanız önerilir. Aşağıdaki yordam kasa panodan başlatır. Bu yordam, tüm önkoşullar tamamladıktan sonra ilk yedekleme işini çalıştırmak için görev yapar. İlk yedekleme işini zaten çalıştırıldıysa, bu yordam kullanılabilir değil. İlişkili yedekleme İlkesi bir sonraki yedekleme işi belirler.  
+İlk yedeklemeniz son olmadığı sürece toobegin yakında önerilir, çalıştırmanız **Şimdi Yedekle**. Merhaba aşağıdaki yordamı hello kasası panodan başlatır. Bu yordam, tüm önkoşullar tamamladıktan sonra hello ilk yedekleme işini çalıştırmak için görev yapar. Merhaba ilk yedekleme işi zaten çalıştırıldıysa, bu yordam kullanılabilir değil. Merhaba ilişkili yedekleme İlkesi hello sonraki yedekleme işini belirler.  
 
-İlk yedekleme işini çalıştırmak için:
+toorun hello ilk yedekleme işini:
 
-1. Kasa panosunda **Yedekleme Öğeleri** altındaki sayıya veya **Yedekleme Öğeleri** kutucuğuna tıklayın. <br/>
+1. Merhaba kasa Panosu üzerinde hello numarasını altında tıklatın **yedekleme öğeleri**, veya hello **yedekleme öğeleri** döşeme. <br/>
   ![Ayarlar simgesi](./media/backup-azure-vms-first-look-arm/rs-vault-config-vm-back-up-now-1.png)
 
-  **Yedekleme Öğeleri** dikey penceresi açılır.
+  Merhaba **yedekleme öğeleri** dikey pencere açılır.
 
   ![Öğeleri yedekleme](./media/backup-azure-vms-first-look-arm/back-up-items-list.png)
 
-2. **Yedekleme Öğeleri** dikey penceresinde öğeyi seçin.
+2. Merhaba üzerinde **yedekleme öğeleri** dikey penceresinde, select hello öğesi.
 
   ![Ayarlar simgesi](./media/backup-azure-vms-first-look-arm/back-up-items-list-selected.png)
 
-  **Yedekleme Öğeleri** listesi açılır. <br/>
+  Merhaba **yedekleme öğeleri** listesi açılır. <br/>
 
   ![Tetiklenmiş yedekleme işi](./media/backup-azure-vms-first-look-arm/backup-items-not-run.png)
 
-3. **Yedekleme Öğeleri** listesinde üç noktaya **...** tıklayarak Bağlam menüsünü açın.
+3. Merhaba üzerinde **yedekleme öğeleri** listesinde, hello üç noktaya tıklayın **...**  tooopen hello bağlam menüsü.
 
   ![Bağlam menüsü](./media/backup-azure-vms-first-look-arm/context-menu.png)
 
-  Bağlam menüsü görüntülenir.
+  Merhaba bağlam menüsü görüntülenir.
 
   ![Bağlam menüsü](./media/backup-azure-vms-first-look-arm/context-menu-small.png)
 
-4. Bağlam menüsünde **Şimdi yedekle**’ye tıklayın.
+4. Merhaba bağlam menüsünde **Şimdi Yedekle**.
 
   ![Bağlam menüsü](./media/backup-azure-vms-first-look-arm/context-menu-small-backup-now.png)
 
-  Şimdi Yedekle dikey penceresi açılır.
+  Merhaba Şimdi Yedekle dikey pencere açılır.
 
-  ![Şimdi Yedekle dikey penceresi](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
+  ![Merhaba Şimdi Yedekle dikey gösterir](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
 
-5. Şimdi Yedekle dikey penceresinde, takvim simgesine tıklayın, bu kurtarma noktasının korunduğu son günü seçmek için Takvim denetimlerini kullanın ve **Yedekle**’ye tıklayın.
+5. Merhaba Şimdi Yedekle dikey penceresinde hello takvim simgesini tıklatın, hello Takvim denetimi tooselect hello bu kurtarma noktası korunur ve tıklatın son günü kullanın **yedekleme**.
 
-  ![Şimdi Yedekle kurtarma noktasının korunduğu son günü ayarlayın](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
+  ![set hello son gün hello Şimdi Yedekle kurtarma noktası korunur](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
-  Dağıtım bildirimleri, yedekleme işinin tetiklendiğini ve Yedekleme işleri sayfasında işin ilerleme durumunu izleyebileceğinizi bilmenizi sağlar. VM’nizin boyutuna bağlı olarak, ilk yedeklemenin oluşturulması biraz zaman alabilir.
+  Dağıtım bildirimleri hello yedekleme işi tetiklenir ve hello işinin ilerleme durumunu hello hello yedekleme işleri sayfasında izleyebilirsiniz size bildirmek. VM Hello boyutuna bağlı olarak, hello ilk yedek oluşturulması biraz zaman alabilir.
 
-6. İlk yedekleme durumunu izlemek için kasa panosunda **Yedekleme İşleri** kutucuğunda **Devam eden**’e tıklayın.
+6. Merhaba üzerinde hello kasa Panosu üzerinde hello ilk yedekleme tooview veya iz hello durumunu **yedekleme işleri** döşeme tıklatın **devam eden**.
 
   ![Yedekleme İşleri kutucuğu](./media/backup-azure-vms-first-look-arm/open-backup-jobs-1.png)
 
-  Yedekleme İşleri dikey penceresi açılır.
+  Merhaba yedekleme işleri dikey penceresi açılır.
 
   ![Yedekleme İşleri kutucuğu](./media/backup-azure-vms-first-look-arm/backup-jobs-in-jobs-view-1.png)
 
-  **Yedekleme işleri** dikey penceresinde tüm işlerin durumunu görebilirsiniz. VM’niz için yedekleme işinin devam edip etmediğini veya bitip bitmediğini kontrol edin. Yedekleme işi tamamlandığında, durum *Tamamlandı* olur.
+  Merhaba, **yedekleme işleri** dikey penceresinde hello tüm işlerin durumunu görebilirsiniz. Merhaba, VM için yedekleme işi devam ediyor veya sona erdi kontrol edin. Bir yedekleme işi tamamlandığında, hello durumudur *tamamlandı*.
 
   > [!NOTE]
-  > Azure Backup hizmeti, yedekleme işleminin parçası olarak, her VM'deki yedekleme uzantısına tüm yazma işlemlerini boşaltmaya ve tutarlı bir anlık görüntü almaya yönelik bir komut verir.
+  > Merhaba Yedekleme işleminin bir parçası olarak bir komut toohello yedekleme uzantısına tüm yazar ve tutarlı bir anlık görüntüsünü her VM tooflush hello Azure Backup hizmeti verir.
   >
   >
 
 ## <a name="troubleshooting-errors"></a>Sorun giderme
-Sanal makineniz yedekleme sırasında sorunları içine çalıştırırsanız bkz [VM sorun giderme makalesi](backup-azure-vms-troubleshoot.md) Yardım.
+Sanal makineniz yedekleme sırasında sorunları içine çalıştırırsanız hello bkz [VM sorun giderme makalesi](backup-azure-vms-troubleshoot.md) Yardım.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-VM korumalı, VM yönetim görevleri ve sanal makineleri geri yükleme hakkında bilgi edinmek için aşağıdaki makalelere bakın.
+VM korumalı, makaleler toolearn VM yönetim görevleri hakkında aşağıdaki hello bakın ve nasıl toorestore VM'ler.
 
 * [Sanal makinelerinizi yönetme ve izleme](backup-azure-manage-vms.md)
 * [Sanal makineleri geri yükleme](backup-azure-arm-restore-vms.md)

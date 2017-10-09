@@ -1,6 +1,6 @@
 ---
-title: "Azure günlük analizi olayları için IIS ve tablo depolama için BLOB storage kullanma | Microsoft Docs"
-description: "Günlük analizi tablo depolama için tanılama yazma Azure Hizmetleri için günlükleri veya blob depolamaya yazılabilir IIS günlüklerini okuyabilir."
+title: "Azure günlük analizi olayları için IIS ve tablo depolama için aaaUse blob depolama | Microsoft Docs"
+description: "Günlük analizi tanılama tootable depolama yazma Azure Hizmetleri için hello günlüklerini veya tooblob depolama yazılmış IIS günlüklerini okuyabilir."
 services: log-analytics
 documentationcenter: 
 author: MGoedtel
@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 459ef90ca1d76bada6565bfefd7b4bd1086197d5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ff3de04dc8cb6729c1443372ec31a0e8dc47f273
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Günlük analizi olan olaylar için IIS ve Azure tablo depolaması için Azure blob storage kullanma
 
-Günlük analizi tablo depolama için tanılama yazma aşağıdaki hizmetler için günlükleri veya blob depolamaya yazılabilir IIS günlüklerini okuyabilirsiniz:
+Günlük analizi depolama veya IIS yazılı tooblob depolama oturum tanılama tootable yazma Hizmetleri aşağıdaki hello hello günlüklerini okuyabilirsiniz:
 
 * Service Fabric kümeleri (Önizleme)
 * Virtual Machines
@@ -31,11 +31,11 @@ Günlük analizi tablo depolama için tanılama yazma aşağıdaki hizmetler iç
 
 Azure tanılama günlük analizi bu kaynakları için veri toplayabilmek için önce etkinleştirilmesi gerekir.
 
-Tanılama etkinleştirildikten sonra Azure portalını kullanabilir veya PowerShell günlükleri toplamak için günlük analizi yapılandırın.
+Tanılama etkinleştirildikten sonra hello Azure portalını kullanabilirsiniz veya PowerShell günlük analizi toocollect hello günlükleri yapılandırın.
 
-Azure tanılama çalışan rolü, web rolü ya da sanal makine Azure'da çalışan Tanılama verileri toplayacak şekilde sağlayan Azure uzantısıdır. Veriler bir Azure depolama hesabında depolanır ve günlük analizi tarafından toplanabilir.
+Azure tanılama toocollect Tanılama verileri çalışan rolü, web rolü veya Azure'da çalışan sanal makine sağlayan Azure uzantısıdır. Merhaba veriler bir Azure depolama hesabında depolanır ve günlük analizi tarafından toplanabilir.
 
-Günlük analizi'nın bu Azure tanılama günlükleri toplamak günlükleri şu konumlarda olması gerekir:
+Günlük analizi toocollect için bu Azure tanılama günlükleri, aşağıdaki konumlardan hello hello günlükleri olması gerekir:
 
 | Günlük türü | Kaynak Türü | Konum |
 | --- | --- | --- |
@@ -52,38 +52,38 @@ Günlük analizi'nın bu Azure tanılama günlükleri toplamak günlükleri şu 
 >
 >
 
-Sanal makineler için yükleme seçeneğiniz [günlük analizi aracı](log-analytics-azure-vm-extension.md) ek Öngörüler etkinleştirmek için sanal makinenize içine. IIS günlüklerini ve olay günlüklerini analiz edebilirsiniz olmaya ek olarak, izleme yapılandırma değişikliği, SQL değerlendirmesi ve güncelleştirme değerlendirme dahil olmak üzere ek analiz gerçekleştirebilir.
+Sanal makineler için hello yükleme hello seçeneğiniz [günlük analizi aracı](log-analytics-azure-vm-extension.md) sanal makine tooenable ek Öngörüler içine. Ayrıca toobeing mümkün tooanalyze IIS günlüklerini ve olay günlüklerini, yapılandırma değişiklik izleme, SQL değerlendirmesi ve güncelleştirme değerlendirme dahil olmak üzere ek analiz gerçekleştirebilirsiniz.
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection"></a>Bir sanal makinede Azure tanılamayı etkinleştirin koleksiyonu olay günlüğünü ve IIS günlüğü için
-Bir sanal makinede Microsoft Azure Portalı'nı kullanarak olay günlüğünü ve IIS günlük toplama için Azure Tanılama'yı etkinleştirmek için aşağıdaki yordamı kullanın.
+Koleksiyon hello Microsoft Azure portal kullanarak olay günlüğünü ve IIS günlüğü için aşağıdaki yordamı tooenable bir sanal makinede Azure tanılama kullanım hello.
 
-### <a name="to-enable-azure-diagnostics-in-a-virtual-machine-with-the-azure-portal"></a>Bir sanal makinede Azure portal ile Azure tanılama etkinleştirmek için
-1. Bir sanal makine oluşturduğunuzda VM aracısı yükleyin. Sanal makine zaten varsa, VM Aracısı zaten yüklü olduğunu doğrulayın.
+### <a name="tooenable-azure-diagnostics-in-a-virtual-machine-with-hello-azure-portal"></a>tooenable Azure Tanılama'hello Azure portal ile bir sanal makine
+1. Bir sanal makine oluşturduğunuzda hello VM aracısı yükleyin. Merhaba sanal makine zaten varsa, VM aracısının yüklü olduğundan bu hello doğrulayın.
 
-   * Azure portalında sanal makineye gidin **isteğe bağlı yapılandırma**, ardından **tanılama** ve **durum** için **üzerinde**.
+   * İçinde Azure portal Merhaba, toohello sanal makine gidin, seçin **isteğe bağlı yapılandırma**, ardından **tanılama** ve **durum** çok**üzerinde**.
 
-     Tamamlandığında, VM yüklü ve çalışan Azure tanılama uzantısına sahiptir. Tanılama verilerinin toplanması için bu uzantıyı sorumludur.
-2. İzlemeyi etkinleştirmek ve olay günlüğü var olan bir VM yapılandırın. Tanılama VM düzeyinde etkinleştirebilirsiniz. Tanılamayı etkinleştirin ve olay günlüğünü yapılandırmak için aşağıdaki adımları gerçekleştirin:
+     Tamamlandıktan sonra hello VM yüklü ve çalışan hello Azure tanılama uzantısına sahiptir. Tanılama verilerinin toplanması için bu uzantıyı sorumludur.
+2. İzlemeyi etkinleştirmek ve olay günlüğü var olan bir VM yapılandırın. Tanılama hello VM düzeyi adresindeki etkinleştirebilirsiniz. tooenable tanılama ve olay günlüğünü yapılandırmak, hello aşağıdaki adımları gerçekleştirin:
 
-   1. VM seçin.
+   1. Merhaba VM seçin.
    2. Tıklatın **izleme**.
    3. Tıklatın **tanılama**.
-   4. Ayarlama **durum** için **ON**.
-   5. Toplamak istediğiniz her Tanılama Günlüğü'nü seçin.
+   4. Set hello **durum** çok**ON**.
+   5. Toocollect istediğiniz her tanılama günlük seçin.
    6. **Tamam** düğmesine tıklayın.
 
 ## <a name="enable-azure-diagnostics-in-a-web-role-for-iis-log-and-event-collection"></a>Web rolü IIS günlüğü ve olay toplama için Azure tanılama etkinleştir
-Başvurmak [nasıl için tanılamayı etkinleştir bir bulut hizmetinde](../cloud-services/cloud-services-dotnet-diagnostics.md) Azure tanılama etkinleştirme genel adımlar için. Aşağıdaki yönergelerde bu bilgileri kullanın ve günlük analizi ile kullanılmak üzere özelleştirin.
+Çok başvuran[nasıl tooEnable bir bulut hizmetinde tanılama](../cloud-services/cloud-services-dotnet-diagnostics.md) Azure tanılama etkinleştirme genel adımlar için. Merhaba yönergelerde bu bilgileri kullanın ve günlük analizi ile kullanılmak üzere özelleştirin.
 
 Azure Tanılama ile etkin:
 
-* IIS günlüklerini scheduledTransferPeriod aktarımı aralıklarla günlük verileri varsayılan olarak depolanır.
+* IIS günlüklerini hello scheduledTransferPeriod aktarımı aralıklarla günlük verileri varsayılan olarak depolanır.
 * Windows olay günlüklerini varsayılan olarak aktarılmaz.
 
-### <a name="to-enable-diagnostics"></a>Tanılama etkinleştirmek için
-Windows olay günlüklerini etkinleştirmek ya da scheduledTransferPeriod değiştirmek için XML yapılandırma dosyası (diagnostics.wadcfg) kullanarak Azure tanılama gösterildiği gibi yapılandırmak [4. adım: Tanılama yapılandırma dosyanızı oluşturun ve uzantısını yükle](../cloud-services/cloud-services-dotnet-diagnostics.md)
+### <a name="tooenable-diagnostics"></a>tooenable tanılama
+Windows olay günlüklerini tooenable veya toochange scheduledTransferPeriod Merhaba, gösterildiği gibi Azure hello XML yapılandırma dosyası (diagnostics.wadcfg) kullanarak tanılama Yapılandır [4. adım: Tanılama yapılandırma dosyanızı oluşturun ve hello yükleyin uzantısı](../cloud-services/cloud-services-dotnet-diagnostics.md)
 
-Aşağıdaki örnek yapılandırma dosyası, uygulama ve sistem günlüklerini IIS günlüklerini ve tüm olayları toplar:
+Merhaba aşağıdaki örnek yapılandırma dosyası IIS günlüklerini ve tüm olayları hello uygulama ve sistem günlüklerini toplar:
 
 ```
     <?xml version="1.0" encoding="utf-8" ?>
@@ -93,7 +93,7 @@ Aşağıdaki örnek yapılandırma dosyası, uygulama ve sistem günlüklerini I
 
       <Directories bufferQuotaInMB="0"
          scheduledTransferPeriod="PT10M">  
-        <!-- IISLogs are only relevant to Web roles -->
+        <!-- IISLogs are only relevant tooWeb roles -->
         <IISLogs container="wad-iis" directoryQuotaInMB="0" />
       </Directories>
 
@@ -107,7 +107,7 @@ Aşağıdaki örnek yapılandırma dosyası, uygulama ve sistem günlüklerini I
     </DiagnosticMonitorConfiguration>
 ```
 
-ConfigurationSettings aşağıdaki örnekteki gibi bir depolama hesabı belirttiğinden emin olun:
+ConfigurationSettings aşağıdaki örneğine hello gibi bir depolama hesabı belirttiğinden emin olun:
 
 ```
     <ConfigurationSettings>
@@ -115,60 +115,60 @@ ConfigurationSettings aşağıdaki örnekteki gibi bir depolama hesabı belirtti
     </ConfigurationSettings>
 ```
 
-**AccountName** ve **AccountKey** değerleri depolama hesabı panosundaki erişim anahtarlarını Yönet altında Azure portalında bulundu. Bağlantı dizesi için Protokolü olmalıdır **https**.
+Merhaba **AccountName** ve **AccountKey** değerleri hello erişim anahtarlarını Yönet altında hello depolama hesabı Panosu Azure portalında bulundu. Merhaba bağlantı dizesi için Hello Protokolü olmalıdır **https**.
 
-Güncelleştirilmiş tanılama yapılandırması bulut hizmetinize uygulanır ve Azure depolama için tanılama yazıyor sonra daha sonra günlük analizi yapılandırmaya hazırsınız demektir.
+Merhaba güncelleştirilmiş tanılama yapılandırması uygulandıktan sonra tooyour bulut hizmeti ve yazılırken tanılama tooAzure depolama, ardından hazır tooconfigure günlük analizi olur.
 
-## <a name="use-the-azure-portal-to-collect-logs-from-azure-storage"></a>Azure depolama biriminden günlükleri toplamak için Azure portalını kullanma
-Aşağıdaki Azure Hizmetleri için günlükleri toplamak için günlük analizi yapılandırmak için Azure portalını kullanabilirsiniz:
+## <a name="use-hello-azure-portal-toocollect-logs-from-azure-storage"></a>Azure depolama biriminden Hello Azure portal toocollect günlüklerini kullanın
+Hello Azure portal tooconfigure günlük analizi toocollect hello günlükleri, Azure Hizmetleri aşağıdaki hello için kullanabilirsiniz:
 
 * Service Fabric kümeleri
 * Virtual Machines
 * Web/çalışan rolleri
 
-Azure portalında günlük analizi çalışma alanına gidin ve aşağıdaki görevleri gerçekleştirin:
+Hello Azure portal, tooyour günlük analizi çalışma alanına gidin ve hello aşağıdaki görevleri gerçekleştirin:
 
 1. Tıklatın *depolama hesapları günlükleri*
-2. Tıklatın *Ekle* görevi
-3. Tanılama günlükleri içeren depolama hesabı seçin
+2. Merhaba tıklatın *Ekle* görevi
+3. Merhaba tanılama günlükleri içeren hello depolama hesabı seçin
    * Bu hesap, Klasik depolama hesabı veya bir Azure Resource Manager depolama hesabı olabilir.
-4. Günlüklerini toplamak istediğiniz veri türünü seçin
-   * IIS günlüklerini seçimlerdir; Olayları; Syslog (Linux); ETW günlükleri; Hizmeti yapı olayları
-5. Kaynak için değer veri türüne göre otomatik olarak doldurulur ve değiştirilemez
-6. Yapılandırmayı kaydetmek için Tamam'ı tıklatın
+4. Merhaba toocollect günlükleri için istediğiniz veri türünü seçin
+   * Merhaba, IIS günlüklerini seçimlerdir; Olayları; Syslog (Linux); ETW günlükleri; Hizmeti yapı olayları
+5. veri türü ve değiştirilemez hello üzerinde temel kaynak Hello değeri otomatik olarak doldurulur
+6. Tamam toosave hello Yapılandırması'nı tıklatın
 
-Ek depolama hesapları ve toplamak için günlük analizi istediğiniz veri türleri için 2-6 adımlarını yineleyin.
+Günlük analizi toocollect istediğiniz ek depolama hesapları ve veri türleri için 2-6 adımlarını yineleyin.
 
-Yaklaşık 30 dakika içinde günlük analizi depolama hesabında verileri görmek kullanabilirsiniz. Yalnızca yapılandırma uygulandıktan sonra depolama alanına yazılır veri görürsünüz. Günlük analizi depolama hesabından önceden mevcut verileri okuyamadı.
+Günlük analizi depolama hesabında hello mümkün toosee verilerden olduğunuz yaklaşık 30 dakika içinde. Merhaba yapılandırma uygulandıktan sonra toostorage yazılan veriler yalnızca görürsünüz. Günlük analizi hello depolama hesabından hello önceden mevcut verileri okuyamadı.
 
 > [!NOTE]
-> Portal kaynağı depolama hesabında yok veya yeni veriler yazılır doğrulamaz.
+> Hello portal kaynağı var hello depolama hesabında bu hello doğrulanmadı veya yeni veriler yazılır.
 >
 >
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection-using-powershell"></a>Bir sanal makinede Azure tanılamayı etkinleştirin koleksiyonu PowerShell kullanarak olay günlüğünü ve IIS günlüğü için
-İçindeki adımları kullanın [Azure tanılama dizini oluşturmak için günlük analizi yapılandırma](log-analytics-powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) tablo depolama alanına yazılır Azure tanılama okuma için PowerShell kullanma.
+Kullanım hello adımları [yapılandırma günlük analizi tooindex Azure tanılama](log-analytics-powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) toouse PowerShell tooread tootable depolama yazılır Azure tanılama gelen.
 
-Azure PowerShell kullanarak Azure depolama alanına yazılır olayları daha kesin olarak belirtebilirsiniz.
+Azure PowerShell kullanarak depolama tooAzure yazılır hello olayları daha kesin olarak belirtebilirsiniz.
 Daha fazla bilgi için bkz: [etkinleştirme tanılama Azure Virtual Machines'de](../virtual-machines-dotnet-diagnostics.md).
 
-Etkinleştirme ve aşağıdaki PowerShell Betiği kullanılarak Azure tanılama güncelleştirin.
+Etkinleştirmek ve PowerShell Betiği aşağıdaki hello kullanarak Azure tanılama güncelleştirin.
 Bu komut dosyasını bir özel günlük kaydı yapılandırmasıyla de kullanabilirsiniz.
-Depolama hesabı, hizmet adı ve sanal makine adı ayarlamak için komut dosyasını değiştirin.
-Komut dosyası Klasik sanal makineleri için cmdlet'leri kullanır.
+Merhaba betik tooset hello depolama hesabı, hizmet adı ve sanal makine adını değiştirin.
+Merhaba betik Klasik sanal makineleri için cmdlet'leri kullanır.
 
-Aşağıdaki betik örneğinde gözden geçirin, kopyalayın, gerektiği şekilde değiştirin, örnek bir PowerShell komut dosyası olarak kaydetmek ve sonra komut dosyasını çalıştırın.
+Komut dosyası örneği aşağıdaki hello gözden geçirin, kopyalayın, gerektiği şekilde değiştirin, hello örnek bir PowerShell komut dosyası olarak kaydetmek ve hello betiğini çalıştırın.
 
 ```
-    #Connect to Azure
+    #Connect tooAzure
     Add-AzureAccount
 
-    # settings to change:
+    # settings toochange:
     $wad_storage_account_name = "myStorageAccount"
     $service_name = "myService"
     $vm_name = "myVM"
 
-    #Construct Azure Diagnostics public config and convert to config format
+    #Construct Azure Diagnostics public config and convert tooconfig format
 
     # Collect just system error events:
     $wad_xml_config = "<WadCfg><DiagnosticMonitorConfiguration><WindowsEventLog scheduledTransferPeriod=""PT1M""><DataSource name=""System!* "" /></WindowsEventLog></DiagnosticMonitorConfiguration></WadCfg>"
@@ -185,7 +185,7 @@ Aşağıdaki betik örneğinde gözden geçirin, kopyalayın, gerektiği şekild
 
     $wad_extension_name = "IaaSDiagnostics"
     $wad_publisher = "Microsoft.Azure.Diagnostics"
-    $wad_version = (Get-AzureVMAvailableExtension -Publisher $wad_publisher -ExtensionName $wad_extension_name).Version # Gets latest version of the extension
+    $wad_version = (Get-AzureVMAvailableExtension -Publisher $wad_publisher -ExtensionName $wad_extension_name).Version # Gets latest version of hello extension
 
     (Get-AzureVM -ServiceName $service_name -Name $vm_name) | Set-AzureVMExtension -ExtensionName $wad_extension_name -Publisher $wad_publisher -PublicConfiguration $wad_public_config -PrivateConfiguration $wad_private_config -Version $wad_version | Update-AzureVM
 ```
@@ -193,5 +193,5 @@ Aşağıdaki betik örneğinde gözden geçirin, kopyalayın, gerektiği şekild
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Günlük ve Azure Hizmetleri için ölçümleri toplamak](log-analytics-azure-storage.md) desteklenen Azure Hizmetleri.
-* [Çözümlerle](log-analytics-add-solutions.md) verileri bir anlayış sağlamak için.
-* [Arama sorguları kullanmak](log-analytics-log-searches.md) verileri çözümlemek için.
+* [Çözümlerle](log-analytics-add-solutions.md) hello veri tooprovide fikirler.
+* [Arama sorguları kullanmak](log-analytics-log-searches.md) tooanalyze hello veri.

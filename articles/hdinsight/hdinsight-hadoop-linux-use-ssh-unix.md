@@ -1,6 +1,6 @@
 ---
-title: "SSH’yi Hadoop - Azure HDInsight ile Kullanma | Microsoft Docs"
-description: "Secure Shell (SSH) kullanarak HDInsight'a erişebilirsiniz. Bu belgede; Windows, Linux, Unix veya macOS istemcilerinden ssh ve scp komutlarını kullanarak HDInsight’a bağlanmaya ilişkin bilgi sağlanmıştır."
+title: "aaaUse Hadoop - Azure Hdınsight ile SSH | Microsoft Docs"
+description: "Secure Shell (SSH) kullanarak HDInsight'a erişebilirsiniz. Bu belge, tooHDInsight kullanarak hello ssh ve scp komutları Windows, Linux, Unix ya da macOS istemcilerden bağlanma hakkında bilgi sağlar."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -17,17 +17,17 @@ ms.workload: big-data
 ms.date: 08/03/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: df0feb51469333bac42c779d860192d46f24ac62
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: ac9e70ce3c70693c1b81c9514ba4fd47686070ea
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-to-hdinsight-hadoop-using-ssh"></a>SSH kullanarak HDInsight’a (Hadoop) bağlanma
+# <a name="connect-toohdinsight-hadoop-using-ssh"></a>SSH kullanarak tooHDInsight (Hadoop) bağlanma
 
-[Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) kullanarak Azure HDInsight’ta Hadoop’a güvenli bir şekilde bağlanma hakkında bilgi edinin. 
+Bilgi nasıl toouse [güvenli Kabuk (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) toosecurely tooHadoop Azure hdınsight'ta bağlanın. 
 
-HDInsight, Hadoop kümesi içindeki düğümler için işletim sistemi olarak Linux’ı (Ubuntu) kullanabilir. Aşağıdaki tablo, SSH istemcisi kullanılarak Linux tabanlı HDInsight’a bağlanılırken gereken adres ve bağlantı noktası bilgilerini içerir:
+Hdınsight Linux (Ubuntu) hello Hadoop küme içindeki düğümler hello işletim sistemi olarak kullanabilirsiniz. Merhaba aşağıdaki tabloda bir SSH istemcisi kullanarak tooLinux tabanlı Hdınsight bağlanırken gereken hello adresi ve bağlantı noktası bilgileri içerir:
 
 | Adres | Bağlantı noktası | Bağlandığı yer... |
 | ----- | ----- | ----- |
@@ -37,205 +37,205 @@ HDInsight, Hadoop kümesi içindeki düğümler için işletim sistemi olarak Li
 | `<clustername>-ssh.azurehdinsight.net` | 23 | İkincil baş düğüm |
 
 > [!NOTE]
-> `<edgenodename>` ifadesini kenar düğümünün adıyla değiştirin.
+> Değiştir `<edgenodename>` hello kenar düğümüne hello adı.
 >
-> `<clustername>` değerini kümenizin adıyla değiştirin.
+> Değiştir `<clustername>` kümenizin hello ada sahip.
 >
-> Kümeniz bir kenar düğümü içeriyorsa __kenar düğümüne her zaman SSH’yi kullanarak bağlanmanızı__ öneririz. Baş düğümler, Hadoop’un sistem durumu için kritik öneme sahip olan hizmetleri barındırır. Kenar düğümü yalnızca üzerine yerleştirdiğiniz öğeleri çalıştırır.
+> Kümeniz bir kenar düğümüne içeriyorsa öneririz, __zaman toohello kenar düğümüne bağlanabilirsiniz__ SSH kullanarak. Merhaba baş düğümler Hadoop kritik toohello durumunu hizmetlerini barındırır. Merhaba kenar düğümüne yalnızca ne üzerinde yerleştirdiğiniz çalışır.
 >
 > Kenar düğümlerini kullanma hakkında daha fazla bilgi için bkz. [HDInsight’ta kenar düğümlerini kullanma](hdinsight-apps-use-edge-node.md#access-an-edge-node).
 
 ## <a name="ssh-clients"></a>SSH istemcileri
 
-Linux, Unix ve macOS sistemleri `ssh` ve `scp` komutlarını sağlar. `ssh` istemcisi, yaygın olarak Linux veya Unix tabanlı bir sistemle uzak komut satırı oturumu oluşturmak için kullanılır. `scp` istemcisi, dosyaları istemciniz ve uzak sistem arasında güvenli bir şekilde kopyalamak için kullanılır.
+Linux ve UNIX macOS sistemleri sağlar hello `ssh` ve `scp` komutları. Merhaba `ssh` yaygın olarak kullanılan toocreate bir Linux veya UNIX tabanlı bir sistemi uzaktan komut satırı oturumla bir istemcidir. Merhaba `scp` istemcidir kullanılan toosecurely kopya dosyalarını, istemci ve hello uzak sistem arasında.
 
-Microsoft Windows, varsayılan olarak SSH istemcisi sağlamaz. `ssh` ve `scp` istemcileri, aşağıdaki paketler aracılığıyla Windows için kullanılabilir:
+Microsoft Windows, varsayılan olarak SSH istemcisi sağlamaz. Merhaba `ssh` ve `scp` istemcileridir paketleri aşağıdaki hello ile Windows için kullanılabilir:
 
-* [Azure Cloud Shell](../cloud-shell/quickstart.md): Cloud Shell, tarayıcınızda bir Bash ortamı sunar. Ayrıca `ssh` ve `scp` komutu ile diğer sık kullanılan Linux komutlarını sağlar.
+* [Azure bulut Kabuk](../cloud-shell/quickstart.md): hello bulut Kabuk tarayıcınızda Bash ortamı sağlar ve hello sağlar `ssh`, `scp`ve diğer ortak Linux komutlarını.
 
-* [Windows 10 üzerinde Ubuntu’da Bash](https://msdn.microsoft.com/commandline/wsl/about): `ssh` ve `scp` komutları, Windows üzerinde Bash komut satırı ile kullanılabilir.
+* [Windows 10 Ubuntu bash](https://msdn.microsoft.com/commandline/wsl/about): Merhaba `ssh` ve `scp` komutları Windows komut satırında hello Bash üzerinden kullanılabilir.
 
-* [Git (https://git-scm.com/)](https://git-scm.com/): `ssh` ve `scp` komutları, GitBash komut satırıyla kullanılabilir.
+* [Git (https://git-scm.com/)](https://git-scm.com/): Merhaba `ssh` ve `scp` komutları hello Gitbash'i komut satırı kullanılabilir.
 
-* [GitHub Masaüstü (https://desktop.github.com/)](https://desktop.github.com/) `ssh` ve `scp` komutları, GitHub Kabuğu komut satırıyla kullanılabilir. GitHub Masaüstü, Git Kabuğunun komut satırı olarak Bash, Windows Komut İstemi veya PowerShell kullanacak şekilde yapılandırılabilir.
+* [GitHub Masaüstü (https://desktop.github.com/)](https://desktop.github.com/) hello `ssh` ve `scp` komutları hello GitHub Kabuk komut satırı kullanılabilir. GitHub Masaüstü hello Git Kabuk komut satırı hello olarak yapılandırılmış toouse Bash, hello Windows komut istemi veya PowerShell olabilir.
 
-* [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH): PowerShell ekibi, OpenSSH’i Windows’a taşımakta ve test yayınları yapmaktadır.
+* [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH): hello PowerShell takım OpenSSH tooWindows taşıma ve test sürümleri sağlar.
 
     > [!WARNING]
-    > OpenSSH paketi, `sshd` adlı SSH sunucu bileşenini içerir. Bu bileşen, sisteminizde başkalarının bağlanmasına izin verilen bir SSH sunucusu başlatır. Sisteminizde bir SSH sunucusu barındırmak istemiyorsanız, bu bileşeni yapılandırmayın veya 22 numaralı bağlantı noktasını açmayın. HDInsight ile iletişim kurulması gerekmez.
+    > Merhaba OpenSSH paketi içerir hello SSH sunucu bileşeni, `sshd`. Bu bileşen SSH sunucusu diğerlerine izin veren sisteminizde başlatır tooconnect tooit. Bu bileşen yapılandırmazsanız veya sisteminizde toohost SSH sunucusu istemediğiniz sürece bağlantı noktası 22'ni açın. Hdınsight ile gerekli toocommunicate değil.
 
-Ayrıca [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) ve [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/) gibi çeşitli grafiksel SSH istemcisi mevcuttur. Bu istemciler HDInsight’a bağlanmak için kullanılabilse de bağlanma işlemi `ssh` yardımcı programını kullanmaktan farklıdır. Daha fazla bilgi için, kullanmakta olduğunuz grafiksel istemcinin belgelerine bakın.
+Ayrıca [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) ve [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/) gibi çeşitli grafiksel SSH istemcisi mevcuttur. Bu istemciler kullanılan tooconnect tooHDInsight olabilirler, ancak bağlanma hello hello kullanmaktan farklı işlemidir `ssh` yardımcı programı. Daha fazla bilgi için kullanmakta olduğunuz hello grafik istemcisinin hello belgelerine bakın.
 
 ## <a id="sshkey"></a>Kimlik doğrulaması: SSH Anahtarları
 
-SSH anahtarları, SSH oturumlarının kimliğini doğrulamak için [Ortak anahtar şifrelemesi](https://en.wikipedia.org/wiki/Public-key_cryptography) kullanır. SSH anahtarları parolalara göre daha güvenlidir ve Hadoop kümenize erişimin güvenliğini sağlamak için kolay bir yol sağlar.
+SSH anahtarları kullanmak [ortak anahtar şifrelemesini](https://en.wikipedia.org/wiki/Public-key_cryptography) tooauthenticate SSH oturumları. SSH anahtarları parolalara göre daha güvenli ve bir kolay bir yolu toosecure erişim tooyour Hadoop kümesi sağlayın.
 
-SSH hesabınızın güvenliği bir anahtar yardımıyla sağlanıyorsa, bağlantı kurduğunuzda istemci eşleşen özel anahtarı sağlamalıdır:
+Bir anahtar kullanarak SSH hesabınızı güvenli, hello istemci bağlandığınızda özel anahtarı eşleşen hello sağlamanız gerekir:
 
-* Çoğu istemci, bir __varsayılan anahtar__ kullanmak üzere yapılandırılmıştır. Örneğin, `ssh` istemcisi Linux ve Unix ortamlarında `~/.ssh/id_rsa` üzerinde bir özel anahtar arar.
+* Çoğu istemciler yapılandırılmış toouse olabilir bir __varsayılan anahtar__. Örneğin, hello `ssh` bir özel anahtar, istemci arar `~/.ssh/id_rsa` Linux ve UNIX ortamlarla.
 
-* __Özel anahtarın yolunu__ belirtebilirsiniz. `ssh` istemcisi ile özel anahtarın yolunu belirtmek için `-i` parametresi kullanılır. Örneğin, `ssh -i ~/.ssh/id_rsa sshuser@myedge.mycluster-ssh.azurehdinsight.net`.
+* Merhaba belirtebilirsiniz __yolu tooa özel anahtarı__. Merhaba ile `ssh` istemcisi, hello `-i` kullanılan toospecify hello yol tooprivate anahtarını bir parametredir. Örneğin, `ssh -i ~/.ssh/id_rsa sshuser@myedge.mycluster-ssh.azurehdinsight.net`.
 
-* Farklı sunucularla kullanılacak __birden fazla özel anahtarınız__ varsa [ssh-agent (https://en.wikipedia.org/wiki/Ssh-agent)](https://en.wikipedia.org/wiki/Ssh-agent) gibi bir yardımcı program kullanmayı deneyin. `ssh-agent` yardımcı programı, SSH oturumu oluşturulurken kullanılacak anahtarı otomatik olarak seçmek için kullanılabilir.
+* Farklı sunucularla kullanılacak __birden fazla özel anahtarınız__ varsa [ssh-agent (https://en.wikipedia.org/wiki/Ssh-agent)](https://en.wikipedia.org/wiki/Ssh-agent) gibi bir yardımcı program kullanmayı deneyin. Merhaba `ssh-agent` yardımcı programı bir SSH oturumu oluşturulurken kullanılan tooautomatically select hello anahtar toouse olabilir.
 
 > [!IMPORTANT]
 >
-> Özel anahtarınızın güvenliğini şifre ile sağlıyorsanız, anahtarı kullanmak için şifreyi girmeniz gerekir. `ssh-agent` gibi yardımcı programlar, size kolaylık sağlamak için parolayı önbelleğe alabilir.
+> Özel anahtarınızı bir parola ile güvenli, başlangıç anahtarı kullanırken hello parola girmeniz gerekir. Yardımcı programlar gibi `ssh-agent` hello parola size kolaylık sağlamak için önbelleğe alabilir.
 
 ### <a name="create-an-ssh-key-pair"></a>SSH anahtar çifti oluşturma
 
-Ortak ve özel anahtar dosyaları oluşturmak için `ssh-keygen` komutunu kullanın. Aşağıdaki komut, HDInsight ile kullanılabilecek bir 2048-bit RSA anahtar çifti oluşturur:
+Kullanım hello `ssh-keygen` toocreate ortak ve özel anahtar dosyaları komutu. Merhaba aşağıdaki komutu Hdınsight ile kullanılabilir 2048 bit RSA anahtar çifti oluşturur:
 
     ssh-keygen -t rsa -b 2048
 
-Anahtar oluşturma işlemi sırasında sizden bilgiler istenir. Örneğin, anahtarların nerede depolanacağı veya şifre kullanılıp kullanılmayacağı. İşlem tamamlandıktan sonra biri ortak anahtar, diğeri özel anahtar olmak üzere iki dosya oluşturulur.
+Merhaba anahtar oluşturma işlemi sırasında bilgileri istenir. Örneğin, hello anahtarları depolandığı veya toouse bir parola. Merhaba işlemi tamamlandıktan sonra iki dosya oluşturulur; Ortak anahtar ve özel anahtarı.
 
-* __Ortak anahtar__ bir HDInsight kümesi oluşturmak için kullanılır. Ortak anahtar `.pub` uzantısına sahiptir.
+* Merhaba __ortak anahtar__ kullanılan toocreate Hdınsight kümesi değil. Merhaba ortak anahtara sahip bir uzantısı olarak `.pub`.
 
-* __Özel anahtar__, HDInsight kümesinde istemcinizin kimliğini doğrulamak için kullanılır.
+* Merhaba __özel anahtarı__ istemci toohello Hdınsight kümenize kullanılan tooauthenticate değil.
 
 > [!IMPORTANT]
-> Anahtarlarınızın güvenliğini şifre ile sağlayabilirsiniz. Parola, aslında özel anahtarınız üzerindeki bir şifredir. Özel anahtarınız başkası tarafından ele geçirilirse, anahtarın kullanılması için şifrenin girilmesi gerekir.
+> Anahtarlarınızın güvenliğini şifre ile sağlayabilirsiniz. Parola, aslında özel anahtarınız üzerindeki bir şifredir. Birisi özel anahtarınızı edinir olsa bile, bunlar hello parola toouse hello anahtarı olması gerekir.
 
-### <a name="create-hdinsight-using-the-public-key"></a>Ortak anahtar kullanarak HDInsight oluşturma
+### <a name="create-hdinsight-using-hello-public-key"></a>Merhaba ortak anahtarı kullanılarak Hdınsight oluşturma
 
-| Oluşturma yöntemi | Ortak anahtarı kullanma |
+| Oluşturma yöntemi | Nasıl toouse hello ortak anahtar |
 | ------- | ------- |
-| **Azure portal** | __Küme oturumu açmak için kullanılan parolayı kullan__ seçeneğinin işaretini kaldırın ve ardından SSH kimlik doğrulama türü olarak __Ortak Anahtar__’ı seçin. Son olarak, ortak anahtar dosyasını seçin veya dosyanın metin içeriğini __SSH ortak anahtarı__ alanına yapıştırın.</br>![HDInsight küme oluşturma işleminde SSH ortak anahtarı iletişim kutusu](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
-| **Azure PowerShell** | `New-AzureRmHdinsightCluster` cmdlet'inin `-SshPublicKey` parametresini kullanarak, ortak anahtarın içeriğini dize olarak geçirin.|
-| **Azure CLI 1.0** | `azure hdinsight cluster create` komutunun `--sshPublicKey` parametresini kullanarak, ortak anahtarın içeriğini dize olarak geçirin. |
-| **Resource Manager Şablonu** | SSH anahtarlarını şablonla kullanma örneği için bkz. [HDInsight’ı SSH anahtarı ile Linux’a dağıtma](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/). [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) dosyasında `publicKeys` öğesi, kümeyi oluştururken Azure’a anahtarları geçirmek için kullanılır. |
+| **Azure portal** | İşaretini __küme oturum açma aynı parolayı kullanın__ve ardından __ortak anahtar__ SSH kimlik doğrulama türü hello gibi. Son olarak, hello ortak anahtar dosyası seçin veya hello hello metin hello dosyasının içeriğini yapıştırın __SSH ortak anahtarını__ alan.</br>![HDInsight küme oluşturma işleminde SSH ortak anahtarı iletişim kutusu](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
+| **Azure PowerShell** | Kullanım hello `-SshPublicKey` hello parametresinin `New-AzureRmHdinsightCluster` hello ortak anahtarı bir dize olarak cmdlet'i ve geçişi hello içeriğini.|
+| **Azure CLI 1.0** | Kullanım hello `--sshPublicKey` hello parametresinin `azure hdinsight cluster create` komut ve hello ortak anahtar Merhaba içeriğine bir dize olarak geçirin. |
+| **Resource Manager Şablonu** | SSH anahtarlarını şablonla kullanma örneği için bkz. [HDInsight’ı SSH anahtarı ile Linux’a dağıtma](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/). Merhaba `publicKeys` hello öğesinde [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) dosyasıdır kullanılan toopass hello anahtarları tooAzure hello kümesi oluştururken. |
 
 ## <a id="sshpassword"></a>Kimlik doğrulaması: Parola
 
-SSH hesaplarının güvenliği bir parola kullanılarak sağlanabilir. SSH kullanarak HDInsight’a bağlandığınızda, parola girmeniz istenir.
+SSH hesaplarının güvenliği bir parola kullanılarak sağlanabilir. SSH kullanarak tooHDInsight bağlandığınızda, istendiğinde tooenter hello parola olur.
 
 > [!WARNING]
-> SSH için parola kimlik doğrulamasının kullanılması önerilmez. Parolalar tahmin edilebilir ve deneme yanılma saldırılarına karşı savunmasızdır. Bunun yerine, [kimlik doğrulaması için SSH anahtarları](#sshkey) kullanmanız önerilir.
+> SSH için parola kimlik doğrulamasının kullanılması önerilmez. Parolalar, tahmin edilebilir ve güvenlik açığı toobrute zorla saldırılar. Bunun yerine, [kimlik doğrulaması için SSH anahtarları](#sshkey) kullanmanız önerilir.
 
 ### <a name="create-hdinsight-using-a-password"></a>Parola kullanarak HDInsight oluşturma
 
-| Oluşturma yöntemi | Parola belirtme |
+| Oluşturma yöntemi | Nasıl toospecify hello parola |
 | --------------- | ---------------- |
-| **Azure portal** | Varsayılan olarak, SSH kullanıcı hesabı ile küme oturum açma hesabı aynı parolaya sahiptir. Farklı bir parola kullanmak için __Küme oturumu açmak için kullanılan parolayı kullan__ seçeneğinin işaretini kaldırın ve __SSH parolası__ alanına parolayı girin.</br>![HDInsight küme oluşturma işleminde SSH parolası iletişim kutusu](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
-| **Azure PowerShell** | `New-AzureRmHdinsightCluster` cmdlet’inin `--SshCredential` parametresini kullanın ve SSH kullanıcı hesabı adı ile parolasını içeren bir `PSCredential` nesnesi geçirin. |
-| **Azure CLI 1.0** | `azure hdinsight cluster create` komutunun `--sshPassword` parametresini kullanarak parola değerini belirtin. |
-| **Resource Manager Şablonu** | Parolayı şablonla kullanma örneği için bkz. [HDInsight’ı SSH parolası ile Linux’a dağıtma](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) dosyasındaki `linuxOperatingSystemProfile` öğesi, kümeyi oluştururken SSH hesabı adı ile parolasını Azure’a geçirmek için kullanılır.|
+| **Azure portal** | Varsayılan olarak, hello hello SSH kullanıcı hesabı sahip hello küme oturum açma hesabı olarak aynı parola. toouse farklı bir parola işaretini __küme oturum açma aynı parolayı kullanın__ve hello parola hello enter __SSH parolası__ alan.</br>![HDInsight küme oluşturma işleminde SSH parolası iletişim kutusu](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
+| **Azure PowerShell** | Kullanım hello `--SshCredential` hello parametresinin `New-AzureRmHdinsightCluster` cmdlet'i ve geçirin bir `PSCredential` hello SSH kullanıcı hesabı adını ve parolayı içeren nesne. |
+| **Azure CLI 1.0** | Kullanım hello `--sshPassword` hello parametresinin `azure hdinsight cluster create` komut ve hello parola değeri sağlayın. |
+| **Resource Manager Şablonu** | Parolayı şablonla kullanma örneği için bkz. [HDInsight’ı SSH parolası ile Linux’a dağıtma](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). Merhaba `linuxOperatingSystemProfile` hello öğesinde [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) dosyasıdır adı ve parola kullanılan toopass hello SSH hesabı tooAzure hello kümesi oluştururken.|
 
-### <a name="change-the-ssh-password"></a>SSH parolasını değiştirme
+### <a name="change-hello-ssh-password"></a>Merhaba SSH Parolayı Değiştir
 
-SSH kullanıcı hesabı parolasını değiştirme hakkında bilgi için, [HDInsight’ı Yönetme](hdinsight-administer-use-portal-linux.md#change-passwords) belgesinin __Parolaları değiştirme__ bölümüne bakın.
+Merhaba hello SSH kullanıcı hesabının parolasını değiştirme hakkında daha fazla bilgi için bkz __parolaları değiştirme__ hello bölümünü [yönetmek Hdınsight](hdinsight-administer-use-portal-linux.md#change-passwords) belge.
 
 ## <a id="domainjoined"></a>Kimlik doğrulama: Etki alanına katılmış HDInsight
 
-__Etki alanına katılmış HDInsight kümesi__ kullanıyorsanız, SSH ile bağlantı kurduktan sonra `kinit` komutunu kullanmanız gerekir. Bu komut sizden bir etki alanı kullanıcı adı ile parolası ister ve kümenizle ilişkili Azure Active Directory etki alanını kullanarak oturumunuzun kimliğini doğrular.
+Kullanıyorsanız bir __etki alanına katılmış Hdınsight kümesi__, hello kullanmalısınız `kinit` SSH ile bağlandıktan sonra komutu. Bu komutu bir etki alanı kullanıcısı ve parola isteyen ve hello kümesi ile ilişkili hello Azure Active Directory etki alanı ile oturumunuz doğrular.
 
 Daha fazla bilgi için bkz. [Etki alanına katılmış HDInsight yapılandırma](hdinsight-domain-joined-configure.md).
 
-## <a name="connect-to-nodes"></a>Düğümlere bağlanma
+## <a name="connect-toonodes"></a>Toonodes Bağlan
 
-Baş düğümlere ve (varsa) kenar düğümüne İnternet üzerinden 22 ve 23 numaralı bağlantı noktalarıyla erişilebilir.
+(varsa) baş düğümler ve kenar düğümüne hello hello erişilebilmesi için bağlantı noktası 22 ve 23 Internet'te.
 
-* __Baş düğümlere__ bağlanırken, birincil baş düğüme bağlanmak için __22__, ikincil baş düğüme bağlanmak için __23__ numaralı bağlantı noktasını kullanın. Kullanılacak tam etki alanı adı `clustername-ssh.azurehdinsight.net`‘tir, burada `clustername` kümenizin adıdır.
+* Toohello bağlanırken __baş düğümler__, bağlantı noktasını kullanacak __22__ tooconnect toohello birincil baş düğüm ve bağlantı noktası __23__ tooconnect toohello ikincil baş düğüm. Merhaba tam etki alanı adı toouse olan `clustername-ssh.azurehdinsight.net`, burada `clustername` hello kümenizin adıdır.
 
     ```bash
-    # Connect to primary head node
-    # port not specified since 22 is the default
+    # Connect tooprimary head node
+    # port not specified since 22 is hello default
     ssh sshuser@clustername-ssh.azurehdinsight.net
 
-    # Connect to secondary head node
+    # Connect toosecondary head node
     ssh -p 23 sshuser@clustername-ssh.azurehdinsight.net
     ```
     
-* __Kenar düğümüne__ bağlanırken 22 numaralı bağlantı noktasını kullanın. Kullanılacak tam etki alanı adı `edgenodename.clustername-ssh.azurehdinsight.net`‘tir, burada `edgenodename` kenar düğümü oluştururken girdiğiniz addır. `clustername`, kümenin adıdır.
+* Zaman connectiung toohello __kenar düğümüne__, bağlantı noktası 22 kullanın. Merhaba tam etki alanı adıdır `edgenodename.clustername-ssh.azurehdinsight.net`, burada `edgenodename` ne zaman sağladığınız adı hello kenar düğümüne oluşturuyor. `clustername`Merhaba hello küme adıdır.
 
     ```bash
-    # Connect to edge node
+    # Connect tooedge node
     ssh sshuser@edgnodename.clustername-ssh.azurehdinsight.net
     ```
 
 > [!IMPORTANT]
-> Önceki örneklerde, parola ile kimlik doğrulaması kullandığınız veya sertifika kimlik doğrulamasının otomatik olarak yapıldığı varsayılmaktadır. Kimlik doğrulaması için bir SSH anahtar çifti kullanıyorsanız ve sertifika otomatik olarak kullanılmıyorsa, özel anahtarı belirtmek için `-i` parametresini kullanın. Örneğin, `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`.
+> Merhaba önceki örneklerde, parola kimlik doğrulaması kullanıyorsanız veya bu sertifika kimlik doğrulaması otomatik olarak ortaya çıkma varsayılmaktadır. Kimlik doğrulaması için bir SSH anahtar çiftini kullanırsanız ve hello sertifika otomatik olarak kullanılmaz, hello kullan `-i` parametre toospecify hello özel anahtarı. Örneğin, `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`.
 
-Bağlantı kurulduktan sonra istem SSH kullanıcı adını ve bağlandığınız düğüm belirtecek şekilde değiştir. Örneğin, `sshuser` olarak birincil baş düğüme bağlıyken komut istemi `sshuser@hn0-clustername:~$` değerini gösterir.
+Bağlantı kurulduktan sonra hello istemi bağlı tooindicate hello SSH kullanıcı adı ve hello düğümü değiştirir. Örneğin, bağlıyken toohello birincil baş düğümü olarak `sshuser`, hello komut istemi `sshuser@hn0-clustername:~$`.
 
-### <a name="connect-to-worker-and-zookeeper-nodes"></a>Çalışan ve Zookeeper düğümlerine bağlanma
+### <a name="connect-tooworker-and-zookeeper-nodes"></a>Tooworker ve Zookeeper düğümleri Bağlan
 
-Çalışan düğümlerine ve Zookeeper düğümlerine doğrudan internetten erişilemez. Bunlara, küme baş düğümleri veya kenar düğümlerinden erişilebilir. Diğer düğümlere bağlanmak için uygulamanız gereken genel adımlar şunlardır:
+çalışan düğümü hello ve Zookeeper düğümleri doğrudan erişilebilir olmayan hello Internet. Bunlar hello küme baş düğüm veya kenar düğümleri erişilebilir. Merhaba, hello genel adımlar tooconnect tooother düğümleri şunlardır:
 
-1. SSH kullanarak bir baş veya kenar düğümüne bağlanın:
+1. SSH, tooconnect tooa head veya edge düğümünü kullanın:
 
         ssh sshuser@myedge.mycluster-ssh.azurehdinsight.net
 
-2. Baş veya kenar düğümüne yaptığınız SSH bağlantısında `ssh` komutunu kullanarak kümedeki bir çalışan düğümüne bağlanın:
+2. Merhaba SSH bağlantı toohello head veya kenar düğümünü, hello kullan `ssh` komutu tooconnect tooa çalışan hello küme düğümünde:
 
         ssh sshuser@wn0-myhdi
 
-    Kümedeki düğümlerin etki alanı adlarının listesini almak için [Ambari REST API’yi kullanarak HDInsight’ı yönetme](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) belgesine bakın.
+    tooretrieve hello kümedeki hello düğümlerinin hello etki alanı adlarının bir listesini görmek hello [Ambari REST API kullanarak Hdınsight yönetmek hello](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) belge.
 
-SSH hesabının güvenliği bir __parola__ kullanılarak sağlanıyorsa bağlanırken parolayı girin.
+Merhaba SSH hesabı kullanarak güvenli bir __parola__, bağlanırken hello parolayı girin.
 
-SSH hesabının güvenliği __SSH anahtarları__ kullanılarak sağlanıyorsa istemciden SSH iletmenin etkinleştirildiğinden emin olun.
+Merhaba SSH hesabı kullanarak sağlanmışsa __SSH anahtarları__, SSH iletme hello istemcide etkin olduğundan emin olun.
 
 > [!NOTE]
-> Kümedeki tüm düğümlere doğrudan erişmenin başka bir yolu ise HDInsight’ın bir Azure Sanal Ağına bağlanmasıdır. Bundan sonra, uzak makinenizi aynı sanal ağa bağlayabilir ve kümedeki tüm düğümlere doğrudan erişebilirsiniz.
+> Toodirectly erişim hello kümedeki tüm düğümlerin başka bir Azure sanal ağı Hdınsight'a tooinstall yoludur. Ardından, uzak makine toohello katılabilirsiniz aynı sanal ağ ve hello kümedeki tüm düğümlere doğrudan erişebilirsiniz.
 >
 > Daha fazla bilgi için bkz. [HDInsight ile sanal ağ kullanma](hdinsight-extend-hadoop-virtual-network.md).
 
 ### <a name="configure-ssh-agent-forwarding"></a>SSH aracı iletmeyi yapılandırma
 
 > [!IMPORTANT]
-> Aşağıdaki adımlar, Linux veya UNIX tabanlı bir sistem için geçerlidir ve Windows 10 üzerinde Bash ile birlikte çalışır. Bu adımlar sisteminizde çalışmazsa SSH istemcinizin belgelerine bakmanız gerekebilir.
+> Hello aşağıdaki adımları bir Linux veya UNIX tabanlı sistemi ve Windows 10 Bash ile çalışır. Bu adımlar, sisteminiz için işe yaramazsa, tooconsult hello belgeleri için SSH istemcinizi gerekebilir.
 
 1. Bir metin düzenleyicisiyle `~/.ssh/config` dosyasını açın. Bu dosya yoksa, komut satırında `touch ~/.ssh/config` girerek oluşturabilirsiniz.
 
-2. Aşağıdakileri metni `config` dosyasına ekleyin.
+2. Metin toohello aşağıdaki hello eklemek `config` dosya.
 
         Host <edgenodename>.<clustername>-ssh.azurehdinsight.net
           ForwardAgent yes
 
-    __Ana bilgisayar__ bilgisini, SSH kullanarak bağlandığınız düğümün adresiyle değiştirin. Önceki örnekte kenar düğümü kullanılmıştır. Bu giriş, belirtilen düğüm için SSH aracı iletmeyi yapılandırır.
+    Hello yerine __ana bilgisayar__ bilgi hello düğümü hello adresiyle toousing SSH bağlanın. Merhaba önceki örnek hello kenar düğümünü kullanır. Bu giriş, SSH aracı iletmeyi hello belirtilen düğümü için yapılandırır.
 
-3. Terminalde aşağıdaki komutu kullanarak, SSH aracı iletmeyi test edin:
+3. SSH aracı iletmeyi hello terminal komutu aşağıdaki hello kullanarak test edin:
 
         echo "$SSH_AUTH_SOCK"
 
-    Bu komutun aşağıdaki metne benzer bilgiler döndürmesi gerekir:
+    Bu komut, metin aşağıdaki bilgileri benzer toohello döndürür:
 
         /tmp/ssh-rfSUL1ldCldQ/agent.1792
 
-    Hiçbir şeyin döndürülmemesi, `ssh-agent` özelliğinin çalışmadığını gösterir. Daha fazla bilgi için [ssh ile ssh-agent kullanma (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) sayfasındaki aracı başlatma komut dosyası bilgilerine bakın veya SSH istemcinizin belgelerine başvurun.
+    Hiçbir şeyin döndürülmemesi, `ssh-agent` özelliğinin çalışmadığını gösterir. Daha fazla bilgi için hello Aracısı başlatma komut dosyaları bilgilerine bakın [ssh ile ssh-aracı kullanma (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) veya SSH istemcisi belgelerinize başvurun.
 
-4. **ssh aracı**nın çalıştığını doğruladıktan sonra, SSH özel anahtarınızı aracıya eklemek için aşağıdakini kullanın:
+4. Doğruladıktan sonra **ssh aracı** , tooadd aşağıdaki kullanım hello SSH özel anahtar toohello aracınızı çalışıyor:
 
         ssh-add ~/.ssh/id_rsa
 
-    Özel anahtarınızı farklı bir dosyada saklanıyorsa, `~/.ssh/id_rsa` ile dosyanın yolunu değiştirin.
+    Özel anahtarınızı farklı bir dosyada saklanıyorsa, yerini `~/.ssh/id_rsa` hello yol toohello dosya ile.
 
-5. SSH kullanarak küme kenar düğümüne veya baş düğümlerine bağlanın. Ardından, SSH komutunu kullanarak bir çalışan veya zookeeper düğümüne bağlanın. İletilen anahtar kullanılarak bağlantı kurulur.
+5. Toohello küme kenar düğümüne veya baş düğümler SSH kullanarak bağlanın. Ardından hello SSH komutu tooconnect tooa çalışan veya zookeeper düğümünü kullanın. iletilen hello anahtarı kullanarak Hello bağlantı kurulur.
 
 ## <a name="copy-files"></a>Dosyaları kopyalama
 
-`scp` yardımcı programı, kümedeki bireysel düğümlerde gelen ve giden dosyaları kopyalamak için kullanılabilir. Örneğin, aşağıdaki komut `test.txt` dizinini yerel sistemden birincil baş düğüme kopyalar.
+Merhaba `scp` yardımcı programı, kullanılan toocopy dosyaları tooand tek tek düğümden hello küme de olabilir. Örneğin, komut kopyaları hello aşağıdaki hello `test.txt` hello yerel sistem toohello birincil baş düğümünden dizin:
 
 ```bash
 scp test.txt sshuser@clustername-ssh.azurehdinsight.net:
 ```
 
-`:` sonrasında yol sonra belirtilmezse dosya `sshuser` giriş dizinine yerleştirilir.
+Yol sonra hello belirtilmezse bu yana `:`, hello dosya hello yerleştirilir `sshuser` giriş dizini.
 
-Aşağıdaki örnekte birincil baş düğümdeki `sshuser` giriş dizininden `test.txt` dosyası yerel sisteme kopyalanmaktadır:
+Örnek kopyaları hello Hello `test.txt` hello dosyasından `sshuser` hello birincil baş düğüm toohello yerel sistemde giriş dizini:
 
 ```bash
 scp sshuser@clustername-ssh.azurehdinsight.net:test.txt .
 ```
 
 > [!IMPORTANT]
-> `scp`, yalnızca küme içindeki tek düğümlerin dosya sistemine erişebilir. Küme için HDFS uyumlu depolama biriminde bulunan verilere erişmek için kullanılamaz.
+> `scp`yalnızca bireysel düğümleri hello kümedeki hello dosya sistemine erişebilir. Merhaba HDFS uyumlu depolama hello küme için kullanılan tooaccess verilerde olamaz.
 >
-> Bir kaynağı SSH oturumundan kullanmak için karşıya yüklemeniz gerektiğinde `scp` kullanın. Örneğin, bir Python betiğini karşıya yükleyin ve bir SSH oturumundan çalıştırın.
+> Kullanmak `scp` bir SSH oturumundan kullanmak için bir kaynak tooupload gerektiğinde. Örneğin, bir Python komut dosyasını karşıya yükleyin ve ardından bir SSH oturumunda hello betiği çalıştırın.
 >
-> Verileri HDFS uyumlu depolama alanına doğrudan yükleme hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
+> Verileri HDFS uyumlu depolama hello doğrudan yükleme hakkında daha fazla bilgi için belgeleri aşağıdaki hello bakın:
 >
 > * [Azure Depolama kullanarak HDInsight](hdinsight-hadoop-use-blob-storage.md)
 >

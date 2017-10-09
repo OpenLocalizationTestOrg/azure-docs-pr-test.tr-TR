@@ -1,6 +1,6 @@
 ---
-title: "Apache Spark Azure hdınsight'ta Event Hubs ile akış kullanın | Microsoft Docs"
-description: "Örnek veri akışı Azure Event Hub'ına olayları alıp göndermek sonra bu scala uygulaması kullanarak Hdınsight Spark kümesinde konusunda akış bir Apache Spark oluşturun."
+title: "aaaUse ile olay hub'ları Azure hdınsight'ta Apache Spark akış | Microsoft Docs"
+description: "Nasıl toosend veri akışı tooAzure olay hub'ı ve sonra bu olayları bir scala uygulaması kullanarak Hdınsight Spark kümesinde almak bir Apache Spark akış örnek oluşturun."
 keywords: "Apache spark akış, spark akış, spark örnek, apache spark akış örneği, olay hub'ı azure örneği, spark örnek"
 services: hdinsight
 documentationcenter: 
@@ -17,21 +17,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: nitinme
-ms.openlocfilehash: 175a2ad70b1f554d05846eb62fb685d4f259af7e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 10cc5884047b3b8249fe8a8822a16a19780a4af3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="apache-spark-streaming-process-data-from-azure-event-hubs-with-spark-cluster-on-hdinsight"></a>Apache Spark akış: Hdınsight'ta Spark ile Azure Event Hubs işlem verilerini küme
 
-Bu makalede, aşağıdaki adımları içerir örnek akış bir Apache Spark oluşturun:
+Bu makalede, aşağıdaki adımları hello içerir örnek akış bir Apache Spark oluşturun:
 
-1. Bir Azure olay Hub'ına iletileri almak için bir tek başına uygulamayı kullanın.
+1. Bir Azure olay Hub'ına bir tek başına uygulama tooingest iletileri kullanın.
 
-2. İki farklı yaklaşım ile gerçek zamanlı Azure Hdınsight'ta Spark kümesinde çalışan bir uygulama kullanarak olay Hub'ından iletileri alır.
+2. İki farklı yaklaşım ile gerçek zamanlı Azure Hdınsight'ta Spark kümesinde çalışan bir uygulama kullanarak olay Hub'ından Merhaba iletileri alır.
 
-3. Verileri farklı saklama sistemlerine kalıcı hale getirmek için analitik komut zincirleri akış yapı veya anında verilerinden öngörü edinme.
+3. Toopersist veri toodifferent depolama sistemlerini akış analitik komut zincirleri oluşturun veya hello kolay bir şekilde verilerinden öngörü edinme.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -41,80 +41,80 @@ Bu makalede, aşağıdaki adımları içerir örnek akış bir Apache Spark olu�
 
 ## <a name="spark-streaming-concepts"></a>Spark akış kavramları
 
-Spark akış ayrıntılı bir açıklaması için bkz: [Apache Spark genel bakış akış](http://spark.apache.org/docs/latest/streaming-programming-guide.html#overview). Hdınsight, Azure üzerinde bir Spark kümesi için aynı akış özellikleri getirir.  
+Spark akış ayrıntılı bir açıklaması için bkz: [Apache Spark genel bakış akış](http://spark.apache.org/docs/latest/streaming-programming-guide.html#overview). Hdınsight aynı akış özellikleri tooa Spark küme Azure'da hello getirir.  
 
 ## <a name="what-does-this-solution-do"></a>Bu çözüm ne yapar?
 
-Bu makaledeki örnek akış Spark oluşturmak için aşağıdaki adımları gerçekleştirin:
+Bu makalede, toocreate bir Spark akış örneği hello aşağıdaki adımları gerçekleştirin:
 
 1. Bir akış olayların alacak bir Azure Event Hub oluşturun.
 
-2. Olaylar oluşturur ve Azure Event Hub'ına iter yerel tek başına uygulamayı çalıştırın. Bu örnek uygulama yayımlanma [https://github.com/hdinsight/spark-streaming-data-persistence-examples](https://github.com/hdinsight/spark-streaming-data-persistence-examples).
+2. Bir yerel tek başına uygulamayı çalıştırmak olaylar oluşturur ve toohello Azure olay hub'ı iter. Bu örnek uygulama hello konumunda yayımlanır [https://github.com/hdinsight/spark-streaming-data-persistence-examples](https://github.com/hdinsight/spark-streaming-data-persistence-examples).
 
 3. Çeşitli veri işleme/analiz gerçekleştirmek ve bir akış uygulaması Azure olay Hub'ından akış olayları okur bir Spark kümesi üzerinde uzaktan çalıştırabilirsiniz.
 
 ## <a name="create-an-azure-event-hub"></a>Bir Azure olay hub'ı Oluştur
 
-1. Oturum [Azure Portal](https://ms.portal.azure.com), tıklatıp **yeni** en üst ekranın sol.
+1. Toohello üzerinde oturum [Azure Portal](https://ms.portal.azure.com), tıklatıp **yeni** hello adresindeki hello ekranın sol üst.
 
 2. **Nesnelerin İnterneti**’ne ve ardından **Event Hubs**’a tıklayın.
 
     ![Örnek Spark akış Create event hub](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-create-event-hub-for-spark-streaming.png "örnek Spark akış Create event hub")
 
-3. **Ad alanı oluştur** dikey penceresine bir ad alanı adı girin. Fiyatlandırma Katmanı (temel veya standart) seçin. Ayrıca, bir Azure aboneliği, kaynak grubu ve kaynağın oluşturulacağı konumu seçin. Ad alanını oluşturmak için **Oluştur**’a tıklayın.
+3. Merhaba, **ad alanı oluşturma** dikey penceresinde, bir ad alanı adı girin. Merhaba fiyatlandırma Katmanı (temel veya standart) seçin. Ayrıca, hangi toocreate hello kaynak bir Azure aboneliği, kaynak grubunu ve konumu seçin. Tıklatın **oluşturma** toocreate hello ad alanı.
 
       ![Bir örnek Spark akış için olay hub'ı ad](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "örnek Spark akış için bir olay hub'ı adı belirtin")
 
     > [!NOTE]
-    > Aynı seçmelisiniz **konumu** gecikme süresini ve maliyetleri azaltmak hdınsight'ta Apache Spark kümeniz.
+    > Select aynı hello **konumu** Apache Spark kümeniz Hdınsight tooreduce gecikme ve maliyetlerin.
     >
     >
 
-4. Event Hubs ad alanı listesinde yeni oluşturulan ad alanına tıklayın.      
+4. Merhaba olay hub'ları ad listesinde hello yeni oluşturulan ad alanı tıklayın.      
 
 
-5. Ad alanı dikey penceresinde tıklayın **Event Hubs**ve ardından **+ olay hub'ı** yeni bir olay hub'ı oluşturmak için.
+5. Merhaba ad alanı dikey penceresinde tıklayın **Event Hubs**ve ardından **+ olay hub'ı** toocreate yeni bir olay hub'ı.
    
     ![Örnek Spark akış Create event hub](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-open-event-hubs-blade-for-spark-streaming-example.png "örnek Spark akış Create event hub")
 
-6. Olay Hub'ınız için bir ad yazın, bölüm sayısı 10 ve ileti bekletme 1 olarak ayarlayın. Geri kalan varsayılan olarak bırakın ve ardından Biz bu çözüm iletilerinde arşivleme değil **oluşturma**.
+6. Olay hub'ı, kümesi hello bölüm sayısı too10 ve ileti bekletme too1 için bir ad yazın. Böylece hello geri kalan varsayılan olarak bırakın ve ardından Biz bu çözümdeki Merhaba iletileri arşivleme değil **oluşturma**.
    
     ![Olay hub'ı ayrıntılarını sağlamak için örnek akış Spark](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "için Spark akış örnek olay hub'ı ayrıntılarını sağlayın")
 
-7. Yeni oluşturulan olay hub'ı olay Hub dikey penceresinde listelenir.
+7. Olay hub'ı yeni oluşturulan hello hello Event Hub dikey penceresinde listelenir.
     
-     ![Olay hub'ı görüntülemek için örnek akış Spark](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-view-event-hub-for-spark-streaming-example.png "örnek akış Spark için Görünüm olay hub'ı")
+     ![Merhaba Spark akış örneği için olay hub'ı görüntülemek](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-view-event-hub-for-spark-streaming-example.png "görünüm Event Hub'hello için Spark akış örneği")
 
-8. Ad alanı dikey penceresine (ilgili Olay Hub’ı dikey penceresine değil) geri dönerek **Paylaşılan erişim ilkeleri** ve ardından **RootManageSharedAccessKey** öğesine tıklayın.
+8. Geri hello ad alanı dikey penceresinde (değil hello belirli olay Hub dikey) tıklayın **paylaşılan erişim ilkeleri**ve ardından **RootManageSharedAccessKey**.
     
-     ![Olay hub'ı ilkeler için örnek akış Spark ayarlama](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "örnek akış Spark için Event Hub'ı ayarlamak ilkeleri")
+     ![Merhaba Spark akış örneği için olay hub'ı ilkeler ayarlama](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "hello için Event Hub'ı ayarlamak ilkeleri Spark akış örneği")
 
-9. Kopyalamak için Kopyala düğmesini tıklatın **RootManageSharedAccessKey** birincil anahtar ve bağlantı dizesini panoya. Bu öğreticide daha sonra kullanmak üzere kaydedin.
+9. Merhaba Kopyala düğmesine toocopy hello tıklatın **RootManageSharedAccessKey** birincil anahtar ve bağlantı dizesi toohello Pano. Bu toouse daha sonra hello öğreticide kaydedin.
     
-     ![Olay hub'ı İlkesi anahtarları için örnek akış Spark görüntülemek](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-view-event-hub-policy-keys.png "görünüm olay hub'ı ilke anahtarları için Spark akış örneği")
+     ![Merhaba Spark akış örneği için olay hub'ı ilke anahtarları görüntülemek](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-view-event-hub-policy-keys.png "görünüm olay hub'ı ilke anahtarları hello için Spark akış örneği")
 
-## <a name="send-messages-to-azure-event-hub-using-a-sample-scala-application"></a>Azure Event kullanan bir örnek Scala uygulamaları Hub'ına iletileri gönder
+## <a name="send-messages-tooazure-event-hub-using-a-sample-scala-application"></a>İletileri tooAzure olay hub'ı kullanan bir örnek Scala uygulamaları Gönder
 
-Bu bölümdeki olayların bir akış oluşturur ve Azure Event Hub için daha önce oluşturduğunuz gönderen bir tek başına yerel Scala uygulama kullanın. Bu uygulama github'da kullanılabilir [https://github.com/hdinsight/eventhubs-sample-event-producer](https://github.com/hdinsight/eventhubs-sample-event-producer). Adımlar burada bu GitHub deposunu zaten çatallanmış varsayar.
+Bu bölümdeki olayların bir akış oluşturur ve tooAzure daha önce oluşturduğunuz olay Hub gönderen bir tek başına yerel Scala uygulama kullanın. Bu uygulama github'da kullanılabilir [https://github.com/hdinsight/eventhubs-sample-event-producer](https://github.com/hdinsight/eventhubs-sample-event-producer). Bu GitHub deposunu zaten çatallanmış Hello adımlar burada varsayar.
 
-1. Bu uygulamayı çalıştırdığınız bilgisayarda yüklü olduğundan emin olun.
+1. Merhaba aşağıdaki bu uygulamayı çalıştırdığınız hello bilgisayarda yüklü olduğundan emin olun.
 
     * Oracle Java Geliştirme Seti. Şuradan yükleyebilirsiniz [burada](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
-    * Apache Maven. Buradan indirebilirsiniz [burada](https://maven.apache.org/download.cgi). Maven yüklemeye yönelik yönergeleri [burada](https://maven.apache.org/install.html).
+    * Apache Maven. Buradan indirebilirsiniz [burada](https://maven.apache.org/download.cgi). Yönergeler tooinstall Maven kullanılabilir [burada](https://maven.apache.org/install.html).
 
-2. Bir komut istemi açın ve uygulama oluşturmak için aşağıdaki komutu çalıştırın ve örnek Scala uygulama için GitHub deposuna kopyalanabilir konumuna gidin.
+2. Bir komut istemi açın ve hello GitHub deposuna Merhaba örnek Scala uygulaması için klonlanmış toohello konuma gidin ve komut toobuild Merhaba uygulaması aşağıdaki hello çalıştırın.
 
         mvn package
 
-3. Uygulama için çıktı jar **com-microsoft-azure-eventhubs-client-example-0.2.0.jar**, altında oluşturulan **/target** dizin. Bu makalenin sonraki bölümlerinde bu JAR eksiksiz çözüm sınamak için kullanın.
+3. Merhaba çıkış jar Merhaba uygulaması için **com-microsoft-azure-eventhubs-client-example-0.2.0.jar**, altında oluşturulan **/target** dizin. Bu makale tootest hello eksiksiz çözüm içinde daha sonra bu JAR kullanın.
 
-## <a name="create-application-to-receive-messages-from-event-hub-into-a-spark-cluster"></a>Olay Hub'ından bir Spark küme içinde iletileri almak için uygulama oluşturma 
+## <a name="create-application-tooreceive-messages-from-event-hub-into-a-spark-cluster"></a>Uygulama tooreceive iletileri olay Hub'ından bir Spark kümesi oluşturma 
 
-Biz, Spark akış ve Azure Event Hubs, alıcı tabanlı bağlantısı ve doğrudan-DStream tabanlı bağlantısı bağlanmak için iki yaklaşım vardır. Doğrudan-DStream tabanlı 2017 Oca üzerinde sunulan 2.0.3 serbest bırakın. Daha fazla kullanıcı olduğu gibi özgün alıcı tabanlı bağlantıyı değiştirmek için beklenen ve verimli kaynak. Daha fazla ayrıntı bulunan [https://github.com/hdinsight/spark-eventhubs](https://github.com/hdinsight/spark-eventhubs). Doğrudan DStream yalnızca Spark 2.0 + destekler.
+İki yaklaşım tooconnect Spark akış ve Azure Event Hubs, alıcı tabanlı bağlantı ve doğrudan-DStream tabanlı bağlantı sunuyoruz. Doğrudan-DStream tabanlı 2017 Oca üzerinde hello 2.0.3 sürümde sunulmuştur. Daha fazla kullanıcı olarak tooreplace hello özgün alıcı tabanlı bağlantı beklenir ve verimli kaynak. Daha fazla ayrıntı bulunan [https://github.com/hdinsight/spark-eventhubs](https://github.com/hdinsight/spark-eventhubs). Doğrudan DStream yalnızca Spark 2.0 + destekler.
 
-### <a name="build-applications-with-the-dependency-to-spark-eventhubs-connector"></a>Spark eventhubs bağlayıcı bağımlılık uygulamaları derleme
+### <a name="build-applications-with-hello-dependency-toospark-eventhubs-connector"></a>Merhaba bağımlılık toospark eventhubs Bağlayıcısı ile uygulamaları derleme
 
-Spark EventHubs hazırlama sürümünü de Github'da yayımlar. Spark EventHubs hazırlama sürümünü kullanmak için ilk adım GitHub kaynak deposu pom.xml için şu girdiyi ekleyerek belirtmektir:
+Biz de Spark-EventHubs github'da sürümü hazırlama hello yayımlar. toouse hello hazırlama Spark EventHubs, hello ilk adımı tooindicate girişi toopom.xml aşağıdaki hello ekleyerek kaynak deposu hello olarak GitHub sürümüdür:
 
 ```xml
 <repository>
@@ -127,7 +127,7 @@ Spark EventHubs hazırlama sürümünü de Github'da yayımlar. Spark EventHubs 
 </repository>
 ```
 
-Yayın öncesi sürüm yapılacak projenize aşağıdaki bağımlılığı daha sonra ekleyebilirsiniz.
+Bağımlılık tooyour proje tootake hello yayın öncesi sürüm aşağıdaki hello daha sonra ekleyebilirsiniz.
 
 Maven bağımlılığı
 
@@ -151,7 +151,7 @@ libraryDependencies += "com.microsoft.azure" % "spark-streaming-eventhubs_2.11" 
 
 İçinde doğrudan DStream kullanan örnekler içeren bir önceden derlenmiş jar dosyasını karşıdan [http://central.maven.org/maven2/com/microsoft/azure/spark-streaming-eventhubs_2.11/2.0.4/spark-streaming-eventhubs_2.11-2.0.4.jar](http://central.maven.org/maven2/com/microsoft/azure/spark-streaming-eventhubs_2.11/2.0.4/spark-streaming-eventhubs_2.11-2.0.4.jar).
 
-Kaynak kodu kullanılabilir üç örnekler jar dosyasını içeren [https://github.com/hdinsight/spark-eventhubs/tree/master/examples/src/main/scala/com/microsoft/spark/streaming/examples/directdstream](https://github.com/hdinsight/spark-eventhubs/tree/master/examples/src/main/scala/com/microsoft/spark/streaming/examples/directdstream).
+Merhaba jar dosyasını içeren kaynak kodu kullanılabilir üç örnekler [https://github.com/hdinsight/spark-eventhubs/tree/master/examples/src/main/scala/com/microsoft/spark/streaming/examples/directdstream](https://github.com/hdinsight/spark-eventhubs/tree/master/examples/src/main/scala/com/microsoft/spark/streaming/examples/directdstream).
 
 Alma [WindowingWordCount](https://github.com/hdinsight/spark-eventhubs/blob/master/examples/src/main/scala/com/microsoft/spark/streaming/examples/directdstream/WindowingWordCount.scala) bir örnek olarak:
 
@@ -214,105 +214,105 @@ ssc.awaitTermination()
 }
 ```
 
-Yukarıdaki örnekte, `eventhubParameters` parametreleri tek bir EventHubs örnek özeldir ve ona geçirmek zorunda `createDirectStreams` bir olay hub'ları ad alanı için doğrudan DStream nesne eşleme oluşturur API. Doğrudan DStream nesnesi üzerinde Spark akış API çerçevesi tarafından sağlanan herhangi bir DStream API'yi çağırabilirsiniz. Bu örnekte, biz son 3 mikro toplu aralıkları her sözcüğün sıklığını hesaplayın.
+Örneğin, yukarıdaki hello içinde `eventhubParameters` hello parametreleri belirli tooa tek EventHubs örnek ve sahip toopass, toohello `createDirectStreams` doğrudan DStream nesne eşleme tooa olay hub'ları ad alanı oluşturur API. Merhaba doğrudan DStream nesnesi üzerinde Spark akış API çerçevesi tarafından sağlanan herhangi bir DStream API'yi çağırabilirsiniz. Bu örnekte, biz hello son 3 mikro toplu aralıkları her sözcüğün hello sıklığını hesaplayın.
 
 ### <a name="receiver-based-connection"></a>Alıcı tabanlı bağlantı
 
-Örnek uygulama olaylarını alır ve farklı hedefler yönlendirmek, Scala içinde yazılmış akış Spark şu adresten edinilebilir [https://github.com/hdinsight/spark-streaming-data-persistence-examples](https://github.com/hdinsight/spark-streaming-data-persistence-examples). Olay hub'ı yapılandırmanızı için uygulamayı güncelleştir ve çıktı jar oluşturmak için aşağıdaki adımları izleyin.
+Olaylar ve yol hello toodifferent hedeflerine alır, Scala içinde yazılmış örnek uygulama yayınlamayı Spark şu adresten edinilebilir [https://github.com/hdinsight/spark-streaming-data-persistence-examples](https://github.com/hdinsight/spark-streaming-data-persistence-examples). Merhaba tooupdate hello uygulama olay hub'ı yapılandırmanız için aşağıdaki adımları izleyin ve hello çıkış jar oluşturun.
 
-1. Intellij Idea başlatın ve başlatma ekranından seçin **sürüm denetiminden kullanıma** ve ardından **Git**.
+1. Intellij Idea başlatın ve ekran seçin hello başlatma **sürüm denetiminden kullanıma** ve ardından **Git**.
    
     ![Apache Spark örnek - Git get kaynaklardan akış](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-get-source-from-git.png "Apache Spark örnek - Git get kaynaklardan akış")
 
-2. İçinde **kopya deposu** iletişim kutusunda, kopyası, için kopyalayın ve ardından dizin belirlemek için Git deposu URL'sini sağlayın **kopya**.
+2. Merhaba, **kopya deposu** iletişim kutusu, hello URL toohello Git deposu tooclone gelen sağlamak, hello dizin tooclone belirtin ve ardından **kopya**.
    
     ![Apache Spark örnek - Git kopya akış](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-clone-from-git.png "Apache Spark örnek - Git kopya akış")
-3. Proje tamamen kopyalanması kadar istemleri izleyin. Tuşuna **Alt + 1** açmak için **proje görünümü**. Aşağıdakine benzemelidir.
+3. Merhaba proje tamamen kopyalanması kadar hello istemleri izleyin. Tuşuna **Alt + 1** tooopen hello **proje görünümü**. Merhaba aşağıdaki benzemelidir.
    
     ![Apache Spark örnek - proje görünümü akış](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-project-view.png "Apache Spark akış örnek - proje görünümü")
-4. Uygulama kodu ile Java8 derlendiğinden emin olun. Bunu sağlamak için **dosya**, tıklatın **Proje yapısı**ve **proje** sekmesinde, dil düzeyi ayarlandığından emin projeyi **8 - Lambda'lar, türü Ek açıklamalar, vb.**.
+4. Merhaba uygulama kodu ile Java8 derlendiğinden emin olun. tooensure bunu, **dosya**, tıklatın **proje yapısını**ve hello **proje** sekmesi, proje dil düzeyi çok ayarlandığından emin olun**8 - Lambda'lar, türü Ek açıklamalar, vb.**.
    
     ![Apache Spark örnek - kümesi derleyici akış](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-java-8-compiler.png "Apache Spark örnek - kümesi derleyici akış")
-5. Açık **pom.xml** ve Spark sürüm doğru olduğundan emin olun. Altında `<properties>` düğümü için aşağıdaki kod parçacığında arayın ve Spark sürüm doğrulayın.
+5. Açık hello **pom.xml** ve hello Spark sürüm doğru olduğundan emin olun. Altında `<properties>` düğümü, aşağıdaki kod parçacığında Merhaba arayın ve hello Spark sürüm doğrulayın.
 
         <scala.version>2.11.8</scala.version>
         <scala.compat.version>2.11.8</scala.compat.version>
         <scala.binary.version>2.11</scala.binary.version>
         <spark.version>2.0.0</spark.version>
 
-6. Uygulama adı verilen bir bağımlılık jar gerektiriyor **JDBC sürücüsü jar**. Bu, bir Azure SQL veritabanına olay Hub'ından alınan iletileri yazmak için gereklidir. Bu jar yükleyebilirsiniz (v4.1 veya sonrası) gelen [burada](https://msdn.microsoft.com/sqlserver/aa937724.aspx). Proje Kitaplığı'nda bu jar başvuru ekleyin. Aşağıdaki adımları gerçekleştirin:
+6. Merhaba uygulaması gerektirir adlı bir bağımlılık jar **JDBC sürücüsü jar**. Bir Azure SQL veritabanına olay Hub'ından alınan gerekli toowrite Merhaba iletileri budur. Bu jar yükleyebilirsiniz (v4.1 veya sonrası) gelen [burada](https://msdn.microsoft.com/sqlserver/aa937724.aspx). Başvuru toothis jar hello proje kitaplığa ekleyebilirsiniz. Merhaba aşağıdaki adımları gerçekleştirin:
      
-     1. Sahip olduğu açık uygulama Intellij Idea penceresinden tıklatın **dosya**, tıklatın **proje yapısını**ve ardından **kitaplıkları**. 
-     2. Ekle simgesini tıklatın (![Ekle simgesi](./media/hdinsight-apache-spark-eventhub-streaming/add-icon.png)), tıklatın **Java**ve ardından JDBC sürücüsü jar indirdiğiniz konuma gidin. Proje kitaplığına jar dosyasına eklemek için istemleri izleyin.
+     1. Merhaba uygulaması açık olduğu Intellij Idea penceresinden tıklatın **dosya**, tıklatın **Proje yapısı**ve ardından **kitaplıkları**. 
+     2. Hello tıklatın Ekle simgesi (![Ekle simgesi](./media/hdinsight-apache-spark-eventhub-streaming/add-icon.png)), tıklatın **Java**ve ardından hello JDBC sürücüsü jar indirdiğiniz toohello konumuna gidin. Merhaba istemleri tooadd hello jar dosyasını toohello projesi kitaplık izleyin.
 
          ![eksik bağımlılıkları ekleyin](./media/hdinsight-apache-spark-eventhub-streaming/add-missing-dependency-jars.png "eksik bağımlılık Kavanoz ekleme")
      3. **Uygula**'ya tıklayın.
 
-7. Çıktı jar dosyasını oluşturun. Aşağıdaki adımları gerçekleştirin.
+7. Merhaba çıkış jar dosyasını oluşturun. Merhaba aşağıdaki adımları gerçekleştirin.
 
-   1. İçinde **proje yapısını** iletişim kutusu, tıklatın **yapıları** artı simgesine tıklayın. Açılan iletişim kutusundan tıklatın **JAR**ve ardından **bağımlılıkları olan modüller gelen**.      
+   1. Merhaba, **Proje yapısı** iletişim kutusu, tıklatın **yapıları** ve hello artı simgesi'ye tıklayın. Merhaba açılan iletişim kutusunda tıklatın **JAR**ve ardından **bağımlılıkları olan modüller gelen**.      
        
        ![Apache Spark akış örnek - JAR oluşturma](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-create-jar.png "Apache Spark akış örnek - JAR oluşturma")
-   2. İçinde **oluşturma JAR modüllerden** iletişim kutusunda, üç nokta işaretine (![üç nokta](./media/hdinsight-apache-spark-eventhub-streaming/ellipsis.png)) karşı **ana sınıfı**.
-   3. İçinde **ana sınıftan** iletişim kutusu, kullanılabilir sınıfların birini seçin ve ardından **Tamam**.
+   2. Merhaba, **oluşturma JAR modüllerden** iletişim kutusunda, hello üç nokta düğmesine (![üç nokta](./media/hdinsight-apache-spark-eventhub-streaming/ellipsis.png)) hello karşı **ana sınıfı**.
+   3. Merhaba, **ana sınıftan** iletişim kutusunda, hello kullanılabilir sınıfların birini seçin ve ardından **Tamam**.
       
        ![Apache Spark örnek - select sınıfı jar için akış](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-select-class-for-jar.png "Apache Spark akış örnek - jar için select sınıfı")
-   4. İçinde **oluşturma JAR modüllerden** iletişim kutusunda, olduğundan emin olun seçeneği **hedef JAR ayıklamak** seçilir ve ardından **Tamam**. Bu, tüm bağımlılıkları olan tek bir JAR oluşturur.
+   4. Merhaba, **oluşturma JAR modüllerden** iletişim kutusunda, o hello seçeneği çok emin olun**toohello hedef JAR ayıklamak** seçilir ve ardından **Tamam**. Bu, tüm bağımlılıkları olan tek bir JAR oluşturur.
       
        ![Apache Spark akış örnek - jar modüllerden oluşturma](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-create-jar-from-modules.png "Apache Spark akış örnek - jar modüllerden oluşturma")
-   5. **Çıkış düzeni** sekmesi Maven projenin bir parçası olarak dahil tüm Kavanoz listeler. Seçin ve üretileceği olanları Sil Scala uygulama doğrudan hiçbir bağımlılık içeriyor. Biz burada oluşturma uygulama için tüm sonuncu kaldırabilirsiniz (**spark-akış-data-Kalıcılık-örnekleri derleme çıktı**). Silin ve ardından Kavanoz seçin **silmek** simgesi (![Sil simgesi](./media/hdinsight-apache-spark-eventhub-streaming/delete-icon.png)).
+   5. Merhaba **çıkış düzeni** sekmesi hello Maven projenin bir parçası olarak dahil tüm hello Kavanoz listeler. Seçebileceğiniz ve hiçbir doğrudan bağımlılık olanları üretileceği Scala uygulama hello delete hello sahiptir. Biz burada oluşturma Merhaba uygulaması için kaldırdığınız dışındaki tüm sonuncu hello (**spark-akış-data-Kalıcılık-örnekleri derleme çıktı**). Merhaba Kavanoz toodelete seçin ve hello **silmek** simgesi (![Sil simgesi](./media/hdinsight-apache-spark-eventhub-streaming/delete-icon.png)).
       
        ![Apache Spark örnek - ayıklanan delete Kavanoz akış](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-delete-output-jars.png "Apache Spark örnek - ayıklanan delete Kavanoz akış")
       
-       Emin olun **olun yapı** kutusu seçiliyse, proje oluşturulmuş veya güncelleştirilmiş her zaman jar oluşturulur sağlar. **Uygula**'ya tıklayın.
-   6. İçinde **çıkış düzeni** sağ ekranın alt kısmındaki sekme **kullanılabilir öğeleri** kutusunda proje Kitaplığı'na daha önce eklediğiniz SQL JDBC jar sahip. Bu eklemelisiniz **çıkış düzeni** sekmesi. Jar dosyasını sağ tıklatın ve ardından **ayıklamak halinde çıkış kök**.
+       Emin olun **olun yapı** kutusu seçiliyse, o hello jar hello proje oluşturulmuş veya güncelleştirilmiş her zaman oluşturulan sağlar. **Uygula**'ya tıklayın.
+   6. Merhaba, **çıkış düzeni** sekmesini sağ hello hello altındaki **kullanılabilir öğeleri** kutusu, önceki toohello proje kitaplık eklenebilir hello SQL JDBC jar sahip. Bu toohello eklemelisiniz **çıkış düzeni** sekmesi. Merhaba jar dosyasını sağ tıklatın ve ardından **ayıklamak halinde çıkış kök**.
       
        ![Apache Spark örnek - extract bağımlılık jar akış](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-extract-dependency-jar.png "Apache Spark örnek - extract bağımlılık jar akış")  
       
-       **Çıkış düzeni** sekmesini şimdi şöyle görünmelidir.
+       Merhaba **çıkış düzeni** sekmesini şimdi şöyle görünmelidir.
       
        ![Apache Spark örnek - son çıktı sekmesi akış](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-final-output-tab.png "Apache Spark akış örnek - son çıktı sekmesi")        
       
-       İçinde **proje yapısını** iletişim kutusu, tıklatın **Uygula** ve ardından **Tamam**.    
-   7. Menü çubuğundaki **yapı**ve ardından **olun proje**. Tıklatarak **derleme yapıları** jar oluşturmak için. Çıktı jar altında oluşturulan **\classes\artifacts**.
+       Merhaba, **proje yapısını** iletişim kutusu, tıklatın **Uygula** ve ardından **Tamam**.    
+   7. Merhaba menü çubuğundaki **yapı**ve ardından **olun proje**. Tıklatarak **derleme yapıları** toocreate hello jar. Merhaba çıkış jar altında oluşturulan **\classes\artifacts**.
       
        ![Apache Spark akış örnek - çıktı JAR](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-output-jar.png "Apache Spark akış örnek - çıktı JAR")
 
-## <a name="run-the-application-remotely-on-a-spark-cluster-using-livy"></a>Uygulamayı uzaktan Livy kullanarak Spark kümesinde çalıştırın
+## <a name="run-hello-application-remotely-on-a-spark-cluster-using-livy"></a>Merhaba uygulaması Livy kullanarak Spark kümesinde uzaktan çalıştırın
 
-Bu makalede bir Spark kümesinde uzaktan uygulama yayınlamayı Apache Spark çalıştırmak için Livy kullanın. Livy Hdınsight Spark kümesinde ile kullanma hakkında ayrıntılı bilgi için bkz: [gönderme işleri uzaktan bir Apache Spark küme Azure Hdınsight'ta](hdinsight-apache-spark-livy-rest-interface.md). Uygulama yayınlamayı Spark çalıştıran başlamadan önce şunları yapmalısınız vardır:
+Bu makalede, Livy toorun Merhaba Apache Spark akış uygulaması uzaktan Spark kümesinde kullanın. Nasıl toouse Livy Hdınsight Spark ile küme hakkında ayrıntılı bilgi için bkz: [gönderme işleri uzaktan tooan Apache Spark küme Azure Hdınsight'ta](hdinsight-apache-spark-livy-rest-interface.md). Merhaba Spark akış uygulaması çalıştıran başlamadan önce şunları yapmalısınız vardır:
 
-1. Olay Hub'ına gönderilen ve olaylar oluşturmak için yerel tek başına uygulamayı başlatın. Bunu yapmak için aşağıdaki komutu kullanın:
+1. Merhaba yerel tek başına uygulama toogenerate olayları başlatmak ve tooEvent Hub gönderilir. Komut toodo şekilde aşağıdaki hello kullan:
 
         java -cp com-microsoft-azure-eventhubs-client-example-0.2.0.jar com.microsoft.eventhubs.client.example.EventhubsClientDriver --eventhubs-namespace "mysbnamespace" --eventhubs-name "myeventhub" --policy-name "mysendpolicy" --policy-key "<policy key>" --message-length 32 --thread-count 32 --message-count -1
 
-2. Akış jar kopyalayın (**spark akış-data-Kalıcılık-examples.jar**) kümesi ile ilişkili Azure Blob Depolama. Bu jar Livy için erişilebilir hale getirir. Kullanabileceğiniz [ **AzCopy**](../storage/common/storage-use-azcopy.md), bunu yapmak için bir komut satırı yardımcı programı. Verileri yüklemek için kullanabileceğiniz diğer istemcilerin çok vardır. Onları hakkında daha fazla bilgiyi [hdınsight'ta Hadoop işleri için verileri karşıya yükleme](hdinsight-upload-data.md).
-3. CURL Bu uygulamalardan çalıştırdığınız bilgisayara yükleyin. İşlerini uzaktan çalıştırmak için Livy uç noktaları çağrılacak CURL kullanırız.
+2. Kopya hello jar akış (**spark akış-data-Kalıcılık-examples.jar**) toohello hello kümesi ile ilişkili Azure Blob Depolama. Bu hello jar erişilebilir tooLivy hale getirir. Kullanabileceğiniz [ **AzCopy**](../storage/common/storage-use-azcopy.md), bir komut satırı yardımcı programı, toodo şekilde. Var olan çok diğer istemcileri tooupload verileri kullanabilirsiniz. Onları hakkında daha fazla bilgiyi [hdınsight'ta Hadoop işleri için verileri karşıya yükleme](hdinsight-upload-data.md).
+3. CURL Bu uygulamalardan çalıştırdığınız hello bilgisayara yükleyin. Livy uç noktaları toorun hello uzaktan işleri CURL tooinvoke hello kullanırız.
 
-### <a name="run-the-spark-streaming-application-to-receive-the-events-into-an-azure-storage-blob-as-text"></a>Bir Azure Storage Blobuna metin olarak içine olaylarını almak için uygulama yayınlamayı Spark çalıştırın
+### <a name="run-hello-spark-streaming-application-tooreceive-hello-events-into-an-azure-storage-blob-as-text"></a>Merhaba Spark akış uygulama tooreceive hello olayları bir Azure depolama blob'a metin olarak çalıştırın.
 
-Bir komut istemi açın, CURL yüklediğiniz dizine gidin ve aşağıdaki komutu (kullanıcı adı/parola ve küme adı değiştir) çalıştırın:
+Bir komut istemi açın, CURL yüklendiği toohello dizinine gidin ve aşağıdaki komutu (kullanıcı adı/parola ve küme adı değiştir) hello çalıştırın:
 
     curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\inputBlob.txt "https://mysparkcluster.azurehdinsight.net/livy/batches"
 
-Parametreler dosyasında **inputBlob.txt** şu şekilde tanımlanır:
+Merhaba hello dosyasındaki parametreleri **inputBlob.txt** şu şekilde tanımlanır:
 
     { "file":"wasb:///example/jars/spark-streaming-data-persistence-examples.jar", "className":"com.microsoft.spark.streaming.examples.workloads.EventhubsEventCount", "args":["--eventhubs-namespace", "mysbnamespace", "--eventhubs-name", "myeventhub", "--policy-name", "myreceivepolicy", "--policy-key", "<put-your-key-here>", "--consumer-group", "$default", "--partition-count", 10, "--batch-interval-in-seconds", 20, "--checkpoint-directory", "/EventCheckpoint", "--event-count-folder", "/EventCount/EventCount10"], "numExecutors":20, "executorMemory":"1G", "executorCores":1, "driverMemory":"2G" }
 
-Bize giriş dosyası parametrelerinde neler olduğunu anlama:
+Bize hello giriş dosyası hello parametrelerinde neler olduğunu anlama:
 
-* **Dosya** kümesi ile ilişkili Azure depolama hesabı üzerinde uygulama jar dosyasını yoludur.
-* **className** jar sınıfında adıdır.
-* **bağımsız değişken** sınıfı tarafından gerekli bağımsız değişkenleri listesi
-* **numExecutors** tarafından Spark akış uygulamayı çalıştırmak için kullanılan çekirdek sayısı. Bu, her zaman en az iki kez olay hub'ı bölüm sayısı olmalıdır.
-* **executorMemory**, **executorCores**, **driverMemory** gerekli kaynakları akış uygulamaya atamak için kullanılan parametreler bulunur.
+* **Dosya** hello yolu toohello uygulama jar hello kümesi ile ilişkili hello Azure depolama hesabı üzerinde bir dosyadır.
+* **className** hello jar hello sınıfında hello adıdır.
+* **bağımsız değişken** hello hello sınıfı tarafından gerekli bağımsız değişkenleri listesi
+* **numExecutors** uygulama yayınlamayı Spark toorun hello tarafından kullanılan çekirdek hello sayısıdır. Bu, her zaman en az iki kez hello olay hub'ı bölüm sayısı olmalıdır.
+* **executorMemory**, **executorCores**, **driverMemory** kullanılan parametreler gerekli tooassign kaynaklardır toohello akış uygulama.
 
 > [!NOTE]
-> Parametre olarak kullanılan çıkış klasörler (EventCheckpoint, EventCount/EventCount10) oluşturmanız gerekmez. Akış uygulama bunları sizin için oluşturur.
+> Parametre olarak kullanılan toocreate hello Çıkış klasörleri (EventCheckpoint, EventCount/EventCount10) gerekli değildir. Uygulama yayınlamayı hello bunları sizin için oluşturur.
 >
 >
 
-Komutu çalıştırdığınızda, aşağıdakine benzer bir çıktı görmeniz gerekir:
+Merhaba komutu çalıştırdığınızda, hello aşağıdaki gibi bir çıktı görmeniz gerekir:
 
     < HTTP/1.1 201 Created
     < Content-Type: application/json; charset=UTF-8
@@ -323,64 +323,64 @@ Komutu çalıştırdığınızda, aşağıdakine benzer bir çıktı görmeniz g
     < Date: Tue, 01 Dec 2015 05:39:10 GMT
     < Content-Length: 37
     <
-    {"id":1,"state":"starting","log":[]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
+    {"id":1,"state":"starting","log":[]}* Connection #0 toohost mysparkcluster.azurehdinsight.net left intact
 
-Çıkış ('1'. Bu örnekte) son satırında toplu iş kimliği not edin. Uygulamanın başarıyla çalıştığını doğrulamak için Azure depolama hesabınızın kümeyle ilişkili bakabilirsiniz ve görmelisiniz **/EventCount/EventCount10** oluşturulan klasör. Bu klasör, belirtilen süre içinde parametresi için işlenen olay sayısı yakalar BLOB'ları içermelidir **saniye içinde toplu iş aralığı**.
+Hello son satırında hello çıktı ('1'. Bu örnekte) hello toplu iş Kimliğini not edin. Uygulama hello tooverify çalıştırıyorsa başarıyla hello kümesi ile ilişkili Azure depolama hesabınızın bakabilir ve hello görmeniz gerekir **/EventCount/EventCount10** oluşturulan klasör. Bu klasör hello hello içinde belirtilen süre hello parametresi için işlenen olay sayısı yakalar BLOB'ları içermelidir **saniye içinde toplu iş aralığı**.
 
-Uygulama yayınlamayı Spark, KILL kadar çalışmaya devam eder. Bunu yapmak için aşağıdaki komutu kullanın:
+Bunu KILL kadar Merhaba Spark akış uygulaması toorun devam eder. toodo, bu nedenle, komutu aşağıdaki hello kullanın:
 
     curl -k --user "admin:mypassword1!" -v -X DELETE "https://mysparkcluster.azurehdinsight.net/livy/batches/1"
 
-### <a name="run-the-applications-to-receive-the-events-into-an-azure-storage-blob-as-json"></a>Bir Azure Storage blobu JSON olarak içine olaylarını almak için uygulamaları çalıştırma
-Bir komut istemi açın, CURL yüklediğiniz dizine gidin ve aşağıdaki komutu (kullanıcı adı/parola ve küme adı değiştir) çalıştırın:
+### <a name="run-hello-applications-tooreceive-hello-events-into-an-azure-storage-blob-as-json"></a>Merhaba uygulamaları tooreceive hello olayları bir Azure depolama blob'a JSON olarak çalıştırın
+Bir komut istemi açın, CURL yüklendiği toohello dizinine gidin ve aşağıdaki komutu (kullanıcı adı/parola ve küme adı değiştir) hello çalıştırın:
 
     curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\inputJSON.txt "https://mysparkcluster.azurehdinsight.net/livy/batches"
 
-Parametreler dosyasında **inputJSON.txt** şu şekilde tanımlanır:
+Merhaba hello dosyasındaki parametreleri **inputJSON.txt** şu şekilde tanımlanır:
 
     { "file":"wasb:///example/jars/spark-streaming-data-persistence-examples.jar", "className":"com.microsoft.spark.streaming.examples.workloads.EventhubsToAzureBlobAsJSON", "args":["--eventhubs-namespace", "mysbnamespace", "--eventhubs-name", "myeventhub", "--policy-name", "myreceivepolicy", "--policy-key", "<put-your-key-here>", "--consumer-group", "$default", "--partition-count", 10, "--batch-interval-in-seconds", 20, "--checkpoint-directory", "/EventCheckpoint", "--event-count-folder", "/EventCount/EventCount10", "--event-store-folder", "/EventStore10"], "numExecutors":20, "executorMemory":"1G", "executorCores":1, "driverMemory":"2G" }
 
-Parametreleri ne için metin çıktısı önceki adımda belirttiğiniz için benzerdir. Yeniden, parametre olarak kullanılan çıkış klasörler (EventCheckpoint, EventCount/EventCount10) oluşturmanız gerekmez. Akış uygulama bunları sizin için oluşturur.
+Merhaba, hello önceki adımda hello metin çıktısı için belirtilen benzer toowhat parametreleridir. Yeniden, parametre olarak kullanılan toocreate hello Çıkış klasörleri (EventCheckpoint, EventCount/EventCount10) gerekmez. Uygulama yayınlamayı hello bunları sizin için oluşturur.
 
- Komutu çalıştırın, kümeyle ilişkili Azure depolama hesabınızın bakabilir ve görmeniz gerekir sonra **/EventStore10** oluşturulan klasör. Açık herhangi bir dosyayı önekine sahip **bölümü -** ve bir JSON biçiminde işlenen olayların görmeniz gerekir.
+ Sonra hello komutunu çalıştırın, hello kümesi ile ilişkili Azure depolama hesabınızın bakabilir ve hello görmelisiniz **/EventStore10** oluşturulan klasör. Açık herhangi bir dosyayı önekine sahip **bölümü -** ve bir JSON biçiminde işlenen hello olayların görmeniz gerekir.
 
-### <a name="run-the-applications-to-receive-the-events-into-a-hive-table"></a>Hive tabloya olaylarını almak için uygulamaları çalıştırma
-Bir Hive tabloya olayları akışları uygulama yayınlamayı Spark çalıştırmak için bazı ek bileşenleri gerekir. Bunlar:
+### <a name="run-hello-applications-tooreceive-hello-events-into-a-hive-table"></a>Merhaba uygulamaları tooreceive hello olayları Hive tabloya çalıştırın.
+toorun hello Spark akış uygulaması bir Hive akışları olayları, tablo bazı ek bileşenleri gerekir. Bunlar:
 
 * API jdo 3.2.6.jar datanucleus
 * datanucleus rdbms 3.2.9.jar
 * datanucleus çekirdek 3.2.10.jar
 * Hive-site.xml
 
-**.Jar** konumunda Hdınsight Spark kümenize dosyaları kullanılabilir `/usr/hdp/current/spark-client/lib`. **Hive-site.xml** şu adresten edinilebilir `/usr/hdp/current/spark-client/conf`.
+Merhaba **.jar** konumunda Hdınsight Spark kümenize dosyaları kullanılabilir `/usr/hdp/current/spark-client/lib`. Merhaba **hive-site.xml** şu adresten edinilebilir `/usr/hdp/current/spark-client/conf`.
 
-Kullanabileceğiniz [WinScp](http://winscp.net/eng/download.php) bu dosyalar, yerel bilgisayarınıza kümeden kopyalamak için. Ardından, bu dosyalar üzerinde kümeyle ilişkili depolama hesabınıza kopyalamak için araçları da kullanabilirsiniz. Depolama hesabı dosyaları karşıya yükleme hakkında daha fazla bilgi için bkz: [hdınsight'ta Hadoop işleri için verileri karşıya yükleme](hdinsight-upload-data.md).
+Kullanabileceğiniz [WinScp](http://winscp.net/eng/download.php) toocopy hello küme tooyour yerel bilgisayardan bu dosyalar üzerinde. Daha sonra bu dosyalar tooyour depolama hesabı hello kümesi ile ilişkili araçları toocopy kullanabilirsiniz. Nasıl tooupload toohello depolama hesabı dosyaları ile ilgili daha fazla bilgi için bkz: [hdınsight'ta Hadoop işleri için verileri karşıya yükleme](hdinsight-upload-data.md).
 
-Azure depolama hesabınıza dosyalar kopyalandıktan sonra bir komut istemi açın, CURL yüklediğiniz dizine gidin ve aşağıdaki komutu (kullanıcı adı/parola ve küme adı değiştir) çalıştırın:
+Merhaba dosyaları tooyour Azure depolama hesabı üzerinde kopyalandıktan sonra bir komut istemi açın, CURL yüklendiği toohello dizinine gidin ve aşağıdaki komutu (kullanıcı adı/parola ve küme adı değiştir) hello çalıştırın:
 
     curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\inputHive.txt "https://mysparkcluster.azurehdinsight.net/livy/batches"
 
-Parametreler dosyasında **inputHive.txt** şu şekilde tanımlanır:
+Merhaba hello dosyasındaki parametreleri **inputHive.txt** şu şekilde tanımlanır:
 
     { "file":"wasb:///example/jars/spark-streaming-data-persistence-examples.jar", "className":"com.microsoft.spark.streaming.examples.workloads.EventhubsToHiveTable", "args":["--eventhubs-namespace", "mysbnamespace", "--eventhubs-name", "myeventhub", "--policy-name", "myreceivepolicy", "--policy-key", "<put-your-key-here>", "--consumer-group", "$default", "--partition-count", 10, "--batch-interval-in-seconds", 20, "--checkpoint-directory", "/EventCheckpoint", "--event-count-folder", "/EventCount/EventCount10", "--event-hive-table", "EventHiveTable10" ], "jars":["wasb:///example/jars/datanucleus-api-jdo-3.2.6.jar", "wasb:///example/jars/datanucleus-rdbms-3.2.9.jar", "wasb:///example/jars/datanucleus-core-3.2.10.jar"], "files":["wasb:///example/jars/hive-site.xml"], "numExecutors":20, "executorMemory":"1G", "executorCores":1, "driverMemory":"2G" }
 
-Parametreleri ne için metin çıktısı, önceki adımda belirttiğiniz için benzerdir. Yeniden Çıkış klasörleri (EventCheckpoint, EventCount/EventCount10) veya çıkış oluşturma gerekmez Hive tablosu (EventHiveTable10) parametreleri kullanılır. Akış uygulama bunları sizin için oluşturur. Unutmayın **Kavanoz** ve **dosyaları** seçenek .jar dosya ve depolama hesabına üzerinden kopyalanan hive-site.xml yollara içerir.
+Merhaba, önceki adımlarda hello hello metin çıktısı için belirtilen benzer toowhat parametreleridir. Yeniden toocreate hello çıkış gerekmez klasörleri (EventCheckpoint, EventCount/EventCount10) veya hello çıktı parametreleri olarak kullanılan Hive tablosu (EventHiveTable10). Uygulama yayınlamayı hello bunları sizin için oluşturur. Bu hello Not **Kavanoz** ve **dosyaları** yolları toohello .jar dosyaları ve toohello depolama hesabı üzerinde kopyaladığınız hello hive-site.xml seçeneği içerir.
 
-Hive tablosu başarıyla oluşturulduğunu doğrulamak için Küme ve çalışma Hive sorguları SSH kullanabilirsiniz. Yönergeler için bkz: [SSH ile hdınsight'ta Hadoop ile Hive kullanma](hdinsight-hadoop-use-hive-ssh.md). SSH kullanarak bağlandıktan sonra Hive tablosu doğrulamak için aşağıdaki komutu çalıştırabilirsiniz **EventHiveTable10**, oluşturulur.
+hive tablosu hello tooverify başarıyla oluşturuldu, SSH hello küme ve çalışma Hive sorguları halinde kullanabilirsiniz. Yönergeler için bkz: [SSH ile hdınsight'ta Hadoop ile Hive kullanma](hdinsight-hadoop-use-hive-ssh.md). SSH kullanarak bağlandıktan sonra o hello Hive tablosu komutu tooverify aşağıdaki hello çalıştırabilirsiniz **EventHiveTable10**, oluşturulur.
 
     show tables;
 
-Aşağıdakine benzer bir çıktı görmeniz gerekir:
+Bir çıkış benzer toohello aşağıdaki görmeniz gerekir:
 
     OK
     eventhivetable10
     hivesampletable
 
-SEÇME sorgusu tablosunun içeriğini görüntülemek için de çalıştırabilirsiniz.
+SEÇME sorgusu hello tablosunun tooview Merhaba içeriğine de çalıştırabilirsiniz.
 
     SELECT * FROM eventhivetable10 LIMIT 10;
 
-Aşağıdaki gibi bir çıktı görmeniz gerekir:
+Merhaba aşağıdaki gibi bir çıktı görmeniz gerekir:
 
     ZN90apUSQODDTx7n6Toh6jDbuPngqT4c
     sor2M7xsFwmaRW8W8NDwMneFNMrOVkW1
@@ -395,22 +395,22 @@ Aşağıdaki gibi bir çıktı görmeniz gerekir:
     Time taken: 4.434 seconds, Fetched: 10 row(s)
 
 
-### <a name="run-the-applications-to-receive-the-events-into-an-azure-sql-database-table"></a>Bir Azure SQL veritabanı tablosuna olaylarını almak için uygulamaları çalıştırma
-Bu adımı çalıştırmadan önce oluşturulan bir Azure SQL veritabanı olduğundan emin olun. Yönergeler için bkz: [dakika içinde bir SQL veritabanı oluşturma](../sql-database/sql-database-get-started.md). Bu bölümde tamamlamak için değerleri veritabanı adı, veritabanı sunucusu adını ve veritabanı yöneticisi kimlik bilgileri için parametre olarak gerekir. Veritabanı tablosu oluştur gerekmez. Uygulama yayınlamayı Spark, sizin için oluşturur.
+### <a name="run-hello-applications-tooreceive-hello-events-into-an-azure-sql-database-table"></a>Merhaba uygulamaları tooreceive hello olayları bir Azure SQL veritabanı tablosuna çalıştırın.
+Bu adımı çalıştırmadan önce oluşturulan bir Azure SQL veritabanı olduğundan emin olun. Yönergeler için bkz: [dakika içinde bir SQL veritabanı oluşturma](../sql-database/sql-database-get-started.md). toocomplete Bu bölüm, veritabanı adı, veritabanı sunucusu adı ve parametre olarak hello veritabanı yöneticisi kimlik bilgileri değerlerine ihtiyacı vardır. Toocreate hello veritabanı tablosu ancak gerekmez. Merhaba Spark akış uygulamanın, sizin için oluşturur.
 
-Bir komut istemi açın, CURL yüklediğiniz dizine gidin ve aşağıdaki komutu çalıştırın:
+Bir komut istemi açın, CURL yüklendiği toohello dizinine gidin ve hello aşağıdaki komutu çalıştırın:
 
     curl -k --user "admin:mypassword1!" -v -H "Content-Type: application/json" -X POST --data @C:\Temp\inputSQL.txt "https://mysparkcluster.azurehdinsight.net/livy/batches"
 
-Parametreler dosyasında **inputSQL.txt** şu şekilde tanımlanır:
+Merhaba hello dosyasındaki parametreleri **inputSQL.txt** şu şekilde tanımlanır:
 
     { "file":"wasb:///example/jars/spark-streaming-data-persistence-examples.jar", "className":"com.microsoft.spark.streaming.examples.workloads.EventhubsToAzureSQLTable", "args":["--eventhubs-namespace", "mysbnamespace", "--eventhubs-name", "myeventhub", "--policy-name", "myreceivepolicy", "--policy-key", "<put-your-key-here>", "--consumer-group", "$default", "--partition-count", 10, "--batch-interval-in-seconds", 20, "--checkpoint-directory", "/EventCheckpoint", "--event-count-folder", "/EventCount/EventCount10", "--sql-server-fqdn", "<database-server-name>.database.windows.net", "--sql-database-name", "mysparkdatabase", "--database-username", "sparkdbadmin", "--database-password", "<put-password-here>", "--event-sql-table", "EventContent" ], "numExecutors":20, "executorMemory":"1G", "executorCores":1, "driverMemory":"2G" }
 
-Uygulamanın başarıyla çalıştığını doğrulamak için SQL Server Management Studio'yu kullanarak Azure SQL veritabanına bağlanabilir. Bunun hakkında daha fazla yönerge için bkz: [SQL Server Management Studio ile SQL veritabanına bağlanma](../sql-database/sql-database-connect-query-ssms.md). Veritabanına bağlandıktan sonra gidebilirsiniz **EventContent** akış uygulaması tarafından oluşturulmuş tablo. Tablodan veri almak için hızlı bir sorgu çalıştırabilirsiniz. Aşağıdaki sorguyu çalıştırın:
+Uygulama hello tooverify başarıyla çalışır, toohello Azure SQL veritabanını SQL Server Management Studio'yu kullanarak bağlanabilir. Yönergeler için bkz: toodo [tooSQL veritabanı SQL Server Management Studio ile bağlanma](../sql-database/sql-database-connect-query-ssms.md). Bağlı toohello veritabanı olduktan sonra toohello gidebilirsiniz **EventContent** uygulama yayınlamayı hello tarafından oluşturulan tablo. Hızlı sorgu tooget hello veri hello tablosundan çalıştırabilirsiniz. Sorgu aşağıdaki hello çalıştırın:
 
     SELECT * FROM EventCount
 
-Aşağıdakine benzer bir çıktı görmeniz gerekir:
+Çıktı benzer toohello aşağıdaki görmeniz gerekir:
 
     00046b0f-2552-4980-9c3f-8bba5647c8ee
     000b7530-12f9-4081-8e19-90acd26f9c0c
@@ -433,7 +433,7 @@ Aşağıdakine benzer bir çıktı görmeniz gerekir:
 ### <a name="scenarios"></a>Senaryolar
 * [BI ile Spark: BI araçlarıyla HDInsight’ta Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](hdinsight-apache-spark-use-bi-tools.md)
 * [Machine Learning ile Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight’ta Spark kullanma](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning ile Spark: Yemek inceleme sonuçlarını tahmin etmek için HDInsight’ta Spark kullanma](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Machine Learning ile Spark: Spark Hdınsight toopredict yemek İnceleme sonuçlarını içinde kullanma](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight’ta Spark kullanarak Web sitesi günlüğü çözümlemesi](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Uygulamaları oluşturma ve çalıştırma
@@ -441,15 +441,15 @@ Aşağıdakine benzer bir çıktı görmeniz gerekir:
 * [Livy kullanarak Spark kümesinde işleri uzaktan çalıştırma](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Araçlar ve uzantılar
-* [Spark Scala uygulamaları oluşturmak ve göndermek amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisi kullanma](hdinsight-apache-spark-intellij-tool-plugin.md)
-* [Spark uygulamalarında uzaktan hata ayıklamak amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisi kullanma](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Intellij Idea toocreate için Hdınsight araçları eklentisi kullanma ve Spark Scala uygulamaları gönderin](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Uzaktan Intellij Idea toodebug Spark uygulamaları için Hdınsight araçları eklentisi kullanma](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [HDInsight’ta Spark kümesi ile Zeppelin not defterlerini kullanma](hdinsight-apache-spark-zeppelin-notebook.md)
 * [HDInsight için Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Jupyter not defterleri ile dış paketleri kullanma](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
-* [Jupyter’i bilgisayarınıza yükleme ve bir HDInsight Spark kümesine bağlanma](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Jupyter bilgisayarınıza yüklemek ve tooan Hdınsight Spark kümesi bağlanın](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>Kaynakları yönetme
-* [Azure HDInsight’ta Apache Spark kümesi kaynaklarını yönetme](hdinsight-apache-spark-resource-manager.md)
+* [Hello Azure hdınsight'ta Apache Spark küme kaynaklarını yönetme](hdinsight-apache-spark-resource-manager.md)
 * [HDInsight’ta bir Apache Spark kümesinde çalışan işleri izleme ve hata ayıklama](hdinsight-apache-spark-job-debugging.md)
 
 [hdinsight-versions]: hdinsight-component-versioning.md

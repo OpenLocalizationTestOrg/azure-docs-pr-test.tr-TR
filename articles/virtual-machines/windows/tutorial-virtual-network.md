@@ -1,5 +1,5 @@
 ---
-title: "Azure sanal ağlar ve Windows sanal makineleri | Microsoft Docs"
+title: "aaaAzure Windows sanal makineler ve sanal ağları | Microsoft Docs"
 description: "Öğretici - Azure sanal ağlar ve Azure PowerShell ile Windows sanal makineleri yönetme"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.openlocfilehash: c71c07f8ecd123a7e27848ba5043d46e315fcf03
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: ed77d9d5873e849fcb2aaf15e41899d7ad8c781a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-azure-virtual-networks-and-windows-virtual-machines-with-azure-powershell"></a>Azure sanal ağlar ve Azure PowerShell ile Windows sanal makineleri yönetme
 
@@ -32,19 +32,19 @@ Azure sanal makineler, iç ve dış ağ iletişimi için Azure ağ kullanın. Bu
 > * Ağ güvenlik gruplarıyla ağ trafiğini denetleme
 > * Eylem trafik kurallarını görüntüle
 
-Bu öğretici, Azure PowerShell modülü 3.6 veya sonraki bir sürümü gerektirir. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltme gerekiyorsa, bkz: [yükleme Azure PowerShell Modülü](/powershell/azure/install-azurerm-ps).
+Bu öğretici hello Azure PowerShell modülü 3,6 veya sonraki bir sürümü gerektiriyor. Çalıştırma ` Get-Module -ListAvailable AzureRM` toofind hello sürümü. Tooupgrade gerekirse bkz [yükleme Azure PowerShell Modülü](/powershell/azure/install-azurerm-ps).
 
 ## <a name="create-vnet"></a>VNet oluşturma
 
-Bir VNet kendi ağ bulutta gösterimidir. Bir VNet Azure bulutunun aboneliğinize adanmış mantıksal bir yalıtım ' dir. Bir sanal ağ içinde alt ağlar, bu alt ağlar ve bağlantıları VM'ler alt ağlara bağlantısı kurallarını bulun.
+Bir VNet kendi ağ hello bulutta gösterimidir. Bir VNet hello ayrılmış Azure bulut tooyour abonelik mantıksal yalıtımının ' dir. Bir sanal ağ içinde alt ağlar, bağlantı toothose alt ağları ve hello VM'ler toohello alt bağlantılarından kurallarını bulun.
 
-Diğer Azure kaynaklarına oluşturabilmeniz için önce bir kaynak grubu ile oluşturmanıza gerek [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Aşağıdaki örnek, bir kaynak grubu oluşturur *myRGNetwork* içinde *EastUS* konumu:
+Diğer Azure kaynaklarına oluşturabilmeniz için önce bir kaynak grubu ile toocreate gerekir [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Merhaba aşağıdaki örnekte oluşturur adlı bir kaynak grubu *myRGNetwork* hello içinde *EastUS* konumu:
 
 ```powershell
 New-AzureRmResourceGroup -ResourceGroupName myRGNetwork -Location EastUS
 ```
 
-Bir alt ağ alt bir vnet'in kaynaktır ve adres alanları IP adresi öneklerini kullanarak bir CIDR bloğu içinde kesimleri yardımcı tanımlayın. NIC alt ağlara eklendi ve çeşitli iş yükleri için bağlantı sağlama VM'ler bağlı.
+Bir alt ağ alt bir vnet'in kaynaktır ve adres alanları IP adresi öneklerini kullanarak bir CIDR bloğu içinde kesimleri yardımcı tanımlayın. NIC toosubnets ve çeşitli iş yükleri için bağlantı sağlama bağlı tooVMs eklenebilir.
 
 Bir alt ağ ile oluşturma [yeni AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig):
 
@@ -67,7 +67,7 @@ $vnet = New-AzureRmVirtualNetwork `
 
 ## <a name="create-front-end-vm"></a>Ön uç VM oluşturma
 
-Bir VM sanal ağ içinde iletişim kurmak bir sanal ağ arabirimi (NIC) gerekir. *MyFrontendVM* internet'ten erişilir, böylece bir ortak IP adresini de gerekir. 
+Bir sanal ağda VM toocommunicate için bir sanal ağ arabirimi (NIC) gerekir. Merhaba *myFrontendVM* hello erişilen Internet nedenle da genel bir IP adresi gerekir. 
 
 Bir ortak IP adresiyle oluşturma [yeni AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress):
 
@@ -91,13 +91,13 @@ $frontendNic = New-AzureRmNetworkInterface `
   -PublicIpAddressId $pip.Id
 ```
 
-Kullanıcı adı ayarlayabilir ve parola için yönetici hesabı ile VM üzerinde [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Merhaba kullanıcı adı ve parola hello VM hello yönetici hesabı için gerekli olan [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
 ```powershell
 $cred = Get-Credential
 ```
 
-VM'lerin oluşturma [AzureRmVMConfig yeni](/powershell/module/azurerm.compute/new-azurermvmconfig), [kümesi AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem), [kümesi AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage), [kümesi AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk), [ekleme AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface), ve [AzureRmVM yeni](/powershell/module/azurerm.compute/new-azurermvm). 
+Merhaba VM'ler ile oluşturmak [yeni AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig), [kümesi AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem), [kümesi AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage), [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk), [Ekleme AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface), ve [AzureRmVM yeni](/powershell/module/azurerm.compute/new-azurermvm). 
 
 ```powershell
 $frontendVM = New-AzureRmVMConfig `
@@ -133,9 +133,9 @@ New-AzureRmVM `
 
 ## <a name="install-web-server"></a>Web sunucusunu yükleme
 
-IIS yükleyebilirsiniz *myFrontendVM* Uzak Masaüstü oturumu kullanarak. Genel IP adresi erişmek için VM'nin edinmeniz gerekir.
+IIS yükleyebilirsiniz *myFrontendVM* Uzak Masaüstü oturumu kullanarak. Merhaba VM tooaccess tooget hello genel IP adresi gerekiyor.
 
-Genel IP adresi elde edebilirsiniz *myFrontendVM* ile [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). Aşağıdaki örnek IP adresi alacağı *myPublicIPAddress* daha önce oluşturduğunuz:
+Merhaba genel IP adresi elde edebilirsiniz *myFrontendVM* ile [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). Merhaba aşağıdaki örnek alacağı için başlangıç IP adresi *myPublicIPAddress* daha önce oluşturduğunuz:
 
 ```powershell
 Get-AzureRmPublicIPAddress `
@@ -145,31 +145,31 @@ Get-AzureRmPublicIPAddress `
 
 Sonraki adımlarda kullanabilmesi için bu IP adresini not edin.
 
-İle Uzak Masaüstü oturumu oluşturmak için aşağıdaki komutu kullanın *myFrontendVM*. Değiştir  *<publicIPAddress>*  daha önce kaydettiğiniz adresine sahip. İstendiğinde VM oluşturduğunuz sırada kullanılan kimlik bilgilerini girin.
+Kullanım hello aşağıdaki komut ile Uzak Masaüstü oturumu toocreate *myFrontendVM*. Değiştir  *<publicIPAddress>*  daha önce kaydettiğiniz hello adresine sahip. İstendiğinde, hello VM oluştururken kullanılan hello kimlik bilgilerini girin.
 
 ```
 mstsc /v:<publicIpAddress>
 ``` 
 
-Oturum olduğunuza *myFrontendVM*, IIS yüklemek ve web trafiğine izin vermek yerel güvenlik duvarı kuralı etkinleştirmek için tek satırlık bir PowerShell kullanabilirsiniz. Bir PowerShell istemi açın ve şu komutu çalıştırın:
+Çok günlüğe olduğunuza*myFrontendVM*, tek satırlık bir PowerShell tooinstall IIS kullanın ve hello yerel güvenlik duvarı kuralı tooallow web trafiği etkinleştirin. PowerShell komut istemini açın ve hello aşağıdaki komutu çalıştırın:
 
-Kullanım [Install-WindowsFeature](https://technet.microsoft.com/itpro/powershell/windows/servermanager/install-windowsfeature) IIS Web sunucusu yükler özel betik uzantısı çalıştırmak için:
+Kullanım [Install-WindowsFeature](https://technet.microsoft.com/itpro/powershell/windows/servermanager/install-windowsfeature) hello IIS Web sunucusu yükler toorun hello özel betik uzantısı:
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-Şimdi IIS sitesi görmek için VM göz atmak için genel IP adresini kullanabilirsiniz.
+Artık hello ortak IP adresi toobrowse toohello VM toosee hello IIS sitesi kullanabilirsiniz.
 
 ![Varsayılan IIS sitesi](./media/tutorial-virtual-network/iis.png)
 
 ## <a name="manage-internal-traffic"></a>İç trafiği yönetmek
 
-Bir ağ güvenlik grubu (NSG) izin veren veya reddeden bir sanal ağa bağlı kaynaklar için ağ trafiği güvenlik kurallarının bir listesini içerir. Nsg'ler alt ağları veya VM'ler için bağlı tekil NIC'lerle ilişkili olabilir. Açma veya kapatma Vm'lere erişim bağlantı noktaları üzerinden yapılır NSG kurallarını kullanma. Oluşturduğunuzda *myFrontendVM*, gelen bağlantı noktası 3389 RDP bağlantı için otomatik olarak açılmışsa.
+Bir ağ güvenlik grubu (NSG) izin veren veya reddeden ağ trafiğine bağlı tooresources tooa VNet güvenlik kurallarının bir listesini içerir. Nsg'ler ilişkili toosubnets olabilir veya tek tek NIC tooVMs bağlı. Açma veya kapatma erişim tooVMs bağlantı noktaları üzerinden yapılır NSG kurallarını kullanma. Oluşturduğunuzda *myFrontendVM*, gelen bağlantı noktası 3389 RDP bağlantı için otomatik olarak açılmışsa.
 
-İç iletişim VM'lerin bir NSG kullanarak yapılandırılabilir. Bu bölümde, ağdaki ek bir alt ağ oluşturun ve bir NSG bir bağlantıdan izin verecek şekilde atamak öğrenin *myFrontendVM* için *myBackendVM* 1433 numaralı bağlantı noktasında. Alt ağ VM oluşturulduktan sonra atanır.
+İç iletişim VM'lerin bir NSG kullanarak yapılandırılabilir. Bu bölümde, bilgi nasıl toocreate hello ek bir alt ağ ve bir NSG tooit tooallow bir bağlantıdan atayın *myFrontendVM* çok*myBackendVM* 1433 numaralı bağlantı noktasında. Merhaba alt toohello VM oluşturulduktan sonra atanır.
 
-İç trafiği sınırlayabilirsiniz *myBackendVM* yalnızca gelen *myFrontendVM* arka uç alt ağı için bir NSG oluşturarak. Aşağıdaki örnek, adlandırılmış bir NSG kuralı oluşturur *myBackendNSGRule* ile [yeni AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig):
+Çok iç trafiğini sınırlandırmak*myBackendVM* yalnızca gelen *myFrontendVM* hello arka uç alt ağı için bir NSG oluşturarak. Merhaba aşağıdaki örnek adlı bir NSG kuralı oluşturur *myBackendNSGRule* ile [yeni AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig):
 
 ```powershell
 $nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
@@ -195,7 +195,7 @@ $nsgBackend = New-AzureRmNetworkSecurityGroup `
 ```
 ## <a name="add-back-end-subnet"></a>Arka uç alt ağ Ekle
 
-Ekle *myBackEndSubnet* için *myVNet* ile [Ekle AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig):
+Ekle *myBackEndSubnet* çok*myVNet* ile [Ekle AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig):
 
 ```powershell
 Add-AzureRmVirtualNetworkSubnetConfig `
@@ -211,7 +211,7 @@ $vnet = Get-AzureRmVirtualNetwork `
 
 ## <a name="create-back-end-vm"></a>Arka uç VM oluşturma
 
-Arka uç VM oluşturmak için en kolay yolu, bir SQL Server görüntüsü kullanmaktır. Bu öğretici yalnızca VM veritabanı sunucusuyla oluşturur, ancak veritabanı erişme hakkında bilgi sağlamaz.
+bir SQL Server görüntüsü kullanarak arka uç VM Hello en kolay yolu toocreate hello var. Bu öğretici yalnızca hello VM hello veritabanı sunucusuyla oluşturur, ancak hello veritabanına erişme hakkında bilgi sağlamaz.
 
 Oluşturma *myBackendNic*:
 
@@ -223,7 +223,7 @@ $backendNic = New-AzureRmNetworkInterface `
   -SubnetId $vnet.Subnets[1].Id
 ```
 
-Kullanıcı adı ve parola Get-Credential ile VM üzerinde yönetici hesabı için gerekli ayarlayın:
+Merhaba kullanıcı adı ve parola hello VM Get-Credential ile Merhaba yönetici hesabı için gerekli ayarlayın:
 
 ```powershell
 $cred = Get-Credential
@@ -263,11 +263,11 @@ New-AzureRmVM `
   -VM $backendVM
 ```
 
-Kullanılan görüntü SQL Server'ın yüklü, ancak bu öğreticide kullanılmaz. Web trafiğini işlemek için bir VM ve veritabanı yönetimi işlemek için bir VM nasıl yapılandırabileceğiniz göstermek için dahil edilir.
+kullanılan hello görüntü SQL Server'ın yüklü, ancak bu öğreticide kullanılmaz. Dahil edilen tooshow olduğu, nasıl bir VM toohandle web trafiği ve toohandle veritabanı yönetimi VM yapılandırabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide oluşturduğunuz ve Azure ağları sanal makinelerle ilgili olarak güvenli. 
+Bu öğreticide oluşturduğunuz ve Azure ağları ilgili toovirtual makineler olarak güvenli. 
 
 > [!div class="checklist"]
 > * Sanal ağ oluşturma
@@ -275,7 +275,7 @@ Bu öğreticide oluşturduğunuz ve Azure ağları sanal makinelerle ilgili olar
 > * Ağ güvenlik gruplarıyla ağ trafiğini denetleme
 > * Eylem trafik kurallarını görüntüle
 
-Azure Yedekleme'yi kullanarak sanal makinelerde güvenli hale getirme verileri izleme hakkında bilgi edinmek için sonraki öğretici ilerleyin. .
+Azure Yedekleme'yi kullanarak sanal makinelerde güvenli hale getirme verileri izleme hakkında toohello sonraki öğretici toolearn ilerleyin. .
 
 > [!div class="nextstepaction"]
 > [Azure'da Windows sanal makineleri yedekleyin](./tutorial-backup-vms.md)

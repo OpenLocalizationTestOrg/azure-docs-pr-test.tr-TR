@@ -1,15 +1,15 @@
 ## <a name="load-balancer"></a>Yük Dengeleyici
-Bir yük dengeleyici uygulamalarınızı ölçeklendirme istediğinizde kullanılır. Tipik dağıtım senaryoları, birden çok VM örnekleri üzerinde çalışan uygulamalar içerir. VM örnekleri, ağ trafiğini çeşitli örneklerine dağıtmak için yardımcı bir yük dengeleyici tarafından fronted. 
+Bir yük dengeleyici, uygulamalarınızı tooscale istediğinizde kullanılır. Tipik dağıtım senaryoları, birden çok VM örnekleri üzerinde çalışan uygulamalar içerir. Merhaba VM örnekleri toodistribute ağ trafiği toohello çeşitli örnekler yardımcı olan bir yük dengeleyici tarafından fronted. 
 
 ![NIC kişinin tek bir VM'de](./media/resource-groups-networking/figure8.png)
 
 | Özellik | Açıklama |
 | --- | --- |
-| *Frontendıpconfigurations'a* |bir yük dengeleyici, aksi halde sanal IP (VIP) bilinen bir veya daha fazla ön uç IP adresi içerebilir. Bu IP adreslerine trafiği için giriş olarak hizmet ve genel IP veya özel IP olabilir. |
-| *Backendaddresspool* |VM yük dağıtılacak NIC ile ilişkili IP adreslerini bunlar |
-| *loadBalancingRules* |bir kural özelliği, belirtilen ön uç IP ve bağlantı noktası bileşimi için bir arka uç IP adresleri kümesini ve bağlantı noktası bileşimi eşler. Tek bir tanım yük dengeleyici kaynak birden çok Yük Dengeleme kuralları tanımlayabilirsiniz, her kural yalnızca bir ön bileşimini yansıtma IP ve bağlantı noktası bitiş ve bitiş IP ve sanal makinelerle ilişkili bağlantı noktası. Arka uç havuzundaki birçok sanal makineler için ön uç havuzundaki bir bağlantı noktası kuralıdır |
-| *Yoklamaları* |araştırmalar VM örnekleri durumunu izlemenize olanak sağlar. Bir sistem durumu araştırması başarısız olursa, sanal makine örneğini döndürme dışında otomatik olarak gerçekleştirilecek |
-| *inboundNatRules* |NAT kuralları önde gelen trafiği tanımlama IP sonlandırmak ve belirli bir sanal makine örneği için arka uç IP dağıtılır. NAT kuralı arka uç havuzundaki bir sanal makine için ön uç havuzundaki bir bağlantı noktasıdır |
+| *Frontendıpconfigurations'a* |bir yük dengeleyici, aksi halde sanal IP (VIP) bilinen bir veya daha fazla ön uç IP adresi içerebilir. Bu IP adreslerine hello trafiği için giriş olarak hizmet ve genel IP veya özel IP olabilir. |
+| *Backendaddresspool* |VM NIC'ler toowhich yük dağıtılan hello ile ilişkili IP adreslerini bunlar |
+| *loadBalancingRules* |bir kural özelliğine verilen ön uç IP eşler ve bağlantı noktası bileşimi tooa arka uç IP adresleri kümesini ve bağlantı noktası bileşimi. Tek bir tanım yük dengeleyici kaynak birden çok Yük Dengeleme kuralları tanımlayabilirsiniz, her kural yalnızca bir ön bileşimini yansıtma IP ve bağlantı noktası bitiş ve bitiş IP ve sanal makinelerle ilişkili bağlantı noktası. bir bağlantı noktası hello ön uç havuzu toomany sanal makinelerde hello arka uç havuzundaki Hello kuralıdır |
+| *Yoklamaları* |araştırmalar VM örnekleri hello durumunu tookeep izlemeyi etkinleştirin. Bir sistem durumu araştırması başarısız olursa, hello sanal makine örneğini döndürme dışında otomatik olarak gerçekleştirilecek |
+| *inboundNatRules* |NAT kuralları Hello tanımlama hello ön uç IP üzerinden giden trafiği gelen ve toohello arka uç IP tooa belirli bir sanal makine örneği dağıtılır. NAT kuralı hello ön uç havuzu tooone sanal makinede hello arka uç havuzundaki bir bağlantı noktasıdır |
 
 Yük Dengeleyici şablonu Json biçiminde örneği:
 
@@ -33,7 +33,7 @@ Yük Dengeleyici şablonu Json biçiminde örneği:
             "Southeast Asia"
           ],
           "metadata": {
-            "description": "Location to deploy"
+            "description": "Location toodeploy"
           }
         },
         "addressPrefix": {

@@ -1,6 +1,6 @@
 ---
-title: "Bulut Hizmetleri rolleri için iletişim | Microsoft Docs"
-description: "Bulut Hizmetleri rol örneklerinin dışına veya diğer rol örnekleri arasında iletişim kuran kendileri için tanımlanmış uç noktaları (http, https, tcp, udp) olabilir."
+title: "Bulut Hizmetleri rolleri için aaaCommunication | Microsoft Docs"
+description: "Bulut Hizmetleri rol örneklerinin hello dışında veya diğer rol örnekleri arasında iletişim kendileri için tanımlanmış uç noktaları (http, https, tcp, udp) olabilir."
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: adegeo
-ms.openlocfilehash: 8e171d56bb67c971337fa383014988074ec828b1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1fb39215ceb8a3f0381ef5e108c1149de115ff8e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Azure rol örneklerinin iletişimi etkinleştir
-Bulut hizmeti rollerinizi iç ve dış bağlantıları iletişim kurar. Dış bağlantılar denir **giriş uç noktaları** iç bağlantılar denir sırada **iç uç noktalar**. Bu konuda nasıl değiştirileceğini açıklar [hizmet tanımı](cloud-services-model-and-package.md#csdef) uç noktaları oluşturmak için.
+Bulut hizmeti rollerinizi iç ve dış bağlantıları iletişim kurar. Dış bağlantılar denir **giriş uç noktaları** iç bağlantılar denir sırada **iç uç noktalar**. Bu konuda açıklanmaktadır nasıl toomodify hello [hizmet tanımı](cloud-services-model-and-package.md#csdef) toocreate uç noktaları.
 
 ## <a name="input-endpoint"></a>Giriş uç noktası
-Bir dış bağlantı noktasında kullanıma sunmak istediğiniz giriş uç noktası kullanılır. Protokol türü ve her iki iç ve dış bağlantı noktaları için uç nokta için geçerli uç nokta bağlantı noktası belirtin. İsterseniz, farklı bir iç bağlantı noktası bitiş noktası belirtebilirsiniz [yerel bağlantı noktası](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint) özniteliği.
+dışında bir bağlantı noktası toohello tooexpose istediğinizde hello giriş uç noktası kullanılır. Merhaba protokol türü ve her iki hello iç ve dış bağlantı noktaları için hello uç noktası için uygulanan hello endpoint hello bağlantı noktası belirtin. İsterseniz, hello uç noktası için farklı bir iç bağlantı ile Merhaba belirtebilirsiniz [yerel bağlantı noktası](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint) özniteliği.
 
-Giriş uç noktası aşağıdaki protokolleri kullanabilirsiniz: **http, https, tcp, udp**.
+Merhaba giriş uç noktası protokolleri aşağıdaki hello kullanabilirsiniz: **http, https, tcp, udp**.
 
-Bir giriş uç noktası oluşturmak için Ekle **Inputendpoint** alt öğeye **uç noktaları** web veya çalışan rolü öğesidir.
+toocreate bir giriş uç noktası ekleme hello **Inputendpoint** alt öğesi toohello **uç noktaları** web veya çalışan rolü öğesidir.
 
 ```xml
 <Endpoints>
@@ -37,11 +37,11 @@ Bir giriş uç noktası oluşturmak için Ekle **Inputendpoint** alt öğeye **u
 ```
 
 ## <a name="instance-input-endpoint"></a>Örnek giriş uç noktası
-Örnek giriş uç noktaları uç noktaları ancak verir giriş benzer yük dengeleyicide bağlantı noktası iletme kullanarak her tek rol örneği için belirli genel kullanıma yönelik bağlantı noktalarını eşleme. Tek bir genel kullanıma yönelik bağlantı noktası veya bağlantı noktası aralığını belirtebilirsiniz.
+Örnek giriş uç noktaları benzer tooinput noktalarıdır ancak sağlar hello yük dengeleyicideki bağlantı noktası iletme kullanarak her tek rol örneği için belirli genel kullanıma yönelik bağlantı noktalarını eşleyin. Tek bir genel kullanıma yönelik bağlantı noktası veya bağlantı noktası aralığını belirtebilirsiniz.
 
-Örnek giriş uç noktası yalnızca kullanabilirsiniz **tcp** veya **udp** protokol olarak.
+Merhaba örnek giriş uç noktası yalnızca kullanabilir **tcp** veya **udp** hello protokol olarak.
 
-Bir örnek giriş uç noktası oluşturmak için Ekle **InstanceInputEndpoint** alt öğeye **uç noktaları** web veya çalışan rolü öğesidir.
+toocreate bir örnek giriş uç noktası, ekleme hello **InstanceInputEndpoint** alt öğesi toohello **uç noktaları** web veya çalışan rolü öğesidir.
 
 ```xml
 <Endpoints>
@@ -54,11 +54,11 @@ Bir örnek giriş uç noktası oluşturmak için Ekle **InstanceInputEndpoint** 
 ```
 
 ## <a name="internal-endpoint"></a>İç bitiş noktası
-İç uç noktalar örneği, örnek iletişimi için kullanılabilir. Bağlantı noktası isteğe bağlıdır ve atlanırsa, dinamik bir bağlantı noktası bitiş noktasına atanır. Bir bağlantı noktası aralığı kullanılabilir. Beş iç uç noktalar için rol başına bir sınır yoktur.
+İç uç noktalar örneği, örnek iletişimi için kullanılabilir. başlangıç bağlantı noktası isteğe bağlıdır ve atlanırsa, dinamik bir bağlantı noktası toohello endpoint atanır. Bir bağlantı noktası aralığı kullanılabilir. Beş iç uç noktalar için rol başına bir sınır yoktur.
 
-Dahili uç noktayı aşağıdaki protokolleri kullanabilirsiniz: **http, tcp, udp herhangi**.
+Merhaba dahili uç noktayı protokolleri aşağıdaki hello kullanabilirsiniz: **http, tcp, udp herhangi**.
 
-Bir iç giriş uç noktası oluşturmak için Ekle **InternalEndpoint** alt öğeye **uç noktaları** web veya çalışan rolü öğesidir.
+toocreate bir iç giriş uç noktası ekleme hello **InternalEndpoint** alt öğesi toohello **uç noktaları** web veya çalışan rolü öğesidir.
 
 ```xml
 <Endpoints>
@@ -78,39 +78,39 @@ Bir bağlantı noktası aralığı de kullanabilirsiniz.
 
 
 ## <a name="worker-roles-vs-web-roles"></a>Çalışan rollerini vs. Web rolleri
-Worker ve web rolleri ile çalışırken, uç noktaları küçük bir fark yoktur. Web rolü en azından kullanarak bir tek giriş uç noktası olmalıdır **HTTP** protokolü.
+Worker ve web rolleri ile çalışırken, uç noktaları küçük bir fark yoktur. Merhaba web rolü en azından hello kullanarak tek bir giriş uç noktası olmalıdır **HTTP** protokolü.
 
 ```xml
 <Endpoints>
   <InputEndpoint name="StandardWeb" protocol="http" port="80" localPort="80" />
-  <!-- more endpoints may be declared after the first InputEndPoint -->
+  <!-- more endpoints may be declared after hello first InputEndPoint -->
 </Endpoints>
 ```
 
-## <a name="using-the-net-sdk-to-access-an-endpoint"></a>Bir uç noktasına erişmek için .NET SDK kullanarak
-Azure yönetilen kitaplık çalışma zamanında iletişim kurmak rol örnekleri için yöntemleri sağlar. İçinde bir rol örneği çalıştıran kodundan, diğer rol örneklerine ve kendi uç noktaları varlığını hakkında bilgi ve geçerli rol örneğiyle ilgili bilgiler alabilirsiniz.
+## <a name="using-hello-net-sdk-tooaccess-an-endpoint"></a>Merhaba .NET SDK'sı tooaccess bir uç nokta kullanma
+Hello Azure yönetilen kitaplık çalışma zamanında rol örnekleri toocommunicate için yöntemleri sağlar. İçinde bir rol örneği çalıştıran koddan hello varlığını diğer rol örnekleri ve bunların uç noktalar hakkında bilgi ve hello geçerli rol örneği hakkında bilgi alabilirsiniz.
 
 > [!NOTE]
 > Yalnızca bulut hizmetiniz çalıştıran ve en az bir iç uç nokta tanımlayan rol örnekleri hakkında bilgi alabilirsiniz. Farklı bir hizmet olarak çalışan rolü örnekleri hakkında veri alınamıyor.
 > 
 > 
 
-Kullanabileceğiniz [örnekleri](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) özelliği bir rolün örnekleri alınamadı. İlk kez kullanan [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) geçerli rol örneğine başvuru dönmek ve daha sonra kullanmak için [rol](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) rol bir başvuru döndürmek için özellik.
+Merhaba kullanabilirsiniz [örnekleri](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) özelliği tooretrieve bir rolün örnekleri. İlk hello kullan [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) tooreturn bir başvuru toohello geçerli rol örneği ve hello kullan [rol](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) özelliği tooreturn başvuru toohello rol kendisi.
 
-.NET SDK'sı aracılığıyla programlı olarak bir rol örneği bağlandığınızda, uç nokta bilgileri erişim oldukça kolaydır. Örneğin, belirli bir rol ortamına zaten bağlandıktan sonra bu kod ile belirli bir uç bağlantı noktasını alabilirsiniz:
+Tooa rol örneği program aracılığıyla hello .NET SDK'sı bağlanıyorsa, görece olarak daha kolay tooaccess hello uç nokta bilgileri önerilir. Örneğin, tooa belirli rol ortamı zaten bağlandıktan sonra kodu içeren belirli bir uç noktası başlangıç bağlantı noktası alabilirsiniz:
 
 ```csharp
 int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].IPEndpoint.Port;
 ```
 
-**Örnekleri** özelliği bir koleksiyonunu döndürür **RoleInstance** nesneleri. Bu koleksiyon her zaman geçerli örneğini içerir. Rol iç uç nokta tanımlamıyorsa, koleksiyonu geçerli örneği, ancak başka bir örnek içerir. Koleksiyon rol örneği sayısı her zaman 1 iç bitiş noktası rolü için tanımlandığı durumda olacaktır. Rol iç uç nokta tanımlıyorsa, onun örneklerinin çalışma zamanında bulunabilir ve koleksiyon örneği sayısı, rol hizmeti yapılandırma dosyasında belirtilen örnek sayısı karşılık gelir.
+Merhaba **örnekleri** özelliği bir koleksiyonunu döndürür **RoleInstance** nesneleri. Bu koleksiyon her zaman hello geçerli örneğini içerir. Merhaba rol iç uç nokta tanımlamıyorsa hello koleksiyon hello geçerli örneği, ancak başka bir örnek içerir. Merhaba sayıda rol örneği hello koleksiyondaki her zaman 1 iç bitiş noktası hello rolü için tanımlandığı hello durumda olacaktır. Merhaba rol iç uç nokta tanımlıyorsa, onun örneklerinin çalışma zamanında bulunabilir ve hello koleksiyonu örneği hello sayısı toohello hello hizmet yapılandırma dosyasında hello rolü için belirtilen örneklerinin sayısını karşılık gelir.
 
 > [!NOTE]
-> Azure yönetilen kitaplığı, diğer rol örneklerine durumunu belirlemek için bir araç sağlamaz, ancak hizmetiniz bu işlevsellik gerektiriyorsa, bu tür sistem durumu değerlendirmesi kendiniz uygulayabilirsiniz. Kullanabileceğiniz [Azure tanılama](cloud-services-dotnet-diagnostics.md) rol örnekleri çalıştırma hakkında bilgi edinmek için.
+> Hello Azure yönetilen kitaplığı, diğer rol örneklerine hello durumunu belirlemek için bir araç sağlamaz, ancak hizmetiniz bu işlevsellik gerektiriyorsa, bu tür sistem durumu değerlendirmesi kendiniz uygulayabilirsiniz. Kullanabileceğiniz [Azure tanılama](cloud-services-dotnet-diagnostics.md) rol örnekleri çalıştırma hakkında bilgi tooobtain.
 > 
 > 
 
-Bir rol örneğinde iç uç nokta bağlantı noktası numarasını belirlemek için kullanabileceğiniz [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) uç nokta adlarını ve karşılık gelen IP içeren bir sözlük nesnesi adresleri döndürmek için özellik ve bağlantı noktaları. [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) özelliği, belirtilen bir uç noktası için bağlantı noktası ve IP adresi döndürür. **PublicIPEndpoint** özelliği, bir yük dengeli uç noktası için bağlantı noktası döndürür. IP adresi kısmını **PublicIPEndpoint** özelliği kullanılamıyor.
+toodetermine hello bağlantı noktası numarası bir rol örneğinde iç uç nokta için kullanabileceğiniz hello [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) özelliği tooreturn uç nokta adlarını ve karşılık gelen IP içeren bir sözlük nesnesi adresleri ve bağlantı noktaları. Merhaba [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) özelliği, başlangıç IP adresi ve belirtilen bir uç noktası için bağlantı noktası döndürür. Merhaba **PublicIPEndpoint** özelliği, bir yük dengeli uç noktası için başlangıç bağlantı noktası döndürür. Başlangıç IP adresi hello kısmını **PublicIPEndpoint** özelliği kullanılamıyor.
 
 Rol örnekleri tekrarlanan örnek aşağıda verilmiştir.
 
@@ -125,10 +125,10 @@ foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Insta
 }
 ```
 
-Burada gösterilen uç noktası hizmet tanımını alır ve bağlantıları dinlemeyi başlatır çalışan rolü bir örneğidir.
+Merhaba hizmet tanımı kullanıma sunulan hello endpoint alır ve bağlantıları dinlemeyi başlatır çalışan rolü bir örneği burada verilmiştir.
 
 > [!WARNING]
-> Bu kod yalnızca dağıtılan bir hizmet olarak çalışır. Azure işlem öykünücüsü ' çalıştırırken, doğrudan bağlantı noktası uç noktaları oluşturma yapılandırma öğelerini service (**InstanceInputEndpoint** öğeleri) göz ardı edilir.
+> Bu kod yalnızca dağıtılan bir hizmet olarak çalışır. Doğrudan bağlantı noktası uç noktaları oluşturma yapılandırma öğeleri Hello Azure işlem öykünücüsü çalıştırırken, hizmet (**InstanceInputEndpoint** öğeleri) göz ardı edilir.
 > 
 > 
 
@@ -167,7 +167,7 @@ namespace WorkerRole1
         var listener = new Socket(
           myInternalEp.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
 
-        // Bind socket listener to internal endpoint and listen
+        // Bind socket listener toointernal endpoint and listen
         listener.Bind(myInternalEp);
         listener.Listen(10);
         Trace.TraceInformation("Listening on IP:{0},Port: {1}",
@@ -175,7 +175,7 @@ namespace WorkerRole1
 
         while (true)
         {
-          // Block the thread and wait for a client request
+          // Block hello thread and wait for a client request
           Socket handler = listener.Accept();
           Trace.TraceInformation("Client request received.");
 
@@ -205,23 +205,23 @@ namespace WorkerRole1
 
     public override bool OnStart()
     {
-      // Set the maximum number of concurrent connections 
+      // Set hello maximum number of concurrent connections 
       ServicePointManager.DefaultConnectionLimit = 12;
 
       // For information on handling configuration changes
-      // see the MSDN topic at http://go.microsoft.com/fwlink/?LinkId=166357.
+      // see hello MSDN topic at http://go.microsoft.com/fwlink/?LinkId=166357.
       return base.OnStart();
     }
   }
 }
 ```
 
-## <a name="network-traffic-rules-to-control-role-communication"></a>Rol iletişimi denetlemek için ağ trafiği kuralları
-İç uç noktalar tanımladıktan sonra rol örnekleri birbirleri ile nasıl iletişim kurabilir denetimine (oluşturduğunuz uç noktalarda bağlı olarak) ağ trafiği kuralları ekleyebilirsiniz. Aşağıdaki diyagramda rol iletişimi denetlemek için bazı yaygın senaryolar gösterilmektedir:
+## <a name="network-traffic-rules-toocontrol-role-communication"></a>Ağ trafiği kuralları toocontrol rol iletişimi
+İç uç noktalar tanımladıktan sonra ağ trafiği kuralları (oluşturduğunuz hello uç noktalarda bağlı olarak) toocontrol rol örnekleri birbirleri ile nasıl iletişim kurabilir ekleyebilirsiniz. Merhaba Aşağıdaki diyagramda rol iletişimi denetlemek için bazı yaygın senaryolar gösterilmektedir:
 
 ![Ağ trafik kuralı senaryoları](./media/cloud-services-enable-communication-role-instances/scenarios.png "ağ trafik kuralı senaryoları")
 
-Aşağıdaki kod örneğinde, önceki diyagramda gösterildiği rol için rol tanımları gösterir. Her rol tanımı tanımlanan en az bir dahili uç noktayı içerir:
+Merhaba aşağıdaki kod örneğinde rol tanımları hello önceki diyagramda gösterildiği hello rolleri için gösterir. Her rol tanımı tanımlanan en az bir dahili uç noktayı içerir:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -257,10 +257,10 @@ Aşağıdaki kod örneğinde, önceki diyagramda gösterildiği rol için rol ta
 > 
 > 
 
-İç uç nokta tanımlandıktan sonra varsayılan olarak, herhangi bir kısıtlama olmadan bir rolü iç uç noktası için herhangi bir rolü iletişimi akabilir. İletişim kısıtlamak için eklemelisiniz bir **NetworkTrafficRules** öğesine **ServiceDefinition** hizmet tanımı dosyasındaki öğesi.
+İç uç nokta tanımlandıktan sonra varsayılan olarak, herhangi bir rolün herhangi bir kısıtlamanın olmadığı rol toohello iç uç noktasından iletişimi akabilir. toorestrict iletişim eklemelisiniz bir **NetworkTrafficRules** öğesi toohello **ServiceDefinition** hello hizmet tanımı dosyasındaki öğesi.
 
 ### <a name="scenario-1"></a>Senaryo 1
-Yalnızca gelen ağ trafiğinin izin **WebRole1** için **WorkerRole1**.
+Yalnızca gelen ağ trafiğinin izin **WebRole1** çok**WorkerRole1**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -279,7 +279,7 @@ Yalnızca gelen ağ trafiğinin izin **WebRole1** için **WorkerRole1**.
 ```
 
 ### <a name="scenario-2"></a>Senaryo 2
-Yalnızca gelen ağ trafiğine izin verir **WebRole1** için **WorkerRole1** ve **WorkerRole2**.
+Yalnızca gelen ağ trafiğine izin verir **WebRole1** çok**WorkerRole1** ve **WorkerRole2**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -298,7 +298,7 @@ Yalnızca gelen ağ trafiğine izin verir **WebRole1** için **WorkerRole1** ve 
 ```
 
 ### <a name="scenario-3"></a>Senaryo 3
-Yalnızca gelen ağ trafiğine izin verir **WebRole1** için **WorkerRole1**, ve **WorkerRole1** için **WorkerRole2**.
+Yalnızca gelen ağ trafiğine izin verir **WebRole1** çok**WorkerRole1**, ve **WorkerRole1** çok**WorkerRole2**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -327,7 +327,7 @@ Yalnızca gelen ağ trafiğine izin verir **WebRole1** için **WorkerRole1**, ve
 ```
 
 ### <a name="scenario-4"></a>Senaryo 4
-Yalnızca gelen ağ trafiğine izin verir **WebRole1** için **WorkerRole1**, **WebRole1** için **WorkerRole2**, ve **WorkerRole1**  için **WorkerRole2**.
+Yalnızca gelen ağ trafiğine izin verir **WebRole1** çok**WorkerRole1**, **WebRole1** çok**WorkerRole2**, ve  **WorkerRole1** çok**WorkerRole2**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -367,8 +367,8 @@ Yalnızca gelen ağ trafiğine izin verir **WebRole1** için **WorkerRole1**, **
 </ServiceDefinition>
 ```
 
-Yukarıda kullanılan öğeleri için bir XML Şeması Başvurusu bulunabilir [burada](https://msdn.microsoft.com/library/azure/gg557551.aspx).
+Yukarıda kullanılan hello öğeleri için bir XML Şeması Başvurusu bulunabilir [burada](https://msdn.microsoft.com/library/azure/gg557551.aspx).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bulut hizmeti hakkında daha fazla bilgiyi [modeli](cloud-services-model-and-package.md).
+Bulut hizmeti hakkında daha fazlasını okuyun hello [modeli](cloud-services-model-and-package.md).
 

@@ -1,6 +1,6 @@
 ---
-title: "Machine Learning web hizmetini dağıtma | Microsoft Docs"
-description: "Tahmine dayalı bir deneme eğitim denemenizi dönüştürmek, dağıtım için hazırlanma, sonra bir Azure Machine Learning web hizmeti olarak dağıtabilir nasıl."
+title: bir Machine Learning web hizmeti aaaDeploy | Microsoft Docs
+description: "Tooa Tahmine dayalı denemeye tooconvert eğitim denemeler nasıl dağıtım için hazırlamak ve ardından bir Azure Machine Learning web hizmeti olarak dağıtın."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,176 +14,176 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
-ms.openlocfilehash: 39761f94efc530452a41ef9f2130976803cff711
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9cb7af637632b2c3688c11483f29cf24df8fd065
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Azure Machine Learning web hizmeti dağıtma
-Azure Machine Learning, derleme, test ve Tahmine dayalı analitik çözümleri dağıtmanızı sağlar.
+Azure Machine Learning toobuild sağlar, test ve Tahmine dayalı analitik çözümleri dağıtın.
 
 Bir üst düzey noktası-in-görünümden, bu üç adımda gerçekleştirilir:
 
-* **[Eğitim denemenizi oluşturma]**  -Azure Machine Learning Studio olduğu eğitmek ve sağladığınız eğitim verileri kullanarak bir Tahmine dayalı bir analiz modeli test etmek için kullandığınız bir işbirliğine dayalı görsel geliştirme ortamı.
-* **[Tahmine dayalı bir deneme Dönüştür]**  -modelinizi var olan verilerle eğitilmiş ve yeni verilerinizi puanlamada için kullanıma hazır sonra hazırlamak ve denemenizi Öngörüler için kolaylaştırır.
-* **[Web hizmeti olarak dağıtabilir]**  -Tahmine dayalı denemenizi olarak dağıttığınız bir [yeni] veya [Klasik] Azure web hizmeti. Kullanıcıların modelinize veri gönderebilir ve modelinizin tahminleri alabilirsiniz.
+* **[Eğitim denemenizi oluşturma]**  -Azure Machine Learning Studio tootrain kullanın ve Tahmine dayalı bir analiz test işbirliği görsel geliştirme ortamı olduğundan, sağladığınız eğitim verilerini kullanarak modeli.
+* **[Tooa Tahmine dayalı denemeye Dönüştür]**  - modelinizi var olan verilerle eğitilmiş ve hazır toouse olduğunuz sonra onu tooscore yeni verileri hazırlamak ve denemenizi Öngörüler için kolaylaştırmak.
+* **[Web hizmeti olarak dağıtabilir]**  -Tahmine dayalı denemenizi olarak dağıttığınız bir [yeni] veya [Klasik] Azure web hizmeti. Kullanıcıların veri tooyour modeli gönderip modelinizin tahminleri alabilirsiniz.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## <a name="create-a-training-experiment"></a>Eğitim denemenizi oluşturma
-Tahmine dayalı bir analiz modeli eğitmek için Azure Machine Learning Studio'da eğitim denemenizi oluşturmak için eğitim verileri yüklemek, verileri gereken şekilde hazırlama, machine learning algoritmaları uygulamak ve sonuçları değerlendirin çeşitli modülleri dahil olduğu kullanın. Bir deneme üzerinde yinelemek ve karşılaştırmak ve sonuçları değerlendirmek için başka bir makine öğrenimi algoritmalarını deneyin.
+tootrain bir Tahmine dayalı bir analiz modeli, Azure Machine Learning Studio'da toocreate Burada, çeşitli modülleri tooload eğitim verileri dahil etmek, hello verileri gereken şekilde hazırlayın, machine learning algoritmaları uygulamak ve hello sonuçları değerlendirin eğitim denemenizi kullanın . Bir deneme üzerinde yinelemek ve farklı makine öğrenimi algoritmaları toocompare deneyin ve hello sonuçları değerlendirin.
 
-Oluşturma ve eğitim denemeler yönetme sürecini daha kapsamlı başka bir yere ele alınmıştır. Daha fazla bilgi için bu makalelere bakın:
+oluşturma ve eğitim denemeler yönetme hello sürecini daha kapsamlı başka bir yere ele alınmıştır. Daha fazla bilgi için bu makalelere bakın:
 
 * [Azure Machine Learning Studio'da basit bir deneme oluşturma](machine-learning-create-experiment.md)
 * [Azure Machine Learning ile Tahmine dayalı bir çözüm geliştirme](machine-learning-walkthrough-develop-predictive-solution.md)
 * [Azure Machine Learning Studio'ya eğitim verilerinizi alın](machine-learning-data-science-import-data.md)
 * [Azure Machine Learning Studio'da deneme yinelemelerini yönetme](machine-learning-manage-experiment-iterations.md)
 
-## <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Tahmine dayalı bir deneme eğitim denemenizi Dönüştür
-Modelinizi eğittiğimize sonra yeni verilerinizi puanlamada için Tahmine dayalı bir deneme eğitim denemenizi dönüştürmek hazırsınız.
+## <a name="convert-hello-training-experiment-tooa-predictive-experiment"></a>Merhaba eğitim deneme tooa Tahmine dayalı denemeye Dönüştür
+Modelinizi eğittiğimize sonra eğitim denemeler bir tahmini deneme tooscore yeni verilere hazır tooconvert demektir.
 
-Tahmine dayalı bir deneme dönüştürerek, eğitilen modeli Puanlama bir web hizmeti olarak dağıtılmaya hazır alıyorsunuz. Kullanıcılar web hizmetinin modelinize giriş veri gönderebilir ve modelinizi tahmin sonuçlarını geri gönderir. Tahmine dayalı bir deneme dönüştürme gibi modelinizin başkaları tarafından kullanılmak üzere nasıl beklediğiniz göz önünde bulundurun.
+Tahmine dayalı tooa dönüştürerek denemeler, Puanlama bir web hizmeti olarak dağıtılmış, eğitilen model hazır toobe alıyorsunuz. Merhaba web hizmetinin kullanıcılar, giriş veri tooyour modeli ve modelinizi geri hello tahmin sonuçlarını gönderir gönderebilir. Dönüştürdüğünüz gibi tooa Tahmine dayalı denemeler, başkaları tarafından kullanılan, model toobe nasıl beklediğiniz göz önünde bulundurun.
 
-Tahmine dayalı bir deneme eğitim denemenizi dönüştürmek için tıklatın **çalıştırmak** deneme tuvalinin altındaki tıklatın **Web hizmetinin ayarı**seçeneğini belirleyip **Tahmine dayalı Web hizmeti**.
+tooconvert Tahmine dayalı, eğitim deneme tooa denemeler, tıklatın **çalıştırmak** hello deneme tuvalinin hello altındaki tıklatın **Web hizmetinin ayarı**seçeneğini belirleyip **Tahmine dayalı Web hizmeti** .
 
-![Deneme Puanlama için Dönüştür](./media/machine-learning-publish-a-machine-learning-web-service/figure-1.png)
+![Tooscoring deneme Dönüştür](./media/machine-learning-publish-a-machine-learning-web-service/figure-1.png)
 
-Bu dönüştürme gerçekleştirme hakkında daha fazla bilgi için bkz: [modelinizi Azure Machine Learning Studio'da dağıtımına hazırlamak nasıl](machine-learning-convert-training-experiment-to-scoring-experiment.md).
+Hakkında daha fazla bilgi için tooperform bu dönüştürme bkz [nasıl tooprepare modelinizi Azure Machine Learning Studio'daki dağıtımı için](machine-learning-convert-training-experiment-to-scoring-experiment.md).
 
-Aşağıdaki adımlar, Tahmine dayalı bir deneme yeni bir web hizmeti olarak dağıtma açıklamaktadır. Ayrıca, denemeler Klasik web hizmeti olarak dağıtabilirsiniz.
+Merhaba aşağıdaki adımlar bir tahmini deneme yeni bir web hizmeti olarak dağıtma açıklar. Merhaba deneme Klasik web hizmeti olarak da dağıtabilirsiniz.
 
 ## <a name="deploy-it-as-a-web-service"></a>Bir web hizmeti olarak dağıtma
 
-Tahmine dayalı denemeye yeni bir web hizmeti veya bir Klasik web hizmeti olarak dağıtabilirsiniz.
+Merhaba Tahmine dayalı denemeye yeni bir web hizmeti veya bir Klasik web hizmeti olarak dağıtabilirsiniz.
 
-### <a name="deploy-the-predictive-experiment-as-a-new-web-service"></a>Tahmine dayalı denemeye yeni bir web hizmeti olarak dağıtma
-Tahmine dayalı denemeye hazır, yeni bir Azure web hizmeti olarak dağıtabilirsiniz. Web hizmetini kullanarak, kullanıcılar modelinize veri gönderebilir ve model kendi tahminleri döndürür.
+### <a name="deploy-hello-predictive-experiment-as-a-new-web-service"></a>Yeni bir web hizmeti olarak Hello tahmini deneme dağıtma
+Merhaba Tahmine dayalı denemeye hazır, yeni bir Azure web hizmeti olarak dağıtabilirsiniz. Merhaba web hizmetini kullanarak, kullanıcılar veri tooyour modeli gönderebilir ve hello modeli kendi tahminleri döndürür.
 
-Tahmine dayalı denemenizi dağıtmak için **çalıştırmak** deneme tuvalinin altındaki. Denemeyi çalışması bittikten sonra tıklayın **Web hizmeti Dağıt** seçip **Web hizmeti Dağıt [yeni]**.  Machine Learning Web hizmeti portal'ın dağıtım sayfası açılır.
+toodeploy, Tahmine dayalı denemeler, tıklatın **çalıştırmak** tuvale hello hello sonunda deneme. Merhaba deneme çalışması bittikten sonra tıklayın **Web hizmeti Dağıt** seçip **Web hizmeti Dağıt [yeni]**.  Merhaba Machine Learning Web hizmeti portal Hello dağıtım sayfasını açar.
 
 > [!NOTE] 
-> Yeni bir web hizmeti dağıtmak için yeterli izinleri olan Abonelikteki, web hizmetini dağıtma olmalıdır. Daha fazla bilgi için [Azure Machine Learning Web Hizmetleri Portalı'nı kullanarak bir Web hizmetini yönetmek](machine-learning-manage-new-webservice.md). 
+> toodeploy yeni bir web hizmeti yeterli izniniz hello abonelik toowhich, hello web Hizmeti'ni dağıtma olması gerekir. Daha fazla bilgi için [hello Azure Machine Learning Web Hizmetleri portalı kullanarak bir Web hizmeti yönetmek](machine-learning-manage-new-webservice.md). 
 
 #### <a name="machine-learning-web-service-portal-deploy-experiment-page"></a>Machine Learning Web hizmeti portal dağıtma deneme sayfası
-Deneme dağıtma sayfasında web hizmeti için bir ad girin.
-Fiyatlandırma planı seçin. Aksi takdirde, seçebilirsiniz varolan bir fiyatlandırma planı varsa, hizmet için yeni bir fiyat planı oluşturmanız gerekir.
+Merhaba dağıtmak deneme sayfasında hello web hizmeti için bir ad girin.
+Fiyatlandırma planı seçin. Aksi takdirde, seçebilirsiniz varolan bir fiyatlandırma planı varsa, hello hizmet için yeni bir fiyat planı oluşturmanız gerekir.
 
-1. İçinde **fiyat planı** açılan, var olan bir planı veya seçin **Select yeni plan** seçeneği.
-2. İçinde **Plan adı**, plan faturanızı üzerinde tanımlayacak bir ad yazın.
-3. Aşağıdakilerden birini seçin **aylık Plan katmanlarını**. Varsayılan bölgeniz ve web hizmetiniz için planlara planı katmanları varsayılan bu bölgeye dağıtılır.
+1. Merhaba, **fiyat planı** açılan, var olan bir planı veya seçin hello **Select yeni plan** seçeneği.
+2. İçinde **Plan adı**, faturanızı hello planına tanımlayacak bir ad yazın.
+3. Merhaba birini **aylık Plan katmanlarını**. Katmanları toohello planları varsayılan bölgeniz ve web hizmetiniz için varsayılan hello planı dağıtılan toothat bölgedir.
 
-Tıklatın **dağıtma** ve **Hızlı Başlangıç** web hizmetiniz için sayfası açılır.
+Tıklatın **dağıtma** ve hello **Hızlı Başlangıç** web hizmetiniz için sayfası açılır.
 
-Web hizmeti hızlı başlangıç sayfası bir web hizmeti oluşturduktan sonra gerçekleştirecek en yaygın görevleri erişim ve rehberlik sağlar. Buradan, Test sayfası ve Tüket sayfa kolayca erişebilirsiniz.
+Hello web hizmeti hızlı başlangıç sayfası hello en yaygın görevler, bir web hizmeti oluşturduktan sonra gerçekleştireceksiniz erişim ve rehberlik sağlar. Buradan, hello Test sayfası ve Tüket sayfası kolayca erişebilirsiniz.
 
-<!-- ![Deploy the web service](./media/machine-learning-publish-a-machine-learning-web-service/figure-2.png)-->
+<!-- ![Deploy hello web service](./media/machine-learning-publish-a-machine-learning-web-service/figure-2.png)-->
 
 #### <a name="test-your-new-web-service"></a>Yeni web hizmetinizi test
-Yeni web hizmetinizi sınamak için **Test web hizmeti** Ortak Görevler'in altında. Test sayfası üzerinde web hizmetiniz bir istek-yanıt hizmeti'olarak (RR) veya toplu iş yürütme hizmeti (BES) test edebilirsiniz.
+tootest yeni web hizmetinizi tıklatın **Test web hizmeti** Ortak Görevler'in altında. Merhaba Test sayfasında, web hizmetiniz bir istek-yanıt hizmeti'olarak (RR) veya toplu iş yürütme hizmeti (BES) test edebilirsiniz.
 
-RRS test sayfası girişleri ve çıkışları deneme için tanımladığınız genel parametreleri görüntüler. Web hizmeti sınamak için el ile girişleri için uygun değerleri girebilir veya test değerlerini içeren bir virgülle ayrılmış değer (CSV) biçimlendirilmiş bir dosya belirtin.
+Merhaba RRS test sayfası hello giriş, çıkış ve hello deneme için tanımladığınız genel parametreleri görüntüler. tootest hello web hizmeti, el ile uygun değerleri hello girişleri veya kaynağı için hello test değerlerini içeren bir virgülle ayrılmış değer (CSV) biçimlendirilmiş bir dosya girebilirsiniz.
 
-RRS kullanarak test etmek için liste görünümü modundan girişleri için uygun değerleri girin ve **Test istek-yanıt**. Sol çıkış sütununda tahmin sonuçlarını görüntüler.
+RRS, kullanarak tootest hello liste görünümü modundan hello girişleri için uygun değerleri girin ve tıklayın **Test istek-yanıt**. Tahmin sonuçlarınızı hello çıkış sütunu toohello sol içinde görüntüler.
 
-![Web hizmetini dağıtma](./media/machine-learning-publish-a-machine-learning-web-service/figure-5-test-request-response.png)
+![Merhaba web hizmetini dağıtma](./media/machine-learning-publish-a-machine-learning-web-service/figure-5-test-request-response.png)
 
-BES sınamak için **toplu**. Toplu test sayfasında girişinizi altında Gözat'ı tıklatın ve uygun örnek değerler içeren bir CSV dosyası seçin. Bir CSV dosyası yok ve Machine Learning Studio kullanarak Tahmine dayalı denemenizi oluşturulan veri kümesi için Tahmine dayalı denemenizi indirin ve kullanın.
+tootest, BES tıklatın **toplu**. Merhaba toplu test sayfasında girişinizi altında Gözat'ı tıklatın ve uygun örnek değerler içeren bir CSV dosyası seçin. Bir CSV dosyası yok ve Machine Learning Studio kullanarak Tahmine dayalı denemenizi oluşturulan, hello veri kümesi için Tahmine dayalı denemenizi indirin ve kullanın.
 
-Veri kümesi indirmek için Machine Learning Studio'da açın. Tahmine dayalı denemenizi açın ve denemeniz için giriş sağ tıklayın. Bağlam menüsünden seçin **dataset** ve ardından **karşıdan**.
+toodownload hello veri kümesi, açık Machine Learning Studio. Tahmine dayalı denemenizi açın ve denemeniz için giriş hello sağ tıklayın. Merhaba bağlam menüsünden seçin **dataset** ve ardından **karşıdan**.
 
-![Web hizmetini dağıtma](./media/machine-learning-publish-a-machine-learning-web-service/figure-7-mls-download.png)
+![Merhaba web hizmetini dağıtma](./media/machine-learning-publish-a-machine-learning-web-service/figure-7-mls-download.png)
 
-Tıklatın **Test**. Toplu iş yürütme iş durumunu görüntüler altında sağındaki **Test toplu işlerini**.
+Tıklatın **Test**. Toplu iş yürütme işinizi Hello durumunu görüntüler toohello sağ altında **Test toplu işlerini**.
 
-![Web hizmetini dağıtma](./media/machine-learning-publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
+![Merhaba web hizmetini dağıtma](./media/machine-learning-publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
 
-<!--![Test the web service](./media/machine-learning-publish-a-machine-learning-web-service/figure-3.png)-->
+<!--![Test hello web service](./media/machine-learning-publish-a-machine-learning-web-service/figure-3.png)-->
 
-Üzerinde **yapılandırma** sayfası, başlığı açıklamasını değiştirmek, depolama hesabı anahtarı güncelleştirmek ve web hizmetiniz için örnek verileri etkinleştir.
+Merhaba üzerinde **yapılandırma** sayfasında, hello açıklamasını değiştirmek, başlık, güncelleştirme hello depolama hesabı anahtarı ve web hizmetiniz için örnek verileri etkinleştirin.
 
-![Web hizmetini yapılandır](./media/machine-learning-publish-a-machine-learning-web-service/figure-8-arm-configure.png)
+![Merhaba web hizmetini yapılandır](./media/machine-learning-publish-a-machine-learning-web-service/figure-8-arm-configure.png)
 
-Web hizmeti dağıttıktan sonra sonra şunları yapabilirsiniz:
+Merhaba web hizmeti dağıttıktan sonra sonra şunları yapabilirsiniz:
 
-* **Erişim** web hizmeti API'si üzerinden.
-* **Yönetme** Azure Machine Learning web hizmetleri portalı veya Klasik Azure portalı üzerinden.
+* **Erişim** hello web hizmeti API'si üzerinden.
+* **Yönetme** üzerinden Azure Machine Learning web hizmetleri portalı veya Klasik Azure portalı hello.
 * **Güncelleştirme** , modelinizi değişirse.
 
 #### <a name="access-your-new-web-service"></a>Yeni web hizmetine erişim
-Machine Learning Studio'dan web hizmetini dağıtma sonra hizmete veri göndermek ve yanıtları program aracılığıyla alırsınız.
+Machine Learning Studio'dan web hizmetini dağıttığınızda, veri toohello hizmeti gönderip yanıtları programlı olarak alabilirsiniz.
 
-**Tüket** sayfası, web hizmetinize erişmek gereken tüm bilgileri sağlar. Örneğin, API anahtarı, hizmet yetkili erişmesine izin vermek için sağlanır.
+Merhaba **Tüket** sayfası, web hizmetiniz tooaccess gereken tüm hello bilgileri sağlar. Örneğin, hello API anahtarı yetkili tooallow erişim toohello hizmeti sağlanır.
 
-Machine Learning web hizmetine erişim hakkında daha fazla bilgi için bkz: [bir Azure Machine Learning Web hizmeti kullanmak nasıl](machine-learning-consume-web-services.md).
+Machine Learning web hizmetine erişim hakkında daha fazla bilgi için bkz: [nasıl tooconsume bir Azure Machine Learning Web hizmeti](machine-learning-consume-web-services.md).
 
 #### <a name="manage-your-new-web-service"></a>Yeni web hizmetinizi yönetme
-Yeni web hizmetleri Machine Learning Web Hizmetleri portalı yönetebilirsiniz. Gelen [ana portal sayfası](https://services.azureml-test.net/), tıklatın **Web Hizmetleri**. Web Hizmetleri sayfasından silin veya bir hizmet kopyalayın. Belirli bir hizmeti izlemek için hizmete tıklayın ve ardından **Pano**. Web hizmeti ile ilişkili toplu işleri izlemek için tıklatın **toplu isteği günlük**.
+Yeni web hizmetleri Machine Learning Web Hizmetleri portalı yönetebilirsiniz. Merhaba gelen [ana portal sayfası](https://services.azureml-test.net/), tıklatın **Web Hizmetleri**. Merhaba web Hizmetleri sayfasından silin veya bir hizmet kopyalayın. belirli bir hizmeti toomonitor hello hizmete tıklayın ve ardından **Pano**. Merhaba web hizmetiyle ilişkili toomonitor toplu işleri tıklatın **toplu isteği günlük**.
 
-### <a name="deploy-the-predictive-experiment-as-a-classic-web-service"></a>Tahmine dayalı denemeye Klasik web hizmeti olarak dağıtma
+### <a name="deploy-hello-predictive-experiment-as-a-classic-web-service"></a>Merhaba Tahmine dayalı denemeye Klasik web hizmeti olarak dağıtma
 
-Tahmine dayalı denemeye yeterince hazırlandı, Klasik Azure web hizmeti olarak dağıtabilirsiniz. Web hizmetini kullanarak, kullanıcılar modelinize veri gönderebilir ve model kendi tahminleri döndürür.
+Merhaba Tahmine dayalı denemeye yeterince hazırlandı, Klasik Azure web hizmeti olarak dağıtabilirsiniz. Merhaba web hizmetini kullanarak, kullanıcılar veri tooyour modeli gönderebilir ve hello modeli kendi tahminleri döndürür.
 
-Tahmine dayalı denemenizi dağıtmak için **çalıştırmak** alt kısmındaki deneme tuvaline ve ardından **Web hizmeti Dağıt**. Web hizmeti ayarlama ve web hizmeti panosunda yerleştirilir.
+toodeploy, Tahmine dayalı denemeler, tıklatın **çalıştırmak** hello hello altındaki tuvale deneyin ve ardından **Web hizmeti Dağıt**. Merhaba web hizmeti ayarlayın ve hello web hizmeti panosunda yerleştirilir.
 
-![Web hizmetini dağıtma](./media/machine-learning-publish-a-machine-learning-web-service/figure-2.png)
+![Merhaba web hizmetini dağıtma](./media/machine-learning-publish-a-machine-learning-web-service/figure-2.png)
 
 #### <a name="test-your-classic-web-service"></a>Klasik web hizmeti test etme
 
-Machine Learning Web Hizmetleri portalı veya Machine Learning Studio web hizmeti test edebilirsiniz.
+Merhaba Machine Learning Web Hizmetleri portalı veya Machine Learning Studio hello web hizmetini test edebilirsiniz.
 
-İstek yanıtı web hizmeti sınamak için **Test** web hizmeti panosundaki düğmesi. Hizmet için bir giriş verisi sormak için bir iletişim kutusu açılır. Puanlama deney tarafından beklenen sütun bunlar. Bir veri kümesi girin ve ardından **Tamam**. Web hizmeti tarafından oluşturulan sonuçların Pano altında görüntülenir.
+tootest hello istek yanıtı web hizmeti, tıklatın hello **Test** hello web hizmeti panosunda düğmesi. Bir iletişim tooask, hello hizmeti için bir giriş verisi hello açılır. Bu deneme Puanlama hello tarafından beklenen hello sütunlar'dır. Bir veri kümesi girin ve ardından **Tamam**. Merhaba web hizmeti tarafından oluşturulan hello sonuçları hello Pano hello altında görüntülenir.
 
-Tıklayabilirsiniz **Test** yeni web hizmeti bölümünde daha önce gösterildiği gibi Azure Machine Learning Web Hizmetleri portalında hizmetinizi test etmek için Önizleme bağlantı.
+Merhaba tıklayabilirsiniz **Test** hello yeni web hizmeti bölümünde daha önce gösterildiği gibi bağlantı tootest hizmetinizi hello Azure Machine Learning Web Hizmetleri portalında Önizleme.
 
-Toplu yürütme hizmeti sınamak için **Test** Önizleme bağlantı. Toplu test sayfasında girişinizi altında Gözat'ı tıklatın ve uygun örnek değerler içeren bir CSV dosyası seçin. Bir CSV dosyası yok ve Machine Learning Studio kullanarak Tahmine dayalı denemenizi oluşturulan veri kümesi için Tahmine dayalı denemenizi indirin ve kullanın.
+tootest hello toplu yürütme hizmeti,'ı tıklatın **Test** Önizleme bağlantı. Merhaba toplu test sayfasında girişinizi altında Gözat'ı tıklatın ve uygun örnek değerler içeren bir CSV dosyası seçin. Bir CSV dosyası yok ve Machine Learning Studio kullanarak Tahmine dayalı denemenizi oluşturulan, hello veri kümesi için Tahmine dayalı denemenizi indirin ve kullanın.
 
-![Web hizmetini sınama](./media/machine-learning-publish-a-machine-learning-web-service/figure-3.png)
+![Test hello web hizmeti](./media/machine-learning-publish-a-machine-learning-web-service/figure-3.png)
 
-Üzerinde **yapılandırma** sayfası, hizmetin görünen adını değiştirebilir ve bir açıklama girin. Ad ve açıklama görüntülenir [Klasik Azure portalı](http://manage.windowsazure.com/) web hizmetlerinizi yöneteceğiniz.
+Merhaba üzerinde **yapılandırma** sayfasında hello hizmetin hello görünen adını değiştirebilir ve bir açıklama girin. Merhaba ad ve açıklama hello görüntülenen [Klasik Azure portalı](http://manage.windowsazure.com/) web hizmetlerinizi yöneteceğiniz.
 
-Bir açıklama giriş verileri, çıktı verilerini ve web hizmeti parametreleri altında her sütun için bir dize girerek sağlayabilirsiniz **giriş ŞEMASINI**, **çıkış ŞEMASI**, ve **Web hizmeti PARAMETRE**. Bu açıklamalar, web hizmeti için sağlanan örnek kodu belgelerinde kullanılır.
+Bir açıklama giriş verileri, çıktı verilerini ve web hizmeti parametreleri altında her sütun için bir dize girerek sağlayabilirsiniz **giriş ŞEMASINI**, **çıkış ŞEMASI**, ve **Web hizmeti PARAMETRE**. Bu açıklamalar hello web hizmeti için sağlanan hello örnek kodu belgelerinde kullanılır.
 
-Web hizmetiniz erişildiğinde, görüyorsunuz hataları tanılamak günlük kaydını etkinleştirebilirsiniz. Daha fazla bilgi için bkz: [Machine Learning web hizmetleri için günlüğe kaydetmeyi etkinleştirmek](machine-learning-web-services-logging.md).
+Web hizmetiniz erişildiğinde görüyorsunuz hatalar günlük toodiagnose etkinleştirebilirsiniz. Daha fazla bilgi için bkz: [Machine Learning web hizmetleri için günlüğe kaydetmeyi etkinleştirmek](machine-learning-web-services-logging.md).
 
-![Web hizmetini yapılandır](./media/machine-learning-publish-a-machine-learning-web-service/figure-4.png)
+![Merhaba web hizmetini yapılandır](./media/machine-learning-publish-a-machine-learning-web-service/figure-4.png)
 
-Yeni web hizmeti bölümünde daha önce gösterilen yordama benzer Azure Machine Learning Web Hizmetleri portalında web hizmeti uç noktalarını da yapılandırabilirsiniz. Seçenekler farklıdır, ekleyebilir veya hizmet açıklaması, etkinleştir günlüğe kaydetme ve test etmek için etkinleştir örnek verileri değiştirebilirsiniz.
+Ayrıca, hello hello yeni web hizmeti bölümünde daha önce gösterilen Azure Machine Learning Web Hizmetleri portalı benzer toohello yordamı hello uç noktaları hello web hizmeti için de yapılandırabilirsiniz. Başlangıç seçenekleri farklıdır, ekleyebilir veya hello hizmet açıklaması, etkinleştirme günlüğe kaydetme ve test etmek için etkinleştir örnek verileri değiştirebilirsiniz.
 
 #### <a name="access-your-classic-web-service"></a>Klasik web hizmetine erişim
-Machine Learning Studio'dan web hizmetini dağıtma sonra hizmete veri göndermek ve yanıtları program aracılığıyla alırsınız.
+Machine Learning Studio'dan web hizmetini dağıttığınızda, veri toohello hizmeti gönderip yanıtları programlı olarak alabilirsiniz.
 
-Pano web hizmetinize erişmek gereken tüm bilgileri sağlar. Örneğin, API anahtarını hizmet yetkili erişmesine izin vermek için sağlanır ve API yardım sayfalarına sağlanan yardımcı olmak için kodunuzu yazmaya başlayın.
+Hello Pano web hizmetiniz tooaccess gereken tüm hello bilgileri sağlar. Örneğin, erişim toohello hizmeti tooallow yetkili ve API yardım sayfalarına kodunuzu yazmaya başlamak toohelp sağlanan hello API anahtarı bulunur.
 
-Machine Learning web hizmetine erişim hakkında daha fazla bilgi için bkz: [bir Azure Machine Learning Web hizmeti kullanmak nasıl](machine-learning-consume-web-services.md).
+Machine Learning web hizmetine erişim hakkında daha fazla bilgi için bkz: [nasıl tooconsume bir Azure Machine Learning Web hizmeti](machine-learning-consume-web-services.md).
 
 #### <a name="manage-your-classic-web-service"></a>Klasik web hizmetinizi yönetme
-Çeşitli gerçekleştirebileceğiniz eylemler vardır bir web hizmeti izlemek için. Güncelleştirin ve silin. Klasik web hizmeti, dağıttığınızda oluşturulan varsayılan uç nokta yanı sıra ek uç noktalar ekleyebilirsiniz.
+Vardır çeşitli eylemleri toomonitor bir web hizmeti gerçekleştirebilirsiniz. Güncelleştirin ve silin. Ek uç noktaları tooa Klasik web hizmeti, dağıttığınızda oluşturduğunuz ek toohello varsayılan uç noktası da ekleyebilirsiniz.
 
-Daha fazla bilgi için bkz: [bir Azure Machine Learning çalışma alanını yönetme](machine-learning-manage-workspace.md) ve [Azure Machine Learning Web Hizmetleri Portalı'nı kullanarak bir web hizmetini yönetmek](machine-learning-manage-new-webservice.md).
+Daha fazla bilgi için bkz: [bir Azure Machine Learning çalışma alanını yönetme](machine-learning-manage-workspace.md) ve [hello Azure Machine Learning Web Hizmetleri portalı kullanarak bir web hizmeti yönetmek](machine-learning-manage-new-webservice.md).
 
-<!-- When this article gets published, fix the link and uncomment
-For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
+<!-- When this article gets published, fix hello link and uncomment
+For more information on how toomanage Azure Machine Learning web service endpoints using hello REST API, see **Azure machine learning web service endpoints**.
 -->
 
-## <a name="update-the-web-service"></a>Web hizmeti güncelleştir
-Model ek eğitim verilerle güncelleştirme gibi web hizmetiniz için değişiklik ve tekrar, özgün web hizmeti üzerine dağıtın.
+## <a name="update-hello-web-service"></a>Merhaba web hizmetini güncelleştirmek
+Ek eğitim verilerle hello modeli güncelleştirme gibi tooyour web hizmeti, değişiklikleri yapın ve tekrar, hello özgün web hizmeti üzerine dağıtın.
 
-Web hizmetini güncelleştirmek için web hizmetini dağıtma ve tıklayarak düzenlenebilir bir kopyasını oluşturmak için kullanılan özgün Tahmine dayalı denemeye açın **SAVE AS**. İstediğiniz değişiklikleri yapın ve ardından **Web hizmeti Dağıt**.
+tooupdate hello web hizmeti açın hello özgün Tahmine dayalı denemeye toodeploy hello web hizmeti kullanılan ve tıklayarak düzenlenebilir bir kopya yapmak **SAVE AS**. İstediğiniz değişiklikleri yapın ve ardından **Web hizmeti Dağıt**.
 
-Bu deneme önce dağıttıktan sonra olduğundan, (Klasik Web hizmeti) üzerine veya (Yeni web hizmeti) hizmetini güncelleştirmek isteyip istemediğinizi istenir. Tıklatarak **Evet** veya **güncelleştirme** varolan web hizmetini durdurur ve yeni dağıtır Tahmine dayalı denemeye onun yerine dağıtılır.
+Bu deneme önce dağıttıktan sonra çünkü toooverwrite (Klasik Web hizmeti) veya güncelleştirme (Yeni web hizmeti) hello varolan hizmet isteyip istemediğinizi istenir. Tıklatarak **Evet** veya **güncelleştirme** hello varolan web hizmetini durdurur ve dağıtır hello yeni Tahmine dayalı denemeye onun yerine dağıtılır.
 
 > [!NOTE]
-> Yapılandırma değişiklikleri özgün web hizmetinde yaptıysanız, örneğin, yeni bir görünen ad veya açıklama girme, bu değerleri yeniden girin gerekir.
+> Yapılandırma değişiklikleri hello özgün web hizmetinde yaptıysanız, örneğin, yeni bir görünen ad veya açıklama girme, tooenter bu değerleri yeniden gerekir.
 > 
 > 
 
-Web hizmeti güncelleştirmek için bir model program aracılığıyla yeniden eğitme seçenektir. Daha fazla bilgi için bkz. [Machine Learning modellerini programlama aracılığıyla yeniden eğitme](machine-learning-retrain-models-programmatically.md).
+Web hizmeti güncelleştirmek için bir seçenek tooretrain hello program aracılığıyla modelidir. Daha fazla bilgi için bkz. [Machine Learning modellerini programlama aracılığıyla yeniden eğitme](machine-learning-retrain-models-programmatically.md).
 
 <!-- internal links -->
 [Eğitim denemenizi oluşturma]: #create-a-training-experiment
-[Tahmine dayalı bir deneme Dönüştür]: #convert-the-training-experiment-to-a-predictive-experiment
+[Tooa Tahmine dayalı denemeye Dönüştür]: #convert-the-training-experiment-to-a-predictive-experiment
 [Web hizmeti olarak dağıtabilir]: #deploy-it-as-a-web-service
 [yeni]: #deploy-the-predictive-experiment-as-a-new-Web-service
 [Klasik]: #deploy-the-predictive-experiment-as-a-new-Web-service

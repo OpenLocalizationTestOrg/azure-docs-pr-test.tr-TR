@@ -1,5 +1,5 @@
 ---
-title: "Otomatik ölçeklendirme için en iyi uygulamaları | Microsoft Docs"
+title: "otomatik ölçeklendirme için aaaBest uygulamaları | Microsoft Docs"
 description: "Azure Web uygulamaları, sanal makine ölçek kümeleri ve bulut Hizmetleri için otomatik ölçeklendirme düzenleri"
 author: anirudhcavale
 manager: orenr
@@ -14,144 +14,144 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: ancav
-ms.openlocfilehash: 54dad831287376db7fb2dc46e4591be1499dc072
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: eb731c15e440af93a2675210583878814d0d8818
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="best-practices-for-autoscale"></a>Otomatik ölçeklendirme için en iyi uygulamalar
-Bu makalede, azure'da otomatik ölçeklendirme için en iyi yöntemler öğretir. Azure İzleyici otomatik ölçeklendirme uygular yalnızca [sanal makine ölçek kümeleri](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [bulut Hizmetleri](https://azure.microsoft.com/services/cloud-services/), ve [uygulama hizmeti - Web Apps](https://azure.microsoft.com/services/app-service/web/). Diğer Azure hizmetleriyle farklı ölçekleme yöntemlerini kullanın.
+Bu makalede, azure'da en iyi yöntemler tooautoscale öğretir. Azure İzleyici otomatik ölçeklendirme uygular yalnızca çok[sanal makine ölçek kümeleri](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [bulut Hizmetleri](https://azure.microsoft.com/services/cloud-services/), ve [uygulama hizmeti - Web Apps](https://azure.microsoft.com/services/app-service/web/). Diğer Azure hizmetleriyle farklı ölçekleme yöntemlerini kullanın.
 
 ## <a name="autoscale-concepts"></a>Otomatik ölçeklendirme kavramları
 * Bir kaynak yalnızca olabilir *bir* otomatik ölçeklendirme ayarı
 * Otomatik ölçeklendirme ayarına sahip olabilir veya daha fazla profilleri ve her bir profili bir veya daha fazla otomatik ölçeklendirme kurallarını sağlayabilirsiniz.
-* Otomatik ölçeklendirme ayarı olduğu örnekleri yatay olarak ölçeklendirir. *çıkışı* örnekleri artırarak ve *içinde* örneklerinin sayısını azaltarak tarafından.
+* Otomatik ölçeklendirme ayarı olduğu örnekleri yatay olarak ölçeklendirir. *çıkışı* hello örnekleri artırarak ve *içinde* hello örneklerinin sayısını azaltarak tarafından.
   Otomatik ölçeklendirme ayarı, maksimum, minimum ve varsayılan değer örneklerinin sahiptir.
-* Otomatik ölçeklendirme iş genişleme veya ölçek bileşenini için yapılandırılmış eşiği aşıldığında değilse denetimi tarafından ölçeklendirmek için ilişkili ölçüm her zaman okur. Listesini görüntüleyebileceğiniz ölçümlerini, otomatik ölçeklendirme tarafından adresindeki ölçeklendirebilirsiniz [Azure İzleyici otomatik ölçeklendirmeyi ortak ölçümleri](insights-autoscale-common-metrics.md).
-* Tüm eşikler bir örnek düzeyinde hesaplanır. Örneğin, "ölçek dışarı 1 örneği tarafından ne zaman ortalama CPU > % 80'e örnek sayısı 2 olduğunda", ortalama CPU tüm örneklerde % 80 ' büyük olduğunda genişleme anlamına gelir.
-* Her zaman e-posta yoluyla bildirimleri hatası alırsınız. Özellikle, sahibi, Katkıda Bulunanlar ve okuyucular hedef kaynağın e-posta alırsınız. Ayrıca her zaman aldığınız bir *kurtarma* otomatik ölçeklendirme bir hatadan kurtarır ve düzgün çalışan başladığında e-posta.
-* Size e-posta ve Web kancalarını başarılı ölçek eylemi bildirim almak için katılımı.
+* Otomatik ölçeklendirme iş her zaman genişleme veya ölçek bileşenini için yapılandırılan eşiği hello taşını hello ölçüm tooscale denetleyerek, ilişkili okur. Listesini görüntüleyebileceğiniz ölçümlerini, otomatik ölçeklendirme tarafından adresindeki ölçeklendirebilirsiniz [Azure İzleyici otomatik ölçeklendirmeyi ortak ölçümleri](insights-autoscale-common-metrics.md).
+* Tüm eşikler bir örnek düzeyinde hesaplanır. Örneğin, "ölçek dışarı 1 örneği tarafından ne zaman ortalama CPU > % 80'e örnek sayısı 2 olduğunda", tüm örneklerde hello ortalama CPU % 80 ' büyük olduğunda genişleme anlamına gelir.
+* Her zaman e-posta yoluyla bildirimleri hatası alırsınız. Özellikle, hello sahibi, Katkıda Bulunanlar ve okuyucular hello hedef kaynağın e-posta alırsınız. Ayrıca her zaman aldığınız bir *kurtarma* otomatik ölçeklendirme bir hatadan kurtarır ve düzgün çalışan başladığında e-posta.
+* Katılımı tooreceive e-posta ve Web kancalarını başarılı ölçek eylemi bildirim.
 
 ## <a name="autoscale-best-practices"></a>Otomatik ölçeklendirme en iyi uygulamalar
-Otomatik ölçeklendirme kullanırken aşağıdaki en iyi yöntemleri kullanın.
+Otomatik ölçeklendirme kullanırken en iyi uygulamaları izleyerek hello kullanın.
 
-### <a name="ensure-the-maximum-and-minimum-values-are-different-and-have-an-adequate-margin-between-them"></a>Maksimum ve minimum değerler farklı olduğundan ve aralarındaki yeterli bir kenar boşluğu bulunduğundan emin olun
-En az olan bir ayarı varsa = 2, en fazla = 2 ve geçerli örnek sayısı, 2, herhangi bir ölçek eylemi oluşabilir. Kapsayıcı maksimum ve minimum örnek sayısı arasında yeterli bir kenar boşluğu tutun. Otomatik ölçeklendirme, her zaman bu sınırlar arasında ölçeklendirir.
+### <a name="ensure-hello-maximum-and-minimum-values-are-different-and-have-an-adequate-margin-between-them"></a>Merhaba maksimum ve minimum değerler farklıdır ve bunlar arasında yeterli bir kenar boşluğu sahip emin olun
+En az olan bir ayarı varsa = 2, en fazla 2 = ve hello geçerli örnek sayısı, 2, herhangi bir ölçek eylemi oluşabilir. Kapsayıcı hello maksimum ve minimum örnek sayısı arasında yeterli bir kenar boşluğu tutun. Otomatik ölçeklendirme, her zaman bu sınırlar arasında ölçeklendirir.
 
 ### <a name="manual-scaling-is-reset-by-autoscale-min-and-max"></a>Otomatik ölçeklendirme min ve max tarafından el ile ölçeklendirme sıfırlanır
-Bir değere üstüne veya altına en fazla örnek sayısı el ile güncelleştirirseniz, otomatik ölçeklendirme altyapısı dön (üstündeyse) veya en küçük (yüksekse) otomatik olarak ölçeklendirir. Örneğin, 3 ile 6 arasındaki bir aralıkta ayarlayın. Bir çalışan örneği varsa, otomatik ölçeklendirme altyapısı sonraki çalıştırılmasında 3 örneklerine ölçeklendirir. Benzer şekilde, bu ölçek bileşenini 8 örnekleri sonraki çalıştırılmasında 6 yedekleyin.  Otomatik ölçeklendirme kurallarını da sıfırlama sürece, el ile ölçeklendirme çok geçicidir.
+El ile Merhaba örneği sayısı tooa değerini yukarıdaki güncelleştirme veya hello en otomatik ölçeklendirme altyapısı otomatik olarak hello geri toohello minimum (üstündeyse) veya hello maksimum (yüksekse) ölçeklendirir. Örneğin, 3 ile 6 arasında hello aralığı ayarlayın. Bir çalışan örneği varsa, hello otomatik ölçeklendirme altyapısı too3 örnekleri sonraki çalıştırılmasında ölçeklendirir. Benzer şekilde, bu ölçek bileşenini 8 örnekleri sonraki çalıştırılmasında too6 yedekleyin.  Merhaba otomatik ölçeklendirme kurallarını da sıfırlama sürece, el ile ölçeklendirme çok geçicidir.
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Her zaman bir artırma ve azaltma yapan bir genişleme ve ölçek bileşenini kural bileşimi kullanın
-Otomatik ölçeklendirme ölçek maksimum veya en düşük gereksinim, kadar tek çıkışı veya, bileşeni yalnızca bir bölümü birleşimi kullanırsanız, ulaşıldı.
+Otomatik ölçeklendirme ölçek hello maksimum veya minimum değer, kadar tek çıkışı veya, bileşeni yalnızca bir bölümü hello birleşimi kullanırsanız, ulaşıldı.
 
-### <a name="do-not-switch-between-the-azure-portal-and-the-azure-classic-portal-when-managing-autoscale"></a>Azure portalı ve Azure Klasik portalı arasında otomatik ölçeklendirme yönetirken geçme
-Bulut Hizmetleri ve uygulama Hizmetleri (Web uygulamaları) için Azure portal (portal.azure.com) oluşturmak ve otomatik ölçeklendirme ayarlarını yönetmek için kullanın. Sanal makine ölçek kümeleri oluşturmak ve otomatik ölçeklendirme ayarı yönetmek için PowerShell'i, CLI veya REST API'yi kullanın. Klasik Azure portalı (manage.windowsazure.com) ve Azure Portalı'nı (portal.azure.com) arasında otomatik ölçeklendirme yapılandırmaları yönetirken geçiş değil. Klasik Azure portalı ve arka plandaki kendi arka uç sınırlamalara sahiptir. Otomatik ölçeklendirme bir grafik kullanıcı arabirimini kullanarak yönetmek için Azure portalında taşıyın. Otomatik ölçeklendirme PowerShell'i, CLI veya REST API (üzerinden Azure kaynak Gezgini) kullanmak için Seçenekler şunlardır.
+### <a name="do-not-switch-between-hello-azure-portal-and-hello-azure-classic-portal-when-managing-autoscale"></a>Hello Azure portal ile Merhaba Klasik Azure portalı arasında otomatik ölçeklendirme yönetirken geçme
+Bulut Hizmetleri ve uygulama Hizmetleri (Web uygulamaları), hello Azure portal (portal.azure.com) toocreate kullanın ve otomatik ölçeklendirme ayarlarını yönetin. Otomatik ölçeklendirme ayarı yönetmek ve sanal makine ölçek kümeleri için PowerShell'i, CLI veya REST API'yi toocreate kullanın. Merhaba Klasik Azure portalı (manage.windowsazure.com) arasında hello Azure portal (portal.azure.com) otomatik ölçeklendirme yapılandırmaları yönetirken geçiş değil. Klasik Azure portalı hello ve sınırlamaları, temel alınan arka uç vardır. Bir grafik kullanıcı arabirimini kullanarak toohello Azure portal toomanage otomatik ölçeklendirme taşıyın. Merhaba, toouse hello otomatik ölçeklendirme PowerShell'i, CLI veya REST API (üzerinden Azure kaynak Gezgini) seçeneklerdir.
 
-### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Tanılama ölçümü için uygun istatistiği seçin
-Tanılama ölçümleri arasından seçim yapabilirsiniz *ortalama*, *Minimum*, *maksimum* ve *toplam* göre ölçeklendirme ölçüm olarak. En yaygın istatistik *ortalama*.
+### <a name="choose-hello-appropriate-statistic-for-your-diagnostics-metric"></a>Tanılama ölçümü için uygun istatistiği Hello seçin
+Tanılama ölçümleri arasından seçim yapabilirsiniz *ortalama*, *Minimum*, *maksimum* ve *toplam* ölçüm tooscale tarafından olarak. Merhaba en yaygın istatistik *ortalama*.
 
-### <a name="choose-the-thresholds-carefully-for-all-metric-types"></a>Tüm ölçüm türleri eşikler dikkatle seçin
+### <a name="choose-hello-thresholds-carefully-for-all-metric-types"></a>Merhaba eşikleri tüm ölçüm türleri için dikkatle seçin
 Dikkatli bir şekilde genişleme ve ölçek-üzerinde pratik durumlarda bağlı olarak farklı eşikler seçme öneririz.
 
-Biz *değil önerilir* gibi otomatik ölçeklendirme ayarları aynı veya benzer eşik değerleri out ve koşullar aşağıda örnekler:
+Biz *değil önerilir* hello örnekleriyle gibi otomatik ölçeklendirme ayarları hello out ve koşullar için aynı ya da çok benzer eşik değerleri:
 
 * Örnek 1 artırmasını ne zaman saymak iş parçacığı sayısı < = 600
 * 1 ile örnekleri azaltmak ne zaman saymak iş parçacığı sayısı > = 600
 
-Karmaşık görünebilir bir davranışa neden olabilir, bir örneğe bakalım. Aşağıdaki sırada göz önünde bulundurun.
+Karmaşık görünebilir tooa davranışa neden olabilir, bir örneğe bakalım. Sıra aşağıdaki hello göz önünde bulundurun.
 
-1. 2 örneği vardır başından itibaren ve ardından iş parçacığı örneği başına ortalama sayısı için 625 büyütmeleri varsayalım.
+1. İle 2 örnekleri toobegin vardır ve ardından hello ortalama örnek başına iş parçacığı sayısı too625 büyütmeleri varsayalım.
 2. Otomatik ölçeklendirme 3 örneğini eklemede çıkışı ölçeklendirir.
-3. Ardından, örnek arasında ortalama iş parçacığı sayısı için 575 düştüğünü varsayalım.
-4. Ölçeklendirme önce son durum tahmin etmek için otomatik ölçeklendirme çalıştığında, ölçeği, olacaktır. Örneğin, 575 x 3 (geçerli örnek sayısı) 1,725 = / 2 (ölçeklendirilmiş durumlarda son sayısı) 862.5 iş parçacığı =. Başka bir deyişle, hemen yeniden ortalama iş parçacığı sayısı aynı kalır ya da yalnızca kısa süreli bile döner bile, ölçeği sonra genişleme için otomatik ölçeklendirme sahip olması gerekir. Tüm işlemini yeniden ölçeklendirilmiş, ancak, sonsuz bir döngüde baştaki yineleyin.
-5. ("Flapping" olarak adlandırılır) bu durumu önlemek için otomatik ölçeklendirme hiç ölçeklenmez. Bunun yerine, atlar ve hizmetin iş tekrar tekrar çalıştırıldığında koşul reevaluates. Otomatik ölçeklendirme ortalama iş parçacığı sayısı 575 değiştirildiği çalışmaya görünmeyecektir çünkü bu birçok karıştırır.
+3. Ardından, hello ortalama iş parçacığı sayısı örneği arasında too575 düştüğünü varsayalım.
+4. Ölçeklendirme önce hangi hello son durum içinde ölçeklendirilmiş durumunda olacaktır otomatik ölçeklendirme tooestimate çalışır. Örneğin, 575 x 3 (geçerli örnek sayısı) 1,725 = / 2 (ölçeklendirilmiş durumlarda son sayısı) 862.5 iş parçacığı =. Bu bile, ölçeği sonra hello ortalama iş parçacığı sayısı kalır hello aynı ve hatta yalnızca küçük bir miktar düşerse otomatik ölçeklendirme tooimmediately genişleme yeniden olurdu anlamına gelir. Ancak, bunu yeniden hello tüm işlemi yinelemeniz, Yukarı ölçeklendirilemez varsa tooan sonsuz döngü baştaki.
+5. tooavoid ("flapping" olarak adlandırılır) bu durum olan, otomatik ölçeklendirme hiç ölçeklenmez. Bunun yerine, atlar ve reevaluates yeniden hello koşul hello sonraki zaman hello hizmetin iş yürütür. Merhaba ortalama iş parçacığı sayısı 575 olduğunda otomatik ölçeklendirme toowork görünmeyecektir çünkü bu birçok karıştırır.
 
-Tahmin bir ölçek sırasında "durumlarda, ölçek ve genişletme Eylemler sürekli geri ve İleri nereye dalgalanma" önlemek için tasarlanmıştır. Bu davranış genişleme için aynı eşikler seçtiğinizde unutmayın ve içinde kalmasını sağlayın.
+Bir ölçek sırasında tahmin hedeflenen tooavoid "durumlarda, ölçek ve genişletme Eylemler sürekli geri ve İleri nereye dalgalanma" dir. Genişleme için ve aynı eşikleri hello seçtiğinizde bu davranışı göz önünde bulundurun.
 
-Genişleme arasında ve eşikleri yeterli bir kenar boşluğu seçme öneririz. Örnek olarak, aşağıdaki daha iyi kural birleşimi göz önünde bulundurun.
+Merhaba genişleme arasında ve eşikleri yeterli bir kenar boşluğu seçme öneririz. Örnek olarak, daha iyi kural birleşimi aşağıdaki hello göz önünde bulundurun.
 
 * Örnek 1 artırmasını ne zaman saymak CPU % > = 80
 * 1 ile örnekleri azaltmak ne zaman saymak CPU % < = 60
 
 Bu durumda  
 
-1. 2 örneği vardır başlamak varsayalım.
-2. Örnekler arasında ortalama CPU % 80 kalırsa, üçüncü bir örneğini ekleme çıkışı otomatik ölçeklendirme ölçeklendirir.
-3. Şimdi zamanla CPU % 60 olarak döner varsayalım.
-4. Ölçek için olsaydı otomatik ölçeklendirme'nın ölçek, kuralı son durum tahmin eder. Örneğin, 60 x 3 (geçerli örnek sayısı) 180 = / 2 (ölçeklendirilmiş durumlarda son sayısı) 90 =. Otomatik ölçeklendirme ölçek hemen yeniden genişletmek sahip için açma biçimde değil. Bunun yerine, ölçekleme atlar.
-5. Sonraki saat otomatik ölçeklendirme 50'ye düşmesine CPU devam denetler. Yeniden - 50 x 3 örneği tahminleri 150 = / 2 örnekleri 80 genişleme eşiğin altına bunu içinde başarıyla 2 örneklerine ölçeklendirir şekilde olan 75 =.
+1. İle 2 örnekleri toostart vardır varsayalım.
+2. Merhaba ortalama CPU % örnekleri arasında too80 kalırsa, üçüncü bir örneğini ekleme çıkışı otomatik ölçeklendirme ölçeklendirir.
+3. Şimdi zaman hello CPU too60% düştüğünü varsayalım.
+4. Otomatik ölçeklendirme'nın ölçek bileşenini kural tooscale bileşenini olsaydı hello son durum tahmin eder. Örneğin, 60 x 3 (geçerli örnek sayısı) 180 = / 2 (ölçeklendirilmiş durumlarda son sayısı) 90 =. Bu nedenle otomatik ölçeklendirme ölçek tooscale kullanıma hemen yeniden gerekir çünkü bileşeni değil. Bunun yerine, ölçekleme atlar.
+5. Merhaba sonraki saat otomatik ölçeklendirme hello CPU toofall too50 devam denetler. Yeniden - 50 x 3 örneği tahminleri 150 = / 2 örnekleri başarıyla too2 durumlarda ölçekler için hangi 80, hello genişleme eşiğin altında 75 =.
 
 ### <a name="considerations-for-scaling-threshold-values-for-special-metrics"></a>Eşik değerleri için özel ölçümleri ölçeklendirme dikkat edilmesi gereken noktalar
- Depolama veya hizmet veri yolu kuyruğu uzunluğu ölçüm gibi özel ölçümleri eşiği iletileri geçerli örnek sayısı kullanılabilir ortalama sayısıdır. Dikkatle seçin Bu ölçüm için eşik değerini seçin.
+ Depolama veya hizmet veri yolu kuyruğu uzunluğu ölçüm gibi özel ölçümleri hello eşik hello ortalama ileti geçerli örnek sayısı kullanılabilir sayısıdır. Merhaba seçerken dikkatli Bu ölçüm için hello eşik değerini seçin.
 
-Şimdi daha iyi davranış anladığınızdan emin olmak için bir örnek gösterilmektedir.
+Şimdi gösteren bir örnek tooensure ile Merhaba davranışını daha iyi anlamak.
 
 * Depolama kuyruğu iletisi gönderdiğinde sayısı 1 sayısına göre örneklerini artırın > = 50
 * Depolama kuyruğu iletisi gönderdiğinde sayısı 1 sayısına göre örnekleri azaltmak < = 10
 
-Aşağıdaki sırada göz önünde bulundurun:
+Merhaba dizisi aşağıdaki noktaları dikkate alın:
 
 1. 2 depolama kuyruğu örneği vardır.
-2. İleti gelmeye devam ve depolama kuyruğu incelediğinizde, toplam sayısı 50 okur. Bu otomatik ölçeklendirme bir ölçeklendirme eylemi başlaması gereken varsayabilirsiniz. Ancak, 50/2 olduğunu unutmayın = örneği başına 25 iletileri. Bu nedenle, genişleme gerçekleşmez. İlk gerçekleşecek şekilde genişleme için depolama sırasındaki toplam ileti sayısı 100 olmalıdır.
-3. Ardından, toplam ileti sayısı 100 ulaştığında varsayalım.
-4. 3 depolama sıra örneği bir ölçeklendirme eylemi nedeniyle eklenir.  Sıradaki toplam ileti sayısı nedeniyle 150 ulaşana kadar sonraki ölçeklendirme eylemi yapılmaz 150/3 = 50.
-5. Şimdi daha küçük sırasındaki ileti sayısını alır. Tüm sıralardaki toplam ileti için en fazla 30 eklediğinizde 3 örnekleriyle ilk ölçek eylemi olur 30/3 = için ölçek eşik örneği başına 10 iletileri.
+2. İleti gelmeye devam ve hello depolama kuyruğu incelediğinizde hello toplam sayısı 50 okur. Bu otomatik ölçeklendirme bir ölçeklendirme eylemi başlaması gereken varsayabilirsiniz. Ancak, 50/2 olduğunu unutmayın = örneği başına 25 iletileri. Bu nedenle, genişleme gerçekleşmez. Merhaba ilk genişleme toohappen için hello depolama kuyruğu hello toplam ileti sayısı 100 olmalıdır.
+3. Ardından, hello toplam ileti sayısı 100 ulaştığında varsayalım.
+4. 3 depolama sıra örneği tooa ölçeklendirme eylemi eklenir.  Merhaba sonraki ölçeklendirme eylemi hello kadar toplam hello sıradaki ileti sayısı, çünkü 150 ulaştığında yapılmaz 150/3 = 50.
+5. Şimdi hello hello sıradaki ileti sayısı daha küçük alır. 3 örnekleriyle hello ilk ölçek eylemi hello tüm sıralardaki toplam ileti eklemek too30 çünkü olur 30/3 = hello ölçek bileşenini eşiğin örneği başına 10 iletileri.
 
 ### <a name="considerations-for-scaling-when-multiple-profiles-are-configured-in-an-autoscale-setting"></a>Otomatik ölçeklendirme ayarında birden çok profil yapılandırıldığında ölçeklendirme dikkat edilmesi gereken noktalar
 Otomatik ölçeklendirme ayarında zamanlama veya zaman bağımlılıkları olmadan her zaman uygulanır, bir varsayılan profili seçebilir veya bir tarih ve saat aralığı ile sabit bir dönem için yinelenen bir profil ya da profili seçebilirsiniz.
 
-Otomatik ölçeklendirme hizmeti bunları işlediğinde, her zaman şu sırayla denetler:
+Otomatik ölçeklendirme hizmeti bunları işlediğinde, her zaman sırasının hello denetler:
 
 1. Sabit tarih profili
 2. Yinelenen profili
 3. Varsayılan ("her zaman") profil
 
-Bir profil koşul karşılandığında, otomatik ölçeklendirme altındaki sonraki profili koşulu denetlemez. Otomatik ölçeklendirme, aynı anda yalnızca bir profil işler. Başka bir deyişle, ayrıca bir alt katmanlı profili işleme durumundan dahil etmek istiyorsanız, bu kurallar da geçerli profilinde eklemeniz gerekir.
+Otomatik ölçeklendirme profili koşul karşılandığında hello sonraki profili koşul altındaki denetlemez. Otomatik ölçeklendirme, aynı anda yalnızca bir profil işler. Tooalso istiyorsanız, bunun anlamı bir alt katmanlı profili işleme durumundan içerir, bu kurallar hello geçerli profilinde de içermelidir.
 
 Şimdi bu örneği kullanarak gözden geçirin:
 
-Aşağıdaki resimde bir otomatik ölçeklendirme ayarı gösterir 2 ve en fazla örnekleri minimum örnekleri ile bir varsayılan profili = = 10. Bu örnekte, kuralları sıradaki ileti sayısı 10'dan büyük olduğunda genişletmek için yapılandırılmış ve ölçek bileşenini sıradaki ileti sayısı 3'ten az olduğunda. Artık kaynak 2 ile 10 örnekleri arasında ölçeklendirebilirsiniz.
+Aşağıdaki Hello görüntü gösteren bir otomatik ölçeklendirme ayarı 2 ve en fazla örnekleri minimum örnekleri ile bir varsayılan profili = = 10. Merhaba hello sıradaki ileti sayısı 3'ten az olduğunda hello hello sıradaki ileti sayısı 10 ve ölçek bileşenini büyük olduğunda bu örnekte, yapılandırılmış tooscale kullanıma kurallardır. Şimdi hello kaynak 2 ile 10 örnekleri arasında ölçeklendirebilirsiniz.
 
-Ayrıca, yinelenen bir profili Pazartesi kümesi yok. Minimum örnekleri için ayarlanmış 2 ve en fazla örnekleri = = 12. Yani Pazartesi günü, bu koşul için ilk zaman otomatik ölçeklendirme denetler örnek sayısı 2 ise, yeni en az 3 için ölçeklendirir. Bu profil koşul bulmak otomatik ölçeklendirme devam ettiği sürece (Pazartesi) eşleşen, yalnızca bu profil için yapılandırılmış CPU tabanlı ölçek genişletme/bileşenini kuralların işler. Şu anda bu kuyruk uzunluğu için denetlemez. Denetlenecek kuyruk uzunluğu koşul da istiyorsanız, ancak, varsayılan profil bu kurallardan de Pazartesi profilinizde içermelidir.
+Ayrıca, yinelenen bir profili Pazartesi kümesi yok. Minimum örnekleri için ayarlanmış 2 ve en fazla örnekleri = = 12. Yani Pazartesi günü, bu koşul için hello ilk zaman otomatik ölçeklendirme denetler hello örnek sayısı 2 ise, toohello yeni en az 3 ölçeklendirir. Otomatik ölçeklendirme (Pazartesi) bu profili koşul eşleşen toofind sürece bu profil için yapılandırılmış hello CPU tabanlı ölçek genişletme/bileşenini kuralları yalnızca işler. Şu anda bu hello sırası uzunluğu için denetlemez. Hello kuyruk uzunluğu koşulu toobe işaretli de istiyorsanız, ancak, bu kurallardan hello varsayılan profili yanı Pazartesi profilinizde içermelidir.
 
-Otomatik ölçeklendirme varsayılan profiline geçtiğinde, benzer şekilde, onu önce minimum ve maksimum koşulların karşılandığından denetler. Zaman örneklerinin sayısını 12 ise, bu, 10, varsayılan profili için izin verilen maksimum ölçeklendirir.
+Otomatik ölçeklendirme geri toohello varsayılan profili geçtiğinde, benzer şekilde, bu ilk hello minimum ve maksimum koşulların karşılandığından olmadığını denetler. Hello hello zaman örneklerinin sayısını 12 ise, en fazla hello hello varsayılan profili için izin verilen too10 içinde ölçeklendirir.
 
 ![otomatik ölçeklendirme ayarları](./media/insights-autoscale-best-practices/insights-autoscale-best-practices-2.png)
 
 ### <a name="considerations-for-scaling-when-multiple-rules-are-configured-in-a-profile"></a>Birden çok kural, bir profilde yapılandırıldığında ölçeklendirme dikkat edilmesi gereken noktalar
-Burada bir profilde birden çok kural ayarlamak için sahip olduğu durumlar vardır. Otomatik ölçeklendirme kurallarını aşağıdaki kümesini birden çok kural ayarlandığında Hizmetleri kullanım tarafından kullanılır.
+Burada, tooset birden çok kural profilde sahip olduğu durumlar vardır. birden çok kural ayarlandığında otomatik ölçeklendirme kurallar aşağıdaki hello Hizmetleri kullanım tarafından kullanılır.
 
 Üzerinde *ölçeğini*, herhangi bir kural karşılanır otomatik ölçeklendirme çalıştırır.
-Üzerinde *ölçek bileşenini*, otomatik ölçeklendirme karşılanması gereken tüm kuralları gerektirir.
+Üzerinde *ölçek bileşenini*, otomatik ölçeklendirme gerektiren tüm kuralları toobe karşılanır.
 
-Göstermek için aşağıdaki 4 otomatik ölçeklendirme kurallarını sahip olduğunuzu varsayın:
+tooillustrate, 4 otomatik ölçeklendirme kurallarını izleyen hello olduğunu varsayın:
 
 * Varsa CPU < % 30, Ölçek 1 ile açma
 * Varsa bellek < % 50, Ölçek-1 ile
 * Varsa CPU > %75, 1 ile genişletme
 * Varsa bellek > %75, 1 ile genişletme
 
-Ardından izleme oluşur:
+Ardından hello izleyin oluşur:
 
 * % 76 CPU, bellek % 50 ise, biz genişletme.
 * % 50 CPU, bellek % 76 ise, biz genişletme.
 
-Diğer taraftan, CPU ise % 25 ve bellektir % 51 otomatik ölçeklendirme yapar **değil** ölçek açma. Aşağıdakileri yapmak için ölçek içinde CPU %29 ve bellek % 49 olması gerekir.
+Üzerinde hello diğer yandan, CPU ise % 25 ve bellektir % 51 otomatik ölçeklendirme yapar **değil** ölçek açma. Tooscale içinde sırayla CPU %29 ve bellek % 49 olması gerekir.
 
 ### <a name="always-select-a-safe-default-instance-count"></a>Her zaman güvenli varsayılan örnek sayısı seçin
-Varsayılan örnek sayısı, ölçümleri kullanılabilir olmadığında otomatik ölçeklendirme, count hizmetinize ölçeklendirir önemlidir. Bu nedenle, iş yükleriniz için güvenli bir varsayılan örnek sayısı seçin.
+Merhaba varsayılan örnek sayısı, ölçümleri kullanılabilir olmadığında otomatik ölçeklendirme hizmeti toothat sayısını ölçeklendirir önemlidir. Bu nedenle, iş yükleriniz için güvenli bir varsayılan örnek sayısı seçin.
 
 ### <a name="configure-autoscale-notifications"></a>Otomatik ölçeklendirme bildirimleri yapılandırma
-Aşağıdaki koşullardan herhangi biri oluştuğunda otomatik ölçeklendirme kaynağının Katkıda Bulunanlar ve yöneticiler e-posta ile bildirimde bulunur.
+Koşullar aşağıdaki hello biri oluşursa otomatik ölçeklendirme hello yöneticileri ve katkıda bulunanlar hello kaynağının e-posta ile bildirimde bulunur.
 
-* otomatik ölçeklendirme hizmeti bir eylem başarısız olur.
-* Ölçümleri ölçek karar vermek için otomatik ölçeklendirme hizmeti kullanılabilir değil.
-* (Yeniden bir ölçek karar vermek için kullanılabilir kurtarma) ölçümleridir.
-  Yukarıdaki koşullar yanı sıra başarılı ölçeklendirme eylemi için bildirim almak için e-posta veya Web kancası bildirimleri yapılandırabilirsiniz.
+* otomatik ölçeklendirme hizmeti tootake bir eylem başarısız olur.
+* Ölçümleri otomatik ölçeklendirme hizmet toomake bir ölçek karar kullanılabilir değil.
+* Ölçümleri olan kullanılabilir (Kurtarma) yeniden toomake ölçek karar.
+  Ayrıca toohello koşullar yukarıdaki, başarılı ölçeklendirme eylemi için bildirim e-posta veya Web kancası bildirimleri tooget yapılandırabilirsiniz.
   
-Bir etkinlik günlüğü uyarı, otomatik ölçeklendirme altyapısı sağlığını izlemek için de kullanabilirsiniz. Örnekler için [bir etkinlik günlüğü aboneliğinizi tüm otomatik ölçeklendirme motoru işlemleri izlemek için uyarı oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) veya [bir etkinlik günlüğü tüm başarısız otomatik ölçeklendirme ölçek izlemek / aboneliğinizi işlemlerini genişletmek için uyarı oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
+Merhaba otomatik ölçeklendirme altyapısı bir etkinlik günlüğü uyarı toomonitor hello durumunu de kullanabilirsiniz. Örnekler şunlardır çok[bir etkinlik günlüğü uyarı toomonitor aboneliğinizi tüm otomatik ölçeklendirme altyapısı işlemler oluşturmak](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) veya çok[tüm otomatik ölçeklendirme ölçek başarısız / ölçek işlemleri bir etkinlik günlüğü uyarı toomonitor oluşturma aboneliğinizi](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-- [Bir etkinlik günlüğü aboneliğinizi tüm otomatik ölçeklendirme motoru işlemleri izlemek için uyarı oluştur.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
-- [Bir etkinlik günlüğü tüm başarısız otomatik ölçeklendirme ölçek izlemek / aboneliğinizi işlemlerini genişletmek için uyarı oluştur](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+- [Bir etkinlik günlüğü uyarı toomonitor aboneliğinizi tüm otomatik ölçeklendirme altyapısı işlemler oluşturun.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
+- [Tüm otomatik ölçeklendirme ölçek başarısız / aboneliğinizi işlemleri ölçeğini bir etkinlik günlüğü uyarı toomonitor oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)

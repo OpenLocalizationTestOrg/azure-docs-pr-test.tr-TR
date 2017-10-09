@@ -1,6 +1,6 @@
 ---
-title: "My Web işi projesinin ne (Visual Studio Azure depolama bağlı hizmeti)? | Microsoft Belgeleri"
-description: "Visual Studio kullanarak bir depolama hesabına bağlanma Hizmetleri bağlandıktan sonra bir Azure Web işi projesi ne açıklar"
+title: "aaaWhat toomy Web işi projesinin oldu (Visual Studio Azure depolama bağlı hizmeti)? | Microsoft Belgeleri"
+description: "Visual Studio kullanarak tooa depolama hesabı bağlanma Hizmetleri bağlandıktan sonra bir Azure Web işi projesi ne açıklar"
 services: storage
 documentationcenter: 
 author: TomArcher
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: tarcher
-ms.openlocfilehash: 3b28ddeadc87937941d60b16fae817e59a220b22
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7735f49b1e7ec8dda30d1262d7ce65454604b610
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="what-happened-to-my-webjob-project-visual-studio-azure-storage-connected-service"></a>My Web işi projesinin ne (Visual Studio Azure depolama bağlı hizmeti)?
+# <a name="what-happened-toomy-webjob-project-visual-studio-azure-storage-connected-service"></a>Ne oldu toomy Web işi projesinin (Visual Studio Azure depolama bağlı hizmeti)?
 ## <a name="references-added"></a>Eklenen başvuruları
-Azure depolama NuGet paketini eklenecek veya Visual Studio projenizde güncelleştirildi.  
-Bu paket aşağıdaki .NET başvuru ekler:
+Hello Azure depolama NuGet paketini Visual Studio projenizde güncelleştirilmiş tooor eklendi.  
+Bu paket .NET başvurularını aşağıdaki hello ekler:
 
 * **Microsoft.Data.Edm**
 * **Microsoft.Data.OData**
@@ -35,7 +35,7 @@ Bu paket aşağıdaki .NET başvuru ekler:
 * **System.Spatial**
 
 ## <a name="connection-string-for-azure-storage-added"></a>Azure eklenen depolama alanı için bağlantı dizesi
-Projenizin App.config dosyasında **AzureWebJobsStorage** ve **AzureWebJobsDashboard** girişleri, seçilen depolama hesabı bağlantı dizesi ve anahtarı ile güncelleştirildi.
+Merhaba App.config dosyasında projenizin hello **AzureWebJobsStorage** ve **AzureWebJobsDashboard** girişleri hello seçili depolama hesabına ait bağlantı dizesini ve anahtarla güncelleştirildi.
 
 Daha fazla bilgi için bkz: [Azure Web işleri belge kaynakları](http://go.microsoft.com/fwlink/?linkid=390226).
 

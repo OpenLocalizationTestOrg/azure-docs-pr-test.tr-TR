@@ -1,4 +1,4 @@
-Aşağıdaki tabloda farklı hizmet katmanları (S1, S2, S3, F1) ile ilişkili sınırlar listelenmektedir. Bir katmandaki her bir *birimin* maliyeti hakkında bilgi için bkz. [IoT Hub Fiyatlandırması](https://azure.microsoft.com/pricing/details/iot-hub/).
+Merhaba aşağıdaki tabloda hello farklı hizmet katmanlarındaki (S1, S2, S3, F1) ile ilişkili hello sınırları listelenmektedir. Her hello maliyeti hakkında bilgi için *birim* her katmanındaki bkz [IOT Hub fiyatlandırma](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 | Kaynak | S1 Standart | S2 Standart | S3 Standart | F1 Ücretsiz |
 | --- | --- | --- | --- | --- |
@@ -10,7 +10,7 @@ Aşağıdaki tabloda farklı hizmet katmanları (S1, S2, S3, F1) ile ilişkili s
 > 
 > 
 
-Aşağıdaki tabloda IOT Hub kaynakları için geçerli olan sınırlar listelenmektedir:
+Merhaba aşağıdaki tabloda tooIoT Hub kaynakları uygulamak hello sınırları listelenmektedir:
 
 | Kaynak | Sınır |
 | --- | --- |
@@ -24,8 +24,8 @@ Aşağıdaki tabloda IOT Hub kaynakları için geçerli olan sınırlar listelen
 | Buluttan cihaza iletinin en büyük boyutu |64 KB |
 | Buluttan cihaza iletiler için en büyük TTL |2 gün |
 | Buluttan cihaza iletiler için en fazla teslim <br/> sayısı |100 |
-| Geri bildirim iletileri için en fazla teslim sayısı <br/> (buluttan cihaza iletiye yanıt olarak) |100 |
-| Buluttan cihaza iletiye yanıt olarak <br/> geri bildirim iletileri için en fazla TTL |2 gün |
+| Geri bildirim iletileri için en fazla teslim sayısı <br/> yanıt tooa bulut cihaz iletisinde |100 |
+| Buluttan cihaza iletiye yanıt olarak <br/> yanıt tooa bulut cihaz iletisi |2 gün |
 | En büyük cihaz ikizi boyutu <br/> (etiketler, rapor edilen özellikler ve istenen özellikler) | 8 KB |
 | Cihaz ikizi dize değerinin en büyük boyutu | 512 bayt |
 | Cihaz ikizindeki en büyük nesne derinliği | 5 |
@@ -41,9 +41,9 @@ Aşağıdaki tabloda IOT Hub kaynakları için geçerli olan sınırlar listelen
 
 
 > [!NOTE]
-> Şu anda en fazla tek bir IOT hub'ına bağlanabileceğiniz aygıtlar 500.000 sayısıdır. Bu sınırı artırmak istiyorsanız, ilgili kişi [Microsoft Support](https://azure.microsoft.com/en-us/support/options/).
+> Şu anda, en fazla hello bağlanabilirsiniz aygıtların tooa tek IOT hub 500.000 olduğu. Bu sınır tooincrease istiyorsanız, ilgili kişi [Microsoft Support](https://azure.microsoft.com/en-us/support/options/).
 
-Aşağıdaki kotalar aşıldığında IoT Hub hizmeti istekleri kısıtlar:
+Kotalar aşağıdaki hello aşıldığında hello IOT hub'ı hizmet istekleri kısıtlar:
 
 | Kısıtlama | Hub başına değer |
 | --- | --- |

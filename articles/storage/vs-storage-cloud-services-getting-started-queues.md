@@ -1,6 +1,6 @@
 ---
-title: "Kuyruk depolama ve Visual Studio ile çalışmaya başlama bağlı Hizmetleri (bulut Hizmetleri) | Microsoft Docs"
-description: "Visual Studio kullanarak bir depolama hesabı bağlandıktan sonra bir bulut hizmeti projesini Visual Studio kullanarak Azure kuyruk depolamaya başlama Hizmetleri bağlı"
+title: "aaaGet, bağlı hizmetler (bulut Hizmetleri) kuyruk depolama ve Visual Studio ile çalışmaya | Microsoft Docs"
+description: "Visual Studio kullanarak tooa depolama hesabı bağlanma Hizmetleri bağlandıktan sonra bir bulut hizmeti projesini Visual Studio'da Azure kuyruk depolama kullanarak tooget nasıl başlatılacağını"
 services: storage
 documentationcenter: 
 author: TomArcher
@@ -14,97 +14,97 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: tarcher
-ms.openlocfilehash: d0e6e3eab312f169b1d05ba16e2e293e103df1ec
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8ba3d830cb83e3d75102b8a09363f1dc200ff1c5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Azure kuyruk depolama ve Visual Studio ile çalışmaya başlama (Projeler bulut Hizmetleri) Hizmetleri bağlı
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Bu makalede nasıl oluşturduğunuz veya Visual Studio kullanarak bir Azure depolama hesabı bulut Hizmetleri projesinde başvurulan sonra Visual Studio'da Azure kuyruk depolama kullanarak başlayacağınızı **bağlı Hizmetleri Ekle** iletişim.
+Oluşturulan veya hello Visual Studio kullanarak bir Azure depolama hesabı bulut Hizmetleri projesinde başvurulan sonra Visual Studio'da Azure kuyruk depolama kullanarak tooget nasıl başlatılacağını bu makalede **bağlı Hizmetleri Ekle** iletişim .
 
-Kodda bir kuyruk oluşturulacağını göstereceğiz. Ayrıca, ekleme, değiştirme, okuma ve iletileri kuyruğa kaldırma gibi temel kuyruk işlemlerini gerçekleştirmek nasıl göstereceğiz. Örnekler C# kodu ve kullanım yazılır [.NET için Microsoft Azure Storage istemci Kitaplığı](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+Nasıl göstereceğiz toocreate bir kuyruktaki kod. Ayrıca, nasıl tooperform basic sıraya ekleme, değiştirme, okuma ve kaldırma iletileri gibi işlemleri göstereceğiz. Merhaba örnekler C# kodda yazılır ve hello kullanır [.NET için Microsoft Azure Storage istemci Kitaplığı](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
-**Bağlı Hizmetleri Ekle** işlemi Azure depolama projenize erişmek için uygun NuGet paketlerini yükler ve proje yapılandırma dosyalarınızı depolama hesabı için bağlantı dizesi ekler.
+Merhaba **bağlı Hizmetleri Ekle** işlemi hello uygun NuGet paketleri tooaccess Azure depolama projenizde yükler ve proje yapılandırma dosyalarını tooyour hello depolama hesabı için hello bağlantı dizesi ekler.
 
 * Bkz: [.NET kullanarak Azure kuyruk depolamaya başlayın](storage-dotnet-how-to-use-queues.md) kod kuyruklarda düzenleme hakkında daha fazla bilgi.
 * Bkz: [Storage belgeleri](https://azure.microsoft.com/documentation/services/storage/) Azure Storage hakkında genel bilgiler.
 * Bkz: [bulut Hizmetleri belgelerinde](https://azure.microsoft.com/documentation/services/cloud-services/) Azure bulut hizmetleri hakkında genel bilgi için.
 * Bkz: [ASP.NET](http://www.asp.net) ASP.NET uygulamalarını programlama hakkında daha fazla bilgi.
 
-Azure Kuyruk depolama, HTTP veya HTTPS kullanan kimlik doğrulaması yapılmış çağrılar aracılığıyla dünyanın her yerinden erişilebilen çok sayıda iletinin depolanması için bir hizmettir. Tek bir kuyruk iletisinin boyutu 64 KB’ye kadar olabilir ve bir kuyrukta, depolama hesabının toplam kapasite sınırına kadar milyonlarca ileti bulunabilir.
+Azure kuyruk depolama alanından herhangi bir yere Merhaba Dünya HTTP veya HTTPS kullanarak kimlik doğrulaması yapılmış çağrılar aracılığıyla erişilebilen iletileri çok sayıda depolamak için bir hizmettir. Tek bir kuyruk iletisinin boyutu too64 KB yukarı olabilir ve bir kuyruk iletileri, bir depolama hesabı toohello toplam kapasite sınırına milyonlarca içerebilir.
 
 ## <a name="access-queues-in-code"></a>Kod erişim kuyruklar
-Visual Studio bulut Hizmetleri projeleri kuyruklarda erişmek için Azure kuyruk depolama erişim aşağıdaki öğeler herhangi C# kaynak dosyaya eklemeniz gerekir.
+Visual Studio bulut Hizmetleri projelerinde tooaccess sıraları, gereksinim duyduğunuz tooinclude hello aşağıdaki Azure kuyruk depolama erişim öğeleri tooany C# kaynak dosyası.
 
-1. Ad alanı bildirimlerini dosyanın üst kısmındaki C# bu eklediğinizden emin olun **kullanarak** deyimleri.
+1. Merhaba ad alanı bildirimleri hello dosyanın üst kısmındaki hello C# bu eklediğinizden emin olun **kullanarak** deyimleri.
    
         using Microsoft.Framework.Configuration;
         using Microsoft.WindowsAzure.Storage;
         using Microsoft.WindowsAzure.Storage.Queue;
-2. Alma bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne. Almak için aşağıdaki kodu kullanın depolama bağlantı dizesini ve Azure hizmet yapılandırma depolama hesabı bilgileri.
+2. Alma bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne. Kod tooget aşağıdaki kullanım hello depolama bağlantı dizesi ve depolama hesabı bilgilerini hello Azure hizmet yapılandırmasından hello.
    
          CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
            CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
-3. Alma bir **CloudQueueClient** depolama hesabınızda sıra nesneleri başvurmak için.  
+3. Alma bir **CloudQueueClient** tooreference hello sıra nesneleri depolama hesabınızdaki nesne.  
    
-        // Create the queue client.
+        // Create hello queue client.
         CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-4. Alma bir **CloudQueue** belirli bir kuyruğa başvurmak için.
+4. Alma bir **CloudQueue** tooreference belirli bir kuyruğa nesne.
    
-        // Get a reference to a queue named "messageQueue"
+        // Get a reference tooa queue named "messageQueue"
         CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
 
-**Not:** tüm kod önünde Yukarıdaki kod aşağıdaki örneklerde kullanın.
+**Not:** hello hello kod önünde kodu yukarıdaki tüm örnekleri aşağıdaki hello kullanın.
 
 ## <a name="create-a-queue-in-code"></a>Kodda bir sıra oluşturun
-Kodda sırayı oluşturmak için yalnızca bir çağrı ekleyin **CreateIfNotExists**.
+kodda, toocreate hello sıra eklemeniz yeterlidir bir çağrı çok**CreateIfNotExists**.
 
-    // Create the CloudQueue if it does not exist
+    // Create hello CloudQueue if it does not exist
     messageQueue.CreateIfNotExists();
 
-## <a name="add-a-message-to-a-queue"></a>Kuyruğa bir ileti Ekle
-Varolan bir sıraya bir ileti eklemek için yeni bir oluşturma **CloudQueueMessage** nesne sonra çağırın **AddMessage** yöntemi.
+## <a name="add-a-message-tooa-queue"></a>Bir ileti tooa sırası Ekle
+var olan bir sırayı iletiye tooinsert oluşturma yeni bir **CloudQueueMessage** nesne sonra çağrı hello **AddMessage** yöntemi.
 
 A **CloudQueueMessage** bir dizeden (UTF-8 biçiminde) veya bir bayt dizisi nesne oluşturulabilir.
 
-Burada, 'Hello, World' iletisini ekleyen bir örnek verilmiştir.
+Burada, selamlama iletisine 'Hello, World' ekleyen bir örnek verilmiştir.
 
-    // Create a message and add it to the queue.
+    // Create a message and add it toohello queue.
     CloudQueueMessage message = new CloudQueueMessage("Hello, World");
     messageQueue.AddMessage(message);
 
 ## <a name="read-a-message-in-a-queue"></a>Bir kuyruktaki ileti okuma
-**PeekMessage** yöntemini çağırarak iletiyi kuyruktan kaldırmadan kuyruğun önündeki iletiye göz atabilirsiniz.
+Bir sıra Merhaba öne hello iletiye tarafından arama hello hello kuyruktan kaldırmadan iletiye göz atabilirsiniz **PeekMessage** yöntemi.
 
-    // Peek at the next message
+    // Peek at hello next message
     CloudQueueMessage peekedMessage = messageQueue.PeekMessage();
 
 ## <a name="read-and-remove-a-message-in-a-queue"></a>Okuma ve bir sıraya bir ileti Kaldır
 Kodunuzu kaldırabilirsiniz (kuyruktan) bir iletiyi bir kuyruktan iki adımda.
 
-1. Çağrı **GetMessage** sonraki iletiyi sıraya alınamadı. **GetMessage**’dan dönen bir ileti bu kuyruktaki kod okuyan iletilere karşı görünmez olur. Varsayılan olarak bu ileti 30 saniye görünmez kalır.
-2. İletiyi kuyruktan kaldırmayı tamamlamak için arama **DeleteMessage**.
+1. Çağrı **GetMessage** tooget hello sıradaki ilk iletiye bir sıra. Döndürülen bir ileti **GetMessage** iletileri bu sıradan okuma başka bir kod görünmez tooany olur. Varsayılan olarak bu ileti 30 saniye görünmez kalır.
+2. Merhaba sıradan çağrısı selamlama iletisine kaldırarak toofinish **DeleteMessage**.
 
-Bir iletinin iki adımlı kaldırılma süreci, donanım veya yazılım arızasından dolayı kodunuzun bir iletiyi işleyememesi durumunda kodunuzun başka bir örneğinin aynı iletiyi alıp yeniden denemesini sağlar. Aşağıdaki kod çağrıları **DeleteMessage** ileti işlendikten sonra sağ.
+Bir ileti kaldırmanın bu iki adımlı işlem, kodunuzu toohardware veya yazılım hatası, başka bir örneği kodunuzu nedeniyle bir ileti alabilirsiniz tooprocess başarısız olursa aynı iletiyi hello ve yeniden deneyin olmasını sağlar. Merhaba aşağıdaki kod çağrıları **DeleteMessage** hello ileti işlendikten sonra sağ.
 
-    // Get the next message in the queue.
+    // Get hello next message in hello queue.
     CloudQueueMessage retrievedMessage = messageQueue.GetMessage();
 
-    // Process the message in less than 30 seconds
+    // Process hello message in less than 30 seconds
 
-    // Then delete the message.
+    // Then delete hello message.
     await messageQueue.DeleteMessage(retrievedMessage);
 
 
-## <a name="use-additional-options-to-process-and-remove-queue-messages"></a>İşlem ve iletileri kuyruğa kaldırmak için ek seçenekleri kullanın
+## <a name="use-additional-options-tooprocess-and-remove-queue-messages"></a>Ek seçenekler tooprocess kullanın ve iletileri kuyruğa kaldırın
 İletilerin bir kuyruktan alınma şeklini iki yöntemle özelleştirebilirsiniz.
 
-* Toplu (en fazla 32) iletiler alabilirsiniz.
-* Uzun veya daha kısa bir görünmezlik zaman aşımı kodunuzun her iletiyi tamamen işlemesi için zaman daha az veya daha fazla izin verebilirsiniz. Aşağıdaki kod örneğinde tek çağrıda 20 ileti almak için **GetMessages** yöntemi kullanılmıştır. Ardından her ileti bir **foreach** döngüsü ile işlenir. Ayrıca her ileti için görünmezlik zaman aşımı beş dakika olarak ayarlanır. 5 dakikalık sürenin tüm iletiler için aynı zamanda başladığını unutmayın, bu nedenle **GetMessages** çağrısından itibaren 5 dakika geçtikten sonra silinmeyen tüm iletiler görünür olacaktır.
+* Toplu (yukarı too32) iletiler alabilirsiniz.
+* Kodunuzu daha fazla izin vererek uzun veya daha kısa bir görünmezlik zaman aşımı ayarlayabilirsiniz veya daha az zaman toofully her ileti işlenemedi. Merhaba aşağıdaki kod örneğinde **GetMessages** bir çağrı yöntemi tooget 20 iletileri. Ardından her ileti bir **foreach** döngüsü ile işlenir. Ayrıca, her ileti için hello görünmezlik zaman aşımı toofive dakika ayarlar. Bu hello 5 dakika Not hello tüm iletileri için aynı başlatıldığında, bunu hello görüşmede çok 5 dakika geçtikten sonra**GetMessages**, silinmemiş tüm iletiler görünür olacaktır.
 
 Örnek aşağıda verilmiştir:
 
@@ -112,45 +112,45 @@ Bir iletinin iki adımlı kaldırılma süreci, donanım veya yazılım arızas�
     {
         // Process all messages in less than 5 minutes, deleting each message after processing.
 
-        // Then delete the message after processing
+        // Then delete hello message after processing
         messageQueue.DeleteMessage(message);
 
     }
 
-## <a name="get-the-queue-length"></a>Kuyruk uzunluğu alma
-Bir kuyruktaki ileti sayısı ile ilgili bir tahmin alabilirsiniz. **FetchAttributes** yöntemi, ileti sayısı dahil olmak üzere Kuyruk hizmetinden kuyruk özniteliklerini almasını ister. **ApproximateMethodCount** özelliği tarafından alınan en son değeri döndürür **FetchAttributes** kuyruk hizmetini çağırmadan olmadan yöntemi.
+## <a name="get-hello-queue-length"></a>Merhaba kuyruk uzunluğu alma
+Bir kuyruktaki ileti sayısı hello tahmini alabilirsiniz. **FetchAttributes** yöntemi hello sıra hizmetinin hello ileti sayısı dahil olmak üzere hello kuyruk özniteliklerini almasını ister. Merhaba **ApproximateMethodCount** özelliği tarafından alınan hello son değeri döndürür **FetchAttributes** hello kuyruk hizmetini çağırmadan olmadan yöntemi.
 
-    // Fetch the queue attributes.
+    // Fetch hello queue attributes.
     messageQueue.FetchAttributes();
 
-    // Retrieve the cached approximate message count.
+    // Retrieve hello cached approximate message count.
     int? cachedMessageCount = messageQueue.ApproximateMessageCount;
 
     // Display number of messages.
     Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
-## <a name="use-the-async-await-pattern-with-common-azure-queue-apis"></a>Ortak Azure sıra API'leri ile zaman uyumsuz-bekleme yöntemini kullanma
-Bu örnek nasıl ortak Azure sıra API'leri ile zaman uyumsuz-bekleme yönteminin kullanılacağını gösterir. Verilen yöntemlerin her biri zaman uyumsuz sürümü örnek çağırır, bu tarafından görülebilir **zaman uyumsuz** yönteminin her sonrası düzeltme. Zaman uyumsuz yöntem kullanıldığında zaman uyumsuz-bekleme düzeni çağrı tamamlanana kadar yerel çalıştırmayı askıya alır. Bu davranış geçerli iş parçacığının performans sorunlarını engellemeye yardımcı olmak ve uygulamanızın genel yanıt hızını artırır başka işler yapmasını sağlar. .NET’te Zaman Uyumsuz-Bekleme yönteminin kullanılması ile ilgili daha fazla ayrıntı için bkz. [Zaman Uyumsuz ve Bekleme (C# ve Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx).
+## <a name="use-hello-async-await-pattern-with-common-azure-queue-apis"></a>Kullanım hello ortak Azure sıra API'leri ile zaman uyumsuz-bekleme yöntemi
+Bu örnek nasıl toouse hello zaman uyumsuz-bekleme desen ile ortak Azure sıra API'leri gösterir. Merhaba örnek çağırır hello zaman uyumsuz sürümü her yöntemleri verilen Merhaba, bu hello tarafından görülebilir **zaman uyumsuz** yönteminin her sonrası düzeltme. Zaman uyumsuz yöntem kullanılan hello zaman uyumsuz olduğunda-bekleme düzeni hello çağrı tamamlanana kadar yerel çalıştırmayı askıya alır. Bu davranış, performans sorunlarını engellemeye yardımcı olur ve artırır diğer iş hello geçerli iş parçacığı toodo verir Merhaba, uygulamanızın genel yanıt. Zaman uyumsuz-bekleme yönteminin deseninde .NET ile kullanma hakkında daha fazla ayrıntı hello için bkz: [zaman uyumsuz ve bekleme (C# ve Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
 
-    // Create a message to put in the queue
+    // Create a message tooput in hello queue
     CloudQueueMessage cloudQueueMessage = new CloudQueueMessage("My message");
 
-    // Add the message asynchronously
+    // Add hello message asynchronously
     await messageQueue.AddMessageAsync(cloudQueueMessage);
     Console.WriteLine("Message added");
 
-    // Async dequeue the message
+    // Async dequeue hello message
     CloudQueueMessage retrievedMessage = await messageQueue.GetMessageAsync();
     Console.WriteLine("Retrieved message with content '{0}'", retrievedMessage.AsString);
 
-    // Delete the message asynchronously
+    // Delete hello message asynchronously
     await messageQueue.DeleteMessageAsync(retrievedMessage);
     Console.WriteLine("Deleted message");
 
 ## <a name="delete-a-queue"></a>Bir kuyruk silme
-Bir kuyruğu ve içinde yer alan tüm iletileri silmek için kuyruk nesnesindeki **Sil** yöntemini çağırın.
+bir kuyruk ve tüm karışılama iletileri bulunan, içinde arama hello toodelete **silmek** hello nesnesinde yöntemi.
 
-    // Delete the queue.
+    // Delete hello queue.
     messageQueue.Delete();
 
 ## <a name="next-steps"></a>Sonraki adımlar

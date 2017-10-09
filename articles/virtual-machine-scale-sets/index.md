@@ -1,6 +1,6 @@
 ---
-title: "Azure Sanal Makine Ölçek Kümeleri Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "Büyük işlem, büyük veri ve kapsayıcı çözümleri için otomatik olarak ölçeklendirilen Windows veya Linux VM’leri oluşturmak amacıyla Sanal Makine Ölçek Kümelerini nasıl kullanabileceğinizi öğrenin."
+title: "aaaAzure sanal makine ölçek kümeleri belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
+description: "Bilgi nasıl toouse sanal makine ölçek kümeleri toocreate otomatik Windows veya Linux sanal makineleri big compute, büyük veri ve kapsayıcılı çözümleri için ölçeklendirme."
 services: virtual-machine-scale-sets
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: c03fc321082b8be9044faf0e57e2f26ddc22c243
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7f4a4812e2ba44cabfd54bc25fa3b66a04c5bbe8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="virtual-machine-scale-sets-documentation"></a>Sanal Makine Ölçek Kümeleri Belgeleri
 
-Sanal Makine Ölçek Kümelerini kullanarak birbiriyle aynı ve otomatik olarak ölçeklendirilen Windows veya Linux VM’leri dağıtmayı ve yönetmeyi öğrenin. Belgelerde, Ölçek Kümelerini kullanarak büyük işlem, büyük veri ve kapsayıcı çözümlerini hedefleyen hizmetleri nasıl destekleyebileceğiniz açıklanmıştır.
+Bilgi toouse sanal makine ölçekleme nasıl toodeploy ayarlar ve aynı Windows veya Linux sanal makineleri otomatik ölçeklendirme kümesi yönetin. Belge toouse ölçek kümeleri toosupport bu hedef big compute, büyük veri ve kapsayıcılı çözümler hizmetleri nasıl gösterir.
 
 <ul class="panelContent cardsFTitle">
     <li>

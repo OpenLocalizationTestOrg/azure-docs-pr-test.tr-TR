@@ -21,8 +21,8 @@
 ## [Traffic Manager ayarlarını doğrulama](traffic-manager-testing-settings.md)
 ## [Yük dengeleme hizmetlerini birleştirme](traffic-manager-load-balancing-azure.md)
 ## [Traffic Manager performansını ölçme](traffic-manager-performance-considerations.md)
-## [Traffic Manager’ı yönetmek için PowerShell’i kullanma](traffic-manager-powershell-arm.md)
-## [İnternet etki alanınızı Traffic Manager’a yönlendirme](traffic-manager-point-internet-domain.md)
+## [PowerShell toomanage trafik Yöneticisi'ni kullanın](traffic-manager-powershell-arm.md)
+## [Internet etki alanı tooTraffic Manager'ın üzerine](traffic-manager-point-internet-domain.md)
 ## Sorun giderme
 ### [Azure Traffic Manager’da düşürülmüş durum için sorun giderme](traffic-manager-troubleshooting-degraded.md)
 

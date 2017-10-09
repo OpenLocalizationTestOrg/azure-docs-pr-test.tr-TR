@@ -1,6 +1,6 @@
 ---
-title: "İlk Azure Resource Manager şablonunu oluşturma | Microsoft Docs"
-description: "İlk Azure Resource Manager şablonunuzu oluşturmaya yönelik adım adım kılavuz. Şablon oluşturmak için bir depolama hesabına ait şablon başvurusunun nasıl kullanılacağını gösterir."
+title: "aaaCreate ilk Azure Resource Manager şablonu | Microsoft Docs"
+description: "Adım Adım Kılavuzu toocreating ilk Azure Resource Manager şablonu. Nasıl toouse hello şablon başvurusu bir depolama hesabı toocreate hello şablon için gösterilir."
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.date: 07/27/2017
 ms.topic: get-started-article
 ms.author: tomfitz
-ms.openlocfilehash: 49086b51e2db1aebed45746306ae14b6f1feb631
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 92e6d6bb7094fe0e4537ee080704967862804bdb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>İlk Azure Resource Manager şablonunuzu oluşturma ve dağıtma
-Bu konu başlığında, ilk Azure Resource Manager şablonunuzu oluşturma adımları gösterilmektedir. Resource Manager şablonları, çözümünüz için dağıtmanız gereken kaynakları tanımlayan JSON dosyalarıdır. Azure çözümlerinizi dağıtma ve yönetmeyle ilgili kavramları anlamak için bkz. [Azure Resource Manager’a genel bakış](resource-group-overview.md). Kaynaklarınız varsa ve bu kaynaklara yönelik bir şablon almak istiyorsanız bkz. [Mevcut kaynaklardan Azure Resource Manager şablonunu dışarı aktarma](resource-manager-export-template.md).
+Bu konu, ilk Azure Resource Manager şablonu oluşturma hello adımlarda size yol gösterir. Resource Manager şablonları çözümünüz için toodeploy ihtiyacınız hello kaynakları tanımlayan JSON dosyalarıdır. Azure çözümlerinizi yönetme ve dağıtma ile ilişkili toounderstand hello bkz [Azure Resource Manager'a genel bakış](resource-group-overview.md). Mevcut bir kaynağı var ve bu kaynakları için tooget bir şablon istiyorsanız, bkz [mevcut kaynaklardan Azure Resource Manager şablonunu dışarı aktarma](resource-manager-export-template.md).
 
-Şablonları oluşturup düzeltmek için bir JSON düzenleyicisi gerekir. [Visual Studio Code](https://code.visualstudio.com/) basit, açık kaynaklı ve platformlar arası bir kod düzenleyicisidir. Resource Manager şablonları oluşturmak için Visual Studio Code kullanılması önerilir. Bu konu başlığı, VS Code kullandığınızı varsayar; ancak başka bir JSON düzenleyiciniz (Visual Studio gibi) varsa kullanabilirsiniz.
+toocreate ve gözden geçirme şablonları, JSON düzenleyicisinin gerekir. [Visual Studio Code](https://code.visualstudio.com/) basit, açık kaynaklı ve platformlar arası bir kod düzenleyicisidir. Resource Manager şablonları oluşturmak için Visual Studio Code kullanılması önerilir. Bu konu başlığı, VS Code kullandığınızı varsayar; ancak başka bir JSON düzenleyiciniz (Visual Studio gibi) varsa kullanabilirsiniz.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -31,13 +31,13 @@ Bu konu başlığında, ilk Azure Resource Manager şablonunuzu oluşturma adım
 
 ## <a name="create-template"></a>Şablon oluşturma
 
-Aboneliğinize bir depolama hesabı dağıtan basit bir şablonla başlayalım.
+Bir depolama hesabı tooyour aboneliği dağıtır basit bir şablonla başlayalım.
 
 1. **Dosya** > **Yeni Dosya**’yı seçin. 
 
    ![Yeni dosya](./media/resource-manager-create-first-template/new-file.png)
 
-2. Aşağıdaki JSON söz dizimini kopyalayıp dosyanıza yapıştırın:
+2. Kopyalama ve yapıştırma dosyanıza JSON söz dizimi aşağıdaki hello:
 
    ```json
    {
@@ -65,17 +65,17 @@ Aboneliğinize bir depolama hesabı dağıtan basit bir şablonla başlayalım.
    }
    ```
 
-   Depolama hesabı adlarını ayarlamayı zorlaştıran birkaç kısıtlama vardır. Ad 3 ila 24 karakter uzunluğunda olmalı, yalnızca sayı ile küçük harf içermeli ve benzersiz olmalıdır. Önceki şablonda bir karma değer oluşturmak için [uniqueString](resource-group-template-functions-string.md#uniquestring) kullanılmıştır. Bu karma değere daha fazla anlam katmak için *storage* ön eki getirilmiştir. 
+   Depolama hesabı adları zor tooset olun birkaç kısıtlamaları vardır. Merhaba adı uzunluğu, kullanım yalnızca sayılar ve küçük harfler 3 ile 24 karakter arasında olmalı ve benzersiz olması gerekir. Merhaba önceki şablonu kullanan hello [uniqueString](resource-group-template-functions-string.md#uniquestring) toogenerate bir karma değer işlev. toogive Bu karma değer daha anlamına gelir, hello önekini ekler *depolama*. 
 
-3. Bu dosyayı yerel bir klasöre **azuredeploy.json** olarak kaydedin.
+3. Bu dosya olarak kaydetmek **azuredeploy.json** tooa yerel klasör.
 
    ![Şablonu kaydetme](./media/resource-manager-create-first-template/save-template.png)
 
 ## <a name="deploy-template"></a>Şablon dağıtma
 
-Bu şablonu dağıtmaya hazırsınız. Bir kaynak grubu oluşturmak için PowerShell veya Azure CLI kullanın. Ardından, bu kaynak grubuna bir depolama hesabı dağıtın.
+Bu şablonu hazır toodeploy şunlardır. PowerShell veya Azure CLI toocreate bir kaynak grubu kullanın. Ardından, bir depolama hesabı toothat kaynak grubu dağıtın.
 
-* PowerShell için, şablonu içeren klasörden aşağıdaki komutları kullanın:
+* İçin PowerShell komutlarını hello şablonu içeren hello klasöründen aşağıdaki hello kullanın:
 
    ```powershell
    Login-AzureRmAccount
@@ -84,7 +84,7 @@ Bu şablonu dağıtmaya hazırsınız. Bir kaynak grubu oluşturmak için PowerS
    New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json
    ```
 
-* Yerel bir Azure CLI yüklemesi için, şablonu içeren klasörden aşağıdaki komutları kullanın:
+* Azure CLI yerel yükleme için komutları hello şablonu içeren hello klasöründen aşağıdaki hello kullan:
 
    ```azurecli
    az login
@@ -93,19 +93,19 @@ Bu şablonu dağıtmaya hazırsınız. Bir kaynak grubu oluşturmak için PowerS
    az group deployment create --resource-group examplegroup --template-file azuredeploy.json
    ```
 
-Dağıtım tamamlandığında, depolama hesabınız kaynak grubunda mevcut olur.
+Dağıtım tamamlandığında, depolama hesabınız hello kaynak grubunda yok.
 
 ## <a name="deploy-template-from-cloud-shell"></a>Cloud Shell'den şablon dağıtma
 
-[Cloud Shell](../cloud-shell/overview.md)’i kullanarak, şablonunuzu dağıtmak için Azure CLI komutlarını çalıştırabilirsiniz. Ancak, ilk olarak şablonunuzu Cloud Shell dosya paylaşımına yüklemeniz gerekir. Daha önce Cloud Shell kullanmadıysanız, kurulumu hakkında bilgi için bkz. [Azure Cloud Shell’e Genel Bakış](../cloud-shell/overview.md).
+Kullanabileceğiniz [bulut Kabuk](../cloud-shell/overview.md) toorun hello Azure CLI komutları şablonunuzu dağıtmak için. Ancak, ilk şablonunuzu hello dosya paylaşım içine bulut Kabuğunuzu yüklemeniz gerekir. Daha önce Cloud Shell kullanmadıysanız, kurulumu hakkında bilgi için bkz. [Azure Cloud Shell’e Genel Bakış](../cloud-shell/overview.md).
 
-1. [Azure Portal](https://portal.azure.com)’da oturum açın.   
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).   
 
-2. Cloud Shell kaynak grubunuzu seçin. Ad deseni `cloud-shell-storage-<region>` şeklindedir.
+2. Cloud Shell kaynak grubunuzu seçin. Merhaba adı deseni `cloud-shell-storage-<region>`.
 
    ![Kaynak grubu seçin](./media/resource-manager-create-first-template/select-cs-resource-group.png)
 
-3. Cloud Shell için depolama hesabınızı seçin.
+3. Bulut Kabuğunuzu Hello depolama hesabı seçin.
 
    ![Depolama hesabı seçme](./media/resource-manager-create-first-template/select-storage.png)
 
@@ -113,7 +113,7 @@ Dağıtım tamamlandığında, depolama hesabınız kaynak grubunda mevcut olur.
 
    ![Dosya seçme](./media/resource-manager-create-first-template/select-files.png)
 
-5. Cloud Shell için dosya paylaşımı seçin. Ad deseni `cs-<user>-<domain>-com-<uniqueGuid>` şeklindedir.
+5. Hello dosya paylaşımı için bulut Kabuğu'nu seçin. Merhaba adı deseni `cs-<user>-<domain>-com-<uniqueGuid>`.
 
    ![Dosya paylaşımı seçme](./media/resource-manager-create-first-template/select-file-share.png)
 
@@ -137,24 +137,24 @@ Dağıtım tamamlandığında, depolama hesabınız kaynak grubunda mevcut olur.
 
    ![Dosya yükleme](./media/resource-manager-create-first-template/upload-files.png)
 
-11. İstemi açın.
+11. Açık hello istemi.
 
    ![Cloud Shell’i açma](./media/resource-manager-create-first-template/start-cloud-shell.png)
 
-12. Cloud Shell’e aşağıdaki komutları girin:
+12. Merhaba bulut Kabuk komutları aşağıdaki hello girin:
 
    ```azurecli
    az group create --name examplegroup --location "South Central US"
    az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
    ```
 
-Dağıtım tamamlandığında, depolama hesabınız kaynak grubunda mevcut olur.
+Dağıtım tamamlandığında, depolama hesabınız hello kaynak grubunda yok.
 
-## <a name="customize-the-template"></a>Şablonu özelleştirme
+## <a name="customize-hello-template"></a>Merhaba şablonunu özelleştirme
 
-Şablon düzgün çalışır, ancak esnek değildir. Şablon ABD Orta Güney bölgesine her zaman yerel olarak yedekli depolama dağıtır. Ad her zaman *storage* ve ardından bir karma değer içerir. Şablonu farklı senaryolar için kullanmak üzere şablona parametreler ekleyin.
+Merhaba şablonu düzgün çalışır, ancak esnek değildir. Her zaman, yerel olarak yedekli depolama tooSouth Orta ABD dağıtır. Merhaba adıdır her zaman *depolama* bir karma değer tarafından izlenen. farklı senaryolar için Hello şablonu kullanarak tooenable parametreleri toohello şablonu ekleyin.
 
-Aşağıdaki örnekte iki parametre ile birlikte parametreler bölümü gösterilmektedir. İlk `storageSKU` parametresi, yedeklilik türünü belirtmenize olanak sağlar. Bir depolama hesabı için geçerli olan değerlere geçirebileceğiniz değerleri sınırlar. Ayrıca, varsayılan bir değer belirtir. İkinci `storageNamePrefix` parametresi en çok 11 karaktere izin verecek şekilde ayarlanır. Varsayılan bir değer belirtir.
+Merhaba aşağıdaki örnekte iki parametrelerle hello Parametreler bölümünde gösterilir. İlk parametre hello `storageSKU` toospecify hello türü artıklık sağlar. Bir depolama hesabı için geçerli toovalues içinde geçirebilirsiniz hello değerleri sınırlar. Ayrıca, varsayılan bir değer belirtir. İkinci parametre hello `storageNamePrefix` en çok 11 karakter kümesi tooallow değil. Varsayılan bir değer belirtir.
 
 ```json
 "parameters": {
@@ -169,7 +169,7 @@ Aşağıdaki örnekte iki parametre ile birlikte parametreler bölümü gösteri
     ],
     "defaultValue": "Standard_LRS",
     "metadata": {
-      "description": "The type of replication to use for the storage account."
+      "description": "hello type of replication toouse for hello storage account."
     }
   },
   "storageNamePrefix": {
@@ -177,13 +177,13 @@ Aşağıdaki örnekte iki parametre ile birlikte parametreler bölümü gösteri
     "maxLength": 11,
     "defaultValue": "storage",
     "metadata": {
-      "description": "The value to use for starting the storage account name. Use only lowercase letters and numbers."
+      "description": "hello value toouse for starting hello storage account name. Use only lowercase letters and numbers."
     }
   }
 },
 ```
 
-Değişkenler bölümünde `storageName` adlı bir değişken ekleyin. Bu değişken, parametrelerden bir ön ek değerini [uniqueString](resource-group-template-functions-string.md#uniquestring) işlevindeki bir karma değer ile birleştirir. Tüm karakterleri küçük harfe dönüştürmek için [toLower](resource-group-template-functions-string.md#tolower) işlevini kullanır.
+Adlı bir değişkende Hello değişkenler bölümünde eklemek `storageName`. Merhaba önek değeri hello parametrelerinden ve hello karma değerinden bir araya getiren [uniqueString](resource-group-template-functions-string.md#uniquestring) işlevi. Merhaba kullanan [toLower](resource-group-template-functions-string.md#tolower) tooconvert tüm karakterleri toolowercase işlev.
 
 ```json
 "variables": {
@@ -191,7 +191,7 @@ Değişkenler bölümünde `storageName` adlı bir değişken ekleyin. Bu deği�
 },
 ```
 
-Depolama hesabınız için bu yeni değerleri kullanmak üzere kaynak tanımını değiştirin:
+toouse depolama hesabınız için yeni bu değerleri değiştirmek hello kaynak tanımı:
 
 ```json
 "resources": [
@@ -210,11 +210,11 @@ Depolama hesabınız için bu yeni değerleri kullanmak üzere kaynak tanımın�
 ],
 ```
 
-Depolama hesabı adının eklediğiniz değişkene ayarlandığına dikkat edin. SKU adı, parametre değerine ayarlanır. Konum, kaynak grubu ile aynı konuma ayarlanır.
+Bu hello fark hello depolama hesabının adını eklediğiniz toohello değişkeni şimdi ayarlayın. Merhaba SKU adı toohello hello parametresinin değerini ayarlayın. Başlangıç konumu ayarlanmış hello hello kaynak grubu olarak aynı konumu.
 
 Dosyanızı kaydedin. 
 
-Bu makaledeki adımları tamamladıktan sonra, artık şablonunuz şöyle görünür:
+Bu makaledeki Hello adımları tamamladıktan sonra şablonunuzu artık şuna benzer:
 
 ```json
 {
@@ -232,7 +232,7 @@ Bu makaledeki adımları tamamladıktan sonra, artık şablonunuz şöyle görü
       ],
       "defaultValue": "Standard_LRS",
       "metadata": {
-        "description": "The type of replication to use for the storage account."
+        "description": "hello type of replication toouse for hello storage account."
       }
     },   
     "storageNamePrefix": {
@@ -240,7 +240,7 @@ Bu makaledeki adımları tamamladıktan sonra, artık şablonunuz şöyle görü
       "maxLength": 11,
       "defaultValue": "storage",
       "metadata": {
-        "description": "The value to use for starting the storage account name. Use only lowercase letters and numbers."
+        "description": "hello value toouse for starting hello storage account name. Use only lowercase letters and numbers."
       }
     }
   },
@@ -267,7 +267,7 @@ Bu makaledeki adımları tamamladıktan sonra, artık şablonunuz şöyle görü
 
 ## <a name="redeploy-template"></a>Şablonu yeniden dağıtma
 
-Şablonu farklı değerlerle yeniden dağıtın.
+Farklı değerleri olan Hello şablonu yeniden dağıtın.
 
 PowerShell için şunu kullanın:
 
@@ -281,7 +281,7 @@ Azure CLI için şunu kullanın:
 az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
 ```
 
-Cloud Shell için, değiştirdiğiniz şablonu dosya paylaşımına yükleyin. Var olan dosyanın üzerine yazın. Ardından, aşağıdaki komutu kullanın:
+Merhaba bulut Kabuk değiştirilmiş şablon toohello dosya paylaşımınızı karşıya yükleyin. Merhaba varolan dosyanın üzerine yazar. Ardından, komutu aşağıdaki hello kullanın:
 
 ```azurecli
 az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
@@ -289,7 +289,7 @@ az group deployment create --resource-group examplegroup --template-file clouddr
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerekli değilse, kaynak grubunu silerek dağıttığınız kaynakları temizleyin.
+Artık gerektiğinde Merhaba kaynak grubunu silerek dağıtılan hello kaynakları temizlemek.
 
 PowerShell için şunu kullanın:
 
@@ -304,6 +304,6 @@ az group delete --name examplegroup
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bir şablonun yapısı hakkında daha fazla bilgi edinmek için bkz. [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
-* Bir depolama hesabının özellikleri hakkında bilgi edinmek için bkz. [depolama hesapları şablon başvurusu](/azure/templates/microsoft.storage/storageaccounts).
-* Farklı türlerde çözümler için tam şablonları görüntülemek üzere bkz. [Azure Hızlı Başlangıç Şablonları](https://azure.microsoft.com/documentation/templates/).
+* bir şablonun hello yapısı hakkında daha fazla toolearn bkz [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
+* bir depolama hesabı hello özellikleri hakkında toolearn bkz [depolama hesapları şablon başvurusu](/azure/templates/microsoft.storage/storageaccounts).
+* tooview tam şablonları farklı türlerde çözümler için bkz: hello [Azure hızlı başlangıç şablonlarını](https://azure.microsoft.com/documentation/templates/).

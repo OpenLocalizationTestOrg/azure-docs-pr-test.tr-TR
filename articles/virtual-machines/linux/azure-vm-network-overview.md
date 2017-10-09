@@ -1,5 +1,5 @@
 ---
-title: "Azure ve Linux VM ağ genel bakış | Microsoft Docs"
+title: "aaaAzure ve Linux VM ağ genel bakış | Microsoft Docs"
 description: "Azure ve Linux VM ağ genel bakış."
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
@@ -14,56 +14,56 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/25/2016
 ms.author: v-livech
-ms.openlocfilehash: 1ff4a0482d6dc6ec0eceaa89ca4b87ba1e2f89a1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c3de2dc583c62160e10c0e97e96fef49b9eaffbf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-and-linux-vm-network-overview"></a>Azure ve Linux VM ağına genel bakış
 ## <a name="virtual-networks"></a>Sanal Ağlar
-Azure Virtual Network (VNet) buluttaki kendi ağınızın bir gösterimidir. Azure bulutunun aboneliğinize adanmış mantıksal bir yalıtımıdır. Bu ağ içindeki IP adres bloklarını, DNS ayarlarını, güvenlik ilkelerini ve yol tablolarını tam olarak denetleyebilirsiniz. Ayrıca, sanal ağınızı alt ağlara ayırabilir ve Azure Iaas sanal makineleri (VM'ler) ve/veya Bulut hizmetlerini (PaaS rolü örnekleri) başlatın. Ayrıca, sanal ağ mevcut bağlantı seçeneklerinden birini kullanarak şirket ağınıza bağlanabilir. Özetle, IP adres blokları üzerinde tam bir kontrol sahibi olarak ve Azure'ın sunduğu kurumsal ölçek avantajıyla, ağınızı Azure'a genişletebilirsiniz.
+Bir Azure sanal ağı (VNet), kendi ağ hello bulutta gösterimidir. Merhaba ayrılmış Azure bulut tooyour abonelik mantıksal yalıtımının olur. Başlangıç IP adresi blokları, DNS ayarları, güvenlik ilkeleri ve bu ağ içindeki yol tablolarını tam olarak denetleyebilirsiniz. Ayrıca, sanal ağınızı alt ağlara ayırabilir ve Azure Iaas sanal makineleri (VM'ler) ve/veya Bulut hizmetlerini (PaaS rolü örnekleri) başlatın. Ayrıca, mevcut hello bağlantı seçeneklerinden birini kullanarak hello sanal ağ tooyour şirket ağına bağlanabilir. Esas olarak, Azure sunduğu Kurumsal ölçek hello yararı IP adres blokları üzerinde tam denetim, ağ tooAzure genişletebilirsiniz.
 
 * [Sanal ağ genel bakış](../../virtual-network/virtual-networks-overview.md)
 
-Azure CLI kullanarak bir VNet oluşturmak için burada ilerlemesi takibi gidin.
+toocreate kullanarak bir VNet Azure CLI aracılığıyla gidin burada toofollow hello ilerlemesi hello.
 
-* [Azure CLI kullanarak VNet oluşturma](../../virtual-network/virtual-networks-create-vnet-arm-cli.md)
+* [Azure CLI kullanarak bir VNet toocreate hello nasıl](../../virtual-network/virtual-networks-create-vnet-arm-cli.md)
 
 ## <a name="network-security-groups"></a>Ağ Güvenlik Grupları
-Ağ güvenlik grubu (NSG), bir Virtual Network üzerindeki VM örneklerinize ağ trafiğinin gitmesine izin veren veya reddeden Erişim Denetimi Listesi (ACL) kurallarının bir listesini içerir. NSG'ler alt ağlarla veya bu alt ağların içindeki tekil VM örnekleriyle ilişkili olabilir. Bir NSG bir alt ağ ile ilişkili olduğunda, ACL kuralları bu alt ağdaki tüm VM örnekleri için geçerli olur. Ayrıca, bir NSG doğrudan tekil bir VM ile ilişkilendirildiği zaman bu VM'ye giden trafik daha da kısıtlanabilir.
+Ağ güvenlik grubu (NSG) izin veren veya bir sanal ağ tooyour VM örnekleri ağ trafiği reddeden erişim denetimi listesi (ACL) kurallarının bir listesini içerir. NSG'ler alt ağlarla veya bu alt ağların içindeki tekil VM örnekleriyle ilişkili olabilir. Bir NSG bir alt ağ ile ilişkili olduğunda hello ACL kuralları bu alt ağdaki tooall hello VM örnekleri uygulayın. Buna ek olarak, trafiği tooan tek tek VM kısıtlanabilir başka bir NSG ilişkilendirerek doğrudan toothat VM.
 
 * [Ağ Güvenlik Grubu (NSG) Nedir?](../../virtual-network/virtual-networks-nsg.md)
-* [Azure CLI içinde NSG’ler oluşturma](../../virtual-network/virtual-networks-create-nsg-arm-cli.md)
+* [Azure CLI toocreate Nsg'ler nasıl hello](../../virtual-network/virtual-networks-create-nsg-arm-cli.md)
 
 ## <a name="user-defined-routes"></a>Kullanıcı Tanımlı Yollar
-Azure'da bir sanal ağa (VNet) sanal makineler (VM'ler) eklediğiniz zaman, VM'lerin birbirleri ile ağ üzerinde otomatik olarak iletişim kurabildiklerini fark edersiniz. VM'ler farklı alt ağlarda bulunsa bile bir ağ geçidini belirtmenize gerek yoktur. Aynı şey VM'lerden genel İnternet'e giden iletişimlerde ve hatta Azure'dan kendi veri merkezinize karma bir bağlantı bulunduğunda şirket içi ağınıza giden iletişimlerde de geçerlidir.
+Azure'da sanal makine (VM) tooa sanal ağ (VNet) eklediğinizde, hello VM'ler hello ağ üzerinden birbirleriyle mümkün toocommunicate otomatik olarak olduğunu fark edeceksiniz. Merhaba VM'ler olsa da farklı alt ağlarda bir ağ geçidi toospecify gerekmez. Merhaba aynı hello VM'ler toohello gelen iletişimi için doğru ortak Internet ve Azure tooyour karma bağlantısından sahip olduğunda datacenter varsa bile tooyour şirket içi ağ.
 
 * [Kullanıcı Tanımlı Yollar ve IP İletimi nedir?](../../virtual-network/virtual-networks-udr-overview.md)
-* [Azure CLI bir UDR oluşturma](../../virtual-network/virtual-network-create-udr-arm-cli.md)
+* [Bir UDR hello Azure CLI oluşturma](../../virtual-network/virtual-network-create-udr-arm-cli.md)
 
-## <a name="associating-a-fqdn-to-your-linux-vm"></a>Linux VM için bir FQDN ilişkilendirme
-Resource Manager dağıtım modelini kullanarak Azure portalında bir sanal makine (VM) oluşturduğunuzda, sanal makine için genel bir IP kaynağı otomatik olarak oluşturulur. VM uzaktan erişmek için bu IP adresi kullanın. Portalı varsayılan olarak bir tam etki alanı adını veya FQDN, oluşturmaz karşın, VM oluşturulduktan sonra bir tane ekleyebilirsiniz.
+## <a name="associating-a-fqdn-tooyour-linux-vm"></a>FQDN tooyour Linux VM ilişkilendirme
+Merhaba Resource Manager dağıtım modeli, bir ortak IP kullanarak bir sanal makine (VM) hello Azure portal oluşturduğunuzda hello sanal makine için kaynak otomatik olarak oluşturulur. Bu IP adresi tooremotely erişim hello VM kullanın. Merhaba portalı varsayılan olarak bir tam etki alanı adını veya FQDN, oluşturmaz rağmen hello VM oluşturulduktan sonra bir tane ekleyebilirsiniz.
 
-* [Azure portalında tam etki alanı adı oluşturma](portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Tam etki alanı adı hello Azure portal oluşturma](portal-create-fqdn.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="network-interfaces"></a>Ağ arabirimleri
-Ağ arabirimi (NIC), bir Sanal Makine (VM) ile onun yazılım altyapısı arasındaki çift yönlü bağlantıdır. Bu makalede bir ağ arabiriminin ne olduğu ve Azure Resource Manager dağıtım modelinde nasıl kullanıldığı açıklanmıştır.
+Bir ağ arabirimi (NIC) bir sanal makine (VM) ve yazılım ağ temel hello arasında hello Bağlantısı ' dir. Bu makalede açıklanır hangi bir ağ arabirimi ve hello Azure Resource Manager dağıtım modelinde nasıl kullanılır.
 
 * [Sanal ağ arabirimleri](../../virtual-network/virtual-network-network-interface.md)
 
 ## <a name="virtual-nics-and-dns-labeling"></a>Sanal NIC ve DNS etiketleme
-Kalıcı olması gereken bir sunucu varsa, ancak sunucu cattle kabul edilir ve bozuk ve sık dağıtılan sanal ağ adına kalıcı hale getirmek için DNS NIC üzerinde etiketleme kullanmak istersiniz.  Aşağıdaki kılavuz ile bir statik IP kalıcı olarak adlandırılmış bir NIC Kurulum.
+Toobe kalıcı gerekir, ancak sunucu cattle kabul edilir ve bozuk bir sunucu varsa ve sık dağıtılan hello VNET üzerinde NIC toopersist hello adına DNS toouse etiketleme isteyeceksiniz.  Gözden geçirme aşağıdaki hello ile bir statik IP kalıcı olarak adlandırılmış bir NIC Kurulum.
 
-* [Azure CLI kullanarak eksiksiz bir Linux ortamı oluşturma](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Hello Azure CLI kullanarak eksiksiz bir Linux ortamı oluşturma](create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="virtual-network-gateways"></a>Sanal Ağ Geçitleri
-Sanal ağ geçidi, Azure sanal ağları ile şirket içi konumlar arasında ve Azure içindeki sanal ağlar arasında (Sanal Ağdan Sanal Ağa) ağ trafiği göndermek için kullanılır. Bir VPN ağ geçidini yapılandırdığınızda sanal bir ağ geçidi ve sanal ağ geçidi bağlantısı oluşturup yapılandırmanız gerekir.
+Bir sanal ağ geçidi kullanılan Azure sanal ağlar ve şirket içi konumlara arasında ve aynı zamanda azure'da (VNet-VNet) sanal ağlar arasında ağ trafiğini toosend. Bir VPN ağ geçidini yapılandırdığınızda sanal bir ağ geçidi ve sanal ağ geçidi bağlantısı oluşturup yapılandırmanız gerekir.
 
 * [VPN Gateway hakkında](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
 ## <a name="internal-load-balancing"></a>İç Yük Dengeleme
-Azure Load Balancer bir Katman 4 (TCP, UDP) yük dengeleyicidir. Yük dengeleyici, gelen trafiği bulut hizmetlerindeki sağlıklı hizmet örnekleri veya bir yük dengeleyici kümesindeki sanal makineler arasında dağıtarak yüksek kullanılabilirlik sağlar. Ayrıca, Azure Load Balancer bu hizmetleri birden çok bağlantı noktasında, birden çok IP adresinde ya da her ikisinde birden sağlayabilir.
+Azure Load Balancer bir Katman 4 (TCP, UDP) yük dengeleyicidir. Merhaba yük dengeleyici, gelen trafiği bulut Hizmetleri sağlıklı hizmet örnekleri veya bir yük dengeleyici kümesindeki sanal makineler arasında dağıtarak yüksek kullanılabilirlik sağlar. Ayrıca, Azure Load Balancer bu hizmetleri birden çok bağlantı noktasında, birden çok IP adresinde ya da her ikisinde birden sağlayabilir.
 
-* [Azure CLI kullanarak bir iç yük dengeleyici oluşturma](../../load-balancer/load-balancer-get-started-internet-arm-cli.md)
+* [Bir iç yük dengeleyici Hello Azure CLI kullanarak oluşturma](../../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 

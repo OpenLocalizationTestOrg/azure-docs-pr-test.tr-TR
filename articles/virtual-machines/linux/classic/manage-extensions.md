@@ -1,6 +1,6 @@
 ---
-title: "Linux tabanlı sanal makine uzantıları yönetmek | Microsoft Docs"
-description: "Ekleme, Bul, güncelleştirme ve Azure sanal makineler için Uzantılar Klasik dağıtım modelinde kaldırma açıklar."
+title: "aaaManage Linux tabanlı sanal makine uzantıları | Microsoft Docs"
+description: "Nasıl tooadd, Bul, güncelleştirme ve Azure sanal makineler için Uzantılar hello Klasik dağıtım modelinde kaldırma açıklar."
 services: virtual-machines-linux
 documentationcenter: 
 author: squillace
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
-ms.openlocfilehash: 2d16b4c2c3bfa8db6dc1455915bd3f8a80222163
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7f198f44d229dde7f60eec99033215dffb18370d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-virtual-machine-extensions"></a>Sanal makine uzantıları Yönet
-Bulma, ekleme, değiştirme veya Windows veya Linux sanal makineleri Azure üzerinde VM uzantıları kaldırma açıklar.
+Nasıl toofind, ekleme, değiştirme veya Windows veya Linux sanal makineleri Azure üzerinde VM uzantıları kaldırma açıklar.
 
 > [!IMPORTANT] 
-> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. VM uzantıları Resource Manager modeli ile kullanma hakkında daha fazla bilgi için bkz: [burada](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, hello Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, en yeni dağıtımların hello Resource Manager modelini kullanmasını önerir. VM uzantıları hello Resource Manager modeli ile kullanma hakkında daha fazla bilgi için bkz: [burada](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-manage-extensions](../../../../includes/virtual-machines-common-classic-manage-extensions.md)]
 

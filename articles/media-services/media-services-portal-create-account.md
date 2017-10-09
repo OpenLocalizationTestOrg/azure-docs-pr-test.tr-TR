@@ -1,6 +1,6 @@
 ---
-title: "Azure portalı ile Azure Media Services hesabı oluşturma | Microsoft Belgeleri"
-description: "Bu öğretici, Azure portalıyla bir Azure Media Services hesabı oluşturma adımlarında size kılavuzluk eder."
+title: "aaaCreate hello Azure portal ile bir Azure Media Services hesabı | Microsoft Docs"
+description: "Bu öğretici, hello Azure portal ile Azure Media Services hesabı oluşturma hello adım adım anlatılmaktadır."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,41 +14,41 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: juliako
-ms.openlocfilehash: 919a0b2f390bab353d24423d7f216e7031581aba
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: fdad93d5d470fc08380670ec0f6c2d33468b1492
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Azure portal ile Azure Media Services hesabı oluşturma
+# <a name="create-an-azure-media-services-account-using-hello-azure-portal"></a>Hello Azure portal kullanarak bir Azure Media Services hesabı oluşturma
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-create-account.md)
 > * [PowerShell](media-services-manage-with-powershell.md)
 > * [REST](https://docs.microsoft.com/rest/api/media/mediaservice)
 > 
 > [!NOTE]
-> Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/). 
+> toocomplete Bu öğretici bir Azure hesabınızın olması gerekir. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/). 
 > 
 > 
 
-Azure portalı bir Azure Media Services (AMS) hesabını hızlıca oluşturmanın yolunu sağlar. Azure’da medya içeriği depolamanıza, şifrelemenize, kodlamanıza, yönetmenize ve akış yapmanıza imkan tanıyan Media Services’e erişmek için hesabınızı kullanabilirsiniz. Bir Media Services hesabı oluşturduğunuzda Media Services hesabı ile aynı coğrafi bölgede ilişkili bir depolama hesabı da oluşturursunuz (ya da var olanı kullanırsınız).
+Hello Azure portal tooquickly bir Azure Media Services (AMS) hesap oluşturma bir yol sağlar. Hesap tooaccess, toostore etkinleştirmek, şifrelemek, kodlama, yönetmek ve azure'da medya içeriği akış medya Hizmetleri kullanabilirsiniz. Merhaba zaman, Media Services hesabı oluşturma, ayrıca ilişkili bir depolama hesabı oluşturun (veya mevcut bir kullanabilirsiniz) hello içinde aynı coğrafi bölgede hello Media Services hesabı.
 
-Bu makalede bazı genel kavramlar ve Azure portalı ile Media Services hesabı oluşturma işlemi açıklanmaktadır.
+Bu makalede, bazı ortak kavramları açıklar ve nasıl toocreate Media Services hesap hello Azure portal ile gösterir.
 
 ## <a name="concepts"></a>Kavramlar
 Media Services’e erişim iki ilişkili hesap gerektirir:
 
-* Bir Media Services hesabı. Hesabınız Azure’da mevcut olan bir dizi bulut tabanlı Media Services hizmetine erişmenizi sağlar. Bir Media Services hesabı gerçek medya verilerini depolamaz. Bunun yerine, hesabınızdaki medya içeriği ve medya işleme işleri hakkındaki meta verileri depolar. Hesabı oluşturduğunuz sırada mevcut Media Services bölgelerinden birini seçin. Seçtiğiniz bölge hesabınız için meta veri kayıtlarını saklayan veri merkezidir.
+* Bir Media Services hesabı. Mevcut olan bulut tabanlı Media Services tooa kümesi erişim, hesap sağlar. Bir Media Services hesabı gerçek medya verilerini depolamaz. Bunun yerine, hesabınızdaki hello medya içeriği ve medya işleme işleri hakkındaki meta verileri depolar. Merhaba hesabı oluşturma hello aynı anda kullanılabilir bir Media Services bölge seçin. Seçtiğiniz hello hello hesabınız için meta veri kayıtlarını saklayan bir veri merkezi bölgedir.
   
-* Bir Azure depolama hesabı. Depolama hesapları Media Services hesabıyla aynı coğrafi bölgede olmalıdır. Bir Media Services hesabı oluşturduğunuzda aynı bölgede var olan bir depolama hesabını seçebilir veya aynı bölgede yeni bir depolama hesabı oluşturabilirsiniz. Bir Media Services hesabını silerseniz ilişkili depolama hesabınızdaki blob’lar silinmez.
+* Bir Azure depolama hesabı. Hello depolama hesapları bulunan aynı coğrafi bölgede hello Media Services hesabı. Bir Media Services hesabı oluşturduğunuzda ya da mevcut bir depolama hesabını seçebileceğiniz hello hello içinde yeni bir depolama hesabı aynı bölgede veya oluşturabilirsiniz aynı bölgede. Bir Media Services hesabını silerseniz ilişkili depolama hesabınızdaki hello BLOB'lar silinmez.
 
 > [!NOTE]
 > Azure Media Services özelliklerinin farklı bölgelerde kullanılabilirliği hakkında bilgi için bkz. [Veri merkezleri arasında AMS özelliklerinin kullanılabilirliği](scenarios-and-availability.md#availability).
 
 ## <a name="create-an-ams-account"></a>AMS hesabı oluşturma
-Bu bölümdeki adımlar bir AMS hesabının nasıl oluşturulacağını gösterir.
+Merhaba adımları bu bölümünde Göster nasıl toocreate bir AMS hesabının.
 
-1. [Azure portal](https://portal.azure.com/)’da oturum açın.
+1. Merhaba oturum açma [Azure portal](https://portal.azure.com/).
 2. **+Yeni** > **Web + Mobil** > **Media Services**’e tıklayın.
    
     ![Media Services Oluşturma](./media/media-services-create-account/media-services-new1.png)
@@ -56,31 +56,31 @@ Bu bölümdeki adımlar bir AMS hesabının nasıl oluşturulacağını gösteri
    
     ![Media Services Oluşturma](./media/media-services-create-account/media-services-new3.png)
    
-   1. **Hesap Adı**’nda, yeni AMS hesabının adını girin. Media Services hesabı adı, boşluk olmadan, tümü sayı ve küçük harften oluşmalı ve 3-24 karakter uzunluğunda olmalıdır.
-   2. Abonelik’te, erişiminiz bulunan farklı Azure abonelikleri arasından seçim yapın.
-   3. **Kaynak Grubu**’nda yeni veya mevcut bir kaynağı seçin.  Kaynak grubu; yaşam döngüsünü, izinleri ve ilkeleri paylaşan kaynakların bir koleksiyonudur. [Burada](../azure-resource-manager/resource-group-overview.md#resource-groups) daha fazla bilgi edinin.
-   4. **Konum**’da, Media Services hesabınız için medya ve meta veri kayıtlarını depolamak üzere kullanılacak coğrafi bölgeyi seçin. Bu bölge medyanızı işlemek ve akışını sağlamak için kullanılır. Yalnızca Media Services kullanılabilen bölgeler açılır listede görüntülenir. 
-   5. **Depolama Hesabı** alanında, Media Services hesabınızdan gelen medya içeriğine blob depolama sağlamak üzere bir depolama hesabı seçin. Media Services hesabınızla aynı coğrafi bölgede bulunan mevcut bir depolama hesabını seçebilir ya da bir depolama hesabı oluşturabilirsiniz. Aynı bölgede yeni bir depolama hesabı oluşturulur. Depolama hesabı adları için kurallar Media Services hesapları ile aynıdır.
+   1. İçinde **hesap adı**, hello hello yeni AMS hesabının adını girin. Bir Media Services hesabı adı tüm küçük harf ya da boşluk numaralarıyla ve 3 too24 karakter uzunluğunda olmalıdır.
+   2. Abonelikte erişiminiz hello farklı Azure abonelikleri arasından seçim.
+   3. İçinde **kaynak grubu**, hello yeni veya mevcut bir kaynağı seçin.  Kaynak grubu; yaşam döngüsünü, izinleri ve ilkeleri paylaşan kaynakların bir koleksiyonudur. [Burada](../azure-resource-manager/resource-group-overview.md#resource-groups) daha fazla bilgi edinin.
+   4. İçinde **konumu**, hello Media Services hesabınız için kullanılan toostore hello medya ve meta veri kayıtlarını olacaktır coğrafi bölgeyi seçin. Bu bölge medyanızı akışını sağlamak ve kullanılan tooprocess olması. Yalnızca hello Media Services kullanılabilen bölgeler hello aşağı açılan liste kutusunda görüntülenir. 
+   5. İçinde **depolama hesabı**, Media Services hesabınızdan bir depolama hesabı tooprovide blob depolama hello medya içeriği seçin. Mevcut bir depolama hesabını hello seçebilirsiniz Media Services hesabınızla veya aynı coğrafi bölgede bir depolama hesabı oluşturabilirsiniz. Yeni bir depolama hesabı aynı hello oluşturulan bölge. Depolama hesabı için adları hello kurallar aynı Media Services hesapları için olduğu gibi hello.
       
        Depolama hakkında daha fazla bilgi [burada](../storage/common/storage-introduction.md).
-   6. Hesap dağıtımını ilerleme durumunu görmek için **Panoya sabitle**’yi seçin.
-4. Formun alt kısmındaki **Oluştur**’a tıklayın.
+   6. Seçin **PIN toodashboard** toosee hello hello hesap dağıtımının ilerlemesini.
+4. Tıklatın **oluşturma** hello form hello sonundaki.
    
-    Hesap başarıyla oluşturulduktan sonra genel bakış sayfası yüklenir. Akış uç noktası tablosunda hesapta **Durdurulmuş** durumda bir varsayılan akış uç noktası yer alır. 
+    Merhaba hesap başarıyla oluşturulduktan sonra genel bakış sayfasına yükler. Hello uç nokta tablo hello hesabı Akış akış uç noktası hello içinde varsayılan olacaktır **durduruldu** durumu. 
 
     >[!NOTE]
-    >AMS hesabınız oluşturulduğunda hesabınıza **Durdurulmuş** durumda bir **varsayılan** akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için içerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumda olması gerekir. 
+    >AMS hesabınızı oluşturulduğunda bir **varsayılan** akış uç noktası ekleniyor tooyour hesabı hello **durduruldu** durumu. İçerik ve Al avantajı dinamik paketleme ve dinamik şifreleme akış toostart hello istediğiniz toostream içeriğe sahip toobe hello akış uç **çalıştıran** durumu. 
    
-## <a name="to-manage-your-ams-account"></a>AMS hesabınızı yönetmek için
+## <a name="toomanage-your-ams-account"></a>toomanage AMS hesabınızı
 
-AMS hesabınızı yönetmek için (örneğin, AMS API’ye programlama aracılığıyla bağlanarak karşıya video yükleme, varlıkları kodlama, içerik korumayı yapılandırma, iş ilerleme durumunu izleme) portalın sol tarafında bulunan **Ayarlar**’ı seçin. **Ayarlar**’da, kullanılabilir dikey pencerelerden birine (örneğin **API Erişimi**, **Varlıklar**, **İşler**, **İçerik koruma**) gidin.
+toomanage AMS hesabınızı (örneğin, toohello AMS API program aracılığıyla bağlanmak, videoları karşıya yüklemek, varlıkları kodlamak, içerik koruma yapılandırma, işin ilerleme durumunu izlemek) seçin **ayarları** yan hello portalının sol hello üzerinde. Merhaba gelen **ayarları**, hello kullanılabilir Kanatlar tooone gidin (örneğin: **API erişimini**, **varlıklar**, **işleri**, **İçerik koruma**).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bundan böyle dosyaları AMS hesabınıza yükleyebilirsiniz. Daha fazla bilgi için bkz. [Dosya yükleme](media-services-portal-upload-files.md).
 
-AMS API’ye programlama aracılığıyla erişmeyi planlıyorsanız bkz. [Azure AD kimlik doğrulamasıyla Azure Media Services API’ye erişim](media-services-use-aad-auth-to-access-ams-api.md).
+Tooaccess AMS API program aracılığıyla planlıyorsanız bkz [Azure AD kimlik doğrulaması ile erişim hello Azure Media Services API](media-services-use-aad-auth-to-access-ams-api.md).
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

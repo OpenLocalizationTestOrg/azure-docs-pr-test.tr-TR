@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL veritabanını dinamik veri maskeleme | Microsoft docs"
-description: "SQL veritabanı dinamik veri maskeleme ayrıcalıklı olmayan kullanıcılara maskeleyerek gizli verilerin açığa sınırlar."
+title: "aaaAzure SQL veritabanını dinamik veri maskeleme | Microsoft docs"
+description: "SQL veritabanı dinamik veri maskeleme toonon ayrıcalıklı kullanıcılar maskeleyerek gizli verilerin açığa sınırlar."
 services: sql-database
 documentationcenter: 
 author: ronitr
@@ -15,43 +15,43 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 03/09/2017
 ms.author: ronitr; ronmat
-ms.openlocfilehash: 83deadce3cbdd30aa50d22d99378bd86133677c4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 68b55128dc096f7e3dd0e5ed1427b39da5d64736
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sql-database-dynamic-data-masking"></a>SQL veritabanı dinamik veri maskeleme
 
-SQL veritabanı dinamik veri maskeleme ayrıcalıklı olmayan kullanıcılara maskeleyerek gizli verilerin açığa sınırlar. 
+SQL veritabanı dinamik veri maskeleme toonon ayrıcalıklı kullanıcılar maskeleyerek gizli verilerin açığa sınırlar. 
 
-Dinamik veri maskeleme müşterilerin uygulama katmanını çok az etkileyerek hassas verilerin ne kadarının gösterileceğini belirlemelerini sağlar ve hassas verilere yetkisiz erişimin engellenmesine yardımcı olur. Bu özellik, hassas verileri belirlenen veritabanı alanlarına yapılan sorgunun sonuç kümesinde gizleyen ancak veritabanındaki verileri değiştirmeyen ilke tabanlı bir güvenlik özelliğidir.
+Dinamik veri maskeleme yardımcı olan müşteriler toodesignate etkinleştirerek yetkisiz erişim toosensitive verilerin engellemek hello hassas verileri tooreveal hello uygulama katmanı üzerinde en az etkiyle ne kadarının. Bunu hello verileri hello veritabanında değişip değişmediğini sırada, belirlenen veritabanı alanları hello hassas verileri sorgu hello sonuç kümesinde gizler ilke tabanlı güvenlik özelliğidir.
 
-Örneğin, çağrı merkezinde bir temsilcisiyle arayanlar, kredi kartı numarası birkaç haneli tanımlayabilir, ancak veri öğelerden tam olarak temsilcisiyle açılmamalıdır değil. Maskeleri tüm ancak sonuç herhangi kredi kartı numarasının son dört rakamı herhangi bir sorgu kümesi bir maskeleme kuralı tanımlanabilir. Bir geliştirici uyumluluk düzenlemeleri ihlal etmeden sorun giderme amacıyla üretim ortamlarında sorgulayabilmesi başka bir örnek olarak, kişisel bilgileri (PII) verileri korumak için uygun veri maskesi tanımlanabilir.
+Örneğin, bir çağrı merkezinde bir temsilcisiyle arayanlar kendi kredi kartı numarası birkaç haneli tanımlayabilir, ancak toohello temsilcisiyle öğeleri tam olarak olmamalıdır bu verilerin açığa. Tüm maskeleri ancak hello herhangi bir kredi kartı numarası hello sonuç kümesindeki herhangi bir sorgu dört rakamı son bir maskeleme kuralı tanımlanabilir. Bir geliştirici uyumluluk düzenlemeleri ihlal etmeden sorun giderme amacıyla üretim ortamlarında sorgulayabilmesi başka bir örnek olarak, uygun veri maskesi tanımlı tooprotect kişisel bilgileri (PII) verileri olabilir.
 
 ## <a name="sql-database-dynamic-data-masking-basics"></a>SQL veritabanı dinamik veri maskeleme temelleri
-Dinamik veri dinamik veri maskeleme işlemi SQL veritabanı yapılandırma dikey veya ayarları dikey penceresini seçerek Azure portalındaki ilke maskeleme ayarlayın.
+Dinamik veri maskeleme hello ilkesinde Azure portal hello dinamik veri maskeleme işlemi SQL veritabanı yapılandırma dikey veya ayarları dikey penceresini seçerek ayarlarsınız.
 
 ### <a name="dynamic-data-masking-permissions"></a>Dinamik veri maskeleme izinleri
-Dinamik veri maskeleme Azure veritabanı yönetici, sunucu yöneticisi veya güvenlik yetkilisi rolleri tarafından yapılandırılabilir.
+Dinamik veri maskeleme hello Azure veritabanı yöneticisi, sunucu yöneticisi veya güvenlik yetkilisi rolleri tarafından yapılandırılabilir.
 
 ### <a name="dynamic-data-masking-policy"></a>Dinamik veri maskeleme İlkesi
-* **Maskeleme işlemi için hariç tutulan SQL kullanıcıları** - kümesi SQL kullanıcılarının veya SQL'de maskelenmemiş Veri Al AAD kimlikleri sorgu sonuçları. Yönetici ayrıcalıklarına sahip kullanıcılar maskeleme işlemi her zaman hariç tutulur ve özgün veriler herhangi bir maskesi olmadan bakın.
-* **Kuralları maskeleme** -bir dizi maskelenecek belirlenmiş alanları tanımlayan kurallar ve kullanılan maskeleme işlevi. Veritabanı şema adı, tablo adını ve sütun adını kullanarak belirtilen alanlar tanımlanabilir.
-* **İşlevler maskeleme** -bir dizi farklı senaryolar için veri riskini kontrol yöntem.
+* **Maskeleme işlemi için hariç tutulan SQL kullanıcıları** - kümesi SQL kullanıcılarının veya hello SQL maskelenmemiş Veri Al AAD kimlikleri sorgu sonuçları. Yönetici ayrıcalıklarına sahip kullanıcılar maskeleme işlemi her zaman hariç tutulur ve herhangi bir maskesi olmadan hello özgün veriler bakın.
+* **Kuralları maskeleme** -Maskelenmiş alanları toobe belirlenmiş hello ve maskeleme kullanılan işlevi hello tanımlayan kuralları kümesi. alanları belirlenmiş hello veritabanı şema adı, tablo adını ve sütun adı kullanılarak tanımlanabilir.
+* **İşlevler maskeleme** -bir dizi farklı senaryolar için veri hello riskini kontrol yöntem.
 
 | Maskeleme işlevi | Maskeleme mantığı |
 | --- | --- |
-| **Varsayılan** |**Tam maskeleme göre belirlenen alanlarının veri türleri**<br/><br/>• Kullanım XXXX veya alan boyutu 4'ten az karakter dizesi veri türleriyle (nchar, ntext, nvarchar) için ise daha az Xs.<br/>• (Bigint, bit, ondalık, int, para, sayısal, smallint, küçük para, Mini tamsayı, kayan nokta, gerçek) sayısal veri türleri için sıfır değeri kullanın.<br/>• 01-01-1900 tarih/saat veri türleri (tarihi, datetime2, datetime, datetimeoffset, smalldatetime, saat) kullanın.<br/>• SQL variant, geçerli türünün varsayılan değeri için kullanılır.<br/>• XML belge için <masked/> kullanılır.<br/>• Özel veri türleri için boş bir değer kullanın (zaman damgası tablo, hierarchyid, GUID, ikili, görüntü, değişken ikili uzamsal türler). |
-| **Kredi kartı** |**Belirtilen alanları son dört rakamı gösterir yöntemi maskeleme** ve kredi kartı biçiminde öneki olarak bir sabit dize ekler.<br/><br/>XXXX-XXXX-XXXX-1234 |
-| **E-posta** |**İlk harfi kullanıma sunar ve etki alanı ile XXX.com değiştirir yöntemi maskeleme** bir sabit dize öneki biçiminde bir e-posta adresi kullanarak.<br/><br/>aXX@XXXX.com |
-| **Rastgele sayı** |**Rastgele bir sayı oluşturur yöntemi maskeleme** göre seçilen sınırları ve gerçek veri türleri. Ardından maskeleme işlevi belirlenen sınırlar eşitse, sabit bir sayıdır.<br/><br/>![Gezinti Bölmesi](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |
-| **Özel metin** |**İlk ve son karakterler sunan yöntemi maskeleme** ve ortadaki özel doldurma dize ekler. Özgün dizeye gösterilen önek ve sonek kısa ise yalnızca doldurma dize kullanılır. <br/>önek [doldurma] sonek<br/><br/>![Gezinti Bölmesi](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png) |
+| **Varsayılan** |**Tam according toohello veri maskeleme hello türlerini belirlenmiş alanları**<br/><br/>• Kullanım XXXX veya hello alan hello boyutu 4'ten az karakter dizesi veri türleriyle (nchar, ntext, nvarchar) için ise daha az Xs.<br/>• (Bigint, bit, ondalık, int, para, sayısal, smallint, küçük para, Mini tamsayı, kayan nokta, gerçek) sayısal veri türleri için sıfır değeri kullanın.<br/>• 01-01-1900 tarih/saat veri türleri (tarihi, datetime2, datetime, datetimeoffset, smalldatetime, saat) kullanın.<br/>• SQL variant hello varsayılan değer hello geçerli türü için kullanılır.<br/>• XML hello belge için <masked/> kullanılır.<br/>• Özel veri türleri için boş bir değer kullanın (zaman damgası tablo, hierarchyid, GUID, ikili, görüntü, değişken ikili uzamsal türler). |
+| **Kredi kartı** |**En son dört rakamı alanları belirlenmiş hello hello sunan yöntemi maskeleme** ve kredi kartı hello biçiminde öneki olarak bir sabit dize ekler.<br/><br/>XXXX-XXXX-XXXX-1234 |
+| **E-posta** |**Merhaba ilk harfi gösterir ve hello etki alanı ile XXX.com değiştirir yöntemi maskeleme** bir sabit dize öneki hello biçiminde bir e-posta adresi kullanarak.<br/><br/>aXX@XXXX.com |
+| **Rastgele sayı** |**Rastgele bir sayı oluşturur yöntemi maskeleme** toohello according seçili sınırları ve gerçek veri türleri. Ardından maskeleme işlevi hello sınırları belirlenmiş hello eşitse, sabit bir sayıdır.<br/><br/>![Gezinti Bölmesi](./media/sql-database-dynamic-data-masking-get-started/1_DDM_Random_number.png) |
+| **Özel metin** |**Hangi açığa çıkarır hello ilk ve son karakter yöntemi maskeleme** ve bir özel doldurma dize hello ortadaki ekler. Merhaba özgün dizeye kullanıma sunulan hello önek ve sonek kısa ise yalnızca dize doldurma hello kullanılır. <br/>önek [doldurma] sonek<br/><br/>![Gezinti Bölmesi](./media/sql-database-dynamic-data-masking-get-started/2_DDM_Custom_text.png) |
 
 <a name="Anchor1"></a>
 
-### <a name="recommended-fields-to-mask"></a>Maskelenmesi önerilen alanlar
-DDM önerileri altyapısı belirli alanları veritabanınızdan maskeleme için iyi adaylar olabilir olası hassas alanları olarak işaretler. Dinamik veri maskeleme dikey penceresinde Portalı'nda, veritabanınız için önerilen sütunları görürsünüz. Yapmanız gereken tek şey tıklatın **Maskesi Ekle** bir veya daha fazla sütun için ve ardından **kaydetmek** bu alanlar için bir maskesi uygulamak için.
+### <a name="recommended-fields-toomask"></a>Önerilen alanlar toomask
+Merhaba DDM önerileri altyapısı bayraklar veritabanınızdan belirli alanları maskeleme için iyi adaylar olabilir olası hassas alanları olarak. Merhaba dinamik veri maskeleme dikey penceresinde hello Portalı'nda, sütunları veritabanınız için önerilen hello görürsünüz. Tek toodo ihtiyacınız olan tıklatın **Maskesi Ekle** bir veya daha fazla sütun için ve ardından **kaydetmek** tooapply bu alanlar için bir maske.
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Dinamik veri maskeleme Powershell cmdlet'lerini kullanarak, veritabanınız için ayarlama
 Bkz: [Azure SQL veritabanı cmdlet'leri](https://msdn.microsoft.com/library/azure/mt574084.aspx).

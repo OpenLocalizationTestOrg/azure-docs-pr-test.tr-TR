@@ -1,6 +1,6 @@
 ---
-title: "Azure Machine Learning için gelişmiş analizler senaryolarını belirle | Microsoft Docs"
-description: "Tahmine dayalı analiz takım veri bilimi işlemine Gelişmiş yapmak için uygun senaryolar seçin."
+title: "Azure Machine Learning için Gelişmiş analitik senaryoları aaaIdentify | Microsoft Docs"
+description: "Merhaba uygun senaryolar hello takım veri bilimi işlemi ile Tahmine dayalı analiz Gelişmiş yapmak için seçin."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.openlocfilehash: fe4f74f2e0602d13eedb6ca186480291a9a5724f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 52c6bb10d6df4f640a4f66cf17cf4993cc1067b8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Azure Machine Learning’de gelişmiş analiz senaryoları
-Bu makalede birçok örnek veri kaynakları ve tarafından işlenen hedef senaryoları özetlenmektedir [takım veri bilimi işlem (TDSP)](data-science-process-overview.md). TDSP akıllı uygulamaları derleme işbirliği yapmak ekipler için sistematik bir yaklaşım sağlar. Burada sunulan senaryoları veri özellikleri, kaynak konumları ve Azure hedef depoları bağlıdır veri işleme iş akışı içinde kullanılabilir seçenekler gösterilmektedir.
+Bu makalede hello birçok örnek veri kaynakları ve hello tarafından işlenebilir hedef senaryoları özetlenmektedir [takım veri bilimi işlem (TDSP)](data-science-process-overview.md). Merhaba TDSP akıllı uygulamaları derleme üzerinde takımlar toocollaborate sistematik bir yaklaşım sağlar. Burada sunulan hello senaryoları hello veri özellikleri, kaynak konumları ve Azure hedef depoları bağlıdır hello veri işleme iş akışında kullanılabilir seçenekler gösterilmektedir.
 
-**Karar ağacı** veri ve hedefi için uygun olan örnek senaryolar seçerek son bölümde sunulan için.
+Merhaba **karar ağacı** hello son bölümde sunulan veri ve hedefi için uygun hello Örnek senaryo seçmek için.
 
 > [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 > 
 > 
 
-Aşağıdaki bölümlerde bir örnek senaryo sunar. Her senaryo, olası veri bilimi veya gelişmiş analizler için akışı ve Azure kaynaklarını destekleyen listelenir.
+Hello bölümleri aşağıdaki her bir örnek senaryo sunar. Her senaryo, olası veri bilimi veya gelişmiş analizler için akışı ve Azure kaynaklarını destekleyen listelenir.
 
 > [!NOTE]
-> **Aşağıdaki senaryoların tümünde için şunları yapmanız gerekir:**
+> **Tüm senaryoları aşağıdaki hello için şunları yapmanız gerekir:**
 > <br/>
 > 
 > * [Depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md)
@@ -41,25 +41,25 @@ Aşağıdaki bölümlerde bir örnek senaryo sunar. Her senaryo, olası veri bil
 > 
 > 
 
-## <a name="smalllocal"></a>Senaryo \#1: küçük ve orta tablolu bir veri kümesini yerel dosyaları
-![Küçük ve orta yerel dosyaları][1]
+## <a name="smalllocal"></a>Senaryo \#1: küçük toomedium tablo yerel bir dosya kümesinde
+![Küçük toomedium yerel dosyaları][1]
 
 #### <a name="additional-azure-resources-none"></a>Ek Azure kaynaklarını: yok
-1. Oturum [Azure Machine Learning Studio](https://studio.azureml.net/).
+1. İçinde toohello oturum [Azure Machine Learning Studio](https://studio.azureml.net/).
 2. Bir veri kümesi karşıya yükleyin.
 3. Karşıya yüklenen veri kümeleri ile başlayan bir Azure Machine Learning deneme akışı oluşturun.
 
-## <a name="smalllocalprocess"></a>Senaryo \#2: küçük ve orta dataset işleme gerektiren yerel dosyaları
-![Küçük ve orta yerel dosyaları işleme ile][2]
+## <a name="smalllocalprocess"></a>Senaryo \#2: küçük toomedium dataset işleme gerektiren yerel dosyaları
+![Küçük toomedium yerel dosyaları işleme ile][2]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>Ek Azure kaynaklarını: Azure sanal makinesi (IPython not defteri sunucusu)
 1. IPython dizüstü çalıştıran bir Azure sanal makine oluşturun.
-2. Verileri bir Azure depolama kapsayıcısı karşıya yükleyin.
+2. Veri tooan Azure depolama kapsayıcısı karşıya yükleyin.
 3. Önceden işleyebilir ve verileri Azure depolama kapsayıcıdan verilere IPython not defterinde Temizle.
-4. Temizlenen için tablo form verileri dönüştürün.
+4. Veri toocleaned, Tablo formunda dönüştürün.
 5. Dönüştürülen veriler Azure BLOB'ları kaydedin.
-6. Oturum [Azure Machine Learning Studio](https://studio.azureml.net/).
-7. Verileri kullanarak Azure bloblarından okuma [veri içeri aktarma] [ import-data] modülü.
+6. İçinde toohello oturum [Azure Machine Learning Studio](https://studio.azureml.net/).
+7. Hello kullanarak Azure bloblarından Hello veri okuma [veri içeri aktarma] [ import-data] modülü.
 8. Alınan veri kümeleri ile başlayan bir Azure Machine Learning deneme akışı oluşturun.
 
 ## <a name="largelocal"></a>Senaryo \#3: büyük veri kümesi yerel dosyaların Azure BLOB'ları hedefleme
@@ -67,132 +67,132 @@ Aşağıdaki bölümlerde bir örnek senaryo sunar. Her senaryo, olası veri bil
 
 #### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>Ek Azure kaynaklarını: Azure sanal makinesi (IPython not defteri sunucusu)
 1. IPython dizüstü çalıştıran bir Azure sanal makine oluşturun.
-2. Verileri bir Azure depolama kapsayıcısı karşıya yükleyin.
+2. Veri tooan Azure depolama kapsayıcısı karşıya yükleyin.
 3. Önceden işleyebilir ve IPython Azure bloblarından verilere dizüstü bilgisayar, veri temizleme.
-4. Gerekirse temizlenmesi için Tablo formunda, verileri dönüştürün.
+4. Veri toocleaned, Tablo formunda, gerekirse dönüştürün.
 5. Verileri araştırmak ve Özellikler gerektiği şekilde oluşturun.
 6. Küçük ve orta veri örneği ayıklayın.
-7. Örneklenen verileri Azure BLOB'ları kaydedin.
-8. Oturum [Azure Machine Learning Studio](https://studio.azureml.net/).
-9. Verileri kullanarak Azure bloblarından okuma [veri içeri aktarma] [ import-data] modülü.
+7. Merhaba örneklenen verileri Azure BLOB'ları kaydedin.
+8. İçinde toohello oturum [Azure Machine Learning Studio](https://studio.azureml.net/).
+9. Hello kullanarak Azure bloblarından Hello veri okuma [veri içeri aktarma] [ import-data] modülü.
 10. Alınan veri kümeleri ile başlayan Azure Machine Learning deneme akış oluşturun.
 
-## <a name="smalllocaltodb"></a>Senaryo \#4: küçük ve orta dataset yerel dosyaları, SQL Server içinde bir Azure sanal makine hedefleme
-![Küçük ve orta yerel SQL Azure DB'de dosyaları][4]
+## <a name="smalllocaltodb"></a>Senaryo \#4: küçük toomedium dataset yerel dosyaları, SQL Server içinde bir Azure sanal makine hedefleme
+![Azure'da küçük toomedium yerel dosyaları tooSQL DB][4]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Ek Azure kaynaklarını: Azure sanal makinesi (SQL Server / IPython dizüstü sunucu)
 1. SQL Server + IPython dizüstü çalıştıran bir Azure sanal makine oluşturun.
-2. Verileri bir Azure depolama kapsayıcısı karşıya yükleyin.
+2. Veri tooan Azure depolama kapsayıcısı karşıya yükleyin.
 3. Önceden işleyebilir ve IPython Not Defteri kullanarak Azure depolama kapsayıcısının verileri temizleyin.
-4. Gerekirse temizlenmesi için Tablo formunda, verileri dönüştürün.
-5. VM yerel dosyalar için verileri kaydetmek (IPython dizüstü bilgisayar, VM üzerinde çalıştığından, yerel sürücülere VM sürücülere bakın).
-6. Bir Azure VM'de çalışan SQL Server veritabanına veri yükleyin.
+4. Veri toocleaned, Tablo formunda, gerekirse dönüştürün.
+5. Veri tooVM yerel dosyaları kaydetme (IPython dizüstü bilgisayar, VM üzerinde çalıştığından, yerel sürücülere tooVM sürücüleri bakın).
+6. Bir Azure VM'de çalıştırılan veri tooSQL sunucu veritabanı yükleyin.
    
    Seçenek \#1: SQL Server Management Studio'yu kullanarak.
    
-   * SQL Server'da VM oturum açma
+   * Oturum açma tooSQL Server VM
    * SQL Server Management Studio'yu çalıştırın.
    * Veritabanı ve hedef tablolar oluşturun.
-   * Toplu birini kullanın VM yerel dosyalarından veri yüklemek için yöntemleri içeri aktarın.
+   * Merhaba toplu birini kullanın yöntemleri tooload hello veri VM yerel dosyalarından içeri aktarın.
    
    Seçenek \#2: kullanarak IPython not defteri – Orta ve büyük veri kümeleri için değil önerilir
    
    <!-- -->    
-   * SQL Server VM üzerinde erişmek için ODBC bağlantı dizesi kullanın.
+   * ODBC bağlantı dizesi tooaccess SQL Server VM üzerinde kullanın.
    * Veritabanı ve hedef tablolar oluşturun.
-   * Toplu birini kullanın VM yerel dosyalarından veri yüklemek için yöntemleri içeri aktarın.
-7. Özellikler gerektiği şekilde oluşturun, verileri keşfedin. Özellikleri veritabanı tablolarında gerçekleştirilmesi gerekmez unutmayın. Yalnızca bunları oluşturmak için gerekli sorgu unutmayın.
+   * Merhaba toplu birini kullanın yöntemleri tooload hello veri VM yerel dosyalarından içeri aktarın.
+7. Özellikler gerektiği şekilde oluşturun, verileri keşfedin. Merhaba özellikleri hello veritabanı tablolarında gerçekleştirilip toobe gerekmez unutmayın. Yalnızca hello gerekli sorgu toocreate Not bunları.
 8. Gerekli ve/veya istenen veri örnek boyutu üzerinde karar.
-9. Oturum [Azure Machine Learning Studio](https://studio.azureml.net/).
-10. SQL Server kullanarak doğrudan gelen verileri okumak [veri içeri aktarma] [ import-data] modülü. Alanları ayıklar, özellikleri oluşturur ve veri doğrudan gerekirse örnekleri gerekli sorgu Yapıştır [veri içeri aktarma] [ import-data] sorgu.
+9. İçinde toohello oturum [Azure Machine Learning Studio](https://studio.azureml.net/).
+10. Okuma hello verileri doğrudan gelen hello hello kullanarak SQL Server [veri içeri aktarma] [ import-data] modülü. Alanlar, ayıklayan Yapıştır hello gerekli sorgu özellikleri oluşturur ve veri doğrudan hello gerekirse örnekleri [veri içeri aktarma] [ import-data] sorgu.
 11. Alınan veri kümeleri ile başlayan Azure Machine Learning deneme akış oluşturun.
 
 ## <a name="largelocaltodb"></a>Senaryo \#5: yerel dosyaları büyük bir veri kümesini hedef Azure VM'deki SQL Server
-![SQL Azure DB'de büyük yerel dosyalar][5]
+![Azure'da büyük yerel dosyaları tooSQL DB][5]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Ek Azure kaynaklarını: Azure sanal makinesi (SQL Server / IPython dizüstü sunucu)
 1. SQL Server ve IPython dizüstü server çalıştıran bir Azure sanal makine oluşturun.
-2. Verileri bir Azure depolama kapsayıcısı karşıya yükleyin.
+2. Veri tooan Azure depolama kapsayıcısı karşıya yükleyin.
 3. (İsteğe bağlı) Önceden işleyebilir ve veri temizleme.
    
    a.  Önceden işleyebilir ve IPython Azure'dan verilere dizüstü bilgisayar, veri temizleme
    
        blobs.
    
-   b.  Gerekirse temizlenmesi için Tablo formunda, verileri dönüştürün.
+   b.  Veri toocleaned, Tablo formunda, gerekirse dönüştürün.
    
-   c.  VM yerel dosyalar için verileri kaydetmek (IPython dizüstü bilgisayar, VM üzerinde çalıştığından, yerel sürücülere VM sürücülere bakın).
-4. Bir Azure VM'de çalışan SQL Server veritabanına veri yükleyin.
+   c.  Veri tooVM yerel dosyaları kaydetme (IPython dizüstü bilgisayar, VM üzerinde çalıştığından, yerel sürücülere tooVM sürücüleri bakın).
+4. Bir Azure VM'de çalıştırılan veri tooSQL sunucu veritabanı yükleyin.
    
-   a.  SQL Server VM oturum açın.
+   a.  Oturum açma tooSQL Server VM.
    
    b.  Veri zaten kaydedilmemişse, veri dosyalarını Azure'dan indirir.
    
-       storage container to local-VM folder.
+       storage container toolocal-VM folder.
    
    c.  SQL Server Management Studio'yu çalıştırın.
    
    d.  Veritabanı ve hedef tablolar oluşturun.
    
-   e.  Verileri yüklemek için yöntemleri içe toplu birini kullanın.
+   e.  Merhaba toplu birini kullanın yöntemleri tooload hello veri içeri aktarın.
    
-   f.  Tablo birleştirme gerekirse, birleştirmeler hızlandırmak için dizinler oluşturun.
+   f.  Tablo birleştirme gerekirse, dizinleri tooexpedite birleştirmeler oluşturabilir.
    
    > [!NOTE]
-   > Büyük veri boyutları hızlı yükleme için bölümlenmiş tabloları oluşturma ve toplu içeri aktarma verileri paralel önerilir. Daha fazla bilgi için bkz: [paralel veri içe aktarma SQL bölümlenmiş tablolar](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+   > Büyük veri boyutları hızlı yükleme için bölümlenmiş tabloları oluşturma ve içeri aktarma hello verilerini paralel toplu önerilir. Daha fazla bilgi için bkz: [paralel veri alma tooSQL bölümlenmiş tabloları](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
    > 
    > 
-5. Özellikler gerektiği şekilde oluşturun, verileri keşfedin. Özellikleri veritabanı tablolarında gerçekleştirilmesi gerekmez unutmayın. Yalnızca bunları oluşturmak için gerekli sorgu unutmayın.
+5. Özellikler gerektiği şekilde oluşturun, verileri keşfedin. Merhaba özellikleri hello veritabanı tablolarında gerçekleştirilip toobe gerekmez unutmayın. Yalnızca hello gerekli sorgu toocreate Not bunları.
 6. Gerekli ve/veya istenen veri örnek boyutu üzerinde karar.
-7. Oturum [Azure Machine Learning Studio](https://studio.azureml.net/).
-8. SQL Server kullanarak doğrudan gelen verileri okumak [veri içeri aktarma] [ import-data] modülü. Alanları ayıklar, özellikleri oluşturur ve veri doğrudan gerekirse örnekleri gerekli sorgu Yapıştır [veri içeri aktarma] [ import-data] sorgu.
+7. İçinde toohello oturum [Azure Machine Learning Studio](https://studio.azureml.net/).
+8. Okuma hello verileri doğrudan gelen hello hello kullanarak SQL Server [veri içeri aktarma] [ import-data] modülü. Alanlar, ayıklayan Yapıştır hello gerekli sorgu özellikleri oluşturur ve veri doğrudan hello gerekirse örnekleri [veri içeri aktarma] [ import-data] sorgu.
 9. Karşıya yüklenen veri kümesi ile başlayan basit Azure Machine Learning deneme akışı
 
 ## <a name="largedbtodb"></a>Senaryo \#6: bir SQL Server veritabanı SQL Server içinde bir Azure sanal makine hedefleme şirket içi, büyük bir veri kümesini
-![Büyük SQL DB şirket içi SQL Azure DB'de için][6]
+![Azure'da büyük SQL DB şirket içi tooSQL DB][6]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Ek Azure kaynaklarını: Azure sanal makinesi (SQL Server / IPython dizüstü sunucu)
 1. SQL Server ve IPython dizüstü server çalıştıran bir Azure sanal makine oluşturun.
-2. Veri birini kullanın veri döküm dosyaları için SQL Server'dan dışarı aktarmak için yöntemleri verin.
+2. Merhaba veri birini kullanın, SQL Server toodump dosyalarından yöntemleri tooexport hello veri verin.
    
    > [!NOTE]
-   > Şirket içi veritabanından azure'da SQL Server örneği için tam veritabanını taşımak için bir alternatif (hızlı) yöntemi tüm verileri taşımaya karar verirseniz. Verileri dışarı aktarma, veritabanı, oluşturma ve yük/hedef veritabanına veri içeri aktarma ve Alternatif yöntem izleyin adımları atlayın.
+   > Merhaba şirket içi veritabanındaki bir alternatif (hızlı) yöntemi toomove hello tam veritabanı toothe SQL Server örneğinde Azure tüm verileri toomove karar verirseniz. Merhaba adımları tooexport verileri atlayabilirsiniz, veritabanı ve yük/içe aktarma veri toohello hedef veritabanı oluşturun ve hello Alternatif yöntem izleyin.
    > 
    > 
-3. Azure depolama kapsayıcısı için döküm dosyalarını yükleyin.
-4. Bir Azure sanal makinede çalışan SQL Server veritabanına veri yükleyin.
+3. Döküm dosyaları tooAzure depolama kapsayıcısı karşıya yükleyin.
+4. Bir Azure sanal makinede çalışan yük hello veri tooa SQL Server veritabanı.
    
-   a.  SQL Server VM oturum açın.
+   a.  Oturum açma toohello SQL Server VM.
    
-   b.  Veri dosyaları bir Azure depolama kapsayıcıdan VM yerel klasöre yükleyin.
+   b.  Veri dosyaları bir Azure depolama kapsayıcısı toohello yerel VM klasöründen yükleyin.
    
    c.  SQL Server Management Studio'yu çalıştırın.
    
    d.  Veritabanı ve hedef tablolar oluşturun.
    
-   e.  Verileri yüklemek için yöntemleri içe toplu birini kullanın.
+   e.  Merhaba toplu birini kullanın yöntemleri tooload hello veri içeri aktarın.
    
-   f.  Tablo birleştirme gerekirse, birleştirmeler hızlandırmak için dizinler oluşturun.
+   f.  Tablo birleştirme gerekirse, dizinleri tooexpedite birleştirmeler oluşturabilir.
    
    > [!NOTE]
-   > Büyük veri boyutları, hızlı yükleme oluşturmak için bölümlenmiş tablolar ve toplu paralel veri içeri aktarın. Daha fazla bilgi için bkz: [paralel veri içe aktarma SQL bölümlenmiş tablolar](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+   > Büyük veri boyutları hızlı yükleme için bölümlenmiş tablolar ve toobulk alma hello verileri paralel olarak oluşturun. Daha fazla bilgi için bkz: [paralel veri alma tooSQL bölümlenmiş tabloları](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
    > 
    > 
-5. Özellikler gerektiği şekilde oluşturun, verileri keşfedin. Özellikleri veritabanı tablolarında gerçekleştirilmesi gerekmez unutmayın. Yalnızca bunları oluşturmak için gerekli sorgu unutmayın.
+5. Özellikler gerektiği şekilde oluşturun, verileri keşfedin. Merhaba özellikleri hello veritabanı tablolarında gerçekleştirilip toobe gerekmez unutmayın. Yalnızca hello gerekli sorgu toocreate Not bunları.
 6. Gerekli ve/veya istenen veri örnek boyutu üzerinde karar.
-7. Oturum [Azure Machine Learning Studio](https://studio.azureml.net/).
-8. SQL Server kullanarak doğrudan gelen verileri okumak [veri içeri aktarma] [ import-data] modülü. Alanları ayıklar, özellikleri oluşturur ve veri doğrudan gerekirse örnekleri gerekli sorgu Yapıştır [veri içeri aktarma] [ import-data] sorgu.
+7. İçinde toohello oturum [Azure Machine Learning Studio](https://studio.azureml.net/).
+8. Okuma hello verileri doğrudan gelen hello hello kullanarak SQL Server [veri içeri aktarma] [ import-data] modülü. Alanlar, ayıklayan Yapıştır hello gerekli sorgu özellikleri oluşturur ve veri doğrudan hello gerekirse örnekleri [veri içeri aktarma] [ import-data] sorgu.
 9. Basit Azure Machine Learning ile karşıya yüklenen dataset başlangıç akışı deneyin.
 
-### <a name="alternate-method-to-copy-a-full-database-from-an-on-premises--sql-server-to-azure-sql-database"></a>Tam bir veritabanı bir şirket içi SQL Server'dan Azure SQL veritabanına kopyalamak için alternatif yöntemi
-![Yerel DB detach ve Azure SQL DB ekleme][7]
+### <a name="alternate-method-toocopy-a-full-database-from-an-on-premises--sql-server-tooazure-sql-database"></a>Alternatif yöntem toocopy bir şirket içi SQL Server tooAzure SQL veritabanını tam bir veritabanından
+![Yerel DB detach ve Azure DB tooSQL ekleme][7]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Ek Azure kaynaklarını: Azure sanal makinesi (SQL Server / IPython dizüstü sunucu)
-SQL Server VM'nize tüm SQL Server veritabanında çoğaltmak için bir veritabanı bir konum/sunucudan diğerine veritabanı geçici olarak çevrimdışı duruma olduğunu varsayarak kopyalamanız gerekir. Bu SQL Server Management Studio Object Explorer veya eşdeğer Transact-SQL komutlarını kullanarak yapın.
+tooreplicate hello tüm SQL Server veritabanında SQL Server VM'nize hello veritabanı geçici olarak çevrimdışı duruma getirilebilen varsayarak bir veritabanı bir konum/sunucu tooanother kopyalamanız gerekir. Bu SQL Server Management Studio Object Explorer hello veya hello eşdeğer Transact-SQL komutlarını kullanarak yapın.
 
-1. Kaynak konumda veritabanı ayrılmadı. Daha fazla bilgi için bkz: [bir veritabanını ayırma](https://technet.microsoft.com/library/ms191491\(v=sql.110\).aspx).
-2. Windows Explorer ya da Windows komut istemi penceresinde, ayrılmış veritabanına dosya veya dosyalar ve günlük dosyasının veya dosyalarının azure'da SQL Server VM üzerinde hedef konuma kopyalayın.
-3. Kopyalanan dosyalar hedef SQL Server örneğine ekleyin. Daha fazla bilgi için bkz: [bir veritabanını](https://technet.microsoft.com/library/ms190209\(v=sql.110\).aspx).
+1. Merhaba kaynak konumda Hello veritabanı ayrılmadı. Daha fazla bilgi için bkz: [bir veritabanını ayırma](https://technet.microsoft.com/library/ms191491\(v=sql.110\).aspx).
+2. Windows Gezgini veya Windows komut istemi penceresinde, veritabanı dosyası veya dosya ve günlük dosyası veya dosyaları toohello hedef konumu'hello Azure'nın SQL Server VM üzerinde kopyalama hello ayrıldı.
+3. Kopyalanan hello dosyaları toohello hedef SQL Server örneği ekleyin. Daha fazla bilgi için bkz: [bir veritabanını](https://technet.microsoft.com/library/ms190209\(v=sql.110\).aspx).
 
 [Kullanarak bir veritabanı ayırma ve (Transact-SQL) ekleme taşıma](https://technet.microsoft.com/library/ms187858\(v=sql.110\).aspx)
 
@@ -208,46 +208,46 @@ SQL Server VM'nize tüm SQL Server veritabanında çoğaltmak için bir veritaba
    
        blobs.
    
-   b.  Gerekirse temizlenmesi için Tablo formunda, verileri dönüştürün.
+   b.  Veri toocleaned, Tablo formunda, gerekirse dönüştürün.
    
-   c.  VM yerel dosyalar için verileri kaydetmek (IPython dizüstü bilgisayar, VM üzerinde çalıştığından, yerel sürücülere VM sürücülere bakın).
-4. 2. adımda seçilen Hadoop kümesi varsayılan kapsayıcı için veri yükleyin.
-5. Azure Hdınsight Hadoop kümesindeki Hive veritabanına veri yükleyin.
+   c.  Veri tooVM yerel dosyaları kaydetme (IPython dizüstü bilgisayar, VM üzerinde çalıştığından, yerel sürücülere tooVM sürücüleri bakın).
+4. Veri toohello varsayılan kapsayıcı hello adım 2 seçili hello Hadoop kümesi karşıya yükleyin.
+5. Azure Hdınsight Hadoop kümesindeki verileri tooHive veritabanı yükleyin.
    
-   a.  Hadoop küme baş düğümüne oturum açın
+   a.  Toohello baş hello Hadoop küme düğümünde oturum
    
-   b.  Hadoop komut satırı açın.
+   b.  Merhaba Hadoop komut satırı açın.
    
-   c.  Komutu tarafından Hive kök dizini girin `cd %hive_home%\bin` , Hadoop komut satırı.
+   c.  Komutu tarafından Hello Hive kök dizini girin `cd %hive_home%\bin` , Hadoop komut satırı.
    
-   d.  Veritabanı ve tablo oluşturmak için Hive sorguları çalıştırmak ve verileri blob depolama alanından Hive tablolara yüklemek.
+   d.  Merhaba Hive sorguları toocreate veritabanı ve tablo çalıştırın ve blob depolama tooHive tablolarından veri yükleme.
    
    > [!NOTE]
-   > Verileri büyük ise, kullanıcıların bölümlerle Hive tablosu oluşturabilirsiniz. Kullanıcılar daha sonra kullanabileceğiniz bir `for` döngü içinde Hadoop bölüm bölümlenmiş Hive tablosu verileri yüklemek için komut satırını baş düğüm.
+   > Merhaba veri büyük ise, kullanıcıların bölümlerle hello Hive tablosu oluşturabilirsiniz. Kullanıcılar daha sonra kullanabileceğiniz bir `for` hello Hadoop komut satırı hello baş düğüm tooload verileri hello Hive tablosu tarafından bölüm bölümlenmiş bir döngüde.
    > 
    > 
-6. Verileri araştırmak ve özellikleri Hadoop komut satırında gerektiği şekilde oluşturun. Özellikleri veritabanı tablolarında gerçekleştirilmesi gerekmez unutmayın. Yalnızca bunları oluşturmak için gerekli sorgu unutmayın.
+6. Verileri araştırmak ve özellikleri Hadoop komut satırında gerektiği şekilde oluşturun. Merhaba özellikleri hello veritabanı tablolarında gerçekleştirilip toobe gerekmez unutmayın. Yalnızca hello gerekli sorgu toocreate Not bunları.
    
-   a.  Hadoop küme baş düğümüne oturum açın
+   a.  Toohello baş hello Hadoop küme düğümünde oturum
    
-   b.  Hadoop komut satırı açın.
+   b.  Merhaba Hadoop komut satırı açın.
    
-   c.  Komutu tarafından Hive kök dizini girin `cd %hive_home%\bin` , Hadoop komut satırı.
+   c.  Komutu tarafından Hello Hive kök dizini girin `cd %hive_home%\bin` , Hadoop komut satırı.
    
-   d.  Hive sorguları Hadoop komut satırında verileri araştırmak ve gerektiği gibi özellikleri oluşturmak için Hadoop kümesi baş düğümünde çalıştırın.
-7. Gerekli ve/veya istenen, Azure Machine Learning Studio'da sığması için veri örneği.
-8. Oturum [Azure Machine Learning Studio](https://studio.azureml.net/).
-9. Verileri doğrudan okumak `Hive Queries` kullanarak [veri içeri aktarma] [ import-data] modülü. Alanları ayıklar, özellikleri oluşturur ve veri doğrudan gerekirse örnekleri gerekli sorgu Yapıştır [veri içeri aktarma] [ import-data] sorgu.
+   d.  Merhaba Hive sorguları Hadoop komut satırında hello baş hello Hadoop küme tooexplore hello verileri düğümde çalıştırın ve gerektiği gibi özellikleri oluşturun.
+7. Gerekli ve/veya istenen, Azure Machine Learning Studio'da hello veri toofit örnek.
+8. İçinde toohello oturum [Azure Machine Learning Studio](https://studio.azureml.net/).
+9. Doğrudan hello Hello veri okuma `Hive Queries` hello kullanarak [veri içeri aktarma] [ import-data] modülü. Alanlar, ayıklayan Yapıştır hello gerekli sorgu özellikleri oluşturur ve veri doğrudan hello gerekirse örnekleri [veri içeri aktarma] [ import-data] sorgu.
 10. Basit Azure Machine Learning ile karşıya yüklenen dataset başlangıç akışı deneyin.
 
 ## <a name="decisiontree"></a>Senaryo seçimi için karar ağacı
 - - -
-Aşağıdaki diyagramda, yukarıda açıklanan senaryoları ve Gelişmiş analiz işlem ve teknoloji seçimleri dökümü senaryoları için aldığınız yapılan özetler. Veri işleme, keşfi, özellik Mühendisliği ve örnekleme alabileceğini unutmayın, bir veya daha fazla yöntem/ortam--kaynaktaki, Ara, ve/veya hedef ortamları – içinde yerleştirin ve gerektiğinde tekrarlayarak devam edebilirsiniz. Diyagram yalnızca bazı olası akışlarının çizim görev yapar ve kapsamlı bir numaralandırma sağlamaz.
+Merhaba Aşağıdaki diyagramda yukarıda açıklanan hello senaryoları ve tooeach dökümü hello senaryoların atmanız yapılan hello Advanced Analytics işlemi ve teknoloji seçimler özetler. Veri işleme, keşfi, özellik Mühendisliği ve örnekleme alabileceğini unutmayın, bir veya daha fazla yöntem/ortam--kaynaktaki Merhaba, Ara, ve/veya hedef ortamları – içinde yerleştirin ve gerektiğinde tekrarlayarak devam edebilirsiniz. Merhaba diyagram yalnızca bazı olası akışlarının çizim görev yapar ve kapsamlı bir numaralandırma sağlamaz.
 
 ![DS işlemi izlenecek senaryolar][8]
 
 ### <a name="advanced-analytics-in-action-examples"></a>Gelişmiş analizler eylem örnekleri
-Gelişmiş Analytics işlemi ve ortak veri kümeleri kullanarak teknolojisi kullanan uçtan uca Azure Machine Learning talimatlar için bkz:
+Ortak veri kümeleri kullanarak, kullanan uçtan uca Azure Machine Learning izlenecek yollar için Gelişmiş analiz işlem ve teknoloji Merhaba, bkz:
 
 * [Veri bilimi işlemi eylemde ekip: SQL Server'ı kullanarak](machine-learning-data-science-process-sql-walkthrough.md).
 * [Veri bilimi işlemi eylemde ekip: Hdınsight Hadoop kümeleri kullanarak](machine-learning-data-science-process-hive-walkthrough.md).

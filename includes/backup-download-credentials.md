@@ -1,26 +1,26 @@
-## <a name="using-vault-credentials-to-authenticate-with-the-azure-backup-service"></a>Azure Backup hizmeti ile kimlik doğrulaması için kasa kimlik bilgilerini kullanma
-Şirket içi sunucunun (Windows İstemcisi veya Windows Server veya Data Protection Manager sunucu) verileri Azure'a yedekleyebilirsiniz önce bir yedekleme kasası ile kimliğinizin doğrulanması gerekiyor. Kimlik doğrulaması, "kimlik bilgileri kasası" kullanılarak gerçekleştirilir. Kasa kimlik bilgileri kavramı Azure PowerShell ile kullanılan bir "yayımlama ayarları" dosyasının kavramı benzer.
+## <a name="using-vault-credentials-tooauthenticate-with-hello-azure-backup-service"></a>Kasa kimlik bilgileri tooauthenticate hello Azure Backup hizmeti ile kullanma
+Merhaba şirket içi sunucu (Windows İstemcisi veya Windows Server veya Data Protection Manager sunucu) toobe veri tooAzure yedekleyebilirsiniz önce bir yedekleme kasası ile kimlik doğrulaması gerekir. Merhaba kimlik doğrulaması, "kimlik bilgileri kasası" kullanılarak gerçekleştirilir. Kasa kimlik bilgileri Hello kavramı benzer toohello Azure PowerShell ile kullanılan bir "yayımlama ayarları" dosyasının kavramdır.
 
-### <a name="what-is-the-vault-credential-file"></a>Kasa kimlik bilgileri dosyası nedir?
-Kasa kimlik bilgileri dosyası, her bir yedekleme kasası için portal tarafından oluşturulan bir sertifikadır. Portal daha sonra ortak anahtarı Access Control Service'e (ACS) yükler. Kullanıcıya, makine kayıt iş akışı içinde bir giriş olarak verilen iş akışının parçası olarak sertifikanın özel anahtarı kullanılabilir hale getirilir. Bu, yedekleme verilerini Azure Backup hizmetindeki tanımlanmış bir kasaya göndermek üzere makinenin kimliğini doğrular.
+### <a name="what-is-hello-vault-credential-file"></a>Merhaba kasa kimlik bilgileri dosyası nedir?
+Merhaba kasa kimlik bilgileri dosyası, her bir yedekleme kasası için hello portal tarafından oluşturulan bir sertifikadır. Merhaba portal sonra hello ortak anahtar toohello erişim denetimi Hizmeti'nden (ACS) yükler. Merhaba sertifikasının özel anahtarı Hello kullanılabilir toohello kullanıcı bir giriş hello makine kayıt iş akışı olarak belirtilmiş olan hello iş akışının parçası olarak yapılır. Bu hello makine toosend yedekleme verilerini tanımlanan tooan kasaya hello Azure Backup hizmeti kimliğini doğrular.
 
-Kasa kimlik bilgileri yalnızca kayıt iş akışı sırasında kullanılır. Kasa kimlik bilgileri dosyası tehlikeye olun kullanıcının sorumluluğundadır. Yetkisiz bir kullanıcının eline geçmesi durumunda, söz konusu kasaya diğer makinelerin kaydedilebilmesi için kasa kimlik bilgileri dosyası kullanılabilir. Yedekleme verilerini müşteriye ait olan bir parola kullanılarak şifrelenir gibi ancak var olan yedekleme verilerinin gizliliği tehlikeye giremez. Bu endişenin ortadan kaldırılabilmesi için kasa kimlik bilgileri 48hrs içinde süresi dolacak şekilde ayarlanmıştır. Kez – herhangi bir sayıda yedekleme kasasının kasa kimlik bilgileri yükleyebilirsiniz, ancak kayıt iş akışı sırasında yalnızca en son kasa kimlik bilgilerini geçerlidir.
+Merhaba kasa kimlik bilgileri yalnızca hello kayıt iş akışı sırasında kullanılır. Kasa kimlik bilgileri dosyasının gizliliğinin tehlikeye hello hello kullanıcının sorumluluk tooensure olur. Bir kullanıcının hello elinizde kalırsa hello kasa kimlik bilgileri dosyası diğer makinelere karşı kullanılan tooregister olabilir hello aynı kasası. Merhaba yedekleme verilerini toohello müşteriye ait olan bir parola kullanılarak şifrelenir gibi ancak var olan yedekleme verilerinin gizliliği tehlikeye giremez. toomitigate bu sorunu kasa kimlik bilgileri 48hrs tooexpire ayarlanır. Kez – herhangi bir sayıda yedekleme kasası hello kasa kimlik bilgilerini yükleyebilirsiniz, ancak yalnızca hello son kasa kimlik bilgilerini hello kayıt iş akışı sırasında geçerlidir.
 
-### <a name="download-the-vault-credential-file"></a>Kasa kimlik bilgilerini indirin
-Kasa kimlik bilgilerini Azure portalından güvenli bir kanal üzerinden indirilir. Azure Backup hizmeti sertifikanın özel anahtarı farkında değildir ve özel anahtarı portalı veya hizmetinde kalıcı yapılmaz. Kasa kimlik bilgilerini yerel makineye indirmek için aşağıdaki adımları kullanın.
+### <a name="download-hello-vault-credential-file"></a>Merhaba kasa kimlik bilgilerini indirin
+Merhaba kasa kimlik bilgilerini hello Azure portal güvenli bir kanaldan aracılığıyla yüklenir. Hello Azure Backup hizmeti hello sertifikasının özel anahtarı Merhaba farkında değildir ve hello özel anahtarı hello portalı veya hello hizmetinde kalıcı yapılmaz. Aşağıdaki adımları toodownload hello kasa kimlik bilgileri dosyası tooa yerel makine hello kullanın.
 
-1. Oturum [Yönetim Portalı](https://manage.windowsazure.com/)
-2. Tıklayın **kurtarma Hizmetleri** sol gezinti bölmesinde ve oluşturduğunuz yedekleme kasası seçin. Yedekleme kasası hızlı başlangıç görünümü almak için bulut simgeyi tıklatın.
+1. İçinde toohello oturum [Yönetim Portalı](https://manage.windowsazure.com/)
+2. Tıklayın **kurtarma Hizmetleri** hello sol gezinti bölmesinde ve hangi oluşturduğunuz select hello yedekleme kasası. Merhaba bulut simgesi tooget toohello üzerinde hello yedekleme kasası görünümü Hızlı Başlangıç'ı tıklatın.
    
    ![Hızlı Bakış](./media/backup-download-credentials/quickview.png)
-3. Hızlı Başlangıç sayfasında, tıklatın **indirme kasa kimlik bilgileri**. Portal indirme için kullanılabilir hale kasa kimlik bilgilerini oluşturur.
+3. Merhaba hızlı başlangıç sayfasında, tıklatın **indirme kasa kimlik bilgileri**. Merhaba portal indirme için kullanılabilir hale hello kasa kimlik bilgilerini oluşturur.
    
    ![İndir](./media/backup-download-credentials/downloadvc.png)
-4. Portal kasa adını ve geçerli tarih birleşimini kullanarak bir kasa kimlik bilgisi oluşturur. Tıklatın **kaydetmek** kasa kimlik bilgilerini Yerel hesabın indirmeler klasörüne indirin veya kasa kimlik bilgileri için bir konum belirtmek için Kaydet menüsünden Farklı Kaydet'i seçin.
+4. Merhaba portal hello kasa adı ve hello geçerli tarih kullanan bir kasa kimlik bilgisi oluşturur. Tıklatın **kaydetmek** toodownload hello kasa kimlik bilgileri toohello Yerel hesabın indirmeleri klasör ya da hello Farklı Kaydet'i seçin hello kasa kimlik bilgileri için bir konum menü toospecify kaydedin.
 
 ### <a name="note"></a>Not
-* Kasa kimlik bilgilerini makinenizden erişilebilen bir konuma kaydedildiğinden emin olun. Bir dosya paylaşımı/SMB depolanıyorsa erişim izinlerini denetleyin.
-* Kasa kimlik bilgileri dosyası yalnızca kayıt iş akışı sırasında kullanılır.
-* Kasa kimlik bilgileri dosyası 48hrs sonra süresi dolar ve portalından indirilebilir.
-* Azure Backup başvuran [SSS](../articles/backup/backup-azure-backup-faq.md) akışında herhangi bir sorunuz için.
+* Merhaba kasa kimlik bilgileri makinenizden erişilebilen bir konuma kaydedildiğinden emin olun. Bir dosya paylaşımı/SMB depolanıyorsa hello erişim izinlerini denetleyin.
+* Merhaba kasa kimlik bilgileri dosyası yalnızca hello kayıt iş akışı sırasında kullanılır.
+* Merhaba kasa kimlik bilgileri dosyası 48hrs sonra süresi dolar ve hello portalından indirilebilir.
+* Azure Backup toohello başvuran [SSS](../articles/backup/backup-azure-backup-faq.md) hello iş akışındaki herhangi bir sorunuz için.
 

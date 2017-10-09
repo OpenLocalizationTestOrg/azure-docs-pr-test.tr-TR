@@ -1,36 +1,36 @@
 
 
 ## <a name="multi-and-single-instance-vms"></a>Birden çok ve tek örnek VM'ler
-Azure sayısına kritik planlı bakım nedeniyle kapalı kalma süresi--Vm'leri geçmelerini zaman bunlar zamanlayabilirsiniz çalışan pek çok müşteriniz yaklaşık 15 dakika--bu bakım sırasında oluşur. Kullanılabilirlik kümeleri, sağlanan VM'ler planlanmış bakım aldığınızda denetlemeye yardımcı olmak üzere kullanabilirsiniz.
+Azure sayısına kritik planlı bakım nedeniyle toohello kapalı kalma süresi--Vm'leri geçmelerini zaman bunlar zamanlayabilirsiniz çalışan pek çok müşteriniz yaklaşık 15 dakika--bu bakım sırasında oluşur. Sağlanan VM'ler planlanmış bakım aldığınızda kullanılabilirlik kümeleri toohelp denetimi kullanabilirsiniz.
 
-Azure üzerinde çalışan sanal makineler için iki olası yapılandırmaları vardır. Sanal makineleri ya da çok örnekli veya tek örnek yapılandırılır. Sanal makineleri bir kullanılabilirlik kümesine varsa, bunlar birden çok örneği olarak yapılandırılır. Unutmayın, hatta VM'ler tek bir kullanılabilirlik kümesinde birden çok örneği olarak kabul edilir böylece dağıtılabilir. Ardından sanal makineleri bir kullanılabilirlik kümesine emin değilseniz, tek örnek yapılandırılır.  Kullanılabilirlik kümeleri hakkında daha fazla bilgi için bkz: [, Windows sanal makinelerin kullanılabilirliğini yönetme](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) veya [, Linux sanal makinelerin kullanılabilirliğini yönetme](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Azure üzerinde çalışan sanal makineler için iki olası yapılandırmaları vardır. Sanal makineleri ya da çok örnekli veya tek örnek yapılandırılır. Sanal makineleri bir kullanılabilirlik kümesine varsa, bunlar birden çok örneği olarak yapılandırılır. Unutmayın, hatta VM'ler tek bir kullanılabilirlik kümesinde birden çok örneği olarak kabul edilir böylece dağıtılabilir. Ardından sanal makineleri bir kullanılabilirlik kümesine emin değilseniz, tek örnek yapılandırılır.  Kullanılabilirlik kümeleri hakkında daha fazla bilgi için bkz: [Yönet hello kullanılabilirlik, Windows sanal makinelerinizi](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) veya [Yönet hello kullanılabilirlik, Linux sanal makineleri](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Tek Örnekli ve çok örnekli VM'ler planlanmış bakım güncelleştirmeleri ayrı ayrı gerçekleşir. Vm'leriniz Tek Örnekli (çok örnekli olmaları durumunda) veya (tek örnek varsa) birden çok örneği olacak şekilde yeniden yapılandırarak Vm'leri planlı bakım aldığınızda kontrol edebilirsiniz. Bkz: [planlı bakım Azure Linux sanal makineleri için](../articles/virtual-machines/linux/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veya [planlı bakım Azure Windows sanal makineler için](../articles/virtual-machines/windows/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) Azure VM'ler için planlı bakım hakkında ayrıntılı bilgi için.
+Planlı bakım toosingle örneğini güncelleştirir ve çok örnekli sanal makineleri ayrı ayrı gerçekleşir. (Birden çok örneği olmaları durumunda), sanal makineleri toobe Tek Örnekli yeniden yapılandırmadan veya (tek örnek varsa) toobe çok örnekli tarafından Vm'leri hello planlı bakım aldığınızda kontrol edebilirsiniz. Bkz: [planlı bakım Azure Linux sanal makineleri için](../articles/virtual-machines/linux/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veya [planlı bakım Azure Windows sanal makineler için](../articles/virtual-machines/windows/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) Azure VM'ler için planlı bakım hakkında ayrıntılı bilgi için.
 
 ## <a name="for-multi-instance-configuration"></a>Çok örnekli yapılandırması
-Bu sanal makineleri kullanılabilirlik kümesinden kaldırarak bir kullanılabilirlik kümesi yapılandırmasında dağıtılan Vm'leriniz planlı bakım etkiler zaman seçebilirsiniz.
+Bir kullanılabilirlik kümesi yapılandırmasında kullanılabilirlik kümesinden bu Vm'lere kaldırarak dağıtılan Vm'leriniz planlı bakım etkiler hello zaman seçebilirsiniz.
 
-1. Bir e-posta için çok örnekli yapılandırmasında Vm'leriniz için planlı bakım önce yedi Takvim günleri gönderilir. Abonelik kimlikleri ve etkilenen çok örnekli sanal makinelerin adlarını e-posta gövdesinde dahil edilir.
-2. Bu yedi gün boyunca örneklerinizi çok örnekli Vm'leriniz bu bölgede kendi kullanılabilirlik kümesinden kaldırarak güncelleştirildiğinde seçebilirsiniz. Sanal makinenin bakım için hedeflenmiş değil başka bir fiziksel konağa bakım için hedeflenen bir fiziksel ana bilgisayardan taşınması gibi bu yapılandırma değişikliği bir yeniden başlatma neden olur.
-3. Azure portalında, kullanılabilirlik VM kaldırabilirsiniz.
+1. Bir e-posta tooyou hello çok örnekli yapılandırmasında bakım tooyour VM'ler planlanmış önce yedi Takvim günleri gönderilir. Abonelik kimlikleri hello ve etkilenen hello çok örnekli VM adlarını hello hello e-posta gövdesinde dahil edilir.
+2. Bu yedi gün boyunca örneklerinizi hello zamanını seçebilirler çok örnekli Vm'leriniz bu bölgede kendi kullanılabilirlik kümesinden kaldırarak güncelleştirilir. Bu değişikliği yeniden başlatma, bir fiziksel ana bilgisayarından hello sanal makine taşıma yapılandırma nedenleri, hedeflenen bakım, bakım için hedeflenen değil tooanother fiziksel ana bilgisayar.
+3. Kendi kullanılabilirlik hello Azure portal kümesi hello VM kaldırabilirsiniz.
 
-   1. Portalda, kullanılabilirlik kümesinden kaldırmak için VM seçin.  
+   1. Merhaba Portalı'nda hello VM tooremove hello kullanılabilirlik kümesi seçin.  
 
    2. Altında **ayarları**, tıklatın **kullanılabilirlik kümesi**.
 
       ![Kullanılabilirlik kümesi seçimi](./media/virtual-machines-planned-maintenance-schedule/availabilitysetselection.png)
 
-   3. Kullanılabilirlik kümesindeki açılır menüsünde, "Bölümünü bir kullanılabilirlik kümesinin." seçin
+   3. Açılır menüsünde Hello kullanılabilirlik kümesinde, "Bölümünü bir kullanılabilirlik kümesinin." seçin
 
       ![Kümesinden Kaldır](./media/virtual-machines-planned-maintenance-schedule/availabilitysetwarning.png)
 
-   4. En üstte tıklatın **kaydetmek**. Tıklatın **Evet** Bu eylem VM yeniden bildiremedi.
+   4. Merhaba üstünde tıklatın **kaydetmek**. Tıklatın **Evet** Bu eylem yeniden tooacknowledge hello VM.
 
    >[!TIP]
-   >Listelenen kullanılabilirlik kümeleri birini seçerek çok örnekli VM daha sonra yeniden yapılandırabilirsiniz.
+   >Listelenen hello kullanılabilirlik kümeleri birini seçerek hello VM toomulti örnek daha sonra yeniden yapılandırabilirsiniz.
 
-4. Kullanılabilirlik kümesinden kaldırıldı VM'ler Tek Örnekli ana taşınır ve kullanılabilirlik kümesi yapılandırmaları için planlı bakım sırasında güncelleştirilmez.
-5. Kullanılabilirlik kümesi Vm'lerine güncelleştirmeye (göre zamanlama) özgün e-postasında gösterilen tamamlandıktan sonra geri kullanılabilirlik kümeleri halinde VM'ler eklemeniz gerekir. Bir kullanılabilirlik kümesinin parçası olma VM'ler çok örneği olarak yeniden yapılandırır ve bir önyükleme sonuçlanır. Genellikle, tüm Azure ortamı genelinde tüm çok örnekli güncelleştirmeleri tamamlandığında, tek örnek bakım izler.
+4. Kullanılabilirlik kümesinden kaldırıldı VM'ler taşınan tooSingle örnek konak ve hello planlı bakım tooAvailability belirlenen yapılandırmalar sırasında güncelleştirilmez.
+5. Merhaba güncelleştirme tooAvailability kümesi Vm'lerine tamamlandıktan sonra (Merhaba özgün e-posta ile ana hatlarıyla tooschedule göre), hello VM'ler geri kullanılabilirlik kümeleri halinde eklemeniz gerekir. Bir kullanılabilirlik kümesinin parçası olma hello VM'ler çok örneği olarak yeniden yapılandırır ve bir önyükleme sonuçlanır. Genellikle, tüm çok örnekli güncelleştirmeleri hello tüm Azure ortamı genelinde tamamlandığında, tek örnek bakım izler.
 
 VM bir kullanılabilirlik kümesinden kaldırılması, ayrıca Azure PowerShell kullanarak yapabiliriz:
 
@@ -39,17 +39,17 @@ Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Remove-AzureA
 ```
 
 ## <a name="for-single-instance-configuration"></a>Tek örnek yapılandırması
-Planlı bakım, sanal makineleri tek örnek yapılandırmada kullanılabilirlik kümeleri halinde bu Vm'lere ekleyerek etkiler zaman seçebilirsiniz.
+Planlı bakım, sanal makineleri tek örnek yapılandırmada kullanılabilirlik kümeleri halinde bu Vm'lere ekleyerek etkiler hello zaman seçebilirsiniz.
 
 Adım adım
 
-1. Bir e-posta için yedi Takvim günleri VM'ler için planlı bakım tek örnek yapılandırmasında önce gönderilir. Abonelik kimlikleri ve etkilenen tek örnekli sanal makinelerin adlarını e-posta gövdesinde dahil edilir.
-2. Bu yedi gün boyunca kullanılabilirlik kümesi, aynı bölgede Tek Örnekli Vm'leriniz ekleyerek örneğinizi yeniden zaman seçebilirsiniz. Sanal makinenin bakım için hedeflenmiş değil başka bir fiziksel konağa bakım için hedeflenen bir fiziksel ana bilgisayardan taşınması gibi bu yapılandırma değişikliği bir yeniden başlatma neden olur.
-3. Azure portalı ve Azure PowerShell kullanarak kullanılabilirlik kümeleri var olan sanal makineleri eklemek için buraya yönergeleri izleyin. (Şu adımları izler Azure PowerShell örnek bakın.)
-4. Bu Vm'lere çok örnekli olarak yapılandırılır sonra planlı bakım için tek örnek VM'ler bırakılır.
-5. (Göre zamanlama özgün e-posta) Tek Örnekli VM güncelleştirmesi tamamlandıktan sonra bunların kullanılabilirlik kümesinden VM'ler kaldırarak sanal makineleri Tek Örnekli geri dönebilirsiniz.
+1. Bir e-posta tooyou hello planlı bakım tooVMs tek örnek yapılandırmasında önce yedi Takvim günleri gönderilir. Abonelik kimlikleri hello ve etkilenen hello Tek Örnekli VM'ler adlarını hello hello e-posta gövdesinde dahil edilir.
+2. Bu yedi gün boyunca örneğinizi hello zaman seçebilirsiniz, tek örnek VM'ler tooan kullanılabilirlik ekleyerek yeniden başlatmalar o aynı bölgede ayarlayın. Bu değişikliği yeniden başlatma, bir fiziksel ana bilgisayarından hello sanal makine taşıma yapılandırma nedenleri, hedeflenen bakım, bakım için hedeflenen değil tooanother fiziksel ana bilgisayar.
+3. Yönergeleri izleyerek VM'ler hello Azure portalı ve Azure PowerShell kullanarak kullanılabilirlik kümeleri halinde varolan burada tooadd. (Bkz şu adımları izler hello Azure PowerShell örnek.)
+4. Bu sanal makineleri çok örnekli olarak yapılandırılır sonra hello planlı bakım hariç tutulan tooSingle örneği VM'ler.
+5. Merhaba Tek Örnekli VM güncelleştirmesi tamamlandıktan sonra (Merhaba özgün e-posta tooschedule göre), kendi kullanılabilirlik kümesinden hello VM'ler kaldırarak hello VM'ler toosingle örnek döndürebilir.
 
-Kullanılabilirlik de kümesi için bir VM ekleme, Azure PowerShell kullanarak yapabiliriz:
+VM tooan ekleme kullanılabilirlik kümesi de Azure PowerShell kullanarak yapabiliriz:
 
     Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<AvSetName>" | Update-AzureVM
 

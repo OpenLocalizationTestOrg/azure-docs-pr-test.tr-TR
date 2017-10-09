@@ -1,6 +1,6 @@
 ---
-title: "Aboneliği ve azure'da Windows sanal makineleri için hesapları | Microsoft Docs"
-description: "Abonelikleri ve Azure ile ilgili hesapları için anahtar tasarım ve uygulama yönergeleri hakkında bilgi edinin."
+title: "aaaSubscription ve azure'da Windows sanal makineleri için hesapları | Microsoft Docs"
+description: "Merhaba abonelikleri ve Azure ile ilgili hesapları için anahtar tasarım ve uygulama yönergeleri hakkında bilgi edinin."
 documentationcenter: 
 services: virtual-machines-windows
 author: iainfoulds
@@ -16,50 +16,50 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b54e18ed6ecef26a059a6ce742bca03a6434183
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f9dc712af559b04490be1dc721a9b9f7fe9ed88f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-subscription-and-accounts-guidelines-for-windows-vms"></a>Windows sanal makineleri Azure aboneliği ve hesapları yönergeleri
 
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
-Bu makalede ortamınızın olarak abonelik ve hesap yönetim yaklaşımını nasıl anlamaya odaklanır ve kullanıcı tabanını büyür.
+Bu makalede tooapproach aboneliği ve hesabı yönetim ortamı ve kullanıcı temel olarak nasıl genişletileceğini anlamaya odaklanır.
 
 ## <a name="implementation-guidelines-for-subscriptions-and-accounts"></a>Abonelikler ve hesapları için uygulama rehberi
 Kararları:
 
-* Hangi birtakım abonelikleri ve hesapları BT iş yükü veya altyapı barındırmak için ihtiyacınız?
-* Kuruluşunuz uyacak şekilde hiyerarşide aşağıda ayırmak nasıl?
+* Hangi abonelikleri ve hesapları toohost BT iş yükü veya altyapı ihtiyacınız var?
+* Nasıl toobreak hello hiyerarşi toofit aşağı kuruluşunuz?
 
 Görevler:
 
-* Bir abonelik düzeyinden yönetmek istediğiniz gibi mantıksal kuruluş hiyerarşinizi tanımlayın.
-* Bu mantıksal hiyerarşi eşleştirmek için gereken hesaplar ve abonelikler her hesap altında tanımlayın.
-* Abonelikler ve adlandırma kuralınızın kullanarak hesapları kümesi oluşturun.
+* Toomanage istediğiniz gibi mantıksal kuruluş hiyerarşinizi tanımlayın, bir abonelik düzeyinden.
+* toomatch bu mantıksal hiyerarşi gereken hello hesaplar ve abonelikler her hesap altında tanımlayın.
+* Merhaba birtakım abonelikleri ve adlandırma kuralınızın kullanarak hesapları oluşturun.
 
 ## <a name="subscriptions-and-accounts"></a>Abonelik ve hesaplar
-Azure ile çalışmak için bir veya daha fazla Azure aboneliği gerekir. Sanal ağlar bu abonelikleri mevcut veya sanal makineleri (VM'ler) kaynakları gibi.
+toowork Azure ile bir veya daha fazla Azure aboneliği gerekir. Sanal ağlar bu abonelikleri mevcut veya sanal makineleri (VM'ler) kaynakları gibi.
 
-* Kurumsal müşteriler, hiyerarşideki en üst kaynaktır ve bir veya daha fazla hesaplarına ilişkili olan bir işletme kaydı, genellikle vardır.
-* Tüketiciler ve kurumsal kayıt olmadan müşteriler için en üstteki kaynak hesabıdır.
-* Abonelik hesaplarına ilişkilendirilmiş ve hesap başına bir veya daha fazla abonelik olabilir. Abonelik düzeyinde bilgi faturalama azure kaydeder.
+* Kurumsal müşteriler genellikle hello hiyerarşideki hello en üstteki kaynaktır ve ilişkili tooone ya da daha fazla hesapları olan bir işletme kaydı, vardır.
+* Tüketiciler ve kurumsal kayıt olmadan müşteriler için hello en üstteki kaynak hello hesabıdır.
+* İlişkili tooaccounts abonelikleri olan ve hesap başına bir veya daha fazla abonelik olabilir. Fatura hello abonelik düzeyinde bilgileri azure kaydeder.
 
-Hesabı/aboneliği ilişkisindeki iki hiyerarşi düzeyleri sınırı nedeniyle, hesapları ve fatura gereksinimlerine abonelikleri adlandırma kuralı hizalamak önemlidir. Örneğin, genel şirket Azure kullanıyorsa, bir hesap bölge başına sahip olmayı seçebilirsiniz ve Abonelikleri, yönetilen bölge düzeyi:
+Toohello sınırı hello hesabı/aboneliği ilişkisindeki iki hiyerarşi düzeylerinde, önemli tooalign hello adlandırma kuralı gereksinimlerini faturalama hesaplar ve abonelikler toohello'dir. Örneği için bir genel şirket Azure kullanıyorsa, her bölge toohave bir hesap seçebilirsiniz ve abonelikleri adresindeki yönetilen hello bölge düzeyi:
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub01.png)
 
-Örneğin, aşağıdaki yapısını kullanabilirsiniz:
+Örneğin, yapı izlenerek hello kullanabilirsiniz:
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub02.png)
 
-Bir bölge belirli bir gruba ilişkili birden fazla aboneliğiniz varsa karar verirse, adlandırma kuralı hesabı ya da abonelik adını üzerindeki fazladan verileri kodlamak için bir yol eklemeniz gerekir. Bu kuruluş hiyerarşi yeni düzeylerini sırasında fatura raporlar üretmek için faturalama verisi massaging sağlar:
+Bir abonelik ilişkili tooa belirli grubu birden çok toohave bir bölge karar verirse, hello adlandırma kuralı bir şekilde tooencode eklemeniz gerekir hello hello hesabı ya da hello abonelik adı ek veriler. Bu kuruluşunuzun fatura veri toogenerate hello yeni hiyerarşi düzeyleri Fatura raporları sırasında massaging olanak sağlar:
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub03.png)
 
-Kuruluş aşağıdaki gibi görünebilir:
+Merhaba kuruluş aşağıdaki örneğine hello gibi görünebilir:
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub04.png)
 

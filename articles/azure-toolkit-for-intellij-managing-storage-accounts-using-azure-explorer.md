@@ -1,6 +1,6 @@
 ---
-title: "Intellij için Azure Gezgini'ni kullanarak depolama hesaplarını yönetme | Microsoft Docs"
-description: "Azure storage hesaplarınızı Intellij için Azure Gezgini'ni kullanarak yönetmeyi öğrenin."
+title: "Intellij için aaaManage depolama hesapları kullanarak hello Azure Gezgini | Microsoft Docs"
+description: "Nasıl toomanage Intellij için hello Azure Explorer kullanarak, Azure depolama hesapları hakkında bilgi edinin."
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,15 +14,15 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
-ms.openlocfilehash: a1b56cc2751fc43a1ad6917eca77eec460f26694
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b094bdcd2fa2782cb12b67c96ac406fbe4c1aa3b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-storage-accounts-by-using-the-azure-explorer-for-intellij"></a>Intellij için Azure Gezgini'ni kullanarak depolama hesaplarını yönetme
+# <a name="manage-storage-accounts-by-using-hello-azure-explorer-for-intellij"></a>Intellij için hello Azure Gezgini kullanarak depolama hesaplarını yönetme
 
-Intellij için Azure araç seti bir parçası olan Azure Gezgini, kullanıcıların Azure hesabından Intellij tümleşik geliştirme ortamı (IDE) içindeki depolama hesaplarını yönetmek için kullanımı kolay çözümünü Java geliştiricilere sağlar.
+Merhaba hello Intellij için Azure araç seti bir parçası olan Azure Gezgini, kullanıcıların Azure hesabından depolama hesaplarını yönetmek için kullanımı kolay çözümünü Java geliştiricilere sağlar hello Intellij tümleşik geliştirme ortamı (IDE) içinde.
 
 [!INCLUDE [azure-toolkit-for-intellij-prerequisites](../includes/azure-toolkit-for-intellij-prerequisites.md)]
 
@@ -30,76 +30,76 @@ Intellij için Azure araç seti bir parçası olan Azure Gezgini, kullanıcılar
 
 ## <a name="create-a-storage-account-in-intellij"></a>Intellij içinde depolama hesabı oluşturma
 
-Azure Gezgini'ni kullanarak bir depolama hesabı oluşturmak için aşağıdakileri yapın:
+toocreate hello Azure Gezgini kullanarak bir depolama hesabı hello aşağıdaki:
 
-1. Azure hesabınızı kullanarak oturum [oturum açma yönergeleri Eclipse için Azure Araç Seti için]. 
+1. Tooyour Azure hesabı hello kullanarak oturum [oturum açma yönergeleri hello Eclipse için Azure Araç Seti için]. 
 
-2. İçinde **Azure Gezgini** görüntülemek için Genişlet **Azure** düğümünü sağ tıklatın **depolama hesapları**ve ardından **depolama hesabı oluştur**.
+2. Hello içinde **Azure Gezgini** görüntülemek için hello genişletin **Azure** düğümünü sağ tıklatın **depolama hesapları**ve ardından **depolama hesabı oluştur**.
 
    ![Depolama hesabı komut oluşturma][CS01]
 
-3. İçinde **depolama hesabı oluştur** iletişim kutusunda, aşağıdaki seçenekleri belirtin:
+3. Merhaba, **depolama hesabı oluştur** iletişim kutusunda, aşağıdaki seçenekleri şu hello belirtin:
 
    ![Yeni depolama hesabı iletişim kutusu oluşturma][CS02]
 
-   * **Ad**: yeni depolama hesabı adını belirtir.
+   * **Ad**: hello yeni depolama hesabı hello adını belirtir.
 
-   * **Tür hesap**: (örneğin "Blob Depolama") oluşturmak için depolama hesabı türünü belirtir. Daha fazla bilgi için bkz: [Azure storage hesapları hakkında]. 
+   * **Tür hesap**: depolama hesabı toocreate (örneğin, "Blob Depolama") hello türünü belirtir. Daha fazla bilgi için bkz: [Azure storage hesapları hakkında]. 
 
-   * **Performans**: Seçili yayımcıdan (örneğin, "Premium") kullanmak için sunumu hangi depolama hesabını belirtir. Daha fazla bilgi için bkz: [Azure storage ölçeklenebilirlik ve performans hedefleri]. 
+   * **Performans**: (örneğin, "Premium") hello seçili yayımcıdan toouse sunumu hangi depolama hesabını belirtir. Daha fazla bilgi için bkz: [Azure storage ölçeklenebilirlik ve performans hedefleri]. 
 
-   * **Çoğaltma**: depolama hesabı (örneğin, "bölgesel olarak yedekli") için çoğaltma belirtir. Daha fazla bilgi için bkz: [Azure storage çoğaltma]. 
+   * **Çoğaltma**: hello çoğaltma hello depolama hesabı (örneğin, "bölgesel olarak yedekli") için belirtir. Daha fazla bilgi için bkz: [Azure storage çoğaltma]. 
 
-   * **Abonelik**: yeni depolama hesabı için kullanmak istediğiniz Azure aboneliği belirtir.
+   * **Abonelik**: Merhaba toouse hello yeni depolama hesabı için istediğiniz Azure aboneliği belirtir.
 
-   * **Konum**: Burada, depolama hesabı oluşturulur (örneğin, "Batı ABD") konumunu belirtir.
+   * **Konum**: Burada, depolama hesabı oluşturulur (örneğin, "Batı ABD") hello konumunu belirtir.
 
-   * **Kaynak grubu**: kaynak grubu, sanal makine için belirtir. Aşağıdaki seçeneklerden birini seçin:
-      * **Yeni Oluştur**: yeni bir kaynak grubu oluşturmak istediğiniz belirtir.
+   * **Kaynak grubu**: hello kaynak grubu, sanal makine için belirtir. Seçenekler aşağıdaki hello birini seçin:
+      * **Yeni Oluştur**: toocreate yeni bir kaynak grubu istediğinizi belirtir.
       * **Var olanı kullan**: Azure hesabınızla ilişkili kaynak gruplarının bir listeden seçer belirtir.
 
-4. Yukarıdaki seçeneklerin tümü belirledikten sonra tıklatın **Tamam**.
+4. Tüm seçenekleri önceki hello belirledikten sonra tıklatın **Tamam**.
 
 ## <a name="create-a-storage-container-in-intellij"></a>Intellij içinde bir depolama kapsayıcısı oluşturma
 
-Azure Gezgini'ni kullanarak bir depolama kapsayıcısı oluşturmak için aşağıdakileri yapın:
+toocreate hello Azure Gezgini kullanarak bir depolama kapsayıcısı hello aşağıdaki:
 
-1. Azure Gezgini görünümünde bir kapsayıcı oluşturmak ve ardından istediğiniz depolama hesabına sağ **oluşturma blob kapsayıcısı**.
+1. Hello Azure Gezgin Görünümü, burada, toocreate bir kapsayıcı istediğiniz ve ardından hello depolama hesabına sağ **oluşturma blob kapsayıcısı**.
 
    ![BLOB kapsayıcı komut oluşturma][CC01]
 
-2. İçinde **oluşturma blob kapsayıcısı** iletişim kutusunda, kapsayıcı adını belirtin ve ardından **Tamam**. Depolama kapsayıcıları adlandırma hakkında daha fazla bilgi için bkz: [adlandırma ve kapsayıcıları, blobları ve meta verileri başvuran].
+2. Merhaba, **oluşturma blob kapsayıcısı** iletişim kutusu, Merhaba, kapsayıcı için bir ad belirtin ve ardından **Tamam**. Depolama kapsayıcıları adlandırma hakkında daha fazla bilgi için bkz: [adlandırma ve kapsayıcıları, blobları ve meta verileri başvuran].
 
    ![Depolama kapsayıcısı iletişim kutusu oluşturma][CC02]
 
 ## <a name="delete-a-storage-container-in-intellij"></a>Intellij depolama kapsayıcısında Sil
 
-Azure Gezgini'ni kullanarak bir depolama kapsayıcısı silmek için aşağıdakileri yapın:
+toodelete hello Azure Gezgini kullanarak bir depolama kapsayıcısı hello aşağıdaki:
 
-1. Azure Gezgini görünümünde depolama kapsayıcıya sağ tıklayın ve ardından **silmek**.
+1. Hello Azure Gezgin Görünümü, hello depolama kapsayıcısına sağ tıklayın ve ardından **silmek**.
 
    ![Depolama kapsayıcısı komutu silme][DC01]
 
-2. Onay penceresinde **Evet**.
+2. Merhaba onay penceresinde **Evet**.
 
    ![Depolama kapsayıcısı onay penceresi Sil][DC02]
 
 ## <a name="delete-a-storage-account-in-intellij"></a>Intellij bir depolama hesabını silme
 
-Azure Gezgini'ni kullanarak bir depolama hesabını silmek için aşağıdakileri yapın:
+toodelete hello Azure Gezgini kullanarak bir depolama hesabı hello aşağıdaki:
 
-1. İçinde **Azure Gezgini** görüntülemek, depolama hesabına sağ tıklayın ve ardından **silmek**.
+1. Merhaba, **Azure Gezgini** görüntülemek, hello depolama hesabına sağ tıklayın ve ardından **silmek**.
 
    ![Depolama hesabı menü silme][DS01]
 
-2. Onay penceresinde **Evet**.
+2. Merhaba onay penceresinde **Evet**.
 
    ![Depolama hesabı onay penceresi Sil][DS02]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure depolama hesapları hakkında daha fazla bilgi için boyutlar ve fiyatlandırma, aşağıdaki kaynaklara bakın:
+Azure depolama hesapları, boyutlar ve fiyatlandırma hakkında daha fazla bilgi için kaynakları aşağıdaki hello bakın:
 
-* [Microsoft Azure Depolama'ya Giriş]
+* [Giriş tooMicrosoft Azure depolama]
 * [Azure storage hesapları hakkında]
 * Azure depolama hesabı boyutları
   * [Windows Azure depolama hesapları için Boyutlar]
@@ -108,17 +108,17 @@ Azure depolama hesapları hakkında daha fazla bilgi için boyutlar ve fiyatland
   * [Windows depolama hesabı fiyatlandırma]
   * [Linux depolama hesabı fiyatlandırma]
 
-Java IDE Azure araç takımları hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+Java IDE için Azure araç takımları hakkında daha fazla bilgi için kaynakları aşağıdaki hello bakın:
 
 * [Eclipse için Azure Araç Seti]
-  * [Eclipse için Azure Araç Seti yenilikleri]
-  * [Eclipse için Azure Araç Setini Yükleme]
-  * [oturum açma yönergeleri Eclipse için Azure Araç Seti için]
+  * [Merhaba Eclipse için Azure Araç Seti yenilikleri]
+  * [Yükleme hello Eclipse için Azure Araç Seti]
+  * [oturum açma yönergeleri hello Eclipse için Azure Araç Seti için]
   * [Eclipse'te Azure Hello World web uygulaması oluşturma]
 * [IntelliJ için Azure Araç Seti]
-  * [Intellij için Azure Araç Seti yenilikleri]
-  * [IntelliJ için Azure Araç Setini Yükleme]
-  * [Oturum açma Azure Araç Seti için Intellij için yönergeler]
+  * [Merhaba Intellij için Azure Araç Seti yenilikleri]
+  * [Yükleme hello Intellij için Azure Araç Seti]
+  * [Oturum açma hello Azure Araç Seti için Intellij için yönergeler]
   * [Intellij Azure'da Hello World web uygulaması oluşturun]
 
 Azure Java ile kullanma hakkında daha fazla bilgi için bkz: [Azure Java Geliştirici Merkezi] ve [Visual Studio Team Services için Java Araçları].
@@ -129,17 +129,17 @@ Azure Java ile kullanma hakkında daha fazla bilgi için bkz: [Azure Java Geliş
 [IntelliJ için Azure Araç Seti]: ./azure-toolkit-for-intellij.md
 [Eclipse'te Azure Hello World web uygulaması oluşturma]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [Intellij Azure'da Hello World web uygulaması oluşturun]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
-[Eclipse için Azure Araç Setini Yükleme]: ./azure-toolkit-for-eclipse-installation.md
-[IntelliJ için Azure Araç Setini Yükleme]: ./azure-toolkit-for-intellij-installation.md
-[oturum açma yönergeleri Eclipse için Azure Araç Seti için]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
-[Oturum açma Azure Araç Seti için Intellij için yönergeler]: ./azure-toolkit-for-intellij-sign-in-instructions.md
-[Eclipse için Azure Araç Seti yenilikleri]: ./azure-toolkit-for-eclipse-whats-new.md
-[Intellij için Azure Araç Seti yenilikleri]: ./azure-toolkit-for-intellij-whats-new.md
+[Yükleme hello Eclipse için Azure Araç Seti]: ./azure-toolkit-for-eclipse-installation.md
+[Yükleme hello Intellij için Azure Araç Seti]: ./azure-toolkit-for-intellij-installation.md
+[oturum açma yönergeleri hello Eclipse için Azure Araç Seti için]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Oturum açma hello Azure Araç Seti için Intellij için yönergeler]: ./azure-toolkit-for-intellij-sign-in-instructions.md
+[Merhaba Eclipse için Azure Araç Seti yenilikleri]: ./azure-toolkit-for-eclipse-whats-new.md
+[Merhaba Intellij için Azure Araç Seti yenilikleri]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Azure Java Geliştirici Merkezi]: https://azure.microsoft.com/develop/java/
 [Visual Studio Team Services için Java Araçları]: https://java.visualstudio.com/
 
-[Microsoft Azure Depolama'ya Giriş]: /azure/storage/storage-introduction
+[Giriş tooMicrosoft Azure depolama]: /azure/storage/storage-introduction
 [Azure storage hesapları hakkında]: /azure/storage/storage-create-storage-account
 [Azure storage çoğaltma]: /azure/storage/storage-redundancy
 [Azure storage ölçeklenebilirlik ve performans hedefleri]: /azure/storage/storage-scalability-targets

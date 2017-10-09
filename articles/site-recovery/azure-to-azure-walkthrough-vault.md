@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery ile bölgeler arasında Azure VM repliction için bir kasa ayarlama | Microsoft Docs"
-description: "Azure Site Kurtarma'yı kullanarak Azure bölgeler arasında Azure çoğaltma için bir kasa ayarlamak için gereken adımları özetler"
+title: "Azure Site Recovery ile bölgeler arasında Azure VM repliction için bir kasa yukarı aaaSet | Microsoft Docs"
+description: "Azure Site Kurtarma'yı kullanarak Azure bölgeler arasında Azure çoğaltma için bir kasa yukarı tooset gereken hello adımları özetler"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: raynew
-ms.openlocfilehash: e03d17992ee0b12049636e40188950bcc4a6f31e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 9959c59c7ea57114763f13bf060404ddd267ba80
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="step-4-set-up-a-vault-for-azure-to-azure-replication"></a>4. adım: Azure için Azure'a çoğaltma için bir kasa ayarlayın
+# <a name="step-4-set-up-a-vault-for-azure-tooazure-replication"></a>4. adım: Azure tooAzure çoğaltma için bir kasa ayarlayın
 
-Sonra [ağlarını planlama](azure-to-azure-walkthrough-network.md), Azure sanal başka bir Azure bölgesine çoğaltma, kullanarak makineleri (VM'ler) için bir kasa ayarlamak için bu makaleyi kullanın [Azure Site Recovery](site-recovery-overview.md) Azure portalında hizmet.
+Sonra [ağlarını planlama](azure-to-azure-walkthrough-network.md), hello kullanarak tooanother Azure bölgesi çoğaltma Bu makale tooset Azure sanal makineleri (VM'ler) için bir kasa yukarı kullanmak [Azure Site Recovery](site-recovery-overview.md) hello Azure portal hizmeti.
 
-- Makaleyi bitirdikten sonra ayarlanmış bir kurtarma Hizmetleri kasası olmalıdır.
-- Tüm yorumlarınızı bu makalenin alt kısmında paylaşabilir veya [Azure Kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)'nda soru sorabilirsiniz.
+- Merhaba makale bitirdikten sonra ayarlanmış bir kurtarma Hizmetleri kasası olmalıdır.
+- Bu makalenin hello altındaki tüm yorumlar gönderin ya da hello sorular sormak [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 
@@ -42,9 +42,9 @@ Sonra [ağlarını planlama](azure-to-azure-walkthrough-network.md), Azure sanal
 
 >[!NOTE]
 >
-> Kurtarma Hizmetleri kasası, sanal makineleri çoğaltmak istediğiniz konumda oluşturmanızı öneririz. Örneğin, hedef konumunuz Orta ise ABD, kasaya oluşturma **Orta ABD**.
+> Merhaba kurtarma Hizmetleri kasası, VM'ler tooreplicate istediğiniz hello konumda oluşturmanızı öneririz. Hedef konumunuz olan hello Orta BİZE, örneğin, hello kasasına oluşturun **Orta ABD**.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Git [5. adım: çoğaltmasını etkinleştir](azure-to-azure-walkthrough-enable-replication.md)
+Çok Git[5. adım: çoğaltmasını etkinleştir](azure-to-azure-walkthrough-enable-replication.md)

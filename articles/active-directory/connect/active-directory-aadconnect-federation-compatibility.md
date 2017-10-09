@@ -1,6 +1,6 @@
 ---
-title: Azure AD federasyonu uyumluluk listesi
-description: "Bu sayfayı çoklu oturum açmayı uygulamak için kullanılan Microsoft olmayan kimlik sağlayıcıları vardır."
+title: aaaAzure AD Federasyonu uyumluluk listesi
+description: "Bu sayfa Microsoft dışı sahip kullanılan tooimplement olabilir kimlik sağlayıcıları çoklu oturum açma."
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: bce5867017647764546d872d97943d5d4f01f2d2
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: ac2f9ad324c8ca6b587b73ea465426ad6b074b03
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Azure AD federasyonu uyumluluk listesi
-Azure Active Directory çoklu oturum sağlar ve herhangi bir Microsoft dışı çözümü gerek kalmadan Office 365 ve diğer Microsoft Online Hizmetleri için karma ve yalnızca bulut uygulamaları için uygulama erişimi güvenliğini Gelişmiş. Office 365, Microsoft Online services, çoğu gibi dizin hizmetleri, kimlik doğrulama ve yetkilendirme için Azure Active Directory ile tümleşiktir. Şirket içi web uygulamaları ve Azure Active Directory de binlerce SaaS uygulamasına çoklu oturum açma sağlar. Lütfen desteklenen SaaS uygulamaları için Azure Active Directory Uygulama Galerisi bakın.
+Azure Active Directory çoklu oturum sağlar ve herhangi bir Microsoft dışı çözümü gerek kalmadan Office 365 ve diğer Microsoft Online Hizmetleri için karma ve yalnızca bulut uygulamaları için uygulama erişimi güvenliğini Gelişmiş. Office 365, Microsoft Online services, çoğu gibi dizin hizmetleri, kimlik doğrulama ve yetkilendirme için Azure Active Directory ile tümleşiktir. Şirket içi web uygulamaları ve Azure Active Directory SaaS uygulamalarının tek oturum açma toothousands de sağlar. Lütfen hello Azure Active Directory Uygulama galerisinde desteklenen SaaS uygulamaları için bkz.
 
-Microsoft dışı Federasyon çözümleri yatırım yapmış kullanıcılar kuruluşlar için bu konu, Windows Server Active Directory kullanıcılar için çoklu oturum açmayı Microsoft Online services ile Microsoft dışı kimlik sağlayıcılarını kullanarak yapılandırmaya yönelik yönergeler içerir. "Azure Active Directory Federasyon uyumluluğu listeden" altında. 
+Microsoft dışı Federasyon çözümleri yatırım yapmış kullanıcılar kuruluşlar için bu konu, Windows Server Active Directory kullanıcılar için çoklu oturum açmayı Microsoft Online services ile Microsoft dışı kimlik sağlayıcılarını kullanarak yapılandırmaya yönelik yönergeler içerir. Merhaba "Azure Active Directory Federasyon uyumluluğu listesinden" altında. 
 
 ![](./media/active-directory-aadconnect-federation-compatibility/oxford2.jpg)   
 [Oxford bilgisayar grubu](http://oxfordcomputergroup.com/), bir üçüncü taraf, Microsoft adına, bir dizi ortak kullanım durumları Microsoft olmayan kimlik sağlayıcıları Azure Active Directory ile kullanarak bu tek oturum açma deneyimlerini test.
@@ -31,9 +31,9 @@ Microsoft dışı Federasyon çözümleri yatırım yapmış kullanıcılar kuru
 Burada listelenen üçüncü taraf kimlik sağlayıcınızı nasıl erişebileceğini hakkında daha fazla bilgi için Oxford bilgisayar grubu başvurun [ idp@oxfordcomputergroup.com ](mailto:idp@oxfordcomputergroup.com).
 
 > [!IMPORTANT]
-> Oxford bilgisayar grubu yalnızca bu tek oturum açma senaryoları Federasyon işlevlerini test. Oxford bilgisayar grubunu tüm eşitleme, iki öğeli kimlik doğrulama, bu tek oturum açma senaryoları vb. bileşenlerinin sınama gerçekleştirmedi.
+> Oxford bilgisayar grubu yalnızca hello Federasyon işlevselliğini bu tek oturum açma senaryoları test. Oxford bilgisayar grubu herhangi hello eşitleme, iki öğeli kimlik doğrulama, bu tek oturum açma senaryoları vb. bileşenlerinin sınama gerçekleştirmedi.
 > 
-> Oturum açma tarafından UPN alternatif kimlik kullanımı da bu programda test edilmemiştir.
+> Oturum açma tarafından kullanımını alternatif kimlik tooUPN de bu programda test edilmemiştir.
 > 
 > 
 
@@ -64,15 +64,15 @@ Burada listelenen üçüncü taraf kimlik sağlayıcınızı nasıl erişebilece
 
 
 > [!IMPORTANT]
-> Bu üçüncü taraf ürünleri olduğundan, Microsoft destek için dağıtım, yapılandırma, sorun giderme, en iyi yöntemler, vb. sorunlar ve bu kimlik sağlayıcıları sorularınız sağlamaz. Destek ve bu kimlik sağlayıcıları ile ilgili sorular için desteklenen Üçüncü taraflardan doğrudan başvurun.
+> Bu üçüncü taraf ürünleri olduğundan, Microsoft destek hello dağıtım, yapılandırma, sorun giderme, en iyi yöntemler, vb. sorunlar ve bu kimlik sağlayıcıları ile ilgili sorular için sağlamaz. Destek ve bu kimlik sağlayıcıları ile ilgili sorular için desteklenen hello Üçüncü taraflardan doğrudan başvurun.
 > 
-> Bu üçüncü taraf kimlik sağlayıcıları, WS-Federasyon ve yalnızca WS-Trust protokolleri kullanarak Microsoft bulut hizmetleriyle birlikte çalışabilirlik için test edilmiş. Sınama SAML protokolü kullanılarak içermiyordu.
+> Bu üçüncü taraf kimlik sağlayıcıları, WS-Federasyon ve yalnızca WS-Trust protokolleri kullanarak Microsoft bulut hizmetleriyle birlikte çalışabilirlik için test edilmiş. Sınama hello SAML protokolü kullanılarak içermiyordu.
 > 
 
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 
-Bu oturum açma deneyimi için senaryo destek matrisi verilmiştir: 
+Merhaba, bu oturum açma deneyimi için hello senaryo destek matrisi aşağıdadır: 
 
 | İstemci | Destek | Özel durumlar |
 | --- | --- | --- |
@@ -87,7 +87,7 @@ Azure Active Directory Parola Eşitleme ile kullanma hakkında daha fazla bilgi 
 
 ## <a name="authanvil-single-sign-on-45"></a>AuthAnvil çoklu oturum açma 4.5
 
-Bu tek oturum açma deneyimi için senaryo destek matrisi verilmiştir:
+Merhaba, bu tek oturum açma deneyimi için hello senaryo destek matrisi aşağıdadır:
 
 | İstemci | Destek | Özel durumlar |
 | --- | --- | --- |
@@ -100,7 +100,7 @@ Daha fazla bilgi için bkz: [AuthAnvil çoklu oturum açma.](https://help.scorpi
 
 ## <a name="big-ip-with-access-policy-manager-big-ip-ver-113x--116x"></a>BIG-IP Erişim İlkesi Yöneticisi BIG-IP sürüm ile x – 11.6 11,3 inç
 
-Bu tek oturum açma deneyimi için senaryo destek matrisi verilmiştir: 
+Merhaba, bu tek oturum açma deneyimi için hello senaryo destek matrisi aşağıdadır: 
 
 | İstemci | Destek | Özel durumlar |
 | --- | --- | --- |
@@ -110,11 +110,11 @@ Bu tek oturum açma deneyimi için senaryo destek matrisi verilmiştir:
 
 BIG-IP Erişim İlkesi Yöneticisi hakkında daha fazla bilgi için bkz: [BIG-IP Erişim İlkesi Yöneticisi.](https://f5.com/products/modules/access-policy-manager) 
 
-Active Directory kullanıcılarınıza, çoklu oturum açma deneyimini sağlamak üzere STS BIG-IP Erişim İlkesi Yöneticisi yönergeleri Bu yapılandırma için PDF'yi indirmek [BIG-IP](http://www.f5.com/pdf/deployment-guides/microsoft-office-365-idp-dg.pdf).
+Pdf hello nasıl tooconfigure bu STS tooprovide hello çoklu oturum açma deneyimini tooyour Active Directory Kullanıcıları, karşıdan hello BIG-IP Erişim İlkesi Yöneticisi ile ilgili yönergeler için [BIG-IP](http://www.f5.com/pdf/deployment-guides/microsoft-office-365-idp-dg.pdf).
 
 ## <a name="bitglass"></a>BitGlass
 
-Bu tek oturum açma deneyimi için senaryo destek matrisi verilmiştir:
+Merhaba, bu tek oturum açma deneyimi için hello senaryo destek matrisi aşağıdadır:
 
 | İstemci | Destek | Özel durumlar |
 | --- | --- | --- |
@@ -126,7 +126,7 @@ BitGlass hakkında daha fazla bilgi için bkz: [BitGlass](http://www.bitglass.co
 
 ## <a name="ca-secure-cloud"></a>CA güvenli bulut
 
-Bu tek oturum açma deneyimi için senaryo destek matrisi verilmiştir:
+Merhaba, bu tek oturum açma deneyimi için hello senaryo destek matrisi aşağıdadır:
 
 | İstemci | Destek | Özel durumlar |
 | --- | --- | --- |
@@ -138,7 +138,7 @@ CA güvenli bulut hakkında daha fazla bilgi için bkz: [CA güvenli bulut](http
 
 ## <a name="ca-siteminder-1252-sp1-cumulative-release-4"></a>CA SiteMinder 12.52 SP1 toplu sürüm 4
 
-Bu tek oturum açma deneyimi için senaryo destek matrisi verilmiştir: 
+Merhaba, bu tek oturum açma deneyimi için hello senaryo destek matrisi aşağıdadır: 
 
 | İstemci | Destek | Özel durumlar |
 | --- | --- | --- |
@@ -150,7 +150,7 @@ CA SiteMinder hakkında daha fazla bilgi için bkz: [CA SiteMinder Federasyon](h
 
 ## <a name="centrify"></a>Centrify
 
-Bu tek oturum açma deneyimi için senaryo destek matrisi verilmiştir:
+Merhaba, bu tek oturum açma deneyimi için hello senaryo destek matrisi aşağıdadır:
 
 | İstemci | Destek | Özel durumlar |
 | --- | --- | --- |
@@ -162,7 +162,7 @@ Centrify hakkında daha fazla bilgi için bkz: [Centrify](http://www.centrify.co
 
 ## <a name="dell-one-identity-cloud-access-manager-v71"></a>Dell bir kimlik bulut Erişim Yöneticisi v7.1
 
-Bu tek oturum açma deneyimi için senaryo destek matrisi verilmiştir:
+Merhaba, bu tek oturum açma deneyimi için hello senaryo destek matrisi aşağıdadır:
 
 | İstemci | Destek | Özel durumlar |
 | --- | --- | --- |
@@ -172,11 +172,11 @@ Bu tek oturum açma deneyimi için senaryo destek matrisi verilmiştir:
 
 Dell bir kimlik bulut Erişim Yöneticisi hakkında daha fazla bilgi için bkz: [Dell bir kimlik bulut Erişim Yöneticisi](http://software.dell.com/products/cloud-access-manager).
 
- Office 365 kullanıcılarınız için çoklu oturum açma deneyimini sağlamak yönergeler için bu STS yapılandırmak, bkz: [yapılandırma Office 365 kullanıcıları](http://documents.software.dell.com/dell-one-identity-cloud-access-manager/7.1/how-to-configure-microsoft-office-365). 
+ Merhaba yönergeler nasıl tooconfigure bu STS tooprovide hello çoklu oturum açma deneyimini tooyour Office 365 kullanıcıları görmek için [yapılandırma Office 365 kullanıcıları](http://documents.software.dell.com/dell-one-identity-cloud-access-manager/7.1/how-to-configure-microsoft-office-365). 
 
 ## <a name="digitalpersona-composite-authentication"></a>DigitalPersona bileşik kimlik doğrulaması  
 
-Bu tek oturum açma deneyimi için senaryo destek matrisi verilmiştir:
+Merhaba, bu tek oturum açma deneyimi için hello senaryo destek matrisi aşağıdadır:
 
 | İstemci | Destek | Özel durumlar |
 | --- | --- | --- |
@@ -189,7 +189,7 @@ Daha fazla bilgi için bkz: [DigitalPersona bileşik kimlik doğrulaması](http:
 
 ## <a name="ibm-tivoli-federated-identity-manager-622"></a>IBM Tivoli Identity Manager 6.2.2 Federasyon
 
-Bu tek oturum açma deneyimi için senaryo destek matrisi verilmiştir: 
+Merhaba, bu tek oturum açma deneyimi için hello senaryo destek matrisi aşağıdadır: 
 
 | İstemci | Destek | Özel durumlar |
 | --- | --- | --- |
@@ -201,7 +201,7 @@ IBM Tivoli federe kimlik yöneticisi hakkında daha fazla bilgi için bkz: [IBM 
 
 ## <a name="icewall-federation-version-30"></a>IceWall Federasyon sürüm 3.0
 
-Bu tek oturum açma deneyimi için senaryo destek matrisi verilmiştir:
+Merhaba, bu tek oturum açma deneyimi için hello senaryo destek matrisi aşağıdadır:
 
 | İstemci | Destek | Özel durumlar |
 | --- | --- | --- |
@@ -213,7 +213,7 @@ IceWall Federasyon hakkında daha fazla bilgi için bkz: [IceWall Federasyon sü
 
 ## <a name="memority"></a>Memority
 
-Bu oturum açma deneyimi için senaryo destek matrisi verilmiştir: 
+Merhaba, bu oturum açma deneyimi için hello senaryo destek matrisi aşağıdadır: 
 
 | İstemci | Destek | Özel durumlar |
 | --- | --- | --- |
@@ -226,7 +226,7 @@ Memority kullanma hakkında daha fazla bilgi için bkz: [Memority](http://www.me
 
 ## <a name="netiq-access-manager-4x"></a>NetIQ Erişim Yöneticisi 4.x
 
-Bu tek oturum açma deneyimi için senaryo destek matrisi verilmiştir:
+Merhaba, bu tek oturum açma deneyimi için hello senaryo destek matrisi aşağıdadır:
 
 | İstemci | Destek | Özel durumlar |
 | --- | --- | --- |
@@ -238,7 +238,7 @@ Daha fazla bilgi için bkz: [NetIQ Erişim Yöneticisi](https://www.netiq.com/do
 
 ## <a name="okta"></a>Okta
 
-Bu tek oturum açma deneyimi için senaryo destek matrisi verilmiştir: 
+Merhaba, bu tek oturum açma deneyimi için hello senaryo destek matrisi aşağıdadır: 
 
 | İstemci | Destek | Özel durumlar |
 | --- | --- | --- |
@@ -250,7 +250,7 @@ Okta hakkında daha fazla bilgi için bkz: [Okta](https://www.okta.com/).
 
 ## <a name="onelogin"></a>OneLogin
 
-Bu tek oturum açma deneyimi için senaryo destek matrisi verilmiştir: 
+Merhaba, bu tek oturum açma deneyimi için hello senaryo destek matrisi aşağıdadır: 
 
 | İstemci | Destek | Özel durumlar |
 | --- | --- | --- |
@@ -262,7 +262,7 @@ OneLogin hakkında daha fazla bilgi için bkz: [OneLogin](https://www.onelogin.c
 
 ## <a name="optimal-idm-virtual-identity-server-federation-services"></a>En iyi IDM sanal kimlik Server Federasyon Hizmetleri
 
-Senaryo destek matrisi bu tek oturum açma deneyimi verilmiştir:
+Merhaba aşağıdaki olduğu hello senaryo destek matrisi bu tek oturum açma deneyimi:
 
 | İstemci | Destek | Özel durumlar |
 | --- | --- | --- |
@@ -270,7 +270,7 @@ Senaryo destek matrisi bu tek oturum açma deneyimi verilmiştir:
 | Lync, Office aboneliği, CRM gibi zengin istemci uygulamaları |Destekleniyor |Tümleşik Windows kimlik doğrulaması |
 | Outlook ve ActiveSync gibi zengin e-posta istemcileri |Destekleniyor |
 
-Bkz: istemci erişimi hakkında daha fazla bilgi ilkeleri için [Office 365 Hizmetleri temel istemcinin konumu için erişimi sınırlama](https://technet.microsoft.com/library/hh526961.aspx).
+İstemci hakkında daha fazla bilgi için bkz: erişim ilkeleri [erişimi sınırlama tooOffice 365 hizmetlerini alarak hello istemci konumunu hello üzerinde](https://technet.microsoft.com/library/hh526961.aspx).
 
 
 
@@ -278,7 +278,7 @@ Bkz: istemci erişimi hakkında daha fazla bilgi ilkeleri için [Office 365 Hizm
 
 ## <a name="pingfederate-611-72-8x"></a>PingFederate 6.11, 7.2, 8.x
 
-Bu tek oturum açma deneyimi için senaryo destek matrisi verilmiştir:
+Merhaba, bu tek oturum açma deneyimi için hello senaryo destek matrisi aşağıdadır:
 
 | İstemci | Destek | Özel durumlar |
 | --- | --- | --- |
@@ -286,7 +286,7 @@ Bu tek oturum açma deneyimi için senaryo destek matrisi verilmiştir:
 | Lync, Office aboneliği, CRM gibi zengin istemci uygulamaları |Destekleniyor |None |
 | Outlook ve ActiveSync gibi zengin e-posta istemcileri |Destekleniyor |None |
 
-Active Directory kullanıcılarınız için çoklu oturum açma deneyimini sağlamak üzere PingFederate yönergeler için bu STS yapılandırmak, aşağıdakilerden birini bakın: 
+Merhaba PingFederate yönergeler, nasıl tooconfigure bu STS tooprovide hello tek oturum açma deneyimi tooyour Active Directory Kullanıcıları bakın hello aşağıdakilerden biri: 
 
 - [PingFederate 6.11](http://go.microsoft.com/fwlink/?LinkID=266321)
 - [PingFederate 7.2](http://documentation.pingidentity.com/display/PF72/PingFederate+7.2)
@@ -294,7 +294,7 @@ Active Directory kullanıcılarınız için çoklu oturum açma deneyimini sağl
 
 ## <a name="radiantone-cfs-30"></a>RadiantOne CFS 3.0
 
-Bu tek oturum açma deneyimi için senaryo destek matrisi verilmiştir: 
+Merhaba, bu tek oturum açma deneyimi için hello senaryo destek matrisi aşağıdadır: 
 
 | İstemci | Destek | Özel durumlar |
 | --- | --- | --- |
@@ -306,7 +306,7 @@ RadiantOne CFS hakkında daha fazla bilgi için bkz: [RadiantOne CFS](http://www
 
 ## <a name="sailpoint-identitynow"></a>Sailpoint IdentityNow
 
-Bu tek oturum açma deneyimi için senaryo destek matrisi verilmiştir:
+Merhaba, bu tek oturum açma deneyimi için hello senaryo destek matrisi aşağıdadır:
 
 | İstemci | Destek | Özel durumlar |
 | --- | --- | --- |
@@ -318,7 +318,7 @@ Daha fazla bilgi için bkz: [Sailpoint IdentityNow](https://www.sailpoint.com/id
 
 ## <a name="secureauth-idp-720"></a>SecureAuth IDP 7.2.0
 
-Bu tek oturum açma deneyimi için senaryo destek matrisi verilmiştir: 
+Merhaba, bu tek oturum açma deneyimi için hello senaryo destek matrisi aşağıdadır: 
 
 | İstemci | Destek | Özel durumlar |
 | --- | --- | --- |
@@ -343,7 +343,7 @@ SecureAuth hakkında daha fazla bilgi için bkz: [SecureAuth IDP](http://go.micr
 
 ## <a name="signgo-53"></a>Oturum & 5.3 gidin
 
-Bu tek oturum açma deneyimi için senaryo destek matrisi verilmiştir:
+Merhaba, bu tek oturum açma deneyimi için hello senaryo destek matrisi aşağıdadır:
 
 | İstemci | Destek | Özel durumlar |
 | --- | --- | --- |
@@ -351,11 +351,11 @@ Bu tek oturum açma deneyimi için senaryo destek matrisi verilmiştir:
 | Lync, Office aboneliği, CRM gibi zengin istemci uygulamaları |Destekleniyor |None |
 | Outlook ve ActiveSync gibi zengin e-posta istemcileri |Destekleniyor |None |
 
-Oturum & Git 5.3, Kerberos sözleşme yapılandırması üzerinden Kerberos kimlik doğrulamasını destekler.  Bu yapılandırma ile daha fazla yardım için lütfen Ilex başvurun veya kurulum kılavuzunu görüntülemek [oturum & Git](http://www.ilex-international.com/docs/sign&go_wsfederation_en.pdf)
+Oturum & Git 5.3, Kerberos sözleşme yapılandırması üzerinden Kerberos kimlik doğrulamasını destekler.  Bu yapılandırma ile daha fazla yardım için lütfen Ilex veya Görünüm hello kurulum kılavuzunu başvurun [oturum & Git](http://www.ilex-international.com/docs/sign&go_wsfederation_en.pdf)
 
 ## <a name="softbank-technology-online-service-gate"></a>SoftBank teknoloji çevrimiçi hizmet kapısı
 
-Bu tek oturum açma deneyimi için senaryo destek matrisi verilmiştir:
+Merhaba, bu tek oturum açma deneyimi için hello senaryo destek matrisi aşağıdadır:
 
 | İstemci | Destek | Özel durumlar |
 | --- | --- | --- |
@@ -367,7 +367,7 @@ SoftBank teknoloji çevrimiçi hizmet kapısı hakkında daha fazla bilgi için 
 
 ## <a name="vmware-workspace-one"></a>Bir VMware çalışma
 
-Bu tek oturum açma deneyimi için senaryo destek matrisi verilmiştir:
+Merhaba, bu tek oturum açma deneyimi için hello senaryo destek matrisi aşağıdadır:
 
 | İstemci | Destek | Özel durumlar |
 | --- | --- | --- |

@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure otomatik kullanıcı sağlamayı Google uygulamaları yapılandırma | Microsoft Docs"
-description: "Otomatik olarak sağlamak ve Google Apps için kullanıcı hesapları Azure AD'den sağlanmasını öğrenin."
+description: "Azure AD tooGoogle uygulamaları ' nasıl tooautomatically sağlama ve devre dışı bırakma sağlama kullanıcı hesapları öğrenin."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,51 +13,51 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: b061f0ddad70be4a5ca48d48d1a737d6af8afa8d
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: d1fa8449bd6013d1627b3552aaa19db1c0f4f46f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-configuring-google-apps-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı sağlamayı için Google uygulamaları yapılandırma
 
-Bu öğreticinin amacı, Google Apps ve Azure AD otomatik olarak sağlamak ve Google Apps için kullanıcı hesapları Azure AD'den sağlanmasını gerçekleştirmek için gereken adımları Göster sağlamaktır.
+Bu öğreticinin Hello hedefi Google Apps ve Azure AD tooautomatically sağlama tooperform gerekir ve Azure AD tooGoogle uygulamalar kullanıcı hesaplarından sağlanmasını adımları hello tooshow ' dir.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğreticide gösterilen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
+Bu öğreticide gösterilen hello senaryo aşağıdaki öğelerindeki hello zaten sahip olduğunuzu varsayar:
 
 *   Bir Azure Active directory kiracısı.
 *   İş veya eğitim için Google Apps için Google Apps için geçerli bir kiracı olması gerekir. Ücretsiz bir deneme hesabı ya da hizmet için kullanabilir.
 *   Google Apps takım yönetici izinlerine sahip bir kullanıcı hesabının.
 
-## <a name="assigning-users-to-google-apps"></a>Google Apps kullanıcılar atama
+## <a name="assigning-users-toogoogle-apps"></a>Kullanıcıları tooGoogle uygulamalar atama
 
-Azure Active Directory "atamaları" adlı bir kavram hangi kullanıcıların seçili uygulamalara erişim alması belirlemek için kullanır. Otomatik olarak bir kullanıcı hesabı sağlama bağlamında, yalnızca kullanıcıların ve grupların "Azure AD uygulamada atanmış" eşitlenir.
+Azure Active Directory hangi kullanıcıların erişim tooselected uygulamaları alması "atamaları" toodetermine adlı bir kavramı kullanır. Otomatik olarak bir kullanıcı hesabı sağlama hello bağlamında, yalnızca hello kullanıcıların ve grupların "Azure AD tooan uygulamada atanmış" eşitlenir.
 
-Yapılandırma ve sağlama hizmeti etkinleştirmeden önce hangi kullanıcılara ve/veya Azure AD grupları Google Apps uygulamanıza erişimi olması gereken kullanıcılar temsil eden karar vermeniz gerekir. Karar sonra bu kullanıcılar, Google Apps uygulamanızın Buradaki yönergeleri izleyerek atayabilirsiniz: [bir kullanıcı veya grup için bir kuruluş uygulama atama](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+Yapılandırma ve hizmet sağlama hello etkinleştirmeden önce hangi kullanıcılara ve/veya Azure AD tooyour Google Apps uygulamasına erişmesi hello kullanıcıları temsil gruplarında toodecide gerekir. Karar sonra buraya hello yönergeleri izleyerek bu kullanıcıların tooyour Google Apps uygulama atayabilirsiniz: [bir kullanıcı veya grup tooan kuruluş uygulama atama](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 > [!IMPORTANT]
->*   Önerilir tek bir Azure AD kullanıcısının sağlama yapılandırmayı test etmek için Google Apps atanabilir. Ek kullanıcı ve/veya grupları daha sonra atanabilir.
->*   Bir kullanıcı için Google Apps atarken, kullanıcı ya da "Grup" rol ataması iletişim kutusunda seçmeniz gerekir. "Varsayılan erişim" rolü sağlama için çalışmaz.
+>*   Önerilir tek bir Azure AD kullanıcısının yapılandırma sağlama tooGoogle uygulamaları tootest hello atanabilir. Ek kullanıcı ve/veya grupları daha sonra atanabilir.
+>*   Bir kullanıcı tooGoogle uygulamaları atarken hello atama iletişim kutusunda hello kullanıcı ya da "Grup" rolünü seçmeniz gerekir. Merhaba "Varsayılan erişim" rolü sağlama için çalışmaz.
 
 ## <a name="enable-automated-user-provisioning"></a>Otomatik kullanıcı sağlamayı etkinleştirin
 
-Azure AD Google Apps'ın kullanıcı hesabı sağlama API'sine bağlanma ve sağlama hizmeti oluşturmak için yapılandırma güncelleştirmesi ve Google Apps atanan kullanıcı hesaplarında devre dışı bu bölümü kılavuzları kullanıcı ve grup atama Azure AD'de temel.
+Bu bölümde, Azure AD tooGoogle uygulamalarınızı'nın kullanıcı hesabı API sağlama konusunda size rehberlik eder ve hizmet toocreate sağlama hello yapılandırma, güncelleştirme ve Google Apps Azure AD'de kullanıcı ve grup atama göre atanan kullanıcı hesaplarında devre dışı bırak .
 
 >[!Tip]
->Da tercih edebilirsiniz etkin SAML tabanlı çoklu oturum açma için Google Apps, yönergeleri izleyerek sağlanan [Azure portal](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlamayı bağımsız olarak, çoklu oturum açma yapılandırılabilir.
+>Sağlanan hello yönergeleri izleyerek Google Apps için SAML tabanlı çoklu oturum açma tooenabled seçebilirsiniz [Azure portal](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlamayı bağımsız olarak, çoklu oturum açma yapılandırılabilir.
 
 ### <a name="configure-automatic-user-account-provisioning"></a>Hesap otomatik kullanıcı sağlamayı Yapılandır
 
 > [!NOTE]
-> Google Apps kullanıcı sağlamayı otomatikleştirmek için başka bir uygulanabilir seçenek kullanmaktır [Google Apps dizin eşitleme (GADS)](https://support.google.com/a/answer/106368?hl=en) Google Apps, şirket içi Active Directory kimlikleri sağlar. Buna karşılık, çözüm Bu öğreticide, Azure Active Directory (bulut) kullanıcıları ve Google Apps için posta özellikli gruplar sağlamasını yapar. 
+> Kullanıcı tooGoogle uygulamaları hazırlama otomatikleştirmek için başka bir uygun toouse seçenektir [Google Apps dizin eşitleme (GADS)](https://support.google.com/a/answer/106368?hl=en) , şirket içi Active Directory kimlikleri tooGoogle uygulamaları sağlar. Buna karşılık, hello çözümü Bu öğreticide, Azure Active Directory (bulut) kullanıcıları ve posta özellikli gruplar tooGoogle uygulamaları sağlamasını yapar. 
 
-1. Oturum [Google Apps Yönetici Konsolu](http://admin.google.com/) yönetici hesabı kullanarak ve tıklayın **güvenlik**. Bağlantıyı görmüyorsanız, altında gizli olabilir **daha fazla denetim** ekranın altındaki menüsü.
+1. Merhaba içine oturum [Google Apps Yönetici Konsolu](http://admin.google.com/) yönetici hesabı kullanarak ve tıklayın **güvenlik**. Merhaba bağlantısını görmüyorsanız, hello altında gizli olabilir **daha fazla denetim** hello ekranın hello menüsünde.
    
     ![Güvenlik'e tıklayın.][10]
 
-2. Üzerinde **güvenlik** sayfasında, **API Başvurusu**.
+2. Merhaba üzerinde **güvenlik** sayfasında, **API Başvurusu**.
    
     ![API Başvurusu'ı tıklatın.][15]
 
@@ -66,31 +66,31 @@ Azure AD Google Apps'ın kullanıcı hesabı sağlama API'sine bağlanma ve sağ
     ![API Başvurusu'ı tıklatın.][16]
 
     > [!IMPORTANT]
-    > Google Apps, Azure Active Directory'de kullanıcı adlarını sağlamak istediğiniz her kullanıcı için *gerekir* özel bir etki alanına bağlı. Örneğin, neye benzediğini gösteren kullanıcı adları bob@contoso.onmicrosoft.com ancak Google Apps tarafından kabul edilmiyor bob@contoso.com kabul edilir. Mevcut bir kullanıcının etki alanı Azure AD'de özelliklerini düzenleyerek değiştirebilirsiniz. Yönergeler için Azure Active Directory ve Google Apps için özel bir etki alanı ayarlama adımları izleyerek dahil edilmiştir.
+    > Tooprovision tooGoogle uygulamaları, Azure Active Directory'de kullanıcı adlarını düşündüğünüz her kullanıcı için *gerekir* bağlı tooa özel etki alanı olması. Örneğin, neye benzediğini gösteren kullanıcı adları bob@contoso.onmicrosoft.com ancak Google Apps tarafından kabul edilmiyor bob@contoso.com kabul edilir. Mevcut bir kullanıcının etki alanı Azure AD'de özelliklerini düzenleyerek değiştirebilirsiniz. Yönergeler nasıl tooset Azure Active Directory ve Google Apps için özel bir etki alanı dahil edilmiştir için adımları izleyin.
       
-4. Ardından, bir özel etki alanı adı, Azure Active Directory'ye henüz eklemediyseniz, aşağıdaki adımları izleyin:
+4. Özel etki alanı adı tooyour Azure Active Directory henüz eklemediyseniz, hello aşağıdaki adımları izleyin:
   
-    a. İçinde [Azure portal](https://portal.azure.com), sol gezinti bölmesinde tıklatın **Active Directory**. Dizin listesinde dizininizi seçin. 
+    a. Merhaba, [Azure portal](https://portal.azure.com), üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Active Directory**. Merhaba dizin listesinde dizininizi seçin. 
 
-    b. Tıklatın **etki alanı adı** sol gezinti bölmesinde ve ardından **Ekle**.
+    b. Tıklatın **etki alanı adı** üzerinde sol gezinti bölmesinde hello ve ardından **Ekle**.
      
      ![Etki alanı](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_1.png)
 
      ![etki alanı ekleme](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_2.png)
 
-    c. Etki alanı adınızı yazın **etki alanı adı** alan. Bu etki alanı adı, Google uygulamaları için kullanmak istediğiniz aynı etki alanı adı olmalıdır. Hazır olduğunuzda tıklatın **etki alanı Ekle** düğmesi.
+    c. Etki alanı adınızı hello yazın **etki alanı adı** alan. Bu etki alanı adı hello olmalıdır Google Apps için toouse düşündüğünüz aynı etki alanı adı. Hazır olduğunuzda hello tıklatın **etki alanı Ekle** düğmesi.
      
      ![Etki alanı adı](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_3.png)
 
-    d. Tıklatın **sonraki** doğrulama sayfasına gidin. Bu etki alanına ait olduğunu doğrulamak için etki alanının DNS kayıtlarını bu sayfada sağlanan değerlere göre düzenlemeniz gerekir. Kullanarak doğrulamak seçebilirsiniz **MX kayıtları** veya **TXT kayıtlarının**için seçtiğiniz bağlı olarak **kayıt türü** seçeneği. Azure AD etki alanı adıyla doğrulamak nasıl daha kapsamlı yönergeler için bkz [kendi etki alanı adını Azure AD'ye ekleme](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409).
+    d. Tıklatın **sonraki** toogo toohello doğrulama sayfasında. Bu etki alanı kendi tooverify, bu sayfada sağlanan toohello değerleri göre hello etki alanının DNS kayıtlarını düzenlemeniz gerekir. Kullanarak tooverify seçebilirsiniz **MX kayıtları** veya **TXT kayıtlarının**Merhaba seçin bağlı olarak **kayıt türü** seçeneği. Nasıl tooverify etki alanı adı Azure AD ile daha kapsamlı yönergeler için bkz [kendi etki alanı adı tooAzure AD eklemek](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409).
      
      ![Etki alanı](./media/active-directory-saas-google-apps-provisioning-tutorial/domain_4.png)
 
-    e. Dizininize eklemek istediğiniz tüm etki alanları için önceki adımları yineleyin.
+    e. Merhaba önceki adımları tooadd tooyour directory düşündüğünüz tüm hello etki alanları için yineleyin.
 
-5. Azure AD ile etki alanları doğruladıktan, artık bunları yeniden Google Apps ile doğrulamanız gerekiyor. Google Apps ile zaten kayıtlı değil her etki alanı için aşağıdaki adımları gerçekleştirin:
+5. Azure AD ile etki alanları doğruladıktan, artık bunları yeniden Google Apps ile doğrulamanız gerekiyor. Google Apps ile zaten kayıtlı değil her etki alanı için hello aşağıdaki adımları gerçekleştirin:
    
-    a. İçinde [Google Apps Yönetici Konsolu](http://admin.google.com/), tıklatın **etki alanları**.
+    a. Merhaba, [Google Apps Yönetici Konsolu](http://admin.google.com/), tıklatın **etki alanları**.
      
      ![Etki alanlarında tıklatın][20]
 
@@ -98,59 +98,59 @@ Azure AD Google Apps'ın kullanıcı hesabı sağlama API'sine bağlanma ve sağ
      
      ![Yeni bir etki alanı Ekle][21]
 
-    c. Seçin **başka bir etki alanı ekleme**ve eklemek istediğiniz etki alanı adını yazın.
+    c. Seçin **başka bir etki alanı ekleme**, tooadd istediğiniz hello etki alanının hello adı yazın.
      
      ![Etki alanı adınızı yazın][22]
 
-    d. Tıklatın **devam ve etki alanı sahipliği doğrulama**. Sonra etki alanı adının size ait olduğunu doğrulamak için adımları izleyin. Google Apps etki alanınızı doğrulayın konusunda kapsamlı yönergeler için bkz. [Google Apps ile site sahipliği doğrulamak](https://support.google.com/webmasters/answer/35179).
+    d. Tıklatın **devam ve etki alanı sahipliği doğrulama**. Daha sonra hello etki alanı adını kendi hello adımları tooverify izleyin. Kapsamlı yönergeler nasıl tooverify Google Apps etki alanınızı bakın. [Google Apps ile site sahipliği doğrulamak](https://support.google.com/webmasters/answer/35179).
 
-    e. Google Apps için eklemek istediğiniz her ek etki alanları için önceki adımları yineleyin.
+    e. Adımları tooadd tooGoogle uygulamaları düşündüğünüz diğer etki alanlarını için önceki hello yineleyin.
      
      > [!WARNING]
-     > Google Apps kiracınız için birincil etki alanı değiştirmek ve zaten var, yapılandırılan çoklu oturum açma Azure AD ile durumunda #3. adım altında yinelemek zorunda [adım iki: etkinleştirmek çoklu oturum açma](#step-two-enable-single-sign-on).
+     > Google Apps kiracınız için hello birincil etki alanı değiştirmek ve zaten var, yapılandırılan çoklu oturum açma Azure AD ile durumunda toorepeat adımı #3 altında sahip [adım iki: etkinleştirmek çoklu oturum açma](#step-two-enable-single-sign-on).
        
-6. İçinde [Google Apps Yönetici Konsolu](http://admin.google.com/), tıklatın **yönetici rollerine**.
+6. Merhaba, [Google Apps Yönetici Konsolu](http://admin.google.com/), tıklatın **yönetici rollerine**.
    
      ![Google Apps'ı tıklatın][26]
 
-7. Kullanıcı sağlamayı yönetmek için kullanmak istediğiniz yönetici hesabı belirleyin. İçin **Yönetici rolü** bu hesabı, düzenleme **ayrıcalıkları** bu rol için. Tüm olduğundan emin olun **yönetici API ayrıcalıkları** sağlamak için bu hesabı kullanılabilir böylece etkin.
+7. Hangi yönetim belirlemek istediğinizi toouse toomanage kullanıcı sağlamayı hesabı. Hello için **Yönetici rolü** bu hesabı, hello Düzenle **ayrıcalıkları** bu rol için. Tüm hello olduğundan emin olun **yönetici API ayrıcalıkları** sağlamak için bu hesabı kullanılabilir böylece etkin.
    
      ![Google Apps'ı tıklatın][27]
    
     > [!NOTE]
-    > Bir üretim ortamında yapılandırıyorsanız, en iyi uygulama olarak bir yönetici hesabı Google Apps özellikle bu adım için oluşturmaktır. Bu hesaplar gerekli API ayrıcalıklara sahip bir yönetici rolü kendisiyle ilişkilendirilmiş olması gerekir.
+    > Bir üretim ortamında yapılandırıyorsanız, hello en iyi toocreate Google Apps özellikle bu adım için bir yönetici hesabı uygulamadır. Bu hesapları hello gerekli API ayrıcalıklara sahip bir yönetici rolü kendisiyle ilişkilendirilmiş olması gerekir.
      
-8. İçinde [Azure portal](https://portal.azure.com), Gözat **Azure Active Directory > Kurumsal uygulamaları > tüm uygulamaları** bölümü.
+8. Merhaba, [Azure portal](https://portal.azure.com), toohello Gözat **Azure Active Directory > Kurumsal uygulamaları > tüm uygulamaları** bölümü.
 
-9. Çoklu oturum açma için Google Apps zaten yapılandırdıysanız arama alanı kullanarak Google Apps Örneğiniz için arama yapın. Aksi takdirde seçin **Ekle** arayın ve **Google Apps** uygulama galerisinde. Arama sonuçlarından Google Apps seçin ve uygulamaları listenize ekleyin.
+9. Çoklu oturum açma için zaten Google Apps yapılandırdıysanız, Google hello arama alanı kullanarak uygulamaları Örneğiniz için arama yapın. Aksi takdirde seçin **Ekle** arayın ve **Google Apps** hello uygulama galerisinde. Google Apps hello Arama sonuçlarından seçin ve uygulamaların tooyour listesine ekleyin.
 
-10. Google Apps örneğiniz seçin ve ardından **sağlama** sekmesi.
+10. Google Apps örneğiniz seçin ve ardından hello **sağlama** sekmesi.
 
-11. Ayarlama **sağlama modunda** için **otomatik**. 
+11. Set hello **sağlama modu** çok**otomatik**. 
 
      ![Sağlama](./media/active-directory-saas-google-apps-provisioning-tutorial/provisioning.png)
 
-12. Altında **yönetici kimlik bilgileri** 'yi tıklatın **Authorize**. Yeni bir tarayıcı penceresinde bir Google Apps yetkilendirme iletişim kutusunu açar.
+12. Merhaba altında **yönetici kimlik bilgileri** 'yi tıklatın **Authorize**. Yeni bir tarayıcı penceresinde bir Google Apps yetkilendirme iletişim kutusunu açar.
 
-13. Google Apps kiracınız değişiklik yapmak için Azure Active Directory izni vermek istediğiniz onaylayın. Tıklatın **kabul**.
+13. Toogive Azure Active Directory izin toomake değişiklikleri tooyour Google Apps Kiracı istediğinizi onaylayın. Tıklatın **kabul**.
     
      ![İzinleri doğrulayın.][28]
 
-14. Azure portalında tıklatın **Bağlantıyı Sına** Azure emin olmak için AD, Google Apps uygulamanızın bağlanabilir. Bağlantı başarısız olursa, Google Apps hesabınız takım yönetici izinlerine sahip olduğundan emin olun ve deneyin **"Yetkilendir"** adım yeniden uygulayın.
+14. Hello Azure portal'ı tıklatın **Bağlantıyı Sına** tooensure Azure AD tooyour Google Apps uygulama bağlanabilir. Merhaba bağlantı başarısız olursa, Google Apps hesabınız takım yönetici izinlerine sahip olduğundan emin olun ve hello deneyin **"Yetkilendir"** adım yeniden uygulayın.
 
-15. Bir kişi veya sağlama hata bildirimleri alması gereken Grup e-posta adresini girin **bildirim e-posta** alan ve onay kutusunu işaretleyin.
+15. Bir kişi veya hello sağlama hata bildirimi alması gereken Grup Hello e-posta adresini girin **bildirim e-posta** alan ve hello onay kutusunu işaretleyin.
 
 16. Tıklatın **kaydedin.**
 
-17. Eşlemeleri bölümü altında seçin **eşitleme Azure Active Directory Kullanıcıları Google Apps için.**
+17. Hello eşlemeleri bölümü altında seçin **eşitleme Azure Active Directory Kullanıcıları tooGoogle uygulamalar.**
 
-18. İçinde **öznitelik eşlemelerini** bölümünde, Google Apps Azure AD'den eşitlenen kullanıcı öznitelikleri gözden geçirin. Seçilen öznitelikler **eşleşen** özellikleri, Google Apps kullanıcı hesaplarında güncelleştirme işlemleri için eşleştirmek için kullanılır. Değişiklikleri kaydetmek için Kaydet düğmesini seçin.
+18. Merhaba, **öznitelik eşlemelerini** bölümünde, Azure AD tooGoogle uygulamaları eşitlenir hello kullanıcı öznitelikleri gözden geçirin. Merhaba olarak seçilen öznitelikler **eşleşen** Itanium tabanlı sistemler için kullanılan toomatch hello kullanıcı hesapları Google Apps içinde güncelleştirme işlemleri için özelliklerdir. Merhaba Kaydet düğmesine toocommit herhangi bir değişiklik seçin.
 
-19. Google Apps için hizmet sağlama Azure AD etkinleştirmek için değiştirmek **sağlama durumu** için **üzerinde** ayarları bölümünde
+19. tooenable hello Google Apps, değişiklik hello için Azure AD sağlama hizmeti **sağlama durumu** çok**üzerinde** hello ayarları bölümünün içinde
 
 20. Tıklatın **kaydedin.**
 
-Herhangi bir kullanıcı ve/veya grupları kullanıcıları ve grupları bölümünde Google Apps atanan ilk eşitleme başlatır. İlk eşitleme gerçekleştirmek yaklaşık 20 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve Google Apps uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır etkinlik raporları sağlamak için bağlantıları izleyin.
+Tüm kullanıcıların hello ilk eşitleme başlar ve/veya gruplarının tooGoogle uygulamaları hello kullanıcılar ve Gruplar bölümünde atanmış. Merhaba ilk eşitleme yaklaşık 20 dakikada hello çalıştığı sürece oluşan sonraki eşitlemeler daha uzun tooperform alır. Merhaba kullanabilirsiniz **eşitleme ayrıntıları** bölümünde toomonitor ilerleme ve Google Apps uygulamanızdan hizmet sağlama hello tarafından gerçekleştirilen tüm eylemler anlatılmaktadır bağlantılar tooprovisioning etkinlik raporları izleyin.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

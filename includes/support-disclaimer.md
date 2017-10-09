@@ -1,0 +1,2 @@
+Bu makalede Azure sorunu ele alınmamışsa ziyaret üzerinde Azure forumları hello [MSDN ve yığın taşması hello](https://azure.microsoft.com/support/forums/). Sorununuzu bu forumlarına gönderin veya çok post[ @AzureSupport Twitter'da](https://twitter.com/AzureSupport). Ayrıca bir Azure destek isteği gönderebilirsiniz. toosubmit hello üzerinde bir destek isteği [Azure Destek](https://azure.microsoft.com/support/options/) sayfasında, **alma desteği**.
+

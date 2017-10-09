@@ -1,6 +1,6 @@
 ---
-title: "Okuma NSG akış günlükleri | Microsoft Docs"
-description: "Bu makalede NSG akış günlükleri ayrıştırmak nasıl gösterir"
+title: "aaaRead NSG akış günlükleri | Microsoft Docs"
+description: "Bu makalede nasıl tooparse NSG akış günlükleri gösterir"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -13,69 +13,69 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: gwallace
-ms.openlocfilehash: 9bb48157b2b8e483e063058f761c3a8f531927f9
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: b4f0f64639c7b2a6b4db50e54d15056bfd809e48
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="read-nsg-flow-logs"></a>Okuma NSG akış günlükleri
 
-PowerShell ile NSG akış günlükleri girişleri okuma öğrenin.
+Tooread NSG akışı girişlerini PowerShell ile nasıl oturum öğrenin.
 
-NSG akış günlükleri, bir depolama hesabında depolanır [blok blobları](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs.md#about-block-blobs). Blok blobları, daha küçük bloklarını yapılır. Her günlük saatte oluşturulan ayrı blok blob ' dir. Yeni günlükler saatte oluşturulan, günlükleri yeni girişlerle birkaç dakikada en son verilerle güncelleştirilir. Bu makalede akış günlükleri okunmasına öğrenin.
+NSG akış günlükleri, bir depolama hesabında depolanır [blok blobları](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs.md#about-block-blobs). Blok blobları, daha küçük bloklarını yapılır. Her günlük saatte oluşturulan ayrı blok blob ' dir. Yeni günlükler saatte oluşturulan, hello günlükleri yeni girişlerle birkaç dakikada hello en son verilerle güncelleştirilir. Bu makalede hello tooread bölümlerini günlüklerini nasıl gerçekleştiğini öğrenin.
 
 ## <a name="scenario"></a>Senaryo
 
-Aşağıdaki senaryoda, bir depolama hesabında depolanan bir örnek akış günlüğü vardır. nasıl seçmeli olarak en son olayların NSG akış günlüklerine okuyabilirsiniz adım. Bu makalede PowerShell kullanacağız, ancak makalesinde açıklanan kavramları programlama diline sınırlı değildir ve Azure depolama API'leri tarafından desteklenen tüm dillerde için geçerlidir
+Senaryo aşağıdaki hello bir depolama hesabında depolanan bir örnek akış günlüğü vardır. nasıl seçmeli olarak hello son olayları NSG akış günlüklerine okuyabilirsiniz adım. Bu makalede PowerShell kullanacağız, ancak hello makalesinde açıklanan hello kavramları sınırlı toohello programlama dili olup olmadığı ve Azure depolama API'leri hello tarafından desteklenen geçerli tooall diller
 
 ## <a name="setup"></a>Kurulum
 
-Başlamadan önce ağ güvenlik grubu akış hesabınızda bir veya daha çok ağ güvenlik grupları etkin günlüğü olması gerekir. Akış günlükleri ağ güvenliği etkinleştirme yönergeleri için aşağıdaki makaleye bakın: [akış günlüğü ağ güvenlik grupları için giriş](network-watcher-nsg-flow-logging-overview.md).
+Başlamadan önce ağ güvenlik grubu akış hesabınızda bir veya daha çok ağ güvenlik grupları etkin günlüğü olması gerekir. Akış günlükleri ağ güvenliği etkinleştirme yönergeleri için aşağıdaki makaleye bakın toohello bakın: [ağ güvenlik grupları için giriş tooflow günlüğü](network-watcher-nsg-flow-logging-overview.md).
 
-## <a name="retrieve-the-block-list"></a>Engelleme listesi alma
+## <a name="retrieve-hello-block-list"></a>Merhaba blok listesini alma
 
-Aşağıdaki PowerShell NSG akış günlük blob sorgulamak ve blokları içinde listelemek için gerekli değişkenleri ayarlar [CloudBlockBlob](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3) blok blobu. Ortamınız için geçerli değerler içermesini komut dosyasını güncelleştirin.
+tooquery hello NSG akış oturum hello içinde blob ve liste hello blok hello değişkenleri PowerShell ayarlar aşağıdaki hello [CloudBlockBlob](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3) blok blobu. Merhaba betik toocontain ortamınız için geçerli değerler güncelleştirin.
 
 ```powershell
-# The SubscriptionID to use
+# hello SubscriptionID toouse
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
 
-# Resource group that contains the Network Security Group
+# Resource group that contains hello Network Security Group
 $resourceGroupName = "<resourceGroupName>"
 
-# The name of the Network Security Group
+# hello name of hello Network Security Group
 $nsgName = "NSGName"
 
-# The storage account name that contains the NSG logs
+# hello storage account name that contains hello NSG logs
 $storageAccountName = "<storageAccountName>" 
 
-# The date and time for the log to be queried, logs are stored in hour intervals.
+# hello date and time for hello log toobe queried, logs are stored in hour intervals.
 [datetime]$logtime = "06/16/2017 20:00"
 
-# Retrieve the primary storage account key to access the NSG logs
+# Retrieve hello primary storage account key tooaccess hello NSG logs
 $StorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName).Value[0]
 
-# Setup a new storage context to be used to query the logs
+# Setup a new storage context toobe used tooquery hello logs
 $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
 # Container name used by NSG flow logs
 $ContainerName = "insights-logs-networksecuritygroupflowevent"
 
-# Name of the blob that contains the NSG flow log
+# Name of hello blob that contains hello NSG flow log
 $BlobName = "resourceId=/SUBSCRIPTIONS/${subscriptionId}/RESOURCEGROUPS/${resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/${nsgName}/y=$($logtime.Year)/m=$(($logtime).ToString("MM"))/d=$(($logtime).ToString("dd"))/h=$(($logtime).ToString("HH"))/m=00/PT1H.json"
 
-# Gets the storage blog
+# Gets hello storage blog
 $Blob = Get-AzureStorageBlob -Context $ctx -Container $ContainerName -Blob $BlobName
 
-# Gets the block blog of type 'Microsoft.WindowsAzure.Storage.Blob.CloudBlob' from the storage blob
+# Gets hello block blog of type 'Microsoft.WindowsAzure.Storage.Blob.CloudBlob' from hello storage blob
 $CloudBlockBlob = [Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob] $Blob.ICloudBlob
 
-# Stores the block list in a variable from the block blob.
+# Stores hello block list in a variable from hello block blob.
 $blockList = $CloudBlockBlob.DownloadBlockList()
 ```
 
-`$blockList` Değişkeni blob içinde blokları listesini döndürür. Her blok blobu en az iki blokları içerir.  İlk blok uzunluğuna sahip `21` bayt, bu bloğu json günlük açılan parantezler içerir. Diğer blok kapanış köşeli ayraçlar ve uzunluğuna sahip `9` bayt sayısı.  Aşağıdaki örnek günlük gördüğünüz yedi girişleri, içinde her bir girişe olan içeriyor. Günlükteki tüm yeni girişler son blok önceki sonuna eklenir.
+Merhaba `$blockList` değişkeni hello blob hello blokları listesini döndürür. Her blok blobu en az iki blokları içerir.  Merhaba ilk Blok uzunluğu olan `21` bayt bu bloğu hello json günlüğünün köşeli açma hello içerir. Merhaba diğer blok hello kapanış köşeli ve uzunluğuna sahip `9` bayt sayısı.  Gördüğünüz gibi örnek günlük aşağıdaki hello yedi girişleri, içinde her bir girişe olan içeriyor. Tüm yeni girişler hello günlüğüne toohello sona hello son blok hemen önce eklenir.
 
 ```
 Name                                         Length Committed
@@ -91,45 +91,45 @@ Mzk1YzQwM2U0ZWY1ZDRhOWFlMTNhYjQ3OGVhYmUzNjk=   2675      True
 ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      9      True
 ```
 
-## <a name="read-the-block-blob"></a>Blok blobu okuma
+## <a name="read-hello-block-blob"></a>Okuma hello blok blobu
 
-Sonraki okumak ihtiyacımız `$blocklist` verileri almak üzere değişken. Bu örnekte, biz engelleme yineleme her bloğundan bayt okuma ve bir dizi yazı. Kullanırız [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) verileri almak üzere yöntemi.
+Tooread hello sonraki ihtiyacımız `$blocklist` değişken tooretrieve hello veri. Bu örnekte, biz hello engelleme yineleme her bloğundan hello bayt okuma ve bir dizi yazı. Merhaba kullanırız [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) yöntemi tooretrieve hello veri.
 
 ```powershell
-# Set the size of the byte array to the largest block
+# Set hello size of hello byte array toohello largest block
 $maxvalue = ($blocklist | measure Length -Maximum).Maximum
 
-# Create an array to store values in
+# Create an array toostore values in
 $valuearray = @()
 
-# Define the starting index to track the current block being read
+# Define hello starting index tootrack hello current block being read
 $index = 0
 
-# Loop through each block in the block list
+# Loop through each block in hello block list
 for($i=0; $i -lt $blocklist.count; $i++)
 {
 
-# Create a byte array object to story the bytes from the block
+# Create a byte array object toostory hello bytes from hello block
 $downloadArray = New-Object -TypeName byte[] -ArgumentList $maxvalue
 
-# Download the data into the ByteArray, starting with the current index, for the number of bytes in the current block. Index is increased by 3 when reading to remove preceding comma.
+# Download hello data into hello ByteArray, starting with hello current index, for hello number of bytes in hello current block. Index is increased by 3 when reading tooremove preceding comma.
 $CloudBlockBlob.DownloadRangeToByteArray($downloadArray,0,$index+3,$($blockList[$i].Length-1)) | Out-Null
 
-# Increment the index by adding the current block length to the previous index
+# Increment hello index by adding hello current block length toohello previous index
 $index = $index + $blockList[$i].Length
 
-# Retrieve the string from the byte array
+# Retrieve hello string from hello byte array
 
 $value = [System.Text.Encoding]::ASCII.GetString($downloadArray)
 
-# Add the log entry to the value array
+# Add hello log entry toohello value array
 $valuearray += $value
 }
 ```
 
-Şimdi `$valuearray` dizi her bloğun dize değeri içerir. Giriş doğrulamak için ikinci son değeri diziden çalıştırarak alın `$valuearray[$valuearray.Length-2]`. Yalnızca kapanış ayracı son değerdir istemezsiniz.
+Şimdi hello `$valuearray` dizi blokların hello dize değerini içeriyor. tooverify hello girdisi, get hello ikinci toohello son değer çalıştırarak hello dizisinden `$valuearray[$valuearray.Length-2]`. Merhaba son yalnızca hello kapanış ayracı değerdir istemezsiniz.
 
-Bu değer sonuçları aşağıdaki örnekte gösterilir:
+Bu değer Hello sonuçları aşağıdaki örneğine hello gösterilir:
 
 ```json
         {
@@ -151,11 +151,11 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
         }
 ```
 
-Bu senaryo, tüm günlük ayrıştırma NSG akış günlüklerine girişleri okuma nasıl örneğidir. Blok Kimliğini kullanarak veya blok blob içinde depolanan blokları uzunluğu izleme yazıldığı şekilde günlüğünde yeni girişleri okuyabilir. Bu, yalnızca yeni girişleri okumanızı sağlar.
+Bu senaryo tooparse hello tüm günlük gerek kalmadan tooread girişleri NSG günlüklerini nasıl gerçekleştiğini bir örnektir. Merhaba blok Kimliğini kullanarak veya hello blok blobu depolanan blokları hello uzunluğu izleme yazıldığı şekilde hello günlüğünde yeni girişleri okuyabilir. Bu, yeni girişler yalnızca hello tooread sağlar.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ziyaret [açık kaynaklı Araçları'nı kullanarak Azure Ağ İzleyicisi NSG akış günlükleri görselleştirmek](network-watcher-visualize-nsg-flow-logs-open-source-tools.md) NSG akış günlükleri görüntülemek için diğer yolları hakkında daha fazla bilgi için.
+Ziyaret [açık kaynaklı Araçları'nı kullanarak Azure Ağ İzleyicisi NSG akış günlükleri görselleştirmek](network-watcher-visualize-nsg-flow-logs-open-source-tools.md) toolearn diğer yolları tooview NSG hakkında daha fazla akış günlükleri.
 
-Ziyaret depolama BLOB'ları hakkında daha fazla bilgi edinmek için: [Azure işlevleri Blob Depolama bağlamaları](../azure-functions/functions-bindings-storage-blob.md)
+toolearn depolama BLOB'ları hakkında daha fazla ziyaret edin: [Azure işlevleri Blob Depolama bağlamaları](../azure-functions/functions-bindings-storage-blob.md)

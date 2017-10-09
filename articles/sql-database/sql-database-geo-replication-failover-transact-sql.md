@@ -15,79 +15,79 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 459941d2c82e5d4ef62beab4ccf775ab8f5efce4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 418953e044ba84ce758063d56a371af45d5cdfe1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="initiate-a-planned-or-unplanned-failover-for-azure-sql-database-with-transact-sql"></a>Azure SQL Database Transact-SQL ile için planlanmış veya planlanmamış bir yük devretme başlatın
 
-Bu makalede Transact-SQL kullanarak bir ikincil SQL veritabanı yük devretme başlatın kullanmayı gösterir. Coğrafi çoğaltma yapılandırmak için bkz: [Azure SQL veritabanı için coğrafi çoğaltma yapılandırma](sql-database-geo-replication-transact-sql.md).
+Bu makale size nasıl gösterir tooinitiate yük devretme tooa ikincil SQL veritabanı Transact-SQL kullanarak. tooconfigure coğrafi çoğaltma, bkz: [Azure SQL veritabanı için coğrafi çoğaltma yapılandırma](sql-database-geo-replication-transact-sql.md).
 
-Yük devretme başlatmak için aşağıdakiler gerekir:
+tooinitiate yük devretme hello aşağıdaki gerekir:
 
-* Birincil DBManager olan bir oturum açma
-* Coğrafi replicate olacak yerel veritabanı db_ownership sahip
-* Coğrafi çoğaltma yapılandıracak partner sunucuları üzerinde DBManager olabilir
+* Birincil hello DBManager olan bir oturum açma
+* Coğrafi replicate olacak hello yerel veritabanı db_ownership sahip
+* DBManager hello partner sunucuları toowhich üzerinde olmanız coğrafi çoğaltma yapılandırır
 * En yeni sürümü SQL Server Management Studio (SSMS)
 
 > [!IMPORTANT]
-> Microsoft Azure ve SQL Veritabanı güncelleştirmeleriyle aynı sürümde olmak için her zaman en güncel Management Studio sürümünü kullanmanız önerilir. [SQL Server Management Studio’yu güncelleyin](https://msdn.microsoft.com/library/mt238290.aspx).
+> Her zaman hello kullanmanız önerilir Management Studio tooremain en son sürümünü Azure ve SQL veritabanı güncelleştirmeleri tooMicrosoft ile eşitlenir. [SQL Server Management Studio’yu güncelleyin](https://msdn.microsoft.com/library/mt238290.aspx).
 >  
 
-## <a name="initiate-a-planned-failover-promoting-a-secondary-database-to-become-the-new-primary"></a>Yeni birincil olmasını ikincil bir veritabanı yükseltme planlı bir yük devretme başlatın
-Kullanabileceğiniz **ALTER DATABASE** ikincil olmak için var olan birincil indirgeme planlı bir şekilde yeni birincil veritabanı olmak için ikincil bir veritabanını yükseltmek için deyimi. Bu ifade, yükseltilmekte coğrafi olarak çoğaltılmış ikincil veritabanının bulunduğu Azure SQL Database mantıksal sunucusu üzerindeki ana veritabanı üzerinde yürütülür. Bu işlev için planlanan yük devretme, DR ayrıntısına sırasında gibi tasarlanmıştır ve birincil veritabanının kullanılabilir olması gerekir.
+## <a name="initiate-a-planned-failover-promoting-a-secondary-database-toobecome-hello-new-primary"></a>İkincil veritabanı toobecome hello yeni birincil yükseltme planlı bir yük devretme başlatın
+Merhaba kullanabilirsiniz **ALTER DATABASE** deyimi toopromote ikincil veritabanı toobecome hello yeni birincil, ikincil bir hello varolan birincil toobecome indirgeme planlı bir biçimde veritabanı. Bu bildirimi hello Azure SQL Database mantıksal sunucusunda hangi hello yükseltilmekte coğrafi olarak çoğaltılmış ikincil veritabanının bulunduğu hello ana veritabanı üzerinde yürütülür. Bu işlev için planlanan yük devretme, gibi hello DR ayrıntısına sırasında tasarlanmıştır ve bu hello birincil veritabanı kullanılabilir olmasını gerektirir.
 
-Komutu aşağıdaki iş akışını gerçekleştirir:
+Merhaba komutu iş akışının izlenmesi hello gerçekleştirir:
 
-1. Geçici olarak çoğaltma ikincil kopyalanması tüm bekleyen işlemleri neden ve tüm yeni işlemleri engelleme zaman uyumlu moduna geçer;
-2. İki veritabanı rolleri coğrafi çoğaltma ortaklığı geçer.  
+1. Geçici olarak anahtarları çoğaltma toosynchronous modu, tüm bekleyen işlemleri toobe neden toohello ikincil ve tüm yeni işlemleri engelleme Temizlenen;
+2. Anahtarları hello iki hello coğrafi çoğaltma ortaklığı veritabanlarında rolleri hello.  
 
-Bu sıra iki veritabanı rolleri geçin ve bu nedenle veri kaybı olmayacaktır önce eşitlenir güvence altına alır. Rolleri geçiş sırasında hangi sırasında her iki veritabanı (0-25 saniye terabayt) kullanılamaz kısa bir süre yoktur. Birincil veritabanında birden fazla ikincil veritabanı varsa, yeni birincil bağlanmak için diğer ikincil kopya komutu otomatik olarak yeniden yapılandırır.  Tüm işlemi normal koşullarda tamamlanması bir dakikadan az zamanınızı. Daha fazla bilgi için bkz: [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) ve [hizmet katmanları](sql-database-service-tiers.md).
+Bu sıra iki veritabanı hello rolleri geçin ve bu nedenle veri kaybı olmayacaktır önce eşitlenir bu hello güvence altına alır. Merhaba rolleri geçiş sırasında hangi sırasında her iki veritabanı (Merhaba 0 too25 saniye üzerinde sırasını) kullanılamaz kısa bir süre yoktur. Otomatik olarak Hello birincil veritabanı varsa, birden fazla ikincil veritabanları, hello komutu RECONFIGURE diğer ikincil tooconnect toohello yeni birincil hello.  Merhaba tüm işlemi normal koşullarda dakika toocomplete değerinden almanız gerekir. Daha fazla bilgi için bkz: [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) ve [hizmet katmanları](sql-database-service-tiers.md).
 
-Planlanmış bir yük devretme başlatmak için aşağıdaki adımları kullanın.
+Aşağıdaki adımları tooinitiate planlanmış bir yük devretme hello kullanın.
 
-1. Management Studio'da coğrafi olarak çoğaltılmış ikincil veritabanının bulunduğu Azure SQL Database mantıksal sunucusuna bağlanın.
-2. Veritabanları klasörünü açın, **sistem veritabanları** klasörünü sağ tıklatın **ana**ve ardından **yeni sorgu**.
-3. Aşağıdaki **ALTER DATABASE** ikincil veritabanının birincil role geçiş yapmak için deyimi.
+1. Management Studio'da coğrafi olarak çoğaltılmış ikincil veritabanının bulunduğu toohello Azure SQL Database mantıksal sunucusuna bağlanın.
+2. Merhaba Hello veritabanları klasörünü açın, **sistem veritabanları** klasörünü sağ tıklatın **ana**ve ardından **yeni sorgu**.
+3. Merhaba aşağıdaki kullanın **ALTER DATABASE** deyimi tooswitch hello ikincil veritabanı toohello birincil rolü.
    
         ALTER DATABASE <MyDB> FAILOVER;
-4. Sorguyu çalıştırmak için **Yürüt**'e tıklayın.
+4. Tıklatın **yürütme** toorun hello sorgu.
 
 > [!NOTE]
-> Nadir durumlarda işlemi tamamlayamıyor ve takılan görünebilir mümkündür. Bu durumda, kullanıcı zorla yük devri komutunu yürütün ve veri kaybı kabul edin.
+> Nadir durumlarda hello işlemi tamamlayamıyor ve takılan görünebilir mümkündür. Bu durumda, hello kullanıcı hello zorla yük devri komutunu yürütün ve veri kaybı kabul edin.
 > 
 > 
 
-## <a name="initiate-an-unplanned-failover-from-the-primary-database-to-the-secondary-database"></a>Planlanmamış yük devretme birincil veritabanından ikincil veritabanını başlatmak
-Kullanabileceğiniz **ALTER DATABASE** birincil veritabanı artık kullanılabilir olmadığında bir kerede bir ikincil olmak için var olan birincil indirgeme zorlama planlanmamış bir şekilde yeni birincil veritabanı olmak için ikincil bir veritabanını yükseltmek için deyimi. Bu ifade, yükseltilmekte coğrafi olarak çoğaltılmış ikincil veritabanının bulunduğu Azure SQL Database mantıksal sunucusu üzerindeki ana veritabanı üzerinde yürütülür.
+## <a name="initiate-an-unplanned-failover-from-hello-primary-database-toohello-secondary-database"></a>Merhaba birincil veritabanı toohello ikincil veritabanını planlanmamış bir yük devretmeyi başlatın
+Merhaba kullanabilirsiniz **ALTER DATABASE** deyimi toopromote ikincil veritabanı toobecome hello yeni birincil veritabanı hello varolan birincil toobecome hello indirgeme zorlama bir planlanmamış şekilde, bir ikincil aynı anda zaman hello birincil veritabanı artık kullanılamıyor. Bu bildirimi hello Azure SQL Database mantıksal sunucusunda hangi hello yükseltilmekte coğrafi olarak çoğaltılmış ikincil veritabanının bulunduğu hello ana veritabanı üzerinde yürütülür.
 
-Bu işlevsellik, kullanılabilirlik veritabanının geri yüklenmesi önemli ve bazı veri kaybı kabul edilebilir olduğunda, olağanüstü durum kurtarma için tasarlanmıştır. Zorla yük devretme çağrıldığında, belirtilen ikincil veritabanı hemen birincil veritabanı haline gelir ve yazma işlemleri kabul başlar. Özgün birincil veritabanı bu yeni birincil veritabanı ile bağlanana hemen artımlı yedekleme özgün birincil veritabanında alınır ve yeni birincil veritabanı için ikincil bir veritabanı içine eski birincil veritabanında yapılan; Sonuç olarak, yalnızca eşitleme çoğaltmasının yeni birincil değil.
+Bu işlevsellik, hello veritabanı geri yükleme kullanılabilirliğini kritik ve bazı veri kaybı kabul edilebilir olduğunda, olağanüstü durum kurtarma için tasarlanmıştır. Merhaba zorla yük devretme çağrıldığında, belirtilen ikincil veritabanı hemen hello birincil veritabanı haline gelir ve yazma işlemleri kabul başlar. Bu yeni birincil veritabanı ile mümkün tooreconnect Hello özgün birincil veritabanı olduğunda hemen artımlı yedekleme hello özgün birincil veritabanı alınır ve hello yeni birincil veritabanı için ikincil bir veritabanı içine hello eski birincil veritabanına yapılan; Sonuç olarak, yalnızca eşitleme çoğaltmasının hello yeni birincil değil.
 
-Ancak, zorla yük devretme oluşmadan önce yeni birincil veritabanına çoğaltılmamış olmayan eski birincil veritabanına gönderilen verileri kurtarmak kullanıcı isterse, zaman içinde nokta geri ikincil veritabanlarında desteklenmediğinden, bu veri kaybı kurtarmak için destek bulunmaya kullanıcı gerekir.
+Ancak, kaydedilen toorecover veri Hello kullanıcı isterse, zaman içinde nokta geri hello ikincil veritabanlarında, desteklenmediğinden hello zorla yük devretme oluşmadan önce değil olsaydı toohello eski birincil veritabanı toohello yeni birincil veritabanı çoğaltılan, Merhaba kullanıcının tooengage destek toorecover gerekir bu verileri kaybolur.
 
-Birincil veritabanında birden fazla ikincil veritabanı varsa, yeni birincil bağlanmak için diğer ikincil kopya komutu otomatik olarak yeniden yapılandırır.
+Otomatik olarak Hello birincil veritabanı varsa, birden fazla ikincil veritabanları, hello komutu RECONFIGURE diğer ikincil tooconnect toohello yeni birincil hello.
 
-Planlanmamış bir yük devretme başlatmak için aşağıdaki adımları kullanın.
+Aşağıdaki adımları tooinitiate planlanmamış bir yük devretme hello kullanın.
 
-1. Management Studio'da coğrafi olarak çoğaltılmış ikincil veritabanının bulunduğu Azure SQL Database mantıksal sunucusuna bağlanın.
-2. Veritabanları klasörünü açın, **sistem veritabanları** klasörünü sağ tıklatın **ana**ve ardından **yeni sorgu**.
-3. Aşağıdaki **ALTER DATABASE** ikincil veritabanının birincil role geçiş yapmak için deyimi.
+1. Management Studio'da coğrafi olarak çoğaltılmış ikincil veritabanının bulunduğu toohello Azure SQL Database mantıksal sunucusuna bağlanın.
+2. Merhaba Hello veritabanları klasörünü açın, **sistem veritabanları** klasörünü sağ tıklatın **ana**ve ardından **yeni sorgu**.
+3. Merhaba aşağıdaki kullanın **ALTER DATABASE** deyimi tooswitch hello ikincil veritabanı toohello birincil rolü.
    
         ALTER DATABASE <MyDB>   FORCE_FAILOVER_ALLOW_DATA_LOSS;
-4. Sorguyu çalıştırmak için **Yürüt**'e tıklayın.
+4. Tıklatın **yürütme** toorun hello sorgu.
 
 > [!NOTE]
-> Birincil ve ikincil çevrimiçi olduğunda komutu verildikten eski birincil veri eşitleme olmadan hemen yeni ikincil olur. Bazı veri kaybı komutu verildiğinde uygulanıyor işlemleri birincil ortaya çıkabilir.
+> Birincil ve ikincil çevrimiçi olduğunda hello komutu verilirse hello eski birincil olacak yeni ikincil veri eşitleme olmadan hemen hello. Bazı veri kaybı hello komut verildiğinde uygulanıyor işlemleri Hello birincil olduğunda oluşabilir.
 > 
 > 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Yük devretme işleminden sonra yeni birincil sunucu ve veritabanı için kimlik doğrulama gereksinimlerini yapılandırılmış emin olun. Ayrıntılar için bkz [olağanüstü durum kurtarma işleminden sonra SQL veritabanı güvenlik](sql-database-geo-replication-security-config.md).
-* Aktif coğrafi bir olağanüstü durum kurtarma ayrıntıya gerçekleştirme ve öncesi kurtarma ve kurtarma sonrası adımları dahil olmak üzere çoğaltma, kullanarak sonra bir olağanüstü durum kurtarma öğrenmek için bkz: [olağanüstü durum kurtarma](sql-database-disaster-recovery.md)
+* Yük devretme sonrasında hello yeni birincil sunucu ve veritabanı hello kimlik doğrulama gereksinimleri yapılandırılmış emin olun. Ayrıntılar için bkz [olağanüstü durum kurtarma işleminden sonra SQL veritabanı güvenlik](sql-database-geo-replication-security-config.md).
+* Aktif coğrafi bir olağanüstü durum kurtarma ayrıntıya gerçekleştirme ve öncesi kurtarma ve kurtarma sonrası adımları dahil olmak üzere çoğaltma, kullanarak sonra bir olağanüstü durum kurtarma toolearn bakın [olağanüstü durum kurtarma](sql-database-disaster-recovery.md)
 * Aktif coğrafi çoğaltma hakkında bir Sasha Nosov blog gönderisi için bkz: [Spotlight yeni coğrafi çoğaltma özellikleri hakkında](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
-* Aktif coğrafi çoğaltma kullanmak üzere bulut uygulamaları tasarlama hakkında daha fazla bilgi için bkz: [coğrafi çoğaltma'yı kullanarak iş sürekliliği için bulut uygulama tasarlama](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+* Bulut uygulamaları toouse aktif coğrafi çoğaltma tasarlama hakkında daha fazla bilgi için bkz: [coğrafi çoğaltma'yı kullanarak iş sürekliliği için bulut uygulama tasarlama](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 * Aktif coğrafi çoğaltma ile esnek havuzları kullanma hakkında daha fazla bilgi için bkz: [esnek havuz olağanüstü durum kurtarma stratejilerini](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 * İş sürekliliği genel bakış için bkz: [iş Sürekliliğine genel bakış](sql-database-business-continuity.md)
 

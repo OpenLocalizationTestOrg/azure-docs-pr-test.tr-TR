@@ -1,6 +1,6 @@
 ---
-title: "Etki alanınızı Azure DNS'ye devretme | Microsoft Belgeleri"
-description: "Etki alanı temsilcisi seçiminin nasıl değiştirileceğini ve etki alanı barındırma sağlamak üzere Azure DNS ad sunucularının nasıl kullanılacağını anlayın."
+title: "aaaDelegate, DNS etki alanı tooAzure | Microsoft Docs"
+description: "Nasıl toochange etki alanı temsilcisi kullanımı Azure DNS etki alanı tooprovide barındıran sunucu adı ve anlayın."
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -13,62 +13,62 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: gwallace
-ms.openlocfilehash: 33b3ec24432ff1268860b9a2e9d5098600a8dedc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f780bdaa416150e5e3afe6c6845dc75ba54b6203
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="delegate-a-domain-to-azure-dns"></a>Azure DNS'ye bir etki alanı devretme
+# <a name="delegate-a-domain-tooazure-dns"></a>Bir etki alanı tooAzure DNS temsilci seçme
 
-Azure DNS, bir DNS bölgesi barındırmanızı ve Azure'de bir etki alanı için DNS kayıtlarını yönetmenizi sağlar. Bir etki alanının DNS sorgularının Azure DNS'ye erişmesi için, etki alanının Azure DNS'ye üst etki alanından devredilmiş olması gerekir. Azure DNS'nin etki alanı kayıt şirketi olmadığını unutmayın. Bu makalede etki alanınızı Azure DNS’ye devretme işlemi açıklanır.
+Azure DNS toohost bir DNS bölgesi sağlar ve azure'de bir etki alanı için DNS kayıtlarını hello yönetin. Bir etki alanı tooreach Azure DNS için DNS sorgularını sırayla hello etki alanı toobe sahip hello üst etki alanından tooAzure DNS temsilcisi. Azure DNS unutmayın hello etki alanı kayıt değil. Bu makalede açıklanır nasıl toodelegate, DNS etki alanı tooAzure.
 
-Bir kayıt şirketinden satın alınan etki alanları için, kayıt şirketiniz bu NS kayıtlarını ayarlama seçeneğini sunar. Azure DNS'de aynı etki alanı adıyla DNS bölgesi oluşturmak için bir etki alanına sahip olmanız gerekmez. Ancak Azure DNS'ye temsilci seçmeyi kayıt şirketi ile ayarlamak için etki alanına sahip olmanız gerekir.
+Bir kayıt şirketinden satın alınan etki alanları için kayıt şirketiniz bu NS kayıtlarını ayarlama seçeneğini tooset hello sunar. Bir etki alanı toocreate bu etki alanı adı ile bir DNS bölgesi durum Azure DNS'de tooown gerekmez. Ancak, tooown hello etki alanı tooset hello temsilci tooAzure DNS yukarı hello kayıt şirketinizle gerekir.
 
-Örneğin, "contoso.net" etki alanını satın aldığınızı ve Azure DNS'de "contoso.net" adlı bir bölge oluşturduğunuzu varsayalım. Etki alanı sahibi olarak, kayıt şirketiniz size etki alanınız için ad sunucusu adreslerini (yani NS kayıtlarını) yapılandırma seçeneğini sunar. Kayıt şirketi bu NS kayıtlarını üst etki alanında (bu durumda “.net”te) depolar. Ardından, dünya genelindeki istemciler “contoso.net”teki DNS kayıtlarını çözümlemeye çalışırken Azure DNS bölgesindeki etki alanınıza yönlendirebilir.
+Örneğin, 'contoso.net' hello etki alanı satın alın ve Azure DNS'de hello adı 'contoso.net' ile bir bölge oluşturmanız varsayalım. Merhaba etki alanının Hello sahibi olarak, etki alanınız için seçenek tooconfigure hello ad sunucusu adreslerini (yani, hello NS kayıtları) hello kayıt sunar. Merhaba kayıt şirketi bu NS kayıtlarını bu durumda '.net' hello üst etki alanında depolar. Merhaba Dünya istemciler, ardından 'contoso.net' tooresolve DNS kayıtlarını çalışırken Azure DNS bölgesindeki yönlendirilmiş tooyour etki alanı olabilir.
 
 ## <a name="create-a-dns-zone"></a>DNS bölgesi oluşturma
 
-1. Azure portalında oturum açın
-1. Hub menüsünde **Yeni > Ağ >** ve ardından **DNS bölgesi**’ne tıklayarak DNS bölgesi oluştur dikey penceresini açın.
+1. Toohello Azure portalında oturum açın
+1. Hello Hub menüsünde ve tıklayın **yeni > Ağ iletişimi >** ve ardından **DNS bölgesi** tooopen hello oluşturmak DNS bölge dikey.
 
     ![DNS bölgesi](./media/dns-domain-delegation/dns.png)
 
-1. **DNS bölgesi oluştur** dikey penceresinde aşağıdaki değerleri girin ve **Oluştur**’a tıklayın:
+1. Merhaba üzerinde **oluşturma DNS bölgesi** dikey penceresinde hello aşağıdaki değerleri girin ve ardından **oluşturma**:
 
    | **Ayar** | **Değer** | **Ayrıntılar** |
    |---|---|---|
-   |**Ad**|contoso.net|DNS bölgesinin adı|
-   |**Abonelik**|[Aboneliğiniz]|Uygulama ağ geçidinin oluşturulacağı bir abonelik seçin.|
-   |**Kaynak grubu**|**Yeni oluştur:** contosoRG|Bir kaynak grubu oluşturun. Kaynak grubu adı, seçili abonelik içinde benzersiz olmalıdır. Kaynak grupları hakkında daha fazla bilgi için, [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups)’a genel bakış makalesini okuyun.|
+   |**Ad**|contoso.net|Merhaba DNS bölgesinin Hello adı|
+   |**Abonelik**|[Aboneliğiniz]|Bir abonelik toocreate hello uygulama ağ geçidi seçin.|
+   |**Kaynak grubu**|**Yeni oluştur:** contosoRG|Bir kaynak grubu oluşturun. Merhaba kaynak grubu adı, seçtiğiniz hello abonelik içinde benzersiz olmalıdır. Merhaba okuyun, kaynak grupları hakkında daha fazla toolearn [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) genel bakış makalesi.|
    |**Konum**|Batı ABD||
 
 > [!NOTE]
-> Kaynak grubu, kaynak grubunun konumunu ifade eder ve DNS bölgesini etkilemez. DNS bölgesinin konumu her zaman "genel" şeklindedir ve gösterilmez.
+> Merhaba kaynak grubu hello kaynak grubu toohello konumunu gösterir ve hello DNS bölgesi üzerinde hiçbir etkisi olmaz. Merhaba DNS bölgesi konumunu her zaman "Genel" ve gösterilmiyor.
 
 ## <a name="retrieve-name-servers"></a>Ad sunucularını alma
 
-DNS bölgenizi Azure DNS'ye devretmeden önce, bölgenizin ad sunucusu adlarını bilmeniz gerekir. Azure DNS, her bölge oluşturmada bir havuzdan ad sunucuları ayırır.
+DNS bölge tooAzure DNS temsilci önce ilk tooknow hello ad sunucusu adlarını bölgenizin gerekir. Azure DNS, her bölge oluşturmada bir havuzdan ad sunucuları ayırır.
 
-1. Oluşturulan DNS bölgesiyle, Azure Portal **Sık Kullanılanlar** bölmesinde, **Tüm kaynaklar**’a tıklayın. **Tüm kaynaklar** dikey penceresinde **contoso.net** DNS bölgesine tıklayın. Seçili abonelikte zaten çeşitli kaynaklar varsa, uygulama ağ geçidine kolaylıkla erişmek için Ada göre filtrele... kutusuna **contoso.net** girebilirsiniz. 
+1. Oluşturulan, hello Azure portal hello DNS bölgesine **Sık Kullanılanlar** bölmesinde, tıklatın **tüm kaynakları**. Merhaba tıklatın **contoso.net** hello DNS bölgesinde **tüm kaynakları** dikey. Merhaba aboneliği zaten içinde birçok kaynak varsa, girebilirsiniz **contoso.net** adına göre filtre hello içinde... kutusunu tooeasily erişim hello uygulama ağ geçidi. 
 
-1. DNS bölgesi dikey penceresinden ad sunucularını alın. Bu örnekte, "contoso.net" bölgesine "ns1-01.azure-dns.com", "ns2-01.azure-dns.net", "ns3-01.azure-dns.org" ve "ns4-01.azure-dns.info" ad sunucuları atanmıştır:
+1. Merhaba ad sunucuları hello DNS bölgesine dikey penceresinden alır. Bu örnekte 'contoso.net' hello bölge ad sunucuları atanmıştır ' ns1-01.azure-dns.com', 'ns2-01.azure-DNS.NET', ' ns3-01.azure-dns.org', ve ' ns4-01.azure-dns.info':
 
  ![Dns-nameserver](./media/dns-domain-delegation/viewzonens500.png)
 
-Azure DNS, atanan ad sunucularını içeren yetkili NS kayıtlarını bölgenizde otomatik olarak oluşturur.  Ad sunucusu adlarını Azure PowerShell veya Azure CLI aracılığıyla görmek için bu kayıtları almanız yeterlidir.
+Azure DNS, bölgenizi hello atanan ad sunucularını içeren yetkili NS kayıtları otomatik olarak oluşturur.  Azure PowerShell veya Azure CLI toosee hello ad sunucusu adlarını, tooretrieve bu kayıtları yeterlidir.
 
-Aşağıdaki örneklerde, PowerShell ve Azure CLI ile Azure DNS içindeki bir bölgenin ad sunucularını alma adımları da sağlanır.
+Merhaba aşağıdaki örneklerde ayrıca hello adımlar tooretrieve hello ad sunucuları, PowerShell ve Azure CLI Azure DNS'de bölge sağlar.
 
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-# The record name "@" is used to refer to records at the top of the zone.
+# hello record name "@" is used toorefer toorecords at hello top of hello zone.
 $zone = Get-AzureRmDnsZone -Name contoso.net -ResourceGroupName contosoRG
 Get-AzureRmDnsRecordSet -Name "@" -RecordType NS -Zone $zone
 ```
 
-Aşağıdaki örnek, yanıttır.
+Aşağıdaki örnek hello hello yanıt ' dir.
 
 ```
 Name              : @
@@ -88,7 +88,7 @@ Metadata          :
 az network dns record-set show --resource-group contosoRG --zone-name contoso.net --type NS --name @
 ```
 
-Aşağıdaki örnek, yanıttır.
+Aşağıdaki örnek hello hello yanıt ' dir.
 
 ```json
 {
@@ -116,25 +116,25 @@ Aşağıdaki örnek, yanıttır.
 }
 ```
 
-## <a name="delegate-the-domain"></a>Etki alanını devretme
+## <a name="delegate-hello-domain"></a>Temsilci hello etki alanı
 
-Artık DNS bölgesi oluşturulduğuna ve ad sunucularınız olduğuna göre, üst etki alanının Azure DNS ad sunucularıyla güncelleştirilmesi gerekir. Her kayıt şirketi, bir etki alanının ad sunucusu kayıtlarını değiştirmek için kendi DNS yönetim araçlarına sahiptir. Kayıt şirketinin DNS yönetim sayfasında NS kayıtlarını düzenleyin ve NS kayıtlarını Azure DNS'nin oluşturduklarıyla değiştirin.
+Merhaba DNS bölgesi oluşturulur ve hello ad sunucuları sahip olduğunuza hello üst etki alanı hello Azure DNS ad sunucuları ile güncelleştirilmiş toobe gerekir. Her kayıt şirketi kendi DNS Yönetim Araçları toochange hello ad sunucusu kayıtları etki alanı var. Merhaba kayıt şirketinizin DNS Yönetim sayfasında, hello NS kayıtlarını düzenleyin ve hello NS kayıtlarını Azure DNS oluşturulan hello olanları ile değiştirin.
 
-Bir etki alanını Azure DNS'ye devrederken Azure DNS tarafından sağlanan ad sunucusu adlarını kullanmanız gerekir. Etki alanınızın adından bağımsız olarak her zaman dört sunucu adını da kullanmanız önerilir. Etki alanı temsilcisi, sunucu adının etki alanınızla aynı üst düzey etki alanını kullanmasını gerektirmez.
+Bir etki alanı tooAzure DNS devrederken Azure DNS tarafından sağlanan hello ad sunucusu adlarını kullanmanız gerekir. Tüm toouse önerilen dört sunucu adları, etki alanınızın adını hello bağımsız olarak adlandırın. Etki alanı temsilcisi hello adını sunucu adı toouse gerektirmez hello etki alanınız aynı üst düzey etki alanı.
 
-Azure DNS ad sunucusu IP adresleri gelecekte değişebileceği için, bu IP adreslerine işaret ederken "birleştirici kayıtlar"ı kullanmamanız gerekir. Kendi bölgenizdeki ad sunucusu adlarını kullanan ve bazen "gösterim ad sunucuları" olarak adlandırılan temsilci seçimleri, Azure DNS'de şu anda desteklenmemektedir.
+Bu IP adresleri gelecekte değişebileceği ederken "Birleştirici kayıtlar' toopoint toohello Azure DNS ad sunucusu IP adreslerini, kullanmamanız gerekir. Kendi bölgenizdeki ad sunucusu adlarını kullanan ve bazen "gösterim ad sunucuları" olarak adlandırılan temsilci seçimleri, Azure DNS'de şu anda desteklenmemektedir.
 
 ## <a name="verify-name-resolution-is-working"></a>Ad çözümlemesinin çalıştığını doğrulama
 
-Temsilci seçmeyi tamamladıktan sonra, bölgenizin SOA kaydını (bölge oluşturulduğunda bu da otomatik olarak oluşturulur) sorgulamak için "nslookup" gibi bir araç kullanarak ad çözümlemesinin çalışıp çalışmadığını doğrulayabilirsiniz.
+Merhaba temsilci seçmeyi tamamladıktan sonra ad çözümlemesi (Merhaba bölge oluşturulduğunda bu da otomatik olarak oluşturulur), bölgenin SOA kaydına 'nslookup' tooquery hello gibi bir araç kullanarak çalıştığını doğrulayabilirsiniz.
 
-Azure DNS ad sunucularını belirtmeniz gerekmez; temsil doğru şekilde ayarlandıysa, normal DNS çözümleme işlemi ad sunucularını otomatik olarak bulur.
+Merhaba temsilci doğru hello normal DNS çözümleme işlemi ayarlarsanız hello ad sunucuları otomatik olarak bulur, toospecify hello Azure DNS ad sunucuları sahip.
 
 ```
 nslookup -type=SOA contoso.com
 ```
 
-Aşağıda, önceki komuttan bir yanıt örneği gösterilmektedir:
+Merhaba, hello komutu önceki örnek yanıttan aşağıdadır:
 
 ```
 Server: ns1-04.azure-dns.com
@@ -152,81 +152,81 @@ default TTL = 300 (5 mins)
 
 ## <a name="delegate-sub-domains-in-azure-dns"></a>Azure DNS'de alt etki alanlarını devretme
 
-Ayrı bir alt bölge kurmak istiyorsanız Azure DNS'de bir alt etki alanını devredebilirsiniz. Örneğin, Azure DNS'de ayarladığınız ve devrettiğiniz "contoso.net" için "partners.contoso.net" olarak ayrı bir alt bölge ayarlamak istediğinizi varsayalım.
+Tooset ayrı bir alt bölge kurmak istiyorsanız Azure DNS'de bir alt etki alanını devredebilirsiniz. Örneğin, ayarladığınız ve Azure DNS'ye temsilci 'contoso.net' tooset ayrı alt bölge ayarlamak istediğinizi varsayalım 'partners.contoso.net'.
 
-1. Azure DNS'de "partners.contoso.net" alt bölgesini oluşturun.
-2. Azure DNS'de alt bölgeyi barındıran ad sunucularını almak için, alt bölgedeki yetkili NS kayıtlarını arayın.
-3. Üst bölgeden alt bölgeye işaret eden NS kayıtlarını yapılandırarak alt bölgeyi devredin.
+1. Merhaba alt bölge 'partners.contoso.net' Azure DNS'de oluşturun.
+2. Merhaba alt bölge tooobtain hello ad sunucuları Azure DNS'deki hello alt bölgeyi barındıran hello yetkili NS kayıtlarını arayın.
+3. Merhaba üst bölgede toohello alt bölgeyi işaret eden NS kayıtlarını yapılandırarak hello alt bölge temsilcisi.
 
 ### <a name="create-a-dns-zone"></a>DNS bölgesi oluşturma
 
-1. Azure portalında oturum açın
-1. Hub menüsünde **Yeni > Ağ >** ve ardından **DNS bölgesi**’ne tıklayarak DNS bölgesi oluştur dikey penceresini açın.
+1. Toohello Azure portalında oturum açın
+1. Hello Hub menüsünde ve tıklayın **yeni > Ağ iletişimi >** ve ardından **DNS bölgesi** tooopen hello oluşturmak DNS bölge dikey.
 
     ![DNS bölgesi](./media/dns-domain-delegation/dns.png)
 
-1. **DNS bölgesi oluştur** dikey penceresinde aşağıdaki değerleri girin ve **Oluştur**’a tıklayın:
+1. Merhaba üzerinde **oluşturma DNS bölgesi** dikey penceresinde hello aşağıdaki değerleri girin ve ardından **oluşturma**:
 
    | **Ayar** | **Değer** | **Ayrıntılar** |
    |---|---|---|
-   |**Ad**|partners.contoso.net|DNS bölgesinin adı|
-   |**Abonelik**|[Aboneliğiniz]|Uygulama ağ geçidinin oluşturulacağı bir abonelik seçin.|
-   |**Kaynak grubu**|**Varolanı kullan:** contosoRG|Bir kaynak grubu oluşturun. Kaynak grubu adı, seçili abonelik içinde benzersiz olmalıdır. Kaynak grupları hakkında daha fazla bilgi için, [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups)’a genel bakış makalesini okuyun.|
+   |**Ad**|partners.contoso.net|Merhaba DNS bölgesinin Hello adı|
+   |**Abonelik**|[Aboneliğiniz]|Bir abonelik toocreate hello uygulama ağ geçidi seçin.|
+   |**Kaynak grubu**|**Varolanı kullan:** contosoRG|Bir kaynak grubu oluşturun. Merhaba kaynak grubu adı, seçtiğiniz hello abonelik içinde benzersiz olmalıdır. Merhaba okuyun, kaynak grupları hakkında daha fazla toolearn [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) genel bakış makalesi.|
    |**Konum**|Batı ABD||
 
 > [!NOTE]
-> Kaynak grubu, kaynak grubunun konumunu ifade eder ve DNS bölgesini etkilemez. DNS bölgesinin konumu her zaman "genel" şeklindedir ve gösterilmez.
+> Merhaba kaynak grubu hello kaynak grubu toohello konumunu gösterir ve hello DNS bölgesi üzerinde hiçbir etkisi olmaz. Merhaba DNS bölgesi konumunu her zaman "Genel" ve gösterilmiyor.
 
 ### <a name="retrieve-name-servers"></a>Ad sunucularını alma
 
-1. Oluşturulan DNS bölgesiyle, Azure Portal **Sık Kullanılanlar** bölmesinde, **Tüm kaynaklar**’a tıklayın. **Tüm kaynaklar** dikey penceresinde **partners.contoso.net** DNS bölgesine tıklayın. Seçili abonelikte zaten çeşitli kaynaklar varsa, DNS bölgesine kolaylıkla erişmek için Ada göre filtrele... kutusuna **partners.contoso.net** girebilirsiniz.
+1. Oluşturulan, hello Azure portal hello DNS bölgesine **Sık Kullanılanlar** bölmesinde, tıklatın **tüm kaynakları**. Merhaba tıklatın **partners.contoso.net** hello DNS bölgesinde **tüm kaynakları** dikey. Merhaba aboneliği zaten içinde birçok kaynak varsa, girebilirsiniz **partners.contoso.net** adına göre filtre hello içinde... kutusunu tooeasily erişim hello DNS bölgesi.
 
-1. DNS bölgesi dikey penceresinden ad sunucularını alın. Bu örnekte, "contoso.net" bölgesine "ns1-01.azure-dns.com", "ns2-01.azure-dns.net", "ns3-01.azure-dns.org" ve "ns4-01.azure-dns.info" ad sunucuları atanmıştır:
+1. Merhaba ad sunucuları hello DNS bölgesine dikey penceresinden alır. Bu örnekte 'contoso.net' hello bölge ad sunucuları atanmıştır ' ns1-01.azure-dns.com', 'ns2-01.azure-DNS.NET', ' ns3-01.azure-dns.org', ve ' ns4-01.azure-dns.info':
 
  ![Dns-nameserver](./media/dns-domain-delegation/viewzonens500.png)
 
-Azure DNS, atanan ad sunucularını içeren yetkili NS kayıtlarını bölgenizde otomatik olarak oluşturur.  Ad sunucusu adlarını Azure PowerShell veya Azure CLI aracılığıyla görmek için bu kayıtları almanız yeterlidir.
+Azure DNS, bölgenizi hello atanan ad sunucularını içeren yetkili NS kayıtları otomatik olarak oluşturur.  Azure PowerShell veya Azure CLI toosee hello ad sunucusu adlarını, tooretrieve bu kayıtları yeterlidir.
 
 ### <a name="create-name-server-record-in-parent-zone"></a>Üst bölgede ad sunucusu kaydı oluşturma
 
-1. Azure Portal’da **contoso.net** DNS bölgesine gidin.
+1. Toohello gidin **contoso.net** hello Azure portal DNS bölgesinde.
 1. **+ Kayıt kümesi**’ne tıklayın
-1. **Kaynak kümesi ekle** dikey penceresinde aşağıdaki değerleri girin, ardından **Tamam**’a tıklayın:
+1. Merhaba üzerinde **kayıt kümesi ekleme** dikey penceresinde hello aşağıdaki değerleri girin ve ardından **Tamam**:
 
    | **Ayar** | **Değer** | **Ayrıntılar** |
    |---|---|---|
-   |**Ad**|iş ortakları|Alt DNS bölgesinin adı|
+   |**Ad**|iş ortakları|Merhaba alt DNS bölgesinin Hello adı|
    |**Tür**|NS|Ad sunucusu kayıtları için NS kullanın.|
-   |**TTL**|1|Yaşam süresi.|
-   |**TTL birimi**|Saat|yaşam süresi birimi olarak saati ayarlar|
-   |**AD SUNUCUSU**|{partners.contoso.net bölgesinden ad sunucuları}|Partners.contoso.net bölgesindeki 4 ad sunucusunun adını da girin. |
+   |**TTL**|1|Saat toolive.|
+   |**TTL birimi**|Saat|zaman toolive birim toohours ayarlar|
+   |**AD SUNUCUSU**|{partners.contoso.net bölgesinden ad sunucuları}|Merhaba ad sunucuları tüm 4 partners.contoso.net bölgeden girin. |
 
    ![Dns-nameserver](./media/dns-domain-delegation/partnerzone.png)
 
 
 ### <a name="delegating-sub-domains-in-azure-dns-with-other-tools"></a>Diğer araçlarla Azure DNS'de alt etki alanlarını devretme
 
-Aşağıdaki örneklerde, PowerShell ve CLI ile Azure DNS’de alt etki alanlarını devretme adımları sağlanır:
+Merhaba aşağıdaki örneklerde hello adımlar toodelegate, PowerShell ve CLI Azure DNS'de alt etki alanlarını sağlar:
 
 #### <a name="powershell"></a>PowerShell
 
-Aşağıdaki PowerShell örneğinde bunun nasıl çalıştığı gösterilmektedir. Aynı adımlar Azure portalı veya platformlar arası Azure CLI yoluyla gerçekleştirilebilir.
+Aşağıdaki PowerShell örneğine hello bunun nasıl çalıştığı gösterilmektedir. aynı adımları hello Azure portal çalıştırılabilir veya platformlar arası Azure CLI aracılığıyla hello hello.
 
 ```powershell
-# Create the parent and child zones. These can be in same resource group or different resource groups as Azure DNS is a global service.
+# Create hello parent and child zones. These can be in same resource group or different resource groups as Azure DNS is a global service.
 $parent = New-AzureRmDnsZone -Name contoso.net -ResourceGroupName contosoRG
 $child = New-AzureRmDnsZone -Name partners.contoso.net -ResourceGroupName contosoRG
 
-# Retrieve the authoritative NS records from the child zone as shown in the next example. This contains the name servers assigned to the child zone.
+# Retrieve hello authoritative NS records from hello child zone as shown in hello next example. This contains hello name servers assigned toohello child zone.
 $child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
-# Create the corresponding NS record set in the parent zone to complete the delegation. The record set name in the parent zone matches the child zone name, in this case "partners".
+# Create hello corresponding NS record set in hello parent zone toocomplete hello delegation. hello record set name in hello parent zone matches hello child zone name, in this case "partners".
 $parent_ns_recordset = New-AzureRmDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
 $parent_ns_recordset.Records = $child_ns_recordset.Records
 Set-AzureRmDnsRecordSet -RecordSet $parent_ns_recordset
 ```
 
-Alt bölgenin SOA kaydına bakarak her şeyin doğru şekilde ayarlandığını doğrulamak için `nslookup` kullanın.
+Kullanım `nslookup` her şeyin doğru şekilde hello alt bölgenin SOA kaydına hello bakarak ayarlanan tooverify.
 
 ```
 nslookup -type=SOA partners.contoso.com
@@ -251,12 +251,12 @@ partners.contoso.com
 ```azurecli
 #!/bin/bash
 
-# Create the parent and child zones. These can be in same resource group or different resource groups as Azure DNS is a global service.
+# Create hello parent and child zones. These can be in same resource group or different resource groups as Azure DNS is a global service.
 az network dns zone create -g contosoRG -n contoso.net
 az network dns zone create -g contosoRG -n partners.contoso.net
 ```
 
-Çıkıştan, `partners.contoso.net` bölgesinin ad sunucularını alın.
+Hello için Hello ad sunucularını almak `partners.contoso.net` hello çıkış bölgeden.
 
 ```
 {
@@ -278,12 +278,12 @@ az network dns zone create -g contosoRG -n partners.contoso.net
 }
 ```
 
-Her ad sunucusu için kayıt kümesini ve NS kayıtlarını oluşturun.
+Merhaba kayıt kümesi ve her bir ad sunucusu için NS kayıtları oluşturun.
 
 ```azurecli
 #!/bin/bash
 
-# Create the record set
+# Create hello record set
 az network dns record-set ns create --resource-group contosorg --zone-name contoso.net --name partners
 
 # Create a ns record for each name server.
@@ -295,11 +295,11 @@ az network dns record-set ns add-record --resource-group contosorg --zone-name c
 
 ## <a name="delete-all-resources"></a>Tüm kaynakları silme
 
-Bu makalede oluşturulan tüm kaynakları silmek için, aşağıdaki adımları tamamlayın:
+Bu makalede, aşağıdaki adımları tam hello oluşturulan tüm kaynakları toodelete:
 
-1. Azure Portal **Sık Kullanılanlar** bölmesinde, **Tüm kaynaklar**’a tıklayın. Tüm kaynaklar dikey penceresinde **contosorg** kaynak grubuna tıklayın. Seçili abonelikte zaten çeşitli kaynaklar varsa, kaynak grubuna kolaylıkla erişmek için **Ada göre filtrele...** kutusuna **contosorg** girebilirsiniz.
-1. **contosorg** dikey penceresinde **Sil** düğmesine tıklayın.
-1. Portal, silmek istediğinizi onaylamak için kaynak grubunun adını yazmanızı gerektirir. Kaynak grubu adı için *contosorg* yazın ve **Sil**'e tıklayın. Bir kaynak grubunun silinmesiyle, kaynak grubu içerisindeki tüm kaynaklar silinir, bu nedenle, silmeden önce kaynak grubunun içeriğini onaylamayı hiçbir zaman unutmayın. Portal, kaynak grubu içinde yer alan tüm kaynakları siler ve sonra kaynak grubunu siler. Bu işlem birkaç dakika sürer.
+1. Hello Azure portal'ın **Sık Kullanılanlar** bölmesinde tıklatın **tüm kaynakları**. Merhaba tıklatın **contosorg** kaynak tüm kaynaklar dikey penceresinde hello grubu. Merhaba aboneliği zaten içinde birçok kaynak varsa, girebilirsiniz **contosorg** hello içinde **ada göre Filtrele...** kutusunu tooeasily erişim hello kaynak grubu.
+1. Merhaba, **contosorg** dikey penceresinde hello tıklatın **silmek** düğmesi.
+1. Merhaba portal tootype hello toodelete istediğiniz hello kaynak grubu tooconfirm adını gerektirir. Tür *contosorg* hello kaynak grubu adı için ardından **silmek**. Bu nedenle her zaman emin tooconfirm silmeden önce bir kaynak grubu Merhaba içeriğine olması, bir kaynak grubunu silme hello kaynak grubundaki tüm kaynakları siler. Merhaba portal hello kaynak grubu içinde bulunan tüm kaynakları siler ve sonra hello kaynak grubu kendisini siler. Bu işlem birkaç dakika sürer.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

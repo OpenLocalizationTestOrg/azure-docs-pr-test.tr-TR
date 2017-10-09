@@ -1,6 +1,6 @@
 ---
-title: "Web Apps için Azure Mobile Engagement kullanmaya başlama | Microsoft Belgeleri"
-description: "Web Apps için analizler ve anında iletme bildirimleri ile Azure Mobile Engagement kullanmayı öğrenin."
+title: "aaaGet Web uygulamaları için Azure Mobile Engagement ile başlatılan | Microsoft Docs"
+description: "Bilgi nasıl Web uygulamaları için analizler ve anında iletme bildirimleri ile Azure Mobile Engagement toouse."
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
@@ -14,52 +14,52 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 06/01/2016
 ms.author: piyushjo
-ms.openlocfilehash: abcb04e4e0a3ae4fdba3a4ded20b3846ac3b21e6
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: a84c96cac13bf3b85e72aef55da5c91693e1766c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-web-apps"></a>Web Apps için Azure Mobile Engagement kullanmaya başlama
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-Bu konuda Web Uygulaması kullanımınızı anlamak için Azure Mobile Engagement’ın nasıl kullanılacağı gösterilmektedir.
+Bu konu, nasıl gösterir toouse Azure Mobile Engagement toounderstand Web uygulama kullanımınızı.
 
 > [!NOTE]
-> Azure Mobile Engagement hizmeti, Mart 2018’de devre dışı bırakılacaktır. Şu anda yalnızca mevcut müşteriler tarafından kullanılabilmektedir. Daha fazla bilgi için bkz. [Mobile Engagement nedir?](https://azure.microsoft.com/en-us/services/mobile-engagement/).
+> Hello Azure Mobile Engagement hizmet Mart 2018 kullanımdan kaldırılır ve şu anda yalnızca kullanılabilir tooexisting müşterileri içindir. Daha fazla bilgi için bkz. [Mobile Engagement nedir?](https://azure.microsoft.com/en-us/services/mobile-engagement/).
 
-Bu öğretici için aşağıdakiler gereklidir:
+Bu öğretici hello aşağıdakileri gerektirir:
 
 * Visual Studio 2015 veya tercih ettiğiniz başka bir düzenleyici
 * [Web SDK](http://aka.ms/P7b453)
 
-Bu Web SDK Önizleme modundadır ve şu anda yalnızca Analizi destekleyip, tarayıcı ya da herhangi bir uygulama içi bildirim göndermeyi henüz desteklememektedir. 
+Bu Web SDK Önizleme aşamasındadır ve yalnızca Analytics hello şu anda destekler ve gönderen tarayıcı veya uygulama anında iletme bildirimleri henüz desteklemiyor. 
 
 > [!NOTE]
-> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-web-app-get-started).
+> toocomplete Bu öğretici, etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-web-app-get-started).
 > 
 > 
 
 ## <a name="setup-mobile-engagement-for-your-web-app"></a>Web uygulamanız için Mobile Engagement ayarlama
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
-Bu öğreticide, veri toplamak için gereken en küçük grup olan bir "temel tümleştirme" gösterilmektedir.
+## <a id="connecting-app"></a>Uygulamanızın toohello Mobile Engagement arka ucuna bağlanmak
+Bu öğretici "Merhaba gerekli en küçük kümesi toocollect verileri olan bir temel tümleştirme" gösterilmektedir.
 
-Tümleştirmeyi göstermek üzere Visual Studio ile temel bir web uygulaması oluşturulacaktır; ancak Visual Studio’nun dışında oluşturulmuş herhangi bir web uygulamasının adımlarını da izleyebilirsiniz. 
+Visual Studio dışında da oluşturulan herhangi bir web uygulaması ile Merhaba adımları takip edebilirsiniz ancak Visual Studio toodemonstrate hello Tümleştirmesi ile temel bir web uygulaması oluşturacağız. 
 
 ### <a name="create-a-new-web-app"></a>Yeni bir Web Uygulaması oluşturma
-Aşağıdaki adımlarda Visual Studio 2015 kullanıldığı varsayılmaktadır ancak Visual Studio'nun önceki sürümleri için de benzer adımlar izlenir. 
+Visual Studio'nun önceki sürümleri başlangıç adımları benzerdir olsa hello aşağıdaki adımlarda Visual Studio 2015 hello kullanımını varsayılmaktadır. 
 
-1. Visual Studio'yu başlatın ve **Giriş** ekranında **Yeni Proje**’yi seçin.
-2. Açılır listeden **Web** -> **ASP.Net Web Uygulaması**’nı seçin. Uygulamanın **Ad**, **Konum** ve **Çözüm adı** alanını doldurun ve ardından **Tamam**’a tıklayın.
-3. **Şablon seçin** açılır penceresinde **ASP.Net 4.5 Şablonları** altında **Boş**’u seçin ve **Tamam**’a tıklayın. 
+1. Visual Studio'yu başlatın ve hello **giriş** ekran, select **yeni proje**.
+2. Merhaba açılır pencerede seçin **Web** -> **ASP.Net Web uygulaması**. Merhaba doldurup **adı**, **konumu** ve **çözüm adı**ve ardından **Tamam**.
+3. Merhaba, **bir şablon seçin** açılan, select **boş** altında **ASP.Net 4.5 şablonları** tıklatıp **Tamam**. 
 
-Azure Mobile Engagement Web SDK’sını tümleştireceğimiz yeni ve boş bir Windows Web Uygulaması projesi oluşturmuş oldunuz.
+İçine biz hello Azure Mobile Engagement Web SDK tümleştirecek yeni boş bir Web uygulaması proje oluşturdunuz.
 
-### <a name="connect-your-app-to-mobile-engagement-backend"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
-1. Çözümünüzde **javascript** adlı yeni bir klasör oluşturun ve **azure-engagement.js** adlı Web SDK JS dosyasını buna ekleyin. 
-2. Aşağıdaki kodla birlikte bu javascript klasörüne **main.js** adlı yeni bir dosya ekleyin. Bağlantı dizesini güncelleştirdiğinizden emin olun. Bu `azureEngagement` nesnesi Web SDK yöntemlerine erişmek için kullanılır. 
+### <a name="connect-your-app-toomobile-engagement-backend"></a>Uygulamanızın tooMobile Engagement arka ucuna bağlanmak
+1. Adlı yeni bir klasör oluşturun **javascript** çözümünüzdeki ve hello Web SDK JS dosyası ekleme **azure engagement.js** içine. 
+2. Adlı yeni bir dosya ekleme **main.js** bu javascript klasörde koddan hello sahip. Tooupdate hello bağlantı dizesi emin olun. Bu `azureEngagement` nesne kullanılan tooaccess Web SDK yöntemleri olacaktır. 
    
         var azureEngagement = {
             debug: true,
@@ -69,14 +69,14 @@ Azure Mobile Engagement Web SDK’sını tümleştireceğimiz yeni ve boş bir W
     ![Js dosyaları ile Visual Studio][1]
 
 ## <a name="enable-real-time-monitoring"></a>Gerçek zamanlı izlemeyi etkinleştirme
-Veri göndermeye başlamak ve kullanıcıların etkin olduğundan emin olmak için, Mobile Engagement arka ucuna en az bir Etkinlik göndermelisiniz. Web uygulaması bağlamında etkinlik bir web sayfasıdır. 
+Verileri gönderme ve hello kullanıcıların etkin olduğundan emin olmak sipariş toostart içinde en az bir etkinlik toohello Mobile Engagement arka göndermeniz gerekir. Bir web uygulaması Merhaba içeriğine bir etkinlikte bir web sayfasıdır. 
 
-1. Çözümünüzde **home.html** adlı yeni bir sayfa oluşturun ve web uygulamanızın başlangıç sayfası olarak ayarlayın. 
-2. Gövde etiketine aşağıdakileri ekleyerek bu sayfada daha önce eklediğimiz iki javascript’i dahil edin. 
+1. Adlı yeni bir sayfa oluşturma **home.html** çözüm ve hello başlangıç olarak sayfasında web uygulamanız için ayarlama. 
+2. Merhaba iki JavaScript'ler hello gövde etiketi içinde hello aşağıdakileri ekleyerek bu sayfada daha önce eklediğimiz içerir. 
    
         <script type="text/javascript" src="javascript/main.js"></script>
         <script type="text/javascript" src="javascript/azure-engagement.js"></script>
-3. Gövde etiketini EngagementAgent `startActivity` yöntemini çağıracak şekilde güncelleştirin
+3. Merhaba gövde etiketi toocall EngagementAgent's güncelleştirme `startActivity` yöntemi
    
         <body onload="engagement.agent.startActivity('Home')">
 4. **home.html** dosyanız bu şekilde görünür
@@ -97,7 +97,7 @@ Veri göndermeye başlamak ve kullanıcıların etkin olduğundan emin olmak iç
   ![][2]
 
 ## <a name="extend-analytics"></a>Analizi genişletme
-Analiz için şu anda Web SDK ile birlikte kullanabileceğiniz tüm yöntemler aşağıda verilmiştir:
+Web analizi için kullanabileceğiniz SDK'sı şu anda kullanılabilir tüm hello yöntemler şunlardır:
 
 1. Etkinlikler/Web sayfaları:
    

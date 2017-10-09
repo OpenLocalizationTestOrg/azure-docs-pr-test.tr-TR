@@ -1,6 +1,6 @@
 ---
-title: "Linux Azure sanal makinelerinde kapsayıcıları | Microsoft Docs"
-description: "Sanal makineler, Docker açıklar ve Linux kapsayıcıları ve her Azure, gruplardaki kullanımı dahil olmak üzere her bir yaklaşım çalıştığı çok iyi her birinin avantajları ve senaryoları."
+title: aaaContainers Linux Azure Virtual Machines'de | Microsoft Docs
+description: "Sanal makineler, Docker açıklar ve Linux kapsayıcıları ve her Azure, gruplardaki kullanımı dahil olmak üzere her hello avantajları ve senaryoları her iki yaklaşımın çalıştığı çok iyi."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: squillace
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/23/2016
 ms.author: rasquill
-ms.openlocfilehash: 3ca47d67e513c73fde040461be9c403a085503ca
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7e41e424e44359f0b17e5ee42b6798cac32e52f9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="virtual-machines-vs-containers-in-azure"></a>Sanal Makineler vs. Azure kapsayıcı
 [!INCLUDE [virtual-machines-common-and-containers](../../../includes/virtual-machines-common-containers.md)]

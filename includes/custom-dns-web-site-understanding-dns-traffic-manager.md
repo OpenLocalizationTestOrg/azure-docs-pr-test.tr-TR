@@ -1,25 +1,25 @@
-Etki alanı adı sistemi (DNS), internet'te öğeleri bulmak için kullanılır. Tarayıcınızda bir adres girin veya bir web sayfası bir bağlantıya tıklayın, örneğin, bu DNS etki alanı bir IP adresine çevirmek için kullanır. IP adresi tür sokak adresi gibi ancak çok İnsan kolay değil. Örneğin, bir DNS adı gibi unutmayın çok daha kolay **contoso.com** 192.168.1.88 veya 2001:0:4137:1f67:24a2:3888:9cce:fea3 gibi bir IP adresi anımsaması küçüktür.
+Merhaba etki alanı adı sistemi (DNS) olan hello kullanılan toolocate şeyler Internet. Örneğin, tarayıcınızda bir adres girin veya bir web sayfası bir bağlantıya tıklayın, bir IP adresine DNS tootranslate hello etki alanı kullanır. Başlangıç IP adresi tür sokak adresi gibi ancak çok İnsan kolay değil. Örneğin, bir DNS adı gibi çok daha kolay tooremember **contoso.com** olduğu tooremember 192.168.1.88 veya 2001:0:4137:1f67:24a2:3888:9cce:fea3 gibi bir IP adresi.
 
-DNS sistem dayanır *kayıtları*. Kayıtları ilişkilendirmek belirli bir *adı*, gibi **contoso.com**, bir IP adresi ya da başka bir DNS adına sahip. Bir uygulama bir web tarayıcısı gibi bir ad DNS arar, kaydı bulur ve her adresi olarak işaret kullanır. İşaret değeri bir IP adresi varsa, tarayıcı bu değeri kullanır. Başka bir DNS adına işaret ediyorsa, uygulama çözümleme yeniden yapmanız gerekir. Sonuç olarak, tüm ad çözümlemesi bir IP adresi sona erer.
+Merhaba DNS sistem temel *kayıtları*. Kayıtları ilişkilendirmek belirli bir *adı*, gibi **contoso.com**, bir IP adresi ya da başka bir DNS adına sahip. Bir ad DNS arar bir web tarayıcısı gibi bir uygulama, hello kaydı bulur ve onun işaret kullandığında tooas adresi hello. İsteğe bağlı olarak Hello noktaları toois bir IP adresi değeri, hello tarayıcı bu değeri kullanın. Ardından tooanother DNS adı işaret ediyorsa, hello uygulama yeniden toodo çözünürlüğü vardır. Sonuç olarak, tüm ad çözümlemesi bir IP adresi sona erer.
 
-Bir Azure Web sitesi oluşturduğunuzda, bir DNS adı otomatik olarak siteye atanmış. Bu ad biçimini alır  **&lt;yoursitename&gt;. azurewebsites.net**. Web sitenizi bir Azure trafik Yöneticisi uç noktası olarak eklediğinizde, Web sitenizi üzerinden erişilebilir ise  **&lt;yourtrafficmanagerprofile&gt;. trafficmanager.net** etki alanı.
+Bir Azure Web sitesi oluşturduğunuzda, bir DNS adı otomatik olarak toohello siteye atanır. Bu ad hello biçimini alır  **&lt;yoursitename&gt;. azurewebsites.net**. Web sitenizi bir Azure trafik Yöneticisi uç noktası olarak eklediğinizde, Web sitenizi sonra hello erişilebilen  **&lt;yourtrafficmanagerprofile&gt;. trafficmanager.net** etki alanı.
 
 > [!NOTE]
-> Web sitenizi bir trafik Yöneticisi uç noktası olarak yapılandırıldığında, kullanacağınız **. trafficmanager.net** adresi DNS kayıtlarını oluştururken.
+> Web sitenizi bir trafik Yöneticisi uç noktası olarak yapılandırıldığında, hello kullanacağı **. trafficmanager.net** adresi DNS kayıtlarını oluştururken.
 > 
 > Trafik Yöneticisi ile CNAME kayıtlarına yalnızca kullanabilirsiniz
 > 
 > 
 
-Ayrıca kayıtları, her biri kendi işlevleri ve sınırlamaları, birden çok tür vardır, ancak için trafik Yöneticisi uç noktalar olarak yapılandırılmış Web sitelerinde, biz yalnızca yaklaşık bir dikkat edin; *CNAME* kaydeder.
+Ayrıca kayıtları, her biri kendi işlevleri ve sınırlamaları, birden çok tür vardır, ancak yapılandırılmış Web sitelerinde tooas trafik Yöneticisi uç noktaları için biz yalnızca yaklaşık bir dikkat edin; *CNAME* kaydeder.
 
 ### <a name="cname-or-alias-record"></a>CNAME veya diğer ad kaydı
-Bir CNAME kaydı eşleyen bir *belirli* gibi DNS adı **mail.contoso.com** veya **www.contoso.com**, başka bir (kurallı) etki alanı adı. Azure trafik Yöneticisi'ni kullanarak Web söz konusu olduğunda kurallı etki alanı adıdır  **&lt;Uygulamam >. trafficmanager.net** Traffic Manager profilinizin etki alanı adı. Oluşturduktan sonra CNAME için diğer ad oluşturur  **&lt;Uygulamam >. trafficmanager.net** etki alanı adı. CNAME girişi IP adresine çözümleyecek,  **&lt;Uygulamam >. trafficmanager.net** etki alanı adı otomatik olarak, böylece Web sitesinin IP adresi değişirse, herhangi bir eylemde bulunmanız gerekmez.
+Bir CNAME kaydı eşleyen bir *belirli* gibi DNS adı **mail.contoso.com** veya **www.contoso.com**, tooanother (kurallı) etki alanı adı. Azure trafik Yöneticisi'ni kullanarak Web Hello durumda hello hello kurallı etki alanı adı olan  **&lt;Uygulamam >. trafficmanager.net** Traffic Manager profilinizin etki alanı adı. Bir kez oluşturduktan sonra hello CNAME hello için diğer ad oluşturur  **&lt;Uygulamam >. trafficmanager.net** etki alanı adı. Merhaba CNAME girişi toohello IP adresini çözümlenir,  **&lt;Uygulamam >. trafficmanager.net** etki alanı adı otomatik olarak başlangıç IP adresi hello Web sitesinin değişirse tootake herhangi bir eylem elinizde şekilde.
 
-Trafik Yöneticisi trafiği geldikten sonra ardından trafiği yük dengeleyici yöntemi için yapılandırılmış Web sitenizi, yönlendirir. Bu Web sitenizin ziyaretçileri için tamamen saydamdır. Özel etki alanı adı tarayıcısında yalnızca görürler.
+Trafik Yöneticisi trafiği geldikten sonra hello trafiği tooyour Web sitesi hello Yük Dengeleme için yapılandırılan yöntemi kullanarak, ardından yönlendirir. Tamamen saydam toovisitors tooyour Web sitesidir. Tarayıcısında hello özel etki alanı adı yalnızca görürler.
 
 > [!NOTE]
-> Bazı etki alanı kayıt yalnızca bir CNAME kaydı gibi kullanırken alt etki alanları eşlemeye izin **www.contoso.com**ve değil kök adları gibi **contoso.com**. CNAME kayıtları hakkında daha fazla bilgi için şirketiniz tarafından sağlanan belgelere bakın <a href="http://en.wikipedia.org/wiki/CNAME_record">CNAME kaydı Wikipedia girişinde</a>, veya <a href="http://tools.ietf.org/html/rfc1035">IETF etki alanı adları - uygulama ve belirtim</a> belge.
+> Bazı etki alanı kayıt yalnızca toomap alt etki alanları bir CNAME kaydı gibi kullanırken izin **www.contoso.com**ve değil kök adları gibi **contoso.com**. CNAME kayıtları hakkında daha fazla bilgi için şirketiniz tarafından sağlanan hello belgelerine bakın <a href="http://en.wikipedia.org/wiki/CNAME_record">CNAME kaydı Wikipedia girişinde hello</a>, veya hello <a href="http://tools.ietf.org/html/rfc1035">IETF etki alanı adları - uygulama ve belirtim</a> Belge.
 > 
 > 
 

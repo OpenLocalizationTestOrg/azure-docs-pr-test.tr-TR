@@ -1,6 +1,6 @@
 ---
-title: "Azure Data Factory kopyalama etkinliği saklı yordam çağırma | Microsoft Docs"
-description: "Bir Azure Data Factory kopyalama etkinliği Azure SQL Database veya SQL Server saklı bir yordam çağırma öğrenin."
+title: "aaaInvoke saklı yordamı Azure veri fabrikası kopyalama etkinliğinden | Microsoft Docs"
+description: "Nasıl tooinvoke saklı yordam, Azure SQL Database veya SQL Server'dan Azure Data Factory kopyalama etkinliği hakkında bilgi edinin."
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
-ms.openlocfilehash: af6e4a57e726598c266ee766656aa2cc22e374e3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 986377118afb8c08607c2325fcc3ab00b3de9268
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>Kopya etkinliği Azure Data Factory içinde depolanan yordamı çağırma
-Veri kopyalama işlemi sırasında [SQL Server](data-factory-sqlserver-connector.md) veya [Azure SQL veritabanı](data-factory-azure-sql-connector.md), yapılandırabileceğiniz **SqlSink** bir saklı yordam çağrılacak kopyalama etkinliğinde. Saklı kullanmak isteyebilirsiniz (sütun değerleri, birden çok tablo, vb. ekleme bakarak, birleştirme) herhangi bir ek işlem gerçekleştirmek için yordamı verileri hedef tabloyla eklemeden önce gereklidir. Bu özellik yararlandığı [tablo değerli parametreleri](https://msdn.microsoft.com/library/bb675163.aspx). 
+Veri kopyalama işlemi sırasında [SQL Server](data-factory-sqlserver-connector.md) veya [Azure SQL veritabanı](data-factory-azure-sql-connector.md), hello yapılandırabilirsiniz **SqlSink** kopyalama etkinliği tooinvoke bir saklı yordam içinde. (Sütun değerleri, birden çok tablo, vb. ekleme bakarak, birleştirme) herhangi bir ek işlem toohello hedef tabloda veri eklemeden önce gerekli toouse hello saklı yordamı tooperform isteyebilirsiniz. Bu özellik yararlandığı [tablo değerli parametreleri](https://msdn.microsoft.com/library/bb675163.aspx). 
 
-Aşağıdaki örnek, bir Data Factory işlem hattı (kopyalama etkinliği) SQL Server veritabanından içinde saklı yordamı çağırma gösterilmektedir:  
+Aşağıdaki örnek hello nasıl tooinvoke saklı yordam, bir SQL Server veritabanını Data Factory işlem hattı (kopyalama etkinliği) gösterir:  
 
 ## <a name="output-dataset-json"></a>Çıktı veri kümesi JSON
-Çıkış dataset JSON'da, ayarlayın **türü** için: **SqlServerTable**. Ayarlamak **AzureSqlTable** bir Azure SQL veritabanı ile kullanmak için. Değeri **tableName** özelliği, saklı yordamın ilk parametresinin adı eşleşmelidir.  
+Merhaba çıkış dataset JSON, hello ayarlayın **türü** için: **SqlServerTable**. Çok ayarlamak**AzureSqlTable** toouse bir Azure SQL veritabanı ile. Merhaba değeri **tableName** özelliği hello saklı yordamın ilk parametresinin hello adı eşleşmelidir.  
 
 ```json
 {
@@ -45,7 +45,7 @@ Aşağıdaki örnek, bir Data Factory işlem hattı (kopyalama etkinliği) SQL S
 ```
 
 ## <a name="sqlsink-section-in-copy-activity-json"></a>Kopyalama etkinliği JSON SqlSink bölümünde
-Tanımlamak **SqlSink** kopyalama etkinliği JSON gibi bölüm. Havuz/hedef veritabanına veri eklerken bir saklı yordam çağırmak için değerleri için her ikisini de belirtin **SqlWriterStoredProcedureName** ve **SqlWriterTableType** özellikleri. Bu özelliklerin açıklamaları için bkz: [SQL Server Bağlayıcısı makaledeki SqlSink bölümüne](data-factory-sqlserver-connector.md#sqlsink).
+Merhaba tanımlamak **SqlSink** hello kopyalama etkinliği JSON gibi bölüm. tooinvoke hello havuz/hedef veritabanına veri ekleme sırasında bir saklı yordam her ikisi için değerleri belirtin **SqlWriterStoredProcedureName** ve **SqlWriterTableType** özellikleri. Bu özelliklerin açıklamaları için bkz: [hello SQL Server Bağlayıcısı makaledeki SqlSink bölümüne](data-factory-sqlserver-connector.md#sqlsink).
 
 ```json
 "sink":
@@ -64,7 +64,7 @@ Tanımlamak **SqlSink** kopyalama etkinliği JSON gibi bölüm. Havuz/hedef veri
 ```
 
 ## <a name="stored-procedure-definition"></a>Saklı yordam tanımı 
-Aynı ada sahip saklı yordam veritabanınızdaki tanımlamak **SqlWriterStoredProcedureName**. Saklı yordam kaynak veri deposu gelen giriş verilerinin işler ve hedef veritabanı tablosunda veri ekler. Saklı yordam ilk parametresinin adı JSON (pazarlama) kümesinde tanımlanan tableName eşleşmesi gerekir.
+Aynı ad olarak hello hello depolanan yordamla veritabanınızdaki tanımlamak **SqlWriterStoredProcedureName**. Merhaba saklı yordamı hello kaynak veri deposu gelen giriş verilerinin işler ve veri hello hedef veritabanındaki bir tablo ekler. saklı yordam hello ilk parametresinin Hello adı JSON (pazarlama) hello kümesinde tanımlanan hello tableName eşleşmesi gerekir.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
@@ -77,7 +77,7 @@ END
 ```
 
 ## <a name="table-type-definition"></a>Tablo türü tanımı
-Aynı ada sahip bir tablo türü veritabanınızdaki tanımlamak **SqlWriterTableType**. Tablo türü şeması girdi veri kümesi şeması ile eşleşmesi gerekir.
+Merhaba tablo türü ile aynı adı olarak hello veritabanınızdaki tanımlamak **SqlWriterTableType**. Merhaba tablo türü Hello şeması hello girdi veri kümesi hello şeması eşleşmesi gerekir.
 
 ```sql
 CREATE TYPE [dbo].[MarketingType] AS TABLE(
@@ -87,7 +87,7 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Tam JSON örnekler için makaleler aşağıdaki Bağlayıcısı'nı gözden geçirin: 
+Merhaba, JSON örnekleri tamamlamak için bağlayıcı makaleler gözden geçirin: 
 
 - [Azure SQL Veritabanı](data-factory-azure-sql-connector.md)
 - [SQL Server](data-factory-sqlserver-connector.md)

@@ -1,6 +1,6 @@
 ---
-title: "App Service API uygulaması Tetikleyicileri | Microsoft Docs"
-description: "Azure App Service'deki bir API uygulamasında Tetikleyicileri gerçekleştirme"
+title: "aaaApp Service API uygulaması Tetikleyicileri | Microsoft Docs"
+description: "Azure App Service'deki bir API uygulamasında tooimplement nasıl tetikler"
 services: logic-apps
 documentationcenter: .net
 author: guangyang
@@ -14,53 +14,53 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2016
 ms.author: rachelap
-ms.openlocfilehash: 3ddfb142e7f1a47e2a8564387da785acf36fa61f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2d6b6a942a23c0a93987e9c48b69ecc739bfd814
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-app-service-api-app-triggers"></a>Azure App Service API uygulaması tetikleyicileri
 > [!NOTE]
-> Makalenin bu sürümü, API apps 2014-12-01-Önizleme şema sürümü için geçerlidir.
+> Merhaba makalenin bu sürümü tooAPI apps 2014-12-01-Önizleme şema sürümü geçerlidir.
 >
 >
 
 ## <a name="overview"></a>Genel Bakış
-Bu makalede, API uygulaması Tetikleyicileri uygulamak ve bir mantıksal uygulama kullanma açıklanmaktadır.
+Bu makalede nasıl tooimplement API uygulaması tetikler ve mantığı uygulamadan tüketen açıklanmaktadır.
 
-Bu konudaki kod parçacıkları tümünün kopyalandığı [FileWatcher API uygulaması kod örneği](http://go.microsoft.com/fwlink/?LinkId=534802).
+Bu konudaki hello kod parçacıkları tümünün hello kopyalanır [FileWatcher API uygulaması kod örneği](http://go.microsoft.com/fwlink/?LinkId=534802).
 
-Kodu derlemek ve çalıştırmak için bu makaledeki için aşağıdaki nuget paketini karşıdan yüklemek için gereken Not: [http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/).
+Bu makale toobuild hello kodda için nuget paketi aşağıdaki ve çalıştırma toodownload hello gerekir Not: [http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/).
 
 ## <a name="what-are-api-app-triggers"></a>API uygulaması Tetikleyicileri nelerdir?
-Böylece istemciler API uygulamasının olaya yanıt olarak uygun eylemi gerçekleştirin bir olay tetikleyin için API uygulaması için ortak bir senaryodur. Bu senaryoyu destekler REST API'si mekanizması bir API uygulaması Tetikleyici adı verilir.
+Bir API uygulaması toofire bir olay için yaygın bir senaryo, böylelikle istemcilerin hello API uygulamasının yanıt toohello olayında hello uygun eylemi alabilir. Merhaba, bu senaryoyu destekler REST API'si mekanizması bir API uygulaması Tetikleyici adı verilir.
 
-Örneğin, istemci kodunuzun kullandığını varsayalım [Twitter Bağlayıcısı API uygulaması](../connectors/connectors-create-api-twitter.md) ve belirli sözcükleri içeren yeni tweet'leri üzerinde dayalı bir eylemi gerçekleştirmek kodunuzu gerekiyor. Bu durumda, bu gereksinimi kolaylaştırmak için yoklama veya itme tetikleyicisi ayarlayabilir.
+Örneğin, istemci kodunuzun hello kullanarak diyelim ki [Twitter Bağlayıcısı API uygulaması](../connectors/connectors-create-api-twitter.md) ve kodunuzu bir eylem dayalı belirli sözcükleri içeren yeni tweet'leri üzerinde tooperform gerekiyor. Bu durumda, bir yoklama ya da anında iletme tetikleyici toofacilitate bu gereksinimi ayarlayabilir.
 
 ## <a name="poll-trigger-versus-push-trigger"></a>Yoklama tetikleyici itme tetikleyici karşılaştırması
 İki tür tetikleyici sunucusu şu anda desteklenir:
 
-* Yoklama tetikleyici - istemci bildirimi harekete bir olay için API uygulaması yoklar.
-* Bir olay başlatıldığında itme tetikleyici - istemci API uygulaması tarafından bildirilir
+* Yoklama tetikleyici - istemci hello API uygulaması harekete bir olay bildirim için yoklar.
+* Bir olay başlatıldığında itme tetikleyici - istemci hello API uygulaması tarafından bildirilir
 
 ### <a name="poll-trigger"></a>Yoklama tetikleyici
-Yoklama tetikleyici normal bir REST API uygulanır ve istemcilerine (örneğin, bir mantıksal uygulama) bildirim almak için yoklamak için bekliyor. İstemci durumunu korumak, ancak yoklama tetikleyici durum bilgisiz.
+Yoklama tetikleyici normal bir REST API uygulanır ve kendi istemcilerinin (örneğin, bir mantıksal uygulama) toopoll bekliyor sipariş tooget bildirimi içinde. Merhaba istemci durumunu korumak, ancak hello yoklama tetikleyici kendisini durum bilgisiz.
 
-İstek ve yanıt paketleri ilgili aşağıdaki bilgileri yoklama tetikleyici sözleşme anahtar bazı yönleri gösterilmiştir:
+Karşılama istek ve yanıt paketleri ile ilgili bilgiler aşağıdaki hello hello yoklama tetikleyici sözleşme anahtar bazı yönleri gösterilmiştir:
 
 * İstek
   * HTTP yöntemini: Al
   * Parametreler
-    * triggerState - yoklama tetikleyici düzgün veya bildirim döndürülecek karar verebilir böylece durumlarına belirtilen durumuna bağlı belirtmek istemcilerin bu isteğe bağlı parametre sağlar.
+    * triggerState - Bu isteğe bağlı parametre istemcilerinin sağlar durumlarına yoklama tetikleyici hello şekilde yapabilirsiniz düzgün toospecify karar tooreturn bildirim veya temel alınarak hello durumu belirtilen.
     * API özel parametreler
 * Yanıt
-  * Durum kodu **200** - istek geçerli ve tetikleyici bildirimden yoktur. Bildirim içeriğini yanıt gövdesi olacaktır. Ek bildirim verileri bir sonraki istek çağrısı ile alınması gereken bir "Yeniden deneme-sonra" üstbilgisi yanıt gösterir.
-  * Durum kodu **202** - istek geçerlidir, ancak tetikleyici öğesinden yeni bildirim yoktur.
-  * Durum kodu **4xx** -isteği geçerli değil. İstemci isteği yeniden.
-  * Durum kodu **5xx** -isteği bir iç sunucu hatası ve/veya geçici bir sorun içinde sonuçlandı. İstemci isteği yeniden denemeniz gerekir.
+  * Durum kodu **200** - istek geçerli ve hello tetikleyici bildirimden yoktur. Merhaba bildirim Merhaba içeriğine hello yanıt gövdesi olacaktır. Ek bildirim verileri bir sonraki istek çağrısı ile alınması gereken bir "Yeniden deneme-sonra" üstbilgisi hello yanıt gösterir.
+  * Durum kodu **202** - istek geçerlidir, ancak hello tetikleyici öğesinden yeni bildirim yoktur.
+  * Durum kodu **4xx** -isteği geçerli değil. Merhaba istemci hello isteği yeniden.
+  * Durum kodu **5xx** -isteği bir iç sunucu hatası ve/veya geçici bir sorun içinde sonuçlandı. Merhaba istemci hello isteği yeniden denemeniz gerekir.
 
-Aşağıdaki kod parçacığını bir yoklama Tetik uygulamak nasıl bir örnektir.
+Aşağıdaki kod parçacığını hello nasıl tooimplement bir yoklama tetikleyen bir örnektir.
 
     // Implement a poll trigger.
     [HttpGet]
@@ -71,54 +71,54 @@ Aşağıdaki kod parçacığını bir yoklama Tetik uygulamak nasıl bir örnekt
         // Additional parameters
         string searchPattern = "*")
     {
-        // Check to see whether there is any file touched after the timestamp.
+        // Check toosee whether there is any file touched after hello timestamp.
         var lastTriggerTimeUtc = DateTime.Parse(triggerState).ToUniversalTime();
         var touchedFiles = Directory.EnumerateFiles(rootPath, searchPattern, SearchOption.AllDirectories)
             .Select(f => FileInfoWrapper.FromFileInfo(new FileInfo(f)))
             .Where(fi => fi.LastAccessTimeUtc > lastTriggerTimeUtc);
 
-        // If there are files touched after the timestamp, return their information.
+        // If there are files touched after hello timestamp, return their information.
         if (touchedFiles != null && touchedFiles.Count() != 0)
         {
-            // Extension method provided by the AppService service SDK.
+            // Extension method provided by hello AppService service SDK.
             return this.Request.EventTriggered(new { files = touchedFiles });
         }
-        // If there are no files touched after the timestamp, tell the caller to poll again after 1 mintue.
+        // If there are no files touched after hello timestamp, tell hello caller toopoll again after 1 mintue.
         else
         {
-            // Extension method provided by the AppService service SDK.
+            // Extension method provided by hello AppService service SDK.
             return this.Request.EventWaitPoll(new TimeSpan(0, 1, 0));
         }
     }
 
-Bu yoklama tetikleyici sınamak için aşağıdaki adımları izleyin:
+tootest bu yoklama tetiklemek, şu adımları izleyin:
 
-1. Bir kimlik doğrulama ayarı olan API uygulaması dağıtma **ortak anonim**.
-2. Çağrı **touch** bir dosya touch işlemi. Aşağıdaki resimde bir örnek istek Postman aracılığıyla gösterir.
+1. Merhaba API uygulaması bir kimlik doğrulama ayarı ile dağıtmak **ortak anonim**.
+2. Merhaba çağrısı **touch** işlemi tootouch bir dosya. Görüntü aşağıdaki hello örnek istek Postman aracılığıyla gösterir.
    ![Postman aracılığıyla dokunma işlem çağırma](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
-3. Yoklama tetikleyiciyle çağrısı **triggerState** #2. adım önce bir zaman damgası parametresini ayarlayın. Aşağıdaki resimde Postman aracılığıyla örnek isteğini gösterir.
+3. Merhaba yoklama hello tetikleyiciyle çağrısı **triggerState** parametre tooa zaman damgası önceki tooStep #2. Merhaba aşağıdaki görüntüde hello örnek istek Postman aracılığıyla gösterir.
    ![Postman aracılığıyla çağrı yoklama tetikleyici](./media/app-service-api-dotnet-triggers/callpolltriggerfrompostman.PNG)
 
 ### <a name="push-trigger"></a>Tetikleyici bildirme
-Anında iletme tetikleyicinin belirli olay tetiklendiğinde bildirim almak için kaydettiniz istemciler için bildirimler iter normal bir REST API olarak uygulanır.
+Anında iletme tetikleyicinin belirli olay tetiklendiğinde bildirim toobe kaydolan bildirimleri tooclients iter normal bir REST API uygulanır.
 
-İstek ve yanıt paketleri ilgili aşağıdaki bilgileri anında tetikleyici sözleşme anahtar bazı yönleri gösterilmiştir.
+Karşılama istek ve yanıt paketleri ile ilgili bilgiler aşağıdaki hello hello itme tetikleyici sözleşme anahtar bazı yönleri gösterilmiştir.
 
 * İstek
   * HTTP yöntemini: YERLEŞTİRME
   * Parametreler
-    * Tetikleyici No: gerekli - itme tetikleyici kaydını temsil eden donuk dizesini (örneğin, bir GUID).
-    * callbackUrl: gerekli - olay başlatıldığında çağırmak geri çağırma URL'si. Basit bir POST HTTP çağrısıyla çağrıdır.
+    * Tetikleyici No: gerekli - opak dize (GUID gibi) gösteren bir itme tetikleyici kaydını hello.
+    * callbackUrl: gerekli - hello olay başlatıldığında hello geri çağırma tooinvoke URL'si. Merhaba, basit bir POST HTTP çağrısıyla çağrıdır.
     * API özel parametreler
 * Yanıt
-  * Durum kodu **200** -istemci başarılı kaydetmek için istek.
-  * Durum kodu **4xx** -isteği geçerli değil. İstemci isteği yeniden.
-  * Durum kodu **5xx** -isteği bir iç sunucu hatası ve/veya geçici bir sorun içinde sonuçlandı. İstemci isteği yeniden denemeniz gerekir.
+  * Durum kodu **200** -istek tooregister istemci başarılı.
+  * Durum kodu **4xx** -isteği geçerli değil. Merhaba istemci hello isteği yeniden.
+  * Durum kodu **5xx** -isteği bir iç sunucu hatası ve/veya geçici bir sorun içinde sonuçlandı. Merhaba istemci hello isteği yeniden denemeniz gerekir.
 * Geri çağırma
   * HTTP yöntemini: POST
   * İstek gövdesindeki: bildirim içeriği.
 
-Aşağıdaki kod parçacığını nasıl anında iletme tetikleyici uygulanacağı örneğidir:
+Aşağıdaki kod parçacığını hello nasıl tooimplement push tetikleyen bir örnektir:
 
     // Implement a push trigger.
     [HttpPut]
@@ -126,14 +126,14 @@ Aşağıdaki kod parçacığını nasıl anında iletme tetikleyici uygulanacağ
     public HttpResponseMessage TouchedFilesPushTrigger(
         // triggerId is an opaque string.
         string triggerId,
-        // A helper class provided by the AppService service SDK.
-        // Here it defines the input of the push trigger is a string and the output to the callback is a FileInfoWrapper object.
+        // A helper class provided by hello AppService service SDK.
+        // Here it defines hello input of hello push trigger is a string and hello output toohello callback is a FileInfoWrapper object.
         [FromBody]TriggerInput<string, FileInfoWrapper> triggerInput)
     {
-        // Register the trigger to some trigger store.
+        // Register hello trigger toosome trigger store.
         triggerStore.RegisterTrigger(triggerId, rootPath, triggerInput);
 
-        // Extension method provided by the AppService service SDK indicating the registration is completed.
+        // Extension method provided by hello AppService service SDK indicating hello registration is completed.
         return this.Request.PushTriggerRegistered(triggerInput.GetCallback());
     }
 
@@ -165,53 +165,53 @@ Aşağıdaki kod parçacığını nasıl anında iletme tetikleyici uygulanacağ
         public void RegisterTrigger(string triggerId, string rootPath,
             TriggerInput<string, FileInfoWrapper> triggerInput)
         {
-            // Use FileSystemWatcher to listen to file change event.
+            // Use FileSystemWatcher toolisten toofile change event.
             var filter = string.IsNullOrEmpty(triggerInput.inputs) ? "*" : triggerInput.inputs;
             var watcher = new FileSystemWatcher(rootPath, filter);
             watcher.IncludeSubdirectories = true;
             watcher.EnableRaisingEvents = true;
             watcher.NotifyFilter = NotifyFilters.LastAccess;
 
-            // When some file is changed, fire the push trigger.
+            // When some file is changed, fire hello push trigger.
             watcher.Changed +=
                 (sender, e) => watcher_Changed(sender, e,
                     Runtime.FromAppSettings(),
                     triggerInput.GetCallback());
 
-            // Assoicate the FileSystemWatcher object with the triggerId.
+            // Assoicate hello FileSystemWatcher object with hello triggerId.
             _store[triggerId] = watcher;
 
         }
 
-        // Fire the assoicated push trigger when some file is changed.
+        // Fire hello assoicated push trigger when some file is changed.
         void watcher_Changed(object sender, FileSystemEventArgs e,
-            // AppService runtime object needed to invoke the callback.
+            // AppService runtime object needed tooinvoke hello callback.
             Runtime runtime,
-            // The callback to invoke.
+            // hello callback tooinvoke.
             ClientTriggerCallback<FileInfoWrapper> callback)
         {
-            // Helper method provided by AppService service SDK to invoke a push trigger callback.
+            // Helper method provided by AppService service SDK tooinvoke a push trigger callback.
             callback.InvokeAsync(runtime, FileInfoWrapper.FromFileInfo(new FileInfo(e.FullPath)));
         }
     }
 
-Bu yoklama tetikleyici sınamak için aşağıdaki adımları izleyin:
+tootest bu yoklama tetiklemek, şu adımları izleyin:
 
-1. Bir kimlik doğrulama ayarı olan API uygulaması dağıtma **ortak anonim**.
-2. Gözat [http://requestb.in/](http://requestb.in/) geri çağırma URL'si olarak davranacak bir RequestBin oluşturmak için.
-3. Bir GUID olarak itme tetikleyiciyle çağrısı **Tetikleyici No** ve RequestBin URL'si olarak **callbackUrl**.
+1. Merhaba API uygulaması bir kimlik doğrulama ayarı ile dağıtmak **ortak anonim**.
+2. Çok Gözat[http://requestb.in/](http://requestb.in/) toocreate geri çağırma URL'si olarak davranacak bir RequestBin.
+3. Merhaba itme tetikleyicisi bir GUID olarak ile çağrı **Tetikleyici No** ve RequestBin URL'si olarak hello **callbackUrl**.
    ![Postman aracılığıyla gönderme tetikleyici çağırın](./media/app-service-api-dotnet-triggers/callpushtriggerfrompostman.PNG)
-4. Çağrı **touch** bir dosya touch işlemi. Aşağıdaki resimde bir örnek istek Postman aracılığıyla gösterir.
+4. Merhaba çağrısı **touch** işlemi tootouch bir dosya. Görüntü aşağıdaki hello örnek istek Postman aracılığıyla gösterir.
    ![Postman aracılığıyla dokunma işlem çağırma](./media/app-service-api-dotnet-triggers/calltouchfilefrompostman.PNG)
-5. Anında iletme tetikleyici geri çağırma özelliği çıkışıyla çağrılır onaylamak için RequestBin denetleyin.
+5. Anında iletme tetikleyici geri çağırma hello onay hello RequestBin tooconfirm özelliği çıkışıyla çağrılır.
    ![Postman aracılığıyla çağrı yoklama tetikleyici](./media/app-service-api-dotnet-triggers/pushtriggercallbackinrequestbin.PNG)
 
 ### <a name="describe-triggers-in-api-definition"></a>API tanımı Tetikleyicileri açıklayın
-Tetikleyiciler uygulama ve API uygulamanızı Azure'a dağıtan sonra gidin **API tanımı** dikey Azure Önizleme portalını ve Tetikleyicileri Swagger tarafından yönetilen kullanıcı arabiriminde otomatik olarak tanınır göreceksiniz 2.0 API uygulaması API tanımı.
+Merhaba Tetikleyicileri uygulama ve API uygulaması tooAzure dağıtma sonra toohello gidin **API tanımı** dikey penceresinde hello Azure Önizleme portalı ve Tetikleyicileri hello tarafından yönlendirilen UI içinde otomatik olarak tanınır göreceksiniz Merhaba hello API uygulamasının Swagger 2.0 API tanımı.
 
 ![API tanımı dikey penceresi](./media/app-service-api-dotnet-triggers/apidefinitionblade.PNG)
 
-Tıklatırsanız **karşıdan Swagger** düğmesini tıklatın ve JSON dosyasını açın, aşağıdakine benzer sonuçlar görürsünüz:
+Merhaba tıklatırsanız **karşıdan Swagger** düğmesi ve açık hello JSON dosyası, aşağıdaki sonuçları benzer toohello göreceksiniz:
 
     "/api/files/poll/TouchedFiles": {
       "get": {
@@ -228,20 +228,20 @@ Tıklatırsanız **karşıdan Swagger** düğmesini tıklatın ve JSON dosyasın
       }
     }
 
-Uzantı özelliği **x-ms-schedular-tetikleyici** nasıl Tetikleyicileri API tanımı'nda açıklanan olduğu ve varsa ağ geçidi üzerinden API tanımı istediğinde API uygulama ağ geçidi tarafından otomatik olarak eklenen birini isteği aşağıdaki ölçütleri. (, Bu özellik el ile de ekleyebilirsiniz.)
+Merhaba uzantı özelliği **x-ms-schedular-tetikleyici** nasıl Tetikleyicileri API tanımı'nda açıklanan olan ve hello tooone, isterse hello API tanımı hello ağ geçidi aracılığıyla istediğinde hello API uygulama ağ geçidi tarafından otomatik olarak eklenir Ölçüt aşağıdaki hello. (, Bu özellik el ile de ekleyebilirsiniz.)
 
 * Yoklama tetikleyici
-  * HTTP yöntemi ise **almak**.
-  * Varsa **Operationıd** özelliği içeren dize **tetikleyici**.
-  * Varsa **parametreleri** özelliği içeren bir parametre ile bir **adı** özelliğini **triggerState**.
+  * Merhaba HTTP yöntemini ise **almak**.
+  * Merhaba, **Operationıd** özelliği içeren hello dize **tetikleyici**.
+  * Merhaba, **parametreleri** özelliği içeren bir parametre ile bir **adı** çok ayarlanan özelliği**triggerState**.
 * Tetikleyici bildirme
-  * HTTP yöntemi ise **PUT**.
-  * Varsa **Operationıd** özelliği içeren dize **tetikleyici**.
-  * Varsa **parametreleri** özelliği içeren bir parametre ile bir **adı** özelliğini **Tetikleyici No**.
+  * Merhaba HTTP yöntemini ise **PUT**.
+  * Merhaba, **Operationıd** özelliği içeren hello dize **tetikleyici**.
+  * Merhaba, **parametreleri** özelliği içeren bir parametre ile bir **adı** çok ayarlanan özelliği**Tetikleyici No**.
 
 ## <a name="use-api-app-triggers-in-logic-apps"></a>Logic apps içinde API uygulaması Tetikleyicileri kullanın
-### <a name="list-and-configure-api-app-triggers-in-the-logic-apps-designer"></a>Liste ve API uygulaması Tetikleyicileri Logic apps Tasarımcısı'nda yapılandırma
-API uygulaması ile aynı kaynak grubunda bir mantıksal uygulama oluşturursanız, yalnızca tıklayarak Tasarımcı tuvaline eklemek mümkün olacaktır. Aşağıdaki görüntüler bu gösterilmektedir:
+### <a name="list-and-configure-api-app-triggers-in-hello-logic-apps-designer"></a>Liste ve API uygulaması Tetikleyicileri hello Logic apps Tasarımcısı'nda yapılandırma
+Bir mantıksal uygulama hello oluşturursanız, aynı kaynak grubunda Merhaba API uygulaması, mümkün tooadd olacaktır, yalnızca tıklatarak Tasarımcı tuvaline toohello. görüntüleri aşağıdaki hello bu gösterilmektedir:
 
 ![Mantıksal Uygulama Tasarımcısı'nda tetikleyicileri](./media/app-service-api-dotnet-triggers/triggersinlogicappdesigner.PNG)
 
@@ -250,15 +250,15 @@ API uygulaması ile aynı kaynak grubunda bir mantıksal uygulama oluşturursan�
 ![Anında iletme tetikleyici mantığı Uygulama Tasarımcısı'nda yapılandırma](./media/app-service-api-dotnet-triggers/configurepushtriggerinlogicappdesigner.PNG)
 
 ## <a name="optimize-api-app-triggers-for-logic-apps"></a>API uygulaması Tetikleyicileri mantıksal uygulamalar için en iyi duruma getirme
-Bir API uygulaması Tetikleyicileri ekledikten sonra API uygulaması bir mantıksal uygulama kullanırken deneyimini iyileştirmek için yapabileceğiniz birkaç işlem vardır.
+Tetikleyiciler tooan API uygulama ekledikten sonra bir mantıksal uygulama hello API uygulamasını kullanırken tooimprove hello deneyimi yapabileceğiniz birkaç şey vardır.
 
-Örneğin, **triggerState** parametresi için yoklama Tetikleyicileri mantıksal uygulama aşağıdaki ifadesinde ayarlanmalıdır. Bu ifade mantıksal uygulama tetikleyiciyle son çağrılmasını değerlendirmek ve bu değer döndürmesi gerekir.  
+Örneğin, hello **triggerState** parametresi için yoklama Tetikleyicileri hello mantıksal uygulama ifadesinde aşağıdaki toohello ayarlanmalıdır. Bu ifade hello son hello mantıksal uygulama hello tetikleyiciyle çalıştırılışı değerlendirmek ve bu değer döndürmesi gerekir.  
 
     @coalesce(triggers()?.outputs?.body?['triggerState'], '')
 
-Not: Yukarıdaki ifadeyi kullanılan işlevler açıklaması için üzerinde belgelere bakın [mantığı uygulama iş akışı tanımlama dili](https://msdn.microsoft.com/library/azure/dn948512.aspx).
+Not: Yukarıdaki hello ifadeyi kullanılan hello işlevleri açıklaması için üzerinde toohello belgelerine başvurun [mantığı uygulama iş akışı tanımlama dili](https://msdn.microsoft.com/library/azure/dn948512.aspx).
 
-Mantıksal uygulama kullanıcılarınızın yukarıda ifadesi sağlamak gerekir **triggerState** tetikleyici kullanırken parametresi. Uzantı özelliği aracılığıyla mantığı Uygulama Tasarımcısı tarafından önceden bu değeri olması mümkündür **x-ms-Zamanlayıcı-öneri**.  **X-ms-görünürlük** uzantı özelliği için bir değer ayarlanabilir *iç* böylece parametre designer'ı gösterilmez.  Aşağıdaki kod parçacığında, gösterilmektedir.
+Mantığı uygulama kullanıcıların Merhaba tooprovide hello ifade yukarıda gereksinim **triggerState** hello tetikleyici kullanırken parametresi. Bu değer önceden olası toohave hello uzantısı özelliği aracılığıyla hello mantığı Uygulama Tasarımcısı tarafından olduğu **x-ms-Zamanlayıcı-öneri**.  Merhaba **x-ms-görünürlük** uzantısı özelliği tooa değerini ayarlanabilir *iç* böylece hello parametrenin kendisinin hello designer'ı gösterilmez.  Aşağıdaki kod parçacığında Merhaba, gösterilmektedir.
 
     "/api/Messages/poll": {
       "get": {
@@ -278,11 +278,11 @@ Mantıksal uygulama kullanıcılarınızın yukarıda ifadesi sağlamak gerekir 
       }
     }
 
-Anında iletme Tetikleyicileri **Tetikleyici No** parametresi mantıksal uygulama benzersiz şekilde tanımlamalıdır. Aşağıdaki ifade kullanarak iş akışının adı için bu özelliği ayarlamak için önerilen en iyi yöntem değil:
+Anında iletme Tetikleyicileri hello **Tetikleyici No** parametresi hello mantıksal uygulama benzersiz şekilde tanımlamalıdır. Önerilen en iyi uygulama bu özellik toohello adını kullanarak hello iş akışı hello ifade aşağıdaki tooset şöyledir:
 
     @workflow().name
 
-Kullanarak **x-ms-Zamanlayıcı-öneri** ve **x-ms-görünürlük** API uygulaması kendi API tanımı uzantısı özellikleri iletmek için bu deyim için otomatik olarak ayarlamak için mantığı Uygulama Tasarımcısı Kullanıcı.
+Hello kullanarak **x-ms-Zamanlayıcı-öneri** ve **x-ms-görünürlük** hello API uygulaması kendi API tanımı uzantısı özellikleri iletmek toohello mantığı Uygulama Tasarımcısı tooautomatically bu ayarı Merhaba kullanıcı ifadesi.
 
         "parameters":[  
           {  
@@ -296,11 +296,11 @@ Kullanarak **x-ms-Zamanlayıcı-öneri** ve **x-ms-görünürlük** API uygulama
 
 
 ### <a name="add-extension-properties-in-api-defintion"></a>API tanımı uzantısı özellikleri ekleyin
--Uzantısı özellikleri gibi ek meta veri bilgileri **x-ms-Zamanlayıcı-öneri** ve **x-ms-görünürlük** -iki yoldan biriyle API tanımı eklenebilir: statik veya dinamik.
+-Hello uzantısı özellikleri gibi ek meta veri bilgileri **x-ms-Zamanlayıcı-öneri** ve **x-ms-görünürlük** -iki yoldan biriyle hello API tanımı eklenebilir: statik veya dinamik.
 
-Statik meta verileri için doğrudan düzenleyebilirsiniz */metadata/apiDefinition.swagger.json* dosya projenizde ve özellikleri el ile ekleyin.
+Statik meta verilerini hello doğrudan düzenleyebilirsiniz */metadata/apiDefinition.swagger.json* dosya projenizde ve hello özellikleri el ile ekleyin.
 
-Dinamik meta verileri kullanarak API uygulamaları için bu uzantılar ekleyebilirsiniz bir işlemi filtre eklemek için SwaggerConfig.cs dosyasını düzenleyebilirsiniz.
+Dinamik meta verileri kullanarak API uygulamaları için hello SwaggerConfig.cs dosya tooadd bu uzantılar ekleyebilirsiniz bir işlemi filtresini düzenleyebilirsiniz.
 
     GlobalConfiguration.Configuration
         .EnableSwagger(c =>
@@ -311,9 +311,9 @@ Dinamik meta verileri kullanarak API uygulamaları için bu uzantılar ekleyebil
             }
 
 
-Bu sınıf dinamik meta verileri senaryo kolaylaştırmak için nasıl uygulanabileceği bir örnek verilmiştir.
+Merhaba, bu sınıf uygulanan toofacilitate hello dinamik meta verileri senaryo nasıl olabilir örneği aşağıdadır.
 
-    // Add extension properties on the triggerState parameter
+    // Add extension properties on hello triggerState parameter
     public class TriggerStateFilter : IOperationFilter
     {
 
@@ -331,8 +331,8 @@ Bu sınıf dinamik meta verileri senaryo kolaylaştırmak için nasıl uygulanab
                     }
 
                     // add 2 vendor extensions
-                    // x-ms-visibility: set to 'internal' to signify this is an internal field
-                    // x-ms-scheduler-recommendation: set to a value that logic app can use
+                    // x-ms-visibility: set too'internal' toosignify this is an internal field
+                    // x-ms-scheduler-recommendation: set tooa value that logic app can use
                     triggerStateParam.vendorExtensions.Add("x-ms-visibility", "internal");
                     triggerStateParam.vendorExtensions.Add("x-ms-scheduler-recommendation",
                                                            "@coalesce(triggers()?.outputs?.body?['triggerState'], '')");

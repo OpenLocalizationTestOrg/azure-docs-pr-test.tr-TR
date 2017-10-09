@@ -4,7 +4,7 @@
 ## [Veri güvenliği](security-center-data-security.md)
 ## Senaryolar
 ### [Olay yanıtı](security-center-incident-response.md)
-### [Güvenliği artırmak için önerileri kullanın](security-center-using-recommendations.md)
+### [Öneriler tooenhance güvenliğini kullan](security-center-using-recommendations.md)
 ## [Platform geçişi](security-center-platform-migration.md)
 ### [Platform geçişi ile ilgili SSS](security-center-platform-migration-faq.md)
 

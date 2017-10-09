@@ -1,6 +1,6 @@
 ---
-title: "Azure portalına iş yüklerini yedeklemek için DPM kullanın | Microsoft Docs"
-description: "Azure Yedekleme hizmetini kullanarak DPM sunucularını yedekleme için bir giriş"
+title: "iş yükleri tooAzure portal yukarı aaaUse DPM tooback | Microsoft Docs"
+description: "Bir giriş toobacking hello Azure Yedekleme hizmetini kullanarak DPM sunucularını ayarlama"
 services: backup
 documentationcenter: 
 author: adigan
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: 3422c8d57bdd786ce5d1a41fbb4c12cc4efffddd
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 1dd988ae55012ac7dc485d2416458542c60b6ae3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>DPM ile Azure’a iş yüklerini yedeklemeye hazırlama
+# <a name="preparing-tooback-up-workloads-tooazure-with-dpm"></a>DPM ile iş yüklerini tooAzure yukarı tooback hazırlama
 > [!div class="op_single_selector"]
 > * [Azure Backup Sunucusu](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
@@ -30,153 +30,153 @@ ms.lasthandoff: 08/29/2017
 >
 >
 
-Bu makalede, System Center Data Protection Manager (DPM) sunucuları ve iş yüklerini korumak için Microsoft Azure Yedekleme kullanılarak giriş bilgileri sağlar. Bunu okuyarak, anlamanız:
+Bu makalede, System Center Data Protection Manager (DPM) sunucuları ve iş yükleri bir giriş toousing Microsoft Azure yedekleme tooprotect sağlar. Bunu okuyarak, anlamanız:
 
 * Azure DPM sunucusu yedek nasıl çalışır
-* Kesintisiz bir yedekleme deneyimi elde etmek için Önkoşullar
-* Tipik hatalarla karşılaşıldı ve bunlarla ilgili Yapılacaklar
+* Merhaba Önkoşullar tooachieve kesintisiz bir yedekleme deneyimi
+* Merhaba tipik hatalarla karşılaşıldı ve nasıl onlarla toodeal
 * Desteklenen senaryolar
 
 > [!NOTE]
-> Azure oluşturmak ve kaynaklarla çalışmak için iki dağıtım modeline sahiptir: [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md). Bu makalede, Resource Manager modelini kullanarak dağıtılan VM'ler geri yüklemek için bilgi ve yordamlar sağlar.
+> Azure oluşturmak ve kaynaklarla çalışmak için iki dağıtım modeline sahiptir: [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md). Bu makalede, hello Resource Manager modelini kullanarak dağıtılan VM'ler geri yüklemek için hello bilgi ve yordamlar sağlar.
 >
 >
 
-System Center DPM dosya ve uygulama verileri yedekler. DPM için yedeklenen verileri diskte, bantta depolanan veya Microsoft Azure yedekleme ile azure'a yedeklenebilir. DPM Azure Backup ile aşağıdaki gibi etkileşim kurar:
+System Center DPM dosya ve uygulama verileri yedekler. TooDPM yedeklenen verileri diskte, bantta depolanan veya Microsoft Azure yedekleme ile tooAzure yedeklendi. DPM Azure Backup ile aşağıdaki gibi etkileşim kurar:
 
-* **Fiziksel sunucu veya şirket içi sanal makine olarak dağıtılan DPM** — varsa DPM fiziksel sunucu olarak veya geri verileri kurtarma Hizmetleri kasasına disk ve bant yanı sıra bir şirket içi Hyper-V sanal makinesi olarak dağıtılan yedekleme.
-* **Azure sanal makinesi olarak dağıtılan DPM** — güncelleştirme 3 ile System Center 2012 R2'den DPM Azure sanal makinesi olarak dağıtılabilir. DPM Azure disklere verileri yedekleyebilirsiniz bir Azure sanal makinesi olarak dağıtılırsa DPM Azure sanal makinesine bağlı veya bir kurtarma Hizmetleri kasası kadar yedekleyerek veri depolama boşaltabilir.
+* **Fiziksel sunucu veya şirket içi sanal makine olarak dağıtılan DPM** — DPM fiziksel sunucu olarak veya geri veri tooa bir şirket içi Hyper-V sanal makinesi olarak dağıtılırsa, Kurtarma Hizmetleri ayrıca toodisk kasa'yı ve bant yedekleme.
+* **Azure sanal makinesi olarak dağıtılan DPM** — güncelleştirme 3 ile System Center 2012 R2'den DPM Azure sanal makinesi olarak dağıtılabilir. DPM yapabilecekleriniz Azure sanal makinesi olarak dağıtılırsa geri veri tooAzure diskleri toohello DPM Azure sanal makinesine bağlı ya da kurtarma Hizmetleri kasası tooa yedekleyerek hello veri depolama boşaltabilir.
 
-## <a name="why-backup-from-dpm-to-azure"></a>Neden DPM'den Azure'a yedekleme?
-DPM sunucularını yedekleme için Azure Yedekleme'yi kullanarak iş avantajları şunlardır:
+## <a name="why-backup-from-dpm-tooazure"></a>Neden DPM tooAzure yedekleme?
+DPM sunucularını yedekleme için Azure Yedekleme'yi kullanarak hello iş avantajları şunlardır:
 
-* Şirket içi DPM dağıtımı için Azure banda uzun vadeli dağıtım alternatif olarak kullanabilirsiniz.
-* Azure'da DPM dağıtımları için Azure yedekleme depolama Azure diskten boşaltmak eski verileri kurtarma Hizmetleri kasası ve disk üzerindeki yeni verileri depolayarak ölçekleme yapmanıza olanak sağlar.
+* Şirket içi DPM dağıtımı için bir alternatif toolong terim dağıtım tootape Azure kullanabilirsiniz.
+* Azure'da DPM dağıtımları için Azure Backup, toooffload depolama hello Azure disk alanından tooscale yukarı eski verileri kurtarma Hizmetleri kasası ve disk üzerindeki yeni verileri depolayarak olanak tanıyan.
 
 ## <a name="prerequisites"></a>Ön koşullar
-Azure yedekleme DPM verileri yedeklemek gibi için hazırlayın:
+Azure Backup tooback DPM verilerini aşağıdaki gibi hazırlayın:
 
 1. **Kurtarma Hizmetleri kasası oluşturma** — Azure portalında bir kasa oluşturun.
-2. **Kasa kimlik bilgilerini indirme** — DPM sunucusunu kurtarma Hizmetleri kasasına kaydetmek için kullanılan kimlik bilgilerini indirin.
-3. **Azure yedekleme Aracısı'nı yüklemek** — Azure yedeklemeden aracı her DPM sunucusuna yükleyin.
-4. **Sunucuyu kaydetmek** — kurtarma Hizmetleri kasasına DPM sunucusunu kaydettirin.
+2. **Kasa kimlik bilgilerini indirme** — tooregister hello DPM sunucusu tooRecovery Hizmetleri kasası kullanan hello kimlik bilgilerini indirin.
+3. **Hello Azure Yedekleme aracısı yükleme** — gelen Azure Backup, her DPM sunucusunda hello aracı yükleme.
+4. **Merhaba sunucuyu kaydetmek** — kayıt hello DPM sunucusu tooRecovery Hizmetleri kasası.
 
 ### <a name="1-create-a-recovery-services-vault"></a>1. Kurtarma hizmetleri kasası oluşturma
-Kurtarma hizmetleri kasası oluşturmak için:
+Kasa toocreate bir kurtarma Hizmetleri:
 
-1. [Azure portalında](https://portal.azure.com/) oturum açın.
-2. Hub menüsünde **Gözat**'a tıklayın ve kaynak listesinde **Kurtarma Hizmetleri** yazın. Yazmaya başladığınızda liste, girdinize göre filtrelenir. **Kurtarma Hizmetleri kasası** seçeneğine tıklayın.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com/).
+2. Merhaba Hub menüsünde **Gözat** ve kaynakları hello listesinde yazın **kurtarma Hizmetleri**. Yazmaya başladığınızda, hello filtreleyecek girişinize bağlı. **Kurtarma Hizmetleri kasası** seçeneğine tıklayın.
 
     ![Kurtarma Hizmetleri Kasası oluşturma 1. adım](./media/backup-azure-dpm-introduction/open-recovery-services-vault.png)
 
-    Kurtarma Hizmetleri kasalarının listesi görüntülenir.
-3. **Kurtarma Hizmetleri kasaları** menüsünde **Ekle**'ye tıklayın.
+    Merhaba kurtarma Hizmetleri kasalarının listesi görüntülenir.
+3. Merhaba üzerinde **kurtarma Hizmetleri kasaları** menüsünde tıklatın **Ekle**.
 
     ![Kurtarma Hizmetleri Kasası oluşturma 2. adım](./media/backup-azure-dpm-introduction/rs-vault-menu.png)
 
-    Kurtarma Hizmetleri kasası dikey penceresi açılır ve sizden bir **Ad**, **Abonelik**, **Kaynak Grubu** ve **Konum** sağlamanızı ister.
+    Merhaba kurtarma Hizmetleri kasası dikey penceresi açılır tooprovide isteyen bir **adı**, **abonelik**, **kaynak grubu**, ve **konumu**.
 
     ![Kurtarma Hizmetleri kasası oluşturma 5. adım](./media/backup-azure-dpm-introduction/rs-vault-attributes.png)
-4. **Ad** alanına, kasayı tanımlayacak kolay bir ad girin. Adın Azure aboneliği için benzersiz olması gerekir. 2 ila 50 karakterden oluşan bir ad yazın. Ad bir harf ile başlamalıdır ve yalnızca harf, rakam ve kısa çizgi içerebilir.
-5. Kullanılabilir abonelik listesini görmek için **Abonelik** seçeneğine tıklayın. Hangi aboneliğin kullanılacağından emin değilseniz varsayılan (veya önerilen) aboneliği kullanın. Ancak kuruluş hesabınızın birden çok Azure aboneliği ile ilişkili olması durumunda birden çok seçenek olacaktır.
-6. Kullanılabilir Kaynak grubu listesini görmek için **Kaynak grubu** seçeneğine, yeni bir Kaynak grubu oluşturmak için de **Yeni** seçeneğine tıklayın. Kaynak grupları hakkında eksiksiz bilgiler için bkz. [Azure Resource Manager’a genel bakış](../azure-resource-manager/resource-group-overview.md)
-7. Kasa için coğrafi bölgeyi seçmek üzere **Konum**'a tıklayın.
-8. **Oluştur**'a tıklayın. Kurtarma Hizmetleri kasasının oluşturulması biraz zaman alabilir. Portalda sağ üst alandaki durum bildirimlerini izleyin.
-   Kasanız oluşturulduktan sonra portalda açılır.
+4. İçin **adı**, bir kolay ad tooidentify hello kasası girin. Merhaba adı toobe hello Azure aboneliği için benzersiz olmalıdır. 2 ila 50 karakterden oluşan bir ad yazın. Ad bir harf ile başlamalıdır ve yalnızca harf, rakam ve kısa çizgi içerebilir.
+5. Tıklatın **abonelik** toosee hello kullanılabilir abonelik listesini. Hangi abonelik toouse emin değilseniz, hello varsayılan kullanın (veya önerilen) aboneliği. Ancak kuruluş hesabınızın birden çok Azure aboneliği ile ilişkili olması durumunda birden çok seçenek olacaktır.
+6. Tıklatın **kaynak grubu** toosee hello kullanılabilir kaynak gruplarının listesini ya da tıklatın **yeni** toocreate yeni bir kaynak grubu. Kaynak grupları hakkında eksiksiz bilgiler için bkz. [Azure Resource Manager’a genel bakış](../azure-resource-manager/resource-group-overview.md)
+7. Tıklatın **konumu** tooselect hello hello kasa için coğrafi bölgeyi.
+8. **Oluştur**'a tıklayın. Oluşturulan toobe kurtarma Hizmetleri kasası hello için biraz zaman alabilir. Merhaba üst sağ alanında hello portal Hello durum bildirimlerini izleyin.
+   Kasanız oluşturulduktan sonra hello Portalı'nda açılır.
 
 ### <a name="set-storage-replication"></a>Depolama Çoğaltmayı Ayarlama
-Depolama çoğaltma seçeneği, coğrafi olarak yedekli depolama ve yerel olarak yedekli depolama arasında seçim yapmanıza olanak sağlar. Varsayılan olarak, kasanız coğrafi olarak yedekli depolamaya sahiptir. Bu, birincil yedeklemenizse seçeneği coğrafi olarak yedekli depolamaya ayarlanmış şekilde bırakın. Daha düşük dayanıklılık düzeyinde olan daha uygun maliyetli bir seçenek istiyorsanız yerel olarak yedekli depolamayı seçin. [Coğrafi olarak yedekli](../storage/common/storage-redundancy.md#geo-redundant-storage) ve [yerel olarak yedekli](../storage/common/storage-redundancy.md#locally-redundant-storage) depolama seçenekleri hakkında daha fazla bilgiyi [Azure Storage çoğaltmaya genel bakış](../storage/common/storage-redundancy.md) bölümünde edinebilirsiniz.
+Merhaba depolama çoğaltma seçeneği, coğrafi olarak yedekli depolama ve yerel olarak yedekli depolama arasında toochoose sağlar. Varsayılan olarak, kasanız coğrafi olarak yedekli depolamaya sahiptir. Bu, birincil yedeklemenizse hello seçenek kümesi toogeo yedekli depolama bırakın. Daha düşük dayanıklılık düzeyinde olan daha uygun maliyetli bir seçenek istiyorsanız yerel olarak yedekli depolamayı seçin. Daha fazla bilgi edinin [coğrafi olarak yedekli](../storage/common/storage-redundancy.md#geo-redundant-storage) ve [yerel olarak yedekli](../storage/common/storage-redundancy.md#locally-redundant-storage) hello Depolama Seçenekleri [Azure Storage Çoğaltmaya genel bakış](../storage/common/storage-redundancy.md).
 
-Depolama çoğaltma ayarını düzenlemek için:
+tooedit hello depolama çoğaltma ayarı:
 
-1. Kasa panosunu ve Ayarlar dikey penceresini açmak için kasanızı seçin. **Ayarlar** dikey penceresi açılmazsa kasa panosunda **Tüm ayarlar** seçeneğine tıklayın.
-2. **Ayarlar** dikey penceresinde, **Yedekleme Yapılandırması** dikey penceresini açmak için **Yedekleme Altyapısı** > **Yedekleme Yapılandırması**'na tıklayın. **Yedekleme Yapılandırması** dikey penceresinde, kasanıza yönelik depolama çoğaltma seçeneğini belirleyin.
+1. Kasa tooopen hello kasa panosu ve hello ayarları dikey seçin. Merhaba, **ayarları** dikey penceresi açılmazsa, tıklatın **tüm ayarları** hello kasa panosunda.
+2. Merhaba üzerinde **ayarları** dikey penceresinde tıklatın **Yedekleme Altyapısı** > **yedekleme yapılandırması** tooopen hello **yedekleme yapılandırması** dikey. Merhaba üzerinde **yedekleme yapılandırması** dikey penceresinde kasanızı hello depolama çoğaltma seçeneğini seçin.
 
     ![Yedekleme kasalarının listesi](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
-    Kasanız için depolama seçeneğini belirledikten sonra, VM'yi kasa ile ilişkilendirmek için hazır duruma gelirsiniz. İlişkilendirmeyi başlatmak için Azure sanal makinelerini bulmanız ve kaydetmeniz gerekir.
+    Merhaba kasanız için depolama seçeneğini belirledikten sonra hazır tooassociate hello VM hello kasası ile demektir. toobegin hello ilişkilendirme bulmak ve gerekir kaydetmek Azure sanal makineleri hello.
 
 ### <a name="2-download-vault-credentials"></a>2. Kasa kimlik bilgilerini indirme
-Kasa kimlik bilgileri dosyası, her bir yedekleme kasası için portal tarafından oluşturulan bir sertifikadır. Portal daha sonra ortak anahtarı Access Control Service'e (ACS) yükler. Kullanıcıya, makine kayıt iş akışı içinde bir giriş olarak verilen iş akışının parçası olarak sertifikanın özel anahtarı kullanılabilir hale getirilir. Bu, yedekleme verilerini Azure Backup hizmetindeki tanımlanmış bir kasaya göndermek üzere makinenin kimliğini doğrular.
+Merhaba kasa kimlik bilgileri dosyası, her bir yedekleme kasası için hello portal tarafından oluşturulan bir sertifikadır. Merhaba portal sonra hello ortak anahtar toohello erişim denetimi Hizmeti'nden (ACS) yükler. Merhaba sertifikasının özel anahtarı Hello kullanılabilir toohello kullanıcı bir giriş hello makine kayıt iş akışı olarak belirtilmiş olan hello iş akışının parçası olarak yapılır. Bu hello makine toosend yedekleme verilerini tanımlanan tooan kasaya hello Azure Backup hizmeti kimliğini doğrular.
 
-Kasa kimlik bilgileri yalnızca kayıt iş akışı sırasında kullanılır. Kasa kimlik bilgileri dosyası tehlikeye olun kullanıcının sorumluluğundadır. Yetkisiz bir kullanıcının eline geçmesi durumunda, söz konusu kasaya diğer makinelerin kaydedilebilmesi için kasa kimlik bilgileri dosyası kullanılabilir. Yedekleme verilerini müşteriye ait olan bir parola kullanılarak şifrelenir gibi ancak var olan yedekleme verilerinin gizliliği tehlikeye giremez. Bu endişenin ortadan kaldırılabilmesi için kasa kimlik bilgileri 48hrs içinde süresi dolacak şekilde ayarlanmıştır. Bir kurtarma Hizmetleri kasa kimlik bilgilerini kez – herhangi bir sayıda yükleyebilirsiniz, ancak kayıt iş akışı sırasında yalnızca en son kasa kimlik bilgilerini geçerlidir.
+Merhaba kasa kimlik bilgileri yalnızca hello kayıt iş akışı sırasında kullanılır. Kasa kimlik bilgileri dosyasının gizliliğinin tehlikeye hello hello kullanıcının sorumluluk tooensure olur. Bir kullanıcının hello elinizde kalırsa hello kasa kimlik bilgileri dosyası diğer makinelere karşı kullanılan tooregister olabilir hello aynı kasası. Merhaba yedekleme verilerini toohello müşteriye ait olan bir parola kullanılarak şifrelenir gibi ancak var olan yedekleme verilerinin gizliliği tehlikeye giremez. toomitigate bu sorunu kasa kimlik bilgileri 48hrs tooexpire ayarlanır. Kez – herhangi bir sayıda hello bir kurtarma Hizmetleri kasa kimlik bilgilerini yükleyebilirsiniz, ancak yalnızca hello son kasa kimlik bilgilerini hello kayıt iş akışı sırasında geçerlidir.
 
-Kasa kimlik bilgilerini Azure portalından güvenli bir kanal üzerinden indirilir. Azure Backup hizmeti sertifikanın özel anahtarı farkında değildir ve özel anahtarı portalı veya hizmetinde kalıcı yapılmaz. Kasa kimlik bilgilerini yerel makineye indirmek için aşağıdaki adımları kullanın.
+Merhaba kasa kimlik bilgilerini hello Azure portal güvenli bir kanaldan aracılığıyla yüklenir. Hello Azure Backup hizmeti hello sertifikasının özel anahtarı Merhaba farkında değildir ve hello özel anahtarı hello portalı veya hello hizmetinde kalıcı yapılmaz. Aşağıdaki adımları toodownload hello kasa kimlik bilgileri dosyası tooa yerel makine hello kullanın.
 
-1. [Azure Portal](https://portal.azure.com/) oturum açın.
-2. Açık kurtarma Hizmetleri kasası hangi DPM kaydetmek istediğiniz makine.
-3. Varsayılan ayarlar dikey penceresi açılır. Kapalıysa, tıklayın **ayarları** kasa panosunda ayarları dikey penceresini açın. Ayarlar dikey penceresinde tıklayın **özellikleri**.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com/).
+2. Tooregister DPM makine istediğiniz açık kurtarma Hizmetleri kasası toowhich toowhich.
+3. Varsayılan ayarlar dikey penceresi açılır. Kapalıysa, tıklayın **ayarları** kasa Panosu tooopen hello ayarları dikey. Ayarlar dikey penceresinde tıklayın **özellikleri**.
 
     ![Kasa dikey penceresini açma](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
-4. Özellikler sayfasında, tıklatın **karşıdan** altında **yedekleme kimlik**. Portal indirme için kullanılabilir hale kasa kimlik bilgilerini oluşturur.
+4. Merhaba Özellikler sayfasında, tıklatın **karşıdan** altında **yedekleme kimlik**. Merhaba portal indirme için kullanılabilir hale hello kasa kimlik bilgilerini oluşturur.
 
     ![İndir](./media/backup-azure-dpm-introduction/vault-credentials.png)
 
-Portal kasa adını ve geçerli tarih birleşimini kullanarak bir kasa kimlik bilgisi oluşturur. Tıklatın **kaydetmek** kasa kimlik bilgilerini Yerel hesabın indirmeler klasörüne indirin veya kasa kimlik bilgileri için bir konum belirtmek için Kaydet menüsünden Farklı Kaydet'i seçin. Bunu oluşturulacak dosyası için bir dakika sürer.
+Merhaba portal hello kasa adı ve hello geçerli tarih kullanan bir kasa kimlik bilgisi oluşturur. Tıklatın **kaydetmek** toodownload hello kasa kimlik bilgileri toohello Yerel hesabın indirmeleri klasör ya da hello Farklı Kaydet'i seçin hello kasa kimlik bilgileri için bir konum menü toospecify kaydedin. Oluşturulan hello dosya toobe tooa dakikadır yukarı olur.
 
 ### <a name="note"></a>Not
-* Kasa kimlik bilgileri dosyası makinenizden erişilebilen bir konuma kaydedildiğinden emin olun. Bir dosya paylaşımı/SMB depolanıyorsa erişim izinlerini denetleyin.
-* Kasa kimlik bilgileri dosyası yalnızca kayıt iş akışı sırasında kullanılır.
-* Kasa kimlik bilgileri dosyası 48hrs sonra süresi dolar ve portalından indirilebilir.
+* Bu hello kasa kimlik bilgileri dosyası makinenizden erişilebilen bir konuma kaydedildiğinden emin olun. Bir dosya paylaşımı/SMB depolanıyorsa hello erişim izinlerini denetleyin.
+* Merhaba kasa kimlik bilgileri dosyası yalnızca hello kayıt iş akışı sırasında kullanılır.
+* Merhaba kasa kimlik bilgileri dosyası 48hrs sonra süresi dolar ve hello portalından indirilebilir.
 
 ### <a name="3-install-backup-agent"></a>3. Yedekleme aracısını yükleme
-Azure yedekleme kasası oluşturduktan sonra bir aracı her veri ve Azure uygulamalarının yedekleme sağlayan Windows makinelerinizin (Windows Server, Windows istemci, System Center Data Protection Manager sunucusu veya Azure yedekleme sunucusu makine) yüklü olmalıdır .
+Hello Azure yedekleme kasası oluşturduktan sonra bir aracı her yedekleme veri ve uygulamaları sağlayan Windows makinelerinizi (Windows Server, Windows istemci, System Center Data Protection Manager sunucusu veya Azure yedekleme sunucusu makine) yüklü olmalıdır tooAzure.
 
-1. Açık kurtarma Hizmetleri kasası hangi DPM kaydetmek istediğiniz makine.
-2. Varsayılan ayarlar dikey penceresi açılır. Kapalıysa, tıklayın **ayarları** ayarları dikey penceresini açın. Ayarlar dikey penceresinde tıklayın **özellikleri**.
+1. Tooregister DPM makine istediğiniz açık kurtarma Hizmetleri kasası toowhich toowhich.
+2. Varsayılan ayarlar dikey penceresi açılır. Kapalıysa, tıklayın **ayarları** tooopen hello ayarlar dikey penceresi. Ayarlar dikey penceresinde tıklayın **özellikleri**.
 
     ![Kasa dikey penceresini açma](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
-3. Ayarlar sayfasında, tıklatın **karşıdan** altında **Azure Yedekleme aracısı**.
+3. Hello Ayarları sayfasında, tıklatın **karşıdan** altında **Azure Yedekleme aracısı**.
 
     ![İndir](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
-   Aracı yüklendikten sonra çift MARSAgentInstaller.exe Azure Backup agent kurulumunu başlatmak için tıklatın. Yükleme klasörü ve aracı için gereken geçici klasörü seçin. Belirtilen önbellek konumunu yedekleme verilerini % 5'en az boş alan olması gerekir.
-4. İçinde internet'e bağlanmak için bir proxy sunucu kullanıyorsanız **Proxy Yapılandırması** ekranında, proxy sunucusu ayrıntılarını girin. Doğrulanmış bir proxy kullanıyorsanız, bu ekranda kullanıcı adı ve parola bilgilerinizi girin.
-5. (Bu zaten mevcut değilse) Azure Backup aracısını yüklemeyi tamamlamak için Windows PowerShell ve .NET Framework 4.5 yükler.
-6. Aracı yüklendikten sonra **Kapat** penceresi.
+   Merhaba Aracısı yüklendikten sonra MARSAgentInstaller.exe toolaunch hello yükleme hello Azure yedekleme Aracısı'nın çift'yi tıklatın. Merhaba yükleme klasörü ve hello aracı için gereken geçici klasörü seçin. Belirtilen hello önbellek konumu hello yedekleme verilerini % 5'en az boş alan olması gerekir.
+4. Bir proxy sunucu tooconnect toohello kullanırsanız, internet ' hello **Proxy Yapılandırması** ekranında, hello proxy sunucusu ayrıntılarını girin. Doğrulanmış bir proxy kullanıyorsanız, bu ekranda hello kullanıcı adı ve parola bilgilerinizi girin.
+5. (Bu zaten mevcut değilse) hello Azure Yedekleme aracısı, .NET Framework 4.5 ve Windows PowerShell toocomplete hello yükleme yükler.
+6. Merhaba Aracısı yüklendikten sonra **Kapat** hello penceresi.
 
    ![Kapat](../../includes/media/backup-install-agent/dpm_FinishInstallation.png)
-7. İçin **DPM sunucusunu kaydettirin** kasasına içinde **Yönetim** sekmesi tıklatın üzerinde **çevrimiçi**. Ardından, seçin **kaydetmek**. Kurulum Kaydetme Sihirbazı'nı açar.
-8. İçinde internet'e bağlanmak için bir proxy sunucu kullanıyorsanız **Proxy Yapılandırması** ekranında, proxy sunucusu ayrıntılarını girin. Doğrulanmış bir proxy kullanıyorsanız, bu ekranda kullanıcı adı ve parola bilgilerinizi girin.
+7. çok**kayıt hello DPM sunucusu** toohello kasasına hello **Yönetim** sekmesi tıklatın üzerinde **çevrimiçi**. Ardından, seçin **kaydetmek**. Merhaba kaydetme Kurulum Sihirbazı açılır.
+8. Bir proxy sunucu tooconnect toohello kullanırsanız, internet ' hello **Proxy Yapılandırması** ekranında, hello proxy sunucusu ayrıntılarını girin. Doğrulanmış bir proxy kullanıyorsanız, bu ekranda hello kullanıcı adı ve parola bilgilerinizi girin.
 
     ![Proxy yapılandırması](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Proxy.png)
-9. Kasa kimlik bilgileri ekranında göz atın ve daha önce indirilen kasa kimlik bilgileri dosyası seçin.
+9. Merhaba kasa kimlik bilgilerini ekranda, daha önce indirilen tooand select hello kasa kimlik bilgileri dosyası göz atın.
 
     ![Kasa kimlik bilgileri](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Credentials.jpg)
 
-    Kasa kimlik bilgileri dosyası yalnızca 48 için geçerlidir (portaldan yüklendikten sonra) saat. Bu ekran ("sağlanan dosyasının süresi doldu Örneğin, kasa kimlik bilgileri"), kasa kimlik bilgileri dosyasını yeniden indirin ve Azure portalında oturum açma herhangi bir hatayla karşılaşırsanız.
+    Merhaba kasa kimlik bilgileri dosyası yalnızca 48 için geçerlidir (Merhaba portalından yüklendikten sonra) saat. Bu ekranda (örneğin "kasa kimlik bilgileri sağlanan dosyasının süresi doldu"), herhangi bir hatayla karşılaşırsanız oturum açma toohello Azure portal ve indirme hello kasa kimlik bilgileri dosyası yeniden.
 
-    Kasa kimlik bilgileri dosyası Kurulum uygulama tarafından erişilebilen bir konumda kullanılabilir olduğundan emin olun. Karşılaşırsanız ilgili hatalar erişim, kasa kimlik bilgileri dosyası bu makinede geçici bir konuma kopyalayın ve işlemi yeniden deneyin.
+    Merhaba Kurulum uygulama tarafından erişilebilen bir konumda bu hello kasa kimlik bilgileri dosyası kullanılabilir olduğundan emin olun. Karşılaşırsanız ilgili hatalar erişim, bu makinede hello kasa kimlik bilgileri dosyası tooa geçici konuma kopyalayın ve hello işlemi yeniden deneyin.
 
-    Geçersiz kasa kimlik bilgileri hatayla karşılaşırsanız (örneğin, "geçersiz kasa sağlanan kimlik bilgileri") dosya bozuk veya mu sahip en yeni kimlik ilişkilendirilmemiş kurtarma hizmeti ile. Yeni bir kasa kimlik bilgilerini portaldan indirme işlemi yeniden deneyin. Bu hata genellikle kullanıcı üzerinde tıklarsa görülür **indirme kasa kimlik bilgileri** Azure portalında hızlı art arda seçeneği. Bu durumda, yalnızca ikinci kasa kimlik bilgilerini geçerli değil.
-10. İçinde iş ve iş dışı saatler sırasında ağ bant genişliği kullanımını denetlemek için **azaltma ayarı** ekranı, bant genişliği kullanım sınırlarını ayarlama ve iş ve iş dışı saatler tanımlayın.
+    Geçersiz kasa kimlik bilgileri hatayla karşılaşırsanız (örneğin, "geçersiz kasa sağlanan kimlik bilgileri") hello dosya bozuk veya değil sahip hello hello kurtarma hizmetiyle ilişkili son kimlik bilgileri. Yeni bir kasa kimlik bilgileri dosyası hello portalından indirme hello işlemi yeniden deneyin. Bu hata genellikle Hello kullanıcı üzerinde hello tıklarsa görülür **indirme kasa kimlik bilgileri** hello Azure portalında, art arda seçeneği. Bu durumda, yalnızca hello ikinci kasa kimlik bilgilerini geçerli değil.
+10. toocontrol hello iş ve Merhaba, İş dışı saatler sırasında ağ bant genişliği kullanımını **azaltma ayarı** ekranında hello bant genişliği kullanım sınırlarını ayarlama ve hello iş tanımlayabilir ve saat İş dışı.
 
     ![Azaltma ayarı](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Throttling.png)
-11. İçinde **kurtarma klasör ayarı** ekranında, dosyaların Azure kaynağından indirdiğiniz klasörü geçici olarak hazırlanmış için göz atın.
+11. Merhaba, **kurtarma klasör ayarı** ekranında, hello klasörü hello dosyaları Azure'dan indirdiğiniz geçici olarak hazırlanmış için göz atın.
 
     ![Kurtarma klasör ayarı](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_RecoveryFolder.png)
-12. İçinde **şifreleme ayarı** ekran, bir parola oluşturabilir veya bir parola (en fazla 16 karakter) girin. Parolayı güvenli bir konumda kaydetmeyi unutmayın.
+12. Merhaba, **şifreleme ayarı** ekran, bir parola oluşturabilir veya bir parola (en fazla 16 karakter) girin. Güvenli bir yerde toosave hello parolayı unutmayın.
 
     ![Şifreleme](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Encryption.png)
 
     > [!WARNING]
-    > Parola kaybolur veya unutulursa; Microsoft, yedekleme verilerini kurtarmak yardımcı olamaz. Son kullanıcı şifreleme parolası sahibi ve Microsoft son kullanıcı tarafından kullanılan parola görünürlüğe sahip değil. Lütfen bir kurtarma işlemi sırasında gerekli olduğu gibi dosyayı güvenli bir konuma kaydedin.
+    > Merhaba, parola kaybolur veya unutulursa; Microsoft, hello yedekleme verilerini kurtarmak yardımcı olamaz. Merhaba son kullanıcı hello şifreleme parolası sahibi ve Microsoft hello son kullanıcı tarafından kullanılan hello parola görünürlüğe sahip değil. Lütfen bir kurtarma işlemi sırasında gerekli olduğu gibi hello dosyayı güvenli bir konuma kaydedin.
     >
     >
-13. Tıkladığınızda **kaydetmek** düğmesi makine başarıyla kasaya kayıtlı ve Microsoft Azure yedekleme başlatmak artık hazırsınız.
-14. Data Protection Manager kullanırken tıklayarak kayıt iş akışı sırasında belirtilen ayarları değiştirebileceğiniz **yapılandırma** seçerek seçeneği **çevrimiçi** altında **Yönetimi**  Sekmesi.
+13. Merhaba tıkladığınızda **kaydetmek** düğmesini tıklatın, hello makine başarıyla kaydettirildi toohello kasası ve olduğunuzda artık Azure tooMicrosoft yedekleme hazır toostart.
+14. Data Protection Manager kullanırken hello tıklayarak hello kayıt iş akışı sırasında belirtilen hello ayarlarını değiştirebilir **yapılandırma** seçerek seçeneği **çevrimiçi** hello altında  **Yönetim** sekmesi.
 
 ## <a name="requirements-and-limitations"></a>Gereksinimleri (ve sınırlamaları)
 * Bir fiziksel sunucuda veya System Center 2012 SP1 veya System Center 2012 R2'de yüklü bir Hyper-V sanal makinesi olarak DPM çalıştırıyor olabilir. System Center 2012 R2 ile en az çalışan Azure sanal makinesi olarak da çalışabilir DPM 2012 R2 güncelleştirme paketi 3 veya System Center 2012 R2 ile en az çalışan vmware'deki Windows sanal makine Güncelleştirme Paketi 5.
-* System Center 2012 SP1 ile DPM çalıştırıyorsanız, güncelleştirme dökümü 2'yi System Center Data Protection Manager SP1 için yüklemeniz gerekir. Azure yedekleme Aracısı'nı yükleyebilmek için önce bu gereklidir.
-* DPM sunucusunda Windows PowerShell ve .net olması Framework 4.5 yüklü.
-* DPM çoğu iş yüklerini Azure Yedekleme'de yedekleyebilir. Bkz: desteklenen sahip bir tam listesi için Azure Backup aşağıdaki öğeleri destekler.
-* Azure Yedekleme'de depolanan verileri "banda Kopyala" seçeneğiyle kurtarılamıyor.
-* Azure Backup özelliği etkinleştirilmiş bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Hakkında bilgi edinin [Azure yedekleme fiyatlandırması](https://azure.microsoft.com/pricing/details/backup/).
-* Azure Yedekleme'yi kullanarak Azure Backup aracısının yedeklemek istediğiniz sunucularda yüklü olması gerekir. Her sunucunun yerel boş depolama olarak kullanılabilir yedeklendiğinden verilerin boyutunu % 5'en az olmalıdır. Örneğin, 100 GB veri yedekleme en az 5 GB boş alan karalama konumda gerektirir.
-* Veriler Azure kasası depolama alanında depolanır. Bir Azure yedekleme kadar kasa veri miktarı için bir sınır yoktur ancak (örneğin sanal makine ya da veritabanı) veri kaynağının boyutunu 54400 GB aşan döndürmemelidir.
+* System Center 2012 SP1 ile DPM çalıştırıyorsanız, güncelleştirme dökümü 2'yi System Center Data Protection Manager SP1 için yüklemeniz gerekir. Hello Azure Backup aracısını yüklemeden önce bu gereklidir.
+* Merhaba DPM sunucusu sahip Windows PowerShell ve .net Framework 4.5 yüklü.
+* DPM, yedekleme çoğu iş yükleri tooAzure yedekleyebilirsiniz. Bkz: desteklenen sahip bir tam listesi için Azure Backup hello aşağıdaki öğeleri destekler.
+* Azure Yedekleme'de depolanan verileri hello "tootape Kopyala" seçeneğiyle kurtarılamıyor.
+* Hello Azure Backup özelliği etkinleştirilmiş bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Hakkında bilgi edinin [Azure yedekleme fiyatlandırması](https://azure.microsoft.com/pricing/details/backup/).
+* Azure Backup kullanılarak tooback yedeklemek istediğiniz hello sunucularda yüklü hello Azure Yedekleme aracısı toobe gerektirir. Her sunucu, kullanılabilir yerel boş depolama alanı olarak yedeklendiğinden hello verilerin hello boyutu % 5'en az olması gerekir. Örneğin, 100 GB veri yedekleme en az 5 GB boş alan hello karalama konumda gerektirir.
+* Veri hello Azure kasası depolama depolanır. Hiçbir sınır toohello miktarda veri tooan Azure Backup kasasını yedekleyebilirsiniz yoktur ancak (örneğin sanal makine ya da veritabanı) veri kaynağının hello boyutunu 54400 GB aşan döndürmemelidir.
 
-Bu dosya türlerini Azure'a yedekleme için desteklenir:
+Bu dosya türlerini tooAzure yedeklemek için desteklenir:
 
 * Şifrelenmiş (yalnızca tam yedeklemeler)
 * Sıkıştırılmış (artımlı yedeklemeler desteklenir)
@@ -194,6 +194,6 @@ Ve bu desteklenmez:
 * Aralıklı akış
 
 > [!NOTE]
-> Gelen System Center 2012 DPM SP1 ile başlayarak, Microsoft Azure Yedekleme kullanılarak Azure DPM tarafından korunan iş yüklerini yedekleme.
+> Gelen System Center 2012 DPM SP1 ile başlayarak, Microsoft Azure Yedekleme'yi kullanarak DPM tooAzure tarafından korunan iş yüklerini yedekleme.
 >
 >

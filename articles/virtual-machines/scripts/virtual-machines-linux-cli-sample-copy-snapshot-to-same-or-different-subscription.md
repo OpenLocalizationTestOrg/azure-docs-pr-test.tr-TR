@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI komut dosyası örneği - CLI ile aynı veya farklı abonelik yönetilen bir diske kopyalama (Taşı) görüntüsünü | Microsoft Docs"
-description: "Azure CLI komut dosyası örneği - CLI ile aynı veya farklı abonelik yönetilen bir diske görüntüsünü kopyala (taşıma)"
+title: "aaaAzure CLI komut dosyası örneği - yönetilen disk toosame veya CLI ile farklı bir abonelik kopya (Taşı) anlık | Microsoft Docs"
+description: "Azure CLI komut dosyası örneği - yönetilen disk toosame veya CLI ile farklı bir abonelik kopya (Taşı) anlık"
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
-ms.openlocfilehash: 6cc0125c08ccb77d014b4642d702c556fffdc8bf
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: f214ab1fc1cb2cb42479d82e455f20a8cc55c83d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli"></a>Yönetilen bir disk görüntüsünü CLI ile aynı veya farklı abonelik kopyalayın
+# <a name="copy-snapshot-of-a-managed-disk-toosame-or-different-subscription-with-cli"></a>Yönetilen disk toosame veya farklı bir abonelik CLI ile anlık kopyalama
 
-Bu komut dosyası, aynı veya farklı aboneliğine yönetilen bir disk görüntüsünü kopyalar. Farklı bir abonelik üst anlık görüntü ile aynı bölgede bir anlık görüntü taşımak için bu komut dosyasını kullanın.
+Bu komut, yönetilen disk toosame veya farklı bir abonelik anlık kopyalar. Bu komut dosyası toomove bir anlık görüntü toodifferent abonelik hello kullan hello üst anlık görüntü ile aynı bölgeye.
 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -32,22 +32,22 @@ Bu komut dosyası, aynı veya farklı aboneliğine yönetilen bir disk görünt�
 
 ## <a name="sample-script"></a>Örnek komut dosyası
 
-[!code-azurecli[Ana](../../../cli_scripts/virtual-machine/copy-snapshot-to-same-or-different-subscription/copy-snapshot-to-same-or-different-subscription.sh "kopyalama anlık görüntü")]
+[!code-azurecli[main](../../../cli_scripts/virtual-machine/copy-snapshot-to-same-or-different-subscription/copy-snapshot-to-same-or-different-subscription.sh "Copy snapshot")]
 
 
 ## <a name="script-explanation"></a>Komut dosyası açıklaması
 
-Bu komut dosyası kaynağı anlık görüntü kimliğini kullanarak hedef abonelikte bir anlık görüntü oluşturmak için komutları kullanır. Komut belirli belgeleri tablo bağlanan her komut.
+Bu komut dosyası komutları toocreate aşağıdaki kullanır hello hedef abonelik kullanarak bir anlık görüntü hello hello kaynak anlık görüntü kimliği. Her komut hello tablosundaki toocommand belirli belgeleri bağlar.
 
 | Komut | Notlar |
 |---|---|
-| [az anlık görüntü Göster](https://docs.microsoft.com/cli/azure/snapshot#show) | Tüm ad kullanarak bir anlık görüntü özelliklerini ve kaynak grubu özellikleri anlık görüntü alır. ID özelliği, farklı aboneliğe anlık görüntüyü kopyalamak için kullanılır.  |
-| [az anlık görüntü oluşturma](https://docs.microsoft.com/cli/azure/snapshot#create) | Bir anlık görüntü üst anlık görüntünün adını ve kimlik numarasını kullanarak farklı abonelikte bir anlık görüntü oluşturarak kopyalar.  |
+| [az anlık görüntü Göster](https://docs.microsoft.com/cli/azure/snapshot#show) | Tüm hello adını kullanarak bir anlık görüntü hello özelliklerini ve kaynak grubu özellikleri hello anlık görüntü alır. Kullanılan toocopy hello anlık görüntü toodifferent abonelik kimliği özelliğidir.  |
+| [az anlık görüntü oluşturma](https://docs.microsoft.com/cli/azure/snapshot#create) | Farklı bir abonelik kullanarak bir anlık görüntü oluşturarak bir anlık görüntü hello kimliği ve adını kopya üst anlık görüntü hello.  |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [Bir sanal makine bir anlık görüntüden oluşturun](./virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 
-Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).
+Hello Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).
 
-Ek bir sanal makine ve yönetilen diskleri CLI kod örnekleri bulunabilir [Azure Linux VM'de belgelerine](../../app-service-web/app-service-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Ek bir sanal makine ve yönetilen diskleri CLI kod örnekleri hello bulunan [Azure Linux VM'de belgelerine](../../app-service-web/app-service-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

@@ -1,6 +1,6 @@
 ---
-title: "Örnek sayısı el ile veya otomatik ölçeklendirme Azure Portal ile ölçeklendirin | Microsoft Docs"
-description: "Azure hizmetlerinizi ölçeklendirmek öğrenin."
+title: "aaaScale örnek sayısını elle veya otomatik ölçeklendirme Azure portalıyla | Microsoft Docs"
+description: "Bilgi nasıl tooscale Azure hizmetlerinizi."
 author: anirudhcavale
 manager: orenr
 editor: 
@@ -14,74 +14,74 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
-ms.openlocfilehash: d171538ea57839eccddcc74ca099a39aee34ea10
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 8cb78f18416bd3caecce52702a8d630aa434d776
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>Örnek sayısı el ile veya otomatik olarak ölçeklendirme
-İçinde [Azure Portal](https://portal.azure.com/), hizmetiniz örnek sayısını elle ayarlayabilirsiniz veya, parametreleri sağlamak için talebe göre ölçeklendirin otomatik olarak ayarlayabilirsiniz. Bu tipik olarak adlandırılır *ölçeğini* veya *içinde ölçeklendirmek*.
+Merhaba, [Azure Portal](https://portal.azure.com/), hizmetinizin hello örnek sayısı el ile ayarlayabilirsiniz veya, otomatik olarak ölçeklendirme toohave tabanlı isteğe bağlı parametreler ayarlayabilirsiniz. Bu genellikle başvurulan tooas olan *ölçeğini* veya *içinde ölçeklendirmek*.
 
-Örnek sayısına göre ölçeklendirme önce tarafından ölçeklendirme etkilenir düşünmelisiniz **fiyatlandırma katmanı** yanı sıra örnek sayısı. Farklı fiyatlandırma katmanlarına sahip farklı numaraları çekirdek ve bellek ve bu nedenle bunlar olacaktır örnekleri aynı sayıda daha iyi performans (olduğu *ölçeği* veya *ölçeklendirmeyi azaltın*). Bu makalede özellikle kapsayan *içinde ölçeklendirmek* ve *çıkışı*.
+Örnek sayısına göre ölçeklendirme önce tarafından ölçeklendirme etkilenir düşünmelisiniz **fiyatlandırma katmanı** toplama tooinstance sayısı. Farklı fiyatlandırma katmanlarına sahip farklı numaraları çekirdek ve bellek ve bu nedenle bunlar olacaktır hello daha iyi performans örnekleri aynı sayıda (olduğu *ölçeği* veya *ölçeklendirmeyi azaltın*). Bu makalede özellikle kapsayan *içinde ölçeklendirmek* ve *çıkışı*.
 
-Portalda ölçeklendirebilirsiniz ve aynı zamanda [REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx) veya [.NET SDK'sı](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) ölçeği el ile veya otomatik olarak ayarlamak için.
+Merhaba Portalı'nda ölçeklendirebilirsiniz ve hello de kullanabilirsiniz [REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx) veya [.NET SDK'sı](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) tooadjust el ile veya otomatik olarak ölçeklendirin.
 
 > [!NOTE]
-> Bu makalede portalında bir otomatik ölçeklendirme ayarı oluşturmak nasıl [http://portal.azure.com](http://portal.azure.com). Bu Portalı'nda oluşturulan otomatik ölçeklendirme ayarlarını olamaz Klasik Portalı'nı düzenlenebilir ([http://manage.windowsazure.com](http://manage.windowsazure.com)).
+> Bu makalede nasıl hello portalında ayarını otomatik ölçeklendirme bir toocreate [http://portal.azure.com](http://portal.azure.com). Bu Portalı'nda oluşturulan otomatik ölçeklendirme ayarlarını olamaz hello Klasik portal düzenlenebilir ([http://manage.windowsazure.com](http://manage.windowsazure.com)).
 > 
 > 
 
 ## <a name="scaling-manually"></a>El ile ölçeklendirme
-1. İçinde [Azure Portal](https://portal.azure.com/), tıklatın **Gözat**, gibi ölçeklendirmek istediğiniz kaynak gidin bir **uygulama hizmeti planı**.
+1. Merhaba, [Azure Portal](https://portal.azure.com/), tıklatın **Gözat**, istediğiniz tooscale, gibi toohello kaynak gidin bir **uygulama hizmeti planı**.
 2. Tıklatın **ayarlar > Ölçek genişletme (uygulama hizmeti planı).**
-3. Üstündeki **ölçek** dikey hizmetinin otomatik ölçeklendirme eylemleri geçmişini görebilirsiniz.
+3. Merhaba hello üstündeki **ölçek** dikey penceresinde hello hizmetinin otomatik ölçeklendirme eylemleri geçmişini görebilirsiniz.
    
     ![Ölçek dikey penceresi](./media/insights-how-to-scale/Insights_ScaleBladeDayZero.png)
    
    > [!NOTE]
-   > Otomatik ölçeklendirme tarafından gerçekleştirilen eylemler Bu grafikte gösterir. Örnek sayısı el ile ayarlarsanız bu grafikte değişiklik yansıtılmaz.
+   > Otomatik ölçeklendirme tarafından gerçekleştirilen eylemler Bu grafikte gösterir. Merhaba örnek sayısı el ile ayarlarsanız bu grafikte hello değişiklik yansıtılmaz.
    > 
    > 
-4. Sayı el ile ayarlayabilirsiniz **örnekleri** kaydırıcı ile.
-5. Tıklatın **kaydetmek** komutunu ölçeklendirilmiş bu sayıda örneğe hemen.
+4. Merhaba numarasını el ile ayarlayabilirsiniz **örnekleri** kaydırıcı ile.
+5. Merhaba tıklatın **kaydetmek** komutunu olması toothat örneklerinin sayısını hemen ölçeklendirilmiş.
 
 ## <a name="scaling-based-on-a-pre-set-metric"></a>Üzerinde önceden ayarlanmış bir ölçümü tabanlı ölçeklendirme
-Otomatik olarak ayarlamak için örnek sayısı üzerinde bir ölçümü tabanlı istiyorsanız, istediğiniz ölçümü seçin **göre Ölçeklendirmeniz** açılır. Örneğin, bir **uygulama hizmeti planı** tarafından ölçeklendirebilirsiniz **CPU yüzdesi**.
+Merhaba sayısının üzerinde bir ölçümü tabanlı tooautomatically ayarlamak istiyorsanız, hello istediğiniz ölçümü seçin hello **göre Ölçeklendirmeniz** açılır. Örneğin, bir **uygulama hizmeti planı** tarafından ölçeklendirebilirsiniz **CPU yüzdesi**.
 
-1. Ölçüm seçtiğinizde kaydırıcıyı ve/veya, arasında ölçeklendirmek istediğiniz örneklerinin sayısını girmek için metin kutuları elde edersiniz:
+1. Ölçüm seçtiğinizde kaydırıcıyı elde edersiniz ve/veya, metin kutuları tooenter hello örnek sayısı arasında tooscale istiyor:
    
     ![Ölçek dikey CPU yüzdesi](./media/insights-how-to-scale/Insights_ScaleBladeCPU.png)
    
-    Otomatik ölçeklendirme, hizmetinizin altında veya olsun, yük ayarlamak sınırları üzerinde hiçbir zaman olur.
-2. İkinci olarak, metrik için hedef aralık seçin. Örneğin, seçtiğiniz **CPU yüzdesi**, bir hedef için ortalama CPU tüm örnekleri arasında hizmetinizi ayarlayabilirsiniz. Ortalama CPU tanımladığınız maksimum aştığında genişletme olacağını, ortalama CPU en düştüğünde her bir ölçek benzer şekilde, gerçekleşir.
-3. Tıklatın **kaydetmek** komutu. Otomatik ölçeklendirme, metrik için hedef ve örnek aralığı içinde olduğundan emin olmak için birkaç dakikada kontrol eder. Hizmetinizi ek trafiği aldığında, herhangi bir şey yapmadan daha fazla örnekleri alırsınız.
+    Otomatik ölçeklendirme, hizmetinizin altında veya olsun, yük ayarlamak hello sınırları üzerinde hiçbir zaman olur.
+2. İkinci olarak, hello ölçüm hello hedef aralığı seçin. Örneğin, seçtiğiniz **CPU yüzdesi**, bir hedef için ortalama CPU hello tüm hello örnekleri arasında hizmetinizi ayarlayabilirsiniz. Hello ortalama CPU tanımladığınız hello maksimum aştığında genişletme olacağını, hello ortalama CPU hello minimum bırakır her bir ölçek benzer şekilde, gerçekleşecek.
+3. Merhaba tıklatın **kaydetmek** komutu. Otomatik ölçeklendirme, ölçüm için hello örnek aralığı ve hedef olduğundan emin her birkaç dakika toomake kontrol eder. Hizmetinizi ek trafiği aldığında, herhangi bir şey yapmadan daha fazla örnekleri alırsınız.
 
 ## <a name="scale-based-on-other-metrics"></a>Diğer ölçümleri temel ölçek
-Temel alınarak ölçümleri görünür hazır dışında ölçeklendirebilirsiniz **göre Ölçeklendirmeniz** açılan listesinde ve hatta ölçek genişletme karmaşık kümesine sahiptir ve ölçeklendirme kuralları.
+Temel alınarak ölçümleri hello görünür hello hazır dışında ölçeklendirebilirsiniz **göre Ölçeklendirmeniz** açılan listesinde ve hatta ölçek genişletme karmaşık kümesine sahiptir ve ölçeklendirme kuralları.
 
 ### <a name="adding-or-changing-a-rule"></a>Ekleme veya bir kural değiştirme
-1. Seçin **zamanlama ve performans kuralları** içinde **göre Ölçeklendirmeniz** açılır: ![performans kuralları](./media/insights-how-to-scale/Insights_PerformanceRules.png)
-2. Üzerinde daha önce sahip olduğunuz otomatik ölçeklendirme, sahip olduğunuz kesin kurallar görünümünü görürsünüz.
-3. Başka bir ölçüm tıklatıldığında dayalı ölçek **Kuralı Ekle** satır. Ayrıca, daha önce tarafından ölçeklendirmek istediğiniz ölçümü için sahip olduğunuz ölçüm değiştirmek için varolan satırlardan birini de tıklatabilirsiniz.
+1. Merhaba seçin **zamanlama ve performans kuralları** hello içinde **göre Ölçeklendirmeniz** açılır: ![performans kuralları](./media/insights-how-to-scale/Insights_PerformanceRules.png)
+2. Üzerinde daha önce sahip olduğunuz otomatik ölçeklendirme, sahip olduğunuz hello kesin kurallar görünümünü görürsünüz.
+3. tooscale tabanlı üzerinde başka bir ölçüm tıklatın hello **Kuralı Ekle** satır. Biri de tıklayabilirsiniz hello varolan satırları toochange hello ölçüm gelen, daha önce tooscale tarafından istediğiniz toohello ölçüm sahip.
    ![Kural Ekle](./media/insights-how-to-scale/Insights_AddRule.png)
-4. Ölçüm seçmenize gerek artık tarafından ölçeklendirmek istiyorsunuz. Dikkate alınması gereken birkaç şey vardır ölçüm seçerken:
+4. Şimdi tarafından tooscale istediğiniz ölçüm tooselect gerekir. Bir ölçü yok seçerken olduğunda birkaç şey tooconsider:
    
-   * *Kaynak* ölçüm alanından gelir. Genellikle, bu ölçekleme kaynak ile aynı olacaktır. Ancak, bir depolama kuyruğu derinliği tarafından ölçeklendirmek istiyorsanız, kaynak tarafından ölçeklendirmek istediğiniz sıra değil.
-   * *Ölçüm adı* kendisi.
-   * *Zaman toplama* ölçümün. Bu nasıl veri birleştirme üzerinden numarasıdır *süresi*.
-5. Ölçüm seçtikten sonra ölçüm ve işlecini eşiği seçin. Örneğin, diyebilirsiniz **büyük** **% 80**.
-6. Ardından gerçekleştirmek istediğiniz eylemi seçin. Birkaç farklı türde eylemler vardır:
+   * Merhaba *kaynak* hello ölçüm gelir. Genellikle, bu olması hello ölçeklendirme hello kaynak ile aynı. Ancak, bir depolama kuyruğu hello derinliği tarafından tooscale istiyorsanız, hello kaynak tarafından tooscale istediğiniz hello sıra değil.
+   * Merhaba *ölçüm adı* kendisi.
+   * Merhaba *zaman toplama* hello ölçüsünün. Bu nasıl hello veri birleştirme hello numarasıdır *süresi*.
+5. Ölçüm seçtikten sonra hello ölçüm ve hello işleci hello eşiğini seçin. Örneğin, diyebilirsiniz **büyük** **% 80**.
+6. Merhaba eylemini seçin tootake istiyor. Birkaç farklı türde eylemler vardır:
    
-   * Bu Ekle veya Kaldır- azaltabileceğinden **değeri** tanımladığınız örneklerinin sayısı
-   * Artırma veya azaltma yüzde - Bu örnek sayısı bir oranında değiştirir. Örneğin, 25 içine **değeri** alan, ve 8 örnekleri şu anda olsaydı 2 eklenir.
-   * Artırmak veya azaltmak için - bu örnek sayısı ayarlanacağını **değeri** tanımlarsınız.
-7. Son olarak, aşağı - bu kural yeniden ölçeklendirmek için önceki ölçek eylemi sonra ne kadar beklemesi gerektiğini cool seçebilirsiniz.
+   * Artırma veya azaltma tarafından - bu ekleme veya hello kaldırma **değeri** tanımladığınız örneklerinin sayısı
+   * Artırma veya azaltma yüzde - bu bir yüzde hello örnek sayısı değiştirir. Örneğin, hello 25 koyabilirsiniz **değeri** alanında ve şu anda 8 örnekleri olsaydı, 2 eklenir.
+   * Artırma veya azaltma çok - bu hello örnek sayısı toohello ayarlar **değeri** tanımlarsınız.
+7. Son olarak, aşağı - bu kural hello önceki ölçek eylemi tooscale sonra yeniden ne kadar beklemesi gerektiğini cool seçebilirsiniz.
 8. Kural yapılandırdıktan sonra isabet **Tamam**.
-9. Tüm istediğiniz kuralları yapılandırdıktan sonra isabet mutlaka **kaydetmek** komutu.
+9. Tüm istediğiniz hello kuralları yapılandırdıktan sonra emin toohit hello olması **kaydetmek** komutu.
 
 ### <a name="scaling-with-multiple-steps"></a>Birden çok adımı ile ölçeklendirme
-Yukarıdaki örnek oldukça temel verilebilir. Ancak, Yukarı (veya aşağı) ölçeklendirme hakkında daha agresif olmasını istiyorsanız, bile aynı ölçümü için birden fazla ölçek kuralı ekleyebilirsiniz. Örneğin, CPU yüzdesi iki ölçek kurallar tanımlayabilirsiniz:
+Merhaba yukarıdaki oldukça temel olarak gösterilebilir. Toobe Yukarı (veya aşağı) ölçeklendirme hakkında daha agresif istiyorsanız, ancak, hatta birden fazla ölçek kuralları Merhaba aynı ekleyebileceğiniz ölçüm. Örneğin, CPU yüzdesi iki ölçek kurallar tanımlayabilirsiniz:
 
 1. CPU yüzdesi % 60 ise 1 örneği tarafından ölçeğini genişletme
 2. CPU yüzdesi % 85 ise 3 örnekleri tarafından ölçeğini genişletme
@@ -91,40 +91,40 @@ Yukarıdaki örnek oldukça temel verilebilir. Ancak, Yukarı (veya aşağı) ö
 Bu ek kuralıyla bir ölçek eylemi önce % 85 yük aşarsa, bir yerine iki ek örnekleri alırsınız.
 
 ## <a name="scale-based-on-a-schedule"></a>Bir zamanlamaya göre ölçeği
-Ölçek kuralı oluşturduğunuzda, varsayılan olarak, bu her zaman uygular. Profil başlığındaki tıklattığınızda, görebilirsiniz:
+Ölçek kuralı oluşturduğunuzda, varsayılan olarak, bu her zaman uygular. Hello profil başlığındaki tıklattığınızda, görebilirsiniz:
 
 ![Profil](./media/insights-how-to-scale/Insights_Profile.png)
 
-Ancak, daha katı gün veya hafta sırasında daha hafta sonlarında Ölçeklendirmesi isteyebilirsiniz. Hizmetinizi çalışma saatleri tamamen devre dışı bile kapatmak.
+Ancak, toohave daha agresif daha hello gün veya hello hafta sırasında hello hafta sonlarında ölçeklendirme isteyebilirsiniz. Hizmetinizi çalışma saatleri tamamen devre dışı bile kapatmak.
 
-1. Bu, sahip olduğunuz profilinde yapmak için seçin **yineleme** yerine **her zaman,** ve uygulanacak profili istediğiniz saatleri seçin.
-2. Örneğin, hafta içinde geçerli bir profil için **gün** açılır işaretini **Cumartesi** ve **Pazar**.
-3. Daytime sırasında geçerli bir profil olacak şekilde ayarlanmış **başlangıç zamanı** başlangıç istediğiniz saati için.
+1. toodo Bu, sahip olduğunuz hello profili seçin **yineleme** yerine **her zaman,** ve hello zaman hello profil tooapply istediğinizi seçin.
+2. Örneğin, toohave hello hello hafta sırasında geçerli bir profil **gün** açılır işaretini **Cumartesi** ve **Pazar**.
+3. toohave hello daytime, ayarlanmış hello sırasında geçerli bir profil **başlangıç zamanı** toostart adresindeki istediğiniz toohello saati.
    
     ![Varsayılan yineleme](./media/insights-how-to-scale/Insights_ProfileRecurrence.png)
 4. **Tamam** düğmesine tıklayın.
-5. Ardından, diğer saatlerde uygulamak istediğiniz profili eklemeniz gerekir. Tıklatın **eklemek profili** satır.
+5. Ardından, diğer saatlerde tooapply istediğiniz tooadd hello profil gerekir. Merhaba tıklatın **eklemek profili** satır.
     ![İş devre dışı](./media/insights-how-to-scale/Insights_ProfileOffWork.png)
 6. Yeni, ikinci, profil adı, örneğin çağırabilirsiniz **kapalı iş**.
-7. Ardından **yineleme** yeniden ve bu süre boyunca istediğiniz örnek sayısı aralığı seçin.
-8. Varsayılan profili ile seçerken **gün** , uygulamak için bu profili istediğiniz ve **başlangıç zamanı** gün.
+7. Ardından **yineleme** yeniden ve bu süre boyunca istediğiniz hello örnek sayısı aralığı seçin.
+8. Merhaba varsayılan profili hello seçerken **gün** çok ve hello bu profili tooapply istediğiniz **başlangıç zamanı** hello gün sırasında.
    
    > [!NOTE]
-   > Otomatik ölçeklendirme Yaz Saati kuralları hangisi için kullanacağınız **saat dilimi** seçin. UTC uzaklığı temel saat dilimi konumu, gün ışığından yararlanma tasarrufları UTC uzaklığı gösterir ancak günışığından sırasında.
+   > Otomatik ölçeklendirme hello Yaz Saati kuralları hangisi için kullanacağınız **saat dilimi** seçin. Merhaba UTC uzaklığı hello temel saat dilimi konumu, değil hello gün ışığından yararlanma UTC uzaklığı gösterir ancak günışığından sırasında.
    > 
    > 
 9. **Tamam** düğmesine tıklayın.
-10. Şimdi, ikinci profilinizi sırasında uygulamak istediğiniz her kuralları eklemeniz gerekir. Tıklatın **Kuralı Ekle**, ve ardından varsayılan profil sırasında sahip aynı kuralı oluşturabilir.
+10. Şimdi, kuralları tooadd ihtiyacınız olacak, ikinci bir profil sırasında tooapply istiyor. Tıklatın **Kuralı Ekle**, ve ardından aynı kural hello varsayılan profili sırasında sahip hello oluşturabilir.
     
-    ![İş kapalı Kuralı Ekle](./media/insights-how-to-scale/Insights_RuleOffWork.png)
-11. Genişleme için hem bir kural oluşturmak emin olun ve ölçek içinde or else sayımına profili sırasında yalnızca büyütür (azaltın veya).
+    ![Kural toooff iş ekleme](./media/insights-how-to-scale/Insights_RuleOffWork.png)
+11. Emin toocreate ölçek genişletme ve ölçek için her iki kural olmalıdır, veya başka hello sırasında profili hello örnek sayısı yalnızca büyütür (azaltın veya).
 12. Son olarak, tıklatın **kaydetmek**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [İzleme hizmeti ölçümleri](insights-how-to-customize-monitoring.md) hizmetinizi kullanılabilir ve yanıt verebilir durumda olduğundan emin olmak için.
-* [İzleme ve tanılama](insights-how-to-use-diagnostics.md) hizmetinizde ayrıntılı yüksek sıklıkta ölçümleri toplamak için.
+* [İzleme hizmeti ölçümleri](insights-how-to-customize-monitoring.md) toomake hizmetinizi kullanılabilir ve yanıt verebilir durumda olduğundan emin.
+* [İzleme ve tanılama](insights-how-to-use-diagnostics.md) toocollect ayrıntılı hizmetinizi yüksek sıklıkta ölçümleri.
 * İşletimsel olaylar gerçekleştiğinde ya da ölçümler bir eşiği aştığında [uyarı bildirimleri alın](insights-receive-alert-notifications.md).
-* [Uygulama performansı izleme](../application-insights/app-insights-azure-web-apps.md) tam olarak kodunuzu bulutta nasıl gerçekleştiriyor anlamak istiyorsanız.
-* [Olayları ve etkinlik günlüğü görüntüle](insights-debugging-with-events.md) hizmetinizi gerçekleştirilmedi her şeyi öğrenin.
+* [Uygulama performansı izleme](../application-insights/app-insights-azure-web-apps.md) tam olarak kodunuzu hello bulutta nasıl gerçekleştiriyor toounderstand istiyorsanız.
+* [Olayları ve etkinlik günlüğü görüntüle](insights-debugging-with-events.md) toolearn her şeyi içeren hizmetinizi gerçekleştirilmedi.
 * [Kullanılabilirlik ve yanıt hızını herhangi bir web sayfası izleme](../application-insights/app-insights-monitor-web-app-availability.md) , sayfanızın aşağı olup olmadığını öğrenmek için Application Insights ile.
 

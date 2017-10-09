@@ -1,6 +1,6 @@
 ---
-title: "İçin veya SSIS bağlayıcıları kullanarak Azure Blob storage'da veri taşıma | Microsoft Docs"
-description: "Veri veya SSIS bağlayıcıları kullanarak Azure Blob depolama biriminden taşıyın."
+title: "SSIS bağlayıcıları kullanarak Azure Blob depolama biriminden aaaMove veri tooor | Microsoft Docs"
+description: "Veri tooor SSIS bağlayıcıları kullanarak Azure Blob depolama alanından taşıyın."
 services: machine-learning,storage
 documentationcenter: 
 author: bradsev
@@ -14,78 +14,78 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.openlocfilehash: 575beaea5443919bd9728016bf100b43de8e4aab
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 15068af1c69f11e74e109ee5ae2b9f1a674ea388
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Veri veya SSIS bağlayıcıları kullanarak Azure Blob depolama biriminden taşıyın
-[Azure için SQL Server Integration Services Feature Pack](https://msdn.microsoft.com/library/mt146770.aspx) , Azure'a bağlanmak için Azure ve şirket içi veri kaynakları ve Azure'da depolanan verileri işlemek arasında veri aktarımı bileşenleri sağlar.
+# <a name="move-data-tooor-from-azure-blob-storage-using-ssis-connectors"></a>SSIS bağlayıcıları kullanarak Azure Blob depolama alanından veri tooor Taşı
+Merhaba [Azure için SQL Server Integration Services Feature Pack](https://msdn.microsoft.com/library/mt146770.aspx) bileşenleri tooconnect tooAzure, Azure ve şirket içi veri kaynakları ve Azure'da depolanan verileri işlemek arasında veri aktarımı sağlar.
 
 [!INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
-Müşterilerin şirket içi veri bulutunu taşırken, bunlar Azure teknolojiler paketimiz gücünü yararlanmak için tüm Azure hizmetinden erişebilir. Bu, örneğin, Azure Machine Learning veya Hdınsight kümesinde kullanılabilir.
+Müşterilerin şirket içi veri hello bulutunu taşırken, bunlar tüm Azure hizmeti tooleverage hello tam güç Azure teknolojilerinin hello takımının erişebilir. Bu, örneğin, Azure Machine Learning veya Hdınsight kümesinde kullanılabilir.
 
-Genellikle olması için ilk adım budur [SQL](machine-learning-data-science-process-sql-walkthrough.md) ve [Hdınsight](machine-learning-data-science-process-hive-walkthrough.md) izlenecek yollar.
+Bu genellikle Merhaba hello ilk adım olabilir [SQL](machine-learning-data-science-process-sql-walkthrough.md) ve [Hdınsight](machine-learning-data-science-process-hive-walkthrough.md) izlenecek yollar.
 
-Bir iş gereksinimlerini karma veri tümleştirme senaryolarına genel gerçekleştirmek için SSIS kullanan kurallı senaryoları tartışma için bkz [Bunun SQL Server Integration Services Feature Pack Azure ile daha](http://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx) blogu.
+Karma veri tümleştirme senaryolarına genel tartışma SSIS tooaccomplish iş kullanan kurallı senaryoları için gereken için bkz: [Bunun SQL Server Integration Services Feature Pack Azure ile daha](http://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx) blogu.
 
 > [!NOTE]
-> Azure blob depolama tam bir giriş için bkz [Azure Blob Temelleri](../storage/blobs/storage-dotnet-how-to-use-blobs.md) ve [Azure Blob hizmeti](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+> Bir tam giriş tooAzure blob depolama çok başvuran[Azure Blob Temelleri](../storage/blobs/storage-dotnet-how-to-use-blobs.md) ve çok[Azure Blob hizmeti](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 > 
 > 
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu makalede açıklanan görevleri gerçekleştirmek için bir Azure aboneliği ve kurulu bir Azure depolama hesabınız olması gerekir. Karşıya yükleme veya veri yüklemek için Azure depolama hesabı adını ve hesap anahtarını bilmesi gerekir.
+tooperform başlangıç görevleri bu makalede açıklanan bir Azure aboneliği ve kurulu bir Azure depolama hesabınız olması gerekir. Azure depolama hesabı adı ve hesap anahtarı tooupload bilmeniz veya veri indirin.
 
-* Ayarlamak için bir **Azure aboneliği**, bkz: [ücretsiz bir aylık deneme](https://azure.microsoft.com/pricing/free-trial/).
+* Yukarı tooset bir **Azure aboneliği**, bkz: [ücretsiz bir aylık deneme](https://azure.microsoft.com/pricing/free-trial/).
 * Oluşturma yönergeleri için bir **depolama hesabı** ve hesabı ve anahtarı bilgilerini almak için bkz: [Azure storage hesapları hakkında](../storage/common/storage-create-storage-account.md).
 
-Kullanılacak **SSIS Bağlayıcılar**, karşıdan yüklemeniz gerekir:
+toouse hello **SSIS Bağlayıcılar**, karşıdan yüklemeniz gerekir:
 
 * **SQL Server 2014 veya 2016 standart (veya üstü)**: Install SQL Server Integration Services içerir.
-* **Microsoft SQL Server 2014 veya 2016 tümleştirme hizmetleri özellik paketi Azure**: Bunlar indirilebilir, sırasıyla gelen [SQL Server 2014 Integration Services](http://www.microsoft.com/download/details.aspx?id=47366) ve [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) sayfaları.
+* **Microsoft SQL Server 2014 veya 2016 tümleştirme hizmetleri özellik paketi Azure**: Bunlar, sırasıyla hello indirilebilir [SQL Server 2014 Integration Services](http://www.microsoft.com/download/details.aspx?id=47366) ve [SQL Server 2016 tümleştirmesi Hizmetleri](https://www.microsoft.com/download/details.aspx?id=49492) sayfaları.
 
 > [!NOTE]
-> SSIS SQL Server ile birlikte yüklenir, ancak Express sürümünde bulunmaz. Hangi uygulamaların çeşitli SQL Server sürümlerinde bulunan hakkında daha fazla bilgi için bkz: [SQL Server sürümleri](http://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)
+> SSIS SQL Server ile birlikte yüklenir, ancak hello Express sürümüne dahil değil. Hangi uygulamaların çeşitli SQL Server sürümlerinde bulunan hakkında daha fazla bilgi için bkz: [SQL Server sürümleri](http://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)
 > 
 > 
 
 SSIS üzerinde eğitim malzemelerini için bkz: [SSIS üzerinde ellerini eğitim](http://www.microsoft.com/download/details.aspx?id=20766)
 
-Yukarı ve çalışan alma hakkında bilgi için kullanmaya SISS basit ayıklama, dönüştürme ve yükleme (ETL) paketleri, bkz: derleme [SSIS Öğreticisi: basit bir ETL paket oluşturma](https://msdn.microsoft.com/library/ms169917.aspx).
+Hakkında bilgi için tooget yukarı ve-çalışan SISS toobuild basit ayıklama, dönüştürme ve yükleme (ETL) paketleri kullanarak bkz [SSIS Öğreticisi: basit bir ETL paket oluşturma](https://msdn.microsoft.com/library/ms169917.aspx).
 
 ## <a name="download-nyc-taxi-dataset"></a>NYC ücreti dataset indirin
-Açıklanan örneği burada genel kullanıma açık bir veri kümesi--kullanmak [NYC ücreti dönüşleri](http://www.andresmh.com/nyctaxitrips/) veri kümesi. Veri kümesi hakkında 173 milyon ücreti üstündeçalýþan NYC içinde 2013 yıl oluşur. İki tür veri vardır: seyahat ayrıntıları veri ve ücreti verileri. Her ay için bir dosya gibi her biri sıkıştırılmamış yaklaşık 2 GB ise tüm 24 dosyalarında sahibiz.
+Merhaba açıklanan örneği burada kullanmak genel kullanıma açık bir veri kümesi--hello [NYC ücreti dönüşleri](http://www.andresmh.com/nyctaxitrips/) veri kümesi. yaklaşık 173 milyon ücreti üstündeçalýþan NYC içinde hello yılın 2013 Hello dataset oluşur. İki tür veri vardır: seyahat ayrıntıları veri ve ücreti verileri. Her ay için bir dosya gibi her biri sıkıştırılmamış yaklaşık 2 GB ise tüm 24 dosyalarında sahibiz.
 
-## <a name="upload-data-to-azure-blob-storage"></a>Azure blob depolama alanına veri yükleme
-Örneği kullanırız SSIS kullanarak verileri özellik paketi şirket içi Azure blob depolama birimine taşımak için [ **Azure Blob karşıya yükleme görev**](https://msdn.microsoft.com/library/mt146776.aspx), burada gösterilen:
+## <a name="upload-data-tooazure-blob-storage"></a>Veri tooAzure blob depolama yükleme
+Merhaba SSIS kullanarak toomove veri özellik paketi şirket içi tooAzure blob depolama biriminden, hello örneği kullanırız [ **Azure Blob karşıya yükleme görev**](https://msdn.microsoft.com/library/mt146776.aspx), burada gösterilen:
 
 ![yapılandırma verileri-Bilim-vm](./media/machine-learning-data-science-move-data-to-azure-blob-using-ssis/ssis-azure-blob-upload-task.png)
 
-Görev kullandığı Parametreler aşağıda açıklanmıştır:
+Görev kullanır hello hello parametreler burada açıklanan şunlardır:
 
 | Alan | Açıklama |
 | --- | --- |
-| **AzureStorageConnection** |Blob dosyaları barındırıldığı işaret eden bir Azure depolama hesabı başvurduğu yeni bir tane oluşturur veya mevcut bir Azure depolama Bağlantı Yöneticisi belirtir. |
-| **BlobContainer** |Karşıya yüklenen dosyaların bloblar tutun blob kapsayıcı adını belirtir. |
-| **BlobDirectory** |Bir blok blobu olarak karşıya yüklenen dosyanın depolandığı blob dizini belirtir. Blob dizini sanal hiyerarşik bir yapıdır. Blob zaten varsa, BT IA değiştirildi. |
-| **LocalDirectory** |Karşıya yüklenecek dosyalarını içeren yerel dizini belirtir. |
-| **Dosya adı** |Belirtilen ad düzendeki dosyaları seçmek için bir ad filtre belirtir. Örneğin, MySheet\*.xls\* MySheet001.xls ve MySheetABC.xlsx gibi dosyalarını içerir |
+| **AzureStorageConnection** |Yeni bir toowhere hello blob dosyaları işaret tooan Azure depolama hesabı başvuran bir barındırıldığı oluşturur veya mevcut bir Azure depolama Bağlantı Yöneticisi belirtir. |
+| **BlobContainer** |Karşıya hello dosyaları BLOB olarak tutun hello blob kapsayıcısı Hello adını belirtir. |
+| **BlobDirectory** |Bir blok blobu olarak hello karşıya yüklenen dosyanın depolandığı hello blob dizini belirtir. Merhaba blob dizini sanal hiyerarşik bir yapıdır. Merhaba blob zaten varsa, BT IA değiştirildi. |
+| **LocalDirectory** |Karşıya hello dosyaları toobe içeren hello yerel dizini belirtir. |
+| **Dosya adı** |Bir ad filtre tooselect dosyaları hello belirtilen ad deseni ile belirtir. Örneğin, MySheet\*.xls\* MySheet001.xls ve MySheetABC.xlsx gibi dosyalarını içerir |
 | **TimeRangeFrom/TimeRangeTo** |Bir zaman aralığı filtresini belirtir. Değiştirilen dosyaları sonra *TimeRangeFrom* ve önce *TimeRangeTo* dahil edilir. |
 
 > [!NOTE]
-> **AzureStorageConnection** kimlik bilgilerinin doğru olması gerekir ve **BlobContainer** aktarımı denenmeden önce mevcut olması gerekir.
+> Merhaba **AzureStorageConnection** kimlik bilgilerine ihtiyacınız toobe doğru ve hello **BlobContainer** hello aktarımı denenmeden önce mevcut olması gerekir.
 > 
 > 
 
 ## <a name="download-data-from-azure-blob-storage"></a>Verileri Azure blob depolama alanından karşıdan yükleme
-SSIS ile şirket içi depolama için Azure blob depolama alanından veri indirmek için bir örneğini kullanması [Azure Blob karşıya yükleme görev](https://msdn.microsoft.com/library/mt146779.aspx).
+Azure blob depolama tooon içi depolama SSIS ile toodownload verileri kullan hello örneği [Azure Blob karşıya yükleme görev](https://msdn.microsoft.com/library/mt146779.aspx).
 
 ## <a name="more-advanced-ssis-azure-scenarios"></a>Daha gelişmiş SSIS Azure senaryoları
-SSIS özellik paketi birlikte paketleme görevler tarafından işlenecek daha karmaşık akışlar için sağlar. Örneğin, blob verilerini doğrudan bir Hdınsight kümesinde, çıktısı geri blob ve şirket içi depolama karşıdan yüklenemedi akış. SSIS Hive veya Pig işleri ek SSIS bağlayıcıları kullanarak bir Hdınsight kümesine çalıştırabilirsiniz:
+Merhaba SSIS özellik paketi için daha karmaşık akışları toobe birlikte paketleme görevler tarafından işlenen sağlar. Örneğin, hello blob verilerini çıktısı geri tooa blob ve şirket içi tooon depolama karşıdan yüklenemedi doğrudan bir Hdınsight kümesine, akış. SSIS Hive veya Pig işleri ek SSIS bağlayıcıları kullanarak bir Hdınsight kümesine çalıştırabilirsiniz:
 
-* SSIS ile Azure Hdınsight kümesinde bir Hive betiği çalıştırmak için kullandığınız [Azure Hdınsight Hive görev](https://msdn.microsoft.com/library/mt146771.aspx).
-* Azure Hdınsight kümesinde SSIS ile Pig betiği çalıştırmak için kullandığınız [Azure Hdınsight Pig görev](https://msdn.microsoft.com/library/mt146781.aspx).
+* bir Azure hdınsight'ta Hive betiğini küme SSIS, kullanım toorun [Azure Hdınsight Hive görev](https://msdn.microsoft.com/library/mt146771.aspx).
+* Pig betiği Azure hdınsight küme SSIS, kullanım toorun [Azure Hdınsight Pig görev](https://msdn.microsoft.com/library/mt146781.aspx).
 

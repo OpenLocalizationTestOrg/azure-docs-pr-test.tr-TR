@@ -1,6 +1,6 @@
 ---
-title: "Uygulama yükseltme sorunlarını giderme | Microsoft Docs"
-description: "Bu makale, Service Fabric uygulaması ve bunların nasıl çözüleceği yükseltme geçici bazı yaygın sorunları ele alır."
+title: "aaaTroubleshooting uygulama yükseltmelerini | Microsoft Docs"
+description: "Bu makalede bir Service Fabric uygulama yükseltme geçici bazı yaygın sorunları ele alır ve nasıl tooresolve bunları."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,35 +14,35 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: f7f6bc0c29e2b43fbc8e451c5a4a50110b78349e
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 0f56fa61db9b4e32824623f162dc1bfe7fda0f49
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-application-upgrades"></a>Uygulama yükseltme ile ilgili sorunları giderme
-Bu makalede bazı Azure Service Fabric uygulama ve bunların nasıl çözüleceği yükseltme geçici yaygın sorunların çoğunu kapsar.
+Bu makalede bazı Azure Service Fabric uygulama yükseltme geçici hello yaygın sorunların çoğunu kapsar ve nasıl tooresolve bunları.
 
 ## <a name="troubleshoot-a-failed-application-upgrade"></a>Başarısız uygulama yükseltme sorunlarını giderme
-Yükseltme başarısız olduğunda, çıktısını **Get-ServiceFabricApplicationUpgrade** komutu hata ayıklama için ek bilgiler içerir.  Aşağıdaki listede, ek bilgiler nasıl kullanılabileceğini belirtir:
+Yükseltme başarısız olduğunda, hello hello çıktısını **Get-ServiceFabricApplicationUpgrade** komutu hello hata ayıklama için ek bilgiler içerir.  Merhaba aşağıdaki listede hello ek bilgiler nasıl kullanılabileceğini belirtir:
 
-1. Hata türünü tanımlayın.
-2. Hatanın nedenini belirleyin.
+1. Merhaba hatası türünü tanımlayın.
+2. Merhaba hatanın nedenini belirleyin.
 3. Daha fazla araştırma için bir veya daha fazla başarısız olan bileşenleri yalıtma.
 
-Service Fabric mi bakılmaksızın hatası algıladığında, bu bilgiler kullanılabilir **FailureAction** geri alma veya yükseltme askıya alma.
+Service Fabric hello hatası bağımsız olarak, hello olup olmadığını algıladığında, bu bilgiler kullanılabilir **FailureAction** tooroll geri veya hello yükseltme askıya alın.
 
-### <a name="identify-the-failure-type"></a>Hata türünü tanımlayın
-Çıktısı olarak **Get-ServiceFabricApplicationUpgrade**, **FailureTimestampUtc** , bir yükseltme hatasına Service Fabric tarafından algılandı zaman damgası (UTC) olarak tanımlar ve  **FailureAction** tetiklendi. **FailureReason** hatanın olası üç üst düzey nedenlerden biri tanımlar:
+### <a name="identify-hello-failure-type"></a>Merhaba hatası türünü tanımlayın
+Merhaba çıktısını içinde **Get-ServiceFabricApplicationUpgrade**, **FailureTimestampUtc** , bir yükseltme hatasına Service Fabric tarafından algılandı hello zaman damgası (UTC) olarak tanımlar ve  **FailureAction** tetiklendi. **FailureReason** hello hatanın olası üç üst düzey nedenlerden biri tanımlar:
 
-1. UpgradeDomainTimeout - gösteren belirli bir yükseltme etki alanı tamamlanması çok uzun sürdü ve **UpgradeDomainTimeout** süresi doldu.
-2. OverallUpgradeTimeout - gösterir genel yükseltmenin tamamlanması çok uzun sürdü ve **UpgradeTimeout** süresi doldu.
-3. Durum denetimi - bir güncelleştirme etki alanını yükselttikten sonra uygulamaya göre belirtilen sistem durumu ilkeleri sağlıksız kalan olduğunu gösterir ve **HealthCheckRetryTimeout** süresi doldu.
+1. UpgradeDomainTimeout - gösteren belirli bir yükseltme etki alanı toocomplete çok uzun sürdü ve **UpgradeDomainTimeout** süresi doldu.
+2. OverallUpgradeTimeout - gösterir genel yükseltme Bu hello toocomplete çok uzun sürdü ve **UpgradeTimeout** süresi doldu.
+3. Durum denetimi - belirten bir güncelleştirme etki alanını yükselttikten sonra Merhaba uygulaması sağlıksız kalan olduğunu toohello according belirtilen sistem durumu ilkeleri ve **HealthCheckRetryTimeout** süresi doldu.
 
-Yükseltme başarısız olur ve geri alma başladığında bu girişler yalnızca çıktıda gösterilir. Daha fazla bilgi hata türüne bağlı olarak görüntülenir.
+Hello yükseltme başarısız olur ve geri alma başladığında bu girişler yalnızca hello çıkışında görünür. Daha fazla bilgi hello hatası hello türüne bağlı olarak görüntülenir.
 
 ### <a name="investigate-upgrade-timeouts"></a>Yükseltme zaman aşımı araştırın
-Zaman aşımı hataları tarafından hizmet kullanılabilirliği sorunlarını yaygın hatalardır yükseltin. Bu paragraf aşağıdaki çıktı burada yeni kod sürümü başlatmak hizmet çoğaltmaları veya örnekleri başarısız yükseltme normaldir. **UpgradeDomainProgressAtFailure** alan tüm bekleyen yükseltme çalışmanın hatanın zamanında anlık görüntüsünü yakalar.
+Zaman aşımı hataları tarafından hizmet kullanılabilirliği sorunlarını yaygın hatalardır yükseltin. Bu paragraf aşağıdaki hello çıkış nerede hizmet çoğaltmaları veya örnekleri toostart hello yeni kod sürümünde başarısız yükseltme normaldir. Merhaba **UpgradeDomainProgressAtFailure** alan tüm bekleyen yükseltme çalışmanın hatanın hello zamanında anlık görüntüsünü yakalar.
 
 ```
 PS D:\temp> Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
@@ -78,16 +78,16 @@ ForceRestart                   : False
 UpgradeReplicaSetCheckTimeout  : 00:00:00
 ```
 
-Bu örnekte, yükseltme başarısız yükseltme etki alanında *MYUD1* ve iki bölüm (*744c8d9f-1d26-417e-a60e-cd48f5c098f0* ve *4b43f4d8-b26b-424e-9307-7a7a62e79750*) takılmış. Çalışma zamanı birincil çoğaltmalara yerleştiremedi çünkü bölümleri takılmış (*WaitForPrimaryPlacement*) hedef düğümleri üzerinde *Düğüm1* ve *Düğüm4*.
+Bu örnekte, hello yükseltme başarısız yükseltme etki alanında *MYUD1* ve iki bölüm (*744c8d9f-1d26-417e-a60e-cd48f5c098f0* ve *4b43f4d8-b26b-424e-9307-7a7a62e79750*) takılmış. Merhaba bölümleri takılmış hello çalışma zamanı yüklenemiyor tooplace birincil çoğaltma olduğundan (*WaitForPrimaryPlacement*) hedef düğümleri üzerinde *Düğüm1* ve *Düğüm4*.
 
-**Get-ServiceFabricNode** komutu, bu iki düğüm yükseltme etki alanında olduğunu doğrulamak için kullanılabilir *MYUD1*. *UpgradePhase* diyor *PostUpgradeSafetyCheck*, yükseltme etki alanındaki tüm düğümleri yükseltme işlemi tamamlandıktan sonra bu güvenlik denetimleri yaşanan anlamına gelir. Bu bilgiler, uygulama kodu yeni sürümü ile olası bir sorunu işaret eder. En yaygın sorunları, açın veya birincil kod yollarının yükseltmesine hizmet hatalardır.
+Merhaba **Get-ServiceFabricNode** komutu, bu iki düğüm yükseltme etki alanında olduğundan kullanılan tooverify olabilir *MYUD1*. Merhaba *UpgradePhase* diyor *PostUpgradeSafetyCheck*, hello yükseltme etki alanındaki tüm düğümleri yükseltme işlemi tamamlandıktan sonra bu güvenlik denetimleri yaşanan anlamına gelir. Bu bilgiler hello uygulama kodunun hello yeni sürümüyle tooa olası sorunu işaret eder. Merhaba en sık karşılaşılan sorunları hello açık veya promosyon tooprimary kod yollarının hizmet hatalardır.
 
-Bir *UpgradePhase* , *PreUpgradeSafetyCheck* gerçekleştirilip gerçekleştirilmediğine önce yükseltme etki alanını hazırlama sorunları vardı anlamına gelir. En yaygın sorunları bu durumda hizmet kapatma ya da birincil kod yollarından indirgeme hatalardır.
+Bir *UpgradePhase* , *PreUpgradeSafetyCheck* gerçekleştirilip gerçekleştirilmediğine önce hello yükseltme etki alanını hazırlama sorunları vardı anlamına gelir. Merhaba en sık karşılaşılan sorunları bu durumda hizmet hello kapatın veya birincil kod yollarından indirgeme hatalardır.
 
-Geçerli **UpgradeState** olan *RollingBackCompleted*, özgün yükseltmeyi geri alma ile gerçekleştirilen gerekir böylece **FailureAction**, hangi otomatik olarak toplama hata sonrasında yükseltme yedekleyin. Özgün yükseltme el ile gerçekleştirdiyseniz **FailureAction**, sonra da yükseltme yerine canlı izin vermek için askıya alınmış durumda uygulamayı hata ayıklama.
+Merhaba geçerli **UpgradeState** olan *RollingBackCompleted*, hello özgün yükseltmeyi geri alma ile gerçekleştirilen gerekir böylece **FailureAction**, hangi otomatik olarak hata sonrasında hello yükseltme geri alındı. Merhaba özgün yükseltme el ile gerçekleştirdiyseniz **FailureAction**, sonra da hello yükseltme yerine bir hello uygulamasının hata ayıklama Canlı askıya alınma durumundaysa tooallow olacaktır.
 
 ### <a name="investigate-health-check-failures"></a>Sistem durumu denetimi hatalarını Araştır
-Sistem durumu denetimi hataları bir yükseltme etki alanındaki tüm düğümleri yükseltme ve tüm güvenlik denetimleri geçirme işlemini tamamladıktan sonra oluşabilecek çeşitli sorunları tarafından tetiklenebilir. Bu paragraf aşağıdaki çıktı yükseltme bir hata nedeniyle başarısız durumu denetimleri normaldir. **UnhealthyEvaluations** alan belirtilen göre yükseltme zamanda başarısız durumu denetimleri görüntüsünü yakalar [sistem durumu ilkesi](service-fabric-health-introduction.md).
+Sistem durumu denetimi hataları bir yükseltme etki alanındaki tüm düğümleri yükseltme ve tüm güvenlik denetimleri geçirme işlemini tamamladıktan sonra oluşabilecek çeşitli sorunları tarafından tetiklenebilir. Bu paragraf aşağıdaki hello çıktı toofailed durumu denetimleri nedeniyle yükseltme bir hatanın normaldir. Merhaba **UnhealthyEvaluations** alan belirtilen toohello göre hello yükseltme hello aynı anda başarısız durumu denetimleri görüntüsünü yakalar [sistem durumu ilkesi](service-fabric-health-introduction.md).
 
 ```
 PS D:\temp> Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
@@ -141,22 +141,22 @@ MaxPercentUnhealthyDeployedApplications :
 ServiceTypeHealthPolicyMap              :
 ```
 
-Sistem durumu denetimi hataları araştırılıyor ilk Service Fabric sistem durumu modeli bilinmesini gerektirir. Ancak bile bu tür bir ayrıntılı anlama olmadan, iki hizmet sağlıksız olduğunu görebiliriz: *fabric: / DemoApp/Svc3* ve *fabric: / DemoApp/Svc2*, hata sistem durumu raporlarının ("InjectedFault" ile birlikte Bu durumda). Bu örnekte, iki dışı dört Hizmetleri %0 sağlıksız varsayılan hedef olduğu sağlıksız, (*MaxPercentUnhealthyServices*).
+Sistem durumu denetimi hataları araştırılıyor ilk hello Service Fabric sistem durumu modeli bilinmesini gerektirir. Ancak bile bu tür bir ayrıntılı anlama olmadan, iki hizmet sağlıksız olduğunu görebiliriz: *fabric: / DemoApp/Svc3* ve *fabric: / DemoApp/Svc2*, hello hata durum raporu ("InjectedFault birlikte "Bu durumda). Bu örnekte, iki dışı dört Hizmetleri %0 sağlıksız hello varsayılan hedef olduğu sağlıksız, (*MaxPercentUnhealthyServices*).
 
-Yükseltme sırasında başarısız olan belirterek askıya alındı bir **FailureAction** yükseltme başlatırken elle. Bu mod başka eylemi gerçekleştirmeden önce başarısız durumda Canlı sistem araştırmanıza olanak tanır.
+Merhaba yükseltme sırasında başarısız olan belirterek askıya alındı bir **FailureAction** el ile olduğunda yükseltme hello başlatılıyor. Bu mod, başka bir eylem gerçekleştirmeden önce bize tooinvestigate hello Canlı sistem hello başarısız durumda sağlar.
 
 ### <a name="recover-from-a-suspended-upgrade"></a>Askıya alınmış bir yükseltmeyi kurtarmak
-Bir geri alma ile **FailureAction**, yükseltme otomatik olarak geri başarısız olan temel alındığında olmadığından gerekli hiçbir kurtarma yok. El ile **FailureAction**, çeşitli kurtarma seçenekler vardır:
+Bir geri alma ile **FailureAction**, hello yükseltme otomatik olarak geri başarısız olan temel alındığında olmadığından gerekli hiçbir kurtarma yok. El ile **FailureAction**, çeşitli kurtarma seçenekler vardır:
 
 1.  Tetikleyici bir geri alma
-2. Yükseltme geri kalanı el ile devam edin
-3. İzlenen yükseltmeyi sürdürün
+2. Merhaba yükseltme Hello kalanı el ile devam edin
+3. Yükseltme devam hello izlenen
 
-**Başlangıç ServiceFabricApplicationRollback** komutu uygulama geri başlatmak için herhangi bir zamanda kullanılabilir. Komut başarıyla döndüğünde, geri alma isteği sistemde kayıtlı ve kısa süre içinde bundan sonra başlatır.
+Merhaba **başlangıç ServiceFabricApplicationRollback** Merhaba uygulaması geri hiçbir zaman toostart komutu kullanılabilir. Merhaba komutu başarıyla döndüğünde hello geri alma isteği hello sistemde kayıtlı ve kısa süre içinde bundan sonra başlar.
 
-**Resume-ServiceFabricApplicationUpgrade** komutu, yükseltme geri kalanı el ile devam etmek için kullanılabilir bir seferde bir yükseltme etki alanı. Bu modda, yalnızca güvenlik denetimleri sistem tarafından gerçekleştirilir. Daha fazla sistem durumu denetimleri yapılır. Bu komut yalnızca olabilir kullanılır *UpgradeState* gösterir *RollingForwardPending*, başka bir deyişle, geçerli yükseltme etki alanı yükseltmeyi tamamladı. ancak bir sonraki (Bekleyen) başlatılmadı.
+Merhaba **Resume-ServiceFabricApplicationUpgrade** komutu kullanılabilir hello hello kalanı aracılığıyla tooproceed yükseltme el ile bir seferde bir yükseltme etki alanı. Bu modda, yalnızca güvenlik denetimleri hello sistem tarafından gerçekleştirilir. Daha fazla sistem durumu denetimleri yapılır. Bu komut yalnızca hello kullanılabilir *UpgradeState* gösterir *RollingForwardPending*, o hello geçerli yükseltme etki alanı başka bir deyişle, yükseltmeyi tamamladı. ancak hello sonraki bir (Bekleyen) başlatılmadı.
 
-**Güncelleştirme ServiceFabricApplicationUpgrade** komutu, her iki güvenlik izlenen yükseltmeye devam etmek için kullanılabilir ve sistem durumu gerçekleştirilen denetler.
+Merhaba **güncelleştirme ServiceFabricApplicationUpgrade** kullanılan tooresume izlenen hello güvenlik ve sistem durumu denetimleri yükseltmeye olan yapılabilir komutu.
 
 ```
 PS D:\temp> Update-ServiceFabricApplicationUpgrade fabric:/DemoApp -UpgradeMode Monitored
@@ -180,36 +180,36 @@ ServiceTypeHealthPolicyMap              :
 PS D:\temp>
 ```
 
-Yükseltme devam eder burada son askıya alındı yükseltme etki alanı ve aynı parametreleri ve önce sistem durumu ilkeleri olarak yükseltme kullanın. Yükseltme devam ettiğinde gerekirse, tüm yükseltme parametreleri ve yukarıdaki çıktıda gösterilen sistem durumu ilkeleri aynı komutta değiştirilebilir. Bu örnekte, izlenen modunda, parametreleri ve değişmeden sistem durumu ilkeleri ile yükseltme devam ediyor.
+Burada son askıya alındı hello yükseltme etki alanı ve aynı parametreleri ve önce sistem durumu ilkeleri olarak yükseltme kullanım hello Hello yükseltme devam eder. Gerekirse, tüm hello yükseltme parametreleri ve sistem durumu ilkeleri çıkış önceki hello gösterilen hello yükseltme devam ettiğinde aynı komut hello değiştirilebilir. Bu örnekte, hello parametreleri ve değişmeden hello sistem durumu ilkeleri ile izlenen modda hello yükseltme devam ediyor.
 
 ## <a name="further-troubleshooting"></a>Daha fazla sorun giderme
-### <a name="service-fabric-is-not-following-the-specified-health-policies"></a>Service Fabric belirtilen sistem durumu ilkeleri aşağıdaki değil
+### <a name="service-fabric-is-not-following-hello-specified-health-policies"></a>Service Fabric belirtilen hello değil aşağıdaki sistem durumu ilkeleri
 Olası neden 1:
 
-Service Fabric sistem durumu değerlendirmesi için (örneğin, çoğaltmalar, bölümler ve Hizmetler) varlıkların gerçek sayılar tüm yüzdeleri çevirir ve her zaman tüm varlıklara yukarı yuvarlar. Örneğin, maksimum *MaxPercentUnhealthyReplicasPerPartition* % 21 olduğunu ve beş çoğaltmalar, en fazla iki sağlıksız çoğaltmaları Service Fabric sağlar (diğer bir deyişle,`Math.Ceiling (5*0.21)`). Bu nedenle, sistem durumu ilkeleri uygun şekilde ayarlamanız gerekir.
+Service Fabric tüm yüzdeleri varlıkların (örneğin, çoğaltmalar, bölümler ve Hizmetler) gerçek sayılara için sistem durumu değerlendirmesi dönüşür ve her zaman toowhole varlıklar yuvarlar. Örneğin, Merhaba, en fazla *MaxPercentUnhealthyReplicasPerPartition* % 21 olduğunu ve beş çoğaltmalar, Service Fabric tootwo sağlıksız çoğaltmaları yedeklemek sağlar (diğer bir deyişle,`Math.Ceiling (5*0.21)`). Bu nedenle, sistem durumu ilkeleri uygun şekilde ayarlamanız gerekir.
 
 Olası neden 2:
 
-Sistem durumu ilkeleri toplam Hizmetleri ve özgü olmayan hizmet örnekleri yüzdelerini bakımından belirtilir. Örneğin, bir uygulama dört varsa, yükseltme önce hizmeti D sağlıksız olduğu ancak uygulama için çok az etkisi olan hizmet örnekleri A, B, C ve D. Yükseltme sırasında bilinen sağlıksız Hizmeti D yoksay ve parametre kümesini istiyoruz *MaxPercentUnhealthyServices* yalnızca A varsayılarak % 25 B ve C sağlıklı olması gerekir.
+Sistem durumu ilkeleri toplam Hizmetleri ve özgü olmayan hizmet örnekleri yüzdelerini bakımından belirtilir. Örneğin, bir uygulama dört varsa, yükseltme önce hizmeti D sağlıksız olduğu ancak çok az etkisi toohello uygulamayla örnekleri A, B, C ve D, hizmet. Yükseltme ve ayarlanmış hello parametre sırasında sağlıksız Hizmeti D bilinen tooignore hello istiyoruz *MaxPercentUnhealthyServices* toobe yalnızca A, B ve C varsayılarak % 25 toobe sağlıklı gerekir.
 
-C bozulur sırada ancak, yükseltme sırasında D sağlıklı duruma gelebilir. Yalnızca %25 Hizmetleri sağlıklı olduğundan yükseltme yine de başarılı. Ancak, beklenmedik bir şekilde yerine D. sağlıklı olmadığını C nedeniyle beklenmeyen hataları neden Bu durumda, D, A'dan farklı hizmet türü olarak modellenmesi gerekir B ve c Sistem durumu ilkeleri hizmet türü belirtilmiş olduğundan, farklı sağlıksız yüzde eşikleri farklı hizmetlerine uygulanabilir. 
+C bozulur sırada ancak, hello yükseltme sırasında D sağlıklı duruma gelebilir. yalnızca % 25'ini hello Hizmetleri sağlıklı olduğundan hello yükseltme yine de başarılı. Ancak, tooC olması nedeniyle beklenmeyen hataları yerine D. beklenmedik bir şekilde sağlıksız neden Bu durumda, D, A'dan farklı hizmet türü olarak modellenmesi gerekir B ve c Sistem durumu ilkeleri hizmet türü belirtilmiş olduğundan, farklı sağlıksız yüzde eşikleri uygulanan toodifferent Hizmetleri olabilir. 
 
-### <a name="i-did-not-specify-a-health-policy-for-application-upgrade-but-the-upgrade-still-fails-for-some-time-outs-that-i-never-specified"></a>Uygulama yükseltme için bir sistem durumu ilkesi belirtmedi ancak yükseltme hala hiçbir zaman belirtilen bazı zaman aşımlarını başarısız
-Sistem durumu ilkeleri zaman olmayan yükseltme isteği, bunlar gelen alınır sağlanan *ApplicationManifest.xml* geçerli uygulama sürümü. Örneğin, sürüm 1.0 sürüm 2.0, uygulama sistem durumu ilkeleri için sürüm 1.0 için belirtilen uygulama X yükseltiyorsanız kullanılır. Farklı sistem durumu ilkesi yükseltme için kullanılıp kullanılmayacağını ilke, uygulama yükseltme API çağrısı bir parçası olarak belirtilmesi gerekiyor. API çağrısı bir parçası olarak belirtilen ilkeleri, yalnızca yükseltme sırasında uygulanır. Yükseltme tamamlandıktan sonra ilkeleri belirtilen *ApplicationManifest.xml* kullanılır.
+### <a name="i-did-not-specify-a-health-policy-for-application-upgrade-but-hello-upgrade-still-fails-for-some-time-outs-that-i-never-specified"></a>Uygulama yükseltme için bir sistem durumu ilkesi belirtmedi, ancak hiçbir zaman belirtilen bazı zaman aşımlarını hello yükseltme yine başarısız
+Sistem durumu ilkeleri toohello yükseltme isteği sağlanmayan, hello alınır *ApplicationManifest.xml* hello geçerli uygulama sürümü. Örneğin, uygulama X sürüm 1.0 tooversion 2.0 ' yükseltiyorsanız, sürüm 1.0 için belirtilen uygulama sistem durumu ilkeleri kullanılır. Farklı sistem durumu ilkesi hello yükseltme için kullanılması gereken hello İlkesi hello uygulama yükseltme API çağrısı bir parçası olarak belirtilen toobe gerekir. Merhaba hello API çağrısı bir parçası olarak belirtilen ilkeleri yalnızca hello yükseltme sırasında uygulanır. Merhaba yükseltme tamamlandıktan sonra hello ilkelerinde belirtilen hello *ApplicationManifest.xml* kullanılır.
 
 ### <a name="incorrect-time-outs-are-specified"></a>Hatalı zaman aşımlarını belirtilen
-Zaman aşımlarını tutarsız ayarladığınızda ne olduğu hakkında hiç merak ettiniz. Örneğin, olabilir bir *UpgradeTimeout* bu küçük *UpgradeDomainTimeout*. Yanıtı bir hata döndürülür. Hatalar varsa döndürülür *UpgradeDomainTimeout* toplamını'dan küçük *HealthCheckWaitDuration* ve *HealthCheckRetryTimeout*, veya  *UpgradeDomainTimeout* toplamını'dan küçük *HealthCheckWaitDuration* ve *HealthCheckStableDuration*.
+Zaman aşımlarını tutarsız ayarladığınızda ne olduğu hakkında hiç merak ettiniz. Örneğin, olabilir bir *UpgradeTimeout* başlangıç değerinden küçük *UpgradeDomainTimeout*. Merhaba yanıt bir hata döndürülür. Merhaba, hata döndürülür *UpgradeDomainTimeout* hello toplamını'dan küçük *HealthCheckWaitDuration* ve *HealthCheckRetryTimeout*, veya  *UpgradeDomainTimeout* hello toplamını'dan küçük *HealthCheckWaitDuration* ve *HealthCheckStableDuration*.
 
 ### <a name="my-upgrades-are-taking-too-long"></a>My yükseltmeler çok uzun sürüyor
-Zaman tamamlamak bir yükseltme için sistem durumu denetimlerinin ve belirtilen zaman aşımlarını bağlıdır. Sistem durumu denetimlerinin ve zaman aşımlarını kopyalama, dağıtma ve uygulama Sabitle için gereken süreyi bağlıdır. Nedenle ölçülü uzun zaman aşımlarını başlangıç öneririz zaman aşımlarını çok agresif olan başarısız yükseltme anlamına gelebilir.
+bir yükseltme toocomplete Hello süredir hello sistem durumu denetimlerinin ve belirtilen zaman aşımlarını bağlıdır. Sistem durumu denetimlerinin ve zaman aşımlarını toocopy süreyi bağlıdır, dağıtmak ve Merhaba uygulaması Sabitle. Nedenle ölçülü uzun zaman aşımlarını başlangıç öneririz zaman aşımlarını çok agresif olan başarısız yükseltme anlamına gelebilir.
 
-Zaman aşımları yükseltme süreleri ile nasıl etkileşim hızlı Yenileyici şöyledir:
+Merhaba zaman aşımlarını hello yükseltme süreleri ile nasıl etkileşim hızlı Yenileyici şöyledir:
 
 Bir yükseltme etki alanına tamamlayamıyor için yükseltme daha hızlı bir şekilde *HealthCheckWaitDuration* + *HealthCheckStableDuration*.
 
 Yükseltme hatası gerçekleşemez daha hızlı bir şekilde *HealthCheckWaitDuration* + *HealthCheckRetryTimeout*.
 
-Yükseltme etki alanı için yükseltme süresi sınırlıdır *UpgradeDomainTimeout*.  Varsa *HealthCheckRetryTimeout* ve *HealthCheckStableDuration* hem de sıfır olması ve yükseltme sonunda üzerindezamanaşımınauğruyorsonrauygulamadurumunugeriveİlerigeçiştutar*UpgradeDomainTimeout*. *UpgradeDomainTimeout* geçerli yükseltme etki alanı başlar için bir kez yükseltme sayım başlatır.
+Merhaba yükseltme etki alanı için yükseltme süresi sınırlıdır *UpgradeDomainTimeout*.  Varsa *HealthCheckRetryTimeout* ve *HealthCheckStableDuration* her ikisi de sıfır olan ve hello uygulama hello durumunu tutar anahtarlama geri ve İleri hello yükseltme sonunda üzerindezamanaşımınauğruyorsonra *UpgradeDomainTimeout*. *UpgradeDomainTimeout* başlar hello geçerli yükseltme etki alanı için bir kez sayım başlatır hello yükseltme.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Uygulama kullanarak Visual Studio yükseltme](service-fabric-application-upgrade-tutorial.md) Visual Studio kullanarak bir uygulama yükseltme yol gösterir.
@@ -218,6 +218,6 @@ Yükseltme etki alanı için yükseltme süresi sınırlıdır *UpgradeDomainTim
 
 Uygulamanızı kullanarak yükseltme nasıl kontrol [yükseltme parametreleri](service-fabric-application-upgrade-parameters.md).
 
-Uygulama yükseltme nasıl kullanılacağını öğrenerek uyumlu hale getirmek [veri seri hale getirme](service-fabric-application-upgrade-data-serialization.md).
+Uygulama yükseltme öğrenme tarafından uyumlu hale getirmek nasıl toouse [veri seri hale getirme](service-fabric-application-upgrade-data-serialization.md).
 
-Gelişmiş işlevselliği başvurarak uygulamanızı yükseltirken kullanmayı öğrenin [Gelişmiş konular](service-fabric-application-upgrade-advanced.md).
+Uygulamanız çok başvurarak yükseltirken toouse işlevselliği nasıl Gelişmiş öğrenin[Gelişmiş konular](service-fabric-application-upgrade-advanced.md).

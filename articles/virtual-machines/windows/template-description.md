@@ -1,6 +1,6 @@
 ---
-title: "Sanal makineleri bir Azure Resource Manager şablonunda | Microsoft Azure"
-description: "Sanal makine kaynak bir Azure Resource Manager şablonu nasıl tanımlanır hakkında daha fazla bilgi edinin."
+title: "bir Azure Resource Manager şablonu aaaVirtual makinelerinizde | Microsoft Azure"
+description: "Merhaba sanal makine kaynak bir Azure Resource Manager şablonu nasıl tanımlanır hakkında daha fazla bilgi edinin."
 services: virtual-machines-windows
 documentationcenter: 
 author: davidmu1
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: davidmu
-ms.openlocfilehash: d9b9121bc5e38396ba4def6c17f9b373c2b48056
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 94adcbe5bf44be72ffc1b920461aed15c4fc025f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu içindeki sanal makineler
 
-Bu makalede, sanal makineleri için geçerli bir Azure Resource Manager şablonu yönleri açıklanmaktadır. Bu makalede, bir sanal makine oluşturmak için tam bir şablonu açıklamaz; için depolama hesapları, ağ arabirimleri, ortak IP adresleri ve sanal ağlar için kaynak tanımı gerekir. Bu kaynakların nasıl birlikte tanımlanabilir hakkında daha fazla bilgi için bkz: [Resource Manager şablonu Kılavuzu](../../azure-resource-manager/resource-manager-template-walkthrough.md).
+Bu makalede toovirtual makineler geçerli bir Azure Resource Manager şablonu yönleri açıklanmaktadır. Bu makalede, bir sanal makine oluşturmak için tam bir şablonu açıklamaz; için depolama hesapları, ağ arabirimleri, ortak IP adresleri ve sanal ağlar için kaynak tanımı gerekir. Bu kaynakların nasıl birlikte tanımlanabilir hakkında daha fazla bilgi için bkz: Merhaba [Resource Manager şablonu Kılavuzu](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 
-Vardır birçok [galerideki şablonları](https://azure.microsoft.com/documentation/templates/?term=VM) VM kaynak içerir. Bir şablona dahil tüm öğeleri burada açıklanmıştır.
+Vardır birçok [hello galeri şablonlarında](https://azure.microsoft.com/documentation/templates/?term=VM) hello VM kaynak içerir. Bir şablona dahil tüm öğeleri burada açıklanmıştır.
 
 Bu örnek belirtilen sayıda sanal makineleri oluşturmak için bir şablonu tipik kaynak bölümünü gösterir:
 
@@ -145,21 +145,21 @@ Bu örnek belirtilen sayıda sanal makineleri oluşturmak için bir şablonu tip
 ``` 
 
 > [!NOTE] 
->Bu örnek daha önce oluşturulmuş bir depolama hesabı kullanır. Şablondan dağıtarak depolama hesabı oluşturabilirsiniz. Bu örnek ayrıca bir ağ arabirimi ve şablonda tanımlanan kaynaklarına bağımlı kullanır. Bu kaynaklar örnekte gösterilmez.
+>Bu örnek daha önce oluşturulmuş bir depolama hesabı kullanır. Merhaba şablondan dağıtarak hello depolama hesabı oluşturabilirsiniz. Merhaba örneği aynı zamanda bir ağ arabirimi ve hello şablonda tanımlanan kaynaklarına bağımlı kullanır. Bu kaynaklar hello örnekte gösterilmez.
 >
 >
 
 ## <a name="api-version"></a>API sürümü
 
-Bir şablonu kullanarak kaynak dağıtırken kullanmak üzere API sürümü belirtmeniz gerekir. Örnek bu apiVersion öğesini kullanarak sanal makine kaynağı gösterir:
+Bir şablonu kullanarak kaynak dağıttığınızda, toospecify hello API toouse bir sürümüne sahip. Merhaba, bu apiVersion öğesi kullanılarak hello sanal makine kaynağı örnektir:
 
 ```
 "apiVersion": "2016-04-30-preview",
 ```
 
-Şablonunuzda belirttiğiniz API sürümü şablonda tanımlayabilirsiniz hangi özelliklerin etkiler. Genel olarak, en son API sürümü şablonları oluştururken seçmeniz gerekir. Var olan şablonları için önceki bir API sürümü kullanmaya devam etmek istiyor veya şablonunuz yeni özelliklerden yararlanmak için en son sürümü için güncelleştirme olup olmadığını karar verebilirsiniz.
+Merhaba hello şablonunuzda belirttiğiniz API sürümü hello şablonda tanımlayabilirsiniz hangi özelliklerin etkiler. Genel olarak, şablonları oluştururken hello en son API sürümü seçmeniz gerekir. Var olan şablonları için önceki bir API sürümü kullanarak toocontinue istediğiniz veya şablonunuz hello en son sürüm tootake yeni özelliklerden için güncelleştirme olup olmadığını karar verebilirsiniz.
 
-En son API sürümü almak için bu fırsatları kullanın:
+Merhaba son API sürümü almak için bu fırsatları kullanın:
 
 - REST API - [tüm kaynak sağlayıcıları Listele](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
 - PowerShell - [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
@@ -167,7 +167,7 @@ En son API sürümü almak için bu fırsatları kullanın:
 
 ## <a name="parameters-and-variables"></a>Parametreler ve değişkenler
 
-[Parametreleri](../../resource-group-authoring-templates.md) çalıştırdığınızda şablonu için değerler belirten kolaylaştırır. Bu Parametreler bölümünden örnekte kullanılır:
+[Parametreleri](../../resource-group-authoring-templates.md) çalıştırdığınızda, toospecify değerleri hello şablonu için kolaylaştırır. Bu Parametreler bölümünden hello örnekte kullanılır:
 
 ```        
 "parameters": {
@@ -177,9 +177,9 @@ En son API sürümü almak için bu fırsatları kullanın:
 },
 ```
 
-Örnek şablon dağıttığınızda, değerleri adı ve parola yönetici hesabının oluşturmak için her bir VM ve VM sayısını girin. Şablonla yönetilen ayrı bir dosyada parametre değerleri belirtme veya istendiğinde değerleri sağlayarak seçeneğiniz vardır.
+Merhaba örnek şablonu dağıttığınızda, değerleri hello adı ve parola hello yönetici hesabının her VM'ler toocreate VM ve hello sayısına girin. Merhaba şablonuyla yönetilebilir ayrı bir dosyada parametre değerleri belirtme veya istendiğinde değerleri sağlayarak hello seçeneğiniz vardır.
 
-[Değişkenleri](../../resource-group-authoring-templates.md) şablonda kullanılan art arda onu veya zamanla değiştirebilirsiniz değerlerini ayarlamak kolaylaştırır. Bu değişkenler bölümü örnekte kullanılır:
+[Değişkenleri](../../resource-group-authoring-templates.md) sizin için değerleri tooset kullanılan art arda onu veya zamanla değiştirebilirsiniz hello şablonunda kolaylaştırır. Bu değişkenler bölümü hello örnekte kullanılır:
 
 ```
 "variables": { 
@@ -212,11 +212,11 @@ En son API sürümü almak için bu fırsatları kullanın:
 }, 
 ```
 
-Örnek şablon dağıttığınızda, değişken değerleri adı ve önceden oluşturulmuş depolama hesabının tanımlayıcısı için kullanılır. Değişkenleri tanılama uzantısını ayarları sağlamak için de kullanılır. Kullanım [en iyi uygulamalar Azure Resource Manager şablonları oluşturmak için](../../resource-manager-template-best-practices.md) nasıl parametreler ve değişkenler şablonunuzda yapısı istediğinize karar vermenize yardımcı olacak.
+Merhaba örnek şablonu dağıttığınızda, değişken değerleri hello adı ve daha önce oluşturduğunuz hello depolama hesabının tanımlayıcısı için kullanılır. Ayrıca hello tanılama uzantı için kullanılan tooprovide hello ayarları değişkenlerdir. Kullanım hello [en iyi uygulamalar Azure Resource Manager şablonları oluşturmak için](../../resource-manager-template-best-practices.md) toohelp karar toostructure hello parametreler ve değişkenler şablonunuzda nasıl istiyor.
 
 ## <a name="resource-loops"></a>Kaynak döngüler
 
-Uygulamanız için birden fazla sanal makine gerektiğinde bir şablonda bir kopya öğesi kullanabilirsiniz. Bu isteğe bağlı öğe, bir parametre olarak belirtilen VM'ler oluşturmada size döngü:
+Uygulamanız için birden fazla sanal makine gerektiğinde bir şablonda bir kopya öğesi kullanabilirsiniz. Bu isteğe bağlı öğe, bir parametre olarak belirtilen VM hello sayısı oluşturmada size döngü:
 
 ```
 "copy": {
@@ -225,7 +225,7 @@ Uygulamanız için birden fazla sanal makine gerektiğinde bir şablonda bir kop
 },
 ```
 
-Örnekte'de, fark döngü dizini bazı kaynak için değerleri belirtmek için kullanılır. Örneğin, üç örnek sayısı girdiyseniz, işletim sistemi disklerinde adlarını myOSDisk1, myOSDisk2 ve myOSDisk3 şunlardır:
+Ayrıca, bazı hello belirtme hello kaynak için değerleri döngü dizini hello Merhaba örneği bildiriminde kullanılır. Örneğin, üç, hello adlarını hello işletim sistemi disklerinde örnek sayısı girdiyseniz myOSDisk1, myOSDisk2 ve myOSDisk3 şunlardır:
 
 ```
 "osDisk": { 
@@ -236,11 +236,11 @@ Uygulamanız için birden fazla sanal makine gerektiğinde bir şablonda bir kop
 ```
 
 > [!NOTE] 
->Bu örnek yönetilen diskleri sanal makineler için kullanır.
+>Bu örnek yönetilen diskleri hello sanal makineler için kullanır.
 >
 >
 
-Şablonda bir kaynak için bir döngü oluşturma oluştururken veya diğer kaynaklara erişme döngü kullanmanızı gerektirebilir unutmayın. Örneğin, üç sanal makineleri oluşturmada size şablonunuzu döngü, aynı zamanda üç ağ arabirimleri oluşturmada size döngü gerekir böylece birden çok VM aynı ağ arabirimi, kullanamazsınız. Bir ağ arabirimi için bir VM atarken, döngü dizini tanımlamak için kullanılır:
+Bir kaynak için bir döngü hello şablonunda oluşturma oluştururken veya diğer kaynaklara erişme, toouse hello döngü gerektirebilecek göz önünde bulundurun. Örneğin, birden çok VM de oluşturmada size döngü gereken üç VM'ler oluşturmada size şablonunuzu döngüler, üç ağ arabirimleri için aynı ağ arabirimi, hello kullanamazsınız. Bir ağ arabirimi tooa VM atarken hello döngü kullanılan tooidentify dizinidir onu:
 
 ```
 "networkInterfaces": [ { 
@@ -251,7 +251,7 @@ Uygulamanız için birden fazla sanal makine gerektiğinde bir şablonda bir kop
 
 ## <a name="dependencies"></a>Bağımlılıklar
 
-En fazla kaynak düzgün çalışması için diğer kaynaklara bağımlı. Sanal makineler, bir ağ arabirimi gerektiği yapmak için bir sanal ağ ile ilişkilendirilmiş olması gerekir. [DependsOn](../../resource-group-define-dependencies.md) öğe ağ arabirimi sanal makineleri oluşturmadan önce kullanılmaya hazır olduğundan emin olmak için kullanılır:
+En fazla kaynak diğer kaynakları toowork doğru bağlıdır. Sanal makineler bir sanal ağ ve ağ arabirimi ihtiyaç duyduğu toodo ile ilişkilendirilmiş olması gerekir. Merhaba [dependsOn](../../resource-group-define-dependencies.md) öğesidir kullanılan toomake hello ağ arabirimini hello VM'ler oluşturulmadan önce kullanılan hazır toobe olmasını:
 
 ```
 "dependsOn": [
@@ -259,9 +259,9 @@ En fazla kaynak düzgün çalışması için diğer kaynaklara bağımlı. Sanal
 ],
 ```
 
-Resource Manager dağıtılan başka bir kaynağa bağımlı olmayan tüm kaynakları paralel olarak dağıtır. Gereksiz bağımlılıkları belirterek dağıtımınızı yanlışlıkla yavaşlatabileceği için bağımlılıkları ayarlarken dikkatli olun. Bağımlılıklar birden fazla kaynak zincir. Örneğin, ağ arabirimi genel IP adresi ve sanal ağ kaynaklarına bağlıdır.
+Resource Manager dağıtılan başka bir kaynağa bağımlı olmayan tüm kaynakları paralel olarak dağıtır. Gereksiz bağımlılıkları belirterek dağıtımınızı yanlışlıkla yavaşlatabileceği için bağımlılıkları ayarlarken dikkatli olun. Bağımlılıklar birden fazla kaynak zincir. Örneğin, hello ağ arabirimi hello genel IP adresi ve sanal ağ kaynaklarına bağlıdır.
 
-Bir bağımlılık gerekli olup olmadığını nasıl bilebilirsiniz? Şablonda ayarlanan değerlerle bakın. Bir öğe varsa sanal makine kaynak tanımı noktaları aynı şablonunda dağıtılan başka bir kaynak için bir bağımlılık gerekir. Örneğin, örnek sanal makine bir ağ profili tanımlar:
+Bir bağımlılık gerekli olup olmadığını nasıl bilebilirsiniz? Merhaba şablonda ayarlanan hello değerleri bakın. Öğenin hello sanal makine kaynak tanımı'nda hello dağıtılan tooanother kaynak gösteriyorsa aynı şablonu, bir bağımlılık gerekir. Örneğin, örnek sanal makine bir ağ profili tanımlar:
 
 ```
 "networkProfile": { 
@@ -272,11 +272,11 @@ Bir bağımlılık gerekli olup olmadığını nasıl bilebilirsiniz? Şablonda 
 },
 ```
 
-Bu özelliği ayarlamak için ağ arabiriminin mevcut olması gerekir. Bu nedenle, bir bağımlılık gerekir. Ayrıca, bir kaynak (alt) içindeki başka bir kaynak (üst) tanımlandığında bir bağımlılık ayarlamanız gerekir. Örneğin, tanılama ayarlarını ve özel komut dosyası uzantılarını hem de sanal makine alt kaynaklar olarak tanımlanır. Sanal makinenin var, oluşturulamaz. Bu nedenle, her iki kaynağın sanal makineye bağlı olarak işaretlenir.
+tooset bu özelliğin hello ağ arabirimi var olması gerekir. Bu nedenle, bir bağımlılık gerekir. Bir kaynak (alt) içindeki başka bir kaynak (üst) tanımlandığında tooset bir bağımlılık da gerekir. Örneğin, hello tanılama ayarlarını ve özel betik uzantılarının her ikisi de hello sanal makine alt kaynaklar olarak tanımlanır. Merhaba sanal makine var. Bunlar oluşturulamaz. Bu nedenle, her iki kaynağın hello sanal makineye bağlı olarak işaretlenir.
 
 ## <a name="profiles"></a>Profiller
 
-Birkaç profil öğeler, bir sanal makine kaynağı tanımlarken kullanılır. Bazı gereklidir ve bazı isteğe bağlıdır. Örneğin, hardwareProfile, osProfile, storageProfile ve networkProfile öğeleri gerekiyor, ancak diagnosticsProfile isteğe bağlıdır. Bu profiller ayarları gibi tanımlayın:
+Birkaç profil öğeler, bir sanal makine kaynağı tanımlarken kullanılır. Bazı gereklidir ve bazı isteğe bağlıdır. Örneğin, hello hardwareProfile, osProfile, storageProfile ve networkProfile öğeleri gerekiyor, ancak hello diagnosticsProfile isteğe bağlıdır. Bu profiller ayarları gibi tanımlayın:
    
 - [boyutu](sizes.md)
 - [ad](/architecture/best-practices/naming-conventions) ve kimlik bilgileri
@@ -286,11 +286,11 @@ Birkaç profil öğeler, bir sanal makine kaynağı tanımlarken kullanılır. B
 
 ## <a name="disks-and-images"></a>Diskleri ve görüntüleri
    
-Azure'da, vhd dosyaları gösterebilir [disk veya görüntü](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Belirli bir VM'yi olması için bir vhd dosyasının işletim sisteminde özelleştirilmiş olduğunda, bir disk olarak bilinir. Birçok VM oluşturmak için kullanılacak genelleştirilmiş bir vhd dosyasının işletim sisteminde, bunu bir görüntü olarak bilinir.   
+Azure'da, vhd dosyaları gösterebilir [disk veya görüntü](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Bir vhd dosyasının Hello işletim sisteminde özel toobe belirli bir VM'yi olduğunda, başvurulan tooas bir disk olur. Bir vhd dosyasının Hello işletim sisteminde genelleştirilmiş toobe toocreate birçok VM kullanılan, başvurulan tooas bir görüntü değil.   
     
 ### <a name="create-new-virtual-machines-and-new-disks-from-a-platform-image"></a>Yeni sanal makineler ve yeni diskler bir platform görüntüsünden oluşturma
 
-Bir VM oluşturduğunuzda, hangi işletim sistemi kullanmaya karar vermeniz gerekir. Imagereference öğesi, yeni bir VM işletim sistemini tanımlamak için kullanılır. Örnek bir Windows Server işletim sistemi için bir tanım gösterir:
+Bir VM oluşturduğunuzda, hangi işletim sistemi toouse karar vermeniz gerekir. Merhaba Imagereference kullanılan toodefine hello işletim sisteminin yeni bir VM öğedir. Merhaba, bir Windows Server işletim sistemi için bir tanım örnektir:
 
 ```
 "imageReference": { 
@@ -301,7 +301,7 @@ Bir VM oluşturduğunuzda, hangi işletim sistemi kullanmaya karar vermeniz gere
 },
 ```
 
-Linux işletim sistemi oluşturmak istiyorsanız, bu tanımı kullanabilirsiniz:
+Linux işletim sistemi toocreate istiyorsanız, bu tanımı kullanabilirsiniz:
 
 ```
 "imageReference": {
@@ -312,7 +312,7 @@ Linux işletim sistemi oluşturmak istiyorsanız, bu tanımı kullanabilirsiniz:
 },
 ```
 
-İşletim sistemi diski için yapılandırma ayarlarını osDisk öğeyle atanır. Örnek, önbelleğe alma modu ayarlandığında yeni bir yönetilen disk tanımlar **ReadWrite** ve disk alanından oluşturulmakta olan bir [platform görüntüsü](cli-ps-findimage.md):
+Merhaba işletim sistemi diski için yapılandırma ayarlarını hello osDisk öğeyle atanır. Merhaba örnek yeni bir yönetilen disk mod kümesi çok önbelleğe alma hello tanımlar**ReadWrite** ve o hello disk alanından oluşturuluyor bir [platform görüntüsü](cli-ps-findimage.md):
 
 ```
 "osDisk": { 
@@ -324,7 +324,7 @@ Linux işletim sistemi oluşturmak istiyorsanız, bu tanımı kullanabilirsiniz:
 
 ### <a name="create-new-virtual-machines-from-existing-managed-disks"></a>Mevcut yönetilen diskleri yeni sanal makineler oluşturun
 
-Sanal makineler var olan disklerden oluşturmak istiyorsanız, Imagereference ve osProfile öğeleri kaldırın ve bu disk ayarlarını tanımlayın:
+Var olan disklerin toocreate sanal makinelerden istiyorsanız, hello Imagereference ve hello osProfile öğeleri kaldırın ve bu disk ayarları tanımlayın:
 
 ```
 "osDisk": { 
@@ -339,7 +339,7 @@ Sanal makineler var olan disklerden oluşturmak istiyorsanız, Imagereference ve
 
 ### <a name="create-new-virtual-machines-from-a-managed-image"></a>Yönetilen bir görüntüden yeni sanal makineler oluşturun
 
-Yönetilen bir görüntüden sanal makine oluşturmak istiyorsanız, Imagereference öğesi değiştirin ve bu disk ayarlarını tanımlayın:
+Toocreate istiyorsanız, yönetilen bir görüntüden sanal makine hello Imagereference öğesi değiştirin ve bu disk ayarlarını tanımlayın:
 
 ```
 "storageProfile": { 
@@ -357,7 +357,7 @@ Yönetilen bir görüntüden sanal makine oluşturmak istiyorsanız, Imagerefere
 
 ### <a name="attach-data-disks"></a>Veri diskleri ekleme
 
-Veri diskleri sanal makineleri için isteğe bağlı olarak ekleyebilirsiniz. [Diskleri sayısı](sizes.md) kullandığınız işletim sistemi disk boyutuna bağlıdır. Standard_DS1_v2 için ayarlanmış VM'ler ile bunlara eklenemedi veri disklerinin sayısının iki boyutudur. Örnekte, bir yönetilen veri diski her VM'ye ekleniyor:
+Veri diskleri toohello VM'ler isteğe bağlı olarak ekleyebilirsiniz. Merhaba [diskleri sayısı](sizes.md) hello kullandığınız işletim sistemi disk boyutuna bağlıdır. Merhaba ile tooStandard_DS1_v2, bunları iki toohello eklenemedi veri diski maksimum sayısı hello hello VM'ler boyutunu ayarlayın. Merhaba örnekte, bir yönetilen veri diski tooeach VM ekleniyor:
 
 ```
 "dataDisks": [
@@ -373,7 +373,7 @@ Veri diskleri sanal makineleri için isteğe bağlı olarak ekleyebilirsiniz. [D
 
 ## <a name="extensions"></a>Uzantılar
 
-Ancak [uzantıları](extensions-features.md) ayrı bir kaynak, VM yakından bağlıdır. Uzantılar, bir alt kaynak VM veya farklı bir kaynak olarak eklenebilir. Örnekte gösterildiği [tanılama uzantısını](extensions-diagnostics-template.md) Vm'lere eklenmekte olan:
+Ancak [uzantıları](extensions-features.md) ayrı bir kaynak, yakından bağlı tooVMs oldukları. Uzantıları hello VM alt kaynak veya farklı bir kaynak olarak eklenebilir. Merhaba örnek gösterir hello [tanılama uzantısını](extensions-diagnostics-template.md) toohello VM'ler eklenmekte olan:
 
 ```
 { 
@@ -406,9 +406,9 @@ Ancak [uzantıları](extensions-features.md) ayrı bir kaynak, VM yakından bağ
 },
 ```
 
-Bu uzantı kaynak storageName değişkeni ve tanılama değişkenleri değerlerini sağlamak için kullanır. Bu uzantı tarafından toplanan verileri değiştirmek istiyorsanız, daha fazla performans sayaçları wadperfcounters değişkenine ekleyebilirsiniz. Tanılama verilerini VM diskleri depolandığı daha farklı bir depolama hesabı içine yerleştirilecek seçebilir.
+Bu uzantı kaynak hello storageName değişkeni ve hello tanılama değişkenleri tooprovide değerleri kullanır. Bu uzantı tarafından toplanan toochange hello verilerin istiyorsanız, daha fazla performans sayaçları toohello wadperfcounters değişken ekleyebilirsiniz. Merhaba VM diskleri depolandığı daha farklı bir depolama hesabı içine tooput hello tanılama verilerini de seçebilirsiniz.
 
-Bir VM'ye yükleyebilirsiniz birçok uzantıları vardır, ancak en büyük olasılıkla yararlıdır [özel betik uzantısının](extensions-customscript.md). İlk başladığında örnekte, her VM start.ps1 adlı bir PowerShell komut dosyasını çalıştırır:
+Bir VM'ye yükleyebilirsiniz birçok uzantıları vardır, ancak en yararlı hello büyük olasılıkla hello [özel betik uzantısının](extensions-customscript.md). İlk başladığında hello örnekte, her VM start.ps1 adlı bir PowerShell komut dosyasını çalıştırır:
 
 ```
 {
@@ -435,26 +435,26 @@ Bir VM'ye yükleyebilirsiniz birçok uzantıları vardır, ancak en büyük olas
 }
 ```
 
-Start.ps1 komut dosyası, birçok yapılandırma görevleri gerçekleştirebilirsiniz. Örneğin, örnek vm'lerinin eklenen veri diskleri başlatılamadı; bunları başlatmak için özel bir komut dosyası kullanabilirsiniz. Birden çok başlangıç görevleri yapmak için varsa, Azure depolama alanında başka PowerShell betikleri çağırmak için start.ps1 dosyasını kullanabilirsiniz. Örnek PowerShell kullanır, ancak işletim sistemi üzerinde kullanılabilir herhangi bir komut dosyası yöntemini kullanabilirsiniz.
+Merhaba start.ps1 betik birçok yapılandırma görevleri gerçekleştirebilirsiniz. Örneğin, toohello VM'ler hello örnekte eklenen hello veri diskleri başlatılamadı; özel bir komut dosyası tooinitialize kullanabileceğiniz bunları. Birden çok başlangıç görevleri toodo varsa, Azure depolama alanında hello start.ps1 dosya toocall diğer PowerShell komut dosyalarını kullanabilirsiniz. Merhaba örnek PowerShell kullanır, ancak hello işletim sisteminde, kullanmakta olduğunuz kullanılabilir herhangi bir komut dosyası yöntemini kullanabilirsiniz.
 
-Yüklü uzantılarla portalında uzantıları ayarlarından durumunu görebilirsiniz:
+Merhaba portalındaki hello uzantıları ayarları yüklü hello uzantılardan hello durumunu görebilirsiniz:
 
 ![Uzantı durumunu Al](./media/template-description/virtual-machines-show-extensions.png)
 
-Kullanarak uzantısı bilgi edinebilirsiniz **Get-AzureRmVMExtension** PowerShell komutunu **vm uzantısı get** Azure CLI 2.0 komut veya **uzantısı bilgialma** REST API.
+Hello kullanarak uzantısı bilgi edinebilirsiniz **Get-AzureRmVMExtension** PowerShell komutunu hello **vm uzantısı get** Azure CLI 2.0 komut veya hello **uzantısı bilgi alma**  REST API.
 
 ## <a name="deployments"></a>Dağıtımlar
 
-Bir şablonu dağıttığınızda, Azure kaynakları grup olarak dağıtılmış ve otomatik olarak dağıtılan bu gruba bir isim atar izler. Dağıtım şablonu adı aynıdır.
+Bir şablonu, bir grup olarak ve otomatik olarak dağıtılan Azure parçaları hello kaynakları dağıttığınızda bir adı dağıtılan toothis Grup atar. Merhaba dağıtım Hello adı olduğu hello hello şablonu hello adı ile aynı.
 
-Dağıtımdaki kaynakların durumunu hakkında merak ediyorsanız, Azure portalında kaynak grubu dikey kullanabilirsiniz:
+Hello dağıtımda kaynakların hello durumuyla ilgili merak ediyorsanız hello kaynak grubu dikey hello Azure portalını kullanabilirsiniz:
 
 ![Dağıtım bilgileri alma](./media/template-description/virtual-machines-deployment-info.png)
     
-Kaynakları oluşturun veya var olan kaynakların güncelleştirmek için aynı şablonu kullanmak için bir sorun teşkil etmez. Şablonları dağıtmak için komutları kullandığınızda, hangi söyleyin fırsatına sahip [modu](../../resource-group-template-deploy.md) kullanmak istediğiniz. Mod için ya da ayarlanabilir **tam** veya **artımlı**. Artımlı güncelleştirmeler yapmak için varsayılandır. Kullanırken dikkatli olun **tam** modu kaynakları yanlışlıkla silebilir olduğundan. Modu ayarlandığında **tam**, Resource Manager şablonunda olmayan tüm kaynaklar kaynak grubunda siler.
+Bir sorun toouse değil hello aynı şablon toocreate kaynakları veya tooupdate mevcut kaynakları. Komutları toodeploy şablonlarını kullandığınızda, hello fırsat toosay sahip olduğu [modu](../../resource-group-template-deploy.md) toouse istiyor. başlangıç modu tooeither ayarlanabilir **tam** veya **artımlı**. Merhaba, toodo artımlı güncelleştirmeler varsayılandır. Merhaba kullanırken dikkatli olun **tam** modu kaynakları yanlışlıkla silebilir olduğundan. Ayarladığınızda hello modu çok**tam**, Resource Manager hello şablonunda olmayan tüm kaynaklar hello kaynak grubunda siler.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
 - Kendi şablonunu kullanarak oluşturduğunuz [Azure Resource Manager şablonları yazma](../../resource-group-authoring-templates.md).
-- Kullanılarak oluşturulan şablonu dağıtmak [Resource Manager şablonu ile Windows sanal makine oluşturma](ps-template.md).
-- Gözden geçirerek oluşturulan VM'ler yönetmeyi öğrenin [oluşturma ve Azure PowerShell modülü ile Windows sanal makineleri yönetme](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Kullanılarak oluşturulan hello şablonu dağıtmak [Resource Manager şablonu ile Windows sanal makine oluşturma](ps-template.md).
+- Nasıl toomanage hello gözden geçirerek oluşturulan VM'ler öğrenin [oluşturma ve hello Azure PowerShell modülü ile Windows sanal makineleri yönetme](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

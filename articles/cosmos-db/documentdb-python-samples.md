@@ -1,5 +1,5 @@
 ---
-title: "DocumentDB API Python örnekler için Azure Cosmos DB | Microsoft Docs"
+title: "aaaDocumentDB API Python örnekler için Azure Cosmos DB | Microsoft Docs"
 description: "Python örnekler github'da Azure Cosmos veritabanı CRUD işlemleri dahil olmak üzere, ortak görevler için bulun."
 keywords: "Python örnekleri"
 services: cosmos-db
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2016
 ms.author: moderakh
-ms.openlocfilehash: d1577eeeb8fe8007394431ce70a1c7a6ee61776b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d8f240782b0997f2d32b68d310dc6f4ff6cb36d0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python örnekleri
 > [!div class="op_single_selector"]
@@ -30,25 +30,25 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-CRUD işlemleri ve Azure Cosmos DB kaynaklardaki ortak diğer işlemleri gerçekleştirmek örnek çözümleri dahil edilmiştir [azure documentdb python](https://github.com/Azure/azure-documentdb-python/tree/master/samples) GitHub depo. Bu makalede aşağıdakiler sunulmaktadır:
+CRUD işlemleri ve Azure Cosmos DB kaynaklardaki ortak diğer işlemleri gerçekleştirmek örnek çözümleri hello dahil [azure documentdb python](https://github.com/Azure/azure-documentdb-python/tree/master/samples) GitHub depo. Bu makalede aşağıdakiler sunulmaktadır:
 
-* Her Python örnek proje dosyalarının görevlere bağlantılar. 
-* Bağlantılar ilgili API'ye içerik başvuru.
+* Her hello Python örnek proje dosyalarının bağlantılar toohello görevler. 
+* Bağlantılar toohello API başvuru içeriği ilgili.
 
 **Önkoşullar**
 
-1. Bu Python örnekleri kullanmak için bir Azure hesabı gerekir:
-   * [Ücretsiz bir Azure hesabı açabilirsiniz](https://azure.microsoft.com/pricing/free-trial/): Ücretli Azure hizmetlerini denemek için kullanabileceğiniz krediler alabilir ve hatta kullanıldıktan sonra bile hesabı tutabilir ve Web siteleri gibi ücretsiz Azure hizmetlerini kullanabilirsiniz. Açıkça ayarlarınızı değiştirip ücretlendirme istemediğiniz sürece kredi kartınız asla ücretlendirilmeyecektir.
+1. Bir Azure hesabı toouse bu Python örnekler gerekir:
+   * Yapabilecekleriniz [ücretsiz bir Azure hesabı açabilirsiniz](https://azure.microsoft.com/pricing/free-trial/): krediler alırsınız tootry çıkışı Ücretli Azure hizmetlerini kullanabilirsiniz ve hatta kullanıldıktan sonra en fazla hello hesabı tutabilir ve ücretsiz Web siteleri gibi Azure hizmetlerini kullanabilirsiniz. Açıkça ayarlarınızı değiştirip ücret toobe isteyin sürece kredi kartınız asla ücretlendirilir.
      * Yapabilecekleriniz [Visual Studio abone Avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/): bilgisayarınızı Visual Studio abonelik size kredi verir Ücretli Azure hizmetlerinizi kullanabildiğiniz her ay.
-2. Ayrıca gerekir [Python SDK](documentdb-sdk-python.md). 
+2. Merhaba etmeniz [Python SDK](documentdb-sdk-python.md). 
    
    > [!NOTE]
-   > Her örnek kendi içinde bulunan, kendisini ayarlayan ve kendisini sonra temizler. Bu nedenle, örnekler için birden fazla çağrı sorun [document_client. CreateCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html). Bu, aboneliğinizin yapılır her zaman 1 saat performans katmanı oluşturulan koleksiyonunun başına kullanım için faturalandırılır. 
+   > Her örnek kendi içinde bulunan, kendisini ayarlayan ve kendisini sonra temizler. Bu nedenle, hello örnekleri birden fazla çağrı çok sorun[document_client. CreateCollection](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html). Bu, aboneliğinizin yapılır her zaman 1 saat hello performans katmanı oluşturulmakta hello koleksiyonunun başına kullanım için faturalandırılır. 
    > 
    > 
 
 ## <a name="database-examples"></a>Veritabanı örnekleri
-[Program.py](https://github.com/Azure/azure-documentdb-python/tree/master/samples/DatabaseManagement/Program.py) dosyasının [DatabaseManagement](https://github.com/Azure/azure-documentdb-python/tree/master/samples/DatabaseManagement) proje, aşağıdaki görevlerin nasıl gerçekleştirileceğini gösterir.
+Merhaba [Program.py](https://github.com/Azure/azure-documentdb-python/tree/master/samples/DatabaseManagement/Program.py) hello dosyasının [DatabaseManagement](https://github.com/Azure/azure-documentdb-python/tree/master/samples/DatabaseManagement) proje, nasıl tooperform hello aşağıdaki görevleri gösterir.
 
 | Görev | API başvurusu |
 | --- | --- |
@@ -59,7 +59,7 @@ CRUD işlemleri ve Azure Cosmos DB kaynaklardaki ortak diğer işlemleri gerçek
 | [Veritabanı silme](https://github.com/Azure/azure-documentdb-python/blob/d78170214467e3ab71ace1a7400f5a7fa5a7b5b0/samples/DatabaseManagement/Program.py#L113-L126) |[document_client. DeleteDatabase](http://azure.github.io/azure-documentdb-python/api/pydocumentdb.document_client.html) |
 
 ## <a name="collection-examples"></a>Koleksiyon örnekleri
-[Program.py](https://github.com/Azure/azure-documentdb-python/tree/master/samples/CollectionManagement/Program.py) dosyasının [CollectionManagement](https://github.com/Azure/azure-documentdb-python/tree/master/samples/CollectionManagement) proje, aşağıdaki görevlerin nasıl gerçekleştirileceğini gösterir.
+Merhaba [Program.py](https://github.com/Azure/azure-documentdb-python/tree/master/samples/CollectionManagement/Program.py) hello dosyasının [CollectionManagement](https://github.com/Azure/azure-documentdb-python/tree/master/samples/CollectionManagement) proje, nasıl tooperform hello aşağıdaki görevleri gösterir.
 
 | Görev | API başvurusu |
 | --- | --- |

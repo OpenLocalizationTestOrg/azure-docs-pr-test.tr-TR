@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 1.0 ile Linux sanal makinede AMPUL dağıtma | Microsoft Docs"
-description: "Azure'da bir Linux VM üzerinde AMPUL yığını yüklemeyi öğrenin"
+title: bir Linux sanal makinede hello Azure CLI 1.0 ile AMPUL aaaDeploy | Microsoft Docs
+description: "Nasıl tooinstall hello AMPUL yığın azure'da bir Linux VM hakkında bilgi edinin"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: jluk
@@ -15,36 +15,36 @@ ms.devlang: NA
 ms.topic: article
 ms.date: 2/21/2017
 ms.author: juluk
-ms.openlocfilehash: feba2fb20d1831e92358ff5d1b4c9589d63d28dc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e78a82d388ce68710933b9b673aa1b2460bdbb14
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-lamp-stack-with-the-azure-cli-10"></a>AMPUL yığın Azure CLI 1.0 ile dağıtma
-Bu makalede bir Apache web sunucusu, MySQL ve Azure üzerinde PHP (AMPUL yığını) dağıtma konusunda size yol göstermektedir. Bir Azure hesabınızın olması gerekir ([ücretsiz bir deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/)) ve [Azure CLI](../../cli-install-nodejs.md) diğer bir deyişle [Azure hesabınıza bağlı](../../xplat-cli-connect.md).
+# <a name="deploy-lamp-stack-with-hello-azure-cli-10"></a>AMPUL yığın hello Azure CLI 1.0 ile dağıtma
+Bu makalede toodeploy Apache nasıl web sunucusu, MySQL ve Azure üzerinde PHP (Merhaba AMPUL yığını) aracılığıyla anlatılmaktadır. Bir Azure hesabınızın olması gerekir ([ücretsiz bir deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/)) ve hello [Azure CLI](../../cli-install-nodejs.md) diğer bir deyişle [bağlı tooyour Azure hesabı](../../xplat-cli-connect.md).
 
-## <a name="cli-versions-to-complete-the-task"></a>Görevi tamamlamak için kullanılacak CLI sürümleri
-Görevi aşağıdaki CLI sürümlerinden birini kullanarak tamamlayabilirsiniz:
+## <a name="cli-versions-toocomplete-hello-task"></a>CLI sürümleri toocomplete hello görevi
+CLI sürümleri aşağıdaki hello birini kullanarak hello görevi tamamlamak:
 
-- [Azure CLI 1.0] – bizim CLI Klasik ve kaynak yönetimi dağıtım modeline (Bu makalede)
-- [Azure CLI 2.0](create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json): Kaynak yönetimi dağıtım modeline yönelik yeni nesil CLI'mız
+- [Azure CLI 1.0] – bizim CLI hello Klasik ve kaynak yönetimi dağıtım modeline (Bu makalede)
+- [Azure CLI 2.0](create-lamp-stack.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) -bizim nesil CLI hello kaynak yönetimi dağıtım modeli için
 
 ```
-# One command to create a resource group holding a VM with LAMP already on it
+# One command toocreate a resource group holding a VM with LAMP already on it
 $ azure group create -n uniqueResourceGroup -l westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json
 ```
 
 * Var olan VM üzerinde AMPUL dağıtma
 
 ```
-# Two commands: one updates packages, the other installs Apache, MySQL, and PHP
+# Two commands: one updates packages, hello other installs Apache, MySQL, and PHP
 user@ubuntu$ sudo apt-get update
 user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
 ```
 
 ## <a name="deploy-lamp-on-new-vm-walkthrough"></a>Yeni VM gözden geçirme üzerinde AMPUL dağıtma
-Oluşturarak başlayın bir [kaynak grubu](../../azure-resource-manager/resource-group-overview.md) yeni VM içerecek:
+Oluşturarak başlayın bir [kaynak grubu](../../azure-resource-manager/resource-group-overview.md) içerecek yeni VM hello:
 
     $ azure group create uniqueResourceGroup westus
     info:    Executing command group create
@@ -59,14 +59,14 @@ Oluşturarak başlayın bir [kaynak grubu](../../azure-resource-manager/resource
     data:
     info:    group create command OK
 
-VM oluşturmak için bulunan zaten yazılmış bir Azure Resource Manager şablonunu kullanabilirsiniz [github'da burada](https://github.com/Azure/azure-quickstart-templates/tree/master/lamp-app).
+toocreate VM kendisini Merhaba, bulunan zaten yazılmış bir Azure Resource Manager şablonunu kullanabilirsiniz [github'da burada](https://github.com/Azure/azure-quickstart-templates/tree/master/lamp-app).
 
     $ azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/lamp-app/azuredeploy.json uniqueResourceGroup uniqueLampName
 
 Daha fazla bazı girişler isteyen bir yanıt görmeniz gerekir:
 
     info:    Executing command group deployment create
-    info:    Supply values for the following parameters
+    info:    Supply values for hello following parameters
     storageAccountNamePrefix: lampprefix
     location: westus
     adminUsername: someUsername
@@ -76,7 +76,7 @@ Daha fazla bazı girişler isteyen bir yanıt görmeniz gerekir:
     info:    Initializing template configurations and parameters
     info:    Creating a deployment
     info:    Created template deployment "uniqueLampName"
-    info:    Waiting for deployment to complete
+    info:    Waiting for deployment toocomplete
     data:    DeploymentName     : uniqueLampName
     data:    ResourceGroupName  : uniqueResourceGroup
     data:    ProvisioningState  : Succeeded
@@ -97,17 +97,17 @@ Daha fazla bazı girişler isteyen bir yanıt görmeniz gerekir:
     data:    ubuntuOSVersion           String        14.04.2-LTS
     info:    group deployment create command OK
 
-Bir Linux VM üzerinde zaten yüklü AMPUL ile oluşturdunuz. İsterseniz, aşağı atlayarak yüklemeyi doğrulayabilirsiniz [doğrulayın AMPUL başarıyla yüklendi](#verify-lamp-successfully-installed).
+Bir Linux VM üzerinde zaten yüklü AMPUL ile oluşturdunuz. İsterseniz, aşağı çok atlayarak hello yükleme doğrulayabilirsiniz[doğrulayın AMPUL başarıyla yüklendi](#verify-lamp-successfully-installed).
 
 ## <a name="deploy-lamp-on-existing-vm-walkthrough"></a>AMPUL üzerinde var olan VM izlenecek dağıtma
-Bir Linux VM oluşturma yardıma gereksinim duyarsanız, head [bir Linux VM oluşturma hakkında bilgi edinmek için burada](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Ardından, Linux VM'de oturum için SSH gerekir. Bir SSH anahtarı oluşturma konusunda yardıma gereksinim duyarsanız, head [Linux/Mac üzerinde SSH anahtarı oluşturma hakkında bilgi edinmek için burada](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Bir Linux VM oluşturma yardıma gereksinim duyarsanız, head [burada toolearn nasıl toocreate bir Linux VM](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Ardından, Linux VM hello tooSSH gerekir. Bir SSH anahtarı oluşturma konusunda yardıma gereksinim duyarsanız, head [burada toolearn nasıl toocreate Linux/Mac üzerinde bir SSH anahtarı](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 Bir SSH anahtarı zaten varsa, şimdi SSH komut satırından Linux VM ile uygulamasına gidin ve `ssh exampleUsername@exampleDNS`.
 
-Linux VM içinde çalışan, biz AMPUL yığın Debian tabanlı dağıtımlar üzerinde yüklenmesinde size yol. Tam komutları için diğer Linux distro'lar farklı olabilir.
+Linux VM içinde çalışan, biz hello AMPUL yığın Debian tabanlı dağıtımlar üzerinde yüklenmesinde size yol. Merhaba tam komutları için diğer Linux distro'lar farklı olabilir.
 
 #### <a name="installing-on-debianubuntu"></a>Debian/Ubuntu üzerinde yükleme
-Yüklenen aşağıdaki paketler gerekir: `apache2`, `mysql-server`, `php5`, ve `php5-mysql`. Bu paketler, doğrudan bu paketleri kapmasını veya Tasksel kullanarak yükleyebilirsiniz. Her iki seçenek için yönergeler aşağıda listelenmiştir.
-Yüklemeden önce indirin ve paketini listelerini güncelleştirmek gerekir.
+Yüklü olan paketleri aşağıdaki hello gerekir: `apache2`, `mysql-server`, `php5`, ve `php5-mysql`. Bu paketler, doğrudan bu paketleri kapmasını veya Tasksel kullanarak yükleyebilirsiniz. Her iki seçenek için yönergeler aşağıda listelenmiştir.
+Yüklemeden önce toodownload gerekir ve güncelleştirme paketini listeler.
 
     user@ubuntu$ sudo apt-get update
 
@@ -122,47 +122,47 @@ Alternatif olarak, Tasksel, birden çok ilişkili paketleri, sisteminize Eşgüd
     user@ubuntu$ sudo apt-get install tasksel
     user@ubuntu$ sudo tasksel install lamp-server
 
-Önceki seçeneklerinden birini çalıştırdıktan sonra bu paketleri ve diğer çeşitli bağımlılıkları yüklemeniz istenir. 'Y', sonra da devam etmek için ve MySQL için yönetici parolasını ayarlamak için başka bir yönergeleri izleyerek ' Enter' tuşuna basın. Bu, PHP, MySQL ile kullanmak için gerekli en düşük gerekli PHP uzantıları yükler. 
+Merhaba önceki seçeneklerinden birini çalıştırdıktan sonra şunları yapacaksınız istendiğinde tooinstall bu paketleri ve diğer çeşitli bağımlılıkları olabilir. 'Y', 'Enter' toocontinue basın ve herhangi diğer istemleri tooset yönetici parolası için MySQL izleyin. Bu MySQL ile Merhaba minimum gerekli PHP uzantıları gerekli toouse PHP yükler. 
 
 ![][1]
 
-Paketleri olarak kullanılabilir olan diğer PHP uzantılarının görmek için aşağıdaki komutu çalıştırın:
+Komut toosee aşağıdaki hello paketleri olarak kullanılabilir olan diğer PHP uzantılarının çalıştırın:
 
     user@ubuntu$ apt-cache search php5
 
 
 #### <a name="create-infophp-document"></a>İnfo.php belge oluşturma
-Şimdi Apache, MySQL ve PHP sürümünü, komut satırı yazarak olduğunu denetlemek görüntüleyebiliyor olmalısınız `apache2 -v`, `mysql -v`, veya `php -v`.
+Şimdi, Apache, MySQL ve PHP sürümünü hello komut satırı yazarak elinizde mümkün toocheck olmalısınız `apache2 -v`, `mysql -v`, veya `php -v`.
 
-Daha fazla test etmek isterseniz, bir tarayıcıda görüntülemek üzere hızlı bir PHP bilgileri sayfası oluşturabilirsiniz. Bir dosya ile Nano metin düzenleyicisi bu komutla oluşturun:
+Tootest gibi daha fazla, hızlı bir PHP bilgi sayfası tooview bir tarayıcıda oluşturabilirsiniz. Bir dosya ile Nano metin düzenleyicisi bu komutla oluşturun:
 
     user@ubuntu$ sudo nano /var/www/html/info.php
 
-GNU Nano metin düzenleyici içinde aşağıdaki satırları ekleyin:
+Merhaba GNU Nano metin düzenleyicisi içinde satırlardan hello ekleyin:
 
     <?php
     phpinfo();
     ?>
 
-Ardından kaydedin ve Metin Düzenleyicisi'nden çıkın.
+Ardından kaydedin ve hello Metin Düzenleyicisi'nden çıkın.
 
 Tüm yeni yüklemeler etkili şekilde Apache bu komutla yeniden başlatın.
 
     user@ubuntu$ sudo service apache2 restart
 
 ## <a name="verify-lamp-successfully-installed"></a>Başarılı bir şekilde AMPUL doğrulayın
-Şimdi bir tarayıcı açıp http://youruniqueDNS/info.php için giderek tarafından oluşturulan PHP bilgileri sayfasını kontrol edebilirsiniz. Bu görüntüsüne benzer görünmelidir.
+Şimdi bir tarayıcı açıp toohttp://youruniqueDNS/info.php gidip oluşturduğunuz hello PHP bilgileri sayfasını kontrol edebilirsiniz. Benzer toothis görüntü görünmelidir.
 
 ![][2]
 
-Http://youruniqueDNS/ giderek Apache2 Ubuntu varsayılan sayfa görüntüleyerek Apache yüklemenizi denetleyebilirsiniz. Bu görüntü gibi bir şey görmeniz gerekir.
+Merhaba Apache2 Ubuntu varsayılan sayfa tooyou http://youruniqueDNS/ giderek görüntüleyerek Apache yüklemenizi denetleyebilirsiniz. Bu görüntü gibi bir şey görmeniz gerekir.
 
 ![][3]
 
 Tebrikler, yalnızca Kurulum, Azure VM'deki bir AMPUL yığınına sahiptir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-AMPUL yığında Ubuntu belgelerine göz atın:
+Merhaba hello AMPUL yığında Ubuntu belgelerine bakın:
 
 * [https://help.ubuntu.com/Community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
 

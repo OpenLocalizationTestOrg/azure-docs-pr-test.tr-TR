@@ -1,46 +1,46 @@
-1. Birleşik Kurulum yükleme dosyasını çalıştırın.
-2. İçinde **başlamadan önce**seçin **işlem sunucusu ve yapılandırma sunucusu yüklemek**.
+1. Merhaba birleşik Kurulum yükleme dosyasını çalıştırın.
+2. İçinde **başlamadan önce**seçin **yükleme hello yapılandırma sunucusu ve işlem sunucusu**.
 
     ![Başlamadan önce](./media/site-recovery-add-configuration-server/combined-wiz1.png)
 
-3. MySQL indirip yüklemek için **Üçüncü Taraf Yazılım Lisansı** bölümünde **Kabul Ediyorum**’a tıklayın.
+3. İçinde **üçüncü taraf yazılım lisansı**, tıklatın **kabul ediyorum** toodownload ve MySQL yükleme.
 
     ![Üçüncü taraf yazılım](./media/site-recovery-add-configuration-server/combined-wiz2.png)
-4. **Kayıt** menüsünde kasadan indirdiğiniz kayıt defteri anahtarını seçin.
+4. İçinde **kayıt**seçin hello kasadan indirdiğiniz hello kayıt anahtarı.
 
     ![Kayıt](./media/site-recovery-add-configuration-server/combined-wiz3.png)
-5. **İnternet Ayarları** alanında, yapılandırma sunucusunda çalışan Sağlayıcının Azure Site Recovery'ye İnternet üzerinden nasıl bağlanacağını belirtin.
+5. İçinde **Internet ayarlarını**, nasıl hello yapılandırma sunucusunda çalışan sağlayıcı üzerinden Site Recovery tooAzure bağlanır hello hello Internet belirtin.
 
-   a. Şu anda makinede select ayarlanıp proxy ile bağlanmak isterseniz **Azure Site Recovery proxy sunucu kullanma Bağlan**.
+   a. Şu anda hello makinede ayarlanır hello proxy ile tooconnect istiyorsanız seçin **tooAzure Site kurtarma proxy sunucusu kullanarak bağlanmak**.
 
-   b. Sağlayıcı doğrudan bağlanmasını istiyorsanız seçin **Azure Site Recovery bir proxy sunucu olmadan doğrudan bağlan**.
+   b. Merhaba sağlayıcısı tooconnect doğrudan istiyorsanız seçin **tooAzure Site Recovery bir proxy sunucu olmadan doğrudan bağlan**.
 
-   c. Var olan ara sunucu kimlik doğrulaması gerektiriyorsa veya Sağlayıcı bağlantısı için özel bir ara sunucu kullanmak istiyorsanız **Özel ara sunucu ayarlarıyla bağlan** seçeneğini belirleyin.
+   c. Merhaba mevcut proxy kimlik doğrulaması gerektiriyorsa veya hello sağlayıcı bağlantısı için özel bir ara sunucu toouse istiyorsanız seçin **özel proxy ayarlarıyla Bağlan**.
 
-     * Özel bir ara sunucu kullanırsanız adresi, bağlantı noktasını ve kimlik bilgilerini belirtmeniz gerekir.
-     * Bir proxy sunucu kullanıyorsanız, zaten bölümünde açıklanan URL'lere izin gerektiğini [Önkoşullar](#prerequisites).
+     * Özel bir ara sunucu kullanırsanız, toospecify başlangıç adresi, bağlantı noktası ve kimlik bilgileri gerekir.
+     * Bir proxy sunucu kullanıyorsanız, zaten açıklanan hello URL'lere izin [Önkoşullar](#prerequisites).
 
      ![Güvenlik duvarı](./media/site-recovery-add-configuration-server/combined-wiz4.png)
-6. **Önkoşul Denetimi** menüsünde Kurulum, yüklemenin çalışabildiğinden emin olmak üzere bir denetim gerçekleştirir. **Genel saat eşitleme denetimi** hakkında bir uyarı görünürse, sistem saatindeki zamanın (**Tarih ve Saat** ayarları) saat dilimiyle aynı olduğunu doğrulayın.
+6. İçinde **Önkoşul denetimi**, Kurulum yükleme çalışabildiğinden emin bir onay toomake çalıştırılır. Merhaba hakkında bir uyarı görünürse **genel zaman eşitleme denetimi**, hello bundan hello sistem saati doğrulayın (**tarih ve saat** ayarları) olan hello aynı hello saat dilimi.
 
     ![Ön koşullar](./media/site-recovery-add-configuration-server/combined-wiz5.png)
-7. **MySQL Yapılandırması** menüsünde, yüklü MySQL sunucu örneğinde oturum açmak için kimlik bilgileri oluşturun.
+7. İçinde **MySQL yapılandırma**, yüklü olan toohello MySQL server örneğinde günlüğe kaydetme için kimlik bilgileri oluşturun.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz6.png)
-8. **Ortam Ayrıntıları**’nda VMware sanal makinelerini çoğaltıp çoğaltmayacağınızı seçin. Varsa, Kurulum Powerclı 6.0 yüklü olduğunu denetler.
+8. İçinde **ortam ayrıntıları**tooreplicate VMware Vm'lerini oluşturacağız olup olmadığını seçin. Varsa, Kurulum Powerclı 6.0 yüklü olduğunu denetler.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz7.png)
 
-9. **Yükleme Konumu** alanında ikili dosyaları yüklemek ve önbelleği depolamak istediğiniz konumu seçin. Seçtiğiniz sürücü en az 5 GB kullanılabilir disk alanına sahip olmalıdır, ancak en az 600 GB boş alanı olan bir önbellek sürücüsü seçmeniz önerilir.
+9. İçinde **yükleme konumu**burada tooinstall hello ikili dosyaları istediğiniz ve hello önbellek depolamak seçin. Seçtiğiniz hello sürücü en az 5 GB kullanılabilir disk alanı olması gerekir, ancak en az 600 GB boş alana sahip bir önbellek sürücüsü kullanmanızı öneririz.
 
     ![Yükleme konumu](./media/site-recovery-add-configuration-server/combined-wiz8.png)
-10. **Ağ Seçimi** menüsünde, yapılandırma sunucusunun çoğaltma verilerini gönderip aldığı dinleyiciyi (ağ bağdaştırıcısı ve SSL bağlantı noktası) seçin. Bağlantı noktası 9443, çoğaltma trafiğini gönderip almak için kullanılan varsayılan bağlantı noktasıdır, ancak bu bağlantı noktası numarasını ortamınızın gereksinimlerine uyacak şekilde değiştirebilirsiniz. Bağlantı noktası 9443’e ek olarak, çoğaltma işlemlerini düzenlemek için web sunucusu tarafından kullanılan bağlantı noktası 443 de açılır. Bağlantı noktası 443 gönderirken ya da çoğaltma trafiğini alırken için kullanmayın.
+10. İçinde **Ağ Seçimi**, hangi hello yapılandırma sunucusu gönderir hello dinleyicisini (ağ bağdaştırıcısı ve SSL bağlantı noktası) belirtin ve çoğaltma verileri alan. Bağlantı noktası 9443, göndermek ve çoğaltma trafiğini almak için kullanılan hello varsayılan bağlantı noktası olmakla birlikte, ortam gereksinimleri Bu bağlantı noktası numarası toosuit değiştirebilirsiniz. Toplama toohello bağlantı 9443, biz de bir web sunucusu tooorchestrate çoğaltma işlemleri tarafından kullanılan bağlantı noktası 443'ü açın. Bağlantı noktası 443 gönderirken ya da çoğaltma trafiğini alırken için kullanmayın.
 
     ![Ağ seçimi](./media/site-recovery-add-configuration-server/combined-wiz9.png)
 
 
-11. **Özet** alanındaki bilgileri gözden geçirin ve **Yükle**’ye tıklayın. Yükleme tamamlandığında bir parola oluşturulur. Çoğaltmayı etkinleştirdiğinizde bu parola gerekli olacaktır; bu yüzden kopyalayıp güvenli bir yerde saklayın.
+11. İçinde **Özet**, hello bilgileri gözden geçirin ve tıklayın **yükleme**. Yükleme tamamlandığında bir parola oluşturulur. Çoğaltmayı etkinleştirdiğinizde bu parola gerekli olacaktır; bu yüzden kopyalayıp güvenli bir yerde saklayın.
 
     ![Özet](./media/site-recovery-add-configuration-server/combined-wiz10.png)
 
-Kayıt tamamlandıktan sonra, sunucu kasadaki **Ayarlar** > **Sunucular** dikey penceresinde görüntülenir.
+Kayıt tamamlandıktan sonra hello sunucu üzerinde hello görüntülenir **ayarları** > **sunucuları** dikey penceresinde hello kasası.

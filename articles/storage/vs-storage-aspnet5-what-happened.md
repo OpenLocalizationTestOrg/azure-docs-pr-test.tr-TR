@@ -1,6 +1,6 @@
 ---
-title: "My ASP.NET 5 Proje ne (Visual Studio bağlı Hizmetleri) | Microsoft Docs"
-description: "Visual Studio kullanarak bir Visual Studio ASP.NET 5 Proje Azure depolama hesabında bağlanma Hizmetleri bağlandıktan sonra ne olacağını açıklar"
+title: "aaaWhat toomy ASP.NET 5 Proje oldu (Visual Studio bağlı Hizmetleri) | Microsoft Docs"
+description: "Visual Studio kullanarak bir Visual Studio ASP.NET 5 Proje tooan Azure depolama hesabında bağlanma Hizmetleri bağlandıktan sonra ne olacağını açıklar"
 services: storage
 documentationcenter: 
 author: TomArcher
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: tarcher
-ms.openlocfilehash: 4390993772eaf35516e48ad7adcdcec5f1df8d71
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9323bc5317fa2ba0cd42aecd01982f8c2b23d20a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="what-happened-to-my-aspnet-5-project-visual-studio-azure-storage-connected-services"></a>My ASP.NET 5 Proje ne (Visual Studio Azure depolama bağlı Hizmetleri)?
+# <a name="what-happened-toomy-aspnet-5-project-visual-studio-azure-storage-connected-services"></a>Ne oldu toomy ASP.NET 5 Proje (Visual Studio Azure depolama bağlı Hizmetleri)?
 ## <a name="references-added"></a>Eklenen başvuruları
-Azure depolama NuGet paketini Visual Studio projenizi eklendi.  
-Bu paket aşağıdaki .NET başvuru ekler:
+Hello Azure depolama NuGet paketini tooyour Visual Studio projesi eklendi.  
+Bu paket .NET başvurularını aşağıdaki hello ekler:
 
 * **Microsoft.Data.Edm**
 * **Microsoft.Data.OData**
@@ -34,10 +34,10 @@ Bu paket aşağıdaki .NET başvuru ekler:
 * **System.Data**
 * **System.Spatial**
 
-Ayrıca, NuGet paketi **Microsoft.Framework.Configuration.Json** eklendi.
+Ayrıca, hello NuGet paketi **Microsoft.Framework.Configuration.Json** eklendi.
 
 ## <a name="connection-string-for-azure-storage-added"></a>Azure eklenen depolama alanı için bağlantı dizesi
-Projeniz config.json dosyasında bir öğeyi seçilen depolama hesabı bağlantı dizesi ve anahtarı ile oluşturuldu.
+Merhaba config.json dosyasında projenizin bir öğe hello seçili depolama hesabına ait bağlantı dizesini ve anahtarı ile oluşturuldu.
 
 Daha fazla bilgi için bkz: [ASP.NET 5](http://www.asp.net/vnext).
 

@@ -1,6 +1,6 @@
 ---
-title: "Açık kaynak Media Framework için kesintisiz akış eklentisi"
-description: "Adobe açık kaynak Media Framework için Azure Media Services kesintisiz akış eklentisi kullanmayı öğrenin."
+title: "aaaSmooth hello açık kaynak Media Framework için akış eklentisi"
+description: "Nasıl toouse hello hello Adobe açık kaynak Media Framework için Azure Media Services kesintisiz akış eklentisi öğrenin."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 9c764f176ae75085320882de3fb26d8e7d52daaf
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 3cf8e4679279344cf79c3f0e5b28f63adf88179d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Microsoft Adobe açık kaynak Media Framework eklentisi akış kesintisiz kullanma
+# <a name="how-toouse-hello-microsoft-smooth-streaming-plugin-for-hello-adobe-open-source-media-framework"></a>Nasıl tooUse hello Microsoft kesintisiz akış eklentisi Merhaba Adobe açık kaynak medya çerçeve
 ## <a name="overview"></a>Genel Bakış
-Açık kaynak Media Framework 2.0 (SS OSMF için) için Microsoft kesintisiz akış eklentisi OSMF varsayılan yeteneklerini genişletir ve yeni ve mevcut OSMF oynatıcıları Microsoft kesintisiz akış içeriği oynatmayı ekler. Eklenti kesintisiz Akış kayıttan yürütme özellikleri flaş medya kayıttan yürütme (SMP) da ekler.
+Açık kaynak Media Framework 2.0 (SS OSMF için) hello varsayılan OSMF yeteneklerini genişletir ve Microsoft kesintisiz akış içeriği oynatmayı toonew ve varolan OSMF ekler için Microsoft kesintisiz akış eklentisi hello oynatıcıları. Merhaba eklentisi ayrıca kesintisiz Akış kayıttan yürütme özellikleri tooStrobe medya kayıttan yürütme (SMP) ekler.
 
 OSMF SS eklentisi iki sürümünü içerir:
 
 * OSMF (.swc) için statik kesintisiz akış eklentisi
 * OSMF (.swf) için dinamik kesintisiz akış eklentisi
 
-Bu belge okuyucunun OSMF ve OSMF genel bilgilere sahip olduğunu varsayar eklentileri. OSMF hakkında daha fazla bilgi için lütfen belgelere bakın [resmi OSMF sitesi](http://osmf.org/).
+Bu belge hello okuyucu OSMF ve OSMF genel bilgisine sahip olduğunu varsayar eklentileri. OSMF hakkında daha fazla bilgi için hello belge üzerinde hello lütfen bkz. [resmi OSMF sitesi](http://osmf.org/).
 
 ### <a name="smooth-streaming-plugin-for-osmf-20"></a>OSMF 2.0 için kesintisiz akış eklentisi
-Eklenti yükleme ve isteğe bağlı kesintisiz akış içeriği aşağıdaki özelliklerle kayıttan yürütmeyi destekler:
+Merhaba eklentisi özellikleri aşağıdaki hello ile yükleme ve isteğe bağlı kesintisiz akış içeriği kayıttan yürütmeyi destekler:
 
 * İsteğe bağlı kesintisiz Akış kayıttan yürütme (yürütme, duraklatma, arama, Dur)
 * Canlı kesintisiz Akış kayıttan yürütme (kullan)
@@ -46,18 +46,18 @@ Eklenti yükleme ve isteğe bağlı kesintisiz akış içeriği aşağıdaki öz
 * Bu sürümü yalnızca OSMF 2.0 destekler.
 
 ## <a name="supported-features-and-known-issues"></a>Desteklenen özellikler ve bilinen sorunlar
-Desteklenen özellikler, desteklenmeyen özellikler ve bilinen sorunlar tam bir listesi için bkz [bu belgeyi](http://download.microsoft.com/download/3/1/B/31B63D97-574E-4A8D-BF8D-170744181724/Smooth_Streaming_Plugin_for_OSMF.pdf).
+Desteklenen özellikler, desteklenmeyen özellikler ve bilinen sorunlar tam listesi için çok bakın[bu belgeyi](http://download.microsoft.com/download/3/1/B/31B63D97-574E-4A8D-BF8D-170744181724/Smooth_Streaming_Plugin_for_OSMF.pdf).
 
-## <a name="loading-the-plugin"></a>Eklentisi yükleniyor
-Statik olarak (derleme zamanında) OSMF eklentileri yüklenebilir veya dinamik olarak (çalışma zamanında). Kesintisiz akış eklentisi OSMF indirmek için dinamik ve statik sürümlerini içerir.
+## <a name="loading-hello-plugin"></a>Yükleme hello eklentisi
+Statik olarak (derleme zamanında) OSMF eklentileri yüklenebilir veya dinamik olarak (çalışma zamanında). Merhaba kesintisiz akış eklentisi OSMF indirmek için dinamik ve statik sürümlerini içerir.
 
-* Statik yükleme: statik olarak yüklemek için bir statik kitaplık (SWC) dosyası gereklidir. Statik eklentileri varsayılan olarak, derleme zamanında son çıktı dosyası içinde birleştirme ve projeler başvuru olarak eklenir.
-* Dinamik yükleme: dinamik olarak yüklemek için önceden derlenmiş (SWF) dosyası gereklidir. Dinamik eklenti çalışma zamanı'nda yüklü ve proje çıktısına dahil değildir. (Derlenmiş çıktı) Dinamik eklenti, HTTP ve dosya protokolleri kullanılarak yüklenebilir.
+* Statik yükleme: tooload statik olarak, bir statik kitaplık (SWC) dosyası gereklidir. Statik eklentileri bir başvuru olarak eklenen dosya hello derleme zamanında toohello projeleri ve birleştirme hello son çıktı içinde.
+* Dinamik yükleme: tooload dinamik olarak derlenmiş bir (SWF) dosyası gereklidir. Dinamik eklenti hello çalışma zamanı yüklendi ve hello proje çıktısına dahil değildir. (Derlenmiş çıktı) Dinamik eklenti, HTTP ve dosya protokolleri kullanılarak yüklenebilir.
 
-Resmi statik ve dinamik yükleme hakkında daha fazla bilgi için bkz: [OSMF eklenti sayfası](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf).
+Statik ve dinamik yükleme hakkında daha fazla bilgi için bkz: hello resmi [OSMF eklenti sayfası](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf).
 
 ### <a name="ss-for-osmf-static-loading"></a>SS OSMF statik yükleme için
-Aşağıdaki kod parçacığında, SS eklentisi OSMF için statik olarak yüklemek ve OSMF MediaFactory sınıfını kullanarak bir temel çalmasına gösterilmektedir. OSMF kod SS eklemeden önce lütfen proje başvurusu "MSAdaptiveStreamingPlugin v1.0.3 osmf2.0.swc" statik eklentisi içerdiğinden emin olun.
+Aşağıdaki kod parçacığında Hello nasıl tooload SS eklentisi OSMF için statik olarak hello ve OSMF MediaFactory sınıfını kullanarak bir temel çalmasına gösterir. Merhaba SS OSMF kodu eklemeden önce lütfen hello proje başvurusu hello "MSAdaptiveStreamingPlugin v1.0.3 osmf2.0.swc" statik eklentisi içerdiğinden emin olun.
 
 ```
 package 
@@ -94,24 +94,24 @@ package
         private function initMediaPlayer():void
         {
 
-            // Create the container (sprite) for managing display and layout
+            // Create hello container (sprite) for managing display and layout
             _mediaPlayerSprite = new MediaPlayerSprite();    
             _mediaPlayerSprite.addEventListener(MediaErrorEvent.MEDIA_ERROR, onPlayerFailed);
             _mediaPlayerSprite.addEventListener(MediaPlayerStateChangeEvent.MEDIA_PLAYER_STATE_CHANGE, onPlayerStateChange);
             _mediaPlayerSprite.scaleMode = ScaleMode.NONE;
             _mediaPlayerSprite.width = stage.stageWidth;
             _mediaPlayerSprite.height = stage.stageHeight;
-            //Adds the container to the stage
+            //Adds hello container toohello stage
             addChild(_mediaPlayerSprite);
 
             // Create a mediafactory instance
             _mediaFactory = new DefaultMediaFactory();
 
-            // Add the listeners for PLUGIN_LOADING
+            // Add hello listeners for PLUGIN_LOADING
             _mediaFactory.addEventListener(MediaFactoryEvent.PLUGIN_LOAD,onPluginLoaded);
             _mediaFactory.addEventListener(MediaFactoryEvent.PLUGIN_LOAD_ERROR, onPluginLoadFailed );
 
-            // Load the plugin class 
+            // Load hello plugin class 
             loadAdaptiveStreamingPlugin( );  
 
         }
@@ -126,15 +126,15 @@ package
 
         private function onPluginLoaded( event:MediaFactoryEvent ):void
         {
-            // The plugin is loaded successfully.
-            // Your web server needs to host a valid crossdomain.xml file to allow plugin to download Smooth Streaming files.
+            // hello plugin is loaded successfully.
+            // Your web server needs toohost a valid crossdomain.xml file tooallow plugin toodownload Smooth Streaming files.
         loadMediaSource("http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest")
 
         }
 
         private function onPluginLoadFailed( event:MediaFactoryEvent ):void
         {
-            // The plugin is failed to load ...
+            // hello plugin is failed tooload ...
         }
 
 
@@ -148,12 +148,12 @@ package
             {
                 case MediaPlayerState.LOADING: 
 
-                    // A new source is started to load.
+                    // A new source is started tooload.
 
                     break;
 
                 case  MediaPlayerState.READY :   
-                    // Add code to deal with Player Ready when it is hit the first load after a source is loaded. 
+                    // Add code toodeal with Player Ready when it is hit hello first load after a source is loaded. 
 
                     break;
 
@@ -174,7 +174,7 @@ package
 
         private function loadMediaSource(sourceURL : String):void 
         {
-            // Take an URL of SmoothStreamingSource's manifest and add it to the page.
+            // Take an URL of SmoothStreamingSource's manifest and add it toohello page.
 
             var resource:URLResource= new URLResource( sourceURL );
 
@@ -183,7 +183,7 @@ package
             _mediaPlayerSprite.width = stage.stageWidth;
             _mediaPlayerSprite.height = stage.stageHeight;
 
-            // Add the media element
+            // Add hello media element
             _mediaPlayerSprite.media = element;
         }     
 
@@ -193,7 +193,7 @@ package
 
 
 ### <a name="ss-for-osmf-dynamic-loading"></a>SS OSMF dinamik yükleme için
-Aşağıdaki kod parçacığında SS eklentisi OSMF için dinamik olarak yükleme ve temel bir Yürüt OSMF MediaFactory sınıfını kullanarak video gösterilmektedir. OSMF kod SS dahil olmak üzere önce dosya protokolü kullanarak yüklemek istiyorsanız, "MSAdaptiveStreamingPlugin v1.0.3 osmf2.0.swf" dinamik eklenti proje klasörüne kopyalayın veya bir web sunucusu HTTP yük altında kopyalayın. Proje başvurularını "MSAdaptiveStreamingPlugin v1.0.3 osmf2.0.swc" eklemenize gerek yoktur.
+Aşağıdaki kod parçacığında Hello nasıl tooload SS eklentisi OSMF için dinamik olarak hello ve hello OSMF MediaFactory sınıfını kullanarak bir temel çalmasına gösterir. Dosya Protokolü kullanarak tooload istediğiniz veya bir web sunucusu HTTP yük altında kopyalarsanız hello SS OSMF kodu eklemeden önce hello "MSAdaptiveStreamingPlugin v1.0.3 osmf2.0.swf" dinamik eklenti toohello proje klasörüne kopyalayın. Merhaba proje başvuruları hiçbir gerek tooinclude "MSAdaptiveStreamingPlugin v1.0.3 osmf2.0.swc" dir.
 
 Paket {
 
@@ -208,7 +208,7 @@ Paket {
     import flash.system.Capabilities;
 
 
-    //Sets the size of the SWF
+    //Sets hello size of hello SWF
 
     [SWF(width="1024", height="768", backgroundColor='#405050', frameRate="25")]
     public class TestPlayer extends Sprite
@@ -227,22 +227,22 @@ Paket {
         private function initMediaPlayer():void
         {
 
-            // Create the container (sprite) for managing display and layout
+            // Create hello container (sprite) for managing display and layout
             _mediaPlayerSprite = new MediaPlayerSprite();    
             _mediaPlayerSprite.addEventListener(MediaErrorEvent.MEDIA_ERROR, onPlayerFailed);
             _mediaPlayerSprite.addEventListener(MediaPlayerStateChangeEvent.MEDIA_PLAYER_STATE_CHANGE, onPlayerStateChange);
 
-            //Adds the container to the stage
+            //Adds hello container toohello stage
             addChild(_mediaPlayerSprite);
 
             // Create a mediafactory instance
             _mediaFactory = new DefaultMediaFactory();
 
-            // Add the listeners for PLUGIN_LOADING
+            // Add hello listeners for PLUGIN_LOADING
             _mediaFactory.addEventListener(MediaFactoryEvent.PLUGIN_LOAD,onPluginLoaded);
             _mediaFactory.addEventListener(MediaFactoryEvent.PLUGIN_LOAD_ERROR, onPluginLoadFailed );
 
-            // Load the plugin class 
+            // Load hello plugin class 
             loadAdaptiveStreamingPlugin( );  
 
         }
@@ -252,7 +252,7 @@ Paket {
             var pluginResource:MediaResourceBase;
             var adaptiveStreamingPluginUrl:String;
 
-            // Your dynamic plugin web server needs to host a valid crossdomain.xml file to allow loading plugins.
+            // Your dynamic plugin web server needs toohost a valid crossdomain.xml file tooallow loading plugins.
 
             adaptiveStreamingPluginUrl = "http://yourdomain/MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf";
             pluginResource = new URLResource(adaptiveStreamingPluginUrl);
@@ -262,16 +262,16 @@ Paket {
 
         private function onPluginLoaded( event:MediaFactoryEvent ):void
         {
-            // The plugin is loaded successfully.
+            // hello plugin is loaded successfully.
 
-            // Your web server needs to host a valid crossdomain.xml file to allow plugin to download Smooth Streaming files.
+            // Your web server needs toohost a valid crossdomain.xml file tooallow plugin toodownload Smooth Streaming files.
 
     loadMediaSource("http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest")
         }
 
         private function onPluginLoadFailed( event:MediaFactoryEvent ):void
         {
-            // The plugin is failed to load ...
+            // hello plugin is failed tooload ...
         }
 
 
@@ -285,12 +285,12 @@ Paket {
             {
                 case MediaPlayerState.LOADING: 
 
-                    // A new source is started to load.
+                    // A new source is started tooload.
 
                     break;
 
                 case  MediaPlayerState.READY :   
-                    // Add code to deal with Player Ready when it is hit the first load after a source is loaded. 
+                    // Add code toodeal with Player Ready when it is hit hello first load after a source is loaded. 
 
                     break;
 
@@ -311,7 +311,7 @@ Paket {
 
         private function loadMediaSource(sourceURL : String):void 
         {
-            // Take an URL of SmoothStreamingSource's manifest and add it to the page.
+            // Take an URL of SmoothStreamingSource's manifest and add it toohello page.
 
             var resource:URLResource= new URLResource( sourceURL );
 
@@ -319,22 +319,22 @@ Paket {
             _mediaPlayerSprite.scaleMode = ScaleMode.LETTERBOX;
             _mediaPlayerSprite.width = stage.stageWidth;
             _mediaPlayerSprite.height = stage.stageHeight;
-            // Add the media element
+            // Add hello media element
             _mediaPlayerSprite.media = element;
         }     
 
     }
 }
 
-## <a name="strobe-media--playback-with-the-ss-odmf-dynamic-plugin"></a>SS ODMF dinamik eklenti ile flaş ortam çalma
-Kesintisiz akış OSMF dinamik eklenti için uyumlu [flaş medya kayıttan yürütme (SMP)](http://osmf.org/strobe_mediaplayback.html). OSMF eklentisi SS SMP için kesintisiz akış içeriği oynatmayı eklemek için kullanabilirsiniz. Bunu yapmak için bir web sunucusu için aşağıdaki adımları kullanarak HTTP yük altında "MSAdaptiveStreamingPlugin v1.0.3 osmf2.0.swf" kopyalayın:
+## <a name="strobe-media--playback-with-hello-ss-odmf-dynamic-plugin"></a>Merhaba SS ODMF dinamik eklenti ile flaş ortam çalma
+Merhaba kesintisiz akış OSMF dinamik eklenti için uyumlu [flaş medya kayıttan yürütme (SMP)](http://osmf.org/strobe_mediaplayback.html). Merhaba SS OSMF eklentisi tooadd kesintisiz akış içeriği oynatmayı tooSMP için kullanabilirsiniz. toodo "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" bir web sunucusu altında aşağıdaki hello kullanarak HTTP yük için adımları Bu, kopyalama:
 
-1. Gözat [flaş Media Çalma Kurulum sayfasında](http://osmf.org/dev/2.0gm/setup.html). 
-2. Src kesintisiz akış için kaynak (örneğin http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) ayarlayın 
-3. İstenen yapılandırma değişiklikleri yapın ve Önizleme ve güncelleştirme'yi tıklatın.
+1. Merhaba Gözat [flaş Media Çalma Kurulum sayfasında](http://osmf.org/dev/2.0gm/setup.html). 
+2. Merhaba src tooa kesintisiz akış kaynak, (örneğin http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) ayarlayın 
+3. İstenen hello yapılandırma değişikliklerini yapın ve Önizleme ve güncelleştirme'yi tıklatın.
    
    **Not** içerik web sunucunuzun geçerli crossdomain.xml gerekiyor. 
-4. Kodu kopyalayıp aşağıdaki örnekte olduğu gibi sık kullandığınız metin düzenleyiciyi kullanarak basit bir HTML sayfasına yapıştırın:
+4. Kopyalama ve yapıştırma hello örnek aşağıdaki gibi sık kullandığınız metin düzenleyiciyi kullanarak hello kod tooa basit HTML sayfası:
 
         <html>
         <body>
@@ -359,7 +359,7 @@ Kesintisiz akış OSMF dinamik eklenti için uyumlu [flaş medya kayıttan yür�
 
 
 
-1. Kesintisiz akış OSMF eklenti ekleme kodu ekleme ve kaydedin.
+1. Kesintisiz akış OSMF eklentisi toohello eklemek ekleme kodu edinin ve kaydedin.
    
         <html>
         <object width="920" height="640"> 
@@ -379,10 +379,10 @@ Kesintisiz akış OSMF dinamik eklenti için uyumlu [flaş medya kayıttan yür�
         </embed>
         </object>
         </html>
-2. HTML sayfası kaydedin ve bir web sunucusunda yayımlayın. Sık kullanılan Flash kullanarak yayımlanan web sayfasına göz atın&reg; Player etkin Internet tarayıcısı (Internet Explorer, Chrome, Firefox, vb.).
+2. HTML sayfası kaydedin ve tooa web sunucusunda yayımlayın. Gözat toohello yayımlanan web sayfasını kullanarak, sık kullanılan Flash&reg; Player etkin Internet tarayıcısı (Internet Explorer, Chrome, Firefox, vb.).
 3. Kesintisiz akış içerikten Adobe içinde&reg; Flash&reg; Player.
 
-Resmi genel OSMF geliştirme hakkında daha fazla bilgi için lütfen bkz [OSMF geliştirme sayfa](http://osmf.org/resources.html).
+Merhaba resmi genel OSMF geliştirme hakkında daha fazla bilgi için lütfen bkz [OSMF geliştirme sayfa](http://osmf.org/resources.html).
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

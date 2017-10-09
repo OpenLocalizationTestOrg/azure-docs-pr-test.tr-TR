@@ -1,6 +1,6 @@
 ---
-title: "Azure işlevlerinde bir işlev uygulaması için kaynak dağıtım otomatikleştirmek | Microsoft Docs"
-description: "İşlev uygulamanızı dağıtan bir Azure Resource Manager şablonu oluşturmayı öğrenin."
+title: "Azure işlevleri bir işlev uygulaması aaaAutomate kaynak dağıtım | Microsoft Docs"
+description: "Bilgi nasıl toobuild işlevi uygulamanızı dağıtan bir Azure Resource Manager şablonu."
 services: Functions
 documtationcenter: na
 author: lindydonna
@@ -16,15 +16,15 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 15496e4ab2858b2aa319d53f1c438a259a3d5e49
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b0df0d4ef9fe93213f7b1cb1d1e6b4e14f8b3a30
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure işlevleri işlev uygulamanız için kaynak dağıtımı otomatik hale getir
 
-Bir işlev uygulaması dağıtmak için bir Azure Resource Manager şablonu kullanabilirsiniz. Bu makalede gerekli kaynakları ve bunu parametrelerinin özetlenmektedir. Bağlı olarak ek kaynaklar dağıtmak gerekebilecek [Tetikleyicileri ve bağlamaları](functions-triggers-bindings.md) işlevi uygulamanızda.
+Azure Resource Manager şablonu toodeploy bir işlev uygulaması kullanabilirsiniz. Bu makalede hello gerekli kaynakları ve bunu parametrelerinin özetlenmektedir. Merhaba bağlı olarak toodeploy ek kaynaklar gerekebilecek [Tetikleyicileri ve bağlamaları](functions-triggers-bindings.md) işlevi uygulamanızda.
 
 Şablonları oluşturma hakkında daha fazla bilgi için bkz: [Azure Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md).
 
@@ -56,9 +56,9 @@ Bir Azure depolama hesabı için bir işlev uygulaması gereklidir. BLOB'lar, ta
 }
 ```
 
-Ayrıca, özellikleri `AzureWebJobsStorage` ve `AzureWebJobsDashboard` uygulama ayarları site yapılandırması olarak belirtilmelidir. Azure işlevleri çalışma zamanı kullanır `AzureWebJobsStorage` iç kuyruk oluşturmak için bağlantı dizesi. Bağlantı dizesi `AzureWebJobsDashboard` Azure Table depolama ve güç oturum açmak için kullandığınız **İzleyici** portal sekmesindedir.
+Ayrıca, Özellikler hello `AzureWebJobsStorage` ve `AzureWebJobsDashboard` uygulama ayarları hello site yapılandırması olarak belirtilmelidir. Hello Azure işlevleri çalışma zamanı kullanan hello `AzureWebJobsStorage` bağlantı dizesi toocreate iç sıralar. Hello bağlantı dizesi `AzureWebJobsDashboard` kullanılan toolog, tooAzure tablo depolama ve güç hello olan **İzleyici** hello portal sekmesindedir.
 
-Bu özellikleri belirtilen `appSettings` koleksiyonunda `siteConfig` nesnesi:
+Bu özellikleri hello belirtilen `appSettings` hello koleksiyonda `siteConfig` nesnesi:
 
 ```json
 "appSettings": [
@@ -74,11 +74,11 @@ Bu özellikleri belirtilen `appSettings` koleksiyonunda `siteConfig` nesnesi:
 
 ### <a name="hosting-plan"></a>Barındırma planı
 
-Barındırma planı tanımı, bir tüketim veya uygulama hizmeti planı kullanmadığınıza bağlı olarak değişir. Bkz: [tüketim plan üzerinde bir işlev uygulaması dağıtma](#consumption) ve [uygulama hizmeti plan üzerinde bir işlev uygulaması dağıtma](#app-service-plan).
+barındırma planı hello Hello tanımı, bir tüketim veya uygulama hizmeti planı kullanmadığınıza bağlı olarak değişir. Bkz: [hello tüketim plan üzerinde bir işlev uygulaması dağıtma](#consumption) ve [hello uygulama hizmeti planı üzerinde bir işlev uygulaması dağıtma](#app-service-plan).
 
 ### <a name="function-app"></a>İşlev uygulaması
 
-Bir kaynak türü kullanarak tanımlı işlevi Uygulama kaynağı **Microsoft.Web/Site** ve tür **functionapp**:
+Merhaba işlevi uygulama kaynak türünde bir kaynak kullanılarak tanımlanmış **Microsoft.Web/Site** ve tür **functionapp**:
 
 ```json
 {
@@ -95,15 +95,15 @@ Bir kaynak türü kullanarak tanımlı işlevi Uygulama kaynağı **Microsoft.We
 
 <a name="consumption"></a>
 
-## <a name="deploy-a-function-app-on-the-consumption-plan"></a>Tüketim plan üzerinde bir işlev uygulaması dağıtma
+## <a name="deploy-a-function-app-on-hello-consumption-plan"></a>Merhaba tüketim plan üzerinde bir işlev uygulaması dağıtma
 
-Bir işlev uygulaması iki farklı modda çalıştırabilirsiniz: Tüketim planlama ve uygulama hizmeti planı. Kodunuzu çalışıyorsa, çıkışı yükü işlemek için gerekli olan ölçeklendirir ve kod çalışmadığı zaman sonra ölçeklendirir tüketim planı otomatik olarak işlem gücü ayırır. Bu nedenle, boşta VM'ler için ödeme gerekmez ve yedek kapasite önceden gerekmez. Barındırma planları hakkında daha fazla bilgi için bkz: [Azure işlevleri tüketim ve uygulama hizmeti planları](functions-scale.md).
+Bir işlev uygulaması iki farklı modda çalıştırabilirsiniz: Tüketim planlama ve uygulama hizmeti planı hello hello. kodunuzu çalışıyorsa, çıkışı gerekli toohandle yükü olarak ölçeklendirir ve kod çalışmadığı zaman sonra ölçeklendirir hello tüketim planı otomatik olarak işlem gücü ayırır. Bu nedenle, boşta VM'ler için toopay yok ve önceden tooreserve kapasitesine sahip değilseniz. barındırma planları, hakkında daha fazla toolearn bkz [Azure işlevleri tüketim ve uygulama hizmeti planları](functions-scale.md).
 
 Örnek Azure Resource Manager şablonu için bkz: [işlev uygulaması tüketim plan üzerinde].
 
 ### <a name="create-a-consumption-plan"></a>Tüketim planı oluşturma
 
-Tüketim planı "serverfarm" kaynak özel bir türde değil. Kullanarak belirttiğiniz `Dynamic` değerini `computeMode` ve `sku` özellikleri:
+Tüketim planı "serverfarm" kaynak özel bir türde değil. Hello kullanarak belirtin `Dynamic` hello için değer `computeMode` ve `sku` özellikleri:
 
 ```json
 {
@@ -121,7 +121,7 @@ Tüketim planı "serverfarm" kaynak özel bir türde değil. Kullanarak belirtti
 
 ### <a name="create-a-function-app"></a>İşlev uygulaması oluşturma
 
-Ayrıca, site yapılandırması iki ek ayarlar tüketim planı gerektirir: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` ve `WEBSITE_CONTENTSHARE`. Bu özellikler, yapılandırma ve işlev uygulama kodu depolandığı depolama hesabını ve dosya yolu yapılandırın.
+Ayrıca, bir tüketim planı hello site yapılandırması iki ek ayarlar gerektirir: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` ve `WEBSITE_CONTENTSHARE`. Bu özellikleri hello işlevi uygulama kodu ve yapılandırma depolandığı hello depolama hesabı ve dosya yolu yapılandırın.
 
 ```json
 {
@@ -166,9 +166,9 @@ Ayrıca, site yapılandırması iki ek ayarlar tüketim planı gerektirir: `WEBS
 
 <a name="app-service-plan"></a> 
 
-## <a name="deploy-a-function-app-on-the-app-service-plan"></a>Uygulama hizmeti plan üzerinde bir işlev uygulaması dağıtma
+## <a name="deploy-a-function-app-on-hello-app-service-plan"></a>Merhaba uygulama hizmeti planı üzerinde bir işlev uygulaması dağıtma
 
-Uygulama hizmeti planında işlevi uygulamanızı temel, standart ve Premium SKU'ları, web uygulamaları için benzer ayrılmış sanal makineler üzerinde çalışır. Uygulama hizmeti planı nasıl çalıştığı hakkında daha fazla bilgi için bkz: [Azure App Service planlarına ayrıntılı genel bakış](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+Hello uygulama hizmeti planı, temel, standart ve Premium SKU'ları benzer tooweb uygulamalarını özel VM'ler işlevi uygulamanızı çalışır. Merhaba hello uygulama hizmeti planı nasıl çalıştığı hakkında daha fazla bilgi için bkz [Azure App Service planlarına ayrıntılı genel bakış](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 Örnek Azure Resource Manager şablonu için bkz: [işlev uygulaması Azure uygulama hizmeti plan üzerinde].
 
@@ -192,12 +192,12 @@ Uygulama hizmeti planında işlevi uygulamanızı temel, standart ve Premium SKU
 
 ### <a name="create-a-function-app"></a>İşlev uygulaması oluşturma 
 
-Ölçeklendirme seçeneği seçtikten sonra bir işlev uygulaması oluşturun. Uygulama tüm işlevlerinizi tutan bir kapsayıcıdır.
+Ölçeklendirme seçeneği seçtikten sonra bir işlev uygulaması oluşturun. Merhaba uygulama tüm işlevlerinizi tutan hello kapsayıcıdır.
 
-Bir işlev uygulaması, uygulama ayarları ve kaynak denetimi seçenekleri de dahil olmak üzere, dağıtımınızdaki kullanabileceğiniz birçok alt kaynaklara sahip. Ayrıca kaldırmak isteyebilirsiniz **sourcecontrols** alt kaynak ve farklı bir kullanım [dağıtım seçeneği](functions-continuous-deployment.md) yerine.
+Bir işlev uygulaması, uygulama ayarları ve kaynak denetimi seçenekleri de dahil olmak üzere, dağıtımınızdaki kullanabileceğiniz birçok alt kaynaklara sahip. Tooremove hello tercih edebilirsiniz **sourcecontrols** alt kaynak ve farklı bir kullanım [dağıtım seçeneği](functions-continuous-deployment.md) yerine.
 
 > [!IMPORTANT]
-> Azure Kaynak Yöneticisi'ni kullanarak uygulamanızı başarıyla dağıtmak için kaynakları Azure içinde nasıl dağıtıldığını anlamak önemlidir. Aşağıdaki örnekte, üst düzey yapılandırmaları kullanılarak uygulanır **siteConfig**. İşlevler çalışma zamanı ve dağıtım altyapısı için bilgi iletmek için bir en üst düzeyde bu yapılandırmaları ayarlamak önemlidir. Üst düzey bilgileri önce alt gerekli **sourcecontrols/web** kaynak uygulanır. Bu ayarları alt düzey yapılandırmanız mümkün olsa **config/appSettings** işlevi uygulamanızı dağıtılmalıdır bazı durumlarda kaynak *önce* **config/appSettings** uygulanır. Örneğin, kullanırken işlevleriyle [Logic Apps](../logic-apps/index.md), başka bir kaynak bağımlılığı, işlevlerdir.
+> toosuccessfully Azure Kaynak Yöneticisi'ni kullanarak uygulamanızı dağıtmak, kaynakları Azure içinde nasıl dağıtıldığını önemli toounderstand. Aşağıdaki örneğine hello kullanarak üst düzey yapılandırmaları uygulanan **siteConfig**. Çalışma zamanı ve dağıtım bilgileri toohello işlevleri altyapısı iletmek Bu yapılandırmalar bir üst düzey, önemli tooset demektir. Üst düzey bilgileri hello alt önce gerekli **sourcecontrols/web** kaynak uygulanır. Olası tooconfigure olmasına rağmen bu ayarları alt düzey hello **config/appSettings** işlevi uygulamanızı dağıtılmalıdır bazı durumlarda kaynak *önce* **config/appSettings**  uygulanır. Örneğin, kullanırken işlevleriyle [Logic Apps](../logic-apps/index.md), başka bir kaynak bağımlılığı, işlevlerdir.
 
 ```json
 {
@@ -252,25 +252,25 @@ Bir işlev uygulaması, uygulama ayarları ve kaynak denetimi seçenekleri de da
 }
 ```
 > [!TIP]
-> Bu şablonu kullanan [proje](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) işlevleri dağıtım altyapısı (Kudu) için dağıtılabilir kod arar temel dizin ayarlar uygulama ayarları değeri. Bizim deposunda bizim bir alt klasöründe işlevlerdir **src** klasör. Bu nedenle, önceki örnekte, uygulama ayarlarını değeri ayarlarız `src`. İşlevlerinizi deponuz kök dizininde ise ya da kaynak denetiminden dağıtıyorsanız değil, bu uygulama ayarları değeri kaldırabilirsiniz.
+> Bu şablon hello kullanır [proje](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) hello temel dizin hangi hello işlevleri dağıtım altyapısı (Kudu) görünüyor için dağıtılabilir kod ayarlar uygulama ayarları değeri. Bizim deposunda bizim hello bir alt klasörü işlevlerdir **src** klasör. Bu nedenle, örnek önceki hello hello uygulama ayarları değeri çok ayarlarız`src`. İşlevlerinizi deponuz hello kök dizininde ise ya da kaynak denetiminden dağıtıyorsanız değil, bu uygulama ayarları değeri kaldırabilirsiniz.
 
 ## <a name="deploy-your-template"></a>Şablonunuzu dağıtma
 
-Şablonunuzu dağıtmak için aşağıdaki yöntemleri kullanabilirsiniz:
+Aşağıdaki yolları toodeploy hello şablonunuzu kullanabilirsiniz:
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
 * [Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
 * [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
-### <a name="deploy-to-azure-button"></a>Azure düğmesine dağıtma
+### <a name="deploy-tooazure-button"></a>Dağıt tooAzure düğmesi
 
-Değiştir ```<url-encoded-path-to-azuredeploy-json>``` ile bir [URL kodlanmış](https://www.bing.com/search?q=url+encode) ham yolunu sürümü, `azuredeploy.json` GitHub dosyasında.
+Değiştir ```<url-encoded-path-to-azuredeploy-json>``` ile bir [URL kodlanmış](https://www.bing.com/search?q=url+encode) hello ham yolunu sürümü, `azuredeploy.json` GitHub dosyasında.
 
 Markdown kullanan örnek aşağıda verilmiştir:
 
 ```markdown
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>)
+[![Deploy tooAzure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>)
 ```
 
 HTML kullanan örnek aşağıda verilmiştir:
@@ -281,10 +281,10 @@ HTML kullanan örnek aşağıda verilmiştir:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Geliştirme ve Azure işlevleri yapılandırma hakkında daha fazla bilgi edinin.
+Hakkında daha fazla bilgi toodevelop ve Azure işlevleri yapılandırın.
 
 * [Azure İşlevleri geliştirici başvurusu](functions-reference.md)
-* [Azure işlevi uygulama ayarlarının nasıl yapılandırılacağı](functions-how-to-use-azure-function-app-settings.md)
+* [Nasıl tooconfigure Azure işlev uygulama ayarları](functions-how-to-use-azure-function-app-settings.md)
 * [İlk Azure işlevinizi oluşturma](functions-create-first-azure-function.md)
 
 <!-- LINKS -->

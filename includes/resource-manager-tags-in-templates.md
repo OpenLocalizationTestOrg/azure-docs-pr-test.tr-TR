@@ -1,7 +1,7 @@
-Dağıtım sırasında bir kaynağı etiketlemek için `tags` öğesini dağıtmakta olduğunuz kaynağa ekleyin. Etiket adını ve değerini belirtin.
+tootag dağıtımı sırasında bir kaynak ekleyin hello `tags` dağıttığınız öğesi toohello kaynak. Merhaba etiket adını ve değerini belirtin.
 
-### <a name="apply-a-literal-value-to-the-tag-name"></a>Etiket adına değişmez değer uygulama
-Aşağıdaki örnekte değişmez değerlere ayarlanmış iki etiketi (`Dept` ve `Environment`) olan bir depolama hesabı gösterilmektedir:
+### <a name="apply-a-literal-value-toohello-tag-name"></a>Değişmez değer toohello etiket adı Uygula
+Merhaba aşağıdaki örnekte gösterilir iki etiket depolama hesabıyla (`Dept` ve `Environment`) tooliteral değerlerini ayarlayabilirsiniz:
 
 ```json
 {
@@ -27,8 +27,8 @@ Aşağıdaki örnekte değişmez değerlere ayarlanmış iki etiketi (`Dept` ve 
 }
 ```
 
-### <a name="apply-an-object-to-the-tag-element"></a>Nesne etiketine öğe uygulama
-Birkaç etiketi depolayan bir nesne parametresi tanımlayabilir ve bu nesneyi etiket öğesine uygulayabilirsiniz. Nesnedeki her özellik, kaynak için ayrı bir etiket haline gelir. Aşağıdaki örnekte etiket parametresine uygulanan `tagValues` adlı bir parametre kullanılmaktadır.
+### <a name="apply-an-object-toohello-tag-element"></a>Bir nesne toohello etiket öğesi uygulayın
+Birkaç etiket depolayan bir nesne parametre tanımlayın ve bu nesne toohello etiketi öğe uygulayın. Merhaba nesnedeki her özellik hello kaynak için ayrı bir etiket olur. Merhaba aşağıdaki örnek adlı bir parametre içeriyor `tagValues` diğer bir deyişle uygulanan toohello etiketi öğe.
 
 ```json
 {
@@ -60,9 +60,9 @@ Birkaç etiketi depolayan bir nesne parametresi tanımlayabilir ve bu nesneyi et
 }
 ```
 
-### <a name="apply-a-json-string-to-the-tag-name"></a>Etiket adına JSON dizesi uygulama
+### <a name="apply-a-json-string-toohello-tag-name"></a>Bir JSON dizesi toohello etiket adı Uygula
 
-Çok sayıda değeri tek bir etikete depolamak için, değerleri temsil eden bir JSON dizesi uygulayın. Tüm JSON dizesi, 256 karakterden uzun olmayan bir etiket olarak depolanır. Aşağıdaki örnekte bir JSON dizesindeki çok sayıda değeri içeren `CostCenter` adlı tek bir etiket kullanılmaktadır:  
+toostore tek bir etiket birçok değerleri hello değerlerini temsil eden bir JSON dizesi uygulayın. Merhaba tüm JSON dizesi 256 karakterden uzun olamaz bir etiket olarak depolanır. Merhaba aşağıdaki örnekte sahip adlı tek bir etiket `CostCenter` bir JSON dizesinde birkaç değerleri içerir:  
 
 ```json
 {

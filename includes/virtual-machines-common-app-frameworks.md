@@ -1,9 +1,9 @@
 
 
 ## <a name="applications"></a>Uygulamalar
-Aşağıdaki tabloda bazı en popüler uygulama framework şablonları listeler. Daha fazla bilgi görmek, Github'da şablonu görüntülemek veya doğrudan Azure portalı üzerinden dağıtmak için bir şablon seçin.
+Aşağıdaki tablonun hello bazı hello en popüler uygulama framework şablonları listeler. Daha fazla bilgi, görünüm hello şablonu github, bir şablon toosee seçin veya hello doğrudan Azure portalını dağıtma.
 
-| Uygulama | Daha fazla bilgi edinin | Şablonu görüntüleme | Şimdi dağıtma |
+| Uygulama | Daha fazla bilgi edinin | Merhaba şablonu görüntüleme | Şimdi dağıtma |
 |:--- |:---:|:---:|:---:|
 | Active Directory |[Galerisi](https://azure.microsoft.com/documentation/templates/active-directory-new-domain-ha-2-dc/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/active-directory-new-domain-ha-2-dc) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Factive-directory-new-domain-ha-2-dc%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | Apache |[Galerisi](https://azure.microsoft.com/documentation/templates/apache2-on-ubuntu-vm/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/apache2-on-ubuntu-vm) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapache2-on-ubuntu-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
@@ -23,13 +23,13 @@ Aşağıdaki tabloda bazı en popüler uygulama framework şablonları listeler.
 | WordPress |[Galerisi](https://azure.microsoft.com/documentation/templates/wordpress-single-vm-ubuntu/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/wordpress-single-vm-ubuntu) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwordpress-single-vm-ubuntu%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 | ZooKeeper |[Galerisi](https://azure.microsoft.com/documentation/templates/zookeeper-cluster-ubuntu-vm/) |[GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/zookeeper-cluster-ubuntu-vm) |<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fzookeeper-cluster-ubuntu-vm%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a> |
 
-Bu şablonlar yanı sıra, aracılığıyla arayabilirsiniz [galeri şablonları](https://azure.microsoft.com/documentation/templates/).
+Ayrıca toothese şablonları, hello arayabilirsiniz [galeri şablonları](https://azure.microsoft.com/documentation/templates/).
 
 
 ## <a name="azure-cli-20"></a>Azure CLI 2.0
-Bu adımlar Azure CLI Sürüm 2.0.4 gerektiren veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükseltme gerekiyorsa, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
+Bu adımlar hello Azure CLI Sürüm 2.0.4 gerektiren veya sonraki bir sürümü. Çalıştırma `az --version` toofind hello sürümü. Tooupgrade gerekirse bkz [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
 
-İlk olarak, bir kaynak grubu ile oluşturmak [az grubu oluşturma](/cli/azure/group#create). Sonra dağıtımınızı sahip bir şablon oluşturabilirsiniz [az grup dağıtımı oluşturmak](/cli/azure/group/deployment#create). Tam URI, şablonunuzla sağlamak `--template-uri` parametre ve tüm gerekli şablonu parametreleri `--parameters` gibi:
+İlk olarak, bir kaynak grubu ile oluşturmak [az grubu oluşturma](/cli/azure/group#create). Sonra dağıtımınızı sahip bir şablon oluşturabilirsiniz [az grup dağıtımı oluşturmak](/cli/azure/group/deployment#create). Merhaba tam URI tooyour şablonu ile Merhaba sağlayın `--template-uri` parametre ve tüm gerekli şablonu parametreleri `--parameters` gibi:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -38,13 +38,13 @@ az group deployment create --resource-group myResourceGroup \
     --parameters '{"sshKeyData": {"value": "ssh-rsa AAAAB3N{snip}B9eIgoZ"}}'
 ```
 
-Şablonuna bağlı olarak bu kaynakları dağıtmak Azure için biraz zaman alabilir.
+Merhaba şablonuna bağlı olarak, Azure toodeploy hello kaynaklar için biraz zaman alabilir.
 
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-Bu adımlar, Azure PowerShell modülü 3,6 veya sonraki bir sürümü gerekir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltme gerekiyorsa, bkz: [yükleme Azure PowerShell Modülü](/powershell/azure/install-azurerm-ps).
+Bu adımları hello Azure PowerShell modülü sürüm 3,6 veya üstü gerektirir. Çalıştırma `Get-Module -ListAvailable AzureRM` toofind hello sürümü. Tooupgrade gerekirse bkz [yükleme Azure PowerShell Modülü](/powershell/azure/install-azurerm-ps).
 
-İlk olarak, bir kaynak grubu ile oluşturmak [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Sonra dağıtımınızı sahip bir şablon oluşturabilirsiniz [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment). Tam URI, şablonunuzla sağlamak `-TemplateURI` şekilde parametre:
+İlk olarak, bir kaynak grubu ile oluşturmak [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Sonra dağıtımınızı sahip bir şablon oluşturabilirsiniz [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment). Merhaba tam URI tooyour şablonu ile Merhaba sağlayın `-TemplateURI` şekilde parametre:
 
 ```powershell
 New-AzureRmResourceGroup -Name "myResourceGroup" -Location "EastUS"
@@ -52,10 +52,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" `
      -TemplateUri "https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/{template-name}/azuredeploy.json"
 ```
 
-Çalıştırdığınızda [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) komutu, istenir şablondaki parametreler için değerler girin. Şablonuna bağlı olarak bu kaynakları dağıtmak Azure için biraz zaman alabilir.
+Merhaba çalıştırdığınızda [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) komutunu hello parametrelerin hello şablonunda istendiğinde tooenter değerleri olabilir. Merhaba şablonuna bağlı olarak, Azure toodeploy hello kaynaklar için biraz zaman alabilir.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Üzerinde çıkarma sırasında tüm şablonları Bul [GitHub](https://github.com/Azure/azure-quickstart-templates).
+Üzerinde elden tüm hello şablonları Bul [GitHub](https://github.com/Azure/azure-quickstart-templates).
 
 Daha fazla bilgi edinmek [Azure Resource Manager](../articles/resource-group-template-deploy.md).

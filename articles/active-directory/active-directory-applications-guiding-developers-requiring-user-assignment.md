@@ -1,6 +1,6 @@
 ---
-title: "Kullanıcı atama - Azure AD gerektiren | Microsoft Docs"
-description: "Kullanıcı Ataması Azure uygulamaları için zorunlu kılma."
+title: "aaaRequire kullanıcı atama - Azure AD | Microsoft Docs"
+description: "Nasıl toorequire kullanıcı ataması Azure uygulamalar için."
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -15,24 +15,24 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: kgremban
 robots: noindex
-ms.openlocfilehash: 079b806c041a4a21e9350342867aee581c57bf45
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b72037cb2321fe03a8ecbbefb568029ce903a126
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-ad-and-applications-require-user-assignment"></a>Azure AD ve uygulamalar: kullanıcı ataması gerektirir
 ## <a name="requiring-user-assignment"></a>Kullanıcı Ataması gerektirme
-1. Azure portalı bir yönetici hesabı ile oturum açın.
-2. Tıklayın **tüm öğeleri** ana menü öğesi.
-3. Uygulama için kullanmakta olduğunuz dizini seçin.
-4. Tıklayın **uygulamaları** sekmesi.
-5. Uygulama bu dizinle ilişkili uygulamalar listesini seçin.
-6. Tıklatın **yapılandırma** sekmesi.
-7. Değişiklik **atama kullanıcı gerekli erişim App** Evet Değiştir.
-8. Tıklatın **kaydetmek** ekranın altındaki düğmesini.
+1. İçinde toohello Azure portalında bir yönetici hesabıyla oturum açın.
+2. Tıklatın hello üzerinde **tüm öğeleri** hello ana menü öğesi.
+3. Merhaba uygulaması için kullanmakta olduğunuz hello dizini seçin.
+4. Tıklatın hello üzerinde **uygulamaları** sekmesi.
+5. Bu dizin ile ilişkili uygulamaları hello listesinden Hello uygulamayı seçin.
+6. Merhaba tıklatın **yapılandırma** sekmesi.
+7. Değişiklik hello **kullanıcı atama gerekli tooAccess uygulama** tooYes değiştirin.
+8. Merhaba tıklatın **kaydetmek** hello ekranın hello düğmesini.
 
-Şimdi, kullanıcılara ve/veya grupları uygulamaya atamanız gerekir. Bkz: [kullanıcılar için uygulama atama](active-directory-applications-guiding-developers-assigning-users.md) ve [için uygulama grupları atama](active-directory-applications-guiding-developers-assigning-groups.md).
+Şimdi tooassign kullanıcılara ve/veya grupları toohello uygulamaya sahip olacaksınız. Bkz: [tooan uygulama kullanıcıları atama](active-directory-applications-guiding-developers-assigning-users.md) ve [tooan uygulama grupları atama](active-directory-applications-guiding-developers-assigning-groups.md).
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 [!INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]

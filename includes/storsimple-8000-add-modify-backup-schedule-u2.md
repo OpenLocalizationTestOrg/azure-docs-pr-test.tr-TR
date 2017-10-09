@@ -1,19 +1,19 @@
 
 <!--author=alkohli last changed: 01/02/17-->
 
-#### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>Eklemek veya bir StorSimple yedekleme zamanlamasını değiştirmek için
+#### <a name="tooadd-or-modify-a-storsimple-backup-schedule"></a>tooadd veya StorSimple yedekleme zamanlamasını Değiştir
 
-1. StorSimple cihazınıza gidin ve **Yedekleme ilkesi**’ne tıklayın.
+1. Tooyour StorSimple cihazı gidin ve tıklayın **yedekleme İlkesi**.
 
-2. İlkeleri Tablo listesi, seçin ve değiştirmek istediğiniz ilkeye tıklayın. Bağlam menüsü çağırma ve ardından sağ tıklatıp **Ekle zamanlama**.
+2. Tablo listesi hello ilkeleri Merhaba, seçin ve toomodify istediğiniz hello İlkesi'ni tıklatın. Tooinvoke hello bağlam menüsü sağ tıklayın ve ardından **Ekle zamanlama**.
 
     ![Zamanlamaları Yönet](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule1.png)
 
-3. İçinde **Ekle zamanlama** dikey penceresinde, değiştirme anlık görüntü türü, yedekleme sıklığını, bekletme ve başlangıç tarihi ve saati. **Ekle**'ye tıklayın.
+3. Merhaba, **Ekle zamanlama** dikey penceresinde değiştirmek hello anlık görüntü türü, yedekleme sıklığını, bekletme ve başlangıç tarihi ve saati. **Ekle**'ye tıklayın.
 
     ![Zamanlamaları Yönet](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule5.png)
 
-4. Yedekleme ilkesi oluşturma işlemi tamamlandığında size bildirilir. Yedekleme ilkesi listesi de güncelleştirilir.
+4. Merhaba yedekleme ilkesi oluşturma işlemi tamamlandığında size bildirilir. Merhaba yedekleme ilkesi listesi de güncelleştirilir.
 
     ![Zamanlamaları Yönet](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule4.png)
 

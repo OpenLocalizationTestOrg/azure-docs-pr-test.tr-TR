@@ -1,6 +1,6 @@
 ---
-title: ".NET ile Media Services iş bildirimleri izlemek için Azure kuyruk depolama kullanma | Microsoft Docs"
-description: "Media Services iş bildirimleri izlemek için Azure kuyruk depolama kullanmayı öğrenin. Kod örneği C# dilinde yazılmıştır ve .NET için Media Services SDK'sını kullanır."
+title: ".NET ile aaaUse Azure kuyruk depolama toomonitor Media Services iş bildirimleri | Microsoft Docs"
+description: "Nasıl toouse Azure kuyruk depolama toomonitor Media Services iş bildirimlerini öğrenin. Merhaba kod örneği C# dilinde yazılmıştır ve .NET için hello Media Services SDK'sı kullanır."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,56 +14,56 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: juliako
-ms.openlocfilehash: 5ee89d0ae4c3c56d164aff4e321ee99f015ba4fb
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: e4068621ada00d763133dc0d01cfc666b53f8b1b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>.NET ile Media Services iş bildirimleri izlemek için Azure kuyruk depolama kullanma
-Kodlama işleri çalıştırdığınızda, genellikle iş ilerleme durumunu izlemek için bir yol gerekir. Media Services'ı için bildirimleri göndermeyi yapılandırabilirsiniz [Azure kuyruk depolama](../storage/storage-dotnet-how-to-use-queues.md). Kuyruk depolama biriminden bildirimleri alarak iş ilerleme durumunu izleyebilirsiniz. 
+# <a name="use-azure-queue-storage-toomonitor-media-services-job-notifications-with-net"></a>Azure kuyruk depolama toomonitor Media Services iş bildirimleri .NET ile kullanma
+Kodlama işleri çalıştırdığınızda, genellikle bir şekilde tootrack ilerleyişini gerektirir. Media Services toodeliver bildirimleri çok yapılandırabilirsiniz[Azure kuyruk depolama](../storage/storage-dotnet-how-to-use-queues.md). Merhaba kuyruk depolama alma bildirimleri tarafından iş ilerleme durumunu izleyebilirsiniz. 
 
-Kuyruk depolama için teslim edilen ileti herhangi bir yere dünyada erişilebilir. Kuyruk depolama Mesajlaşma mimarisi, güvenilir ve yüksek oranda ölçeklenebilir. Kuyruk depolama iletileri için yoklama diğer yöntemleri kullanmayı üzerinden önerilir.
+TooQueue depolama teslim edilen ileti herhangi bir yere hello world erişilebilir. Hello kuyruk depolama Mesajlaşma mimarisi, güvenilir ve ölçeklendirilebilir. Kuyruk depolama iletileri için yoklama diğer yöntemleri kullanmayı üzerinden önerilir.
 
-Media Services bildirimleri göndermek için dinleme yaygın bir senaryo, bazı ek görevi gerçekleştirmek için gereken bir içerik yönetim sistemi geliştiriyorsanız (örneğin, bir iş akışı bir sonraki adımda tetiklemek için ya da içerik yayımlamak için) bir kodlama işi tamamlar ' dir.
+Bir içerik yönetim sistemi geliştiriyorsanız, tooperform gereken dinleme tooMedia Hizmetleri bildirimler için yaygın bir senaryo biri (örneğin, bir iş akışında veya toopublish tootrigger hello sonraki adım bir kodlama işi sonra bazı ek görevi tamamlandıktan içeriği).
 
-Bu konu, kuyruk depolama biriminden bildirim iletilerini alma gösterir.  
+Bu konu, kuyruk depolama biriminden nasıl tooget bildirim iletilerini gösterir.  
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
-Kuyruk depolama kullanma Media Services uygulamaları geliştirirken, aşağıdakileri dikkate alın:
+Kuyruk depolama kullanma Media Services uygulamaları geliştirirken Hello aşağıdakileri dikkate alın:
 
 * Kuyruk depolama ilk olarak ilk çıkar garanti sağlamaz (FIFO) sıralı teslim. Daha fazla bilgi için bkz: [Azure kuyrukları ve Azure hizmet veri yolu kuyrukları karşılaştırıldığında ve Contrasted](https://msdn.microsoft.com/library/azure/hh767287.aspx).
-* Kuyruk depolama gönderme hizmeti değil. Sıranın yoklaması gerekir.
+* Kuyruk depolama gönderme hizmeti değil. Toopoll hello kuyruk bulunur.
 * Herhangi bir sayıda sıralar olabilir. Daha fazla bilgi için bkz: [kuyruk hizmeti REST API'si](https://docs.microsoft.com/rest/api/storageservices/Queue-Service-REST-API).
-* Kuyruk depolama bazı kısıtlamalar ve dikkat edilmesi gereken özellikleri vardır. Bunlar [Azure kuyrukları ve Azure hizmet veri yolu kuyrukları karşılaştırıldığında ve Contrasted](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
+* Kuyruk depolama bazı kısıtlamalar ve özellikleri toobe farkında sahiptir. Bunlar [Azure kuyrukları ve Azure hizmet veri yolu kuyrukları karşılaştırıldığında ve Contrasted](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted).
 
 ## <a name="net-code-example"></a>.NET kodu örneği
 
-Bu bölümde aşağıdaki kod örneğinde şunları yapar:
+Bu bölümdeki Hello kod örneği, aşağıdaki hello:
 
-1. Tanımlar **EncodingJobMessage** bildirim iletisi biçimine eşleyen sınıfı. Kod nesnelerin sıradan alınan iletilerin çıkarır **EncodingJobMessage** türü.
-2. Medya Hizmetleri ve depolama hesabı bilgilerini app.config dosyasından yükler. Kod örneği, oluşturmak için bu bilgileri kullanır. **CloudMediaContext** ve **CloudQueue** nesneleri.
-3. Kodlama işinin hakkında bildirim iletileri alan bir sıra oluşturur.
-4. Sıraya eşlenen bildirim bitiş noktası oluşturur.
-5. Bildirim bitiş noktası projeye ekler ve kodlama işi gönderir. Bir projeye bağlı birden çok bildirim uç noktaları olabilir.
-6. Geçişleri **NotificationJobState.FinalStatesOnly** için **AddNew** yöntemi. (Bu örnekte, biz yalnızca iş işleme son Devletleri'nde ilgilendiğiniz.)
+1. Merhaba tanımlar **EncodingJobMessage** toohello bildirim ileti biçimi eşleyen sınıfı. Merhaba kod çıkarır hello nesnelerine hello kuyruğundan alınan iletilerin **EncodingJobMessage** türü.
+2. Medya Hizmetleri ve depolama hesabı bilgilerini hello app.config dosyasından yükleri hello. Merhaba kod örneği, bu bilgileri toocreate hello kullanır **CloudMediaContext** ve **CloudQueue** nesneleri.
+3. İş kodlama hello hakkında bildirim iletileri alan bir hello sıra oluşturur.
+4. Bitiş noktasını toohello sıra eşlenen hello bildirim oluşturur.
+5. Merhaba bildirim bitiş noktası toohello işi ekler ve hello kodlama işi gönderir. Birden çok bildirim bitiş noktası bağlı tooa işi olabilir.
+6. Geçişleri **NotificationJobState.FinalStatesOnly** toohello **AddNew** yöntemi. (Bu örnekte, yalnızca son hello iş işleme durumlarda ilginizi duyuyoruz.)
 
         job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly, _notificationEndPoint);
-7. Geçirirseniz **NotificationJobState.All**, tüm aşağıdaki durum değişikliği bildirimlerini almak: sıraya alınan, zamanlanan, işlem ve tamamlandı. Ancak, daha önce belirtildiği gibi kuyruk depolama sıralı teslim garanti etmez. İletileri sipariş, kullanmak için **zaman damgası** özelliği (tanımlanan **EncodingJobMessage** aşağıdaki örnekte türü). Yinelenen iletileri mümkündür. Çoğaltmaları denetlemek için kullanın **ETag özelliği** (tanımlanan **EncodingJobMessage** türü). Bazı durum değişikliği bildirimlerini atlandı mümkündür.
-8. 10 saniyede sıraya denetleyerek tamamlanmış durumuna almak iş bekler. Bunlar işlendikten sonra iletileri siler.
-9. Sıranın ve bildirim bitiş noktasını siler.
+7. Geçirirseniz **NotificationJobState.All**, tüm durum değişikliği bildirimlerini aşağıdaki hello almak: sıraya alınan, zamanlanan, işlem ve tamamlandı. Ancak, daha önce belirtildiği gibi kuyruk depolama sıralı teslim garanti etmez. tooorder iletileri kullanan hello **zaman damgası** özelliği (Merhaba üzerinde tanımlı **EncodingJobMessage** aşağıdaki hello örnek yazın). Yinelenen iletileri mümkündür. çoğaltmaları kullanım hello toocheck **ETag özelliği** (Merhaba üzerinde tanımlı **EncodingJobMessage** türü). Bazı durum değişikliği bildirimlerini atlandı mümkündür.
+8. Merhaba iş tooget toohello bekler 10 saniyede hello sıra denetleyerek durumu tamamlandı. Bunlar işlendikten sonra iletileri siler.
+9. Hello kuyruk ve hello bildirim bitiş noktasını siler.
 
 > [!NOTE]
-> Bir işin durumunu izlemek için önerilen bildirim iletileri için dinleyerek aşağıdaki örnekte gösterildiği gibi bir yoludur.
+> bir işin durumunda dinleme toonotification iletileri göre önerilen yöntem toomonitor hello aşağıdaki örnekte gösterildiği gibi hello.
 >
-> Alternatif olarak, kullanarak bir işin durumuna iade edilemedi **IJob.State** özelliği.  Bir işin tamamlanma hakkında bir uyarı iletisi üzerinde duruma gelebilir **IJob** ayarlanır **tamamlandı**. **IJob.State** özelliği kısa bir gecikmeyle doğru durumunu yansıtır.
+> Alternatif olarak, hello kullanarak bir işin durumuna iade edilemedi **IJob.State** özelliği.  Bir işin tamamlanma hakkında bir uyarı iletisi üzerinde hello durumu önce gelebilir **IJob** çok ayarlanır**tamamlandı**. Merhaba **IJob.State** özellik hello doğru kısa bir gecikme durumuyla gösterir.
 >
 >
 
 ### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio projesi oluşturup yapılandırma
 
-1. Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) bölümünde açıklandığı gibi bağlantı bilgileriyle doldurun. 
-2. Yeni bir klasör oluşturun (yerel sürücünüzün herhangi bir yerinde) ve kodlayıp akışla aktarmak veya aşamalı indirmek istediğiniz bir .mp4 dosyasını buraya kopyalayın. Bu örnekte, "C:\Media" yol kullanılır.
+1. Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dosyası bağlantı bilgileriyle doldurmak [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md). 
+2. Yeni bir klasör oluşturun (klasör herhangi bir yerde olabilir yerel diskinize) ve tooencode ve akış istediğiniz veya aşamalı indirmek bir .mp4 dosyasını kopyalayın. Bu örnekte, hello "C:\Media" yol kullanılır.
 
 ### <a name="code"></a>Kod
 
@@ -86,30 +86,30 @@ namespace JobNotification
         // MessageVersion is used for version control.
         public String MessageVersion { get; set; }
 
-        // Type of the event. Valid values are
+        // Type of hello event. Valid values are
         // JobStateChange and NotificationEndpointRegistration.
         public String EventType { get; set; }
 
-        // ETag is used to help the customer detect if
-        // the message is a duplicate of another message previously sent.
+        // ETag is used toohelp hello customer detect if
+        // hello message is a duplicate of another message previously sent.
         public String ETag { get; set; }
 
-        // Time of occurrence of the event.
+        // Time of occurrence of hello event.
         public String TimeStamp { get; set; }
 
-        // Collection of values specific to the event.
+        // Collection of values specific toohello event.
 
-        // For the JobStateChange event the values are:
-        //     JobId - Id of the Job that triggered the notification.
-        //     NewState- The new state of the Job. Valid values are:
+        // For hello JobStateChange event hello values are:
+        //     JobId - Id of hello Job that triggered hello notification.
+        //     NewState- hello new state of hello Job. Valid values are:
         //          Scheduled, Processing, Canceling, Cancelled, Error, Finished
-        //     OldState- The old state of the Job. Valid values are:
+        //     OldState- hello old state of hello Job. Valid values are:
         //          Scheduled, Processing, Canceling, Cancelled, Error, Finished
 
-        // For the NotificationEndpointRegistration event the values are:
-        //     NotificationEndpointId- Id of the NotificationEndpoint
-        //          that triggered the notification.
-        //     State- The state of the Endpoint.
+        // For hello NotificationEndpointRegistration event hello values are:
+        //     NotificationEndpointId- Id of hello NotificationEndpoint
+        //          that triggered hello notification.
+        //     State- hello state of hello Endpoint.
         //          Valid values are: Registered and Unregistered.
 
         public IDictionary<string, object> Properties { get; set; }
@@ -118,7 +118,7 @@ namespace JobNotification
     class Program
     {
 
-        // Read values from the App.config file.
+        // Read values from hello App.config file.
         private static readonly string _AADTenantDomain =
             ConfigurationManager.AppSettings["AADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
@@ -137,16 +137,16 @@ namespace JobNotification
         {
             string endPointAddress = Guid.NewGuid().ToString();
 
-            // Create the context.
+            // Create hello context.
             var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
-            // Create the queue that will be receiving the notification messages.
+            // Create hello queue that will be receiving hello notification messages.
             _queue = CreateQueue(_StorageConnectionString, endPointAddress);
 
-            // Create the notification point that is mapped to the queue.
+            // Create hello notification point that is mapped toohello queue.
             _notificationEndPoint =
                     _context.NotificationEndPoints.Create(
                     Guid.NewGuid().ToString(), NotificationEndPointType.AzureQueue, endPointAddress);
@@ -168,13 +168,13 @@ namespace JobNotification
         {
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageAccountConnectionString);
 
-            // Create the queue client
+            // Create hello queue client
             CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-            // Retrieve a reference to a queue
+            // Retrieve a reference tooa queue
             CloudQueue queue = queueClient.GetQueueReference(endPointAddress);
 
-            // Create the queue if it doesn't already exist
+            // Create hello queue if it doesn't already exist
             queue.CreateIfNotExists();
 
             return queue;
@@ -184,30 +184,30 @@ namespace JobNotification
         public static IJob SubmitEncodingJobWithNotificationEndPoint(string inputMediaFilePath)
         {
             // Declare a new job.
-            IJob job = _context.Jobs.Create("My MP4 to Smooth Streaming encoding job");
+            IJob job = _context.Jobs.Create("My MP4 tooSmooth Streaming encoding job");
 
-            //Create an encrypted asset and upload the mp4.
+            //Create an encrypted asset and upload hello mp4.
             IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.StorageEncrypted,
                 inputMediaFilePath);
 
-            // Get a media processor reference, and pass to it the name of the
-            // processor to use for the specific task.
+            // Get a media processor reference, and pass tooit hello name of the
+            // processor toouse for hello specific task.
             IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
-            // Create a task with the conversion details, using a configuration file.
+            // Create a task with hello conversion details, using a configuration file.
             ITask task = job.Tasks.AddNew("My encoding Task",
                 processor,
                 "Adaptive Streaming",
                 Microsoft.WindowsAzure.MediaServices.Client.TaskOptions.None);
 
-            // Specify the input asset to be encoded.
+            // Specify hello input asset toobe encoded.
             task.InputAssets.Add(asset);
 
-            // Add an output asset to contain the results of the job.
+            // Add an output asset toocontain hello results of hello job.
             task.OutputAssets.AddNew("Output asset",
                 AssetCreationOptions.None);
 
-            // Add a notification point to the job. You can add multiple notification points.  
+            // Add a notification point toohello job. You can add multiple notification points.  
             job.JobNotificationSubscriptions.AddNew(NotificationJobState.FinalStatesOnly,
                 _notificationEndPoint);
 
@@ -227,7 +227,7 @@ namespace JobNotification
 
             while (!jobReachedExpectedState)
             {
-                // Specify how often you want to get messages from the queue.
+                // Specify how often you want tooget messages from hello queue.
                 Thread.Sleep(TimeSpan.FromSeconds(10));
 
                 foreach (var message in _queue.GetMessages(10))
@@ -241,7 +241,7 @@ namespace JobNotification
 
                         Console.WriteLine();
 
-                        // Display the message information.
+                        // Display hello message information.
                         Console.WriteLine("EventType: {0}", encodingJobMsg.EventType);
                         Console.WriteLine("MessageVersion: {0}", encodingJobMsg.MessageVersion);
                         Console.WriteLine("ETag: {0}", encodingJobMsg.ETag);
@@ -276,7 +276,7 @@ namespace JobNotification
                             }
                         }
                     }
-                    // Delete the message after we've read it.
+                    // Delete hello message after we've read it.
                     _queue.DeleteMessage(message);
                 }
 
@@ -326,7 +326,7 @@ namespace JobNotification
     }
 }
 ```
-Önceki örnekte, aşağıdaki çıkış üretti. Değerlerinizi değişir.
+Çıktı aşağıdaki önceki örnek üretilen hello hello. Değerlerinizi değişir.
 
     Created assetFile BigBuckBunny.mp4
     Upload BigBuckBunny.mp4
@@ -346,7 +346,7 @@ namespace JobNotification
     ETag: 4e381f37c2d844bde06ace650310284d6928b1e50101d82d1b56220cfcb6076c
     TimeStamp: 2013-05-14T20:24:40
         JobId: nb:jid:UUID:526291de-f166-be47-b62a-11ffe6d4be54
-        JobName: My MP4 to Smooth Streaming encoding job
+        JobName: My MP4 tooSmooth Streaming encoding job
         NewState: Finished
         OldState: Processing
         AccountName: westeuropewamsaccount

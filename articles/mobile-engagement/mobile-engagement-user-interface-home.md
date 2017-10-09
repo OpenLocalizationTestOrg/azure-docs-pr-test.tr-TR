@@ -1,6 +1,6 @@
 ---
-title: "Azure Mobile Engagement kullanıcı arabirimi - giriş"
-description: "Varolan bir uygulama ile Azure Mobile Engagement kullanarak projeleri yönetmeyi öğrenin"
+title: "aaaAzure Mobile Engagement kullanıcı arabirimi - giriş"
+description: "Bilgi nasıl toomanage varolan bir uygulama ile Azure Mobile Engagement kullanarak projeleri"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,53 +14,53 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0f15cb975f57f6f5cab12d5118ff50a6fab14388
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 727dad188c5876d09db84634a17e10b280039c49
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-manage-your-existing-application-and-projects"></a>Var olan uygulama ve projeleri yönetme
-Bu makalede **giriş** sayfasında **Mobile Engagement** portal. Kullandığınız **Mobile Engagement** izlemek ve mobil uygulamalarınızı yönetmek için portal. Portalı kullanmaya başlamak için önce oluşturmanız gerektiğini unutmayın bir **Azure Mobile Engagement** hesabı. 
+# <a name="how-toomanage-your-existing-application-and-projects"></a>Nasıl toomanage var olan uygulama ve projeleri
+Bu makalede hello **giriş** hello sayfasının **Mobile Engagement** portal. Merhaba kullandığınız **Mobile Engagement** portal toomonitor ve mobil uygulamalarınızı yönetin. İlk ihtiyacınız toocreate hello portalını kullanarak bu toostart Not bir **Azure Mobile Engagement** hesabı. 
 
-Giriş sayfasına ulaşmak için tıklatın **ev** üzerinde sayfasının sol üst. Tüm seçilen koleksiyonunun bir parçası olan uygulamalar listesini içerir. Bu sayfa yalnızca hızlı bir genel bakış uygulamalarınızın bakın.
+tooget toohello giriş sayfasında, tıklatın **ev** hello üzerinde hello sayfasının sol üst. Tüm koleksiyon seçilen hello parçası olan uygulamalar hello listesini içerir. Bu sayfa yalnızca hızlı bir genel bakış uygulamalarınızın bakın.
 
-Giriş sayfası, hesabınız içinde herhangi bir uygulama içeren tüm projeleriniz de içerir. Herkes bir hesabı oluşturarak UI giriş sayfasına erişebilirsiniz, ancak diğer kullanıcıların özel uygulamalarınızda erişimi için bunları sırayla izin vermek gereken unutmayın **My projeleri**.
+Hello giriş sayfası, hesabınız içinde herhangi bir uygulama içeren tüm projeleriniz de içerir. Herkes bir hesabı oluşturarak hello UI hello giriş sayfasının erişebilir, ancak toogrant izin tooother kullanıcılar bunları sırayla toohave erişim tooyour özel uygulamalara gereksinim unutmayın **My projeleri**.
 
-Karşılaştırma grafiği seçilen uygulamalar için de görüntüleyebilirsiniz. Veya, bir proje ile seçilen uygulamalar için karşılaştırma grafiği görüntülemek için seçin.
+Merhaba karşılaştırma grafiğine seçili hello uygulamalar için de görüntüleyebilirsiniz. Veya tooview hello karşılaştırma grafiğine seçilen uygulamalar için bir proje ile seçin.
 
 ![Home1][0]
 
 ## <a name="my-applications"></a>Uygulamalarım
-Uygulamalarınızın Hızlı Bakış ayrıntılı Şerit seçenekleri görüntülemek için açmak istiyor musunuz hangi uygulamanın seçmenize olanak sağlar. Uygulamanız en son ziyaret edilen Şerit konumda geri dönmek için uygulamanızın adına tıklayın veya uygulamanızın "Ayarlar" sayfasına doğrudan gitmek için dişli simgesine tıklayın. Arama, filtre veya uygulamaları tablolarda görüntülenen bilgileri sıralayabilirsiniz. Ayrıca, sürükleyin ve sütun başlıklarının sırasını değiştirmek için bırakın.
+Merhaba, uygulamalarınızın Hızlı Bakış istediğinizi hangi uygulamanın tooselect sağlar tooopen tooview hello ayrıntılı Şerit seçenekleri. Uygulamanızda uygulama tooreturn en son ziyaret edilen toohello Şerit konumunuz hello adını tıklatın veya hello dişli simgesi toogo tıklatarak doğrudan toohello "Ayarlar" sayfasında, uygulamanızın. Arama yapabilirsiniz, filtre ya da sıralama hello bilgi hello uygulamaları tabloları görüntülenen. Ayrıca, sürükleme ve bırakma hello sütun üst bilgileri toochange hello sırası.
 
-Bunun yanı sıra, uygulamalarınızı bakış içerir:
+Bunun yanı sıra, uygulamalarınızı hello bakış içerir:
 
-* **Yeni kullanıcılar eğilimi**: son iki hafta içindeki yeni kullanıcı evrimi.
-* **Etkin kullanıcılar**: son 30 gün içindeki etkin kullanıcı sayısı.
-* **Etkin kullanıcılar eğilimi**: son iki hafta içindeki etkin kullanıcı evrimi.
-* **Oturumları**: tek bir kullanıcı tarafından gerçekleştirilen uygulama kullanımını oturumdur, saati, kullanıcı durmasına kadar kullanarak kullanıcı başlatır.
-* **Oturum eğilimleri**: son iki hafta içindeki oturum evrimi.
+* **Yeni kullanıcılar eğilimi**: hello son iki hafta içindeki yeni kullanıcı evrimi.
+* **Etkin kullanıcılar**: hello son 30 gün içindeki etkin kullanıcı sayısı.
+* **Etkin kullanıcılar eğilimi**: hello son iki hafta içindeki etkin kullanıcı evrimi.
+* **Oturumları**: bir oturum hello uygulamanın kullanıcı tarafından gerçekleştirilen bir kullanımıdır, hello kullanıcı durdurur kadar kullanmadan hello kullanıcı hello zamandan başlatır.
+* **Oturum eğilimleri**: hello içindeki oturum son iki hafta evrimi.
 
-Bir uygulama tıkladığınızda, izleme ve kullanıcı Arabirimi aracılığıyla uygulamalarınızı yönetmeye başlayabilirsiniz. Örneğin:    
+Bir uygulama tıkladığınızda, izleme ve uygulamalarınızı hello kullanıcı Arabirimi aracılığıyla yönetmeye başlayabilirsiniz. Örneğin:    
 
 * [Uygulamanız hakkında gerçek zamanlı verileri izleyin](mobile-engagement-user-interface-monitor.md)
 * [Uygulamanız hakkındaki geçmiş verilerini çözümleyin](mobile-engagement-user-interface-analytics.md)
-* [Kullanım düzenlerini tanımlamak için kullanıcı kesimleri oluşturun ve yönetin](mobile-engagement-user-interface-segments.md)
-* [Anında iletme bildirimleri ile uygulamanızın kullanıcılarına ulaşın](mobile-engagement-user-interface-reach.md)
+* [Oluşturma ve kullanıcılara tooidentify kullanım desenlerini kesimleri yönetme](mobile-engagement-user-interface-segments.md)
+* [Anında iletme bildirimleri ile uygulamanızın toohello kullanıcıları çıkışı ulaşmak](mobile-engagement-user-interface-reach.md)
 
 ## <a name="my-projects"></a>My projeleri
-Projeleri uygulamalarınızı gruplamak ve diğer kullanıcılara uygulamalarınızı erişmek için izinleri vermek için kullanabilirsiniz. Diğer kullanıcılara e-posta adresi sağlayarak izinlerini verin. **Yeni proje** düğmesi yalnızca "name" ve "Açıklama" Yeni projenizin girerek yeni bir proje oluşturmanıza olanak sağlar. Proje oluşturulduktan sonra ad ve açıklama ürününüzün düzenleyin ve bu projede görmek istediğiniz tüm uygulamaları seçmek için proje adı tıklatabilirsiniz.
+Projeleri toogroup uygulamalarınızı kullanın ve uygulamalarınızı izinleri tooother kullanıcılar tooaccess verin. E-posta adresi sağlayarak tooother kullanıcıların izinlerini verin. Merhaba **yeni proje** düğmesi sağlar, yeni bir proje toocreate yalnızca "name" ve "Açıklama" Yeni projenizin girerek. Proje oluşturulduktan sonra bu projede toosee istediğiniz tüm hello uygulamaları hello proje adı tooedit hello adı ve açıklaması ürün ve tooselect tıklayabilirsiniz.
 
 ![Home6][60]
 
 Roller içerir:
 
-* **Görüntüleyici**: A Görüntüleyicisi, yalnızca bir projeyle ilişkili uygulamaları görüntüleyebilir bir kullanıcıyı bileşenidir. Bir Görüntüleyici analytics erişmek ve veri izlemek ve Reach sonuçlarına bakın. Bir Görüntüleyici herhangi bir bilgiyi değiştirmek veya uygulamaları ya da kullanıcıları yönetme olamaz. Bir Görüntüleyici oluşturulamıyor veya Reach kampanya durumunu değiştirin.
+* **Görüntüleyici**: A Görüntüleyicisi, yalnızca tooa proje görünümü hello uygulamaları ilişkilendirilen için bir kullanıcı bileşenidir. Bir Görüntüleyici analytics erişmek ve veri izlemek ve Reach sonuçlarına bakın. Bir Görüntüleyici herhangi bir bilgiyi değiştirmek veya uygulamaları ya da kullanıcıları yönetme olamaz. Bir Görüntüleyici oluşturulamıyor veya Reach kampanya durumunu değiştirin.
 * **Geliştirici**: bir geliştirici olan her şeyi bir Görüntüleyici yapmak yanı sıra uygulamaları yönetmek bir kullanıcı. Bir geliştirici etkinleştirmek ve uygulamaları devre dışı, uygulamalarınızın bilgileri (örneğin, paket ve imza) değiştirin ve Reach kampanyaları oluşturabilen. Bir geliştirici, kullanıcılar yönetemez.
-* **Yönetici**: bir yönetici haklarına sahip bir geliştirici yapmak yanı sıra kullanıcıları yönetme her şeyi bir kullanıcı. Yönetici kullanıcılar bir projeye katılmak için davet edebilirsiniz, kullanıcı rolleri değiştirebilirsiniz ve projenin bilgilerini değiştirebilirsiniz. Uygulama düzeyi izinleri "ayarlar" ayarlanmış olabilir.
+* **Yönetici**: bir yönetici haklarına sahip bir geliştirici yapmak yanı sıra kullanıcıları yönetme her şeyi bir kullanıcı. Yönetici kullanıcılar toojoin proje davet edebilirsiniz, kullanıcı rolleri değiştirebilirsiniz ve projenin bilgilerini değiştirebilirsiniz. Uygulama düzeyi izinleri "ayarlar" ayarlanmış olabilir.
 
-Bu proje bir parçası olan tüm uygulamaları görüntülemek için bir proje üzerinde'ı tıklatın. Aşağıdaki resimde, seçilen uygulamalar için karşılaştırma grafik gösterir.
+Bir proje tooview bu projenin bir parçası olan tüm hello uygulamaları'na tıklayın. Görüntü aşağıdaki hello hello karşılaştırma grafik seçili hello uygulamalar için gösterir.
 
 ![Ev2][3]
 

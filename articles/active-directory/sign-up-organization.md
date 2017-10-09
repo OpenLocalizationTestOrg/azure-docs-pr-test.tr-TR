@@ -1,6 +1,6 @@
 ---
-title: "Azure'a kuruluş olarak kaydolma"
-description: "Bir iş veya Okul hesabınız var olan kullanıcı hesaplarını, ilkeler, ayarlar veya zaten varsa ve kuruluşunuzun şirket içi kimlik altyapınızı ve Azure AD arasındaki verimliliği artırmak şirket içi sunucu dağıtımları yararlanmak için nasıl öğrenin."
+title: "Azure'a kuruluş olarak kaydınızı aaaSign"
+description: "Bir iş veya Okul hesabı tooleverage hello var olan kullanıcı hesaplarını, ilkeler, ayarlar veya zaten varsa ve kuruluşunuzun şirket içi kimlik altyapınızı ve Azure AD arasındaki verimliliği artırmak şirket içi sunucu dağıtımları nasıl kullanabileceğinizi öğrenin."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -13,25 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: curtand
-ms.openlocfilehash: 07ad266ad87028996c4a7b3e4365c11b019f8529
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 89db37b2370b3805691278d6223a26450ef4514b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sign-up-for-azure-as-an-organization"></a>Azure'a kuruluş olarak kaydolma
-Yakın zamanda kadar yalnızca Microsoft hesabınızı (Windows Live ID) kullanarak yeni bir Microsoft Azure aboneliği için kaydolduktan. Kaydolmak için aşağıdaki iki hesap yöntemlerden birini kullanarak Azure artık destekler:
+Yakın zamanda kadar yalnızca Microsoft hesabınızı (Windows Live ID) kullanarak yeni bir Microsoft Azure aboneliği için kaydolduktan. Merhaba aşağıdakilerden birini kullanarak desteklediği iki yöntemleri toosign yukarı hesap artık azure:
 
-* **Microsoft hesapları** (sizin tarafınızdan kişisel kullanım için oluşturulan) - tüm tüketiciye yönelik Microsoft ürünleri erişim sağlar ve bulut Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE veya Office 365 gibi hizmetler. Otomatik olarak imzalama Outlook.com posta kutusu için bir Microsoft hesabı oluşturur. Bir Microsoft hesabı oluşturulduktan sonra tüketici ilişkili Microsoft bulut Hizmetleri veya Azure erişmek için kullanılabilir. [Daha fazla bilgi](http://www.microsoft.com/account/default.aspx)
-* **İş veya Okul hesapları** (iş/akademik kullanmak için bir yönetici tarafından verilen) - Azure, Microsoft Intune veya Office 365 gibi iş düzeyinde Microsoft bulut Hizmetleri tüm küçük, Orta ve kurumsal erişim sağlar. Bu hizmetler biriyle kuruluş olarak oturum açtığınızda, bulut tabanlı bir dizin otomatik olarak Azure kuruluşunuz temsil etmek için Active Directory'de sağlanır. [Daha fazla bilgi](active-directory-administer.md)
+* **Microsoft hesapları** (sizin tarafınızdan kişisel kullanım için oluşturulan) - tooall tüketiciye yönelik Microsoft ürünleri erişim sağlar ve bulut Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE veya Office 365 gibi hizmetler. Otomatik olarak imzalama Outlook.com posta kutusu için bir Microsoft hesabı oluşturur. Bir Microsoft hesabı oluşturulduktan sonra kullanılan tooaccess tüketici ilişkili Microsoft bulut Hizmetleri veya Azure olabilir. [Daha fazla bilgi](http://www.microsoft.com/account/default.aspx)
+* **İş veya Okul hesapları** (iş/akademik kullanmak için bir yönetici tarafından verilen) - tooall küçük, Orta ve kurumsal iş düzeyinde gibi Microsoft bulut Hizmetleri, Azure, Microsoft Intune veya Office 365 erişim sağlar. Bu hizmetler tooone kuruluş olarak yukarı oturum açtığınızda, bulut tabanlı bir dizin otomatik olarak kuruluşunuz Azure Active Directory toorepresent sağlandı. [Daha fazla bilgi](active-directory-administer.md)
   
-    Bu dizin oluşturulduktan sonra bir yönetici daha sonra kullanıcılar ve ata lisanslarını kullanıcılara göre erişimi Azure gibi istedikleri hangi bulut hizmeti Aboneliklerde oluşturabilirsiniz.
+    Bu dizin oluşturulduktan sonra bir yönetici daha sonra kullanıcıları ve ata lisansları toothem göre erişimi Azure gibi istedikleri hangi bulut hizmeti Aboneliklerde oluşturabilirsiniz.
 
-Azure'a kuruluş olarak kaydolmak istiyor? [**Şimdi kaydolun**](https://azure.microsoft.com/pricing/purchase-options/)
+Azure için toosign kuruluş olarak istiyorsunuz? [**Şimdi kaydolun**](https://azure.microsoft.com/pricing/purchase-options/)
 
 **Ek Kaynaklar**
 
 * [Microsoft Azure blogu](https://azure.microsoft.com/blog/)
 * [Azure AD nedir?](active-directory-whatis.md)
-* [Şirket içi kimlik altyapınızı bulutta kullanma](active-directory-aadconnect.md)
+* [Şirket içi kimlik altyapınızı hello bulutta kullanma](active-directory-aadconnect.md)
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Uygulama Hizmeti’ndeki Node.js API uygulaması | Microsoft Belgeleri"
-description: "Node.js RESTful API’si oluşturma ve Azure App Service’deki bir API uygulamasına dağıtma hakkında bilgi edinin."
+title: "Azure uygulama hizmetinde aaaNode.js API uygulaması | Microsoft Docs"
+description: "Bilgi nasıl toocreate Node.js RESTful API'si ve Azure App Service'teki tooan API uygulamasına dağıtabilirsiniz."
 services: app-service\api
 documentationcenter: node
 author: bradygaster
@@ -14,16 +14,16 @@ ms.devlang: nodejs
 ms.topic: get-started-article
 ms.date: 06/13/2017
 ms.author: rachelap
-ms.openlocfilehash: 806585edd43b9d2d678bfa41523e4d9d40af8cba
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 3b3229c1453b6ca4d06bef26f476e92afda4e244
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="build-a-nodejs-restful-api-and-deploy-it-to-an-api-app-in-azure"></a>Node.js RESTful API’si derleme ve Azure’daki bir API uygulamasına dağıtma
+# <a name="build-a-nodejs-restful-api-and-deploy-it-tooan-api-app-in-azure"></a>Node.js RESTful API'si derleme ve tooan API uygulamasına dağıtma
 [!INCLUDE [app-service-api-get-started-selector](../../includes/app-service-api-get-started-selector.md)]
 
-Bu hızlı başlangıçta, [Swagger](http://swagger.io/) tanımı kullanarak Node.js [Express](http://expressjs.com/) ile yazılmış bir REST API’nin nasıl oluşturulacağı ve bunun Azure’da [API uygulaması](app-service-api-apps-why-best-platform.md) olarak nasıl dağıtılacağı gösterilmiştir. Komut satırı araçlarını kullanarak uygulamayı oluşturur, [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) ile kaynakları yapılandırır ve Git kullanarak uygulamayı dağıtırsınız.  İşiniz bittiğinde, Azure’da çalışan bir REST API örneğiniz olur.
+Bu hızlı başlangıç gösterir nasıl toocreate Node.js ile yazılmış bir REST API [Express](http://expressjs.com/)kullanarak bir [Swagger](http://swagger.io/) tanımı ve olarak dağıtmayı bir [API uygulaması](app-service-api-apps-why-best-platform.md) Azure üzerinde. Komut satırı araçlarını kullanarak hello uygulaması oluşturma, kaynakları ile Merhaba yapılandırmak [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), Git kullanarak hello uygulamasını ve dağıtın.  İşiniz bittiğinde, Azure’da çalışan bir REST API örneğiniz olur.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -34,17 +34,17 @@ Bu hızlı başlangıçta, [Swagger](http://swagger.io/) tanımı kullanarak Nod
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu, Azure CLI 2.0 veya sonraki bir sürümünü kullanmanızı gerektirir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Tooinstall seçin ve hello CLI yerel olarak kullanırsanız, bu konuda hello Azure CLI Sürüm 2.0 veya üstü çalıştığını gerektirir. Çalıştırma `az --version` toofind hello sürümü. Tooinstall veya yükseltme gerekirse bkz [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 ## <a name="prepare-your-environment"></a>Ortamınızı hazırlama
 
-1. Bir terminal penceresinde, aşağıdaki komutu çalıştırarak örneği yerel makinenize kopyalayın.
+1. Bir terminal penceresi komutu tooclone hello örnek tooyour yerel makine aşağıdaki hello çalıştırın.
 
     ```bash
     git clone https://github.com/Azure-Samples/app-service-api-node-contact-list
     ```
 
-2. Örnek kodu içeren dizine geçin.
+2. Merhaba örnek kod içeren toohello dizini değiştirin.
 
     ```bash
     cd app-service-api-node-contact-list
@@ -59,9 +59,9 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu, Azure CLI 2.
 
 ## <a name="generate-nodejs-code"></a>Node.js kodu oluşturma 
 
-Öğreticinin bu bölümü, içinde ilk olarak Swagger meta verilerini oluşturduğunuz ve bunları API sunucu kodunun iskelesini kurmak (otomatik oluşturmak) için kullandığınız bir API geliştirme iş akışını modeller. 
+Merhaba öğreticinin bu bölümünde, Swagger meta verileri ilk oluşturun ve o tooscaffold kullanan bir API geliştirme iş akışını modeller (otomatik oluşturmak) hello API için sunucu kodu. 
 
-Dizini *başlat* klasörü olarak değiştirin, ardından `yo swaggerize` öğesini çalıştırın. Swaggerize, *api.json*’da Swagger tanımından API’niz için bir Node.js projesi oluşturur.
+Değiştirme dizin toohello *Başlat* klasörü, ardından çalıştırın `yo swaggerize`. Swaggerize, API hello Swagger tanımında'için bir Node.js projesi oluşturur *api.json*.
 
 ```bash
 cd start
@@ -73,28 +73,28 @@ Swaggerize bir proje adı sorduğunda *ContactList* adını kullanın.
    ```bash
    Swaggerize Generator
    Tell us a bit about your application
-   ? What would you like to call this project: ContactList
+   ? What would you like toocall this project: ContactList
    ? Your name: Francis Totten
    ? Your github user name: fabfrank
    ? Your email: frank@fabrikam.net
    ```
    
-## <a name="customize-the-project-code"></a>Proje kodunu özelleştirme
+## <a name="customize-hello-project-code"></a>Merhaba proje kodu özelleştirme
 
-1. *lib* klasörünü, `yo swaggerize` tarafından oluşturulan *ContactList* klasörüne kopyalayın, ardından dizini *ContactList* ile değiştirin.
+1. Kopya hello *lib* hello klasörüne *ContactList* tarafından oluşturulan klasör `yo swaggerize`, dizinine değiştirme *ContactList*.
 
     ```bash
     cp -r lib/ ContactList/
     cd ContactList
     ```
 
-2. `jsonpath` ve `swaggerize-ui` NPM modüllerini yükleyin. 
+2. Merhaba yüklemek `jsonpath` ve `swaggerize-ui` NPM modülleri. 
 
     ```bash
     npm install --save jsonpath swaggerize-ui
     ```
 
-3. *handlers/contacts.js*’deki kodu aşağıdaki kodla değiştirin: 
+3. Merhaba Hello kodla *handlers/contacts.js* koddan hello ile: 
     ```javascript
     'use strict';
 
@@ -106,9 +106,9 @@ Swaggerize bir proje adı sorduğunda *ContactList* adını kullanın.
         }
     };
     ```
-    Bu kod, *lib/contactRepository.js* tarafından sunulan *lib/contacts.json*’da depolanmış JSON verilerini kullanır. Yeni *contacts.js* kodu, depodaki tüm kişileri JSON yükü olarak döndürür. 
+    Bu kodu depolanan hello JSON verilerini kullanır *lib/contactrepository.js* tarafından sunulan *lib/Contacts.JSON*. Merhaba yeni *contacts.js* kodu tüm kişileri hello deposundaki bir JSON yükü olarak döndürür. 
 
-4. **handlers/contacts/{id}.js** dosyasındaki kodu, aşağıdaki kodla değiştirin:
+4. Merhaba Hello kodla **handlers/contacts/{id}.js** koddan hello dosyasıyla:
 
     ```javascript
     'use strict';
@@ -122,9 +122,9 @@ Swaggerize bir proje adı sorduğunda *ContactList* adını kullanın.
     };
     ```
 
-    Bu kod, yalnızca belirtilen kimliğe sahip kişiyi döndürmek için bir yol değişkeni kullanmanıza imkan tanır.
+    Bu kod belirtilen kimliğe sahip bir yol değişken tooreturn yalnızca hello kişi kullanmanıza olanak sağlar
 
-5. **server.js**’deki kodu, aşağıdaki kodla değiştirin:
+5. Merhaba kodla **server.js** koddan hello ile:
 
     ```javascript
     'use strict';
@@ -162,16 +162,16 @@ Swaggerize bir proje adı sorduğunda *ContactList* adını kullanın.
     });
     ```   
 
-    Bu kod, Azure App Service ile çalışmasını sağlamak için birkaç küçük değişiklik yapar ve API’niz için etkileşimli bir web arabirimini kullanıma sunar.
+    Bu kod, bazı küçük değişikliklere toolet Azure uygulama hizmeti ile çalışır hale getirir ve API için etkileşimli web arabirimi gösterir.
 
-### <a name="test-the-api-locally"></a>API’yi yerel olarak test etme
+### <a name="test-hello-api-locally"></a>Yerel olarak test hello API
 
-1. Node.js uygulamasını başlatma
+1. Merhaba Node.js uygulamasını Başlat
     ```bash
     npm start
     ```
     
-2. Kişi listesinin tamamı için JSON’u görüntülemek üzere http://localhost:8000/contacts’a göz atın.
+2. Toohttp://localhost:8000 Gözat / tooview hello JSON hello tüm kişi listesi için iletişim kurar.
    
    ```json
     {
@@ -191,7 +191,7 @@ Swaggerize bir proje adı sorduğunda *ContactList* adını kullanın.
     }
    ```
 
-3. Kişiyi iki `id` arasından biriyle görüntülemek için http://localhost:8000/contacts/2’ye göz atın.
+3. Toohttp://localhost:8000/kişiler/2 tooview hello kişiyle Gözat bir `id` iki.
    
     ```json
     { 
@@ -201,21 +201,21 @@ Swaggerize bir proje adı sorduğunda *ContactList* adını kullanın.
     }
     ```
 
-4. http://localhost:8000/docs’ta Swagger web arabirimini kullanarak API’yi test edin.
+4. 8000/docs Hello Swagger web Arabirimi'ni kullanarak hello API sınayın.
    
     ![Swagger web arabirimi](media/app-service-api-nodejs-api-app/swagger-ui.png)
 
 ## <a id="createapiapp"></a> API Uygulaması oluşturma
 
-Bu bölümde, API’yi Azure App Service'te barındırmak için gereken kaynakları oluşturmak amacıyla Azure CLI 2.0’ı kullanırsınız. 
+Bu bölümde, Azure uygulama hizmeti hello Azure CLI 2.0 toocreate hello kaynakları toohost hello API kullanın. 
 
-1.  [az login](/cli/azure/#login) komutuyla Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyin.
+1.  Tooyour hello Azure aboneliğiyle oturum [az oturum açma](/cli/azure/#login) komut ve hello ekrandaki yönergeleri izleyin.
 
     ```azurecli-interactive
     az login
     ```
 
-2. Birden çok Azure aboneliğiniz varsa varsayılan aboneliği istediğiniz abonelikle değiştirin.
+2. Birden çok Azure aboneliğiniz varsa, bir değişiklik hello varsayılan abonelik toohello istenen.
 
     ````azurecli-interactive
     az account set --subscription <name or id>
@@ -228,36 +228,36 @@ Bu bölümde, API’yi Azure App Service'te barındırmak için gereken kaynakla
 5. [!INCLUDE [Create API app](../../includes/app-service-api-create-api-app.md)] 
 
 
-## <a name="deploy-the-api-with-git"></a>API’yi Git ile dağıtma
+## <a name="deploy-hello-api-with-git"></a>Merhaba API Git ile dağıtma
 
-İşlemeleri yerel Git deponuzdan Azure App Service’e ileterek kodunuzu API uygulamasına dağıtırsınız.
+Kod toohello API uygulamanız, yerel Git deposu tooAzure uygulama hizmeti işlemeleri ileterek dağıtın.
 
 1. [!INCLUDE [Configure your deployment credentials](../../includes/configure-deployment-user-no-h.md)] 
 
-2. *ContactList* dizininde yeni bir depo başlatın. 
+2. Merhaba, yeni depo başlatmak *ContactList* dizini. 
 
     ```bash
     git init .
     ```
 
-3. Git’teki öğreticinin önceki bir adımında npm tarafından oluşturulan *node_modules* dizinini hariç tutun. Geçerli dizinde yeni bir `.gitignore` dosyası oluşturun ve dosyanın herhangi bir yerindeki yeni bir satıra aşağıdaki metni ekleyin.
+3. Merhaba hariç *node_modules* Git hello öğreticideki bir önceki adımda npm tarafından oluşturulan dizin. Yeni bir `.gitignore` hello geçerli dizinde dosya ve metin hello dosya başka bir yerindeki yeni bir satıra aşağıdaki hello ekleyin.
 
     ```
     node_modules/
     ```
-    `node_modules` klasörünün `git status` ile yoksayıldığını onaylayın.
+    Merhaba onaylayın `node_modules` klasör göz ardı edilir ile `git status`.
 
-4. Değişiklikleri depoya uygulayın.
+4. Merhaba değişiklikleri toohello deposuna uygulayın.
     ```bash
     git add .
     git commit -m "initial version"
     ```
 
-5. [!INCLUDE [Push to Azure](../../includes/app-service-api-git-push-to-azure.md)]  
+5. [!INCLUDE [Push tooAzure](../../includes/app-service-api-git-push-to-azure.md)]  
  
-## <a name="test-the-api--in-azure"></a>Azure'da API’yi test etme
+## <a name="test-hello-api--in-azure"></a>Azure test hello API
 
-1. Tarayıcıda http://app_name.azurewebsites.net/contacts adresini açın. Öğreticide daha önce yerel olarak istek yaptığınızda gördüğünüz JSON’un döndürüldüğünü göreceksiniz.
+1. Bir tarayıcı toohttp://app_name.azurewebsites.net/contacts açın. Merhaba öğreticide daha önce yerel olarak hello istek yapıldığında aynı JSON olarak döndürülen hello bakın.
 
    ```json
    {
@@ -277,15 +277,15 @@ Bu bölümde, API’yi Azure App Service'te barındırmak için gereken kaynakla
    }
    ```
 
-2. Bir tarayıcıda, `http://app_name.azurewebsites.net/docs` uç noktasına giderek Azure'da çalışan Swagger kullanıcı arabirimini deneyin.
+2. Bir tarayıcıda toohello Git `http://app_name.azurewebsites.net/docs` çıkış uç noktası tootry hello Swagger kullanıcı arabirimini Azure üzerinde çalışan.
 
     ![Swagger Ii](media/app-service-api-nodejs-api-app/swagger-azure-ui.png)
 
-    Artık işlemleri Azure Git deposuna ileterek örnek API güncelleştirmelerini Azure’a dağıtabilirsiniz.
+    Güncelleştirmeleri toohello örnek API tooAzure işlemeleri toohello Azure Git deposuna ileterek artık dağıtabilirsiniz.
 
 ## <a name="clean-up"></a>Temizleme
 
-Bu hızlı başlangıçta oluşturulan kaynakları kaldırmak için şu Azure CLI komutunu çalıştırın:
+Azure CLI komutu aşağıdaki hello çalıştırmak bu başlangıcın oluşturulan hello kaynakları tooclean:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

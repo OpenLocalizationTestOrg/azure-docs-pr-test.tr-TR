@@ -1,5 +1,5 @@
 ---
-title: Azure IOT paketi ile ilgili SSS | Microsoft Docs
+title: aaaAzure IOT paketi ile ilgili SSS | Microsoft Docs
 description: "IoT Paketi için sık sorulan sorular"
 services: 
 suite: iot-suite
@@ -15,72 +15,72 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/15/2017
 ms.author: corywink
-ms.openlocfilehash: 85867fb8d18377637b3aa848555831a8d9b53512
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: cb39e24af6d1ce2afea554285512d05b2d7c721e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>IoT Paketi için sık sorulan sorular
 
-Ayrıca bkz.: bağlı Fabrika özel [SSS](iot-suite-faq-cf.md).
+Ayrıca bkz.: hello bağlı Fabrika özel [SSS](iot-suite-faq-cf.md).
 
-### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>Önceden yapılandırılmış çözümleri için kaynak kodunu nereden bulabilirim?
+### <a name="where-can-i-find-hello-source-code-for-hello-preconfigured-solutions"></a>Merhaba önceden yapılandırılmış çözümleri hello kaynak kodu nereden bulabilirim?
 
-Kaynak kodu aşağıdaki GitHub depolarının depolanır:
+Merhaba kaynak kodu, GitHub depolarının aşağıdaki hello depolanır:
 * [Önceden yapılandırılmış Uzaktan izleme çözümü][lnk-remote-monitoring-github]
 * [Önceden yapılandırılmış Tahmine dayalı bakım çözümü][lnk-predictive-maintenance-github]
 * [Bağlı Fabrika önceden yapılandırılmış çözümü](https://github.com/Azure/azure-iot-connected-factory)
 
-### <a name="how-do-i-update-to-the-latest-version-of-the-remote-monitoring-preconfigured-solution-that-uses-the-iot-hub-device-management-features"></a>IOT Hub cihaz yönetimi özellikleri kullanan Uzaktan izleme önceden yapılandırılmış çözümü en son sürümüne nasıl güncelleştiririm?
+### <a name="how-do-i-update-toohello-latest-version-of-hello-remote-monitoring-preconfigured-solution-that-uses-hello-iot-hub-device-management-features"></a>Toohello en son sürümünü kullanan IOT Hub cihaz yönetimi özellikleri hello hello Uzaktan izleme önceden yapılandırılmış çözümün nasıl güncelleştiririm?
 
-* Önceden yapılandırılmış bir çözüm https://www.azureiotsuite.com/ sitesinden dağıtırsanız, her zaman çözüm en son sürümünü yeni bir örneğini dağıtır.
-* Komut satırını kullanarak önceden yapılandırılmış bir çözüm dağıtırsanız, yeni kodu ile var olan bir dağıtıma güncelleştirebilirsiniz. Bkz: [bulut dağıtımı] [ lnk-cloud-deployment] github'da [deposu][lnk-remote-monitoring-github].
+* Önceden yapılandırılmış bir çözüm hello https://www.azureiotsuite.com/ sitesinden dağıtırsanız, her zaman hello hello çözümü en son sürümü yeni bir örneğini dağıtır.
+* Önceden yapılandırılmış bir çözüm hello komut satırını kullanarak dağıtırsanız, yeni kodu ile var olan bir dağıtıma güncelleştirebilirsiniz. Bkz: [bulut dağıtımı] [ lnk-cloud-deployment] hello GitHub içinde [deposu][lnk-remote-monitoring-github].
 
-### <a name="how-can-i-add-support-for-a-new-device-method-to-the-remote-monitoring-preconfigured-solution"></a>Uzaktan izleme önceden yapılandırılmış çözümü için yeni bir cihaz yöntemi desteğini nasıl ekleyebilirim?
+### <a name="how-can-i-add-support-for-a-new-device-method-toohello-remote-monitoring-preconfigured-solution"></a>Bir yeni cihaz yöntemi toohello Uzaktan izleme çözümü desteği nasıl ekleyebilir miyim?
 
-Bölümüne bakın [simulator için yeni bir yöntem için destek eklemek] [ lnk-add-method] içinde [önceden yapılandırılmış çözümü özelleştirme] [ lnk-customize] makalesi.
+Merhaba bölümüne bakın [yeni bir yöntem toohello simulator desteği eklemek] [ lnk-add-method] hello içinde [önceden yapılandırılmış çözümü özelleştirme] [ lnk-customize] makalesi.
 
-### <a name="the-simulated-device-is-ignoring-my-desired-property-changes-why"></a>Sanal cihaz my istenen özellik değişiklikleri neden yoksayılıyor?
-Uzaktan izleme önceden yapılandırılmış çözümde sanal cihaz kod yalnızca **Desired.Config.TemperatureMeanValue** ve **Desired.Config.TelemetryInterval** bildirilen özellikleri güncelleştirmek için özellikler istenen. Diğer tüm istenen özelliği değişiklik isteklerini göz ardı edilir.
+### <a name="hello-simulated-device-is-ignoring-my-desired-property-changes-why"></a>Merhaba sanal cihaz my istenen özellik değişiklikleri neden yoksayılıyor?
+Hello çözüm önceden yapılandırılmış Uzaktan izleme, benzetimli hello aygıt kodu yalnızca hello kullanır **Desired.Config.TemperatureMeanValue** ve **Desired.Config.TelemetryInterval** özellikleri istenen tooupdate hello özellikleri bildirdi. Diğer tüm istenen özelliği değişiklik isteklerini göz ardı edilir.
 
-### <a name="my-device-does-not-appear-in-the-list-of-devices-in-the-solution-dashboard-why"></a>Cihazımı çözüm panosunda aygıtların listesi görünmez neden?
+### <a name="my-device-does-not-appear-in-hello-list-of-devices-in-hello-solution-dashboard-why"></a>Cihazımı hello çözüm panosunda, cihazların Merhaba listesi görünmez neden?
 
-Çözüm panosunda aygıtların listesi, cihaz listesini döndürmek için bir sorgu kullanır. Şu anda bir sorgu en fazla 10 K aygıtları döndüremez. Arama ölçütlerini sorgunuza daha kısıtlayıcı yapmayı deneyin.
+cihazların Merhaba çözüm panosunda Hello listesi sorgu tooreturn hello aygıtların listesini kullanır. Şu anda bir sorgu en fazla 10 K aygıtları döndüremez. Sorgunuzu Hello arama ölçütlerini daha kısıtlayıcı yapmayı deneyin.
 
-### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-preconfigured-solution-in-azureiotsuitecom"></a>Azure portalında bir kaynak grubunu silmek ile azureiotsuite.com'da önceden yapılandırılmış bir çözüm için silmeye tıklama arasındaki fark nedir?
+### <a name="whats-hello-difference-between-deleting-a-resource-group-in-hello-azure-portal-and-clicking-delete-on-a-preconfigured-solution-in-azureiotsuitecom"></a>Azure portal ve tıklatmak silme azureiotsuite.com önceden yapılandırılmış bir çözüm üzerinde hello kaynak grubunda silinmesi arasındaki hello fark nedir?
 
-* Önceden yapılandırılmış çözümü silerseniz [azureiotsuite.com][lnk-azureiotsuite], önceden yapılandırılmış çözümü oluşturduğunuzda sağlanan tüm kaynakları silin. Kaynak grubuna ek kaynaklar eklediyseniz, bu kaynakları da silinir. 
-* Kaynak grubunu silerseniz [Azure portal][lnk-azure-portal], yalnızca bu kaynak grubundaki kaynakları silersiniz. Ayrıca önceden yapılandırılmış Çözümle ilişkili Azure Active Directory Uygulama silmenize gerek [Klasik Azure portalı][lnk-classic-portal].
+* Merhaba önceden yapılandırılmış çözümü silerseniz [azureiotsuite.com][lnk-azureiotsuite], hello önceden yapılandırılmış çözümü oluşturduğunuzda sağlanan tüm hello kaynakları silin. Ek kaynaklar toohello kaynak grubu eklediyseniz, bu kaynakları da silinir. 
+* Merhaba hello kaynak grubunu silerseniz [Azure portal][lnk-azure-portal], yalnızca bu kaynak grubundaki hello kaynakları silin. Hello hello önceden yapılandırılmış çözümde ilişkili toodelete hello Azure Active Directory Uygulama etmeniz [Klasik Azure portalı][lnk-classic-portal].
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>Bir abonelikte kaç IoT Hub örneği sağlayabilirim?
 
-Varsayılan olarak, sağlayabilirsiniz [10 IOT hub'ları abonelik başına][link-azuresublimits]. Oluşturabileceğiniz bir [Azure destek bileti] [ link-azuresupportticket] bu sınırı artırmak için. Sonuç olarak, önceden yapılandırılmış her çözüm yeni bir IOT hub'ı hazırlar olduğundan, yalnızca belirli bir aboneliğe en fazla 10 önceden yapılandırılmış çözümü sağlayabilirsiniz. 
+Varsayılan olarak, sağlayabilirsiniz [10 IOT hub'ları abonelik başına][link-azuresublimits]. Oluşturabileceğiniz bir [Azure destek bileti] [ link-azuresupportticket] tooraise bu sınırı. Sağlama too10 yukarı önceden yapılandırılmış çözümleri herhangi bir abonelikte yalnızca bir sonucu olarak, her önceden yapılandırılmış çözüm sağlarken bu yana yeni bir IOT Hub'nı kullanabilirsiniz. 
 
 ### <a name="how-many-azure-cosmos-db-instances-can-i-provision-in-a-subscription"></a>Bir abonelikte kaç Azure Cosmos DB örneği sağlayabilirim?
 
-Elli. Oluşturabileceğiniz bir [Azure destek bileti] [ link-azuresupportticket] bu sınırı artırmak için ancak varsayılan olarak, abonelik başına 50 Cosmos DB örnekleri yalnızca sağlayabilirsiniz. 
+Elli. Oluşturabileceğiniz bir [Azure destek bileti] [ link-azuresupportticket] tooraise bu sınırlama, ancak varsayılan olarak, abonelik başına 50 Cosmos DB örnekleri yalnızca sağlayabilirsiniz. 
 
 ### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>Bir abonelikte kaç tane Ücretsiz Bing Haritaları API'si sağlayabilirim?
 
-İki. Bir Azure aboneliğinde Enterprise planları için yalnızca iki adet İç İşlemler Düzey 1 Bing Haritası oluşturabilirsiniz. Uzaktan izleme çözümü, varsayılan olarak bir İç İşlemler Düzey 1 planı ile hazırlanır. Sonuç olarak, herhangi bir değişiklik yapılmadıysa bir abonelikte yalnızca en fazla iki tane uzaktan izleme çözümü sağlayabilirsiniz.
+İki. Bir Azure aboneliğinde Enterprise planları için yalnızca iki adet İç İşlemler Düzey 1 Bing Haritası oluşturabilirsiniz. Merhaba Uzaktan izleme çözümü, varsayılan hello iç işlemleri düzey 1 planıyla tarafından sağlanır. Sonuç olarak, herhangi bir değişiklik yapılmadıysa bir abonelikte çözümlerini izleme uzak tootwo yukarı yalnızca sağlayabilirsiniz.
 
 ### <a name="i-have-a-remote-monitoring-solution-deployment-with-a-static-map-how-do-i-add-an-interactive-bing-map"></a>Statik haritaya sahip bir uzaktan izleme çözümü dağıtımım var; etkileşimli bir Bing haritasını nasıl eklerim?
 
 1. Kurumsal QueryKey için Bing haritaları API'nizi almak [Azure portal][lnk-azure-portal]: 
    
-   1. Kurumsal için Bing haritaları API'nizi olduğu kaynak grubuna gidin [Azure portal][lnk-azure-portal].
+   1. Toohello Kurumsal için Bing haritaları API'nizi hello olduğu kaynak grubu gidin [Azure portal][lnk-azure-portal].
    2. Tıklatın **tüm ayarları**, ardından **anahtar yönetimi**. 
-   3. İki anahtar görebilirsiniz: **MasterKey** ve **QueryKey**. Değeri kopyalama **QueryKey**.
+   3. İki anahtar görebilirsiniz: **MasterKey** ve **QueryKey**. Merhaba değerini kopyalayın **QueryKey**.
       
       > [!NOTE]
-      > Kurumsal için Bing Haritaları API'si hesabınız yok mu? Oluşturun [Azure portal] [ lnk-azure-portal] göre tıklayarak + yeni, Kurumsal için Bing haritaları API'si için arama ve oluşturmak için istemleri izleyin.
+      > Kurumsal için Bing Haritaları API'si hesabınız yok mu? Merhaba oluşturun [Azure portal] [ lnk-azure-portal] tıklatarak + yeni, Enterprise ve izleme için Bing haritaları API'si arama toocreate ister.
       > 
       > 
-2. En son koddan aşağı çekmek [Azure-IoT-Remote-Monitoring][lnk-remote-monitoring-github].
-3. Depodaki /docs/ klasöründe komut satırı dağıtım rehberini izleyerek dağıtım Bulut veya yerel çalıştırın. 
-4. Yerel bir dağıtım veya bir bulut dağıtımını çalıştırdıktan sonra, kök klasörünüzde dağıtım sırasında oluşturulan *.user.config file dosyanızı arayın. Bu dosyayı bir metin düzenleyicisinde açın. 
-5. Kopyaladığınız değeri eklemek için aşağıdaki satırı değiştirin, **QueryKey**: 
+2. Merhaba son hello koddan aşağı çekmek [Azure-IoT-Remote-Monitoring][lnk-remote-monitoring-github].
+3. Hello deposu hello /docs/ klasöründe hello komut satırı dağıtım rehberini izleyerek dağıtım Bulut veya yerel çalıştırın. 
+4. Yerel çalıştırdıktan veya dağıtım, arama, kök klasörünüzde hello için bulut sonra *. user.config file dosyanızı dağıtımı sırasında oluşturulan. Bu dosyayı bir metin düzenleyicisinde açın. 
+5. Değişiklik hello aşağıdaki satır kopyaladığınız tooinclude hello değeri, **QueryKey**: 
    
    `<setting name="MapApiQueryKey" value="" />`
 
@@ -98,11 +98,11 @@ Bkz. Eric Golpe'un blog gönderisi [bir Azure AD Kiracısını silme Kılavuzu][
 
 ### <a name="next-steps"></a>Sonraki adımlar
 
-Önceden yapılandırılmış IoT Suite çözümlerinin diğer özelliklerinden bazılarını da keşfedebilirsiniz:
+Merhaba bazıları diğer özellikleri ve yetenekleri hello IOT paketi önceden yapılandırılmış çözümleri ayrıca keşfedebilirsiniz:
 
 * [Önceden yapılandırılmış Tahmine dayalı bakım çözümüne genel bakış][lnk-predictive-overview]
 * [Önceden yapılandırılmış bağlı Fabrika çözümüne genel bakış](iot-suite-connected-factory-overview.md)
-* [Baştan sona IoT güvenliği][lnk-security-groundup]
+* [Merhaba IOT güvenlikten plan][lnk-security-groundup]
 
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-security-groundup]: securing-iot-ground-up.md

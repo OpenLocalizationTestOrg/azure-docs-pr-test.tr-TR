@@ -1,6 +1,6 @@
 ---
-title: "Azure API Management'te özel önbelleğe alma"
-description: "Azure API Management'te anahtarı tarafından öğeleri önbelleğe öğrenin"
+title: "Azure API Management'te aaaCustom önbelleğe alma"
+description: "Azure API Management'te anahtarı tarafından nasıl toocache öğelerini öğrenin"
 services: api-management
 documentationcenter: 
 author: darrelmiller
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: f5d5f44e34fbcd122a10be0ca5b3001760c4c64d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 681380743c8c96af5d0a8e25948a8c0663e9fd35
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="custom-caching-in-azure-api-management"></a>Azure API Management'te özel önbelleğe alma
-Azure API Management hizmeti için yerleşik destek sahip [HTTP yanıt önbelleğe alma](api-management-howto-cache.md) kaynak URL anahtar olarak kullanma. Anahtar kullanarak istek üstbilgileri tarafından değiştirilebilir `vary-by` özellikleri. Tüm HTTP yanıtlarını (diğer adıyla Beyanları) önbelleğe alma işlemi için yararlıdır, ancak bazen yalnızca önbellek temsili bir kısmı için yararlıdır. Yeni [önbellek arama değeri](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) ve [önbellek deposu değeri](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) ilkeleri, depolama ve ilke tanımları içindeki verileri rasgele parçalarını alma olanağı sağlar. Bu özellik ayrıca değeri önceden sunulan ekler [gönderme isteği](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) İlkesi çünkü dış hizmetler yanıtlarının şimdi önbelleğe alabilir.
+Azure API Management hizmeti için yerleşik destek sahip [HTTP yanıt önbelleğe alma](api-management-howto-cache.md) hello kaynak URL hello anahtar olarak kullanma. Merhaba anahtar hello kullanarak istek üstbilgileri tarafından değiştirilebilir `vary-by` özellikleri. Tüm HTTP yanıtlarını (diğer adıyla Beyanları) önbelleğe alma işlemi için kullanışlıdır ancak bazen yararlı toojust önbellek temsili bir bölümü olabilir. Merhaba yeni [önbellek arama değeri](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) ve [önbellek deposu değeri](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) ilkeler ilke tanımları içindeki verileri toostore ve alma rasgele parçalarını hello olanağı sağlar. Bu yeteneği de daha önce eklenen değer toohello ekler [gönderme isteği](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) İlkesi çünkü dış hizmetler yanıtlarının şimdi önbelleğe alabilir.
 
 ## <a name="architecture"></a>Mimari
-En fazla ölçek gibi birden çok birimi hala aynı erişimi alırsınız verileri önbelleğe böylece API Management hizmeti Kiracı başına paylaşılan veri önbelleği kullanır. Ancak, bölgeli dağıtımı ile çalışırken, her bölge içinde bağımsız önbellekleri vardır. Bunun nedeni, önbelleğe yalnızca kaynak bilgileri parçasının olduğu bir veri deposu olarak davranmanız değil önemlidir. Vermedi ve daha sonra bölgeli dağıtım yararlanmak karar, seyahat kullanıcılarla müşteriler bu önbelleğe alınmış verileri erişimlerini kaybedebilir.
+API Management hizmeti kullanan bir kiracı başına paylaşılan veri önbelleği toomultiple birimler ölçeklendirmenize göre erişim toohello hala alırsınız böylece aynı verileri önbelleğe. Ancak, bölgeli dağıtımı ile çalışırken, her hello bölgelerinin bağımsız önbellekleri vardır. Son toothis, onu önemlidir toonot hello önbellek hello yalnızca kaynak bilgileri parçasının olduğu bir veri deposu olarak ele alın. Vermedi ve daha sonra hello bölgeli dağıtım tootake avantajlarından karar, seyahat kullanıcılar müşterilerle erişim önbelleğe toothat veri kaybedebilir.
 
 ## <a name="fragment-caching"></a>Parça önbelleğe alma
-Burada verilen yanıtları belirlemek pahalıdır ve makul bir süre için henüz yeni kalan verileri kısmı içeren bazı durumlar vardır. Örnek olarak, Uçuş Rezervasyonları, uçuş durumu ile ilgili bilgi sağlayan bir uçak tarafından oluşturulmuş bir hizmeti kullanmayı düşünün. Kullanıcı airlines noktaları program üyesi ise, ayrıca bunların geçerli durumu ve toplanan mesafe ilgili bilgileri gerekir. Bu kullanıcı ile ilgili bilgiler farklı depolanabilir, ancak uçuş durumu ve ayırmaları hakkında döndürülen yanıtlar dahil istenebilir. Bu yapılabilir parça önbelleğe alma adlı bir işlem kullanılarak. Birincil gösterimi kullanıcı ile ilgili bilgiler eklenecek nerede belirtmek için bir tür belirteci kullanarak kaynak sunucudan döndürülebilir. 
+Burada verilen yanıtları pahalı toodetermine ve makul bir süre için henüz yeni kalan verileri kısmı içeren bazı durumlar vardır. Örnek olarak, Uçuş Rezervasyonları, uçuş durumu ile ilgili bilgi sağlayan bir uçak tarafından oluşturulmuş bir hizmeti kullanmayı düşünün. Merhaba kullanıcı hello airlines noktaları program üyesi ise, bunlar tootheir geçerli durumu ve toplanan mesafe ilgili bilgileri de gerekir. Bu kullanıcı ile ilgili bilgiler farklı depolanabilir, ancak uçuş durumu ve ayırmaları hakkında yanıtlarındaki döndürdüğü arzu tooinclude olabilir. Bu yapılabilir parça önbelleğe alma adlı bir işlem kullanılarak. Merhaba birincil gösterimi hello kullanıcıyla ilişkili bilgileri eklenen toobe olduğu belirteci tooindicate çeşit kullanılarak hello kaynak sunucudan döndürülebilir. 
 
-Arka uç API'si aşağıdaki JSON yanıtı göz önünde bulundurun.
+Arka uç API yanıtından JSON aşağıdaki hello göz önünde bulundurun.
 
 ```json
 {
@@ -48,7 +48,7 @@ Ve ikincil kaynakta `/userprofile/{userid}` olduğunu gibi görünüyor,
 { "username" : "Bob Smith", "Status" : "Gold" }
 ```
 
-Uygun kullanıcı bilgileri içerecek şekilde belirlemek için biz son kullanıcının kim olduğunu tanımlamanız gerekir. Bu mekanizma bağımlı uygulamasıdır. Örnek olarak, kullanıyorum `Subject` , talep bir `JWT` belirteci. 
+Sipariş toodetermine hello uygun kullanıcı bilgileri tooinclude içinde hello son kullanıcıdan tooidentify gerekir. Bu mekanizma bağımlı uygulamasıdır. Örnek olarak, hello kullanıyorum `Subject` , talep bir `JWT` belirteci. 
 
 ```xml
 <set-variable
@@ -56,7 +56,7 @@ Uygun kullanıcı bilgileri içerecek şekilde belirlemek için biz son kullanı
   value="@(context.Request.Headers.GetValueOrDefault("Authorization","").Split(' ')[1].AsJwt()?.Subject)" />
 ```
 
-Bu depolarız `enduserid` daha sonra kullanmak için bir bağlam değişken değeri. Sonraki adım, önceki bir istek daha önce kullanıcı bilgileri alınır ve önbellekte depolanan varsa belirlemektir. Bunun için kullandığımız `cache-lookup-value` ilkesi.
+Bu depolarız `enduserid` daha sonra kullanmak için bir bağlam değişken değeri. önceki bir istek varsa zaten hello kullanıcı bilgileri alınır ve hello önbellekte depolanan hello sonraki toodetermine adımdır. Merhaba bu için kullandığımız `cache-lookup-value` ilkesi.
 
 ```xml
 <cache-lookup-value
@@ -64,17 +64,17 @@ key="@("userprofile-" + context.Variables["enduserid"])"
 variable-name="userprofile" />
 ```
 
-Anahtar değeri sonra Hayır karşılık gelen önbellek girişi yoksa `userprofile` bağlamının oluşturulur. Biz arama kullanma başarısını denetleyin `choose` kontrol akışı ilkesi.
+Toohello anahtar değeri ve ardından Hayır karşılık gelen hello önbelleğinde girişi yoksa `userprofile` bağlamının oluşturulur. Biz hello kullanarak hello araması hello başarısını denetleyin `choose` kontrol akışı ilkesi.
 
 ```xml
 <choose>
     <when condition="@(!context.Variables.ContainsKey("userprofile"))">
-        <!-- If the userprofile context variable doesn’t exist, make an HTTP request to retrieve it.  -->
+        <!-- If hello userprofile context variable doesn’t exist, make an HTTP request tooretrieve it.  -->
     </when>
 </choose>
 ```
 
-Varsa `userprofile` bağlamının yoksa, ardından bunu almak için bir HTTP isteği yapmak zorunda kalacaklarını.
+Merhaba, `userprofile` bağlamının yok ve devam eden toohave toomake bir HTTP isteği tooretrieve gerçekleştiriyoruz.
 
 ```xml
 <send-request
@@ -83,7 +83,7 @@ Varsa `userprofile` bağlamının yoksa, ardından bunu almak için bir HTTP ist
   timeout="10"
   ignore-error="true">
 
-  <!-- Build a URL that points to the profile for the current end-user -->
+  <!-- Build a URL that points toohello profile for hello current end-user -->
   <set-url>@(new Uri(new Uri("https://apimairlineapi.azurewebsites.net/UserProfile/"),
       (string)context.Variables["enduserid"]).AbsoluteUri)
   </set-url>
@@ -91,7 +91,7 @@ Varsa `userprofile` bağlamının yoksa, ardından bunu almak için bir HTTP ist
 </send-request>
 ```
 
-Kullanırız `enduserid` kullanıcı profili kaynağı URL'si oluşturulamadı. Yanıt sahibiz sonra biz yanıt dışında gövde metni çekmek ve bir bağlam değişkende saklayın.
+Merhaba kullanırız `enduserid` tooconstruct hello URL toohello kullanıcı profili kaynağı. Biz hello yanıt olduktan sonra biz hello gövde metni hello yanıt dışında çekme ve bir bağlam değişkende saklayın.
 
 ```xml
 <set-variable
@@ -99,7 +99,7 @@ Kullanırız `enduserid` kullanıcı profili kaynağı URL'si oluşturulamadı. 
     value="@(((IResponse)context.Variables["userprofileresponse"]).Body.As<string>())" />
 ```
 
-Bize aynı kullanıcı başka bir istekte bulunduğunda bu HTTP isteği yeniden sağlamak zorunda önlemek için biz kullanıcı profili önbellekte saklayabilirsiniz.
+tooavoid bize hello aynı kullanıcı başka bir istekte bulunduğunda toomake bu HTTP isteği yeniden sahip, biz hello kullanıcı profili hello önbellekte saklayabilirsiniz.
 
 ```xml
 <cache-store-value
@@ -107,11 +107,11 @@ Bize aynı kullanıcı başka bir istekte bulunduğunda bu HTTP isteği yeniden 
     value="@((string)context.Variables["userprofile"])" duration="100000" />
 ```
 
-Biz başlangıçta ile almayı denedi tam aynı anahtarı kullanarak önbelleğinde değeri depolarız. Biz değeri depolamak üzere seçtiğiniz süre hakkında temel gereken genellikle bilgi değişikliklerini ve nasıl dayanıklı kullanıcılar için güncel bilgilerdir. 
+Biz başlangıçta tooretrieve çalıştı hello tam aynı anahtarı kullanarak hello Önbelleği'nde hello değeri depolarız ile. Merhaba toostore hello değeri seçeneğini belirledik süresi ne sıklıkta hello bilgi değişikliklerini ve nasıl dayanıklı kullanıcılar tarih bilgisi tooout olduğuna bağlı olmalıdır. 
 
-Önbellekten hala olduğundan bir işlem dışı, ağ isteği ve potansiyel olarak milisaniye onlarca isteği eklemeye devam edebilirsiniz, hayata geçirmek önemlidir. Kullanıcı profili bilgilerini sorgular veya toplama bilgilerinden birden fazla arka uç veritabanı gerek nedeniyle daha önemli ölçüde daha uzun sürer belirlerken avantajları gelir.
+Bu önemli toorealize hello önbellekten hala olduğundan bir işlem dışı, ağ isteği ve potansiyel olarak milisaniye toohello isteği onlarca eklemeye devam edebilirsiniz. belirleme hello kullanıcı profili bilgilerini daha önemli ölçüde uzun son tooneeding toodo veritabanı sorguları veya birden fazla arka uç toplama bilgilerinden yönlendirdiğinde hello avantajları gelir.
 
-Son işlem döndürülen yanıt bizim kullanıcı profili bilgilerle güncelleştirmek için adımdır.
+Merhaba son hello işleminde bizim kullanıcı profili bilgilerini içeren bir yanıt döndürdü tooupdate hello adımdır.
 
 ```xml
 <!-- Update response body with user profile-->
@@ -120,9 +120,9 @@ Son işlem döndürülen yanıt bizim kullanıcı profili bilgilerle güncelleş
     to="@((string)context.Variables["userprofile"])" />
 ```
 
-Tırnak işaretleri belirtecinin bir parçası içermesi Değiştir bile gerçekleşmezse, yanıt hala geçerli JSON zamanki seçtiniz. Öncelikle daha kolay hata ayıklama yapmak için bu.
+Böylece hello Değiştir bile gerçekleşmezse, hello yanıt hala geçerli JSON zamanki tooinclude hello tırnak işaretleri hello belirtecinin bir parçası seçtiğim. Öncelikle daha kolay hata ayıklama toomake oluştu.
 
-Tüm adımları birleştirmek sonra sonuç aşağıdaki biri gibi görünen bir ilkedir.
+Tüm adımları birleştirmek sonra hello sonuç hello bir aşağıdaki gibi görünen bir ilkedir.
 
 ```xml
 <policies>
@@ -132,22 +132,22 @@ Tüm adımları birleştirmek sonra sonuç aşağıdaki biri gibi görünen bir 
           name="enduserid"
           value="@(context.Request.Headers.GetValueOrDefault("Authorization","").Split(' ')[1].AsJwt()?.Subject)" />
 
-        <!--Look for userprofile for this user in the cache -->
+        <!--Look for userprofile for this user in hello cache -->
         <cache-lookup-value
           key="@("userprofile-" + context.Variables["enduserid"])"
           variable-name="userprofile" />
 
-        <!-- If we don’t find it in the cache, make a request for it and store it -->
+        <!-- If we don’t find it in hello cache, make a request for it and store it -->
         <choose>
             <when condition="@(!context.Variables.ContainsKey("userprofile"))">
-                <!-- Make HTTP request to get user profile -->
+                <!-- Make HTTP request tooget user profile -->
                 <send-request
                   mode="new"
                   response-variable-name="userprofileresponse"
                   timeout="10"
                   ignore-error="true">
 
-                   <!-- Build a URL that points to the profile for the current end-user -->
+                   <!-- Build a URL that points toohello profile for hello current end-user -->
                     <set-url>@(new Uri(new Uri("https://apimairlineapi.azurewebsites.net/UserProfile/"),(string)context.Variables["enduserid"]).AbsoluteUri)</set-url>
                     <set-method>GET</set-method>
                 </send-request>
@@ -176,22 +176,22 @@ Tüm adımları birleştirmek sonra sonuç aşağıdaki biri gibi görünen bir 
 </policies>
 ```
 
-Önbelleğe alma bu yaklaşım, tek bir sayfa olarak işlenebilecek böylece burada HTML sunucu tarafında oluşur web siteleri, öncelikle kullanılır. Ancak, bu da yararlı olabilir burada istemcileri bulunulamaz istemci API'ları yan HTTP önbelleğe alma veya bu sorumluluğu istemcide değil yerleştirilecek istenen bir durumdur.
+Önbelleğe alma bu yaklaşım, tek bir sayfa olarak işlenebilecek böylece burada HTML hello sunucu tarafında oluşur web siteleri, öncelikle kullanılır. Ancak, bu da yararlı olabilir burada istemcileri bulunulamaz istemci API'ları yan HTTP önbelleğe alma veya tercih edilir değil tooput bu sorumluluğu hello istemcide.
 
-Parça önbelleğe alma bu aynı tür, arka uç web sunucularında sunucu önbelleği Redis kullanılarak yapılabilir, önbelleğe alınan parçaları birincil daha farklı arka uçları'ten gelen ancak API Management hizmeti kullanarak bu çalışmayı gerçekleştirmek için faydalıdır yanıtlar.
+Parça önbelleğe alma bu aynı tür, sunucu önbelleği Redis hello arka uç web sunucularında kullanılarak yapılabilir, önbelleğe alınmış hello parçaları hello'den farklı arka uçları'ten gelen ancak hello API Management hizmeti tooperform kullanarak bu iş kullanışlıdır Birincil yanıtlar.
 
 ## <a name="transparent-versioning"></a>Saydam sürüm oluşturma
-Herhangi bir zamanda desteklenmesi için bir API birden çok farklı uygulama sürümlerini yaygın bir uygulamadır. Bu belki de geliştirme, test, üretim, vb., gibi farklı ortamları desteklemek için veya daha yeni sürümüne geçirmek API Tüketiciler için zaman vermek için API eski sürümleri desteklemek için olabilir. 
+Desteklenen herhangi bir anda bir API toobe birden çok farklı uygulama sürümlerini yaygın bir uygulamadır. Bu belki de geliştirme, test, üretim, vb., gibi toosupport farklı ortamlar veya hello API toogive zaman API tüketicileri toomigrate toonewer sürümleri için eski sürümleri toosupport olabilir. 
 
-Bu URL'lerden değiştirmek istemci geliştiriciler istemek yerine işleme bir yaklaşım `/v1/customers` için `/v2/customers` şu anda istedikleri kullanın ve uygun arka uç URL'si çağırmak için API'ın hangi sürümü tüketicinin profil verileri depolamak için. Belirli bir istemci için çağırmak için doğru arka uç URL'si belirlemek için bazı yapılandırma verileri sorgulamak gereklidir. Bu yapılandırma verileri önbelleğe alarak biz yaşanan bu Arama yapmanın performans sorunları en aza indirebilirsiniz.
+İstemci geliştiricilerin toochange hello URL'lerden gerektiren bu bunun yerine, bir yaklaşım toohandling `/v1/customers` çok`/v2/customers` toostore hello tüketicinin profil verileri de hello API'ın hangi sürümü bunlar şu anda toouse istiyor ve çağırın hello uygun değil arka uç URL'si. İsteğe bağlı olarak belirli bir istemci için sipariş toodetermine hello doğru arka uç URL'si toocall içinde gerekli tooquery olan bazı yapılandırma verileri. Bu yapılandırma verileri önbelleğe alarak Biz bu Arama yapmanın hello performans cezası en aza indirebilirsiniz.
 
-İlk adım, istenen sürüm yapılandırmak için kullanılan tanımlayıcı belirlemektir. Bu örnekte, ürün abonelik anahtarı sürüme ilişkilendirilecek seçtiğim. 
+Merhaba ilk adımı toodetermine hello tanımlayıcı tooconfigure hello istediğiniz sürümü kullanılır. Bu örnekte, t tooassociate hello sürüm toohello ürün abonelik anahtarı seçtiniz. 
 
 ```xml
 <set-variable name="clientid" value="@(context.Subscription.Key)" />
 ```
 
-Biz sonra biz zaten istenen istemci sürümü aldıktan olmadığını görmek için önbellek araması yapın.
+Biz hello istenen istemci sürümü aldıktan, biz sonra bir önbellek arama toosee yapın.
 
 ```xml
 <cache-lookup-value
@@ -199,7 +199,7 @@ key="@("clientversion-" + context.Variables["clientid"])"
 variable-name="clientversion" />
 ```
 
-Ardından biz biz bunu önbellekte bulamadı olmadığını denetleyin.
+Biz bunu hello önbelleğinde bulamadı olmadığını biz toosee denetleyin.
 
 ```xml
 <choose>
@@ -219,7 +219,7 @@ Git ve bunu alma sonra biz almadıysanız.
 </send-request>
 ```
 
-Yanıt gövdesi metni yanıttan ayıklayın.
+Merhaba yanıt gövdesi metni hello yanıttan ayıklayın.
 
 ```xml
 <set-variable
@@ -227,7 +227,7 @@ Yanıt gövdesi metni yanıttan ayıklayın.
       value="@(((IResponse)context.Variables["clientconfiguresponse"]).Body.As<string>())" />
 ```
 
-Gelecekte kullanım için önbelleğindeki depolar.
+Gelecekte kullanım için hello önbelleğindeki geri depolar.
 
 ```xml
 <cache-store-value
@@ -236,14 +236,14 @@ Gelecekte kullanım için önbelleğindeki depolar.
       duration="100000" />
 ```
 
-Ve son olarak istemci tarafından istenen hizmetin sürümünü seçmek için arka uç URL'si güncelleştirin.
+Ve son olarak hello arka uç URL'si tooselect hello hello istemci tarafından istenen hello hizmetinin sürümünü güncelleştirin.
 
 ```xml
 <set-backend-service
       base-url="@(context.Api.ServiceUrl.ToString() + "api/" + (string)context.Variables["clientversion"] + "/")" />
 ```
 
-Tamamen ilke aşağıdaki gibidir.
+Merhaba tamamen ilke aşağıdaki gibidir.
 
 ```xml
 <inbound>
@@ -251,7 +251,7 @@ Tamamen ilke aşağıdaki gibidir.
     <set-variable name="clientid" value="@(context.Subscription.Key)" />
     <cache-lookup-value key="@("clientversion-" + context.Variables["clientid"])" variable-name="clientversion" />
 
-    <!-- If we don’t find it in the cache, make a request for it and store it -->
+    <!-- If we don’t find it in hello cache, make a request for it and store it -->
     <choose>
         <when condition="@(!context.Variables.ContainsKey("clientversion"))">
             <send-request mode="new" response-variable-name="clientconfiguresponse" timeout="10" ignore-error="true">
@@ -268,16 +268,16 @@ Tamamen ilke aşağıdaki gibidir.
 </inbound>
 ```
 
-Saydam güncelleştirin ve istemcilerin yeniden dağıtmak zorunda kalmadan, hangi arka uç sürümü istemciler tarafından erişiliyor denetlemek API tüketicileri etkinleştirme birçok API sürüm oluşturma sorunları ele zarif bir çözümdür.
+Hangi arka uç sürümü tooupdate ve yeniden dağıtın istemcileri gerek kalmadan istemciler tarafından erişiliyor API tüketicileri tootransparently denetimini etkinleştirme birçok API sürüm oluşturma sorunları ele zarif bir çözümdür.
 
 ## <a name="tenant-isolation"></a>Kiracı yalıtımı
-Daha büyük, çok kiracılı dağıtımlarda bazı şirketler, arka uç donanım ayrı dağıtımlarına kiracılar ayrı grupları oluşturun. Bu arka uç üzerinde donanım sorundan etkilenen müşteriler sayısını en aza indirir. Ayrıca, yeni yazılım sürümleri aşamada alınması sağlar. İdeal olarak bu arka uç mimarisi API tüketicilere saydam olmalıdır. API anahtarı başına yapılandırma durumu kullanarak arka uç URL'si düzenleme aynı tekniği bağlı olduğu bu saydam sürüm benzer bir şekilde sağlanabilir.  
+Daha büyük, çok kiracılı dağıtımlarda bazı şirketler, arka uç donanım ayrı dağıtımlarına kiracılar ayrı grupları oluşturun. Bu bir donanım sorunu hello arka uç tarafından etkilenen müşteriler hello sayısını en aza indirir. Ayrıca, yeni yazılım sürümleri toobe aşamada alındı sağlar. İdeal olarak bu arka uç mimarisi saydam tooAPI tüketicileri olmalıdır. Merhaba üzerinde dayandığından bu benzer bir şekilde tootransparent sürüm oluşturma sağlanabilir API anahtarı başına yapılandırma durumu kullanarak hello arka uç URL'si düzenleme aynı tekniği.  
 
-API her abonelik anahtarı için tercih edilen bir sürümünü döndürme yerine atanan donanım grubu için bir kiracı ilişkili tanımlayıcı döndürecektir. Bu tanımlayıcı, uygun arka uç URL'si oluşturmak için kullanılabilir.
+Merhaba API her abonelik anahtarı için tercih edilen bir sürümünü döndürme yerine bir kiracı atanan toohello donanım grubu ilişkili tanımlayıcı döndürecektir. Bu tanımlayıcı, kullanılan tooconstruct hello uygun arka uç URL'si olabilir.
 
 ## <a name="summary"></a>Özet
-Her türlü veri depolamak için Azure API management önbellek kullanma özgürlüğü verimli bir gelen talep işlenen biçimini etkileyebilir yapılandırma verilerine erişim sağlar. Ayrıca, bir arka API döndürülen yanıt genişletebilirsiniz veri parçaları depolamak için de kullanılabilir.
+Hello özgürlük toouse hello Azure API management önbellek her türlü veri depolamak için bir gelen talep işlenen hello biçimini etkileyebilir etkili erişim tooconfiguration veri sağlar. Ayrıca, arka ucundan API döndürülen yanıt genişletebilirsiniz kullanılan toostore veri parçaları de olabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Lütfen bize geri bildirim Disqus iş parçacığı için bu konuda bu ilkeler için etkinleştirdiğiniz diğer senaryolar varsa veya senaryoları varsa elde etmek ister misiniz verin ancak şu anda mümkün olan eşitleyerek değil.
+Bu ilkeler için etkinleştirdiğiniz, veya senaryoları varsa tooachieve istediğiniz ancak değil düşündüğünüz diğer senaryolar şu anda olası varsa lütfen bize Geri bildiriminizi hello Disqus iş parçacığı için bu konunun verin.
 

@@ -1,6 +1,6 @@
 ---
-title: API Engagement Windows Evrensel kullanma
-description: API Engagement Windows Evrensel kullanma
+title: "aaaHow tooUse hello katılım API Windows Evrensel"
+description: "Nasıl tooUse hello katılım API Windows Evrensel"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,40 +14,40 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 75fc134a5535e6113331470cf61df9c06eb8e2ab
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0256b839c28e4ef6c530106408d744038fa711ac
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-the-engagement-api-on-windows-universal"></a>API Engagement Windows Evrensel kullanma
-Bu belge belgeye bir eklentidir [tümleştirmek Engagement Windows Evrensel üzerinde nasıl](mobile-engagement-windows-store-integrate-engagement.md): katılım API uygulama istatistikleri rapor için nasıl kullanılacağı hakkında derinliği ayrıntıları sağlar.
+# <a name="how-toouse-hello-engagement-api-on-windows-universal"></a>Nasıl tooUse hello katılım API Windows Evrensel
+Bu belge bir eklenti toohello belgesidir [nasıl tooIntegrate Engagement Windows Evrensel üzerinde](mobile-engagement-windows-store-integrate-engagement.md): nasıl toouse hello katılım API tooreport uygulama istatistikleri hakkında derinliği ayrıntıları sağlar.
 
-Uygulamanızın oturumları, etkinlikleri, kilitlenme ve teknik bilgileri raporlamak için katılım yalnızca istiyorsanız, sonra en basit yolu tüm olduğunu aklınızda bulundurun, `Page` alt sınıfları `EngagementPage` sınıfı.
+Yalnızca katılım tooreport uygulamanızın oturumları, etkinlikleri, kilitlenme ve teknik bilgi istiyorsanız, ardından hello en basit yolu toomake tüm olduğunu aklınızda bulundurun, `Page` alt sınıfları devral hello `EngagementPage` sınıfı.
 
-Daha fazla bilgi için uygulama belirli olaylar, hatalar ve işleri, rapor gerekiyorsa örnek yapmak istiyorsanız veya uygulamanızın etkinlikleri uygulanan bir daha farklı bir şekilde bildirmek varsa `EngagementPage` sınıfları yeniden katılım API'sini kullanmanız gerekiyor.
+Daha fazla tooreport uygulama belirli olaylar, hatalar ve işleri gerekiyorsa örneğin toodo istiyorsanız veya tooreport uygulamanızın etkinlikleri farklı bir şekilde bir hello uygulanan hello daha varsa `EngagementPage` sınıfları yeniden toouse hello gerekiyor Katılım API.
 
-Katılım API'si tarafından sağlanan `EngagementAgent` sınıfı. Bu yöntemlerle erişebilirsiniz `EngagementAgent.Instance`.
+Merhaba katılım API hello tarafından sağlanan `EngagementAgent` sınıfı. Toothose yöntemlerle erişebilirsiniz `EngagementAgent.Instance`.
 
-Aracı modülü başlatılmadı olsa bile, her API çağrısı ertelenir ve aracı kullanılabilir olduğunda yeniden yürütülür.
+Merhaba aracı modülü başlatılmadı olsa bile, her çağrı toohello API ertelenir ve hello Aracısı kullanılabilir olduğunda yeniden yürütülür.
 
 ## <a name="engagement-concepts"></a>Engagement kavramları
-Aşağıdaki bölümleri yaygın İyileştir [Mobile Engagement kavramları](mobile-engagement-concepts.md) Evrensel Windows platformu için.
+Merhaba aşağıdaki bölümleri İyileştir hello ortak [Mobile Engagement kavramları](mobile-engagement-concepts.md) hello Evrensel Windows platformu için.
 
 ### <a name="session-and-activity"></a>`Session` ve `Activity`
-Bir *etkinlik* yani genellikle uygulama bir sayfayla ilişkilendirilen *etkinlik* sayfası görüntülenir ve sayfa kapatıldığında durdurduğunda başlatır: Engagement SDK'sını kullanarak tümleştirildiğinde bu durumda `EngagementPage` sınıfı.
+Bir *etkinlik* genellikle toosay hello hello uygulama, bir sayfayla ilişkili *etkinlik* hello sayfası görüntülenir ve hello sayfa kapatıldığında durdurduğunda başlatır: hello hello zaman böyledir Engagement SDK'sı tümleşik hello kullanarak `EngagementPage` sınıfı.
 
-Ancak *etkinlikleri* de el ile katılım API'si kullanılarak denetlenebilir. Bu, belirli bir sayfa (örneğin ne sıklıkta ve ne kadar süreyle iletişim kutuları bu sayfa içinde kullanılan bilmeniz) bu sayfanın kullanımı hakkında daha fazla bilgi almak için birkaç alt bölümlerinde bölmek sağlar.
+Ancak *etkinlikleri* de el ile Merhaba katılım API kullanılarak denetlenebilir. Bu, belirli bir sayfa çeşitli alt bölümleri tooget (örneğin tooknow ne sıklıkta ve ne kadar süre içinde bu sayfa iletişim kutuları kullanılır), bu sayfanın hello kullanımı hakkında daha fazla ayrıntı toosplit sağlar.
 
 ## <a name="reporting-activities"></a>Raporlama etkinlikleri
 ### <a name="user-starts-a-new-activity"></a>Kullanıcı yeni bir etkinlik başlatır
 #### <a name="reference"></a>Başvuru
             void StartActivity(string name, Dictionary<object, object> extras = null)
 
-Çağırmanız gerekir `StartActivity()` kullanıcı etkinliği değişiklikleri her zaman. Bu işlev ilk çağrıda yeni bir kullanıcı oturumu başlatır.
+Toocall gerek `StartActivity()` her zaman hello kullanıcı etkinliği değiştirir. Merhaba ilk çağrı toothis işlevi yeni bir kullanıcı oturumu başlatır.
 
 > [!IMPORTANT]
-> Uygulama kapatıldığında SDK'yı otomatik olarak EndActivity yöntemini çağırır. Bu nedenle, kullanıcı değişiklikleri ve hiçbir zaman etkinliği çağrı her EndActivity yöntemi bu yöntemi çağırmadan sonlandırılmak üzere geçerli oturumdaki zorlar beri StartActivity yöntemini çağırmak için önerilir.
+> Merhaba uygulama kapatıldığında hello SDK otomatik olarak hello EndActivity yöntemini çağırır. Bu nedenle, toocall hello StartActivity yöntemi hello kullanıcı hello etkinliğini değiştirir ve hello EndActivity yöntemi, bu yöntemi çağırmadan itibaren hello geçerli oturum toobe zorlar tooNEVER çağrısı sona erdi önerilir.
 > 
 > 
 
@@ -58,7 +58,7 @@ Ancak *etkinlikleri* de el ile katılım API'si kullanılarak denetlenebilir. Bu
 #### <a name="reference"></a>Başvuru
             void EndActivity()
 
-Bu etkinliği ve oturum sona erer. Gerçekleştirmekte olduğunuz gerçekten bilmiyorsanız bu yöntem çağırmalıdır değil.
+Bu başlangıç etkinliği ve hello oturumu sona erer. Gerçekleştirmekte olduğunuz gerçekten bilmiyorsanız bu yöntem çağırmalıdır değil.
 
 #### <a name="example"></a>Örnek
             EngagementAgent.Instance.EndActivity();
@@ -68,12 +68,12 @@ Bu etkinliği ve oturum sona erer. Gerçekleştirmekte olduğunuz gerçekten bil
 #### <a name="reference"></a>Başvuru
             void StartJob(string name, Dictionary<object, object> extras = null)
 
-İş, bir süre boyunca bazı görevleri izlemek için kullanabilirsiniz.
+Bir süre boyunca hello iş tootrack bazı görevleri kullanabilirsiniz.
 
 #### <a name="example"></a>Örnek
             // An upload begins...
 
-            // Set the extras
+            // Set hello extras
             var extras = new Dictionary<object, object>();
             extras.Add("title", "avatar");
             extras.Add("type", "image");
@@ -84,11 +84,11 @@ Bu etkinliği ve oturum sona erer. Gerçekleştirmekte olduğunuz gerçekten bil
 #### <a name="reference"></a>Başvuru
             void EndJob(string name)
 
-Bir iş tarafından izlenen bir görev sonlandırıldı hemen iş adı sağlayarak bu proje için EndJob yöntemi çağırmanız gerekir.
+Bir iş tarafından izlenen bir görev sonlandırıldı hemen hello iş adı sağlayarak bu proje için hello EndJob yöntemini çağırmalıdır.
 
 #### <a name="example"></a>Örnek
-            // In the previous section, we started an upload tracking with a job
-            // Then, the upload ends
+            // In hello previous section, we started an upload tracking with a job
+            // Then, hello upload ends
 
             EngagementAgent.Instance.EndJob("uploadData");
 
@@ -103,7 +103,7 @@ Bir iş tarafından izlenen bir görev sonlandırıldı hemen iş adı sağlayar
 #### <a name="reference"></a>Başvuru
             void SendEvent(string name, Dictionary<object, object> extras = null)
 
-Tek başına olaylar oturum bağlamı dışında gerçekleşebilir.
+Tek başına olaylar oturumu hello bağlamı dışında gerçekleşebilir.
 
 #### <a name="example"></a>Örnek
             EngagementAgent.Instance.SendEvent("event", extra);
@@ -112,7 +112,7 @@ Tek başına olaylar oturum bağlamı dışında gerçekleşebilir.
 #### <a name="reference"></a>Başvuru
             void SendSessionEvent(string name, Dictionary<object, object> extras = null)
 
-Oturum olaylar, genellikle kendi oturumu sırasında bir kullanıcı tarafından gerçekleştirilen eylemleri bildirmek için kullanılır.
+Oturum, kendi oturumunda bir kullanıcı tarafından gerçekleştirilen genellikle kullanılan tooreport hello Eylemler olaylardır.
 
 #### <a name="example"></a>Örnek
 **Veri olmadan:**
@@ -133,7 +133,7 @@ Oturum olaylar, genellikle kendi oturumu sırasında bir kullanıcı tarafından
 #### <a name="reference"></a>Başvuru
             void SendJobEvent(string eventName, string jobName, Dictionary<object, object> extras = null)
 
-İş olaylar, genellikle bir işi sırasında bir kullanıcı tarafından gerçekleştirilen eylemleri bildirmek için kullanılır.
+İş, bir kullanıcı tarafından gerçekleştirilen işi sırasında genellikle kullanılan tooreport hello Eylemler olaylardır.
 
 #### <a name="example"></a>Örnek
             EngagementAgent.Instance.SendJobEvent("eventName", "jobName", extras);
@@ -149,7 +149,7 @@ Oturum olaylar, genellikle kendi oturumu sırasında bir kullanıcı tarafından
 #### <a name="reference"></a>Başvuru
             void SendError(string name, Dictionary<object, object> extras = null)
 
-Oturum hataları aykırı bir oturum bağlamı dışında tek başına hatalar oluşabilir.
+Bulmadýðýný toosession hataları, bir oturum Merhaba içeriğine dışında tek başına hatalar oluşabilir.
 
 #### <a name="example"></a>Örnek
             EngagementAgent.Instance.SendError("errorName", extras);
@@ -158,7 +158,7 @@ Oturum hataları aykırı bir oturum bağlamı dışında tek başına hatalar o
 #### <a name="reference"></a>Başvuru
             void SendSessionError(string name, Dictionary<object, object> extras = null)
 
-Oturum hatalar genellikle kendi oturumu sırasında kullanıcı etkileyen hatalarını bildirmek için kullanılır.
+Oturum hatalar hello kullanıcı kendi oturumunda etkileyen genellikle kullanılan tooreport hello hatalardır.
 
 #### <a name="example"></a>Örnek
             EngagementAgent.Instance.SendSessionError("errorName", extra);
@@ -167,13 +167,13 @@ Oturum hatalar genellikle kendi oturumu sırasında kullanıcı etkileyen hatala
 #### <a name="reference"></a>Başvuru
             void SendJobError(string errorName, string jobName, Dictionary<object, object> extras = null)
 
-Geçerli kullanıcı oturumuyla ilgili yerine çalıştırılan bir iş hataları ile ilgili olabilir.
+Hataları olan yerine işi ilgili tooa olabilir ilgili toohello geçerli kullanıcı oturumunun.
 
 #### <a name="example"></a>Örnek
             EngagementAgent.Instance.SendJobError("errorName", "jobname", extra);
 
 ## <a name="reporting-crashes"></a>Raporlama çökme (Crash)
-Aracı çökme (Crash) ile mücadele etmek için iki yöntem sunar.
+Merhaba Aracısı çökme (Crash) ile iki yöntemleri toodeal sağlar.
 
 ### <a name="send-an-exception"></a>Bir özel durum Gönder
 #### <a name="reference"></a>Başvuru
@@ -184,26 +184,26 @@ Bir özel durum herhangi bir zamanda çağırarak gönderebilirsiniz:
 
             EngagementAgent.Instance.SendCrash(aCatchedException);
 
-İsteğe bağlı parametresi, kilitlenme gönderme daha aynı anda katılım oturumu sona erdirmek için de kullanabilirsiniz. Bunu yapmak için arayın:
+Bir isteğe bağlı bir parametre tooterminate hello katılım oturumu sırasında hello kullanabilirsiniz hello kilitlenme gönderme daha aynı anda. Bu nedenle, toodo arayın:
 
             EngagementAgent.Instance.SendCrash(new Exception("example"), terminateSession: true);
 
-Bunu yaparsanız, oturum ve işleri kilitlenme gönderdikten sonra kapatılacak.
+Bunu yaparsanız, hello oturum işleri hello kilitlenme gönderdikten sonra kapatılacak.
 
 ### <a name="send-an-unhandled-exception"></a>İşlenmeyen bir özel durum Gönder
 #### <a name="reference"></a>Başvuru
             void SendCrash(Exception e)
 
-Katılım ayrıca işlenmeyen özel durumlar varsa göndermek üzere bir yöntem sağlar **devre dışı** katılım otomatik **kilitlenme** raporlama. Uygulama UnhandledException olay işleyicisinin içinden kullanıldığında bu özellikle yararlıdır.
+Katılım varsa yöntemi toosend işlenmeyen özel durumlar da sağlar **devre dışı** katılım otomatik **kilitlenme** raporlama. Merhaba uygulama UnhandledException olay işleyicisinin içinden kullanıldığında bu özellikle yararlıdır.
 
-Bu yöntem olacak **her zaman** adlı sonra işler ve katılım oturum sonlandırılacak.
+Bu yöntem olacak **her zaman** hello katılım oturum ve işleri adlı sonra sonlandırılacak.
 
 #### <a name="example"></a>Örnek
-Kendi UnhandledExceptionEventArgs işleyici uygulamak için kullanabilirsiniz. Örneğin, ekleyin `Current_UnhandledException` yöntemi `App.xaml.cs` dosyası:
+Tooimplement kullanmak, kendi UnhandledExceptionEventArgs işleyicisi. Örneğin, hello ekleyin `Current_UnhandledException` hello yöntemi `App.xaml.cs` dosyası:
 
             // In your App.xaml.cs file
 
-            // Code to execute on Unhandled Exceptions
+            // Code tooexecute on Unhandled Exceptions
             void Current_UnhandledException(object sender, UnhandledExceptionEventArgs e)
             {
                EngagementAgent.Instance.SendCrash(e.Exception,false);
@@ -216,12 +216,12 @@ App.xaml.cs dosyasında "Ortak App() {}" ekleyin:
 ## <a name="device-id"></a>Cihaz kimliği
             String EngagementAgent.Instance.GetDeviceId()
 
-Bu yöntemi çağrılarak engagement cihaz kimliğini elde edebilirsiniz.
+Bu yöntemi çağrılarak hello engagement cihaz kimliğini elde edebilirsiniz.
 
 ## <a name="extras-parameters"></a>Ek özellikler parametreleri
-Rastgele veriler, bir olay, bir hata, bir etkinlik veya bir iş için eklenebilir. Bu verilerin bir sözlüğünü kullanarak yapılandırılmış. Anahtarları ve değerleri herhangi bir türde olabilir.
+Rastgele veriler ekli tooan olay, bir hata, bir etkinlik veya bir iş olabilir. Bu verilerin bir sözlüğünü kullanarak yapılandırılmış. Anahtarları ve değerleri herhangi bir türde olabilir.
 
-Bu tür için bir veri sözleşmesi eklemek zorunda ek özellikler kendi türü eklemek istiyorsanız şekilde ek özellikler veri serileştirilir.
+Bu nedenle tooinsert kendi türünde ek özellikler istiyorsanız, bu tür için bir veri sözleşmesi tooadd zorunda ek özellikler veri serileştirilir.
 
 ### <a name="example"></a>Örnek
 Yeni bir sınıf "Kişi" oluşturuyoruz.
@@ -257,7 +257,7 @@ Yeni bir sınıf "Kişi" oluşturuyoruz.
               }
             }
 
-Ardından, ekleyeceğiz bir `Person` fazladan örneğine.
+Ardından, ekleyeceğiz bir `Person` örneği tooan ek.
 
             Person person = new Person("Engagement Haddock", 51);
             var extras = new Dictionary<object, object>();
@@ -266,28 +266,28 @@ Ardından, ekleyeceğiz bir `Person` fazladan örneğine.
             EngagementAgent.Instance.SendEvent("Event", extras);
 
 > [!WARNING]
-> Diğer nesne türlerini yerleştirirseniz, kendi ToString() yöntemini İnsan okunabilir dize döndürecek şekilde uygulanan emin olun.
+> Diğer nesne türlerini yerleştirirseniz, kendi ToString() yöntemini uygulanan tooreturn İnsan okunabilir dize olduğundan emin olun.
 > 
 > 
 
 ### <a name="limits"></a>Sınırlar
 #### <a name="keys"></a>Anahtarlar
-Nesne tablosundaki her anahtarın şu normal ifadeyle aynı olması gerekir.
+Merhaba nesnesindeki her anahtar normal ifade aşağıdaki hello eşleşmesi gerekir:
 
 `^[a-zA-Z][a-zA-Z_0-9]*$`
 
 Anahtarları harfler, sayılar veya alt çizgi izlemelidir en az bir harf ile başlamalıdır anlamına gelir (\_).
 
 #### <a name="size"></a>Boyut
-Ek özellikler sınırlı **1024** çağrı başına karakter.
+Ek özellikler sınırlı çok**1024** çağrı başına karakter.
 
 ## <a name="reporting-application-information"></a>Uygulama bilgilerini raporlama
 ### <a name="reference"></a>Başvuru
             void SendAppInfo(Dictionary<object, object> appInfos)
 
-El ile SendAppInfo() kullanarak bilgi (veya diğer uygulama belirli bilgileri) izleme işlevini bildirebilirsiniz.
+Merhaba SendAppInfo() işlevini kullanarak bilgi (veya diğer uygulama belirli bilgileri) izleme el ile bildirebilirsiniz.
 
-Bu verileri artımlı olarak gönderilebilir Not: belirli bir aygıt için belirli bir anahtar için yalnızca en son değeri korunur. Olay ek özellikler gibi sözlük kullanma\<nesne, nesne\> veri eklemek için.
+Bu verileri artımlı olarak gönderilebilir Not: yalnızca hello son değer belirli bir anahtar için belirli bir aygıt için korunur. Olay ek özellikler gibi sözlük kullanma\<nesne, nesne\> tooattach veri.
 
 ### <a name="example"></a>Örnek
             Dictionary<object, object> appInfo = new Dictionary<object, object>()
@@ -300,23 +300,23 @@ Bu verileri artımlı olarak gönderilebilir Not: belirli bir aygıt için belir
 
 ### <a name="limits"></a>Sınırlar
 #### <a name="keys"></a>Anahtarlar
-Nesne tablosundaki her anahtarın şu normal ifadeyle aynı olması gerekir.
+Merhaba nesnesindeki her anahtar normal ifade aşağıdaki hello eşleşmesi gerekir:
 
 `^[a-zA-Z][a-zA-Z_0-9]*$`
 
 Anahtarları harfler, sayılar veya alt çizgi izlemelidir en az bir harf ile başlamalıdır anlamına gelir (\_).
 
 #### <a name="size"></a>Boyut
-Uygulama bilgilerini sınırlıdır **1024** çağrı başına karakter.
+Uygulama bilgilerini sınırlı çok**1024** çağrı başına karakter.
 
-Önceki örnekte, sunucuya gönderilen JSON 44 karakter olacak:
+Hello önceki hello toohello sunucu gönderilen JSON 44 karakter uzunluğunda örnektir:
 
             {"birthdate":"1983-12-07","gender":"female"}
 
 ## <a name="logging"></a>Günlüğe kaydetme
 ### <a name="enable-logging"></a>Günlük kaydını etkinleştir
-SDK, test günlüklerinin IDE konsolunda üretmek için yapılandırılabilir.
-Bu günlükler varsayılan olarak etkinleştirilmez. Bu özelleştirmek için özellik güncelleştirme `EngagementAgent.Instance.TestLogEnabled` bulunan değer birine `EngagementTestLogLevel` numaralandırma, örneğin:
+Merhaba SDK hello IDE konsolunda yapılandırılmış tooproduce test günlüklerinin olabilir.
+Bu günlükler varsayılan olarak etkinleştirilmez. toocustomize Bu, güncelleştirme hello özellik `EngagementAgent.Instance.TestLogEnabled` tooone hello kullanılabilir hello değerinin `EngagementTestLogLevel` numaralandırma, örneğin:
 
             EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
             EngagementAgent.Instance.Init();

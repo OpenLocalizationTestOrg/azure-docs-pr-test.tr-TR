@@ -1,6 +1,6 @@
 ---
-title: "Node.js ile Azure IOT kenar modülü oluşturma | Microsoft Docs"
-description: "Bu öğreticide en son Azure IOT kenar NPM paket ve Yeoman kullanarak bir bırak veri dönüştürücü modülü yazma paylaşan Oluşturucu."
+title: "aaaCreate bir Node.js ile Azure IOT kenar Modülü | Microsoft Docs"
+description: "Bu öğretici bir bırak veri dönüştürücü modülünü kullanarak toowrite nasıl hello en son Azure IOT kenar NPM paket ve Yeoman paylaşan Oluşturucu."
 services: iot-hub
 author: sushi
 manager: timlt
@@ -11,23 +11,23 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: sushi
-ms.openlocfilehash: ba466f47e157d805600c41fa3d84ed5a0363969c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: d3e696b5a310377ffb8e99998ff0714bf7c0bb41
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-azure-iot-edge-module-with-nodejs"></a>Node.js ile Azure IOT kenar modülü oluşturun
 
-Bu öğretici Azure IOT Edge'de JS için bir modül oluşturma gösterir.
+Bu öğretici paylaşan nasıl toocreate için Azure IOT Edge'de JS modül.
 
-Ortam kurulumu ve nasıl yazılacağını Bu öğreticide, biz yol bir [bırak](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) veri dönüştürücü modülü en son Azure IOT kenar NPM paketleri kullanma.
+Bu öğreticide, biz ortamı kurulumu aracılığıyla yol ve nasıl toowrite bir [bırak](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) veri dönüştürücü modülü hello en son Azure IOT kenar NPM paketleri kullanma.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu bölümde IOT kenar modülü geliştirme ortamınızı ayarlayın. Her ikisi de geçerli *64-bit Windows* ve *64-bit Linux (Ubuntu 14 +)* işletim sistemleri.
+Bu bölümde IOT kenar modülü geliştirme ortamınızı ayarlayın. Tooboth geçerlidir *64-bit Windows* ve *64-bit Linux (Ubuntu 14 +)* işletim sistemleri.
 
-Aşağıdaki yazılımlar gereklidir:
+yazılımı aşağıdaki hello gereklidir:
 * [Git istemci](https://git-scm.com/downloads).
 * [Düğüm LTS](https://nodejs.org).
 * `npm install -g yo`.
@@ -35,41 +35,41 @@ Aşağıdaki yazılımlar gereklidir:
 
 ## <a name="architecture"></a>Mimari
 
-Azure IOT kenar platform yoğun uyarlar [Von Neumann mimarisi](https://en.wikipedia.org/wiki/Von_Neumann_architecture). Hangi tüm Azure IOT kenar mimarisi girişi işler ve bir çıktı üretir sistem anlamına gelir; ve tek tek her modül küçük bir giriş-çıkış alt olduğunu. Bu öğreticide, aşağıdaki iki modüller tanıtmaktadır:
+Hello Azure IOT kenar platform yoğun hello uyarlar [Von Neumann mimarisi](https://en.wikipedia.org/wiki/Von_Neumann_architecture). O hello tüm Azure IOT kenar mimari başka bir deyişle, giriş işler ve bir çıktı üretir bir sistemdir; ve tek tek her modül küçük bir giriş-çıkış alt olduğunu. Bu öğreticide, iki modülleri aşağıdaki hello tanıtmaktadır:
 
 1. Sanal alan modül [bırak](https://en.wikipedia.org/wiki/Bluetooth_Low_Energy) sinyal ve biçimlendirilmiş dönüştürür [JSON](https://en.wikipedia.org/wiki/JSON) ileti.
-2. Alınan yazdırır bir modül [JSON](https://en.wikipedia.org/wiki/JSON) ileti.
+2. Alınan hello yazdırır bir modül [JSON](https://en.wikipedia.org/wiki/JSON) ileti.
 
-Aşağıdaki resimde bu proje için tipik uçtan uca veri akışı görüntüler:
+Merhaba aşağıdaki resimde bu proje için hello tipik son tooend veri akışı görüntüler:
 
 ![Veri akışı üç modülleri arasında](media/iot-hub-iot-edge-create-module/dataflow.png "giriş: benzetimli bırak Modülü; İşlemci: Dönüştürücü Modülü; Çıktı: Yazıcı Modülü")
 
-## <a name="set-up-the-environment"></a>Ortamını ayarlama
-Aşağıda, ilk bırak dönüştürücü modülü JS ile yazmaya başlamak için ortamı hızlı bir şekilde ayarlamak nasıl gösteriyoruz.
+## <a name="set-up-hello-environment"></a>Merhaba ortamını ayarlama
+Aşağıda tooquickly ortam toostart toowrite JS ilk, bırak dönüştürücü modülüyle nasıl ayarlanacağını gösteriyoruz.
 
 ### <a name="create-module-project"></a>Modül projesi oluşturma
 1. Bir komut satırı penceresi açın, çalıştırmak `yo az-iot-gw-module`.
-2. Modül projenizin başlatma tamamlamak için ekrandaki adımları izleyin.
+2. Merhaba ekranında toofinish hello başlatma modül projenizin Hello adımları izleyin.
 
 ### <a name="project-structure"></a>Proje yapısı
-JS modül proje aşağıdaki bileşenlerden oluşur:
+JS modül proje bileşenleri aşağıdaki Merhaba oluşur:
 
-`modules`-Özelleştirilmiş JS modül kaynak dosyaları. Varsayılan değiştirme `sensor.js` ve `printer.js` kendi modülü dosyalarla.
+`modules`-hello özelleştirilmiş JS modül kaynak dosyaları. Merhaba varsayılan Değiştir `sensor.js` ve `printer.js` kendi modülü dosyalarla.
 
-`app.js`-Kenar örneği başlatmak için giriş dosyası.
+`app.js`-hello giriş dosyası toostart hello kenar örneği.
 
-`gw.config.json`-Edge tarafından yüklenmesi için modülleri özelleştirmek için yapılandırma dosyası.
+`gw.config.json`-hello yapılandırma dosyası toocustomize hello modülleri toobe kenarından yüklendi.
 
-`package.json`-Modülü projesi meta veri bilgilerini.
+`package.json`-hello modülü projesi için meta veri bilgileri.
 
-`README.md`-Temel belgeleri modülü projesi.
+`README.md`-hello modülü projesi için temel belgelere.
 
 
 ### <a name="package-file"></a>Paket dosyası
 
-Bu `package.json` adı, sürüm, giriş, komut dosyaları, çalışma zamanı ve geliştirme bağımlılıklar içeren bir modülü projesi tarafından gerekli olan tüm meta veri bilgileri bildirir.
+Bu `package.json` hello adı, sürüm, giriş, komut dosyaları, çalışma zamanı ve geliştirme bağımlılıklar içeren bir modülü projesi gerekli tüm hello meta veri bilgileri bildirir.
 
-Aşağıdaki kod parçacığını bırak dönüştürücü örnek projesi için yapılandırma gösterilmektedir.
+Kod parçacığını gösterir nasıl tooconfigure bırak dönüştürücü için örnek proje.
 ```json
 {
   "name": "converter",
@@ -95,7 +95,7 @@ Aşağıdaki kod parçacığını bırak dönüştürücü örnek projesi için 
 
 
 ### <a name="entry-file"></a>Girdi dosyası
-`app.js` Kenar örneği başlatmak için biçimini tanımlar. Burada size herhangi bir değişiklik yapmak gerekmez.
+Merhaba `app.js` hello yolu tooinitialize hello kenar örnek tanımlar. Burada herhangi bir değişiklik toomake gerekmez.
 
 ```javascript
 (function() {
@@ -117,13 +117,13 @@ Aşağıdaki kod parçacığını bırak dönüştürücü örnek projesi için 
 ### <a name="interface-of-module"></a>Modülün arabirimi
 Bir veri işleri için işlemci olarak Azure IOT kenar modülü davranabilirsiniz: girişi almak, işlemesi ve çıktı üretir.
 
-Giriş (gibi hareket algılayıcısı) donanım verilerden bir ileti diğer modüller ya da (örneğin, düzenli aralıklarla bir Zamanlayıcı tarafından oluşturulan bir rastgele sayı) başka bir şey olabilir.
+Merhaba giriş donanım (gibi hareket algılayıcısı) verileri, bir ileti diğer modüller ya da (örneğin, düzenli aralıklarla bir Zamanlayıcı tarafından oluşturulan bir rastgele sayı) başka bir şey olabilir.
 
-Giriş benzer bir çıkış, tetikleyebilir donanım davranış (gibi yanıp sönen LED), diğer modüller ya da (örneğin, yazdırma konsoluna) başka bir şey için bir ileti.
+Merhaba çıkış benzer toohello giriş, donanım davranış (gibi hello ışığı yanıp sönen), bir ileti tooother modülleri ya da (yazdırma toohello konsolu gibi) başka bir şey tetikleyebilir.
 
-Modüller birbirleri ile kullanarak iletişim `message` nesnesi. **İçerik** , bir `message` istediğiniz verilerin herhangi bir tür temsil etme özelliğine sahip bir bayt dizisi. **Özellikler** mevcuttur `message` ve yalnızca bir dize-dize eşleme. Düşünebilirsiniz **özellikleri** bir HTTP isteğinin ya da meta veri dosyasının başlığı olarak.
+Modüller birbirleri ile kullanarak iletişim `message` nesnesi. Merhaba **içerik** , bir `message` istediğiniz verilerin herhangi bir tür temsil etme özelliğine sahip bir bayt dizisi. **Özellikler** de hello kullanılabilir `message` ve yalnızca bir dize-dize eşleme. Düşünebilirsiniz **özellikleri** bir HTTP isteğinin ya da hello meta veri dosyasının hello başlığı olarak.
 
-JS Azure IOT kenar modülünde geliştirmek için gereken yöntemleri uygulayan yeni bir modül nesnesi oluşturmak ihtiyacınız `receive()`. Bu noktada, ayrıca isteğe bağlı uygulamayı seçebilir `create()` veya `start()`, veya `destroy()` de yöntemleri. Aşağıdaki kod parçacığını JS modül nesne iskelesini gösterir.
+Sipariş toodevelop JS Azure IOT kenar modülünde'da, toocreate gerekli hello yöntemlerini uygulayan yeni bir modül nesne gereksinim `receive()`. Bu noktada, ayrıca isteğe bağlı tooimplement hello tercih edebilirsiniz `create()` veya `start()`, veya `destroy()` de yöntemleri. Aşağıdaki kod parçacığını hello JS modül nesnesinin iskele hello gösterir.
 
 ```javascript
 'use strict';
@@ -158,16 +158,16 @@ module.exports = {
 | ------------------------ | -------------------------------------- | ---------------------- | ---------------------- |
 | Sıcaklık veri iletisi | Ayrıştırma ve yeni bir JSON ileti oluşturun | Yapı JSON iletisi | `converter.js` |
 
-Bu modül tipik bir Azure IOT kenar modüldür. Diğer modüllerden sıcaklık iletileri kabul eder (bir donanım modülü veya bu bizim benzetimli bırak modülü durumda); ve (sıcaklık uyarı tetiklemesi ve benzeri için ihtiyacımız özelliğini ayarlama ileti kimliği ekleme dahil) yapılandırılmış bir JSON iletisi sıcaklık iletisinde normalleştirir.
+Bu modül tipik bir Azure IOT kenar modüldür. Diğer modüllerden sıcaklık iletileri kabul eder (bir donanım modülü veya bu bizim benzetimli bırak modülü durumda); ve (Merhaba ileti kimliği, tootrigger hello sıcaklık uyarı ihtiyacımız hello özelliğini ayarlama ekleme de dahil olmak üzere vb.) yapılandırılmış tooa JSON iletinin hello sıcaklık iletiyi normalleştirir.
 
 ```javascript
 receive: function (message) {
-  // Initialize the messageCount in global object at first time.
+  // Initialize hello messageCount in global object at first time.
   if (!global.messageCount) {
     global.messageCount = 0;
   }
 
-  // Read the content and properties objects from message.
+  // Read hello content and properties objects from message.
   let rawContent = JSON.parse(Buffer.from(message.content).toString('utf8'));
   let rawProperties = message.properties;
 
@@ -185,7 +185,7 @@ receive: function (message) {
     temperature: rawContent.temperature
   };
 
-  // Publish the new message to broker.
+  // Publish hello new message toobroker.
   this.broker.publish(
     {
       properties: newProperties,
@@ -198,9 +198,9 @@ receive: function (message) {
 ### <a name="printer-module"></a>Yazıcı Modülü
 | Girdi                          | İşlemci | Çıktı                     | Kaynak dosya          |
 | ------------------------------ | --------- | -------------------------- | -------------------- |
-| Diğer modüllerden herhangi bir iletisi | Yok       | İleti konsola oturum | `printer.js` |
+| Diğer modüllerden herhangi bir iletisi | Yok       | Merhaba ileti tooconsole oturum | `printer.js` |
 
-Bu modül basit ve açıklayıcı, hangi alınan iletiler (özelliği, içerik) terminal penceresine çıkarır.
+Bu modül basit ve açıklayıcı, hangi hello alınan iletileri (özelliği, içerik) toohello terminal penceresi çıkarır.
 
 ```javascript
 receive: function (message) {
@@ -213,9 +213,9 @@ receive: function (message) {
 ```
 
 ### <a name="configuration"></a>Yapılandırma
-Modülleri çalıştırmadan önce son adım, Azure IOT kenar yapılandırmak ve modülleri arasında bağlantı kurmak için ' dir.
+Merhaba modülleri çalıştırmadan önce hello son tooconfigure hello Azure IOT kenarı ve modülleri arasında tooestablish hello bağlantıları adımdır.
 
-İlk bildirmek ihtiyacımız bizim `node` (itibaren Azure IOT kenar destekler yükleyicilerini farklı dillerde) tarafından başvurulan yükleyicisi kendi `name` bölümlerde daha sonra.
+Toodeclare ilk ihtiyacımız bizim `node` (itibaren Azure IOT kenar destekler yükleyicilerini farklı dillerde) tarafından başvurulan yükleyicisi kendi `name` hello bölümlerde daha sonra.
 
 ```json
 "loaders": [
@@ -226,7 +226,7 @@ Modülleri çalıştırmadan önce son adım, Azure IOT kenar yapılandırmak ve
 ]
 ```
 
-Biz bizim yükleyicilerini bildirdikten sonra biz de bizim modüller de bildirmek gerekir. Benzer yükleyicileri bildirmek için bunlar ayrıca tarafından başvurulabilir kendi `name` özniteliği. Bir modül bildirirken (hangi önce tanımladığımız biri olmalıdır) kullanması gereken yükleyicisi belirtmek ihtiyacımız ve-(bizim modül normalleştirilmiş sınıf adı olmalıdır) için giriş noktası her modül. `simulated_device` Azure IOT kenar çekirdek çalışma zamanı paketinde bulunan bir yerel modül modülüdür. Dahil `args` JSON'dosyası, olsa bile `null`.
+Ayrıca, biz bizim yükleyicilerini bildirdikten sonra toodeclare bizim modüller de gerekir. Benzer toodeclaring hello yükleyicileri, bunlar ayrıca başvurulabilir tarafından kendi `name` özniteliği. Bir modül bildirirken (hangi önce tanımladığımız hello biri olmalıdır) kullanması gereken toospecify hello yükleyicisi ihtiyacımız ve -(bizim modülün hello normalleştirilmiş sınıf adı olmalıdır) için giriş noktası her modül hello. Merhaba `simulated_device` hello Azure IOT kenar çekirdek çalışma zamanı paketinde bulunan bir yerel modül modülüdür. Dahil `args` JSON dosyası, olsa bile hello içinde `null`.
 
 ```json
 "modules": [
@@ -266,7 +266,7 @@ Biz bizim yükleyicilerini bildirdikten sonra biz de bizim modüller de bildirme
 ]
 ```
 
-Yapılandırma sonunda bağlantı kurun. Her bağlantı ile ifade edilen `source` ve `sink`. Önceden tanımlanmış bir modül her ikisi de başvurmalısınız. Çıktı ileti `source` modülü girişi için iletilen `sink` modülü.
+Merhaba yapılandırma Hello sonunda hello bağlantı kurar. Her bağlantı ile ifade edilen `source` ve `sink`. Önceden tanımlanmış bir modül her ikisi de başvurmalısınız. Merhaba çıkış iletisini `source` modülü toohello girişi iletilen `sink` modülü.
 
 ```json
 "links": [
@@ -281,11 +281,11 @@ Yapılandırma sonunda bağlantı kurun. Her bağlantı ile ifade edilen `source
 ]
 ```
 
-## <a name="running-the-modules"></a>Modülleri çalıştırma
+## <a name="running-hello-modules"></a>Çalışan hello modülleri
 1. `npm install`
 2. `npm start`
 
-Uygulamayı istiyorsanız, basın `<Enter>` anahtarı.
+Tooterminate Merhaba uygulaması istiyorsanız basın `<Enter>` anahtarı.
 
 > [!IMPORTANT]
-> IOT kenar sonlandırmak için Ctrl + C kullanmak için önerilmez. Bu şekilde aşırı ciddiyeti işlemin neden olarak.
+> Toouse Ctrl + C tooterminate hello IOT kenar önerilmez uygulama. Bu şekilde hello işlem tooterminate aşırı neden olabilecek şekilde.

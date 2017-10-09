@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory Domain Services: Azure sanal ağı için DNS ayarlarını güncelleştirme | Microsoft Docs"
+title: "Azure Active Directory etki alanı Hizmetleri: Güncelleştirme hello Azure sanal ağı için DNS ayarlarını | Microsoft Docs"
 description: "Azure Active Directory Etki Alanı Hizmetleri ile çalışmaya başlama"
 services: active-directory-ds
 documentationcenter: 
@@ -14,41 +14,41 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/27/2017
 ms.author: maheshu
-ms.openlocfilehash: 8bee2a25f196d645b27f30f21305b1550e44e07a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 484ff1a197a651bccb2b416448056acf69b0d8c6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="update-dns-settings-for-the-azure-virtual-network"></a>Azure sanal ağı için DNS ayarlarını güncelleştirme
-## <a name="task-4-update-dns-settings-for-the-azure-virtual-network"></a>Görev 4: Azure sanal ağı için DNS ayarlarını güncelleştirme
-Önceki yapılandırma görevlerinde dizininiz için Azure Active Directory Domain Services başarıyla etkinleştirdiniz. Sonraki göreviniz sanal ağınızdaki bilgisayarların bu hizmetlere bağlanabilmesini ve bu hizmetleri kullanabilmesini sağlamaktır. Bu makalede, sanal ağınızdaki DNS sunucusu ayarlarını, sanal ağda Azure Active Directory Domain Services’in kullanılabilir olduğu iki IP adresini işaret edecek şekilde güncelleştirin.
+# <a name="update-dns-settings-for-hello-azure-virtual-network"></a>Hello Azure sanal ağı için DNS ayarlarını güncelleştirme
+## <a name="task-4-update-dns-settings-for-hello-azure-virtual-network"></a>Görev 4: Güncelleştirme hello Azure sanal ağı için DNS ayarları
+Yapılandırma Görevleri önceki hello Azure Active Directory etki alanı Hizmetleri dizininiz için başarıyla etkinleştirdiniz. Merhaba sonraki hello sanal ağ içinde bilgisayarlara bağlanmak ve bu hizmetleri kullanan tooensure bir görevdir. Bu makalede, Azure Active Directory etki alanı Hizmetleri hello sanal ağda kullanılabilir olduğu sanal ağ toopoint toohello iki IP adreslerinizi hello DNS sunucusu ayarlarını güncelleştirin.
 
 > [!NOTE]
-> Azure Active Directory Domain Services'i dizin için etkinleştirdikten sonra, dizinin **Yapılandır** sekmesinde görüntülenen Azure Active Directory Domain Services'in IP adreslerini not edin.
+> Azure Active Directory etki alanı Hizmetleri hello dizin için etkinleştirdikten sonra Azure Active Directory etki alanı üzerinde hello görüntülenen Hizmetleri hello IP adreslerini Not **yapılandırma** dizininizin sekmesi.
 >
 >
 
-Azure Active Directory Domain Services'i etkinleştirdiğiniz sanal ağın DNS sunucusu ayarını güncelleştirmek için aşağıdaki adımları uygulayın:
+tooupdate hello DNS sunucusu ayarını Azure Active Directory etki alanı Hizmetleri, aşağıdaki adımları tam hello etkinleştirdiğiniz hello sanal ağ için:
 
-1. [Klasik Azure portalı](https://manage.windowsazure.com)'na gidin.
-2. Sol bölmede **Ağlar**’ı seçin.  
-    **Ağlar** penceresi açılır.
+1. Toohello Git [Klasik Azure portalı](https://manage.windowsazure.com).
+2. Merhaba sol bölmesinde seçin **ağlar**.  
+    Merhaba **ağlar** penceresi açılır.
 
     ![Sanal ağlar penceresi](./media/active-directory-domain-services-getting-started/virtual-network-select.png)
-3. **Sanal Ağlar** sekmesinde, Azure Active Directory Domain Services'i etkinleştirdiğiniz sanal ağı seçerek özelliklerini görüntüleyin.
-4. **Configure (Yapılandır)** sekmesine tıklayın.
+3. Merhaba üzerinde **sanal ağlar** sekmesi, select hello sanal ağ içinde etkin Azure Active Directory etki alanı Hizmetleri tooview özellikleri.
+4. Merhaba tıklatın **yapılandırma** sekmesi.
 
     ![Sanal ağlar penceresi](./media/active-directory-domain-services-getting-started/virtual-network-configure-tab.png)
-5. **DNS sunucuları** bölümünde, dizininizin **Yapılandır** sekmesindeki **Domain Services** kısmında görüntülenen her iki IP adresini de girdiğinizden emin olun.
-6. Bu sanal ağa ait DNS sunucusu ayarlarını kaydetmek için pencerenin alt kısmındaki görev bölmesinde **Kaydet**’e tıklayın.
+5. Merhaba, **DNS sunucuları** bölümünde, hem de hello görüntülenen her hello IP adreslerini girin **etki alanı Hizmetleri** hello bölüm **yapılandırma** dizininizin sekmesi.
+6. toosave hello DNS sunucusu ayarlarını hello pencerenin hello altındaki hello görev bölmesindeki bu sanal ağ tıklatın **kaydetmek**.
 
-   ![Sanal ağın DNS sunucusu ayarlarını güncelleştirme](./media/active-directory-domain-services-getting-started/update-dns.png)
+   ![Merhaba sanal ağ Hello DNS sunucusu ayarlarını güncelleştirme](./media/active-directory-domain-services-getting-started/update-dns.png)
 
 > [!NOTE]
->  Ağ üzerindeki sanal makineler, yeni DNS ayarlarını yalnızca yeniden başlatma işleminin ardından alabilir. Sanal makinelerin güncelleştirilen DNS ayarlarını doğrudan almasını istiyorsanız portal, PowerShell veya CLI aracılığıyla bir yeniden başlatma tetikleyin.
+>  Merhaba ağdaki sanal makinelerden yalnızca bir yeniden başlatma sonrasında hello yeni DNS ayarlarını alın. Tooget hello güncelleştirilen DNS ayarlarını hemen gereksinim duyduğunuzda hello portal, PowerShell veya CLI hello yeniden tetikleyin.
 >
 >
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Görev 5: [Azure Active Directory Domain Services ile parola eşitlemeyi etkinleştirme](active-directory-ds-getting-started-password-sync.md)
+Görev 5: [parola eşitleme tooAzure Active Directory etki alanı Hizmetleri'ni etkinleştirme](active-directory-ds-getting-started-password-sync.md)

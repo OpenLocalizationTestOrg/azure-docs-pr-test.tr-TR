@@ -1,6 +1,6 @@
 ---
-title: "Güvenli bir şekilde bir Azure Service Fabric kümesine bağlanma | Microsoft Docs"
-description: "Service Fabric kümesi istemci erişimi kimlik doğrulaması ve istemcileri ile bir küme arasındaki iletişimin güvenliğini açıklar."
+title: "aaaConnect güvenli bir şekilde tooan Azure Service Fabric kümesi | Microsoft Docs"
+description: "Tooauthenticate istemci erişimi nasıl tooa Service Fabric kümesi ve nasıl açıklar istemcilerle bir küme arasındaki toosecure iletişim."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -14,73 +14,73 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/01/2017
 ms.author: ryanwi
-ms.openlocfilehash: d6a13ceb8ccd9207ecacc166247535d496d5dec7
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 1b6a87a1fefaddce2043c604ca53751157232170
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-to-a-secure-cluster"></a>Güvenli bir kümeye bağlanma
+# <a name="connect-tooa-secure-cluster"></a>Tooa güvenli kümesine bağlanın
 
-Bir istemci bir Service Fabric küme düğümüne bağlandığında, istemci kimliği doğrulanmış ve güvenli iletişim sertifika güvenliği veya Azure Active Directory (AAD) kullanılarak oluşturulmuş olabilir. Bu kimlik doğrulaması yalnızca yetkili kullanıcılar küme erişebilir ve uygulamaları dağıtılan ve yönetim görevlerini gerçekleştirme sağlar.  Küme oluştururken sertifika veya AAD güvenlik daha önce kümede etkinleştirilmiş olmalıdır.  Küme güvenlik senaryoları hakkında daha fazla bilgi için bkz: [küme güvenlik](service-fabric-cluster-security.md). Sertifikalar ile güvenli bir kümeye bağlanıyorsanız [istemci sertifika ayarlama](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert) bilgisayarda kümeye bağlanır. 
+İstemci tooa Service Fabric küme düğümü bağlandığında hello istemci kimliği doğrulanmış ve güvenli iletişim sertifika güvenliği veya Azure Active Directory (AAD) kullanılarak oluşturulmuş olabilir. Bu kimlik doğrulaması yalnızca yetkili kullanıcılar hello küme erişebilir ve uygulamaları dağıtılan ve yönetim görevlerini gerçekleştirme sağlar.  Merhaba küme oluşturulduğunda sertifika veya AAD güvenlik önceden hello kümede etkinleştirilmiş olmalıdır.  Küme güvenlik senaryoları hakkında daha fazla bilgi için bkz: [küme güvenlik](service-fabric-cluster-security.md). Sertifikalar ile güvenlik altına tooa küme bağlanıyorsanız [hello istemci sertifika ayarlama](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert) hello bilgisayarda toohello küme bağlanır. 
 
 <a id="connectsecureclustercli"></a> 
 
-## <a name="connect-to-a-secure-cluster-using-azure-service-fabric-cli-sfctl"></a>Azure Service Fabric CLI (sfctl) kullanarak güvenli bir kümeye bağlanın
+## <a name="connect-tooa-secure-cluster-using-azure-service-fabric-cli-sfctl"></a>Azure Service Fabric CLI (sfctl) kullanarak tooa güvenli kümesine bağlanın
 
-Service Fabric CLI (sfctl) kullanarak güvenli bir kümeye bağlanmak için birkaç farklı yolu vardır. Kimlik doğrulaması için bir istemci sertifikası kullanıyorsanız sertifika bilgilerinin küme düğümlerine dağıtılmış olan bir sertifikayla eşleşmesi gerekir. Sertifikanızı sertifika yetkilileri (CA) varsa, güvenilen CA'lar ayrıca belirtmeniz gerekir.
+Merhaba Service Fabric CLI (sfctl) kullanan birkaç farklı şekilde tooconnect tooa güvenli kümesi vardır. Bir istemci sertifikası kimlik doğrulamasını kullanırken, bir sertifika ayrıntıları eşleşmelidir hello sertifika toohello küme düğümleri dağıtılır. Sertifikanızı sertifika yetkilileri (CA) varsa, tooadditionally gerekir hello güvenilen CA'ları belirtin.
 
-Kullanarak bir küme bağlanabilir `sfctl cluster select` komutu.
+Hello kullanarak tooa küme bağlanabilir `sfctl cluster select` komutu.
 
-İstemci sertifikaları, bir sertifika ve anahtar çifti olarak ya da tek pem dosyası olarak iki farklı fashions belirtilebilir. Parola korumalı için `pem` istenir otomatik olarak parola girmesini dosyaları,.
+İstemci sertifikaları, bir sertifika ve anahtar çifti olarak ya da tek pem dosyası olarak iki farklı fashions belirtilebilir. Parola korumalı için `pem` dosyaları olacaktır otomatik olarak tooenter hello parola istenir.
 
-Pem dosyası olarak istemci sertifikasını belirtmek için dosya yolu belirtin `--pem` bağımsız değişkeni. Örneğin:
+pem dosyası olarak toospecify hello istemci sertifikası hello hello dosya yolu belirtin `--pem` bağımsız değişkeni. Örneğin:
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
 ```
 
-Pem dosyaları herhangi bir komut çalıştırılmadan önce parola istemeyeceğini parola korumalı.
+Parola korumalı pem dosyaları için parola önceki toorunning herhangi bir komut isteminde bulunur.
 
-Bir sertifika belirtmek için anahtar çifti kullanımı `--cert` ve `--key` ilgili her dosya için dosya yolları belirtmek için bağımsız değişkenler.
+bir sertifika toospecify, anahtar çiftini kullanın hello `--cert` ve `--key` toospecify hello dosya yolları tooeach ilgili dosyasından bağımsız değişkenler.
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
-Bazen test veya geliştirme kümesi güvenliğini sağlamak için kullanılan sertifikalar sertifika doğrulaması başarısız. Sertifika doğrulama atlamak üzere belirtin `--no-verify` seçeneği. Örneğin:
+Bazen kullanılan sertifikaları toosecure test veya geliştirme kümeleri sertifika doğrulaması başarısız. toobypass sertifika doğrulama hello belirtin `--no-verify` seçeneği. Örneğin:
 
 > [!WARNING]
-> Kullanmayın `no-verify` Service Fabric kümeleri üretim bağlanırken seçeneği.
+> Merhaba kullanmayın `no-verify` tooproduction Service Fabric kümeleri bağlanırken seçeneği.
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
-Ayrıca, güvenilir CA sertifikaları ya da tek tek sertifikaları dizinler için yol belirtebilirsiniz. Bu yolları belirtmek için kullanın `--ca` bağımsız değişkeni. Örneğin:
+Ayrıca, güvenilir CA sertifikaları ya da tek tek sertifikaları yolları toodirectories belirtebilirsiniz. toospecify bu yollar kullanın hello `--ca` bağımsız değişkeni. Örneğin:
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
 ```
 
-Bağlandıktan sonra şunları yapabilirsiniz [diğer sfctl komutlarının çalıştırılmasını](service-fabric-cli.md) kümeyle etkileşim kurmak için.
+Bağlandıktan sonra çok gerekir[diğer sfctl komutlarının çalıştırılmasını](service-fabric-cli.md) toointeract hello kümesi ile.
 
 <a id="connectsecurecluster"></a>
 
-## <a name="connect-to-a-cluster-using-powershell"></a>PowerShell kullanarak bir kümeye bağlanın
-PowerShell aracılığıyla bir kümede işlemleri gerçekleştirmeden önce ilk küme bağlantı kurun. Küme bağlantısı verilen PowerShell oturumunda izleyen tüm komutlar için kullanılır.
+## <a name="connect-tooa-cluster-using-powershell"></a>PowerShell kullanarak tooa kümesine bağlanın
+PowerShell aracılığıyla bir kümede işlemleri gerçekleştirmeden önce ilk bağlantı toohello küme oluşturun. Merhaba küme bağlantısı PowerShell oturumu verilen hello izleyen tüm komutlar için kullanılır.
 
-### <a name="connect-to-an-unsecure-cluster"></a>Güvenli olmayan bir kümeye bağlanın
+### <a name="connect-tooan-unsecure-cluster"></a>Tooan güvensiz kümesine bağlanın
 
-Güvenli olmayan bir kümeye bağlanmak için küme uç nokta adresine sağlamak **Connect-ServiceFabricCluster** komutu:
+güvenli olmayan tooconnect tooan küme, hello küme uç noktası adresi toohello sağlayın **Connect-ServiceFabricCluster** komutu:
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 
 ```
 
-### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak güvenli bir kümeye bağlanın
+### <a name="connect-tooa-secure-cluster-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak tooa güvenli kümesine bağlanın
 
-Küme Yöneticisi erişim yetkisi vermek için Azure Active Directory kullanan güvenli bir kümeye bağlanmak için küme sertifika parmak izini verin ve kullanmak *AzureActiveDirectory* bayrağı.  
+Azure Active Directory tooauthorize küme yönetici erişimi kullanan tooconnect tooa güvenli küme hello küme sertifika parmak izi sağlayın ve hello kullan *AzureActiveDirectory* bayrağı.  
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
@@ -88,8 +88,8 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 -AzureActiveDirectory
 ```
 
-### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Bir istemci sertifikası ile güvenli bir kümeye bağlanın
-Yönetici erişim yetkisi vermek için istemci sertifikalarını kullanan güvenli bir kümeye bağlanmak için aşağıdaki PowerShell komutunu çalıştırın. Küme sertifika parmak izi ve küme yönetimi için izinleri verildi istemci sertifikası parmak izi sağlayın. Sertifika ayrıntılarını küme düğümlerinde bir sertifika ile eşleşmesi gerekir.
+### <a name="connect-tooa-secure-cluster-using-a-client-certificate"></a>Bir istemci sertifikası kullanarak tooa güvenli kümesine bağlanın
+İstemci sertifikaları tooauthorize yönetici erişimi tooconnect tooa güvenli küme PowerShell komutunu aşağıdaki çalışma hello kullanır. Merhaba küme sertifika parmak izi ve küme yönetimi için izinler verildiyse hello istemci sertifikasının hello parmak izi sağlayın. Merhaba sertifika ayrıntıları hello küme düğümlerinde bir sertifika ile eşleşmesi gerekir.
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
@@ -99,8 +99,8 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
           -StoreLocation CurrentUser -StoreName My
 ```
 
-*ServerCertThumbprint* küme düğümlerinde yüklü sunucu sertifikasının parmak izi. *FindValue* yönetici istemci sertifikasının parmak izi.
-Parametreleri doldurulduğunda, komut aşağıdaki gibi görünür: 
+*ServerCertThumbprint* hello parmak izi hello küme düğümlerinde yüklü hello sunucu sertifikası. *FindValue* hello parmak izi hello yönetici istemci sertifikası.
+Merhaba parametreleri doldurulduğunda, hello komutu aşağıdaki örneğine hello gibi görünür: 
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azure.com:19000 `
@@ -110,8 +110,8 @@ Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azu
           -StoreLocation CurrentUser -StoreName My
 ```
 
-### <a name="connect-to-a-secure-cluster-using-windows-active-directory"></a>Windows Active Directory kullanarak güvenli bir kümeye bağlanın
-Tek başına kümenizi AD güvenlik kullanarak dağıtılmışsa, anahtar "WindowsCredential" ekleyerek kümeye bağlanın.
+### <a name="connect-tooa-secure-cluster-using-windows-active-directory"></a>Windows Active Directory kullanarak tooa güvenli kümesine bağlanın
+Tek başına kümenizi AD güvenlik kullanarak dağıtılmışsa, başlangıç anahtarı "WindowsCredential" ekleyerek toohello kümesine bağlanın.
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
@@ -120,26 +120,26 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 
 <a id="connectsecureclusterfabricclient"></a>
 
-## <a name="connect-to-a-cluster-using-the-fabricclient-apis"></a>FabricClient API'lerini kullanarak bir kümeye bağlanın
-Service Fabric SDK sağlar [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) küme yönetimi için sınıf. FabricClient API'ları kullanmak için Microsoft.ServiceFabric NuGet paketi alın.
+## <a name="connect-tooa-cluster-using-hello-fabricclient-apis"></a>Merhaba FabricClient API'lerini kullanarak tooa kümesine bağlanın
+Merhaba Service Fabric SDK sağlar hello [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) küme yönetimi için sınıf. toouse hello FabricClient API'leri hello Microsoft.ServiceFabric NuGet paketi alın.
 
-### <a name="connect-to-an-unsecure-cluster"></a>Güvenli olmayan bir kümeye bağlanın
+### <a name="connect-tooan-unsecure-cluster"></a>Tooan güvensiz kümesine bağlanın
 
-Uzak güvenli olmayan bir kümeye bağlanmak için bir FabricClient örneği oluşturun ve küme adresini sağlayın:
+tooconnect tooa uzaktan güvenli olmayan küme, FabricClient örneği oluşturun ve hello küme adresini sağlayın:
 
 ```csharp
 FabricClient fabricClient = new FabricClient("clustername.westus.cloudapp.azure.com:19000");
 ```
 
-Bir küme içinde çalışan için kodu, örneğin, güvenilir bir hizmetinde bir FabricClient oluşturmak *olmadan* küme adresini belirtme. Kod, üzerinde çalışmakta olan düğüm üzerinde yerel yönetim ağ geçidi ek ağ atlama önleme FabricClient bağlanır.
+Bir küme içinde çalışan için kodu, örneğin, güvenilir bir hizmetinde bir FabricClient oluşturmak *olmadan* hello küme adresi belirtme. FabricClient bağlayan toohello yerel yönetim hello düğüm hello kodu üzerinde ağ geçidi şu anda çalışıyorsa, ek ağ atlama önleme.
 
 ```csharp
 FabricClient fabricClient = new FabricClient();
 ```
 
-### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Bir istemci sertifikası ile güvenli bir kümeye bağlanın
+### <a name="connect-tooa-secure-cluster-using-a-client-certificate"></a>Bir istemci sertifikası kullanarak tooa güvenli kümesine bağlanın
 
-Kümedeki düğümler geçerli sertifikaların ortak adı olması gerekir veya SAN DNS adıyla görünür [RemoteCommonNames özelliği](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials#System_Fabric_X509Credentials_RemoteCommonNames) ayarlamak [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). Bu işlem aşağıdaki istemci ve küme düğümleri arasında karşılıklı kimlik doğrulamasını etkinleştirir.
+Merhaba kümedeki Hello düğümler geçerli sertifikaların ortak adı olması gerekir veya DNS adının SAN'hello [RemoteCommonNames özelliği](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials#System_Fabric_X509Credentials_RemoteCommonNames) ayarlamak [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). Bu işlem aşağıdaki hello istemci hello küme düğümleri arasında karşılıklı kimlik doğrulamasını etkinleştirir.
 
 ```csharp
 using System.Fabric;
@@ -177,11 +177,11 @@ static X509Credentials GetCredentials(string clientCertThumb, string serverCertT
 }
 ```
 
-### <a name="connect-to-a-secure-cluster-interactively-using-azure-active-directory"></a>Etkileşimli olarak Azure Active Directory'yi kullanarak güvenli bir kümeye bağlanın
+### <a name="connect-tooa-secure-cluster-interactively-using-azure-active-directory"></a>Etkileşimli olarak Azure Active Directory'yi kullanarak tooa güvenli kümesine bağlanın
 
-Aşağıdaki örnek, Azure Active Directory istemci kimliği ve sunucu sertifikası sunucu kimliği için kullanır.
+Örnek kullanan Azure Active Directory istemci kimliği ve sunucu sertifikası sunucu kimliği için aşağıdaki hello.
 
-Bir iletişim kutusu penceresinin otomatik olarak etkileşimli oturum açma için kümeye bağlandıktan sonra açılır.
+Bir iletişim kutusu penceresinin otomatik olarak etkileşimli oturum açma için toohello küme bağlandıktan sonra açılır.
 
 ```csharp
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
@@ -203,9 +203,9 @@ catch (Exception e)
 }
 ```
 
-### <a name="connect-to-a-secure-cluster-non-interactively-using-azure-active-directory"></a>Etkileşimsiz Azure Active Directory'yi kullanarak güvenli bir kümeye bağlanın
+### <a name="connect-tooa-secure-cluster-non-interactively-using-azure-active-directory"></a>Tooa güvenli küme etkileşimsiz Azure Active Directory'yi kullanarak bağlan
 
-Aşağıdaki örnek Microsoft.IdentityModel.Clients.activedirectory tarafından üzerinde sürüm kullanır: 2.19.208020213.
+Merhaba aşağıdaki örnek dayanır Microsoft.IdentityModel.Clients.activedirectory tarafından üzerinde sürüm: 2.19.208020213.
 
 AAD belirteci edinme hakkında daha fazla bilgi için bkz: [Microsoft.IdentityModel.Clients.activedirectory tarafından](https://msdn.microsoft.com/library/microsoft.identitymodel.clients.activedirectory.aspx).
 
@@ -260,9 +260,9 @@ static string GetAccessToken(
 
 ```
 
-### <a name="connect-to-a-secure-cluster-without-prior-metadata-knowledge-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak önceki meta veri bilgisi olmadan güvenli bir kümeye bağlanın
+### <a name="connect-tooa-secure-cluster-without-prior-metadata-knowledge-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak önceki meta veri bilgisi olmadan tooa güvenli kümesine bağlanın
 
-Aşağıdaki örnek, etkileşimli olmayan belirteç edinme kullanır, ancak aynı yaklaşımı özel etkileşimli belirteç edinme deneyim oluşturmak için kullanılabilir. Belirteç alımı için gereken Azure Active Directory meta veri kümesi yapılandırmasından okuyun.
+Hello aşağıdaki örnek etkileşimli olmayan belirteç edinme, kullanır, ancak hello aynı yaklaşımı kullanılan toobuild özel etkileşimli belirteç edinme deneyimi olabilir. belirteç alımı için gereken hello Azure Active Directory meta veri kümesi yapılandırmasından okuyun.
 
 ```csharp
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
@@ -305,34 +305,34 @@ static string GetAccessToken(AzureActiveDirectoryMetadata aad)
 
 <a id="connectsecureclustersfx"></a>
 
-## <a name="connect-to-a-secure-cluster-using-service-fabric-explorer"></a>Service Fabric Explorer kullanarak güvenli bir kümeye bağlanın
-Ulaşmaya [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) verilmiş bir küme için tarayıcınızı noktası:
+## <a name="connect-tooa-secure-cluster-using-service-fabric-explorer"></a>Service Fabric Explorer kullanarak tooa güvenli kümesine bağlanın
+tooreach [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) verilmiş bir küme için tarayıcınızı noktası:
 
 `http://<your-cluster-endpoint>:19080/Explorer`
 
-Tam URL Azure Portalı'nın küme essentials bölmesinde kullanılabilir.
+Merhaba tam URL hello küme essentials bölmesinde hello Azure portalında kullanılabilir.
 
-### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak güvenli bir kümeye bağlanın
+### <a name="connect-tooa-secure-cluster-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak tooa güvenli kümesine bağlanın
 
-AAD ile güvenli bir kümeye bağlanmak için tarayıcınızı noktası:
-
-`https://<your-cluster-endpoint>:19080/Explorer`
-
-Otomatik olarak sorulur AAD oturum oturum.
-
-### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Bir istemci sertifikası ile güvenli bir kümeye bağlanın
-
-Sertifikaları güvenli bir kümeye bağlanmak için tarayıcınızı noktası:
+AAD ile güvenli tooconnect tooa küme tarayıcınıza noktası:
 
 `https://<your-cluster-endpoint>:19080/Explorer`
 
-Otomatik olarak sorulur bir istemci sertifikası seçin.
+Otomatik olarak olması AAD oturum istendiğinde toolog.
+
+### <a name="connect-tooa-secure-cluster-using-a-client-certificate"></a>Bir istemci sertifikası kullanarak tooa güvenli kümesine bağlanın
+
+Sertifikalar ile güvenli tooconnect tooa küme tarayıcınıza noktası:
+
+`https://<your-cluster-endpoint>:19080/Explorer`
+
+Otomatik olarak olması istendiğinde tooselect bir istemci sertifikası.
 
 <a id="connectsecureclustersetupclientcert"></a>
-## <a name="set-up-a-client-certificate-on-the-remote-computer"></a>Uzak bilgisayarda bir istemci sertifikası ayarlama
-Bir küme ve sunucu sertifikası ve istemci erişimi için başka bir küme güvenliğini sağlamak için en az iki sertifika kullanılmalıdır.  Ayrıca ek ikincil sertifikalar ve istemci erişim sertifikalarını kullanmanızı öneririz.  İstemci ve sertifika güvenliği kullanarak bir küme düğümünü arasındaki iletişimin güvenliğini sağlamak için önce istemci sertifikası edinin ve yükleyin gerekir. Kişisel (My) deposuna yerel bilgisayar veya geçerli kullanıcı sertifika yüklenebilir.  İstemci küme doğrulanabilmesi Ayrıca sunucu sertifikasının parmak izi gerekir.
+## <a name="set-up-a-client-certificate-on-hello-remote-computer"></a>Bir istemci sertifikası hello uzak bilgisayarda ayarlama
+En az iki sertifika hello küme, hello küme ve sunucu sertifikası için bir ve istemci erişimi için başka bir güvenliğini sağlamak için kullanılmalıdır.  Ayrıca ek ikincil sertifikalar ve istemci erişim sertifikalarını kullanmanızı öneririz.  bir istemci arasında kullanarak bir küme düğümü toosecure hello iletişimi sertifika güvenlik, ilk tooobtain gerekir ve hello istemci sertifikası yükleyin. Merhaba sertifika hello kişisel (My) deposuna hello yerel bilgisayar veya hello geçerli kullanıcı yüklenebilir.  Merhaba istemci hello küme doğrulanabilmesi hello sertifikanın parmak izini hello sunucu da gerekir.
 
-İstemci sertifikası kümeye erişmek bilgisayarda ayarlamak için aşağıdaki PowerShell cmdlet'ini çalıştırın.
+PowerShell cmdlet tooset hello istemci sertifika hello kümeye erişmek hello bilgisayarda aşağıdaki hello çalıştırın.
 
 ```powershell
 Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
@@ -340,7 +340,7 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
         -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
 ```
 
-Kendinden imzalı bir sertifika ise, güvenli bir kümeye bağlanmak için bu sertifikayı kullanmadan önce makinenizin "güvenilir kişiler" deposuna içeri aktarmanız gerekir.
+Kendinden imzalı bir sertifika varsa, bu sertifika tooconnect tooa güvenli küme kullanmadan önce onu tooyour makinenin "güvenilir kişiler" saklayın tooimport gerekir.
 
 ```powershell
 Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople `

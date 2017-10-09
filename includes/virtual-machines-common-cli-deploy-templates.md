@@ -4,27 +4,27 @@
 * [Özel bir görüntüden sanal makine oluşturma](#create-a-custom-vm-image)
 * [Sanal ağ ve yük dengeleyicisi kullanan bir sanal makine dağıtma](#deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer)
 * [Kaynak grubunu kaldırma](#remove-a-resource-group)
-* [Bir kaynak grubu dağıtımının günlüğünü görüntüleme](#show-the-log-for-a-resource-group-deployment)
+* [Bir kaynak grubu dağıtımı için Hello günlüklerini göster](#show-the-log-for-a-resource-group-deployment)
 * [Bir sanal makine hakkında bilgi görüntüleme](#display-information-about-a-virtual-machine)
-* [Linux tabanlı sanal makineye bağlanma](#log-on-to-a-linux-based-virtual-machine)
+* [Tooa Linux tabanlı sanal makineye bağlanmak](#log-on-to-a-linux-based-virtual-machine)
 * [Sanal makineyi durdurma](#stop-a-virtual-machine)
 * [Sanal makineyi başlatma](#start-a-virtual-machine)
 * [Veri diski ekleme](#attach-a-data-disk)
 
 ## <a name="getting-ready"></a>Hazırlanma
-Azure CLI’yi Azure kaynak gruplarıyla kullanabilmeniz için doğru Azure CLI sürümüne ve bir Azure hesabına sahip olmanız gerekir. Azure CLI yoksa [yükleyin](../articles/cli-install-nodejs.md).
+Hello Azure CLI ile Azure kaynak gruplarını kullanabilmeniz için önce toohave hello sağ Azure CLI Sürüm ve bir Azure hesabı gerekir. Hello Azure CLI yoksa [yüklemek](../articles/cli-install-nodejs.md).
 
-### <a name="update-your-azure-cli-version-to-090-or-later"></a>Azure CLI sürümünüzü 0.9.0 veya sonraki bir sürüme güncelleştirin
-0.9.0 veya sonraki sürümün yüklü olup olmadığını görmek için `azure --version` yazın.
+### <a name="update-your-azure-cli-version-too090-or-later"></a>Azure CLI Sürüm too0.9.0 güncelleştirmek veya daha yenisi
+Tür `azure --version` toosee yüklü sürüm 0.9.0'dan zaten var olup olmadığını veya sonraki bir sürümü.
 
 ```azurecli
 azure --version
 0.9.0 (node: 0.10.25)
 ```
 
-Sürümünüz 0.9.0 veya üzeri değilse, yerel yükleyicilerden biriyle ya da `npm update -g azure-cli` yazarak **npm** aracılığıyla güncelleştirmeniz gerekir.
+Aşağıdakilerden birini kullanarak, sürüm 0.9.0'dan değilse veya daha sonra tooupdate ihtiyacınız yerel yükleyicileri hello aracılığıyla veya **npm** yazarak `npm update -g azure-cli`.
 
-Aşağıdaki [Docker görüntüsünü](https://registry.hub.docker.com/u/microsoft/azure-cli/) kullanarak Azure CLI’yi bir Docker kapsayıcısı olarak da çalıştırabilirsiniz. Docker ana bilgisayarından aşağıdaki komutu çalıştırın:
+Merhaba aşağıdakileri kullanarak Docker kapsayıcısı Azure CLI çalıştırabilirsiniz [Docker görüntü](https://registry.hub.docker.com/u/microsoft/azure-cli/). Docker ana bilgisayardan hello aşağıdaki komutu çalıştırın:
 
 ```bash
 docker run -it microsoft/azure-cli
@@ -33,10 +33,10 @@ docker run -it microsoft/azure-cli
 ### <a name="set-your-azure-account-and-subscription"></a>Azure hesabınızı ve aboneliğinizi ayarlama
 Henüz bir Azure aboneliğiniz olmamasına rağmen bir MSDN aboneliğiniz varsa [MSDN abone avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) etkinleştirebilirsiniz. Veya [ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
 
-`azure login` yazarak ve Azure hesabınızda etkileşimli oturum açma deneyimine yönelik istemleri izleyerek [Azure hesabınızda etkileşimli bir oturum açın](../articles/xplat-cli-connect.md#scenario-1-azure-login-with-interactive-login). 
+Şimdi [tooyour Azure hesabı etkileşimli olarak oturum](../articles/xplat-cli-connect.md#scenario-1-azure-login-with-interactive-login) yazarak `azure login` ve etkileşimli oturum açma deneyimi tooyour Azure hesabı için hello ister. 
 
 > [!NOTE]
-> İş veya okul kimliğiniz varsa ve iki faktörlü kimlik doğrulamasının etkin olmadığını biliyorsanız, iş veya okul kimlik numaranıza **ek olarak** `azure login -u` kullanabilir ve etkileşimli bir oturum *olmadan* oturum açabilirsiniz. İş veya okul kimliğiniz yoksa, aynı şekilde oturum açmak için [kişisel Microsoft hesabınızdan iş veya okul kimliği oluşturabilirsiniz](../articles/virtual-machines/windows/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> Bir iş veya Okul kimlik ve iki faktörlü kimlik doğrulaması etkin sahip değilse, yapabilecekleriniz biliyorsanız **de** kullanmak `azure login -u` hello yanı sıra iş veya Okul kimliği toolog *olmadan* etkileşimli oturum. Bir iş veya Okul kimliği yok, şunları yapabilirsiniz [bir iş veya Okul kimlik kişisel Microsoft hesabınızı oluşturma](../articles/virtual-machines/windows/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) hello toolog aynı şekilde.
 >
 >
 
@@ -53,35 +53,35 @@ data:    Fabrikam test                     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
 data:    Contoso production                xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
 ```
 
-Aşağıdaki komutu yazarak geçerli Azure aboneliğinizi ayarlayabilirsiniz. Yönetmek istediğiniz kaynaklara sahip abonelik adını veya kimliği kullanın.
+Merhaba aşağıdakileri yazarak hello geçerli Azure aboneliği ayarlayabilirsiniz. Toomanage istediğiniz hello kaynaklara sahip hello abonelik adı veya hello kimliği kullanın.
 
 ```azurecli
 azure account set <subscription name or ID> true
 ```
 
-### <a name="switch-to-the-azure-cli-resource-group-mode"></a>Azure CLI kaynak grubu moduna geçme
-Varsayılan olarak, Azure CLI hizmet yönetimi modunda başlatılır (**asm** modu). Kaynak grubu moduna geçmek için aşağıdaki komutu yazın.
+### <a name="switch-toohello-azure-cli-resource-group-mode"></a>Toohello Azure CLI kaynak grubu moduna geç
+Varsayılan olarak, hello Azure CLI hello Hizmet Yönetimi modunda başlatır (**asm** modu). Tooswitch tooresource Grup modu aşağıdaki hello yazın.
 
 ```azurecli
 azure config mode arm
 ```
 
 ## <a name="understanding-azure-resource-templates-and-resource-groups"></a>Azure kaynak şablonlarını ve kaynak gruplarını anlama
-Çoğu uygulama farklı kaynak türlerinin bir birleşiminden oluşturulur (bir veya daha fazla VM ve depolama hesabı, bir SQL veritabanı, bir sanal ağ ya da içerik teslim ağı gibi). Varsayılan Azure hizmet yönetim API’si ve klasik Azure portalı, hizmete göre yaklaşım kullanarak bu öğeleri temsil eder. Bu yaklaşım, belirli hizmetleri tek bir dağıtım mantıksal birim olarak değil ayrı ayrı dağıtıp yönetmenizi (veya bunu yapan başka araçlar bulmanızı) gerektirir.
+Çoğu uygulama farklı kaynak türlerinin bir birleşiminden oluşturulur (bir veya daha fazla VM ve depolama hesabı, bir SQL veritabanı, bir sanal ağ ya da içerik teslim ağı gibi). Varsayılan Azure Hizmet Yönetimi API hello ve hello Klasik Azure portalı bu öğeler hizmeti tarafından bir yaklaşım kullanarak gösterilir. Bu yaklaşım toodeploy gerektirir ve hello ayrı ayrı hizmetlerini tek tek yönetme (veya bunu diğer araçları Bul), dağıtım tek bir mantıksal birim olarak değil.
 
-Ancak *Azure Resource Manager şablonları*, bu farklı kaynakları bildirim temelli olarak tek bir mantıksal dağıtım birimi halinde dağıtıp yönetmenizi mümkün hale getirir. Her komuttan sonra Azure’a neyi dağıtacağını zorunlu olarak belirtmek yerine, tüm dağıtımınızı (tüm kaynaklar ve ilişkili yapılandırma ile dağıtım parametreleri) bir JSON dosyasında açıklar ve Azure’a bu kaynakları tek grup haline dağıtmasını söylersiniz.
+*Azure Resource Manager şablonları*, ancak, toodeploy mümkün kılar ve bildirim temelli bir şekilde bir mantıksal dağıtım birimi olarak farklı bu kaynakları yönetin. İmperatively Azure hangi toodeploy bir komut sonra başka bir belirten, yerine tüm bir JSON dosyası--tüm hello kaynakları ve ilişkili yapılandırma ve dağıtım parametreleri--dağıtımınızda açıklamak ve biri olarak bu kaynakları Azure toodeploy söyleyin Grup.
 
-Bundan sonra Azure CLI kaynak yönetimi komutlarını kullanarak grup kaynaklarının genel yaşam döngüsünü aşağıdaki işlemlerle yönetebilirsiniz:
+Ardından hello yönetebilmeniz için Azure CLI kaynak yönetimi komutları kullanarak hello grubun kaynakları genel yaşam döngüsünü:
 
-* Gruptaki tüm kaynakları tek seferde durdurma, başlatma veya silme.
-* Kaynaklar üzerindeki izinleri kilitlemek için Rol Tabanlı Access Control (RBAC) kuralları uygulama.
+* Durdurun, başlatın veya hello grubundaki hello kaynakların tümünü bir defada silme.
+* Rol tabanlı erişim denetimi (RBAC) kuralları toolock güvenlik izinleri aşağı üzerlerinde uygulayın.
 * İşlemleri denetleme.
 * Daha iyi izleme için ek meta verilerle kaynakları etiketleme.
 
-Azure kaynak grupları ve size sunabilecekleri hakkında daha fazla bilgiyi [Azure Resource Manager’a genel bakış](../articles/azure-resource-manager/resource-group-overview.md) bölümünde bulabilirsiniz. Şablon yazmak istiyorsanız bkz. [Azure Resource Manager şablonları yazma](../articles/resource-group-authoring-templates.md).
+Birçok Azure kaynak gruplarını ve bunlar için hello yapabilecekleriniz hakkında daha fazla bilgi edinebilirsiniz [Azure Resource Manager'a genel bakış](../articles/azure-resource-manager/resource-group-overview.md). Şablon yazmak istiyorsanız bkz. [Azure Resource Manager şablonları yazma](../articles/resource-group-authoring-templates.md).
 
 ## <a id="quick-create-a-vm-in-azure"></a>Görev: Azure’da hızlı bir şekilde VM oluşturma
-Bazı durumlarda gerekli olan görüntüyü bilirsiniz ve bu görüntüden hemen bir VM oluşturmanız gerekirken altyapıyı fazla önemsemezsiniz; belki de temiz bir VM üzerinde bir test yapmanız gerekiyordur. Bu durumda `azure vm quick-create` komutunu kullanmanız ve bir VM ile altyapısını oluşturmak için gerekli bağımsız değişkenleri geçirmeniz gerekir.
+Gereksinim duyduğunuz, hangi görüntü bazen bildiğiniz ve, görüntü bir VM'den şimdi gerekir ve çok hello altyapı hakkında önemli değil--olabilir, tootest bir şey temiz bir VM'ye sahip. Ne zaman olan toouse hello istediğiniz `azure vm quick-create` komut ve bir VM ve alt yapısına hello bağımsız değişkenler gerekli toocreate geçirin.
 
 İlk olarak kaynak grubunuzu oluşturun.
 
@@ -100,10 +100,10 @@ data:
 info:    group create command OK
 ```
 
-İkinci olarak, bir görüntü gereklidir. Azure CLI ile bir görüntü bulmak için bkz. [PowerShell ve Azure CLI ile Azure sanal makine görüntülerine gitme ve görüntüyü seçme](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Ancak bu makalede popüler görüntülerin kısa bir listesi verilmiştir. Bu hızlı oluşturma işlemi için CoreOS Kararlı görüntüsü kullanılmaktadır.
+İkinci olarak, bir görüntü gereklidir. Resmin hello Azure CLI ile toofind bkz [gezinme ve PowerShell ve hello Azure CLI ile Azure sanal makine görüntüleri seçme](../articles/virtual-machines/linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Ancak bu makalede popüler görüntülerin kısa bir listesi verilmiştir. Bu hızlı oluşturma işlemi için CoreOS Kararlı görüntüsü kullanılmaktadır.
 
 > [!NOTE]
-> ComputeImageVersion için ayrıca hem şablon dilinde hem de Azure CLI’da yalnızca 'latest' parametresini belirtebilirsiniz. Bunun yapılması, betikleri veya şablonları değiştirmek zorunda olmadan görüntünün her zaman en son ve düzeltme eki uygulanmış sürümünü kullanmanıza olanak tanır. Bu örnek aşağıda gösterilmiştir.
+> ComputeImageVersion için kısaca 'Son' parametresi hem hello şablon dili ve hello Azure CLI hello olarak sağlayabilirsiniz. Bu, tooalways hello son ve düzeltme eki sürümü hello görüntü komut dosyaları veya şablonları toomodify gerek kalmadan kullandığınız olanak tanır. Bu örnek aşağıda gösterilmiştir.
 >
 >
 
@@ -127,7 +127,7 @@ info:    group create command OK
 | MicrosoftWindowsServerEssentials |WindowsServerEssentials |WindowsServerEssentials |1.0.141204 |
 | MicrosoftWindowsServerHPCPack |WindowsServerHPCPack |2012R2 |4.3.4665 |
 
-Yalnızca `azure vm quick-create` komutunu girip istemlere hazır olarak VM’nizi oluşturun. Şuna benzer şekilde görünecektir:
+Yalnızca hello girerek, VM oluşturma `azure vm quick-create` komut ve hazır hello ister. Şuna benzer şekilde görünecektir:
 
 ```azurecli
 azure vm quick-create
@@ -140,31 +140,31 @@ ImageURN (format: "publisherName:offer:skus:version"): coreos:coreos:stable:late
 User name: ops
 Password: *********
 Confirm password: *********
-+ Looking up the VM "coreos"
-info:    Using the VM Size "Standard_A1"
-info:    The [OS, Data] Disk or image configuration requires storage account
++ Looking up hello VM "coreos"
+info:    Using hello VM Size "Standard_A1"
+info:    hello [OS, Data] Disk or image configuration requires storage account
 + Retrieving storage accounts
-info:    Could not find any storage accounts in the region "westus", trying to create new one
+info:    Could not find any storage accounts in hello region "westus", trying toocreate new one
 + Creating storage account "cli9fd3fce49e9a9b3d14302" in "westus"
-+ Looking up the storage account cli9fd3fce49e9a9b3d14302
-+ Looking up the NIC "coreo-westu-1430261891570-nic"
++ Looking up hello storage account cli9fd3fce49e9a9b3d14302
++ Looking up hello NIC "coreo-westu-1430261891570-nic"
 info:    An nic with given name "coreo-westu-1430261891570-nic" not found, creating a new one
-+ Looking up the virtual network "coreo-westu-1430261891570-vnet"
-info:    Preparing to create new virtual network and subnet
++ Looking up hello virtual network "coreo-westu-1430261891570-vnet"
+info:    Preparing toocreate new virtual network and subnet
 / Creating a new virtual network "coreo-westu-1430261891570-vnet" [address prefix: "10.0.0.0/16"] with subnet "coreo-westu-1430261891570-sne+" [address prefix: "10.0.1.0/24"]
-+ Looking up the virtual network "coreo-westu-1430261891570-vnet"
-+ Looking up the subnet "coreo-westu-1430261891570-snet" under the virtual network "coreo-westu-1430261891570-vnet"
-info:    Found public ip parameters, trying to setup PublicIP profile
-+ Looking up the public ip "coreo-westu-1430261891570-pip"
++ Looking up hello virtual network "coreo-westu-1430261891570-vnet"
++ Looking up hello subnet "coreo-westu-1430261891570-snet" under hello virtual network "coreo-westu-1430261891570-vnet"
+info:    Found public ip parameters, trying toosetup PublicIP profile
++ Looking up hello public ip "coreo-westu-1430261891570-pip"
 info:    PublicIP with given name "coreo-westu-1430261891570-pip" not found, creating a new one
 + Creating public ip "coreo-westu-1430261891570-pip"
-+ Looking up the public ip "coreo-westu-1430261891570-pip"
++ Looking up hello public ip "coreo-westu-1430261891570-pip"
 + Creating NIC "coreo-westu-1430261891570-nic"
-+ Looking up the NIC "coreo-westu-1430261891570-nic"
++ Looking up hello NIC "coreo-westu-1430261891570-nic"
 + Creating VM "coreos"
-+ Looking up the VM "coreos"
-+ Looking up the NIC "coreo-westu-1430261891570-nic"
-+ Looking up the public ip "coreo-westu-1430261891570-pip"
++ Looking up hello VM "coreos"
++ Looking up hello NIC "coreo-westu-1430261891570-nic"
++ Looking up hello public ip "coreo-westu-1430261891570-pip"
 data:    Id                              :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/coreos-quick/providers/Microsoft.Compute/virtualMachines/coreos
 data:    ProvisioningState               :Succeeded
 data:    Name                            :coreos
@@ -215,26 +215,26 @@ info:    vm quick-create command OK
 Yeni VM’niz hazırdır.
 
 ## <a id="deploy-a-vm-in-azure-from-a-template"></a>Görev: Azure’da şablondan VM dağıtma
-Azure CLI ile bir şablon kullanarak yeni bir Azure VM dağıtmak için bu bölümlerdeki yönergeleri kullanın. Bu şablon tek bir alt ağa sahip yeni bir sanal ağda tek bir sanal makine oluşturur ve `azure vm quick-create` seçeneğinin aksine, tam olarak ne istediğinizi açıklamanıza ve hata olmadan tekrarlamanıza olanak tanır. Bu şablon aşağıdaki gibidir:
+Azure CLI hello bir şablon kullanarak bu bölümleri toodeploy yeni bir Azure VM Hello yönergeleri kullanın. Bu şablon, yeni bir sanal ağ ile tek bir alt ağ ve farklı olarak, tek bir sanal makine oluşturur `azure vm quick-create`, tam olarak istediğiniz, toodescribe sağlar ve hatasız yineleyin. Bu şablon aşağıdaki gibidir:
 
 ![](./media/virtual-machines-common-cli-deploy-templates/new-vm.png)
 
-### <a name="step-1-examine-the-json-file-for-the-template-parameters"></a>Adım 1: Şablon parametreleri için JSON dosyasını inceleme
-Şablon için JSON dosyasının içeriği aşağıda verilmiştir. (Şablon [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json) içinde de bulunur.)
+### <a name="step-1-examine-hello-json-file-for-hello-template-parameters"></a>1. adım: hello şablon parametreleri için hello JSON dosyasını inceleyin
+Burada, hello şablonunun hello JSON dosyasının hello içeriği bulunmaktadır. (Merhaba şablonu bulunan de [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json).)
 
-Şablonlar esnektir, bu nedenle tasarımcı size çok sayıda parametre sunmayı veya daha sabit bir şablon oluşturarak az sayıda parametre sunmayı seçmiş olabilir. Bilgileri toplamak için şablonu parametre olarak geçirmeniz, şablon dosyasını açmanız (bu konunun sonraki kısımlarında bir şablon satır içi mevcuttur) ve **parameters** değerlerini incelemeniz gerekir.
+Merhaba Tasarımcısı, çok parametrelerden biri toogive seçilen veya olabilir daha sabit bir şablon oluşturarak yalnızca birkaç toooffer seçilen şekilde şablonları esnektir. Sipariş toocollect hello bilgileri, parametre olarak toopass hello şablonu gerekir (Bu konuda sahip bir şablon satır içi aşağıda) hello şablon dosyasını açın ve hello inceleyin **parametreleri** değerleri.
 
-Bu durumda aşağıdaki şablon şunları ister:
+Bu durumda, hello şablonu için ister:
 
 * Benzersiz bir depolama hesabı adı.
-* VM için bir yönetici kullanıcı adı.
+* Merhaba VM için bir yönetici kullanıcı adı.
 * Parola.
-* Dış dünyada kullanmak bir etki alanı adı.
+* Hello world toouse dışında bir etki alanı adı.
 * Ubuntu Server sürüm numarası -- ancak yalnızca bir listesini kabul eder.
 
 [Kullanıcı adı ve parola gereksinimleri](../articles/virtual-machines/linux/faq.md#what-are-the-username-requirements-when-creating-a-vm) hakkında daha fazla bilgi edinin.
 
-Bu değerlere karar verdikten sonra bir grup oluşturmaya ve bu şablonu Azure aboneliğinize dağıtmaya hazır olursunuz.
+Bu değerleri karar verdiğinizde bir grup için hazır toocreate olduğunuz ve Azure aboneliğinize bu şablonu dağıtabilirsiniz.
 
 ```json
 {
@@ -244,25 +244,25 @@ Bu değerlere karar verdikten sonra bir grup oluşturmaya ve bu şablonu Azure a
     "newStorageAccountName": {
     "type": "string",
     "metadata": {
-        "description": "Unique DNS name for the storage account where the virtual machine's disks will be placed."
+        "description": "Unique DNS name for hello storage account where hello virtual machine's disks will be placed."
     }
     },
     "adminUsername": {
     "type": "string",
     "metadata": {
-        "description": "User name for the virtual machine."
+        "description": "User name for hello virtual machine."
     }
     },
     "adminPassword": {
     "type": "securestring",
     "metadata": {
-        "description": "Password for the virtual machine."
+        "description": "Password for hello virtual machine."
     }
     },
     "dnsNameForPublicIP": {
     "type": "string",
     "metadata": {
-        "description": "Unique DNS name for the public IP used to access the virtual machine."
+        "description": "Unique DNS name for hello public IP used tooaccess hello virtual machine."
     }
     },
     "ubuntuOSVersion": {
@@ -274,7 +274,7 @@ Bu değerlere karar verdikten sonra bir grup oluşturmaya ve bu şablonu Azure a
         "15.04"
     ],
     "metadata": {
-        "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version. Allowed values: 12.04.5-LTS, 14.04.2-LTS, 15.04."
+        "description": "hello Ubuntu version for hello VM. This will pick a fully patched image of this given Ubuntu version. Allowed values: 12.04.5-LTS, 14.04.2-LTS, 15.04."
     }
     }
 },
@@ -413,10 +413,10 @@ Bu değerlere karar verdikten sonra bir grup oluşturmaya ve bu şablonu Azure a
 }
 ```
 
-### <a name="step-2-create-the-virtual-machine-by-using-the-template"></a>Adım 2: Şablon kullanarak sanal makine oluşturma
-Parametre değerleriniz hazır olduktan sonra şablon dağıtımınıza yönelik bir kaynak grubu oluşturmanız ve ardından şablonu dağıtmanız gerekir.
+### <a name="step-2-create-hello-virtual-machine-by-using-hello-template"></a>2. adım: hello şablonu kullanarak hello sanal makine oluşturma
+Parametre değerlerinizi hazır olduktan sonra şablonu dağıtımınız için bir kaynak grubu oluşturun ve ardından hello şablonunu dağıtın.
 
-Kaynak grubu oluşturmak için istediğiniz grubun adı ve dağıtımı yapmak istediğiniz veri merkezinin konumu ile birlikte `azure group create <group name> <location>` yazın. Bu işlem hızlı bir şekilde yapılır:
+toocreate hello kaynak grubu, türü `azure group create <group name> <location>` istediğiniz hello grup ve toodeploy istediğiniz hello veri merkezi konum hello adı. Bu işlem hızlı bir şekilde yapılır:
 
 ```azurecli
 azure group create myResourceGroup westus
@@ -433,28 +433,28 @@ data:
 info:    group create command OK
 ```
 
-Şimdi dağıtımı oluşturmak için `azure group deployment create` öğesini çağırıp şu komutu geçirin:
+Şimdi toocreate hello dağıtım, çağrı `azure group deployment create` ve geçirin:
 
-* Şablon dosyası (yukarıdaki JSON şablonunu bir yerel dosyaya kaydettiyseniz).
-* Bir şablon URI’si (GitHub veya diğer bazı web adreslerinde dosyayı işaret etmek istiyorsanız).
-* Dağıtımı yapmak istediğiniz kaynak grubu.
+* (JSON şablonu tooa yerel dosya yukarıda hello kaydettiyseniz) hello şablon dosyası.
+* Bir şablonu (Merhaba dosyasına GitHub ya da başka bir web adresini toopoint istiyorsanız) URI.
+* Merhaba kaynak grubu toodeploy istiyor.
 * İsteğe bağlı dağıtım adı.
 
-JSON dosyasının "parameters" bölümünde parametrelerin değerlerini belirtmeniz istenir. Tüm parametre değerlerini belirttiğinizde dağıtımınız başlar.
+Merhaba JSON dosyasının hello "parametreleri" bölümüne parametrelerinin istendiğinde toosupply hello değerleri olacaktır. Tüm hello parametre değerlerini belirledikten sonra dağıtımınız başlar.
 
 Örnek aşağıda verilmiştir:
 
 ```azurecli
 azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-linux/azuredeploy.json myResourceGroup firstDeployment
 info:    Executing command group deployment create
-info:    Supply values for the following parameters
+info:    Supply values for hello following parameters
 newStorageAccountName: storageaccount
 adminUsername: ops
 adminPassword: password
 dnsNameForPublicIP: newdomainname
 ```
 
-Aşağıdaki türde bilgiler alırsınız:
+Tür bilgileri aşağıdaki hello alırsınız:
 
 ```azurecli
 + Initializing template configurations and parameters
@@ -464,7 +464,7 @@ info:    Created template deployment "firstDeployment"
 info:    Registering provider microsoft.storage
 info:    Registering provider microsoft.network
 info:    Registering provider microsoft.compute
-+ Waiting for deployment to complete
++ Waiting for deployment toocomplete
 data:    DeploymentName     : firstDeployment
 data:    ResourceGroupName  : myResourceGroup
 data:    ProvisioningState  : Succeeded
@@ -484,12 +484,12 @@ info:    group deployment create command OK
 
 
 ## <a id="create-a-custom-vm-image"></a>Görev: Özel bir VM görüntüsü oluşturma
-Şablonların temel kullanımını yukarıda gördünüz; bu nedenle, Azure CLI üzerinden bir şablon kullanarak Azure’daki belirli bir .vhd dosyasından özel bir VM oluşturmak için benzer yönergeler kullanılabilir. Buradaki farklılık, bu şablonun belirli bir sanal sabit diskten (VHD) tek bir sanal makine oluşturmasıdır.
+Hello temel kullanım şablonlarının yukarıdaki gördünüz, böylece biz benzer yönergeler toocreate özel bir VM Azure belirli .vhd dosyasından aracılığıyla bir şablon kullanarak artık kullanarak Azure CLI hello. Merhaba burada bu şablon bir belirtilen sanal sabit diskten (VHD) tek bir sanal makine oluşturur farktır.
 
-### <a name="step-1-examine-the-json-file-for-the-template"></a>Adım 1: Şablon için JSON dosyasını inceleme
-Bu bölümde örnek olarak kullanılan şablon için JSON dosyasının içeriği aşağıda verilmiştir. (Şablon [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json) içinde de bulunur.)
+### <a name="step-1-examine-hello-json-file-for-hello-template"></a>1. adım: hello şablonu için başlangıç JSON dosyasını inceleyin
+Bu bölümde örnek olarak kullanılmıştır hello şablonu için başlangıç JSON dosyası hello içeriğini aşağıda verilmiştir. (Merhaba şablonu bulunan de [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json).)
 
-Burada da, varsayılan değerlere sahip olmayan parametreler için girmek istediğiniz değerleri bulmanız gerekir. `azure group deployment create` komutunu çalıştırdığınızda Azure CLI bu değerleri girmenizi ister.
+Yeniden, varsayılan değerleri olmayan hello parametrelerini tooenter istediğiniz toofind hello değerler gerekir. Merhaba çalıştırdığınızda `azure group deployment create` komutunu hello Azure CLI, bu değerler, tooenter sorar.
 
 ```json
 {
@@ -674,15 +674,15 @@ Burada da, varsayılan değerlere sahip olmayan parametreler için girmek istedi
 }
 ```
 
-### <a name="step-2-obtain-the-vhd"></a>Adım 2: VHD alma
+### <a name="step-2-obtain-hello-vhd"></a>Adım 2: hello VHD alın
 Bunun için bir .vhd dosyasının gerekli olduğu açıktır. Azure’da zaten sahip olduğunuz dosyayı kullanabilir veya bir tane yükleyebilirsiniz.
 
-Windows tabanlı bir sanal makine için bkz. [Windows Server VHD’si oluşturup Azure’a yükleme](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+Bir Windows tabanlı sanal makine için bkz: [oluşturma ve karşıya yükleme Windows Server VHD tooAzure](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-Linux tabanlı sanal makine için bkz. [Linux işletim sistemi içeren bir sanal sabit disk oluşturma ve karşıya yükleme](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+Linux tabanlı sanal makine için bkz: [oluşturma ve hello Linux işletim sistemini içeren bir sanal sabit disk karşıya](../articles/virtual-machines/linux/classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
-### <a name="step-3-create-the-virtual-machine-by-using-the-template"></a>Adım 3: Şablon kullanarak sanal makine oluşturma
-Şu anda .vhd’yi temel alan yeni bir sanal makine oluşturmaya hazırsınız. `azure group create <location>` komutunu kullanarak dağıtımın yapılacağı grubu oluşturun:
+### <a name="step-3-create-hello-virtual-machine-by-using-hello-template"></a>3. adım: hello şablonu kullanarak hello sanal makine oluşturma
+Şimdi hazır toocreate hello .vhd üzerinde dayalı yeni bir sanal makine demektir. Kullanarak, bir grup toodeploy oluşturma `azure group create <location>`:
 
 ```azurecli
 azure group create myResourceGroupUser eastus
@@ -699,7 +699,7 @@ data:
 info:    group create command OK
 ```
 
-Ardından `--template-uri` seçeneğini kullanarak şablonu doğrudan çağırmak için dağıtımı oluşturun (veya `--template-file` seçeneğini kullanarak yerel olarak kaydettiğiniz bir dosyayı kullanabilirsiniz). Şablonun varsayılan değerleri belirtildiği için sizden yalnızca birkaç şey istenir. Şablonu farklı yerlere dağıtırsanız, varsayılan değerlerle bazı adlandırma çakışmalarının oluştuğunu görebilirsiniz (özellikle oluşturduğunuz DNS adı).
+Sonra hello kullanarak hello dağıtım oluşturun `--template-uri` seçeneği toocall doğrudan hello şablonunda (veya hello kullanabilirsiniz `--template-file` seçeneği toouse yerel olarak kaydettiğiniz dosya). Merhaba şablonunda belirtilen Varsayılanları olduğundan, yalnızca birkaç için istenir unutmayın. Merhaba şablonu farklı yerlerde dağıtırsanız, bazı adlandırma çakışmaları hello varsayılan değerlerle (oluşturduğunuz özellikle hello DNS adı) ortaya bulabilirsiniz.
 
 ```azurecli
 azure group deployment create \
@@ -707,14 +707,14 @@ azure group deployment create \
 > myResourceGroup \
 > customVhdDeployment
 info:    Executing command group deployment create
-info:    Supply values for the following parameters
+info:    Supply values for hello following parameters
 adminUserName: ops
 adminPassword: password
 osType: linux
 subscriptionId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-Çıktı aşağıdakine benzer olacaktır:
+Çıktı hello aşağıdaki şöyle görünür:
 
 ```azurecli
 + Initializing template configurations and parameters
@@ -723,7 +723,7 @@ info:    Created template deployment "customVhdDeployment"
 + Registering providers
 info:    Registering provider microsoft.network
 info:    Registering provider microsoft.compute
-+ Waiting for deployment to complete
++ Waiting for deployment toocomplete
 error:   Deployment provisioning state was not successful
 data:    DeploymentName     : customVhdDeployment
 data:    ResourceGroupName  : myResourceGroupUser
@@ -752,14 +752,14 @@ info:    group deployment create command OK
 ```
 
 ## <a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>Görev: Sanal ağ ve dış yük dengeleyici kullanan çok sanal makineli uygulama dağıtma
-Bu şablon bir yük dengeleyici altında iki sanal makine oluşturmanıza ve Bağlantı Noktası 80 üzerinde bir yük dengeleme kuralı yapılandırmanıza olanak tanır. Bu şablon ayrıca bir depolama hesabı, sanal ağ, genel IP adresi, kullanılabilirlik kümesi ve ağ arabirimleri dağıtır.
+Bu şablon toocreate iki sanal makine bir yük dengeleyici altındaki sağlar ve bağlantı noktası 80 üzerinde bir Yük Dengeleme kuralı yapılandırın. Bu şablon ayrıca bir depolama hesabı, sanal ağ, genel IP adresi, kullanılabilirlik kümesi ve ağ arabirimleri dağıtır.
 
 ![](./media/virtual-machines-common-cli-deploy-templates/multivmextlb.png)
 
-GitHub şablon deposunda Azure PowerShell komutları aracılığıyla Resource Manager şablonu kullanarak, sanal ağ ve yük dengeleyicisi kullanan çok sanal makineli bir uygulama dağıtmak için bu adımları izleyin.
+Bu adımları toodeploy hello GitHub şablonu deposunu Azure PowerShell komutları aracılığıyla bir Resource Manager şablonu kullanarak bir sanal ağ ve bir yük dengeleyici kullanan bir çoklu VM uygulamayı izleyin.
 
-### <a name="step-1-examine-the-json-file-for-the-template"></a>Adım 1: Şablon için JSON dosyasını inceleme
-Şablon için JSON dosyasının içeriği aşağıda verilmiştir. En son sürümü istiyorsanız bunu bulunduktan [şablonları için GitHub deposunda](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). Bu konu başlığında şablonu çağırmak için `--template-uri` anahtarı kullanılır, ancak yerel bir sürüm geçirmek için `--template-file` anahtarını da kullanabilirsiniz.
+### <a name="step-1-examine-hello-json-file-for-hello-template"></a>1. adım: hello şablonu için başlangıç JSON dosyasını inceleyin
+Burada, hello şablonunun hello JSON dosyasının hello içeriği bulunmaktadır. Merhaba en son sürüm, isterseniz bunu bulunduktan [şablonları için hello GitHub deposunda](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json). Bu konuda hello kullanır `--template-uri` hello şablonu, ancak anahtar toocall hello de kullanabilir `--template-file` geçiş toopass yerel bir sürüm.
 
 ```json
 {
@@ -807,7 +807,7 @@ GitHub şablon deposunda Azure PowerShell komutları aracılığıyla Resource M
             "type": "string",
             "defaultValue": "myVM",
             "metadata": {
-                "description": "Prefix to use for VM names"
+                "description": "Prefix toouse for VM names"
             }
         },
         "vmSourceImageName": {
@@ -846,7 +846,7 @@ GitHub şablon deposunda Azure PowerShell komutları aracılığıyla Resource M
             "type": "string",
             "defaultValue": "Standard_A1",
             "metadata": {
-                "description": "Size of the VM"
+                "description": "Size of hello VM"
             }
         }
     },
@@ -1094,8 +1094,8 @@ GitHub şablon deposunda Azure PowerShell komutları aracılığıyla Resource M
 }
 ```
 
-### <a name="step-2-create-the-deployment-by-using-the-template"></a>Adım 2: Şablon kullanarak dağıtım oluşturma
-`azure group create <location>` kullanarak şablon için bir kaynak grubu oluşturun. Ardından, `azure group deployment create` komutunu kullanıp kaynak grubunu geçirerek, bir dağıtım adı geçirerek ve varsayılan değerlere sahip olmayan şablondaki parametrelere yönelik istemleri yanıtlayarak bu kaynak grubunda bir dağıtım oluşturun.
+### <a name="step-2-create-hello-deployment-by-using-hello-template"></a>2. adım: hello dağıtım hello şablonu kullanarak oluşturma
+Kullanarak hello şablonu için bir kaynak grubu oluşturma `azure group create <location>`. Sonra bu kaynak grubuna bir dağıtım kullanarak oluşturun `azure group deployment create` ve hello kaynak grubu geçirme, dağıtım adı geçirme ve varsayılan değerlere sahip değilse hello şablondaki parametreler için hello istemleri yanıtlama.
 
 ```azurecli
 azure group create lbgroup westus
@@ -1112,7 +1112,7 @@ data:
 info:    group create command OK
 ```
 
-Şimdi `azure group deployment create` komutu ile `--template-uri` seçeneğini kullanarak şablonu dağıtın. Aşağıda gösterildiği gibi sizden istediğinde parametre değerlerini belirtmeye hazır olun.
+Şimdi hello kullan `azure group deployment create` komut ve hello `--template-uri` seçenek toodeploy hello şablonu. Aşağıda gösterildiği gibi sizden istediğinde parametre değerlerini belirtmeye hazır olun.
 
 ```azurecli
 azure group deployment create \
@@ -1120,7 +1120,7 @@ azure group deployment create \
 > lbgroup \
 > newdeployment
 info:    Executing command group deployment create
-info:    Supply values for the following parameters
+info:    Supply values for hello following parameters
 location: westus
 newStorageAccountName: storagename
 adminUsername: ops
@@ -1133,7 +1133,7 @@ info:    Created template deployment "newdeployment"
 info:    Registering provider microsoft.storage
 info:    Registering provider microsoft.compute
 info:    Registering provider microsoft.network
-+ Waiting for deployment to complete
++ Waiting for deployment toocomplete
 data:    DeploymentName     : newdeployment
 data:    ResourceGroupName  : lbgroup
 data:    ProvisioningState  : Succeeded
@@ -1161,10 +1161,10 @@ data:    vmSize                 String        Standard_A1
 info:    group deployment create command OK
 ```
 
-Bu şablon bir Windows Server görüntüsünü dağıtır; ancak herhangi bir Linux görüntüsü ile kolayca değiştirilebilir. Birden fazla swarm yöneticisine sahip bir Docker kümesi mi oluşturmak istiyorsunuz? [Bunu yapabilirsiniz](https://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
+Bu şablon bir Windows Server görüntüsünü dağıtır; ancak herhangi bir Linux görüntüsü ile kolayca değiştirilebilir. Toocreate Docker küme birden çok swarm yöneticilerine istiyorsunuz? [Bunu yapabilirsiniz](https://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
 
 ## <a id="remove-a-resource-group"></a>Görev: Kaynak grubunu kaldırma
-Bir kaynak grubuna yeniden dağıtım yapabilirsiniz, ancak bir kaynak grubuyla işiniz bittiyse `azure group delete <group name>` komutunu kullanarak kaynak grubunu silebilirsiniz.
+Tooa kaynak grubu yeniden dağıtabilirsiniz, ancak biriyle bittiğinde kullanarak silebilirsiniz unutmayın `azure group delete <group name>`.
 
 ```azurecli
 azure group delete myResourceGroup
@@ -1174,25 +1174,25 @@ Delete resource group myResourceGroup? [y/n] y
 info:    group delete command OK
 ```
 
-## <a id="show-the-log-for-a-resource-group-deployment"></a>Görev: Bir kaynak grubu dağıtımının günlüğünü görüntüleme
-Şablon oluştururken veya kullanırken bu işlem yaygın olarak yapılır. Bir grubun dağıtım günlüklerini görüntüleme çağrısı, bir olayın neden gerçekleştiğini (veya gerçekleşmediğini) anlamak için yararlı olabilecek bilgileri `azure group log show <groupname>` komutudur. (Dağıtımlarınızla ilgili daha fazla sorun giderme bilgisi ve sorunlar hakkında diğer bilgiler için bkz. [Azure Resource Manager ile yaygın Azure dağıtım hatalarını giderme](../articles/azure-resource-manager/resource-manager-common-deployment-errors.md).)
+## <a id="show-the-log-for-a-resource-group-deployment"></a>Görev: bir kaynak grubu dağıtımı için hello günlük Göster
+Şablon oluştururken veya kullanırken bu işlem yaygın olarak yapılır. Merhaba çağrısı toodisplay hello Dağıtımı günlüklerini bir grup için `azure group log show <groupname>`, oldukça biraz neden oldu--veya bir şeyin kaydetmedi anlamak için yararlı olan bilgiler görüntüler. (Dağıtımlarınızla ilgili daha fazla sorun giderme bilgisi ve sorunlar hakkında diğer bilgiler için bkz. [Azure Resource Manager ile yaygın Azure dağıtım hatalarını giderme](../articles/azure-resource-manager/resource-manager-common-deployment-errors.md).)
 
-Örneğin, belirli hataları hedeflemek için **jq** gibi araçlar kullanarak, düzeltmeniz gereken belirli hatalar gibi sorunları daha kesin bir şekilde sorgulayabilirsiniz. Aşağıdaki örnekte hatalar aranırken **lbgroup** dağıtım günlüğünü ayrıştırmak için **jq** kullanılmaktadır.
+tootarget özel hatalar, örneğin, kullandığınız araçlarla **jq** tooquery şeyler biraz daha hassas bir şekilde, tek tek hangi hataları gibi ihtiyacınız toocorrect. Merhaba aşağıdaki örnek kullanır **jq** bir dağıtım oturum için tooparse **lbgroup**, hataları arayanlar.
 
 ```azurecli
 azure group log show lbgroup -l --json | jq '.[] | select(.status.value == "Failed") | .properties'
 ```
-Neyin yanlış gittiğini hızlıca bulabilir, düzeltebilir ve yeniden deneyebilirsiniz. Aşağıdaki örnekte, şablon aynı anda iki VM oluşturmuş ve .vhd üzerinde bir kilit oluşturmuştur. (Şablon değiştirildikten sonra dağıtım hızlıca başarılı olmuştur.)
+Neyin yanlış gittiğini hızlıca bulabilir, düzeltebilir ve yeniden deneyebilirsiniz. Durumda aşağıdaki hello hello şablon iki VM hello oluşturma hello .vhd üzerinde bir kilit oluşturulan aynı anda. (Biz hello şablonunu değiştiren sonra hello hızlı bir şekilde dağıtıldı.)
 
 ```json
 {
     "statusCode": "Conflict",
-    "statusMessage": "{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceDeploymentFailure\",\"message\":\"The resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"AcquireDiskLeaseFailed\",\"message\":\"Failed to acquire lease while creating disk 'osdisk' using blob with URI http://storage.blob.core.windows.net/vhds/osdisk.vhd.\"}]}}"
+    "statusMessage": "{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceDeploymentFailure\",\"message\":\"hello resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"AcquireDiskLeaseFailed\",\"message\":\"Failed tooacquire lease while creating disk 'osdisk' using blob with URI http://storage.blob.core.windows.net/vhds/osdisk.vhd.\"}]}}"
 }
 ```
 
 ## <a id="display-information-about-a-virtual-machine"></a>Görev: Bir sanal makine hakkında bilgi görüntüleme
-`azure vm show <groupname> <vmname>` komutunu kullanarak kaynak grubunuzdaki belirli VM’ler hakkındaki bilgileri görebilirsiniz. Grubunuzda birden fazla VM varsa, ilk olarak `azure vm list <groupname>` ile gruptaki VM’leri listelemeniz gerekebilir.
+Hello kullanarak kaynak grubunuzdaki belirli VM'ler hakkındaki bilgileri görebilirsiniz `azure vm show <groupname> <vmname>` komutu. Grubunuzda birden fazla VM varsa, ilk grubundaki toolist hello VM'ler kullanarak gerekebilir `azure vm list <groupname>`.
 
 ```azurecli
 azure vm list zoo
@@ -1209,8 +1209,8 @@ Ardından, myVM1 öğesini arayın:
 ```azurecli
 azure vm show zoo myVM1
 info:    Executing command vm show
-+ Looking up the VM "myVM1"
-+ Looking up the NIC "nic1"
++ Looking up hello VM "myVM1"
++ Looking up hello NIC "nic1"
 data:    Id                              :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/zoo/providers/Microsoft.Compute/virtualMachines/myVM1
 data:    ProvisioningState               :Failed
 data:    Name                            :myVM1
@@ -1259,12 +1259,12 @@ info:    vm show command OK
 ```
 
 > [!NOTE]
-> Konsol komutlarınızın çıktısını programlı olarak depolamak ve yönlendirmek istiyorsanız **[jq](https://github.com/stedolan/jq)** veya **[jsawk](https://github.com/micha/jsawk)** gibi bir JSON ayrıştırma aracı ya da görev için yararlı dil kitaplıkları kullanmak isteyebilirsiniz.
+> Tooprogrammatically deposu istiyorsanız ve konsol komutlarınızı hello çıktısını işlemek gibi JSON ayrıştırma aracı toouse isteyebilirsiniz  **[jq](https://github.com/stedolan/jq)**  veya  **[jsawk](https://github.com/micha/jsawk)** , ya da hello görev için iyi dil kitaplıkları.
 >
 >
 
-## <a id="log-on-to-a-linux-based-virtual-machine"></a>Görev: Linux tabanlı sanal makinede oturum açma
-Linux makinelerine genellikle SSH aracılığıyla bağlanılır. Daha fazla bilgi için bkz. [Azure’da Linux ile SSH kullanma](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a id="log-on-to-a-linux-based-virtual-machine"></a>Görev: tooa Linux tabanlı sanal makinede oturum açın
+Genellikle bağlı toothrough SSH Linux makinelerdir. Daha fazla bilgi için bkz: [nasıl toouse Linux Azure üzerinde SSH](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a id="stop-a-virtual-machine"></a>Görev: VM durdurma
 Şu komutu çalıştırın:
@@ -1274,7 +1274,7 @@ azure vm stop <group name> <virtual machine name>
 ```
 
 > [!IMPORTANT]
-> Bir sanal ağ içindeki son VM olması durumunda sanal ağın sanal IP’sini (VIP) saklamak için bu parametreyi kullanın. <br><br> `StayProvisioned` parametresini kullansanız bile VM için fatura almaya devam edersiniz.
+> Bu durumda bu parametre tookeep hello sanal IP (VIP) hello vnet'in kullanın, vnet içinde son VM hello. <br><br> Merhaba kullanırsanız `StayProvisioned` parametresi, hala hello VM için faturalandırılırsınız.
 >
 >
 
@@ -1286,23 +1286,23 @@ azure vm start <group name> <virtual machine name>
 ```
 
 ## <a id="attach-a-data-disk"></a>Görev: Veri diski ekleme
-Ayrıca yeni bir disk veya veri içeren bir disk eklemeye karar vermeniz gerekir. Yeni bir disk için komut .vhd dosyasını oluşturup aynı komuta ekler.
+Ayrıca tooattach yeni bir disk veya bir içeren olup olmadığını toodecide gerekir veri. Yeni bir disk hello komutu hello .vhd dosyası oluşturur ve bunları hello ekler aynı komutu.
 
-Yeni bir disk eklemek için şu komutu çalıştırın:
+Yeni bir disk tooattach bu komutu çalıştırın:
 
 ```azurecli
     azure vm disk attach-new <resource-group> <vm-name> <size-in-gb>
 ```
 
-Var olan bir veri diski eklemek için şu komutu çalıştırın:
+Varolan bir veri diski tooattach bu komutu çalıştırın:
 
 ```azurecli
 azure vm disk attach <resource-group> <vm-name> [vhd-url]
 ```
 
-Ardından Linux’ta yaptığınız gibi diski bağlamanız gerekir.
+Ardından Linux normalde yaptığınız gibi toomount hello disk gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-**Arm** modu ile Azure CLI kullanımı hakkında çok daha fazla örnek için bkz. [Azure Resource Manager ile Mac, Linux ve Windows için Azure CLI kullanma](../articles/xplat-cli-azure-resource-manager.md). Azure kaynakları ile kavramları hakkında daha fazla bilgi için bkz. [Azure Resource Manager'a genel bakış](../articles/azure-resource-manager/resource-group-overview.md).
+Merhaba ile Azure CLI kullanımı çok daha fazla örnekleri için **arm** modu, bkz: [kullanma hello Mac, Linux ve Windows Azure Resource Manager ile Azure CLI](../articles/xplat-cli-azure-resource-manager.md). Azure kaynaklarını ve bunların kavramları hakkında daha fazla toolearn bkz [Azure Resource Manager'a genel bakış](../articles/azure-resource-manager/resource-group-overview.md).
 
 Kullanabileceğiniz diğer şablonlar için bkz. [Azure Hızlı Başlangıç şablonları](https://azure.microsoft.com/documentation/templates/) ve [Şablon kullanan uygulama çerçeveleri](../articles/virtual-machines/linux/app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

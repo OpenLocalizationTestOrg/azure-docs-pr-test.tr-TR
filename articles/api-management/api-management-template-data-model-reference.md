@@ -1,6 +1,6 @@
 ---
-title: "Azure API Management şablonu veri modeli başvurusu | Microsoft Docs"
-description: "Azure API Management'ta Geliştirici Portalı şablonları için veri modellerinde kullanılan ortak öğeler için varlık ve türü ifadeleri hakkında bilgi edinin."
+title: "aaaAzure API Management şablonu veri modeli başvurusu | Microsoft Docs"
+description: "Azure API Management'ta Geliştirici Portalı şablonları hello hello veri modellerinde kullanılan ortak öğeler için hello varlığı ve türü Beyanları hakkında bilgi edinin."
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 5f8dd5c6a106e5dc523624d8930e6297dbdc368f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7d049d8ecc9e597cf48ce0c820c172798bcf86de
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API Management şablonu veri modeli başvurusu
-Bu konuda veri modellerinde Azure API Management'ta Geliştirici Portalı şablonları için kullanılan ortak öğeler için varlık ve türü Beyanları açıklanmaktadır.  
+Bu konuda hello varlığı ve türü Beyanları hello veri modellerinde Azure API Management'ta Geliştirici Portalı şablonları hello için kullanılan ortak öğeler için açıklanmaktadır.  
   
- Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [şablonları kullanarak API Management Geliştirici Portalı nasıl özelleştireceğinizi](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+ Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [nasıl toocustomize hello şablonları kullanarak API Management Geliştirici Portalı](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
 -   [API](#API)  
 -   [API özeti](#APISummary)  
@@ -51,191 +51,191 @@ Bu konuda veri modellerinde Azure API Management'ta Geliştirici Portalı şablo
 -   [Kullanıcı Kaydolma](#UserSignUp)  
   
 ##  <a name="API"></a>API  
- `API` Varlık aşağıdaki özellikleri içerir.  
+ Merhaba `API` varlık hello aşağıdaki özelliklere sahiptir.  
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|id|Dize|Kaynak tanımlayıcısı. API geçerli API Management hizmet örneği içinde benzersiz olarak tanımlar. Biçiminde geçerli bir göreli URL değerdir `apis/{id}` burada `{id}` bir API tanımlayıcısıdır. Bu özellik salt okunurdur.|  
-|ad|Dize|API adı. Boş olmamalıdır. En fazla 100 karakter olabilir.|  
-|Açıklama|Dize|API açıklaması. Boş olmamalıdır. HTML biçimlendirme etiketleriyle içerebilir. En fazla 1000 karakter olabilir.|  
-|serviceUrl|Dize|Bu API'yi uygulayan arka uç hizmetine mutlak URL'si.|  
-|Yol|Dize|Bu API ve tüm API Management hizmet örneği içinde kendi kaynak yolları tanıtan göreli URL'si. Bu API için genel bir URL oluşturmak için hizmet örneği oluşturma sırasında belirtilen API uç noktası temel URL'sini eklenir.|  
-|protokolleri|dizi numarası|Bu API işlemlerinde hangi protokollerine çağrılabilir açıklar. İzin verilen değerler `1 - http` ve `2 - https`, veya her ikisini de.|  
+|id|Dize|Kaynak tanımlayıcısı. Merhaba API hello geçerli API Management hizmet örneği içinde benzersiz olarak tanımlar. Merhaba değerdir hello biçiminde geçerli bir göreli URL `apis/{id}` burada `{id}` bir API tanımlayıcısıdır. Bu özellik salt okunurdur.|  
+|ad|Dize|Merhaba API adı. Boş olmamalıdır. En fazla 100 karakter olabilir.|  
+|açıklama|Dize|Merhaba API açıklaması. Boş olmamalıdır. HTML biçimlendirme etiketleriyle içerebilir. En fazla 1000 karakter olabilir.|  
+|serviceUrl|Dize|Bu API uygulama hello arka uç hizmetinin mutlak URL.|  
+|Yol|Dize|Bu API ve tüm alt kaynak yolları hello API Management hizmet örneği içinde benzersiz olarak tanımlama göreli URL'si. Bunu eklenir toohello API uç noktası temel URL bu API için genel bir URL hello hizmet örneği oluşturma tooform sırasında belirtilen.|  
+|protokolleri|dizi numarası|Bu API işlemleri hangi protokolleri hello çağrılabilir açıklar. İzin verilen değerler `1 - http` ve `2 - https`, veya her ikisini de.|  
 |authenticationSettings|[Yetkilendirme sunucusu kimlik doğrulama ayarları](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Bu API içinde bulunan kimlik doğrulama ayarları koleksiyonu.|  
-|subscriptionKeyParameterNames|Nesne|Abonelik anahtarı içeren sorgu ve/veya üstbilgi parametreleri için özel adların belirtmek için kullanılan isteğe bağlı özellik. Bu özellik bulunduğunda iki aşağıdaki özellikleri en az birini içermelidir.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
+|subscriptionKeyParameterNames|Nesne|Merhaba abonelik anahtarı içeren sorgu ve/veya üstbilgi parametreleri için kullanılan toospecify özel adları olabilir isteğe bağlı özellik. Bu özellik bulunduğunda hello iki aşağıdaki özellikleri en az birini içermelidir.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
 ##  <a name="APISummary"></a>API özeti  
- `API summary` Varlık aşağıdaki özellikleri içerir.  
+ Merhaba `API summary` varlık hello aşağıdaki özelliklere sahiptir.  
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|id|Dize|Kaynak tanımlayıcısı. API geçerli API Management hizmet örneği içinde benzersiz olarak tanımlar. Biçiminde geçerli bir göreli URL değerdir `apis/{id}` burada `{id}` bir API tanımlayıcısıdır. Bu özellik salt okunurdur.|  
-|ad|Dize|API adı. Boş olmamalıdır. En fazla 100 karakter olabilir.|  
-|Açıklama|Dize|API açıklaması. Boş olmamalıdır. HTML biçimlendirme etiketleriyle içerebilir. En fazla 1000 karakter olabilir.|  
+|id|Dize|Kaynak tanımlayıcısı. Merhaba API hello geçerli API Management hizmet örneği içinde benzersiz olarak tanımlar. Merhaba değerdir hello biçiminde geçerli bir göreli URL `apis/{id}` burada `{id}` bir API tanımlayıcısıdır. Bu özellik salt okunurdur.|  
+|ad|Dize|Merhaba API adı. Boş olmamalıdır. En fazla 100 karakter olabilir.|  
+|açıklama|Dize|Merhaba API açıklaması. Boş olmamalıdır. HTML biçimlendirme etiketleriyle içerebilir. En fazla 1000 karakter olabilir.|  
   
 ##  <a name="Application"></a>Uygulama  
- `application` Varlık aşağıdaki özellikleri içerir.  
+ Merhaba `application` varlık hello aşağıdaki özelliklere sahiptir.  
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|Kimlik|Dize|Uygulamanın benzersiz tanımlayıcısı.|  
-|Başlık|Dize|Uygulama Başlığı.|  
-|Açıklama|Dize|Uygulama açıklaması.|  
-|Url|URI|Uygulama için URI.|  
-|Sürüm|Dize|Uygulama için sürüm bilgisi.|  
-|Gereksinimler|Dize|Uygulama için gereksinimleri açıklaması.|  
-|Durum|Sayı|Uygulama geçerli durumu.<br /><br /> -0 - kayıtlı<br /><br /> -Gönderilen 1-<br /><br /> -Yayımlanan 2-<br /><br /> -Reddedilen 3-<br /><br /> -4 - yayımlanmamış|  
-|RegistrationDate|Tarih saat|Tarih ve saat uygulama kaydedildi.|  
-|Adlı kullanıcı, Categoryıd'si|Sayı|Kategori uygulamanın (Finans, eğlence, vs.)|  
-|DeveloperId|Dize|Uygulama gönderilen Geliştirici benzersiz tanımlayıcısı.|  
-|Ekleri|Koleksiyonu [ek](#Attachment) varlıklar.|Herhangi bir ek ekran görüntüleri veya simgeler gibi uygulama için.|  
-|Simgesi|[Eki](#Attachment)|Simge uygulama için.|  
+|Kimlik|Dize|Merhaba hello uygulamanın benzersiz tanımlayıcısı.|  
+|Başlık|Dize|Merhaba uygulaması Hello başlığı.|  
+|Açıklama|Dize|Merhaba uygulaması Hello açıklaması.|  
+|Url|URI|Merhaba URI Merhaba uygulaması.|  
+|Sürüm|Dize|Merhaba uygulaması için sürüm bilgileri.|  
+|Gereksinimler|Dize|Merhaba uygulamanın gereksinimleri açıklaması.|  
+|Durum|Sayı|Merhaba hello uygulamasının geçerli durumu.<br /><br /> -0 - kayıtlı<br /><br /> -Gönderilen 1-<br /><br /> -Yayımlanan 2-<br /><br /> -Reddedilen 3-<br /><br /> -4 - yayımlanmamış|  
+|RegistrationDate|Tarih saat|Başlangıç tarihi ve saati Merhaba uygulaması kaydettirildi.|  
+|Adlı kullanıcı, Categoryıd'si|Sayı|Merhaba kategori hello uygulamanın (Finans, eğlence, vs.)|  
+|DeveloperId|Dize|Merhaba Merhaba uygulaması gönderilen hello Developer benzersiz tanımlayıcısı.|  
+|Ekleri|Koleksiyonu [ek](#Attachment) varlıklar.|Herhangi bir ek ekran görüntüleri veya simgeler gibi hello uygulama için.|  
+|Simgesi|[Eki](#Attachment)|Merhaba simgesi hello Merhaba uygulaması için.|  
   
 ##  <a name="Attachment"></a>Eki  
- `attachment` Varlık aşağıdaki özellikleri içerir.  
+ Merhaba `attachment` varlık hello aşağıdaki özelliklere sahiptir.  
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|UniqueId|Dize|Eki için benzersiz tanımlayıcı.|  
-|Url|Dize|Kaynak URL.|  
-|Tür|Dize|Ek türü.|  
-|ContentType|Dize|Ek medya türü.|  
+|UniqueId|Dize|Merhaba hello eki için benzersiz tanımlayıcı.|  
+|Url|Dize|Merhaba kaynak Hello URL'si.|  
+|Tür|Dize|Ek Hello türü.|  
+|ContentType|Dize|Merhaba eki Hello medya türü.|  
   
 ##  <a name="Sample"></a>Kod örneği  
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|Başlık|Dize|İşlemin adı.|  
+|Başlık|Dize|Merhaba işlemi Hello adı.|  
 |kod parçacığında|Dize|Bu özellik kullanım dışıdır ve kullanılmamalıdır.|  
-|Fırça|Dize|Kod örneği görüntülenirken kullanılacak şablon renklendirme hangi kod sözdizimi. İzin verilen değerler `plain`, `php`, `java`, `xml`, `objc`, `python`, `ruby`, ve `csharp`.|  
-|şablon|Dize|Bu kod örneği şablonunun adı.|  
-|Gövde|Dize|Kod parçacığını kod örnek kısmı için bir yer tutucu.|  
-|Yöntemi|Dize|İşlemi HTTP yöntemi.|  
-|Düzeni|Dize|İşlem isteği için kullanılacak protokolü.|  
-|Yol|Dize|İşlemi yolu.|  
+|Fırça|Dize|Hangi sözdizimi hello kod örneği görüntülenirken kullanılan şablon toobe renklendirme kodu. İzin verilen değerler `plain`, `php`, `java`, `xml`, `objc`, `python`, `ruby`, ve `csharp`.|  
+|şablon|Dize|Bu kod örneği şablon Hello adı.|  
+|Gövde|Dize|Merhaba kod örnek hello parçacığı kısmı için bir yer tutucu.|  
+|Yöntemi|Dize|Merhaba hello işleminin HTTP yöntemi.|  
+|Düzeni|Dize|Merhaba Protokolü toouse hello işlemi isteği için.|  
+|Yol|Dize|Merhaba işlemi Hello yolu.|  
 |sorgu|Dize|Sorgu dizesi örnek tanımlanan parametrelere sahip.|  
-|ana bilgisayar|Dize|Bu işlem içeriyor API için API Management hizmeti ağ geçidi URL'si.|  
+|ana bilgisayar|Dize|Merhaba API Management hizmeti hello bu işlem içeriyor API için ağ geçidi Hello URL'si.|  
 |Üstbilgileri|Koleksiyonu [üstbilgi](#Header) varlıklar.|Bu işlem için üstbilgiler.|  
-|Parametreleri|Koleksiyonu [parametresi](#Parameter) varlıklar.|Bu işlem için tanımlanan parametreleri.|  
+|parametreler|Koleksiyonu [parametresi](#Parameter) varlıklar.|Bu işlem için tanımlanan parametreleri.|  
   
 ##  <a name="Comment"></a>Açıklama  
- `API` Varlık aşağıdaki özellikleri içerir.  
+ Merhaba `API` varlık hello aşağıdaki özelliklere sahiptir.  
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|Kimlik|Sayı|Açıklama kimliği.|  
-|CommentText|Dize|Açıklama gövdesi. HTML içerebilir.|  
-|DeveloperCompany|Dize|Geliştirici şirket adı.|  
-|PostedOn|Tarih saat|Tarih ve saat yorum kopyalanmışsa.|  
+|Kimlik|Sayı|Merhaba yorum Hello kimliği.|  
+|CommentText|Dize|Merhaba gövdesi hello açıklaması. HTML içerebilir.|  
+|DeveloperCompany|Dize|Merhaba Geliştirici Hello şirket adı.|  
+|PostedOn|Tarih saat|Başlangıç tarihi ve saati hello yorum gönderildi.|  
   
 ##  <a name="Issue"></a>Sorunu  
- `issue` Varlık aşağıdaki özellikleri içerir.  
+ Merhaba `issue` varlık hello aşağıdaki özelliklere sahiptir.  
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|Kimlik|Dize|Sorun için benzersiz tanımlayıcı.|  
-|ApiID|Dize|Bu sorun bildirildi API kimliği.|  
-|Başlık|Dize|Sorun başlığı.|  
-|Açıklama|Dize|Sorun açıklaması.|  
-|SubscriptionDeveloperName|Dize|Sorunu bildiren Geliştirici adı.|  
-|IssueState|Dize|Sorunu geçerli durumu. Olası değerler şunlardır: Önerilen, açık, kapalı.|  
-|ReportedOn|Tarih saat|Tarih ve saat sorun bildirildi.|  
+|Kimlik|Dize|Merhaba hello sorunu için benzersiz tanımlayıcı.|  
+|ApiID|Dize|Bu sorun bildirildi hello API Hello kimliği.|  
+|Başlık|Dize|Merhaba sorunu başlığı.|  
+|Açıklama|Dize|Merhaba sorun açıklaması.|  
+|SubscriptionDeveloperName|Dize|Merhaba sorunu bildiren hello Geliştirici adı.|  
+|IssueState|Dize|Merhaba hello sorunun geçerli durumu. Olası değerler şunlardır: Önerilen, açık, kapalı.|  
+|ReportedOn|Tarih saat|Başlangıç tarihi ve saati hello sorun bildirildi.|  
 |Yorumlar|Koleksiyonu [açıklama](#Comment) varlıklar.|Bu konu hakkında açıklamalar.|  
-|Ekleri|Koleksiyonu [ek](api-management-template-data-model-reference.md#Attachment) varlıklar.|Herhangi bir ek verilecek.|  
-|Hizmetler|Koleksiyonu [API](#API) varlıklar.|Sorunu Dosyalanan kullanıcı tarafından abone API'leri.|  
+|Ekleri|Koleksiyonu [ek](api-management-template-data-model-reference.md#Attachment) varlıklar.|Tüm ekleri toohello sorun.|  
+|Hizmetler|Koleksiyonu [API](#API) varlıklar.|Merhaba API'leri hello sorunu Dosyalanan tooby hello kullanıcı abone.|  
   
 ##  <a name="Filtering"></a>Filtreleme  
- `filtering` Varlık aşağıdaki özellikleri içerir.  
+ Merhaba `filtering` varlık hello aşağıdaki özelliklere sahiptir.  
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|düzeni|Dize|Geçerli arama terimi; veya `null` arama terimi yok ise.|  
-|Yer tutucu|Dize|Belirtilen arama terimi yok olduğunda arama kutusuna görüntülenecek metin.|  
+|düzeni|Dize|Arama terimi geçerli Hello; veya `null` arama terimi yok ise.|  
+|Yer tutucu|Dize|Belirtilen arama terimi yok olduğunda hello arama kutusuna Hello metin toodisplay.|  
   
 ##  <a name="Header"></a>Üstbilgi  
- Bu bölümde açıklanmıştır `parameter` gösterimi.  
+ Bu bölümde hello açıklanmaktadır `parameter` gösterimi.  
   
 |Özellik|Açıklama|Tür|  
 |--------------|-----------------|----------|  
 |ad|Dize|Parametre adı.|  
-|Açıklama|Dize|Parametre açıklaması.|  
+|açıklama|Dize|Parametre açıklaması.|  
 |değer|Dize|Üstbilgi değeri.|  
 |TypeName|Dize|Üstbilgi değeri veri türü.|  
 |Seçenekler|Dize|Seçenekler.|  
-|Gerekli|Boole değeri|Üstbilgi gerekli olup olmadığı.|  
-|salt okunur|Boole değeri|Üstbilgi salt okunur olup olmadığı.|  
+|Gerekli|Boole değeri|Merhaba üstbilgi gerekli olup olmadığı.|  
+|salt okunur|Boole değeri|Merhaba üstbilgi salt okunur olup olmadığı.|  
   
 ##  <a name="HTTPRequest"></a>HTTP isteği  
- Bu bölümde açıklanmıştır `request` gösterimi.  
+ Bu bölümde hello açıklanmaktadır `request` gösterimi.  
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|Açıklama|Dize|İşlem isteği açıklaması.|  
+|açıklama|Dize|İşlem isteği açıklaması.|  
 |Üstbilgileri|dizi [üstbilgi](#Header) varlıklar.|İstek üstbilgileri.|  
-|Parametreleri|dizi [parametresi](#Parameter)|İşlem istek parametreleri topluluğu.|  
+|parametreler|dizi [parametresi](#Parameter)|İşlem istek parametreleri topluluğu.|  
 |temsili|dizi [gösterimi](#Representation)|İşlem istek sunumlarını koleksiyonu.|  
   
 ##  <a name="HTTPResponse"></a>HTTP yanıtı  
- Bu bölümde açıklanmıştır `response` gösterimi.  
+ Bu bölümde hello açıklanmaktadır `response` gösterimi.  
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
 |statusCode|Pozitif tamsayı|İşlem yanıt durum kodu.|  
-|Açıklama|Dize|İşlem yanıt açıklaması.|  
+|açıklama|Dize|İşlem yanıt açıklaması.|  
 |temsili|dizi [gösterimi](#Representation)|İşlem yanıt Beyanları koleksiyonu.|  
   
 ##  <a name="Operation"></a>İşlemi  
- `operation` Varlık aşağıdaki özellikleri içerir.  
+ Merhaba `operation` varlık hello aşağıdaki özelliklere sahiptir.  
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|id|Dize|Kaynak tanımlayıcısı. İşlemi geçerli API Management hizmet örneği içinde benzersiz olarak tanımlar. Biçiminde geçerli bir göreli URL değerdir `apis/{aid}/operations/{id}` nerede `{aid}` bir API tanımlayıcısıdır ve `{id}` işlemi tanımlayıcıdır. Bu özellik salt okunurdur.|  
-|ad|Dize|İşlemin adı. Boş olmamalıdır. En fazla 100 karakter olabilir.|  
-|Açıklama|Dize|İşlem açıklaması. Boş olmamalıdır. HTML biçimlendirme etiketleriyle içerebilir. En fazla 1000 karakter olabilir.|  
-|Düzeni|Dize|Bu API işlemlerinde hangi protokollerine çağrılabilir açıklar. İzin verilen değerler `http`, `https`, veya her ikisini de `http` ve `https`.|  
-|uriTemplate|Dize|Bu işlem için hedef kaynak tanımlayan göreli URL şablonu. Parametreler içerebilir. Örnek:`customers/{cid}/orders/{oid}/?date={date}`|  
-|ana bilgisayar|Dize|API barındıran API Yönetimi ağ geçidi URL'si.|  
+|id|Dize|Kaynak tanımlayıcısı. Merhaba işlemi hello geçerli API Management hizmet örneği içinde benzersiz olarak tanımlar. Merhaba değerdir hello biçiminde geçerli bir göreli URL `apis/{aid}/operations/{id}` nerede `{aid}` bir API tanımlayıcısıdır ve `{id}` işlemi tanımlayıcıdır. Bu özellik salt okunurdur.|  
+|ad|Dize|Merhaba işlemin adı. Boş olmamalıdır. En fazla 100 karakter olabilir.|  
+|açıklama|Dize|Merhaba işlemi açıklaması. Boş olmamalıdır. HTML biçimlendirme etiketleriyle içerebilir. En fazla 1000 karakter olabilir.|  
+|Düzeni|Dize|Bu API işlemleri hangi protokolleri hello çağrılabilir açıklar. İzin verilen değerler `http`, `https`, veya her ikisini de `http` ve `https`.|  
+|uriTemplate|Dize|Bu işlem için Hello hedef kaynak tanımlayan göreli URL şablonu. Parametreler içerebilir. Örnek:`customers/{cid}/orders/{oid}/?date={date}`|  
+|ana bilgisayar|Dize|Merhaba API barındıran hello API Yönetimi ağ geçidi URL'si.|  
 |HttpMethod|Dize|İşlemi HTTP yöntemi.|  
 |İstek|[HTTP isteği](#HTTPRequest)|İstek ayrıntıları içeren bir varlık.|  
 |yanıtları|dizi [HTTP yanıtı](#HTTPResponse)|İşlem dizisi [HTTP yanıtı](#HTTPResponse) varlıklar.|  
   
 ##  <a name="Menu"></a>İşlemi menüsü  
- `operation menu` Varlık aşağıdaki özellikleri içerir.  
+ Merhaba `operation menu` varlık hello aşağıdaki özelliklere sahiptir.  
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|ApiId|Dize|Geçerli API kimliği.|  
-|CurrentOperationId|Dize|Geçerli işlem kimliği.|  
-|Eylem|Dize|Menü türü.|  
-|MenuItems|Koleksiyonu [işlemi menü öğesi](#MenuItem) varlıklar.|Geçerli API işlemleri.|  
+|ApiId|Dize|Merhaba geçerli API Hello kimliği.|  
+|CurrentOperationId|Dize|Merhaba geçerli işlem Hello kimliği.|  
+|Eylem|Dize|Merhaba menü türü.|  
+|MenuItems|Koleksiyonu [işlemi menü öğesi](#MenuItem) varlıklar.|Merhaba işlemleri hello geçerli API için.|  
   
 ##  <a name="MenuItem"></a>İşlemi menü öğesi  
- `operation menu item` Varlık aşağıdaki özellikleri içerir.  
+ Merhaba `operation menu item` varlık hello aşağıdaki özelliklere sahiptir.  
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|Kimlik|Dize|İşlem kimliği.|  
-|Başlık|Dize|İşlem açıklaması.|  
-|HttpMethod|Dize|İşlemi Http yöntemi.|  
+|Kimlik|Dize|Merhaba işlemi Hello kimliği.|  
+|Başlık|Dize|Merhaba işlemi Hello açıklaması.|  
+|HttpMethod|Dize|Merhaba hello işleminin Http yöntemi.|  
   
 ##  <a name="Paging"></a>Disk belleği  
- `paging` Varlık aşağıdaki özellikleri içerir.  
+ Merhaba `paging` varlık hello aşağıdaki özelliklere sahiptir.  
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|Sayfa|Sayı|Geçerli sayfa numarası.|  
-|PageSize|Sayı|Tek bir sayfada gösterilecek en fazla sonuç.|  
-|TotalItemCount|Sayı|Görüntülenecek öğe sayısı.|  
-|ShowAll|Boole değeri|Kullanılıp kullanılmayacağını tüm sonuçları tek bir sayfada göster.|  
-|PageCount|Sayı|Sayfa sonuç sayısı.|  
+|Sayfa|Sayı|Merhaba geçerli sayfa numarası.|  
+|PageSize|Sayı|Merhaba en fazla sonuç toobe tek bir sayfada görüntülenir.|  
+|TotalItemCount|Sayı|Merhaba görüntülenmesi için öğe sayısı.|  
+|ShowAll|Boole değeri|Olup toosho tüm tek bir sayfada sonuçlanır.|  
+|PageCount|Sayı|Merhaba sonuçlarının sayfa sayısı.|  
   
 ##  <a name="Parameter"></a>Parametre  
- Bu bölümde açıklanmıştır `parameter` gösterimi.  
+ Bu bölümde hello açıklanmaktadır `parameter` gösterimi.  
   
 |Özellik|Açıklama|Tür|  
 |--------------|-----------------|----------|  
 |ad|Dize|Parametre adı.|  
-|Açıklama|Dize|Parametre açıklaması.|  
+|açıklama|Dize|Parametre açıklaması.|  
 |değer|Dize|Parametre değeri.|  
 |Seçenekler|Dize dizisi|Sorgu parametre değerleri için tanımlanan değerleri.|  
 |Gerekli|Boole değeri|Parametresi gerekli olup olmadığını belirtir.|  
@@ -243,26 +243,26 @@ Bu konuda veri modellerinde Azure API Management'ta Geliştirici Portalı şablo
 |TypeName|Dize|Parametre türü.|  
   
 ##  <a name="Product"></a>Ürün  
- `product` Varlık aşağıdaki özellikleri içerir.  
+ Merhaba `product` varlık hello aşağıdaki özelliklere sahiptir.  
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|Kimlik|Dize|Kaynak tanımlayıcısı. Ürününün geçerli API Management hizmet örneği içinde benzersiz olarak tanımlar. Biçiminde geçerli bir göreli URL değerdir `products/{pid}` burada `{pid}` bir ürün tanımlayıcısı. Bu özellik salt okunurdur.|  
-|Başlık|Dize|Ürün adı. Boş olmamalıdır. En fazla 100 karakter olabilir.|  
-|Açıklama|Dize|Ürün açıklaması. Boş olmamalıdır. HTML biçimlendirme etiketleriyle içerebilir. En fazla 1000 karakter olabilir.|  
-|Koşullar|Dize|Kullanım koşulları ürün. Ürüne abone olmayı deneyen geliştiricilere sunulan ve abonelik işlemi tamamlanmadan önce bu koşulları kabul etmeniz gerekir.|  
-|ProductState|Sayı|Ürün veya yayımlanan belirtir. Yayımlanan ürün geliştiriciler Geliştirici Portalı tarafından bulunabilir. Olmayan yayımlanan ürünleri yalnızca yöneticiler tarafından görülebilir.<br /><br /> Ürün durumu için izin verilen değerler:<br /><br /> - `0 - Not Published`<br /><br /> - `1 - Published`<br /><br /> - `2 - Deleted`|  
-|AllowMultipleSubscriptions|Boole değeri|Bir kullanıcı aynı anda birden fazla abonelik bu ürün için sahip olup olmadığını belirtir.|  
-|MultipleSubscriptionsCount|Sayı|Geçerli kullanıcı tarafından bu ürün için abonelik sayısı.|  
+|Kimlik|Dize|Kaynak tanımlayıcısı. Merhaba ürün hello geçerli API Management hizmet örneği içinde benzersiz olarak tanımlar. Merhaba değerdir hello biçiminde geçerli bir göreli URL `products/{pid}` burada `{pid}` bir ürün tanımlayıcısı. Bu özellik salt okunurdur.|  
+|Başlık|Dize|Merhaba ürün adı. Boş olmamalıdır. En fazla 100 karakter olabilir.|  
+|Açıklama|Dize|Merhaba ürün açıklaması. Boş olmamalıdır. HTML biçimlendirme etiketleriyle içerebilir. En fazla 1000 karakter olabilir.|  
+|Koşullar|Dize|Kullanım koşulları ürün. Geliştiriciler toosubscribe toohello ürün çalışırken sunulur ve hello Abonelik işlemini tamamlamadan önce bu koşulları tooaccept gerekli.|  
+|ProductState|Sayı|Merhaba ürün veya yayımlanan belirtir. Yayımlanan ürünleri hello Geliştirici portalındaki geliştiriciler tarafından bulunabilir. Ürün olmayan yayımlanan görünür yalnızca tooadministrators değil.<br /><br /> Merhaba ürün durumu için izin verilen değerler şunlardır:<br /><br /> - `0 - Not Published`<br /><br /> - `1 - Published`<br /><br /> - `2 - Deleted`|  
+|AllowMultipleSubscriptions|Boole değeri|Bir kullanıcı birden fazla abonelik toothis ürün hello sahip olup olmadığını belirtir aynı anda.|  
+|MultipleSubscriptionsCount|Sayı|Abonelikler toothis ürün hello geçerli kullanıcı tarafından Hello sayısı.|  
   
 ##  <a name="Provider"></a>Sağlayıcı  
- `provider` Varlık aşağıdaki özellikleri içerir.  
+ Merhaba `provider` varlık hello aşağıdaki özelliklere sahiptir.  
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
 |Özellikler|dize sözlüğü|Bu kimlik doğrulama sağlayıcısı özellikleri.|  
-|authenticationType|Dize|Sağlayıcı türü. (Azure Active Directory, Facebook oturum açma, Google hesabı, Microsoft Account, Twitter).|  
-|Açıklamalı alt yazı|Dize|Sağlayıcının görünen adı.|  
+|authenticationType|Dize|Merhaba sağlayıcısı türü. (Azure Active Directory, Facebook oturum açma, Google hesabı, Microsoft Account, Twitter).|  
+|Açıklamalı alt yazı|Dize|Merhaba sağlayıcının görünen adı.|  
   
 ##  <a name="Representation"></a>Gösterimi  
  Bu bölümde açıklanmıştır bir `representation`.  
@@ -270,90 +270,90 @@ Bu konuda veri modellerinde Azure API Management'ta Geliştirici Portalı şablo
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
 |ContentType|Dize|Kayıtlı ya da özel bir içerik türü için bu gösterim örneğin belirtir `application/xml`.|  
-|Örnek|Dize|Gösterim örneği.|  
+|Örnek|Dize|Merhaba gösterim örneği.|  
   
 ##  <a name="Subscription"></a>Abonelik  
- `subscription` Varlık aşağıdaki özellikleri içerir.  
+ Merhaba `subscription` varlık hello aşağıdaki özelliklere sahiptir.  
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|Kimlik|Dize|Kaynak tanımlayıcısı. Abonelik geçerli API Management hizmet örneği içinde benzersiz olarak tanımlar. Biçiminde geçerli bir göreli URL değerdir `subscriptions/{sid}` burada `{sid}` bir abonelik tanımlayıcısı. Bu özellik salt okunurdur.|  
-|ProductID|Dize|Abone olunan ürün ürün kaynak tanımlayıcısı. Biçiminde geçerli bir göreli URL değerdir `products/{pid}` burada `{pid}` bir ürün tanımlayıcısı.|  
-|ProductTitle|Dize|Ürün adı. Boş olmamalıdır. En fazla 100 karakter olabilir.|  
-|ProductDescription|Dize|Ürün açıklaması. Boş olmamalıdır. HTML biçimlendirme etiketleriyle içerebilir. En fazla 1000 karakter olabilir.|  
-|ProductDetailsUrl|Dize|Ürün Ayrıntıları göreli URL.|  
-|durum|Dize|Abonelik durumu. Olası durumlar şunlardır:<br /><br /> - `0 - suspended`– Abonelik engellenir ve abone ürünün herhangi bir API çağrılamaz.<br /><br /> - `1 - active`– Aboneliğinizin etkin olduğunu.<br /><br /> - `2 - expired`– Abonelik sona erme tarihini ulaştı ve devre dışı bırakıldı.<br /><br /> - `3 - submitted`– Abonelik isteğinin geliştirici tarafından yapılan ancak henüz onaylanamıyor veya reddedilemiyor.<br /><br /> - `4 - rejected`– Abonelik isteğinin bir yönetici tarafından reddedildi.<br /><br /> - `5 - cancelled`– Abonelik geliştirici veya yönetici tarafından iptal edildi.|  
-|Görünen adı|Dize|Abonelik adını görüntüler.|  
-|CreatedDate|Tarih saat|Abonelik, ISO 8601 biçiminde oluşturulduğu tarih: `2014-06-24T16:25:00Z`.|  
-|CanBeCancelled|Boole değeri|Abonelik geçerli kullanıcı tarafından iptal.|  
-|IsAwaitingApproval|Boole değeri|Olup abonelik onayını bekliyor.|  
-|StartDate|Tarih saat|ISO 8601 biçiminde abonelik için başlangıç tarihi: `2014-06-24T16:25:00Z`.|  
-|ExpirationDate|Tarih saat|Sona erme tarihini ISO 8601 biçiminde abonelik: `2014-06-24T16:25:00Z`.|  
-|NotificationDate|Tarih saat|ISO 8601 biçiminde abonelik için bildirim tarihi: `2014-06-24T16:25:00Z`.|  
-|primaryKey|Dize|Birincil abonelik anahtarı. En fazla uzunluğu 256 karakterden uzun.|  
-|secondaryKey|Dize|İkincil abonelik anahtarı. En fazla uzunluğu 256 karakterden uzun.|  
-|CanBeRenewed|Boole değeri|Abonelik geçerli kullanıcı tarafından yenilenmesi.|  
-|HasExpired|Boole değeri|Abonelik süresi doldu.|  
-|IsRejected|Boole değeri|Olup abonelik istek reddedildi.|  
-|CancelUrl|Dize|Aboneliği iptal etmek için göreli URL'si.|  
-|RenewUrl|Dize|Aboneliğinizi yenilemek için göreli URL'si.|  
+|Kimlik|Dize|Kaynak tanımlayıcısı. Merhaba abonelik hello geçerli API Management hizmet örneği içinde benzersiz olarak tanımlar. Merhaba değerdir hello biçiminde geçerli bir göreli URL `subscriptions/{sid}` burada `{sid}` bir abonelik tanımlayıcısı. Bu özellik salt okunurdur.|  
+|ProductID|Dize|Merhaba ürün kaynak hello tanıtıcısı ürün abone. Merhaba değerdir hello biçiminde geçerli bir göreli URL `products/{pid}` burada `{pid}` bir ürün tanımlayıcısı.|  
+|ProductTitle|Dize|Merhaba ürün adı. Boş olmamalıdır. En fazla 100 karakter olabilir.|  
+|ProductDescription|Dize|Merhaba ürün açıklaması. Boş olmamalıdır. HTML biçimlendirme etiketleriyle içerebilir. En fazla 1000 karakter olabilir.|  
+|ProductDetailsUrl|Dize|Göreli URL toohello Ürün Ayrıntıları.|  
+|durum|Dize|Merhaba abonelik Hello durumu. Olası durumlar şunlardır:<br /><br /> - `0 - suspended`– hello abonelik engellenir ve hello abone hello ürünün herhangi bir API çağrılamıyor.<br /><br /> - `1 - active`– hello abonelik etkin olduğunu.<br /><br /> - `2 - expired`– hello abonelik sona erme tarihini ulaştı ve devre dışı bırakıldı.<br /><br /> - `3 - submitted`– hello abonelik isteği hello geliştirici tarafından yapılan ancak henüz onaylanamıyor veya reddedilemiyor.<br /><br /> - `4 - rejected`– bir yönetici tarafından hello abonelik isteği reddedildi.<br /><br /> - `5 - cancelled`– hello geliştirici veya yönetici tarafından hello aboneliği iptal edildi.|  
+|Görünen adı|Dize|Merhaba abonelik adını görüntüler.|  
+|CreatedDate|Tarih saat|Başlangıç tarihi hello abonelik oluşturuldu, ISO 8601 biçiminde: `2014-06-24T16:25:00Z`.|  
+|CanBeCancelled|Boole değeri|Olup hello abonelik hello geçerli kullanıcı tarafından iptal edilebilir.|  
+|IsAwaitingApproval|Boole değeri|Olup hello abonelik onayını bekliyor.|  
+|StartDate|Tarih saat|Merhaba başlangıç tarihi hello abonelik için ISO 8601 biçiminde: `2014-06-24T16:25:00Z`.|  
+|ExpirationDate|Tarih saat|Merhaba sona erme tarihini ISO 8601 biçiminde hello abonelik: `2014-06-24T16:25:00Z`.|  
+|NotificationDate|Tarih saat|ISO 8601 biçiminde hello abonelik için Hello bildirim tarihi: `2014-06-24T16:25:00Z`.|  
+|primaryKey|Dize|Merhaba birincil abonelik anahtarı. En fazla uzunluğu 256 karakterden uzun.|  
+|secondaryKey|Dize|Merhaba ikincil abonelik anahtarı. En fazla uzunluğu 256 karakterden uzun.|  
+|CanBeRenewed|Boole değeri|Merhaba abonelik hello geçerli kullanıcı tarafından yenilenmesi.|  
+|HasExpired|Boole değeri|Merhaba abonelik süresi doldu.|  
+|IsRejected|Boole değeri|Olup hello abonelik istek reddedildi.|  
+|CancelUrl|Dize|Merhaba göreli Url toocancel hello abonelik.|  
+|RenewUrl|Dize|Merhaba göreli Url toorenew hello abonelik.|  
   
 ##  <a name="SubscriptionSummary"></a>Abonelik özeti  
- `subscription summary` Varlık aşağıdaki özellikleri içerir.  
+ Merhaba `subscription summary` varlık hello aşağıdaki özelliklere sahiptir.  
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|Kimlik|Dize|Kaynak tanımlayıcısı. Abonelik geçerli API Management hizmet örneği içinde benzersiz olarak tanımlar. Biçiminde geçerli bir göreli URL değerdir `subscriptions/{sid}` burada `{sid}` bir abonelik tanımlayıcısı. Bu özellik salt okunurdur.|  
-|Görünen adı|Dize|Aboneliğin görünen adı|  
+|Kimlik|Dize|Kaynak tanımlayıcısı. Merhaba abonelik hello geçerli API Management hizmet örneği içinde benzersiz olarak tanımlar. Merhaba değerdir hello biçiminde geçerli bir göreli URL `subscriptions/{sid}` burada `{sid}` bir abonelik tanımlayıcısı. Bu özellik salt okunurdur.|  
+|Görünen adı|Dize|Merhaba görüntülemek hello abonelik adı|  
   
 ##  <a name="UserAccountInfo"></a>Kullanıcı hesabı bilgileri  
- `user account info` Varlık aşağıdaki özellikleri içerir.  
+ Merhaba `user account info` varlık hello aşağıdaki özelliklere sahiptir.  
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
 |FirstName|Dize|İlk adı. Boş olmamalıdır. En fazla 100 karakter olabilir.|  
 |Soyadı|Dize|Soyadı. Boş olmamalıdır. En fazla 100 karakter olabilir.|  
-|E-posta|Dize|E-posta adresi. Boş olmamalı ve hizmet örneği içinde benzersiz olmalıdır. En fazla uzunluğu 254 karakter olabilir.|  
+|E-posta|Dize|E-posta adresi. Boş olmamalı ve hello hizmet örneği içinde benzersiz olmalıdır. En fazla uzunluğu 254 karakter olabilir.|  
 |Parola|Dize|Kullanıcı hesabı parolası.|  
-|NameIdentifier|Dize|Hesap tanımlayıcısı, kullanıcı e-posta ile aynı.|  
+|NameIdentifier|Dize|Tanımlayıcı, hello hello kullanıcı e-postalara aynı hesap.|  
 |ProviderName|Dize|Kimlik doğrulama sağlayıcısının adı.|  
-|IsBasicAccount|Boole değeri|Bu hesabın e-posta ve parola kullanarak kaydolduysanız true; hesap bir sağlayıcı kullanarak kaydolduysanız yanlış.|  
+|IsBasicAccount|Boole değeri|Bu hesabın e-posta ve parola kullanarak kaydolduysanız true; Merhaba hesap bir sağlayıcı kullanarak kaydolduysanız yanlış.|  
   
 ##  <a name="UseSignIn"></a>Kullanıcı oturum açma  
- `user sign in` Varlık aşağıdaki özellikleri içerir.  
+ Merhaba `user sign in` varlık hello aşağıdaki özelliklere sahiptir.  
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|E-posta|Dize|E-posta adresi. Boş olmamalı ve hizmet örneği içinde benzersiz olmalıdır. En fazla uzunluğu 254 karakter olabilir.|  
+|E-posta|Dize|E-posta adresi. Boş olmamalı ve hello hizmet örneği içinde benzersiz olmalıdır. En fazla uzunluğu 254 karakter olabilir.|  
 |Parola|Dize|Kullanıcı hesabı parolası.|  
-|ReturnUrl|Dize|Kullanıcı tıklattığınız sayfasının URL'sini oturum açın.|  
-|Kullandığınız Beni anımsa|Boole değeri|Mevcut kullanıcının bilgileri kaydedilip kaydedilmeyeceğini belirtir.|  
+|ReturnUrl|Dize|Merhaba kullanıcı oturum açma tıklattığınız hello sayfasının Hello URL'si.|  
+|Kullandığınız Beni anımsa|Boole değeri|Olup toosave mevcut kullanıcının bilgileri hello.|  
 |RegistrationEnabled|Boole değeri|Kayıt etkinleştirilip etkinleştirilmediği.|  
 |DelegationEnabled|Boole değeri|Temsilci oturum açma etkinleştirilip etkinleştirilmediği.|  
-|DelegationUrl|Dize|Temsilci oturum açma etkinleştirildiğinde url.|  
-|SsoSignUpUrl|Dize|Varsa, kullanıcı için çoklu oturum açma URL'si.|  
-|AuxServiceUrl|Dize|Geçerli kullanıcı bir yöneticiyse, Azure Klasik Portalı'nda hizmet örneği için bir bağlantı budur.|  
-|Sağlayıcılar|Koleksiyonu [sağlayıcı](#Provider) varlıklar|Bu kullanıcı için kimlik doğrulama sağlayıcıları.|  
-|UserRegistrationTerms|Dize|Bir kullanıcı oturum açmadan önce kabul etmeniz gerekir koşulları.|  
+|DelegationUrl|Dize|Merhaba, URL'de oturum etkinleştirilirse temsilci.|  
+|SsoSignUpUrl|Dize|Merhaba tek oturum URL'yi hello kullanıcıdan varsa.|  
+|AuxServiceUrl|Dize|Merhaba geçerli kullanıcı bir yöneticiyse, bir bağlantı toohello hizmet örneği hello Klasik Azure Portalı'nda budur.|  
+|Sağlayıcılar|Koleksiyonu [sağlayıcı](#Provider) varlıklar|Bu kullanıcı için kimlik doğrulama sağlayıcıları hello.|  
+|UserRegistrationTerms|Dize|Bir kullanıcı oturum açma toobefore kabul etmelidirler koşulları.|  
 |UserRegistrationTermsEnabled|Boole değeri|Koşulları etkinleştirilip etkinleştirilmediği.|  
   
 ##  <a name="UserSignUp"></a>Kullanıcı Kaydolma  
- `user sign up` Varlık aşağıdaki özellikleri içerir.  
+ Merhaba `user sign up` varlık hello aşağıdaki özelliklere sahiptir.  
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|PasswordConfirm|Boole değeri|Tarafından kullanılan değer [kaydolma](api-management-page-controls.md#sign-up)kaydolma denetim.|  
+|PasswordConfirm|Boole değeri|Merhaba tarafından kullanılan değer [kaydolma](api-management-page-controls.md#sign-up)kaydolma denetim.|  
 |Parola|Dize|Kullanıcı hesabı parolası.|  
-|PasswordVerdictLevel|Sayı|Tarafından kullanılan değer [kaydolma](api-management-page-controls.md#sign-up)kaydolma denetim.|  
-|UserRegistrationTerms|Dize|Bir kullanıcı oturum açmadan önce kabul etmeniz gerekir koşulları.|  
-|UserRegistrationTermsOptions|Sayı|Tarafından kullanılan değer [kaydolma](api-management-page-controls.md#sign-up)kaydolma denetim.|  
-|ConsentAccepted|Boole değeri|Tarafından kullanılan değer [kaydolma](api-management-page-controls.md#sign-up)kaydolma denetim.|  
-|E-posta|Dize|E-posta adresi. Boş olmamalı ve hizmet örneği içinde benzersiz olmalıdır. En fazla uzunluğu 254 karakter olabilir.|  
+|PasswordVerdictLevel|Sayı|Merhaba tarafından kullanılan değer [kaydolma](api-management-page-controls.md#sign-up)kaydolma denetim.|  
+|UserRegistrationTerms|Dize|Bir kullanıcı oturum açma toobefore kabul etmelidirler koşulları.|  
+|UserRegistrationTermsOptions|Sayı|Merhaba tarafından kullanılan değer [kaydolma](api-management-page-controls.md#sign-up)kaydolma denetim.|  
+|ConsentAccepted|Boole değeri|Merhaba tarafından kullanılan değer [kaydolma](api-management-page-controls.md#sign-up)kaydolma denetim.|  
+|E-posta|Dize|E-posta adresi. Boş olmamalı ve hello hizmet örneği içinde benzersiz olmalıdır. En fazla uzunluğu 254 karakter olabilir.|  
 |FirstName|Dize|İlk adı. Boş olmamalıdır. En fazla 100 karakter olabilir.|  
 |Soyadı|Dize|Soyadı. Boş olmamalıdır. En fazla 100 karakter olabilir.|  
-|UserData|Dize|Tarafından kullanılan değer [kaydolma](api-management-page-controls.md#sign-up) denetim.|  
-|NameIdentifier|Dize|Tarafından kullanılan değer [kaydolma](api-management-page-controls.md#sign-up)kaydolma denetim.|  
+|UserData|Dize|Merhaba tarafından kullanılan değer [kaydolma](api-management-page-controls.md#sign-up) denetim.|  
+|NameIdentifier|Dize|Merhaba tarafından kullanılan değer [kaydolma](api-management-page-controls.md#sign-up)kaydolma denetim.|  
 |ProviderName|Dize|Kimlik doğrulama sağlayıcısının adı.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [şablonları kullanarak API Management Geliştirici Portalı nasıl özelleştireceğinizi](api-management-developer-portal-templates.md).
+Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [nasıl toocustomize hello şablonları kullanarak API Management Geliştirici Portalı](api-management-developer-portal-templates.md).

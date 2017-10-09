@@ -1,6 +1,6 @@
 ---
-title: "İzleme ve veri ardışık - Azure yönetme | Microsoft Docs"
-description: "Azure data factory'leri ve ardışık düzen yönetmek ve izlemek için izleme ve yönetim uygulaması kullanmayı öğrenin."
+title: "aaaMonitor ve veri ardışık - Azure yönetme | Microsoft Docs"
+description: "Nasıl toouse izleme ve yönetim uygulaması toomonitor hello ve Azure data factory'leri ve ardışık düzen yönetmek öğrenin."
 services: data-factory
 documentationcenter: 
 author: spelluru
@@ -14,309 +14,309 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: spelluru
-ms.openlocfilehash: d5a2d1f3d85b8a2212326cfcfd0ba5d80356b769
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5e4ef6ec5fb8ebc9bda0be7899a39a51d58403d1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>İzleme ve Azure Data Factory işlem hatlarını izleme ve yönetim uygulaması kullanarak yönetme
+# <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-hello-monitoring-and-management-app"></a>İzleme ve hello izleme ve yönetim uygulaması kullanarak Azure Data Factory işlem hatlarını yönetme
 > [!div class="op_single_selector"]
 > * [Azure portal/Azure PowerShell kullanma](data-factory-monitor-manage-pipelines.md)
 > * [Kullanılarak izleme ve yönetim uygulaması](data-factory-monitor-manage-app.md)
 >
 >
 
-Bu makalede izleme ve yönetim uygulama izleme, yönetme ve Data Factory işlem hatlarınızı hata ayıklamak için nasıl kullanılacağını açıklar. Ayrıca hatalarında bildirim almak için uyarı oluşturma hakkında bilgi sağlar. Aşağıdaki videoyu izleyerek uygulamayı kullanmaya başlayabilirsiniz:
+Bu makalede nasıl toouse izleme ve yönetim uygulaması toomonitor Merhaba, yönetmek ve Data Factory işlem hatlarınızı hata ayıklama açıklanmaktadır. Toocreate hatalarında bildirim tooget nasıl uyarıları bilgi de sağlar. Merhaba uygulaması tarafından izledikleri hello aşağıdaki video kullanmaya başlamak:
 
 > [!NOTE]
-> Portalı'nda bkz videoda gösterilen kullanıcı arabirimi tam olarak eşleşmiyor olabilir. Biraz daha eski olduğu, ancak kavramları aynı kalır. 
+> hello Portalı'nda bkz Hello video gösterilen hello kullanıcı arabirimi tam olarak eşleşmiyor olabilir. Biraz daha eski olduğu, ancak kavramları kalır hello aynı. 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Data-Factory-Monitoring-and-Managing-Big-Data-Piplines/player]
 >
 
-## <a name="launch-the-monitoring-and-management-app"></a>İzleme ve yönetim uygulama başlatma
-İzleme ve yönetim uygulaması başlatmak için tıklatın **İzleyici & Yönet** döşemesinin **Data Factory** veri fabrikanızın dikey.
+## <a name="launch-hello-monitoring-and-management-app"></a>Merhaba izleme ve yönetim uygulamasını başlatın
+toolaunch hello izleme ve yönetim uygulaması hello'ı tıklatın **İzleyici & Yönet** döşeme hello üzerinde **Data Factory** veri fabrikanızın dikey.
 
-![Data Factory giriş sayfasında izleme kutucuğu](./media/data-factory-monitor-manage-app/MonitoringAppTile.png)
+![Döşeme hello Data Factory giriş sayfasında izleme](./media/data-factory-monitor-manage-app/MonitoringAppTile.png)
 
-Ayrı bir pencerede açmak izleme ve yönetim uygulaması görmeniz gerekir.  
+Ayrı bir pencerede açmak hello izleme ve yönetim uygulaması görmeniz gerekir.  
 
 ![İzleme ve Yönetim uygulaması](./media/data-factory-monitor-manage-app/AppLaunched.png)
 
 > [!NOTE]
-> Web tarayıcısının "Yetkilendiriliyor..." durumunda takıldığını görürseniz, temizleyin **üçüncü taraf tanımlama bilgilerini engelleyebilir ve site verileri** onay kutusu--veya seçili, Canlı oluşturmak için bir özel durum **login.microsoftonline.com**, ve ardından uygulamayı açmayı yeniden deneyin.
+> Bu hello web tarayıcısının "Yetkilendiriliyor..." takılmış görürseniz, hello temizleyin **üçüncü taraf tanımlama bilgilerini engelleyebilir ve site verileri** onay kutusu--veya seçili, Canlı oluşturmak için bir özel durum **login.microsoftonline.com** ve tooopen hello uygulama yeniden deneyin.
 
 
-Orta bölmede etkinlik Windows listesinde, her bir etkinlik çalışması için bir etkinlik penceresini görürsünüz. Örneğin, beş saatlik saatte bir çalışacak şekilde zamanlanmış etkinlik varsa, beş veri dilimi ile ilişkili beş etkinlik windows bakın. Etkinlik pencerelerine alttaki listede görmüyorsanız, aşağıdakileri yapın:
+Merhaba etkinlik Windows hello Orta bölmesindeki listesinde, her bir etkinlik çalışması için bir etkinlik penceresine bakın. Örneğin, hello zamanlanan etkinlik toorun için beş saatten saatlik varsa, beş veri dilimi ile ilişkili beş etkinlik windows bakın. Etkinlik windows hello altındaki hello listesinde görmüyorsanız, aşağıdaki hello:
  
-- Güncelleştirme **başlangıç zamanı** ve **bitiş saati** filtreleri hattınızı başlangıç ve bitiş zamanları eşleşen ve ardından üst **Uygula** düğmesi.  
-- Etkinlik Windows listesi otomatik olarak yenilenmez. Tıklatın **yenileme** araç çubuğunda **etkinlik Windows** listesi.  
+- Güncelleştirme hello **başlangıç zamanı** ve **bitiş saati** hello üst toomatch hello filtreler başlangıç ve bitiş zamanları, ardışık ve hello ardından **Uygula** düğmesi.  
+- Merhaba etkinlik Windows listesi otomatik olarak yenilenmez. Merhaba tıklatın **yenileme** hello hello araç çubuğundan düğme **etkinlik Windows** listesi.  
 
-Bu adımları ile test etmek için bir veri fabrikası uygulaması yoksa, öğreticiyi yapın: [veri kopyalama Blob depolama alanından SQL Data Factory kullanarak veritabanına](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+Bu adımları bir Data Factory uygulama tootest yoksa, öğretici hello: [veritabanını Data Factory kullanarak Blob Storage tooSQL veri kopyalama](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-## <a name="understand-the-monitoring-and-management-app"></a>İzleme ve yönetim uygulaması anlama
-Soldaki bölmede üç sekme vardır: **kaynak Gezgini**, **izleme görünümleri**, ve **uyarıları**. İlk sekme (**kaynak Gezgini**) varsayılan olarak seçilidir.
+## <a name="understand-hello-monitoring-and-management-app"></a>Merhaba izleme ve yönetim uygulaması anlama
+Merhaba soldaki üç sekme vardır: **kaynak Gezgini**, **izleme görünümleri**, ve **uyarıları**. Merhaba ilk sekme (**kaynak Gezgini**) varsayılan olarak seçilidir.
 
 ### <a name="resource-explorer"></a>Kaynak Gezgini
-Aşağıdakilere bakın:
+Merhaba aşağıdakilere bakın:
 
-* Kaynak Gezgini **ağaç görünümü** sol bölmede.
-* **Diyagram görünümü** Orta bölmede üstünde.
-* **Etkinlik Windows** Orta bölmede altındaki listesi.
-* **Özellikleri**, **etkinlik penceresini Explorer**, ve **betik** sağ bölmedeki sekmeleri.
+* Merhaba kaynak Gezgini **ağaç görünümü** hello sol bölmede.
+* Merhaba **diyagram görünümü** hello orta bölmesinde hello üstünde.
+* Merhaba **etkinlik Windows** hello orta bölmesinde hello altındaki listesi.
+* Merhaba **özellikleri**, **etkinlik penceresini Explorer**, ve **betik** hello sağ bölmedeki sekmeleri.
 
-Kaynak Gezgini, ağaç görünümünde veri fabrikasında tüm kaynakları (komut zincirleri, veri kümeleri, bağlı hizmetler) bakın. Ne zaman kaynak Gezgini, bir nesne seçin:
+Kaynak Gezgini, ağaç görünümünde hello veri fabrikasında tüm kaynakları (komut zincirleri, veri kümeleri, bağlı hizmetler) bakın. Ne zaman kaynak Gezgini, bir nesne seçin:
 
-* İlişkili veri fabrikası Varlık diyagram Görünümü'nde vurgulanır.
-* [Etkinlik pencerelerine ilişkili](data-factory-scheduling-and-execution.md) altındaki etkinlik Windows listesinde vurgulanır.  
-* Sağ bölmede Özellikleri penceresinde seçili nesnenin özelliklerini gösterilmektedir.
-* Seçilen nesneyi JSON tanımını gösterilen varsa. Örneğin: bağlı hizmet, bir veri kümesi veya işlem hattı.
+* Merhaba Data Factory varlığı hello diyagram görünümü vurgulanan ilişkili.
+* [Etkinlik pencerelerine ilişkili](data-factory-scheduling-and-execution.md) hello altındaki hello etkinlik Windows listesinde vurgulanır.  
+* Merhaba hello seçili nesnenin özelliklerini hello Özellikler penceresinde hello sağ bölmede gösterilir.
+* Merhaba hello seçili nesnenin JSON tanımını gösterilir, varsa. Örneğin: bağlı hizmet, bir veri kümesi veya işlem hattı.
 
 ![Kaynak Gezgini](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
 
-Bkz: [zamanlama ve yürütme](data-factory-scheduling-and-execution.md) etkinlik windows hakkında ayrıntılı kavramsal bilgi için makalenin.
+Merhaba bkz [zamanlama ve yürütme](data-factory-scheduling-and-execution.md) etkinlik windows hakkında ayrıntılı kavramsal bilgi için makalenin.
 
 ### <a name="diagram-view"></a>Diyagram Görünümü
-Veri Fabrikası diyagram görünümünü bölmeden bir veri fabrikası ve varlıklarını yönetmek ve izlemek için cam sağlar. Diyagram Görünümü'nde bir Data Factory varlığı (dataset/ardışık düzeni) seçtiğinizde:
+Hello diyagram görünümü veri fabrikasının bölmeden cam toomonitor sağlar ve bir veri fabrikası ve varlıklarını yönetin. Ne zaman bir Data Factory varlığı (dataset/ardışık düzeni) hello diyagram görünümü seçin:
 
-* Veri Fabrikası varlık ağaç görünümünde seçilir.
-* İlişkili etkinlik windows etkinlik Windows listesinde vurgulanır.
-* Özellikler penceresinde seçili nesnenin özelliklerini gösterilmektedir.
+* Merhaba veri fabrikası varlık hello ağaç görünümünde seçilir.
+* Merhaba, windows hello etkinlik Windows listesinde vurgulanan etkinlik ilişkili.
+* Hello hello seçili nesnenin özelliklerini hello Özellikleri penceresinde görüntülenir.
 
-Ardışık Düzen (duraklatılmış durumda değil) etkin olduğunda, yeşil bir çizgiyle gösterilir:
+Merhaba ardışık düzen (duraklatılmış durumda değil) etkin olduğunda, yeşil bir çizgiyle gösterilir:
 
 ![Çalışan işlem hattı](./media/data-factory-monitor-manage-app/PipelineRunning.png)
 
-Duraklatma, sürdürme veya diyagram görünümünde seçerek ve komut çubuğunda düğmeleri kullanarak bir ardışık düzen sonlandırmak.
+Duraklatma, sürdürme veya hello diyagram görünümünde seçerek ve hello komut çubuğunda hello düğmelerini kullanarak bir ardışık düzen sonlandırmak.
 
-![Komut çubuğunda Duraklat/Sürdür](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
+![Merhaba komut çubuğunda Duraklat/Sürdür](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
  
-Diyagram görünümünde ardışık düzeni için üç komut çubuğu düğmelerini vardır. Ardışık Düzen duraklatmak için ikinci düğmesini kullanabilirsiniz. Duraklatma çalışmakta etkinlikleri sonlandırmak değil ve bunları tamamlanıncaya kadar devam olanak tanır. Üçüncü düğme ardışık duraklatır ve onun etkinlikleri yürütme varolan sona erer. İlk düğme ardışık sürdürür. İşlem hattınızı duraklatıldığında, ardışık düzen rengini değiştirir. Örneğin, duraklatılmış bir ardışık düzen aşağıdaki görüntüde şuna benzer: 
+Merhaba ardışık düzeninde hello diyagram görünümü için üç komut çubuğu düğmelerini vardır. Merhaba ikinci düğme toopause hello ardışık kullanabilirsiniz. Duraklatma etkinliklerini çalışmakta hello sonlandırmak değil ve bunları toocompletion devam olanak tanır. Merhaba üçüncü düğme hello ardışık düzen duraklatır ve kendi etkinlikleri yürütme varolan sona erer. Merhaba ilk düğme hello ardışık düzen sürdürür. İşlem hattınızı duraklatıldığında hello ardışık hello rengi değişir. Örneğin, duraklatılmış bir ardışık düzen görüntü aşağıdaki hello şuna benzer: 
 
 ![Ardışık Düzen duraklatıldı](./media/data-factory-monitor-manage-app/PipelinePaused.png)
 
-Ctrl tuşunu kullanarak çoklu seçim iki veya daha fazla ardışık düzen olabilir. Komut çubuğu düğmelerini Duraklat/birden çok ardışık düzen aynı anda Sürdür için kullanabilirsiniz.
+Çoklu seçim iki veya daha fazla ardışık düzen hello Ctrl tuşunu kullanarak yapabilirsiniz. Aynı anda birden çok ardışık düzen hello komut çubuğu düğmelerini toopause/sürdürmeden kullanabilirsiniz.
 
-Ayrıca, bir işlem hattı sağ tıklatın ve askıya alma, sürdürme veya bir işlem hattı sonlandırmak için seçenekleri seçin. 
+Ayrıca sağ ardışık düzen ve seçenekleri belirleyin toosuspend sürdürün veya bir işlem hattı sonlandırılacak. 
 
 ![Ardışık düzeni için bağlam menüsü](./media/data-factory-monitor-manage-app/right-click-menu-for-pipeline.png)
 
-Tıklatın **açık işlem hattı** işlem hattındaki tüm etkinlikleri görmek için seçeneği. 
+Merhaba tıklatın **açık işlem hattı** hello ardışık düzende tüm hello etkinlik toosee seçeneği. 
 
 ![İşlem hattı menüsünü açma](./media/data-factory-monitor-manage-app/OpenPipelineMenu.png)
 
-Açılan ardışık düzen Görünümü'nde, işlem hattındaki tüm etkinlikleri görürsünüz. Bu örnekte, yalnızca bir etkinlik yok: kopyalama etkinliği. 
+Açılan hello ardışık düzen Görünümü'nde hello ardışık düzende tüm etkinlik bakın. Bu örnekte, yalnızca bir etkinlik yok: kopyalama etkinliği. 
 
 ![Açılan ardışık düzen](./media/data-factory-monitor-manage-app/OpenedPipeline.png)
 
-Önceki görünüme geri dönmek için veri fabrikası adı üstteki içerik haritası menüsünde tıklatın.
+toogo toohello önceki görünüme geri hello veri fabrikası adı hello üstünde hello içerik haritası menüsünde'ı tıklatın.
 
-Bir çıkış veri kümesini veya çıkış veri kümesinde farenizi taşıdığınızda seçtiğinizde ardışık düzen görünümünde, bu veri kümesi için etkinlik Windows açılır pencere görürsünüz.
+Bir çıkış veri kümesi veya hello çıktı veri kümesi üzerinde farenizi taşıdığınızda seçtiğinizde hello ardışık düzen görünümünde bu veri kümesi için hello etkinlik Windows açılır pencere görürsünüz.
 
 ![Etkinlik Windows açılır penceresi](./media/data-factory-monitor-manage-app/ActivityWindowsPopup.png)
 
-İçinde için ayrıntıları görmek için bir etkinlik penceresini tıklayabilirsiniz **özellikleri** penceresinin sağ bölmesinde.
+Hello bir etkinlik penceresini toosee ayrıntıları tıklattığınız **özellikleri** hello sağ bölmedeki penceresi.
 
 ![Etkinlik penceresini özellikleri](./media/data-factory-monitor-manage-app/ActivityWindowProperties.png)
 
-Sağ bölmede geçmek **etkinlik penceresini Explorer** daha fazla ayrıntı için sekmesi.
+Merhaba sağ bölmede, toohello geçiş **etkinlik penceresini Explorer** toosee Ayrıntılar sekmesi.
 
 ![Etkinlik penceresini Gezgini](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
 
-Ayrıca bkz: **değişkenleri çözülmüş** bir etkinliğin her çalıştırma denemesi için **denemeleri** bölümü.
+Ayrıca bkz: **değişkenleri çözülmüş** hello bir etkinliğin her çalıştırma denemesi için **denemeleri** bölümü.
 
 ![Çözümlenen değişkenleri](./media/data-factory-monitor-manage-app/ResolvedVariables.PNG)
 
-Geçiş **betik** sekmesi seçili nesne için JSON betik tanımına bakın.   
+Geçiş toohello **betik** sekmesinde hello seçili nesne için toosee hello JSON betik tanımı.   
 
 ![Komut dosyası sekmesi](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
 Etkinlik pencerelerine üç yerde görebilirsiniz:
 
-* Diyagram görünümünde (Orta bölme) etkinlik Windows açılır.
-* Sağ bölmede etkinlik penceresini Gezgini.
-* Alt bölme etkinlik Windows listesinde.
+* Merhaba etkinlik Windows hello diyagram görünümü (Orta bölme) açılır.
+* Etkinlik penceresini Explorer Hello hello sağ bölmedeki.
+* Merhaba alt bölmesinde Hello etkinlik Windows listesi.
 
-Etkinlik pencerelerine açılır ve etkinlik penceresini Gezgini sol ve sağ ok kullanarak önceki hafta ve sonraki hafta gezinebilirsiniz.
+Hello etkinlik Windows açılır ve etkinlik penceresini Gezgini'nde, önceki hafta toohello kaydırın ve hello kullanarak sonraki hafta hello sol ve sağ ok.
 
 ![Etkinlik penceresini Explorer sol/sağ ok](./media/data-factory-monitor-manage-app/ActivityWindowExplorerLeftRightArrows.png)
 
-Diyagram görünümü en altında bu düğmeleri Bkz: Yakınlaştır, uzaklaştırma, yakınlaştırma sığacak şekilde, yakınlaştırma % 100, kilit düzeni. **Kilit düzeni** düğmesi önler yanlışlıkla tablolar ve ardışık düzen diyagram Görünümü'nde taşınmasını. Bu varsayılan olarak açıktır. Uygulamayı kapatın ve varlıkları diyagramında hareket ettirin. Devre dışı bıraktığınızda, tablolar ve ardışık düzen otomatik Konumlandır için Son düğmesini kullanabilirsiniz. Fare tekerleği kullanarak içeri veya dışarı ayrıca yakınlaştırabilirsiniz.
+Merhaba diyagram görünümü Hello kısımda bu düğmeleri Bkz: yakınlaştırma, uzaklaştırma, yakınlaştırma tooFit yakınlaştırma % 100, kilit düzeni. Merhaba **kilit düzeni** düğmesi önler yanlışlıkla tablolar ve ardışık düzen hello diyagram görünümü taşınmasını. Bu varsayılan olarak açıktır. Uygulamayı kapatın ve varlıkları hello diyagramında hareket ettirin. Devre dışı bıraktığınızda, hello Son düğmesine tooautomatically konumu tablolar ve ardışık düzen kullanabilirsiniz. Giriş veya çıkış hello fare tekerleği kullanarak da yakınlaştırabilirsiniz.
 
 ![Diyagram görünümü yakınlaştırma komutları](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
 
 ### <a name="activity-windows-list"></a>Etkinlik Windows listesi
-Etkinlik Windows orta bölmesinde altındaki tüm etkinlik windows kaynak Gezgini ya da diyagram görünümünde seçilen veri kümesi için görüntüler. Varsayılan olarak, en son etkinlik pencerenin en üstünde gördüğünüz anlamına gelir, azalan sırada listesidir.
+Merhaba etkinlik Windows hello orta bölmesinde hello altındaki tüm etkinlik windows hello kaynak Gezgini veya hello diyagram görünümü seçili hello veri kümesi için görüntüler. Varsayılan olarak, hello hello son etkinlik penceresini hello üstünde görmek anlamına gelir, azalan sırada listesidir.
 
 ![Etkinlik Windows listesi](./media/data-factory-monitor-manage-app/ActivityWindowsList.png)
 
-Bu liste otomatik yenileme değil, bu nedenle el ile yenilemek için araç çubuğunda Yenile düğmesini kullanın.  
+Bu liste, kullanım hello Yenile düğmesini hello araç toomanually üzerinde yenilemek için otomatik olarak yenilenmez.  
 
-Etkinlik pencerelerine aşağıdaki durumlardan biri olabilir:
+Etkinlik windows hello durumları aşağıdaki biri olabilir:
 
 <table>
 <tr>
     <th align="left">Durum</th><th align="left">Alt durum</th><th align="left">Açıklama</th>
 </tr>
 <tr>
-    <td rowspan="8">Bekleniyor</td><td>ScheduleTime</td><td>Zaman çalıştırmak ilişkin etkinlik penceresinin gelen kurmadı.</td>
+    <td rowspan="8">Bekleniyor</td><td>ScheduleTime</td><td>Başlangıç saati hello etkinlik penceresini toorun için gelen kurmadı.</td>
 </tr>
 <tr>
-<td>DatasetDependencies</td><td>Yukarı Akış bağımlılıkları hazır değil.</td>
+<td>DatasetDependencies</td><td>Merhaba Yukarı Akış bağımlılıkları hazır değil.</td>
 </tr>
 <tr>
-<td>ComputeResources</td><td>İşlem kaynakları kullanılabilir değil.</td>
+<td>ComputeResources</td><td>Merhaba işlem kaynakları kullanılabilir değil.</td>
 </tr>
 <tr>
-<td>ConcurrencyLimit</td> <td>Tüm etkinlik örnekleri diğer etkinlik windows çalıştıran meşgul.</td>
+<td>ConcurrencyLimit</td> <td>Tüm hello etkinlik örnekleri diğer etkinlik windows çalıştıran meşgul.</td>
 </tr>
 <tr>
-<td>ActivityResume</td><td>Etkinlik duraklatıldı ve sürdürülene kadar etkinlik windows çalıştıramaz.</td>
+<td>ActivityResume</td><td>Merhaba etkinlik duraklatıldı ve sürdürülene kadar hello etkinlik windows çalıştıramaz.</td>
 </tr>
 <tr>
-<td>Yeniden deneyin</td><td>Etkinlik yürütme yeniden deneniyor.</td>
+<td>Yeniden deneyin</td><td>Merhaba Etkinlik yürütme yeniden deneniyor.</td>
 </tr>
 <tr>
 <td>Doğrulama</td><td>Doğrulama henüz başlatılmadı.</td>
 </tr>
 <tr>
-<td>ValidationRetry</td><td>Doğrulama işleminin yeniden gerçekleştirilmesi bekleniyor.</td>
+<td>ValidationRetry</td><td>Doğrulama denenen bekleme toobe ' dir.</td>
 </tr>
 <tr>
 <tr>
 <td rowspan="2">Devam ediyor</td><td>Doğrulama</td><td>Doğrulama devam ediyor.</td>
 </tr>
 <td>-</td>
-<td>Etkinlik penceresinin işleniyor.</td>
+<td>Merhaba etkinlik penceresini işleniyor.</td>
 </tr>
 <tr>
-<td rowspan="4">Başarısız oldu</td><td>Süresi sona erdi</td><td>Etkinlik yürütme etkinlik tarafından izin daha uzun sürdü.</td>
+<td rowspan="4">Başarısız oldu</td><td>Süresi sona erdi</td><td>Merhaba Etkinlik yürütme hello etkinliği tarafından izin daha uzun sürdü.</td>
 </tr>
 <tr>
-<td>İptal edildi</td><td>Etkinlik penceresinin kullanıcı eylemi tarafından iptal edildi.</td>
+<td>İptal edildi</td><td>Merhaba etkinlik penceresini kullanıcı eylemi tarafından iptal edildi.</td>
 </tr>
 <tr>
 <td>Doğrulama</td><td>Doğrulama başarısız oldu.</td>
 </tr>
 <tr>
-<td>-</td><td>Etkinlik penceresinin oluşturulan ya da doğrulanması başarısız oldu.</td>
+<td>-</td><td>Merhaba etkinlik penceresini oluşturulan veya doğrulanmamış toobe başarısız oldu.</td>
 </tr>
-<td>Hazır</td><td>-</td><td>Etkinlik penceresinin tüketimi için hazırdır.</td>
-</tr>
-<tr>
-<td>Atlandı</td><td>-</td><td>Etkinlik penceresinin işlenen değildi.</td>
+<td>Hazır</td><td>-</td><td>Merhaba etkinlik penceresini tüketimi için hazırdır.</td>
 </tr>
 <tr>
-<td>None</td><td>-</td><td>Bir etkinlik penceresini farklı bir durum ile var olmuş ancak sıfırlanmış.</td>
+<td>Atlandı</td><td>-</td><td>Merhaba etkinlik penceresini işlenen değildi.</td>
+</tr>
+<tr>
+<td>None</td><td>-</td><td>Bir etkinlik penceresi tooexist farklı bir durum ile kullanılan ancak sıfırlandı.</td>
 </tr>
 </table>
 
 
-Listenin etkinliği penceresindeki tıklattığınızda içinde ayrıntılarını görmek **etkinlik Windows Explorer** veya **özellikleri** penceresini sağdaki.
+Merhaba listesi etkinliği penceresindeki tıklattığınızda hello onunla ilgili ayrıntıları görürsünüz **etkinlik Windows Explorer** veya hello **özellikleri** penceresinde hello sağ.
 
 ![Etkinlik penceresini Gezgini](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
 ### <a name="refresh-activity-windows"></a>Etkinlik pencerelerine Yenile
-Ayrıntıları otomatik olarak yenilenir değil, bu nedenle etkinlik windows listesini el ile yenilemek için komut çubuğunda (ikinci düğme) Yenile düğmesini kullanın.  
+Merhaba ayrıntıları otomatik olarak yenilenir değil, bu nedenle toomanually yenileme hello etkinlik windows listesi çubuğu hello komutunda hello Yenile düğmesini (Merhaba ikinci düğme) kullanın.  
 
 ### <a name="properties-window"></a>Özellik penceresi
-Özellikler penceresini izleme ve yönetim uygulaması en sağ bölmesinde bulunur.
+Merhaba Özellikleri penceresinde hello en sağ bölmesinde hello izleme ve yönetim uygulaması bulunur.
 
 ![Özellik penceresi](./media/data-factory-monitor-manage-app/PropertiesWindow.png)
 
-Kaynak Gezgini (ağaç görünümü), diyagram görünümü veya etkinlik Windows liste seçili öğenin özelliklerini görüntüler.
+Merhaba kaynak Gezgini (ağaç görünümü) seçili hello öğenin özelliklerini görüntüler diyagram görünümü veya etkinlik Windows listesi.
 
 ### <a name="activity-window-explorer"></a>Etkinlik penceresini Gezgini
-**Etkinlik penceresini Explorer** izleme ve yönetim uygulaması en sağdaki bölmede bir penceredir. Etkinlik Windows açılır penceresi veya etkinlik Windows listedeki seçili etkinlik penceresinin hakkındaki ayrıntıları görüntüler.
+Merhaba **etkinlik penceresini Explorer** ' hello izleme ve yönetim uygulaması hello en sağ bölmesinde bir penceredir. Merhaba etkinlik Windows açılır penceresi veya hello etkinlik Windows listedeki seçili hello etkinlik penceresini hakkındaki ayrıntıları görüntüler.
 
 ![Etkinlik penceresini Gezgini](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-3.png)
 
-Üst Takvim görünümünde tıklayarak başka bir etkinlik penceresine geçiş yapabilirsiniz. Etkinlik Windows'dan önceki haftanın ya da sonraki hafta görmek için sayfanın üstünde sol ok/sağ ok düğmelerini de kullanabilirsiniz.
+Merhaba üstünde hello Takvim görünümünde tıklatarak tooanother faaliyet penceresi arasında geçiş yapabilirsiniz. Ayrıca, önceki hafta hello üst toosee etkinlik windows hello adresindeki hello sol ok/sağ ok düğmelerini kullanın veya sonraki hafta hello.
 
-Etkinlik penceresinin yeniden çalıştırın veya ayrıntılar bölmesinde yenilemek için alt bölmesinde araç çubuğu düğmelerini kullanın.
+Merhaba alt bölmesinde toorerun hello etkinlik penceresinde hello araç çubuğu düğmelerini kullanın veya hello bölmesini hello ayrıntılarında yenileyin.
 
 ### <a name="script"></a>Betik
-Kullanabileceğiniz **betik** seçili Data Factory varlığı (bağlantılı hizmet, veri kümesi veya işlem hattı) JSON tanımını görüntülemek için.
+Merhaba kullanabilirsiniz **betik** sekmesini tooview hello hello JSON tanımını seçili Data Factory varlığı (bağlı hizmet, veri kümesi veya işlem hattı).
 
 ![Komut dosyası sekmesi](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
 ## <a name="use-system-views"></a>Sistem görünümleri kullanma
-İzleme ve yönetim uygulaması önceden derlenmiş sistem görünümleri içerir (**son etkinlik windows**, **başarısız etkinliği windows**, **ilerleme durumu etkinlik windows**), izin ver en son/başarısız/Süren etkinlik windows veri fabrikanızın görüntülemek için.
+Merhaba izleme ve yönetim uygulamasını içeren önceden derlenmiş sistem görünümleri (**son etkinlik windows**, **başarısız etkinliği windows**, **ilerleme durumu etkinlik windows**), Veri fabrikanızın tooview son/başarısız/Süren etkinlik pencerelerine izin verin.
 
-Geçiş **izleme görünümleri** sekmesini tıklatarak soldaki.
+Geçiş toohello **izleme görünümleri** tıklatarak hello sol sekmesinde.
 
 ![İzleme görünümleri sekmesi](./media/data-factory-monitor-manage-app/MonitoringViewsTab.png)
 
-Şu anda desteklenen üç sistem görünümleri vardır. Son Etkinlik windows, başarısız etkinliği windows veya devam eden etkinlik windows etkinlik Windows listesinde (orta bölmesinde altındaki) görmek için bir seçenek belirleyin.
+Şu anda desteklenen üç sistem görünümleri vardır. Bir seçenek toosee seçin son etkinlik windows, başarısız olan etkinliği windows veya devam eden etkinlik windows hello etkinlik Windows listesinde (sonundaki hello hello orta bölmesinde).
 
-Seçtiğinizde, **son etkinlik windows** seçeneği, azalan sırada olan tüm son etkinlik windows görmek **zaman'son deneme**.
+Merhaba seçtiğinizde **son etkinlik windows** seçeneği, gördüğünüz hello azalan tüm son etkinlik windows **zaman'son deneme**.
 
-Kullanabileceğiniz **başarısız etkinliği windows** listesindeki tüm başarısız etkinliği windows görmek için görünümü. İçinde ayrıntılarını görmek için listedeki bir başarısız etkinliği penceresi seçin **özellikleri** penceresi veya **etkinlik penceresini Explorer**. Ayrıca, başarısız olan etkinliği penceresi için herhangi bir günlük indirebilirsiniz.
+Merhaba kullanabilirsiniz **başarısız etkinliği windows** toosee tüm başarısız etkinliği windows hello listesinde görüntülemek. Itanium tabanlı sistemler için hello listesi toosee ayrıntıları ilgili hello içinde başarısız olan etkinliği penceresi seçin **özellikleri** penceresi veya hello **etkinlik penceresini Explorer**. Ayrıca, başarısız olan etkinliği penceresi için herhangi bir günlük indirebilirsiniz.
 
 ## <a name="sort-and-filter-activity-windows"></a>Sıralama ve filtreleme etkinliği windows
-Değişiklik **başlangıç zamanı** ve **bitiş saati** filtre etkinlik Windows Komut çubuğunda ayarlar. Başlangıç ve bitiş zamanı değiştirdikten sonra etkinlik Windows listesini yenilemek için bitiş zamanı yanındaki düğmesini tıklatın.
+Değişiklik hello **başlangıç zamanı** ve **bitiş saati** hello komut çubuğu toofilter etkinlik pencereleri ayarlarında. Hello başlangıç ve bitiş zamanı değiştirdikten sonra hello düğmesi sonraki toohello bitiş saati toorefresh hello etkinlik Windows listesi tıklayın.
 
 ![Başlangıç ve bitiş zamanlarını](./media/data-factory-monitor-manage-app/StartAndEndTimes.png)
 
 > [!NOTE]
-> Şu anda, izleme ve yönetim uygulaması UTC biçiminde her zaman uygun.
+> Şu anda tüm saatler UTC biçiminde hello izleme ve yönetim uygulaması arasındadır.
 >
 >
 
-İçinde **etkinlik Windows listesi**, bir sütun adına tıklayın (örneğin: durum).
+Merhaba, **etkinlik Windows listesi**, bir sütun hello adına tıklayın (örneğin: durum).
 
 ![Etkinlik Windows liste sütun menüsü](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
 
-Aşağıdakileri yapabilirsiniz:
+Yapabileceğiniz hello aşağıdaki:
 
 * Artan sırada Sırala.
 * Azalan sırada sıralayın.
 * Bir veya daha fazla değerlerle (hazır, bekliyor vb.) filtreleyin.
 
-Bir sütunda bir filtre belirttiğinizde, filtrelenmiş değerleri sütundaki değerleri gösterir bu sütun için etkin filtre düğmesini bakın.
+Bir sütunda bir filtre belirttiğinizde, filtrelenmiş değerleri hello sütundaki hello değerleri gösterir bu sütun için etkin hello filtre düğmesini bakın.
 
-![Etkinlik pencerelerine listesinin bir sütuna filtre](./media/data-factory-monitor-manage-app/ActivityWindowsListFilterInColumn.png)
+![Merhaba etkinlik Windows listesinin bir sütuna filtre](./media/data-factory-monitor-manage-app/ActivityWindowsListFilterInColumn.png)
 
-Aynı açılır pencere Filtreleri temizlemek için kullanabilirsiniz. Etkinlik pencerelerine listesi için tüm filtreleri temizlemek için komut çubuğunda Filtreyi düğmesini tıklatın.
+Kullanabileceğiniz hello aynı açılır pencere tooclear filtreler. tüm filtreleri hello etkinlik Windows listesi için tooclear hello komut çubuğunda hello filtreyi düğmesini tıklatın.
 
-![Etkinlik pencerelerine listesi için tüm filtreleri temizlemek](./media/data-factory-monitor-manage-app/ClearAllFiltersActivityWindowsList.png)
+![Merhaba etkinlik Windows listesi için tüm filtreleri temizlemek](./media/data-factory-monitor-manage-app/ClearAllFiltersActivityWindowsList.png)
 
 ## <a name="perform-batch-actions"></a>Toplu işlemleri
 ### <a name="rerun-selected-activity-windows"></a>Seçili etkinlik windows yeniden çalıştırın
-Bir etkinlik penceresi seçin, ilk komut çubuğu düğmesi için aşağı oka tıklayın ve seçin **yeniden Çalıştır** / **ile upstream ardışık düzeninde yeniden**. Seçtiğinizde, **ile upstream ardışık düzeninde yeniden** seçeneği, tüm Yukarı Akış etkinliği windows de yeniden çalıştırır.
+Bir etkinlik penceresi seçin, aşağı ok hello ilk komut çubuğu düğmesi için hello tıklatın ve seçin **yeniden Çalıştır** / **ile upstream ardışık düzeninde yeniden**. Merhaba seçtiğinizde **ile upstream ardışık düzeninde yeniden** seçeneği, tüm Yukarı Akış etkinliği windows de yeniden çalıştırır.
     ![Bir etkinlik penceresi yeniden](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
-Ayrıca, birden çok etkinlik windows listeden seçin ve bunları aynı anda yeniden çalıştırın. Etkinlik windows durumlarına göre filtre uygulamak istediğiniz (örneğin: **başarısız**)--ve başarısız olan etkinliği windows etkinlik windows başarısız olmasına neden olan sorunu düzelttikten sonra yeniden çalıştırın. Etkinlik pencerelerine listesinde filtreleme hakkında ayrıntılar için aşağıdaki bölüme bakın.  
+Ayrıca birden çok etkinlik windows hello listesinden seçin ve hello yeniden aynı anda. Toofilter etkinlik windows hello durumlarına dayalı isteyebilirsiniz (örneğin: **başarısız**)--ve başarısız hello etkinlik windows hello etkinlik windows toofail neden hello sorunu düzelttikten sonra yeniden çalıştırın. Merhaba bölümden etkinlik windows hello listesinde filtreleme hakkında ayrıntılar için bkz.  
 
 ### <a name="pauseresume-multiple-pipelines"></a>Birden çok ardışık düzen Duraklat/Sürdür
-Ctrl tuşunu kullanarak çoklu iki veya daha fazla ardışık düzen olabilir. Bunları Duraklat/Sürdür için (hangi aşağıdaki görüntüde kırmızı dikdörtgen içinde vurgulanır) komut çubuğu düğmelerini kullanabilirsiniz.
+Çoklu iki veya daha fazla ardışık düzen hello Ctrl tuşunu kullanarak yapabilirsiniz. (Hangi görüntü aşağıdaki hello hello kırmızı dikdörtgende içinde vurgulanır) hello komut çubuğu düğmelerini kullanabilirsiniz toopause/sürdürmeden bunları.
 
-![Komut çubuğunda Duraklat/Sürdür](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
+![Merhaba komut çubuğunda Duraklat/Sürdür](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
 
 ## <a name="create-alerts"></a>Uyarı oluşturma
-**Uyarıları** sayfası, bir uyarı ve görünüm/düzenleme/silme mevcut uyarıları oluşturmanıza olanak sağlar. Sizin de devre dışı bırak/uyarı etkinleştirebilirsiniz. Uyarılar sayfasında görmek için tıklatın **uyarıları** sekmesi.
+Merhaba **uyarıları** sayfası, bir uyarı ve görünüm/düzenleme/silme mevcut uyarıları oluşturmanıza olanak sağlar. Sizin de devre dışı bırak/uyarı etkinleştirebilirsiniz. toosee uyarılar sayfasında Merhaba, hello tıklatın **uyarıları** sekmesi.
 
 ![Uyarılar sekmesi](./media/data-factory-monitor-manage-app/AlertsTab.png)
 
-### <a name="to-create-an-alert"></a>Bir uyarı oluşturmak için
-1. Tıklatın **eklemek uyarı** bir uyarı eklemek için. Gördüğünüz **ayrıntıları** sayfası.
+### <a name="toocreate-an-alert"></a>toocreate bir uyarı
+1. Tıklatın **eklemek uyarı** tooadd bir uyarı. Merhaba gördüğünüz **ayrıntıları** sayfası.
 
     ![Uyarılar - ayrıntılar sayfası oluşturma](./media/data-factory-monitor-manage-app/CreateAlertDetailsPage.png)
-2. Belirtin **adı** ve **açıklama** uyarı ve tıklatın **sonraki**. Görmeniz gerekir **filtreleri** sayfası.
+2. Merhaba belirtin **adı** ve **açıklama** tıklatın ve hello uyarı için **sonraki**. Merhaba görmelisiniz **filtreleri** sayfası.
 
     ![Uyarılar - filtreleri sayfa oluşturma](./media/data-factory-monitor-manage-app/CreateAlertFiltersPage.png)
-3. Seçin **olay**, **durum**, ve **substatus** (isteğe bağlı) bir Data Factory hizmeti uyarı oluşturup tıklatın istediğiniz **sonraki**. Görmeniz gerekir **alıcılar** sayfası.
+3. Select hello **olay**, **durum**, ve **substatus** (isteğe bağlı) toocreate istediğiniz bir Data Factory hizmeti için uyarı öğesini tıklatıp **sonraki**. Merhaba görmelisiniz **alıcılar** sayfası.
 
     ![Uyarılar - alıcılar sayfa oluşturma](./media/data-factory-monitor-manage-app/CreateAlertRecipientsPage.png)
-4. Seçin **abonelik yöneticileri e-posta** seçeneği ve/veya girin bir **ek yönetici e-posta**, tıklatıp **son**. Uyarı listesinde görmeniz gerekir.
+4. Select hello **abonelik yöneticileri e-posta** seçeneği ve/veya girin bir **ek yönetici e-posta**, tıklatıp **son**. Merhaba uyarı hello listesinde görmeniz gerekir.
 
     ![Uyarılar listesinde](./media/data-factory-monitor-manage-app/AlertsList.png)
 
-Uyarılar listesinde düzenleme/silme/devre dışı bırak/etkinleştir bir uyarı uyarı ile ilişkili düğmelerini kullanın.
+Merhaba Uyarılar listesinde hello uyarı tooedit/silme/devre dışı bırak/etkinleştir ile bir uyarı ilişkili hello düğmelerini kullanın.
 
 ### <a name="eventstatussubstatus"></a>Alt olay/durumu/durum
-Aşağıdaki tabloda kullanılabilir olayları ve durumları (ve alt durumlar) listesini sağlar.
+Merhaba aşağıdaki tabloda kullanılabilir olayları ve durumları (ve alt durumlar) hello listesini sağlar.
 
 | Olay adı | Durum | Alt durum |
 | --- | --- | --- |
@@ -327,8 +327,8 @@ Aşağıdaki tabloda kullanılabilir olayları ve durumları (ve alt durumlar) l
 | İsteğe bağlı HDI kümesi başarıyla oluşturuldu |Başarılı oldu |-|
 | İsteğe bağlı HDI kümesi silindi |Başarılı oldu |-|
 
-### <a name="to-edit-delete-or-disable-an-alert"></a>Düzenleme, silme veya bir uyarıyı devre dışı bırakmak için
+### <a name="tooedit-delete-or-disable-an-alert"></a>tooedit, silmek veya uyarıyı devre dışı bırak
 
-Düzenleme, silme veya devre dışı bir uyarı (kırmızı ile vurgulanan) aşağıdaki düğmelerini kullanın.
+(Kırmızı ile vurgulanan) düğmeleri tooedit, silmek veya devre dışı bir uyarı aşağıdaki hello kullanın.
 
 ![Uyarıları düğmeleri](./media/data-factory-monitor-manage-app/AlertButtons.png)

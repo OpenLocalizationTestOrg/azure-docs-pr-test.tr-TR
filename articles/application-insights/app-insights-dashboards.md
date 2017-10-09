@@ -1,5 +1,5 @@
 ---
-title: "Panolar ve Gezinti bölmesinde Azure Application Insights | Microsoft Docs"
+title: Azure Application Insights hello gezintisi ve aaaDashboards | Microsoft Docs
 description: "Anahtar APM grafikler ve sorguları görünümleri oluşturun."
 services: application-insights
 documentationcenter: 
@@ -13,95 +13,95 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.openlocfilehash: 9987f04e7e71df5fe10c8bc209a390cb940ec4f2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 58811388205643bb672e0405b3226f12d0f447a9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Gezinti ve Application Insights portalında panoları
-Sonra [projenizde Application Insights'ı ayarlamak](app-insights-overview.md), uygulamanızın performansı ve kullanımı hakkında telemetri verileri projenizin Application Insights kaynağını görünür [Azure portal](https://portal.azure.com).
+# <a name="navigation-and-dashboards-in-hello-application-insights-portal"></a>Gezinti ve panolar hello Application Insights portalında
+Sonra [projenizde Application Insights'ı ayarlamak](app-insights-overview.md), uygulamanızın performansı ve kullanımı hakkında telemetri verileri hello projenizin Application Insights kaynağını görünür [Azure portal](https://portal.azure.com).
 
 ## <a name="find-your-telemetry"></a>Telemetrinizi Bul
-Oturum [Azure portal](https://portal.azure.com) ve uygulamanız için oluşturduğunuz Application Insights kaynağı gidin.
+İçinde toohello oturum [Azure portal](https://portal.azure.com) ve uygulamanız için oluşturduğunuz toohello Application Insights kaynağı gidin.
 
 ![Gözat'ı tıklatın, Application Insights ve ardından uygulamanızı seçin.](./media/app-insights-dashboards/00-start.png)
 
-Uygulamanız için genel bakış dikey (sayfa) anahtar tanılama ölçümleri, uygulamanızın bir özetini gösterir ve Portalı'nın diğer özellikleri için bir ağ geçididir.
+Uygulamanız için Hello genel bakış dikey penceresinde (sayfa) hello anahtar tanılama ölçümleri, uygulamanızın özetini gösterir ve bir ağ geçidi toohello hello Portalı'nın diğer özellikleri.
 
-![Önde gelen yollar telemetrinizi görüntüleme](./media/app-insights-dashboards/010-oview.png)
+![Yollar tooview telemetrinizi büyük](./media/app-insights-dashboards/010-oview.png)
 
-Tüm grafikler ve kılavuzları özelleştirebilir ve bunları bir panoya Sabitle. Bu şekilde, merkezi bir Panoda farklı uygulamalardan birlikte anahtar telemetri getirebilirsiniz.
+Tüm hello grafikleri ve kılavuzları özelleştirebilir ve tooa Pano sabitleyin. Bu şekilde, merkezi bir Panoda farklı uygulamalardan birlikte hello anahtar telemetri getirebilirsiniz.
 
 ## <a name="dashboards"></a>Panolar
-İçin oturum açtıktan sonra gördüğünüz ilk şey [Microsoft Azure portal](https://portal.azure.com) bir Pano. Burada birlikte telemetrisinden dahil olmak üzere tüm Azure kaynaklarınızı, üzerinden sizin için en önemli olan grafikleri getirebileceğinizden [Azure Application Insights](app-insights-overview.md).
+içinde toohello oturumu sonra hello ilk şey gördüğünüz [Microsoft Azure portal](https://portal.azure.com) bir Pano. Burada birlikte telemetrisinden dahil olmak üzere tüm Azure kaynaklarınızı, üzerinden en önemli tooyou olan hello grafikleri getirebileceğinizden [Azure Application Insights](app-insights-overview.md).
 
 ![Özelleştirilmiş bir Pano.](./media/app-insights-dashboards/31.png)
 
-1. **Belirli kaynaklara gidin** uygulamanıza Application Insights gibi: sol Çubuğu'nu kullanın.
-2. **Geçerli panoya dönmek**, veya geçiş son diğer görünümlere: sol üst kısmında açılan menüsünü kullanın.
-3. **Geçiş panolar**: Pano başlığında açılan menüsünü kullanın
-4. **Oluşturma, düzenleme ve panoları paylaşmak** Pano araç.
-5. **Pano düzenleme**: kutucuğunun üzerine gelerek ve taşımak, özelleştirme veya kaldırmak için üst çubuğunu kullanabilirsiniz.
+1. **Toospecific kaynaklara gitme** uygulamanıza Application Insights gibi: kullanım hello sol çubuğu.
+2. **Dönüş toohello geçerli Pano**, veya geçiş tooother son görünümleri: sol üst kullanım hello açılır menü.
+3. **Geçiş panolar**: hello Pano başlık kullanım hello aşağı açılan menüsünde
+4. **Oluşturma, düzenleme ve panoları paylaşmak** hello Pano araç.
+5. **Merhaba Pano düzenleme**: kutucuğunun üzerine gelerek ve kendi üst kullan toomove, çubuk özelleştirebilir ya da kaldırın.
 
-## <a name="add-to-a-dashboard"></a>Bir Pano ekleyin
-Bir dikey veya özellikle ilginç grafikler kümesi bakarken bir kopyasını panoya sabitleyebilirsiniz. Sonraki sefer var. dönmek görürsünüz.
+## <a name="add-tooa-dashboard"></a>Tooa Pano Ekle
+Bir dikey veya özellikle ilginç grafikler kümesi bakarken toohello panonun bir kopyasını sabitleyebilirsiniz. Sonraki sefer var. dönmek görürsünüz.
 
-![Bir grafik sabitlemek için üzerine gelin ve ardından üstbilgisindeki "...".](./media/app-insights-dashboards/33.png)
+![bir grafik toopin üzerine gelin ve ardından hello üstbilgisindeki "...".](./media/app-insights-dashboards/33.png)
 
-1. Pano grafiği PIN. Grafik bir kopyasını panosunda görüntülenir.
-2. Pano tüm dikey pencere sabitlemek - aracılığıyla tıklayabilirsiniz bir kutucuk olarak panosunda görüntülenir.
-3. Geçerli panoya dönmek için sol üst köşede'ı tıklatın. Ardından geçerli görünümüne dönmek için açılan menüyü kullanın.
+1. Grafik toodashboard sabitleyin. Merhaba grafik bir kopyasını hello panosunda görüntülenir.
+2. PIN hello tüm dikey toohello Pano - aracılığıyla tıklayabilirsiniz bir kutucuk olarak hello panosunda görünür.
+3. Merhaba sol üst köşesinde tooreturn toohello geçerli panodan'ı tıklatın. Daha sonra hello açılır menü tooreturn toohello geçerli görünümü kullanabilirsiniz.
 
-Grafikleri döşeme gruplandırılır dikkat edin: bir kutucuk birden fazla grafik içerebilir. Panoya tüm kutucuğu sabitleyin.
+Grafikleri döşeme gruplandırılır dikkat edin: bir kutucuk birden fazla grafik içerebilir. Merhaba tüm döşeme toohello Pano sabitleyin.
 
-Grafik, grafiğin zaman aralığı bağımlı sıklık otomatik olarak yenilenir:
+Merhaba grafik hello grafiğin zaman aralığı bağımlı sıklık otomatik olarak yenilenir:
 
-* Zaman aralığı 1 saat: her 5 dakikada bir Yenile
+* Zaman aralığı too1 saat oluşturmak: her 5 dakikada bir Yenile
 * Aralık 1-24 saat saat: 15 dakikada bir Yenile
 * Zaman aralığı 24 saat yukarıda: (zaman aralığı) / 60.
 
 ### <a name="pin-any-query-in-analytics"></a>Herhangi bir sorgu analizleri sabitleyin
-Ayrıca [Analytics PIN](app-insights-analytics-using.md#pin-to-dashboard) için grafikleri bir [paylaşılan](#share-dashboards-with-your-team) Pano. Bu, standart ölçümleri yanında herhangi bir rastgele sorgu grafiklerini eklemenize olanak sağlar. 
+Ayrıca [Analytics PIN](app-insights-analytics-using.md#pin-to-dashboard) grafikleri tooa [paylaşılan](#share-dashboards-with-your-team) Pano. Bu, herhangi bir rastgele sorgu hello standart ölçümleri yanında tooadd grafiklerini sağlar. 
 
-Sonuçları her saat otomatik olarak hesaplanır. Hemen yeniden hesaplamak için grafiği Yenile simgesine tıklayın. (Tarayıcı Yenile hesaplamaz.)
+Sonuçları her saat otomatik olarak hesaplanır. Hemen hello grafik toorecalculate Hello Yenile simgesine tıklayın. (Tarayıcı Yenile hesaplamaz.)
 
-## <a name="adjust-a-tile-on-the-dashboard"></a>Panoda bir kutucuğu Ayarla
-Panoda bir kutucuğu olduktan sonra ayarlayabilirsiniz.
+## <a name="adjust-a-tile-on-hello-dashboard"></a>Başlangıç Panosu kutucuk Ayarla
+Merhaba Panoda bir kutucuğu olduktan sonra ayarlayabilirsiniz.
 
-![Düzenlemek için bir grafik üzerine gelin.](./media/app-insights-dashboards/36.png)
+![Üzerine gelerek sipariş tooedit grafik üzerinden bu.](./media/app-insights-dashboards/36.png)
 
-1. Bir grafik döşeme ekleyin.
-2. Ölçüm, grup tarafından boyut ve grafiğinin stilini (tablo, grafik) ayarlayın.
-3. Diyagramı yakınlaştırır sürükleyin; timespan sıfırlamak için geri düğmesini tıklatın; Döşeme grafiklerde filtre özelliklerini ayarlayın.
+1. Bir grafik toohello kutucuğu ekleyin.
+2. Merhaba ölçüm, grup tarafından boyut ve grafiğinin stilini (tablo, grafik) ayarlayın.
+3. Merhaba diyagramı toozoom sürükleyin; Merhaba geri düğmesini tooreset hello timespan tıklayın; Merhaba döşeme hello grafiklerde filtre özelliklerini ayarlayın.
 4. Kutucuk başlığı ayarlayın.
 
 Ölçüm Gezgini dikey penceresinden Sabitlenen kutucuklar bir genel bakış dikey penceresinden Sabitlenen kutucuklar'den daha fazla düzenleme seçeneğiniz vardır.
 
-Sabitlenmiş özgün döşeme düzenlemeleriniz tarafından etkilenmez.
+Sabitlenmiş hello özgün döşeme düzenlemeleriniz tarafından etkilenmez.
 
 ## <a name="switch-between-dashboards"></a>Panolar arasında geçiş
-Birden fazla panoyu kaydedin ve bunlar arasında geçiş yapabilirsiniz. Bir grafik veya dikey pencere sabitlemek bunlar geçerli panoya eklenmesi.
+Birden fazla panoyu kaydedin ve bunlar arasında geçiş yapabilirsiniz. Bir grafik veya dikey pencere sabitlemek bunlar toohello geçerli Pano eklenmesi.
 
-![Panolar arasında geçiş yapmak için Pano tıklatın ve kaydedilmiş bir Pano seçin. Yeni bir Pano kaydedip oluşturmak için Yeni'yi tıklatın. Yeniden düzenlemek için Düzenle'yi tıklatın.](./media/app-insights-dashboards/32.png)
+![Panolar arasında tooswitch Pano tıklatın ve kaydedilmiş bir Pano seçin. toocreate ve yeni bir Pano kaydetmek için yeni'yi tıklatın. toorearrange, Düzenle'yi tıklatın.](./media/app-insights-dashboards/32.png)
 
-Örneğin, takım odası ve genel geliştirme için başka bir tam ekran görüntüleme için tek bir Panoda olabilir.
+Örneğin, hello takım odası ve genel geliştirme için başka bir tam ekran görüntüleme için tek bir Panoda olabilir.
 
-Panoda bir kutucuk bir dikey pencere görünür: dikey penceresine gitmek için tıklatın. Bir grafik özgün konumuna grafikte çoğaltır.
+Merhaba Panoda bir kutucuk bir dikey pencere görünür: toogo toohello dikey tıklayın. Bir grafik özgün konumuna hello grafikte çoğaltır.
 
-![Temsil ettiği dikey penceresini açmak için kutucuğa tıklayın](./media/app-insights-dashboards/35.png)
+![Temsil ettiği bir kutucuğu tooopen hello dikey tıklayın](./media/app-insights-dashboards/35.png)
 
 ## <a name="share-dashboards"></a>Panoları paylaşmak
 Bir Pano oluşturduğunuz zaman, diğer kullanıcılarla paylaşabilirsiniz.
 
-![Pano üstbilgisinde Paylaş'ı tıklatın.](./media/app-insights-dashboards/41.png)
+![Merhaba Pano üstbilgisinde Paylaş'ı tıklatın.](./media/app-insights-dashboards/41.png)
 
 Hakkında bilgi edinin [rolleri ve erişim denetimi](app-insights-resources-roles-access-control.md).
 
 ## <a name="app-navigation"></a>Uygulama gezinme
-Genel Bakış dikey penceresinde uygulamanızı hakkında daha fazla bilgi için ağ geçididir.
+Hello genel bakış dikey penceresinde hello ağ geçidi toomore uygulamanız hakkındaki bilgilerdir.
 
-* **Herhangi bir grafik veya döşeme** - herhangi bir kutucuğu tıklayın veya görüntülenenlerin hakkında daha fazla ayrıntı için grafik.
+* **Herhangi bir grafik veya döşeme** - herhangi bir kutucuğu tıklayın veya toosee ne görüntüler hakkında daha fazla ayrıntı grafik.
 
 ### <a name="overview-blade-buttons"></a>Genel Bakış dikey düğmeleri
 ![Genel Bakış dikey üst gezinti çubuğu](./media/app-insights-dashboards/app-overview-top-nav.png)
@@ -109,8 +109,8 @@ Genel Bakış dikey penceresinde uygulamanızı hakkında daha fazla bilgi için
 * [**Ölçüm Gezgini** ](app-insights-metrics-explorer.md) -performans ve kullanım kendi grafikleri oluşturun.
 * [**Arama** ](app-insights-diagnostic-search.md) - olayları istekleri, özel durumlar gibi belirli örneklerini araştırmak veya oturum izlemeleri.
 * [**Analytics** ](app-insights-analytics.md) -telemetrinizi üzerinden güçlü sorgular.
-* **Zaman aralığı** -dikey penceresinde tüm grafikler tarafından görüntülenen aralığını ayarlayın.
-* **Silme** -bu uygulama için Application Insights kaynağını silin. Ayrıca uygulama kodunuzdan Application Insights paketlerini kaldırın, veya Düzenle [izleme anahtarını](app-insights-create-new-resource.md#copy-the-instrumentation-key) farklı bir Application Insights kaynağı telemetri yönlendirmek için uygulamanızda.
+* **Zaman aralığı** -hello dikey penceresinde tüm hello grafikler tarafından görüntülenen hello aralığını ayarlayın.
+* **Silme** -bu uygulama için hello Application Insights kaynağı silme. Ayrıca uygulama kodunuzdan hello Application Insights paketlerini kaldırın, veya hello Düzenle [izleme anahtarını](app-insights-create-new-resource.md#copy-the-instrumentation-key) uygulama toodirect telemetri tooa farklı Application Insights kaynağınıza içinde.
 
 ### <a name="essentials-tab"></a>Essentials sekmesi
 * [İzleme anahtarını](app-insights-create-new-resource.md#copy-the-instrumentation-key) -bu uygulama kaynak tanımlar.
@@ -119,18 +119,18 @@ Genel Bakış dikey penceresinde uygulamanızı hakkında daha fazla bilgi için
 ### <a name="app-navigation-bar"></a>Uygulama gezinti çubuğu
 ![Sol gezinti çubuğu](./media/app-insights-dashboards/app-left-nav-bar.png)
 
-* **Genel Bakış** -uygulama genel bakış dikey penceresine dönün.
+* **Genel Bakış** -dönüş toohello uygulamaya genel bakış dikey.
 * **Etkinlik günlüğü** -uyarı ve Azure yönetim olayları.
-* [**Erişim denetimi** ](app-insights-resources-roles-access-control.md) -takım üyeleri ve diğerleri erişim sağlama.
-* [**Etiketler** ](../azure-resource-manager/resource-group-using-tags.md) -uygulamanızı başkalarıyla gruplandırmak için etiketler kullanın.
+* [**Erişim denetimi** ](app-insights-resources-roles-access-control.md) -erişim tooteam üyeleri ve diğerleri sağlayın.
+* [**Etiketler** ](../azure-resource-manager/resource-group-using-tags.md) -kullanım uygulamanızı başkalarıyla toogroup etiketler.
 
 ARAŞTIR
 
-* [**Uygulama eşlemesi** ](app-insights-app-map.md) -, uygulamanızın bileşenleri gösteren etkin eşleme türetilmiş bağımlılık bilgileri.
+* [**Uygulama eşlemesi** ](app-insights-app-map.md) -hello bileşenleri, uygulamanızın gösteren etkin eşleme türetilmiş hello bağımlılık bilgileri.
 * [**Akıllı algılama** ](app-insights-proactive-diagnostics.md) -son performans uyarıları gözden geçirin.
 * [**Canlı akış** ](app-insights-live-stream.md) - sabit neredeyse anında ölçümler, yeni bir yapı dağıtırken yararlı kümesi veya hata ayıklama A.
-* [**Kullanılabilirlik / Web testleri** ](app-insights-monitor-web-app-availability.md) -world.* geçici web uygulamanıza normal İsteği Gönder
-* [**Hataları, performans** ](app-insights-web-monitor-performance.md) -özel durumları, hata oranları ve istekleri uygulamanız için ve uygulamanıza gelen isteklere yanıt süreleri [bağımlılıkları](app-insights-asp-net-dependencies.md).
+* [**Kullanılabilirlik / Web testleri** ](app-insights-monitor-web-app-availability.md) -gönderme normal istekleri tooyour web uygulamasından hello world.* geçici
+* [**Hataları, performans** ](app-insights-web-monitor-performance.md) -özel durumları, hata oranları ve yanıt süreleri uygulamanız gelen istekleri ve istekleri tooyour uygulama için çok[bağımlılıkları](app-insights-asp-net-dependencies.md).
 * [**Performans** ](app-insights-web-monitor-performance.md) -yanıt süresi, bağımlılık yanıt sürelerini.
 * [Sunucuları](app-insights-web-monitor-performance.md) -performans sayaçları. Kullanılabilir ise, [Durum İzleyicisi yükleme](app-insights-monitor-performance-live-website-now.md).
 * **Tarayıcı** -sayfa görünümü ve AJAX performans. Kullanılabilir ise, [web sayfalarınıza izleme](app-insights-javascript.md).
@@ -141,16 +141,16 @@ YAPILANDIRMA
 * **Başlarken** -satır içi öğretici.
 * **Özellikler** -izleme anahtarı, abonelik ve kaynak kimliği.
 * [Uyarıları](app-insights-alerts.md) -ölçüm uyarı yapılandırma.
-* [Sürekli verme](app-insights-export-telemetry.md) -Azure depolama alanına telemetri verilmesini yapılandırın.
+* [Sürekli verme](app-insights-export-telemetry.md) -telemetri tooAzure depolama verilmesini yapılandırın.
 * [Performans testi](app-insights-monitor-web-app-availability.md#performance-tests) -Web sitenizde yapay yük ayarlayın.
 * [Kota ve fiyatlarını](app-insights-pricing.md) ve [alım örnekleme](app-insights-sampling.md).
-* **API erişimini** -oluşturmak [yayın ek açıklamaları](app-insights-annotations.md) ve veri erişim API'si.
-* [**İş öğeleri** ](app-insights-diagnostic-search.md#create-work-item) -telemetri incelenirken hatalar oluşturabilmesi için izleme sistemi iş bağlanın.
+* **API erişimini** -oluşturmak [yayın ek açıklamaları](app-insights-annotations.md) ve hello veri erişim API için.
+* [**İş öğeleri** ](app-insights-diagnostic-search.md#create-work-item) -tooa iş telemetri incelenirken hatalar oluşturabilmesi için sistem izleme bağlanın.
 
 AYARLAR
 
 * [**Kilitler** ](../azure-resource-manager/resource-group-lock-resources.md) -Azure kaynaklarını Kilitle
-* [**Otomasyon betiğini** ](app-insights-powershell.md) -Azure kaynak tanımını dışa yeni kaynak oluşturmak için bir şablon olarak kullanabilirsiniz.
+* [**Otomasyon betiğini** ](app-insights-powershell.md) -hello Azure kaynak tanımını dışa şablonu bir toocreate yeni kaynağı olarak kullanın.
 
 
 ## <a name="video"></a>Video

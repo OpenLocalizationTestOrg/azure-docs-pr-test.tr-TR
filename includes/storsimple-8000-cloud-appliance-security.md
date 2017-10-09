@@ -1,8 +1,8 @@
 <!--alkohli 02/21/2017 cloud appliance security-->
 
-StorSimple Cloud Appliance’ı kullanırken aşağıdaki güvenlik konularını göz önünde bulundurun:
+Merhaba hello StorSimple bulut uygulaması kullandığınızda aşağıdaki güvenlik hususları aklınızda bulundurun:
 
-* Bulut gerecinin güvenliği, Microsoft Azure aboneliğiniz üzerinden sağlanır. Yani, bulut gerecinizi kullandığınız sırada Azure aboneliğinizin güvenliği tehlikeye girerse bundan bulut gerecinizde depolanan veriler de etkilenir.
-* StorSimple’da depolanan verileri şifrelemek için kullanılan sertifikanın ortak anahtarı güvenli bir şekilde Azure portalına sunulur ve özel anahtar StorSimple Cloud Appliance’ta saklanır. StorSimple Cloud Appliance’ta hem ortak hem de özel anahtarlar Azure’da depolanır.
-* Bulut gereci Microsoft Azure veri merkezinde barındırılır.
+* Merhaba bulut uygulaması, Microsoft Azure aboneliğiniz ile güvenli hale getirilir. Bu hello bulut uygulaması kullanıyorsanız ve Azure aboneliğinize tehlikeye varsa, bulut uygulaması üzerinde depolanan hello verileri de uygulanmadıkça anlamına gelir.
+* StorSimple içinde depolanan verileri güvenli bir şekilde olduğu hello kullanılan sertifika tooencrypt ortak anahtarı Hello kullanılabilir toohello Azure portal yapılan ve hello özel anahtar StorSimple bulut uygulaması hello ile korunur. Hello StorSimple bulut uygulaması, her iki hello ortak ve özel anahtarları Azure'da depolanır.
+* Merhaba bulut uygulaması hello Microsoft Azure veri merkezinde barındırılır.
 

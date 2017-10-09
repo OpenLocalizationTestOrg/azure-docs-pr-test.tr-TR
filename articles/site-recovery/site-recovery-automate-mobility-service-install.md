@@ -1,6 +1,6 @@
 ---
-title: "Azure Otomasyonu DSC Site Recovery Mobility hizmetiyle dağıtma | Microsoft Docs"
-description: "VMware sanal ve fiziksel sunucu çoğaltma Azure için Azure Site Recovery Mobility hizmeti ve Azure Aracısı otomatik olarak dağıtmak için Azure Otomasyonu DSC kullanmayı açıklar"
+title: aaaDeploy hello Azure Otomasyonu DSC Site Recovery Mobility hizmetiyle | Microsoft Docs
+description: "Nasıl toouse Azure Otomasyonu DSC tooautomatically dağıtmak hello Azure Site Recovery Mobility hizmeti ve Azure Aracısı VMware sanal ve fiziksel sunucu çoğaltma tooAzure açıklar"
 services: site-recovery
 documentationcenter: 
 author: krnese
@@ -14,57 +14,57 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: krnese
-ms.openlocfilehash: bcc5f11afbecac8fe63935f3401dd3e2d767e8aa
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 52cdd13ceb61718a21137180c55db86919af5929
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>Azure Otomasyonu DSC Mobility hizmetiyle VM çoğaltması için dağıtma
+# <a name="deploy-hello-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>VM çoğaltması için Azure Otomasyonu DSC ile Merhaba Mobility hizmetini dağıtma
 Operations Management Suite biz kapsamlı yedekleme ve iş sürekliliği planınızın bir parçası olarak kullanabileceğiniz olağanüstü durum kurtarma çözümü sağlar.
 
-Biz bu gezisine Hyper-V ile birlikte Hyper-V çoğaltma kullanılarak başlatıldı. Ancak biz müşteriler kendi bulut birden fazla hiper ve platformlar olduğundan heterojen Kurulum desteklemek için genişletilen.
+Biz bu gezisine Hyper-V ile birlikte Hyper-V çoğaltma kullanılarak başlatıldı. Ancak müşteriler kendi bulut birden fazla hiper ve platformlar olduğundan genişletilmiş toosupport heterojen Kurulum sunuyoruz.
 
-VMware iş yükleri ve/veya fiziksel sunucuları bugün çalıştırıyorsanız, yönetim sunucusu tüm Azure Site Recovery bileşenlerini Azure Hedefinizi olduğunda, Azure ile iletişim ve veri çoğaltmayı düzenlemek için ortamınızda çalıştırır.
+VMware iş yükleri ve/veya fiziksel sunucuları bugün çalıştırıyorsanız, Azure, hedef olduğunda bir yönetim sunucusu tüm hello Azure Site Recovery bileşenleri, ortam toohandle hello iletişim ve veri çoğaltma, Azure ile çalışır.
 
-## <a name="deploy-the-site-recovery-mobility-service-by-using-automation-dsc"></a>Automation DSC kullanarak Site Recovery Mobility hizmeti dağıtma
+## <a name="deploy-hello-site-recovery-mobility-service-by-using-automation-dsc"></a>Automation DSC kullanarak Hello Site Recovery Mobility hizmeti dağıtma
 Bu yönetim sunucusu yaptığı bir hızlı dökümünü yaparak başlayalım.
 
-Yönetim sunucusu, çeşitli sunucu rolleri çalıştırır. Bu roller, biri *yapılandırma*, hangi iletişimi düzenler ve veri çoğaltma ve kurtarma işlemlerini yönetir.
+Hello yönetim sunucusu, çeşitli sunucu rolleri çalıştırır. Bu roller, biri *yapılandırma*, hangi iletişimi düzenler ve veri çoğaltma ve kurtarma işlemlerini yönetir.
 
-Ayrıca, *işlem* rol çoğaltma ağ geçidi olarak davranır. Bu rolü korumalı kaynak makinelerden çoğaltma verilerini alıp, önbelleğe alma, sıkıştırma ve şifreleme iyileştirir ve Azure depolama hesabı için gönderir. İşlev işlem rolü için ayrıca Mobility hizmetinin korunan makinelere göndermeli ve VMware vm'lerinin otomatik bulma gerçekleştirmek için biridir.
+Ayrıca, hello *işlem* rol çoğaltma ağ geçidi olarak davranır. Bu rolü korumalı kaynak makinelerden çoğaltma verilerini alıp, önbelleğe alma, sıkıştırma ve şifreleme iyileştirir ve tooan Azure depolama hesabı gönderir. Hello işlevleri hello işlem rolü için birini de toopush yükleme hello Mobility hizmeti tooprotected makinelerin ve VMware vm'lerinin otomatik bulma gerçekleştirin.
 
-Varsa, adlı bir azure'dan *ana hedef* rolü, bu işlemin bir parçası olarak çoğaltma verileri işleyecek.
+Bir azure'dan ise hello *ana hedef* rolü, bu işlemin bir parçası olarak hello çoğaltma verileri işleyecek.
 
-Korumalı makineler için biz Bel *Mobility hizmeti*. Bu bileşen, Azure'a çoğaltmak istediğiniz her makineye (VMware VM veya fiziksel sunucusu) dağıtılır. Makinede veri Yazar yakalar ve bunları (işlem rolü) yönetim sunucusuna iletir.
+Merhaba korumalı makineler için biz üzerinde hello kullanan *Mobility hizmeti*. Bu bileşen tooreplicate tooAzure istediğiniz dağıtılan tooevery (VMware VM veya fiziksel sunucu) makinesidir. Merhaba makinede veri Yazar yakalar ve bunları toohello yönetim sunucusu (işlem rolü) iletir.
 
-İş sürekliliği ile ilgilenirken iş yüklerinizi, altyapınızı ve ilgili bileşenleri anlamak önemlidir. Ardından Kurtarma süresi hedefi (RTO) ve kurtarma noktası hedefi (RPO) gereksinimleri karşılayabilir. Bu bağlamda Mobility hizmeti beklediğiniz şekilde iş yüklerinizi korunmasını sağlamak için anahtardır.
+İş sürekliliği ile ilgilenirken önemli toounderstand iş yüklerinizi, altyapı ve hello bileşenleri dahil değil. Ardından Kurtarma süresi hedefi (RTO) ve kurtarma noktası hedefi (RPO) hello gereksinimleri karşılayabilir. Bu bağlamda anahtar tooensuring hello Mobility hizmeti olan beklediğiniz gibi iş yüklerinizi korunur.
 
 Bu nedenle nasıl, iyileştirilmiş bir şekilde, bazı Operations Management Suite bileşenleri Yardım ile güvenilir bir korumalı kurulum olmasını sağlayabilirsiniz?
 
-Bu makalede, emin olmak için Azure Otomasyonu istenen durum yapılandırması (DSC), Site Recovery ile birlikte nasıl kullanabileceğinize bir örnek sağlar:
+Bu makalede, Azure Otomasyonu istenen durum yapılandırması (DSC), Site Recovery, tooensure birlikte nasıl kullanabileceğinize bir örnek sağlar:
 
-* Mobility hizmeti ve Azure VM aracısını korumak istediğiniz Windows makineler dağıtılır.
-* Çoğaltma hedefi Azure olduğunda Mobility hizmeti ve Azure VM Aracısı her zaman çalışır.
+* Merhaba Mobility hizmeti ve Azure VM Aracısı tooprotect istediğiniz dağıtılan toohello Windows makinelerdir.
+* Azure hello çoğaltma hedefi olduğunda hello Mobility hizmeti ve Azure VM Aracısı her zaman çalışır.
 
 ## <a name="prerequisites"></a>Ön koşullar
-* Gerekli Kurulum depolamak için bir depo
-* Yönetim sunucusu ile kaydetmek için gerekli parolayı depolamak için bir depo
+* Bir depo toostore gerekli hello Kurulumu
+* Parola tooregister hello yönetim sunucusu ile bir depo toostore hello gerekli
 
   > [!NOTE]
-  > Her yönetim sunucusu için benzersiz bir parola oluşturulur. Birden çok yönetim sunucusu dağıtmak için kullanacaksanız, doğru parolayı passphrase.txt dosyasında depolanır olmanız gerekir.
+  > Her yönetim sunucusu için benzersiz bir parola oluşturulur. Birden çok yönetim sunucusu toodeploy kullanacaksanız, bu hello parola hello passphrase.txt dosyasında depolanan doğru tooensure sahip.
   >
   >
-* Windows Management Framework (WMF) koruma (Automation DSC gereksinimini) için etkinleştirmek istediğiniz makinelere yüklenen 5.0
+* Windows Management Framework (WMF) koruma (Automation DSC gereksinimini) için tooenable istediğiniz hello makinelerde yüklü 5.0
 
   > [!NOTE]
-  > WMF 4.0 yüklü olan Windows için DSC makineler kullanmak istiyorsanız, bölümüne bakın. [kullanmak DSC bağlantısı kesilmiş ortamlarda](## Use DSC in disconnected environments).
+  > WMF 4.0 yüklü olan toouse DSC for Windows makineler istiyorsanız hello bölümüne bakın [bağlantısı kesilmiş ortamlarda kullanım DSC](## Use DSC in disconnected environments).
   
 
-Mobility hizmetinin komut satırından yüklenebilir ve birkaç bağımsız değişken kabul eder. İşte bu nedenle ikili dosyaları (bunları, kurulumdan ayıkladıktan sonra) sahip ve bunları burada, alabilir bunları DSC Yapılandırması kullanılarak bir yerde depolamak gerekir.
+Merhaba Mobility hizmeti hello komut satırı yüklenebilir ve birkaç bağımsız değişken kabul eder. İşte bu nedenle Burada, alabilir bunları DSC Yapılandırması kullanılarak bir yerde saklayın ve toohave hello ikili dosyaları (bunları, kurulumdan ayıkladıktan sonra) gerekir.
 
 ## <a name="step-1-extract-binaries"></a>1. adım: Extract ikili dosyalar
-1. Bu kurulum için gereken dosyaları ayıklamak için yönetim sunucunuzda aşağıdaki dizinine göz atın:
+1. Bu kurulum için gereken tooextract hello dosyalar Dizin Yönetim sunucunuzda aşağıdaki toohello göz atın:
 
     **\Microsoft azure Site Recovery\home\svsystems\pushinstallsvc\repository**
 
@@ -72,28 +72,28 @@ Mobility hizmetinin komut satırından yüklenebilir ve birkaç bağımsız değ
 
     **Microsoft ASR_UA_version_Windows_GA_date_Release.exe**
 
-    Yükleyici ayıklamak için aşağıdaki komutu kullanın:
+    Komut tooextract hello Yükleyici aşağıdaki hello kullan:
 
     **.\Microsoft-ASR_UA_9.1.0.0_Windows_GA_02May2016_release.exe /q /x:C:\Users\Administrator\Desktop\Mobility_Service\Extract**
-2. Tüm dosyaları seçin ve bir sıkıştırılmış (ZIP) klasöre gönderin.
+2. Tüm dosyaları seçin ve tooa sıkıştırılmış (ZIP) klasör gönderin.
 
-Automation DSC kullanarak kurulum mobilite hizmetinin otomatik hale getirmek için gereken ikili dosyalar artık sahipsiniz.
+Artık hello ikili dosyaları Automation DSC kullanarak hello Mobility hizmeti tooautomate hello Kurulumu ihtiyacınız vardır.
 
 ### <a name="passphrase"></a>Parola
-Ardından, bu sıkıştırılmış klasörü eklemek istediğiniz yeri belirlemeniz gerekir. Kurulum için gereken parolayı depolamak için sonraki gösterildiği gibi bir Azure depolama hesabı kullanabilirsiniz. Aracı, sonra Yönetim sunucusu işleminin bir parçası olarak kaydeder.
+Ardından, bu sıkıştırılmış klasörü tooplace istediğiniz yere toodetermine gerekir. Merhaba kurulum için gereken gösterilen daha sonra toostore hello parola olarak bir Azure depolama hesabı kullanabilirsiniz. Merhaba Aracısı sonra hello yönetim sunucusu hello işleminin bir parçası olarak kaydeder.
 
-Yönetim sunucusu dağıtıldığında aldığınız parolayı bir metin dosyasına passphrase.txt kaydedilebilir.
+Merhaba yönetim sunucusunu dağıttığınızda aldığınız hello parola tooa metin dosyası passphrase.txt kaydedilebilir.
 
-Daraltılmış klasörü ve parola ayrılmış bir Azure depolama hesabı kapsayıcısında yerleştirin.
+Merhaba daraltılmış klasörü ve hello parola hello Azure depolama hesabı adanmış bir kapsayıcıda yerleştirin.
 
 ![Klasör konumu](./media/site-recovery-automate-mobilitysevice-install/folder-and-passphrase-location.png)
 
-Bu dosyalar, ağınızdaki bir paylaşımında tutmak tercih ederseniz, bunu yapabilirsiniz. Daha sonra kullanacaksınız DSC kaynağı erişimi vardır ve Kurulum ve parola alabilirsiniz emin olmak yeterlidir.
+Bu dosya paylaşımındaki ağınızdaki tookeep tercih ederseniz, bunu yapabilirsiniz. Daha sonra kullanacaksınız hello DSC kaynağı erişimi vardır ve hello Kurulum ve parola alabilirsiniz tooensure yeterlidir.
 
-## <a name="step-2-create-the-dsc-configuration"></a>2. adım: DSC yapılandırması oluşturma
-Kurulum WMF 5.0 bağlıdır. Makine başarıyla Otomasyonu DSC aracılığıyla yapılandırmayı uygulamak WMF 5.0 bulunması gerekir.
+## <a name="step-2-create-hello-dsc-configuration"></a>2. adım: hello DSC yapılandırması oluştur
+WMF 5. 0'Hello Kurulum bağlıdır. Automation DSC aracılığıyla hello yapılandırma Hello makine toosuccessfully için uygulama, WMF 5.0 toobe mevcut gerekiyor.
 
-Aşağıdaki örnek DSC yapılandırma ortamı kullanır:
+Merhaba ortamı örnek DSC yapılandırması aşağıdaki hello kullanır:
 
 ```powershell
 configuration ASRMobilityService {
@@ -190,42 +190,42 @@ configuration ASRMobilityService {
     }
 }
 ```
-Yapılandırma aşağıdakileri yapın:
+Merhaba yapılandırması yeterlidir hello aşağıdaki:
 
-* Değişkenleri yapılandırma Mobility hizmeti ve Azure VM Aracısı ikili dosyalarının alınacağı söyleyecektir parola alınacağı ve çıktı depolanacağı konumu.
-* Böylece kullanabileceğiniz yapılandırma xPSDesiredStateConfiguration DSC kaynağı alacak `xRemoteFile` depodan dosyalarını indirmek için.
-* Yapılandırma İkili dosyalarını depolamak istediğiniz bir dizin oluşturur.
-* Arşiv kaynak dosyaları sıkıştırılmış klasörden ayıklayın.
-* ' % S'paketinin yükleme kaynak Mobility hizmeti UNIFIEDAGENT yükler. EXE yükleyici belirli bağımsız değişkenlere sahip. (Bağımsız değişkenler oluşturmak değişkenleri ortamınız yansıtacak şekilde değiştirilmesi gerekir.)
-* Paket AzureAgent kaynak Azure'da çalışan her VM üzerinde önerilen Azure VM aracısı yükler. Azure VM aracısı ayrıca, yük devretme sonrasında VM uzantıları eklemek mümkün kılar.
-* Hizmet kaynağı veya kaynakları ilgili Mobility hizmetlerinin ve Azure Hizmetleri zaman çalıştığını güvence altına alır.
+* Merhaba değişkenleri hello yapılandırma tooget hello burada parola ve toostore hello çıktı tooget hello Mobility hizmeti ve hello Azure VM Aracısı ikili dosyaları nerede hello söyler.
+* böylece kullanabileceğiniz hello yapılandırma hello xPSDesiredStateConfiguration DSC kaynağı alacak `xRemoteFile` hello depodan toodownload hello dosyaları.
+* Merhaba yapılandırmasını toostore hello ikili dosyaları istediğiniz bir dizin oluşturur.
+* Merhaba arşiv kaynak hello dosyaları hello sıkıştırılmış klasörden ayıklayın.
+* Merhaba paket yükleme kaynağı hello Mobility hizmeti UNIFIEDAGENT hello yükler. EXE yükleyici hello belirli bağımsız değişkenlere sahip. (Merhaba bağımsız değişkenleri oluşturmak hello değişkenleri ortamınız değiştirilen toobe tooreflect gerekir.)
+* Merhaba paket AzureAgent kaynak Azure'da çalışan her VM üzerinde önerilen hello Azure VM aracısı yükler. Hello Azure VM aracısı ayrıca olası tooadd uzantıları toohello VM yük devretme sonrasında kolaylaştırır.
+* Merhaba Hizmet kaynağı veya kaynakları hello Mobility Hizmetleri ilgili hello Azure hizmetlerinin her zaman çalıştığından emin olun ve.
 
-Yapılandırma olarak Kaydet **ASRMobilityService**.
+Merhaba yapılandırma olarak Kaydet **ASRMobilityService**.
 
 > [!NOTE]
-> Böylece aracı doğru bağlanır ve doğru parolayı kullanacağı gerçek yönetim sunucusu yansıtacak şekilde CSIP yapılandırmanızda değiştirmek unutmayın.
+> Böylece Hello Aracısı doğru bağlanır ve hello doğru parolayı kullanır, yapılandırma tooreflect hello gerçek yönetim sunucusu tooreplace hello CSIP unutmayın.
 >
 >
 
-## <a name="step-3-upload-to-automation-dsc"></a>3. adım: Automation DSC karşıya yükle
-Yaptığınız DSC yapılandırması gerekli bir DSC kaynakları Modülü (xPSDesiredStateConfiguration) alacağı için DSC yapılandırması karşıya yüklemeden önce otomasyon modülü içeri aktarmanız gerekir.
+## <a name="step-3-upload-tooautomation-dsc"></a>3. adım: tooAutomation DSC karşıya yükle
+Yaptığınız hello DSC yapılandırması gerekli bir DSC kaynakları Modülü (xPSDesiredStateConfiguration) alacağı için hello DSC yapılandırma karşıya yüklemeden önce otomasyon modülü tooimport gerekiyor.
 
-Otomasyon hesabınızda oturum açın, Gözat **varlıklar** > **modülleri**, tıklatıp **Gözat galeri**.
+Oturum açma tooyour Otomasyon hesabı Gözat çok**varlıklar** > **modülleri**, tıklatıp **Gözat galeri**.
 
-Modül için burada arama ve hesabınıza aktarın.
+Merhaba modülü burada aratın ve tooyour hesap içeri aktarın.
 
 ![İçeri aktarma modülü](./media/site-recovery-automate-mobilitysevice-install/search-and-import-module.png)
 
-Bu bitirdikten sonra makinenize yüklü Azure Resource Manager modüllerini sahip olduğu gidin ve yeni oluşturulan DSC yapılandırması içeri aktarmak için devam edin.
+Bu tamamladığınızda, hello Azure Resource Manager modüllerini yüklü olduğu tooyour makine gidin ve tooimport yeni oluşturulan hello DSC yapılandırması devam edin.
 
 ### <a name="import-cmdlets"></a>İçeri aktarma cmdlet'leri
-PowerShell'de, Azure aboneliğinizde oturum açın. Automation hesabı bilgilerinizi bir değişkende yakalamak ve ortamınızı yansıtmak üzere cmdlet'leri değiştirin:
+PowerShell'de tooyour Azure aboneliği oturum açın. Ortamınızı Hello cmdlet'leri tooreflect değiştirin ve Automation hesabı bilgilerinizi bir değişkende Yakala:
 
 ```powershell
 $AAAccount = Get-AzureRmAutomationAccount -ResourceGroupName 'KNOMS' -Name 'KNOMSAA'
 ```
 
-Yapılandırma, aşağıdaki cmdlet'i kullanarak Automation DSC karşıya yükle:
+Merhaba yapılandırma tooAutomation DSC cmdlet'i aşağıdaki hello kullanarak karşıya yükle:
 
 ```powershell
 $ImportArgs = @{
@@ -236,44 +236,44 @@ $ImportArgs = @{
 $AAAccount | Import-AzureRmAutomationDscConfiguration @ImportArgs
 ```
 
-### <a name="compile-the-configuration-in-automation-dsc"></a>Automation DSC yapılandırmasını derleme
-Ardından, onu düğümlerine kaydetmek başlayabilmeniz Automation DSC yapılandırmasını derleme gerekir. Aşağıdaki cmdlet'i çalıştırarak elde:
+### <a name="compile-hello-configuration-in-automation-dsc"></a>Automation DSC Hello yapılandırmasında derleme
+Ardından, tooregister düğümleri tooit başlayabilmeniz toocompile hello Automation DSC yapılandırmasında gerekir. Bu cmdlet'i aşağıdaki hello çalıştırarak elde:
 
 ```powershell
 $AAAccount | Start-AzureRmAutomationDscCompilationJob -ConfigurationName ASRMobilityService
 ```
 
-Barındırılan DSC çekme hizmet yapılandırmasını temel olarak dağıtıyorsunuz için bu işlem birkaç dakika sürebilir.
+Hello yapılandırma barındırılan toohello DSC çekme hizmeti temel olarak dağıtıyorsunuz için bu işlem birkaç dakika sürebilir.
 
-Yapılandırma derledikten sonra PowerShell'i (Get-AzureRmAutomationDscCompilationJob) kullanarak veya kullanarak iş bilgilerini alabilir [Azure portal](https://portal.azure.com/).
+Merhaba yapılandırma derledikten sonra PowerShell (Get-AzureRmAutomationDscCompilationJob) kullanarak veya hello kullanarak hello iş bilgilerini alabilir [Azure portal](https://portal.azure.com/).
 
 ![İş alma](./media/site-recovery-automate-mobilitysevice-install/retrieve-job.png)
 
-Şimdi başarıyla yayımlandı ve Automation DSC, DSC yapılandırması karşıya.
+Şimdi başarıyla yayımlandı ve DSC yapılandırma tooAutomation DSC karşıya.
 
-## <a name="step-4-onboard-machines-to-automation-dsc"></a>4. adım: Automation DSC yerleşik makinelere
+## <a name="step-4-onboard-machines-tooautomation-dsc"></a>4. adım: Yerleşik makineler tooAutomation DSC
 > [!NOTE]
-> Bu senaryo Tamamlanıyor önkoşulları Windows makinelerinizi WMF en son sürümüyle güncelleştirilir biridir. Karşıdan yükleyip, platformlar için doğru sürümünü yüklemek [Yükleme Merkezi'nden](https://www.microsoft.com/download/details.aspx?id=50395).
+> Bu senaryo Tamamlanıyor hello önkoşulları Windows makinelerinizi hello en son sürümüyle WMF güncelleştirilir biridir. Karşıdan yükle ve platformunuza hello gelen hello doğru sürümünü yüklemek [Yükleme Merkezi'nden](https://www.microsoft.com/download/details.aspx?id=50395).
 >
 >
 
-Düğümleriniz için uygulayacağınız DSC için şimdi bir metaconfig oluşturacaksınız. Bu başarılı olması için uç nokta URL'sini ve azure'da seçili Automation hesabınız için birincil anahtarınızı almak gerekir. Bu değerleri altında bulabilirsiniz **anahtarları** üzerinde **tüm ayarları** Otomasyon hesabı dikey penceresinde.
+Şimdi bir metaconfig tooyour düğümleri uygulanacağını DSC için oluşturacaksınız. toosucceed Bu, seçilen Otomasyon hesabınızda Azure tooretrieve hello uç noktası URL'si ve hello birincil anahtarı gerekir. Bu değerleri altında bulabilirsiniz **anahtarları** hello üzerinde **tüm ayarları** dikey penceresinde hello Otomasyon hesabı için.
 
 ![Anahtar değerleri](./media/site-recovery-automate-mobilitysevice-install/key-values.png)
 
-Bu örnekte, Site Recovery kullanarak korumak istediğiniz bir Windows Server 2012 R2 fiziksel sunucu vardır.
+Bu örnekte, tooprotect Site RECOVERY'yi kullanarak istediğiniz bir Windows Server 2012 R2 fiziksel sunucu vardır.
 
-### <a name="check-for-any-pending-file-rename-operations-in-the-registry"></a>Kayıt defterindeki dosya yeniden adlandırma işlemleri beklemedeki denetle
-Automation DSC noktayla sunucu ilişkilendirilecek başlamadan önce tüm bekleyen kayıt defteri dosyasını yeniden adlandırma işlemleri için denetlemenizi öneririz. Bekleyen bir yeniden başlatma nedeniyle tamamlama Kurulum yasaklayabilir.
+### <a name="check-for-any-pending-file-rename-operations-in-hello-registry"></a>Dosya yeniden adlandırma işlemleri hello kayıt defterinde beklemedeki denetle
+Merhaba Automation DSC noktayla tooassociate hello sunucu başlamadan önce beklemede olan dosya yeniden adlandırma işlemleri hello kayıt defterinde için denetlemenizi öneririz. Son tamamlama hello Kurulum yasaklayabilir tooa yeniden başlatma bekleniyor.
 
-Hiçbir yeniden başlatma bekleniyor sunucuda olduğunu doğrulamak için aşağıdaki cmdlet'i çalıştırın:
+Hiçbir yeniden başlatma bekleniyor hello sunucuda olduğunu cmdlet tooverify aşağıdaki hello çalıştırın:
 
 ```powershell
 Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\' | Select-Object -Property PendingFileRenameOperations
 ```
-Bu boş gösterir, devam etmek için Tamam demektir. Aksi durumda, bu sunucunun bir bakım penceresi sırasında yeniden tarafından bulundurmalıdır.
+Bu boş gösterir, Tamam tooproceed demektir. Aksi durumda, bu hello sunucunun bir bakım penceresi sırasında yeniden tarafından bulundurmalıdır.
 
-Sunucuda yapılandırmayı uygulamak için PowerShell Tümleşik komut dosyası ortamı (ISE) başlatın ve aşağıdaki komut dosyasını çalıştırın. Bu, Automation DSC hizmete kaydolmak ve özel yapılandırma (ASRMobilityService.localhost) almak için yerel Configuration Manager altyapısı yönlendiren aslında bir DSC yerel yapılandırmadır.
+Merhaba sunucuda tooapply hello yapılandırma hello PowerShell Tümleşik komut dosyası ortamı (ISE) başlatın ve komut dosyası izleyen hello çalıştırın. Merhaba Automation DSC hizmeti ile Merhaba yerel Configuration Manager altyapısı tooregister istemek ve hello özel yapılandırma (ASRMobilityService.localhost) almak aslında bir DSC yerel yapılandırma budur.
 
 ```powershell
 [DSCLocalConfigurationManager()]
@@ -314,63 +314,63 @@ metaconfig -URL 'https://we-agentservice-prod-1.azure-automation.net/accounts/<Y
 Set-DscLocalConfigurationManager .\metaconfig -Force -Verbose
 ```
 
-Bu yapılandırma, kendisini Otomasyonu DSC'ye kaydetmek yerel Configuration Manager altyapısı neden olur. Ayrıca, altyapı nasıl çalışacağını, yapılandırma değişikliklerini (ApplyAndAutoCorrect) ise ne yapmanız gerektiğini ve yeniden başlatma gerekli olduğunda nasıl, yapılandırmaya devam etmek belirler.
+Bu yapılandırma hello yerel Configuration Manager altyapısı tooregister kendisini Otomasyonu DSC'ye neden olur. Ayrıca, hello altyapısı nasıl çalışacağını, yapılandırma değişikliklerini (ApplyAndAutoCorrect) ise ne yapmanız gerektiğini ve yeniden başlatma gerekli olduğunda nasıl, hello yapılandırmasıyla devam etmemelisiniz belirler.
 
-Automation DSC ile kaydetmek, sonra bu komut dosyasını çalıştırın, düğüm başlamanız gerekir.
+Bu komut dosyasını çalıştırdıktan sonra hello düğümü Otomasyonu DSC'ye tooregister başlamanız gerekir.
 
 ![Düğüm kayıt işlemi sürüyor](./media/site-recovery-automate-mobilitysevice-install/register-node.png)
 
-Azure portalına geri dönün, yeni kayıtlı düğümü Portalı'nda artık göründükten görebilirsiniz.
+Toohello Azure portalına geri dönün, o hello yeni kayıtlı düğüm hello Portalı'nda artık göründükten görebilirsiniz.
 
-![Portalı'nda kayıtlı düğümü](./media/site-recovery-automate-mobilitysevice-install/registered-node.png)
+![Merhaba Portalı'nda kayıtlı düğümü](./media/site-recovery-automate-mobilitysevice-install/registered-node.png)
 
-Sunucuda, düğüm doğru şekilde kaydedildiğini doğrulamak için aşağıdaki PowerShell cmdlet'ini çalıştırabilirsiniz:
+Merhaba sunucuda düğümü hello cmdlet tooverify doğru kayıtlı PowerShell aşağıdaki hello çalıştırabilirsiniz:
 
 ```powershell
 Get-DscLocalConfigurationManager
 ```
 
-Yapılandırma çekilen ve sunucuya uyguladıktan sonra aşağıdaki cmdlet'i çalıştırarak doğrulayabilirsiniz:
+Merhaba yapılandırma çekilen ve uygulanan toohello sunucu alındıktan sonra Bu cmdlet'i aşağıdaki hello çalıştırarak doğrulayabilirsiniz:
 
 ```powershell
 Get-DscConfigurationStatus
 ```
 
-Sunucu yapılandırmasını başarıyla çekilen çıkış gösterir:
+Merhaba çıktısı hello sunucu yapılandırmasıyla başarıyla çekilen gösterilmektedir:
 
 ![Çıktı](./media/site-recovery-automate-mobilitysevice-install/successful-config.png)
 
-Ayrıca, Mobility hizmeti Kurulumu konumunda bulunan kendi günlük sahip *SystemDrive*\ProgramData\ASRSetupLogs.
+Ayrıca, hello Mobility hizmeti Kurulumu konumunda bulunan kendi günlük sahip *SystemDrive*\ProgramData\ASRSetupLogs.
 
-İşte bu kadar. Şimdi başarıyla dağıtılan ve Site Recovery kullanarak korumak istediğiniz makinede Mobility hizmeti kayıtlı. DSC gerekli hizmetler her zaman çalışır durumda olduğundan emin olun.
+İşte bu kadar. Şimdi başarıyla dağıtılan ve Site Recovery kullanarak tooprotect istediğiniz hello makinedeki hello Mobility hizmeti kayıtlı. DSC hello gerekli hizmetleri zaman çalışır durumda olduğundan emin olun.
 
 ![Başarılı dağıtım](./media/site-recovery-automate-mobilitysevice-install/successful-install.png)
 
-Yönetim sunucusu başarılı dağıtım algılandıktan sonra korumayı yapılandırın ve Site Recovery kullanarak makinesinde çoğaltmayı etkinleştirin.
+Merhaba yönetim sunucusu hello başarılı dağıtım algılandıktan sonra korumayı yapılandırın ve Site Recovery kullanarak hello makinesinde çoğaltmayı etkinleştirin.
 
 ## <a name="use-dsc-in-disconnected-environments"></a>Bağlantısı kesilmiş ortamlarda DSC kullanın
-Makinelerinizi Internet'e bağlı değilseniz hala dağıtmak ve korumak istediğiniz iş yükünü Mobility hizmeti yapılandırmak için DSC üzerinde güvenebilirsiniz.
+Makinelerinizi bağlı toohello Internet değilseniz, hala DSC toodeploy üzerinde kullanır ve tooprotect istediğiniz hello iş yükleri üzerinde hello Mobility hizmetini yapılandırın.
 
-Temelde Automation DSC'den alma aynı yetenekleri sağlamak için ortamınızdaki kendi DSC istek sunucusuyla örneği. Diğer bir deyişle, istemcilerin (kaydedildikten sonra) yapılandırma DSC uç çeker. Ancak, yerel olarak veya uzaktan DSC yapılandırması makinelerinize, el ile göndermek için başka bir seçenek değildir.
+Kendi DSC istek sunucusuyla ortamınızda örneği tooessentially hello Automation DSC'den alma aynı yetenekleri sağlar. Diğer bir deyişle, (kaydedildikten sonra) hello istemcileri hello yapılandırma çeker toohello DSC uç noktası. Ancak, başka bir toomanually itme hello DSC yapılandırma tooyour makineler, yerel olarak veya uzaktan seçenektir.
 
-Bu örnekte, bilgisayar adı için ek bir parametre yoktur. Uzak dosyalar, artık korumak istediğiniz makinelere tarafından erişilebilir olması gereken bir uzak paylaşım bulunur. Komut dosyasının sonuna yapılandırma enacts ve DSC yapılandırması hedef bilgisayara uygulanan başlar.
+Bu örnekte, hello bilgisayar adı için ek bir parametre yoktur. Merhaba uzak dosyalar, artık tooprotect istediğiniz hello makineler tarafından erişilebilir olması gereken bir uzak paylaşım bulunur. Merhaba hello komut dosyasının sonuna hello yapılandırma enacts ve ardından tooapply hello DSC yapılandırma toohello hedef bilgisayarı başlatır.
 
 ### <a name="prerequisites"></a>Ön koşullar
-XPSDesiredStateConfiguration PowerShell Modülü yüklü olduğundan emin olun. WMF 5.0 yüklü olduğu Windows makineler için aşağıdaki cmdlet'i hedef makinelerde çalıştırarak xPSDesiredStateConfiguration modülü yükleyebilirsiniz:
+Bu hello xPSDesiredStateConfiguration PowerShell Modülü yüklü olduğundan emin olun. WMF 5.0 yüklü olduğu Windows makineler için hello xPSDesiredStateConfiguration modülü cmdlet hello hedef makinede aşağıdaki hello çalıştırarak yükleyebilirsiniz:
 
 ```powershell
 Find-Module -Name xPSDesiredStateConfiguration | Install-Module
 ```
 
-Ayrıca, indirin ve WMF 4.0 yüklü Windows makineler dağıtmanız gerektiğinde modülü kaydedin. Bu cmdlet, PowerShellGet (WMF 5.0) mevcut olduğu bir makinede çalıştırın:
+Ayrıca indirin ve toodistribute gerektiğinde Merhaba modülü kaydedin, WMF 4.0 sahip tooWindows makineler. Bu cmdlet, PowerShellGet (WMF 5.0) mevcut olduğu bir makinede çalıştırın:
 
 ```powershell
 Save-Module -Name xPSDesiredStateConfiguration -Path <location>
 ```
 
-Ayrıca WMF 4.0 için emin [Windows 8.1 güncelleştirmesi KB2883200](https://www.microsoft.com/download/details.aspx?id=40749) makinelerde yüklü.
+Ayrıca bu hello WMF 4.0 için olun [Windows 8.1 güncelleştirmesi KB2883200](https://www.microsoft.com/download/details.aspx?id=40749) hello makinelerde yüklü.
 
-Aşağıdaki yapılandırma WMF 5.0 ve WMF 4.0 sahip Windows makinelerine iletilmesini:
+Merhaba aşağıdaki yapılandırma WMF 5.0 ve WMF 4.0 tooWindows makineler gönderilemez:
 
 ```powershell
 configuration ASRMobilityService {
@@ -471,28 +471,28 @@ ASRMobilityService -ComputerName 'MyTargetComputerName'
 Start-DscConfiguration .\ASRMobilityService -Wait -Force -Verbose
 ```
 
-Şirket ağınıza Automation DSC'den alabilirsiniz yetenekleri taklit etmek üzere kendi DSC çekme sunucusuna örneği oluşturmak istiyorsanız, bkz: [DSC web çekme sunucusu kurma](https://msdn.microsoft.com/powershell/dsc/pullserver?f=255&MSPPError=-2147217396).
+Automation DSC'den alabilir, şirket ağı toomimic hello yetenekleri üzerinde kendi DSC istek sunucusuyla tooinstantiate istiyorsanız bkz [DSC web çekme sunucusu kurma](https://msdn.microsoft.com/powershell/dsc/pullserver?f=255&MSPPError=-2147217396).
 
 ## <a name="optional-deploy-a-dsc-configuration-by-using-an-azure-resource-manager-template"></a>İsteğe bağlı: DSC yapılandırması bir Azure Resource Manager şablonu kullanarak dağıtın
-Bu makalede nasıl otomatik olarak Mobility hizmeti ve Azure VM Aracısı--dağıtmak ve sağlamak için kendi DSC yapılandırması korumak istediğiniz makinelerde çalıştırılan oluşturabileceğiniz üzerinde odaklı. Biz de bu DSC yapılandırması için yeni veya var olan bir Azure Otomasyonu hesabı dağıtacağınız bir Azure Resource Manager şablonu vardır. Şablon değişkenleri ortamınız için içerecek Otomasyon varlıkları oluşturmak için giriş parametreleri kullanır.
+Bu makale, kendi DSC yapılandırma tooautomatically nasıl oluşturabileceğinizi üzerinde odaklanılmış hello Mobility hizmeti ve hello Azure VM Aracısı--dağıtmak ve bunlar hello makinelerde tooprotect istediğiniz çalıştığından emin olun. Biz de bu DSC yapılandırması tooa yeni veya var olan Azure Otomasyon hesabı dağıtacağınız bir Azure Resource Manager şablonu vardır. Merhaba şablon hello değişkenleri ortamınız için içerecek giriş parametreleri toocreate Otomasyon varlıkları kullanır.
 
-Şablon dağıttıktan sonra yalnızca 4. adım giriş için bu kılavuzdaki makinelerinizi başvurabilirsiniz.
+Merhaba şablon dağıttıktan sonra bu kılavuzu tooonboard içinde toostep 4 yalnızca makinelerinizi başvurabilir.
 
-Şablon aşağıdakileri yapın:
+Merhaba şablon yeterlidir hello aşağıdaki:
 
 1. Var olan Otomasyon hesabını kullanabilir veya yeni bir tane oluşturun
 2. Giriş parametreleri için alın:
-   * ASRRemoteFile--Mobility hizmeti Kurulumu depoladığınız konumu
-   * ASRPassphrase--passphrase.txt dosyasını depoladığınız konumu
-   * ASRCSEndpoint--yönetim sunucunuzun IP adresi
-3. XPSDesiredStateConfiguration PowerShell modülünü içeri aktarın
-4. Oluşturma ve DSC yapılandırmasını derleme
+   * ASRRemoteFile--hello Mobility hizmeti Kurulumu depoladığınız hello konumu
+   * ASRPassphrase--hello passphrase.txt dosyasını depoladığınız hello konumu
+   * ASRCSEndpoint--yönetim sunucunuzun başlangıç IP adresi
+3. Merhaba xPSDesiredStateConfiguration PowerShell modülünü içeri aktarın
+4. Oluşturma ve hello DSC yapılandırmasını derleme
 
-Makinelerinizi koruması için ekleme başlayabilmeniz için yukarıdaki adımların tümünü doğru sırada gerçekleşir.
+Makinelerinizi koruması için ekleme başlayabilmeniz adımları önceki tüm hello hello doğru sırada gerçekleşir.
 
-Şablon dağıtımı için yönergeler bulunan [GitHub](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/DSC).
+Merhaba şablonla dağıtımı için yönergeler bulunur [GitHub](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/DSC).
 
-PowerShell kullanarak şablonu dağıtma:
+PowerShell kullanarak Hello şablonu dağıtma:
 
 ```powershell
 $RGDeployArgs = @{
@@ -509,4 +509,4 @@ New-AzureRmResourceGroupDeployment @RGDeployArgs -Verbose
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Mobility hizmeti aracıları dağıttıktan sonra şunları yapabilirsiniz [çoğaltmayı etkinleştirme](site-recovery-vmware-to-azure.md) sanal makineler için.
+Merhaba Mobility hizmeti aracıları dağıttıktan sonra şunları yapabilirsiniz [çoğaltmayı etkinleştirme](site-recovery-vmware-to-azure.md) hello sanal makineler için.

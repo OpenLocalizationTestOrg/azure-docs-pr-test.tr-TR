@@ -1,6 +1,6 @@
 ---
-title: "Azure Ağ İzleyicisi sonraki atlama giriş | Microsoft Docs"
-description: "Bu sayfa Ağ İzleyicisi'ne genel bakış sonraki atlama yeteneği sağlar."
+title: "Azure Ağ İzleyicisi aaaIntroduction toonext atlama | Microsoft Docs"
+description: "Bu sayfa hello Ağ İzleyicisi'ne genel bakış sonraki atlama yeteneği sağlar."
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
-ms.openlocfilehash: 5dd65d2418cae206965a13013dd990b916ad0733
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 916af736d0d52abadeafed746f0f8a0173b11033
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-next-hop-in-azure-network-watcher"></a>Azure Ağ İzleyicisi sonraki atlama giriş
+# <a name="introduction-toonext-hop-in-azure-network-watcher"></a>Azure Ağ İzleyicisi giriş toonext atlama
 
-Bir VM'ye gelen trafiği bir NIC ile ilişkili etkili rotalarını dayalı bir hedefe gönderilir Sonraki atlama IP adresini bir paket ve sonraki atlama türü bir belirli bir sanal makine ve NIC alır Bu paketin hedef yönlendirilmiş veya siyah olan trafik holed belirlemeye yardımcı olur. Burada trafik bir şirket içi konumu veya bir sanal gereç yönlendirilir, bir kullanıcı tarafından yolların hatalı bir yapılandırma bağlantısı sorunlarına yol açabilir. Sonraki atlama ayrıca sonraki atlama ile ilişkili yol tablosu döndürür. Varsa rota kullanıcı tanımlı bir yol olarak tanımlanan bir sonraki atlama sorgularken bu rota döndürülür. Aksi takdirde sonraki atlama "Sistem yolu" döndürür.
+Bir VM'ye gelen trafiği tooa hedef bir NIC ile ilişkili hello etkili rotalarını göre gönderilir Sonraki atlama hello sonraki atlama türü ve IP adresi bir paket için bir belirli bir sanal makine ve NIC alır Bu hello paket yönlendirilmiş toohello hedef yüklenmekte olan veya siyah olan hello trafiği holed toodetermine yardımcı olur. Rotaların trafik yönlendirilmiş tooan şirket içi konumu veya bir sanal gereç olduğu hello kullanıcı tarafından hatalı bir yapılandırma tooconnectivity sorunları yol açabilir. Sonraki atlama ayrıca hello sonraki atlama ile ilişkili hello yol tablosu döndürür. Bu rota Hello rota kullanıcı tanımlı bir yol olarak tanımlanırsa, bir sonraki atlama sorgulanırken döndürülür. Aksi takdirde sonraki atlama "Sistem yolu" döndürür.
 
 ![sonraki atlama genel bakış][1]
 
-Sonraki atlama sorgulanırken döndürülen sonraki atlama türlerini listesi verilmiştir.
+Merhaba, sonraki atlama sorgulanırken döndürülebilecek hello sonraki atlama türlerini listesi verilmiştir.
 
 * Internet
 * Değerinin VirtualAppliance
@@ -38,7 +38,7 @@ Sonraki atlama sorgulanırken döndürülen sonraki atlama türlerini listesi ve
 
 ### <a name="next-steps"></a>Sonraki adımlar
 
-Sonraki atlama adresini ziyaret ederek ile ağ bağlantısı sorunları bulmak için nasıl kullanılacağını öğrenin [bir VM'de sonraki atlama denetleyin](network-watcher-check-next-hop-portal.md)
+Nasıl toouse sonraki atlama toofind ziyaret ederek ile ağ bağlantısı sorunları öğrenmek [bir VM'de onay hello sonraki atlama](network-watcher-check-next-hop-portal.md)
 
 <!--Image references-->
 [1]: ./media/network-watcher-next-hop-overview/figure1.png

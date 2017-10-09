@@ -1,6 +1,6 @@
 ---
-title: "System Center Operations Manager ortamınızı Azure günlük analizi ile en iyi duruma getirme | Microsoft Docs"
-description: "System Center Operations Manager değerlendirme çözüm, risk ve sunucu ortamlarınızın durumunu düzenli aralıklarla değerlendirmek için kullanabilirsiniz."
+title: "aaaOptimize, System Center Operations Manager ortamınızı Azure günlük analizi ile | Microsoft Docs"
+description: "Merhaba sistem Center Operations Manager çözüm tooassess risk ve sunucu ortamlarınızın durumunu düzenli aralıklarla hello değerlendirmesi kullanabilirsiniz."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -15,53 +15,53 @@ ms.workload: infrastructure-services
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4992d98397da409f7c1cfbdeb40fdb0cdd0d2f19
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: c024e53826e91524c120bdb98ae7d96d6dc37d15
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="optimize-your-environment-with-the-system-center-operations-manager-assessment-preview-solution"></a>Ortamınızı System Center Operations Manager değerlendirme (Önizleme) çözümü ile en iyi duruma getirme
+# <a name="optimize-your-environment-with-hello-system-center-operations-manager-assessment-preview-solution"></a>Ortamınızı hello System Center Operations Manager değerlendirme (Önizleme) çözümü ile en iyi duruma getirme
 
 ![System Center Operations Manager değerlendirme simgesi](./media/log-analytics-scom-assessment/scom-assessment-symbol.png)
 
-System Center Operations Manager değerlendirme çözüm, risk ve System Center Operations Manager server ortamlarınızın durumunu düzenli aralıklarla değerlendirmek için kullanabilirsiniz. Bu makalede, yükleme, yapılandırma ve olası sorunlar için düzeltme eylemleri yararlanabilmeniz çözümü kullanan yardımcı olur.
+Merhaba sistem Center Operations Manager çözüm tooassess risk ve System Center Operations Manager server ortamlarınızın durumunu düzenli aralıklarla hello değerlendirmesi kullanabilirsiniz. Bu makalede, yükleme, yapılandırma ve olası sorunlar için düzeltme eylemleri yararlanabilmeniz hello çözümü kullanan yardımcı olur.
 
-Bu çözüm önerileri dağıtılan sunucu altyapınızı belirli öncelikli listesi sağlar. Öneriler dört arasında ayrılır hızlı bir şekilde Yardım odak alanlarına riski anlamak ve düzeltme eylemlerini gerçekleştirin.
+Bu çözüm önerileri belirli tooyour dağıtılan sunucu altyapısı öncelikli listesi sağlar. Merhaba önerileri hızlı bir şekilde Yardım alanları risk hello ve düzeltici işlemleri anlamak dört odak arasında ayrılır.
 
-Önerilerin bilgi ve müşteri ziyaretleriniz binlerce Microsoft mühendisleri tarafından elde edilen deneyimlerden dayanır. Her bir öneri, bir sorun için neden önemli ve önerilen değişiklikleri uygulamak nasıl hakkında rehberlik sağlar.
+Merhaba önerilerin hello bilgi ve müşteri ziyaretleriniz binlerce Microsoft mühendisleri tarafından elde edilen deneyimlerden dayanır. Her bir öneri, bir sorun tooyou neden önemli ve nasıl tooimplement hello değişiklikleri önerilen hakkında rehberlik sağlar.
 
-Kuruluşunuz için en önemli ve ücretsiz ve sağlam bir risk ortam çalıştıran doğru ilerleme durumunuzu izlemenize odak alanlarına seçebilirsiniz.
+En önemli tooyour kuruluş ve ücretsiz ve sağlam bir risk ortam çalıştıran doğru ilerleme durumunuzu izlemenize odak alanlarına seçebilirsiniz.
 
-Çözüm ekledik ve bir değerlendirme tamamlanan, Özet sonra odak alanlarına odaklanmak için bilgi gösterilir **System Center Operations Manager değerlendirme** altyapınız için Pano. Aşağıdaki bölümlerde bilgileri üzerinde nasıl kullanacağınızı **System Center Operations Manager değerlendirme** Pano, burada görüntüleyebilir ve ardından uygulayın Eylemler SCOM altyapınız için önerilen.
+Merhaba çözüm ekledik ve bir değerlendirme tamamlanan, Özet sonra bilgi odak alanlarına odaklanmak için hello üzerinde gösterilen **System Center Operations Manager değerlendirme** altyapınız için Pano. Merhaba aşağıdaki nasıl toouse hello hello hakkında bilgi bölümlerde **System Center Operations Manager değerlendirme** Pano, burada görüntüleyebilir ve ardından uygulayın Eylemler SCOM altyapınız için önerilir.
 
 ![System Center Operations Manager çözüm döşeme](./media/log-analytics-scom-assessment/scom-tile.png)
 
 ![System Center Operations Manager değerlendirme Panosu](./media/log-analytics-scom-assessment/scom-dashboard01.png)
 
-## <a name="installing-and-configuring-the-solution"></a>Yükleme ve çözüm yapılandırılıyor
+## <a name="installing-and-configuring-hello-solution"></a>Yükleme ve yapılandırma hello çözümü
 
-Çözüm, Microsoft System Operations Manager 2012 R2 ve 2012 SP1 ile çalışır.
+Merhaba çözüm, Microsoft System Operations Manager 2012 R2 ve 2012 SP1 ile çalışır.
 
-Yüklemek ve çözüm yapılandırmak için aşağıdaki bilgileri kullanın.
+Bilgi tooinstall aşağıdaki hello kullanın ve hello çözüm yapılandırın.
 
- - OMS içinde bir değerlendirme çözümü kullanmadan önce çözümü yüklenmiş olması gerekir. Çözümden yüklemek [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview) ya da'ndaki yönergeleri izleyerek [Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md).
+ - OMS içinde bir değerlendirme çözümü kullanmadan önce hello çözümü yüklenmiş olması gerekir. Merhaba çözümden yüklemek [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview) veya hello yönergeleri izleyerek [hello Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md).
 
- - Çözüm için çalışma alanına ekledikten sonra System Center Operations Manager değerlendirme döşemenin Panoda ek yapılandırma gerekli iletisi görüntüler. Kutucuğuna tıklayın ve sayfasında belirtilen yapılandırma adımlarını izleyin
+ - Merhaba çözüm toohello çalışma ekledikten sonra hello panosundaki hello System Center Operations Manager değerlendirme bölümünden hello ek yapılandırma gerekli iletisi görüntüler. Merhaba kutucuğuna tıklayın ve hello sayfasında belirtilen hello yapılandırma adımlarını izleyin
 
  ![System Center Operations Manager Pano kutucuğu](./media/log-analytics-scom-assessment/scom-configrequired-tile.png)
 
- System Center Operations Manager yapılandırmasını OMS çözümde yapılandırma sayfasında belirtilen adımları izleyerek komut dosyası aracılığıyla gerçekleştirilebilir.
+ Merhaba System Center Operations Manager yapılandırmasını OMS hello çözümde hello yapılandırma sayfasında belirtilen hello adımları izleyerek hello komut dosyası aracılığıyla gerçekleştirilebilir.
 
- Bunun yerine, değerlendirmesi SCOM konsolu üzerinden yapılandırmak için izleyin aşağıdaki adımları aynı sırada
-1. [System Center Operations Manager değerlendirmesi için farklı çalıştır hesabı ayarlama](#operations-manager-run-as-accounts-for-oms)  
-2. [System Center Operations Manager değerlendirme kuralı yapılandırma](#configure-the-assessment-rule)
+ Bunun yerine, tooconfigure hello değerlendirmesi SCOM konsoldan izleyin hello aşağıdaki hello aynı adımları sırası
+1. [System Center Operations Manager değerlendirmesi için Hello farklı çalıştır hesabı ayarlama](#operations-manager-run-as-accounts-for-oms)  
+2. [Merhaba System Center Operations Manager değerlendirme kuralı yapılandırma](#configure-the-assessment-rule)
 
 ## <a name="system-center-operations-manager-assessment-data-collection-details"></a>System Center Operations Manager değerlendirme veri toplama ayrıntıları
 
-System Center Operations Manager değerlendirme WMI verilerini, kayıt defteri verilerini, olay günlüğü verilerini, Windows PowerShell, SQL sorguları, dosya bilgileri Toplayıcı etkinleştirdiğiniz kullanarak sunucu üzerinden Operations Manager veri toplar.
+System Center Operations Manager değerlendirme Hello WMI verilerini, kayıt defteri verilerini, olay günlüğü verilerini, Windows PowerShell, SQL sorguları, dosya bilgileri Toplayıcı etkinleştirdiğiniz hello sunucusu kullanarak Operations Manager veri toplar.
 
-Aşağıdaki tabloda System Center Operations Manager değerlendirmesi için veri toplama yöntemi gösterir ve ne sıklıkta bir aracı tarafından toplanan veriler.
+Merhaba aşağıdaki tabloda veri toplama yöntemleri System Center Operations Manager değerlendirmesi için gösterir ve ne sıklıkta bir aracı tarafından toplanan veriler.
 
 | Platform | Doğrudan Aracısı | SCOM Aracısı | Azure Storage | SCOM gerekli? | Yönetim grubu gönderilen SCOM Aracısı verileri | Toplama sıklığı |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -69,74 +69,74 @@ Aşağıdaki tabloda System Center Operations Manager değerlendirmesi için ver
 
 ## <a name="operations-manager-run-as-accounts-for-oms"></a>Operations Manager hesapları OMS için Çalıştır
 
-Yönetim paketlerine sağlamak iş yükleri için OMS derlemeleri değeri-hizmetlerini ekleyin. Her iş yükü, bir etki alanı hesabı gibi farklı güvenlik bağlamında yönetim paketlerini çalıştırmak için iş yüküne özgü ayrıcalıkları gerektirir. Kimlik bilgileri sağlamak için bir Operations Manager farklı çalıştır hesabı yapılandırın.
+Yönetim paketleri iş yükleri tooprovide için OMS derlemelerinde değeri-hizmetlerini ekleyin. Her iş yükü, bir etki alanı hesabı gibi farklı güvenlik bağlamında iş yüküne özgü ayrıcalıkları toorun yönetim paketleri gerektirir. Bir Operations Manager farklı çalıştır hesabı tooprovide kimlik bilgilerini yapılandırın.
 
-System Center Operations Manager değerlendirmesi için Operations Manager farklı çalıştırma hesabını ayarlamak için aşağıdaki bilgileri kullanın.
+Aşağıdaki bilgilerle tooset System Center Operations Manager değerlendirmesi için Operations Manager farklı çalıştırma hesabını hello hello kullanın.
 
-### <a name="set-the-run-as-account"></a>Farklı Çalıştır hesabı ayarlama
+### <a name="set-hello-run-as-account"></a>Set hello farklı çalıştır hesabı
 
-1. Operations Manager konsolunda, Git **Yönetim** sekmesi.
-2. Altında **Çalıştır Yapılandırması**, tıklatın **hesapları**.
-3. Farklı Çalıştır bir Windows hesabı oluşturma sihirbazı kullanarak, aşağıdaki hesabı, oluşturun. Hesabını kullanacak şekilde tanımlanır ve aşağıdaki önkoşullar sahip olur:
+1. Toohello Hello Operations Manager konsolu, Git **Yönetim** sekmesi.
+2. Merhaba altında **Çalıştır Yapılandırması**, tıklatın **hesapları**.
+3. Merhaba Çalıştır hello bir Windows hesabı oluşturma Sihirbazı'nı aşağıdaki hesabı, oluşturun. Merhaba hesap toouse hello bir tanımlanan tüm hello Önkoşullar aşağıdaki sahip değildir:
 
     >[!NOTE]
-    Farklı Çalıştır hesabı gereksinimleri karşılaması gerekir:
-    - (Tüm işlem yöneticisi rolleri - yönetim sunucusu, OpsMgr veritabanı, veri ambarı, raporlama, Web konsolu, ağ geçidi) ortamında tüm sunucularda yerel Administrators grubunun bir etki alanı hesabı üyesi
-    - İşlem yöneticisi rolü incelenen yönetim grubu için
-    - Yürütme [betik](#sql-script-to-grant-granular-permissions-to-the-run-as-account) hesabı Operations Manager tarafından kullanılan SQL örneğinde ayrıntılı izinleri vermek için.
-      Not: Bu hesap sysadmin hakları zaten varsa, sonra komut dosyası yürütme atlayın.
+    Merhaba farklı çalıştır hesabı gereksinimleri karşılaması gerekir:
+    - Etki alanı hesabı hello yerel Yöneticiler grubunun üyesi hello ortamında (tüm işlem yöneticisi rolleri - yönetim sunucusu, OpsMgr veritabanı, veri ambarı, raporlama, Web konsolu, ağ geçidi) tüm sunucularda
+    - İşlem yöneticisi rolü incelenen hello yönetim grubu için
+    - Merhaba yürütme [betik](#sql-script-to-grant-granular-permissions-to-the-run-as-account) toogrant ayrıntılı izinler toohello hesabı Operations Manager tarafından kullanılan SQL örneğinde.
+      Not: Bu hesap sysadmin hakları zaten varsa, ardından hello komut dosyası yürütme atlayın.
 
 4. Altında **dağıtım güvenliği**seçin **daha güvenli**.
-5. Hesap dağıtılacağı yeri yönetim sunucusu belirtin.
-3. Çalıştır yapılandırması için geri dönün ve tıklatın **profilleri**.
-4. Arama *SCOM değerlendirme profili*.
-5. Profil adı olmalıdır: *Microsoft System Center Advisor SCOM değerlendirme farklı çalıştır profili*.
-6. Sağ tıklayın ve özelliklerini güncelleştirmek ve son oluşturduğunuz farklı çalıştır 3. adımda oluşturduğunuz hesabı ekleyin.
+5. Merhaba hesap dağıtılacağı yeri hello yönetim sunucusu belirtin.
+3. Toohello Çalıştır yapılandırması geri dönün ve tıklatın **profilleri**.
+4. Merhaba Ara *SCOM değerlendirme profili*.
+5. Hello profil adı olmalıdır: *Microsoft System Center Advisor SCOM değerlendirme farklı çalıştır profili*.
+6. Sağ tıklayın ve özelliklerini güncelleştirmek ve 3. adımda oluşturduğunuz hesap olarak çalıştır kısa süre önce oluşturuldu hello ekleyin.
 
-### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>Farklı Çalıştır hesabı ayrıntılı izinleri vermek için SQL komut dosyası
+### <a name="sql-script-toogrant-granular-permissions-toohello-run-as-account"></a>SQL komut dosyası toogrant ayrıntılı izinler toohello farklı çalıştır hesabı
 
-Farklı Çalıştır hesabının Operations Manager tarafından kullanılan SQL örneğinde gerekli izinleri vermek için aşağıdaki SQL betiğini yürütün.
+SQL komut dosyası toogrant gerekli izinleri toohello farklı çalıştır hesabı Operations Manager tarafından kullanılan hello SQL örneğinde aşağıdaki hello yürütün.
 
 ```
--- Replace <UserName> with the actual user name being used as Run As Account.
+-- Replace <UserName> with hello actual user name being used as Run As Account.
 USE master
 
--- Create login for the user, comment this line if login is already created.
+-- Create login for hello user, comment this line if login is already created.
 CREATE LOGIN [UserName] FROM WINDOWS
 
 
---GRANT permissions to user.
-GRANT VIEW SERVER STATE TO [UserName]
-GRANT VIEW ANY DEFINITION TO [UserName]
-GRANT VIEW ANY DATABASE TO [UserName]
+--GRANT permissions toouser.
+GRANT VIEW SERVER STATE too[UserName]
+GRANT VIEW ANY DEFINITION too[UserName]
+GRANT VIEW ANY DATABASE too[UserName]
 
--- Add database user for all the databases on SQL Server Instance, this is required for connecting to individual databases.
--- NOTE: This command must be run anytime new databases are added to SQL Server instances.
+-- Add database user for all hello databases on SQL Server Instance, this is required for connecting tooindividual databases.
+-- NOTE: This command must be run anytime new databases are added tooSQL Server instances.
 EXEC sp_msforeachdb N'USE [?]; CREATE USER [UserName] FOR LOGIN [UserName];'
 
 Use msdb
-GRANT SELECT To [UserName]
+GRANT SELECT too[UserName]
 Go
 
 --Give SELECT permission on all Operations Manager related Databases
 
---Replace the Operations Manager database name with the one in your environment
+--Replace hello Operations Manager database name with hello one in your environment
 Use [OperationsManager];
-GRANT SELECT To [UserName]
+GRANT SELECT too[UserName]
 GO
 
---Replace the Operations Manager DatawareHouse database name with the one in your environment
+--Replace hello Operations Manager DatawareHouse database name with hello one in your environment
 Use [OperationsManagerDW];
-GRANT SELECT To [UserName]
+GRANT SELECT too[UserName]
 GO
 
---Replace the Operations Manager Audit Collection database name with the one in your environment
+--Replace hello Operations Manager Audit Collection database name with hello one in your environment
 Use [OperationsManagerAC];
-GRANT SELECT To [UserName]
+GRANT SELECT too[UserName]
 GO
 
 --Give db_owner on [OperationsManager] DB
---Replace the Operations Manager database name with the one in your environment
+--Replace hello Operations Manager database name with hello one in your environment
 USE [OperationsManager]
 GO
 ALTER ROLE [db_owner] ADD MEMBER [UserName]
@@ -144,149 +144,149 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 ```
 
 
-### <a name="configure-the-assessment-rule"></a>Değerlendirme kuralı yapılandırma
+### <a name="configure-hello-assessment-rule"></a>Merhaba değerlendirme kuralı yapılandırma
 
-System Center Operations Manager değerlendirme çözümün Yönetim Paketi, adında bir kural içerir *Microsoft System Center Advisor SCOM değerlendirme değerlendirme kural çalıştırma*. Bu kural, değerlendirme çalıştırmaktan sorumludur. Kuralı etkinleştirmek ve sıklığı yapılandırmak için aşağıdaki yordamları kullanın.
+Merhaba System Center Operations Manager çözümün Yönetim Paketi, adında bir kural içerir değerlendirme *Microsoft System Center Advisor SCOM değerlendirme değerlendirme kural çalıştırma*. Bu kural, hello değerlendirme çalıştırmaktan sorumludur. tooenable kural hello ve hello sıklığı, aşağıdaki kullanım hello yordamlar yapılandırın.
 
-Varsayılan olarak, Microsoft System Center Advisor SCOM değerlendirme çalıştırmak değerlendirme kural devre dışıdır. Değerlendirme çalıştırmak için bir yönetim sunucusunda kural etkinleştirmeniz gerekir. Aşağıdaki adımları kullanın.
+Varsayılan olarak, Microsoft System Center Advisor SCOM değerlendirme değerlendirme kural çalıştırma hello devre dışıdır. toorun hello değerlendirmesi, bir yönetim sunucusunda hello kural etkinleştirmeniz gerekir. Merhaba aşağıdaki adımları kullanın.
 
-#### <a name="enable-the-rule-for-a-specific-management-server"></a>Belirli yönetim sunucusuna ilişkin kuralını etkinleştir
+#### <a name="enable-hello-rule-for-a-specific-management-server"></a>Belirli yönetim sunucusuna ilişkin Hello kuralını etkinleştir
 
-1. İçinde **yazma** arama kuralı için Operations Manager konsolunun çalışma *Microsoft System Center Advisor SCOM değerlendirme değerlendirme kural çalıştırma* içinde **kuralları** bölmesi.
-2. Arama sonuçlarında metin içeren bir tanesini seçin *türü: Yönetim sunucusu*.
-3. Kuralı sağ tıklatın ve ardından **geçersiz kılmaları** > **sınıfın belirli bir nesnesi için: Yönetim sunucusu**.
-4.  Kullanılabilir yönetim sunucuları listesini kural çalıştırdığı yönetim sunucusu seçin.
-5.  Geçersiz kılma değerine değiştirdiğinizden emin olun **True** için **etkin** parametre değeri.  
+1. Merhaba, **yazma** hello Operations Manager konsolunun, hello kuralını arayın çalışma *Microsoft System Center Advisor SCOM değerlendirme değerlendirme kural çalıştırma* hello içinde **kuralları** bölmesi.
+2. Merhaba arama sonuçlarında seçin hello hello metin içeren bir *türü: Yönetim sunucusu*.
+3. Merhaba kuralı sağ tıklatın ve ardından **geçersiz kılmaları** > **sınıfın belirli bir nesnesi için: Yönetim sunucusu**.
+4.  Merhaba kullanılabilir yönetim sunucuları listesinde hello kural çalıştırdığı hello yönetim sunucusu seçin.
+5.  Geçersiz kılma değeri çok değiştirdiğinizden emin olun**True** hello için **etkin** parametre değeri.  
     ![parametresi geçersiz kıl](./media/log-analytics-scom-assessment/rule.png)
 
-Bu pencerede hala, bir sonraki yordamı kullanarak çalışma sıklığını yapılandırın.
+Hala penceresinde bu sırada hello sonraki yordamı kullanarak çalıştırmak hello hello sıklığını yapılandırın.
 
-#### <a name="configure-the-run-frequency"></a>Çalışma sıklığını yapılandırma
+#### <a name="configure-hello-run-frequency"></a>Merhaba çalıştırma sıklığı Yapılandır
 
-Değerlendirme her 10.080 dakikadır (veya yedi gün) çalışmak üzere yapılandırılan varsayılan zaman aralığı. En küçük değerini 1440 dakika (veya bir gün) değerine geçersiz kılabilirsiniz. Değerin ardışık değerlendirme çalışmaları arasında gerekli en düşük zaman aralığı temsil eder. Aralık geçersiz kılmak için aşağıdaki adımları kullanın.
+Merhaba değerlendirme yapılandırılmış toorun her 10.080 dakikadır (veya yedi gün) hello varsayılan aralığıdır. Merhaba değeri tooa en düşük değer 1440 dakika (veya bir gün) geçersiz kılabilirsiniz. Merhaba değeri art arda değerlendirme çalışmaları arasında gerekli hello en düşük zaman aralığı temsil eder. toooverride hello aralığı, aşağıdaki hello adımları kullanın.
 
-1. İçinde **yazma** arama kuralı için Operations Manager konsolunun çalışma *Microsoft System Center Advisor SCOM değerlendirme değerlendirme kural çalıştırma* içinde **kuralları** bölmesi.
-2. Arama sonuçlarında metin içeren bir tanesini seçin *türü: Yönetim sunucusu*.
-3. Kuralı sağ tıklatın ve ardından **kuralı geçersiz kıl** > **sınıfın tüm nesneleri için: Yönetim sunucusu**.
-4. Değişiklik **aralığı** , istenen aralık değeri için parametre değeri. Aşağıdaki örnekte, değer 1440 dakika (bir gün) olarak ayarlanır.  
+1. Merhaba, **yazma** hello Operations Manager konsolunun, hello kuralını arayın çalışma *Microsoft System Center Advisor SCOM değerlendirme değerlendirme kural çalıştırma* hello içinde **kuralları** bölmesi.
+2. Merhaba arama sonuçlarında seçin hello hello metin içeren bir *türü: Yönetim sunucusu*.
+3. Merhaba kuralı sağ tıklatın ve ardından **geçersiz kılma hello kural** > **sınıfın tüm nesneleri için: Yönetim sunucusu**.
+4. Değişiklik hello **aralığı** parametre değeri tooyour İstenen aralık değeri. Merhaba aşağıdaki örnekte, hello değer too1440 (bir gün) dakika ayarlanır.  
     ![aralığı parametresi](./media/log-analytics-scom-assessment/interval.png)  
-    Değer 1440 dakikadan daha kısa bir süre için ayarlarsanız, kuralın bir gün aralığında çalışır. Bu örnekte, kural aralık değeri göz ardı eder ve bir gün sıklığında çalıştırır.
+    Merhaba değer 1440 dakika daha tooless ayarlanırsa hello kuralı bir gün aralığında çalışır. Bu örnekte, hello kural hello aralık değeri göz ardı eder ve bir gün sıklığında çalıştırır.
 
 
 ## <a name="understanding-how-recommendations-are-prioritized"></a>Önerilerin nasıl önceliklendirilir anlama
 
-Yapılan her öneri öneri göreceli önemini tanımlayan bir ağırlıklı değer verilir. Yalnızca 10 en önemli öneriler gösterilir.
+Yapılan her öneri hello öneri göreceli önemini hello tanımlayan bir ağırlıklı değer verilir. Yalnızca hello 10 en önemli öneriler gösterilir.
 
 ### <a name="how-weights-are-calculated"></a>Ağırlıkları nasıl hesaplanır
 
 Ağırlık belirlemeyi üç anahtar faktörlerini temel alarak toplam değerler şunlardır:
 
-- *Olasılık* tanımlanan bir sorunun sorunlara neden. Daha yüksek olasılık öneri için daha büyük bir genel puan karşılık gelir.
-- *Etkisi* kuruluşunuzdaki bir soruna neden olursa sorun. Daha yüksek bir etkisi öneri için daha büyük bir genel puan karşılık gelir.
-- *Çaba* öneriyi uygulamak için gereklidir. Daha yüksek çaba öneri için daha küçük bir genel puan karşılık gelir.
+- Merhaba *olasılık* tanımlanan bir sorunun sorunlara neden. Daha yüksek olasılık büyük genel puan hello öneri tooa karşılık gelir.
+- Merhaba *etkisi* kuruluşunuzdaki bir soruna neden olursa hello sorun. Daha yüksek bir etkisi, büyük genel puan hello öneri tooa karşılık gelir.
+- Merhaba *çaba* tooimplement hello öneri gerekli. Daha yüksek çaba küçük genel puan hello öneri tooa karşılık gelir.
 
-Her öneri ağırlıklı her odak alanı için kullanılabilir toplam puanı yüzdesi olarak ifade edilir. Örneğin, bu öneri uygulama kullanılabilirlik ve iş sürekliliği odak alanında bir öneri %5 puanı varsa, genel kullanılabilirlik ve iş sürekliliği puan tarafından %5 artırır.
+Her bir öneri ağırlığı hello hello toplam puanı her odak alanı için kullanılabilir bir yüzdesi olarak ifade edilir. Örneğin, bu öneri uygulama bir öneri hello kullanılabilirlik ve iş sürekliliği odaklanılan alan de bir puan % 5 varsa, genel kullanılabilirlik ve iş sürekliliği puan tarafından %5 artırır.
 
 ### <a name="focus-areas"></a>Odak alanları
 
 **Kullanılabilirlik ve iş sürekliliği** -bu odaklanılan alan hizmet kullanılabilirliği, altyapı ve iş koruması dayanıklılık için öneriler gösterir.
 
-**Performans ve ölçeklenebilirlik** -bu odak alanı kuruluşunuzun yardımcı olacak öneriler gösterir BT altyapısı arttıkça, BT ortamınız geçerli performans gereksinimlerini karşıladığından ve altyapı değiştirmeye yanıt verebilmesini olduğundan emin olun gerekir.
+**Performans ve ölçeklenebilirlik** -bu odaklanılan alan önerileri toohelp kuruluşunuzun gösterir BT altyapısı arttıkça, BT ortamınız geçerli performans gereksinimlerini karşıladığından ve mümkün toorespond toochanging olduğundan emin olun Altyapı gerekir.
 
-**Yükseltme, geçiş ve dağıtım** -bu odak alanı, yükseltme, geçirme ve SQL Server mevcut altyapınızda dağıtmanıza yardımcı olacak öneriler gösterir.
+**Yükseltme, geçiş ve dağıtım** - bu odak alanı yükseltme önerileri toohelp gösterir, geçirme ve SQL Server tooyour mevcut altyapıyı.
 
-**İşlemler ve izleme** -bu odak alanı BT işlemlerinizi kolaylaştırır, önleyici bakım uygulamak ve performansı en üst düzeye çıkarmanıza yardımcı olacak öneriler gösterir.
+**İşlemler ve izleme** - bu odaklanılan alan önerileri toohelp daha verimli hale BT işlemlerinizi gösterir önleyici bakım uygulamak ve performansı en üst düzeye çıkarın.
 
-### <a name="should-you-aim-to-score-100-in-every-focus-area"></a>Her odaklanılan alan % 100 puanlı hedefleyin?
+### <a name="should-you-aim-tooscore-100-in-every-focus-area"></a>Her odak alanında % 100 tooscore hedeflemeniz gerektiğini?
 
-Olmayabilir. Öneriler bilgi ve müşteri ziyaretleriniz binlerce arasında Microsoft mühendisleri tarafından elde edilen deneyimleri temel alır. Ancak, iki sunucu altyapılar aynıdır ve özel öneriler için daha az veya uygun olabilir. Örneğin, bazı güvenlik önerileri sanal makinelerinizi Internet'e açık değildir, daha az ilgili olabilir. Bazı kullanılabilirlik öneriler düşük öncelik geçici veri toplama ve raporlama sağladığı hizmetler için daha az uygun olmayabilir. Olgun bir iş için önemli olan sorunları bir başlangıcından daha az önemli olabilir. Hangi odak alanların önceliklerinizden olduğunu belirlemek ve, puanları zamanla nasıl değiştiğini adresindeki Ara isteyebilirsiniz.
+Olmayabilir. Merhaba önerileri hello bilgi ve müşteri ziyaretleriniz binlerce arasında Microsoft mühendisleri tarafından elde edilen deneyimleri temel alır. Ancak, iki sunucu altyapılar aynı hello ve belirli öneriler fazla veya az ilgili tooyou olabilir değildir. Örneğin, bazı güvenlik önerileri sanal makinelerinizi gösterilen toohello Internet değilseniz, daha az ilgili olabilir. Bazı kullanılabilirlik öneriler düşük öncelik geçici veri toplama ve raporlama sağladığı hizmetler için daha az uygun olmayabilir. Önemli tooa olgun iş sorunlarını daha az önemli tooa başlatma olabilir. Önceliklerinizden hangi odak alanlarıdır tooidentify istediğiniz ve, puanları zamanla nasıl değiştiğini adresindeki bakın.
 
-Her öneri neden önemli olduğu hakkında yönergeler içerir. Öneri uygulama verilen BT hizmetlerinizi yapısını ve kuruluşunuzun iş gereksinimlerini sizin için uygun olup olmadığını değerlendirmek için bu kılavuzu kullanın.
+Her öneri neden önemli olduğu hakkında yönergeler içerir. Bu kılavuz tooevaluate Hello öneri uygulama BT Hizmetleri ve hello iş gereksinimlerinizi kuruluşunuzun hello yapısını verilen sizin için uygun olup olmadığını kullanın.
 
 ## <a name="use-assessment-focus-area-recommendations"></a>Değerlendirme odak alanı önerileri kullanın
 
-OMS içinde bir değerlendirme çözümü kullanmadan önce çözümü yüklenmiş olması gerekir. Daha fazla bilgi için çözümleri yükleme hakkında bkz [Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md). Yüklendikten sonra OMS genel bakış sayfasında System Center Operations Manager değerlendirme döşeme kullanarak önerileri özetini görüntüleyebilirsiniz.
+OMS içinde bir değerlendirme çözümü kullanmadan önce hello çözümü yüklenmiş olması gerekir. çözümler, yükleme hakkında daha fazla tooread bkz [hello Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md). Yüklendikten sonra hello genel bakış sayfasında OMS hello System Center Operations Manager değerlendirme kutucuğu kullanarak önerileri hello özetini görüntüleyebilirsiniz.
 
-Altyapınız ve ardından-ayrıntıya önerileri için özetlenmiş uyumluluk değerlendirmesi görüntüleyin.
+Görünüm hello altyapınızı ve ardından-ayrıntıya önerileri için Uyumluluk değerlendirmesi özetlenir.
 
-### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Odak alanı için öneriler görüntülemek ve düzeltici işlemleri için
+### <a name="tooview-recommendations-for-a-focus-area-and-take-corrective-action"></a>bir odak alanı ve Al düzeltme eylemi için tooview önerileri
 
-1. Üzerinde **genel bakış** sayfasında, **System Center Operations Manager değerlendirme** döşeme.
-2. Üzerinde **System Center Operations Manager değerlendirme** sayfasında odak alanı Kanatlar birinde özet bilgilerini inceleyin ve sonra bu odak alanı için öneriler görüntülemek için tıklatın.
-3. Odak alanı sayfaları hiçbirinde ortamınız için öncelikli önerilerin görüntüleyebilirsiniz. Önerinin altında tıklatın **etkilenen nesneleri** öneri neden yapılan hakkında ayrıntıları görüntülemek için.  
+1. Merhaba üzerinde **genel bakış** hello sayfasında, **System Center Operations Manager değerlendirme** döşeme.
+2. Merhaba üzerinde **System Center Operations Manager değerlendirme** sayfasında hello odak alanı Kanatlar birinde hello özet bilgileri gözden geçirin ve aşağıdakilerden tooview önerileri bu odaklanılan alan için tıklatın.
+3. Merhaba odak alanı sayfaları hiçbirinde ortamınız için öncelik hello önerilerin görüntüleyebilirsiniz. Önerinin altında tıklatın **etkilenen nesneler** tooview hakkında ayrıntılı hello öneri yapılan neden.  
     ![Odaklanılan alan](./media/log-analytics-scom-assessment/focus-area.png)
-4. Önerilen düzeltici eylemleri gerçekleştirebilirsiniz **önerilen eylemleri**. Öğe ele, önerilen eylemler gerçekleştirilen ve uyumluluk puan artıracaktır sonraki değerlendirmeleri kaydeder. Düzeltilmiş öğeler görünür olarak **geçirilen nesneleri**.
+4. Önerilen düzeltici eylemleri gerçekleştirebilirsiniz **önerilen eylemleri**. Merhaba öğesi ele, önerilen eylemler gerçekleştirilen ve uyumluluk puan artıracaktır sonraki değerlendirmeleri kaydeder. Düzeltilmiş öğeler görünür olarak **geçirilen nesneleri**.
 
 ## <a name="ignore-recommendations"></a>Öneriler yoksay
 
-Yoksay istediğiniz önerileri varsa, öneriler değerlendirme sonuçlarında görünmesini engellemek için OMS kullanan bir metin dosyası oluşturabilirsiniz.
+Tooignore istediğiniz önerileri varsa, değerlendirme sonuçlarında görünmesini tooprevent önerileri OMS kullanan bir metin dosyası oluşturabilirsiniz.
 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
-### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>Yoksay istediğiniz önerileri tanımlamak için
+### <a name="tooidentify-recommendations-that-you-want-tooignore"></a>tooignore istediğiniz tooidentify önerileri
 
-1. Sunucunuzdan çalışma alanınıza oturum açın ve günlük arama açın. Ortamınızdaki bilgisayarları için başarısız olan liste önerileri için aşağıdaki sorguyu kullanın.
+1. Tooyour çalışma alanında oturum ve günlük arama açın. Aşağıdaki, ortamınızdaki bilgisayarları için başarısız olan sorgu toolist önerileri hello kullanın.
 
     ```
     Type=SCOMAssessmentRecommendationRecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
     ```
 
-    Günlük arama sorgusu gösteren ekran görüntüsü aşağıda verilmiştir:  
+    Bir ekran görüntüsü gösteren hello günlük arama sorgusu şöyledir:  
     ![günlük araması](./media/log-analytics-scom-assessment/scom-log-search.png)
 
-2. Yoksay istediğiniz önerileri seçin. Sonraki yordamda Recommendationıd için değerleri kullanacaksınız.
+2. Öneriler tooignore istediğinizi seçin. Merhaba sonraki yordamda Recommendationıd için hello değerleri kullanacaksınız.
 
-### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Oluşturma ve bir IgnoreRecommendations.txt metin dosyası kullanma
+### <a name="toocreate-and-use-an-ignorerecommendationstxt-text-file"></a>toocreate ve IgnoreRecommendations.txt metin dosyayı kullan
 
 1. IgnoreRecommendations.txt adlı bir dosya oluşturun.
-2. Her Recommendationıd ayrı bir satırda yoksay ve sonra dosyayı kaydedip kapatın için OMS istediğiniz her bir öneri için yazın veya yapıştırın.
-3. Dosya aşağıdaki klasörde önerileri yoksaymak için OMS istediğiniz her bilgisayara yerleştirin.
-4. Operations Manager yönetim sunucusunda - *SystemDrive*: \Program System Center 2012 R2\Operations Manager\Server.
+2. Her Recommendationıd, OMS tooignore ayrı bir satırda istediğiniz ve ardından hello dosyasını kaydedip kapatın, her bir öneri için yazın veya yapıştırın.
+3. Merhaba dosya klasörü OMS tooignore önerileri istediğiniz her bilgisayarda aşağıdaki hello yerleştirin.
+4. Merhaba Operations Manager yönetim sunucusunda - *SystemDrive*: \Program System Center 2012 R2\Operations Manager\Server.
 
-### <a name="to-verify-that-recommendations-are-ignored"></a>Öneriler göz ardı edilir doğrulamak için
+### <a name="tooverify-that-recommendations-are-ignored"></a>tooverify önerileri göz ardı edilir
 
-1. Sonraki değerlendirme çalıştığında, varsayılan olarak yedi günde zamanlanmış sonra belirtilen önerileri yoksayıldı işaretlenir ve değerlendirme Panoda görünmez.
-2. Tüm yoksayılan öneriler listelemek için aşağıdaki günlük arama sorgularını kullanabilirsiniz.
+1. Merhaba Hello sonraki zamanlanmış değerlendirme, varsayılan olarak yedi günde çalıştıktan sonra belirtilen önerileri yoksayıldı işaretlenir ve hello değerlendirme Panoda görünmez.
+2. Tüm göz ardı hello önerileri günlük arama sorguları toolist aşağıdaki hello kullanabilirsiniz.
 
     ```
     Type=SCOMAssessmentRecommendationRecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
     ```
 
-3. Daha sonra yoksayılan önerileri görmek istediğiniz karar verirseniz, tüm IgnoreRecommendations.txt dosyaları silin veya bunları RecommendationIDs kaldırabilirsiniz.
+3. Daha sonra göz ardı toosee önerileri istemediğinize karar verirseniz, tüm IgnoreRecommendations.txt dosyaları silin veya bunları RecommendationIDs kaldırabilirsiniz.
 
 ## <a name="system-center-operations-manager-assessment-solution-faq"></a>System Center Operations Manager değerlendirme çözümü hakkında SSS
 
-*OMS çalışma alanıma değerlendirme çözümü ekledim. Ancak önerilerini görmek yok. Neden olmasın?* Çözüm eklendikten sonra aşağıdaki adımları görünümü OMS Panoda önerileri kullanın.  
+*Merhaba değerlendirme çözümü toomy OMS çalışma ekledim. Ancak hello önerilerini görmek yok. Neden olmasın?* Merhaba çözüm eklendikten sonra aşağıdaki adımları görünüm hello önerileri hello OMS Panoda hello kullanın.  
 
-- [System Center Operations Manager değerlendirmesi için farklı çalıştır hesabı ayarlama](#operations-manager-run-as-accounts-for-oms)  
-- [System Center Operations Manager değerlendirme kuralı yapılandırma](#configure-the-assessment-rule)
+- [System Center Operations Manager değerlendirmesi için Hello farklı çalıştır hesabı ayarlama](#operations-manager-run-as-accounts-for-oms)  
+- [Merhaba System Center Operations Manager değerlendirme kuralı yapılandırma](#configure-the-assessment-rule)
 
 
-*Ne sıklıkta değerlendirme çalıştıran yapılandırmak için yolu var mı?* Evet. Bkz: [çalışma sıklığını yapılandırma](#configure-the-run-frequency).
+*Merhaba değerlendirme çalıştıran bir şekilde tooconfigure ne sıklıkta var mı?* Evet. Bkz: [çalıştırma sıklığı Yapılandır hello](#configure-the-run-frequency).
 
-*System Center Operations Manager değerlendirme çözümü ekledim sonra başka bir sunucuya bulunmuşsa, değerlendirileceğini?* Evet, bulma sonra onu sonra itibaren--varsayılan olarak, her yedi günde değerlendirildiği.
+*I hello System Center Operations Manager değerlendirme çözümü ekledikten sonra başka bir sunucuya belirlediyseniz değerlendirileceğini?* Evet, bulma sonra onu sonra itibaren--varsayılan olarak, her yedi günde değerlendirildiği.
 
-*Veri toplama mu işlemin adı nedir?* AdvisorAssessment.exe
+*Veri toplama hello hello işlemin hello adı nedir?* AdvisorAssessment.exe
 
-*Burada AdvisorAssessment.exe işlemi çalışıyor mu?* AdvisorAssessment.exe değerlendirme kural etkinleştirdiğiniz sistem sağlığı hizmeti yönetim sunucusunun altında çalışır. Bu işlemi kullanarak, tüm ortamınız keşfinin uzak veri toplulukta elde edilir.
+*Burada hello AdvisorAssessment.exe işlemi çalışıyor mu?* AdvisorAssessment.exe hello değerlendirme kural etkinleştirdiğiniz hello HealthService hello management server'ın altında çalışır. Bu işlemi kullanarak, tüm ortamınız keşfinin uzak veri toplulukta elde edilir.
 
-*Ne kadar veri toplamaya yönelik sürer?* Veri toplama sunucusundaki yaklaşık bir saat sürer. Bu, pek çok Operations Manager örnekleri veya veritabanlarına sahip ortamlarda daha uzun sürebilir.
+*Ne kadar veri toplamaya yönelik sürer?* Veri toplama hello sunucuda yaklaşık bir saat sürer. Bu, pek çok Operations Manager örnekleri veya veritabanlarına sahip ortamlarda daha uzun sürebilir.
 
-*Ne değerlendirme aralığını 1440 dakikadan daha kısa bir süre için ayarlarım?* Değerlendirme en fazla günde bir kez çalıştırmak üzere önceden yapılandırılmıştır. 1440 dakikadan daha kısa bir değer aralığı değeri geçersiz kılarsanız değerlendirme 1440 dakika aralık değeri kullanır.
+*Ne hello değerlendirme tooless 1440 dakika daha hello aralığı ayarlarım?*  hello değerlendirme olan en fazla günde bir kez önceden yapılandırılmış toorun. Küçüktür 1440 dakika hello aralık değeri tooa değeri geçersiz kılarsanız hello değerlendirme 1440 dakika hello aralık değeri kullanır.
 
-*Önkoşul hataları olup olmadığını bilmek nasıl?* Ardından değerlendirme çalıştırdı ve sonuçları görmüyorsanız, değerlendirme için önkoşulların bazıları başarısız olabilir. Sorguları çalıştırabilirsiniz: `Type=Operation Solution=SCOMAssessment` ve `Type=SCOMAssessmentRecommendation FocusArea=Prerequisites` günlük başarısız ön koşullar görmek için Ara.
+*Nasıl önkoşul hata varsa tooknow?* Ardından Hello değerlendirme çalıştırdı ve sonuçları görmüyorsanız, hello değerlendirmesi için ön koşullar hello bazıları başarısız olabilir. Sorguları çalıştırabilirsiniz: `Type=Operation Solution=SCOMAssessment` ve `Type=SCOMAssessmentRecommendation FocusArea=Prerequisites` günlük arama toosee hello ön koşullar başarısız oldu.
 
-*Var olan bir `Failed to connect to the SQL Instance (….).` önkoşul hatası iletisi. Sorun nedir?* AdvisorAssessment.exe, toplar, işlem sistem sağlığı hizmeti yönetim sunucusunun altında çalışır. Değerlendirme bir parçası olarak, işlem Operations Manager veritabanı mevcut olduğu SQL Server'a bağlanmak çalışır. Güvenlik duvarı kuralları SQL Server örneği bağlantısı engellediğinizde bu hata oluşabilir.
+*Var olan bir `Failed tooconnect toohello SQL Instance (….).` önkoşul hatası iletisi. Merhaba sorun nedir?* AdvisorAssessment.exe, verileri toplar hello işlem hello HealthService hello management server'ın altında çalışır. Merhaba değerlendirme bir parçası olarak hello işlem tooconnect toohello hello Operations Manager veritabanı mevcut olduğu SQL Server çalışır. Güvenlik duvarı kuralları hello bağlantı toohello SQL Server örneği engellediğinizde bu hata oluşabilir.
 
-*Hangi türde veri toplanır?* Aşağıdaki veri türlerini toplanır: - WMI verilerini - kayıt defteri - olay günlüğü verilerini - Operations Manager verilerini Windows PowerShell, SQL sorguları ve dosya bilgileri Toplayıcı aracılığıyla.
+*Hangi türde veri toplanır?*  veri türleri aşağıdaki hello toplanır: - WMI verilerini - kayıt defteri - olay günlüğü verilerini - Operations Manager verilerini Windows PowerShell, SQL sorguları ve dosya bilgileri Toplayıcı aracılığıyla.
 
-*Bir farklı çalıştır hesabı yapılandırmak neden var mı?* Bir Operations Manager sunucusu için çeşitli SQL sorguları çalıştırılır. Sırayla bunları çalıştırmak gerekli izinlere sahip bir farklı çalıştır hesabı kullanmanız gerekir. Ayrıca, yerel yönetici kimlik bilgileri WMI sorgusu için gereklidir.
+*Bir farklı çalıştır hesabı neden tooconfigure var mı?* Bir Operations Manager sunucusu için çeşitli SQL sorguları çalıştırılır. Bunları sırayla toorun, gerekli izinlere sahip bir farklı çalıştır hesabı kullanmanız gerekir. Ayrıca, yerel yönetici kimlik bilgileri gerekli tooquery WMI bağlıdır.
 
-*Neden yalnızca ilk 10 önerileri görüntülemek?* Görevlerin kapsamlı, zorlamayı listesi vermek yerine, Önceliklendirilmiş önerileri adresleme odaklanmak öneririz. Bunları çözün sonra ek öneriler kullanılabilir hale gelir. Ayrıntılı listesini görmek isterseniz, tüm önerileri günlük arama özelliğini kullanarak görüntüleyebilirsiniz.
+*Neden yalnızca hello ilk 10 önerileri görüntülemek?* Görevlerin kapsamlı, zorlamayı listesi vermek yerine, öncelik hello önerileri adresleme odaklanmak öneririz. Bunları çözün sonra ek öneriler kullanılabilir hale gelir. Toosee hello ayrıntılı liste tercih ederseniz, tüm önerileri günlük arama özelliğini kullanarak görüntüleyebilirsiniz.
 
-*Bir öneri yoksaymak için yolu var mı?* Evet, bkz: [önerileri yoksay](#Ignore-recommendations).
+*Herhangi bir şekilde tooignore bir öneri var mı?* Evet, hello bkz [önerileri yoksay](#Ignore-recommendations).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Arama günlüklerini](log-analytics-log-searches.md) ayrıntılı System Center Operations Manager Değerlendirme verileri ve öneriler görüntülemek için.
+- [Arama günlüklerini](log-analytics-log-searches.md) tooview ayrıntılı System Center Operations Manager Değerlendirme verileri ve öneriler.

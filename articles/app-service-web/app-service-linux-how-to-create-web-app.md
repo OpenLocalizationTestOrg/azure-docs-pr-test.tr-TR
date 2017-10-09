@@ -1,5 +1,5 @@
 ---
-title: "Linux üzerinde çalışan bir Azure web uygulaması oluşturma | Microsoft Docs"
+title: "aaaCreate bir Azure web uygulaması Linux üzerinde çalışan | Microsoft Docs"
 description: "Web uygulaması oluşturma için iş akışı Linux Azure Web uygulaması."
 keywords: "Azure uygulama hizmeti, web uygulaması, linux, oss"
 services: app-service
@@ -15,39 +15,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
-ms.openlocfilehash: 49091d4a85bed23927850f9c0bbc5ea8b6e8c9e1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: de1bd030345d5e2a8024012067b5bcaa2cca09dc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-azure-web-app-running-on-linux"></a>Linux üzerinde çalışan bir Azure web uygulaması oluşturma
 
 [!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
 
-## <a name="use-the-azure-portal-to-create-your-web-app"></a>Web uygulamanızı oluşturmak için Azure portalını kullanma
-Web uygulamanız Linux'ta oluşturmaya başlamadan [Azure portal](https://portal.azure.com) aşağıdaki görüntüde gösterildiği gibi:
+## <a name="use-hello-azure-portal-toocreate-your-web-app"></a>Web uygulamanızı Hello Azure portal toocreate kullanın
+Web uygulamanız hello Linux'ta oluşturma başlatabilirsiniz [Azure portal](https://portal.azure.com) hello görüntü aşağıdaki gösterildiği gibi:
 
-![Azure portalında bir web uygulaması oluşturmaya başla][1]
+![Azure portal hello üzerinde bir web uygulaması oluşturmaya başla][1]
 
-Ardından, **Oluştur dikey** aşağıdaki görüntüde gösterildiği gibi açılır:
+Ardından, hello **Oluştur dikey** hello görüntü aşağıdaki gösterildiği gibi açılır:
 
-![Oluşturma dikey penceresi][2]
+![Merhaba Oluştur dikey penceresi][2]
 
 1. Web uygulamanızı bir ad verin.
-2. Varolan bir kaynak grubu seçin veya yeni bir tane oluşturun. (Kullanılabilir bölgelerde bkz [sınırlamalar bölüm](app-service-linux-intro.md).)
-3. Var olan bir Azure uygulama hizmeti planı seçin veya yeni bir tane oluşturun. (Uygulama hizmeti planı notlara bakın [sınırlamalar bölüm](app-service-linux-intro.md).)
-4. Kullanmak istediğiniz uygulama yığını seçin. Node.js, PHP, .net birkaç sürümleri arasında seçim yapabilirsiniz çekirdek ve Ruby.
+2. Varolan bir kaynak grubu seçin veya yeni bir tane oluşturun. (Merhaba kullanılabilir bölgelerde bkz [sınırlamalar bölüm](app-service-linux-intro.md).)
+3. Var olan bir Azure uygulama hizmeti planı seçin veya yeni bir tane oluşturun. (Uygulama hizmeti planı notları hello bkz [sınırlamalar bölüm](app-service-linux-intro.md).)
+4. Merhaba uygulamasını seçin toouse düşündüğünüz yığını. Node.js, PHP, .net birkaç sürümleri arasında seçim yapabilirsiniz çekirdek ve Ruby.
 
-Uygulamayı oluşturduktan sonra uygulama yığın uygulama ayarlarından aşağıdaki görüntüde gösterildiği gibi değiştirebilirsiniz:
+Merhaba uygulama oluşturduktan sonra hello uygulama yığınını hello uygulama ayarlarından hello görüntü aşağıdaki gösterildiği gibi değiştirebilirsiniz:
 
 ![Uygulama ayarları][3]
 
 ## <a name="deploy-your-web-app"></a>Web uygulamanızı dağıtın
-Seçme **dağıtım seçenekleri** yönetimden portal size uygulamanızı dağıtmak için yerel Git veya GitHub deposunu kullanmak üzere seçeneği sunar. Kalan yönergeleri Linux olmayan web uygulaması için benzer. ' Ndaki yönergeleri izleyin [yerel Git dağıtımı](app-service-deploy-local-git.md) veya [sürekli dağıtım](app-service-continuous-deployment.md) uygulamanızı dağıtmak için.
+Seçme **dağıtım seçenekleri** hello Yönetim Portalı sağlar, uygulamanızın seçeneği toouse yerel Git veya GitHub depo toodeploy hello. bir Linux olmayan web uygulaması için benzer toothose hello yönergeleri Hello kalan var. Merhaba yönergeleri takip edebilirsiniz [yerel Git dağıtımı](app-service-deploy-local-git.md) veya [sürekli dağıtım](app-service-continuous-deployment.md) toodeploy uygulamanızı.
 
-FTP, uygulamanızın Web sitenize yüklemek için de kullanabilirsiniz. Aşağıdaki görüntüde gösterildiği gibi tanılama günlüklerini bölümünden web uygulamanız için FTP uç noktasını alın:
+Uygulama tooyour sitenizi FTP tooupload de kullanabilirsiniz. Merhaba FTP endpoint web uygulamanız için hello tanılama logs bölümü hello görüntü aşağıdaki gösterildiği gibi alabilirsiniz:
 
 ![Tanılama günlükleri][4]
 

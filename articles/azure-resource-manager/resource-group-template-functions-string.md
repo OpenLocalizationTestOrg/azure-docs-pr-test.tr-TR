@@ -1,6 +1,6 @@
 ---
-title: "Azure Resource Manager şablonu işlevleri - dize | Microsoft Docs"
-description: "Dizelerle çalışmak için bir Azure Resource Manager şablonunda kullanmak için işlevleri açıklanmaktadır."
+title: "dize aaaAzure Resource Manager şablonu işlevleri - | Microsoft Docs"
+description: "Bir Azure Resource Manager şablonu toowork dizeler içindeki Hello işlevleri toouse açıklar."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: tomfitz
-ms.openlocfilehash: 3e5c9ca546629f782a3d722b49f5fbaf5147e823
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 27f7f6a52cbe4e9915718184433e92ca92999346
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager şablonları için dize işlevleri
 
-Resource Manager dizelerle çalışmak için aşağıdaki işlevleri sunar:
+Resource Manager Dizelerle çalışmaya yönelik işlevler aşağıdaki hello sunar:
 
 * [Base64](#base64)
 * [base64ToJson](#base64tojson)
@@ -59,21 +59,21 @@ Resource Manager dizelerle çalışmak için aşağıdaki işlevleri sunar:
 ## <a name="base64"></a>Base64
 `base64(inputString)`
 
-Giriş dizesi base64 gösterimini döndürür.
+Base64 hello giriş dize gösterimini döndürür hello.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| inputString |Evet |Dize |Bir base64 gösterimi olarak döndürülecek değer. |
+| inputString |Evet |Dize |değer tooreturn base64 gösterimi olarak hello. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Base64 gösterimini içeren bir dize.
+Merhaba base64 gösterimi içeren bir dize.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki örnek, base64 işlevinin nasıl kullanılacağını gösterir.
+Aşağıdaki örnek hello nasıl toouse hello base64 işlevi gösterir.
 
 ```json
 {
@@ -112,7 +112,7 @@ Aşağıdaki örnek, base64 işlevinin nasıl kullanılacağını gösterir.
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Hello hello önceki hello varsayılan değerlerle örnek çıktı:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -125,13 +125,13 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 ## <a name="base64tojson"></a>base64ToJson
 `base64tojson`
 
-Bir base64 temsili bir JSON nesnesine dönüştürür.
+Bir base64 gösterimi tooa JSON nesnesi dönüştürür.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| base64value değeri |Evet |Dize |Bir JSON nesnesine dönüştürmek için base64 gösterimi. |
+| base64value değeri |Evet |Dize |Merhaba base64 gösterimi tooconvert tooa JSON nesnesi. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -139,7 +139,7 @@ Bir JSON nesnesi.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki örnek, bir base64 değeri dönüştürmek için base64ToJson işlevini kullanır:
+Merhaba aşağıdaki örnek hello base64ToJson işlevi tooconvert bir base64 değeri kullanır:
 
 ```json
 {
@@ -178,7 +178,7 @@ Aşağıdaki örnek, bir base64 değeri dönüştürmek için base64ToJson işle
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Hello hello önceki hello varsayılan değerlerle örnek çıktı:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -191,21 +191,21 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 ## <a name="base64tostring"></a>base64ToString
 `base64ToString(base64Value)`
 
-Bir base64 temsili bir dizeye dönüştürür.
+Bir base64 gösterimi tooa dizesini sayıya dönüştürür.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| base64value değeri |Evet |Dize |Bir dizeye dönüştürmek için base64 gösterimi. |
+| base64value değeri |Evet |Dize |Merhaba base64 gösterimi tooconvert tooa dizesi. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Dönüştürülen base64 değeri bir dize.
+Dönüştürülen bir base64 değeri hello dizesi.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki örnek, bir base64 değeri dönüştürmek için base64ToString işlevini kullanır:
+Merhaba aşağıdaki örnek hello base64ToString işlevi tooconvert bir base64 değeri kullanır:
 
 ```json
 {
@@ -244,7 +244,7 @@ Aşağıdaki örnek, bir base64 değeri dönüştürmek için base64ToString iş
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Hello hello önceki hello varsayılan değerlerle örnek çıktı:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -259,13 +259,13 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 ## <a name="concat"></a>concat
 `concat (arg1, arg2, arg3, ...)`
 
-Birden çok dize değerlerini birleştirir ve birleştirilmiş dizeyi döndürür veya birden çok birleştirir ve birleştirilmiş bir dizi döndürür.
+Birden çok dize değerlerini birleştirir ve hello birleştirilmiş dizeyi döndürür veya birden çok birleştirir ve birleştirilmiş hello dizisi döndürür.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| arg1 |Evet |dize veya dizi |Birleştirme için ilk değer. |
+| arg1 |Evet |dize veya dizi |Merhaba birleştirme için ilk değer. |
 | Ek bağımsız değişkenler |Hayır |Dize |Birleştirme için sıralı bir düzende ek değerler. |
 
 ### <a name="return-value"></a>Dönüş değeri
@@ -273,7 +273,7 @@ Bir dize veya birleştirilmiş değerleri dizisi.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki örnekte, iki dize değerleri birleştirmek ve birleştirilmiş dizeyi döndürür gösterilmektedir.
+Aşağıdaki örnek hello nasıl toocombine iki string değerleri ve birleştirilmiş dizeyi döndürür gösterir.
 
 ```json
 {
@@ -295,13 +295,13 @@ Aşağıdaki örnekte, iki dize değerleri birleştirmek ve birleştirilmiş diz
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Hello hello önceki hello varsayılan değerlerle örnek çıktı:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
 | concatOutput | Dize | önek 5yj4yjf5mbg72 |
 
-Aşağıdaki örnekte, iki dizi birleştirmek gösterilmiştir.
+Aşağıdaki örnek hello nasıl toocombine iki dizi gösterir.
 
 ```json
 {
@@ -336,7 +336,7 @@ Aşağıdaki örnekte, iki dizi birleştirmek gösterilmiştir.
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Hello hello önceki hello varsayılan değerlerle örnek çıktı:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -353,16 +353,16 @@ Bir değer dizisini içerir, bir nesne bir anahtar veya bir dize bir alt dizeyi 
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| kapsayıcı |Evet |dizi, nesne veya dize |Bulunacak değer içeren değeri. |
-| itemToFind |Evet |dize veya int |Bulunacak değer. |
+| kapsayıcı |Evet |dizi, nesne veya dize |Merhaba değeri toofind içeren hello değeri. |
+| itemToFind |Evet |dize veya int |Merhaba değeri toofind. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-**Doğru** öğe bulunduysa, **False**.
+**Doğru** hello öğe bulunduysa, **False**.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki örnekte nasıl kullanılacağını gösterir farklı türleriyle içerir:
+Merhaba aşağıdaki örnekte nasıl toouse farklı türleriyle içeren gösterilmektedir:
 
 ```json
 {
@@ -413,7 +413,7 @@ Aşağıdaki örnekte nasıl kullanılacağını gösterir farklı türleriyle i
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Hello hello önceki hello varsayılan değerlerle örnek çıktı:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -429,13 +429,13 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 ## <a name="datauri"></a>dataUri
 `dataUri(stringToConvert)`
 
-Bir veri URI değeri dönüştürür.
+Bir değer tooa verisi URI dönüştürür.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |Evet |Dize |Bir veri URI dönüştürülecek değer. |
+| stringToConvert |Evet |Dize |Merhaba değeri tooconvert tooa veri URI'si. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -443,7 +443,7 @@ Veri URI'si biçimlendirilmiş bir dize.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki örnek, bir veri URI değeri dönüştürür ve veri URI'si bir dizeye dönüştürür:
+Aşağıdaki örneğine hello değeri tooa verileri URI dönüştürür ve verileri URI tooa dize dönüştürür:
 
 ```json
 {
@@ -473,7 +473,7 @@ Aşağıdaki örnek, bir veri URI değeri dönüştürür ve veri URI'si bir diz
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Hello hello önceki hello varsayılan değerlerle örnek çıktı:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -485,21 +485,21 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 ## <a name="datauritostring"></a>dataUriToString
 `dataUriToString(dataUriToConvert)`
 
-Bir veri URI değerini bir dizeyle biçimlendirilmiş.
+Biçimlendirilmiş değer tooa dize veri URI dönüştürür.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| dataUriToConvert |Evet |Dize |Verileri dönüştürmek için URI değeri. |
+| dataUriToConvert |Evet |Dize |Merhaba veri URI tooconvert değeri. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Dönüştürülen değer içeren bir dize.
+Merhaba içeren bir dize değeri dönüştürülür.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki örnek, bir veri URI değeri dönüştürür ve veri URI'si bir dizeye dönüştürür:
+Aşağıdaki örneğine hello değeri tooa verileri URI dönüştürür ve verileri URI tooa dize dönüştürür:
 
 ```json
 {
@@ -529,7 +529,7 @@ Aşağıdaki örnek, bir veri URI değeri dönüştürür ve veri URI'si bir diz
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Hello hello önceki hello varsayılan değerlerle örnek çıktı:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -547,15 +547,15 @@ Bir dizi, nesne veya dize boş olup olmadığını belirler.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Evet |dizi, nesne veya dize |Değerin boş olup olmadığını denetlemek için. |
+| itemToTest |Evet |dizi, nesne veya dize |boş ise, değer toocheck hello. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Döndürür **True** değeri geçerliyse boş, aksi takdirde **False**.
+Döndürür **True** hello değeriyse, boş, aksi takdirde **False**.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki örnek, bir dizi, nesne ve dize boş olup olmadığını denetler.
+Aşağıdaki örneğine hello bir dizi, nesne ve dize boş olup olmadığını denetler.
 
 ```json
 {
@@ -594,7 +594,7 @@ Aşağıdaki örnek, bir dizi, nesne ve dize boş olup olmadığını denetler.
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Hello hello önceki hello varsayılan değerlerle örnek çıktı:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -607,22 +607,22 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 ## <a name="endswith"></a>endsWith
 `endsWith(stringToSearch, stringToFind)`
 
-Bir dize değeri ile bitip olup olmadığını belirler. Karşılaştırma büyük/küçük harf duyarlıdır.
+Bir dize değeri ile bitip olup olmadığını belirler. Merhaba karşılaştırma büyük/küçük harf duyarlıdır.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Evet |Dize |Bulunacak öğe içeren değeri. |
-| stringToFind |Evet |Dize |Bulunacak değer. |
+| stringToSearch |Evet |Dize |Merhaba öğesi toofind içeren hello değeri. |
+| stringToFind |Evet |Dize |Merhaba değeri toofind. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-**Doğru** son karakterin veya karakter dizesi değeri; eşleşiyorsa Aksi halde, **False**.
+**Doğru** hello son karakter veya hello dizenin karakter hello değeri; eşleşiyorsa Aksi halde, **False**.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki örnek startsWith ve endsWith işlevlerinin nasıl kullanılacağı gösterilmektedir:
+Aşağıdaki örnek hello nasıl toouse hello startsWith ve endsWith işlevleri gösterir:
 
 ```json
 {
@@ -658,7 +658,7 @@ Aşağıdaki örnek startsWith ve endsWith işlevlerinin nasıl kullanılacağı
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Hello hello önceki hello varsayılan değerlerle örnek çıktı:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -674,21 +674,21 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 ## <a name="first"></a>ilk
 `first(arg1)`
 
-Dize veya dizinin ilk öğesi ilk karakteri döndürür.
+Merhaba dizenin ilk karakter ya da hello dizisinin ilk öğesi döndürür hello.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| arg1 |Evet |dizi veya dize |İlk öğe veya karakter almak için değer. |
+| arg1 |Evet |dizi veya dize |Merhaba değeri tooretrieve hello ilk öğe veya karakter. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-İlk karakter veya bir dizi ilk öğe türü (dize, int, dizi veya nesne) dizesi.
+Hello ilk karakter ya da dizi hello ilk öğesinin hello türü (dize, int, dizi veya nesne) dizesi.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki örnek ilk işlevi bir dizi ve dize ile nasıl kullanılacağını gösterir.
+Merhaba aşağıdaki örnekte nasıl toouse hello ilk işlevi bir dizi ve dize ile gösterilir.
 
 ```json
 {
@@ -715,7 +715,7 @@ Aşağıdaki örnek ilk işlevi bir dizi ve dize ile nasıl kullanılacağını 
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Hello hello önceki hello varsayılan değerlerle örnek çıktı:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -727,22 +727,22 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 ## <a name="indexof"></a>IndexOf
 `indexOf(stringToSearch, stringToFind)`
 
-Dize içinde bir değerin ilk konumunu döndürür. Karşılaştırma büyük/küçük harf duyarlıdır.
+Dize içinde bir değerin ilk konumunu döndürür hello. Merhaba karşılaştırma büyük/küçük harf duyarlıdır.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Evet |Dize |Bulunacak öğe içeren değeri. |
-| stringToFind |Evet |Dize |Bulunacak değer. |
+| stringToSearch |Evet |Dize |Merhaba öğesi toofind içeren hello değeri. |
+| stringToFind |Evet |Dize |Merhaba değeri toofind. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Bulunacak öğe konumu temsil eden bir tamsayı. Sıfır tabanlı değerdir. Öğesi bulunmazsa -1 döndürülür.
+Merhaba öğesi toofind hello konumunu temsil eden bir tamsayı. Merhaba sıfır tabanlı bir değerdir. Merhaba öğesi bulunmazsa -1 döndürülür.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki örnek IndexOf ve lastIndexOf işlevlerinin nasıl kullanılacağı gösterilmektedir:
+Aşağıdaki örnek hello nasıl toouse hello IndexOf ve lastIndexOf işlevleri gösterir:
 
 ```json
 {
@@ -774,7 +774,7 @@ Aşağıdaki örnek IndexOf ve lastIndexOf işlevlerinin nasıl kullanılacağı
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Hello hello önceki hello varsayılan değerlerle örnek çıktı:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -789,21 +789,21 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 ## <a name="last"></a>Son
 `last (arg1)`
 
-Son karakter dizenin veya dizinin son öğesi döndürür.
+Son hello dizenin karakter ya da hello dizisinin hello son öğesi döndürür.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| arg1 |Evet |dizi veya dize |Son öğe veya karakter almak için değer. |
+| arg1 |Evet |dizi veya dize |Merhaba değeri tooretrieve hello son öğesi veya karakter. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Son karakter veya bir dizi son öğesi türü (dize, int, dizi veya nesne) dizesi.
+Merhaba son karakter ya da dizi hello son öğesinin hello türü (dize, int, dizi veya nesne) dizesi.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki örnek, son işlevi bir dizi ve dize ile nasıl kullanılacağını gösterir.
+Merhaba aşağıdaki örnekte nasıl toouse hello son işlevi bir dizi ve dize ile gösterilir.
 
 ```json
 {
@@ -830,7 +830,7 @@ Aşağıdaki örnek, son işlevi bir dizi ve dize ile nasıl kullanılacağını
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Hello hello önceki hello varsayılan değerlerle örnek çıktı:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -842,22 +842,22 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 ## <a name="lastindexof"></a>lastIndexOf
 `lastIndexOf(stringToSearch, stringToFind)`
 
-Değer bir dize içinde son konumunu döndürür. Karşılaştırma büyük/küçük harf duyarlıdır.
+Değer bir dize içinde son konumunu döndürür hello. Merhaba karşılaştırma büyük/küçük harf duyarlıdır.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Evet |Dize |Bulunacak öğe içeren değeri. |
-| stringToFind |Evet |Dize |Bulunacak değer. |
+| stringToSearch |Evet |Dize |Merhaba öğesi toofind içeren hello değeri. |
+| stringToFind |Evet |Dize |Merhaba değeri toofind. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Bulunacak öğe son konumunu temsil eden bir tamsayı. Sıfır tabanlı değerdir. Öğesi bulunmazsa -1 döndürülür.
+Merhaba son hello öğesi toofind konumunu temsil eden bir tamsayı. Merhaba sıfır tabanlı bir değerdir. Merhaba öğesi bulunmazsa -1 döndürülür.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki örnek IndexOf ve lastIndexOf işlevlerinin nasıl kullanılacağı gösterilmektedir:
+Aşağıdaki örnek hello nasıl toouse hello IndexOf ve lastIndexOf işlevleri gösterir:
 
 ```json
 {
@@ -889,7 +889,7 @@ Aşağıdaki örnek IndexOf ve lastIndexOf işlevlerinin nasıl kullanılacağı
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Hello hello önceki hello varsayılan değerlerle örnek çıktı:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -904,13 +904,13 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 ## <a name="length"></a>uzunluğu
 `length(string)`
 
-Bir dize veya bir dizideki öğeler karakterlerin sayısını döndürür.
+Bir dize veya bir dizideki öğeler Hello karakterlerin sayısını döndürür.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| arg1 |Evet |dizi veya dize |Karakter sayısını almak için kullanılacak öğeler veya dize sayısını almak için kullanılacak dizisi. |
+| arg1 |Evet |dizi veya dize |öğe sayısını hello alma dizi toouse hello veya karakter sayısını hello alma dizesi toouse hello. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -918,7 +918,7 @@ Bir dize veya bir dizideki öğeler karakterlerin sayısını döndürür.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki örnek, bir dizi ve dize uzunluğu kullanmayı gösterir:
+örnekte gösterildiği nasıl aşağıdaki hello toouse uzunluğunda bir dizi ve dizesi:
 
 ```json
 {
@@ -952,7 +952,7 @@ Aşağıdaki örnek, bir dizi ve dize uzunluğu kullanmayı gösterir:
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Hello hello önceki hello varsayılan değerlerle örnek çıktı:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -964,25 +964,25 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 ## <a name="padleft"></a>PadLeft
 `padLeft(valueToPad, totalLength, paddingCharacter)`
 
-Toplam belirtilen uzunluk ulaşmasını kadar sola karakterler ekleyerek sağa hizalı dize döndürür.
+Merhaba toplam belirtilen uzunluk ulaşmasını kadar karakterleri toohello sol ekleyerek sağa hizalı dize döndürür.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| valueToPad |Evet |dize veya int |Sağa Hizala değeri. |
-| totalLength |Evet |Int |Döndürülen dize karakter toplam sayısı. |
-| paddingCharacter |Hayır |tek bir karakter |Sol-toplam uzunluğu ulaşılana kadar doldurma için kullanılacak karakter. Varsayılan değer bir alandır. |
+| valueToPad |Evet |dize veya int |değer tooright hello-hizalayın. |
+| totalLength |Evet |Int |Merhaba toplam hello karakter sayısını dizesi döndürdü. |
+| paddingCharacter |Hayır |tek bir karakter |Sol-Doldurma hello toplam uzunluğu ulaşılana kadar için karakter toouse hello. bir alanı Hello varsayılan değerdir. |
 
-Özgün dizeye doldurulacak karakter sayısından daha uzun olması durumunda hiçbir karakter eklenir.
+Hello özgün dizeye hello karakter toopad sayısından daha uzun olması durumunda hiçbir karakter eklenir.
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Dizenin ile en az belirtilen karakterlerin sayısı.
+Belirtilen karakter sayısı en az hello bir dize.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki örnekte, kullanıcı tarafından sağlanan parametre değeri sıfır karakter toplam karakter sayısı ulaşana kadar ekleyerek paneli gösterilmektedir. 
+Aşağıdaki örnek hello nasıl toopad hello kullanıcı tarafından sağlanan parametre değeri hello ekleyerek sıfır karakter hello toplam karakter sayısı ulaşana kadar gösterir. 
 
 ```json
 {
@@ -1004,7 +1004,7 @@ Aşağıdaki örnekte, kullanıcı tarafından sağlanan parametre değeri sıf�
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Hello hello önceki hello varsayılan değerlerle örnek çıktı:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -1021,17 +1021,17 @@ Başka bir dizeyle yerine tek bir dize tüm örneklerini içeren yeni bir dize d
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| originalString |Evet |Dize |Başka bir dizeyle yerine tek bir dize tüm örneklerini sahip değeri. |
-| oldString |Evet |Dize |Özgün dizeden kaldırılacak dizesi. |
-| newString |Evet |Dize |Kaldırılan dize yerine eklenecek dize. |
+| originalString |Evet |Dize |başka bir dizeyle yerine bir dizesinin tüm örnekleri olan hello değeri. |
+| oldString |Evet |Dize |Merhaba dize toobe hello özgün dizeden kaldırıldı. |
+| newString |Evet |Dize |Merhaba dize tooadd hello yerine dize kaldırıldı. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Değiştirilen karakterler içeren bir dize.
+Bir dizeyle hello karakterleri değiştirildi.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki örnek, kullanıcı tarafından sağlanan dizeden tüm çizgiler kaldırma ve dizesinin parçası başka bir dizeyle değiştirmeniz nasıl gösterir.
+Aşağıdaki örneğine hello nasıl tooremove tüm hello kullanıcı tarafından sağlanan dizeden tireler ve nasıl hello tooreplace parçası dize başka bir dizeyle gösterir.
 
 ```json
 {
@@ -1057,7 +1057,7 @@ Aşağıdaki örnek, kullanıcı tarafından sağlanan dizeden tüm çizgiler ka
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Hello hello önceki hello varsayılan değerlerle örnek çıktı:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -1069,14 +1069,14 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 ## <a name="skip"></a>Atla
 `skip(originalValue, numberToSkip)`
 
-Tüm karakterleri bir dizeyle belirtilen sayıda karakter veya bir dizi tüm öğelerle sonra sonra belirtilen sayıda öğeyi döndürür.
+Merhaba öğe sayısını belirtilen sonra hello sayıda karakter veya bir dizi tüm hello ile belirtilen öğelerin sonra tüm hello karakterler içeren bir dize döndürür.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| originalValue |Evet |dizi veya dize |Dizi veya atlama kullanılacak dize. |
-| numberToSkip |Evet |Int |Öğeleri veya atlamak için karakter sayısı. Bu değer 0 veya daha az ise, tüm öğeleri veya karakter değeri döndürülür. Dizi veya dize uzunluğundan büyük olursa, boş dize veya dize döndürülür. |
+| originalValue |Evet |dizi veya dize |atlanıyor hello dizisi veya dize toouse. |
+| numberToSkip |Evet |Int |öğeleri veya karakter tooskip Hello sayısı. Bu değer 0 veya daha az ise, tüm öğeleri hello veya karakter hello değeri döndürülür. Merhaba dizisi veya dize hello uzunluğundan büyük olursa, boş dize veya dize döndürülür. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -1084,7 +1084,7 @@ Bir dizi veya dize.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki örnek, belirtilen sayıda öğeyi dizisinde bulunan ve belirtilen bir dizedeki karakter sayısını atlar.
+Örnek atlar hello aşağıdaki hello hello dizide öğe sayısını belirtilen ve hello bir dizedeki karakter sayısını belirtilen.
 
 ```json
 {
@@ -1126,7 +1126,7 @@ Aşağıdaki örnek, belirtilen sayıda öğeyi dizisinde bulunan ve belirtilen 
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Hello hello önceki hello varsayılan değerlerle örnek çıktı:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -1138,14 +1138,14 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 ## <a name="split"></a>split
 `split(inputString, delimiter)`
 
-Belirtilen sınırlayıcıları tarafından ayrılmış alt dizeler giriş dizesi içeren bir dizeler dizisi döndürür.
+Sınırlayıcılar belirtilen hello tarafından ayrılmış dize hello alt dizeler hello birini içeren bir dizeler dizisi giriş döndürür.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| inputString |Evet |Dize |Bölme dize. |
-| sınırlayıcı |Evet |dize veya dize dizisi |Dize bölme için kullanılacak sınırlayıcı. |
+| inputString |Evet |Dize |Merhaba dize toosplit. |
+| sınırlayıcı |Evet |dize veya dize dizisi |Merhaba dize bölmek için sınırlayıcı toouse hello. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -1153,7 +1153,7 @@ Bir dizeler dizisi.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki örnek giriş dizesi virgül ile virgül veya noktalı virgül ile böler.
+Merhaba aşağıdaki örnek hello giriş dizesi virgül ile virgül veya noktalı virgül ile böler.
 
 ```json
 {
@@ -1186,7 +1186,7 @@ Aşağıdaki örnek giriş dizesi virgül ile virgül veya noktalı virgül ile 
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Hello hello önceki hello varsayılan değerlerle örnek çıktı:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -1198,22 +1198,22 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 ## <a name="startswith"></a>startsWith
 `startsWith(stringToSearch, stringToFind)`
 
-Bir dize değeri ile başlayıp başlamadığını belirler. Karşılaştırma büyük/küçük harf duyarlıdır.
+Bir dize değeri ile başlayıp başlamadığını belirler. Merhaba karşılaştırma büyük/küçük harf duyarlıdır.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Evet |Dize |Bulunacak öğe içeren değeri. |
-| stringToFind |Evet |Dize |Bulunacak değer. |
+| stringToSearch |Evet |Dize |Merhaba öğesi toofind içeren hello değeri. |
+| stringToFind |Evet |Dize |Merhaba değeri toofind. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-**Doğru** ilk karakterin veya karakter dizesi değeri; eşleşiyorsa Aksi halde, **False**.
+**Doğru** hello ilk karakterin veya karakter hello dizesinin hello değeri; eşleşiyorsa Aksi halde, **False**.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki örnek startsWith ve endsWith işlevlerinin nasıl kullanılacağı gösterilmektedir:
+Aşağıdaki örnek hello nasıl toouse hello startsWith ve endsWith işlevleri gösterir:
 
 ```json
 {
@@ -1249,7 +1249,7 @@ Aşağıdaki örnek startsWith ve endsWith işlevlerinin nasıl kullanılacağı
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Hello hello önceki hello varsayılan değerlerle örnek çıktı:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -1265,21 +1265,21 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 ## <a name="string"></a>Dize
 `string(valueToConvert)`
 
-Belirtilen değer bir dizeye dönüştürür.
+Belirtilen değer tooa dize dönüştürür hello.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Evet | Herhangi biri |Metne dönüştürülecek değer. Nesneler ve diziler dahil olmak üzere herhangi türde bir değer dönüştürülebilir. |
+| valueToConvert |Evet | Herhangi biri |Merhaba değeri tooconvert toostring. Nesneler ve diziler dahil olmak üzere herhangi türde bir değer dönüştürülebilir. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Dönüştürülen değer dizesi.
+Dönüştürülen değer hello dizesi.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki örnekte, farklı türlerdeki değerleri dizelere dönüştürme gösterilmektedir:
+Aşağıdaki örnek hello nasıl tooconvert farklı türlerde değerler toostrings gösterir:
 
 ```json
 {
@@ -1324,7 +1324,7 @@ Aşağıdaki örnekte, farklı türlerdeki değerleri dizelere dönüştürme g�
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Hello hello önceki hello varsayılan değerlerle örnek çıktı:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -1337,23 +1337,23 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 ## <a name="substring"></a>substring
 `substring(stringToParse, startIndex, length)`
 
-Belirtilen karakter konumunda başlayan ve belirtilen sayıda karakteri içeren bir alt dizeyi döndürür.
+Belirtilen hello başlar konumu karakter ve hello içeren bir alt dizenin belirtilen karakter sayısını döndürür.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| stringToParse |Evet |Dize |Alt dizeyi ayıklandığı özgün dizesi. |
-| startIndex |Hayır |Int |Sıfır tabanlı başlangıç karakteri konumunu alt dizeyi. |
-| uzunluğu |Hayır |Int |Alt dizeyi karakter sayısı. Dize içinde bir konuma başvurmalıdır. |
+| stringToParse |Evet |Dize |hangi hello alt dizenin ayıklanacağı hello özgün dizesi. |
+| startIndex |Hayır |Int |Merhaba sıfır tabanlı başlangıç karakteri konumu hello substring. |
+| uzunluğu |Hayır |Int |Merhaba hello substring karakter sayısı. Merhaba dize içinde tooa konuma başvurmalıdır. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Alt dizeyi.
+Merhaba substring.
 
 ### <a name="remarks"></a>Açıklamalar
 
-Dize sonunu aşan alt dizeyi genişletir işlevi başarısız oluyor. Aşağıdaki örnekte, "dizin ve uzunluk parametreleri dize içindeki bir konuma başvurmalıdır. şu hatayla başarısız oluyor Dizin parametresi: '0', uzunluk parametresi: '11', dize parametresinin uzunluğu: '10'. ".
+Merhaba substring hello dize hello sonunu aşan genişletir hello işlevi başarısız oluyor. Merhaba hata "Merhaba dizin ve uzunluk parametreleri hello dize içinde tooa konuma başvurmalıdır ile. aşağıdaki örneğine hello başarısız Merhaba dizin parametresi: '0' hello uzunluk parametresi: '11' hello hello dize parametresinin uzunluğu: '10'. ".
 
 ```json
 "parameters": {
@@ -1366,7 +1366,7 @@ Dize sonunu aşan alt dizeyi genişletir işlevi başarısız oluyor. Aşağıda
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki örnek bir alt dizesi bir parametresinden ayıklar.
+Aşağıdaki örneğine hello bir alt dizesi bir parametresinden ayıklar.
 
 ```json
 {
@@ -1388,7 +1388,7 @@ Aşağıdaki örnek bir alt dizesi bir parametresinden ayıklar.
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Hello hello önceki hello varsayılan değerlerle örnek çıktı:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -1400,14 +1400,14 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 ## <a name="take"></a>Al
 `take(originalValue, numberToTake)`
 
-Dize veya dizi öğeleri dizisi başından başlayarak belirtilen sayıda ile başından başlayarak belirtilen sayıda karakteri içeren bir dize döndürür.
+Dize başından hello karakter sayısını hello bir dizeyle belirtilen döndürür hello veya hello sahip bir dizi hello dizi hello başından öğelerin sayısı belirtildi.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| originalValue |Evet |dizi veya dize |Dizi veya dize öğeleri gerçekleştirilecek. |
-| numberToTake |Evet |Int |Öğeleri veya yapılacak karakter sayısı. Bu değer 0 veya daha az ise, boş dize veya dize döndürülür. Verilen dizi veya dize uzunluğundan büyük olursa, dizi veya dize tüm öğeler döndürülür. |
+| originalValue |Evet |dizi veya dize |dizi veya dize tootake hello öğelerinden hello. |
+| numberToTake |Evet |Int |öğeleri veya karakter tootake Hello sayısı. Bu değer 0 veya daha az ise, boş dize veya dize döndürülür. Merhaba hello verilen dizi veya dize uzunluğundan büyük olursa, hello dizisi veya dize tüm hello öğeler döndürülür. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -1415,7 +1415,7 @@ Bir dizi veya dize.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki örnek, belirtilen sayıda dizisinden öğeleri ve bir dizeden karakterleri alır.
+Örnek alır hello aşağıdaki hello hello dizisinden öğeleri ve bir dizeden karakterleri sayısı belirtilmiş.
 
 ```json
 {
@@ -1457,7 +1457,7 @@ Aşağıdaki örnek, belirtilen sayıda dizisinden öğeleri ve bir dizeden kara
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Hello hello önceki hello varsayılan değerlerle örnek çıktı:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -1469,21 +1469,21 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 ## <a name="tolower"></a>toLower
 `toLower(stringToChange)`
 
-Belirtilen dizeyi küçük harflere dönüştürür.
+Dönüştürür hello dize toolower durumu belirtildi.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Evet |Dize |Küçük harflere dönüştürülecek değer. |
+| stringToChange |Evet |Dize |Merhaba değeri tooconvert toolower durumda. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Dizeyi küçük harflere dönüştürülür.
+Merhaba dize toolower durumda dönüştürülür.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki örnekte bir parametre değeri, küçük harf ve büyük harfe dönüştürür.
+Aşağıdaki örneğine hello bir parametre değeri toolower çalışması ve tooupper harfe dönüştürür.
 
 ```json
 {
@@ -1509,7 +1509,7 @@ Aşağıdaki örnekte bir parametre değeri, küçük harf ve büyük harfe dön
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Hello hello önceki hello varsayılan değerlerle örnek çıktı:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -1521,21 +1521,21 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 ## <a name="toupper"></a>toUpper
 `toUpper(stringToChange)`
 
-Belirtilen dizenin büyük harfe dönüştürür.
+Dönüştürür hello dize tooupper durumu belirtildi.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Evet |Dize |Büyük harfe dönüştürülecek değer. |
+| stringToChange |Evet |Dize |Merhaba değeri tooconvert tooupper durumda. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Dizeyi büyük harfe dönüştürülür.
+Merhaba dize tooupper durumda dönüştürülür.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki örnekte bir parametre değeri, küçük harf ve büyük harfe dönüştürür.
+Aşağıdaki örneğine hello bir parametre değeri toolower çalışması ve tooupper harfe dönüştürür.
 
 ```json
 {
@@ -1561,7 +1561,7 @@ Aşağıdaki örnekte bir parametre değeri, küçük harf ve büyük harfe dön
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Hello hello önceki hello varsayılan değerlerle örnek çıktı:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -1573,21 +1573,21 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 ## <a name="trim"></a>Kırpma
 `trim (stringToTrim)`
 
-Tüm öndeki ve sondaki boşluk karakterleri belirtilen dizeden kaldırır.
+Belirtilen dize tüm öndeki ve sondaki boşluk karakterleri hello öğesinden kaldırır.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |Evet |Dize |Kesim değeri. |
+| stringToTrim |Evet |Dize |Merhaba değeri tootrim. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Baştaki ve sondaki boşluk karakterleri olmadan dizesi.
+Baştaki ve sondaki boşluk karakterleri olmadan hello dizesi.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki örnek parametre boşluk karakterlerinden kırpar.
+Merhaba aşağıdaki örnek hello parametre hello boşluk karakterlerinden kırpar.
 
 ```json
 {
@@ -1609,7 +1609,7 @@ Aşağıdaki örnek parametre boşluk karakterlerinden kırpar.
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Hello hello önceki hello varsayılan değerlerle örnek çıktı:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -1620,44 +1620,44 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 ## <a name="uniquestring"></a>uniqueString
 `uniqueString (baseString, ...)`
 
-Parametre olarak sağlanan değerlere göre belirleyici karma dize oluşturur. 
+Parametre olarak sağlanan hello değerlere göre belirleyici karma dize oluşturur. 
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| baseString |Evet |Dize |Karma işlevinde benzersiz bir dize oluşturmak için kullanılan değer. |
-| gerektikçe ek parametreler |Hayır |Dize |Benzersizlik düzeyini belirten değeri oluşturmak için gereken sayıda dizeleri ekleyebilirsiniz. |
+| baseString |Evet |Dize |Merhaba değeri benzersiz bir dize hello karma işlevi toocreate kullanılır. |
+| gerektikçe ek parametreler |Hayır |Dize |Sayıda dizeleri benzersizlik hello düzeyini belirtir gerekli toocreate hello değeri ekleyebilirsiniz. |
 
 ### <a name="remarks"></a>Açıklamalar
 
-Bu işlev, bir kaynak için benzersiz bir ad oluşturmanız gerektiğinde faydalıdır. Sonuç benzersizlik kapsamını sınırlamak parametre değerlerini sağlayın. Adlı abonelik, kaynak grubu veya dağıtım için benzersiz olup olmadığını belirtebilirsiniz. 
+Bu işlev, toocreate bir kaynak için benzersiz bir ad gerektiğinde faydalıdır. Benzersizlik hello sonucu için hello kapsamını sınırlamak parametre değerlerini sağlayın. Merhaba adı toosubscription, kaynak grubu veya dağıtım aşağı benzersiz olup olmadığını belirtebilirsiniz. 
 
-Döndürülen değer rastgele bir dize, ancak bunun yerine bir karma işlevin sonucu değil. Döndürülen değeri 13 karakter uzunluğunda ilişkilidir. Genel benzersiz değil. Anlamlı bir ad oluşturmak için adlandırma kuralınızın önekten değeri birleştirin isteyebilirsiniz. Aşağıdaki örnek, döndürülen değer biçimi gösterir. Gerçek değer sağlanan parametrelere göre değişir.
+Merhaba, değer rastgele bir dize değil, ancak bunun yerine bir karma işlevin sonucu hello döndürdü. Merhaba değeri 13 karakter uzunluğunda döndürülür. Genel benzersiz değil. Bir önek ile toocombine hello değeri, adlandırma kuralını toocreate anlamlı bir ad isteyebilirsiniz. Merhaba aşağıdaki örnek döndürülen değer hello hello biçimi gösterir. Merhaba gerçek değer parametreleri sağlanan hello göre değişir.
 
     tcvhiyu5h2o5o
 
-Aşağıdaki örnekler uniqueString yaygın olarak kullanılan düzeyleri için benzersiz bir değer oluşturmak için nasıl kullanılacağını gösterir.
+Örnek hello nasıl toouse uniqueString toocreate benzersiz bir değer için yaygın olarak kullanılan düzeylerini gösterir.
 
-Aboneliği kapsamlıdır benzersiz
+Benzersiz kapsamlı toosubscription
 
 ```json
 "[uniqueString(subscription().subscriptionId)]"
 ```
 
-Kaynak grubu için kapsamlı benzersiz
+Benzersiz kapsamlı tooresource grubu
 
 ```json
 "[uniqueString(resourceGroup().id)]"
 ```
 
-Benzersiz bir kaynak grubu için dağıtım kapsamına
+Bir kaynak grubu için benzersiz kapsamlı toodeployment
 
 ```json
 "[uniqueString(resourceGroup().id, deployment().name)]"
 ```
 
-Aşağıdaki örnekte, kaynak grubuna bağlı bir depolama hesabı için benzersiz bir ad oluşturulacağını gösterir. Kaynak grubu içinde adı aynı şekilde oluşturulan varsa benzersiz değil.
+Aşağıdaki örnek hello nasıl toocreate bir depolama hesabı için benzersiz bir ad, kaynak grubuna göre gösterir. Merhaba kaynak grubu içinde hello adı hello oluşturulan varsa benzersiz değil aynı şekilde.
 
 ```json
 "resources": [{ 
@@ -1672,7 +1672,7 @@ Aşağıdaki örnekte, kaynak grubuna bağlı bir depolama hesabı için benzers
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki örnek uniquestring sonuçları verir:
+Aşağıdaki örneğine hello uniquestring sonuçları döndürür:
 
 ```json
 {
@@ -1697,30 +1697,30 @@ Aşağıdaki örnek uniquestring sonuçları verir:
 ## <a name="uri"></a>URI
 `uri (baseUri, relativeUri)`
 
-Bir mutlak URI tabanURI ve relativeUri dize birleştirerek oluşturur.
+Merhaba tabanURI ve hello relativeUri dize birleştirerek bir mutlak URI oluşturur.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| tabanURI |Evet |Dize |Taban URI dizesi. |
-| relativeUri |Evet |Dize |İçin ana uri dizesi eklemek için göreli URI dizesi. |
+| tabanURI |Evet |Dize |Merhaba taban URI dizesi. |
+| relativeUri |Evet |Dize |Merhaba göreli URI dize tooadd toohello taban URI dize. |
 
-Değeri **tabanURI** parametresi, belirli bir dosya içerebilir, ancak yalnızca temel yolu URI oluşturulurken kullanılır. Örneğin, geçirme `http://contoso.com/resources/azuredeploy.json` temel URI'sini tabanURI parametre sonuçlarında olarak `http://contoso.com/resources/`.
+Merhaba hello için değer **tabanURI** parametresi, belirli bir dosya içerebilir, ancak yalnızca hello temel yolu hello URI oluşturulurken kullanılır. Örneğin, geçirme `http://contoso.com/resources/azuredeploy.json` temel URI'sini hello tabanURI parametre sonuç olarak `http://contoso.com/resources/`.
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Temel ve göreli değerleri için mutlak URI temsil eden dize.
+Merhaba temel ve göreli değerleri için mutlak URI hello temsil eden dize.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki örnek, üst şablon değere göre iç içe geçmiş bir şablon için bir bağlantı oluşturmak gösterilmiştir.
+Aşağıdaki örnek hello nasıl tooconstruct bağlantı tooa iç içe geçmiş şablonu hello üst şablonunun hello değere göre gösterir.
 
 ```json
 "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 ```
 
-Aşağıdaki örnek URI, uriComponent ve uriComponentToString nasıl kullanılacağını gösterir:
+örnekte gösterildiği nasıl aşağıdaki hello toouse URI, uriComponent ve uriComponentToString:
 
 ```json
 {
@@ -1749,7 +1749,7 @@ Aşağıdaki örnek URI, uriComponent ve uriComponentToString nasıl kullanılac
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Hello hello önceki hello varsayılan değerlerle örnek çıktı:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -1768,15 +1768,15 @@ Bir URI kodlar.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |Evet |Dize |Kodlanacak değeri. |
+| stringToEncode |Evet |Dize |Merhaba değeri tooencode. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
-URI'ın bir dize değeri kodlanmış.
+Merhaba URI dizesi değeri kodlanmış.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki örnek URI, uriComponent ve uriComponentToString nasıl kullanılacağını gösterir:
+örnekte gösterildiği nasıl aşağıdaki hello toouse URI, uriComponent ve uriComponentToString:
 
 ```json
 {
@@ -1805,7 +1805,7 @@ Aşağıdaki örnek URI, uriComponent ve uriComponentToString nasıl kullanılac
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Hello hello önceki hello varsayılan değerlerle örnek çıktı:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -1825,7 +1825,7 @@ Değer bir dize bir URI kodlanmış döndürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |Evet |Dize |URI değeri dizeye dönüştürmek için kodlanmış. |
+| uriEncodedString |Evet |Dize |Merhaba URI değeri tooconvert tooa dizesi kodlanmış. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -1833,7 +1833,7 @@ Bir URI kodu çözülmüş bir dize değeri kodlanmış.
 
 ### <a name="examples"></a>Örnekler
 
-Aşağıdaki örnek URI, uriComponent ve uriComponentToString nasıl kullanılacağını gösterir:
+örnekte gösterildiği nasıl aşağıdaki hello toouse URI, uriComponent ve uriComponentToString:
 
 ```json
 {
@@ -1862,7 +1862,7 @@ Aşağıdaki örnek URI, uriComponent ve uriComponentToString nasıl kullanılac
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Hello hello önceki hello varsayılan değerlerle örnek çıktı:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
@@ -1872,8 +1872,8 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bir Azure Resource Manager şablonu bölümlerde açıklaması için bkz: [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
-* Birden fazla şablon birleştirmek için bkz: [Azure Resource Manager ile bağlı şablonları kullanma](resource-group-linked-templates.md).
-* Belirtilen sayıda yinelemek için kaynak türünü oluştururken bkz [Azure Resource Manager'da kaynakları birden çok örneğini oluşturma](resource-group-create-multiple.md).
-* Oluşturduğunuz şablon dağıtma hakkında bilgi için bkz: [Azure Resource Manager şablonu ile bir uygulamayı dağıtmak](resource-group-template-deploy.md).
+* Bir Azure Resource Manager şablonu hello bölümlerde açıklaması için bkz: [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
+* birden fazla şablon toomerge bkz [Azure Resource Manager ile bağlı şablonları kullanma](resource-group-linked-templates.md).
+* tooiterate belirtilen sayıda kaynak türünü oluştururken bkz [Azure Resource Manager'da kaynakları birden çok örneğini oluşturma](resource-group-create-multiple.md).
+* toodeploy hello şablonu oluşturduğunuz toosee bkz [Azure Resource Manager şablonu ile bir uygulamayı dağıtmak](resource-group-template-deploy.md).
 

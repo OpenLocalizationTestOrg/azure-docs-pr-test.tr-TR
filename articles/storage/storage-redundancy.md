@@ -1,5 +1,5 @@
 ---
-title: "Azure Storage veri çoğaltması | Microsoft Docs"
+title: "Azure Storage aaaData çoğaltmasında | Microsoft Docs"
 description: "Microsoft Azure depolama hesabınızdaki veriler dayanıklılık ve yüksek kullanılabilirlik için çoğaltılır. Çoğaltma seçenekleri yerel olarak yedekli depolama (LRS), bölge olarak yedekli depolama (ZRS), coğrafi olarak yedekli depolama (GRS) ve okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) içerir."
 services: storage
 documentationcenter: 
@@ -14,36 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: marsma
-ms.openlocfilehash: b9354484ff5b81e2561d017d039bf2c07a21a423
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 539bc54f57fe8cb661665d2788961a0783b5ae7e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-storage-replication"></a>Azure Storage çoğaltma
 
-Microsoft Azure Depolama hesabınızdaki veriler, dayanıklılık ve yüksek kullanılabilirlik sağlamak için her zaman çoğaltılır. Çoğaltma işlemi, belirlediğiniz çoğaltma seçeneğine göre verilerinizi aynı veri merkezine veya ikinci bir veri merkezine kopyalar. Çoğaltma işlemi, geçici donanım hataları söz konusu olduğunda uygulamanızın çalışma süresini ve verilerinizi korur. Verileriniz için ikinci bir veri merkezi çoğaltılır, birincil konumda yıkıcı bir hatadan korunmaktadır.
+Microsoft Azure depolama hesabı her zaman olduğu Hello verilerde tooensure dayanıklılık ve yüksek kullanılabilirlik çoğaltılan. Aynı veri merkezinde ya da çoğaltma seçeneğine bağlı olarak seçtiğiniz tooa ikinci veri merkezi, verilerinizi içinde ya da hello çoğaltma kopyalar. Çoğaltma, verilerinizi korur ve geçici donanım arızalarında hello olay, uygulama yukarı zamanında korur. Verilerinizi çoğaltılmış tooa ikinci veri merkezi ise, hello birincil konumda yıkıcı bir hatadan korunmaktadır.
 
-Çoğaltma işlemi, hata durumunda bile depolama hesabınızın [Depolama için Hizmet Düzeyi Sözleşmesi'ne (SLA)](https://azure.microsoft.com/support/legal/sla/storage/) uymasını sağlar. Azure Depolama'nın dayanıklılık ve kullanılabilirlikle ilgili sağladığı garantiler hakkında bilgi edinmek için SLA'ya göz atın.
+Çoğaltma sağlar, depolama hesabınız hello karşıladığını [depolama için hizmet düzeyi sözleşmesi (SLA)](https://azure.microsoft.com/support/legal/sla/storage/) bile hello karşılaştığı hataların içinde. Bkz. Azure depolama hakkında bilgi için başlangıç SLA dayanıklılık ve kullanılabilirlik için güvence altına alır.
 
-Bir depolama hesabı oluşturduğunuzda şu çoğaltma seçeneklerinden birini seçebilirsiniz:
+Bir depolama hesabı oluşturduğunuzda, çoğaltma seçenekleri aşağıdaki hello birini seçebilirsiniz:
 
 * [Yerel olarak yedekli depolama (LRS)](#locally-redundant-storage)
 * [Bölgesel olarak yedekli depolama (ZRS)](#zone-redundant-storage)
 * [Coğrafi olarak yedekli depolama (GRS)](#geo-redundant-storage)
 * [Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)](#read-access-geo-redundant-storage)
 
-Bir depolama hesabı oluşturduğunuzda okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) varsayılan seçenektir.
+Bir depolama hesabı oluşturduğunuzda okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) hello varsayılan seçenektir.
 
-Aşağıdaki tabloda daha ayrıntılı çoğaltma her türünü sonraki bölümlerinde ele LRS, ZRS, GRS ve RA-GRS, arasındaki farklar hızlı bir genel bakış sağlar.
+Aşağıdaki tablonun hello sonraki bölümlerinde daha ayrıntılı çoğaltma her türünü adres hello farklarını LRS, ZRS, GRS ve RA-GRS, hızlı bir genel bakış sağlar.
 
 | Çoğaltma stratejisi | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
 | Veriler birden çok veri merkezi arasında çoğaltılır. |Hayır |Evet |Evet |Evet |
-| Verileri ikincil bir konuma yanı sıra birincil konumda okuyabilir. |Hayır |Hayır |Hayır |Evet |
+| Verileri bir ikincil konum yanı sıra hello birincil konumu okuyabilir. |Hayır |Hayır |Hayır |Evet |
 | Ayrı düğümlerde tutulan veri kopyası sayısı. |3 |3 |6 |6 |
 
-Bkz: [Azure Storage fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/) farklı artıklık seçenekleri için fiyatlandırma bilgilerini için.
+Bkz: [Azure Storage fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/) hello farklı artıklık seçenekleri için fiyatlandırma bilgilerini için.
 
 > [!NOTE]
 > Premium depolama yalnızca yerel olarak yedekli depolama (LRS) destekler. Premium depolama hakkında daha fazla bilgi için bkz: [Premium Storage: Azure sanal makine iş yükleri için yüksek performanslı depolama](storage-premium-storage.md).
@@ -54,42 +54,42 @@ Bkz: [Azure Storage fiyatlandırması](https://azure.microsoft.com/pricing/detai
 >
 
 ## <a name="locally-redundant-storage"></a>Yerel olarak yedekli depolama
-Yerel olarak yedekli depolama (LRS), depolama hesabınız oluşturuldu bölgede bir veri merkezinde barındırılır üç kez bir depolama ölçek birimi içindeki verilerinizi çoğaltır. Yalnızca tüm üç çoğaltmalar için yazıldıktan sonra Yazma isteği başarıyla döndürür. Bu üç çoğaltmaların her ayrı hata etki alanları ve bir depolama ölçek birimi içinde yükseltme etki alanları bulunur.
+Yerel olarak yedekli depolama (LRS), depolama hesabınız oluşturuldu hello bölgede bir veri merkezinde barındırılır üç kez bir depolama ölçek birimi içindeki verilerinizi çoğaltır. Yalnızca yazılı tooall üç çoğaltmaları silindikten sonra Yazma isteği başarıyla döndürür. Bu üç çoğaltmaların her ayrı hata etki alanları ve bir depolama ölçek birimi içinde yükseltme etki alanları bulunur.
 
-Bir depolama ölçek birimi depolama düğümleri raflarının koleksiyonudur. Hata etki alanı (FD) hata fiziksel bir birimi temsil eder ve aynı fiziksel raf ait düğümleri olarak kabul düğümlerinin bir gruptur. Bir yükseltme etki alanına (UD), hizmet yükseltmesi (sunum) işlemi sırasında birlikte yükseltilir düğümleri grubudur. Üç çoğaltmaları verileri tek bir rafa donanım arızası etkiler olsa bile veya düğümler piyasaya sürme sırasında yükseltildiğinde olduğundan emin olmak için bir depolama ölçek birimi içinde UDs ve FDs yayılır.
+Bir depolama ölçek birimi depolama düğümleri raflarının koleksiyonudur. Hata etki alanı (FD) hata fiziksel bir birimi temsil eder ve toohello ait düğümleri olarak kabul edilebilir düğümleri oluşan bir gruptur aynı fiziksel raf. Bir yükseltme etki alanına (UD), hizmet yükseltmesi (sunum) hello işlemi sırasında birlikte yükseltilir düğümleri grubudur. Merhaba üç çoğaltmaları verileri tek bir rafa donanım arızası etkiler olsa bile veya düğümler piyasaya sürme sırasında yükseltildiğinde olduğundan bir depolama ölçek birimi tooensure içinde UDs ve FDs yayılır.
 
-LRS en düşük maliyeti seçeneği ve diğer seçenekleri karşılaştırıldığında en az düzeyde dayanıklılık sunar. Bir veri merkezi düzeyi olağanüstü (vb. taşmasını yangın) durumda, tüm üç çoğaltmaları kayıp veya kurtarılamaz olabilir. Bu riski azaltmak için coğrafi olarak yedekli depolama (GRS) çoğu uygulama için önerilir.
+LRS hello en düşük maliyeti seçenek ve en az karşılaştırıldığında dayanıklılık tooother seçenekleri sunar. Bir veri merkezi düzeyi olağanüstü (vb. taşmasını yangın) Hello olayda tüm üç çoğaltmaları kayıp veya kurtarılamaz olabilir. Coğrafi olarak yedekli depolama (GRS) toomitigate Bu risk, çoğu uygulama için önerilir.
 
 Yerel olarak yedekli depolama hala belirli senaryolarda istenebilir:
 
 * En yüksek bant genişliği üst sınırı Azure Storage çoğaltma seçenekleri sağlar.
 * Uygulamanızı kolayca canlandırılabilir veri depoluyorsa, LRS için tercih edebilirsiniz.
-* Bazı uygulamalar, yalnızca veri idare gereksinimleri nedeniyle bir ülke içinde veri çoğaltmak için kısıtlanır. Eşleştirilmiş bir bölge başka bir ülkede olabilir. Bölge çiftleri hakkında daha fazla bilgi için bkz: [Azure bölgeleri](https://azure.microsoft.com/regions/).
+* Bazı uygulamalar, yalnızca bir ülke toodata idare gereksinimleri nedeniyle içinde kısıtlı tooreplicating verilerdir. Eşleştirilmiş bir bölge başka bir ülkede olabilir. Bölge çiftleri hakkında daha fazla bilgi için bkz: [Azure bölgeleri](https://azure.microsoft.com/regions/).
 
 ## <a name="zone-redundant-storage"></a>Bölge olarak yedekli depolama
-Bölge olarak yedekli depolama (ZRS) verilerinizi benzer LRS, böylece LRS'den daha fazla dayanıklılık sağlamak için üç çoğaltmaları depolamak yanı sıra bir veya iki bölgeleri içindeki veri merkezleri arasında zaman uyumsuz olarak çoğaltır. Birincil veri merkezindeki kullanılamıyor veya kurtarılamaz olsa bile, ZRS içinde depolanan verileri dayanıklı.
-ZRS kullanmayı planlıyorsanız müşteriler kullanan:
+Bölge olarak yedekli depolama (ZRS) verilerinizi böylece LRS'den daha fazla dayanıklılık sağlayan ek toostoring üç çoğaltmaları benzer tooLRS, bir veya iki bölgede içinde veri merkezleri arasında zaman uyumsuz olarak çoğaltır. Merhaba birincil veri merkezi kullanılamıyor veya kurtarılamaz olsa bile, ZRS içinde depolanan verileri dayanıklı.
+Toouse ZRS planlama müşteriler kullanan:
 
 * ZRS, yalnızca blok bloblar genel amaçlı depolama hesapları için kullanılabilir ve yalnızca depolama hizmeti sürümleri 2014-02-14 içinde ve üzerinde desteklenir.
-* Zaman uyumsuz çoğaltma bir gecikme gerektirdiğinden, yerel bir olağanüstü durumda birincil sunucudan verileri kurtarılamazsa, ikincil henüz çoğaltılmamış değişiklikler kaybolacak mümkündür.
-* İkincil bir yük devretme Microsoft başlatana kadar çoğaltma kullanılamayabilir.
-* ZRS hesapları daha sonra LRS veya GRS dönüştürülemez. Benzer şekilde, varolan LRS veya GRS hesabı ZRS hesabına dönüştürülemiyor.
+* Zaman uyumsuz çoğaltma olduğu yerel bir olağanüstü durum hello olayı içinde bir gecikme gerektirdiğinden hello veri hello birincil kurtarılamazsa, henüz değişiklikleri toohello ikincil çoğaltılan olası kaybolur.
+* Microsoft yük devretme toohello ikincil başlatana kadar hello çoğaltma kullanılamayabilir.
+* ZRS hesapları sonraki tooLRS veya GRS dönüştürülemez. Benzer şekilde, varolan LRS veya GRS hesabı olamaz tooa ZRS hesabı dönüştürülür.
 * ZRS hesapları, ölçümleri veya günlüğe kaydetme özelliğine sahip.
 
 ## <a name="geo-redundant-storage"></a>Coğrafi Olarak Yedekli Depolama
-Coğrafi olarak yedekli depolama (GRS) verileriniz birincil bölge çıktığınızda mil yüzlerce olan ikincil bir bölgeye çoğaltır. Etkin GRS depolama hesabınız varsa, verilerinizi bile tam bölgesel bir kesintinin veya bir olağanüstü durumda birincil bölge kurtarılabilir değil söz konusu olduğunda dayanıklı.
+Coğrafi olarak yedekli depolama (GRS) hello birincil bölge çıktığınızda mil yüzlerce olduğundan, veri tooa ikincil bölge çoğaltır. Etkin GRS depolama hesabınız varsa, verilerinizi bile hello durumda tam bölgesel bir kesintinin veya hangi hello birincil bölge kurtarılamaz olağanüstü durum dayanıklı.
 
-Etkin GRS ile bir depolama hesabı için bir güncelleştirme burada üç kez çoğaltılır birincil bölge için ilk kararlıdır. Daha sonra güncelleştirmeyi zaman uyumsuz olarak burada bunu da üç kez çoğaltılır ikincil bölgeye çoğaltılır.
+Etkin GRS ile bir depolama hesabı için bir güncelleştirme burada üç kez çoğaltılır ilk taahhüt toohello birincil bölge ' dir. Merhaba güncelleştirme zaman uyumsuz olarak kopyalandığı sonra toohello ikincil bölge, burada, ayrıca yinelendiğini üç kez.
 
-GRS ile birincil ve ikincil bölgeler çoğaltmalar ayrı hata etki alanlarında yönetmek ve etki alanı ile LRS açıklandığı gibi bir depolama ölçek birimi içinde yükseltin.
+GRS ile hem hello birincil ve ikincil bölgeler çoğaltmalar ayrı hata etki alanlarında yönetmek ve LRS ile açıklandığı gibi bir depolama ölçek birimi etki alanlarını yükseltme.
 
 Dikkate alınacak noktalar:
 
-* Zaman uyumsuz çoğaltma bir gecikme gerektirdiğinden, bölgesel bir olağanüstü durumda birincil bölgesinden veri kurtarılamazsa, ikincil bölge'ye henüz çoğaltılmamış değişiklikler kaybolacak mümkündür.
-* Microsoft yük devretme ikincil bölge başlatır sürece çoğaltma kullanılamıyor. Microsoft bir yük devretme ikincil bölge başlatın varsa, okuduğunuz ve yük devretme sonrasında bu verilere yazma erişimi tamamlandı. Daha fazla bilgi için lütfen bkz [olağanüstü durum kurtarma Kılavuzu](storage-disaster-recovery-guidance.md). 
-* Kullanıcı, bir uygulama ikincil bölgesinden okumak isterse, RA-GRS etkinleştirmeniz gerekir.
+* Zaman uyumsuz çoğaltma değil henüz çoğaltılmamış değişiklikleri mümkün olan bölgesel bir olağanüstü durum hello olayı içinde bir gecikme gerektirdiğinden hello veri hello birincil bölgesinden kurtarılamazsa, toohello ikincil bölge kaybolur.
+* Microsoft yük devretme toohello ikincil bölge başlatır sürece hello çoğaltma kullanılamıyor. Microsoft bir yük devretme toohello ikincil bölge ' ı başlattığınızda, hello yük devretme tamamlandıktan sonra toothat verilerini okuma ve yazma erişimi gerekir. Daha fazla bilgi için lütfen bkz [olağanüstü durum kurtarma Kılavuzu](storage-disaster-recovery-guidance.md). 
+* Bir uygulama tooread hello ikincil bölgesinden isterse, hello kullanıcı RA-GRS etkinleştirmeniz gerekir.
 
-Bir depolama hesabı oluşturduğunuzda, hesap için birincil bölge seçin. İkincil bölge birincil bölgeye göre belirlenir ve değiştirilemez. Aşağıdaki tabloda birincil ve ikincil bölge eşleştirmeleri gösterilir.
+Bir depolama hesabı oluşturduğunuzda, hello hello hesap için birincil bölge seçin. Merhaba ikincil bölge'hello birincil bölgeye göre belirlenir ve değiştirilemez. Aşağıdaki tablonun hello hello birincil ve ikincil bölge eşleştirmeleri gösterilir.
 
 | Birincil | İkincil |
 | --- | --- |
@@ -129,64 +129,64 @@ Bir depolama hesabı oluşturduğunuzda, hesap için birincil bölge seçin. İk
 Azure tarafından desteklenen bölgeler hakkında güncel bilgiler için bkz: [Azure bölgeleri](https://azure.microsoft.com/regions/).
 
 >[!NOTE]  
-> ABD kamu Virginia ikincil BİZE kamu Texas bölgedir. Daha önce BİZE kamu Virginia BİZE kamu Iowa bir ikincil bölge ' kullanılan. Depolama hesapları hala bir ikincil bölge'olarak BİZE kamu Iowa yararlanan bir ikincil bölge BİZE kamu Texas Geçirilmekte olan. 
+> ABD kamu Virginia ikincil BİZE kamu Texas bölgedir. Daha önce BİZE kamu Virginia BİZE kamu Iowa bir ikincil bölge ' kullanılan. Depolama hesapları bir ikincil bölge olması gibi hala BİZE kamu Iowa yararlanan bir ikincil bölge tooUS kamu Texas geçirildi. 
 > 
 > 
 
 ## <a name="read-access-geo-redundant-storage"></a>Coğrafi olarak yedekli depolamaya okuma erişimi
-Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) GRS tarafından sağlanan iki bölgede çoğaltma ek olarak ikincil konumdaki verileri salt okunur erişim sağlayarak depolama hesabınız için kullanılabilirliği en üst düzeye çıkarır.
+Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) salt okunur erişim toohello veri hello ikincil konumdaki Ayrıca iki bölgede toohello çoğaltma GRS tarafından sağlanan sağlayarak depolama hesabınız için kullanılabilirliği en üst düzeye çıkarır.
 
-İkincil bölge verilerinize salt okunur erişimi etkinleştirdiğinizde, verilerinizi depolama hesabınız için birincil endpoint ek olarak ikincil bir uç noktası kullanılabilir. İkincil uç birincil uç noktasına benzer, ancak son ekine ekler `–secondary` hesap adı. Örneğin, Blob Hizmeti uç noktanızı birincil ise `myaccount.blob.core.windows.net`, ikincil uç noktanız ise `myaccount-secondary.blob.core.windows.net`. Erişim tuşları depolama hesabınız için birincil ve ikincil uç için aynıdır.
+Salt okunur erişim tooyour hello ikincil bölge verilerde etkinleştirdiğinizde, verilerinizi ayrıca depolama hesabınız için toohello birincil uç noktası ikincil bir noktadaki kullanılabilir durumdadır. Merhaba ikincil uç benzer toohello birincil uç noktası, ancak hello sonek ekler `–secondary` toohello hesap adı. Örneğin, birincil uç noktası için Blob hizmeti hello ise `myaccount.blob.core.windows.net`, ikincil uç noktanız ise `myaccount-secondary.blob.core.windows.net`. Depolama hesabınız için erişim tuşları Hello olan hello aynı hem de birincil ve ikincil uç noktaları hello için.
 
 Dikkate alınacak noktalar:
 
-* Bunu ile RA-GRS kullanırken etkileşimde hangi uç noktaya yönetmek, uygulamanızın sahiptir.
-* Zaman uyumsuz çoğaltma bir gecikme gerektirdiğinden, bölgesel bir olağanüstü durumda birincil bölgesinden veri kurtarılamazsa, ikincil bölge'ye henüz çoğaltılmamış değişiklikler kaybolacak mümkündür.
-* Microsoft ikincil bölgeye yük devretme durumunda başlatır, okuduğunuz ve yük devretme sonrasında bu verilere yazma erişimi tamamlandı. Daha fazla bilgi için lütfen bkz [olağanüstü durum kurtarma Kılavuzu](storage-disaster-recovery-guidance.md). 
-* RA-GRS, yüksek kullanılabilirlik sağlamak için tasarlanmıştır. Ölçeklenebilirlik yönergeleri için lütfen inceleyin [performans denetim listesi](storage-performance-checklist.md).
+* Uygulamanız toomanage, RA-GRS kullanırken etkileşimde hangi uç noktaya sahip.
+* Zaman uyumsuz çoğaltma değil henüz çoğaltılmamış değişiklikleri mümkün olan bölgesel bir olağanüstü durum hello olayı içinde bir gecikme gerektirdiğinden hello veri hello birincil bölgesinden kurtarılamazsa, toohello ikincil bölge kaybolur.
+* Microsoft yük devretme toohello ikincil bölge başlatırsa hello yük devretme tamamlandıktan sonra toothat verilerini okuma ve yazma erişimi gerekir. Daha fazla bilgi için lütfen bkz [olağanüstü durum kurtarma Kılavuzu](storage-disaster-recovery-guidance.md). 
+* RA-GRS, yüksek kullanılabilirlik sağlamak için tasarlanmıştır. Ölçeklenebilirlik yönergeleri için lütfen hello inceleyin [performans denetim listesi](storage-performance-checklist.md).
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
 <a id="howtochange"></a>
-#### <a name="1-how-can-i-change-the-geo-replication-type-of-my-storage-account"></a>1. Depolama Hesabımı coğrafi çoğaltma türünü nasıl değiştirebilir miyim?
+#### <a name="1-how-can-i-change-hello-geo-replication-type-of-my-storage-account"></a>1. Merhaba coğrafi çoğaltma depolama Hesabımı türünü nasıl değiştirebilir miyim?
 
-   Depolama hesabınız LRS, GRS ve RA-GRS kullanarak arasında coğrafi çoğaltma türünü değiştirebilirsiniz [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md) veya program aracılığıyla bizim birçok depolama istemci kitaplıklarından birini kullanma. Lütfen ZRS hesapları dönüştürülen LRS veya GRS olamayacağını unutmayın. Benzer şekilde, varolan LRS veya GRS hesabı ZRS hesabına dönüştürülemiyor.
+   Merhaba coğrafi çoğaltma depolama hesabınız LRS, GRS, arasında türünü değiştirebilirsiniz ve RA-GRS kullanarak hello [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md) veya program aracılığıyla birçok depolama istemci birini kullanarak Kitaplıkları. Lütfen ZRS hesapları dönüştürülen LRS veya GRS olamayacağını unutmayın. Benzer şekilde, varolan LRS veya GRS hesabı olamaz tooa ZRS hesabı dönüştürülür.
 
 <a id="changedowntime"></a>
-#### <a name="2-will-there-be-any-down-time-if-i-change-the-replication-type-of-my-storage-account"></a>2. Depolama Hesabımı çoğaltma türünü değiştirirseniz var. herhangi kesinti olacak?
+#### <a name="2-will-there-be-any-down-time-if-i-change-hello-replication-type-of-my-storage-account"></a>2. Depolama Hesabımı hello çoğaltma türünü değiştirirseniz var. herhangi kesinti olacak?
 
    Hayır, olmayacak herhangi kesinti.
 
 <a id="changecost"></a>
-#### <a name="3-will-there-be-any-additional-cost-if-i-change-the-replication-type-of-my-storage-account"></a>3. Depolama Hesabımı çoğaltma türünü değiştirirseniz, ek bir maliyet var. olacak mı?
+#### <a name="3-will-there-be-any-additional-cost-if-i-change-hello-replication-type-of-my-storage-account"></a>3. Depolama Hesabımı hello çoğaltma türünü değiştirirseniz, ek bir maliyet var. olacak?
 
-   Evet. Depolama hesabınız için GRS (veya RA-GRS) LRS'den değiştirirseniz, var olan verileri birincil konumdan ikincil konuma kopyalanması söz konusu çıkışı için ek bir ücret doğurur. İlk veri kopyalandıktan sonra coğrafi veri birincil sunucudan ikincil konuma çoğaltmak için daha fazla ek çıkış ücretsiz yoktur. Bant genişliği ücretleri ayrıntılarını bulunabilir [Azure depolama Fiyatlandırma sayfasında](https://azure.microsoft.com/pricing/details/storage/blobs/). LRS için GRS değiştirirseniz, ek bir maliyet yoktur, ancak ikincil konumdan verileriniz silinir.
+   Evet. LRS tooGRS (veya RA-GRS) depolama hesabınız için değiştirirseniz, birincil konumda toohello ikincil konumdan mevcut veri kopyalama söz konusu çıkışı için ek bir ücret doğurur. Merhaba ilk veri kopyalandıktan sonra da başka coğrafi hello birincil toosecondary konumdan hello veri çoğaltmak için ek çıkış ücret yoktur. bant genişliği ücretleri Hello ayrıntılarını hello üzerinde bulunabilir [Azure depolama Fiyatlandırma sayfasında](https://azure.microsoft.com/pricing/details/storage/blobs/). GRS tooLRS değiştirirseniz, ek bir maliyet yoktur, ancak verilerinizi hello ikincil konumdan silinir.
 
 <a id="ragrsbenefits"></a>
 #### <a name="4-how-can-ra-grs-help-me"></a>4. RA-GRS bana nasıl yardımcı?
    
-   GRS depolama çoğaltmayı birincil sunucudan verileriniz birincil bölge çıktığınızda mil yüzlerce olan ikincil bir bölgeye sağlar. Böyle bir durumda, hatta tam bölgesel bir kesintinin veya bir olağanüstü durumda birincil bölge kurtarılabilir değil söz konusu olduğunda dayanıklı verilerdir. RA-GRS depolama bu içerir ve verileri ikincil konumdan okuma özelliği ekler. Bu özelliği kullanabilmeniz nasıl hakkında bazı fikir edinmek için lütfen [tasarlama yüksek oranda kullanılabilir RA-GRS depolama kullanan uygulamalar](storage-designing-ha-apps-with-ragrs.md). 
+   GRS depolama hello birincil bölge çıktığınızda mil yüzlerce olan bir birincil tooa ikincil bölge'verilerinizden çoğaltılmasını sağlar. Böyle bir durumda, hatta hello durumda tam bölgesel bir kesintinin veya hangi hello birincil bölge kurtarılamaz olağanüstü durum dayanıklı verilerdir. RA-GRS depolama bu içerir ve hello ikincil konumdan hello özelliği tooread hello veri ekler. Konusunda fikir edinmek için tooleverage bu özelliği, çok başvurun[tasarlama yüksek oranda kullanılabilir RA-GRS depolama kullanan uygulamalar](storage-designing-ha-apps-with-ragrs.md). 
 
 <a id="lastsynctime"></a>
-#### <a name="5-is-there-a-way-for-me-to-figure-out-how-long-it-takes-to-replicate-my-data-from-the-primary-to-the-secondary-region"></a>5. Bana verilerimi birincil sunucudan ikincil bölge'ye çoğaltmak için gereken süreyi şekil için bir yolu var mı?
+#### <a name="5-is-there-a-way-for-me-toofigure-out-how-long-it-takes-tooreplicate-my-data-from-hello-primary-toohello-secondary-region"></a>5. Bir yol benim için tooreplicate verilerimi hello birincil toohello ikincil bölge ' süreyi çıkışı toofigure var?
    
-   RA-GRS depolama kullanıyorsanız, depolama hesabınıza son eşitleme zamanı kontrol edebilirsiniz. Son eşitleme saati GMT tarih/saat değeridir; Son eşitleme zamanı önce tüm birincil yazma ikincil konumdan okumak kullanılabilir olan hangi ortalama ikincil konumuna başarıyla yazılmamış. Son eşitleme süresi okumalar henüz kullanılabilir durumda olmayabilir veya sonra birincil yazar. Bu değeri kullanarak sorgulama yapabilirsiniz [Azure portal](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md), veya program aracılığıyla REST API veya depolama istemci kitaplıklarından birini kullanarak. 
+   RA-GRS depolama kullanıyorsanız, hello depolama hesabınızın son eşitleme zamanı kontrol edebilirsiniz. Son eşitleme saati GMT tarih/saat değeridir; tüm birincil yazma hello son eşitleme zamanı önce başarıyla toohello ikincil konum kullanılabilir toobe hello ikincil konumdan okuma oldukları anlamına yazılmıştır. Birincil hello sonra son eşitleme süresi okumalar henüz kullanılabilir durumda olmayabilir veya yazar. Bu değeri hello kullanarak sorgulama yapabilirsiniz [Azure portal](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md), veya program aracılığıyla kullanarak hello REST API veya depolama istemcisi kitaplıklarını hello biri. 
 
 <a id="outage"></a>
-#### <a name="6-how-can-i-switch-to-the-secondary-region-if-there-is-an-outage-in-the-primary-region"></a>6. Birincil bölgede bir kesinti durumunda nasıl ikincil bölge'ye geçebilirsiniz?
+#### <a name="6-how-can-i-switch-toohello-secondary-region-if-there-is-an-outage-in-hello-primary-region"></a>6. Merhaba birincil bölgede bir kesinti durumunda nasıl toohello ikincil bölge geçebilirsiniz?
    
-   Lütfen makalesine başvurun [bir Azure Storage kesinti oluşursa yapmanız gerekenler](storage-disaster-recovery-guidance.md) daha fazla ayrıntı için.
+   Lütfen toohello makalesine başvurun [bir Azure Storage kesinti oluşursa hangi toodo](storage-disaster-recovery-guidance.md) daha fazla ayrıntı için.
 
 <a id="rpo-rto"></a>
-#### <a name="7-what-is-the-rpo-and-rto-with-grs"></a>7. RPO ve GRS ile RTO nedir?
+#### <a name="7-what-is-hello-rpo-and-rto-with-grs"></a>7. Ne olduğunu hello RPO ve GRS ile RTO?
    
-   Kurtarma noktası hedefi (RPO): GRS ve RA-GRS depolama hizmeti zaman uyumsuz olarak coğrafi çoğaltır verilerini birincil ve ikincil konum. Önemli bir bölgesel olağanüstü durum yoktur ve bir yük devretme gerçekleştirilecek sahipse, coğrafi olarak çoğaltılmış edilmemiş son delta değişiklikler kaybolabilir. Kayıp olası veri dakika sayısı (yani noktası verilerin kurtarılabilmesini zamanında) RPO olarak adlandırılır. Genellikle bir RPO 15 dakikadan kısa sahibiz, olmasına rağmen şu anda hiçbir SLA ne kadar süreyle coğrafi çoğaltma üzerinde alır.
+   Kurtarma noktası hedefi (RPO): GRS ve RA-GRS, hello depolama hizmeti zaman uyumsuz olarak çoğaltır coğrafi hello veri hello birincil toohello ikincil konumdan. Önemli bir bölgesel olağanüstü durum yoktur ve bir yük devretme gerçekleştirilen toobe varsa, coğrafi olarak çoğaltılmış edilmemiş son delta değişiklikler kaybolabilir. Merhaba süreyi dakika cinsinden kaybedilen olası veri başvurulan tooas hello (yani hello zaman toowhich veri noktasında kurtarılabilir) RPO ' dir. Genellikle bir RPO 15 dakikadan kısa sahibiz, olmasına rağmen şu anda hiçbir SLA ne kadar süreyle coğrafi çoğaltma üzerinde alır.
 
-   Kurtarma süresi hedefi (RTO): Bu, yük devretme işlemi gerçekleştirin ve bir yük devretme yapmak varsa depolama hesabı çevrimiçine almak için bize süreyi bir ölçüsüdür. Yük devretme için zaman aşağıdakileri içerir:
-    * Bize araştırmak ve biz birincil konumdaki verileri kurtarabilir veya gerekiyorsa belirlemek için gereken süreyi biz bir yük devretme yapmanız gerekir.
-    * İkincil konumunu gösterecek şekilde yük devretme, birincil DNS girişlerini değiştirerek hesabı.
+   Kurtarma süresi hedefi (RTO): Bir ölçü ne kadar süreyle bize toodo hello yük devretme alır ve biz toodo bir yük devretme varsa hello depolama hesabı çevrimiçi dönmek budur. Başlangıç saati toodo hello yük devretme hello aşağıdakileri içerir:
+    * Bize tooinvestigate alır ve biz hello birincil konumda hello verileri kurtarabilir veya toodo bir yük devretme ihtiyacımız belirleyen hello süre.
+    * Merhaba birincil DNS girişlerini toopoint toohello ikincil konum değiştirerek yük devretme hello hesabı.
 
-   Biz, veri kurtarma ihtimali varsa, biz yük devretme yapmayı bekletir ve birincil konumda veri kurtarma odaklanmak için verilerinizi çok ciddiye koruma sorumluluğunu alın. Gelecekte, ardından RTO kendiniz denetlemenize olanak tanır, bir hesap düzeyinde bir yük devretme tetiklemek izin vermek için bir API sağlayan planlıyoruz ancak bu henüz kullanılabilir değil.
+   Biz, hello veri kurtarma ihtimali varsa, biz hello yük devretme yapmayı bekletir ve hello birincil konumda hello veri kurtarma odaklanmak için verilerinizi çok ciddiye koruma hello sorumluluk alır. Hello gelecekteki, biz tooprovide bir API tooallow planlama, tootrigger hesap düzeyinde bir yük devretme, hangi sonra izin, toocontrol hello RTO kendiniz, ancak bu henüz kullanılabilir değil.
    
 ## <a name="next-steps"></a>Sonraki adımlar
 * [RA-GRS depolama kullanarak yüksek oranda kullanılabilir uygulamalar tasarlama](storage-designing-ha-apps-with-ragrs.md)

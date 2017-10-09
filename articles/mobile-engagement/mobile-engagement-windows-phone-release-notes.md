@@ -1,5 +1,5 @@
 ---
-title: "Azure Mobile Engagement Windows Phone Silverlight SDK sürüm notları | Microsoft Docs"
+title: "aaaAzure Mobile Engagement Windows Phone Silverlight SDK sürüm notları | Microsoft Docs"
 description: "Azure Mobile Engagement - Windows Phone Silverlight SDK sürüm notları"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,33 +14,33 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
-ms.openlocfilehash: df754a3002750e6ba0b71b664c1df84d506808a4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f9af6ca91295dbecfa4c51fe4b3bad6626fa5999
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="windows-phone-silverlight-sdk-release-notes"></a>Windows Phone Silverlight SDK sürüm notları
 ##<a name="331-11032016"></a>3.3.1 (11/03/2016)
-Parçası *MicrosoftAzure.MobileEngagement* Nuget paketi **v3.4.1**
+Merhaba parçası *MicrosoftAzure.MobileEngagement* Nuget paketi **v3.4.1**
 
 * İstikrara yönelik iyileştirmeler.
 
 ## <a name="330-04192016"></a>3.3.0 (04/19/2016)
-Parçası *MicrosoftAzure.MobileEngagement* Nuget paketi **v3.4.0**
+Merhaba parçası *MicrosoftAzure.MobileEngagement* Nuget paketi **v3.4.0**
 
-* SDK'sı tarafından gösterilen eklenen "TestLogLevel" API etkinleştir/devre dışı bırak/filtre uygulamak için konsolu günlükleri.
+* Eklenen "TestLogLevel" API devre dışı bırak/tooenable/filtre konsol günlükleri Hello SDK tarafından gösterilen.
 
 ## <a name="320-01222016"></a>3.2.0 (01/22/2016)
-Parçası *MicrosoftAzure.MobileEngagement* Nuget paketi **v3.3.0**
+Merhaba parçası *MicrosoftAzure.MobileEngagement* Nuget paketi **v3.3.0**
 
 * Özel düzenleri, ms-appx ve ms-appdata eylem URL'leri kullanılabilir.
 * İstikrara yönelik iyileştirmeler.
 
 ## <a name="310-11202015"></a>3.1.0 (11/20/2015)
-Parçası *MicrosoftAzure.MobileEngagement* Nuget paketi **v3.2.0**
+Merhaba parçası *MicrosoftAzure.MobileEngagement* Nuget paketi **v3.2.0**
 
-* Cihaz kimliği yalnızca sonra başlatma isteyen çalışırken sabit kilitlenme.
+* Merhaba cihaz kimliği yalnızca hello başlatma sonra isteyen çalışırken sabit kilitlenme.
 * Konsolu geliştirmeleri günlüğe kaydeder.
 
 ## <a name="300-04032015"></a>3.0.0 (04/03/2015)

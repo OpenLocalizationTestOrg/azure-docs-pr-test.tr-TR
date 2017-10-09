@@ -1,6 +1,6 @@
 ---
-title: "Etkileşimli olmayan kimlik doğrulama .NET Hdınsight applciations - Azure oluşturun | Microsoft Docs"
-description: "Etkileşimli olmayan kimlik doğrulama .NET Hdınsight uygulamalarının nasıl oluşturulacağını öğrenin."
+title: "aaaCreate etkileşimli olmayan kimlik doğrulama .NET Hdınsight applciations - Azure | Microsoft Docs"
+description: "Bilgi nasıl toocreate .NET Hdınsight uygulamaları etkileşimli olmayan kimlik doğrulaması."
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
@@ -16,48 +16,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
-ms.openlocfilehash: 7821a9e60e60ff01cff06db2a6f216a260c1c41a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5367c160b0146e6b855486b95f363e8fe7f1c98f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-non-interactive-authentication-net-hdinsight-applications"></a>Etkileşimli olmayan kimlik doğrulama .NET Hdınsight uygulamaları oluşturma
-.NET Azure Hdınsight uygulamanızı ya da uygulamanın kendi kimliğini (etkileşimli olmayan) (etkileşimli) uygulamasının oturum açmış kullanıcının kimliğini altında ya da çalıştırabilirsiniz. Etkileşimli uygulama örnek için bkz: [Azure Hdınsight Bağlan](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). Bu makalede Azure bağlanmak ve Hdınsight yönetmek için etkileşimli olmayan kimlik doğrulama .NET uygulamasının nasıl oluşturulacağını gösterir.
+.NET Azure Hdınsight uygulamanızı ya da uygulamanın kendi kimliğini (etkileşimli olmayan) hello oturum açmış kullanıcının (etkileşimli) hello uygulamasının hello kimliğini altında ya da çalıştırabilirsiniz. Merhaba etkileşimli uygulaması örnek için bkz: [tooAzure Hdınsight bağlanmak](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). Bu makale size nasıl gösterir toocreate etkileşimli olmayan kimlik doğrulama .NET uygulama tooconnect tooAzure ve Hdınsight yönetin.
 
 Etkileşimli olmayan .NET uygulamanızdan, aşağıdakiler gerekir:
 
 * Azure aboneliği Kiracı Kimliğinizi (A.K.A dizin kimliği). Bkz: [alma Kiracı kimliği](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
-* Azure Active Directory Uygulama istemci kimliği. Bkz: [Azure Active Directory Uygulama oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application), ve [bir uygulama kimliği alma](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)
-* Azure Active Directory Uygulama gizli anahtarı. Bkz: [Get uygulama kimlik doğrulama anahtarı](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)
+* Hello Azure Active Directory Uygulama istemci kimliği Bkz: [Azure Active Directory Uygulama oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application), ve [bir uygulama kimliği alma](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)
+* Hello Azure Active Directory Uygulama gizli anahtarı. Bkz: [Get uygulama kimlik doğrulama anahtarı](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)
 
 ## <a name="prerequisites"></a>Ön koşullar
 * Hdınsight kümesi. Bkz: [başlama Öğreticisi](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 
 
-## <a name="assign-azure-ad-application-to-role"></a>Azure AD uygulama rolü atayın
-Uygulamaya atamalısınız bir [rol](../active-directory/role-based-access-built-in-roles.md) eylemleri gerçekleştirmek için izinleri vermek için. Abonelik, kaynak grubu ya da kaynak düzeyinde kapsamı ayarlayabilirsiniz. Daha düşük düzeyde kapsam (örneğin, kaynak grubu okuyabilmesi için bir kaynak grubu için okuyucu rolüne uygulamaya anlamına gelir ekleme ve içerdiği tüm kaynaklar) devralınan izinleri. Bu öğreticide kaynak grubu düzeyinde kapsamı ayarlarsınız. Daha fazla bilgi için bkz: [Azure aboneliği kaynaklarınıza erişimi yönetmek için rol atamalarını kullanın](../active-directory/role-based-access-control-configure.md)
+## <a name="assign-azure-ad-application-toorole"></a>Azure AD uygulama toorole atayın
+Merhaba uygulama tooa atamalısınız [rol](../active-directory/role-based-access-built-in-roles.md) toogrant bu eylemleri gerçekleştirmek için izinler. Merhaba kapsam hello abonelik, kaynak grubu ya da kaynak hello düzeyinde ayarlayabilirsiniz. Merhaba, kapsam (örneğin, bir kaynak grubu için bir uygulama toohello okuyucu rolüne hello kaynak grubu okuyabilir anlamına gelir ekleme ve içerdiği tüm kaynaklar) devralınan toolower düzeyleri izinlerdir. Bu öğreticide, hello kaynak grubu düzeyinde hello kapsam ayarlarsınız. Daha fazla bilgi için bkz: [rol atamalarını toomanage erişim tooyour Azure aboneliği kaynakları kullanın](../active-directory/role-based-access-control-configure.md)
 
-**Azure AD uygulama sahip rolünü eklemek için**
+**tooadd hello sahibi rolü toohello Azure AD uygulama**
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Tıklatın **kaynak grubu** sol bölmeden.
-3. Daha sonra Bu öğreticide, Hive sorgunuzu çalıştırılacağı Hdınsight kümesi içeren kaynak grubunu tıklatın. Çok fazla kaynak grupları varsa, filtresini kullanabilirsiniz.
-4. Tıklatın **erişim denetimi (IAM)** kaynak grubu menüsünde.
-5. Tıklatın **Ekle** gelen **kullanıcılar** dikey.
-6. Eklemek için yönergeleri izleyin **sahibi** Azure AD uygulaması rolüne son yordamda oluşturduğunuz. Başarıyla tamamladıktan sonra kullanıcılar dikey penceresi sahip rolünü ile listelenen uygulama göreceksiniz.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
+2. Tıklatın **kaynak grubu** hello sol bölmesinden.
+3. Daha sonra Bu öğreticide, Hive sorgunuzu çalıştırılacağı hello Hdınsight kümesi içeren hello kaynak grubunu tıklatın. Çok fazla kaynak grupları varsa, hello filtresini kullanabilirsiniz.
+4. Tıklatın **erişim denetimi (IAM)** hello kaynak grubu menüsünde.
+5. Tıklatın **Ekle** hello gelen **kullanıcılar** dikey.
+6. Merhaba yönerge tooadd hello izleyin **sahibi** rol toohello Azure AD uygulaması hello son yordamda oluşturduğunuz. Başarıyla tamamladıktan sonra hello kullanıcılar dikey penceresinde hello sahibi rolüyle listelenen Merhaba uygulaması göreceksiniz.
 
 ## <a name="develop-hdinsight-client-application"></a>Hdınsight istemci uygulaması geliştirme
 
 1. Bir C# konsol uygulaması oluşturun.
-2. Aşağıdaki Nuget paketleri ekleyin:
+2. Nuget paketleri aşağıdaki hello ekleyin:
 
         Install-Package Microsoft.Azure.Common.Authentication -Pre
         Install-Package Microsoft.Azure.Management.HDInsight -Pre
         Install-Package Microsoft.Azure.Management.Resources -Pre
 
-3. Aşağıdaki kod örneği kullanın:
+3. Aşağıdaki kod örneği hello kullan:
 
         using System;
         using System.Security;
@@ -77,7 +77,7 @@ Uygulamaya atamalısınız bir [rol](../active-directory/role-based-access-built
                 private static Guid SubscriptionId = new Guid("<Enter Your Azure Subscription ID>");
                 private static string tenantID = "<Enter Your Tenant ID (A.K.A. Directory ID)>";
                 private static string applicationID = "<Enter Your Application ID>";
-                private static string secretKey = "<Enter the Application Secret Key>";
+                private static string secretKey = "<Enter hello Application Secret Key>";
         
                 private static void Main(string[] args)
                 {
@@ -100,11 +100,11 @@ Uygulamaya atamalısınız bir [rol](../active-directory/role-based-access-built
                         Console.WriteLine("\t Cluster location: " + name.Location);
                         Console.WriteLine("\t Cluster version: " + name.Properties.ClusterVersion);
                     }
-                    Console.WriteLine("Press Enter to continue");
+                    Console.WriteLine("Press Enter toocontinue");
                     Console.ReadLine();
                 }
 
-                /// Get the access token for a service principal and provided key                
+                /// Get hello access token for a service principal and provided key                
                 public static TokenCloudCredentials GetTokenCloudCredentials(string tenantId, string clientId, SecureString secretKey)
                 {
                     var authFactory = new AuthenticationFactory();

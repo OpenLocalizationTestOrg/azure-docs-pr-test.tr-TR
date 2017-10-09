@@ -1,6 +1,6 @@
 ---
-title: "Self Servis uygulamaya erişim ve Azure Active Directory ile yetkilendirilmiş Yönetimi | Microsoft Docs"
-description: "Bu makalede, Self Servis uygulamaya erişim ve Azure Active Directory ile temsil edilen yönetimini etkinleştirmek açıklar."
+title: "aaaSelf hizmet uygulama erişimi ve Azure Active Directory ile yetkilendirilmiş Yönetimi | Microsoft Docs"
+description: "Bu makalede nasıl tooenable Self Servis uygulamaya erişim ve Azure Active Directory ile yetkilendirilmiş yönetimi açıklanmaktadır."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -16,90 +16,90 @@ ms.date: 07/26/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 7872d5229cdc053bfb9dc8ddba01785b0f8e5a9a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 90bec3bd71796f22a782929b028db0d18c3aa1c3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="self-service-application-access-and-delegated-management-with-azure-active-directory"></a>Self Servis uygulamaya erişim ve Azure Active Directory ile yetkilendirilmiş Yönetimi
-Son kullanıcılarınız için Self Servis özellikleri etkinleştirme, kurumsal BT için ortak bir senaryodur. Kullanıcılar, çok sayıda uygulamaları ve erişimi verme kararlar best-informed olan kişi çok sayıda dizin yönetici olmayabilir. Genellikle uygulamanın erişebilecek kişileri karar vermek için en iyi bir takım lideri veya diğer yönetici temsilcisi kişidir. Ancak, uygulamayı kullanan kullanıcı olduğunu ve işlerini yapmak istedikleri kullanıcının bildiği.
+Son kullanıcılarınız için Self Servis özellikleri etkinleştirme, kurumsal BT için ortak bir senaryodur. Kullanıcılar, uygulamaları ve best-informed toomake erişimi olan hello kişi çok sayıda kararları hello directory yönetici olmayabilir verin. Uygulamaya kimlerin erişebileceğini genellikle hello en iyi kişi toodecide bir takım lideri veya diğer temsilci olarak atanan yönetici değil. Ancak, hello uygulama kullanan hello kullanıcı ve hello kullanıcı bilir ne toobe mümkün toodo işlerini ihtiyaç duydukları.
 
 > [!IMPORTANT]
-> Microsoft, Azure AD’yi bu makalede bahsedilen Klasik Azure Portalı yerine Azure portalındaki [Azure AD yönetim merkezini](https://aad.portal.azure.com) kullanarak yönetmenizi öneriyor. 
+> Microsoft önerir hello kullanarak Azure AD'yi yönetme [Azure AD Yönetim Merkezi](https://aad.portal.azure.com) hello yerine Azure portal hello bu makalede başvurulan Klasik Azure portalı. 
 
 Self Servis uygulamaya erişim özelliğidir [Azure Active Directory Premium](https://azure.microsoft.com/trial/get-started-active-directory/) P1 ve P2 directory yöneticileri izin veren lisans:
 
-* "Daha fazla uygulama Al" bir parçasında kullanan uygulamalar için erişim istemek kullanıcıların [Azure AD erişim paneli](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)
+* "Daha fazla uygulama Al" kullanarak tooapplications döşeme hello kullanıcılara toorequest erişimi etkinleştirmek [Azure AD erişim paneli](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users)
 * Hangi uygulamaların kullanıcıların erişim istemek ayarlama
-* Bir onay kullanıcıların bir uygulamaya erişim otomatik olarak atamak için gerekli olup olmadığını ayarlayın
-* İsteği onaylayın ve her uygulama için erişim yöneten ayarlama
+* Bir onay kullanıcılar toobe mümkün tooself Ata erişim tooan uygulamanız için gerekli olup olmadığını ayarlayın
+* Merhaba isteklerinin onaylanması ve her uygulama için erişim yöneten ayarlama
 
-Bu özellik önceden tümleştirilmiş tüm bugün desteklenmez ve bir Federasyon ya da parola tabanlı tek destekleyen özel uygulamalar oturum açma [Azure Active Directory Uygulama galerisinde](https://azure.microsoft.com/marketplace/active-directory/all/)Salesforce, Dropbox, Google Apps gibi uygulamalar ve daha fazlası dahil olmak üzere.
+Federe veya parola tabanlı çoklu oturum açma hello destekleyen tüm önceden tümleştirilmiş ve özel uygulamalar için bu özelliği bugün desteklenen [Azure Active Directory Uygulama galerisinde](https://azure.microsoft.com/marketplace/active-directory/all/), Salesforce, Dropbox gibi uygulamalar dahil olmak üzere Google Apps ve daha fazlası.
 Bu makalede nasıl yapılır:
 
 * İsteğe bağlı onay iş akışı yapılandırma dahil olmak üzere son kullanıcılar için Self Servis uygulama erişimi yapılandırma 
-* Erişim yönetimi, kuruluşunuzda en uygun kişilere belirli uygulamalar için temsilci ve bunları erişim isteklerini onaylama, doğrudan erişim Seçilen kullanıcılara atamak için Azure AD erişim paneli kullanmayı etkinleştirmek ya da (isteğe bağlı) parola tabanlı çoklu oturum açma yapılandırıldığında, uygulama erişimi için kimlik bilgilerini ayarlayın.
+* Erişim yönetimi, kuruluşunuzda belirli uygulamaları toohello en uygun kişiler için temsilci seçme ve toouse hello Azure AD erişim paneli tooapprove erişim isteklerini etkinleştirmek, doğrudan erişimi tooselected kullanıcılar atayın veya (isteğe bağlı olarak) ayarlama parola tabanlı çoklu oturum açma yapılandırıldığında, uygulama erişimi için kimlik bilgileri
 
 ## <a name="configuring-self-service-application-access"></a>Self Servis uygulama erişimi yapılandırma
-Self Servis uygulamaya erişim sağlamak için hangi uygulamaların eklenebilir veya, son kullanıcılarınız tarafından istenen bu yönergeleri izleyin ve yapılandırılır.
+tooenable Self Servis uygulamaya erişim hangi uygulamaların eklenebilir veya, son kullanıcılarınız tarafından istenen bu yönergeleri izleyin ve yapılandırılır.
 
-1. Oturum [Klasik Azure portalı](https://manage.windowsazure.com/).
+1. Merhaba içine oturum [Klasik Azure portalı](https://manage.windowsazure.com/).
 
-2.   Altında **Active Directory** bölümünde, dizininizi seçin ve sonra seçin **uygulamaları** sekmesi. 
+2.   Merhaba altında **Active Directory** bölümünde, dizininizi seçin ve ardından hello **uygulamaları** sekmesi. 
 
-3. Seçin **Ekle** düğmesine tıklayın ve seçin ve bir uygulama eklemek için Galeri seçeneğini kullanın.
+3. Select hello **Ekle** button ve hello Galerisi seçeneği tooselect ve bir uygulama ekleyin.
 
-4. Uygulamanızı eklendikten sonra uygulama hızlı başlangıç sayfası alırsınız. Tıklatın **yapılandırma çoklu oturum açma**, istenen tek oturum açma modunu seçin ve yapılandırmayı kaydedin. 
+4. Uygulamanızı eklendikten sonra hello uygulaması hızlı başlangıç sayfası alırsınız. Tıklatın **yapılandırma çoklu oturum açma**hello istenen tek oturum açma modunu seçin ve hello yapılandırmayı kaydedin. 
 
-5. Ardından, **yapılandırma** sekmesi. Azure AD erişim Masası'ndan bu uygulamaya erişmek için kullanıcıları etkinleştirmek üzere ayarlamak **Self Servis uygulamaya erişim izin** için **Evet**.
+5. Ardından, hello'ı seçin **yapılandırma** sekmesini tooenable kullanıcılar toorequest erişim toothis uygulamadan hello Azure AD erişim paneli ayarlamak **Self Servis uygulamaya erişim izin** çok**Evet**.
   
   ![][1]
 
-6. İsteğe bağlı olarak erişim istekleri için bir onay iş akışını yapılandırmak için ayarlayın **erişim vermeden önce onay gerektiren** için **Evet**. Bir veya daha fazla onaylayanlar kullanarak seçilebilir sonra **onaylayanlar** düğmesi.
+6. toooptionally erişim istekleri için bir onay iş akışı yapılandırma kümesi **erişim vermeden önce onay gerektiren** çok**Evet**. Bir veya daha fazla onaylayanlar hello kullanarak seçilebilir sonra **onaylayanlar** düğmesi.
 
-  Onaylayan bir Azure AD hesapla kuruluştaki herhangi bir kullanıcı olabilir ve sağlama, lisanslama hesabından sorumlu olabilir veya bir uygulamaya erişim vermeden önce kuruluşunuzun başka bir iş sürecini gerektirir. Onaylayan bir grup sahibi bile olabilir veya daha fazla hesap grupları paylaşılan ve kullanıcıların bir paylaşılan bir hesap üzerinden erişim vermek için bu grupları atayabilirsiniz. 
+  Onaylayan bir Azure AD hesapla hello kuruluştaki herhangi bir kullanıcı olabilir ve lisans, hesap sağlama için sorumlu olabilir veya başka bir iş sürecini erişim tooan uygulama vermeden önce kuruluşunuzun gerektirir. Merhaba onaylayan bile hello Grup sahibi bir veya daha fazla hesap grupları paylaşılan ve hello kullanıcılar tooone paylaşılan bir hesap erişim bu grupları toogive, atayabilirsiniz olabilir. 
 
-  Ardından onay gerekiyorsa, kullanıcılar kendi Azure AD erişim paneli eklenen uygulama anında alır. Uygulama için ayarlarsanız, [otomatik kullanıcı sağlamayı](active-directory-saas-app-provisioning.md), veya ayarlandığına ["kullanıcı tarafından yönetilen" parola SSO modu](active-directory-appssoaccess-whatis.md#password-based-single-sign-on), kullanıcının bir kullanıcı hesabı ve parolayı biliyor olmanız gerekir.
+  Hiçbir onay gerekiyorsa, kullanıcılar Anında hello uygulama eklenen tootheir Azure AD erişim paneli alır. Merhaba uygulaması için ayarlarsanız, [otomatik kullanıcı sağlamayı](active-directory-saas-app-provisioning.md), veya ayarlandığına ["kullanıcı tarafından yönetilen" parola SSO modu](active-directory-appssoaccess-whatis.md#password-based-single-sign-on), hello kullanıcı hesabı ve hello parolayı bilmeniz bir kullanıcı zaten sahip olmalıdır.
 
-7. Uygulama her kullanıcı adına SSO kimlik bilgilerini ayarlamak onaylayan izin vermek için parola tabanlı çoklu oturum açma ve ardından bir seçenek kullanacak şekilde yapılandırılmış olsa da mevcuttur. Daha fazla bilgi için bölümüne bakarak [erişim yönetimi için temsilci](#delegated-application-access-management).
+7. Merhaba uygulaması yapılandırılmış toouse yüklediyse parola tabanlı çoklu oturum açma, hello onaylayan tooset hello SSO kimlik her kullanıcı adına izin vermek için bir seçenek daha sonra da kullanılabilir. Daha fazla bilgi için üzerinde hello bölümüne bakın. [erişim yönetimi için temsilci](#delegated-application-access-management).
 
-8. Son olarak, **Self-Assigned kullanıcılar için grubu** izin vermiş veya uygulamaya erişim atanan kullanıcılar depolamak için kullanılan grup adını gösterir. Erişim onaylayan bu grubun sahibi olur. Gösterilen grup adı yoksa, otomatik olarak oluşturulur. İsteğe bağlı olarak grup adı, varolan bir grup adı için ayarlanabilir.
+8. Son olarak, hello **Self-Assigned kullanıcılar için grubu** hello verilen veya erişimi toohello uygulama atanan kullanılan toostore hello kullanıcıları hello grup adını gösterir. Merhaba erişim onaylayan, bu grubun hello sahibi olur. Gösterilen hello grup adı yoksa, otomatik olarak oluşturulur. İsteğe bağlı olarak hello grup adı, varolan bir grubu toohello adını ayarlanabilir.
 
-9. Yapılandırmayı kaydetmek için tıklatın **kaydetmek** ekranın altındaki. Şimdi isteği erişimden bu uygulama için erişim paneli için kullanıcılar yapabilirsiniz.
+9. toosave hello yapılandırma tıklatın **kaydetmek** Merhaba ekranında hello sonundaki. Artık kullanıcıların toorequest erişim toothis hello erişim paneli uygulamadan yapabilirsiniz.
 
-10. Son kullanıcı deneyimi denemek için kuruluşunuzun Azure AD erişim paneli adresindeki https://myapps.microsoft.com, tercihen uygulama onaylayan değil farklı bir hesabı kullanarak oturum açın. 
+10. tootry hello son kullanıcı deneyimi, oturum https://myapps.microsoft.com, tercihen uygulama onaylayan değil farklı bir hesap kullanarak, kuruluşunuzun Azure AD erişim paneli açın. 
 
-11. Altında **uygulamaları** sekmesini tıklatın, **daha fazla uygulama alın** döşeme. Bu kutucuğu tüm için Self Servis uygulamaya erişim dizinde arama ve filtreleme soldaki uygulama kategoriye göre imkanına sahip etkinleştirilmiş uygulamalar Galerisi görüntüler. 
+11. Merhaba altında **uygulamaları** sekmesini ve ardından hello **daha fazla uygulama alın** döşeme. Bu kutucuğu tüm hello özelliği toosearch ve hello soldaki uygulama kategoriye göre filtre ile Merhaba dizinde Self Servis uygulamaya erişim için etkinleştirilmiş hello uygulamaları Galerisi görüntüler. 
 
-12. Bir uygulama üzerinde tıklatarak istek işlem başlatır. Onay işlemi gereklidir sonra uygulamayı hemen altında eklenecek **uygulamaları** sekmesinden kısa bir onay sonra. Onay gerekiyorsa, bunu belirten bir iletişim kutusu görürsünüz ve bir e-posta onaylayanlara gönderilir. Erişim paneline bir olmayan-onaylayan olarak bu istek işlemi görmek için imzalanması gerekir.
+12. Bir uygulama üzerinde tıklatarak hello istek işlem başlatır. Onay işlemi gereklidir sonra Merhaba uygulaması hemen eklenecek hello altında **uygulamaları** sekmesinden kısa bir onay sonra. Onay gerekiyorsa, bunu belirten bir iletişim kutusu görürsünüz ve toohello onaylayanlar bir e-posta gönderilir. Hello imzalanmalıdır erişim paneli onaylayan olmayan toosee bu istek işlemi.
 
-13. E-posta Azure AD erişim paneline imzalamak ve isteği onaylamak için onaylayan yönlendirir. İstek onaylandıktan (ve tanımladığınız herhangi bir özel işlem onaylayan tarafından gerçekleştirilmiş sonra), kullanıcı altında görüntülenen uygulama görür kendi **uygulamaları** burada kullanıcılar oturum açabilir içine sekmesi.
+13. Merhaba e-posta hello onaylayan toosign hello Azure AD erişim paneline yönlendirir ve hello isteğini onaylayın. Merhaba istek onaylandıktan (ve tanımladığınız herhangi bir özel işlem hello onaylayan tarafından gerçekleştirilmiş sonra) hello kullanıcı altında göründüğünü Merhaba uygulaması görür kendi **uygulamaları** burada kullanıcılar oturum açabilir içine sekmesi.
 
 ## <a name="delegated-application-access-management"></a>Temsilci uygulamaya erişim yönetimi
-Uygulama erişimi onaylayıcı onaylamak veya söz konusu uygulama erişimini engellemek için en uygun kişi, kuruluşunuzda herhangi bir kullanıcı olabilir. Bu kullanıcının lisans, hesap sağlama için sorumlu olabilir veya bir uygulamaya erişim vermeden önce kuruluşunuzun başka bir iş sürecini gerektirir.
+Uygulama erişimi onaylayıcı, kuruluşunuzdaki hello en uygun kişi tooapprove olan herhangi bir kullanıcı olması veya erişim toohello uygulama söz konusu reddedin. Bu kullanıcının lisans, hesap sağlama için sorumlu olabilir veya erişim tooan uygulama vermeden önce kuruluşunuzun başka bir iş sürecini gerektirir.
 
-Yukarıda açıklanan Self Servis uygulamaya erişim yapılandırırken herhangi onaylayanlar bkz ek atanan uygulama **uygulamalarını yönet** erişim yöneticisi oldukları uygulamaları gösterir Azure AD erişim paneli parçasında. Bir uygulamaya tıklamak çeşitli seçeneklere sahip bir ekran gösterir.
+Yukarıda açıklanan Self Servis uygulamaya erişim yapılandırırken herhangi onaylayanlar bkz ek atanan uygulama **uygulamalarını yönet** oldukları uygulamaları gösterir hello Azure AD erişim paneli parçasında Merhaba access Yöneticisi. Bir uygulamaya tıklamak çeşitli seçeneklere sahip bir ekran gösterir.
 
 ![][2]
 
 ### <a name="approve-requests"></a>İsteği onaylama
-**İsteklerini onaylama** döşeme herhangi bekleyen onayları bu uygulama için belirli görmek onaylayanlar sağlar ve burada istekleri onaylanabilir veya reddedildi onayları sekmesine yönlendirir. Her bir isteği ne yönlendiren oluşturulduğunda onaylayan de otomatik e-postaları alır.
+Hello **isteklerini onaylama** döşemesi sağlayan onaylayanlar herhangi bekleyen onayları belirli toothat uygulama ve burada hello istekleri yeniden yönlendirmeleri toohello onayları sekmesini onaylanabilir veya reddedildi toosee. Her bir istek hangi toodo yönlendiren oluşturulduğunda hello onaylayan de otomatik e-postaları alır.
 
 ### <a name="add-users"></a>Kullanıcıları ekleme
-**Kullanıcı Ekle** döşeme onaylayanlar doğrudan seçili kullanıcıların uygulamaya erişim sağlar. Bu kutucuğu tıklatıldığında, onaylayan bir iletişim kutusu görüntülemek ve kullanıcılar kendi dizinde aramak için veren görür. Bu kullanıcının Azure AD erişim panelleri veya Office 365 gösterildikten uygulamada bir kullanıcı sonuçları ekleniyor. Kullanıcı oturum açmadan önce sağlama işlemi herhangi bir el ile kullanıcı uygulamaya gerekiyorsa, ardından onaylayan bu işlem erişim vermeden önce gerçekleştirmeniz gerekir.  
+Merhaba **Kullanıcı Ekle** döşeme toodirectly grant seçili kullanıcıların erişim toohello uygulama onaylayanlar sağlar. Bu kutucuğu tıklatıldığında, hello onaylayan bir iletişim kutusu tooview ve kullanıcılar için arama kendi dizininde veren görür. Bu kullanıcının Azure AD erişim panelleri veya Office 365 gösterildikten hello uygulamada bir kullanıcı sonuçları ekleniyor. Sağlama işlemi herhangi bir el ile kullanıcı gerekiyorsa, mümkün toosign hello uygulama hello kullanıcı önce altındadır sonra hello onaylayan erişim vermeden önce bu işlemi gerçekleştirmeniz gerekir.  
 
 ### <a name="manage-users"></a>Kullanıcıları yönetme
-**Kullanıcıları yönetme** döşeme doğrudan güncelleştirmek veya hangi kullanıcıların uygulama erişimi kaldırmak onaylayanlar sağlar. 
+Merhaba **kullanıcıları yönetme** döşeme verir onaylayanlar toodirectly güncelleştirme veya hangi kullanıcıların erişimi kaldırma toohello uygulama. 
 
 ### <a name="configure-password-sso-credentials-if-applicable"></a>Parola SSO kimlik bilgilerini (varsa) yapılandırın
-**Yapılandırma** döşeme uygulama parola tabanlı çoklu oturum açma kullanmak için BT yöneticisi tarafından yapılandırılan ve parola SSO kimlik daha önce açıklandığı şekilde ayarlamanıza olanak onaylayan yönetici izni yalnızca gösterilir. Seçili olduğunda, onaylayan atanan kullanıcıların kimlik bilgilerini nasıl yayılır için çeşitli seçenekler sunulur:
+Merhaba **yapılandırma** kutucuğu yalnızca gösterilen Merhaba uygulaması tarafından hello BT yöneticisi toouse parola tabanlı çoklu oturum açma yapılandırıldığından ve hello Yöneticisi verilen hello onaylayan hello özelliği tooset parola SSO kimlik daha önce açıklandığı gibi. Nasıl hello kimlik yayılan tooassigned kullanıcılar için bu onay kutusu seçildiğinde, hello onaylayan çeşitli seçenekler sunulur:
 
 ![][3]
 
-* **Kullanıcıların kendi parolalarını oturum oturum** – bu modda, atanan kullanıcılar ne kendi kullanıcı adları ve parolalar uygulamaya ve bunları kendi ilk oturum açma sırasında uygulamaya girmesi gereken bilgilendirin. Senaryo parola SSO çalışması için karşılık gelen nerede [kullanıcıların kimlik bilgilerini yönetme](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
-* **Kullanıcılar, yönetebilirim ayrı hesaplar kullanarak otomatik olarak oturumunuz** – bu modda, atanan kullanıcılar girin veya uygulamaya özgü kimlik bilgilerini uygulamasına imzalarken biliyorsanız gerekli değildir. Bunun yerine, onaylayan kimlik bilgilerini her kullanıcı için erişim kullanarak atadıktan sonra Ayarlar **Kullanıcı Ekle** döşeme. Kullanıcı kendi erişim paneli veya Office 365 uygulamasında tıkladığında, bunlar otomatik olarak onaylayan tarafından ayarlanmış kimlik bilgilerini kullanarak oturum açtınız. Senaryo parola SSO çalışması için karşılık gelen nerede [yöneticileri kimlik bilgilerini yönetir](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
-* **Kullanıcılar, yönetebilirim tek bir hesap kullanarak otomatik olarak oturumunuz** -özel bir durum bu tüm atanan kullanıcılar tek bir paylaşılan hesabı kullanarak erişim verilmesi gerektiğinde kullanmak uygun bir durumdur. Bu özellik için en yaygın kullanım örneği sosyal medya uygulamalarla burada bir kuruluşun tek "Şirket" hesabı varsa ve birden çok kullanıcı bu hesap için güncelleştirmeleri yapmanız ' dir. Ayrıca karşılık gelen parola SSO çalışması senaryo nerede [yöneticileri kimlik bilgilerini yönetir](active-directory-appssoaccess-whatis.md#password-based-single-sign-on). Ancak, bu seçeneği belirledikten sonra onaylayan tek bir paylaşılan hesap için kullanıcı adı ve parola girmeniz istenir. Tamamlandığında, tüm atanan kullanıcıların kendi Azure AD erişim panelleri veya Office 365 uygulamasında tıklayarak, bu hesabı kullanarak oturum açtınız.
+* **Kullanıcıların kendi parolalarını oturum oturum** – ne kendi kullanıcı adları ve parolalar hello uygulama için ve istendiğinde tooenter olduğundan bu modda, atanan hello kullanıcıları bilgilendirin bunları ilk oturum açma toohello uygulamasına bağlıdır. Merhaba senaryo toohello parola SSO çalışması hello burada karşılık gelen [kullanıcıların kimlik bilgilerini yönetme](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
+* **Kullanıcılar, yönetebilirim ayrı hesaplar kullanarak otomatik olarak oturumunuz** – bu modda hello atanan kullanıcılar gerekli tooenter olmayan ya da uygulamaya özgü kimlik bilgilerini hello uygulamasına imzalarken bildirin. Bunun yerine, hello onaylayan hello kimlik bilgilerini her kullanıcı için erişim hello kullanarak atadıktan sonra Ayarlar **Kullanıcı Ekle** döşeme. Merhaba kullanıcı Merhaba uygulaması kullanıcıların erişim panelinde ya da Office 365 tıkladığında, bunlar otomatik olarak hello onaylayan tarafından ayarlanmış hello kimlik bilgilerini kullanarak oturum açtınız. Merhaba senaryo toohello parola SSO çalışması hello burada karşılık gelen [yöneticileri kimlik bilgilerini yönetir](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
+* **Kullanıcılar, yönetebilirim tek bir hesap kullanarak otomatik olarak oturumunuz** -tüm atanan kullanıcılar tek bir paylaşılan hesabı kullanarak erişim izni toobe gerektiğinde özel bir durum bu uygun toouse durumdur. Merhaba en yaygın kullanımı bu özellik için burada bir kuruluşun tek "Şirket" hesabı varsa ve birden çok kullanıcı toomake güncelleştirmeleri toothat hesabınızın olması gerekir sosyal medya uygulamalarla durumdur. Merhaba senaryo da toohello parola SSO çalışması hello burada karşılık gelen [yöneticileri kimlik bilgilerini yönetir](active-directory-appssoaccess-whatis.md#password-based-single-sign-on). Ancak, bu seçeneği belirledikten sonra hello onaylayan istendiğinde tooenter hello kullanıcı adı ve parolasını hello tek paylaşılan olacaktır. Tamamlandığında, tüm atanan kullanıcılar hello uygulamada kendi Azure AD erişim panelleri veya Office 365 tıklayarak, bu hesabı kullanarak oturum açtınız.
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 * [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](active-directory-apps-index.md)

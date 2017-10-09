@@ -1,6 +1,6 @@
 ---
-title: "Ses, VoIP ve Azure'da SMS Mesajlaşma Twilio kullanma"
-description: "Bir telefon araması yapın ve Azure üzerinde Twilio API hizmetiyle SMS mesajı göndermek öğrenin. Node.js içinde yazılan kod örnekleri."
+title: "aaaUsing Twilio ses, VoIP ve SMS Mesajlaşma Azure"
+description: "Nasıl azure'da hello Twilio API hizmetiyle toomake telefon ve SMS iletisi öğrenin. Node.js içinde yazılan kod örnekleri."
 services: 
 documentationcenter: nodejs
 author: devinrader
@@ -14,61 +14,61 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: wpickett
-ms.openlocfilehash: 44ec97812130d41d75be98fc8e2d846b7cb5c913
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6c44d60e217fcdf51e69fd2a8197f979afbb507a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="using-twilio-for-voice-voip-and-sms-messaging-in-azure"></a>Ses, VoIP ve Azure'da SMS Mesajlaşma Twilio kullanma
-Bu kılavuz, iletişim Twilio ve azure'da node.js uygulamaları geliştirmek gösterilmiştir.
+Bu kılavuz gösterir toobuild uygulamalar, nasıl iletişim Twilio ve azure'da node.js kurar.
 
 <a id="whatis"/>
 
 ## <a name="what-is-twilio"></a>Twilio nedir?
-Twilio yapmak ve telefon çağrılarını almak, Gönder ve metin iletileri almasına ve tarayıcı tabanlı ve yerel mobil uygulamalara VoIP arama katıştırmak geliştiriciler için kolaylaştıran bir API platformudur. Şimdi bunun girmeden önce işleyişi kısaca gidin.
+Twilio, geliştiricilerin toomake kolaylaştırır ve telefon çağrılarını almak, Gönder ve metin iletileri almasına ve tarayıcı tabanlı ve yerel mobil uygulamalara VoIP arama katıştırmak bir API platformudur. Şimdi bunun girmeden önce işleyişi kısaca gidin.
 
 ### <a name="receiving-calls-and-text-messages"></a>Aramaları ve metin iletileri alma
-Twilio geliştiricilerine verir [programlanabilir telefon numaralarını satın] [ purchase_phone] hem göndermek ve çağrıları ve metin iletileri almak için kullanılabilir. Twilio sayıyı bir gelen arama veya metin aldığında, Twilio web uygulamanızı bir HTTP POST veya GET isteğini nasıl arama veya kısa mesaj yönetileceğine ilişkin yönergeler için isteyen gönderir. Sunucunuz Twilio'nın HTTP isteğiyle yanıtlar [TwiML][twiml], arama veya kısa mesaj işlemek yönergeler içeren XML etiketleri basit bir dizi. Yalnızca bir dakika içinde TwiML örneklerde göreceğiz.
+Twilio sağlayan geliştiriciler çok[programlanabilir telefon numaralarını satın] [ purchase_phone] kullanılan tooboth olabilen gönderip çağrıları ve metin iletileri. Twilio sayıyı bir gelen arama veya metin aldığında, Twilio web uygulamanızı bir HTTP POST veya GET isteğini nasıl toohandle hello üzerinde arama veya kısa mesaj yönergeler için isteyen gönderir. Sunucunuz tooTwilio'nın HTTP isteğiyle yanıtlar [TwiML][twiml], yönergeler içeren XML etiketleri basit bir dizi toohandle arama veya metin. Yalnızca bir dakika içinde TwiML örneklerde göreceğiz.
 
 ### <a name="making-calls-and-sending-text-messages"></a>Çağrıları yapma ve metin iletileri gönderme
-Geliştiriciler, Twilio web hizmeti API'sine HTTP isteklerini yaparak, kısa mesaj göndermek veya giden telefon aramaları başlatın. Giden çağrıları için Geliştirici de onu bağlandıktan sonra giden çağrısını işlemek nasıl TwiML yönergeler döndüren bir URL belirtmeniz gerekir.
+Geliştiriciler, HTTP isteklerini toohello Twilio web hizmeti API'sine yaparak, kısa mesaj göndermek veya giden telefon aramaları başlatın. Giden çağrıları için hello Geliştirici de toohandle hello giden nasıl çağrısı, bağlı olduğu bir kez TwiML yönergeler döndüren bir URL belirtmeniz gerekir.
 
 ### <a name="embedding-voip-capabilities-in-ui-code-javascript-ios-or-android"></a>UI kodunda (JavaScript, iOS veya Android) VoIP yetenekleri katıştırma
-Twilio tüm masaüstü web tarayıcısı, iOS uygulaması ya da Android uygulaması VoIP telefon kapatabilirsiniz bir istemci-tarafı SDK sağlar. Bu makalede, biz tarayıcıda çağırma VoIP kullanma hakkında odaklanır. Ek olarak *Twilio JavaScript SDK'sı* tarayıcıda çalışan, bir sunucu-tarafı uygulaması (node.js uygulamamız) bir "özelliği" JavaScript istemciye belirteç için kullanılması gerekir. Daha fazla bilgiyi VoIP node.js ile kullanma hakkında [Twilio geliştirme blogunda][voipnode].
+Twilio tüm masaüstü web tarayıcısı, iOS uygulaması ya da Android uygulaması VoIP telefon kapatabilirsiniz bir istemci-tarafı SDK sağlar. Bu makalede, sizi nasıl odaklanacaktır toouse VoIP hello tarayıcıda çağırma. Toplama toohello içinde *Twilio JavaScript SDK'sı* hello tarayıcıda çalışan, bir sunucu-tarafı uygulaması (node.js uygulamamız) kullanılan tooissue "özelliği belirteci" toohello JavaScript istemci olması gerekir. Daha fazla bilgiyi VoIP node.js ile kullanma hakkında [hello Twilio geliştirme blogunda][voipnode].
 
 <a id="signup"/>
 
 ## <a name="sign-up-for-twilio-microsoft-discount"></a>Twilio (Microsoft iskonto) için kaydolun
-Twilio hizmetlerini kullanmadan önce öncelikle [bir hesap için kaydolabilirsiniz][signup]. Microsoft Azure müşterilerin alma özel bir indirim - [burada oturum özen][signup]!
+Twilio hizmetlerini kullanmadan önce öncelikle [bir hesap için kaydolabilirsiniz][signup]. Microsoft Azure müşterilerin alma özel bir indirim - [burada yukarı emin toosign olması][signup]!
 
 <a id="azuresite"/>
 
 ## <a name="create-and-deploy-a-nodejs-azure-website"></a>Oluşturma ve bir node.js Azure Web sitesi dağıtma
-Ardından, Azure üzerinde çalışan bir node.js Web sitesi oluşturmanız gerekir. [Bunu yapmak için resmi belge burada bulunduğu][azure_new_site]. Yüksek bir düzeyde, aşağıdakileri yaparak:
+Ardından, Azure üzerinde çalışan bir node.js Web sitesi toocreate gerekir. [Bunu yapmak için resmi belge hello bulunduğu burada][azure_new_site]. Yüksek bir düzeyde hello aşağıdakileri yaparak:
 
 * Zaten yoksa, bir Azure hesabı için kaydolma
-* Yeni bir Web sitesi oluşturmak için Azure yönetim konsolunu kullanarak
+* Hello Azure Yönetici Konsolu toocreate yeni bir Web sitesi kullanma
 * Kaynak denetimi desteği (git kullanılan varsayacağız) ekleme
 * Bir dosya oluşturulurken `server.js` basit bir node.js web uygulaması ile
-* Bu basit uygulamayı Azure'a dağıtma
+* Bu basit uygulama tooAzure dağıtma
 
 <a id="twiliomodule"/>
 
-## <a name="configure-the-twilio-module"></a>Twilio modülü Yapılandır
-Ardından, biz Twilio API'si kullanmak olmasını sağlayan bir basit bir node.js uygulaması yazma başlar. Başlamadan önce bizim Twilio hesap kimlik bilgilerini yapılandırmanız gerekir.
+## <a name="configure-hello-twilio-module"></a>Merhaba Twilio modülü Yapılandır
+Ardından, biz olmasını sağlayan bir basit bir node.js uygulaması kullanmak Twilio API Merhaba toowrite başlar. Başlamadan önce bizim Twilio hesap kimlik bilgilerini tooconfigure ihtiyacımız var.
 
 ### <a name="configuring-twilio-credentials-in-system-environment-variables"></a>Sistem ortam değişkenleri Twilio kimlik bilgilerini yapılandırma
-Kimliği doğrulanmış istekler Twilio arka uç yapmak için hesap SID'si ve kimlik doğrulama belirteci, kullanıcı adı ve parola bizim Twilio hesabı için ayarlanan hangi işlevi ihtiyacımız var. Bunlar kullanmak için Azure düğümü modülünde ile yapılandırmak için en güvenli aracılığıyla doğrudan Azure Yönetici konsolunda ayarlayabilirsiniz sistem ortam değişkenlerini yoludur.
+Sipariş kimliği doğrulanmış toomake isteklerinde hello Twilio arka uç karşı bizim hesap SID'si ve kimlik doğrulama belirteci, hangi işlev hello kullanıcı adı ve parola bizim Twilio hesabı için ayarlanan olarak gerekir. Bunlar azure'da hello düğümü modülü ile kullanılmak üzere olan doğrudan hello Azure Yönetici konsolunda ayarlanan sistem ortam değişkenlerini aracılığıyla en güvenli yolu tooconfigure hello.
 
-Node.js Web sitenizi seçin ve "Yapılandırma" bağlantısını tıklatın.  Bir bit kaydırın, uygulamanız için yapılandırma özelliklerini ayarlayabileceğiniz bir alan görürsünüz.  Twilio hesabı kimlik bilgilerinizi girin ([Twilio konsolunuzdan bulunan][twilio_console]) gösterildiği gibi - bunları ad verdiğinizden emin olun `TWILIO_ACCOUNT_SID` ve `TWILIO_AUTH_TOKEN`sırasıyla:
+Node.js Web sitenizi seçin ve hello "Yapılandırma" bağlantısını tıklatın.  Bir bit kaydırın, uygulamanız için yapılandırma özelliklerini ayarlayabileceğiniz bir alan görürsünüz.  Twilio hesabı kimlik bilgilerinizi girin ([Twilio konsolunuzdan bulunan][twilio_console]) gösterildiği gibi - emin tooname olun bunları `TWILIO_ACCOUNT_SID` ve `TWILIO_AUTH_TOKEN`sırasıyla:
 
 ![Azure Yönetim Konsolu][azure-admin-console]
 
-Bu değişkenler yapılandırdıktan sonra uygulamanızı Azure konsolunda yeniden başlatın.
+Bu değişkenler yapılandırdıktan sonra uygulamanızı hello Azure konsolunda yeniden başlatın.
 
-### <a name="declaring-the-twilio-module-in-packagejson"></a>Package.json Twilio modülünde bildirme
-Ardından, bizim düğümü modülü bağımlılıkları aracılığıyla yönetmek için bir package.json oluşturmak ihtiyacımız [npm]. Aynı düzeyde `server.js` içinde oluşturduğunuz dosya *Azure/node.js* öğretici adlı bir dosya oluşturun `package.json`.  Bu dosya içinde aşağıdaki koyun:
+### <a name="declaring-hello-twilio-module-in-packagejson"></a>Merhaba Twilio package.json modülünde bildirme
+Toocreate package.json toomanage bizim düğümü modülü bağımlılıkları aracılığıyla daha ihtiyacımız [npm]. Merhaba aynı hello düzey `server.js` hello oluşturulan dosya *Azure/node.js* öğretici, adlı bir dosya oluşturun `package.json`.  Bu dosya içinde hello aşağıdaki koyun:
 
 ```json
 {
@@ -89,12 +89,12 @@ Ardından, bizim düğümü modülü bağımlılıkları aracılığıyla yönet
 }
 ```
 
-Bu bağımlılık yanı sıra popüler twilio modülü bildirir [Express web çerçevesi] [ express] ve EJS şablon motoru.  Tamam, biz başlamaya artık hazırsınız - biraz kod yazalım!
+Bu hello twilio modülü bir bağımlılık yanı sıra hello popüler bildirir [Express web çerçevesi] [ express] ve hello EJS şablon motoru.  Tamam, biz başlamaya artık hazırsınız - biraz kod yazalım!
 
 <a id="makecall"/>
 
 ## <a name="make-an-outbound-call"></a>Giden bir çağrı yapın
-Burada birkaç çağrı yerleştirir basit bir form oluşturalım. Açık `server.js`ve aşağıdaki kodu girin. Burada "CHANGE_ME" azure Web sitenizin adı var. put - diyor dikkat edin:
+Burada bir çağrı tooa sayısı yerleştirir basit bir form oluşturalım. Açık `server.js`ve hello aşağıdaki kodu girin. Burada "CHANGE_ME" Merhaba azure Web sitenizin adı var. put - diyor dikkat edin:
 
 ```javascript
 // Module dependencies
@@ -123,35 +123,35 @@ if (app.get('env') !== 'production') {
   app.use(errorHandler());
 }
 
-// Render an HTML user interface for the application's home page
+// Render an HTML user interface for hello application's home page
 app.get('/', (request, response) => response.render('index'));
 
-// Handle the form POST to place a call
+// Handle hello form POST tooplace a call
 app.post('/call', (request, response) => {
   var client = twilio(accountSid, authToken);
 
   client.makeCall({
-    // make a call to this number
+    // make a call toothis number
     to:request.body.number,
 
-    // Change to a Twilio number you bought - see:
+    // Change tooa Twilio number you bought - see:
     // https://www.twilio.com/console/phone-numbers/incoming
     from:'+15558675309',
 
     // A URL in our app which generates TwiML
-    // Change "CHANGE_ME" to your app's name
+    // Change "CHANGE_ME" tooyour app's name
     url:'https://CHANGE_ME.azurewebsites.net/outbound_call'
   }, () => {
-      // Go back to the home page
+      // Go back toohello home page
       response.redirect('/');
   });
 });
 
-// Generate TwiML to handle an outbound call
+// Generate TwiML toohandle an outbound call
 app.post('/outbound_call', (request, response) => {
   var twiml = new twilio.TwimlResponse();
 
-  // Say a message to the call's receiver
+  // Say a message toohello call's receiver
   twiml.say('hello - thanks for checking out Twilio and Azure', {
       voice:'woman'
   });
@@ -166,7 +166,7 @@ app.listen(app.get('port'), function(){
 });
 ```
 
-Ardından, adlı bir dizin oluşturun `views` - bu dizin içinde adlı bir dosya oluşturun `index.ejs` aşağıdaki içeriğe sahip:
+Ardından, adlı bir dizin oluşturun `views` - bu dizin içinde adlı bir dosya oluşturun `index.ejs` içeriği aşağıdaki hello ile:
 
 ```html
 <!DOCTYPE html>
@@ -182,64 +182,64 @@ Ardından, adlı bir dizin oluşturun `views` - bu dizin içinde adlı bir dosya
   <form action="/call" method="POST">
       <input placeholder="Enter a phone number" name="number"/>
       <br/>
-      <input type="submit" value="Call the number above"/>
+      <input type="submit" value="Call hello number above"/>
   </form>
 </body>
 </html>
 ```
 
-Şimdi, Azure için Web sitenizi dağıtmak ve ev açın. Metin alanına telefon numaranızı girin ve bir çağrı Twilio numarasından almak mümkün olmalıdır!
+Şimdi, Web sitesi tooAzure dağıtmak ve ev açın. Telefon numaranız hello metin alanında mümkün tooenter olması ve Twilio numarasından bir arama alırsınız!
 
 <a id="sendmessage"/>
 
 ## <a name="send-an-sms-message"></a>SMS iletisi gönder
-Şimdi, şimdi kısa mesaj göndermek için bir kullanıcı arabirimi ve mantığı işleme formunu ayarlayın. Açık `server.js`ve son çağrısından sonra aşağıdaki kodu ekleyin `app.post`:
+Şimdi, bir kullanıcı arabirimi ve mantığı toosend işleme formunu bir kısa mesaj şimdi ayarlayın. Açık `server.js`ve hello son çağrısından sonra çok koddan hello ekleyin`app.post`:
 
 ```javascript
 app.post('/sms', (request, response) => {
   const client = twilio(accountSid, authToken);
 
   client.sendSms({
-      // send a text to this number
+      // send a text toothis number
       to:request.body.number,
 
       // A Twilio number you bought - see:
       // https://www.twilio.com/console/phone-numbers/incoming
       from:'+15558675309',
 
-      // The body of the text message
+      // hello body of hello text message
       body: request.body.message
 
   }, () => {
-      // Go back to the home page
+      // Go back toohello home page
       response.redirect('/');
   });
 });
 ```
 
-İçinde `views/index.ejs`, başka bir formu bir sayı ve kısa mesaj göndermek için birinci altında ekleyin:
+İçinde `views/index.ejs`, başka bir form hello ilk toosubmit altında bir sayı ve kısa mesaj ekleyin:
 
 ```html
 <form action="/sms" method="POST">
   <input placeholder="Enter a phone number" name="number"/>
   <br/>
-  <input placeholder="Enter a message to send" name="message"/>
+  <input placeholder="Enter a message toosend" name="message"/>
   <br/>
-  <input type="submit" value="Send text to the number above"/>
+  <input type="submit" value="Send text toohello number above"/>
 </form>
 ```
 
-Azure uygulamanızı yeniden dağıtmanıza ve şimdi, form ve kendiniz (veya en yakın arkadaşlarınızın hiçbirini) SMS mesajı gönderecek gönderemeyecek olmalıdır!
+Uygulama tooAzure yeniden dağıtın ve form ve kendiniz (veya en yakın arkadaşlarınızın hiçbirini) SMS mesajı gönderecek mümkün toosubmit şimdi olmalıdır!
 
 <a id="nextsteps"/>
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Artık, node.js ve Twilio iletişim uygulamalar oluşturmak için kullanma temelleri öğrendiniz. Ancak bu örnekler Twilio ve node.js ile olası nedir yüzeyine neredeyse hiç boş. Node.js ile Twilio kullanarak daha fazla bilgi için aşağıdaki kaynaklara bakın:
+Artık, node.js ve iletişim Twilio toobuild uygulamaları kullanma temelleri hello öğrendiniz. Ancak bu örnekler Twilio ve node.js ile olası nedir, hello yüzeyini neredeyse hiç boş. Node.js ile Twilio kullanarak daha fazla bilgi için kaynakları aşağıdaki hello denetleyin:
 
 * [Resmi modülü belgeleri][docs]
 * [Node.js uygulamaları ile VoIP öğretici][voipnode]
 * [Votr - uygulama node.js ve CouchDB (üç bölümden) ile oylama gerçek zamanlı bir SMS][votr]
-* [Node.js ile tarayıcıda çifti programlama][pair]
+* [Node.js ile Merhaba tarayıcıda çifti programlama][pair]
 
 Azure'da node.js ve Twilio korsan memnuniyet umuyoruz!
 

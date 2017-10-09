@@ -1,12 +1,12 @@
 # Genel Bakış
-## [Azure Data Factory'ye giriş](data-factory-introduction.md)
+## [Giriş tooAzure veri fabrikası](data-factory-introduction.md)
 ## Kavramlar
 ### [İşlem hatları ve etkinlikler](data-factory-create-pipelines.md)
 ### [Veri kümeleri](data-factory-create-datasets.md)
 ### [Zamanlama ve yürütme](data-factory-scheduling-and-execution.md)
 
 # Kullanmaya Başlama
-## [Öğretici: Verileri kopyalamak için bir işlem hattı oluşturma](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+## [Öğretici: bir ardışık düzen toocopy veri oluşturma](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 ### [Kopyalama Sihirbazı](data-factory-copy-data-wizard-tutorial.md)
 ### [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 ### [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
@@ -14,8 +14,8 @@
 ### [Azure Resource Manager şablonu](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 ### [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 ### [.NET API’si](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-## [Öğretici: Verileri dönüştürmek için bir işlem hattı oluşturma](data-factory-build-your-first-pipeline.md)
-### [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
+## [Öğretici: bir ardışık düzen tootransform veri oluşturma](data-factory-build-your-first-pipeline.md)
+### [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 ### [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 ### [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 ### [Azure Resource Manager şablonu](data-factory-build-your-first-pipeline-using-arm.md)
@@ -64,7 +64,7 @@
 ### Veri Yönetimi Ağ Geçidi
 #### [Genel Bakış](data-factory-data-management-gateway.md)
 #### [Yüksek kullanılabilirlik ve ölçeklenebilirlik (Önizleme)](data-factory-data-management-gateway-high-availability-scalability.md)
-#### [Adım adım kılavuz: Verileri şirket içi SQL Server'dan Azure Blob Depolama’ya taşıma](data-factory-move-data-between-onprem-and-cloud.md)
+#### [İzlenecek yol: bir şirket içi SQL Server tooAzure Blob Storage veri taşıma](data-factory-move-data-between-onprem-and-cloud.md)
 
 
 ## [Verileri Dönüştürme](data-factory-data-transformation-activities.md)

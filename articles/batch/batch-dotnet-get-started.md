@@ -1,6 +1,6 @@
 ---
-title: "Öğretici - .NET için Azure Batch istemci kitaplığını kullanma | Microsoft Docs"
-description: "Temel Azure Batch kavramlarını öğrenin ve .NET kullanarak basit bir çözüm derleyin."
+title: "aaaTutorial - .NET için kullanım hello Azure Batch istemci kitaplığı | Microsoft Docs"
+description: "Azure Batch temel kavramlarını Hello öğrenin ve .NET kullanarak basit bir çözüm oluşturun."
 services: batch
 documentationcenter: .net
 author: tamram
@@ -15,13 +15,13 @@ ms.workload: big-compute
 ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf8fdca51a6a4ad1b7cd4fe6980543199f6b36e0
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 06062b3886a8081bd9a831824a981503ef55f9b7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>.NET için Batch istemci kitaplığıyla çözüm derlemeye başlama
+# <a name="get-started-building-solutions-with-hello-batch-client-library-for-net"></a>.NET için hello toplu istemci kitaplığı ile çözümler derleme kullanmaya başlama
 
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
@@ -30,12 +30,12 @@ ms.lasthandoff: 08/29/2017
 >
 >
 
-Adım adım C# örnek uygulamasında tartıştığımız gibi, bu makalede [Azure Batch][azure_batch] ve [Batch .NET][net_api] kitaplığı hakkında temel bilgileri öğrenin. Bu örnek uygulamanın dosya hazırlığı ve alımı için [Azure Depolama](../storage/common/storage-introduction.md) ile nasıl etkileşime girdiğinin yanı sıra bulutta paralel bir iş yükünü işlemek için Batch hizmetinden nasıl yararlandığını da göreceğiz. Ortak Batch uygulama iş akışını öğrenmenin yanı sıra işler, görevler, havuzlar ve işlem düğümü gibi başlıca Batch bileşenleri hakkında da temel bir anlayış kazanacaksınız.
+Merhaba temel bilgileri öğrenmek [Azure Batch] [ azure_batch] ve hello [Batch .NET] [ net_api] kitaplığı bu makalede bir C# örnek uygulama adımı tarafından aşağıdakiler ele gibi adım. Biz Merhaba örnek uygulaması hello Batch hizmeti tooprocess nasıl geliştirdiğini de paralel iş yükünü hello Bulut ve onu ile nasıl etkileşim kurduğu bakın [Azure Storage](../storage/common/storage-introduction.md) dosya hazırlığı ve alımı için. Ortak Batch uygulama iş akışı öğrenin ve hello başlıca Batch bileşenleri işler, görevler, havuzlar gibi temel bir anlayış edinmek ve işlem düğümleri.
 
 ![Batch çözümü iş akışı (temel)][11]<br/>
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu makalede, C# ve Visual Studio deneyimine sahip olduğunuz varsayılmaktadır. Azure’ün yanı sıra Batch ve Storage hizmetleri için aşağıda belirtilen hesap oluşturma gerekliliklerini karşılayabildiğiniz de varsayılmaktadır.
+Bu makalede, C# ve Visual Studio deneyimine sahip olduğunuz varsayılmaktadır. Aşağıda Azure ve hello toplu işlem ve depolama hizmetleri için belirtilen mümkün toosatisfy hello hesap oluşturma gerekliliklerini olduğunuzu varsayar.
 
 ### <a name="accounts"></a>Hesaplar
 * **Azure hesabı**: Henüz bir Azure aboneliğiniz yoksa, [ücretsiz Azure hesabı oluşturun][azure_free_account].
@@ -43,54 +43,54 @@ Bu makalede, C# ve Visual Studio deneyimine sahip olduğunuz varsayılmaktadır.
 * **Storage hesabı**: Bkz. [Azure Storage hesapları hakkında](../storage/common/storage-create-storage-account.md) sayfası, [Storage hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) bölümü.
 
 > [!IMPORTANT]
-> Batch şu anda *yalnızca*, [Azure Depolama hesapları hakkında](../storage/common/storage-create-storage-account.md) belgesinin [Depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) adlı 5. adımında açıklanan **genel amaçlı** depolama hesabı türünü desteklemektedir.
+> Batch şu anda destekler *yalnızca* hello **genel amaçlı** #5. adımda açıklandığı gibi depolama hesabı türü, [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) içinde [Azure hakkında Depolama hesapları](../storage/common/storage-create-storage-account.md).
 >
 >
 
 ### <a name="visual-studio"></a>Visual Studio
-Örnek projeyi oluşturmak için **Visual Studio 2015 veya sonraki** bir sürüme sahip olmanız gerekir. Visual Studio'nun ücretsiz ve deneme sürümlerini [Visual Studio ürünlerine genel bakış][visual_studio] sayfasında bulabilirsiniz.
+Bilmeniz gereken **Visual Studio 2015 veya daha yeni** toobuild hello örnek proje. Visual Studio'nun Ücretsiz ve deneme sürümlerini hello bulabilirsiniz [Visual Studio ürün genel bakış][visual_studio].
 
 ### <a name="dotnettutorial-code-sample"></a>*DotNetTutorial* kodu örneği
-[DotNetTutorial][github_dotnettutorial] örneği GitHub’daki [azure-batch-samples][github_samples] deposunda bulunan çok sayıda Batch kodu örneğinden biridir. Örneklerin tümünü, depo giriş sayfasındaki **Kopyala veya indir > ZIP’i İndir**’e veya [azure-batch-samples-master.zip][github_samples_zip] doğrudan indirme bağlantısına tıklayarak indirebilirsiniz. ZIP dosyasının içeriğini ayıkladıktan sonra çözümü aşağıdaki klasörde bulabilirsiniz:
+Merhaba [DotNetTutorial] [ github_dotnettutorial] örnek birçok Batch kod örnekleri bulunan hello hello biridir [azure-batch-samples] [ github_samples] havuzda GitHub. Tüm hello örnekleri tıklayarak indirebileceğiniz **Kopyala veya indir > ZIP'i indir** hello depo giriş sayfasındaki veya hello tıklatarak [azure-batch-samples-master.zip] [ github_samples_zip]doğrudan indirme bağlantısına. Merhaba hello ZIP dosyasının içeriğini ayıkladıktan sonra klasör aşağıdaki hello hello çözüm bulabilirsiniz:
 
 `\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial`
 
 ### <a name="azure-batch-explorer-optional"></a>Azure Batch Gezgini (isteğe bağlı)
-[Azure Batch Gezgini][github_batchexplorer], GitHub’daki [azure-batch-samples][github_samples] deposunda yer alan ücretsiz bir yardımcı programdır. Bu öğreticiyi tamamlamak için gerekli olmasa da, Batch çözümlerinizi geliştirirken ve hatalarını ayıklarken yararlı olabilir.
+Merhaba [Azure Batch Gezgini] [ github_batchexplorer] hello dahil ücretsiz bir yardımcı programdır [azure-batch-samples] [ github_samples] github'daki. Gerekli değil toocomplete sırasında Bu öğretici, geliştirirken ve Batch çözümlerinizi hatalarını ayıklarken yararlı olabilir.
 
 ## <a name="dotnettutorial-sample-project-overview"></a>DotNetTutorial örnek projesine genel bakış
-*DotNetTutorial* kod örneği buradaki iki projeden oluşan bir Visual Studio çözümüdür: **DotNetTutorial** ve **TaskApplication**.
+Merhaba *DotNetTutorial* kod örneği buradaki iki projeden oluşan bir Visual Studio çözümü: **DotNetTutorial** ve **TaskApplication**.
 
-* **DotNetTutorial**, işlem düğümlerinde paralel iş yükünü yürütmek için Batch ve Storage hizmetleriyle etkileşime giren istemci uygulamasıdır (sanal makineler). DotNetTutorial yerel iş istasyonunuzda çalışır.
-* **TaskApplication**, asıl işi gerçekleştirmek için Azure’deki işlem düğümlerinde çalışan programdır. Örnekte, `TaskApplication.exe` metni (girdi dosyası), Azure Storage’dan indirilen dosyada ayrıştırıyor. Ardından, girdi dosyasında ilk üç sözcüğün göründüğü listenin bulunduğu bir metin dosyası (çıktı dosyası) oluşturur. TaskApplication, çıktı dosyasını oluşturduktan sonra dosyayı Azure Storage’a yükler. Böylece, indirmek üzere istemci uygulamasının kullanımına hazır hale getirir. TaskApplication, Batch hizmetinde paralel olarak birden çok işlem düğümünde çalışır.
+* **DotNetTutorial** (sanal makineler) işlem düğümlerinde paralel iş yükünü hello toplu işlem ve depolama hizmetleri tooexecute ile etkileşim kuran hello istemci uygulamasıdır. DotNetTutorial yerel iş istasyonunuzda çalışır.
+* **TaskApplication** Azure tooperform hello asıl işi işlem düğümlerinde çalışan hello programdır. Merhaba örnekteki `TaskApplication.exe` hello metni (girdi dosyası hello) Azure Storage'dan indirilen dosyada ayrıştırıyor. Bir metin dosyası oluşturur sonra (Merhaba çıktı dosyası) hello giriş dosyasında görünen hello ilk üç sözcük listesini içerir. Merhaba çıktı dosyasını oluşturduktan sonra TaskApplication hello dosya tooAzure depolama yükler. Bu yükleme için kullanılabilir toohello istemci uygulaması hale getirir. TaskApplication hello Batch hizmeti birden çok işlem düğümünde paralel olarak çalışır.
 
-Aşağıdaki diyagram, istemci uygulaması tarafından gerçekleştirilen birincil işlemleri, *DotNetTutorial* ve görevler tarafından yürütülen uygulamayı, *TaskApplication* göstermektedir. Bu temel iş akışı, Batch’le oluşturulan çok sayıda işlem çözümünün tipik halidir. Batch hizmetinde erişilebilir olan özelliklerin hepsini göstermese de, neredeyse tüm Batch senaryoları bu iş akışının bölümlerini içerir.
+Merhaba Aşağıdaki diyagramda gösterilmektedir hello istemci uygulaması tarafından gerçekleştirilen birincil işlemleri hello *DotNetTutorial*ve hello görevler tarafından yürütülen hello uygulama *TaskApplication*. Bu temel iş akışı, Batch’le oluşturulan çok sayıda işlem çözümünün tipik halidir. Bu her özelliğe hello Batch hizmeti uygun olmadığı belirtilirken, neredeyse her Batch senaryosu iş akışının bölümlerini içerir.
 
 ![Batch örnek iş akışı][8]<br/>
 
 [**1. Adım.**](#step-1-create-storage-containers) Azure Blob Storage’da **kapsayıcılar** oluşturun.<br/>
-[**2. Adım.**](#step-2-upload-task-application-and-data-files) Kapsayıcılara görev uygulaması dosyalarını ve girdi dosyalarını yükleyin.<br/>
+[**2. Adım.**](#step-2-upload-task-application-and-data-files) Karşıya yükleme görev uygulaması dosyalarını ve girdi dosyalarını toocontainers.<br/>
 [**3. Adım.**](#step-3-create-batch-pool) Batch **havuzu** oluşturun.<br/>
-  &nbsp;&nbsp;&nbsp;&nbsp;**3a.** **StartTask** havuzu görev ikili dosyalarını (TaskApplication), göreve katıldıkları için düğümlere indirir.<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;**3a.** Merhaba havuzu **StartTask** yüklemeleri hello görev ikili dosyalarını (TaskApplication) toonodes hello havuzuna Katıl gibi.<br/>
 [**4. Adım.**](#step-4-create-batch-job) Batch **işi** oluşturun.<br/>
-[**5. Adım**](#step-5-add-tasks-to-job) İşe **görevler** ekleyin.<br/>
-  &nbsp;&nbsp;&nbsp;&nbsp;**5a.** Görevler, düğümlerde yürütmek üzere zamanlanır.<br/>
+[**5. Adım**](#step-5-add-tasks-to-job) Ekleme **görevleri** toohello işi.<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;**5a.** Merhaba, düğümlerde zamanlanmış tooexecute görevlerdir.<br/>
     &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Her görev kendi girdi verilerini Azure Storage’dan indirip yürütmeye başlar.<br/>
 [**6. Adım**](#step-6-monitor-tasks) Görevleri izleyin.<br/>
-  &nbsp;&nbsp;&nbsp;&nbsp;**6a.** Görevlerin tamamlanmasıyla, kendi çıktı verilerini Azure Storage’a yükler.<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;**6a.** Görevlerin tamamlanmasıyla, kendi çıktı veri tooAzure depolama karşıya yükleyin.<br/>
 [**7. Adım**](#step-7-download-task-output) Storage’dan görev çıktısını indirin.
 
-Yukarıda belirtildiği gibi, her Batch çözümü tam olarak bu adımları gerçekleştirmese ve çok daha fazlasını içerebilse de; *DotNetTutorial* örnek uygulaması, Batch çözümünde bulunan ortak işlemleri göstermektedir.
+Belirtildiği gibi her Batch çözümü tam adımları gerçekleştirir ve çok daha fazlasını içerir, ancak hello *DotNetTutorial* örnek uygulaması Batch çözümde bulunan ortak işlemleri göstermektedir.
 
-## <a name="build-the-dotnettutorial-sample-project"></a>*DotNetTutorial* örnek projesini derleme
-Örneği sorunsuz çalıştırmadan önce, *DotNetTutorial* projesinin `Program.cs` dosyasında Batch ve Storage hesabı kimlik bilgilerini belirtmelisiniz. Henüz bunu yapmadıysanız, Visual Studio'da `DotNetTutorial.sln` çözüm dosyasına çift tıklayarak çözümü açın. Bunun yerine, **Dosya > Aç > Proje/Çözüm** menüsünü kullanarak Visual Studio'da da açabilirsiniz.
+## <a name="build-hello-dotnettutorial-sample-project"></a>Merhaba yapı *DotNetTutorial* örnek proje
+Merhaba örnek başarıyla çalıştırabilmeniz için önce Batch ve Storage hesabı kimlik bilgileri hello belirtmelisiniz *DotNetTutorial* projenin `Program.cs` dosya. Henüz yapmadıysanız, hello çözümü Visual Studio'da hello çift tıklatarak açın `DotNetTutorial.sln` çözüm dosyası. Veya ondan hello kullanarak Visual Studio'da açın **Dosya > Aç > Proje/çözüm** menüsü.
 
-*DotNetTutorial* projesinin içinde `Program.cs` öğesini açın. Sonra da kimlik bilgilerinizi belirtildiği gibi dosyanın en üstüne yakın bir yere ekleyin:
+Açık `Program.cs` hello içinde *DotNetTutorial* projesi. Daha sonra kimlik bilgilerinizi belirtildiği gibi hello dosyasının hello üstüne yakın ekleyin:
 
 ```csharp
-// Update the Batch and Storage account credential strings below with the values
-// unique to your accounts. These are used when constructing connection strings
-// for the Batch and Storage client objects.
+// Update hello Batch and Storage account credential strings below with hello values
+// unique tooyour accounts. These are used when constructing connection strings
+// for hello Batch and Storage client objects.
 
 // Batch account credentials
 private const string BatchAccountName = "";
@@ -103,58 +103,58 @@ private const string StorageAccountKey  = "";
 ```
 
 > [!IMPORTANT]
-> Yukarıda da belirtildiği gibi, şu an için Azure Depolama’da **genel amaçlı** bir depolama hesabının kimlik bilgilerini belirtmeniz gerekmektedir. Batch uygulamalarınız, **genel amaçlı** depolama hesabı içinde blob depolama kullanır. *Blob depolama* hesap türünü seçerek oluşturulmuş Storage hesabı için kimlik bilgilerini belirtmeyin.
+> Şu anda yukarıda belirtildiği gibi hello kimlik bilgilerini belirtmelisiniz bir **genel amaçlı** Azure depolama hesabında depolama. Toplu iş uygulamalarınız hello içinde blob storage kullanma **genel amaçlı** depolama hesabı. Merhaba seçerek oluşturulmuş bir depolama hesabı için Hello kimlik bilgilerini belirtmeyin *Blob storage* hesap türü.
 >
 >
 
-Batch ve Depolama hesabı kimlik bilgilerinizi [Azure portalındaki][azure_portal] hizmetlere ilişkin hesap dikey pencerelerinde bulabilirsiniz:
+Batch ve Storage hesabı kimlik bilgilerinizi her hizmetin hesap dikey hello hello bulabilirsiniz [Azure portal][azure_portal]:
 
-![Portalda Batch kimlik bilgileri][9]
-![Portalda Depolama kimlik bilgileri][10]<br/>
+![Merhaba portalda batch kimlik bilgileri][9]
+![hello portalda Storage kimlik bilgileri][10]<br/>
 
-Kimlik bilgilerinizle projeyi güncelleştirdiğinizden, Çözüm Gezgini'ndeki çözüme sağ tıklayıp **Çözümü Derle**’ye tıklayın. İstenirse, herhangi bir NuGet paketinin geri yüklenmesini onaylayın.
+Kimlik bilgilerinizle hello proje güncelleştirildi, Çözüm Gezgini'ndeki hello çözüme sağ tıklatın ve **yapı çözümü**. İstenirse, herhangi bir NuGet paketinin geri yüklenmesi hello onaylayın.
 
 > [!TIP]
-> NuGet paketleri otomatik olarak geri yüklemezse ya da paketlerin geri yüklenmesiyle ilgili hatalar görürseniz, [NuGet Paket Yöneticisi][nuget_packagemgr]’sinin yüklü olduğundan emin olun. Sonra da eksik paketleri indirilmesini etkinleştirin. Paket indirilmesini etkinleştirmek için bkz. [Derleme sırasında paket Geri Yüklemeyi Etkinleştirme][nuget_restore].
+> Merhaba NuGet paketleri otomatik olarak geri yüklenmez veya bir hata toorestore hello paketlerle ilgili hatalar görürseniz, hello sahip olduğundan emin olun [NuGet Paket Yöneticisi] [ nuget_packagemgr] yüklü. Sonra da eksik paketleri hello indirilmesini etkinleştirin. Bkz: [etkinleştirme paket geri yükleme sırasında yapı] [ nuget_restore] tooenable paket yükleme.
 >
 >
 
-Aşağıdaki bölümlerde, Batch hizmetinde iş yükünü işlemeyi gerçekleştiren örnek uygulamayı adımlara ayırdık ve bu adımlar üzerine ayrıntılı tartıştık. Örneğin her kod satırı tartışılmadığından, bu makalenin kalanında kendi işinizi yaparken Visual Studio’da çözüm açmak için başvurmanızı öneririz.
+Merhaba, aşağıdaki bölümlerde, biz Merhaba örnek uygulaması tooprocess gerçekleştirir hello adımları hello Batch hizmeti iş yükünü bölme ve bu adımlar üzerine ayrıntılı tartıştık. Her hello örnek kod satırı ele alınan bu yana yolunuzu bu makalenin hello rest aracılığıyla çalışırken toorefer toohello açık çözümü Visual Studio'da öneririz.
 
-1. Adımla başlamak için *DotNetTutorial* projesinin `Program.cs` dosyasındaki `MainAsync` yönteminin en üstüne gidin. Aşağıdaki her adım bundan sonra kabaca `MainAsync` içindeki yöntem çağrılarının ilerleyişini izler.
+Merhaba toohello üstündeki gidin `MainAsync` hello yönteminde *DotNetTutorial* projenin `Program.cs` toostart 1. adım ile dosya. Her adım aşağıda kabaca yöntemini aşağıdaki şekilde hello ilerleyişini çağrıları sonra `MainAsync`.
 
 ## <a name="step-1-create-storage-containers"></a>1. Adım: Storage kapsayıcıları oluşturma
 ![Azure Depolama'da kapsayıcı oluşturma][1]
 <br/>
 
-Azure Storage ilet etkileşimde bulunmak için Batch’te yerleşik destek bulunur. Storage hesabınızdaki kapsayıcılar, Batch hesabınızda çalışan görevler için gerekli dosyaları sağlar. Kapsayıcılar ayrıca görevlerin oluşturduğu çıktı verilerini depolamak için bir yer sağlar. *DotNetTutorial* istemci uygulamasının yapacağı ilk şey [Azure Blob Storage](../storage/common/storage-introduction.md)’da üç kapsayıcı oluşturmaktır:
+Azure Storage ilet etkileşimde bulunmak için Batch’te yerleşik destek bulunur. Storage hesabınızdaki kapsayıcılar, Batch hesabınızda çalışan hello görevler için gerekli hello dosyaları sağlar. Merhaba kapsayıcılara hello görevlerin oluşturduğu bir yerde toostore hello çıktı verilerini de sağlar. ilk şey hello hello *DotNetTutorial* istemci uygulamasının yapacağı üç kapsayıcı oluşturmaktır [Azure Blob Storage](../storage/common/storage-introduction.md):
 
-* **uygulama**: Bu kapsayıcı, DLL’ler gibi birçok bağlantının yanı sıra görevlerin yürüttüğü uygulamayı da depolar.
-* **girdi**: Görevler, işlemek için veri dosyalarını *girdi* kapsayıcısından yükleyecektir.
-* **çıktı**: Görevler girdi dosyası işlemeyi tamamladıklarında, sonuçları*çıktı* kapsayıcısına yüklerler.
+* **Uygulama**: Bu kapsayıcı hello görevlerin yanı sıra DLL'ler gibi birçok bağlantının tarafından çalıştırılan hello uygulamayı da depolar.
+* **Giriş**: görevler hello hello veri dosyaları tooprocess yükleyecek *giriş* kapsayıcı.
+* **Çıktı**: görevler girdi dosyası işlemeyi tamamladıklarında hello sonuçları toohello karşıya yükleyecek *çıkış* kapsayıcı.
 
-Bir Depolama hesabıyla etkileşime geçmek ve kapsayıcılar oluşturmak için, [.NET için Azure Depolama İstemci Kitaplığı][net_api_storage] kullanıyoruz. [CloudStorageAccount][net_cloudstorageaccount] ile hesaba bir başvuru oluşturuyoruz ve buradan da bir [CloudBlobClient][net_cloudblobclient] oluşturuyoruz:
+Sipariş toointeract bir depolama hesabı ve kapsayıcı, oluşturma hello kullanırız [.NET için Azure Storage istemci Kitaplığı][net_api_storage]. Bir başvuru toohello hesabıyla oluşturuyoruz [CloudStorageAccount][net_cloudstorageaccount]ve oluşturan bir [CloudBlobClient][net_cloudblobclient]:
 
 ```csharp
-// Construct the Storage account connection string
+// Construct hello Storage account connection string
 string storageConnectionString = String.Format(
     "DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
     StorageAccountName,
     StorageAccountKey);
 
-// Retrieve the storage account
+// Retrieve hello storage account
 CloudStorageAccount storageAccount =
     CloudStorageAccount.Parse(storageConnectionString);
 
-// Create the blob client, for use in obtaining references to
+// Create hello blob client, for use in obtaining references to
 // blob storage containers
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 ```
 
-Uygulamanın tamamında `blobClient` başvurusunu kullanıyor ve bunu bir dizi yönteme parametre olarak geçiriyoruz. Bu, hemen yukarıdakini izleyen kod bloğundadır, burada gerçekten de kapsayıcı oluşturmak için buna `CreateContainerIfNotExistAsync` diyoruz.
+Merhaba kullanırız `blobClient` başvuru hello uygulama genelinde ve tooseveral yöntemleri parametre olarak geçirin. Bu, burada diyoruz hello yukarıdaki hemen izleyen hello kod bloğunda örneğidir `CreateContainerIfNotExistAsync` tooactually Merhaba kapsayıcılara oluşturun.
 
 ```csharp
-// Use the blob client to create the containers in Azure Storage if they don't
+// Use hello blob client toocreate hello containers in Azure Storage if they don't
 // yet exist
 const string appContainerName    = "application";
 const string inputContainerName  = "input";
@@ -184,30 +184,30 @@ private static async Task CreateContainerIfNotExistAsync(
 }
 ```
 
-Kapsayıcılar oluşturulduktan sonra uygulama artık görevler tarafından kullanılacak dosyaları karşıya yükleyebilir.
+Merhaba kapsayıcılara oluşturduktan sonra Merhaba uygulaması artık hello görevler tarafından kullanılacak hello dosyaları karşıya yükleyebilir.
 
 > [!TIP]
-> [Net'ten Blob Storage kullanma](../storage/blobs/storage-dotnet-how-to-use-blobs.md), Azure depolama kapsayıcıları ve blob'larla çalışma hakkında kapsamlı bilgi sağlar. Batch’le çalışmaya başladığınızda okuma listenizin en üstüne yakın olması gerekir.
+> [Nasıl toouse Blob depolama alanından .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) Azure Storage kapsayıcıları ve blob'larla çalışma hakkında kapsamlı bilgi sağlar. Batch ile çalışmaya başladığınızda okuma listenizin hello yukarıya yakın olması gerekir.
 >
 >
 
 ## <a name="step-2-upload-task-application-and-data-files"></a>2. Adım: Görev uygulamasını ve veri dosyalarını karşıya yükleme
-![Görev uygulamasını ve girdi (veriler) dosyalarını kapsayıcılara yükleme][2]
+![Karşıya yükleme görev uygulamasını ve girdi (veri) toocontainers dosyaları][2]
 <br/>
 
-Dosyayı karşıya yükleme işleminde, *DotNetTutorial* önce **uygulama** ve **girdi** dosya yolları koleksiyonunu yerel makinede oldukları gibi tanımlar. Sonra da, bir önceki adımda oluşturduğunuz kapsayıcılara bu dosyaları yükler.
+Merhaba dosyayı karşıya yükleme işlemi, *DotNetTutorial* ilk tanımlar **uygulama** ve **giriş** hello yerel makinede oldukları gibi dosya yolları. Sonra hello önceki adımda oluşturduğunuz bu dosyaları toohello kapsayıcıları yükler.
 
 ```csharp
-// Paths to the executable and its dependencies that will be executed by the tasks
+// Paths toohello executable and its dependencies that will be executed by hello tasks
 List<string> applicationFilePaths = new List<string>
 {
-    // The DotNetTutorial project includes a project reference to TaskApplication,
-    // allowing us to determine the path of the task application binary dynamically
+    // hello DotNetTutorial project includes a project reference tooTaskApplication,
+    // allowing us toodetermine hello path of hello task application binary dynamically
     typeof(TaskApplication.Program).Assembly.Location,
     "Microsoft.WindowsAzure.Storage.dll"
 };
 
-// The collection of data files that are to be processed by the tasks
+// hello collection of data files that are toobe processed by hello tasks
 List<string> inputFilePaths = new List<string>
 {
     @"..\..\taskdata1.txt",
@@ -215,26 +215,26 @@ List<string> inputFilePaths = new List<string>
     @"..\..\taskdata3.txt"
 };
 
-// Upload the application and its dependencies to Azure Storage. This is the
-// application that will process the data files, and will be executed by each
-// of the tasks on the compute nodes.
+// Upload hello application and its dependencies tooAzure Storage. This is the
+// application that will process hello data files, and will be executed by each
+// of hello tasks on hello compute nodes.
 List<ResourceFile> applicationFiles = await UploadFilesToContainerAsync(
     blobClient,
     appContainerName,
     applicationFilePaths);
 
-// Upload the data files. This is the data that will be processed by each of
-// the tasks that are executed on the compute nodes within the pool.
+// Upload hello data files. This is hello data that will be processed by each of
+// hello tasks that are executed on hello compute nodes within hello pool.
 List<ResourceFile> inputFiles = await UploadFilesToContainerAsync(
     blobClient,
     inputContainerName,
     inputFilePaths);
 ```
 
-Karşıya yükleme işlemini oluşturan `Program.cs` öğesinde iki yöntem vardır:
+İçinde iki yöntem vardır `Program.cs` hello karşıya yükleme işlemini oluşturan:
 
-* `UploadFilesToContainerAsync`: Bu yöntem, [ResourceFile][net_resourcefile] nesnelerinin bir koleksiyonunu döndürür (aşağıda açıklanmıştır) ve *filePaths* parametresine geçirilen her dosyayı karşıya yüklemek için `UploadFileToContainerAsync` çağrısı yapar.
-* `UploadFileToContainerAsync`: Dosyayı gerçekten karşıya yüklemeyi gerçekleştiren ve [ResourceFile][net_resourcefile] nesnelerini oluşturan yöntem budur. Dosyayı karşıya yükledikten sonra, dosya için paylaşılan erişim imzasını (SAS) alır ve temsil ettiği bir ResourceFile nesnesini döndürür. Paylaşılan erişim imzaları aşağıda da açıklanmıştır.
+* `UploadFilesToContainerAsync`: Bu yöntem koleksiyonu döndürür [ResourceFile] [ net_resourcefile] (aşağıda açıklanmıştır) nesneleri ve dahili olarak çağrıları `UploadFileToContainerAsync` dosya almak için diğer bir deyişle, her tooupload geçirilen hello *filePaths* parametresi.
+* `UploadFileToContainerAsync`: Bu, aslında hello dosyayı karşıya yüklemeyi gerçekleştiren ve hello oluşturan hello yöntemdir [ResourceFile] [ net_resourcefile] nesneleri. Merhaba dosyayı karşıya yükledikten sonra bu hello dosya için paylaşılan erişim imzası (SAS) alır ve temsil ettiği bir ResourceFile nesnesini döndürür. Paylaşılan erişim imzaları aşağıda da açıklanmıştır.
 
 ```csharp
 private static async Task<ResourceFile> UploadFileToContainerAsync(
@@ -243,7 +243,7 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(
     string filePath)
 {
         Console.WriteLine(
-            "Uploading file {0} to container [{1}]...", filePath, containerName);
+            "Uploading file {0} toocontainer [{1}]...", filePath, containerName);
 
         string blobName = Path.GetFileName(filePath);
 
@@ -251,8 +251,8 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(
         CloudBlockBlob blobData = container.GetBlockBlobReference(blobName);
         await blobData.UploadFromFileAsync(filePath);
 
-        // Set the expiry time and permissions for the blob shared access signature.
-        // In this case, no start time is specified, so the shared access signature
+        // Set hello expiry time and permissions for hello blob shared access signature.
+        // In this case, no start time is specified, so hello shared access signature
         // becomes valid immediately
         SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy
         {
@@ -260,7 +260,7 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(
                 Permissions = SharedAccessBlobPermissions.Read
         };
 
-        // Construct the SAS URL for blob
+        // Construct hello SAS URL for blob
         string sasBlobToken = blobData.GetSharedAccessSignature(sasConstraints);
         string blobSasUri = String.Format("{0}{1}", blobData.Uri, sasBlobToken);
 
@@ -269,23 +269,23 @@ private static async Task<ResourceFile> UploadFileToContainerAsync(
 ```
 
 ### <a name="resourcefiles"></a>ResourceFiles
-[ResourceFile][net_resourcefile], görev çalıştırılmadan önce işlem düğümüne yüklenecek, Azure Depolama’da yer alan bir dosyaya bağlantısı olan URL’ye sahip Batch’teki görevleri sağlar. [ResourceFile.BlobSource][net_resourcefile_blobsource] özelliği, Azure Depolama’da olduğu gibi dosyanın tam URL'sini belirtir. URL’de, dosyaya güvenli erişim sağlayan bir paylaşılan erişim imzası da (SAS) bulunabilir. Batch .NET’teki çoğu görev türünde *ResourceFiles* özelliği vardır; bu özellikte şunlar bulunur:
+A [ResourceFile] [ net_resourcefile] hello URL tooa indirilen tooa Azure depolama alanı dosyasında toplu görevlerle işlem düğümü, görev çalıştırılmadan önce sağlar. Merhaba [ResourceFile.BlobSource] [ net_resourcefile_blobsource] özelliği, Azure Storage'da yer aldığından hello hello dosyanın tam URL'sini belirtir. Merhaba URL ayrıca güvenli erişim toohello dosya sağlayan bir paylaşılan erişim imzası (SAS) içerebilir. Batch .NET’teki çoğu görev türünde *ResourceFiles* özelliği vardır; bu özellikte şunlar bulunur:
 
 * [CloudTask][net_task]
 * [StartTask][net_pool_starttask]
 * [JobPreparationTask][net_jobpreptask]
 * [JobReleaseTask][net_jobreltask]
 
-DotNetTutorial örnek uygulaması JobPreparationTask veya JobReleaseTask görev türlerini kullanmaz; ancak, bununla ilgili daha fazla bilgiyi [Azure Batch işlem düğümlerinde iş hazırlama ve tamamlama görevlerini çalıştırma](batch-job-prep-release.md) makalesinden edinebilirsiniz.
+DotNetTutorial örnek uygulaması Hello hello JobPreparationTask veya JobReleaseTask görev türlerini kullanmaz, ancak daha fazla bilgiyi ilgili [iş hazırlama ve tamamlama görevlerini çalıştırma Azure Batch işlem düğümlerinde](batch-job-prep-release.md).
 
 ### <a name="shared-access-signature-sas"></a>Paylaşılan erişim imzası (SAS)
-Paylaşılan erişim imzalar, URL parçası olarak eklendiğinde Azure Storage'da kapsayıcılara ve blob’lara güvenli erişim sağlayan dizelerdir. DotNetTutorial uygulaması hem blob, hem de kapsayıcı paylaşılan erişim imzası URL’lerini kullanır ve Storage hizmetinden bu paylaşılan erişim imzalarının nasıl alındığını gösterir.
+Paylaşılan erişim imzalar dizelerdir — bir URL bir parçası olarak dahil olduğunda — güvenli erişim toocontainers ve Azure Storage blobları sağlar. Merhaba DotNetTutorial uygulaması hem blob kullanır ve kapsayıcı paylaşılan erişim imzası URL'lerini ve nasıl tooobtain bu paylaşılan erişim imzası dizeleri depolama hizmeti hello gösterir.
 
-* **Blob paylaşılan erişim imzaları**: DotNetTutorial’daki havuza ait StartTask, Storage’dan uygulama ikililerini ve girdi veri dosyalarını indirdiğinde blob paylaşılan erişim imzalarını kullanır (bkz. 3. Adım; aşağıda). DotNetTutorial'ın `Program.cs` içindeki `UploadFileToContainerAsync` yönteminde her blob'un paylaşılan erişim imzasını alan kod bulunur. Bu işlemi [CloudBlob.GetSharedAccessSignature][net_sas_blob] çağırarak gerçekleştirir.
-* **Kapsayıcı paylaşılan erişim imzaları**: Hesaplama düğümünde her görev işini bitirdiğinde, kendi çıktı dosyasını Azure Storage’daki *çıktı* kapsayıcısına yükler. Bunu yapmak için, TaskApplication dosyayı karşıya yüklediğinde yolun parçası olarak kapsayıcıya yazma izni sağlayan kapsayıcı paylaşılan erişim imzasını kullanır. Kapsayıcı paylaşılan erişim imzası blob paylaşılan erişim imzası alındığında yapılan işleme benzer. DotNetTutorial’de, bunu yapmak için `GetContainerSasUrl` yardımcı yönteminin [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] çağırdığını görürsünüz. TaskApplication’ın kapsayıcı paylaşılan erişim imzasını kullanması hakkında daha fazla bilgi için "6. Adım: İzleme Görevleri" başlığı altındakileri okuyacaksınız.
+* **Blob paylaşılan erişim imzaları**: DotNetTutorial hello havuza ait StartTask, Storage'dan hello uygulama ikililerini ve girdi veri dosyalarını indirdiğinde blob paylaşılan erişim imzalarını kullanır (3. adım aşağıya bakın). Merhaba `UploadFileToContainerAsync` Dotnettutorial'in yönteminde `Program.cs` her blob'un paylaşılan erişim imzasını alan hello kodunu içerir. Bu işlemi [CloudBlob.GetSharedAccessSignature][net_sas_blob] çağırarak gerçekleştirir.
+* **Kapsayıcı paylaşılan erişim imzaları**: her görev hello işlem düğümü işini bitirdiğinde, kendi çıktı dosyasını toohello yükler *çıkış* Azure storage'da kapsayıcı. toodo, TaskApplication hello dosyayı karşıya yüklediğinde hello yolu bir parçası olarak yazma erişimi toohello kapsayıcı sağlayan kapsayıcı paylaşılan erişim imzasını kullanır. Alma hello kapsayıcı paylaşılan erişim imzası zaman erişim imzası alma hello blob paylaşılan olarak benzer bir şekilde gerçekleştirilir. DotNetTutorial ' Bu hello bulacaksınız `GetContainerSasUrl` yardımcı yöntem çağrılarını [CloudBlobContainer.GetSharedAccessSignature] [ net_sas_container] toodo şekilde. Okuyacaksınız TaskApplication hello kapsayıcı nasıl kullandığı hakkında daha fazla paylaşılan erişim imzasını "6. adım: izleme görevleri."
 
 > [!TIP]
-> Storage hesabınızdaki verilere güvenli erişim sağlama hakkında daha fazla bilgi için paylaşılan erişim imzalarındaki iki parçalı seriyi kullanıma alın, [1. Bölüm: Paylaşılan erişim imzası (SAS) modelini anlama](../storage/common/storage-dotnet-shared-access-signature-part-1.md) ve [2. Bölüm: Blob depolama ile paylaşılan erişim imzasını (SAS) oluşturma ve kullanma](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md).
+> Hello iki parçalı seriyi kullanıma paylaşılan erişim imzalarındaki [Kısım 1: paylaşılan erişim imzası (SAS) modelini anlama hello](../storage/common/storage-dotnet-shared-access-signature-part-1.md) ve [2. parça: oluşturma ve paylaşılan erişim imzası (SAS) ileBlobstoragekullanma](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md), toolearn depolama hesabınızdaki toodata güvenli erişim sağlama hakkında daha fazla.
 >
 >
 
@@ -295,7 +295,7 @@ Paylaşılan erişim imzalar, URL parçası olarak eklendiğinde Azure Storage'd
 
 Batch **havuzu**, Batch’in işe ait görevleri yürüttüğü işlem düğümlerinin (sanal makineler) koleksiyonudur.
 
-Uygulama ve veri dosyaları Azure Depolama API'leri ile birlikte Depolama hesabına yüklendikten sonra *DotNetTutorial*, Batch .NET kitaplığı tarafından sağlanan API'ler ile Batch hizmetine çağrı yapmaya başlar. Kod öncelikle bir [BatchClient][net_batchclient] oluşturur:
+Merhaba uygulama ve veri dosyalarını toohello depolama hesabı Azure depolama API'leri ile karşıya yüklenmesini sonra *DotNetTutorial* hello Batch .NET kitaplığı tarafından sağlanan API'leri ile çağrıları toohello Batch hizmeti yapmadan başlar. Merhaba kod ilk oluşturur bir [BatchClient][net_batchclient]:
 
 ```csharp
 BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(
@@ -308,7 +308,7 @@ using (BatchClient batchClient = BatchClient.Open(cred))
     ...
 ```
 
-Ardından örnek, `CreatePoolIfNotExistsAsync` çağrısıyla Batch hesabında bir işlem düğümü havuzu oluşturur. `CreatePoolIfNotExistsAsync`, [BatchClient.PoolOperations.CreatePool][net_pool_create] yöntemini kullanarak Batch hizmetinde yeni bir havuz oluşturur:
+Ardından, hello örnek bir işlem düğümü havuzu oluşturacak çağrısıyla hello Batch hesabında çok oluşturur`CreatePoolIfNotExistsAsync`. `CreatePoolIfNotExistsAsync`kullandığı hello [BatchClient.PoolOperations.CreatePool] [ net_pool_create] yöntemi toocreate hello toplu işlem hizmeti yeni bir havuzda:
 
 ```csharp
 private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, string poolId, IList<ResourceFile> resourceFiles)
@@ -318,7 +318,7 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
     {
         Console.WriteLine("Creating pool [{0}]...", poolId);
 
-        // Create the unbound pool. Until we call CloudPool.Commit() or CommitAsync(), no pool is actually created in the
+        // Create hello unbound pool. Until we call CloudPool.Commit() or CommitAsync(), no pool is actually created in the
         // Batch service. This CloudPool instance is therefore considered "unbound," and we can modify its properties.
         pool = batchClient.PoolOperations.CreatePool(
             poolId: poolId,
@@ -326,18 +326,18 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
             virtualMachineSize: "small",                                                // single-core, 1.75 GB memory, 225 GB disk
             cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));   // Windows Server 2012 R2
 
-        // Create and assign the StartTask that will be executed when compute nodes join the pool.
-        // In this case, we copy the StartTask's resource files (that will be automatically downloaded
-        // to the node by the StartTask) into the shared directory that all tasks will have access to.
+        // Create and assign hello StartTask that will be executed when compute nodes join hello pool.
+        // In this case, we copy hello StartTask's resource files (that will be automatically downloaded
+        // toohello node by hello StartTask) into hello shared directory that all tasks will have access to.
         pool.StartTask = new StartTask
         {
-            // Specify a command line for the StartTask that copies the task application files to the
+            // Specify a command line for hello StartTask that copies hello task application files toothe
             // node's shared directory. Every compute node in a Batch pool is configured with a number
             // of pre-defined environment variables that can be referenced by commands or applications
             // run by tasks.
 
             // Since a successful execution of robocopy can return a non-zero exit code (e.g. 1 when one or
-            // more files were successfully copied) we need to manually exit with a 0 for Batch to recognize
+            // more files were successfully copied) we need toomanually exit with a 0 for Batch toorecognize
             // StartTask execution success.
             CommandLine = "cmd /c (robocopy %AZ_BATCH_TASK_WORKING_DIR% %AZ_BATCH_NODE_SHARED_DIR%) ^& IF %ERRORLEVEL% LEQ 1 exit 0",
             ResourceFiles = resourceFiles,
@@ -348,10 +348,10 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
     }
     catch (BatchException be)
     {
-        // Swallow the specific error code PoolExists since that is expected if the pool already exists
+        // Swallow hello specific error code PoolExists since that is expected if hello pool already exists
         if (be.RequestInformation?.BatchError != null && be.RequestInformation.BatchError.Code == BatchErrorCodeStrings.PoolExists)
         {
-            Console.WriteLine("The pool {0} already existed when we tried to create it", poolId);
+            Console.WriteLine("hello pool {0} already existed when we tried toocreate it", poolId);
         }
         else
         {
@@ -361,42 +361,42 @@ private static async Task CreatePoolIfNotExistAsync(BatchClient batchClient, str
 }
 ```
 
-[CreatePool][net_pool_create] ile havuz oluşturduğunuzda, işlem düğümlerinin sayısı, [düğümlerin boyutu](../cloud-services/cloud-services-sizes-specs.md) ve düğümlerin işletim sistemi gibi parametreleri belirtirsiniz. *DotNetTutorial* ’da, [Cloud Services](../cloud-services/cloud-services-guestos-update-matrix.md)’dan Windows Server 2012 R2'yi belirtmek için [CloudServiceConfiguration][net_cloudserviceconfiguration] kullanırız. 
+Bir havuzu oluştururken [CreatePool][net_pool_create], işlem düğümleri hello sayısı gibi çeşitli parametreleri hello belirttiğiniz [hello düğümlerin boyutu](../cloud-services/cloud-services-sizes-specs.md), ve düğümlerin işletim hello Sistem. İçinde *DotNetTutorial*, kullandığımız [CloudServiceConfiguration] [ net_cloudserviceconfiguration] toospecify Windows Server 2012 R2'den [bulut Hizmetleri](../cloud-services/cloud-services-guestos-update-matrix.md). 
 
-Ayrıca, havuzunuz için [VirtualMachineConfiguration][net_virtualmachineconfiguration] değerini belirterek Azure Sanal Makineleri (VM) olan işlem düğümü havuzları oluşturabilirsiniz. VM işlem düğümü havuzlarını Windows veya [Linux görüntülerinden](batch-linux-nodes.md) oluşturabilirsiniz. VM görüntüleriniz için kaynaklar şunlar olabilir:
+Azure sanal makineleri (VM'ler) işlem düğümleri havuzlarının hello belirterek oluşturabilirsiniz [VirtualMachineConfiguration] [ net_virtualmachineconfiguration] havuzunuz için. VM işlem düğümü havuzlarını Windows veya [Linux görüntülerinden](batch-linux-nodes.md) oluşturabilirsiniz. VM görüntüleri için Hello kaynağı ya da olabilir:
 
-- Hem Windows hem de Linux için kullanıma hazır görüntüler bulabileceğiniz [Microsoft Azure Sanal Makineler Market görüntüleri][vm_marketplace]. 
+- Merhaba [Azure Virtual Machines Marketi][vm_marketplace], kullanıma hazır hem Windows hem de Linux görüntüleri sağlar. 
 - Hazırlayıp sağlayacağınız bir özel görüntü. Özel görüntüler hakkında daha fazla ayrıntı için bkz. [Batch ile büyük ölçekli paralel işlem çözümleri geliştirme](batch-api-basics.md#pool).
 
 > [!IMPORTANT]
-> Batch’teki işlem kaynakları ücretlidir. Maliyetleri en aza indirmek için, örneği çalıştırmadan önce `targetDedicatedComputeNodes` değerini 1 olarak düşürün.
+> Batch’teki işlem kaynakları ücretlidir. toominimize maliyetleri alt `targetDedicatedComputeNodes` hello örneği çalıştırmadan önce too1.
 >
 >
 
-Bu fiziksel düğüm özellikleriyle birlikte, havuz için ayrıca bir [StartTask][net_pool_starttask] belirtebilirsiniz. StartTask, her düğümü havuza katıldığında ve her yeniden başlatıldığında yürütecektir. StartTask özellikle, görevler yürütülmeden önce işlem düğümlerine uygulamaların yüklenmesi için yararlıdır. Örneğin, görevleriniz verileri Python betiklerini kullanarak işliyorsa, işlem düğümlerine Python yüklemek için StartTask kullanabilirsiniz.
+Bu fiziksel düğüm özellikleriyle birlikte, de belirtebilir bir [StartTask] [ net_pool_starttask] hello havuzu için. Bu düğüme hello havuzuna katılır ve her bir düğümü yeniden Hello StartTask her düğümde yürütür. Merhaba StartTask Itanium tabanlı sistemler için işlem düğümleri önceki toohello yürütme görevlerin üzerinde uygulamaları yüklemek için özellikle yararlıdır. Örneğin, görevleriniz verileri Python betiklerini kullanarak işlemek, StartTask tooinstall Python hello işlem düğümlerinde kullanabilirsiniz.
 
-Bu örnek uygulamasında StartTask, Depolama’dan indirilen dosyaları ([StartTask][net_starttask].[ResourceFiles][net_starttask_resourcefiles] özelliği kullanılarak belirtilir), StartTask çalışma dizininden, erişilebilir düğümdeki *tüm* görevlerin çalıştığı paylaşılan dizine kopyalar. Aslında, `TaskApplication.exe` uygulamasını ve bağlantılarını, düğüm havuza katılmış olduğundan her düğüme kopyalar; bu nedenle düğümde çalışan görevler buna erişebilir.
+Bu örnek uygulamasında hello StartTask, Storage'dan indirilen hello dosyaları kopyalar (hangi belirtilen hello kullanarak [StartTask][net_starttask].[ ResourceFiles] [ net_starttask_resourcefiles] özelliği) dizininden hello StartTask çalışma dizini toohello paylaşılan, *tüm* hello düğümde çalışan görevler erişebilir. Esas olarak, bu kopyalar `TaskApplication.exe` ve onun bağımlılıklarını toohello paylaşılan her düğüme hello düğümü hello havuza katılmış olduğundan hello düğümü üzerinde çalışacak herhangi bir görevi erişebilmesi.
 
 > [!TIP]
-> Azure Batch’in **uygulama paketleri** özelliği, havuzdaki işlem düğümlerinin uygulamanızı almasının başka bir yolunu sağlar. Ayrıntılar için [Batch uygulama paketleriyle işlem düğümleri için uygulama dağıtımı](batch-application-packages.md) bölümüne bakın.
+> Merhaba **uygulama paketleri** Azure batch özelliği, uygulamanızı bir havuzdaki işlem düğümleri hello üzerine başka bir şekilde tooget sağlar. Bkz: [Batch uygulama paketleriyle uygulama toocompute düğümlerini dağıtmak](batch-application-packages.md) Ayrıntılar için.
 >
 >
 
-Yukarıdaki kod parçacığında dikkat çeken bir şey de, StartTask’ın *CommandLine* özelliğinde iki ortam değişkenin kullanılmasıdır: `%AZ_BATCH_TASK_WORKING_DIR%` ve `%AZ_BATCH_NODE_SHARED_DIR%`. Batch havuzundaki her işlem düğümü, Batch’e özel bazı ortam değişkenleriyle yapılandırılmıştır. Görev tarafından yürütülen işlemlerin bu ortam değişkenlerine erişimi vardır.
+Ayrıca içinde yukarıdaki hello kod parçacığında dikkat çeken bir şey hello hello iki ortam değişkenleri kullanımıdır *CommandLine* hello StartTask özelliğinin: `%AZ_BATCH_TASK_WORKING_DIR%` ve `%AZ_BATCH_NODE_SHARED_DIR%`. Batch havuzundaki her işlem düğümü belirli tooBatch olan birkaç ortam değişkenlerini otomatik olarak yapılandırılır. Bir görev tarafından yürütülen herhangi bir işlem toothese ortam değişkenlerine erişim vardır.
 
 > [!TIP]
-> Batch havuzundaki işlem düğümlerinde bulunan ortam değişkenleri ve görev çalışma dizinleri hakkında daha fazla bilgi almak için [Geliştiriciler için Batch özelliğine genel bakış](batch-api-basics.md) içindeki [Görevler için ortam değişkenleri](batch-api-basics.md#environment-settings-for-tasks) ve [Dosya ve dizinler](batch-api-basics.md#files-and-directories) bölümlerine bakın.
+> bir Batch havuzu ve görev çalışma dizinleri hakkında bilgilerin işlem düğümlerinde bulunan hello ortam değişkenleri hakkında daha fazla toofind bkz hello [görevler için ortam ayarları](batch-api-basics.md#environment-settings-for-tasks) ve [dosyalar ve dizinler ](batch-api-basics.md#files-and-directories) hello bölümlerde [geliştiriciler için Batch özelliklerine genel bakış](batch-api-basics.md).
 >
 >
 
 ## <a name="step-4-create-batch-job"></a>4. Adım: Batch işi oluşturma
 ![Batch işi oluşturma][4]<br/>
 
-Batch **işi**, görevler koleksiyonudur ve işlem düğümlerinin bir havuzuyla ilişkilidir. İşteki görevler ilişkili havuzunun işlem düğümlerini yürütür.
+Batch **işi**, görevler koleksiyonudur ve işlem düğümlerinin bir havuzuyla ilişkilidir. Merhaba görevleri bir işlemle ilişkili hello havuzun işlem düğümleri üzerinde yürütün.
 
-İşi yalnızca ilgili iş yüklerinde görevlerin düzenlenmesi ve izlenmesi için değil, aynı zamanda işin (ve buna bağlı olarak görevlerin) en uzun çalışma süresinin yanı sıra Batch hesabındaki diğer işlerle bağlantılı olarak iş önceliği gibi bazı kısıtlamalar getirmek için de kullanabilirsiniz. Ancak bu örnekte, iş yalnızca 3. adımda oluşturulan havuzla ilişkilendirilmektedir. Yapılandırılmış başka ek özellik yoktur.
+Bir işi yalnızca ilgili iş yüklerinde görevlerin düzenlenmesi ve, ancak aynı zamanda yanı sıra, ilişkisi tooother işlerini hello toplu olarak iş önceliği hello en fazla çalışma hello işin (ve uzantılarının, görevleri) gibi bazı kısıtlamalar etkileyici kullanabilirsiniz hesabı. Bu örnekte, ancak hello iş #3. adımda oluşturulan hello havuzu ile ilişkilidir. Yapılandırılmış başka ek özellik yoktur.
 
-Tüm Batch işleri belirli bir havuzla ilişkilidir. Bu ilişkilendirme, iş görevlerinin hangi düğümleri yürüteceğini belirtir. Bunu, aşağıdaki kod parçacığında gösterildiği gibi [CloudJob.PoolInformation][net_job_poolinfo] özelliğini kullanarak belirtirsiniz.
+Tüm Batch işleri belirli bir havuzla ilişkilidir. Bu ilişkilendirme hello işin görevlerinin hangi düğümleri gösterir. Bu hello kullanarak belirttiğiniz [Cloudjob.poolınformation] [ net_job_poolinfo] hello aşağıdaki kod parçacığında gösterildiği gibi özelliği.
 
 ```csharp
 private static async Task CreateJobAsync(
@@ -414,15 +414,15 @@ private static async Task CreateJobAsync(
 }
 ```
 
-İş oluşturulduğuna göre, artık çalışmak için görevler eklenir.
+Bir işi oluşturuldu, görevler tooperform hello iş eklenir.
 
-## <a name="step-5-add-tasks-to-job"></a>5. Adım: İşe görev ekleme
-![İşe görev ekleme][5]<br/>
-*(1) Görevler işe eklenir, (2) görevler düğümlerde çalışmak üzere zamanlanır ve (3) görevler işlemek üzere veri dosyalarını indirir*
+## <a name="step-5-add-tasks-toojob"></a>5. adım: görevleri toojob ekleme
+![Görevleri toojob Ekle][5]<br/>
+*(1) görevler toohello iş eklenir, düğümlerde zamanlanmış toorun (2) hello görevlerdir ve (3) hello görevleri hello veri dosyaları tooprocess indirme*
 
-Batch **görevleri**, işlem düğümlerinde yürütülen tek tek iş birimleridir. Görevde bir komut satırı vardır; bu komut satırında belirttiğiniz betikleri veya yürütülebilir dosyaları çalıştırır.
+Toplu **görevleri** hello üzerinde yürütülen hello tek tek iş birimleri işlem düğümlerini şunlardır. Bir görev, bir komut satırı ve hello komut dosyaları veya bu komut satırında belirttiğiniz yürütülebilir dosyaları çalıştırır.
 
-Aslına bakılırsa, çalışmayı gerçekleştirmek için görevlerin işe eklenmesi gerekir. Her [CloudTask][net_task], bir komut satırı özelliği ve komut satırı otomatik olarak yürütülmeden önce görevin düğüme yüklediği [ResourceFiles][net_task_resourcefiles] (havuzdaki StartTask gibi) kullanılarak yapılandırılır. *DotNetTutorial* örnek projesinde her görev yalnızca tek bir dosya işler. Bu nedenle, kendi ResourceFiles koleksiyonunda tek bir öğe bulunmaktadır.
+tooactually gerçekleştirmek iş, görevleri tooa iş eklenmesi gerekir. Her [CloudTask] [ net_task] bir komut satırı özelliği kullanılarak yapılandırılır ve [ResourceFiles] [ net_task_resourcefiles] (Merhaba havuza ait startTask gibi), komut satırı otomatik olarak yürütülmeden önce hello görev toohello düğümü indirir. Merhaba, *DotNetTutorial* örnek projesinde her görev yalnızca bir dosya işler. Bu nedenle, kendi ResourceFiles koleksiyonunda tek bir öğe bulunmaktadır.
 
 ```csharp
 private static async Task<List<CloudTask>> AddTasksAsync(
@@ -431,14 +431,14 @@ private static async Task<List<CloudTask>> AddTasksAsync(
     List<ResourceFile> inputFiles,
     string outputContainerSasUrl)
 {
-    Console.WriteLine("Adding {0} tasks to job [{1}]...", inputFiles.Count, jobId);
+    Console.WriteLine("Adding {0} tasks toojob [{1}]...", inputFiles.Count, jobId);
 
-    // Create a collection to hold the tasks that we'll be adding to the job
+    // Create a collection toohold hello tasks that we'll be adding toohello job
     List<CloudTask> tasks = new List<CloudTask>();
 
-    // Create each of the tasks. Because we copied the task application to the
-    // node's shared directory with the pool's StartTask, we can access it via
-    // the shared directory on the node that the task runs on.
+    // Create each of hello tasks. Because we copied hello task application toothe
+    // node's shared directory with hello pool's StartTask, we can access it via
+    // hello shared directory on hello node that hello task runs on.
     foreach (ResourceFile inputFile in inputFiles)
     {
         string taskId = "topNtask" + inputFiles.IndexOf(inputFile);
@@ -452,9 +452,9 @@ private static async Task<List<CloudTask>> AddTasksAsync(
         tasks.Add(task);
     }
 
-    // Add the tasks as a collection, as opposed to issuing a separate AddTask call
-    // for each. Bulk task submission helps to ensure efficient underlying API calls
-    // to the Batch service.
+    // Add hello tasks as a collection, as opposed tooissuing a separate AddTask call
+    // for each. Bulk task submission helps tooensure efficient underlying API calls
+    // toohello Batch service.
     await batchClient.JobOperations.AddTaskAsync(jobId, tasks);
 
     return tasks;
@@ -462,15 +462,15 @@ private static async Task<List<CloudTask>> AddTasksAsync(
 ```
 
 > [!IMPORTANT]
-> `%AZ_BATCH_NODE_SHARED_DIR%` gibi ortam değişkenlerine eriştiklerinde veya düğüme ait `PATH` öğesinde bulunmayan bir uygulama yürüttüklerinde görev komut satırları `cmd /c` önekini almalıdır. Bunu kesinlikle komut yorumlayıcı yürütecek ve komutunuzu uyguladıktan sonra sonlandırması talimatını verecektir. Görevleriniz düğümün `PATH` öğesinde (*robocopy.exe* veya *powershell.exe* gibi) bir uygulama yürütüyorsa ve hiç ortam değişkeni kullanılmıyorsa bu gereksinim gereksizdir.
+> Ortam değişkenlerine eriştiklerinde gibi `%AZ_BATCH_NODE_SHARED_DIR%` veya hello düğümün bulunmayan bir uygulama yürüttüklerinde `PATH`, görev komut satırları öneki, ile `cmd /c`. Bu açıkça hello komut yorumlayıcı yürütecek ve komutunuzu uyguladıktan sonra tooterminate isteyin. Bu gereksinim, görevlerinizin hello düğümün bir uygulama yürütüyorsa gereksizdir `PATH` (gibi *robocopy.exe* veya *powershell.exe*) ve hiç ortam değişkeni kullanılır.
 >
 >
 
-Yukarıdaki kod parçacığında, `foreach` döngüsü içinde görevle ilgili komut satırının, üç komut satırı bağımsız değişkeni *TaskApplication.exe* dosyasına geçirilecek şekilde oluşturulduğunu görürsünüz:
+Merhaba içinde `foreach` Yukarıdaki kod parçacığında hello döngüde, üç komut satırı bağımsız değişkenleri çok geçirilen şekilde hello komut satırı hello görev için oluşturulan görebilirsiniz*TaskApplication.exe*:
 
-1. **İlk bağımsız değişken** işlenecek dosyanın yoludur. Düğümde yer aldığından dosyanın yerel yolu budur. `UploadFileToContainerAsync` ResourceFile nesnesi ilk oluşturulduğunda dosya adı bu özellik için kullanılır (parametrenin ResourceFile oluşturucuda yaptığı gibi). Dosyanın *TaskApplication.exe* ile aynı dizinde bulunabileceğini belirtir.
-2. **İkinci bağımsız değişken** ilk *N* sayıda sözcüğün çıktı dosyasına yazılması gerektiğini belirtir. Bu, örnekte sabit kodlanmıştır; bu nedenle çıktı dosyasına ilk üç sözcük yazılır.
-3. **Üçüncü bağımsız değişken**, Azure Storage’da **çıktı** kapsayıcısına yazma erişimi sağlayan paylaşılan erişim imzasıdır (SAS). *TaskApplication.exe*, çıktı dosyasını Azure Storage’a yüklediğinde paylaşılan erişim imzası URL'sini kullanır. Bunun için kodu, TaskApplication projesinin `Program.cs` dosyasındaki `UploadFileToContainer` yönteminde bulabilirsiniz:
+1. Merhaba **ilk bağımsız değişken** hello dosya tooprocess hello yoludur. Merhaba düğümde yer aldığından bu hello yerel yol toohello dosyasıdır. ResourceFile nesnesi'ne zaman hello `UploadFileToContainerAsync` ilk oluşturulduğunda yukarıdaki hello dosya adı bu özellik için (bir parametre toohello ResourceFile oluşturucuda) kullanılır. Bu, hello dosya bulunabilir hello aynı gösterir olarak dizin *TaskApplication.exe*.
+2. Merhaba **ikinci bağımsız değişken** bu hello üst belirtir *N* sözcükler toohello çıktı dosyasına yazılması gerekir. Merhaba örnekte bu hello ilk üç sözcük toohello çıktı dosyasına yazılır böylece kodlanmış.
+3. Merhaba **üçüncü bağımsız değişken** yazma erişimi toohello sağlayan hello paylaşılan erişim imzası (SAS) **çıkış** Azure storage'da kapsayıcı. *TaskApplication.exe* hello çıktı dosyası tooAzure depolama yüklediğinde erişim imzası URL'sini bu paylaşılan kullanır. Bunun için hello kod hello bulabilirsiniz `UploadFileToContainer` hello TaskApplication projesinin yönteminde `Program.cs` dosyası:
 
 ```csharp
 // NOTE: From project TaskApplication Program.cs
@@ -479,10 +479,10 @@ private static void UploadFileToContainer(string filePath, string containerSas)
 {
         string blobName = Path.GetFileName(filePath);
 
-        // Obtain a reference to the container using the SAS URI.
+        // Obtain a reference toohello container using hello SAS URI.
         CloudBlobContainer container = new CloudBlobContainer(new Uri(containerSas));
 
-        // Upload the file (as a new blob) to the container
+        // Upload hello file (as a new blob) toohello container
         try
         {
                 CloudBlockBlob blob = container.GetBlockBlobReference(blobName);
@@ -498,10 +498,10 @@ private static void UploadFileToContainer(string filePath, string containerSas)
                 Console.WriteLine("Additional error information: " + e.Message);
                 Console.WriteLine();
 
-                // Indicate that a failure has occurred so that when the Batch service
-                // sets the CloudTask.ExecutionInformation.ExitCode for the task that
+                // Indicate that a failure has occurred so that when hello Batch service
+                // sets hello CloudTask.ExecutionInformation.ExitCode for hello task that
                 // executed this application, it properly indicates that there was a
-                // problem with the task.
+                // problem with hello task.
                 Environment.ExitCode = -1;
         }
 }
@@ -509,17 +509,17 @@ private static void UploadFileToContainer(string filePath, string containerSas)
 
 ## <a name="step-6-monitor-tasks"></a>6. Adım: Görevleri izleme
 ![Görevleri izleme][6]<br/>
-*İstemci uygulaması (1) tamamlama ve başarı durumu için görevleri izler, (2) görevler de sonuç verilerini Azure Depolama’ya yükler.*
+*Merhaba istemci uygulaması (1) izleyiciler tamamlama ve başarı durumu için görevleri hello ve (2) görevler karşıya yükleme sonuç veri tooAzure depolama hello*
 
-Görevler bir projeye eklendiğinde, otomatik olarak kuyruğa alınır ve işle ilişkili havuzun içindeki işlem düğümlerinde zamanlanırlar. Belirttiğiniz ayarlar temelinde, Batch tüm kuyruğa alınan, zamanlanan, yeniden denenen ve sizle ilgili diğer görev yönetimi görevlerini işler.
+Görevleri tooa iş eklendiğinde bunlar otomatik olarak kuyruğa ve hello işle ilişkili hello havuzundaki işlem düğümlerinde yürütülmesi için zamanlanan. Belirttiğiniz hello ayarlarına bağlı olarak, Batch tüm kuyruğa alınan, zamanlama, yeniden deneniyor ve diğer görev yönetimi görevlerini işler.
 
-Görevin yürütülüşünün izlenmesi için birçok yaklaşım vardır. DotNetTutorial, yalnızca tamamlama, görev başarılı veya başarısız durumlarını raporlayan basit bir örnek gösterilmektedir. DotNetTutorial'in `Program.cs` konumundaki `MonitorTasks` yönteminde tartışmayı destekleyen üç Batch .NET kavramı vardır. Görüntülenme sırasıyla aşağıda listelenmişlerdir:
+Toomonitoring görev yürütme birçok yaklaşım vardır. DotNetTutorial, yalnızca tamamlama, görev başarılı veya başarısız durumlarını raporlayan basit bir örnek gösterilmektedir. Merhaba içinde `MonitorTasks` Dotnettutorial'in yönteminde `Program.cs`, tartışmayı destekleyen üç Batch .NET kavramı vardır. Görüntülenme sırasıyla aşağıda listelenmişlerdir:
 
-1. **ODATADetailLevel**: Liste işlemlerinde [ODATADetailLevel][net_odatadetaillevel] belirtilmesi (iş görevlerinin listesini almak gibi) Batch uygulaması performansını sağlamak için önemlidir. Batch uygulamanızda durum izlemenin herhangi bir biçimini yapmak için hazırlık yapıyorsanız okuma listenize [Azure Batch hizmetini etkin bir şekilde sorgulama](batch-efficient-list-queries.md) makalesini de ekleyin.
-2. **TaskStateMonitor**: [TaskStateMonitor][net_taskstatemonitor], görev durumlarının izlenmesi için yardımcı programlara sahip Batch .NET uygulamalarını sağlar. `MonitorTasks` konumunda, *DotNetTutorial* tüm görevler için sınırlı bir süre içinde [TaskState.Completed][net_taskstate] konumuna ulaşmak için bekler. Sonra da işi sonlandırır.
-3. **TerminateJobAsync**: İşin [JobOperations.TerminateJobAsync][net_joboperations_terminatejob] ile sonlandırılması (veya JobOperations.TerminateJob’un engellenmesi) bu işin tamamlandı olarak işaretlenmesine yol açar. Batch çözümünüz [JobReleaseTask][net_jobreltask] kullanıyorsa bunun yapılması gereklidir. [İş hazırlama ve tamamlama görevleri](batch-job-prep-release.md)’nde açıklanan özel tür bir görevdir.
+1. **ODATADetailLevel**: Liste işlemlerinde [ODATADetailLevel][net_odatadetaillevel] belirtilmesi (iş görevlerinin listesini almak gibi) Batch uygulaması performansını sağlamak için önemlidir. Ekleme [hello Azure Batch hizmetinin verimli bir şekilde sorgu](batch-efficient-list-queries.md) toplu iş uygulamalarınız içinde durum izlemenin herhangi sıralama yapmayı planlıyorsanız, liste okuma tooyour.
+2. **TaskStateMonitor**: [TaskStateMonitor][net_taskstatemonitor], görev durumlarının izlenmesi için yardımcı programlara sahip Batch .NET uygulamalarını sağlar. İçinde `MonitorTasks`, *DotNetTutorial* için tüm görevleri tooreach bekler [TaskState.Completed] [ net_taskstate] zaman sınırı içinde. Ardından hello işi sonlandırır.
+3. **TerminateJobAsync**: bir işlemle sonlandırma [JobOperations.TerminateJobAsync] [ net_joboperations_terminatejob] (veya hello engelleme JobOperations.TerminateJob) bu işin tamamlandı olarak işaretler. Temel toodo olduğundan bunu Batch çözümünüzü kullanıyorsa, bir [JobReleaseTask][net_jobreltask]. [İş hazırlama ve tamamlama görevleri](batch-job-prep-release.md)’nde açıklanan özel tür bir görevdir.
 
-*DotNetTutorial*'ın `Program.cs` öğesine ait `MonitorTasks` yöntemi aşağıda görüntülenmektedir:
+Merhaba `MonitorTasks` yönteminden *DotNetTutorial*'s `Program.cs` aşağıda yer almaktadır:
 
 ```csharp
 private static async Task<bool> MonitorTasks(
@@ -529,12 +529,12 @@ private static async Task<bool> MonitorTasks(
 {
     bool allTasksSuccessful = true;
     const string successMessage = "All tasks reached state Completed.";
-    const string failureMessage = "One or more tasks failed to reach the Completed state within the timeout period.";
+    const string failureMessage = "One or more tasks failed tooreach hello Completed state within hello timeout period.";
 
-    // Obtain the collection of tasks currently managed by the job. Note that we use
-    // a detail level to  specify that only the "id" property of each task should be
-    // populated. Using a detail level for all list operations helps to lower
-    // response time from the Batch service.
+    // Obtain hello collection of tasks currently managed by hello job. Note that we use
+    // a detail level too specify that only hello "id" property of each task should be
+    // populated. Using a detail level for all list operations helps toolower
+    // response time from hello Batch service.
     ODATADetailLevel detail = new ODATADetailLevel(selectClause: "id");
     List<CloudTask> tasks =
         await batchClient.JobOperations.ListTasks(JobId, detail).ToListAsync();
@@ -542,8 +542,8 @@ private static async Task<bool> MonitorTasks(
     Console.WriteLine("Awaiting task completion, timeout in {0}...",
         timeout.ToString());
 
-    // We use a TaskStateMonitor to monitor the state of our tasks. In this case, we
-    // will wait for all tasks to reach the Completed state.
+    // We use a TaskStateMonitor toomonitor hello state of our tasks. In this case, we
+    // will wait for all tasks tooreach hello Completed state.
     TaskStateMonitor taskStateMonitor
         = batchClient.Utilities.CreateTaskStateMonitor();
 
@@ -560,32 +560,32 @@ private static async Task<bool> MonitorTasks(
 
     await batchClient.JobOperations.TerminateJobAsync(jobId, successMessage);
 
-    // All tasks have reached the "Completed" state, however, this does not
+    // All tasks have reached hello "Completed" state, however, this does not
     // guarantee all tasks completed successfully. Here we further check each task's
-    // ExecutionInfo property to ensure that it did not encounter a failure
+    // ExecutionInfo property tooensure that it did not encounter a failure
     // or return a non-zero exit code.
 
-    // Update the detail level to populate only the task id and executionInfo
-    // properties. We refresh the tasks below, and need only this information for
+    // Update hello detail level toopopulate only hello task id and executionInfo
+    // properties. We refresh hello tasks below, and need only this information for
     // each task.
     detail.SelectClause = "id, executionInfo";
 
     foreach (CloudTask task in tasks)
     {
-        // Populate the task's properties with the latest info from the Batch service
+        // Populate hello task's properties with hello latest info from hello Batch service
         await task.RefreshAsync(detail);
 
         if (task.ExecutionInformation.Result == TaskExecutionResult.Failure)
         {
-            // A task with failure information set indicates there was a problem with the task. It is important to note that
-            // the task's state can be "Completed," yet still have encountered a failure.
+            // A task with failure information set indicates there was a problem with hello task. It is important toonote that
+            // hello task's state can be "Completed," yet still have encountered a failure.
 
             allTasksSuccessful = false;
 
             Console.WriteLine("WARNING: Task [{0}] encountered a failure: {1}", task.Id, task.ExecutionInformation.FailureInformation.Message);
             if (task.ExecutionInformation.ExitCode != 0)
             {
-                // A non-zero exit code may indicate that the application executed by the task encountered an error
+                // A non-zero exit code may indicate that hello application executed by hello task encountered an error
                 // during execution. As not every application returns non-zero on failure by default (e.g. robocopy),
                 // your implementation of error checking may differ from this example.
 
@@ -596,7 +596,7 @@ private static async Task<bool> MonitorTasks(
 
     if (allTasksSuccessful)
     {
-        Console.WriteLine("Success! All tasks completed successfully within the specified timeout period.");
+        Console.WriteLine("Success! All tasks completed successfully within hello specified timeout period.");
     }
 
     return allTasksSuccessful;
@@ -606,7 +606,7 @@ private static async Task<bool> MonitorTasks(
 ## <a name="step-7-download-task-output"></a>7. Adım: Görev çıktısı indirme
 ![Storage'dan görev çıktısını indirme][7]<br/>
 
-Artık iş tamamlandı, görevlere ait çıktı Azure Storage’dan indirilebilir. *DotNetTutorial*'a ait `Program.cs` içinde `DownloadBlobsFromContainerAsync` çağrısıyla yapılır:
+Merhaba iş tamamlandığında, hello görevleri hello çıktısını Azure Storage'dan indirilebilir. Bu çağrı çok yapılır`DownloadBlobsFromContainerAsync` içinde *DotNetTutorial*'s `Program.cs`:
 
 ```csharp
 private static async Task DownloadBlobsFromContainerAsync(
@@ -616,33 +616,33 @@ private static async Task DownloadBlobsFromContainerAsync(
 {
         Console.WriteLine("Downloading all files from container [{0}]...", containerName);
 
-        // Retrieve a reference to a previously created container
+        // Retrieve a reference tooa previously created container
         CloudBlobContainer container = blobClient.GetContainerReference(containerName);
 
-        // Get a flat listing of all the block blobs in the specified container
+        // Get a flat listing of all hello block blobs in hello specified container
         foreach (IListBlobItem item in container.ListBlobs(
                     prefix: null,
                     useFlatBlobListing: true))
         {
-                // Retrieve reference to the current blob
+                // Retrieve reference toohello current blob
                 CloudBlob blob = (CloudBlob)item;
 
-                // Save blob contents to a file in the specified folder
+                // Save blob contents tooa file in hello specified folder
                 string localOutputFile = Path.Combine(directoryPath, blob.Name);
                 await blob.DownloadToFileAsync(localOutputFile, FileMode.Create);
         }
 
-        Console.WriteLine("All files downloaded to {0}", directoryPath);
+        Console.WriteLine("All files downloaded too{0}", directoryPath);
 }
 ```
 
 > [!NOTE]
-> *DotNetTutorial* uygulamasındaki `DownloadBlobsFromContainerAsync` çağrısı dosyaların `%TEMP%` klasörünüze yüklenmiş olması gerektiğini belirtir. Bu çıktı konumunu değiştirmekten çekinmeyin.
+> Çağrı çok hello`DownloadBlobsFromContainerAsync` hello içinde *DotNetTutorial* uygulama belirtir hello dosyaları indirilen tooyour olmalıdır `%TEMP%` klasör. Ücretsiz toomodify düşünüyorsanız bu konumu çıktı.
 >
 >
 
 ## <a name="step-8-delete-containers"></a>8. Adım: Sil kapsayıcıları
-Azure Storage’da yer alan veriler için ücretlendirildiğinizden, Batch işleriniz için artık gerekmeyen blobları kaldırmak iyi bir fikirdir. DotNetTutorial'ın `Program.cs` öğesinde, `DeleteContainerAsync` yardımcı yöntemine yönelik üç çağrı yapılır:
+Azure Storage'da yer alan veriler için ücretlendirildiğinizden, Batch işleriniz için artık gerekli olmayan bir fikir tooremove BLOB her zaman sayısıdır. Dotnettutorial'ın `Program.cs`, bu üç çağrı toohello yardımcı yöntemi ile yapılır `DeleteContainerAsync`:
 
 ```csharp
 // Clean up Storage resources
@@ -651,7 +651,7 @@ await DeleteContainerAsync(blobClient, inputContainerName);
 await DeleteContainerAsync(blobClient, outputContainerName);
 ```
 
-Yöntemin kendisi yalnızca kapsayıcıya başvuru alır ve ardından [CloudBlobContainer.DeleteIfExistsAsync][net_container_delete] öğesini çağırır:
+Merhaba yöntemin kendisi yalnızca başvuru toohello kapsayıcı edinir ve ardından çağırır [Cloudblobcontainer.deleteıfexistsasync][net_container_delete]:
 
 ```csharp
 private static async Task DeleteContainerAsync(
@@ -672,13 +672,13 @@ private static async Task DeleteContainerAsync(
 }
 ```
 
-## <a name="step-9-delete-the-job-and-the-pool"></a>9. Adım: İşi ve havuzu silme
-Son adımda, DotNetTutorial uygulaması tarafından oluşturulan işi ve havuzu silmeniz istenir. İşlerin ve görevlerin kendileri için sizden ücret alınmasa da işlem düğümleri için *ücret alınır*. Bu nedenle, düğümleri yalnızca gerektiğinde ayırmanız önerilir. Kullanılmayan havuzların silinmesi bakım işleminizin bir parçası olabilir.
+## <a name="step-9-delete-hello-job-and-hello-pool"></a>9. adım: hello işi ve hello havuzu silme
+Merhaba son adımda Merhaba DotNetTutorial uygulaması tarafından oluşturulan istendiğinde toodelete hello iş ve hello havuzu demektir. İşlerin ve görevlerin kendileri için sizden ücret alınmasa da işlem düğümleri için *ücret alınır*. Bu nedenle, düğümleri yalnızca gerektiğinde ayırmanız önerilir. Kullanılmayan havuzların silinmesi bakım işleminizin bir parçası olabilir.
 
-BatchClient'ın [JobOperations][net_joboperations] ve [PoolOperations][net_pooloperations] öğelerinin her ikisine de, kullanıcının silmeyi onaylaması durumunda karşılık gelecek silme yöntemleri vardır:
+Merhaba BatchClient's [JobOperations] [ net_joboperations] ve [PoolOperations] [ net_pooloperations] her ikisi de varsa adlı ilgili silme yöntemleri vardır Merhaba kullanıcı silme onaylar:
 
 ```csharp
-// Clean up the resources we've created in the Batch account if the user so chooses
+// Clean up hello resources we've created in hello Batch account if hello user so chooses
 Console.WriteLine();
 Console.WriteLine("Delete job? [yes] no");
 string response = Console.ReadLine().ToLower();
@@ -696,14 +696,14 @@ if (response != "n" && response != "no")
 ```
 
 > [!IMPORTANT]
-> İşlem kaynaklarının ücretli olduğunu unutmayın; kullanılmayan havuzların silinmesi masrafları azaltacaktır. Bunun yanı sıra, bir havuzun silinmesinin, bu havuz içindeki tüm işlem düğümlerini de sileceğini unutmayın; bu nedenle, düğümlerdeki veriler de havuz silindikten sonra kurtarılamayacaktır.
+> İşlem kaynaklarının ücretli olduğunu unutmayın; kullanılmayan havuzların silinmesi masrafları azaltacaktır. Ayrıca, bir havuzun silinmesinin Bu havuz içindeki tüm işlem düğümlerini siler ve hello havuz silindikten sonra hello düğümlerinde tüm veriler kurtarılamaz olacağını unutmayın.
 >
 >
 
-## <a name="run-the-dotnettutorial-sample"></a>*DotNetTutorial* örneğini çalıştırma
-Örnek uygulamayı çalıştırdığınızda, konsol çıktısı aşağıdakine benzer. Yürütme sırasında, havuzun işlem düğümleri başlatıldığı sırada `Awaiting task completion, timeout in 00:30:00...` öğesiyle karşılaşacaksınız. Havuzunuzu, işlem düğümlerinizi, işinizi ve görevlerinizi yürütme sırasında ve sonrasında izlemek için [Azure portalını][azure_portal] kullanın. Uygulamanın oluşturduğu Depolama kaynaklarını (kapsayıcılar ve bloblar) görüntülemek için [Azure portalını][azure_portal] veya [Azure Depolama Gezgini’ni][storage_explorers] kullanın.
+## <a name="run-hello-dotnettutorial-sample"></a>Merhaba çalıştırmak *DotNetTutorial* örnek
+Merhaba örnek uygulamayı çalıştırdığınızda, hello konsol çıktısı benzer toohello aşağıdaki olacaktır. Yürütme sırasında bir öğesiyle karşılaşacaksınız `Awaiting task completion, timeout in 00:30:00...` hello havuzun işlem düğümleri başlatıldığı sırada. Kullanım hello [Azure portal] [ azure_portal] toomonitor havuzu, işlem düğümleri, işi ve görevleri yürütme sırasında ve sonrasında. Kullanım hello [Azure portal] [ azure_portal] veya hello [Azure Storage Gezgini] [ storage_explorers] olan tooview hello depolama kaynaklarını (kapsayıcılar ve bloblar) Merhaba uygulama tarafından oluşturulur.
 
-Varsayılan yapılandırmasında uygulama çalıştırıldığında tipik yürütme süresi **yaklaşık 5 dakikadır**.
+Tipik yürütme süresi **yaklaşık 5 dakika** varsayılan yapılandırmasında hello uygulama çalıştırıldığında.
 
 ```
 Sample start: 1/8/2016 09:42:58 AM
@@ -711,18 +711,18 @@ Sample start: 1/8/2016 09:42:58 AM
 Container [application] created.
 Container [input] created.
 Container [output] created.
-Uploading file C:\repos\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial\bin\Debug\TaskApplication.exe to container [application]...
-Uploading file Microsoft.WindowsAzure.Storage.dll to container [application]...
-Uploading file ..\..\taskdata1.txt to container [input]...
-Uploading file ..\..\taskdata2.txt to container [input]...
-Uploading file ..\..\taskdata3.txt to container [input]...
+Uploading file C:\repos\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial\bin\Debug\TaskApplication.exe toocontainer [application]...
+Uploading file Microsoft.WindowsAzure.Storage.dll toocontainer [application]...
+Uploading file ..\..\taskdata1.txt toocontainer [input]...
+Uploading file ..\..\taskdata2.txt toocontainer [input]...
+Uploading file ..\..\taskdata3.txt toocontainer [input]...
 Creating pool [DotNetTutorialPool]...
 Creating job [DotNetTutorialJob]...
-Adding 3 tasks to job [DotNetTutorialJob]...
+Adding 3 tasks toojob [DotNetTutorialJob]...
 Awaiting task completion, timeout in 00:30:00...
-Success! All tasks completed successfully within the specified timeout period.
+Success! All tasks completed successfully within hello specified timeout period.
 Downloading all files from container [output]...
-All files downloaded to C:\Users\USERNAME\AppData\Local\Temp
+All files downloaded tooC:\Users\USERNAME\AppData\Local\Temp
 Container [application] deleted.
 Container [input] deleted.
 Container [output] deleted.
@@ -733,18 +733,18 @@ Elapsed time: 00:04:48.5358142
 Delete job? [yes] no: yes
 Delete pool? [yes] no: yes
 
-Sample complete, hit ENTER to exit...
+Sample complete, hit ENTER tooexit...
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Farklı işlem senaryolarıyla denemeler yapmak için *DotNetTutorial* ve *TaskApplication* öğelerinde değişiklik yapmaktan çekinmeyin. Örneğin, uzun soluklu görevlerin benzetimini gerçekleştirmek ve bunları portalda izlemek için [Thread.Sleep][net_thread_sleep] ile olduğu gibi *TaskApplication*’a bir yürütme gecikmesi eklemeye çalışın. Daha fazla görev eklemeye veya işlem düğüm sayısını ayarlamaya çalışın. Yürütme süresini hızlandırmak için mevcut havuzun kullanımını denetleyip izin vermek için mantık ekleyin (*ipucu*: [azure-batch-samples][github_samples] içindeki [Microsoft.Azure.Batch.Samples.Common][github_samples_common] projesinde `ArticleHelpers.cs` öğesini kullanıma alın).
+Ücretsiz toomake değişiklikleri çok eşitleyerek*DotNetTutorial* ve *TaskApplication* tooexperiment farklı olan işlem senaryoları. Örneğin, bir yürütme gecikmesi çok eklemeyi deneyin*TaskApplication*gibi bir durumda olduğu gibi [Thread.Sleep][net_thread_sleep], uzun süre çalışan toosimulate görevler ve bunları hello Portalı'nda izleyebilirsiniz. Deneyin daha fazla görev eklemeye veya işlem düğümleri hello sayısını ayarlama. İçin mantığı toocheck eklemek ve varolan bir havuzu toospeed yürütme saati hello kullanılmasına izin verin (*İpucu*: kullanıma `ArticleHelpers.cs` hello içinde [öğesini kullanıma alın] [ github_samples_common] proje [azure-batch-samples][github_samples]).
 
-Batch çözümünün temel iş akışı hakkında artık bilginiz olduğuna göre, Batch hizmetinin ek özelliklerinin derinliklerine dalma zamanı gelmiştir.
+Merhaba temel iş akışı Batch çözümünün ile tanıdık, zaman toodig hello Batch hizmetinin ek özelliklerinin toohello içinde olduğu.
 
-* Hizmetle yeni tanışıyorsanız önerdiğimiz [Azure Batch özelliklerine genel bakış](batch-api-basics.md) makalesini gözden geçirin.
-* [Batch öğrenme yolu][batch_learning_path]’ndaki **Ayrıntılı geliştirme** altında diğer Batch geliştirmesi makalelerine başlayın.
-* [TopNWords][github_topnwords] örneğinde Batch tarafından kullanılan "ilk N sözcük" iş yükünü işlemenin farklı uygulamalarını kullanıma alın.
-* Kitaplıktaki son değişiklikler için Batch .NET [sürüm notlarını](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/Batch/DataPlane/changelog.md#azurebatch-release-notes) inceleyin.
+* Gözden geçirme hello [genel bakış Azure Batch özelliklerine](batch-api-basics.md) yeni toohello hizmeti olup olmadığınızı öneririz makalesi.
+* Başlat'hello altında diğer Batch geliştirmesi makalelerine **geliştirme ayrıntılı** hello içinde [Batch öğrenme yolu][batch_learning_path].
+* Hello toplu kullanarak hello "ilk N sözcük" iş yükünü işlemenin farklı bir uygulama kullanıma [TopNWords] [ github_topnwords] örnek.
+* Gözden geçirme hello Batch .NET [sürüm notları](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/Batch/DataPlane/changelog.md#azurebatch-release-notes) hello en son değişiklikleri hello Kitaplığı'nda.
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: https://azure.microsoft.com/free/
@@ -795,10 +795,10 @@ Batch çözümünün temel iş akışı hakkında artık bilginiz olduğuna gör
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
 [1]: ./media/batch-dotnet-get-started/batch_workflow_01_sm.png "Azure Depolama’da kapsayıcı oluşturma"
-[2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Görev uygulamasını ve girdi (veriler) dosyalarını kapsayıcılara yükleme"
+[2]: ./media/batch-dotnet-get-started/batch_workflow_02_sm.png "Karşıya yükleme görev uygulamasını ve girdi (veri) toocontainers dosyaları"
 [3]: ./media/batch-dotnet-get-started/batch_workflow_03_sm.png "Batch havuzu oluşturma"
 [4]: ./media/batch-dotnet-get-started/batch_workflow_04_sm.png "Batch işi oluşturma"
-[5]: ./media/batch-dotnet-get-started/batch_workflow_05_sm.png "İşe görev ekleme"
+[5]: ./media/batch-dotnet-get-started/batch_workflow_05_sm.png "Görevleri toojob Ekle"
 [6]: ./media/batch-dotnet-get-started/batch_workflow_06_sm.png "Görevleri izleme"
 [7]: ./media/batch-dotnet-get-started/batch_workflow_07_sm.png "Depolama’dan görev çıkışını indirme"
 [8]: ./media/batch-dotnet-get-started/batch_workflow_sm.png "Batch çözümü iş akışı (tam diyagram)"

@@ -5,4 +5,4 @@
 | Her bölge için kayıt kümeleri |5000 <sup>1</sup> |
 | Kayıt kümesi başına kayıt |20 |
 
-<sup>1</sup> durumda bu sınırları artırmak için Azure Destek birimine başvurun.
+<sup>1</sup> Azure desteği ile iletişim kurun durumunda bu sınırları tooincrease gerekir.

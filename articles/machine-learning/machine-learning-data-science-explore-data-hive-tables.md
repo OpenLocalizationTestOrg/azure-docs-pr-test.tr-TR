@@ -1,5 +1,5 @@
 ---
-title: "Hive tabloları Hive sorguları ile keşfedin | Microsoft Docs"
+title: "Hive tabloları Hive sorguları ile aaaExplore verileri | Microsoft Docs"
 description: "Hive sorgularını kullanarak Hive tablolarındaki verileri keşfedin."
 services: machine-learning
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.openlocfilehash: 67a33a9abc3d3dcdd2fc7205e11feff97e3582a3
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 2ede3d41682aa08ced19284f7a83ec95e0c2a93a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="explore-data-in-hive-tables-with-hive-queries"></a>Hive sorguları ile Hive tablosundaki verileri keşfedin
-Bu belgede bir Hdınsight Hadoop kümesindeki Hive tablolarındaki verileri keşfetmek için kullanılan örnek Hive komut dosyaları sağlar.
+Bu belgede kullanılan tooexplore verileri bir Hdınsight Hadoop kümesindeki Hive tablolardaki örnek Hive komut dosyaları sağlar.
 
-Aşağıdaki **menü** araçları çeşitli depolama ortamlarından verileri araştırmak için nasıl kullanılacağını açıklayan konulara bağlantılar.
+Merhaba aşağıdaki **menü** nasıl toouse tooexplore veri çeşitli depolama ortamlarından araçları açıklamak tootopics bağlar.
 
 [!INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
@@ -31,18 +31,18 @@ Aşağıdaki **menü** araçları çeşitli depolama ortamlarından verileri ara
 Bu makalede, sahip olduğunuz varsayılmaktadır:
 
 * Bir Azure depolama hesabı oluşturuldu. Yönergeler gerekiyorsa bkz [bir Azure depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account)
-* Özelleştirilmiş bir Hadoop kümesine Hdınsight hizmetiyle sağlandı. Yönergeler gerekiyorsa bkz [Advanced Analytics için Azure Hdınsight Hadoop kümeleri özelleştirme](machine-learning-data-science-customize-hadoop-cluster.md).
-* Azure Hdınsight Hadoop kümeleri Hive tabloları için verileri karşıya yüklendi. Sahip değil,'ndaki yönergeleri izleyin. [Hive tabloları oluşturma ve yük verileri](machine-learning-data-science-move-hive-tables.md) verileri ilk Hive tablolara yüklemek için.
-* Küme uzak erişim etkin. Yönergeler gerekiyorsa bkz [Hadoop küme baş düğümü erişim](machine-learning-data-science-customize-hadoop-cluster.md#headnode).
-* Hive sorguları göndermek yönergeler gerekiyorsa bkz [nasıl Hive sorguları göndermek için](machine-learning-data-science-move-hive-tables.md#submit)
+* Özelleştirilmiş bir Hadoop kümesine hello Hdınsight hizmeti ile sağlandı. Yönergeler gerekiyorsa bkz [Advanced Analytics için Azure Hdınsight Hadoop kümeleri özelleştirme](machine-learning-data-science-customize-hadoop-cluster.md).
+* Merhaba veri Azure Hdınsight Hadoop kümeleri karşıya yüklenen tooHive tablolarda olmuştur. Sahip değil, hello yönergeleri izleyin. [oluşturma ve yük veri tooHive tabloları](machine-learning-data-science-move-hive-tables.md) tooupload veri tooHive tabloları ilk.
+* Uzaktan erişim toohello küme etkin. Yönergeler gerekiyorsa bkz [erişim hello Hadoop kümesi, baş düğüm](machine-learning-data-science-customize-hadoop-cluster.md#headnode).
+* Yönergeler gerekiyorsa bkz: toosubmit Hive sorguları [nasıl tooSubmit Hive sorguları](machine-learning-data-science-move-hive-tables.md#submit)
 
 ## <a name="example-hive-query-scripts-for-data-exploration"></a>Veri keşfi için örnek Hive sorgusu komut dosyaları
-1. Bölüm başına gözlemleri sayısını alın`SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
-2. Gün başına gözlemleri sayısını alın`SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
-3. Kategorik bir sütunda düzeylerini Al  
+1. Bölüm başına gözlemleri Hello sayısını alın`SELECT <partitionfieldname>, count(*) from <databasename>.<tablename> group by <partitionfieldname>;`
+2. Gün başına gözlemleri Hello sayısını alın`SELECT to_date(<date_columnname>), count(*) from <databasename>.<tablename> group by to_date(<date_columnname>);`
+3. Merhaba düzeylerini kategorik sütunda Al  
     `SELECT  distinct <column_name> from <databasename>.<tablename>`
-4. İki kategorik sütun arada düzey sayısını Al`SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
-5. Sayısal sütunlar için dağıtım Al  
+4. İki kategorik sütun arada Hello düzey sayısını Al`SELECT <column_a>, <column_b>, count(*) from <databasename>.<tablename> group by <column_a>, <column_b>`
+5. Merhaba dağıtım sayısal sütunlar için alma  
     `SELECT <column_name>, count(*) from <databasename>.<tablename> group by <column_name>`
 6. İki tablo birleştirme kayıtları Ayıkla
    
@@ -72,5 +72,5 @@ Bu makalede, sahip olduğunuz varsayılmaktadır:
             ON a.<common_columnname1>=b.<common_columnname1> and a.<common_columnname2>=b.<common_columnname2>
 
 ## <a name="additional-query-scripts-for-taxi-trip-data-scenarios"></a>Ücreti seyahat veri senaryoları için ek sorgu komut dosyaları
-Özel sorgular örnekleri [NYC ücreti seyahat veri](http://chriswhong.com/open-data/foil_nyc_taxi/) senaryoları burada da sunulmaktadır [GitHub deposunu](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Bu sorgular zaten belirtilen veri şeması varsa ve çalıştırmak için gönderilmesi hazırsınız.
+Çok belirli sorguları örnekleri[NYC ücreti seyahat veri](http://chriswhong.com/open-data/foil_nyc_taxi/) senaryoları burada da sunulmaktadır [GitHub deposunu](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). Bu sorgular zaten belirtilen veri şeması varsa ve gönderilen hazır toobe toorun.
 

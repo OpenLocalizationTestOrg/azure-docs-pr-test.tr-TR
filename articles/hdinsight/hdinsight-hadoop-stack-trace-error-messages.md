@@ -1,6 +1,6 @@
 ---
-title: "Azure Hdınsight Hadoop yığın izleme hata iletilerini - | Microsoft Docs"
-description: "Azure hdınsight'ta Hadoop, dizin yığın izleme hata iletileri. Hata sorun giderme bilgilerini görmek için listesinde bulun."
+title: "Azure Hdınsight aaaHadoop yığın izleme hata iletilerini - | Microsoft Docs"
+description: "Azure hdınsight'ta Hadoop, dizin yığın izleme hata iletileri. Merhaba hata hello liste toosee sorun giderme bilgilerini bulun."
 keywords: "yığın izlemesi, hata iletileri"
 services: hdinsight
 documentationcenter: NA
@@ -16,20 +16,20 @@ ms.tgt_pltfrm: NA
 ms.workload: big-data
 ms.date: 08/15/2017
 ms.author: jgao
-ms.openlocfilehash: 45b3df39dcabf8be640bf6b9e5b83a452d6dd824
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 875cea0198d74feac5791b3bea095a01319dc45e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="index-of-hadoop-in-hdinsight-troubleshooting-articles"></a>Sorun giderme makalelerini hdınsight'ta Hadoop dizini
 Makaleler hataların türlerine göre düzenlenir.
 
 ## <a name="out-of-memory-error"></a>Yetersiz bellek hatası
-* [Yetersiz bellek hatasını hdınsight'ta Hive düzeltme](hdinsight-hadoop-hive-out-of-memory-error-oom.md): yetersiz bellek hatası (OOM) bir Hive sorgusu düzeltin. Müşteri senaryosu birçok büyük tabloları arasında bir sorgu içerir.
+* [Yetersiz bellek hatasını hdınsight'ta Hive düzeltme](hdinsight-hadoop-hive-out-of-memory-error-oom.md): yetersiz bellek hatası (OOM) bir Hive sorgusu düzeltin. Merhaba müşteri senaryosu birçok büyük tabloları arasında bir sorgu içerir.
 
 ## <a name="hive-query-performance"></a>Hive sorgu performansı
-* [Hdınsight'ta Hadoop Hive sorguları en iyi duruma](hdinsight-hadoop-optimize-hive-query.md): Bu makalede, Hive sorguları için uygulayabileceğiniz en yaygın bazı Hive performans en iyi duruma getirme yöntemleri kapsar.
+* [Hdınsight'ta Hadoop Hive sorguları en iyi duruma](hdinsight-hadoop-optimize-hive-query.md): Bu makalede tooHive sorguları uygulayabilirsiniz bazı yaygın Hive performansı en iyi duruma getirme yöntemleri kapsar.
 * [Hdınsight Hadoop kümesindeki Hive sorgusu performans sorunlarını giderme](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/).
 
 ## <a name="more-troubleshooting-articles"></a>Daha fazla sorun giderme makaleleri

@@ -1,0 +1,2 @@
+**Q**: neden hello konumu my mevcut ağ geçidi için değiştirmek mi? <br/>
+**A**: Bu ağ geçitlerinin oluşturulan ağ geçidi kaynakları 3 Mayıs 2017 taşımadan önce toohello özgün konumlar hello Azure AD Kiracı hello iş veya Okul hesabı oluşturuldu. Ancak, bu değişiklikler, her zamanki gibi çalışmaya devam etmelidir çalışmakta mantıksal uygulamaları etkiler döndürmemelidir. Merhaba ağ geçidi genel kullanılabilirlik ile olabilir, ağ geçidi kaynak konumları mantığı uygulama konumlardan farklı olabilir.

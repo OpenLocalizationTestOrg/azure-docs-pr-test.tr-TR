@@ -1,6 +1,6 @@
 ---
-title: "StorSimple anlık görüntü Yöneticisi ile cihazları yönetme | Microsoft Docs"
-description: "StorSimple Snapshot Manager MMC ek bileşenini bağlanmak ve StorSimple cihazları yönetmek için nasıl kullanılacağını açıklar."
+title: "aaaManage aygıtlar ile StorSimple Snapshot Manager | Microsoft Docs"
+description: "Toouse StorSimple Snapshot Manager MMC ek bileşenini tooconnect hello ve StorSimple cihazları yönetmenize nasıl açıklanmaktadır."
 services: storsimple
 documentationcenter: 
 author: SharS
@@ -14,38 +14,38 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.openlocfilehash: f5e3186a4271e0be781f367fa75ada195c58c960
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7a2a2ca830e4ea6eb4b01f2542958df3871c1700
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>StorSimple Snapshot Manager bağlanmak ve StorSimple cihazları yönetmek için kullanın
+# <a name="use-storsimple-snapshot-manager-tooconnect-and-manage-storsimple-devices"></a>StorSimple Snapshot Manager tooconnect kullanma ve StorSimple cihazları yönetme
 ## <a name="overview"></a>Genel Bakış
-StorSimple anlık görüntü Yöneticisi'nde düğümlerini kullanabilirsiniz **kapsam** alınan StorSimple cihaz verileri doğrulayın ve bağlı depolama cihazları yenilemek için bölmesi. Ek olarak, tıkladığınızda, **aygıtları** düğümü, bağlı cihazlarınız ve ilgili durum bilgileri listesini görebilirsiniz **sonuçları** bölmesi.
+Merhaba StorSimple Snapshot Manager düğümlerini kullanabilirsiniz **kapsam** bölmesinde tooverify StorSimple cihaz verileri içe ve bağlı depolama cihazları yenileyin. Ayrıca, hello tıklattığınızda **aygıtları** düğümü, bağlı cihazlarınız ve ilgili durum bilgileri hello listesini görebilir **sonuçları** bölmesi.
 
 ![Bağlı aygıtlar](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_connect_devices.png)
 
 **Şekil 1: Cihaz StorSimple Snapshot Manager bağlı** 
 
-Bağlı olarak, **Görünüm** seçimleri **sonuçları** bölmesinde her bir cihaz hakkında aşağıdaki bilgileri gösterir. (Bir görünüm yapılandırma hakkında daha fazla bilgi için Git [Görünüm menüsünde](storsimple-use-snapshot-manager.md#view-menu).
+Bağlı olarak, **Görünüm** seçimleri, hello **sonuçları** bölmesinde, her cihazı hakkında bilgileri aşağıdaki hello gösterilir. (Bir görünüm yapılandırma hakkında daha fazla bilgi için çok Git[Görünüm menüsünde](storsimple-use-snapshot-manager.md#view-menu).
 
 | Sonuçları sütun | Açıklama |
 |:--- |:--- |
-| Ad |Azure Klasik Portalı'nda yapılandırılan aygıt adı |
-| modeli |Cihazın model numarası |
-| Sürüm |Cihazda yüklü olan yazılım sürümü |
-| Durum |Cihazın kullanılabilir olup olmadığı |
-| Son eşitlendi |Tarih ve saat aygıt en son ne zaman eşitlendiği |
-| Seri No |Cihaz seri numarası |
+| Ad |Merhaba Klasik Azure portalı yapılandırıldığı şekilde hello aygıtın Hello adı |
+| modeli |Merhaba modeli hello aygıt sayısı |
+| Sürüm |Merhaba cihazda yüklü hello yazılımın Hello sürümü |
+| Durum |Merhaba cihaz hazır olup |
+| Son eşitlendi |Tarih ve saat hello aygıt en son ne zaman eşitlendiği |
+| Seri No |Merhaba aygıtın Hello seri numarası |
 
-Sağ tıklattığınızda, **aygıtları** düğümünde **kapsam** bölmesinde, aşağıdaki eylemler seçebilirsiniz:
+Merhaba sağ tıklattığınızda, **aygıtları** hello düğümünde **kapsam** bölmesinde, aşağıdaki eylemler hello seçebilirsiniz:
 
 * Ekleme veya bir aygıt değiştirme
 * Bir aygıtı bağlayın ve içeri aktarmalar doğrulayın
 * Bağlı aygıtlar Yenile
 
-Tıklatırsanız **aygıtları** düğümünü ve ardından sağ tıklayarak bir aygıt adı **sonuçları** bölmesinde, aşağıdaki eylemler seçebilirsiniz:
+Merhaba tıklatırsanız **aygıtları** düğümünü ve ardından sağ tıklayarak bir aygıt adı hello **sonuçları** bölmesinde, aşağıdaki eylemler hello seçebilirsiniz:
 
 * Bir cihaz kimlik doğrulaması
 * Cihaz ayrıntıları görüntüle
@@ -54,10 +54,10 @@ Tıklatırsanız **aygıtları** düğümünü ve ardından sağ tıklayarak bir
 * Aygıt parola değiştirme
 
 > [!NOTE]
-> Tüm bu eylemleri mevcuttur **Eylemler** bölmesi.
+> Tüm bu eylemleri de hello kullanılabilir **Eylemler** bölmesi.
 
 
-Bu öğretici StorSimple Snapshot Manager bağlanmak ve cihazları yönetmek ve aşağıdaki görevleri gerçekleştirmek için nasıl kullanılacağını açıklamaktadır:
+Bu öğretici açıklar nasıl toouse StorSimple Snapshot Manager tooconnect ve cihazları yönetmek ve hello aşağıdaki görevleri gerçekleştirin:
 
 * Ekleme veya bir aygıt değiştirme
 * Bir aygıtı bağlayın ve içeri aktarmalar doğrulayın
@@ -70,144 +70,144 @@ Bu öğretici StorSimple Snapshot Manager bağlanmak ve cihazları yönetmek ve 
 * Başarısız aygıt değiştirin
 
 > [!NOTE]
-> StorSimple Snapshot Manager arabirimini kullanma hakkında genel bilgi için Git [StorSimple Snapshot Manager kullanıcı arabirimini](storsimple-use-snapshot-manager.md).
+> Merhaba StorSimple Snapshot Manager arabirimini kullanma hakkında genel bilgi için çok Git[StorSimple Snapshot Manager kullanıcı arabirimini](storsimple-use-snapshot-manager.md).
 
 
 ## <a name="add-or-replace-a-device"></a>Ekleme veya bir aygıt değiştirme
-Eklemek veya bir StorSimple cihazı değiştirmek için aşağıdaki yordamı kullanın.
+Aşağıdaki yordam tooadd hello kullanın veya bir StorSimple cihazı değiştirin.
 
-#### <a name="to-add-or-replace-a-device"></a>Eklemek veya bir aygıt değiştirmek için
-1. StorSimple anlık görüntü Yöneticisi'ni başlatmak için Masaüstü simgesine tıklayın.
-2. İçinde **kapsam** bölmesinde sağ **aygıtları** düğümünü ve ardından **bir aygıt yapılandırma**. **Bir aygıt yapılandırma** iletişim kutusu görüntülenir.
+#### <a name="tooadd-or-replace-a-device"></a>tooadd veya bir aygıt Değiştir
+1. Merhaba Masaüstü simgesi toostart StorSimple Snapshot Manager'ı tıklatın.
+2. Merhaba, **kapsam** bölmesi, sağ hello **aygıtları** düğümünü ve ardından **bir aygıt yapılandırma**. Merhaba **bir aygıt yapılandırma** iletişim kutusu görüntülenir.
    
     ![Bir StorSimple cihazını Yapılandır](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_config_device.png) 
-3. İçinde **aygıt** açılır kutusunda, cihaz veya sanal aygıt IP adresi seçin. 
-4. İçinde **parola** metin kutusuna, Klasik Azure portalı cihazı için oluşturduğunuz StorSimple Snapshot Manager parolasını yazın. **Tamam** düğmesine tıklayın. StorSimple Snapshot Manager tanımladığınız cihaz için arar. 
+3. Merhaba, **aygıt** açılan kutusu, select hello IP adresini hello aygıt veya sanal aygıt. 
+4. Merhaba, **parola** metin kutusu, Klasik Azure portalı hello hello aygıt için oluşturulan türü hello StorSimple Snapshot Manager parolası. **Tamam** düğmesine tıklayın. StorSimple Snapshot Manager tanımladığınız hello aygıt için arar. 
    
-   * Cihaz kullanılabilir değilse, StorSimple Snapshot Manager bağlantı ekler.
-   * Aygıt için herhangi bir nedenle kullanılamıyorsa, StorSimple Snapshot Manager bir hata iletisi döndürür. Tıklatın **Tamam** hata iletisini kapatın ve ardından **iptal** kapatmak için **bir aygıt yapılandırma** iletişim kutusu.
+   * Merhaba aygıt varsa, StorSimple Snapshot Manager bağlantı ekler.
+   * Merhaba aygıt herhangi bir nedenle kullanılamıyorsa, StorSimple Snapshot Manager bir hata iletisi döndürür. Tıklatın **Tamam** tooclose hello hata iletisi ve ardından **iptal** tooclose hello **bir aygıt yapılandırma** iletişim kutusu.
 
 ## <a name="connect-a-device-and-verify-imports"></a>Bir aygıtı bağlayın ve içeri aktarmalar doğrulayın
-StorSimple cihazı bağlayın ve yedeklemeleri ilişkilendirdiğiniz varolan birim gruplarda alınır doğrulamak için aşağıdaki yordamı kullanın.
+Yordam tooconnect StorSimple cihazını izleyen hello kullanın ve yedeklemeleri ilişkilendirdiğiniz varolan birim gruplarda alınır doğrulayın.
 
-#### <a name="to-connect-a-device-and-verify-imports"></a>Bir aygıtı bağlayın ve içeri aktarmalar doğrulamak için
-1. StorSimple Snapshot Manager bir aygıtı bağlamak için Ekle'ndaki yönergeleri izleyin veya bir aygıt değiştirin. Bir aygıta bağlandığında, StorSimple Snapshot Manager şu şekilde yanıt verir:
+#### <a name="tooconnect-a-device-and-verify-imports"></a>bir aygıt tooconnect ve içeri aktarmalar doğrulayın
+1. tooconnect aygıt tooStorSimple anlık görüntü Yöneticisi'ni Ekle hello yönergeleri izleyin veya bir aygıt değiştirin. Tooa Aygıt bağlandığında, StorSimple Snapshot Manager şu şekilde yanıt verir:
    
-   * Aygıt için herhangi bir nedenle kullanılamıyorsa, StorSimple Snapshot Manager bir hata iletisi döndürür. 
+   * Merhaba aygıt herhangi bir nedenle kullanılamıyorsa, StorSimple Snapshot Manager bir hata iletisi döndürür. 
    
-   * Cihaz kullanılabilir değilse, StorSimple Snapshot Manager bağlantı ekler. Cihaz seçtiğinizde görünür **sonuçları** bölmesinde ve durum alanı cihaz olduğunu gösterir **kullanılabilir**. Birim grupları yedeklemeleri ilişkili sahip olması koşuluyla StorSimple Snapshot Manager aygıt için yapılandırılmış herhangi bir birim grubu içeri aktarır. Yedekleme ilkeleri içeri aktarılmadı. İlişkili yedeklemelerinizi olmayan birim grupları içeri aktarılmadı.
-2. StorSimple anlık görüntü Yöneticisi'ni başlatmak için Masaüstü simgesine tıklayın.
-3. En üst düğüme sağ **kapsam** bölmesi ve ardından **içeri aktarmalar ekranını Değiştir**.
+   * Merhaba aygıt varsa, StorSimple Snapshot Manager bağlantı ekler. Merhaba cihaz seçtiğinizde, hello göründüğü **sonuçları** bölmesinde ve hello durumu alanı gösterir, hello aygıt **kullanılabilir**. StorSimple Snapshot Manager Hello birim grupları yedeklemeleri ilişkili sahip olması koşuluyla hello aygıt için yapılandırılmış herhangi bir birim grubu içeri aktarır. Yedekleme ilkeleri içeri aktarılmadı. İlişkili yedeklemelerinizi olmayan birim grupları içeri aktarılmadı.
+2. Merhaba Masaüstü simgesi toostart StorSimple Snapshot Manager'ı tıklatın.
+3. Sağ hello üst düğümü hello **kapsam** bölmesi ve ardından **içeri aktarmalar ekranını Değiştir**.
    
     ![İçeri aktarmalar ekranını Değiştir'i seçin](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Toggle_Imports_Display.png) 
-4. **İçeri aktarmalar ekranını Değiştir** iletişim kutusu görüntülenirse, içeri aktarılan birim grupları ve yedeklemelerin durumunu gösteren. **Tamam** düğmesine tıklayın.
+4. Merhaba **içeri aktarmalar ekranını Değiştir** iletişim kutusu görüntülenirse, hello hello durumunu gösteren içe birim grupları ve yedekler. **Tamam** düğmesine tıklayın.
 
-Birim grupları ve yedeklemeleri başarıyla içeri aktarıldı sonra birim grupları ve oluşturulan ve StorSimple Snapshot Manager ile yapılandırılmış yedeklemeler yalnızca yönetmek gibi StorSimple Snapshot Manager bunları yönetmek için kullanabilirsiniz. 
+Merhaba birim grupları ve yedeklemeleri başarıyla içeri aktarıldı sonra bunları, yalnızca StorSimple Snapshot Manager toomanage kullanabilirsiniz birim grupları ve oluşturulan ve StorSimple Snapshot Manager ile yapılandırılmış yedeklemeleri yönetebilir gibi. 
 
 ## <a name="refresh-connected-devices"></a>Bağlı aygıtlar Yenile
-StorSimple Snapshot Manager ile bağlı StorSimple cihazları eşitlemek için aşağıdaki yordamı kullanın.
+Aşağıdaki yordam toosynchronize bağlı hello StorSimple cihazlar ile StorSimple Snapshot Manager hello kullanın.
 
-#### <a name="to-refresh-connected-devices"></a>Bağlı aygıtlar yenilemek için
-1. StorSimple anlık görüntü Yöneticisi'ni başlatmak için Masaüstü simgesine tıklayın.
-2. İçinde **kapsam** bölmesinde, sağ **aygıtları**ve ardından **yenileme aygıtları**. Birim grupları ve tüm sınıflarla da içeren yedeklemeler görüntüleyebilmek bu StorSimple Snapshot Manager bağlı aygıtları eşitler. 
+#### <a name="toorefresh-connected-devices"></a>toorefresh bağlı aygıtları
+1. Merhaba Masaüstü simgesi toostart StorSimple Snapshot Manager'ı tıklatın.
+2. Merhaba, **kapsam** bölmesinde, sağ tıklatın **aygıtları**ve ardından **yenileme aygıtları**. Merhaba birim grupları ve tüm sınıflarla da içeren yedeklemeler görüntüleyebilmek bu hello bağlı aygıtları StorSimple Snapshot Manager ile eşitler. 
    
-    ![StorSimple cihazlarını Yenile](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Refresh_devices.png)
+    ![Merhaba StorSimple cihazlarını Yenile](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Refresh_devices.png)
 
-**Yenileme aygıtları** eylem bağlı aygıtlardan yeni birim grupları ve tüm ilişkili yedeklemelerinin alır. Farklı **birimleri yeniden tara** eylemi için kullanılabilir **birimleri** düğümü, **yenileme aygıtları** yedekleme kayıt defterini geri yüklemeyin.
+Merhaba **yenileme aygıtları** eylem bağlı aygıtlardan yeni birim grupları ve tüm ilişkili yedeklemelerinin alır. Merhaba aksine **birimleri yeniden tara** eylemin hello için kullanılabilir **birimleri** düğümü, **yenileme aygıtları** hello yedek kayıt defteri geri yüklemeyin.
 
 ## <a name="authenticate-a-device"></a>Bir cihaz kimlik doğrulaması
-StorSimple cihazı ile StorSimple Snapshot Manager kimliğini doğrulamak için aşağıdaki yordamı kullanın.
+Aşağıdaki yordam tooauthenticate StorSimple cihazı ile StorSimple Snapshot Manager hello kullanın.
 
-#### <a name="to-authenticate-a-device"></a>Bir cihazın kimliğini doğrulamak için
-1. StorSimple anlık görüntü Yöneticisi'ni başlatmak için Masaüstü simgesine tıklayın.
-2. İçinde **kapsam** bölmesinde tıklatın **aygıtları**.
-3. İçinde **sonuçları** bölmesinde, cihaz adına sağ tıklayın ve ardından **kimlik doğrulama**.
-4. **Kimlik doğrulama** iletişim kutusu görüntülenir. Cihaz parolasını yazın ve ardından **Tamam**.
+#### <a name="tooauthenticate-a-device"></a>tooauthenticate bir aygıtı
+1. Merhaba Masaüstü simgesi toostart StorSimple Snapshot Manager'ı tıklatın.
+2. Merhaba, **kapsam** bölmesinde tıklatın **aygıtları**.
+3. Merhaba, **sonuçları** bölmesinde hello aygıt hello adına sağ tıklayın ve ardından **kimlik doğrulama**.
+4. Merhaba **kimlik doğrulama** iletişim kutusu görüntülenir. Merhaba cihaz parolasını yazın ve ardından **Tamam**.
    
     ![Kimlik doğrulaması iletişim kutusu](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Authenticate.png) 
 
 ## <a name="view-device-details"></a>Cihaz ayrıntıları görüntüle
-StorSimple cihazı ayrıntılarını görüntüleyebilir ve gerekirse, cihaz StorSimple Snapshot Manager ile eşitlemek için aşağıdaki yordamı kullanın.
+Aşağıdaki yordam tooview hello ayrıntılara StorSimple cihazı hello kullanın ve gerekirse, hello cihazı ile StorSimple Snapshot Manager yeniden eşitleyin.
 
-#### <a name="to-view-and-resynchronize-device-details"></a>Ayrıntıları görüntülemek ve aygıt yeniden eşitlemek için
-1. StorSimple anlık görüntü Yöneticisi'ni başlatmak için Masaüstü simgesine tıklayın.
-2. İçinde **kapsam** bölmesinde tıklatın **aygıtları**.
-3. İçinde **sonuçları** bölmesinde, cihaz adına sağ tıklayın ve ardından **ayrıntıları**.
+#### <a name="tooview-and-resynchronize-device-details"></a>tooview ve yeniden eşzamanlılaştırabilir cihaz ayrıntıları
+1. Merhaba Masaüstü simgesi toostart StorSimple Snapshot Manager'ı tıklatın.
+2. Merhaba, **kapsam** bölmesinde tıklatın **aygıtları**.
+3. Merhaba, **sonuçları** bölmesinde hello aygıt hello adına sağ tıklayın ve ardından **ayrıntıları**.
 
-4 **cihaz ayrıntıları** iletişim kutusu görüntülenir. Bu kutu gösterir adı, model, sürüm, seri numarası, durum, hedef iSCSI tam adını (IQN) ve son eşitleme tarihi ve saati.
+4 hello **cihaz ayrıntıları** iletişim kutusu görüntülenir. Bu kutu gösterir hello adı, model, sürüm, seri numarası, durum, hedef iSCSI tam adını (IQN) ve son eşitleme tarihi ve saati.
 
-* Tıklatın **yeniden eşitleme** cihaz eşitlenecek.
-* Tıklatın **Tamam** veya **iptal** iletişim kutusunu kapatın.
+* Tıklatın **yeniden eşitleme** toosynchronize hello aygıt.
+* Tıklatın **Tamam** veya **iptal** tooclose hello iletişim kutusu.
   
   ![Cihaz ayrıntıları](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Device_details.png) 
 
 ## <a name="refresh-an-individual-device"></a>Tek bir cihaza Yenile
-Tek bir StorSimple cihazı ile StorSimple Snapshot Manager eşitlemek için aşağıdaki yordamı kullanın.
+Aşağıdaki yordam tooresynchronize tek tek bir StorSimple cihazı ile StorSimple Snapshot Manager hello kullanın.
 
-#### <a name="to-refresh-a-device"></a>Bir aygıt yenilemek için
-1. StorSimple anlık görüntü Yöneticisi'ni başlatmak için Masaüstü simgesine tıklayın. 
-2. İçinde **kapsam** bölmesinde tıklatın **aygıtları**. 
-3. İçinde **sonuçları** bölmesinde, cihaz adına sağ tıklayın ve ardından **yenileme aygıt**. Bu cihaz StorSimple Snapshot Manager ile eşitler.
+#### <a name="toorefresh-a-device"></a>toorefresh bir aygıtı
+1. Merhaba Masaüstü simgesi toostart StorSimple Snapshot Manager'ı tıklatın. 
+2. Merhaba, **kapsam** bölmesinde tıklatın **aygıtları**. 
+3. Merhaba, **sonuçları** bölmesinde hello aygıt hello adına sağ tıklayın ve ardından **yenileme aygıt**. Bu hello cihaz StorSimple Snapshot Manager ile eşitler.
 
 ## <a name="delete-a-device-configuration"></a>Cihaz yapılandırmasını Sil
-StorSimple anlık görüntü Yöneticisi'nden bir bireysel StorSimple cihaz yapılandırma silmek için aşağıdaki yordamı kullanın.
+StorSimple anlık görüntü Yöneticisi'nden yordamı toodelete tek tek bir StorSimple cihaz yapılandırma aşağıdaki hello kullanın.
 
-#### <a name="to-delete-a-device-configuration"></a>Bir aygıt yapılandırmasını silmek için
-1. StorSimple anlık görüntü Yöneticisi'ni başlatmak için Masaüstü simgesine tıklayın.
-2. İçinde **kapsam** bölmesinde tıklatın **aygıtları**. 
-3. İçinde **sonuçları** bölmesinde, cihaz adına sağ tıklayın ve ardından **silmek**. 
-4. Aşağıdaki ileti görüntülenir. Tıklatın **Evet** tıklayın veya yapılandırmasını silmek **Hayır** silmeyi iptal etmek için.
+#### <a name="toodelete-a-device-configuration"></a>toodelete aygıt yapılandırması
+1. Merhaba Masaüstü simgesi toostart StorSimple Snapshot Manager'ı tıklatın.
+2. Merhaba, **kapsam** bölmesinde tıklatın **aygıtları**. 
+3. Merhaba, **sonuçları** bölmesinde hello aygıt hello adına sağ tıklayın ve ardından **silmek**. 
+4. iletiden hello görüntülenir. Tıklatın **Evet** toodelete hello yapılandırma veya tıklatın **Hayır** toocancel hello silme.
    
     ![Cihaz yapılandırmasını Sil](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_DeleteDevice.png)
 
 ## <a name="change-an-expired-device-password"></a>Süresi dolan cihaz parolasını değiştirme
-StorSimple cihazı ile StorSimple Snapshot Manager kimlik doğrulaması için bir parola girmeniz gerekir. Aygıtı ayarlamak için Windows PowerShell arabirimini kullandığınızda bu parola yapılandırın. Ancak, parola süresinin dolmasını sağlayabilir. Bu durumda, parolasını değiştirmek için Klasik Azure Portalı'nı kullanabilirsiniz. Ardından, cihaz StorSimple anlık görüntü Yöneticisi'nde yapılandırıldığından, parola süresi dolmadan önce StorSimple anlık görüntü Yöneticisi'nde aygıt yeniden doğrulaması gerekir.
+Parola tooauthenticate StorSimple cihazı ile StorSimple Snapshot Manager girmeniz gerekir. Merhaba Windows PowerShell arabirimi tooset hello aygıt yukarı kullandığınızda bu parola yapılandırın. Ancak, hello parola süresinin dolmasını sağlayabilir. Bu durumda, hello Azure Klasik portalı toochange hello parola kullanabilirsiniz. Ardından, Hello parola süresi dolmadan önce StorSimple anlık görüntü Yöneticisi'nde hello aygıt yapılandırıldığı StorSimple anlık görüntü Yöneticisi'nde hello aygıt yeniden doğrulaması gerekir.
 
-#### <a name="to-change-the-expired-password"></a>Süresi dolan parolayı değiştirmek için
-1. Klasik Azure portalında StorSimple Yöneticisi hizmetini başlatın.
-2. Tıklatın **aygıtları** > **yapılandırma** cihaz için.
-3. StorSimple Snapshot Manager bölümüne gidin. 14-15 karakter olan bir parola girin. Parola büyük harf, küçük harfler, sayısal ve özel karakterlerin bir karışımı içerdiğinden emin olun.
-4. Onaylamak için parolayı yeniden girin.
-5. Sayfanın alt kısmındaki **Kaydet**’e tıklayın.
+#### <a name="toochange-hello-expired-password"></a>toochange hello parolasının süresi dolmuş
+1. Hello Klasik Azure portalı, hello StorSimple Yöneticisi hizmetini başlatın.
+2. Tıklatın **aygıtları** > **yapılandırma** hello cihaz için.
+3. Toohello StorSimple Snapshot Manager bölümüne kaydırın. 14-15 karakter olan bir parola girin. Merhaba parola büyük harf, küçük harfler, sayısal ve özel karakterlerin bir karışımı içerdiğinden emin olun.
+4. Merhaba parola tooconfirm yeniden girin.
+5. Tıklatın **kaydetmek** hello sayfanın hello sonundaki.
 
-#### <a name="to-re-authenticate-the-device"></a>Cihaz yeniden doğrulamak için
+#### <a name="toore-authenticate-hello-device"></a>toore-hello cihaz kimlik doğrulaması
 1. StorSimple anlık görüntü Yöneticisi'ni başlatın.
-2. İçinde **kapsam** bölmesinde tıklatın **aygıtları**. Yapılandırılmış aygıtların listesini görünür **sonuçları** bölmesi.
-3. Aygıt, sağ tıklatın ve ardından seçin **kimlik doğrulama**.
-4. İçinde **kimlik doğrulama** penceresinde, yeni bir parola girin.
-5. Aygıt, sağ tıklatın ve seçin seçin **yenileme aygıt**. Bu cihaz StorSimple Snapshot Manager ile eşitler.
+2. Merhaba, **kapsam** bölmesinde tıklatın **aygıtları**. Yapılandırılmış aygıtların listesini hello görünür **sonuçları** bölmesi.
+3. Merhaba aygıt, sağ tıklatın ve ardından seçin **kimlik doğrulama**.
+4. Merhaba, **kimlik doğrulama** penceresinde hello yeni bir parola girin.
+5. Merhaba aygıt, sağ tıklatın ve seçin seçin **yenileme aygıt**. Bu hello cihaz StorSimple Snapshot Manager ile eşitler.
 
 ## <a name="replace-a-failed-device"></a>Başarısız aygıt değiştirin
-StorSimple cihazı başarısız olur ve bekleme (yük devretme) aygıt tarafından değiştirildi, yeni cihaza bağlanın ve ilişkili yedeklemelerinizi görüntülemek için aşağıdaki adımları kullanın.
+StorSimple cihazı başarısız olur ve bekleme (yük devretme) aygıtıyla adımları tooconnect aşağıdaki kullanım hello yerine toohello yeni cihaz ve görünüm ilişkili yedeklemelerinizi hello.
 
-#### <a name="to-connect-to-a-new-device-after-failover"></a>Yük devretme sonrasında yeni bir aygıta bağlanmayı
-1. Yeni cihaz iSCSI bağlantısı yeniden yapılandırın. Yönergeler için Git "7. adım: bağlama, başlatma ve format bir birim" olarak [şirket içi StorSimple Cihazınızı dağıtma](storsimple-8000-deployment-walkthrough-u2.md).
+#### <a name="tooconnect-tooa-new-device-after-failover"></a>Yük devretme sonrasında tooconnect tooa yeni cihaz
+1. Merhaba iSCSI bağlantı toohello yeni cihaz yeniden yapılandırın. Yönergeler için çok gidin "Adım 7: bağlama, başlatma ve format bir birim" olarak [şirket içi StorSimple Cihazınızı dağıtma](storsimple-8000-deployment-walkthrough-u2.md).
 
 > [!NOTE]
-> Yeni StorSimple cihazı eskisiyle aynı IP adresi varsa, eski yapılandırmada bağlanabiliyor olabilir.
+> Eski bir hello aynı IP adresine sahip Hello yeni StorSimple cihazı hello olursa, mümkün tooconnect hello eski yapılandırma olabilir.
 
 
-1. Microsoft StorSimple Yönetim hizmetini durdurun:
+1. Merhaba Microsoft StorSimple Yöneticisi Hizmeti Durdur:
    
    1. Sunucu Yöneticisi'ni başlatın.
-   2. Sunucu Yöneticisi panosunda üzerinde **Araçları** menüsünde, select **Hizmetleri**.
-   3. Üzerinde **Hizmetleri** penceresinde, seçin **Microsoft StorSimple Yöneticisi hizmeti**.
-   4. Sağ bölmede altında **Microsoft StorSimple Yöneticisi hizmeti**, tıklatın **hizmetini durdurun**.
-2. Eski aygıtla ilgili yapılandırma bilgilerini kaldırın:
+   2. Merhaba üzerinde Sunucu Yöneticisi Panosu hello üzerinde **Araçları** menüsünde, select **Hizmetleri**.
+   3. Merhaba üzerinde **Hizmetleri** penceresinde, select hello **Microsoft StorSimple Yöneticisi hizmeti**.
+   4. Hello bölmesini altında sağ **Microsoft StorSimple Yöneticisi hizmeti**, tıklatın **hello hizmetini durdurun**.
+2. Merhaba yapılandırma bilgilerini ilgili toohello eski aygıt kaldırın:
    
-   1. Dosya Gezgini'nde, C:\ProgramData\Microsoft\StorSimple\BACatalog için göz atın.
-   2. BACatalog klasöründeki dosyaları silin.
-3. Microsoft StorSimple Yönetim hizmetini yeniden başlatın:
+   1. Dosya Gezgini'nde tooC:\ProgramData\Microsoft\StorSimple\BACatalog göz atın.
+   2. Merhaba BACatalog klasöründeki Hello dosyaları silin.
+3. Merhaba Microsoft StorSimple Yöneticisi hizmeti yeniden başlatın:
    
-   1. Sunucu Yöneticisi panosunda üzerinde **Araçları** menüsünde, select **Hizmetleri**.
-   2. Üzerinde **Hizmetleri** penceresinde, seçin **Microsoft StorSimple Yöneticisi hizmeti**.
-   3. Sağ bölmede altında **Microsoft StorSimple Yöneticisi hizmeti**, tıklatın **hizmeti yeniden**.
+   1. Merhaba üzerinde Sunucu Yöneticisi Panosu hello üzerinde **Araçları** menüsünde, select **Hizmetleri**.
+   2. Merhaba üzerinde **Hizmetleri** penceresinde, select hello **Microsoft StorSimple Yöneticisi hizmeti**.
+   3. Hello bölmesini altında sağ **Microsoft StorSimple Yöneticisi hizmeti**, tıklatın **hello hizmetini yeniden başlatın**.
 4. StorSimple anlık görüntü Yöneticisi'ni başlatın.
-5. Yeni StorSimple cihazı yapılandırma için adım 2'ndaki adımları tamamlayın: bir StorSimple cihazı bağlanmak [dağıtmak StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
-6. Üst düzey düğümünde sağ **kapsam** bölmesinde (örnekte StorSimple Snapshot Manager) ve ardından **içeri aktarmalar ekranını Değiştir**. 
-7. İçeri aktarılan birim grupları ve yedeklemeleri StorSimple anlık görüntü Yöneticisi'nde göründüğünden olmadığında bir ileti görüntülenir. **Tamam** düğmesine tıklayın.
+5. tooconfigure hello yeni StorSimple cihazı, tam hello adımları 2. adım: bir StorSimple cihazı bağlanmak [dağıtmak StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
+6. Sağ hello en üst düzey düğümünde hello **kapsam** bölmesinde (Merhaba örnekte StorSimple Snapshot Manager) ve ardından **içeri aktarmalar ekranını Değiştir**. 
+7. Birim grupları hello aktarılması ve yedeklemeleri StorSimple anlık görüntü Yöneticisi'nde göründüğünden bir ileti görüntülenir. **Tamam** düğmesine tıklayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bilgi edinmek için nasıl [StorSimple çözümünüzün yönetmek için StorSimple Snapshot Manager kullanmak](storsimple-snapshot-manager-admin.md).
-* Bilgi edinmek için nasıl [görüntülemek ve birimleri yönetmek için StorSimple Snapshot Manager kullanmak](storsimple-snapshot-manager-manage-volumes.md).
+* Nasıl çok öğrenin[StorSimple Snapshot Manager tooadminister StorSimple çözümünüzün kullanmak](storsimple-snapshot-manager-admin.md).
+* Nasıl çok öğrenin[StorSimple Snapshot Manager tooview kullanın ve birimleri yönetme](storsimple-snapshot-manager-manage-volumes.md).
 

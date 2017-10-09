@@ -1,5 +1,5 @@
 ---
-title: "Azure Hızlı Başlangıç - VM Portalı oluşturma | Microsoft Docs"
+title: "aaaAzure hızlı başlangıç - VM Portal oluştur | Microsoft Docs"
 description: "Azure Hızlı Başlangıç - VM Portalı oluşturma"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,62 +16,62 @@ ms.workload: infrastructure
 ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d009020e86fdfed6a45b5b63b9664c623bcb1843
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 984a400c976e349a59f873210d6e04bcdea39e1c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-linux-virtual-machine-with-the-azure-portal"></a>Azure portal ile Linux sanal makinesi oluşturma
+# <a name="create-a-linux-virtual-machine-with-hello-azure-portal"></a>Hello Azure portal ile Linux sanal makine oluşturma
 
-Azure sanal makineleri, Azure portalı üzerinden oluşturulabilir. Bu yöntem, sanal makineleri ve tüm ilgili kaynakları oluşturup yapılandırmaya yönelik tarayıcı tabanlı bir kullanıcı arabirimi sağlar. Sanal makine oluşturma ve VM’ye web sunucusu yüklemeye yönelik Hızlı Başlangıç adımları.
+Azure sanal makineleri hello Azure portal oluşturulabilir. Bu yöntem, sanal makineleri ve tüm ilgili kaynakları oluşturup yapılandırmaya yönelik tarayıcı tabanlı bir kullanıcı arabirimi sağlar. Bir sanal makine oluşturma ve hello VM üzerinde bir Web sunucusu yükleme ile bu hızlı başlangıç adımları.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 ## <a name="create-ssh-key-pair"></a>SSH anahtar çifti oluşturma
 
-Bu hızlı başlangıcı tamamlamak için bir SSH anahtar çifti gerekir. Bir SSH anahtar çiftiniz varsa bu adımı atlayabilirsiniz.
+Bu hızlı başlangıç bir SSH anahtar çifti toocomplete gerekir. Bir SSH anahtar çiftiniz varsa bu adımı atlayabilirsiniz.
 
-Bir Bash kabuğundan bu komutu çalıştırın ve ekrandaki yönergeleri izleyin. Komut çıktısı genel anahtar dosyasının dosya adını içerir. Ortak anahtar dosyasının içeriğini panoya kopyalayın.
+Bir Bash kabuğunda bu komutu çalıştırın ve hello ekrandaki yönergeleri izleyin. Merhaba komutu çıktısı hello hello genel anahtar dosyasının dosya adını içerir. Merhaba ortak anahtar dosyası toohello Pano Hello içeriğini kopyalayın.
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
 
-## <a name="log-in-to-azure"></a>Azure'da oturum açma 
+## <a name="log-in-tooazure"></a>İçinde tooAzure oturum 
 
-http://portal.azure.com sayfasından Azure portalda oturum açın.
+İçinde toohello http://portal.azure.com Azure portalında oturum açın.
 
 ## <a name="create-virtual-machine"></a>Sanal makine oluşturma
 
-1. Azure portalının sol üst köşesinde bulunan **Yeni** düğmesine tıklayın.
+1. Merhaba tıklatın **yeni** düğmesi hello sol üst köşesinin hello Azure portalı üzerinde bulunamadı.
 
 2. **İşlem**'i ve ardından **Ubuntu Server 16.04 LTS**'yi seçin. 
 
-3. Sanal makine bilgilerini girin. **Kimlik doğrulama türü** için **SSH ortak anahtarı**’nı seçin. SSH ortak anahtarınıza yapıştırırken, önce veya sonra gelen tüm boşlukları kaldırmaya dikkat edin. İşlem tamamlandığında **Tamam**’a tıklayın.
+3. Merhaba sanal makine bilgilerini girin. **Kimlik doğrulama türü** için **SSH ortak anahtarı**’nı seçin. SSH ortak anahtarınızı yapıştırılırken tooremove herhangi başında veya sonunda boşluk dikkatli olun. İşlem tamamlandığında **Tamam**’a tıklayın.
 
-    ![Portal dikey penceresinde VM’niz ile ilgili temel bilgileri girin](./media/quick-create-portal/create-vm-portal-basic-blade.png)
+    ![Merhaba portal dikey penceresinde, VM ile ilgili temel bilgileri girin](./media/quick-create-portal/create-vm-portal-basic-blade.png)
 
-4. VM için bir boyut seçin. Daha fazla boyut görmek için **Tümünü görüntüle**’yi seçin veya **Desteklenen disk türü** filtresini değiştirin. 
+4. Merhaba VM boyutunu seçin. Daha fazla boyutları toosee seçin **tüm görüntüle** veya hello değiştirme **desteklenen disk türü** Filtresi. 
 
     ![VM boyutlarını gösteren ekran görüntüsü](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
-5. Ayarlar dikey penceresinde varsayılan değerleri koruyun ve **Tamam**'a tıklayın.
+5. Hello ayarları dikey penceresinde hello Varsayılanları tutun ve **Tamam**.
 
-6. Özet sayfasında **Tamam**’a tıklayarak sanal makine dağıtımını başlatın.
+6. Merhaba Özet sayfasında, tıklatın **Tamam** toostart hello sanal makine dağıtımı.
 
-7. VM, Azure portalı panosuna sabitlenir. Dağıtım tamamlandıktan sonra VM özeti dikey penceresi otomatik olarak açılır.
+7. Merhaba VM sabitlenmiş toohello Azure portalı panosunun olacaktır. Merhaba dağıtım tamamlandıktan sonra otomatik olarak hello VM Özet dikey pencere açılır.
 
 
-## <a name="connect-to-virtual-machine"></a>Sanal makineye bağlanma
+## <a name="connect-toovirtual-machine"></a>Toovirtual makineyi bağlayın
 
-Sanal makine ile bir SSH bağlantısı oluşturun.
+Bir SSH bağlantısı ile Merhaba sanal makine oluşturun.
 
-1. Sanal makine dikey penceresindeki **Bağlan** düğmesine tıklayın. Bağlan düğmesi, sanal makineye bağlanmak için kullanılabilen bir SSH bağlantı dizesi gösterir.
+1. Merhaba tıklatın **Bağlan** hello sanal makine dikey düğmesi. Merhaba, kullanılan tooconnect toohello sanal makineye bağlanabilir bir SSH bağlantı dizesi düğmesi görüntüler bağlayın.
 
     ![Portal 9](./media/quick-create-portal/portal-quick-start-9.png) 
 
-2. Bir SSH oturumu oluşturmak için aşağıdaki komutu çalıştırın. Bağlantı dizesini Azure portaldan kopyaladığınız dizeyle değiştirin.
+2. Çalışma hello aşağıdaki toocreate SSH oturumu bir komutu. Bir hello Azure portal ' kopyaladığınız hello Hello bağlantı dizesini değiştirin.
 
 ```bash 
 ssh azureuser@40.112.21.50
@@ -79,7 +79,7 @@ ssh azureuser@40.112.21.50
 
 ## <a name="install-nginx"></a>NGINX yükleme
 
-Paket kaynaklarını güncelleştirmek ve en son NGINX paketini yüklemek için aşağıdaki bash betiğini kullanın. 
+Kullanım hello aşağıdaki komut dosyası tooupdate paket kaynaklarını bash ve hello son NGINX paketini yükleyin. 
 
 ```bash 
 #!/bin/bash
@@ -91,34 +91,34 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 ```
 
-İşiniz bittiğinde, SSH oturumundan çıkıp Azure portalında VM özelliklerine geri dönün.
+İşiniz bittiğinde, hello SSH oturumu çıkmak ve hello VM Özellikleri'hello Azure portal döndürür.
 
 
 ## <a name="open-port-80-for-web-traffic"></a>Web trafiği için 80 numaralı bağlantı noktasını açın 
 
-Ağ güvenlik grubu (NSG), gelen ve giden trafiğin güvenliğini sağlar. Azure portalından bir VM oluşturulduğunda, SSH bağlantıları için 22 numaralı bağlantı noktasında bir gelen kuralı oluşturulur. Bu VM bir web sunucusunu barındırdığından, 80 numaralı bağlantı noktası için bir NSG kuralının oluşturulması gerekir.
+Ağ güvenlik grubu (NSG), gelen ve giden trafiğin güvenliğini sağlar. Azure portal hello VM oluşturulduğunda, bir gelen kuralı SSH bağlantıları için bağlantı noktası 22 oluşturulur. Bu VM barındıran bir Web sunucusu olduğundan, bir NSG kuralı bağlantı noktası 80 için oluşturulan toobe gerekir.
 
-1. Sanal makinede **Kaynak grubunun** adına tıklayın.
-2. **Ağ güvenlik grubu**’nu seçin. NSG, **Tür** sütunu kullanılarak tanımlanabilir. 
-3. Sol menüdeki ayarlar altında **Gelen güvenlik kuralları**’na tıklayın.
+1. Merhaba hello adına Hello sanal makineye tıklayın **kaynak grubu**.
+2. Select hello **ağ güvenlik grubu**. Merhaba NSG hello kullanılarak tanımlanabilir **türü** sütun. 
+3. Ayarlar altında hello sol menüsünde tıklatın **gelen güvenlik kuralları**.
 4. **Ekle**'ye tıklayın.
-5. **Ad** alanına **http** yazın. **Bağlantı noktası aralığı** değerinin 80, **Eylem** ayarının **İzin Ver** olarak belirlendiğinden emin olun. 
+5. **Ad** alanına **http** yazın. Emin olun **bağlantı noktası aralığı** too80 ayarlanır ve **eylem** çok ayarlanır**izin**. 
 6. **Tamam** düğmesine tıklayın.
 
 
-## <a name="view-the-nginx-welcome-page"></a>NGINX karşılama sayfasını görüntüleme
+## <a name="view-hello-nginx-welcome-page"></a>Merhaba NGINX Karşılama sayfasını görüntüle
 
-NGINX yüklüyken ve 80 numaralı bağlantı noktası sanal makineniz için açıkken, web sunucusuna İnternet üzerinden erişilebilir. Bir web tarayıcısı açın ve VM’nin ortak IP adresini girin. Genel IP adresi, Azure portalındaki VM dikey penceresinde bulunabilir.
+NGINX ile tooyour VM yüklü ve bağlantı noktası 80'i açın, hello Web sunucusu artık erişilebilir hello Internet. Bir web tarayıcısı açın ve hello VM hello ortak IP adresini girin. Merhaba genel IP adresi hello VM dikey penceresinde hello Azure portalında bulunabilir.
 
 ![Varsayılan NGINX sitesi](./media/quick-create-cli/nginx.png) 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerekli olmadığında kaynak grubunu, sanal makineyi ve tüm ilişkili kaynakları silin. Bunu yapmak için sanal makine dikey penceresinden kaynak grubunu seçip **Sil**’e tıklayın.
+Artık gerektiğinde Merhaba kaynak grubu, sanal makine ve tüm ilişkili kaynakları silin. toodo bunu hello sanal makine dikey penceresinden hello kaynak grubu seçin ve tıklatın **silmek**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta basit bir sanal makine ve bir ağ güvenlik grubu kuralı dağıtıp, bir web sunucusu yüklediniz. Azure sanal makineleri hakkında daha fazla bilgi için Linux VM’lerine yönelik öğreticiye geçin.
+Bu hızlı başlangıçta basit bir sanal makine ve bir ağ güvenlik grubu kuralı dağıtıp, bir web sunucusu yüklediniz. Azure sanal makinelerde hakkında daha fazla toolearn toohello öğretici Linux VM'ler için devam edin.
 
 > [!div class="nextstepaction"]
 > [Azure Linux sanal makine öğreticileri](./tutorial-manage-vm.md)

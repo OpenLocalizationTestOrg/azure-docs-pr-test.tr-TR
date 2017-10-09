@@ -1,6 +1,6 @@
 ---
-title: "Atama ve Azure kaynak ilkelerini yönetme | Microsoft Docs"
-description: "Abonelikleriniz ve kaynak gruplarınız için Azure kaynak ilkeleri uygulamak ve kaynak ilkeleri görüntülemeyi açıklar."
+title: "aaaAssign ve Azure kaynak ilkelerini yönetme | Microsoft Docs"
+description: "Açıklar nasıl tooapply Azure kaynak ilkeleri toosubscriptions ve kaynak grupları ve nasıl tooview kaynak ilkeleri."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: b204cffa8fab0ad27a9f78a81c04f0a0225d95f5
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: b6999b43bbcc80d2fde9911352fd4352fa453443
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="assign-and-manage-resource-policies"></a>Atama ve kaynak ilkelerini yönetme
 
-Bir ilkeyi uygulamak için aşağıdaki adımları gerçekleştirmeniz gerekir:
+tooimplement bir ilke, şu adımları gerçekleştirmeniz gerekir:
 
-1. İlke tanımları (Azure tarafından sağlanan yerleşik ilkeleri dahil) denetleyin gereksinimlerinizi karşılayan, aboneliğinizde zaten bir tane varsa görmek için.
+1. Gereksinimlerinizi karşılayan, aboneliğinizde zaten varsa, ilke tanımları (Azure tarafından sağlanan yerleşik ilkeleri dahil) toosee denetleyin.
 2. Varsa, adını alın.
-3. Bir mevcut değilse, JSON İlkesi kuralıyla tanımlamak ve bir ilke tanımı aboneliğinizde olarak ekleyin. Bu adım ilke ataması için kullanılabilir hale getirir, ancak kurallar aboneliğiniz için geçerli değildir.
-4. Her iki durumda, ilke kapsamı (örneğin, bir abonelik veya kaynak grubu) atayın. İlke kuralları zorunlu tutulmaz.
+3. Bir mevcut değilse, JSON hello İlkesi kuralıyla tanımlamak ve bir ilke tanımı aboneliğinizde olarak ekleyin. Bu adım hello ilke ataması için kullanılabilir hale getirir, ancak hello kuralları tooyour abonelik geçerli değildir.
+4. Her iki durumda da hello İlkesi tooa kapsam (örneğin, bir abonelik veya kaynak grubu) atayın. Merhaba kuralı hello İlkesi artık zorunlu tutulmaz.
 
-Bu makalede, bir ilke tanımı oluşturun ve REST API'si, PowerShell veya Azure CLI aracılığıyla bir kapsam tanımın atamak için adımları odaklanır. İlkeler atamak için bkz: Portalı'nı kullanmayı tercih ederseniz, [atamak ve kaynak ilkelerini yönetmek için kullanın Azure portal](resource-manager-policy-portal.md). Bu makalede ilke tanımı oluşturmak için söz dizimi odaklanılmaktadır değil. İlke sözdizimi hakkında daha fazla bilgi için bkz: [kaynak ilkesine genel bakış](resource-manager-policy.md).
+Bu makalede bir ilke tanımı hello adımları toocreate üzerinde odaklanır ve REST API'si, PowerShell veya Azure CLI aracılığıyla, tanım tooa kapsamı atayın. Toouse hello portal tooassign ilkeleri tercih ederseniz, bkz. [kullanım Azure portal tooassign ve kaynak ilkelerini yönetme](resource-manager-policy-portal.md). Bu makalede hello ilke tanımı oluşturmak için hello sözdizimi odaklanılmaktadır değil. İlke sözdizimi hakkında daha fazla bilgi için bkz: [kaynak ilkesine genel bakış](resource-manager-policy.md).
 
 ## <a name="rest-api"></a>REST API
 
 ### <a name="create-policy-definition"></a>İlke tanımı oluşturun
 
-İle bir ilke oluşturduğunuzda [ilke tanımları için REST API](/rest/api/resources/policydefinitions). REST API oluşturmak ve ilke tanımları silmek ve varolan tanımları hakkında bilgi almak etkinleştirir.
+Merhaba ile bir ilke oluşturabilirsiniz [ilke tanımları için REST API](/rest/api/resources/policydefinitions). Merhaba REST API toocreate sağlar ve ilke tanımları silin ve varolan tanımları hakkında bilgi alın.
 
-Bir ilke tanımı oluşturmak için çalıştırın:
+bir ilke tanımı toocreate çalıştırın:
 
 ```HTTP
 PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 ```
 
-Aşağıdaki örneğe benzer bir istek gövdesi şunları içerir:
+Aşağıdaki örnek istek gövdesi benzer bir toohello şunları içerir:
 
 ```json
 {
@@ -52,14 +52,14 @@ Aşağıdaki örneğe benzer bir istek gövdesi şunları içerir:
       "allowedLocations": {
         "type": "array",
         "metadata": {
-          "description": "The list of locations that can be specified when deploying resources",
+          "description": "hello list of locations that can be specified when deploying resources",
           "strongType": "location",
           "displayName": "Allowed locations"
         }
       }
     },
     "displayName": "Allowed locations",
-    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
+    "description": "This policy enables you toorestrict hello locations your organization can specify when deploying resources.",
     "policyRule": {
       "if": {
         "not": {
@@ -77,22 +77,22 @@ Aşağıdaki örneğe benzer bir istek gövdesi şunları içerir:
 
 ### <a name="assign-policy"></a>İlke atama
 
-İlke tanımı istenilen kapsamda uygulayabilirsiniz [ilke atamaları için REST API](/rest/api/resources/policyassignments). REST API oluşturmak ve ilke atamalarını silin ve varolan atamaları hakkında bilgi almak etkinleştirir.
+Merhaba ilke tanımı hello aracılığıyla istenen hello kapsamda uygulayabilirsiniz [ilke atamaları için REST API](/rest/api/resources/policyassignments). Merhaba REST API toocreate sağlar ve ilke atamalarını silin ve varolan atamaları hakkında bilgi alın.
 
-Bir ilke ataması oluşturmak için çalıştırın:
+bir ilke atamasını toocreate çalıştırın:
 
 ```HTTP
 PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 ```
 
-{İlkesi-atama} ilke ataması adıdır.
+Merhaba {ilke ataması} hello ilke ataması hello adıdır.
 
-Aşağıdaki örneğe benzer bir istek gövdesi şunları içerir:
+Aşağıdaki örnek istek gövdesi benzer bir toohello şunları içerir:
 
 ```json
 {
   "properties":{
-    "displayName":"West US only policy assignment on the subscription ",
+    "displayName":"West US only policy assignment on hello subscription ",
     "description":"Resources can only be provisioned in West US regions",
     "parameters": {
       "allowedLocations": { "value": ["northeurope", "westus"] }
@@ -104,16 +104,16 @@ Aşağıdaki örneğe benzer bir istek gövdesi şunları içerir:
 ```
 
 ### <a name="view-policy"></a>İlkesini görüntüle
-Bir ilkeyi almak üzere kullanmak [alma ilke tanımı](https://docs.microsoft.com/rest/api/resources/policydefinitions#PolicyDefinitions_Get) işlemi.
+tooget bir ilke kullanmak hello [alma ilke tanımı](https://docs.microsoft.com/rest/api/resources/policydefinitions#PolicyDefinitions_Get) işlemi.
 
 ### <a name="get-aliases"></a>Diğer adlar Al
-Diğer adlar REST API'si aracılığıyla alabilir:
+Diğer adlar hello REST API aracılığıyla alabilir:
 
 ```HTTP
 GET /subscriptions/{id}/providers?$expand=resourceTypes/aliases&api-version=2015-11-01
 ```
 
-Aşağıdaki örnek, bir diğer ad tanımını gösterir. Gördüğünüz gibi bir özellik adı değişikliği olduğunda bile bir diğer ad yolları farklı API sürümlerde tanımlar. 
+Aşağıdaki örneğine hello bir diğer ad tanımını gösterir. Gördüğünüz gibi bir özellik adı değişikliği olduğunda bile bir diğer ad yolları farklı API sürümlerde tanımlar. 
 
 ```json
 "aliases": [
@@ -140,16 +140,16 @@ Aşağıdaki örnek, bir diğer ad tanımını gösterir. Gördüğünüz gibi b
 
 ## <a name="powershell"></a>PowerShell
 
-PowerShell örnekleriyle devam etmeden önce olduğundan emin olun [en son sürümü yüklü](/powershell/azure/install-azurerm-ps) Azure PowerShell. İlke parametreleri sürüm 3.6.0 eklendi. Önceki bir sürümü varsa, örnekleri parametresi bulunamıyor belirten bir hata döndürür.
+Merhaba PowerShell örnekleriyle devam etmeden önce olduğundan emin olun [hello son sürümü yüklü](/powershell/azure/install-azurerm-ps) Azure PowerShell. İlke parametreleri sürüm 3.6.0 eklendi. Önceki bir sürümü varsa, bir hata belirten hello parametresi bulunamıyor hello örnekler döndür.
 
 ### <a name="view-policy-definitions"></a>Görünüm ilke tanımları
-Aboneliğinizdeki tüm ilke tanımları görmek için aşağıdaki komutu kullanın:
+toosee aşağıdaki kullanım hello aboneliğinizde tüm ilke tanımları komutu:
 
 ```powershell
 Get-AzureRmPolicyDefinition
 ```
 
-Yerleşik ilkeleri de dahil olmak üzere tüm kullanılabilir ilke tanımları döndürür. Her ilke şu biçimde verilir:
+Yerleşik ilkeleri de dahil olmak üzere tüm kullanılabilir ilke tanımları döndürür. Her ilke biçimini izleyen hello verilir:
 
 ```powershell
 Name               : e56962a6-4747-49cd-b67b-bf8b01975c4c
@@ -157,18 +157,18 @@ ResourceId         : /providers/Microsoft.Authorization/policyDefinitions/e56962
 ResourceName       : e56962a6-4747-49cd-b67b-bf8b01975c4c
 ResourceType       : Microsoft.Authorization/policyDefinitions
 Properties         : @{displayName=Allowed locations; policyType=BuiltIn; description=This policy enables you to
-                     restrict the locations your organization can specify when deploying resources. Use to enforce
+                     restrict hello locations your organization can specify when deploying resources. Use tooenforce
                      your geo-compliance requirements.; parameters=; policyRule=}
 PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
 ```
 
-Bir ilke tanımı oluşturmak için devam etmeden önce yerleşik ilkelerine bakın. Gereksinim duyduğunuz limitleri geçerlidir yerleşik bir ilke bulursanız, bir ilke tanımı oluşturma atlayabilirsiniz. Bunun yerine, yerleşik ilkesini istenen kapsamı atayın.
+Devam etmeden toocreate bir ilke tanımı önce hello yerleşik ilkelerine bakın. Gereksinim duyduğunuz hello limitleri geçerlidir yerleşik bir ilke bulursanız, bir ilke tanımı oluşturma atlayabilirsiniz. Bunun yerine, hello yerleşik ilke istenen toohello kapsamı atayın.
 
 ### <a name="create-policy-definition"></a>İlke tanımı oluşturun
-Kullanarak bir ilke tanımı oluşturabilirsiniz `New-AzureRmPolicyDefinition` cmdlet'i.
+Hello kullanarak bir ilke tanımı oluşturabilirsiniz `New-AzureRmPolicyDefinition` cmdlet'i.
 
 ```powershell
-$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy '{
+$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy toospecify access tier." -Policy '{
   "if": {
     "allOf": [
       {
@@ -193,15 +193,15 @@ $definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Pol
 }'
 ```            
 
-Çıktı depolanan bir `$definition` ilke ataması sırasında kullanılan nesne. 
+Merhaba çıkış depolanır bir `$definition` ilke ataması sırasında kullanılan nesne. 
 
-JSON parametre olarak belirtmek yerine, ilke kuralı içeren bir .json dosyası yolunu sağlayabilir.
+Parametre olarak Hello JSON belirtmek yerine hello İlkesi kuralı içeren hello yolu tooa .json dosyası sağlayabilirsiniz.
 
 ```powershell
-$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy "c:\policies\coolAccessTier.json"
+$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy toospecify access tier." -Policy "c:\policies\coolAccessTier.json"
 ```
 
-Aşağıdaki örnek, parametreleri içeren bir ilke tanımı oluşturur:
+Merhaba aşağıdaki örnek parametreleri içeren bir ilke tanımı oluşturur:
 
 ```powershell
 $policy = '{
@@ -228,26 +228,26 @@ $parameters = '{
     "allowedLocations": {
         "type": "array",
         "metadata": {
-          "description": "The list of locations that can be specified when deploying storage accounts.",
+          "description": "hello list of locations that can be specified when deploying storage accounts.",
           "strongType": "location",
           "displayName": "Allowed locations"
         }
     }
 }' 
 
-$definition = New-AzureRmPolicyDefinition -Name storageLocations -Description "Policy to specify locations for storage accounts." -Policy $policy -Parameter $parameters 
+$definition = New-AzureRmPolicyDefinition -Name storageLocations -Description "Policy toospecify locations for storage accounts." -Policy $policy -Parameter $parameters 
 ```
 
 ### <a name="assign-policy"></a>İlke atama
 
-Kullanarak istenen kapsamı ilkesi uygulamak `New-AzureRmPolicyAssignment` cmdlet'i. Aşağıdaki örnek, bir kaynak grubu için ilke atar.
+Hello kullanarak istenen hello kapsamlı hello ilkesi uygulamak `New-AzureRmPolicyAssignment` cmdlet'i. Aşağıdaki örnek hello hello İlkesi tooa kaynak grubu atar.
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
 New-AzureRMPolicyAssignment -Name accessTierAssignment -Scope $rg.ResourceId -PolicyDefinition $definition
 ```
 
-Parametreler gerektiren bir ilke atamak için oluşturmak ve bu değerleri nesne. Aşağıdaki örnek, bir yerleşik ilkesini alır ve parametre değerleri geçirir:
+tooassign parametreler gerektiren bir ilke oluşturun ve bu değerleri nesne. Hello aşağıdaki örnekte bir yerleşik ilkesini alır ve parametre değerlerini geçirir:
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
@@ -259,14 +259,14 @@ New-AzureRMPolicyAssignment -Name locationAssignment -Scope $rg.ResourceId -Poli
 
 ### <a name="view-policy-assignment"></a>Görünüm ilke ataması
 
-Belirli bir ilke ataması almak için kullanın:
+belirli bir ilke ataması tooget kullanın:
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "ExampleGroup"
 (Get-AzureRmPolicyAssignment -Name accessTierAssignment -Scope $rg.ResourceId
 ```
 
-Bir ilke tanımı için ilke kuralı görüntülemek için kullanın:
+tooview hello İlkesi kuralı bir ilke tanımı kullanın:
 
 ```powershell
 (Get-AzureRmPolicyDefinition -Name coolAccessTier).Properties.policyRule | ConvertTo-Json
@@ -274,7 +274,7 @@ Bir ilke tanımı için ilke kuralı görüntülemek için kullanın:
 
 ### <a name="remove-policy-assignment"></a>İlke atamasını Kaldır 
 
-Bir ilke atamasını kaldırmak için kullanın:
+bir ilke atamasını tooremove kullanın:
 
 ```powershell
 Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
@@ -283,17 +283,17 @@ Remove-AzureRmPolicyAssignment -Name regionPolicyAssignment -Scope /subscription
 ## <a name="azure-cli"></a>Azure CLI
 
 ### <a name="view-policy-definitions"></a>Görünüm ilke tanımları
-Aboneliğinizdeki tüm ilke tanımları görmek için aşağıdaki komutu kullanın:
+toosee aşağıdaki kullanım hello aboneliğinizde tüm ilke tanımları komutu:
 
 ```azurecli
 az policy definition list
 ```
 
-Yerleşik ilkeleri de dahil olmak üzere tüm kullanılabilir ilke tanımları döndürür. Her ilke şu biçimde verilir:
+Yerleşik ilkeleri de dahil olmak üzere tüm kullanılabilir ilke tanımları döndürür. Her ilke biçimini izleyen hello verilir:
 
 ```azurecli
 {                                                            
-  "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",                      
+  "description": "This policy enables you toorestrict hello locations your organization can specify when deploying resources. Use tooenforce your geo-compliance requirements.",                      
   "displayName": "Allowed locations",
   "id": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
   "name": "e56962a6-4747-49cd-b67b-bf8b01975c4c",
@@ -312,14 +312,14 @@ Yerleşik ilkeleri de dahil olmak üzere tüm kullanılabilir ilke tanımları d
 }
 ```
 
-Bir ilke tanımı oluşturmak için devam etmeden önce yerleşik ilkelerine bakın. Gereksinim duyduğunuz limitleri geçerlidir yerleşik bir ilke bulursanız, bir ilke tanımı oluşturma atlayabilirsiniz. Bunun yerine, yerleşik ilkesini istenen kapsamı atayın.
+Devam etmeden toocreate bir ilke tanımı önce hello yerleşik ilkelerine bakın. Gereksinim duyduğunuz hello limitleri geçerlidir yerleşik bir ilke bulursanız, bir ilke tanımı oluşturma atlayabilirsiniz. Bunun yerine, hello yerleşik ilke istenen toohello kapsamı atayın.
 
 ### <a name="create-policy-definition"></a>İlke tanımı oluşturun
 
-İlke tanımı komutu ile Azure CLI kullanarak bir ilke tanımı oluşturabilirsiniz.
+Merhaba ilke tanımı komutu ile Azure CLI kullanarak bir ilke tanımı oluşturabilirsiniz.
 
 ```azurecli
-az policy definition create --name coolAccessTier --description "Policy to specify access tier." --rules '{
+az policy definition create --name coolAccessTier --description "Policy toospecify access tier." --rules '{
   "if": {
     "allOf": [
       {
@@ -346,7 +346,7 @@ az policy definition create --name coolAccessTier --description "Policy to speci
 
 ### <a name="assign-policy"></a>İlke atama
 
-İlke ataması komutunu kullanarak, istenen kapsamı ilkesi uygulayabilir. Aşağıdaki örnek, bir kaynak grubu için bir ilke atar.
+Merhaba ilke ataması komutunu kullanarak hello İlkesi istenen toohello kapsam uygulayabilirsiniz. Aşağıdaki örnek hello İlkesi tooa kaynak grubu atar.
 
 ```azurecli
 az policy assignment create --name coolAccessTierAssignment --policy coolAccessTier --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
@@ -354,7 +354,7 @@ az policy assignment create --name coolAccessTierAssignment --policy coolAccessT
 
 ### <a name="view-policy-assignment"></a>Görünüm ilke ataması
 
-Bir ilke atamasını görüntülemek için ilke ataması adı ve kapsam sağlar:
+bir ilke atamasını tooview hello ilke ataması adı ve hello kapsam sağlar:
 
 ```azurecli
 az policy assignment show --name coolAccessTierAssignment --scope "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}"
@@ -362,12 +362,12 @@ az policy assignment show --name coolAccessTierAssignment --scope "/subscription
 
 ### <a name="remove-policy-assignment"></a>İlke atamasını Kaldır 
 
-Bir ilke atamasını kaldırmak için kullanın:
+bir ilke atamasını tooremove kullanın:
 
 ```azurecli
 az policy assignment delete --name coolAccessTier --scope /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](resource-manager-subscription-governance.md).
+* Kuruluşların Resource Manager tooeffectively nasıl kullanabileceğiniz hakkında rehberlik için abonelikleri yönetmek için bkz: [Azure enterprise iskele - Düzenleyici abonelik idare](resource-manager-subscription-governance.md).
 

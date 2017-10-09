@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Gateway için yeniden yönlendirmeyi yapılandırma - PowerShell | Microsoft Docs"
-description: "Bu sayfa, PowerShell kullanarak Application Gateway için yeniden yönlendirmeyi yapılandırma senaryolarını içerir"
+title: "Azure uygulama ağ geçidi - PowerShell aaaConfigure yönlendirmesi | Microsoft Docs"
+description: "Bu sayfa, PowerShell kullanarak uygulama ağ geçidi için senaryolar tooconfigure yeniden yönlendirmesini sağlar"
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -13,57 +13,57 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2017
 ms.author: gwallace
-ms.openlocfilehash: 84a25e572a27df2fe46e07c4ab0a4aab5969d68e
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: 1abe095287b001e501465ced05e171326bb29b5f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-redirection-on-application-gateway-with-powershell"></a>PowerShell ile Application Gateway için yeniden yönlendirmeyi yapılandırma
 
-Uygulama ağ geçidi, tanımlı yapılandırmaya dayanarak trafiği yeniden yönlendirme özelliğini destekler. Genel olarak yeniden yönlendirme hakkında daha fazla bilgi edinmek için [Application Gateway yeniden yönlendirmeye genel bakış](application-gateway-redirect-overview.md) sayfasını ziyaret edin. Bu makale HTTP’den HTTPS’e yeniden yönlendirme, yol tabanlı yeniden yönlendirme, çok siteli yeniden yönlendirme ve dış sitelere yeniden yönlendirme örnekleri içerir.
+Uygulama ağ geçidi tanımlı yapılandırmasını temel alarak hello özelliği tooredirect trafiğini destekler. Genel ziyaret edin, yeniden yönlendirme hakkında daha fazla toolearn [uygulama ağ geçidi yeniden yönlendirmeye genel bakış](application-gateway-redirect-overview.md). Bu makalede HTTP tooHTTPS yönlendirme örnekleri sağlar, yol temelli, çok siteli yeniden yönlendirmeleri yönlendirir ve tooexternal siteleri yönlendirir.
 
-## <a name="http-to-https-redirect-on-an-existing-application-gateway"></a>Mevcut uygulama ağ geçidinde HTTP’den HTTPS’e yeniden yönlendirme
+## <a name="http-toohttps-redirect-on-an-existing-application-gateway"></a>HTTP tooHTTPS üzerindeki var olan bir uygulama ağ geçidini yeniden yönlendirme
 
-Aşağıdaki örnek, bağlantı noktası 443’te bulunan bir dinleyiciye yeniden yönlendirme isteği için bağlantı noktası 80’de yeni bir HTTP dinleyicisi oluşturur.
+Merhaba aşağıdaki örnek yeni bir HTTP dinleyicisi bağlantı noktası 80 tooredirect istekleri toohello varolan dinleyicisi bağlantı noktası 443 üzerinden oluşturur.
 
 ```powershell
-# Get the application gateway
+# Get hello application gateway
 $gw = Get-AzureRmApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
 
-# Get the existing HTTPS listener
+# Get hello existing HTTPS listener
 $httpslistener = Get-AzureRmApplicationGatewayHttpListener -Name appgatewayhttplistener -ApplicationGateway $gw
 
-# Get the existing front end IP configuration
+# Get hello existing front end IP configuration
 $fipconfig = Get-AzureRmApplicationGatewayFrontendIPConfig -Name appgatewayfrontendip -ApplicationGateway $gw
 
-# Add a new front end port to support HTTP traffic
+# Add a new front end port toosupport HTTP traffic
 Add-AzureRmApplicationGatewayFrontendPort -Name appGatewayFrontendPort2  -Port 80 -ApplicationGateway $gw
 
-# Get the recently created port
+# Get hello recently created port
 $fp = Get-AzureRmApplicationGatewayFrontendPort -Name appGatewayFrontendPort2 -ApplicationGateway $gw
 
-# Create a new HTTP listener using the port created earlier
+# Create a new HTTP listener using hello port created earlier
 Add-AzureRmApplicationGatewayHttpListener -Name appgatewayhttplistener2  -Protocol Http -FrontendPort $fp -FrontendIPConfiguration $fipconfig -ApplicationGateway $gw 
 
-# Get the new listener
+# Get hello new listener
 $listener = Get-AzureRmApplicationGatewayHttpListener -Name appgatewayhttplistener2 -ApplicationGateway $gw
 
-# Add a redirection configuration using a permanent redirect and targeting the existing listener
+# Add a redirection configuration using a permanent redirect and targeting hello existing listener
 Add-AzureRmApplicationGatewayRedirectConfiguration -Name redirectHttptoHttps -RedirectType Permanent -TargetListener $httpslistener -IncludePath $true -IncludeQueryString $true -ApplicationGateway $gw
 
-# Get the redirect configuration
+# Get hello redirect configuration
 $redirectconfig = Get-AzureRmApplicationGatewayRedirectConfiguration -Name redirectHttptoHttps -ApplicationGateway $gw
 
 
-# Add a new rule to handle the redirect and use the new listener
+# Add a new rule toohandle hello redirect and use hello new listener
 Add-AzureRmApplicationGatewayRequestRoutingRule -Name rule02 -RuleType Basic -HttpListener $listener -RedirectConfiguration $redirectconfig -ApplicationGateway $gw
 
-# Update the application gateway
+# Update hello application gateway
 Set-AzureRmApplicationGateway -ApplicationGateway $gw 
 ```
 
-Uygulama ağ geçidi güncelleştirildikten sonra bağlantı noktası 80’deki yeni dinleyiciyi test edin.  Aşağıdaki örnekte, yeniden yönlendirmeyi test etmek için `curl` kullanılması gösterilir.
+Merhaba uygulama ağ geçidi güncelleştirildikten sonra hello yeni dinleyici bağlantı noktası 80 üzerinde sınayın.  Merhaba aşağıdaki örnekte kullanarak `curl` hello yeniden yönlendirme sınayın.
 
 ```
 curl http://40.69.161.221 -i
@@ -80,34 +80,34 @@ Content-Length: 145
 
 ## <a name="path-based-redirect"></a>Yol tabanlı yeniden yönlendirme
 
-Aşağıdaki örnek, mevcut uygulama ağ geçidinde, yalnızca belirli bir url yoluna yeniden yönlendiren yeni bir yol tabanlı kural oluşturur.
+Aşağıdaki örneğine hello hello belirli url yolu toplantı trafiğini yönlendiren mevcut bir uygulama ağ geçidi üzerinde yeni bir dinleyici ve temel yol kuralı oluşturur.
 
 ```powershell
-# Get the application gateway
+# Get hello application gateway
 $gw = Get-AzureRmApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
 
-# Get the existing HTTPS listener
+# Get hello existing HTTPS listener
 $httpslistener = Get-AzureRmApplicationGatewayHttpListener -Name appgatewayhttplistener -ApplicationGateway $gw
 
-# Get the existing front end IP configuration
+# Get hello existing front end IP configuration
 $fipconfig = Get-AzureRmApplicationGatewayFrontendIPConfig -Name appgatewayfrontendip -ApplicationGateway $gw
 
-# Add a new front end port to support HTTP traffic
+# Add a new front end port toosupport HTTP traffic
 Add-AzureRmApplicationGatewayFrontendPort -Name appGatewayFrontendPort2  -Port 80 -ApplicationGateway $gw
 
-# Get the recently created port
+# Get hello recently created port
 $fp = Get-AzureRmApplicationGatewayFrontendPort -Name appGatewayFrontendPort2 -ApplicationGateway $gw
 
-# Create a new HTTP listener using the port created earlier
+# Create a new HTTP listener using hello port created earlier
 Add-AzureRmApplicationGatewayHttpListener -Name appgatewayhttplistener2  -Protocol Http -FrontendPort $fp -FrontendIPConfiguration $fipconfig -ApplicationGateway $gw 
 
-# Get the new listener
+# Get hello new listener
 $listener = Get-AzureRmApplicationGatewayHttpListener -Name appgatewayhttplistener2 -ApplicationGateway $gw
 
-# Add a redirection configuration using a permanent redirect and targeting the existing listener
+# Add a redirection configuration using a permanent redirect and targeting hello existing listener
 $redirectconfig = Get-AzureRmApplicationGatewayRedirectConfiguration -Name redirectpath6 -ApplicationGateway $gw
 
-# Retrieve the existing backend http settings to be used
+# Retrieve hello existing backend http settings toobe used
 $poolSetting = Get-AzureRmApplicationGatewayBackendHttpSettings -Name "appGatewayBackendHttpSettings" -ApplicationGateway $gw
 
 # Retrieve an existing backend pool
@@ -116,127 +116,127 @@ $pool = Get-AzureRmApplicationGatewayBackendAddressPool -Name appGatewayBackendP
 # Create a new path based rule
 $pathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "pathrule6" -Paths "/image/*" -BackendAddressPool $pool -BackendHttpSettings $poolSetting
 
-# Create a path map to add to the rule
+# Create a path map tooadd toohello rule
 Add-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $pathRule -DefaultBackendAddressPool $pool -DefaultBackendHttpSettings $poolSetting -ApplicationGateway $gw
 
-# Retrieve the url path map created
+# Retrieve hello url path map created
 $urlPathMap = Get-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -ApplicationGateway $gw
 
-# Add a new rule to handle the redirect and use the new listener
+# Add a new rule toohandle hello redirect and use hello new listener
 Add-AzureRmApplicationGatewayRequestRoutingRule -Name "rule6" -RuleType PathBasedRouting -HttpListener $listener -UrlPathMap $urlPathMap -RedirectConfiguration $redirectconfig -ApplicationGateway $gw
 
-# Update the application gateway
+# Update hello application gateway
 Set-AzureRmApplicationGateway -ApplicationGateway $gw 
 ```
 
 ## <a name="multi-site-redirect"></a>Çok siteli yeniden yönlendirme
 
-Aşağıdaki örnek, ağ geçidi 80’de 2 çok siteli dinleyiciyle yeni bir uygulama ağ geçidi oluşturur. Dinleyiciler adatum.com ve adatum.org içindir. Adatum.org’dan adatum.com’a trafiği yeniden yönlendirmek için bir yeniden yönlendirme kuralı oluşturulur. CNAME diğer adlarını uygulama ağ geçidi genel IP adresine yapılandırmak için ek yapılandırmalar gerekir; etki alanınızı Azure DNS’ye devretme ve etki alanınız için CNAME kaydı oluşturma hakkında daha fazla bilgi için [Etki alanını Azure DNS’ye devretme](../dns/dns-delegate-domain-azure-dns.md) bölümünü ziyaret edin.
+Merhaba aşağıdaki örnek yeni bir uygulama ağ geçidi bağlantı noktası 80 üzerinde 2 çok siteli dinleyicileri oluşturur. Merhaba dinleyicileri adatum.com ve adatum.org içindir. Bir yeniden yönlendirme kuralı tooredirect trafiği adatum.org tooadatum.com oluşturulur. Ek yapılandırma CNAME diğer adlar toohello uygulama ağ geçidi için genel IP adresi, DNS, etki alanı tooAzure için temsilci seçme hakkında daha fazla bilgi yapılandırmak için gereklidir ve CNAME oluşturmak, etki alanınız için kayıtları ziyaret edin, [bir etki alanını devretme tooAzure DNS](../dns/dns-delegate-domain-azure-dns.md).
 
 ```powershell
-# Create a new resource group for the application gateway
+# Create a new resource group for hello application gateway
 New-AzureRmResourceGroup -Name appgw-rg -Location "East US"
 
-# Create a subnet configuration object for the application gateway subnet. A subnet for an application should have a minimum of 28 mask bits. This value leaves 10 available addresses in the subnet for Application Gateway instances. With a smaller subnet, you may not be able to add more instance of your application gateway in the future.
+# Create a subnet configuration object for hello application gateway subnet. A subnet for an application should have a minimum of 28 mask bits. This value leaves 10 available addresses in hello subnet for Application Gateway instances. With a smaller subnet, you may not be able tooadd more instance of your application gateway in hello future.
 $gwSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPrefix 10.0.0.0/24
 
-# Create a subnet configuration object for the backend pool members subnet
+# Create a subnet configuration object for hello backend pool members subnet
 $nicSubnet = New-AzureRmVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.2.0/24
 
-# Create the virtual network with the previous created subnets
+# Create hello virtual network with hello previous created subnets
 $vnet = New-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg -Location "East US" -AddressPrefix 10.0.0.0/16 -Subnet $gwSubnet, $nicSubnet
 
-# Create a public IP address for use with the application gateway. Defining the domainnamelabel during creation is not supported for use with application gateway
+# Create a public IP address for use with hello application gateway. Defining hello domainnamelabel during creation is not supported for use with application gateway
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name 'appgwpip' -Location "East US" -AllocationMethod Dynamic
 
-# Create a IP configuration. This configures what subnet the Application Gateway uses. When Application Gateway starts, it picks up an IP address from the subnet configured and routes network traffic to the IP addresses in the back-end IP pool.
+# Create a IP configuration. This configures what subnet hello Application Gateway uses. When Application Gateway starts, it picks up an IP address from hello subnet configured and routes network traffic toohello IP addresses in hello back-end IP pool.
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $vnet.Subnets[0]
 
-# Create a backend pool to hold the addresses or NICs for the application that application gateway is protecting.
+# Create a backend pool toohold hello addresses or NICs for hello application that application gateway is protecting.
 $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 1.1.1.1, 2.2.2.2, 3.3.3.3
 
-# Conifugre the backend HTTP settings to be used to define how traffic is routed to the backend pool. The authenication certificate used in the previous step is added to the backend http settings.
+# Conifugre hello backend HTTP settings toobe used toodefine how traffic is routed toohello backend pool. hello authenication certificate used in hello previous step is added toohello backend http settings.
 $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name 'setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled
 
-# Create a frontend port to be used by the listener.
+# Create a frontend port toobe used by hello listener.
 $fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 80
 
-# Create a frontend IP configuration to associate the public IP address with the application gateway
+# Create a frontend IP configuration tooassociate hello public IP address with hello application gateway
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAddress $publicip
 
-# Create the HTTP listener for the application gateway for adatum.com. Assign the front-end ip configuration, and port.
+# Create hello HTTP listener for hello application gateway for adatum.com. Assign hello front-end ip configuration, and port.
 $listener1 = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp -HostName adatum.com
 
-# Create the HTTP listener for the application gateway for adatum.org this listener will redirect to the abc.com listener. Assign the front-end ip configuration, and port.
+# Create hello HTTP listener for hello application gateway for adatum.org this listener will redirect toohello abc.com listener. Assign hello front-end ip configuration, and port.
 $listener2 = New-AzureRmApplicationGatewayHttpListener -Name listener02 -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp -HostName adatum.org
 
-# Create the redirect configuration that will point traffic to the 
+# Create hello redirect configuration that will point traffic toohello 
 $redirectconfig = New-AzureRmApplicationGatewayRedirectConfiguration -Name redirectOrgtoCom -RedirectType Found -TargetListener $listener1 -IncludePath $true -IncludeQueryString $true
 
-#Create a load balancer routing rule that configures the load balancer behavior. In this example, a basic round robin rule is created.
+#Create a load balancer routing rule that configures hello load balancer behavior. In this example, a basic round robin rule is created.
 $rule1 = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -HttpListener $listener1 -BackendHttpSettings $poolSetting -BackendAddressPool $pool
 
-#Create a load balancer routing rule that redirects traffic to the adatum.com listener
+#Create a load balancer routing rule that redirects traffic toohello adatum.com listener
 $rule2 = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule02 -RuleType Basic -HttpListener $listener2 -RedirectConfiguration $redirectconfig
 
-# Configure the SKU of the application gateway
+# Configure hello SKU of hello application gateway
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Medium -Tier Standard -Capacity 2
 
-# Create the application gateway utilizing all the previously created configuration objects
+# Create hello application gateway utilizing all hello previously created configuration objects
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "East US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener,$listener2 -RequestRoutingRules $rule1,$rule2 -RedirectConfigurations $redirectconfig -Sku $sku
 ```
 
-## <a name="redirect-to-an-external-site"></a>Dış siteye yeniden yönlendirme
+## <a name="redirect-tooan-external-site"></a>Yeniden yönlendirme tooan dış site
 
-Aşağıdaki örnek, uygulama ağ geçidine gelen trafiği bir dış web sitesine (bing.com) yönlendirir. `TargetUrl` anahtarını kullanırken, `IncludePath` ve `IncludeQuery` anahtarlarına izin verilmez.
+Merhaba aşağıdaki örnek hello uygulama ağ geçidi tooan dış Web sitesine (aratıp) gelen trafik yönlendirir. Merhaba kullanırken `TargetUrl` anahtar hello `IncludePath` ve `IncludeQuery` anahtarları izin verilmez.
 
 ```powershell
-# Create a new resource group for the application gateway
+# Create a new resource group for hello application gateway
 New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
 
-# Create a subnet configuration object for the application gateway subnet. A subnet for an application should have a minimum of 28 mask bits. This value leaves 10 available addresses in the subnet for Application Gateway instances. With a smaller subnet, you may not be able to add more instance of your application gateway in the future.
+# Create a subnet configuration object for hello application gateway subnet. A subnet for an application should have a minimum of 28 mask bits. This value leaves 10 available addresses in hello subnet for Application Gateway instances. With a smaller subnet, you may not be able tooadd more instance of your application gateway in hello future.
 $gwSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPrefix 10.0.0.0/24
 
-# Create a subnet configuration object for the backend pool members subnet
+# Create a subnet configuration object for hello backend pool members subnet
 $nicSubnet = New-AzureRmVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.2.0/24
 
-# Create the virtual network with the previous created subnets
+# Create hello virtual network with hello previous created subnets
 $vnet = New-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $gwSubnet, $nicSubnet
 
-# Create a public IP address for use with the application gateway. Defining the domainnamelabel during creation is not supported for use with application gateway
+# Create a public IP address for use with hello application gateway. Defining hello domainnamelabel during creation is not supported for use with application gateway
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name 'appgwpip' -Location "West US" -AllocationMethod Dynamic
 
-# Create a IP configuration. This configures what subnet the Application Gateway uses. When Application Gateway starts, it picks up an IP address from the subnet configured and routes network traffic to the IP addresses in the back-end IP pool.
+# Create a IP configuration. This configures what subnet hello Application Gateway uses. When Application Gateway starts, it picks up an IP address from hello subnet configured and routes network traffic toohello IP addresses in hello back-end IP pool.
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $vnet.Subnets[0]
 
-# Create a backend pool to hold the addresses or NICs for the application that application gateway is protecting.
+# Create a backend pool toohold hello addresses or NICs for hello application that application gateway is protecting.
 $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 1.1.1.1, 2.2.2.2, 3.3.3.3
 
-# Conifugre the backend HTTP settings to be used to define how traffic is routed to the backend pool. The authenication certificate used in the previous step is added to the backend http settings.
+# Conifugre hello backend HTTP settings toobe used toodefine how traffic is routed toohello backend pool. hello authenication certificate used in hello previous step is added toohello backend http settings.
 $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name 'setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled
 
-# Create a frontend port to be used by the listener.
+# Create a frontend port toobe used by hello listener.
 $fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 80
 
-# Create a frontend IP configuration to associate the public IP address with the application gateway
+# Create a frontend IP configuration tooassociate hello public IP address with hello application gateway
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAddress $publicip
 
-# Create the HTTP listener for the application gateway. Assign the front-end ip configuration, and port.
+# Create hello HTTP listener for hello application gateway. Assign hello front-end ip configuration, and port.
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp 
 
-# Create the redirect configuration that will point traffic to the 
+# Create hello redirect configuration that will point traffic toohello 
 $redirectconfig = New-AzureRmApplicationGatewayRedirectConfiguration -Name myredirect -RedirectType Temporary -TargetUrl "http://bing.com" -IncludePath $true -IncludeQueryString $true
 
-#Create a load balancer routing rule that configures the load balancer behavior. In this example, a basic round robin rule is created.
+#Create a load balancer routing rule that configures hello load balancer behavior. In this example, a basic round robin rule is created.
 $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -HttpListener $listener -RedirectConfiguration $redirectconfig 
 
-# Configure the SKU of the application gateway
+# Configure hello SKU of hello application gateway
 $sku = New-AzureRmApplicationGatewaySku -Name WAF_Medium -Tier WAF -Capacity 2
 
-# Create the application gateway utilizing all the previously created configuration objects
+# Create hello application gateway utilizing all hello previously created configuration objects
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -RedirectConfigurations $redirectconfig -Sku $sku
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Application Gateway’de PowerShell kullanarak uçtan uca SSL’yi yapılandırma](application-gateway-end-to-end-ssl-powershell.md) bölümünü ziyaret edin
+Ziyaret [son tooend SSL PowerShell kullanarak uygulama ağ geçidiyle yapılandırın](application-gateway-end-to-end-ssl-powershell.md)

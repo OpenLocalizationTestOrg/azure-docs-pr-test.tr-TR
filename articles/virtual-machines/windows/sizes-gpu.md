@@ -1,6 +1,6 @@
 ---
-title: "Azure Windows VM boyutları - GPU | Microsoft Docs"
-description: "Listeleri farklı GPU azure'da Windows sanal makineler için kullanılabilir boyutları en iyi duruma getirilmiş."
+title: "aaaAzure Windows VM boyutları - GPU | Microsoft Docs"
+description: "Merhaba farklı en iyi duruma getirilmiş GPU boyutlarını azure'da Windows sanal makineler için kullanılabilir listeler."
 services: virtual-machines-windows
 documentationcenter: 
 author: jonbeck7
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/28/2017
 ms.author: jonbeck
-ms.openlocfilehash: 9d8c29914efd9911a53c3b1938389e219eda0d8b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c2b7fdc031b1f8149da6b46de40f3cb811618007
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="gpu"></a>GPU 
 

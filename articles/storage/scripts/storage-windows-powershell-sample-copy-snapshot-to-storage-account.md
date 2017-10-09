@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell Betiği örnek - farklı bir bölgeye depolama hesabında VHD olarak verme/kopyalama anlık görüntü | Microsoft Docs"
-description: "Azure PowerShell Betiği örnek - bir depolama hesabı aynı farklı bölgede VHD olarak verme/kopyalama anlık görüntü"
+title: "PowerShell komut dosyası örneği - farklı bir bölgeye VHD tooa depolama hesabı olarak verme/kopyalama anlık görüntü aaaAzure | Microsoft Docs"
+description: "Azure PowerShell Betiği örnek - VHD tooa depolama hesabıyla aynı farklı bölgede dışa aktarma/kopyalama anlık görüntü"
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: 80f83f4b66165ddd2bdd0edca2be5d026cb11a9b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 3b3e38c6b06bfa1e117f4e913dfc09443a795196
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-powershell"></a>Dışa aktarma/yönetilen anlık görüntüler VHD farklı bir bölgeye PowerShell ile depolama hesabında kopyalama
+# <a name="exportcopy-managed-snapshots-as-vhd-tooa-storage-account-in-different-region-with-powershell"></a>Dışa aktarma/yönetilen anlık görüntüler VHD tooa farklı bir bölgeye PowerShell ile depolama hesabı olarak kopyalama
 
-Bu komut dosyasını farklı bir bölgeye depolama hesabında yönetilen bir anlık görüntü verir. İlk anlık görüntü SAS URI'sini oluşturur ve farklı bölgede bulunan bir depolama hesabına kopyalamak için kullanır. Olağanüstü durum kurtarma için farklı bölgede yönetilen disklerinizi yedekleme korumak için bu komut dosyasını kullanın.  
+Bu komut dosyasını farklı bir bölgeye yönetilen anlık görüntü tooa depolama hesabında dışa aktarır. İlk hello hello anlık görüntü SAS URI'sini oluşturur ve toocopy kullanır, farklı bölgede tooa depolama hesabı. Bu komut dosyası toomaintain yedekleme yönetilen disklerinizi olağanüstü durum kurtarma için farklı bir bölge kullanın.  
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
@@ -31,18 +31,18 @@ Bu komut dosyasını farklı bir bölgeye depolama hesabında yönetilen bir anl
 
 ## <a name="sample-script"></a>Örnek komut dosyası
 
-[!code-powershell[Ana](../../../powershell_scripts/storage/copy-snapshot-to-storage-account/copy-snapshot-to-storage-account.ps1 "kopyalama anlık görüntü")]
+[!code-powershell[main](../../../powershell_scripts/storage/copy-snapshot-to-storage-account/copy-snapshot-to-storage-account.ps1 "Copy snapshot")]
 
 
 ## <a name="script-explanation"></a>Komut dosyası açıklaması
 
-Bu komut dosyası SAS URI'si için yönetilen bir anlık görüntü oluşturmak için komutları kullanır ve anlık görüntü SAS URI'sini kullanarak bir depolama hesabı kopyalar. Komut belirli belgeleri tablo bağlanan her komut.
+Bu komut dosyası komutları toogenerate aşağıdaki kullanır, SAS URI'sini kullanarak tooa depolama hesabı yönetilen anlık görüntülere veya kopyalara hello SAS URI'sini anlık görüntüsünü alın. Her komut hello tablosundaki toocommand belirli belgeleri bağlar.
 
 | Komut | Notlar |
 |---|---|
-| [GRANT-AzureRmSnapshotAccess](/powershell/module/azurerm.compute/New-AzureRmDisk) | Bir depolama hesabına kopyalamak için kullanılan bir anlık görüntü için SAS URI'sini oluşturur. |
-| [AzureStorageContext yeni](/powershell/module/azure.storage/New-AzureStorageContext) | Hesap adı ve anahtarı kullanarak bir depolama hesabı bağlamını oluşturur. Bu bağlam, depolama hesabı üzerinde okuma/yazma işlemleri gerçekleştirmek için kullanılabilir. |
-| [Start-AzureStorageBlobCopy](/powershell/module/azure.storage/Start-AzureStorageBlobCopy) | Bir depolama hesabı, bir anlık görüntüsü temel VHD kopyalar. |
+| [GRANT-AzureRmSnapshotAccess](/powershell/module/azurerm.compute/New-AzureRmDisk) | Kullanılan toocopy bir anlık görüntüyü için SAS URI'sini oluşturur, tooa depolama hesabı. |
+| [AzureStorageContext yeni](/powershell/module/azure.storage/New-AzureStorageContext) | Merhaba hesap adı ve anahtarı kullanarak bir depolama hesabı bağlamını oluşturur. Bu bağlamda kullanılan tooperform okuma/yazma işlemleri hello depolama hesabı üzerinde olabilir. |
+| [Start-AzureStorageBlobCopy](/powershell/module/azure.storage/Start-AzureStorageBlobCopy) | Kopya bir anlık görüntü tooa depolama hesabının temel VHD hello |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -50,6 +50,6 @@ Bu komut dosyası SAS URI'si için yönetilen bir anlık görüntü oluşturmak 
 
 [Yönetilen bir diskten bir sanal makine oluşturun](./../../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 
-Azure PowerShell modülü hakkında daha fazla bilgi için bkz: [Azure PowerShell belgelerine](/powershell/azure/overview).
+Hello Azure PowerShell modülü hakkında daha fazla bilgi için bkz: [Azure PowerShell belgelerine](/powershell/azure/overview).
 
-Ek sanal makine PowerShell komut dosyası örnekleri bulunabilir [Azure Windows VM belgelerine](../../virtual-machines/windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Ek sanal makine PowerShell komut dosyası örnekleri hello bulunabilir [Azure Windows VM belgelerine](../../virtual-machines/windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

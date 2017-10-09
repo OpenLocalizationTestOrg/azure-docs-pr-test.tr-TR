@@ -1,14 +1,14 @@
 ### <a name="prerequisites"></a>Ön koşullar
 * Bir [FTP](https://wikipedia.org/wiki/File_Transfer_Protocol) hesabı  
 
-Bir mantıksal uygulama FTP hesabınızın kullanmadan önce FTP hesabınıza bağlanmak için mantığı uygulamasını yetkilendirmeniz gerekir. Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz.  
+Bir mantıksal uygulama FTP hesabınızın kullanmadan önce hello mantığı uygulama tooconnect tooyour FTP hesabını yetkilendirmeniz gerekir. Neyse ki, kolayca hello Azure portalı üzerinde mantıksal uygulama içinde bunu yapabilirsiniz.  
 
-Mantıksal uygulamanızı FTP hesabınıza bağlanmak için yetki vermek için adımlar şunlardır:  
+Mantıksal uygulama tooconnect tooyour FTP hesabınızı hello adımları tooauthorize şunlardır:  
 
-1. Mantıksal Uygulama Tasarımcısı'nda FTP bağlantı oluşturmak için seçin **Göster Microsoft yönetilen API'ler** açılır listesinde enter *FTP* arama kutusuna. Tetikleyici seçin veya eylem kullanmak ister:  
+1. Merhaba mantığı Uygulama Tasarımcısı'nda bir bağlantı tooFTP toocreate seçin **Göster Microsoft yönetilen API'ler** Merhaba, açılan liste ardından girin *FTP* hello arama kutusuna. Merhaba tetikleyici veya toouse beğendiğiniz eylem seçin:  
    ![FTP bağlantısı oluşturma adım](./media/connectors-create-api-ftp/ftp-1.png)  
-2. FTP önce herhangi bir bağlantısı oluşturmadıysanız, FTP kimlik bilgilerinizi girmeniz istendiğinde şunu. Bu kimlik bilgileri bağlanmak için mantıksal uygulamanızı yetkilendirmek için kullanılır ve FTP hesabınızın veri erişim:  
+2. Tüm bağlantılar tooFTP önce oluşturmadıysanız, FTP kimlik bilgileriniz istendiğinde tooprovide elde edersiniz. Bu kimlik bilgileri, logic app tooconnect kullanılan tooauthorize olması ve FTP hesabınızın veri erişim:  
    ![FTP bağlantısı oluşturma adım](./media/connectors-create-api-ftp/ftp-2.png)  
-3. Bağlantı oluşturuldu ve artık bir mantıksal uygulamanızı adımlarda yüklemeye devam etmek ücretsiz dikkat edin:  
+3. Merhaba bağlantı oluşturulur ve mantıksal uygulamanızı ücretsiz tooproceed hello diğer sahip adımlarını artık olduğunuz dikkat edin:  
    ![FTP bağlantısı oluşturma adım](./media/connectors-create-api-ftp/ftp-3.png)  
 

@@ -1,6 +1,6 @@
 ---
-title: "Bildirimleri yapılandırmak ve e-posta şablonları Azure API Management | Microsoft Docs"
-description: "Bildirimleri yapılandırma ve Azure API Management şablonlarında e-posta öğrenin."
+title: "aaaConfigure bildirimleri ve e-posta şablonları Azure API Management | Microsoft Docs"
+description: "Bilgi nasıl tooconfigure bildirimleri ve e-posta şablonları Azure API Management'te."
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,63 +14,63 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 3d8b74e32059cfc1a4c3a8fc7d3bd04676ee80c8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: dc23289c25a1641992b73cb955099b3f207b6968
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Azure API Management’te bildirimleri ve e-posta şablonlarını yapılandırma
-API Management belirli olaylar için bildirimleri yapılandırmak ve yöneticiler ve geliştiriciler API Management örneği ile iletişim kurmak için kullanılan e-posta şablonlarını yapılandırma olanağı sağlar. Bu konuda kullanılabilir olayları için bildirimleri yapılandırmak nasıl gösterir ve bu olaylar için kullanılan e-posta şablonlarını yapılandırma genel bir bakış sağlar.
+# <a name="how-tooconfigure-notifications-and-email-templates-in-azure-api-management"></a>Nasıl tooconfigure bildirimleri ve e-posta Azure API Management şablonları
+API Management tooconfigure bildirimleri belirli olayları ve hello Yöneticiler ve geliştiriciler API Management örneği ile kullanılan toocommunicate tooconfigure hello e-posta şablonları için hello yeteneği sağlar. Bu konu, tooconfigure bildirimleri için kullanılabilir olayları nasıl hello gösterir ve bu olaylar için kullanılan hello e-posta şablonlarını yapılandırma genel bir bakış sağlar.
 
 ## <a name="publisher-notifications"></a>Yayımcı bildirimleri yapılandırma
-Bildirimleri yapılandırmak için tıklatın **yayımcı portalına** API Management hizmetiniz için Azure Portalı'nda. Bu sizi API Management yayımcı portalına götürür.
+tooconfigure bildirimleri tıklatın **yayımcı portalına** API Management hizmetiniz için hello Azure Portalı'nda. Bu toohello API Management yayımcı portalına götürür.
 
 ![Yayımcı portalı][api-management-management-console]
 
 > [!NOTE] 
-> Henüz bir API Management hizmeti örneği oluşturmadıysanız, [Azure API Management'i kullanmaya başlama][Get started with Azure API Management] öğreticisinde [API Management hizmet örneği oluşturma][Create an API Management service instance]'ya bakın.
+> Henüz bir API Management hizmeti örneği oluşturmadıysanız, bkz: [bir API Management hizmet örneği oluşturma] [ Create an API Management service instance] hello içinde [Azure API Management ile çalışmaya başlama] [ Get started with Azure API Management] Öğreticisi.
 
-Tıklatın **bildirimleri** gelen **API Management** kullanılabilir bildirim görüntülemek için sola menüsünde.
+Tıklatın **bildirimleri** hello gelen **API Management** hello menüsünde sol tooview hello kullanılabilir bildirim.
 
 ![Yayımcı bildirimleri][api-management-publisher-notifications]
 
-Aşağıdaki listede olayların bildirimleri için yapılandırılabilir.
+Merhaba aşağıdaki olaylar listesi bildirimleri için yapılandırılabilir.
 
-* **(Onay gerektiren) abonelik istekler** -belirtilen e-posta alıcıları ve kullanıcıların onay gerektiren API ürünleri için abonelik isteklerini hakkında e-posta bildirimlerini alacak.
-* **Yeni abonelikler** -belirtilen e-posta alıcıları ve kullanıcıların yeni API ürün abonelikleri hakkında e-posta bildirimlerini alacak.
-* **Uygulama Galerisi isteklerini** -yeni uygulamalar için uygulama Galerisi gönderildiğinde belirtilen e-posta alıcıları ve kullanıcıların e-posta bildirimlerini alacak.
-* **Gizli** -belirtilen e-posta alıcıları ve kullanıcıların e-posta gizli kopya geliştiricilerine gönderilen tüm e-posta alacaksınız.
-* **Yeni bir sorun veya yorum** - belirtilen e-posta alıcıları ve kullanıcıların yeni bir sorun olduğunda e-posta bildirimlerini alacak veya yorum Geliştirici portalında gönderildi.
-* **Hesabı Kapat iletisi** -bir hesap kapatıldığında belirtilen e-posta alıcıları ve kullanıcıların e-posta bildirimlerini alacak.
-* **Yaklaşan abonelik kota sınırına** -abonelik kullanım kullanım kotanız dolmak aldığında aşağıdaki e-posta alıcıları ve kullanıcıların e-posta bildirimlerini alacak.
+* **(Onay gerektiren) abonelik istekler** - belirtilen e-posta alıcılarını hello ve kullanıcıların onay gerektiren API ürünleri için abonelik isteklerini hakkında e-posta bildirimleri alır.
+* **Yeni abonelikler** - belirtilen e-posta alıcılarını hello ve kullanıcıların yeni API ürün abonelikleri hakkında e-posta bildirimleri alır.
+* **Uygulama Galerisi isteklerini** - belirtilen e-posta alıcılarını hello ve yeni uygulamalar gönderilen toohello uygulama Galerisi olduğunda kullanıcıların e-posta bildirimleri alır.
+* **Gizli** - belirtilen e-posta alıcılarını hello ve kullanıcıların e-posta gizli kopya tüm gönderilen e-postaların toodevelopers olarak alır.
+* **Yeni bir sorun veya yorum** - belirtilen e-posta alıcılarını hello ve kullanıcıların, yeni bir sorun olduğunda e-posta bildirimlerini alacak veya yorum hello Geliştirici portalında gönderildi.
+* **Hesabı Kapat iletisi** - belirtilen e-posta alıcılarını hello ve kullanıcıların bir hesap kapalı olduğunda e-posta bildirimleri alır.
+* **Yaklaşan abonelik kota sınırına** - e-posta alıcılarını aşağıdaki hello ve abonelik kullanım Kapat toousage kota aldığında kullanıcıların e-posta bildirimleri alır.
 
-Her olay için e-posta adresi metin kutusunu kullanarak e-posta alıcılarını belirtebilirsiniz veya kullanıcıların bir listeden seçebilirsiniz.
+Her olay için hello e-posta adresi metin kutusunu kullanarak e-posta alıcılarını belirtebilirsiniz veya kullanıcıların bir listeden seçebilirsiniz.
 
-Bildirim almak için e-posta adresleri belirtmek için e-posta adresi metin kutusuna girin. Birden çok e-posta adresi varsa, bunları ayrı virgülle ayırın.
+bildirim, toospecify hello e-posta adresleri toobe girin bunları hello e-posta adresi metin kutusuna. Birden çok e-posta adresi varsa, bunları ayrı virgülle ayırın.
 
 ![Bildirim alıcılarını][api-management-email-addresses]
 
-Bilgi verilecek kullanıcıları belirtmek için tıklatın **alıcı ekleyin**, kullanıcıların bildirilmesini ve tıklatın yanındaki kutuyu **Tamam**.
+bildirim, toospecify hello kullanıcılar toobe tıklatın **alıcı ekleyin**hello bildirim hello kullanıcılar toobe yanındaki kutuyu ve tıklatın **Tamam**.
 
 > [!NOTE] 
-> Yalnızca Yöneticiler listesinde görüntülenir.
+> Yalnızca Yöneticiler hello listesinde görüntülenir.
 
 
-Bildirim alıcılarını yapılandırdıktan sonra tıklatın **kaydetmek** güncelleştirilmiş bildirim alıcılarını uygulamak için.
+Merhaba bildirim alıcılarını yapılandırdıktan sonra tıklatın **kaydetmek** tooapply hello bildirim alıcılarını güncelleştirildi.
 
 > [!NOTE] 
-> Merkezden giderseniz **yayımcı bildirimleri** yayımcı portalına Uyarılar sekmesi, kaydedilmemiş değişiklikler var. durumunda.
+> Merhaba çıktığınızda giderseniz **yayımcı bildirimleri** sekmesini hello yayımcı portalı, kaydedilmemiş değişiklikler var. olursa uyarıları.
 
 
 ## <a name="email-templates"></a>E-posta şablonlarını yapılandırma
-API Management yönetme ve hizmet kullanarak esnasında gönderilen e-posta iletileri için e-posta şablonları sağlar. Aşağıdaki e-posta şablonlarını sağlanır.
+API Management e-posta şablonlarını yönetme ve hello hizmetini kullanarak hello indirmelere içinde gönderilen e-posta iletilerini Merhaba sağlar. e-posta şablonlarını aşağıdaki hello sağlanır.
 
 * Onaylanan uygulama Galerisi gönderme
 * Geliştirici diğer harf
 * Bildirim yaklaşan Geliştirici kota sınırı
 * Kullanıcı Davet Et
-* Yeni açıklama soruna eklendi
+* Yeni Yorum tooan sorunu eklendi
 * Alınan yeni sorun
 * Yeni Abonelik etkinleştirildi
 * Yenilenen abonelik onayı
@@ -79,11 +79,11 @@ API Management yönetme ve hizmet kullanarak esnasında gönderilen e-posta ilet
 
 Bu şablonlar değiştirilebilir istenen şekilde.
 
-API Management Örneğiniz için e-posta şablonlarını yapılandırma ve görüntülemek için tıklatın **bildirimleri** gelen **API Management** sol ve select menüsünde **e-posta şablonlarını**sekmesi.
+tooview ve hello e-posta şablonlarını API Management Örneğiniz için yapılandırmak için tıklayın **bildirimleri** hello gelen **API Management** sol hello ve select hello menüsünde **e-posta şablonları**  sekmesi.
 
 ![E-posta şablonları][api-management-email-templates]
 
-Görüntülemek veya belirli bir şablon değiştirmek için dosyayı seçin **şablonları** aşağı açılan liste.
+tooview veya belirli bir şablon Değiştir, hello seçin **şablonları** aşağı açılan liste.
 
 ![E-posta şablonları listesi][api-management-email-templates-list]
 
@@ -91,14 +91,14 @@ Düz metin biçiminde bir konu ve gövde tanımı'nda HTML biçiminde her e-post
 
 ![E-posta şablonu Düzenleyicisi][api-management-email-template]
 
-**Parametreleri** listesi parametrelerinin listesini içeren hangi olduğunda konusu ya da gövdesi eklenen olacaktır e-posta gönderildiğinde, belirtilen değeri değiştirildi. Bir parametre eklemek için imleci gitmek için parametre istediğiniz yere yerleştirin ve parametre adının solundaki oka tıklayın.
+Merhaba **parametreleri** listesini içeren bir liste parametrelerden biri, hangi olduğunda hello konusu ya da gövdesi eklenen, hello e-posta gönderildiğinde değiştirilen hello atanan değer olacaktır. bir parametre tooinsert burada hello parametresi toogo istiyor ve hello parametre adının hello ok toohello sol tıklayın hello imleç yerleştirin.
 
-Tıklatın **Önizleme** veya **bir sınama Gönder** nasıl e-posta arayın veya bir test e-posta Gönder görmek için.
+Tıklatın **Önizleme** veya **bir sınama Gönder** toosee nasıl hello e-posta arayın veya bir test e-posta gönderin.
 
 > [!NOTE] 
-> Parametreleri önizleme ya da bir test gönderme asıl değerlerle değiştirilmedi.
+> Merhaba parametreleri önizleme ya da bir test gönderme gerçek değerlerle değiştirilmez.
 
-E-posta şablonuna yapılan değişiklikleri kaydetmek için tıklatın **kaydetmek**, veya değişiklikleri tıklatın iptal etmek için **iptal**.
+toosave hello değişiklikleri toohello e-posta şablonu, tıklatın **kaydetmek**, veya toocancel hello değişiklikleri **iptal**.
  
 
 [api-management-management-console]: ./media/api-management-howto-configure-notifications/api-management-management-console.png
@@ -114,8 +114,8 @@ E-posta şablonuna yapılan değişiklikleri kaydetmek için tıklatın **kaydet
 [Configure publisher notifications]: #publisher-notifications
 [Configure email templates]: #email-templates
 
-[How to create and use groups]: api-management-howto-create-groups.md
-[How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
+[How toocreate and use groups]: api-management-howto-create-groups.md
+[How tooassociate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 
 [Get started with Azure API Management]: api-management-get-started.md
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance

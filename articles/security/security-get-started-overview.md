@@ -1,6 +1,6 @@
 ---
-title: "Azure güvenlik genel bakış | Microsoft Docs"
-description: "Microsoft Azure güvenlik bilgileri site Azure.com üzerindeki teknik sorularınıza Azure güvenliği için yerdir."
+title: "aaaAzure güvenliğine genel bakış | Microsoft Docs"
+description: "Merhaba Microsoft Azure güvenlik bilgileri site Azure.com üzerindeki teknik yanıtlar tooyour Azure güvenlik sorusunun yerdir."
 services: security
 documentationcenter: na
 author: TomShinder
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: terrylan
-ms.openlocfilehash: 1303815755584e912891d501018b257b96e5f063
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bee676068a84cf8af03910aa5fcb047723ebce6a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-security-overview"></a>Azure güvenliğine genel bakış
-Microsoft Azure güvenlik bilgileri site Azure.com üzerindeki teknik sorularınıza Azure güvenliği için yerdir. Azure uyumluluk ve Azure kendi altyapısını nasıl korur ilgileniyorsanız, ziyaret [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx).
+Merhaba Microsoft Azure güvenlik bilgileri site Azure.com üzerindeki teknik yanıtlar tooyour Azure güvenlik sorusunun yerdir. Azure uyumluluk ve Azure kendi altyapısını nasıl korur ilgileniyorsanız hello ziyaret [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx).
 
-Güvenlik bulutta iş ve nasıl önemli Azure güvenliği hakkında doğru ve güncel bilgi bulma olduğunu olduğunu biliyoruz. Çeşitli güvenlik araçları ve yetenekler yararlanmak için uygulamalar ve hizmetler için Azure kullanmak için en iyi nedenlerinden biridir. Bu araçları ve yetenekleri güvenli Azure platformunda güvenli çözümler oluşturmak mümkün kılar yardımcı olur.
+Güvenlik hello bulutta iş ve nasıl önemli Azure güvenliği hakkında doğru ve güncel bilgi bulma olduğunu olduğunu biliyoruz. Merhaba en iyi uygulamalar ve hizmetler için nedenleri toouse Azure hello çeşitli güvenlik araçları ve yetenekler tootake avantajlarından biri. Bu araçları ve yetenekleri, olası toocreate güvenli çözümleri hello güvenli Azure platformu yardımcı olur.
 
-Bu sayfa ve bu site, yeni Azure Hizmetleri çevrimiçi olması ve var olan hizmetleri güncelleştirilir gelişmesi. Güvenlik tekliflerimiz sürekli geliştirmek ve bu geliştirmelerine teknik ayrıntıları paylaşmak. Bu siteye düzenli olarak dönün ve nelerin yeni olduğunu görmek öneririz!
+Bu sayfa ve bu site, yeni Azure Hizmetleri çevrimiçi olması ve var olan hizmetleri güncelleştirilir gelişmesi. Güvenlik tekliflerimiz sürekli geliştirmek ve bu geliştirmelerine teknik ayrıntıları hello paylaşmak. Toothis site düzenli olarak dönün ve nelerin yeni olduğunu görmek öneririz!
 
-## <a name="using-the-azure-security-information-site"></a>Site Azure güvenlik bilgileri kullanma
-Sayfanın sol tarafında baktığınızda, güvenlik konuları kategorilerini koleksiyonu bakın. ' A tıklayın veya bu kategori için sahip olduğumuz makaleleri görmek için konuya dokunun.
+## <a name="using-hello-azure-security-information-site"></a>Hello Azure güvenlik bilgileri Site kullanma
+Merhaba'hello sayfanın sol tarafında baktığınızda, güvenlik konuları kategorilerini koleksiyonu bakın. ' I tıklatın veya hello konu toosee hello makaleler için kategoriye sahip olduğumuz dokunun.
 
-Her kategoride bir genel bakış makalesi vardır. Genel Bakış makalesi Azure bu kategori için güvenlik açısından sunmak sahip özetini sağlamak üzere hedefidir. Genel Bakış makaleler ürünleri, hizmetleri ve özellikler, dağıtımlarınızın güvenliğini artırmak için kullanabileceğiniz Azure'da anlamanıza yardımcı. Böylece konuları ve bunların nasıl uygulandığı hakkında daha fazla bilgiyi bu genel bakış makaleler teknik içeriği çok sayıda bağlantılar içerir.
+Her kategoride bir genel bakış makalesi vardır. Merhaba hello genel bakış makalesi, hangi Azure özetini bu kategori için güvenlik açısından toooffer sahip tooprovide hedefidir. Merhaba genel bakış makaleler hello ürünleri, hizmetleri ve Özellikler dağıtımlarınızı tooenhance hello güvenliğini kullanabileceğiniz Azure'da anlamanıza yardımcı. Bu genel bakış makaleler çok sayıda bağlantılar tootechnical hello konuları hakkında daha fazla bilgi edinmek ve nasıl içerikleri tooimplement bunları.
 
-Azure güvenlik bilgileri site şu anda aşağıdaki kategorilerde ele alır:
+Hello Azure güvenlik bilgileri site şu anda kategorileri aşağıdaki hello ele alır:
 
 * Kaynaklar
 * Ağ güvenliği
@@ -46,8 +46,8 @@ Azure güvenlik bilgileri site şu anda aşağıdaki kategorilerde ele alır:
 * Mimari
 
 > [!NOTE]
-> Azure güvenlik bilgileri sitede sahip olduğumuz tüm makaleler sayfanın sol taraftaki gezinti bölmesinde görünür. Tüm makaleler görmek istiyorsanız, tıklayın veya dokunun **daha görmek** alt kategorileri listesi.
+> Hello Azure güvenlik bilgileri sitede sahip olduğumuz tüm hello makaleler hello gezintisi hello sayfasının hello sol tarafında görünür. Tüm hello makaleleri toosee isterseniz tıklayın veya dokunun **daha görmek** hello altındaki hello kategorilerini liste.
 >
 >
 
-Giriş istiyoruz! Kategoriler varsa eklenmesini istediğiniz, bize bildirin! Var olan bir kategori eklenmesini istediğiniz makaleleri varsa, bize, çok bildirin! Aşağıdaki Açıklamalar bölümüne kullanın veya adresinden bize yazma [ azsecinfosite@microsoft.com ](mailto:azsecinfosite@microsoft.com) ve biz önerilerinizi planlarımızı dahil.
+Giriş istiyoruz! Kategoriler varsa eklenmesini istediğiniz, bize bildirin! Tooan olan bir kategori eklenmesini istediğiniz makaleleri varsa, bize, çok bildirin! Merhaba Açıklamalar bölümüne aşağıdaki kullanın veya en toous yazma [ azsecinfosite@microsoft.com ](mailto:azsecinfosite@microsoft.com) ve biz önerilerinizi planlarımızı dahil.

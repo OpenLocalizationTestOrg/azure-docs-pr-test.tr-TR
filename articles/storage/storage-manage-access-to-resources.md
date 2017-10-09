@@ -1,6 +1,6 @@
 ---
-title: "Kapsayıcılar ve Azure Blob depolamada BLOB'lar için herkese okuma erişimi etkinleştir | Microsoft Docs"
-description: "Kapsayıcılar ve bloblar anonim erişim için nasıl oluşturulacağı ve programlı olarak erişmek nasıl öğrenin."
+title: "aaaEnable ortak okuma erişiminin kapsayıcılar ve bloblar Azure Blob depolamada için | Microsoft Docs"
+description: "Bilgi nasıl toomake kapsayıcılar ve bloblar anonim erişim için kullanılabilir ve nasıl tooaccess bunları programlı olarak."
 services: storage
 documentationcenter: 
 author: mmacy
@@ -14,48 +14,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: marsma
-ms.openlocfilehash: c7b83667b58649c156a62fa68cebd854c13e2cba
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0675b5dc4d32a3a0a34376ae4c049542b07ba03a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Kapsayıcılara ve blob’lara anonim okuma erişimini yönetme
-Bir kapsayıcı ve bloblarını Azure Blob depolamada anonim, ortak okuma erişimi etkinleştirebilirsiniz. Bunu yaparak, hesap anahtarınızı paylaşımı ve paylaşılan erişim imzası (SAS) gerek olmadan bu kaynaklara salt okunur erişim verebilirsiniz.
+# <a name="manage-anonymous-read-access-toocontainers-and-blobs"></a>Anonim okuma erişimini toocontainers ve BLOB'ları yönetme
+Anonim, ortak okuma erişimi tooa kapsayıcı ve bloblarını Azure Blob depolamada etkinleştirebilirsiniz. Bunu yaparak, hesap anahtarınızı paylaşımı ve paylaşılan erişim imzası (SAS) gerek olmadan toothese kaynaklarına salt okunur erişim verebilirsiniz.
 
-Ortak okuma erişimi belirli BLOB'ları her zaman anonim okuma erişimi için kullanılabilir olmasını istediğiniz senaryolar için uygundur. Daha ayrıntılı denetim için bir paylaşılan erişim imzası oluşturabilirsiniz. Paylaşılan erişim imzalar, belirli bir süre için farklı izinleri kullanarak kısıtlı erişim sağlamak etkinleştirin. Paylaşılan oluşturma hakkında daha fazla bilgi için erişim imzalar, bkz: [kullanarak paylaşılan erişim imzaları (SAS) Azure storage'da](storage-dotnet-shared-access-signature-part-1.md).
+Ortak okuma erişimi BLOB'lar tooalways anonim okuma erişimi için kullanılabilir belirli istediğiniz senaryolar için uygundur. Daha ayrıntılı denetim için bir paylaşılan erişim imzası oluşturabilirsiniz. Paylaşılan erişim imzaları tooprovide sınırlı erişimi belirli bir süre için farklı izinleri kullanarak etkinleştirin. Paylaşılan oluşturma hakkında daha fazla bilgi için erişim imzalar, bkz: [kullanarak paylaşılan erişim imzaları (SAS) Azure storage'da](storage-dotnet-shared-access-signature-part-1.md).
 
-## <a name="grant-anonymous-users-permissions-to-containers-and-blobs"></a>Kapsayıcılar ve bloblar için anonim kullanıcı izinleri
-Varsayılan olarak, bir kapsayıcı ve içindeki tüm BLOB'ları yalnızca depolama hesabı sahibi tarafından erişilebilir. Anonim kullanıcılar bir kapsayıcı ve bloblarını için Okuma izinleri vermek için genel erişime izin vermek için kapsayıcı izinlerini ayarlayabilirsiniz. Anonim kullanıcılar istek doğrulanmadan genel olarak erişilebilir bir kapsayıcıdaki blobları okuyabilir.
+## <a name="grant-anonymous-users-permissions-toocontainers-and-blobs"></a>Anonim kullanıcılar izinleri toocontainers ve blobları verin
+Varsayılan olarak, bir kapsayıcı ve içindeki tüm BLOB'ları yalnızca hello hello depolama hesabının sahibi tarafından erişilebilir. toogive anonim kullanıcıların Okuma izinleri tooa kapsayıcı ve bloblarını, hello kapsayıcı izinleri tooallow genel erişim ayarlayabilirsiniz. Anonim kullanıcılar genel olarak erişilebilir bir kapsayıcıdaki blobları hello isteği doğrulanmadan okuyabilir.
 
-Şu izinlere sahip bir kapsayıcı yapılandırabilirsiniz:
+Bir kapsayıcı aşağıdaki izinleri hello ile yapılandırabilirsiniz:
 
-* **Hiçbir public okuma erişimi:** kapsayıcı ve bloblarını yalnızca depolama hesabı sahibi tarafından erişilebilir. Bu, tüm yeni kapsayıcıları için varsayılan değerdir.
-* **Genel erişim için BLOB'ları yalnızca okuma:** kapsayıcıdaki Blobları anonim istek tarafından okunabilir ancak kapsayıcı verileri kullanılabilir değil. Anonim istemcileri kapsayıcısı içinde BLOB'ları numaralandırılamıyor.
-* **Tam herkese okuma erişimi:** tüm kapsayıcı ve blob verilerini anonim istek tarafından okunabilir. İstemcileri kapsayıcıdaki blobları anonim istek göre sıralayabilirsiniz, ancak depolama hesabı kapsayıcılara numaralandırılamıyor.
+* **Hiçbir public okuma erişimi:** hello kapsayıcı ve bloblarını yalnızca hello depolama hesabı sahibi tarafından erişilebilir. Bu, tüm yeni kapsayıcıları için hello varsayılan değerdir.
+* **Genel erişim için BLOB'ları yalnızca okuma:** hello kapsayıcıdaki Blobları anonim istek tarafından okunabilir ancak kapsayıcı verileri kullanılabilir değil. Anonim istemcileri hello BLOB'lar hello kapsayıcıdaki numaralandırılamıyor.
+* **Tam herkese okuma erişimi:** tüm kapsayıcı ve blob verilerini anonim istek tarafından okunabilir. İstemcileri hello kapsayıcıdaki blobları anonim istek göre sıralayabilirsiniz, ancak depolama hesabı Merhaba kapsayıcılara numaralandırılamıyor.
 
-Kapsayıcı izinlerini ayarlamak için aşağıdakileri kullanın:
+Aşağıdaki tooset kapsayıcı izinleri hello kullanabilirsiniz:
 
 * [Azure portal](https://portal.azure.com)
 * [Azure PowerShell](storage-powershell-guide-full.md#how-to-manage-azure-blobs)
 * [Azure CLI 2.0](storage-azure-cli.md#create-and-manage-blobs)
-* Program aracılığıyla, depolama istemcisi kitaplıklarını veya REST API'yi birini kullanarak
+* Program aracılığıyla, bir hello depolama istemcisi kitaplıklarını veya hello REST API kullanarak
 
-### <a name="set-container-permissions-in-the-azure-portal"></a>Azure portalında kapsayıcı izinleri ayarlama
-Kapsayıcı izinleri ayarlamak için [Azure portal](https://portal.azure.com), şu adımları izleyin:
+### <a name="set-container-permissions-in-hello-azure-portal"></a>Hello Azure portal'ın kapsayıcı izinleri ayarlama
+Merhaba tooset kapsayıcı izinleri [Azure portal](https://portal.azure.com), şu adımları izleyin:
 
-1. Açık, **depolama hesabı** portaldaki dikey pencere. Depolama hesabınızı seçerek bulabileceğiniz **depolama hesapları** ana portal menü dikey penceresinde.
-1. Altında **BLOB hizmeti** menü dikey penceresinde, seçin **kapsayıcıları**.
-1. Kapsayıcının açmak için üç nokta seçin veya kapsayıcı satırındaki sağ **bağlam menüsü**.
-1. Seçin **erişim ilkesi** bağlam menüsünde.
-1. Seçin bir **erişim türüne** açılan menüden.
+1. Açık, **depolama hesabı** dikey penceresinde hello portal. Depolama hesabınızı seçerek bulabileceğiniz **depolama hesapları** hello ana portal menü dikey penceresinde.
+1. Altında **BLOB hizmeti** hello menü dikey penceresinde, seçin **kapsayıcıları**.
+1. Merhaba kapsayıcı satır veya select hello üç nokta tooopen hello kapsayıcının sağ **bağlam menüsü**.
+1. Seçin **erişim ilkesi** hello bağlam menüsünde.
+1. Seçin bir **erişim türüne** hello açılan menüsünde.
 
     ![Kapsayıcı meta verileri iletişim Düzenle](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
 ### <a name="set-container-permissions-with-net"></a>.NET ile kapsayıcı izinleri ayarlama
-C# ve depolama istemci kitaplığı için .NET kullanarak bir kapsayıcı izinlerini ayarlamak için ilk kapsayıcının varolan izinlerini çağırarak almaya **GetPermissions** yöntemi. Ardından **PublicAccess** özelliği için **BlobContainerPermissions** tarafından döndürülen nesne **GetPermissions** yöntemi. Son olarak, arama **izinleri ayarla** güncelleştirilmiş izinlerle yöntemi.
+.NET için C# ve hello depolama istemci kitaplığı kullanarak bir kapsayıcı tooset izinlerini tarafından arama hello ilk hello kapsayıcının var olan izinleri almak **GetPermissions** yöntemi. Ardından kümesi hello **PublicAccess** özelliği hello için **BlobContainerPermissions** hello tarafından döndürülen nesne **GetPermissions** yöntemi. Son olarak, hello çağrısı **izinleri ayarla** hello yöntemiyle izinleri güncelleştirildi.
 
-Aşağıdaki örnek kapsayıcının izinleri için tam ortak okuma erişimi ayarlar. Yalnızca BLOB'lar için herkese okuma erişimi izinlerini ayarlamak için ayarlanmış **PublicAccess** özelliğine **BlobContainerPublicAccessType.Blob**. Özelliğin anonim kullanıcılar için tüm izinleri kaldırmak için kümesine **BlobContainerPublicAccessType.Off**.
+Aşağıdaki örnek hello toofull herkese okuma erişimi hello kapsayıcının izinleri ayarlar. BLOB'ları yalnızca hello ayarlamak için tooset izinleri toopublic okuma erişiminin **PublicAccess** özelliği çok**BlobContainerPublicAccessType.Blob**. Anonim kullanıcılar için tüm izinleri tooremove ayarlama özelliği çok hello**BlobContainerPublicAccessType.Off**.
 
 ```csharp
 public static void SetPublicContainerPermissions(CloudBlobContainer container)
@@ -67,21 +67,21 @@ public static void SetPublicContainerPermissions(CloudBlobContainer container)
 ```
 
 ## <a name="access-containers-and-blobs-anonymously"></a>Kapsayıcılar ve bloblar anonim erişim
-Kapsayıcılar ve bloblar anonim olarak erişen istemci kimlik bilgileri gerektirmeyecek oluşturucular kullanabilir. Aşağıdaki örnekler Blob hizmeti kaynaklarını anonim olarak başvurmak için birkaç farklı yolu gösterilmektedir.
+Kapsayıcılar ve bloblar anonim olarak erişen istemci kimlik bilgileri gerektirmeyecek oluşturucular kullanabilir. Örnek hello birkaç farklı şekilde tooreference Blob hizmeti kaynakları anonim olarak göster.
 
 ### <a name="create-an-anonymous-client-object"></a>Anonim istemci nesnesi oluşturun
-Hesap için Blob Hizmeti uç noktası sağlayarak anonim erişim için yeni bir hizmet istemci nesnesi oluşturabilirsiniz. Ancak, bu hesaptaki anonim erişim için kullanılabilir bir kapsayıcının adını bilmeniz gerekir.
+Merhaba hesabı için hello Blob Hizmeti uç noktası sağlayarak anonim erişim için yeni bir hizmet istemci nesnesi oluşturabilirsiniz. Ancak, bu hesaptaki anonim erişim için kullanılabilir bir kapsayıcı hello adını bilmeniz gerekir.
 
 ```csharp
 public static void CreateAnonymousBlobClient()
 {
-    // Create the client object using the Blob service endpoint.
+    // Create hello client object using hello Blob service endpoint.
     CloudBlobClient blobClient = new CloudBlobClient(new Uri(@"https://storagesample.blob.core.windows.net"));
 
-    // Get a reference to a container that's available for anonymous access.
+    // Get a reference tooa container that's available for anonymous access.
     CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
 
-    // Read the container's properties. Note this is only possible when the container supports full public read access.
+    // Read hello container's properties. Note this is only possible when hello container supports full public read access.
     container.FetchAttributes();
     Console.WriteLine(container.Properties.LastModified);
     Console.WriteLine(container.Properties.ETag);
@@ -89,15 +89,15 @@ public static void CreateAnonymousBlobClient()
 ```
 
 ### <a name="reference-a-container-anonymously"></a>Anonim olarak bir kapsayıcı başvurusu
-Anonim olarak kullanılabilir bir kapsayıcı URL'si varsa, kapsayıcı doğrudan başvurmak için kullanabilirsiniz.
+Anonim olarak kullanılabilir hello URL tooa kapsayıcı varsa tooreference hello kapsayıcı doğrudan kullanabilirsiniz.
 
 ```csharp
 public static void ListBlobsAnonymously()
 {
-    // Get a reference to a container that's available for anonymous access.
+    // Get a reference tooa container that's available for anonymous access.
     CloudBlobContainer container = new CloudBlobContainer(new Uri(@"https://storagesample.blob.core.windows.net/sample-container"));
 
-    // List blobs in the container.
+    // List blobs in hello container.
     foreach (IListBlobItem blobItem in container.ListBlobs())
     {
         Console.WriteLine(blobItem.Uri);
@@ -106,7 +106,7 @@ public static void ListBlobsAnonymously()
 ```
 
 ### <a name="reference-a-blob-anonymously"></a>Anonim olarak bir blob başvurusu
-Anonim erişim için kullanılabilir bir blob URL'si varsa, bu URL'yi kullanarak doğrudan blob başvurusu yapabilir:
+Anonim erişim için kullanılabilir hello URL tooa blob varsa, bu URL'yi kullanarak doğrudan hello blob başvurusu yapabilir:
 
 ```csharp
 public static void DownloadBlobAnonymously()
@@ -116,8 +116,8 @@ public static void DownloadBlobAnonymously()
 }
 ```
 
-## <a name="features-available-to-anonymous-users"></a>Anonim kullanıcılar için kullanılabilir özellikler
-Bir kapsayıcının ACL genel erişime izin verecek şekilde ayarladığınızda, anonim kullanıcılar tarafından hangi işlemleri çağrılabilir aşağıdaki tabloda gösterilmektedir.
+## <a name="features-available-tooanonymous-users"></a>Özellikler kullanılabilir tooanonymous kullanıcılar
+Aşağıdaki tablonun hello bir kapsayıcının ACL tooallow genel erişim ayarladığınızda, anonim kullanıcılar tarafından hangi işlemleri çağrılabilir gösterir.
 
 | REST işlemi | Tam ortak okuma erişimi izni | Yalnızca BLOB'lar için herkese okuma erişimi izniyle |
 | --- | --- | --- |
@@ -150,6 +150,6 @@ Bir kapsayıcının ACL genel erişime izin verecek şekilde ayarladığınızda
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure Storage Hizmetleri için kimlik doğrulaması](https://msdn.microsoft.com/library/azure/dd179428.aspx)
+* [Hello Azure Storage Hizmetleri için kimlik doğrulaması](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * [Paylaşılan erişim imzaları (SAS) kullanma](storage-dotnet-shared-access-signature-part-1.md)
 * [Paylaşılan Erişim İmzası ile Erişim için Temsilci Seçme](https://msdn.microsoft.com/library/azure/ee395415.aspx)

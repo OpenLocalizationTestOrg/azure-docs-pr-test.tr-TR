@@ -1,6 +1,6 @@
 ---
-title: "Tablo depolama (Node.js) ile Web uygulaması | Microsoft Docs"
-description: "Azure Storage Hizmetleri ve Azure modülü ekleyerek Express öğretici Web uygulamasıyla derlemeler Öğreticisi."
+title: Tablo depolama (Node.js) aaaWeb uygulamayla | Microsoft Docs
+description: "Azure depolama hizmetleri ve hello Azure modülü ekleyerek hello Web uygulaması hızlı öğretici ile derlemeler Öğreticisi."
 services: cosmos-db
 documentationcenter: nodejs
 author: mimig1
@@ -14,77 +14,77 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
-ms.openlocfilehash: b802f880c1131abb7eb9ba00dd8f2e65017bc802
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 7eefc09baab61cf44c98183135abe572b11812e9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="nodejs-web-application-using-storage"></a>Depolama kullanarak node.js Web uygulaması
 ## <a name="overview"></a>Genel Bakış
-Bu öğreticide, uygulamayı oluşturduğunuz [Express kullanarak Node.js Web uygulaması] Öğreticisi, Node.js için Microsoft Azure istemci kitaplıkları veri Yönetim Hizmetleri ile birlikte çalışmak üzere kullanımı genişletilir. Uygulamanız için Azure dağıtabileceğiniz bir web tabanlı görev listesi uygulama oluşturarak genişletir. Görev listesi, kullanıcının görevleri almak, yeni görevler ekleyin ve Görevler tamamlandı olarak işaretle izin verir.
+Bu öğreticide oluşturduğunuz uygulama hello [Express kullanarak Node.js Web uygulaması] Öğreticisi, Node.js toowork veri Yönetim Hizmetleri ile Merhaba Microsoft Azure istemci kitaplıkları kullanarak genişletilir. Uygulamanızı tooAzure dağıtabileceğiniz bir web tabanlı görev listesi uygulama oluşturarak genişletir. Merhaba görev listesi, kullanıcının görevleri almak, yeni görevler ekleyin ve Görevler tamamlandı olarak işaretle izin verir.
 
-Görev öğeleri Azure depolama alanında depolanır. Azure depolama hataya dayanıklı ve yüksek oranda kullanılabilir yapılandırılmamış veri depolama sağlar. Azure depolama burada depolamak ve verilere birkaç veri yapılarını içerir. Depolama Hizmetleri REST API'leri aracılığıyla veya Node.js için Azure SDK'ın dahil API'leri kullanabilirsiniz. Daha fazla bilgi için bkz: [depolama ve veri erişim].
+Merhaba görev öğeleri Azure depolama alanında depolanır. Azure depolama hataya dayanıklı ve yüksek oranda kullanılabilir yapılandırılmamış veri depolama sağlar. Azure depolama burada depolamak ve verilere birkaç veri yapılarını içerir. Hello depolama Hizmetleri'ndeki hello Node.js için veya REST API'leri aracılığıyla hello Azure SDK'sını dahil API'leri kullanabilirsiniz. Daha fazla bilgi için bkz: [depolama ve veri erişim].
 
-Bu öğretici, tamamladığınızı varsaymaktadır [Node.js Web uygulaması] ve [Node.js Express ile][Express kullanarak Node.js Web uygulaması] öğreticileri.
+Bu öğretici hello tamamladığınızı varsaymaktadır [Node.js Web uygulaması] ve [Node.js Express ile][Express kullanarak Node.js Web uygulaması] öğreticileri.
 
-Aşağıdaki bilgileri içerir:
+Aşağıdaki bilgilerle hello içerir:
 
-* Jade şablon altyapısıyla çalışma
-* Azure veri Yönetim Hizmetleri ile birlikte çalışma
+* Nasıl toowork ile Merhaba Jade şablon motoru
+* Nasıl toowork Azure veri Yönetim Hizmetleri ile
 
-Aşağıdaki ekran görüntüsünde tamamlanan uygulama gösterilir:
+Aşağıdaki ekran görüntüsü hello tamamlandı Merhaba uygulaması gösterir:
 
-![Internet Explorer'da tamamlanan web sayfası](./media/table-storage-cloud-service-nodejs/getting-started-1.png)
+![Internet Explorer'da web sayfası Hello tamamlandı](./media/table-storage-cloud-service-nodejs/getting-started-1.png)
 
 ## <a name="setting-storage-credentials-in-webconfig"></a>Web.Config dosyasında depolama kimlik bilgilerini ayarlama
-Azure depolama alanına erişmek için depolama kimlik bilgilerini geçmesi gerekir. Bu, web.config uygulama ayarları yararlanarak gerçekleştirilir.
-Web.config ayarları ortam değişkenleri olarak düğümü için Azure SDK'sı tarafından ardından okuma geçirilir.
+Depolama kimlik bilgileri tooaccess Azure Storage geçmesi gerekir. Bu, hello web.config uygulama ayarları yararlanarak gerçekleştirilir.
+Merhaba web.config ayarları sonra hello Azure SDK'sı tarafından okuma ortam değişkenleri tooNode geçirilir.
 
 > [!NOTE]
-> Azure için uygulama dağıtıldığında depolama kimlik bilgileri yalnızca kullanılır. Öykünücüde çalıştırırken, uygulama depolama öykünücüsü kullanır.
+> Merhaba uygulaması dağıtılan tooAzure olduğunda depolama kimlik bilgileri yalnızca kullanılır. Merhaba öykünücüsünde çalıştırırken hello uygulama hello depolama öykünücüsü kullanır.
 >
 >
 
-Depolama hesabı bilgilerini almak ve bunları web.config ayarları eklemek için aşağıdaki adımları gerçekleştirin:
+Adımları tooretrieve hello depolama hesabının kimlik bilgilerini aşağıdaki hello gerçekleştirmek ve bunları toohello web.config ayarları ekleyin:
 
-1. Zaten açık değilse, gelen Azure PowerShell'i başlatın **Başlat** genişleterek menü **tüm programları, Azure**, sağ **Azure PowerShell**ve ardından seçin **Yönetici olarak çalıştır**.
-2. Dizinleri uygulamanızı içeren klasöre gidin. Örneğin, C:\\düğümü\\tasklist\\WebRole1.
-3. Azure Powershell penceresinden depolama hesabı bilgilerini almak için aşağıdaki cmdlet'i girin:
+1. Zaten açık değilse, hello hello Azure PowerShell Başlat **Başlat** genişleterek menü **tüm programları, Azure**, sağ tıklatın **Azure PowerShell**ve ardından seçin **Yönetici olarak çalıştır**.
+2. Uygulamanızı içeren dizinleri toohello klasörü değiştirin. Örneğin, C:\\düğümü\\tasklist\\WebRole1.
+3. Hello Azure Powershell penceresinden cmdlet tooretrieve hello depolama hesabı bilgilerini aşağıdaki hello girin:
 
     ```powershell
     PS C:\node\tasklist\WebRole1> Get-AzureStorageAccounts
     ```
 
-   Yukarıdaki cmdlet depolama hesaplarını ve anahtarlarını barındırılan hizmetiniz ile ilişkili hesap listesini alır.
+   Merhaba Önceki cmdlet hello depolama hesapları ve barındırılan hizmetiniz ile ilişkili hesap anahtarları listesini alır.
 
    > [!NOTE]
-   > Bir hizmet dağıttığınızda Azure SDK'yı bir depolama hesabı oluşturduğundan, bir depolama hesabı zaten önceki kılavuzları uygulamanızda dağıtma var olmalıdır.
+   > Bir hizmeti dağıtırken hello Azure SDK'yı bir depolama hesabı oluşturduğundan, bir depolama hesabı zaten hello önceki kılavuzları uygulamanızda dağıtma var olmalıdır.
    >
    >
-4. Açık **ServiceDefinition.csdef** uygulamayı Azure'a dağıtıldığında kullanılan ortam ayarlarını içeren dosyayı:
+4. Açık hello **ServiceDefinition.csdef** Merhaba uygulaması dağıtılan tooAzure olduğunda kullanılan hello ortam ayarlarını içeren dosyayı:
 
     ```powershell
     PS C:\node\tasklist> notepad ServiceDefinition.csdef
     ```
 
-5. Altında aşağıdaki blok Ekle **ortam** {depolama hesabı} değiştirerek öğesi ve {depolama erişim tuşu} hesap adını ve dağıtım için kullanmak istediğiniz depolama hesabı için birincil anahtar:
+5. INSERT hello aşağıdaki engelle altında **ortam** {depolama hesabı} değiştirerek öğesi ve {depolama erişim tuşu} hello hesap adını ve dağıtım için kullanmak istediğiniz toouse hello depolama hesabının birincil anahtarı hello:
 
   <Variable name="AZURE_STORAGE_ACCOUNT" value="{STORAGE ACCOUNT}" />
   <Variable name="AZURE_STORAGE_ACCESS_KEY" value="{STORAGE ACCESS KEY}" />
 
-   ![Web.cloud.config dosya içerikleri](./media/table-storage-cloud-service-nodejs/node37.png)
+   ![Merhaba web.cloud.config dosya içerikleri](./media/table-storage-cloud-service-nodejs/node37.png)
 
-6. Dosyayı kaydedin ve Not Defteri'ni kapatın.
+6. Merhaba dosyayı kaydedin ve Not Defteri'ni kapatın.
 
 ### <a name="install-additional-modules"></a>Ek modüller yükleme
-1. [Azure], yüklemek için aşağıdaki komutu kullanın [düğüm-UUID], [nconf] ve bunların bir girdiyi kaydetmek için de yerel olarak [async] modülleri **package.json** dosyası:
+1. Komut tooinstall hello [azure] aşağıdaki kullanım hello, [düğüm-UUID], [nconf] ve yerel olarak toosave bir giriş için bunları toohello yanı sıra [async] modülleri **package.json** dosyası:
 
   ```powershell
   PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
   ```
 
-  Bu komutun çıktısı aşağıdakine benzer görünmelidir:
+  Bu komutun çıktısı Hello benzer toohello aşağıdaki görünmelidir:
 
   ```
   node-uuid@1.4.1 node_modules\node-uuid
@@ -105,13 +105,13 @@ Depolama hesabı bilgilerini almak ve bunları web.config ayarları eklemek içi
   └── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
   ```
 
-## <a name="using-the-table-service-in-a-node-application"></a>Tablo hizmetinde bir düğüm uygulamasında kullanma
-Bu bölümde, temel uygulama tarafından oluşturulan **express** komutu ekleyerek genişletilir bir **task.js** görevleriniz için model içeren dosya. Varolan değiştirme **app.js** dosya ve yeni bir **tasklist.js** modelini kullanan dosya.
+## <a name="using-hello-table-service-in-a-node-application"></a>Merhaba tablo hizmetini bir düğüm uygulamasında kullanma
+Bu bölümde, temel uygulama hello tarafından oluşturulan hello **express** komutu ekleyerek genişletilir bir **task.js** görevleriniz için hello modeli içeren dosya. Merhaba varolan değiştirme **app.js** dosya ve yeni bir **tasklist.js** hello modelini kullanan dosya.
 
-### <a name="create-the-model"></a>Modeli oluşturma
-1. İçinde **WebRole1** dizin adlı yeni bir dizin oluşturun **modelleri**.
-2. İçinde **modelleri** dizin adlı yeni bir dosya oluşturun **task.js**. Bu dosya, uygulamanız tarafından oluşturulan görevlerin modelini içerir.
-3. Başında **task.js** dosya, gerekli kitaplıklar başvurmak için aşağıdaki kodu ekleyin:
+### <a name="create-hello-model"></a>Merhaba modeli oluşturma
+1. Merhaba, **WebRole1** dizin adlı yeni bir dizin oluşturun **modelleri**.
+2. Merhaba, **modelleri** dizin adlı yeni bir dosya oluşturun **task.js**. Bu dosya, uygulamanız tarafından oluşturulan hello görevler için hello modeli içerir.
+3. Merhaba hello başında **task.js** dosya, aşağıdaki kodu tooreference gerekli kitaplıkları hello ekleyin:
 
     ```nodejs
     var azure = require('azure-storage');
@@ -119,7 +119,7 @@ Bu bölümde, temel uygulama tarafından oluşturulan **express** komutu ekleyer
     var entityGen = azure.TableUtilities.entityGenerator;
     ```
 
-4. Ardından, tanımlayın ve görev nesnesi dışarı aktarmak için kodu ekleyin. Görev nesnesi tabloya bağlanmak için sorumludur.
+4. Ardından, kod toodefine ekleyin ve hello görev nesneyi verin. Merhaba görev nesnesi toohello tablo bağlamak için sorumludur.
 
     ```nodejs
     module.exports = Task;
@@ -136,7 +136,7 @@ Bu bölümde, temel uygulama tarafından oluşturulan **express** komutu ekleyer
     };
     ```
 
-5. Ardından, ek yöntemleri Task nesnesinde tanımlamak için aşağıdaki kodu tabloda depolanan verileri ile etkileşim sağlayan ekleyin:
+5. Ardından, kod toodefine ek yöntemleri hello Task nesnesinde aşağıdaki hello hello tablosunda depolanan veriler ile etkileşim sağlayan ekleyin:
 
     ```nodejs
     Task.prototype = {
@@ -153,7 +153,7 @@ Bu bölümde, temel uygulama tarafından oluşturulan **express** komutu ekleyer
 
       addItem: function(item, callback) {
         self = this;
-        // use entityGenerator to set types
+        // use entityGenerator tooset types
         // NOTE: RowKey must be a string type, even though
         // it contains a GUID in this example.
         var itemDescriptor = {
@@ -190,11 +190,11 @@ Bu bölümde, temel uygulama tarafından oluşturulan **express** komutu ekleyer
     }
     ```
 
-6. Kaydet ve Kapat **task.js** dosya.
+6. Kaydet ve Kapat hello **task.js** dosya.
 
-### <a name="create-the-controller"></a>Denetleyiciyi oluşturma
-1. İçinde **WebRole1/yollar** dizin adlı yeni bir dosya oluşturun **tasklist.js** ve bir metin düzenleyicisinde açın.
-2. Aşağıdaki kodu **tasklist.js**'ye ekleyin. Bu kod tarafından kullanılan azure ve async modüllerini yükler **tasklist.js** ve tanımlar **TaskList** bir örneği olarak geçirilmiş işlevi **görev** biz nesnesi daha önce tanımlanan:
+### <a name="create-hello-controller"></a>Merhaba denetleyicisi oluşturun
+1. Merhaba, **WebRole1/yollar** dizin adlı yeni bir dosya oluşturun **tasklist.js** ve bir metin düzenleyicisinde açın.
+2. Kod çok aşağıdaki hello eklemek**tasklist.js**. Bu kod hello azure ve tarafından kullanılan async modüllerini yükler **tasklist.js** ve hello tanımlar **TaskList** hello örneği geçirilen işlevi **görev** biz nesnesi daha önce tanımlanan:
 
     ```nodejs
     var azure = require('azure-storage');
@@ -207,7 +207,7 @@ Bu bölümde, temel uygulama tarafından oluşturulan **express** komutu ekleyer
     }
     ```
 
-3. Eklemeye devam **tasklist.js** için kullanılan yöntemleri ekleyerek dosya **showTasks**, **addTask**, ve **tasklist.js**:
+3. Toohello eklemeye devam **tasklist.js** çok kullanılan hello yöntemleri ekleyerek dosya**showTasks**, **addTask**, ve **tasklist.js**:
 
     ```nodejs
     TaskList.prototype = {
@@ -253,11 +253,11 @@ Bu bölümde, temel uygulama tarafından oluşturulan **express** komutu ekleyer
     }
     ```
 
-4. Kaydet **tasklist.js** dosya.
+4. Merhaba Kaydet **tasklist.js** dosya.
 
 ### <a name="modify-appjs"></a>App.js'yi değiştirme
-1. İçinde **WebRole1** dizin, açık **app.js** dosyasını bir metin düzenleyicisinde.
-2. Dosyasının başında azure modülünü yüklemek ve tablo adı ve bölüm anahtarı ayarlamak için aşağıdakileri ekleyin:
+1. Merhaba, **WebRole1** dizin, açık hello **app.js** dosyasını bir metin düzenleyicisinde.
+2. Başında hello hello dosya, tooload hello azure Modülü aşağıdaki hello ekleyin ve hello tablo adı ve bölüm anahtarı ayarlayın:
 
     ```nodejs
     var azure = require('azure-storage');
@@ -265,14 +265,14 @@ Bu bölümde, temel uygulama tarafından oluşturulan **express** komutu ekleyer
     var partitionKey = 'hometasks';
     ```
 
-3. App.js dosyasında aşağıdaki satırı gördüğünüz aşağıya doğru kaydırma:
+3. Merhaba app.js dosyasında gördüğünüz toowhere kaydırarak hello satırı:
 
     ```nodejs
     app.use('/', routes);
     app.use('/users', users);
     ```
 
-    Önceki satırları aşağıdaki kodla değiştirin. Bu kod örneğini <strong>görev</strong> depolama hesabınıza bir bağlantıyla. <strong>Görev</strong> geçirilir <strong>TaskList</strong>, kullanan, tablo hizmeti ile iletişim kurmak için:
+    Satırları koddan hello ile önceki hello değiştirin. Bu kod örneğini <strong>görev</strong> bağlantı tooyour depolama hesabına sahip. Merhaba <strong>görev</strong> toohello geçirilen <strong>TaskList</strong>, kullanan, toocommunicate hello tablo hizmeti ile:
 
     ```nodejs
     var TaskList = require('./routes/tasklist');
@@ -285,11 +285,11 @@ Bu bölümde, temel uygulama tarafından oluşturulan **express** komutu ekleyer
     app.post('/completetask', taskList.completeTask.bind(taskList));
     ```
 
-4. Kaydet **app.js** dosya.
+4. Merhaba Kaydet **app.js** dosya.
 
-### <a name="modify-the-index-view"></a>Dizin görünümünü değiştirme
-1. Değiştirme dizinleri **görünümleri** dizin ve açık **index.jade** dosyasını bir metin düzenleyicisinde.
-2. Değiştir **index.jade** aşağıdaki kod ile dosya. Bu kod, var olan görevleri görüntülemek için görünümü tanımlayan ve yeni görev eklemeye ve varolanları tamamlandı olarak işaretlemek için bir form tanımlar.
+### <a name="modify-hello-index-view"></a>Merhaba dizini görünümünü değiştirme
+1. Değiştirme dizinleri toohello **görünümleri** dizin ve açık hello **index.jade** dosyasını bir metin düzenleyicisinde.
+2. Merhaba Hello içeriğini değiştirin **index.jade** koddan hello dosyasıyla. Bu kod, varolan görevleri görüntülemek için hello görünümü tanımlayan ve yeni görev eklemeye ve varolanları tamamlandı olarak işaretlemek için bir form tanımlar.
 
     ```
     extends layout
@@ -332,48 +332,48 @@ Bu bölümde, temel uygulama tarafından oluşturulan **express** komutu ekleyer
 
 3. Kaydet ve Kapat **index.jade** dosya.
 
-### <a name="modify-the-global-layout"></a>Genel düzenini değiştirme
-**views** dizinindeki **layout.jade** dosyası diğer **.jade** dosyaları için genel bir şablon olarak kullanılır. Bu adımda, değişiklik **layout.jade** kullanmak üzere bir dosya [Twitter Bootstrap](https://github.com/twbs/bootstrap), iyi görünümlü bir Web sitesi tasarlamayı kolaylaştıran bir araç olan.
+### <a name="modify-hello-global-layout"></a>Merhaba genel düzenini değiştirme
+Merhaba **layout.jade** hello dosyasında **görünümleri** dizin kullanılan genel bir şablon olarak diğer **.jade** dosyaları. Bu adımda, hello değiştirme **layout.jade** toouse dosya [Twitter Bootstrap](https://github.com/twbs/bootstrap), kolay toodesign iyi görünümlü bir Web sitesi kolaylaştıran bir araç olan.
 
-1. Karşıdan yükleyip dosyaları ayıklayın [Twitter Bootstrap](http://getbootstrap.com/). Kopya **bootstrap.min.css** dosya **önyükleme\\dağ\\css** klasörüne **ortak\\stil sayfaları** tasklist uygulamanızın dizin.
-2. Gelen **görünümleri** klasörü, açık **layout.jade** Metin Düzenleyicisi'nde dosya ve içeriğini aşağıdakilerle değiştirin:
+1. Karşıdan yükleyip hello dosyaları ayıklayın [Twitter Bootstrap](http://getbootstrap.com/). Kopya hello **bootstrap.min.css** hello dosyasından **önyükleme\\dağ\\css** klasörü toohello **ortak\\stil sayfaları** tasklist uygulamanızın dizin.
+2. Merhaba gelen **görünümleri** klasörü, açık hello **layout.jade** Metin Düzenleyicisi'nde dosya ve hello içeriği hello şununla değiştirin:
 
     doctype html html head başlığını başlık bağlantısı = (rel 'stil', href='/stylesheets/bootstrap.min.css =) bağlantı (rel 'stil', href='/stylesheets/style.css =) body.app nav.navbar.navbar varsayılan div.navbar üstbilgi a.navbar-brand(href='/') My  İçerik görevleri engelle
 
-3. Kaydet **layout.jade** dosya.
+3. Merhaba Kaydet **layout.jade** dosya.
 
-### <a name="running-the-application-in-the-emulator"></a>Uygulamayı Öykünücüde çalıştırma
-Öykünücüde uygulamayı başlatmak için aşağıdaki komutu kullanın.
+### <a name="running-hello-application-in-hello-emulator"></a>Çalışan hello uygulama hello öykünücüsü
+Komut toostart hello hello öykünücüsü uygulamasında aşağıdaki hello kullanın.
 
 ```powershell
 PS C:\node\tasklist\WebRole1> start-azureemulator -launch
 ```
 
-Tarayıcı açılır ve aşağıdaki sayfasını görüntüler:
+Merhaba tarayıcı açar ve sayfa aşağıdaki hello görüntüler:
 
-![Disk belleğine alınan web görevleri ve yeni bir görev eklemek için alanları içeren bir tablo ile My görev listesi başlıklı.](./media/table-storage-cloud-service-nodejs/node44.png)
+![Disk belleğine alınan web My görev listesi görevleri ve alanları tooadd içeren bir tablo ile yeni bir görev başlıklı.](./media/table-storage-cloud-service-nodejs/node44.png)
 
-Öğeler eklemek için form kullanın veya var olan öğeleri tamamlanmış olarak işaretleyerek kaldırın.
+Merhaba form tooadd öğeleri kullanın veya var olan öğeleri tamamlanmış olarak işaretleyerek kaldırın.
 
-## <a name="publishing-the-application-to-azure"></a>Uygulamayı Azure'a yayımlama
-Windows PowerShell penceresinde Azure barındırılan hizmete yeniden dağıtmak için aşağıdaki cmdlet'i çağırın.
+## <a name="publishing-hello-application-tooazure"></a>Yayımlama hello uygulama tooAzure
+Merhaba Windows PowerShell penceresinde, aşağıdaki cmdlet'i tooredeploy hello barındırılan hizmet tooAzure çağırın.
 
 ```powershell
 PS C:\node\tasklist\WebRole1> Publish-AzureServiceProject -name myuniquename -location datacentername -launch
 ```
 
-Değiştir **myuniquename** bu uygulama için benzersiz bir ada sahip. Değiştir **datacentername** bir Azure veri merkezi adı gibi **Batı ABD**.
+Değiştir **myuniquename** bu uygulama için benzersiz bir ada sahip. Değiştir **datacentername** hello adıyla bir Azure veri merkezi gibi **Batı ABD**.
 
-Dağıtım tamamlandıktan sonra aşağıdakine benzer bir yanıt görmeniz gerekir:
+Merhaba dağıtım tamamlandıktan sonra bir yanıt benzer toohello aşağıdaki görmeniz gerekir:
 
 ```
   PS C:\node\tasklist> publish-azureserviceproject -servicename tasklist -location "West US"
-  WARNING: Publishing tasklist to Microsoft Azure. This may take several minutes...
+  WARNING: Publishing tasklist tooMicrosoft Azure. This may take several minutes...
   WARNING: 2:18:42 PM - Preparing runtime deployment for service 'tasklist'
   WARNING: 2:18:42 PM - Verifying storage account 'tasklist'...
   WARNING: 2:18:43 PM - Preparing deployment for tasklist with Subscription ID: 65a1016d-0f67-45d2-b838-b8f373d6d52e...
   WARNING: 2:19:01 PM - Connecting...
-  WARNING: 2:19:02 PM - Uploading Package to storage service larrystore...
+  WARNING: 2:19:02 PM - Uploading Package toostorage service larrystore...
   WARNING: 2:19:40 PM - Upgrading...
   WARNING: 2:22:48 PM - Created Deployment ID: b7134ab29b1249ff84ada2bd157f296a.
   WARNING: 2:22:48 PM - Initializing...
@@ -381,35 +381,35 @@ Dağıtım tamamlandıktan sonra aşağıdakine benzer bir yanıt görmeniz gere
   WARNING: 2:22:50 PM - Created Website URL: http://tasklist.cloudapp.net/.
 ```
 
-Belirterek **-başlatma** Önceki cmdlet, tarayıcı seçeneğinde açar ve uygulamanızı yayımlama tamamlandığında, Azure'da çalışan görüntüler.
+Merhaba belirterek **-başlatma** hello Önceki cmdlet, hello tarayıcı seçeneğinde açar ve uygulamanızı yayımlama tamamlandığında, Azure'da çalışan görüntüler.
 
-![My görev listesi sayfasını gösteren bir tarayıcı penceresi. URL sayfası artık Azure üzerinde barındırılan gösterir.](./media/table-storage-cloud-service-nodejs/getting-started-1.png)
+![Merhaba My görev listesi sayfasını gösteren bir tarayıcı penceresi. Merhaba URL hello sayfası artık Azure üzerinde barındırılan gösterir.](./media/table-storage-cloud-service-nodejs/getting-started-1.png)
 
 ## <a name="stopping-and-deleting-your-application"></a>Durdurma ve uygulamanızı silme
-Uygulamanızı dağıttıktan sonra maliyetleri önlemek veya yapılandırabilir ve ücretsiz deneme süre içinde diğer uygulamaları dağıtmak için devre dışı bırakmak isteyebilirsiniz.
+Uygulamanızı dağıttıktan sonra onu önce maliyetleri önlemek veya yapılandırabilir ve hello içindeki diğer uygulamaları dağıtmak için ücretsiz deneme süre toodisable isteyebilirsiniz.
 
 Azure web rolü örneklerini harcanan sunucu saati başına faturalandırır.
-Uygulamanız dağıtıldıktan sonra örnekler çalışmadığında ve durdurulmuş halde olduğunda bile sunucu saati harcanır.
+Uygulamanızı dağıtıldığında örnekler çalışmadığında ve hello durdurulmuş durumda olsa bile sunucu saati harcanır.
 
-Aşağıdaki adımlar durdurmak ve uygulamanızı silmek nasıl gösterir.
+Merhaba aşağıdaki adımlarda size yol gösterecektir toostop ve uygulamanızı silin.
 
-1. Windows PowerShell penceresinde önceki bölümde oluşturulan hizmet dağıtımını aşağıdaki cmdlet ile durdurun:
+1. Merhaba Windows PowerShell penceresinde hello hizmet dağıtımı cmdlet aşağıdaki hello ile Merhaba önceki bölümde oluşturduğunuz durdurun:
 
     ```powershell
     PS C:\node\tasklist\WebRole1> Stop-AzureService
     ```
 
-   Hizmetin durdurulması birkaç dakika sürebilir. Hizmet durdurulduğunda bunu belirten bir ileti alırsınız.
+   Merhaba hizmetin durdurulması birkaç dakika sürebilir. Merhaba hizmet durdurulduğunda bunu belirten bir ileti alırsınız.
 
-2. Hizmeti silmek için aşağıdaki cmdlet'i çağırın:
+2. toodelete hello hizmeti, cmdlet aşağıdaki çağrı hello:
 
     ```powershell
     PS C:\node\tasklist\WebRole1> Remove-AzureService contosotasklist
     ```
 
-   İstendiğinde hizmeti silmek için **Y** yazın.
+   İstendiğinde, girin **Y** toodelete hello hizmet.
 
-   Hizmetin silinmesi birkaç dakika sürebilir. Hizmet silindikten sonra hizmet silinmiş olduğunu belirten bir ileti alırsınız.
+   Merhaba hizmetin silinmesi birkaç dakika sürebilir. Merhaba hizmet silindikten sonra hello hizmeti silinmiş olduğunu belirten bir ileti alırsınız.
 
 [Express kullanarak Node.js Web uygulaması]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
 [depolama ve veri erişim]: http://msdn.microsoft.com/library/azure/gg433040.aspx

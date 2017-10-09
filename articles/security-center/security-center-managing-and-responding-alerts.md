@@ -1,6 +1,6 @@
 ---
-title: "Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme | Microsoft Docs"
-description: "Bu belge, güvenlik uyarılarını yönetmek ve yanıtlamak için Azure Güvenlik Merkezi işlevlerini kullanmanıza yardımcı olur."
+title: "Azure Güvenlik Merkezi'nde güvenlik uyarılarını aaaManage | Microsoft Docs"
+description: "Bu belge, toouse Azure Güvenlik Merkezi özellikleri toomanage yardımcı olur ve toosecurity uyarıları yanıt."
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: yurid
-ms.openlocfilehash: 56fcfbfdbe15749132ba6a27861142fd564063c3
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: f1cb7e4770776827b75ed15893914678c1f44216
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama
-Bu belge, güvenlik uyarılarını yönetmeniz ve yanıtlamanız için Azure Güvenlik Merkezi’ni kullanmanıza yardımcı olur.
+# <a name="managing-and-responding-toosecurity-alerts-in-azure-security-center"></a>Yönetme ve Azure Güvenlik Merkezi'nde toosecurity uyarılarını yanıt
+Bu belge, Azure Güvenlik Merkezi toomanage kullanın ve toosecurity uyarıları yanıtlamanıza yardımcı olur.
 
 > [!NOTE]
-> Gelişmiş algılamaları etkinleştirmek için Azure Güvenlik Merkezi Standart sürümüne yükseltme yapın. 60 günlük ücretsiz deneme sürümü mevcuttur. Yükseltmek için [Güvenlik İlkesi](security-center-policies.md)’nde Fiyatlandırma Katmanı’nı seçin. Daha fazla bilgi için bkz. [Azure Güvenlik Merkezi fiyatlandırması](security-center-pricing.md).
+> Gelişmiş tooenable algılama, yükseltme tooAzure Güvenlik Merkezi standart. 60 günlük ücretsiz deneme sürümü mevcuttur. tooupgrade, hello select fiyatlandırma katmanı [Güvenlik İlkesi](security-center-policies.md). Bkz: [Azure Güvenlik Merkezi fiyatlandırma](security-center-pricing.md) toolearn daha fazla.
 >
 >
 
 ## <a name="what-are-security-alerts"></a>Güvenlik uyarıları nedir?
-Güvenlik Merkezi, gerçek tehditleri algılamak ve hatalı pozitif sonuçları azaltmak için Azure kaynaklarınızdan, ağınızdan ve güvenlik duvarı ve uç nokta koruma çözümleri gibi bağlı iş ortağı çözümlerinden günlük verilerini otomatik olarak toplar, çözümler ve tümleştirir. Öncelikli güvenlik uyarıları listesi, sorunu hızlıca araştırmanız gereken bilgiler ve saldırıyı düzeltme hakkındaki önerilerle birlikte Güvenlik Merkezi'nde gösterilir.
+Güvenlik Merkezi otomatik olarak toplar, çözümler, Azure kaynaklarınızı, hello ağ günlük verilerini tümleşir ve güvenlik duvarı ve endpoint protection çözümleri toodetect gerçek tehditleri gibi iş ortağı çözümlerinden bağlı ve hatalı pozitif sonuçları azaltmak. Öncelikli güvenlik uyarıları listesi hello birlikte Güvenlik Merkezi'nde gösterilen tooquickly gereksinim duyduğunuz bilgileri araştırın hello sorun ve nasıl için öneriler tooremediate saldırının.
 
 
 > [!NOTE]
@@ -38,56 +38,56 @@ Güvenlik Merkezi, gerçek tehditleri algılamak ve hatalı pozitif sonuçları 
 >
 
 ## <a name="managing-security-alerts"></a>Güvenlik ilkelerini yönetme
-**Güvenlik uyarıları** kutucuğuna bakarak mevcut uyarılarınızı gözden geçirebilirsiniz. Azure Portal’ı açın ve her bir uyarı hakkında daha fazla ayrıntıya ulaşmak için aşağıdaki adımları izleyin:
+Merhaba bakarak mevcut uyarılarınızı gözden geçirebilirsiniz **güvenlik uyarıları** döşeme. Azure Portalı'nı açın ve her uyarı hakkında daha fazla ayrıntı toosee hello adımları izleyin:
 
-1. Güvenlik Merkezi panosunda **Güvenlik uyarıları** kutucuğunu görürsünüz.
+1. Merhaba Güvenlik Merkezi panosunda hello görürsünüz **güvenlik uyarıları** döşeme.
 
     ![Güvenlik Merkezi'nde güvenlik uyarıları kutucuğu](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig1-ga.png)
 
-2. Aşağıda gösterildiği gibi, uyarılar hakkında daha fazla ayrıntı içeren **Güvenlik uyarıları** dikey penceresini açmak için kutucuğa tıklayın.
+2. Merhaba döşeme tooopen hello tıklatın **güvenlik uyarıları** hello hakkında daha fazla ayrıntı içeren dikey penceresi aşağıda gösterildiği gibi uyarır.
 
-   ![Güvenlik Merkezi'nde Güvenlik uyarıları dikey penceresi](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig2-ga.png)
+   ![Güvenlik Merkezi'nde Hello güvenlik uyarıları dikey penceresi](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig2-ga.png)
 
-Bu dikey pencerenin alt bölümünde her bir uyarı için ayrıntılar bulunur. Sıralamak için hangi sütuna göre sıralamak istediğinizi belirtin. Her sütunun tanımı aşağıda verilmiştir:
+Merhaba alt kısmında bu dikey hello ayrıntıları her uyarı için ' dir. toosort, toosort tarafından istediğiniz hello sütunu tıklatın. Her sütunun Hello tanımı aşağıda verilmiştir:
 
-* **Açıklama**: Uyarının kısa bir açıklaması.
+* **Açıklama**: hello uyarının kısa bir açıklama.
 * **Sayı**: Belirtilmiş türün belirli bir günde algılanan tüm uyarılarının listesi.
-* **Algılayan**: Uyarıyı tetiklemekten sorumlu hizmet.
-* **Tarih**: Olayın gerçekleştiği tarih
-* **Durum**: Bu uyarı için geçerli durum. İki tür durum mevcuttur:
-  * **Etkin**: Güvenlik uyarısı algılandı.
-* **Önem derecesi**: Yüksek, orta veya düşük önem düzeyi.
+* **Tarafından algılanan**: Merhaba hello uyarıyı tetiklemekten sorumlu hizmet.
+* **Tarih**: hello tarih hello olay oluştu.
+* **Durum**: Merhaba bu uyarı için geçerli durumu. İki tür durum mevcuttur:
+  * **Etkin**: hello güvenlik uyarısı algılandı.
+* **Önem derecesi**: hello önem düzeyi yüksek, Orta veya düşük olabilir.
 
 ### <a name="filtering-alerts"></a>Uyarıları filtreleme
-Tarihe, duruma ve önem derecesine göre uyarıları filtreleyebilirsiniz. Filtreleme uyarıları, güvenlik uyarıları gösterimi kapsamını daraltmanızın gerektiği senaryolar için faydalı olabilir. Örneğin, sistemde olası bir ihlali araştırdığınız için son 24 saatte oluşan güvenlik uyarılarını ele almak isteyebilirsiniz.
+Tarihe, duruma ve önem derecesine göre uyarıları filtreleyebilirsiniz. Uyarıları filtreleme toonarrow hello güvenlik uyarıları gösterimi kapsamını ihtiyaç duyacağınız senaryoları için faydalı olabilir. Örneğin, yapabileceğiniz hello sistemde olası bir ihlali Araştırdığınız için son 24 saat hello oluşan tooaddress güvenlik uyarıları istiyor.
 
-1. **Güvenlik Uyarıları** dikey penceresindeki **Filtreleme**'ye tıklayın. **Filtreleme** dikey penceresi açılır ve görmek istediğiniz tarih, durum ve önem derecesi değerlerini seçersiniz.
+1. Tıklatın **filtre** hello üzerinde **güvenlik uyarıları** dikey. Merhaba **filtre** dikey penceresi açılır ve toosee istediğiniz hello tarih, durum ve önem derecesi değerlerini seçin.
 
     ![Güvenlik Merkezi'nde uyarıları filtreleme](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3-2017.png)
 
-### <a name="respond-to-security-alerts"></a>Güvenlik uyarılarını yanıtlama
-Uyarıyı tetikleyen olay(lar) ve saldırıyı düzeltmek için (varsa) hangi adımları atmanız gerektiği hakkında daha fazla bilgi edinmek için bir güvenlik uyarısı seçin. Güvenlik uyarıları, türe ve tarihe göre gruplandırılır. Güvenlik uyarısına tıklandığında gruplanan uyarıların listesini içeren dikey pencere açılır.
+### <a name="respond-toosecurity-alerts"></a>Yanıt toosecurity uyarıları
+Bir güvenlik uyarısı toolearn seçin, adımlar varsa tetikleyen hello uyarı ve hangi hello olaylar hakkında daha fazla tootake tooremediate saldırının gerekiyor. Güvenlik uyarıları, türe ve tarihe göre gruplandırılır. Güvenlik uyarısına tıklandığında gruplanan hello uyarıları listesini içeren dikey pencere açılır.
 
-![Azure Güvenlik Merkezi'nde güvenlik uyarılarını yanıtlama](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig5-ga.png)
+![Azure Güvenlik Merkezi'nde toosecurity uyarılarını yanıtlama](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig5-ga.png)
 
-Bu durumda, tetiklenen uyarılar şüpheli Uzak Masaüstü Protokolü (RDP) etkinliğine işaret eder. Birinci sütunda hangi kaynakların saldırıya uğradığı; ikinci sütunda kaynağın kaç kez saldırıya uğradığı; üçüncü sütunda saldırının zamanı; dördüncü sütunda uyarının durumu ve beşinci sütunda saldırının önem derecesi gösterilir. Bu bilgileri gözden geçirdikten sonra, saldırıya uğrayan kaynağa tıkladığınızda yeni bir dikey pencere açılır.
+Bu durumda, tetiklenen hello uyarıları toosuspicious Uzak Masaüstü Protokolü (RDP) etkinliğine bakın. Merhaba ilk sütun hangi kaynakların saldırıya gösterir; Merhaba, ikinci hello kaynak Saldırıya uğrayan kaç kez gösterir; Merhaba üçüncü hello zaman hello saldırı gösterir; Merhaba dördüncü hello uyarının durumunu gösterir; ve hello beşinci hello saldırı hello önemini gösterir. Bu bilgileri gözden geçirdikten sonra Saldırıya uğrayan hello kaynağa tıklayın ve yeni bir dikey pencere açılır.
 
-![Azure Güvenlik Merkezi'nde güvenlik uyarıları hakkında ne yapılacağına ilişkin öneriler](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig6-ga.png)
+![Azure Güvenlik Merkezi'nde güvenlik hakkında ne toodo uyarılar için öneriler](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig6-ga.png)
 
-Bu dikey pencerenin **Açıklama** alanında bu olay hakkında daha fazla ayrıntı bulabilirsiniz. Bu ek ayrıntılar, güvenlik uyarısını neyin tetiklediği, hedef kaynak, uygulanabilirse kaynak IP adresi ve düzeltmeye ilişkin öneriler hakkında öngörüler sunar.  Windows güvenlik olayı günlüklerinin tümü IP adresi içermediğinden, bazı durumlarda kaynak IP adresi boştur (yoktur).
+Merhaba, **açıklama** bu dikey pencerenin alanında bu olay hakkında daha fazla ayrıntı bulabilirsiniz. Geçerli hello kaynak IP adresi ve öneriler konusunda bu ek ayrıntılar hangi tetiklenen hello Güvenlik Uyarısı, hello hedef kaynak, bir anlayış teklif tooremediate.  Bazı durumlarda, hello kaynak IP adresi boştur (yoktur) tüm Windows güvenlik olayı günlüklerinin hello IP adresi içermediğinden.
 
-Güvenlik Merkezi tarafından önerilen düzeltme, güvenlik uyarısına göre farklılık gösterir. Bazı durumlarda, önerilen düzeltmeyi uygulamak için diğer Azure işlevlerini kullanmak zorunda kalabilirsiniz. Örneğin, bu saldırıya ilişkin düzeltme, [ağ ACL'si](../virtual-network/virtual-networks-acl.md) veya [ağ güvenlik grubu](../virtual-network/virtual-networks-nsg.md) kuralı kullanarak bu saldırıyı gerçekleştiren IP adresini kara listeye almaktır.
+Güvenlik Merkezi tarafından önerilen hello düzeltme according toohello güvenlik uyarısı değişir. Bazı durumlarda, diğer Azure işlevlerini tooimplement toouse olabilir hello düzeltme önerilir. Örneğin, Bu saldırının kullanarak bu saldırıyı oluşturma tooblacklist başlangıç IP adresi için düzeltme hello bir [ağ ACL'si](../virtual-network/virtual-networks-acl.md) veya [ağ güvenlik grubu](../virtual-network/virtual-networks-nsg.md) kuralı.
 
 > [!NOTE]
-> Farklı uyarı türleri hakkında daha fazla bilgi için [Azure Güvenlik Merkezi'nde Türe Göre Güvenlik Uyarıları](security-center-alerts-type.md) makalesini okuyun.
+> Merhaba farklı türde bir uyarı hakkında daha fazla bilgi için okuma [göre türü Azure Güvenlik Merkezi'nde güvenlik uyarılarını](security-center-alerts-type.md).
 >
 >
 
 ## <a name="see-also"></a>Ayrıca bkz.
-Bu belgede, Güvenlik Merkezi'nde güvenlik ilkelerinin nasıl yapılandırılacağını öğrendiniz. Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
+Bu belgede, nasıl öğrenilen Güvenlik Merkezi'nde güvenlik ilkelerini tooconfigure. Güvenlik Merkezi hakkında daha fazla toolearn hello aşağıdaki bakın:
 
 * [Azure Güvenlik Merkezi'nde Güvenlik Olayını İşleme](security-center-incident.md)
 * [Azure Güvenlik Merkezi Algılama Özellikleri](security-center-detection-capabilities.md)
 * [Azure Güvenlik Merkezi Planlama ve İşlemler Kılavuzu](security-center-planning-and-operations-guide.md)
-* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) - Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
+* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) — hello hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
 * [Azure Güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/) - Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz.

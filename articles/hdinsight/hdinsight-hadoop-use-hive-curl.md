@@ -1,6 +1,6 @@
 ---
-title: "Curl hdınsight'ta - Azure ile Hadoop Hive kullanma | Microsoft Docs"
-description: "Curl kullanarak hdınsight'a Pig işleri uzaktan göndermek öğrenin."
+title: "aaaUse Curl hdınsight'ta - Azure ile Hadoop Hive | Microsoft Docs"
+description: "Curl kullanarak tooHDInsight nasıl tooremotely gönderme Pig işleri öğrenin."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,131 +16,131 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/12/2017
 ms.author: larryfr
-ms.openlocfilehash: 8a4f217b046121f85be0585eab18d90c44f21b9e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: e725829ad2adcf3540f44375e3e87b7cdaebd15e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>REST kullanarak hdınsight'ta Hadoop ile Hive sorguları çalıştırma
 
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
-Azure Hdınsight kümesinde Hadoop ile Hive sorguları çalıştırmak için WebHCat REST API kullanmayı öğrenin.
+Toouse hello WebHCat REST API toorun Hive Hadoop ile Azure Hdınsight kümesinde nasıl sorgular öğrenin.
 
-[Curl](http://curl.haxx.se/) ham HTTP isteklerini kullanarak Hdınsight ile nasıl etkileşim kurabileceğine göstermek için kullanılır. [Jq](http://stedolan.github.io/jq/) yardımcı programı, REST isteklerinden döndürülen JSON verileri işlemek için kullanılır.
+[Curl](http://curl.haxx.se/) nasıl, etkileşimli olarak çalışabilir Hdınsight ile ham HTTP isteklerini kullanarak kullanılan toodemonstrate değil. Merhaba [jq](http://stedolan.github.io/jq/) programıdır kullanılan tooprocess hello JSON verilerini REST isteklerinden döndürdü.
 
 > [!NOTE]
-> Zaten Linux tabanlı Hadoop sunucuları kullandıysanız, ancak yeni Hdınsight için, bkz: [Linux tabanlı hdınsight'ta Hadoop hakkında bilmeniz gerekenleri](hdinsight-hadoop-linux-information.md) belge.
+> Zaten Linux tabanlı Hadoop sunucuları kullandıysanız, ancak yeni tooHDInsight hello bkz [gerekenleri Linux tabanlı hdınsight'ta Hadoop hakkında tooknow](hdinsight-hadoop-linux-information.md) belge.
 
 ## <a id="curl"></a>Hive sorgularını çalıştırma
 
 > [!NOTE]
-> WebHCat ile cURL veya başka bir REST iletişimini kullanırken Hdınsight küme yöneticisinin kullanıcı adını ve parolasını sağlayarak isteklerin kimliğini doğrulaması gerekir.
+> Curl'ü veya başka bir REST iletişimini WebHCat ile kullanırken, hello kullanıcı adı ve parola hello Hdınsight küme yöneticisinin sağlayarak hello istekleri kimliğini doğrulaması gerekir.
 >
-> Bu bölümdeki komutlar için **USERNAME** ifadesini küme kimliğini doğrulayacak kullanıcı ile, **PASSWORD** ifadesini ise kullanıcı hesabının parolası ile değiştirin. **CLUSTERNAME** değerini kümenizin adıyla değiştirin.
+> Bu bölümdeki Hello komutlar için Değiştir **kullanıcıadı** hello kullanıcı tooauthenticate toohello küme ve Değiştir **parola** hello hello kullanıcı hesabının parolasını ile. Değiştir **CLUSTERNAME** kümenizin hello ada sahip.
 >
-> REST API’sinin güvenliği [temel kimlik doğrulaması](http://en.wikipedia.org/wiki/Basic_access_authentication) ile sağlanır. Kimlik bilgilerinizin sunucuya güvenli bir şekilde gönderilir sağlamaya yardımcı olmak için her zaman güvenli HTTP (HTTPS) kullanarak istekleri yapın.
+> Merhaba REST API aracılığıyla güvenli [temel kimlik doğrulaması](http://en.wikipedia.org/wiki/Basic_access_authentication). toohelp kimlik bilgilerinizi güvenli olduğundan emin olun toohello sunucu gönderilen, her zaman güvenli HTTP (HTTPS) kullanarak isteklerde.
 
-1. HDInsight kümenize bağlanabildiğinizi doğrulamak için bir komut satırında aşağıdaki komutu kullanın:
+1. Bir komut satırından tooyour Hdınsight kümesi bağlanabilir komutu tooverify aşağıdaki hello kullan:
 
     ```bash
     curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
     ```
 
-    Aşağıdakine benzer bir yanıt alırsınız:
+    Metin izleyen bir yanıt benzer toohello alırsınız:
 
         {"status":"ok","version":"v1"}
 
-    Bu komutta kullanılan parametreler aşağıdaki gibidir:
+    Bu komutta kullanılan hello parametreler aşağıdaki gibidir:
 
-   * **-u** - İstek kimliğini doğrulamak için kullanılan kullanıcı adı ve parola.
+   * **-u** -hello kullanıcı adı ve parola kullanılan tooauthenticate hello isteği.
    * **-G** -bu isteği alma işlemi olduğunu gösterir.
 
-     URL'nin başına **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, tüm istekler için aynıdır. Yol **/status**, sunucu için istek WebHCat (Templeton olarak da bilinir) durumuna döndürmek için olduğunu belirtir. Ayrıca, aşağıdaki komutu kullanarak Hive sürümü isteyebilirsiniz:
+     Merhaba URL'sini başlayan hello **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, olan hello aynı tüm istekler için. Merhaba yolu **/status**, o hello isteği tooreturn WebHCat (Templeton olarak da bilinir) durumunu hello sunucusu için gösterir. Hive hello sürümü komutu aşağıdaki hello kullanarak da isteğinde bulunabilirsiniz:
 
     ```bash
     curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/version/hive
     ```
 
-     Bu istek aşağıdaki metni benzer bir yanıt döndürür:
+     Bu istek metnini izleyen bir yanıt benzer toohello döndürür:
 
        {"modülünde": "hive", "Sürüm": "0.13.0.2.1.6.0-2103"}
 
-2. Adlı bir tablo oluşturmak için aşağıdakileri kullanın **log4jLogs**:
+2. Toocreate adlı bir tablo aşağıdaki kullanım hello **log4jLogs**:
 
     ```bash
     curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="set+hive.execution.engine=tez;DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
     ```
 
-    Bu istekle kullanılan aşağıdaki Parametreler:
+    Bu istekle kullanılan parametreler aşağıdaki hello:
 
-   * **-d** - bu yana `-G` kullanılmaz, istek varsayılan olarak, POST yöntemi. `-d`istekle birlikte gönderilen veri değerleri belirtir.
+   * **-d** - bu yana `-G` kullanılmaz, hello isteği varsayılan olarak toohello POST yöntemi. `-d`gönderilen Merhaba veri değerleri ile Merhaba isteğini belirtir.
 
-     * **User.Name** -komutu çalıştıran kullanıcının.
-     * **yürütme** -HiveQL ifadelerini yürütülecek.
-     * **statusdir** -bu iş için durumu yazılır dizin.
+     * **User.Name** -hello komutu çalıştıran hello kullanıcı.
+     * **yürütme** -HiveQL ifadelerini tooexecute hello.
+     * **statusdir** -bu iş için durumu hello hello dizin yazılır.
 
-     Bu ifadeler aşağıdaki eylemleri gerçekleştirin:
-   * **DROP TABLE** -tablosu zaten silinmiş.
-   * **Dış tablo oluştur** -kovanında yeni bir 'external' tablo oluşturur. Dış tablolara yalnızca tablo tanımı kovanında depolar. Veriler özgün konumda kalır.
+     Bu deyimler hello aşağıdaki eylemleri gerçekleştirin:
+   * **DROP TABLE** -hello tablo zaten silinmiş.
+   * **Dış tablo oluştur** -kovanında yeni bir 'external' tablo oluşturur. Dış tablolara yalnızca hello tablo tanımı kovanında depolar. Merhaba veri hello özgün konumda kalır.
 
      > [!NOTE]
-     > Dış kaynak tarafından güncelleştirilecek temel alınan veri beklediğiniz dış tablolara kullanılmalıdır. Örneğin, bir otomatik veri karşıya yükleme işlemi veya başka bir MapReduce işlemi.
+     > Dış kaynak tarafından güncelleştirilmiş hello temel alınan veri toobe beklediğiniz dış tablolara kullanılmalıdır. Örneğin, bir otomatik veri karşıya yükleme işlemi veya başka bir MapReduce işlemi.
      >
-     > Bir dış tablo bırakma mu **değil** verileri, yalnızca tablo tanımını silin.
+     > Bir dış tablo bırakma mu **değil** hello verileri, yalnızca hello tablo tanımını silin.
 
-   * **SATIR biçimi** - verileri biçimlendirilmiş nasıl. Her günlüğüne alanlar boşlukla ayrılır.
-   * **AS TEXTFILE konumu DEPOLANAN** - verilerinin depolandığı (örneğin/veri dizini) ve metin olarak depolanır.
-   * **SEÇİN** -tüm satırların sayımını seçer Burada sütun **t4** değeri içeren **[Hata]**. Bu ifade değerini döndürür **3** bu değeri içeren üç satır olarak.
-
-     > [!NOTE]
-     > HiveQL ifadelerini arasında boşluk değiştirilir bildirimi `+` karakter Curl ile kullanıldığında. Sınırlayıcı gibi bir alanı içeren tırnak içine alınmış değerler değiştirilmemişse tarafından `+`.
-
-   * **'% 25.log' INPUT__FILE__NAME gibi** -bu deyim yalnızca biten dosyaları kullanmak üzere aramayı sınırlar. günlük.
+   * **SATIR biçimi** - hello veri biçimlendirilmiş nasıl. Her günlüğüne Hello alanlar boşlukla ayrılır.
+   * **AS TEXTFILE konumu DEPOLANAN** - hello veriler burada (Merhaba örnek/veri dizini) ve metin olarak depolanır.
+   * **SEÇİN** -tüm satırların sayımını seçer Burada sütun **t4** hello değeri içeren **[Hata]**. Bu ifade değerini döndürür **3** bu değeri içeren üç satır olarak.
 
      > [!NOTE]
-     > `%25` Gerçek koşul %, URL kodlanmış form olduğundan `like '%.log'`. % URL'lerde özel karakter olarak değerlendirildiğinden URL kodlanmış, olması gerekir.
+     > Merhaba alanları HiveQL ifadelerini arasında hello tarafından değiştirilir fark `+` karakter Curl ile kullanıldığında. Merhaba sınırlayıcı gibi bir alanı içeren tırnak içine alınmış değerler değiştirilmemişse tarafından `+`.
 
-     Bu komut, iş durumunu denetlemek için kullanılan bir iş kimliği döndürmelidir.
+   * **'% 25.log' INPUT__FILE__NAME gibi** - biten bu deyimi sınırları hello arama tooonly dosyaları kullanma. günlük.
+
+     > [!NOTE]
+     > Merhaba `%25` hello gerçek koşul hello URL kodlanmış form %, olduğundan `like '%.log'`. Merhaba % toobe URL kodlanmış, aynıdır URL'lerde özel karakter olarak kabul edilir.
+
+     Bu komut, kullanılan toocheck hello hello işinin durumunu olabilir bir iş kimliği döndürmelidir.
 
        {"ID": "job_1415651640909_0026"}
 
-3. İş durumunu denetlemek için aşağıdaki komutu kullanın:
+3. Merhaba işinin komutu aşağıdaki kullanım hello toocheck hello durumu:
 
     ```bash
     curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
     ```
 
-    Değiştir **JOBID** önceki adımda döndürülen değer. Örneğin, dönüş değeri `{"id":"job_1415651640909_0026"}`, ardından **JOBID** olacaktır `job_1415651640909_0026`.
+    Değiştir **JOBID** hello önceki adımda döndürülen hello değerine sahip. Örneğin, hello değeri döndürür `{"id":"job_1415651640909_0026"}`, ardından **JOBID** olacaktır `job_1415651640909_0026`.
 
-    İş tamamlandı durumu varsa, **başarılı**.
+    Merhaba işi tamamlanmadan hello durumu varsa, **başarılı**.
 
    > [!NOTE]
-   > Bu Curl istek JavaScript nesne gösterimi (JSON) belge ile iş hakkındaki bilgileri döndürür. Jq yalnızca durum değeri almak için kullanılır.
+   > Bu Curl istek JavaScript nesne gösterimi (JSON) belge hello işi hakkında bilgi döndürür. Jq kullanılan tooretrieve yalnızca hello durum değeri.
 
-4. İş durumu olarak değiştirildi sonra **başarılı**, Azure Blob depolama alanından iş sonuçlarını alabilirsiniz. `statusdir` Sorguyla geçirilen parametre içeren çıkış dosyasının; bu durumda, konumu **/örnek/curl**. Bu adres çıktıda depolar **örnek/curl** kümeleri varsayılan depolama birimindeki dizin.
+4. Merhaba işin Hello durumu çok değişti sonra**başarılı**, Azure Blob depolama alanından hello iş hello sonuçlarını alabilirsiniz. Merhaba `statusdir` hello sorguyla geçirilen parametre içeren hello çıkış dosyasının; bu durumda, hello konumu **/örnek/curl**. Bu adres hello çıktı hello depolar **örnek/curl** hello dizininde kümeleri varsayılan depolama.
 
-    Liste ve kullanarak bu dosyaları indirmek [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). Azure Storage ile Azure CLI kullanma ile ilgili daha fazla bilgi için bkz: [Azure Storage ile Azure CLI 2.0 Kullan](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli#create-and-manage-blobs) belge.
+    Liste ve hello kullanarak bu dosyaları indirmek [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli). Merhaba hello Azure CLI Azure Storage ile kullanma hakkında daha fazla bilgi için bkz: [Azure Storage ile Azure CLI 2.0 Kullan](https://docs.microsoft.com/en-us/azure/storage/storage-azure-cli#create-and-manage-blobs) belge.
 
-5. Adlı yeni bir 'iç' tablo oluşturmak için aşağıdaki deyimleri kullanın **günlüklerini**:
+5. Aşağıdaki deyimleri toocreate adlı yeni bir 'iç' tablo kullanım hello **günlüklerini**:
 
     ```bash
     curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="set+hive.execution.engine=tez;CREATE+TABLE+IF+NOT+EXISTS+errorLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+STORED+AS+ORC;INSERT+OVERWRITE+TABLE+errorLogs+SELECT+t1,t2,t3,t4,t5,t6,t7+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log';SELECT+*+from+errorLogs;" -d statusdir="/example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
     ```
 
-    Bu ifadeler aşağıdaki eylemleri gerçekleştirin:
+    Bu deyimler hello aşağıdaki eylemleri gerçekleştirin:
 
-   * **Tablo IF değil var oluşturmak** -zaten yoksa, bir tablo oluşturur. Bu bildirimi Hive veri ambarında depolanır ve Hive tamamen yönetilen bir iç bir tablo oluşturur.
+   * **Tablo IF değil var oluşturmak** -zaten yoksa, bir tablo oluşturur. Bu bildirimi hello Hive veri ambarında depolanır ve Hive tamamen yönetilen bir iç bir tablo oluşturur.
 
      > [!NOTE]
-     > Dış tablolara, bir iç tablosu bırakarak temel alınan veri de siler.
+     > Dış tablolara, bir iç tablosu bırakarak hello temel alınan veri de siler.
 
-   * **AS ORC DEPOLANAN** -en iyi duruma getirilmiş satır sütunlu (ORC) biçiminde verileri depolar. ORC Hive verilerini depolamak için yüksek oranda en iyi duruma getirilmiş ve verimli bir biçimidir.
-   * **INSERT ÜZERİNE... SEÇİN** -satırları seçer **log4jLogs** içeren tablo **[Hata]**, verileri ekler **günlüklerini** tablo.
-   * **SEÇİN** -tüm satırları yeni seçer **günlüklerini** tablo.
+   * **AS ORC DEPOLANAN** -en iyi duruma getirilmiş satır sütunlu (ORC) biçiminde hello verileri depolar. ORC Hive verilerini depolamak için yüksek oranda en iyi duruma getirilmiş ve verimli bir biçimidir.
+   * **INSERT ÜZERİNE... SEÇİN** -hello satırları seçer **log4jLogs** içeren tablo **[Hata]**, eklemeleri veri hello hello sonra **günlüklerini** tablo.
+   * **SEÇİN** -hello yeni tüm satırları seçer **günlüklerini** tablo.
 
-6. İş durumunu denetlemek için döndürülen iş Kimliğini kullanın. Başarılı olduktan sonra Azure CLI açıklandığı gibi önceden indirmek ve sonuçları görüntülemek için kullanın. Çıktı da içeren üç satırları içermelidir **[Hata]**.
+6. Kullanım hello iş kimliği toocheck hello hello işinin durumunu döndürdü. Başarılı olduktan sonra hello toodownload ve görünüm hello sonuçları daha önce açıklandığı gibi Azure CLI kullanın. Merhaba çıktı, her biri içeren üç satırları içermelidir **[Hata]**.
 
 ## <a id="nextsteps"></a>Sonraki adımlar
 
@@ -153,11 +153,11 @@ Diğer yöntemler hakkında bilgi için hdınsight'ta Hadoop ile çalışabilirs
 * [Hdınsight'ta Hadoop ile pig kullanma](hdinsight-use-pig.md)
 * [Hdınsight'ta Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
 
-Tez Hive ile kullanıyorsanız, hata ayıklama bilgileri için aşağıdaki belgelere bakın:
+Tez Hive ile kullanıyorsanız, belgeleri hata ayıklama bilgileri için aşağıdaki hello bakın:
 
-* [Linux tabanlı Hdınsight üzerinde Ambari Tez görünümünü kullanın](hdinsight-debug-ambari-tez-view.md)
+* [Merhaba Linux tabanlı Hdınsight Ambari Tez görünümünde kullanın](hdinsight-debug-ambari-tez-view.md)
 
-Bu belgede kullanılan REST API hakkında daha fazla bilgi için bkz: [WebHCat başvuru](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference) belge.
+Merhaba hello bu belgede kullanılan REST API hakkında daha fazla bilgi için bkz: [WebHCat başvuru](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference) belge.
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 

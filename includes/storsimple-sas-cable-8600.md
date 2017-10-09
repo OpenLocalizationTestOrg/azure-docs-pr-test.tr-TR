@@ -1,7 +1,7 @@
 <!--author=alkohli last changed:02/22/16-->
 
-#### <a name="to-attach-the-sas-cables"></a>SAS kabloları eklemek için
-1. Birincil ve ebod tanımlayın. İki kasaları kendi ilgili geri düzlemleri bakarak tanımlanabilir. Aşağıdaki resim yönergeler için bkz. 
+#### <a name="tooattach-hello-sas-cables"></a>tooattach hello SAS kabloları
+1. Merhaba birincil ve EBOD kutularının hello tanımlayın. Merhaba iki kasaları kendi ilgili geri düzlemleri bakarak tanımlanabilir. Görüntü kılavuzu için aşağıdaki hello bakın. 
    
     ![Düzlemi birincil ve ebod](./media/storsimple-sas-cable-8600/HCSBackplaneofprimaryandEBODenclosure.png)
    
@@ -11,7 +11,7 @@
    |:--- |:--- |
    | 1 |Birincil kasası |
    | 2 |EBOD muhafazası |
-2. Birincil ve EBOD kutularının seri numaralarını bulun. Seri numarası etiketinin her kasa için geri kulak yapıştırılmış. Seri numaraları üzerinde hem kasaları aynı olmalıdır. [Microsoft Support başvurun](../articles/storsimple/storsimple-contact-microsoft-support.md) hemen seri numaralarını eşleşmiyorsa. Seri numaralarını bulmak için aşağıdaki çizime bakın.
+2. Hello birincil ve EBOD kutularının hello Hello seri numaralarını bulun. Merhaba seri numarası etiketinin yapıştırılmış toohello geri kulak her kasası, ' dir. Merhaba seri numaraları üzerinde hem kasaları aynı olmalıdır. [Microsoft Support başvurun](../articles/storsimple/storsimple-contact-microsoft-support.md) hemen Merhaba, seri numaraları eşleşmiyor. Aşağıdaki çizimde toolocate hello seri numaraları hello bakın.
    
     ![Seri numarası etiketinin yerini belirten arka görünümü](./media/storsimple-sas-cable-8600/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
    
@@ -19,12 +19,12 @@
    
    | Etiket | Açıklama |
    |:--- |:--- |
-   | 1 |Muhafaza kulak |
-3. EBOD muhafazası birincil muhafaza şu şekilde bağlanmak için sağlanan SAS kabloları kullanın:
+   | 1 |Merhaba muhafaza kulak |
+3. SAS kabloları tooconnect hello EBOD muhafazası toohello birincil muhafaza gibi sağlanan hello kullan:
    
-   1. Birincil muhafaza ve EBOD muhafazası dört SAS bağlantı noktalarını belirleyin. SAS bağlantı noktasını birincil muhafaza EBOD etiketlenir ve bağlantı noktası a EBOD muhafazası üzerinde aşağıdaki çizimde, kablolama SAS gösterildiği gibi karşılık gelir.
-   2. EBOD bağlantı noktası için bağlantı noktası A. bağlanmak için sağlanan SAS kabloları kullanın
-   3. EBOD bağlantı noktası 0 denetleyicisinde EBOD denetleyici 0 bağlantı noktası A bağlanması gerekir. EBOD Denetleyici 1 üzerinde bağlantı noktası A'ya EBOD bağlantı noktası 1 denetleyicisinde bağlı olması gerekir. Aşağıdaki çizim kılavuzu için bkz. 
+   1. Merhaba dört SAS bağlantı noktalarına hello birincil muhafaza ve hello EBOD muhafazası tanımlayın. Merhaba SAS bağlantı hello birincil muhafaza EBOD etiketlenir ve hello SAS kablo, aşağıda gösterildiği gibi hello EBOD muhafazası tooport A karşılık gelir.
+   2. SAS kabloları tooconnect hello EBOD bağlantı noktası tooport A. kullanım hello sağlanan
+   3. Merhaba EBOD bağlantı noktası 0 denetleyicisinde bağlı toohello bağlantı noktası A EBOD denetleyici 0 olmalıdır. Merhaba EBOD bağlantı noktası 1 denetleyicisinde bağlı toohello bağlantı noktası A EBOD Denetleyici 1 olmalıdır. Çizim Kılavuzu için aşağıdaki hello bakın. 
       
       ![Cihazınız için SAS kabloları](./media/storsimple-sas-cable-8600/HCSSAScablingforyourdevice.png)
       

@@ -1,6 +1,6 @@
 ---
-title: "Azure içeri/dışarı aktarma işleri için tanılama ve hata kurtarma | Microsoft Docs"
-description: "Ayrıntılı Microsoft Azure içeri/dışarı aktarma hizmeti işleri için günlüğü etkinleştirmek öğrenin."
+title: "Azure içeri/dışarı aktarma işleri için aaaDiagnostics ve hata kurtarma | Microsoft Docs"
+description: "Bilgi nasıl tooenable ayrıntılı günlük kaydı için Microsoft Azure içeri/dışarı aktarma hizmeti işler."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 0068aae9d6780aa41a070db0eb191d0d5a165d21
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 48164279e7904c78fed802aa3cff66e589c3f12c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="diagnostics-and-error-recovery-for-azure-importexport-jobs"></a>Azure içeri/dışarı aktarma işleri için tanılama ve hata kurtarma
-İşlenen her sürücü için Azure içeri/dışarı aktarma hizmeti ilişkili depolama hesabında bir hata günlüğü oluşturur. Ayarlayarak ayrıntılı günlük kaydını etkinleştirebilirsiniz `LogLevel` özelliğine `Verbose` çağrılırken [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) veya [güncelleştirme işi özellikleri](/rest/api/storageimportexport/jobs#Jobs_Update) işlemleri.
+İşlenen her sürücü için hello Azure içeri/dışarı aktarma hizmeti ilişkili hello depolama hesabında bir hata günlüğü oluşturur. Ayrıntılı günlük kaydını ayarlama hello tarafından etkinleştirebilirsiniz `LogLevel` özelliği çok`Verbose` hello çağrılırken [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) veya [güncelleştirme işi özellikleri](/rest/api/storageimportexport/jobs#Jobs_Update) işlemleri.
 
- Varsayılan olarak, günlükler adlı bir kapsayıcı yazılır `waimportexport`. Farklı bir ad ayarlayarak belirtebilirsiniz `DiagnosticsPath` çağrılırken özelliği `Put Job` veya `Update Job Properties` işlemleri. Günlükleri aşağıdaki adlandırma kuralıyla blok blobları olarak depolanır: `waies/jobname_driveid_timestamp_logtype.xml`.
+ Varsayılan olarak, günlükler adlı tooa kapsayıcı yazılır `waimportexport`. Ayarı hello tarafından farklı bir ad belirtebilirsiniz `DiagnosticsPath` hello çağrılırken özelliği `Put Job` veya `Update Job Properties` işlemleri. Merhaba günlükleri blok blobları adlandırma kuralı aşağıdaki hello ile depolanır: `waies/jobname_driveid_timestamp_logtype.xml`.
 
- Bir işi için kayıtlar URI'sini çağırarak alabilir [alma işi](/rest/api/storageimportexport/jobs#Jobs_Get) işlemi. Ayrıntılı günlük URI'sini döndürülür `VerboseLogUri` özelliği, hata günlüğü için URI döndürürken her sürücü için `ErrorLogUri` özelliği.
+ Merhaba hello günlüklerinin bir iş için URI arama hello tarafından alabilir [alma işi](/rest/api/storageimportexport/jobs#Jobs_Get) işlemi. Merhaba URI hello ayrıntılı günlük hello döndürülen `VerboseLogUri` özelliği hello URI hello hata günlüğü hello döndürürken her sürücü için `ErrorLogUri` özelliği.
 
-Günlük verilerini aşağıdaki sorunları belirlemek için kullanabilirsiniz.
+Sorunları aşağıdaki veri tooidentify hello günlüğü hello kullanabilirsiniz.
 
 ## <a name="drive-errors"></a>Sürücü hataları
 
-Aşağıdaki öğeler sürücüsü hataları sınıflandırılan:
+Aşağıdaki öğelerindeki hello sürücüsü hataları sınıflandırılan:
 
--   Erişimi veya bildirim dosyasını okuma hataları
+-   Bildirim dosyası erişme veya hello okuma hataları
 
 -   Yanlış BitLocker anahtarları
 
@@ -41,7 +41,7 @@ Aşağıdaki öğeler sürücüsü hataları sınıflandırılan:
 
 ## <a name="blob-errors"></a>BLOB hataları
 
-Aşağıdaki öğeler blob hataları olarak sınıflandırılan:
+Aşağıdaki öğelerindeki hello blob hataları olarak sınıflandırılan:
 
 -   Yanlış veya çakışan blob veya adları
 
@@ -49,16 +49,16 @@ Aşağıdaki öğeler blob hataları olarak sınıflandırılan:
 
 -   Blob bulunamadı
 
--   Kesilmiş dosyaları (diskteki dosyaları bildiriminde belirtilenden daha küçük)
+-   Kesilmiş dosyaları (Merhaba diskteki hello dosyaları hello bildiriminde belirtilenden daha küçük)
 
 -   Bozuk dosya içerik (için içeri aktarma işi ile bir MD5 sağlama toplamı eşleşmezliği algıladı)
 
 -   Bozuk blob meta verileri ve özellik dosyaları (ile bir MD5 sağlama toplamı eşleşmezliği algıladı)
 
--   Blob özellikleri ve/veya meta veri dosyaları için yanlış şeması
+-   Yanlış şema hello blob özellikleri ve/veya meta veri dosyaları
 
-Genel İş hala tamamlanırken burada bazı bölümleri içe veya dışa aktarma işleminin başarıyla tamamlanması değil durumlar olabilir. Bu durumda, karşıya yükleme veya ağ üzerinden veri eksik parçalarını indirin veya verileri aktarmak için yeni bir proje oluşturabilirsiniz. Bkz: [Azure içeri/dışarı aktarma aracı başvurusu](storage-import-export-tool-how-to-v1.md) verileri ağ üzerinden onarmak hakkında bilgi edinmek için.
+Merhaba genel iş hala tamamlanırken burada içe veya dışa aktarma işinin bazı bölümleri başarıyla tamamlamayın durumlar olabilir. Bu durumda, karşıya yükleme veya ağ üzerinden hello veri parçalarını eksik hello indirin veya yeni bir iş tootransfer hello veri oluşturabilirsiniz. Merhaba bkz [Azure içeri/dışarı aktarma aracı başvurusu](storage-import-export-tool-how-to-v1.md) toolearn nasıl toorepair hello verileri ağ üzerinden.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [İçeri/dışarı aktarma hizmeti REST API'si kullanma](storage-import-export-using-the-rest-api.md)
+* [Merhaba içeri/dışarı aktarma hizmeti REST API'si kullanma](storage-import-export-using-the-rest-api.md)

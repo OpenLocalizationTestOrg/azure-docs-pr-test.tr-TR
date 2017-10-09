@@ -1,6 +1,6 @@
 ---
-title: "Java kullanarak azure depolama örnekleri | Microsoft Docs"
-description: "Görüntülemek, indirin ve örnek kod ve uygulamaları için Azure Storage çalıştırın. BLOB, kuyruklar, tablolar ve dosyaları için Java depolama istemcisi kitaplıklarını kullanarak örnek Başlarken bulur."
+title: "Java kullanarak aaaAzure depolama örnekleri | Microsoft Docs"
+description: "Görüntülemek, indirin ve örnek kod ve uygulamaları için Azure Storage çalıştırın. BLOB, kuyruklar, tablolar ve dosyaları için örnek hello Java depolama istemcisi kitaplıklarını kullanarak Başlarken bulur."
 services: storage
 documentationcenter: na
 author: seguler
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 01/12/2017
 ms.author: seguler
-ms.openlocfilehash: 98e6022062b4ef5b5c71b54a0e94775b925d216b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e3b8fbe86e82dd58c2a13a3c68760cbf6e9a6e4b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-storage-samples-using-java"></a>Java kullanarak azure depolama örnekleri
 
 ## <a name="java-sample-index"></a>Java örnek dizini
 
-Aşağıdaki tabloda bizim örnek depo ve her örnek kapsamdaki senaryolar genel bakış sağlar. Github'da karşılık gelen örnek kod görüntülemek için bağlantıları tıklatın.
+Merhaba aşağıdaki tabloda örneklerimizi genel bir bakış depo ve hello senaryolar sağlar her örnek kapsamdaki. Merhaba bağlantılar tooview hello karşılık gelen örnek kod github'ı tıklatın.
 
 <table style="font-size:90%"><thead><tr><th style="font-size:110%">Uç Nokta</th><th style="font-size:110%">Senaryo</th><th style="font-size:110%">Örnek kod</th></tr></thead><tbody> 
 <tr> 
@@ -197,13 +197,13 @@ Aşağıdaki tabloda bizim örnek depo ve her örnek kapsamdaki senaryolar genel
 
 ## <a name="azure-code-samples-library"></a>Azure Kod Örnekleri Kitaplığı
 
-Tam örnek kitaplığını görüntülemek için Git [Azure Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=storage) Azure Storage için karşıdan yükle ve yerel olarak çalıştırılan örnekleri içeren kitaplık. Kod örneği kitaplığı .zip biçimi örnek kodda sağlar. Alternatif olarak, bulun ve her bir örnek için GitHub deposunu kopyalayın.
+tooview hello tam örnek kitaplığı, Git toohello [Azure Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=storage) Azure Storage için karşıdan yükle ve yerel olarak çalıştırılan örnekleri içeren kitaplık. Merhaba kod örnek kitaplığı .zip biçimi örnek kodda sağlar. Alternatif olarak, bulun ve her bir örnek için hello GitHub deposunu kopyalayın.
 
 [!INCLUDE [storage-java-samples-include](../../includes/storage-java-samples-include.md)]
 
 ## <a name="getting-started-guides"></a>Başlarken kılavuzları alma
 
-Yükleyin ve Azure Storage istemcisi kitaplıklarını ile çalışmaya başlama hakkında yönergeler arıyorsanız aşağıdaki kılavuzlara denetleyin.
+Kılavuzları hakkında yönergeler arıyorsanız aşağıdaki hello kullanıma tooinstall ve Azure Storage istemcisi kitaplıklarını hello ile çalışmaya başlama.
 
 * [Java'da Azure Blob hizmeti ile çalışmaya başlama](storage-java-how-to-use-blob-storage.md)
 * [Java'da Azure kuyruk hizmeti ile çalışmaya başlama](storage-java-how-to-use-queue-storage.md)

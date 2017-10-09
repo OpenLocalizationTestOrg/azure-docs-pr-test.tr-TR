@@ -1,6 +1,6 @@
 ---
-title: "Aktör tabanlı Azure mikro olayları | Microsoft Docs"
-description: "Service Fabric Reliable Actors olayları için giriş."
+title: "Aktör tabanlı Azure mikro aaaEvents | Microsoft Docs"
+description: "Service Fabric Reliable Actors giriş tooevents."
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/13/2017
 ms.author: amanbha
-ms.openlocfilehash: d936670c548ff709fc2e935d3f28d94e4bde8a04
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a51e41c35441a5fea508138968b36a35f0ba6699
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="actor-events"></a>Aktör olayları
-Aktör olayları en yüksek çaba bildirim oyuncusu istemcilere göndermek için bir yol sağlar. Aktör olayları aktör istemci iletişimi için tasarlanmıştır ve aktör aktör iletişimi için kullanılmaması gerekir.
+Aktör olayları bir şekilde toosend en yüksek çaba bildirimleri hello aktör toohello istemcilerden sağlar. Aktör olayları aktör istemci iletişimi için tasarlanmıştır ve aktör aktör iletişimi için kullanılmaması gerekir.
 
-Aşağıdaki kod parçacıkları, uygulamanızda aktör olayları kullanmayı gösterir.
+Merhaba aşağıdaki kod parçacıkları Göster nasıl toouse aktör olayları uygulamanızda.
 
-Aktör tarafından yayımlanan olayları tanımlayan bir arabirim tanımlayın. Bu arabirim öğesinden türetilmelidir `IActorEvents` arabirimi. Bağımsız değişkenler yöntemlerin olmalıdır [veri sözleşmesi seri hale getirilebilir](service-fabric-reliable-actors-notes-on-actor-type-serialization.md). Yöntemleri boş döndürmeleri gerektiği, bir yolu ve en iyi çaba bildirimleri olayı olarak olur.
+Merhaba aktör tarafından yayımlanan hello olayları tanımlayan bir arabirim tanımlayın. Bu arabirim hello türetilmelidir `IActorEvents` arabirimi. Merhaba yöntemleri Hello bağımsız olmalıdır [veri sözleşmesi seri hale getirilebilir](service-fabric-reliable-actors-notes-on-actor-type-serialization.md). Merhaba yöntemleri boş döndürmeleri gerektiği, bir yolu ve en iyi çaba bildirimleri olayı olarak olur.
 
 ```csharp
 public interface IGameEvents : IActorEvents
@@ -39,7 +39,7 @@ public interface GameEvents implements ActorEvents
     void gameScoreUpdated(UUID gameId, String currentScore);
 }
 ```
-Aktör arabiriminde aktör tarafından yayımlanan olayları bildirme.
+Merhaba aktör hello aktör arabiriminde tarafından yayımlanan hello olayları bildirme.
 
 ```csharp
 public interface IGameActor : IActor, IActorEventPublisher<IGameEvents>
@@ -57,7 +57,7 @@ public interface GameActor extends Actor, ActorEventPublisherE<GameEvents>
     CompletableFuture<String> getGameScore();
 }
 ```
-İstemci tarafında olay işleyicisi uygulayın.
+Merhaba istemci tarafında hello olay işleyicisi uygulayın.
 
 ```csharp
 class GameEventsHandler : IGameEvents
@@ -78,7 +78,7 @@ class GameEventsHandler implements GameEvents {
 }
 ```
 
-İstemci üzerindeki olay yayımlar aktör proxy'sine oluşturun ve kendi olaylarına abone olma.
+Merhaba istemcide hello olay yayımlayan bir proxy toohello aktör oluşturun ve tooits olayları abone olun.
 
 ```csharp
 var proxy = ActorProxy.Create<IGameActor>(
@@ -93,9 +93,9 @@ GameActor actorProxy = ActorProxyBase.create<GameActor>(GameActor.class, new Act
 return ActorProxyEventUtility.subscribeAsync(actorProxy, new GameEventsHandler());
 ```
 
-Yük devretme durumunda aktör üzerinden farklı işlem ya da düğüm başarısız olabilir. Aktör proxy etkin abonelikleri yönetir ve otomatik olarak yeniden abone. Aracılığıyla yeniden abonelik aralığı kontrol edebilirsiniz `ActorProxyEventExtensions.SubscribeAsync<TEvent>` API. Aboneliğinizi iptal etmek için kullanmak `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` API.
+Yük devretme işlemlerini Hello olayda hello aktör tooa farklı bir işlem veya düğüm üzerinde başarısız olabilir. Merhaba aktör proxy hello etkin abonelikleri yönetir ve otomatik olarak yeniden abone. Merhaba yeniden abonelik aralığı hello aracılığıyla kontrol edebilirsiniz `ActorProxyEventExtensions.SubscribeAsync<TEvent>` API. toounsubscribe, kullanım hello `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` API.
 
-Sırada aktör üzerinde olayları yalnızca yayımlayın. Aktör çalışma zamanı olay abonelere varsa, bunları bildirim gönderir.
+Bunlar gerçekleşecek şekilde hello aktör üzerinde hello olayları yalnızca yayımlayın. Merhaba aktörler çalışma zamanı aboneleri toohello olay varsa, bunları hello bildirim gönderir.
 
 ```csharp
 var ev = GetEvent<IGameEvents>();

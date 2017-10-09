@@ -1,6 +1,6 @@
 ---
-title: "(Windows Evrensel) son dakika haberleri göndermek için Notification Hubs'ı kullanma"
-description: "Bir evrensel Windows uygulaması için son dakika haberleri göndermek için Azure Notification Hubs kayıt etiketleri kullanın."
+title: "aaaUse bildirim hub'ları toosend son dakika haberleri (Evrensel Windows)"
+description: "Azure Notification Hubs haber tooa Evrensel Windows uygulaması çiğnemekten hello kayıt toosend etiketleri kullanın."
 services: notification-hubs
 documentationcenter: windows
 author: ysxu
@@ -14,30 +14,30 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: 0e945b5626a08fcb428131f2abb465c2c141011a
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: f102d286d2c7bd387fcfa2c7eab2ba31a0298517
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-notification-hubs-to-send-breaking-news"></a>Son dakika haberleri göndermek için Notification Hubs kullanma
+# <a name="use-notification-hubs-toosend-breaking-news"></a>Bildirim hub'ları toosend son dakika haberleri kullanın
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Bu konu Azure Notification Hubs son dakika haberi bildirimleri Windows mağazası veya Windows Phone 8.1 (Silverlight olmayan) uygulamasına yayını için nasıl kullanılacağını gösterir. Windows Phone 8.1 Silverlight'ı hedefliyorsanız lütfen [Windows Evrensel](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) sürümüne bakın. Tamamlandığında, ilgilendiğiniz haber kategorileri dökümü için kaydedilecek olması ve yalnızca bu kategorilerin anında iletme bildirimlerini almak. Bu sayıda uygulama için genel bir desen bildirimleri daha önce bunları, örneğin RSS Okuyucu uygulamaları müzik fanları için ilgi derlendiğinden vb. kullanıcı gruplarının gönderilmesi sahip olduğu bir senaryodur. 
+Bu konu, nasıl gösterir toouse Azure Notification Hubs toobroadcast haber bildirimleri tooa Windows mağazası veya Windows Phone 8.1 (Silverlight olmayan) uygulamasına kesiliyor. Windows Phone 8.1 Silverlight hedefliyorsanız Lütfen toohello bakın [Windows Phone](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) sürümü. Tamamlandığında, ilgilendiğiniz haber kategorileri sonu için mümkün tooregister olmalı ve yalnızca bu kategorilerin anında iletme bildirimlerini almak. Bu sayıda uygulama için genel bir desen bildirimleri gönderilen toobe toogroups daha önce bunları, örneğin RSS Okuyucu uygulamaları müzik fanları için ilgi derlendiğinden vb. kullanıcıların sahip olduğu bir senaryodur. 
 
-Yayın senaryoları etkin bir veya daha fazla dahil ederek *etiketleri* bir kayıt bildirim hub'ı oluştururken. Bildirimler için bir etiket gönderildiğinde, kaydettiğiniz tüm etiket cihazlarda bildirim alırsınız. Etiketleri yalnızca dizeleri olduğundan, bunlar önceden hazırlanması gerekmez. Etiketler hakkında daha fazla bilgi için başvurmak [bildirim hub'ları Yönlendirme ve etiket ifadeleri](notification-hubs-tags-segment-push-message.md).
+Yayın senaryoları etkin bir veya daha fazla dahil ederek *etiketleri* bir kayıt hello bildirim hub'oluştururken. Bildirimleri tooa etiketi gönderildiğinde kayıtlı tüm aygıtları hello etiketi hello bildirim alırsınız. Etiketleri yalnızca dizeleri olduğundan, önceden sağlanmış toobe gerekmez. Etiketler hakkında daha fazla bilgi için çok başvuran[bildirim hub'ları Yönlendirme ve etiket ifadeleri](notification-hubs-tags-segment-push-message.md).
 
 > [!NOTE]
 > Windows mağazası ve Windows Phone projeleri sürüm 8.1 ve önceki Visual Studio 2017 içinde desteklenmez.  Daha fazla bilgi için bkz. [Visual Studio 2017 Platform Desteği ve Uyumluluk](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs). 
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu konu, oluşturduğunuz uygulama inşa edilmiştir [Notification Hubs ile çalışmaya başlama][get-started]. Bu öğreticiye başlamadan önce önce tamamlamış olmalıdır [Notification Hubs ile çalışmaya başlama][get-started].
+Bu konu içinde oluşturduğunuz hello uygulama inşa edilmiştir [Notification Hubs ile çalışmaya başlama][get-started]. Bu öğreticiye başlamadan önce önce tamamlamış olmalıdır [Notification Hubs ile çalışmaya başlama][get-started].
 
-## <a name="add-category-selection-to-the-app"></a>Kategori seçimi için uygulama ekleme
-İlk adım, kullanıcı Arabirimi öğeleri kaydetmek için kategoriler seçmesini sağlayan varolan ana sayfanıza eklemektir. Bir kullanıcı tarafından seçilen kategoriler cihazda depolanır. Uygulama başlatıldığında bir aygıt kaydı bildirim hub'ınıza seçili kategorileri etiketler oluşturulur.
+## <a name="add-category-selection-toohello-app"></a>Kategori seçimi toohello uygulama Ekle
+Merhaba ilk adım, hello kullanıcı tooselect kategorileri tooregister etkinleştirmek tooadd hello kullanıcı Arabirimi öğeleri tooyour varolan ana sayfasıdır. bir kullanıcı tarafından seçilen hello kategoriler hello aygıtta depolanır. Merhaba uygulama başlatıldığında bir aygıt kaydı bildirim hub'ınıza seçili hello kategorileri etiketler oluşturulur.
 
-1. MainPage.xaml proje dosyasını açın, sonra aşağıdaki kodu kopyalayın **kılavuz** öğe:
+1. Açık hello MainPage.xaml proje dosyası sonra kopyalama hello hello kodda aşağıdaki **kılavuz** öğe:
    
         <Grid>
             <Grid.RowDefinitions>
@@ -60,13 +60,13 @@ Bu konu, oluşturduğunuz uygulama inşa edilmiştir [Notification Hubs ile çal
             <ToggleSwitch Header="Sports" Name="SportsToggle" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center"/>
             <Button Name="SubscribeButton" Content="Subscribe" HorizontalAlignment="Center" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Click="SubscribeButton_Click"/>
         </Grid>
-2. Sağ tıklayın **paylaşılan** proje ve adlı yeni bir sınıf ekleyin **bildirimleri**, ekleme **ortak** değiştiricisi sınıf tanımına sonra aşağıdakileri ekleyin  **kullanarak** deyimleri için yeni kod dosyası:
+2. Merhaba sağ tıklayın **paylaşılan** proje ve adlı yeni bir sınıf ekleyin **bildirimleri**, hello eklemek **ortak** değiştiricisi toohello sınıf tanımının, ardından aşağıdaki hello ekleyin**kullanarak** deyimleri toohello yeni kod dosyası:
    
         using Windows.Networking.PushNotifications;
         using Microsoft.WindowsAzure.Messaging;
         using Windows.Storage;
         using System.Threading.Tasks;
-3. Aşağıdaki kodu yeni dosyaya kopyalayın **bildirimleri** sınıfı:
+3. Kopya hello aşağıdaki kod hello yeni **bildirimleri** sınıfı:
    
         private NotificationHub hub;
    
@@ -96,7 +96,7 @@ Bu konu, oluşturduğunuz uygulama inşa edilmiştir [Notification Hubs ile çal
                 categories = RetrieveCategories();
             }
    
-            // Using a template registration to support notifications across platforms.
+            // Using a template registration toosupport notifications across platforms.
             // Any template notifications that contain messageParam and a corresponding tag expression
             // will be delivered for this registration.
    
@@ -106,29 +106,29 @@ Bu konu, oluşturduğunuz uygulama inşa edilmiştir [Notification Hubs ile çal
                     categories);
         }
    
-    Bu sınıf yerel depolama almak için bu aygıtın haber kategorilerini depolamak için kullanır. Arama yerine unutmayın *RegisterNativeAsync* diyoruz yöntemi *RegisterTemplateAsync* şablonu kayıt kullanarak kategorileri için kaydedilecek. 
+    Bu sınıf hello yerel depolama toostore hello kategorilerini bu aygıtta tooreceive olduğunu haber kullanır. Arama hello yerine unutmayın *RegisterNativeAsync* diyoruz yöntemi *RegisterTemplateAsync* tooregister şablonu kayıt kullanarak hello kategorileri için. 
    
-    Ayrıca ("simpleWNSTemplateExample"), şablon için bir ad (örneğin bir bildirimleri için) ve biri döşeme için birden fazla şablon kaydetmek istiyoruz ve bunları güncelleştirmek veya bunları silmek için ad ihtiyacımız çünkü sunuyoruz.
+    Biz de hello şablonu ("simpleWNSTemplateExample") için bir ad sağlayın, çünkü tooregister (örneğin biri bildirimleri) ve biri kutucuklar için birden fazla şablon istiyoruz ve tooname ihtiyacımız bunları toobe mümkün tooupdate sipariş veya silin.
    
-    Bir aygıt ile aynı etiketi birden fazla şablon kaydederse, bir gelen ileti etiketi içinde birden fazla bildirim sonuçlanacak hedefleme aygıt (her şablon için bir tane) teslim olduğunu unutmayın. Bu davranış, aynı mantıksal ileti örneği için bir Windows mağazası uygulamasında bir gösterge ve bildirim gösteren birden çok görsel bildirimler neden olduğunda yararlıdır.
+    Bir aygıt hello aynı etiketi sonuçlanır hedefleme gelen ileti etiketi ile birden fazla şablon kaydederse birden fazla bildirim toohello aygıt (her şablon için bir tane) teslim unutmayın. Bu davranış, Hello aynı mantıksal ileti tooresult örneği için bir Windows mağazası uygulamasında bir gösterge ve bildirim gösteren birden çok görsel bildirimler sahip yararlıdır.
    
     Şablonlar hakkında daha fazla bilgi için bkz: [şablonları](notification-hubs-templates-cross-platform-push-messages.md).
-4. App.xaml.cs proje dosyasında aşağıdaki özellik eklemek **uygulama** sınıfı:
+4. Özellik toohello aşağıdaki hello Hello App.xaml.cs proje dosyasında eklemek **uygulama** sınıfı:
    
         public Notifications notifications = new Notifications("<hub name>", "<connection string with listen access>");
    
-    Bu özellik oluşturmak ve erişmek için kullanılan bir **bildirimleri** örneği.
+    Bu özellik kullanılan toocreate ve erişimi olan bir **bildirimleri** örneği.
    
-    Yukarıdaki kodla `<hub name>` ve `<connection string with listen access>` , bildirim hub'ı adı ve bağlantı dizesinde yer tutucularını *DefaultListenSharedAccessSignature* daha önce edindiğiniz.
+    Kod yukarıda Hello hello yerine `<hub name>` ve `<connection string with listen access>` bildirim hub'ı adı ve hello için bağlantı dizenizi yer tutucularını *DefaultListenSharedAccessSignature* daha önce edindiğiniz.
    
    > [!NOTE]
-   > Bir istemci uygulaması ile dağıtılmış kimlik bilgileri genellikle güvenli olmadığı için istemci uygulamanızı dinleme erişim için anahtar yalnızca dağıtmanız. Bildirimler, ancak var olan kayıtlar için kaydetmek için uygulamanızın değiştirilemez erişimi etkinleştirir dinleyin ve bildirim gönderilemiyor. Tam erişim anahtarı, bir güvenli arka uç hizmetinde bildirimleri gönderme ve var olan kayıtlar değiştirmek için kullanılır.
+   > Bir istemci uygulaması ile dağıtılmış kimlik bilgileri genellikle güvenli olmadığından, yalnızca hello anahtarını dinleme erişim için istemci uygulamanızı dağıtmak. Bildirimler, ancak var olan kayıtlar için uygulama tooregister değiştirilemez erişimi etkinleştirir dinleyin ve bildirim gönderilemiyor. Merhaba tam erişim tuşu bir güvenli arka uç hizmetinde bildirimleri gönderme ve var olan kayıtlar değiştirmek için kullanılır.
    > 
    > 
-5. MainPage.xaml.cs dosyasında aşağıdaki satırı ekleyin:
+5. MainPage.xaml.cs dosyasında hello aşağıdaki satırı ekleyin:
    
         using Windows.UI.Popups;
-6. MainPage.xaml.cs proje dosyasında aşağıdaki yöntemi ekleyin:
+6. Merhaba MainPage.xaml.cs proje dosyasında yöntemi aşağıdaki hello ekleyin:
    
         private async void SubscribeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -147,19 +147,19 @@ Bu konu, oluşturduğunuz uygulama inşa edilmiştir [Notification Hubs ile çal
             await dialog.ShowAsync();
         }
    
-    Bu yöntem kategorileri ve kullandığı bir liste oluşturur **bildirimleri** listesi yerel depolama alanına depolar ve karşılık gelen kaydetmek için sınıfı, bildirim hub'ınıza etiketler. Kategoriler değiştirildiğinde kaydı yeni kategoriler yeniden oluşturulur.
+    Bu yöntem kategorileri ve kullandığı hello listesini oluşturur **bildirimleri** sınıf toostore hello hello yerel depolama listesinde ve bildirim hub'ınıza hello karşılık gelen etiketleri kaydedin. Kategoriler değiştirildiğinde hello kayıt hello yeni kategorileri ile yeniden oluşturulur.
 
-Uygulamanızı kategorileri kümesi cihazın yerel depolama depolamak ve kullanıcı kategorisi seçimine değiştiğinde bildirim hub'ınızla kaydolmak için sunulmuştur.
+Uygulamanızı mümkün toostore kategorileri kümesi hello cihazda yerel depolama sunulmuştur ve kategorisi seçimine hello kullanıcı değişiklikleri hello her hello bildirim hub'ı ile kaydedin.
 
 ## <a name="register-for-notifications"></a>Bildirimler için kaydolun
-Yerel depolamada depolanan kategorileri kullanarak başlangıçtaki bildirim hub'ı ile adımları kaydedin.
+Yerel depolamada depolanan hello kategorileri kullanarak başlangıçta hello bildirim hub'ı ile adımları kaydedin.
 
 > [!NOTE]
-> Windows bildirim Hizmeti'ni (WNS) tarafından atanan URI kanal herhangi bir zamanda değiştiğinden bildirimlerinin sık bildirim hataları önlemek için kayıt olmalıdır. Bu örnek uygulama başladıktan her zaman bir bildirime kaydolur. Sık çalıştırılan uygulamalar için günde bir kereden fazla, büyük olasılıkla bir günden az itibaren önceki kayıt aktarılırsa bant genişliğinden tasarruf etmek kayıt atlayabilirsiniz.
+> Merhaba kanal URI'sini hello Windows bildirim Hizmeti'ni (WNS) tarafından atanan herhangi bir zamanda değiştiğinden bildirimleri için tooavoid bildirim hataları sık kaydetmelisiniz. Bu hello uygulama her başlatıldığında bu örnek bir bildirime kaydolur. Bir günden az hello önceki kayıt itibaren aktarılırsa, sık çalıştırılan uygulamalar için günde bir kereden fazla, büyük olasılıkla kayıt toopreserve bant genişliği atlayabilirsiniz.
 > 
 > 
 
-1. App.xaml.cs dosyasını açıp güncelleştirme **Initnotificationsasync** yöntemini kullanmak üzere `notifications` abone olmak için sınıf tabanlı kategorilerindeki.
+1. Açık hello App.xaml.cs dosyasını ve güncelleştirme hello **Initnotificationsasync** yöntemi toouse hello `notifications` sınıfı toosubscribe alarak kategorilere göre.
    
         // *** Remove or comment out these lines *** 
         //var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
@@ -168,8 +168,8 @@ Yerel depolamada depolanan kategorileri kullanarak başlangıçtaki bildirim hub
    
         var result = await notifications.SubscribeToCategories();
    
-    Bu uygulama her başlatıldığında kategorileri yerel depodan alır ve bu kategorilerin bir kayda istekleri emin olur. **Initnotificationsasync** yöntemi, bir parçası olarak oluşturulmuş [Notification Hubs ile çalışmaya başlama] [ get-started] Öğreticisi.
-2. MainPage.xaml.cs proje dosyasına aşağıdaki kodu ekleyin *OnNavigatedTo* yöntemi:
+    Bu hello uygulama her başlatıldığında hello kategorileri yerel depodan alır ve bu kategorilerin bir kayda istekleri emin olur. Merhaba **Initnotificationsasync** yöntemi hello bir parçası olarak oluşturulmuş [Notification Hubs ile çalışmaya başlama] [ get-started] Öğreticisi.
+2. Merhaba MainPage.xaml.cs proje dosyasında kodu toohello aşağıdaki hello eklemek *OnNavigatedTo* yöntemi:
    
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -183,45 +183,45 @@ Yerel depolamada depolanan kategorileri kullanarak başlangıçtaki bildirim hub
             if (categories.Contains("Sports")) SportsToggle.IsOn = true;
         }
    
-    Bu, önceden kaydedilmiş kategorileri durumlarına dayalı ana sayfa güncelleştirir.
+    Merhaba durumlarına önceden dayalı bu güncelleştirmeleri hello ana bir sayfayı kategorileri kaydedildi.
 
-Uygulama tamamlanmıştır ve kategorileri kümesi kullanıcı kategorisi seçimine değiştiğinde bildirim hub'ınızla kaydolmak için kullanılan aygıt yerel depoda depolayabilirsiniz. Ardından, biz bu uygulamaya kategori bildirimleri gönderebilir bir arka uç tanımlayacaksınız.
+Merhaba uygulama tamamlanmıştır ve kategorisi seçimine hello kullanıcı değişiklikleri hello her kategori kümesini hello aygıt kullanılan yerel depolama tooregister hello bildirim hub'ı ile depolayabilirsiniz. Ardından, biz kategori bildirimleri toothis uygulamanın gönderebileceği bir arka uç tanımlayacaksınız.
 
 ## <a name="sending-tagged-notifications"></a>Etiketli bildirimleri gönderme
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-## <a name="run-the-app-and-generate-notifications"></a>Uygulamayı çalıştırın ve bildirimler oluşturma
-1. Visual Studio'da derleme ve uygulamayı başlatmak için F5 tuşuna basın.
+## <a name="run-hello-app-and-generate-notifications"></a>Merhaba uygulamayı çalıştırın ve bildirimler oluşturma
+1. Visual Studio'da F5 toocompile tuşuna basın ve hello uygulamayı başlatın.
    
     ![][1]
    
-    Uygulama kullanıcı Arabirimi sağlayan bir dizi değiştirir sağlar Not abone olmak için kategorilerini seçin.
+    Bir dizi kullanıcı Arabirimi sağlar bu hello uygulama değiştirir Not hello kategorileri toosubscribe seçmenize olanak sağlar.
 2. Bir veya daha fazla kategorileri değiştirir etkinleştirin ve ardından **abone ol**.
    
-    Uygulama seçili kategorileri etiketlerine dönüştürür ve bildirim hub'ından seçili etiketleri için yeni bir cihaz kaydı ister. Kayıtlı kategorileri döndürülen ve iletişim kutusunda görüntülenir.
+    Merhaba uygulama seçili hello kategoriler etiketleri dönüştürür ve seçili hello etiketleri için yeni bir cihaz kaydı hello bildirim hub'ından ister. Merhaba kayıtlı kategorileri döndürülen ve iletişim kutusunda görüntülenir.
    
     ![][19]
-3. Yeni bir bildirim arka ucundan aşağıdaki yollardan biriyle gönder:
+3. Merhaba arka yolları aşağıdaki hello birinde yeni bir bildirim gönder:
    
-   * **Konsol uygulaması:** konsol uygulaması başlatın.
+   * **Konsol uygulaması:** hello konsol uygulaması başlatın.
    * **Java/PHP:** uygulama/betiğini çalıştırın.
      
-     Seçili kategorileri için bildirimleri bildirimleri görünür.
+     Seçili hello kategorileri için bildirimler bildirimleri görünür.
      
      ![][14]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide biz kategoriye göre son dakika haberleri yayın öğrendiniz. Diğer gelişmiş Notification Hubs senaryoları vurgulayın aşağıdaki öğreticiler birini Tamamlanıyor göz önünde bulundurun:
+Biz bu öğreticide öğrenilen nasıl kategoriye göre son dakika haberleri toobroadcast. Diğer gelişmiş Notification Hubs senaryoları vurgulayın öğreticileri aşağıdaki hello birini Tamamlanıyor göz önünde bulundurun:
 
-* [Yerelleştirilmiş son dakika haberleri yayınlamak için Notification Hubs'ı kullanma]
+* [Bildirim hub'ları yerelleştirilmiş toobroadcast son dakika haberleri kullanın]
   
-    Gönderen yerelleştirilmiş bildirimlerini etkinleştirmek için en son haberleri uygulama genişletin öğrenin.
+    Haber uygulama tooenable göndermek çiğnemekten tooexpand hello bildirimleri nasıl yerelleştirilmiş öğrenin.
 
 <!-- Anchors. -->
-[Add category selection to the app]: #adding-categories
+[Add category selection toohello app]: #adding-categories
 [Register for notifications]: #register
 [Send notifications from your back-end]: #send
-[Run the app and generate notifications]: #test-app
+[Run hello app and generate notifications]: #test-app
 [Next Steps]: #next-steps
 
 <!-- Images. -->
@@ -234,11 +234,11 @@ Bu öğreticide biz kategoriye göre son dakika haberleri yayın öğrendiniz. D
 
 <!-- URLs.-->
 [get-started]: /manage/services/notification-hubs/getting-started-windows-dotnet/
-[Yerelleştirilmiş son dakika haberleri yayınlamak için Notification Hubs'ı kullanma]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
+[Bildirim hub'ları yerelleştirilmiş toobroadcast son dakika haberleri kullanın]: /manage/services/notification-hubs/breaking-news-localized-dotnet/
 [Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users
 [Mobile Service]: /develop/mobile/tutorials/get-started/
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
-[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
+[Notification Hubs How-toofor Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253

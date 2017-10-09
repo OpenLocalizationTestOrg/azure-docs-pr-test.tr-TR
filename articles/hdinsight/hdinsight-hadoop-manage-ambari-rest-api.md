@@ -1,6 +1,6 @@
 ---
-title: "İzleme ve Hadoop Ambari REST API - Azure Hdınsight ile yönetme | Microsoft Docs"
-description: "Azure hdınsight'ta Hadoop kümelerini yönetmek ve izlemek için Ambari kullanmayı öğrenin. Bu belgede, Hdınsight kümeleriyle dahil Ambari REST API kullanmayı öğreneceksiniz."
+title: "aaaMonitor ve Hadoop Ambari REST API - Azure Hdınsight ile yönetme | Microsoft Docs"
+description: "Bilgi nasıl toouse Ambari toomonitor ve Azure hdınsight'ta Hadoop kümelerini yönetebilirsiniz. Bu belgede nasıl toouse hello Ambari REST API Hdınsight ile dahil kümeleri öğreneceksiniz."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,51 +16,51 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 7960d83bce22d4f671d61e9aaf55561bc24308f8
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 1866a77c8e402231bccbcfba7174253aca41339b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-hdinsight-clusters-by-using-the-ambari-rest-api"></a>Ambari REST API kullanarak Hdınsight kümelerini yönetme
+# <a name="manage-hdinsight-clusters-by-using-hello-ambari-rest-api"></a>Merhaba Ambari REST API kullanarak Hdınsight kümelerini yönetme
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Azure hdınsight'ta Hadoop kümelerini izlemek için Ambari REST API kullanmayı öğrenin.
+Nasıl toouse Ambari REST API toomanage hello ve Azure hdınsight'ta Hadoop kümelerini izleme öğrenin.
 
-Apache Ambari, yönetim ve kolay bir web kullanıcı Arabirimi ve REST API kullanmayı sağlayarak Hadoop kümesi izleme basitleştirir. Ambari, Linux işletim sistemi kullanan Hdınsight kümelerine dahil edilir. Ambari, kümeyi izlemek ve yapılandırma değişiklikleri yapmak için kullanabilirsiniz.
+Apache Ambari hello yönetimi ve Hadoop kümesi kolay toouse web kullanıcı Arabirimi ve REST API'si sağlayarak izlemenin basitleştirir. Ambari hello Linux işletim sistemi kullanan Hdınsight kümelerine dahil edilir. Ambari toomonitor hello küme kullanın ve yapılandırma değişikliklerini yapın.
 
 ## <a id="whatis"></a>Ambari nedir
 
-[Apache Ambari](http://ambari.apache.org) web sağlamak, yönetmek ve Hadoop kümeleri izlemek için kullanılan kullanıcı Arabirimi sağlar. Geliştiriciler tümleştirebilir Bu yetenekler uygulamalarına kullanarak [Ambari REST API'leri](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+[Apache Ambari](http://ambari.apache.org) web kullanılan tooprovision olması, yönetmek ve Hadoop kümelerini izleme kullanıcı Arabirimi sağlar. Geliştiriciler tümleştirebilir Bu yetenekler uygulamalarına hello kullanarak [Ambari REST API'leri](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 Ambari, Linux tabanlı Hdınsight kümeleri ile varsayılan olarak sağlanır.
 
-## <a name="how-to-use-the-ambari-rest-api"></a>Ambari REST API kullanma
+## <a name="how-toouse-hello-ambari-rest-api"></a>Nasıl toouse hello Ambari REST API
 
 > [!IMPORTANT]
-> Bu belgedeki örneklerde ve bilgi Linux işletim sistemi kullanan bir Hdınsight kümesi gerektirir. Daha fazla bilgi için bkz: [Hdınsight kullanmaya başlama](hdinsight-hadoop-linux-tutorial-get-started.md).
+> Merhaba bilgileri ve bu belgedeki örneklerde Linux işletim sistemi kullanan bir Hdınsight kümesi gerektirir. Daha fazla bilgi için bkz: [Hdınsight kullanmaya başlama](hdinsight-hadoop-linux-tutorial-get-started.md).
 
-Bu belgedeki örneklerde Uluç Kabuğu (bash) ve PowerShell için sağlanır. Örnekler GNU ile test edilmiş bash 4.3.11 bash, ancak diğer UNIX Kabukları ile çalışması gerekir. PowerShell örneklerini PowerShell 5.0 ile test edilmiş, ancak PowerShell 3.0 veya üstünü çalışması gerekir.
+Bu belgedeki örneklerde Hello hello Uluç Kabuğu (bash) ve PowerShell için sağlanır. örnekler GNU ile test edilmiş hello bash 4.3.11 bash, ancak diğer UNIX Kabukları ile çalışması gerekir. Merhaba PowerShell örnekleri PowerShell 5.0 ile test edilmiş, ancak PowerShell 3.0 veya üstünü çalışması gerekir.
 
-Kullanıyorsanız __Uluç Kabuk__ (Bash) aşağıdakilerin yüklü olması gerekir:
+Merhaba kullanıyorsanız __Uluç Kabuk__ (Bash) hello aşağıdaki yüklü olması gerekir:
 
-* [cURL](http://curl.haxx.se/): cURL olduğundan komut satırından REST API'leri ile çalışmak için kullanılan bir yardımcı programı. Bu belgede, Ambari REST API'si ile iletişim kurmak için kullanılır.
+* [cURL](http://curl.haxx.se/): cURL REST API'leri ile kullanılan toowork hello komut satırından olabilir bir yardımcı olan. Bu belgede, hello Ambari REST API ile kullanılan toocommunicate değil.
 
-Bash veya PowerShell kullanarak olup olmadığını oluşturmuş olmanız da gerekir [jq](https://stedolan.github.io/jq/) yüklü. Jq JSON belgeleri ile çalışmaya yönelik bir yardımcı programdır. İçinde kullanılan **tüm** Bash örnekler ve **bir** PowerShell örnekler.
+Bash veya PowerShell kullanarak olup olmadığını oluşturmuş olmanız da gerekir [jq](https://stedolan.github.io/jq/) yüklü. Jq JSON belgeleri ile çalışmaya yönelik bir yardımcı programdır. İçinde kullanılan **tüm** Bash örnekler, hello ve **bir** hello PowerShell örnekler.
 
 ### <a name="base-uri-for-ambari-rest-api"></a>Temel Ambari Rest API için URI
 
-Https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME, hdınsight'ta Ambari REST API için ana URI olduğu yere **CLUSTERNAME** kümenizin adıdır.
+Merhaba hello Hdınsight Ambari REST API için ana URI olan https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME, burada **CLUSTERNAME** hello kümenizin adıdır.
 
 > [!IMPORTANT]
-> URI (CLUSTERNAME.azurehdinsight.net) tam etki alanı adı (FQDN) parçası olarak küme adı büyük küçük harf duyarsız olsa da, diğer örnekleri URI büyük küçük harfe duyarlıdır. Örneğin, kümenizi adlı `MyCluster`, geçerli URI'ler şunlardır:
+> Hello Hello küme adı tam olarak nitelenmiş sırasında etki alanı adı (FQDN) bölümü hello URI (CLUSTERNAME.azurehdinsight.net) büyük/küçük harfe duyarlıdır, diğer oluşum hello URI içindeki büyük/küçük harfe duyarlıdır. Örneğin, kümenizi adlı `MyCluster`, geçerli URI'ler hello aşağıda verilmiştir:
 > 
 > `https://mycluster.azurehdinsight.net/api/v1/clusters/MyCluster`
 >
 > `https://MyCluster.azurehdinsight.net/api/v1/clusters/MyCluster`
 > 
-> Aşağıdaki URI'ler ikinci oluşum adının doğru durumda olmadığı için bir hata döndürür.
+> URI'ler hello hello adı ikinci oluşum hello değil çünkü bir hata döndürür hello aşağıdaki durumu düzeltin.
 > 
 > `https://mycluster.azurehdinsight.net/api/v1/clusters/mycluster`
 >
@@ -68,22 +68,22 @@ Https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME, hdınsight't
 
 ### <a name="authentication"></a>Kimlik Doğrulaması
 
-Hdınsight üzerinde Ambari bağlanma HTTPS gerektirir. Yönetici hesabı adı kullanın (varsayılan **yönetici**) ve küme oluşturma sırasında sağlanan parola.
+Hdınsight üzerinde tooAmbari bağlanırken HTTPS gerektirir. Merhaba yönetici hesabı adını kullan (Merhaba varsayılandır **yönetici**) ve küme oluşturma sırasında sağlanan parola.
 
 ## <a name="examples-authentication-and-parsing-json"></a>Örnekler: Kimlik doğrulaması ve JSON ayrıştırma
 
-Aşağıdaki örnekler bir GET isteği temel Ambari REST API'sine karşı nasıl yapılacağını göstermek:
+Örnek hello nasıl toomake hello bir GET isteği temel Ambari REST API gösterir:
 
 ```bash
 curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME"
 ```
 
 > [!IMPORTANT]
-> Bu belgedeki Bash örnekler aşağıdaki varsayımlar olun:
+> Bu belgedeki Hello Bash örneklerde varsayımlar aşağıdaki hello olun:
 >
-> * Küme için oturum açma adı varsayılan değeri `admin`.
-> * `$PASSWORD`Hdınsight oturum açma komut parolasını içerir. Bu değer kullanılarak ayarlanır `PASSWORD='mypassword'`.
-> * `$CLUSTERNAME`Küme adını içerir. Bu değer kullanılarak ayarlanır`set CLUSTERNAME='clustername'`
+> * Merhaba oturum açma için hello küme adıdır hello varsayılan değerini `admin`.
+> * `$PASSWORD`Merhaba Hdınsight oturum açma komut Hello parolasını içerir. Bu değer kullanılarak ayarlanır `PASSWORD='mypassword'`.
+> * `$CLUSTERNAME`Merhaba hello küme adını içerir. Bu değer kullanılarak ayarlanır`set CLUSTERNAME='clustername'`
 
 ```powershell
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" `
@@ -92,12 +92,12 @@ $resp.Content
 ```
 
 > [!IMPORTANT]
-> Bu belgedeki PowerShell örnekleri aşağıdaki varsayımlar olun:
+> Bu belgedeki Hello PowerShell örnekleri varsayımlar aşağıdaki hello olun:
 >
-> * `$creds`yönetici oturum açma ve küme için parola içeren bir kimlik bilgisi nesnesidir. Bu değer kullanılarak ayarlanır `$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"` ve istendiğinde kimlik bilgileri sağlama.
-> * `$clusterName`Küme adını içeren bir dizedir. Bu değer kullanılarak ayarlanır `$clusterName="clustername"`.
+> * `$creds`hello Yöneticisi oturum açma ve hello küme parolasını içeren bir kimlik bilgisi nesnesidir. Bu değer kullanılarak ayarlanır `$creds = Get-Credential -UserName "admin" -Message "Enter hello HDInsight login"` ve istendiğinde hello kimlik bilgileri sağlama.
+> * `$clusterName`Merhaba hello küme adını içeren bir dizedir. Bu değer kullanılarak ayarlanır `$clusterName="clustername"`.
 
-Örneklerin her ikisi de aşağıdaki örneğe benzer bilgiler ile başlayan bir JSON belgesi döndürün:
+Örneklerin her ikisi de bilgi benzer toohello aşağıdaki örneğine ile başlayan bir JSON belgesi döndürün:
 
 ```json
 {
@@ -121,14 +121,14 @@ $resp.Content
 
 ### <a name="parsing-json-data"></a>JSON verilerini ayrıştırma
 
-Aşağıdaki örnek kullanır `jq` JSON yanıt belge ayrıştırma ve yalnızca görüntülemek için `health_report` sonuçları bilgileri.
+Merhaba aşağıdaki örnek kullanır `jq` tooparse hello JSON yanıt belge ve yalnızca hello görüntülemek `health_report` hello sonuçlarından bilgi.
 
 ```bash
 curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME" \
 | jq '.Clusters.health_report'
 ```
 
-PowerShell 3.0 ve üstü sağlar `ConvertFrom-Json` Powershell'den çalışmak daha kolay olan bir nesneyi JSON belgesini dönüştürür cmdlet'i. Aşağıdaki örnek kullanır `ConvertFrom-Json` yalnızca görüntülenecek `health_report` sonuçları bilgileri.
+PowerShell 3.0 ve üstü sağlar hello `ConvertFrom-Json` hello JSON belgesi ile daha kolay toowork powershell'den bir nesne dönüştürür cmdlet'i. Merhaba aşağıdaki örnek kullanır `ConvertFrom-Json` toodisplay yalnızca hello `health_report` hello sonuçlarından bilgi.
 
 ```powershell
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" `
@@ -138,13 +138,13 @@ $respObj.Clusters.health_report
 ```
 
 > [!NOTE]
-> Ancak bu belgenin kullanımı çoğu örneklerde `ConvertFrom-Json` yanıt belgedeki öğeleri görüntülemek için [güncelleştirme Ambari yapılandırma](#example-update-ambari-configuration) örnek jq kullanır. Jq Bu örnekte, JSON yanıt belgeden yeni bir şablon oluşturmak için kullanılır.
+> Ancak bu belgenin kullanımı çoğu örneklerde `ConvertFrom-Json` toodisplay öğeleri hello yanıt belgeden hello [güncelleştirme Ambari yapılandırma](#example-update-ambari-configuration) örnek jq kullanır. Bu örnek tooconstruct Jq kullanılan hello JSON yanıt belgeden yeni bir şablon.
 
-REST API tam başvuru için bkz: [Ambari API Başvurusu V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+Merhaba REST API tam başvuru için bkz: [Ambari API Başvurusu V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-## <a name="example-get-the-fqdn-of-cluster-nodes"></a>Örnek: küme düğümleri FQDN'sini Al
+## <a name="example-get-hello-fqdn-of-cluster-nodes"></a>Örnek: Merhaba küme düğümlerinin FQDN Al
 
-Hdınsight ile çalışırken, bir küme düğümü tam etki alanı adını (FQDN) bilmeniz gerekebilir. Aşağıdaki örnekleri kullanarak çeşitli düğümleri için FQDN'yi kolayca alabilir:
+Hdınsight ile çalışırken, bir küme düğümü tooknow hello tam etki alanı adı (FQDN) gerekebilir. Merhaba FQDN hello için çeşitli örnekler aşağıdaki hello kullanarak hello kümedeki düğümlerin kolayca alabilir:
 
 * **Tüm düğümler**
 
@@ -202,14 +202,14 @@ Hdınsight ile çalışırken, bir küme düğümü tam etki alanı adını (FQD
     $respObj.host_components.HostRoles.host_name
     ```
 
-## <a name="example-get-the-internal-ip-address-of-cluster-nodes"></a>Örnek: küme düğümlerinin iç IP adresi al
+## <a name="example-get-hello-internal-ip-address-of-cluster-nodes"></a>Örnek: küme düğümlerinin hello iç IP adresi al
 
 > [!IMPORTANT]
-> Bu bölümdeki örnekleri tarafından döndürülen IP adresleri internet üzerinden doğrudan erişilebilir değildir. Yalnızca Azure sanal Hdınsight kümesi içeren ağ içinde erişilebilir.
+> Internet üzerinden erişilebilir değil hello doğrudan bu bölümdeki hello örnekleri tarafından döndürülen hello IP adresleridir. Yalnızca hello hello Hdınsight kümesi içeren Azure sanal ağ içinde erişilebilir.
 >
 > Hdınsight ve sanal ağlarla çalışma hakkında daha fazla bilgi için bkz: [özel bir Azure Virtual Network kullanarak genişletme Hdınsight yetenekleri](hdinsight-extend-hadoop-virtual-network.md).
 
-IP adresini bulmak için küme düğümleri iç tam etki alanı adını (FQDN) bilmesi gerekir. FQDN olduktan sonra ana bilgisayarın IP adresi sonra alabilirsiniz. Aşağıdaki örnekler ilk düğümlerinin tüm ana bilgisayar FQDN için Ambari sorgu ve ardından her ana bilgisayarın IP adresini Ambari sorgular.
+toofind başlangıç IP adresi, küme düğümleri hello iç tam etki alanı adını (FQDN) hello bilmeniz gerekir. Merhaba FQDN olduktan sonra başlangıç IP adresi hello konağının sonra alabilirsiniz. Merhaba aşağıdaki örneklerde önce tüm hello konak düğümleri FQDN'sini hello için Ambari sorgu ve ardından Ambari başlangıç IP adresi her konak için sorgular.
 
 ```bash
 for HOSTNAME in $(curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/hosts" | jq -r '.items[].Hosts.host_name')
@@ -233,11 +233,11 @@ foreach($item in $respObj.items) {
 }
 ```
 
-## <a name="example-get-the-default-storage"></a>Örnek: varsayılan depolama alanı alabilir
+## <a name="example-get-hello-default-storage"></a>Örnek: Merhaba varsayılan depolama Al
 
-Bir Hdınsight kümesi oluştururken, varsayılan depolama alanı olarak bir Azure depolama hesabı ya da Data Lake Store küme için kullanmanız gerekir. Ambari, Küme oluşturulduktan sonra bu bilgileri almak için kullanabilirsiniz. Örneğin, okuma/veri Hdınsight dışında kapsayıcıya yazma istiyorsanız.
+Bir Hdınsight kümesi oluştururken hello varsayılan depolama alanı olarak bir Azure depolama hesabı veya Data Lake Store hello küme için kullanmanız gerekir. Merhaba Küme oluşturulduktan sonra bu bilgileri Ambari tooretrieve kullanabilirsiniz. Örneğin, tooread/yazma veri toohello kapsayıcı Hdınsight dışında istiyorsanız.
 
-Aşağıdaki örnekler, varsayılan depolama yapılandırması kümeden Al:
+Merhaba aşağıdaki örneklerde hello varsayılan depolama yapılandırması hello kümeden Al:
 
 ```bash
 curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
@@ -252,15 +252,15 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 ```
 
 > [!IMPORTANT]
-> Bu örnekler sunucuya uygulanan ilk yapılandırmaya dönmek (`service_config_version=1`) bu bilgileri içerir. Küme oluşturulduktan sonra değiştiren bir değer almak, yapılandırma sürümlerini listelemek ve en son almak gerekebilir.
+> Bu örnekler hello ilk uygulanan yapılandırma toohello sunucu dönüşü (`service_config_version=1`) bu bilgileri içerir. Küme oluşturulduktan sonra değiştiren bir değer almak, toolist hello yapılandırma sürümlerini gerekir ve hello en son almak.
 
-Dönüş değeri aşağıdaki örneklerde birine benzer:
+Merhaba dönüş değeri örnek Merhaba, benzer tooone şöyledir:
 
-* `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net`-Bu değer, kümenin varsayılan depolama için bir Azure Storage hesabı kullanarak gösterir. `ACCOUNTNAME` Değeri, depolama hesabının adıdır. `CONTAINER` Bölümüdür depolama hesabındaki blob kapsayıcısının adı. Kapsayıcı küme için HDFS uyumlu depolama köküdür.
+* `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net`-Bu değer bu hello küme varsayılan depolama için bir Azure Storage hesabı kullanarak gösterir. Merhaba `ACCOUNTNAME` hello hello depolama hesabının adını bir değerdir. Merhaba `CONTAINER` bölümüdür hello blob kapsayıcısının hello depolama hesabındaki hello adı. Merhaba, hello hello kümesi için HDFS uyumlu depolama hello kökündeki kapsayıcıdır.
 
-* `adl://home`-Bu değer, kümenin varsayılan depolama için bir Azure Data Lake Store kullandığını gösterir.
+* `adl://home`-Bu değer bu hello küme varsayılan depolama için bir Azure Data Lake Store kullandığını belirtir.
 
-    Data Lake Store hesap adını bulmak için aşağıdaki örneklerde kullanın:
+    toofind hello Data Lake Store hesap adını, örnek hello kullan:
 
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
@@ -274,9 +274,9 @@ Dönüş değeri aşağıdaki örneklerde birine benzer:
     $respObj.items.configurations.properties.'dfs.adls.home.hostname'
     ```
 
-    Dönüş değeri benzer `ACCOUNTNAME.azuredatalakestore.net`, burada `ACCOUNTNAME` Data Lake Store hesabı adıdır.
+    Merhaba dönüş değeri çok benzer`ACCOUNTNAME.azuredatalakestore.net`, burada `ACCOUNTNAME` hello Data Lake Store hesabı hello adıdır.
 
-    Küme için depolama alanını içeren bir Data Lake Store içinde dizin bulmak için aşağıdaki örneklerde kullanın:
+    toofind hello dizini hello küme, örnek kullanım hello için hello depolama alanını içeren bir Data Lake Store içinde:
 
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
@@ -290,15 +290,15 @@ Dönüş değeri aşağıdaki örneklerde birine benzer:
     $respObj.items.configurations.properties.'dfs.adls.home.mountpoint'
     ```
 
-    Dönüş değeri benzer `/clusters/CLUSTERNAME/`. Bu değer, Data Lake Store hesabındaki bir yoludur. Küme için HDFS uyumlu bir dosya sisteminin kök yoludur. 
+    Merhaba dönüş değeri çok benzer`/clusters/CLUSTERNAME/`. Bu değer, hello Data Lake Store hesabı içinde bir yoludur. Bu yol hello hello hello küme için HDFS uyumlu bir dosya sistemi köküdür. 
 
 > [!NOTE]
-> `Get-AzureRmHDInsightCluster` Tarafından sağlanan cmdlet [Azure PowerShell](/powershell/azure/overview) ayrıca küme için Depolama bilgileri döndürür.
+> Merhaba `Get-AzureRmHDInsightCluster` tarafından sağlanan cmdlet [Azure PowerShell](/powershell/azure/overview) döndürür hello küme için depolama bilgilerini de hello.
 
 
 ## <a name="example-get-configuration"></a>Örnek: Get yapılandırma
 
-1. Kümeniz için kullanılabilir olan yapılandırmaları alın.
+1. Kümeniz için uygun olan hello yapılandırmalarını alma.
 
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_configs"
@@ -310,7 +310,7 @@ Dönüş değeri aşağıdaki örneklerde birine benzer:
     $respObj.Content
     ```
 
-    Bu örnek geçerli yapılandırmasını içeren bir JSON belgesi döndürür (tarafından tanımlanan *etiketi* değeri) kümeye yüklü bileşenleri için. Aşağıdaki örnek bir Spark kümesi türünden döndürülen verileri bir alıntı aynıdır.
+    Bu örnek hello geçerli yapılandırmasını içeren bir JSON belgesi döndürür (Merhaba tarafından tanımlanan *etiketi* değeri) hello kümeye yüklü hello bileşenleri için. Merhaba aşağıdaki bir Spark kümesi türünden döndürülen hello verilerden bir alıntı örnektir.
    
    ```json
    "spark-metrics-properties" : {
@@ -330,7 +330,7 @@ Dönüş değeri aşağıdaki örneklerde birine benzer:
    }
    ```
 
-2. İlgilendiğiniz bileşeni için yapılandırma alın. Aşağıdaki örnekte `INITIAL` etiket değeri ile önceki istekten döndürdü.
+2. İlgilendiğiniz hello bileşeni için Hello yapılandırma alın. Örneğin, aşağıdaki Hello yerine `INITIAL` hello önceki isteğinden döndürülen hello etiket değeri.
 
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations?type=core-site&tag=INITIAL"
@@ -342,11 +342,11 @@ Dönüş değeri aşağıdaki örneklerde birine benzer:
     $resp.Content
     ```
 
-    Bu örnek için geçerli yapılandırmasını içeren bir JSON belgesi döndürür `core-site` bileşeni.
+    Bu örnek hello hello geçerli yapılandırmasını içeren bir JSON belgesi döndürür `core-site` bileşeni.
 
 ## <a name="example-update-configuration"></a>Örnek: Güncelleştirme yapılandırma
 
-1. "İstenen yapılandırma" Ambari depolar geçerli yapılandırmasını alın:
+1. Ambari hello "istenen yapılandırma" depolar hello geçerli yapılandırmasını alın:
 
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_configs"
@@ -357,7 +357,7 @@ Dönüş değeri aşağıdaki örneklerde birine benzer:
         -Credential $creds
     ```
 
-    Bu örnek geçerli yapılandırmasını içeren bir JSON belgesi döndürür (tarafından tanımlanan *etiketi* değeri) kümeye yüklü bileşenleri için. Aşağıdaki örnek bir Spark kümesi türünden döndürülen verileri bir alıntı aynıdır.
+    Bu örnek hello geçerli yapılandırmasını içeren bir JSON belgesi döndürür (Merhaba tarafından tanımlanan *etiketi* değeri) hello kümeye yüklü hello bileşenleri için. Merhaba aşağıdaki bir Spark kümesi türünden döndürülen hello verilerden bir alıntı örnektir.
    
     ```json
     "spark-metrics-properties" : {
@@ -377,9 +377,9 @@ Dönüş değeri aşağıdaki örneklerde birine benzer:
     }
     ```
    
-    Bu listeden bileşenin adını kopyalamanız gerekir (örneğin, **spark\_thrift\_sparkconf** ve **etiketi** değeri.
+    Bu listeden hello bileşenin toocopy hello adı gerekir (örneğin, **spark\_thrift\_sparkconf** ve hello **etiketi** değeri.
 
-2. Etiket ve Bileşen yapılandırmasını aşağıdaki komutları kullanarak Al:
+2. Merhaba bileşeni ve etiket için Hello yapılandırma komutları aşağıdaki hello kullanarak Al:
    
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations?type=spark-thrift-sparkconf&tag=INITIAL" \
@@ -396,21 +396,21 @@ Dönüş değeri aşağıdaki örneklerde birine benzer:
     ```
 
     > [!NOTE]
-    > Değiştir **spark thrift sparkconf** ve **ilk** bileşeni ve yapılandırmasını almak istediğiniz etiketi.
+    > Değiştir **spark thrift sparkconf** ve **ilk** hello bileşeni ve tooretrieve hello yapılandırması için istediğiniz etiketi.
    
-    Jq Hdınsight'ta yeni bir yapılandırma şablonuna alınan verileri döndürmek için kullanılır. Özellikle, bu örnekler aşağıdaki eylemleri gerçekleştirin:
+    Jq Hdınsight'ta yeni bir yapılandırma şablonuna alınan kullanılan tooturn hello verilerdir. Özellikle, bu örnekler hello aşağıdaki eylemleri gerçekleştirin:
    
-    * "Sürüm" dizesi ve depolanan tarihi içeren benzersiz bir değer oluşturur `newtag`.
+    * Merhaba dizesi "Sürüm" ve depolanan hello tarihi içeren benzersiz bir değer oluşturur `newtag`.
 
-    * Yeni istenen yapılandırma için bir kök belge oluşturur.
+    * Merhaba yeni istenen yapılandırma için bir kök belge oluşturur.
 
-    * İçeriğini alır `.items[]` dizi ve altında ekler **desired_config** öğesi.
+    * Alır hello Merhaba içeriğine `.items[]` dizi ve altında hello ekler **desired_config** öğesi.
 
-    * Siler `href`, `version`, ve `Config` öğeleri, bu öğeleri gerekli olmayan yeni bir yapılandırma göndermek için.
+    * Siler hello `href`, `version`, ve `Config` öğeleri, bu öğeleri gerekli toosubmit yeni bir yapılandırma değildir.
 
-    * Ekler bir `tag` değerini bir öğesiyle `version#################`. Öğesinin sayısal bölümü geçerli tarih temel alır. Her yapılandırma benzersiz bir etiketi olması gerekiyor.
+    * Ekler bir `tag` değerini bir öğesiyle `version#################`. Merhaba sayısal bölümü üzerinde hello geçerli tarih temel alır. Her yapılandırma benzersiz bir etiketi olması gerekiyor.
      
-    Son olarak, verileri kaydedilen `newconfig.json` belge. Belge yapısı aşağıdaki örneğe benzer görünmelidir:
+    Merhaba veri toohello son olarak, kaydedilen `newconfig.json` belge. Merhaba belge yapısı aşağıdaki örneğine benzer toohello görünmelidir:
      
      ```json
     {
@@ -428,14 +428,14 @@ Dönüş değeri aşağıdaki örneklerde birine benzer:
     }
     ```
 
-3. Açık `newconfig.json` belge ve değiştirebilir ve ekleyebilir değerleri `properties` nesnesi. Aşağıdaki örnek değerini değiştirir `"spark.yarn.am.memory"` gelen `"1g"` için `"3g"`. Ayrıca ekler `"spark.kryoserializer.buffer.max"` değerini `"256m"`.
+3. Açık hello `newconfig.json` hello belge ve değiştirebilir ve ekleyebilir değerlerde `properties` nesnesi. Merhaba aşağıdaki örnek değişiklikleri hello değerini `"spark.yarn.am.memory"` gelen `"1g"` çok`"3g"`. Ayrıca ekler `"spark.kryoserializer.buffer.max"` değerini `"256m"`.
    
         "spark.yarn.am.memory": "3g",
         "spark.kyroserializer.buffer.max": "256m",
    
-    Yapmayı değişiklikleri tamamladıktan sonra dosyayı kaydedin.
+    Yapmayı değişiklikleri tamamladıktan sonra hello dosyasını kaydedin.
 
-4. Ambari güncelleştirilmiş yapılandırmaya göndermek için aşağıdaki komutları kullanın.
+4. Aşağıdaki komutları toosubmit güncelleştirilmiş hello yapılandırma tooAmbari hello kullanın.
    
     ```bash
     curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" -X PUT -d @newconfig.json "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME"
@@ -451,13 +451,13 @@ Dönüş değeri aşağıdaki örneklerde birine benzer:
     $resp.Content
     ```
    
-    Bu komutlar içeriğini gönderme **newconfig.json** yeni istenen yapılandırma olarak dosyaya. İstek bir JSON belgesi döndürür. **VersionTag** bu belgedeki öğe gönderdiğiniz, sürüm eşleşmelidir ve **yapılandırmalar** nesne, istenen yapılandırma değişiklikleri içerir.
+    Bu komutlar hello Merhaba içeriğine gönderme **newconfig.json** dosya toohello küme hello yeni istenen yapılandırması gibi. Merhaba isteği bir JSON belgesi döndürür. Merhaba **versionTag** bu belgedeki öğe gönderildi ve hello hello sürüm eşleşmelidir **yapılandırmalar** nesne, istenen hello yapılandırma değişiklikleri içerir.
 
 ### <a name="example-restart-a-service-component"></a>Örnek: bir hizmet bileşeni yeniden başlatın
 
-Bu noktada, Ambari web kullanıcı Arabirimi bakarsanız, Spark hizmeti yeni yapılandırmanın etkili olması için önce yeniden başlatılması gerektiğini belirtir. Hizmetini yeniden başlatmak için aşağıdaki adımları kullanın.
+Bu noktada, hello Ambari web kullanıcı Arabirimi bakarsanız, hello Spark hizmeti hello Yeni yapılandırmanın etkili olması için önce yeniden toobe gerektiğini belirtir. Aşağıdaki adımları toorestart hello hizmet hello kullanın.
 
-1. Bir Spark hizmeti için bakım modunu etkinleştirmek için aşağıdakileri kullanın:
+1. Merhaba Spark hizmeti tooenable Bakım modu aşağıdaki hello kullan:
 
     ```bash
     curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
@@ -474,7 +474,7 @@ Bu noktada, Ambari web kullanıcı Arabirimi bakarsanız, Spark hizmeti yeni yap
     $resp.Content
     ```
    
-    Bu komutlar bir JSON belgesi bakım modunu açar sunucusuna gönderir. Hizmet artık aşağıdaki isteği kullanarak bakım modunda olduğunu doğrulayabilirsiniz:
+    Bu komutlar, bakım modunu açar bir JSON belgesi toohello sunucu gönderin. Merhaba hizmeti artık isteği aşağıdaki hello kullanarak bakım modunda olduğunu doğrulayabilirsiniz:
    
     ```bash
     curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
@@ -489,9 +489,9 @@ Bu noktada, Ambari web kullanıcı Arabirimi bakarsanız, Spark hizmeti yeni yap
     $respObj.ServiceInfo.maintenance_state
     ```
    
-    Dönüş değeri `ON`.
+    Merhaba dönüş değeri olan `ON`.
 
-2. Ardından, hizmeti kapatmak için aşağıdakileri kullanın:
+2. Ardından, tooturn hello hizmet dışı aşağıdaki hello kullanın:
 
     ```bash
     curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
@@ -508,7 +508,7 @@ Bu noktada, Ambari web kullanıcı Arabirimi bakarsanız, Spark hizmeti yeni yap
     $resp.Content
     ```
     
-    Yanıt aşağıdaki örneğe benzer:
+    Merhaba yanıt benzer toohello örneği aşağıdaki gibidir:
    
     ```json
     {
@@ -521,9 +521,9 @@ Bu noktada, Ambari web kullanıcı Arabirimi bakarsanız, Spark hizmeti yeni yap
     ```
     
     > [!IMPORTANT]
-    > `href` Bu URI tarafından döndürülen değer, küme düğümü iç IP adresini kullanıyor. Buradan küme dışında kullanmak için '10.0.0.18:8080' bölümüne küme FQDN ile değiştirin. 
+    > Merhaba `href` bu URI tarafından döndürülen değer hello küme düğümü hello iç IP adresini kullanıyor. toouse dış hello kümeden değiştirmek hello '10.0.0.18:8080' bölümü hello hello küme FQDN'si ile. 
     
-    Aşağıdaki komutları isteğinin durumunu al:
+    komutları aşağıdaki hello hello isteği hello durumunu alabilir:
 
     ```bash
     curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
@@ -538,9 +538,9 @@ Bu noktada, Ambari web kullanıcı Arabirimi bakarsanız, Spark hizmeti yeni yap
     $respObj.Requests.request_status
     ```
 
-    Yanıtın `COMPLETED` istek tamamladığını gösterir.
+    Yanıtın `COMPLETED` bu hello isteğini tamamladı gösterir.
 
-3. Önceki istek tamamlandığında, hizmeti başlatmak için aşağıdakileri kullanın.
+3. Merhaba önceki istek tamamlandığında toostart hello hizmeti aşağıdaki hello kullanın.
    
     ```bash
     curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
@@ -555,9 +555,9 @@ Bu noktada, Ambari web kullanıcı Arabirimi bakarsanız, Spark hizmeti yeni yap
         -Headers @{"X-Requested-By" = "ambari"} `
         -Body '{"RequestInfo":{"context":"_PARSE_.STOP.SPARK","operation_level":{"level":"SERVICE","cluster_name":"CLUSTERNAME","service_name":"SPARK"}},"Body":{"ServiceInfo":{"state":"STARTED"}}}'
     ```
-    Hizmet yeni yapılandırmayı şimdi kullanıyor.
+    Merhaba hizmeti şimdi hello yeni yapılandırma kullanıyor.
 
-4. Son olarak, bakım modunu devre dışı bırakmak için aşağıdakileri kullanın.
+4. Son olarak, Bakım Modu kapalı tooturn aşağıdaki hello kullanın.
    
     ```bash
     curl -u admin:$PASSWORD -sS -H "X-Requested-By: ambari" \
@@ -575,5 +575,5 @@ Bu noktada, Ambari web kullanıcı Arabirimi bakarsanız, Spark hizmeti yeni yap
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-REST API tam başvuru için bkz: [Ambari API Başvurusu V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+Merhaba REST API tam başvuru için bkz: [Ambari API Başvurusu V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 

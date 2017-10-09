@@ -1,5 +1,5 @@
 ---
-title: "Azure Application ınsights'ta Java web uygulamaları için performans izleme | Microsoft Docs"
+title: "Azure Application Insights Java web uygulamalarının aaaPerformance izleme | Microsoft Docs"
 description: "Genişletilmiş performans ve Application Insights ile Java Web sitenizin kullanım izleme."
 services: application-insights
 documentationcenter: java
@@ -13,41 +13,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: bwren
-ms.openlocfilehash: 4e56998382610ad3d7224e6a8de5aee5419ebe43
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: bf3983e3b4a16e72bc606b6468a757288d05ebaa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="monitor-dependencies-exceptions-and-execution-times-in-java-web-apps"></a>Bağımlılıklar, özel durumlar ve yürütme sürelerini Java web uygulamalarını izleme
 
 
-Varsa [Java web uygulamanıza Application Insights ile işaretlenir][java], kod değişiklikleri olmadan daha ayrıntılı Öngörüler almak için Java Agent kullanabilirsiniz:
+Varsa [Java web uygulamanıza Application Insights ile işaretlenir][java], hello Java Agent tooget daha ayrıntılı Öngörüler, kod değişiklikleri olmadan kullanabilirsiniz:
 
-* **Bağımlılıklar:** verileri de dahil olmak üzere diğer bileşenler için uygulamanızın yaptığı çağrıları hakkında:
+* **Bağımlılıklar:** tooother bileşenleri de dahil olmak üzere, uygulamanızın yaptığı çağrıları hakkında veriler:
   * **REST çağrılarını** HttpClient, OkHttp ve RestTemplate (yay) yapılır.
-  * **Redis** Jedis istemcisi üzerinden yapılan çağrıları. Çağrı 10'luk uzun sürerse, aracı ayrıca çağrı bağımsız getirir.
-  * **[JDBC çağrıları](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**  -MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB veya Apache Derby DB. "executeBatch" çağrıları desteklenir. Çağrı 10'luk uzun sürerse, MySQL ve PostgreSQL için aracı sorgu planı bildirir.
+  * **Redis** hello Jedis istemci yapılan çağrıları. Merhaba çağrısı 10'luk uzun sürerse, hello aracı ayrıca hello çağrı bağımsız getirir.
+  * **[JDBC çağrıları](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**  -MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB veya Apache Derby DB. "executeBatch" çağrıları desteklenir. Merhaba çağrısı 10'luk uzun sürerse, MySQL ve PostgreSQL için hello Aracısı hello sorgu planı bildirir.
 * **Özel durum yakalandı:** kodunuz tarafından işlenen özel durumlar hakkında veri.
-* **Yöntem yürütme süresi:** belirli yöntemleri yürütme süresini hakkındaki verileri.
+* **Yöntem yürütme süresi:** hello hakkındaki verileri alır tooexecute belirli yöntemler seferlik.
 
-Java Aracısı'nı kullanmak için sunucunuzda yüklemeniz gerekir. Web uygulamalarınızı ile işaretlenir gerekir [Application Insights Java SDK'sı][java]. 
+toouse hello Java agent, sunucunuza yükleyin. Web uygulamalarınızı hello ile işaretlenir gerekir [Application Insights Java SDK'sı][java]. 
 
-## <a name="install-the-application-insights-agent-for-java"></a>Java için Application Insights aracısı yükleyin
-1. Java sunucunuz makinede çalışan [Aracısı'nı indirme](https://aka.ms/aijavasdk).
-2. Uygulama sunucusu başlangıç komut dosyasını düzenleyin ve aşağıdaki JVM ekleyin:
+## <a name="install-hello-application-insights-agent-for-java"></a>Java için Application Insights Aracısı Hello yükleyin
+1. Java sunucunuz Hello makine üzerinde çalışan [hello Aracısı'nı indirme](https://aka.ms/aijavasdk).
+2. Merhaba uygulama sunucusu başlangıç komut dosyasını düzenleyin ve JVM aşağıdaki hello ekleyin:
    
-    `javaagent:`*Aracı JAR dosyasının tam yolu*
+    `javaagent:`*tam yol toohello Aracısı JAR dosyasını*
    
     Örneğin, Tomcat'te bir Linux makinesinde:
    
-    `export JAVA_OPTS="$JAVA_OPTS -javaagent:<full path to agent JAR file>"`
+    `export JAVA_OPTS="$JAVA_OPTS -javaagent:<full path tooagent JAR file>"`
 3. Uygulama sunucunuzu yeniden başlatın.
 
-## <a name="configure-the-agent"></a>Aracısı'nı yapılandırma
-Adlı bir dosya oluşturun `AI-Agent.xml` ve aracı JAR dosyasını aynı klasöre yerleştirin.
+## <a name="configure-hello-agent"></a>Merhaba Aracısı'nı yapılandırma
+Adlı bir dosya oluşturun `AI-Agent.xml` ve hello yerleştirin hello Aracısı JAR dosyasını aynı klasöre.
 
-Xml dosyasının içeriğini ayarlarsınız. İstediğiniz dahil etmek veya özellikleri atlamak için aşağıdaki örnek düzenleyin.
+Merhaba xml dosyası Merhaba içeriğine ayarlayın. Aşağıdaki örnek tooinclude hello düzenleyin veya hello özellikleri atlayın.
 
 ```XML
 
@@ -74,7 +74,7 @@ Xml dosyasının içeriğini ayarlarsınız. İstediğiniz dahil etmek veya öze
                reportExecutionTime="true"
                />
 
-           <!-- Report on the particular signature
+           <!-- Report on hello particular signature
                 void methodTwo(String, int) -->
            <Method name="methodTwo"
               reportExecutionTime="true"
@@ -86,14 +86,14 @@ Xml dosyasının içeriğini ayarlarsınız. İstediğiniz dahil etmek veya öze
 
 ```
 
-Raporları özel durumu ve yöntemi zamanlama tek tek yöntemleri için etkinleştirmeniz gerekir.
+Tooenable raporları özel durumu ve tek tek yöntemleri için yöntemi zamanlama var.
 
 Varsayılan olarak, `reportExecutionTime` geçerlidir ve `reportCaughtExceptions` false olur.
 
-## <a name="view-the-data"></a>Verileri görüntüleme
-Application Insights kaynağını toplanmış uzak bağımlılık ve yöntemi yürütme sürelerinin görünür [performans bölmesi altında][metrics].
+## <a name="view-hello-data"></a>Merhaba verileri görüntüleme
+Hello Application Insights kaynağı, toplanan uzak bağımlılık ve yöntemi yürütme sürelerinin görünür [performans hello altında döşeme][metrics].
 
-Bağımlılık, özel durum ve yöntemi raporları tek tek örneklerini aramak için açık [arama][diagnostic].
+bağımlılık, özel durum ve yöntemi raporları, tek tek örneklerini toosearch açmak [arama][diagnostic].
 
 [Tanılama bağımlılık sorunları - daha fazla bilgi](app-insights-asp-net-dependencies.md#diagnosis).
 

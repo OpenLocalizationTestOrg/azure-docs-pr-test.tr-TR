@@ -1,7 +1,7 @@
-## <a name="associate-an-azure-storage-account-to-iot-hub"></a>Bir Azure Storage hesabı IOT Hub'ına ilişkilendirme
+## <a name="associate-an-azure-storage-account-tooiot-hub"></a>Bir Azure depolama hesabı tooIoT Hub ilişkilendirme
 
-Sanal cihaz uygulamasının bir blob için bir dosya yükler için bilmeniz gereken bir [Azure Storage](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account) IOT Hub'ına ilişkili hesap. Bir Azure depolama hesabı bir IOT hub ile ilişkilendirdiğinizde, IOT hub'ı bir SAS URI'sini oluşturur. Bir aygıt bu SAS URI'sini güvenli bir şekilde bir blob kapsayıcısına bir dosyayı karşıya yüklemek için kullanabilirsiniz. IOT Hub hizmeti ve cihaz SDK'ları SAS URI'sini oluşturur ve bir dosyayı karşıya yüklemek için kullanılacak bir cihaz için kullanılabilir hale getirir işlem koordinatı.
+Merhaba sanal cihaz uygulamasının bir dosya tooa blob'u karşıya çünkü olmalıdır bir [Azure Storage](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account) hesabı ilişkili tooIoT Hub. Bir Azure depolama hesabı bir IOT hub ile ilişkilendirdiğinizde, hello IOT hub'ı bir SAS URI'sini oluşturur. Bir aygıt bu SAS URI'sini toosecurely karşıya bir dosya tooa blob kapsayıcısı kullanabilirsiniz. Merhaba IOT Hub hizmeti ve hello cihaz SDK'ları hello SAS URI'sini oluşturur ve kullanılabilir tooa aygıt toouse tooupload bir dosya kolaylaştırır hello işlem koordinatı.
 
-' Ndaki yönergeleri izleyin [yapılandırma dosya yüklemeleri Azure portalını kullanarak](../articles/iot-hub/iot-hub-configure-file-upload.md) bir Azure Storage hesabı IOT hub'ınıza ilişkilendirilecek. Bir blob kapsayıcısını, IOT hub ile ilişkili olduğunu ve dosya bildirimlerini etkin olduğundan emin olun.
+Merhaba yönergeleri izleyin [yapılandırma dosya yüklemeleri hello Azure portal kullanarak](../articles/iot-hub/iot-hub-configure-file-upload.md) tooassociate Azure depolama hesabı tooyour IOT hub'ı. Bir blob kapsayıcısını, IOT hub ile ilişkili olduğunu ve dosya bildirimlerini etkin olduğundan emin olun.
 
 ![Portalda dosya bildirimlerini etkinleştir](media/iot-hub-associate-storage/enable-file-notifications.png)

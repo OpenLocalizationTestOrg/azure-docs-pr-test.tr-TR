@@ -1,6 +1,6 @@
 ---
-title: "Blob’lar için Azure seyrek erişimli depolama | Microsoft Belgeleri"
-description: "Azure Blob Depolama için depolama katmanları, nesne verileri için erişim düzenlerini esas alarak uygun maliyetli depolama sunar. Seyrek erişimli depolama katmanı, daha az sıklıkta erişilen veriler için optimize edilmiştir."
+title: "BLOB'lar için aaaAzure seyrek erişimli depolama | Microsoft Docs"
+description: "Azure Blob Depolama için depolama katmanları, nesne verileri için erişim düzenlerini esas alarak uygun maliyetli depolama sunar. Merhaba seyrek erişimli depolama katmanı daha az sıklıkta erişilen veriler için optimize edilmiştir."
 services: storage
 documentationcenter: 
 author: michaelhauss
@@ -14,64 +14,64 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/05/2017
 ms.author: mihauss
-ms.openlocfilehash: 21e7b9c6a063b29a76043154a760fd9131425655
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 56fae3fdae31a6958ebae01fd96a0366e70ae938
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-blob-storage-hot-and-cool-storage-tiers"></a>Azure Blob Depolama: Sık erişimli ve seyrek erişimli depolama katmanları
 ## <a name="overview"></a>Genel Bakış
-Verilerinizi, nasıl kullandığınıza bağlı olarak en uygun maliyetli şekilde depolayabilmeniz için Azure Depolama, Blob nesne depolama için iki depolama katmanı sunuyor. Azure **sık erişimli depolama katmanı** sık erişimli verileri depolamak için optimize edilmiştir. Azure **seyrek erişimli depolama katmanı** daha az sıklıkta erişilen ve uzun süreli verileri depolamak için optimize edilmiştir. Seyrek erişimli depolama katmanındaki veriler, biraz daha düşük bir kullanılabilirliği kabul edebilir, ancak yine de sık erişimli veriler kadar erişim süresi ve verimlilik gerektirir. Seyrek erişimli veriler için, biraz daha düşük kullanılabilirlik SLA'sı ve yüksek erişim maliyetleri, çok daha düşük depolama maliyetleri için kabul edilebilir tercihlerdir.
+Verilerinizi, nasıl kullandığınıza bağlı olarak en uygun maliyetli şekilde depolayabilmeniz için Azure Depolama, Blob nesne depolama için iki depolama katmanı sunuyor. Hello Azure **sık erişimli depolama katmanı** sık erişilen verileri depolamak için optimize edilmiştir. Hello Azure **seyrek erişimli depolama katmanı** seyrek erişilen ve uzun süreli verileri depolamak için optimize edilmiştir. Merhaba seyrek erişimli depolama katmanındaki veriler, biraz daha düşük bir kullanılabilirliği kabul edebilir, ancak hala yüksek dayanıklılık ve erişimli veriler kadar benzer zamanı erişimi ve işleme özelliklerini gerektirir. Seyrek erişimli veriler için, biraz daha düşük kullanılabilirlik SLA'sı ve yüksek erişim maliyetleri, çok daha düşük depolama maliyetleri için kabul edilebilir tercihlerdir.
 
-Bugün, bulutta depolanan veriler büyük bir hızla artmaktadır. Artan depolama ihtiyaçlarınızın maliyetlerini yönetmek için, erişim sıklığı ve planlanan elde tutma dönemi gibi özniteliklere bağlı olarak verilerinizi düzenlemek yararlıdır. Bulutta depolanan veriler, nasıl oluşturulduğu, işlendiği ve yaşam süresi boyunca nasıl erişildiği açısından farklı olabilir. Bazı veriler ve yaşam süresi boyunca aktif şekilde erişilebilir ve değiştirilebilir. Bazı verilere, veriler eskidikçe önemli ölçüde azalan erişimle, yaşam sürelerinin başlarında sık erişilebilir. Bazı veriler bulutta boşta kalır ve depolandıktan sonra, olursa, nadiren erişilir.
+Bugün, hello bulutta depolanan veriler büyük bir hızla artmaktadır. toomanage artan depolama ihtiyaçlarınızın maliyetlerini, verilerinizi erişim sıklığı gibi özniteliklerini temel alarak ve saklama dönemi planlanan yararlı tooorganize. Merhaba bulutta depolanan veriler nasıl onu oluşturulur, işlendiği ve yaşam süresi boyunca erişilen bakımından farklı olabilir. Bazı veriler ve yaşam süresi boyunca aktif şekilde erişilebilir ve değiştirilebilir. Bazı veriler büyük ölçüde hello veri yaş bırakarak erişimle, yaşam sürelerinin başlarında sık erken erişilir. Bazı veriler hello bulutta boşta kalır ve nadiren, herhangi bir zamanda, bir kez erişilen durumunda depolanan.
 
-Yukarıda açıklanan bu veri senaryolarının her biri, belirli erişim düzeni için optimize edilmiş olan farklı hale getirilmiş bir depolama katmanından faydalanır. Sık erişimli ve seyrek erişimli depolama katmanlarının kullanılmaya başlanmasıyla, Azure Blob Depolama şimdi farklı fiyatlandırma modelleriyle bu ayrılmış depolama katmanları ihtiyacına hitap ediyor.
+Yukarıda açıklanan bu veri senaryolarının her biri, belirli erişim düzeni için optimize edilmiş olan farklı hale getirilmiş bir depolama katmanından faydalanır. Sık erişimli ve seyrek erişimli depolama katmanları Hello başlanmasıyla, Azure depolama bu ayrılmış depolama katmanları ihtiyacına Blob şimdi farklı fiyatlandırma modelleriyle.
 
 ## <a name="blob-storage-accounts"></a>Blob Storage hesapları
-**Blob Storage hesapları**, yapılandırılmamış verilerinizi bloblar (nesneler) olarak Azure Storage’da depolamanıza yönelik özel depolama hesaplarıdır. Blob depolama hesaplarıyla, artık daha az sıklıkta erişilen seyrek erişimli verilerinizi daha düşük depolama maliyetiyle depolamak ve daha sık erişilen sık erişimli verilerinizi daha düşük erişim maliyetiyle depolamak amacıyla sık erişimli ve seyrek erişimli katmanlar arasında seçim yapabileceksiniz. Blob Storage hesapları, varolan genel amaçlı depolama hesaplarınıza benzer ve blok blobları ve ilave blobları için %100 API tutarlığı dahil günümüzde kullandığınız tüm harika dayanıklılık, kullanılabilirlik, ölçeklenebilirlik ve performans özelliklerini paylaşır.
+**Blob Storage hesapları**, yapılandırılmamış verilerinizi bloblar (nesneler) olarak Azure Storage’da depolamanıza yönelik özel depolama hesaplarıdır. BLOB Depolama hesaplarıyla, artık sık erişimli ve seyrek erişimli depolama katmanları toostore arasında daha az sıklıkta erişilen seyrek erişimli verilerinizi daha düşük depolama maliyetiyle ve daha sık erişilen sık erişimli verileri depolamak daha düşük erişim maliyetiyle seçebilirsiniz. BLOB storage hesapları benzer tooyour mevcut genel amaçlı depolama hesapları ve tüm hello harika dayanıklılık, kullanılabilirlik, ölçeklenebilirlik ve blok blobları için % 100 API tutarlığı dahil Günümüzde, kullandığınız performans özelliklerini paylaşır ve ilave blobları.
 
 > [!NOTE]
 > Blob Storage hesapları yalnızca blok ve ilave bloblarını destekler, sayfa bloblarını desteklemez.
 > 
 > 
 
-Blob Depolama hesapları, hesapta depolanan verilere bağlı olarak depolama katmanını **Sık Erişimli** veya **Seyrek Erişimli** olarak belirlemenize olanak tanıyan **Erişim Katmanı** özniteliğini verir. Verilerinizin kullanım düzeninde bir değişiklik olursa herhangi bir zamanda bu depolama katmanları arasında geçiş yapabilirsiniz.
+BLOB storage hesapları kullanıma hello **erişim katmanı** toospecify hello depolama katmanı olarak sağlayan öznitelik **etkin** veya **Cool** hello hello veriye bağlı olarak hesabı. Merhaba, verilerinizin kullanım düzeninde bir değişiklik varsa, aynı zamanda herhangi bir zamanda bu depolama katmanları arasında geçiş yapabilirsiniz.
 
 > [!NOTE]
-> Depolama katmanının değiştirilmesi ek ücretlere neden olabilir. Lütfen daha fazla bilgi için [Fiyatlandırma ve Faturalama](storage-blob-storage-tiers.md#pricing-and-billing) bölümüne bakın.
+> Değişen hello depolama katmanı ek ücretlere neden olabilir. Lütfen hello bakın [fiyatlandırma ve faturalama](storage-blob-storage-tiers.md#pricing-and-billing) daha fazla ayrıntı için bölüm.
 > 
 > 
 
-Sık erişimli depolama katmanı için örnek kullanım senaryoları şunları içerir:
+Merhaba sık erişimli depolama katmanı için örnek kullanım senaryoları şunları içerir:
 
-* Etkin kullanımda olan veya sık erişilmesi beklenen (okunma ve üzerine yazılma) veriler.
-* Seyrek erişimli depolama katmanına işlemeye ya da sonuçta geçişe hazırlanan veriler.
+* Etkin kullanımda veya beklenen toobe (gelen okuma ve için yazılmış) sık erişilen verileri.
+* İşlem ya da sonuçta geçiş toohello seyrek erişimli depolama katmanı için hazırlanan veriler.
 
-Seyrek erişimli depolama katmanı için örnek kullanım senaryoları şunları içerir:
+Merhaba seyrek erişimli depolama katmanı için örnek kullanım senaryoları şunları içerir:
 
 * Yedekleme, arşivleme ve olağanüstü durum kurtarma veri kümeleri.
-* Artık sık görüntülenmeyen ancak erişildiğinde hemen kullanılabilir olması beklenen eski medya içeriği.
-* Gelecekte işlenmek üzere daha fazla veri toplanırken uygun maliyetli olarak depolanması gereken büyük veri kümeleri. (*örn.*, bilimsel verilerin uzun süreli depolanması, üretim tesisinden alınan ham telemetri verileri)
+* Eski medya içeriği değil artık sık görüntülenmeyen ancak erişildiğinde hemen beklenen toobe kullanılabilir değildir.
+* Daha fazla veri sonra işlemek üzere toplandığını sırada toobe gereken büyük veri kümeleri maliyet etkili bir şekilde depolanır. (*örn.*, bilimsel verilerin uzun süreli depolanması, üretim tesisinden alınan ham telemetri verileri)
 * Son kullanılabilir biçime işlendikten sonra bile özgün (ham) veriler korunmalıdır. (*örn.*, Diğer biçimlere kodlandıktan sonra ham medya dosyaları)
-* Uzun süre depolanması gereken ve çok ender erişilecek uyumluluk ve arşiv verileri. (*örn.*, Güvenlik kamerası kayıtları, sağlık kuruluşları için eski röntgen/MRI çekimleri, finans hizmetleri için sesli kayıtlar ve müşteri görüşmesi dökümleri)
+* Uyumluluk ve uzun süredir saklanan toobe gerekir ve ender erişilen arşiv verileri. (*örn.*, Güvenlik kamerası kayıtları, sağlık kuruluşları için eski röntgen/MRI çekimleri, finans hizmetleri için sesli kayıtlar ve müşteri görüşmesi dökümleri)
 
 Depolama hesapları hakkıında daha fazla bilgi için bkz. [Azure Storage hesapları hakkında](storage-create-storage-account.md).
 
-Yalnızca blok veya ilave blobu depolaması gerektiren uygulamalar için, katmanlı depolamanın farklı fiyat avantajlarından faydalanmak üzere Blob Storage hesapları kullanılmasını öneriyoruz. Ancak, bunun aşağıdaki gibi, genel amaçlı depolama hesaplarının kullanılması gerektiği belirli koşullar altında mümkün olmayabileceğini de anlıyoruz:
+Blok veya ilave blobu depolaması yalnızca gerektiren uygulamalar için Blob storage hesapları kullanılmasını öneririz, katmanlı depolama fiyatlandırma modelini hello tootake avantajlarından Ayrıştırılan. Ancak, bu şekilde toogo, genel amaçlı depolama hesapları olacaktır kullanarak burada hello gibi belirli koşullar altında mümkün olmayabilir anlama:
 
-* Tablo, kuyruk veya dosyaları kullanmanız gerekmesi ve bloblarınızın aynı depolama hesabında saklanmasını istemeniz. Bunları aynı hesapta depolamanın, aynı paylaşılan anahtara sahip olma dışında teknik bir avantajı olmadığını unutmayın.
-* Hala Klasik dağıtım modeli kullanmanız gerekmesi. Blob Storage hesapları yalnızca Azure Resource Manager dağıtım modeli aracılığıyla kullanılabilir.
-* Sayfa blobları kullanmanız gerekmesi. Blob Storage hesapları sayfa bloblarını desteklemez. Sayfa bloblarını kullanmaya özel olarak ihtiyacınız yoksa, genelde blok bloblarını kullanılmasını öneriyoruz.
-* 2014-02-14 tarihinden önceki [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) sürümünü veya 4.x’ten düşük bir istemci kitaplığı sürümü ile kullanmanız ve uygulamanızı güncelleştirememeniz.
+* Dosyaları ve bloblarınızın depolanan istiyorsanız aynı depolama hesabındaki hello veya toouse tabloları, kuyrukları, gerekir. Hiçbir teknik bir avantajı toostoring bu hello sahip, hello aynı paylaşılan anahtara dışında aynı hesabı yoktur.
+* Yine toouse hello Klasik dağıtım modeli gerekir. BLOB storage hesapları yalnızca hello Azure Resource Manager dağıtım modeli kullanılabilir.
+* Toouse sayfa bloblarını gerekir. Blob Storage hesapları sayfa bloblarını desteklemez. Sayfa bloblarını kullanmaya özel olarak ihtiyacınız yoksa, genelde blok bloblarını kullanılmasını öneriyoruz.
+* Merhaba bir sürümünü kullanmanız [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) 2014-02-14 tarihinden önceki veya bir istemci kitaplığı sürümü ile alt 4.x ve uygulamanızı güncelleştirememeniz.
 
 > [!NOTE]
 > Blob depolama hesapları şu anda çoğu Azure bölgesinde desteklenmektedir.
 > 
 > 
 
-## <a name="comparison-between-the-storage-tiers"></a>Depolama katmanları karşılaştırması
-Aşağıdaki tabloda iki depolama katmanı arasındaki karşılaştırma vurgulanmıştır:
+## <a name="comparison-between-hello-storage-tiers"></a>Merhaba depolama katmanları karşılaştırması
+Merhaba aşağıdaki tabloda hello hello iki depolama katmanı arasındaki karşılaştırma vurgulanmıştır:
 
 <table border="1" cellspacing="0" cellpadding="0" style="border: 1px solid #000000;">
 <col width="250">
@@ -107,7 +107,7 @@ Aşağıdaki tabloda iki depolama katmanı arasındaki karşılaştırma vurgula
     <td colspan="2"><center>Yok</center></td>
 </tr>
 <tr>
-    <td><strong><center>Gecikme süresi<br>(İlk bayta kalan süre)<center></strong></td>
+    <td><strong><center>Gecikme süresi<br>(Toofirst bayta kalan süre)<center></strong></td>
     <td colspan="2"><center>milisaniye</center></td>
 </tr>
 <tr>
@@ -118,109 +118,109 @@ Aşağıdaki tabloda iki depolama katmanı arasındaki karşılaştırma vurgula
 </table>
 
 > [!NOTE]
-> Blob Storage hesapları, genel amaçlı depolama hesaplarıyla aynı performans ve ölçeklenebilirlik hedeflerini destekler. Daha fazla bilgi için bkz. [Azure Storage Ölçeklenebilirlik ve Performans Hedefleri](storage-scalability-targets.md).
+> BLOB Depolama hesapları destek hello genel amaçlı depolama hesaplarıyla aynı performans ve ölçeklenebilirlik hedeflerini. Daha fazla bilgi için bkz. [Azure Storage Ölçeklenebilirlik ve Performans Hedefleri](storage-scalability-targets.md).
 > 
 > 
 
 ## <a name="pricing-and-billing"></a>Fiyatlandırma ve Faturalama
-Blob depolama hesapları, depolama katmanını temel alan yeni bir fiyatlandırma modelini kullanır. Bir Blob Storage hesabı kullanırken, aşağıdaki fatura değerlendirmeleri geçerlidir:
+BLOB storage hesapları blob depolama hello depolama katmanını temel alan yeni bir fiyatlandırma modelini kullanır. Blob storage hesabı kullanırken hello aşağıdaki fatura değerlendirmeleri geçerlidir:
 
-* **Depolama maliyetleri**: Depolanan veri miktarına ek olarak, veri depolamanın maliyeti depolama katmanına bağlı olarak değişir. Gigabayt başına maliyet, seyrek erişimli depolama katmanı için sık erişimli depolama katmanına göre olandan düşüktür.
-* **Veri erişim maliyetleri**: Seyrek erişimli depolama katmanındaki veriler için, okuma ve yazma işlemleri için erişilen gigabayt veri başına ücretlendirilirsiniz.
-* **İşlem maliyetleri**: Her iki katma için işlem başına ücret alınır. Ancak, işlem başına maliyet, seyrek erişimli depolama katmanı için sık erişimli depolama katmanına göre olandan yüksektir.
-* **Coğrafi Çoğaltma veri aktarımı maliyetleri**: Bu, yalnızca GRS ve RA-GRS dahil, coğrafi çoğaltma yapılandırılmış hesaplara uygulanır. Coğrafi çoğaltma veri aktarımı gigabayt başına ücret doğurur.
+* **Depolama maliyetleri**: Ayrıca toohello depolanan veri miktarına, veri depolama maliyetini hello hello depolama katmanına bağlı olarak değişir. Merhaba gigabayt başına maliyet, hello sık erişimli depolama katmanına hello seyrek erişimli depolama katmanı düşüktür.
+* **Veri erişim maliyetleri**: hello seyrek erişimli depolama katmanındaki veriler için bir gigabayt başına veri erişim okuma ve yazma işlemleri için ücretlendirilirsiniz.
+* **İşlem maliyetleri**: Her iki katma için işlem başına ücret alınır. Ancak, hello işlem başına maliyet hello seyrek erişimli depolama katmanı hello sık erişimli depolama katmanına göre olandan yüksektir.
+* **Coğrafi çoğaltma veri aktarımı maliyetleri**: Bu yalnızca tooaccounts coğrafi, GRS ve RA-GRS dahil olmak üzere çoğaltma yapılandırılmış uygulanır. Coğrafi çoğaltma veri aktarımı gigabayt başına ücret doğurur.
 * **Giden veri aktarımı maliyetleri**: Giden veri aktarımları (bir Azure bölgesinin dışına aktarılan veriler), genel amaçlı depolama hesapları ile tutarlı şekilde gigabayt başına esaslı olarak bant genişliği kullanımı için fatura doğurur.
-* **Depolama katmanını değiştirme**: Depolama katmanını seyrek erişimliden sık erişimliye değiştirmek, her geçiş için depolama hesabında varolan tüm verilerin okunmasına eşit bir ücret doğurur. Öte yandan, depolama katmanını sık erişimliden seyrek erişimliye değiştirmek ücretsizdir.
+* **Değişen hello depolama katmanı**: hello depolama katmanını cool toohot erişimliye değiştirmek bir ücret eşit tooreading her geçiş için hello depolama hesabında varolan tüm hello veri. Merhaba üzerinde etkin toocool hello depolama katmanının değiştirilmesi, diğer yandan ücretsizdir olacaktır.
 
 > [!NOTE]
-> Kullanıcıların yeni depolama katmanlarını denemesine ve kullanıma başlama öncesi işlevselliği doğrulamasına izin vermek üzere, 30 Haziran 2016 tarihine kadar, depolama katmanını seyrek erişimliden sık erişimliye değiştirmek ücretsizdir. 1 Temmuz 2016’dan başlayarak, seyrek erişimliden sık erişimliye tüm geçiş işlemleri için ücret uygulanacaktır. Blob Storage hesaplarına ilişkin fiyatlandırma modeli hakkında daha fazla bilgi için bkz. [Azure Storage Fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/) sayfası. Giden veri aktarımı ücretlerine ilişkin daha fazla bilgi için bkz. [Veri Aktarımları Fiyatlandırma Bilgileri](https://azure.microsoft.com/pricing/details/data-transfers/) sayfası.
+> Yeni depolama katmanlarını tooallow kullanıcılar tootry hello çıkışı sipariş ve işlevselliği doğrulamasına, cool toohot hello depolama katmanının değiştirilmesi için hello ücret kapalı 30 Haziran 2016'ya kadar kullanıma başlama öncesi. 1 Temmuz 2016'dan başlayarak, seyrek erişimli toohot uygulanan tooall geçişler hello ücret olacaktır. Hello fiyatlandırma modeli için Blob storage hesapları hakkında daha fazla ayrıntı görmek için [Azure Storage fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/) sayfası. Merhaba giden veriler hakkında daha fazla ayrıntı için aktarımı ücretlerine bakın, [veri aktarımları fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/data-transfers/) sayfası.
 > 
 > 
 
 ## <a name="quick-start"></a>Hızlı Başlangıç
-Bu bölümde Azure portalı kullanarak aşağıdaki senaryolar gösterilmektedir:
+Bu bölümde biz hello hello Azure portal kullanarak senaryolar gösterilmektedir:
 
-* Blob Storage hesabı oluşturma.
-* Blob Storage hesabı yönetme.
+* Nasıl toocreate Blob storage hesabı.
+* Nasıl toomanage Blob storage hesabı.
 
-### <a name="using-the-azure-portal"></a>Azure portalını kullanma
-#### <a name="create-a-blob-storage-account-using-the-azure-portal"></a>Azure portalı kullanarak Blob depolama hesabı oluşturma
-1. [Azure portalında](https://portal.azure.com) oturum açın.
-2. Hub menüsünde, **Yeni** > **Veri + Depolama** > **Depolama hesabı**’nı seçin.
+### <a name="using-hello-azure-portal"></a>Hello Azure portalını kullanma
+#### <a name="create-a-blob-storage-account-using-hello-azure-portal"></a>Hello Azure portalı kullanarak Blob Depolama hesabı oluşturma
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
+2. Merhaba Hub menüsünde seçin **yeni** > **veri + depolama** > **depolama hesabı**.
 3. Depolama hesabınız için bir ad girin.
    
-    Bu ad genel olarak benzersiz olmalıdır; depolama hesabındaki nesnelere erişmek için kullanılan URL’nin bir parçası olarak kullanılır.  
-4. Dağıtım modeli olarak **Kaynak Yöneticisi**’ni seçin.
+    Bu ad genel olarak benzersiz olmalıdır; Merhaba depolama hesabında kullanılan tooaccess hello nesneleri hello URL'SİNİN bir parçası olarak kullanılır.  
+4. Seçin **Resource Manager** hello dağıtım modeli olarak.
    
-    Katmanlı depolama yalnızca Resource Manager depolama hesaplarıyla birlikte kullanılabilir; yeni kaynaklar için önerilen dağıtım modeli budur. Daha fazla bilgi için bkz. [Azure Resource Manager'a genel bakış](../azure-resource-manager/resource-group-overview.md).  
-5. Hesap Türü açılır listesinden **Blob Depolama** seçeneğini belirleyin.
+    Katmanlı depolama yalnızca Resource Manager depolama hesaplarıyla birlikte kullanılabilir; Merhaba dağıtım modeli yeni kaynaklar için önerilen budur. Daha fazla bilgi için hello denetleyin [Azure Resource Manager'a genel bakış](../azure-resource-manager/resource-group-overview.md).  
+5. Merhaba hesap türü açılır listesinden seçin **Blob Storage**.
    
-    Depolama hesabının türünü buradan seçebilirsiniz. Katmanlı depolama genel amaçlı depolamada kullanılamaz; yalnızca Blob depolama türündeki hesapta kullanılabilir.     
+    Depolama hesabı hello türünü seçin, budur. Katmanlı depolama genel amaçlı depolamada kullanılamaz; yalnızca hello Blob Depolama türündeki hesapta kullanılabilir.     
    
-    Bunu seçtiğinizde performans katmanı Standart olarak ayarlanır. Katmanlı depolama, Premium performans katmanı ile kullanılamaz.
-6. Depolama hesabı için çoğaltma seçeneğini seçin: **LRS**, **GRS** veya **RA-GRS**. Varsayılan seçenek **RA-GRS**’dir.
+    Bunu seçtiğinizde hello performans katmanı tooStandard ayarlandığını unutmayın. Katmanlı depolama hello Premium performans katmanı ile kullanılamaz.
+6. Merhaba hello depolama hesabı için çoğaltma seçeneğini seçin: **LRS**, **GRS**, veya **RA-GRS**. Merhaba varsayılandır **RA-GRS**.
    
-    LRS = yerel olarak yedekli depolama; GRS = coğrafi olarak yedekli depolama (2 bölge); RA-GRS okuma erişimli, coğrafi olarak yedekli depolama (ikincisine okuma erişiminin bulunduğu 2 bölge).
+    LRS = yerel olarak yedekli depolama; GRS = coğrafi olarak yedekli depolama (2 bölge); RA-GRS okuma erişimli coğrafi olarak yedekli depolama olduğu (okuma bulunduğu 2 bölge erişim toohello ikinci).
    
     Azure Depolama çoğaltma seçenekleri ile ilgili ayrıntılar için bkz. [Azure Depolama çoğaltma](storage-redundancy.md).
-7. Gereksinimlerinize uygun depolama katmanını seçin: **Erişim katmanı** ayarını **Seyrek Erişimli** veya **Sık Erişimli** olarak belirleyin. Varsayılan seçenek **Sık Erişimli**’dir.
-8. Yeni depolama hesabını oluşturmak istediğiniz aboneliği seçin.
+7. Gereksinimlerinize uygun depolama katmanını seçin hello: kümesi hello **erişim katmanı** tooeither **Cool** veya **etkin**. Merhaba varsayılandır **etkin**.
+8. Toocreate hello yeni depolama hesabı istediğiniz hello aboneliği seçin.
 9. Yeni bir kaynak grubu belirtin veya varolan bir kaynak grubunu seçin. Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure Resource Manager’a genel bakış](../azure-resource-manager/resource-group-overview.md).
-10. Depolama hesabınız için bölge seçin.
-11. Depolama hesabını oluşturmak için **Oluştur**’a tıklayın.
+10. Depolama hesabınız için Hello bölgeyi seçin.
+11. Tıklatın **oluşturma** toocreate hello depolama hesabı.
 
-#### <a name="change-the-storage-tier-of-a-blob-storage-account-using-the-azure-portal"></a>Azure portalı kullanarak Blob depolama hesabındaki depolama katmanını değiştirme
-1. [Azure portalında](https://portal.azure.com) oturum açın.
-2. Depolama hesabınıza gitmek için Tüm Kaynaklar’ı ve ardından depolama hesabınızı seçin.
-3. Ayarlar dikey penceresinde **Yapılandırma**’ya tıklayarak hesap yapılandırmasını görüntüleyin ve/veya değiştirin.
-4. Gereksinimlerinize uygun depolama katmanını seçin: **Erişim katmanı** ayarını **Seyrek Erişimli** veya **Sık Erişimli** olarak belirleyin.
-5. Dikey pencerenin en üstündeki Kaydet seçeneğine tıklayın.
+#### <a name="change-hello-storage-tier-of-a-blob-storage-account-using-hello-azure-portal"></a>Hello Azure portalı kullanarak Blob Depolama hesabı Hello depolama katmanını değiştirme
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
+2. toonavigate tooyour depolama hesabı, tüm kaynakları belirleyin ve ardından depolama hesabınızı seçin.
+3. Merhaba ayarlar dikey penceresinde tıklayın **yapılandırma** tooview ve/veya değişiklik hello hesabı yapılandırması.
+4. Gereksinimlerinize uygun depolama katmanını seçin hello: kümesi hello **erişim katmanı** tooeither **Cool** veya **etkin**.
+5. Merhaba dikey penceresinde hello üstündeki Kaydet'i tıklatın.
 
 > [!NOTE]
-> Depolama katmanının değiştirilmesi ek ücretlere neden olabilir. Lütfen daha fazla bilgi için [Fiyatlandırma ve Faturalama](storage-blob-storage-tiers.md#pricing-and-billing) bölümüne bakın.
+> Değişen hello depolama katmanı ek ücretlere neden olabilir. Lütfen hello bakın [fiyatlandırma ve faturalama](storage-blob-storage-tiers.md#pricing-and-billing) daha fazla ayrıntı için bölüm.
 > 
 > 
 
-## <a name="evaluating-and-migrating-to-blob-storage-accounts"></a>Blob depolama hesaplarını değerlendirme ve geçiş yapma
-Bu bölümün amacı kullanıcıların Blob depolama hesapları kullanmaya sorunsuz bir geçiş yapmasına yardımcı olmaktır. İki kullanıcı senaryosu vardır:
+## <a name="evaluating-and-migrating-tooblob-storage-accounts"></a>Değerlendirme ve tooBlob depolama hesapları geçirme
+Merhaba bu bölümün amacı olan toohelp kullanıcılar toomake düzgün toousing Blob storage hesapları geçiş. İki kullanıcı senaryosu vardır:
 
-* Genel amaçlı bir depolama hesabınız var ve doğru depolama katmanı ile bir Blob depolama hesabına geçişi değerlendirmek istiyorsunuz.
-* Bir Blob depolama hesabı kullanmaya karar verdiğiniz veya zaten bir tane var ve sık erişimli ya da seyrek erişimli depolama katmanı kullanıp kullanmayacağınızı değerlendirmek istiyorsunuz.
+* Varolan genel amaçlı depolama hesabınız ve tooevaluate değişiklik tooa hello uygun depolama katmanını Blob storage hesabıyla istiyor.
+* Toouse Blob storage hesabı karar verdiniz veya zaten bir tane ve, hello seyrek veya sık erişimli depolama katmanı kullanıp kullanmayacağınızı tooevaluate istiyor.
 
-Her iki durumda da ilk iş sırası bir Blob depolama hesabında depolanan verileriniz depolama ve erişim maliyetinin tahmin edilmesi ve bu maliyetin mevcut maliyetlerinizle karşılaştırılmasıdır.
+Her iki durumda da hello ilk iş sırası depolama ve bir Blob Depolama hesabında depolanan verileriniz erişim tooestimate hello maliyetidir ve bu maliyetin mevcut maliyetlerinizle karşılaştırılmasıdır karşılaştırın.
 
 ### <a name="evaluating-blob-storage-account-tiers"></a>Blob depolama hesabı katmanlarını değerlendirme
-Bir Blob depolama hesabına depolanan verilerinizin depolama ve erişim maliyetini tahmin etmek için var olan kullanım modelinizi ve beklediğiniz kullanım modelini yaklaşık olarak değerlendirmeniz gerekir. Genel olarak, şunları bilmek isteyeceksiniz:
+Depolama ve bir Blob Depolama hesabında depolanan verilere erişim sipariş tooestimate hello maliyeti, mevcut kullanım düzeninizi tooevaluate gerekir veya ve beklediğiniz kullanım modelini yaklaşık. Genel olarak, tooknow isteyeceksiniz:
 
 * Depolama tüketiminiz – Ne kadar veri depolanıyor ve bu aylık olarak nasıl değişiyor?
-* Depolama erişim modelleriniz - Hesaptan ne kadar veri okunuyor ve hesaba ne kadar veri yazılıyor (yeni veriler dahil)? Veri erişimi için kaç tane işlem kullanılıyor ve bunlar ne tür işlemler?
+* Ne kadar veri okuması ve yazılı toohello hesabı (yeni veriler dahil) olan depolama erişim modelleriniz -? Veri erişimi için kaç tane işlem kullanılıyor ve bunlar ne tür işlemler?
 
 #### <a name="monitoring-existing-storage-accounts"></a>Var olan depolama hesaplarını izleme
-Var olan depolama hesaplarınızı izlemek ve bu verileri toplamak için, bir depolama hesabına yönelik günlüğe kaydetme işlemlerini gerçekleştiren ve ölçümler sağlayan Azure Depolama Analitiği hizmetinden yararlanabilirsiniz.
-Storage Analytics hem genel amaçlı depolama hesapları hem de Blob depolama hesapları için toplu işlem istatistiklerini içerebilen ölçümleri ve Blob depolama hizmetine yapılan isteklere ilişkin kapasite verilerini depolayabilir.
-Bu veriler aynı depolama hesabındaki iyi bilinen tablolara depolanır.
+Mevcut depolama hesapları ve bu verileri toplamak toomonitor günlüğe kaydetme işlemlerini gerçekleştiren ve ölçüm verilerini sağlayan bir depolama hesabı için Azure Storage Analytics kullanımı yapabilirsiniz.
+Storage Analytics toplu işlem istatistiklerini ilişkin kapasite verilerini istekleri toohello hem genel amaçlı depolama hesapları, hem de Blob Depolama hesapları Blob Depolama hizmetine dahil ölçümleri depolayabilirsiniz.
+Bu veriler hello iyi bilinen tablolara depolanır aynı depolama hesabı.
 
 Daha fazla bilgi için lütfen bkz. [Storage Analytics Ölçümleri hakkında](https://msdn.microsoft.com/library/azure/hh343258.aspx) ve [Storage Analytics Ölçüm Tablosu Şeması](https://msdn.microsoft.com/library/azure/hh343264.aspx)
 
 > [!NOTE]
-> Blob depolama hesapları, tablo hizmeti uç noktasını yalnızca ilgili hesabın ölçüm verilerini depolamak ve bunlara erişmek için ortaya çıkarır.
+> BLOB storage hesapları yalnızca depolama ve hello ölçüm verilerini bu hesap için erişim için hello tablo Hizmeti uç noktası kullanıma sunar.
 > 
 > 
 
-Blob depolama hizmetinin depolama tüketimini izlemek için kapasite ölçümlerini etkinleştirmeniz gerekir.
-Bu özellik etkinleştirildiğinde bir depolama hesabının Blob hizmeti için kapasite verileri günlük olarak kaydedilir ve aynı depolama hesabı içindeki *$MetricsCapacityBlob* tablosuna yazılan bir tablo girişi olarak kaydedilir.
+toomonitor hello depolama tüketimini hello Blob Depolama hizmetinin, tooenable hello kapasite ölçümlerini gerekir.
+Bu ile etkinleştirildiğinde, kapasite verileri günlük bir depolama hesabının Blob hizmeti için kaydedilen ve toohello yazılan bir tablo girişi kaydedilen *$MetricsCapacityBlob* hello içinde aynı tablo depolama hesabı.
 
-Blob depolama hizmetinin veri erişim modelini izlemek için saatlik işlem ölçümlerini bir API düzeyinde etkinleştirmeniz gerekir.
-Bu özellik etkinleştirildiğinde API başına işlemler saatte bir toplanır ve aynı depolama hesabındaki *$MetricsHourPrimaryTransactionsBlob* tablosuna yazılan bir tablo girişi olarak kaydedilir. *$MetricsHourSecondaryTransactionsBlob* tablosu, RA-GRS depolama hesapları için işlemleri ikincil uç noktaya kaydeder.
+toomonitor hello veri erişim düzeni için Blob Depolama hizmetinin Merhaba, tooenable hello saatlik işlem ölçümlerini bir API düzeyinde gerekir.
+Bu etkin, API başına işlemler saatte bir toplanır ve toohello yazılan bir tablo girişi kaydedilen *$MetricsHourPrimaryTransactionsBlob* hello içinde aynı tablo depolama hesabı. Merhaba *$MetricsHourSecondaryTransactionsBlob* tablo kayıtlarını hello işlemleri toohello ikincil uç RA-GRS depolama hesapları.
 
 > [!NOTE]
-> Blok genelindeki sayfa blob’larını ve sanal makine disklerini engelleme ve ekleme blob verileriyle birlikte depoladığınız genel amaçlı bir depolama hesabınız varsa bu tahmin işlemi geçerli değildir. Bunun nedeni, yalnızca bir Blob depolama hesabına geçirilebilecek engelleme ve ekleme blob’ları için blob türüne göre kapasite ve işlem ölçümlerini ayırt etmenin bir yolunun olmamasıdır.
+> Blok genelindeki sayfa blob’larını ve sanal makine disklerini engelleme ve ekleme blob verileriyle birlikte depoladığınız genel amaçlı bir depolama hesabınız varsa bu tahmin işlemi geçerli değildir. Bu ayırt kapasitesinin bir yolu olmaz ve tooa Blob storage hesabı yalnızca hello için blob türüne göre ölçümleri engelleme ve ekleme olabilen blobları işlem geçirilen kaynaklanır.
 > 
 > 
 
-Veri tüketim ve erişim modelinizi yaklaşık olarak tahmin etmek için, ölçümler için düzenli kullanımınızı temsil eden bir elde tutma süresi seçmeniz ve tahmin etmeniz önerilir.
-Seçeneklerden biri son 7 güne ait ölçüm verilerinin tutulması ve verilerin ay sonunda analiz için haftada bir toplanmasıdır.
-Diğer bir seçenek ise son 30 güne ait ölçüm verilerinin tutulması ve verilerin 30 günlük süre sonunda toplanıp çözümlenmesidir.
+tooget yaklaşık veri tüketim ve erişim modelinizi olarak, bekletme dönemi için düzenli kullanımınızı temsil hello ölçümünün seçin ve tahmin etmeniz öneririz.
+Bir seçenek tooretain hello ölçüm verilerini hello hello ay sonunda analiz için haftada 7 gün ve toplama hello veri içindir.
+Başka bir seçenek tooretain hello ölçüm verilerini hello son 30 gün ve toplamak ve hello hello 30 günlük süre sonunda hello verilerini çözümleme.
 
 Ölçüm verilerini etkinleştirme, toplama ve görüntüleme hakkında bilgi için bkz. [Azure Depolama ölçümlerini etkinleştirme ve ölçüm verilerini görüntüleme](storage-enable-and-view-metrics.md).
 
@@ -229,100 +229,100 @@ Diğer bir seçenek ise son 30 güne ait ölçüm verilerinin tutulması ve veri
 > 
 > 
 
-#### <a name="utilizing-usage-metrics-to-estimate-costs"></a>Kullanım ölçümlerinden yararlanarak maliyetleri tahmin etme
+#### <a name="utilizing-usage-metrics-tooestimate-costs"></a>Kullanım ölçümleri tooestimate maliyetleri kullanma
 ##### <a name="storage-costs"></a>Depolama maliyetleri
-*$MetricsCapacityBlob* kapasite ölçüm tablosunda *'data'* satır anahtarını içeren en son giriş, kullanıcı verilerinin harcadığı kapasiteyi gösterir.
-*$MetricsCapacityBlob* kapasite ölçüm tablosunda *'analytics'* satır anahtarını içeren en son giriş, analiz günlüklerinin harcadığı kapasiteyi gösterir.
+Merhaba hello kapasite ölçüm tablosunda en son giriş *$MetricsCapacityBlob* hello satır anahtarı ile *'verileri'* gösterir hello kullanıcı verilerinin depolama kapasitesi.
+Merhaba hello kapasite ölçüm tablosunda en son giriş *$MetricsCapacityBlob* hello satır anahtarı ile *'analytics'* gösterir hello hello analiz günlüklerinin depolama kapasitesi.
 
-Hem kullanıcı verileri hem de analiz günlükleri (etkinse) tarafından kullanılan bu toplam kapasite, verileri depolama hesabına depolama maliyetini tahmin etmek için kullanılabilir.
-Aynı yöntem ayrıca engelleme ve ekleme blob’larının genel amaçları depolama hesaplarına depolanma maliyetlerini tahmin etmek için kullanılabilir.
+Bu toplam kapasite (etkinse) hem kullanıcı verileri ve çözümlemeler günlükleri tarafından tüketilen sonra olabilir tooestimate hello maliyetini, veri hello depolama hesabına depolama kullanılır.
+aynı yöntem ayrıca blok depolama maliyetlerini tahmin etmek için kullanılabilir ve ilave blobları genel amaçlı depolama hesaplarındaki hello.
 
 ##### <a name="transaction-costs"></a>İşlem maliyetleri
-İşlem ölçüm tablosundaki bir API’nin tüm girişleri için *'TotalBillableRequests'* toplamı, ilgili API’nin toplam işlem sayısını belirtir. *Örneğin*, belirli bir süre içindeki *'GetBlob'* işlemlerinin toplam sayısı *'user;GetBlob'* satır anahtarını içeren tüm girişlere yönelik toplam faturalandırılabilir isteklerin toplamına göre hesaplanabilir.
+Merhaba toplamını *'TotalBillableRequests'*, tüm girişleri hello işlemde bir API için ölçüm tablosunda hello işlemleri API'nin toplam sayısını gösterir. *Örneğin*, hello toplam sayısı *'GetBlob'* işlemleri belirli bir süre içindeki hesaplanabilir hello tüm girişlere yönelik toplam Faturalandırılabilir isteklerin toplamına hello satır anahtarını içeren *' kullanıcı; GetBlob'*.
 
-Blob depolama hesaplarına ilişkin işlem maliyetlerini tahmin etmek için, farklı şekilde fiyatlandırıldıkları için işlemleri üç gruba ayırmanız gerekir.
+Sipariş tooestimate ilişkin işlem maliyetlerini içinde Blob storage hesapları, farklı fiyatlandırılır beri hello işlemleri üç gruba aşağı toobreak gerekir.
 
 * *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'* ve *'CopyBlob'* gibi yazma işlemleri.
 * *'DeleteBlob'* ve *'DeleteContainer'* gibi silme işlemleri.
 * Diğer tüm işlemler.
 
-Genel amaçlı depolama hesaplarının işlem maliyetlerini tahmin etmek için işlemden/API’den bağımsız olarak tüm işlemleri toplamanız gerekir.
+Sipariş tooestimate işlem maliyetleri de genel amaçlı depolama hesapları için tüm işlemleri toplamanız hello işlemden/API'den tooaggregate gerekir.
 
 ##### <a name="data-access-and-geo-replication-data-transfer-costs"></a>Veri erişimi ve coğrafi çoğaltma veri aktarımı maliyetleri
-Storage Analytics bir depolama hesabından okunan ve depolama hesabına yazılan veri miktarını belirtmese de, işlem ölçümleri tablosuna bakılarak bu değer kabaca tahmin edilebilir.
-İşlem ölçüm tablosundaki bir API’nin tüm girişleri için *'TotalIngress'* toplamı, ilgili API’nin toplam giriş verileri miktarını bayt cinsinden belirtir.
-Benzer şekilde, *'TotalEgress'* toplamı toplam çıkış verileri miktarını bayt cinsinden belirtir.
+Storage analytics sağlamaz hello miktarda veri okuma ve tooa depolama hesabına yazılan, kabaca hello işlem ölçümleri tablosuna bakılarak tahmin edilebilir.
+Merhaba toplamını *'Totalıngress'* tablosu tüm girişleri hello işlem ölçümlerini bir API için API'nin hello toplam bayt giriş verileri miktarını belirtir.
+Benzer şekilde hello toplamını *'TotalEgress'* hello toplam bayt çıkış verileri miktarını belirtir.
 
-Blob depolama hesaplarına ilişkin veri erişimi maliyetlerini hesaplamak için işlemleri iki gruba ayırmanız gerekir.
+Blob storage hesapları için sipariş tooestimate hello veri erişim maliyetleri de, hello işlemleri iki gruba aşağı toobreak gerekir.
 
-* Depolama hesabından alınan veri miktarı birincil olarak *'GetBlob'* ve *'CopyBlob'* işlemleri için *'TotalEgress'* toplamına bakılarak tahmin edilebilir.
-* Depolama hesabına yazılan veri miktarı birincil olarak *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* ve *'AppendBlock'* işlemleri için *'TotalIngress'* toplamına bakılarak tahmin edilebilir.
+* Merhaba hello depolama hesabından alınan veri miktarı tahmini hello toplamına bakılarak *'TotalEgress'* öncelikle hello için *'GetBlob'* ve *'CopyBlob'* işlemler.
+* Merhaba toohello depolama hesabına yazılan veri miktarı tahmini hello toplamına bakılarak *'Totalıngress'* öncelikle hello için *'PutBlob'*, *'Copyblob'*, *'CopyBlob'* ve *'AppendBlock'* işlemleri.
 
-Blob depolama hesaplarında coğrafi çoğaltma veri aktarımı maliyeti de bir GRS veya RA-GRS depolama hesabı söz konusu olduğunda yazılan veri miktarı tahmini kullanılarak hesaplanabilir.
+coğrafi çoğaltma veri aktarımı için Blob Depolama hesapları da hello bir GRS veya RA-GRS depolama hesabı söz konusu olduğunda yazılan veri miktarı için hello tahmini kullanılarak hesaplanabilir maliyetini hello.
 
 > [!NOTE]
-> Seyrek veya sık erişimli bir depolama katmanını kullanma maliyetlerini hesaplama hakkında daha ayrıntılı bir örnek için lütfen *'Sık ve Seyrek Erişimli erişim katmanları nelerdir ve hangisinin kullanılacağını nasıl belirlemeliyim?'* başlıklı SSS bölümüne bakın bkz. [Azure Depolama Fiyatlandırma Sayfası](https://azure.microsoft.com/pricing/details/storage/).
+> Merhaba seyrek veya sık erişimli depolama katmanı kullanma hello maliyetlerini hesaplama hakkında daha ayrıntılı bir örnek için lütfen hello başlıklı SSS göz atın *'sık ve seyrek erişimli erişim katmanları nelerdir ve hangi bir toouse nasıl belirlemeliyim?'* Merhaba, [Azure depolama fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/storage/).
 > 
 > 
 
 ### <a name="migrating-existing-data"></a>Mevcut verileri geçirme
-Bir Blob Storage hesabı yalnızca blok ve ilave bloblarının depolanmasına yöneliktir. Blobların yanı sıra tablo, kuyruk, dosya ve diskleri de depolamanızı sağlayan mevcut genel amaçlı depolama hesapları Blob depolama hesaplarına dönüştürülemez. Depolama katmanlarını kullanmak için, yeni Blob Storage hesapları oluşturmanız ve varolan verilerinizi yeni oluşturulan hesaplara taşımanız gerekir.
+Bir Blob Storage hesabı yalnızca blok ve ilave bloblarının depolanmasına yöneliktir. Toostore tabloları, kuyrukları, dosyaları ve diskleri yanı sıra BLOB'ları, varolan genel amaçlı depolama hesapları, dönüştürülmüş tooBlob depolama hesapları olamaz. toouse depolama katmanları Merhaba, toocreate yeni Blob storage hesapları gerekir ve varolan verilerinizi yeni oluşturulan hello hesaplara taşımanız.
 
-Mevcut verileri şirket içi depolama aygıtlarından, üçüncü taraf bulut depolama sağlayıcılardan ya da Azure’daki mevcut genel amaçlı depolama hesaplarınızdan Blob depolama hesaplarına geçirmek için aşağıdaki yöntemleri kullanabilirsiniz:
+Yöntemleri toomigrate mevcut verileri şirket içi depolama aygıtlarından, üçüncü taraf bulut depolama sağlayıcılardan ya da varolan genel amaçlı depolama hesaplarınızdan Azure Blob storage hesapları aşağıdaki hello kullanabilirsiniz:
 
 #### <a name="azcopy"></a>AzCopy
-AzCopy, verilerin Azure Storage’a ve Azure Storage’dan yüksek performansla kopyalanması için tasarlanmış bir Windows komut satırı yardımcı programıdır. AzCopy yardımcı programını, verileri genel amaçlı depolama hesaplarınızdan Blob Storage hesabınıza kopyalamak ya da şirket içi depolama aygıtlarınızdaki verileri Blob Storage hesabınıza yüklemek için kullanabilirsiniz.
+AzCopy yüksek performanslı veri tooand Azure depolama biriminden kopyalanması için tasarlanmış bir Windows komut satırı yardımcı programıdır. Blob Depolama hesabınızda, şirket içi depolama aygıtlarından AzCopy toocopy verileri mevcut genel amaçlı depolama hesaplarınızdan Blob Depolama hesabınızda veya tooupload verileri kullanabilirsiniz.
 
-Daha fazla bilgi için bkz. [AzCopy Komut Satırı Yardımcı Programı ile Veri Aktarma](storage-use-azcopy.md).
+Daha fazla ayrıntı için bkz: [hello AzCopy komut satırı yardımcı programı ile veri aktarma](storage-use-azcopy.md).
 
 #### <a name="data-movement-library"></a>Veri Hareketi Kitaplığı
-.NET için Azure Storage veri hareketi kitaplığı AzCopy’yi çalıştıran çekirdek veri hareketi altyapısını temel alır. Kitaplık, AzCopy’ye benzer yüksek performanslı, güvenilir ve kolay veri aktarımı işlemleri için tasarlanmıştır. Bu, AzCopy’nin dış örneklerini çalıştırmanıza ve izlemenize gerek kalmadan, AzCopy tarafından uygulamanızda yerel olarak sağlanan özelliklerden tam olarak faydalanmanızı sağlar.
+.NET için Azure Storage veri hareketi kitaplığı Azcopy'yi çalıştıran hello çekirdek veri hareketi altyapısını temel temel alır. Merhaba kitaplığı için yüksek performanslı tasarlanmıştır, güvenilir ve kolay veri aktarımı işlemleri benzer tooAzCopy. Bu, AzCopy tarafından uygulamanızda yerel olarak çalışan ve AzCopy dış örneklerini izleme ile toodeal gerek kalmadan sağlanan hello özellikleri tüm faydalarını tootake sağlar.
 
 Daha fazla ayrıntı için bkz. [.Net için Azure Storage Veri Hareketi Kitaplığı](https://github.com/Azure/azure-storage-net-data-movement)
 
 #### <a name="rest-api-or-client-library"></a>REST API’si veya istemci kitaplığı
-Azure istemci kitaplıklarından birini ya da Azure Storage hizmetleri REST API’sini kullanarak verilerinizi Blob Storage hesabına geçirmek için özel bir uygulama oluşturabilirsiniz. Azure Storage NET, Java, C++, Node.JS, PHP, Ruby ve Python gibi birden fazla dilde ve platformda zengin istemci kitaplıkları sağlar. İstemci kitaplıkları yeniden deneme mantığı, günlüğe kaydetme ve paralel karşıya yüklemeler gibi gelişmiş özellikler sunar. HTTP/HTTPS istekleri yapan herhangi bir dil tarafından çağrılabilen REST API’sine karşı doğrudan da geliştirebilirsiniz.
+Özel uygulama toomigrate oluşturmak için verilerinizi bir Blob storage hesabına hello Azure istemci kitaplıklarından birini kullanarak veya Azure storage Hizmetleri REST API hello. Azure Storage NET, Java, C++, Node.JS, PHP, Ruby ve Python gibi birden fazla dilde ve platformda zengin istemci kitaplıkları sağlar. Merhaba istemci kitaplıkları yeniden deneme mantığı, günlüğe kaydetme ve paralel karşıya yüklemeler gibi gelişmiş özellikler sunar. Merhaba HTTP/HTTPS istekleri yapan herhangi bir dil tarafından çağrılabilen REST API karşı doğrudan geliştirebilirsiniz.
 
 Daha fazla bilgi için,bkz. [Azure Blob Storage’ı kullanmaya başlayın](storage-dotnet-how-to-use-blobs.md).
 
 > [!NOTE]
-> Bloblar, blobla depolanan istemci tarafı şifreleme depolama şifrelemesiyle ilgili meta veriler kullanılarak depolanır. Tüm kopyalama mekanizmalarının blob verilerinin ve özellikle şifrelemeyle ilgili meta verilerin korunduğundan emin olması kesinlikle önemlidir. Blobları bu meta veriler olmadan kopyalarsanız, blob içeriği tekrar alınabilir olmaz. Şifrelemeyle ilgili meta veriler hakkında daha fazla bilgi için bkz. [Azure Depolama İstemci Tarafı Şifrelemesi](storage-client-side-encryption.md).
+> İstemci tarafı şifreleme kullanılarak şifrelenir BLOB'lar hello blobla depolanan şifrelemeyle ilgili meta verilerini depolar. Tüm kopyalama mekanizmalarının emin olması, blob meta verileri, hello ve özellikle şifrelemeyle ilgili meta verileri Merhaba, korunur kesinlikle önemlidir. Merhaba blobları bu meta veriler olmadan kopyalarsanız, hello blob içeriği tekrar alınabilir olmaz. Şifrelemeyle ilgili meta veriler hakkında daha fazla bilgi için bkz. [Azure Depolama İstemci Tarafı Şifrelemesi](storage-client-side-encryption.md).
 > 
 > 
 
 ## <a name="faqs"></a>SSS
 1. **Mevcut depolama hesapları hâlâ kullanılabilir mi?**
    
-    Evet, var olan depolama hesapları hala kullanılabilir ve fiyatlandırma veya işlev açısından bir farklılık göstermez.  Bunlar depolama katmanı seçme olanağına sahip değildir ve gelecekte katmanlama özelliğine sahip olmayacaktır.
+    Evet, var olan depolama hesapları hala kullanılabilir ve fiyatlandırma veya işlev açısından bir farklılık göstermez.  Bunlar hello özelliği toochoose depolama katmanı gerekmez ve katmanlama hello gelecekteki sahip değil.
 2. **Neden ve ne zaman Blob depolama hesapları kullanmaya başlamalıyım?**
    
-    Blob Storage hesapları blobları depolamak içindir yeni blob merkezli özellikleri sunmamıza izin verir. Dahası, bu hesap türüne göre hiyerarşik depolama ve katmanlama gibi özellikler gelecekte sunulacağından, Blob Storage hesapları blobları depolamak için önerilen yoldur. Ancak, ne zaman geçiş yapacağınız iş gereksinimleriniz temelinde size bağlıdır.
-3. **Mevcut depolama hesabımı Blob depolama hesabına dönüştürebilir miyim?**
+    BLOB storage hesapları blobları depolamak için tasarlanmıştır ve bize toointroduce yeni blob merkezli özellikleri sağlar. İleride, Blob Depolama bu hesap türüne göre hiyerarşik depolama gibi özellikler gelecekte BLOB'lar, depolama ve katmanlama şekilde önerilen hello görülecektir hesaplarıdır. Ancak, iş gereksinimlerinize göre toomigrate istediğiniz zaman tooyou değildir.
+3. **My varolan bir depolama hesabı tooa Blob storage hesabı dönüştürebilir miyim?**
    
-    Hayır. Blob Storage hesabı farklı türde bir depolama hesabıdır ve yeni bir tane oluşturmanız ve yukarıda açıklandığı şekilde verilerinizi taşımanız gereklidir.
-4. **Nesneleri aynı hesaptaki iki depolama katmanında depolayabilir miyim?**
+    Hayır. BLOB storage hesabı farklı türde bir depolama hesabı ve toocreate gereklidir, yeni ve yukarıda açıklandığı şekilde verilerinizi taşımanız.
+4. **Nesneleri hello iki depolama katmanında depolayabilir miyim aynı hesabı?**
    
-    Depolama katmanını belirten *‘Erişim Katmanı’* özniteliği hesap düzeyinde ayarlanır ve bu hesaptaki tüm nesnelere uygulanır. Erişim katmanı özniteliğini nesne düzeyinde ayarlayamazsınız.
-5. **Blob depolama hesabımdaki depolama katmanını değiştirebilir miyim?**
+    Merhaba *'Erişim katmanı'* hello depolama katmanı hesap düzeyinde ayarlanır ve bu hesaptaki tooall nesnelere uygulanır gösteren özniteliği. Merhaba erişim katmanı özniteliğini nesne düzeyinde ayarlayamazsınız.
+5. **Merhaba Blob Depolama hesabımdaki depolama katmanını değiştirebilir miyim?**
    
-    Evet. Depolama hesabındaki *'Erişim Katmanı'* özniteliğini ayarlayarak depolama katmanını değiştirebilirsiniz. Depolama katmanının değiştirilmesi hesaba depolanmış tüm nesneler için geçerli olur. Depolama katmanını sık erişimliden seyrek erişimliye değiştirmek bir ücret doğurmazken, seyrek erişimliden sık erişimliye değiştirmek hesaptaki tüm verilerin okunması için GB başına maliyet doğurur.
-6. **Blob depolama hesabımdaki depolama katmanını hangi sıklıkta değiştirebilirim?**
+    Evet. Mümkün toochange hello depolama katmanı ayarlama hello tarafından olacaktır *'Erişim katmanı'* hello depolama hesabındaki özniteliği. Değişen hello depolama katmanı hello hesabında depolanan tooall nesneler uygulanır. Değişiklik hello depolama katmanını sık kullanılan toocool doğurmazken, cool toohot değiştirme erişimliye sırada bir hello hesaptaki tüm hello verilerin okunması için GB başına maliyet doğurur.
+6. **Blob Depolama hesabımdaki depolama katmanını hello ne sıklıkta değiştirebilir miyim?**
    
-    Depolama katmanını değiştirme sıklığına ilişkin bir sınırlama koymuyoruz, ancak depolama katmanını seyrek erişimliden sık erişimliye değiştirmenin büyük maliyetler doğurduğuna dikkat edin. Depolama katmanını sık değiştirmenizi önermiyoruz.
-7. **Seyrek erişimli depolama katmanındaki bloblar, sık erişimli depolama katmanındakilerden farklı mı davranacak?**
+    Merhaba depolama katmanı ne sıklıkta değiştirilebilir bir sınırlama koymuyoruz ancak, lütfen cool toohot hello depolama katmanının değiştirilmesi önemli ücret uygulanabilir dikkat edin. Merhaba depolama katmanını sık değiştirmenizi önermiyoruz.
+7. **Merhaba seyrek erişimli depolama katmanındaki bloblar Hello farklı olanları hello sık erişimli depolama katmanındaki hello daha mı davranacak?**
    
-    Sık erişimli depolama katmanındaki bloblar genel amaçlı depolama hesaplarındaki bloblarla aynı gecikme süresine sahiptir. Seyrek erişimli depolama katmanındaki bloblar genel amaçlı depolama hesaplarındaki bloblarla benzer gecikme süresine (milisaniye olarak) sahiptir.
+    Merhaba sık erişimli depolama katmanındaki bloblar sahip hello aynı gecikme süresine genel amaçlı depolama hesaplarındaki. Hello seyrek erişimli depolama katmanındaki bloblar genel amaçlı depolama hesaplarındaki bir benzer gecikme süresine (milisaniye olarak) sahiptir.
    
-    Seyrek erişimli depolama katmanındaki bloblar, sık erişimli depolama katmanında depolanan bloblara göre daha düşük kullanılabilirlik hizmet düzeyine (SLA) sahiptir. Daha fazla bilgi için bkz. [Depolama için SLA](https://azure.microsoft.com/support/legal/sla/storage).
+    Merhaba seyrek erişimli depolama katmanındaki bloblar bir biraz daha düşük kullanılabilirlik hizmet düzeyine (SLA) hello sık erişimli depolama katmanında depolanan hello bloblara gerekir. Daha fazla bilgi için bkz. [Depolama için SLA](https://azure.microsoft.com/support/legal/sla/storage).
 8. **Sayfa bloblarını ve sanal makine disklerini Blob depolama hesaplarında depolayabilir miyim?**
    
-    Blob Storage hesapları yalnızca blok ve ilave bloblarını destekler, sayfa bloblarını desteklemez. Azure Virtual Machine diskleri sayfa blobları tarafından yedeklenir ve bu nedenle sanal makine disklerini depolamak için Blob Storage hesapları kullanılamaz. Ancak, sanal makine disklerinin yedeklerini blok blobları olarak Blob Storage hesabında depolamak mümkündür.
-9. **Blob depolama hesaplarını kullanmak için mevcut uygulamalarımı değiştirmem gerekecek mi?**
+    Blob Storage hesapları yalnızca blok ve ilave bloblarını destekler, sayfa bloblarını desteklemez. Azure virtual machine diskleri sayfa blobları tarafından yedeklenir ve sonuç olarak kullanılan toostore sanal makine disklerini Blob storage hesapları olamaz. Ancak bir Blob storage hesabı blok blobları olarak olası toostore hello sanal makine disklerinin yedeklerini olur.
+9. **My mevcut uygulamaları toouse Blob storage hesapları toochange gerekiyor mu?**
    
-    Blob Storage hesapları, blok ve ilave blobları için genel amaçlı depolama hesaplarıyla % 100 API tutarlıdır. Uygulamanız blok veya ilave bloblarını kullandığı ve [Depolama Hizmetleri REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx)’nin 2014-02-14 sürümünü veya üstünü kullandığınız sürece, uygulamanız çalışmaya devam edecektir. Protokolün daha eski bir sürümünü kullanıyorsanız, her iki tür depolama hesabıyla sorunsuz çalışarak yeni sürümü kullanmak için uygulamanızı güncelleştirmeniz gerekecektir. Genel olarak, hangi depolama hesabını kullandığınızdan bağımsız olarak her zaman en son sürümü kullanmanızı öneriyoruz.
+    Blob Storage hesapları, blok ve ilave blobları için genel amaçlı depolama hesaplarıyla % 100 API tutarlıdır. Uygulamanız blok blobları kullanarak veya ilave bloblarını ve hello hello 2014-02-14 sürümünü kullanmakta olduğunuz sürece [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) veya daha büyük uygulamanızı çalışması gerekir. Ardından hello Protokolü eski bir sürümünü kullanıyorsanız, tooupdate toowork her iki tür depolama hesabıyla sorunsuz olarak bu nedenle, uygulama toouse hello yeni sürümü gerekir. Genel olarak, her zaman hangi depolama hesabı türü ne olursa olsun, kullandığınız hello en son sürümünü kullanmanızı öneririz.
 10. **Kullanıcı deneyiminde bir değişiklik olacak mı?**
     
-    Blob Storage hesapları blok ve ilave bloblarını depolamak için genel amaçlı depolama hesaplarına çok benzer ve yüksek dayanıklılık ve kullanılabilirlik, ölçeklenebilirlik, performans ve güvenlik dahil olmak üzere Azure Storage’ın tüm anahtar özelliklerini destekler. Blob depolama hesaplarına özgü özellikler ve kısıtlamalar ve yukarıda bahsedilen depolama katmanları dışındaki her şey aynı kalır.
+    BLOB storage hesapları blok depolamak için çok benzer tooa genel amaçlı depolama hesapları ve ilave blobları ve Azure Storage, yüksek dayanıklılık ve kullanılabilirlik, ölçeklenebilirlik, performans ve güvenlik dahil olmak üzere tüm hello temel özellikleri destekler. Merhaba özellikler ve kısıtlamalar belirli tooBlob depolama hesapları ve yukarıdaki her şeyi, depolama katmanları dışındaki başka kalır aynı hello.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 ### <a name="evaluate-blob-storage-accounts"></a>Blob Storage hesaplarını değerlendirme
@@ -337,9 +337,9 @@ Daha fazla bilgi için,bkz. [Azure Blob Storage’ı kullanmaya başlayın](stor
 ### <a name="start-using-blob-storage-accounts"></a>Blob Storage hesaplarını kullanmaya başlama
 [Azure Blob depolamayı kullanmaya başlama](storage-dotnet-how-to-use-blobs.md)
 
-[Azure Depolama’ya ve Azure Depolama’da veri taşıma](storage-moving-data.md)
+[Azure depolama biriminden veri tooand taşıma](storage-moving-data.md)
 
-[AzCopy Komut Satırı Yardımcı Programı ile veri aktarımı](storage-use-azcopy.md)
+[Merhaba AzCopy komut satırı yardımcı programı ile veri aktarımı](storage-use-azcopy.md)
 
 [Depolama hesaplarınıza göz atma ve bu hesapları keşfetme](http://storageexplorer.com/)
 

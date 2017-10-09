@@ -1,13 +1,13 @@
 
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell'i başlatma
 
-Azure Cloud Shell doğrudan Azure portalının içinde çalıştırabileceğiniz ücretsiz bir Bash kabuğudur. Azure CLI, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. [Azure portalının](https://portal.azure.com) sağ üst tarafında yer alan menüdeki **Cloud Shell** düğmesine tıklayın.
+Hello Azure bulut Kabuğu doğrudan hello Azure portal'içinde çalıştırabilirsiniz boş bir Bash kabuğunda ' dir. Azure CLI yüklenmiş ve toouse hesabınız ile yapılandırılan hello sahiptir. Merhaba tıklatın **bulut Kabuk** hello üst sağ hello hello menüsünde düğmesini [Azure portal](https://portal.azure.com).
 
 [![Cloud Shell](./media/cloud-shell-try-it/cloud-shell-menu.png)](https://portal.azure.com)
 
-Düğme bu konu başlığındaki adımların tümünü uygulamak için kullanabileceğiniz etkileşimli bir kabuk başlatır:
+Merhaba düğmesi hello tüm adımlar bu konuda toorun kullanabileceğiniz etkileşimli bir kabuk başlatır:
 
-[![Portaldaki Cloud Shell penceresini gösteren ekran görüntüsü](./media/cloud-shell-try-it/cloud-shell-safari.png)](https://portal.azure.com)
+[![Ekran gösteren hello bulut Kabuk hello portal penceresinde](./media/cloud-shell-try-it/cloud-shell-safari.png)](https://portal.azure.com)
 
 
 

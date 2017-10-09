@@ -1,5 +1,5 @@
 ---
-title: "Birleştirilmiş alt düzey cihazlar Azure Active Directory karma sorunlarını giderme | Microsoft Docs"
+title: "aaaTroubleshooting karma Azure Active Directory birleştirilmiş alt düzey aygıtları | Microsoft Docs"
 description: "Karma Azure Active Directory sorun giderme alt düzey aygıtları katıldı."
 services: active-directory
 documentationcenter: 
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 715fca79e488ae3759926181c244a42026f4a554
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: edd56b89579fac6b427732902284ad9c568b87b4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Alt düzey aygıtları birleştirilmiş karma Azure Active Directory sorun giderme 
 
-Bu konuda, yalnızca aşağıdaki cihazlar için geçerlidir: 
+Bu konuda geçerli yalnızca toohello cihazları aşağıdaki gibidir: 
 
 - Windows 7 
 - Windows 8.1 
@@ -33,7 +33,7 @@ Bu konuda, yalnızca aşağıdaki cihazlar için geçerlidir:
 
 Windows 10 veya Windows Server 2016 için bkz: [sorun giderme karma Azure Active Directory'ye katılmış Windows 10 ve Windows Server 2016 cihazları](device-management-troubleshoot-hybrid-join-windows-current.md).
 
-Bu konu, sahibi olduğunuzu varsayar [yapılandırılmış karma Azure Active Directory'ye katılmış cihazları](device-management-hybrid-azuread-joined-devices-setup.md) aşağıdaki senaryoları desteklemek için:
+Bu konu, sahibi olduğunuzu varsayar [yapılandırılmış karma Azure Active Directory'ye katılmış cihazları](device-management-hybrid-azuread-joined-devices-setup.md) toosupport hello senaryolar:
 
 - Cihaz temelli koşullu erişim
 
@@ -45,35 +45,35 @@ Bu konu, sahibi olduğunuzu varsayar [yapılandırılmış karma Azure Active Di
 
 
 
-Bu konu, sorun giderme ile ilgili olası sorunları gidermek nasıl yönergelerini sağlar.  
+Bu konu, nasıl tooresolve olası sorunlar konusunda yönergeler sorun giderme konusunda sağlar.  
 
 **Bilmeniz gerekenler:** 
 
-- En fazla kullanıcı başına aygıtları Aygıt odaklı sayısıdır. Örneğin, varsa *jdoe* ve *jharnett* oturum açma bir cihaza, ayrı bir kayıt (DeviceID) için oluşturulduğunda bunların her birini **kullanıcı** bilgileri sekmesi.  
+- Hello en fazla kullanıcı başına aygıtları Aygıt odaklı sayısıdır. Örneğin, varsa *jdoe* ve *jharnett* oturum açma tooa aygıt ayrı bir kayıt (DeviceID) Merhaba, bunların her biri için oluşturulduğunda **kullanıcı** bilgileri sekmesi.  
 
-- İlk kaydı / aygıtların birleştirme denemesi oturum açma veya kilidi gerçekleştirmek / kilidini açmak için yapılandırılır. Bir Görev Zamanlayıcı görevi tarafından tetiklenen 5 dakikalık gecikme olabilir. 
+- Merhaba ilk kaydı / katılma aygıtların yapılandırılmış tooperform girişiminde oturum açma veya kilitleme veya kilidini. Bir Görev Zamanlayıcı görevi tarafından tetiklenen 5 dakikalık gecikme olabilir. 
 
-- İşletim sistemi veya el ile yeniden unregister kaldırıp yeniden kaydettirin oluşturabilir yeni bir kayıt üzerinde Azure AD ve Azure portalında kullanıcı bilgileri sekmesi altında birden çok giriş sonuçlanır. 
+- Merhaba işletim sistemi veya el ile yeniden unregister ve yeniden kaydolun yeni bir kayıt üzerinde Azure AD oluşturup hello kullanıcı bilgileri sekmesi altında birden çok giriş sonuçlarında hello Azure portalı. 
 
 
-## <a name="step-1-retrieve-the-registration-status"></a>1. adım: kayıt durumunu alma 
+## <a name="step-1-retrieve-hello-registration-status"></a>1. adım: hello kayıt durumunu alma 
 
-**Kayıt durumunu doğrulamak için:**  
+**tooverify hello kayıt durumu:**  
 
-1. Komut istemini yönetici olarak açın 
+1. Bir yönetici olarak açın hello komut istemi 
 
 2. Türü`"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /i"`
 
-Bu komut, birleşim durumu hakkında daha fazla ayrıntı sağlayan bir iletişim kutusu görüntüler.
+Bu komut hello birleşim durumu hakkında daha fazla ayrıntı sağlayan bir iletişim kutusu görüntüler.
 
 ![Windows için çalışma alanına katılma](./media/active-directory-device-registration-troubleshoot-windows-legacy/01.png)
 
 
-## <a name="step-2-evaluate-the-hybrid-azure-ad-join-status"></a>2. adım: Azure AD birleştirme durum karma değerlendirme 
+## <a name="step-2-evaluate-hello-hybrid-azure-ad-join-status"></a>2. adım: hello karma Azure AD katılım durumunu değerlendirme 
 
-Karma Azure AD birleştirme başarılı olmadıysa iletişim kutusu oluştu sorun hakkında ayrıntılar sağlar.
+Merhaba karma Azure AD birleştirme başarılı olmadıysa hello iletişim kutusu oluştu hello sorun hakkında ayrıntılar sağlar.
 
-**En yaygın sorunları şunlardır:**
+**Merhaba en sık karşılaşılan sorunları şunlardır:**
 
 - Yanlış yapılandırılmış AD FS veya Azure AD
 
@@ -87,26 +87,26 @@ Karma Azure AD birleştirme başarılı olmadıysa iletişim kutusu oluştu soru
 
     ![Windows için çalışma alanına katılma](./media/active-directory-device-registration-troubleshoot-windows-legacy/04.png)
 
-- Hizmeti yanıt vermiyor 
+- Merhaba hizmeti yanıt vermiyor 
 
     ![Windows için çalışma alanına katılma](./media/active-directory-device-registration-troubleshoot-windows-legacy/05.png)
 
-Olay günlüğünde altında durum bilgisi bulabilirsiniz **uygulamaları ve Hizmetleri Log\Microsoft-çalışma alanına katılma**.
+Merhaba olay günlüğünde altında hello durum bilgisi bulabilirsiniz **uygulamaları ve Hizmetleri Log\Microsoft-çalışma alanına katılma**.
   
-**Başarısız karma Azure AD katılım için en yaygın nedenler şunlardır:** 
+**Merhaba başarısız karma Azure AD birleştirme en yaygın nedenleri şunlardır:** 
 
-- Bilgisayarınız bir şirket içi bağlantısı olmadan VPN'yi veya kuruluşunuzun iç ağ üzerinde değil AD etki alanı denetleyicisi.
+- Bilgisayarınız üzerinde değil hello kuruluşunuzun iç ağ ya da bir VPN bağlantısı tooan olmadan şirket içi AD etki alanı denetleyicisi.
 
-- Bilgisayarınıza yerel bilgisayar hesabı ile oturum. 
+- Yerel bilgisayar hesabı olan tooyour bilgisayarında günlüğe kaydedilir. 
 
 - Hizmet yapılandırma sorunları: 
 
-  - Federasyon sunucusunu desteklemek üzere yapılandırılmış **WIAORMULTIAUTHN**. 
+  - Merhaba Federasyon sunucusu yapılandırılmış toosupport bırakıldı **WIAORMULTIAUTHN**. 
 
-  - Bilgisayar için ait olduğu AD ormanında Azure AD'de doğrulanmış etki alanı adınızı işaret eden bir hizmet bağlantı noktası nesne yok.
+  - Merhaba bilgisayar için ait olduğu hello AD ormanındaki Azure AD'de tooyour doğrulanmış etki alanı adına işaret eden bir hizmet bağlantı noktası nesne yok.
 
-  - Bir kullanıcı cihaz sınırına ulaştı. 
+  - Bir kullanıcı aygıtları hello sınırına ulaştı. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Soruları için bkz: [aygıt yönetimi hakkında SSS](device-management-faq.md)  
+Merhaba soruları için bkz [aygıt yönetimi hakkında SSS](device-management-faq.md)  

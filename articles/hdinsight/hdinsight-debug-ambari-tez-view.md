@@ -1,6 +1,6 @@
 ---
-title: "Hdınsight ile - Azure Ambari Tez görünümünü kullanın | Microsoft Docs"
-description: "Tez işlerinde hdınsight'ta hata ayıklamak için Ambari Tez görünümü kullanmayı öğrenin."
+title: "aaaUse Ambari Tez görünümü Hdınsight - Azure ile | Microsoft Docs"
+description: "Nasıl toouse hello Ambari Tez görüntülemek toodebug Tez işlerinde Hdınsight'ta öğrenin."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/12/2017
 ms.author: larryfr
-ms.openlocfilehash: 65d89309b9eea8544b85d16687baa90d49688d77
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 5d61bd0403c98284c86982073af91468ae62ac60
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>Tez işlerinde hdınsight'ta hata ayıklamak için Ambari görünümleri kullanma
+# <a name="use-ambari-views-toodebug-tez-jobs-on-hdinsight"></a>Hdınsight üzerinde Ambari görünümleri toodebug Tez işlerinde kullanın
 
-Hdınsight için Ambari Web kullanıcı arabirimini anlama ve Tez kullanan işleri hata ayıklamak için kullanılan bir Tez görünümü içerir. Tez görünümü iş bağlı öğelerinin bir grafik olarak görselleştirme, her öğenin ayrıntısına ve istatistikler ve günlük bilgileri almasını sağlar.
+Merhaba Hdınsight için Ambari Web kullanıcı Arabirimi Tez kullanan kullanılan toounderstand ve hata ayıklama işleri olabilir bir Tez görünümü içerir. bir grafik bağlı öğelerinin her öğenin ayrıntısına ve istatistikleri ve günlük kaydı bilgilerini almak hello Tez görünümü toovisualize hello iş sağlar.
 
 > [!IMPORTANT]
-> Bu belgede yer alan adımlar Linux kullanan bir Hdınsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz: [Hdınsight bileşen sürümü oluşturma](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Bu belgedeki Hello adımlar Linux kullanan bir Hdınsight kümesi gerektirir. Linux hello yalnızca Hdınsight sürüm 3.4 veya büyük kullanılan işletim sistemini ' dir. Daha fazla bilgi için bkz: [Hdınsight bileşen sürümü oluşturma](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -35,79 +35,79 @@ Hdınsight için Ambari Web kullanıcı arabirimini anlama ve Tez kullanan işle
 
 ## <a name="understanding-tez"></a>Tez anlama
 
-Tez geleneksel MapReduce işleme büyük hızlarından sağlayan hadoop'ta veri işleme için genişletilebilir bir çerçevedir. Linux tabanlı Hdınsight kümeleri için onu varsayılan Hive için altyapısıdır.
+Tez geleneksel MapReduce işleme büyük hızlarından sağlayan hadoop'ta veri işleme için genişletilebilir bir çerçevedir. Linux tabanlı Hdınsight kümeleri için bunu hello varsayılan Hive için altyapısıdır.
 
-Tez yönlendirilmiş Çevrimsiz grafik (işlerinin gerekli eylemlerin sırasını açıklayan DAG) oluşturur. Tek tek Eylemler köşeleri olarak adlandırılır ve genel iş parçası yürütün. Gerçek yürütme köşe tarafından açıklanan iş bir görev çağrılır ve kümedeki birden çok düğüm arasında dağıtılmış.
+Tez yönlendirilmiş Çevrimsiz grafik (Merhaba işlerinin gerekli eylemlerin sırasını açıklayan DAG) oluşturur. Tek tek Eylemler köşeleri olarak adlandırılır ve hello parçası yürütmek genel işi. Merhaba gerçek yürütme hello iş köşe tarafından tanımlanan bir görev çağrılır ve hello kümedeki birden çok düğüm arasında dağıtılmış.
 
-### <a name="understanding-the-tez-view"></a>Tez görünüm anlama
+### <a name="understanding-hello-tez-view"></a>Anlama hello Tez görünümü
 
-Tez görünümü, çalışan işlemler üzerinde hem geçmiş bilgileri hem de bilgi sağlar. Bu bilgileri, bir iş kümeler arasında nasıl dağıtıldığını gösterir. Ayrıca, görevler ve köşeleri tarafından kullanılan sayaçlarını ve işle ilgili hata bilgilerini görüntüler. Aşağıdaki senaryolarda yararlı bilgiler teklif edebilir:
+Hello Tez görünümü, çalışan işlemler üzerinde hem geçmiş bilgileri hem de bilgi sağlar. Bu bilgileri, bir iş kümeler arasında nasıl dağıtıldığını gösterir. Ayrıca görevleri ve köşeleri tarafından kullanılan sayaçları görüntüler ve toohello iş ilgili hata bilgileri. Aşağıdaki senaryolar hello yararlı bilgiler teklif edebilir:
 
-* Uzun süre çalışan izleme harita ilerlemesini görüntüleme, işler ve görevler azaltır.
-* İşleme nasıl geliştirilmiş veya neden başarısız öğrenmek başarılı veya başarısız işlemler için geçmiş verileri analiz etme.
+* Uzun süre çalışan işlemleri görüntüleme, izleme harita ilerlemesini hello ve görevleri azaltır.
+* Başarılı veya başarısız işlemler toolearn ilişkin geçmiş verileri analiz etme işleme nasıl geliştirilmiş veya neden başarısız oldu.
 
 ## <a name="generate-a-dag"></a>Bir DAG oluştur
 
-Tez görünüm Tez Altyapısı şu anda çalışıyor ya da bırakıldı kullanan önceden çalıştıran bir iş, yalnızca veri içeriyor. Basit Hive sorguları, Tez kullanmadan çözülebilir. Daha karmaşık Bu filtreleme, gruplama, sıralama, birleşimler, vb. sorgular. Tez altyapısını kullanır.
+Merhaba Tez altyapısı kullanan bir iş hello görünüm yalnızca veri varsa, Tez çalışmakta olduğu veya sahip olan çalıştıran daha önce. Basit Hive sorguları, Tez kullanmadan çözülebilir. Daha karmaşık Bu filtreleme, gruplama, sıralama, birleşimler, vb. sorgular. Merhaba Tez altyapısını kullanır.
 
-Tez kullanan bir Hive sorgusu çalıştırmak için aşağıdaki adımları kullanın:
+Aşağıdaki adımları toorun Tez kullanan bir Hive sorgusu hello kullan:
 
-1. Bir web tarayıcısında https://CLUSTERNAME.azurehdinsight.net için gidin nerede **CLUSTERNAME** Hdınsight kümenizin adıdır.
+1. Toohttps://CLUSTERNAME.azurehdinsight.net, bir web tarayıcısında gidin nerede **CLUSTERNAME** Hdınsight kümenize hello adıdır.
 
-2. Sayfanın üstündeki menüsünden seçin **görünümleri** simgesi. Bu simgeyi bir dizi kare gibi görünüyor. Görüntülenen açılır menüde seçin **Hive görünümü**.
+2. Merhaba hello sayfanın üst kısmındaki hello Hello menüsünden seçin **görünümleri** simgesi. Bu simgeyi bir dizi kare gibi görünüyor. Görüntülenen hello açılır seçin **Hive görünümü**.
 
     ![Hive görünümünü seçme](./media/hdinsight-debug-ambari-tez-view/selecthive.png)
 
-3. Hive görünümü yüklediğinde, aşağıdaki sorguyu sorgu düzenleyicisine yapıştırın ve ardından **yürütme**.
+3. Merhaba Hive görünümü yüklediğinde, Yapıştır hello aşağıdaki sorgu hello sorgu Düzenleyicisi'ni ve ardından **yürütme**.
 
         select market, state, country from hivesampletable where deviceplatform='Android' group by market, country, state;
 
-    İş tamamlandıktan sonra görüntülenen bir çıktı göreceksiniz **sorgu işleminin sonuçları** bölümü. Sonuçlar aşağıdakine benzer olmalıdır:
+    Merhaba işi tamamlandıktan sonra hello görüntülenen hello çıktı görmeniz gerekir **sorgu işleminin sonuçları** bölümü. Merhaba sonuçları benzer toohello metin aşağıdaki gibi olmalıdır:
 
         market  state       country
         en-GB   Hessen      Germany
         en-GB   Kingston    Jamaica
 
-4. Seçin **günlük** sekmesi. Aşağıdakine benzer bilgiler bakın:
+4. Select hello **günlük** sekmesi. Metin aşağıdaki bilgileri benzer toohello bakın:
 
         INFO : Session is already open
         INFO :
 
         INFO : Status: Running (Executing on YARN cluster with App id application_1454546500517_0063)
 
-    Kaydet **uygulama kimliği** değeri olarak bu değer bir sonraki bölümde kullanılır.
+    Merhaba Kaydet **uygulama kimliği** olarak bu değer hello sonraki bölümde kullanılan değer.
 
-## <a name="use-the-tez-view"></a>Tez görünümünü kullanın
+## <a name="use-hello-tez-view"></a>Merhaba Tez görünüm kullanın
 
-1. Sayfanın üstündeki menüsünden seçin **görünümleri** simgesi. Görüntülenen açılır menüde seçin **Tez Görünüm**.
+1. Merhaba hello sayfanın üst kısmındaki hello Hello menüsünden seçin **görünümleri** simgesi. Görüntülenen hello açılır seçin **Tez Görünüm**.
 
     ![Tez görünümü seçme](./media/hdinsight-debug-ambari-tez-view/selecttez.png)
 
-2. Tez görünüm yüklenirken, şu anda çalışmakta olan veya kaldırılmış hive sorguları listesini küme üzerinde çalışan bakın.
+2. Merhaba Tez görünüm yüklediğinde, şu anda çalışmakta olan veya kaldırılmış hive sorguları listesini hello küme üzerinde çalışan bakın.
 
     ![Tüm DAG'leri](./media/hdinsight-debug-ambari-tez-view/tez-view-home.png)
 
-3. Yalnızca bir giriş varsa, önceki bölümde çalıştırdığınız sorgu içindir. Birden çok girdi varsa, sayfanın en üstünde alanlar kullanılarak arayabilirsiniz.
+3. Yalnızca bir giriş varsa, önceki bölümde hello çalıştırdığınız hello sorgu içindir. Birden çok girdi varsa, hello hello sayfanın başında hello alanlarını kullanarak arama yapabilirsiniz.
 
-4. Seçin **sorgu kimliği** bir Hive sorgusu için. Sorgu hakkında bilgi görüntülenir.
+4. Select hello **sorgu kimliği** bir Hive sorgusu için. Merhaba sorgu ilgili bilgiler görüntülenir.
 
     ![DAG ayrıntıları](./media/hdinsight-debug-ambari-tez-view/query-details.png)
 
-5. Bu sayfa sekmelerinde, aşağıdaki bilgileri görüntülemek izin ver:
+5. Bu sayfada Hello sekmeleri bilgisinden tooview hello izin ver:
 
-    * **Sorgu ayrıntıları**: Hive sorgusu hakkında ayrıntılar.
+    * **Sorgu ayrıntıları**: hello Hive sorgusu hakkında ayrıntılar.
     * **Zaman Çizelgesi**: her aşaması ne kadar sürdü hakkında bilgi.
-    * **Yapılandırmaları**: Bu sorgu için kullanılan yapılandırma.
+    * **Yapılandırmaları**: Bu sorgu için kullanılan hello yapılandırma.
 
-    Gelen __sorgu ayrıntıları__ bağlantılar hakkında bilgi bulmak için kullanabileceğiniz __uygulama__ veya __DAG__ bu sorgu için.
+    Gelen __sorgu ayrıntıları__ hello bağlantılar toofind hello bilgilerini kullanabilirsiniz __uygulama__ veya hello __DAG__ bu sorgu için.
     
-    * __Uygulama__ bağlantı bu sorgu için YARN uygulaması hakkında daha fazla bilgi görüntüler. Buradan YARN uygulama günlüklerini erişebilir.
-    * __DAG__ bağlantı yönlendirilmiş Çevrimsiz grafik için bu sorguyu hakkında daha fazla bilgi görüntüler. Buradan, grafiksel DAG görüntüleyebilirsiniz. Ayrıca, DAG içinde köşeleri hakkında bilgi bulabilirsiniz.
+    * Merhaba __uygulama__ bağlantı hello bu sorgu için YARN uygulama hakkında daha fazla bilgi görüntüler. Buradan hello YARN uygulama günlüklerini erişebilir.
+    * Merhaba __DAG__ bağlantı hello yönlendirilmiş Çevrimsiz grafik, bu sorgu için hakkında daha fazla bilgi görüntüler. Buradan, grafiksel hello DAG görüntüleyebilirsiniz. Ayrıca hello köşeleri hello DAG içinde hakkında bilgi bulabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Tez görünümü kullanmak öğrendiniz, daha fazla bilgi edinmek [hdınsight'ta Hive kullanarak](hdinsight-use-hive.md).
+Toouse hello Tez nasıl görüntüleyebilirim öğrendiniz, daha fazla bilgi edinmek [hdınsight'ta Hive kullanarak](hdinsight-use-hive.md).
 
-Daha ayrıntılı Tez teknik bilgi için bkz: [Hortonworks Tez sayfanın](http://hortonworks.com/hadoop/tez/).
+Daha ayrıntılı Tez teknik bilgi için bkz: Merhaba [Hortonworks Tez sayfanın](http://hortonworks.com/hadoop/tez/).
 
-Ambari kullanarak Hdınsight ile ilgili daha fazla bilgi için bkz: [Ambari Web kullanıcı arabirimini kullanarak Hdınsight kümelerini yönetme](hdinsight-hadoop-manage-ambari.md)
+Ambari kullanarak Hdınsight ile ilgili daha fazla bilgi için bkz: [hello Ambari Web kullanıcı arabirimini kullanarak yönetin Hdınsight kümeleri](hdinsight-hadoop-manage-ambari.md)

@@ -1,14 +1,14 @@
-Etki alanı sağlayıcınızın web sitesinde oturum açın.
+Etki alanı sağlayıcınıza toohello Web sitesinde oturum açın.
 
-DNS kayıtlarını yönetme sayfasını bulun. Her etki alanı sağlayıcısının kendi DNS kayıtları arabirimi vardır, bu nedenle sağlayıcının belgelerine başvurun. Sitede **Domain Name**, **DNS** veya **Name Server Management** etiketli alanları bulun. 
+DNS kayıtlarını yönetme için Hello sayfasını bulun. Her etki alanı sağlayıcısı şekilde hello sağlayıcının belgelerine kendi DNS kayıtları arabirimine sahiptir. Etiketli hello sitesinin alanları araştırın **etki alanı adı**, **DNS**, veya **adı sunucu yönetimi**. 
 
-Çoğunlukla, hesap bilgilerinizi görüntüleyip ardından **My domains** (Etki alanlarım) gibi bir bağlantı arayarak DNS kayıtları sayfasını bulabilirsiniz. O sayfaya gidin ve **Zone file**, **DNS Records** veya **Advanced configuration** gibi bir adı olan bağlantıyı arayın.
+Genellikle, hesap bilgilerinizi görüntülemek ve bir bağlantı gibi arayan hello DNS kayıtları sayfasında bulabilirsiniz **My etki alanları**. Toothat sayfasına gidin ve sonra aşağıdakine benzer adlı bir bağlantı arayın **bölge dosyası**, **DNS kayıtlarını**, veya **Gelişmiş Yapılandırma**.
 
-DNS kayıtları sayfasının bir örneğini aşağıdaki ekran görüntüsünde görebilirsiniz:
+Merhaba aşağıdaki ekran görüntüsünde, DNS kayıtları sayfasında örneğidir:
 
 ![Örnek DNS kayıtları sayfası](./media/app-service-web-access-dns-records-no-h/example-record-ui.png)
 
-Örnek ekran görüntüsünde, kayıt oluşturmak için **Add** (Ekle) öğesini seçersiniz. Bazı sağlayıcıların farklı kayıt türlerini eklemek için farklı bağlantıları vardır. Yeniden belirtelim; sağlayıcının belgelerine başvurun.
+Merhaba örnek ekran görüntüsünde, seçtiğiniz **Ekle** toocreate bir kaydı. Bazı sağlayıcılar farklı bağlantılar tooadd farklı kayıt türlerine sahip. Yeniden hello sağlayıcının belgelerine başvurun.
 
 > [!NOTE]
-> GoDaddy gibi bazı sağlayıcılarda, DNS kayıtlarında yapılan değişiklikler ayrı bir **Değişiklikleri Kaydet** bağlantısı seçilene kadar geçerlilik kazanmaz. 
+> Ayrı bir seçene kadar GoDaddy gibi bazı sağlayıcılar için değişiklikleri tooDNS kayıtları etkili dönüşmez **Değişiklikleri Kaydet** bağlantı. 

@@ -1,6 +1,6 @@
 ---
-title: "VMware'den Azure'a çoğaltma işlemi Azure Site Recovery'de nasıl çalışır? | Microsoft Docs"
-description: "Bu makalede, Azure Site Recovery hizmeti aracılığıyla şirket içi VMware VM'leri ve fiziksel sunucuları Azure'a çoğaltırken kullanılan bileşenlere ve mimariye yönelik genel bir bakış sağlanmaktadır."
+title: "aaaHow VMware çoğaltma tooAzure iş Azure Site kurtarma mu? | Microsoft Belgeleri"
+description: "Bu makalede bileşenleri ve çoğaltma VMware Vm'lerini ve fiziksel sunucuları tooAzure hello Azure Site Recovery hizmeti ile şirket içi kullanılan mimarisi genel bakış sağlar."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -16,74 +16,74 @@ ms.date: 05/29/2017
 ms.author: raynew
 ROBOTS: NOINDEX, NOFOLLOW
 redirect_url: vmware-walkthrough-architecture
-ms.openlocfilehash: 81f02c1277ae8a2c377ca0d6db67ec4211e9aa5e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f0fb834f8b251640f97e4d0163b2b9e54de691e1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-does-vmware-replication-to-azure-work-in-site-recovery"></a>VMware'den Azure'a çoğaltma işlemi Site Recovery'de nasıl çalışır?
+# <a name="how-does-vmware-replication-tooazure-work-in-site-recovery"></a>VMware çoğaltma tooAzure Site Recovery nasıl çalışır?
 
-Bu makalede şirket içi VMware sanal makineleri ve Windows/Linux fiziksel sunucuları [Azure Site Recovery](site-recovery-overview.md) hizmeti kullanılarak Azure'a çoğaltılırken kullanılan bileşenler ve işlemler açıklanmaktadır.
+Bu makalede hello bileşenleri ve işlemler çoğaltırken söz konusu şirket içi VMware sanal makineleri ve Windows/Linux fiziksel sunucuları, tooAzure hello kullanarak [Azure Site Recovery](site-recovery-overview.md) hizmet.
 
-Fiziksel şirket içi sunucuları Azure'a çoğaltma işleminde VMware VM çoğaltmasıyla aynı bileşenler ve işlemler kullanılır ancak şu farklılıklara dikkat etmeniz gerekir:
+Fiziksel şirket içi sunucuları tooAzure çoğaltıldığında çoğaltma kullanır de aynı bileşenleri ve süreçleri Bu farklılıklar ile VMware VM çoğaltma olarak hello:
 
-- Yapılandırma sunucusu için VMware VM yerine fiziksel bir sunucu kullanabilirsiniz.
-- Yeniden çalışma için bir yerinde VMware altyapısı gerekir. Bir fiziksel sunucuda yeniden çalışma gerçekleştiremezsiniz.
+- VMware VM yerine hello yapılandırma sunucusu için bir fiziksel sunucuda kullanabilirsiniz.
+- Yeniden çalışma için bir yerinde VMware altyapısı gerekir. Geri tooa fiziksel makine kapatamazsınız.
 
-Tüm yorumlarınızı bu makalenin alt kısmında paylaşabilir veya [Azure Kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)'nda soru sorabilirsiniz.
+Bu makalenin hello altındaki tüm yorumlar gönderin ya da hello sorular sormak [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="architectural-components"></a>Mimari bileşenler
 
-VMware VM'leri ve fiziksel sunucuları Azure'a çoğaltırken kullanılan çeşitli bileşenler vardır.
+Bir dizi bileşen dahil olan VMware Vm'lerini ve fiziksel sunucuları tooAzure çoğaltırken.
 
 **Bileşen** | **Konum** | **Ayrıntılar**
 --- | --- | ---
-**Azure** | Azure’da bir Azure hesabına, bir Azure depolama hesabına ve bir Azure ağına ihtiyacınız vardır. | Çoğaltılan veriler depolama hesabında depolanır ve şirket içi sitenizden yük devretme gerçekleştiğinde çoğaltılan verilerle Azure VM’leri oluşturulur. Azure VM’leri oluşturulduğunda Azure sanal ağına bağlanır.
-**Yapılandırma sunucusu** | Yapılandırma sunucusu, işlem sunucusu ve ana hedef sunucusu da dahil olmak üzere dağıtım için gerekli tüm şirket içi bileşenleri çalıştıran tek bir şirket içi yönetim sunucusu (VMWare VM) | Yapılandırma sunucusu bileşeni, şirket içi ile Azure arasındaki iletişimi düzenler ve veri çoğaltma işlemlerini yönetir.
- **İşlem sunucusu**:  | Varsayılan olarak yapılandırma sunucusuna yüklenir. | Çoğaltma ağ geçidi olarak davranır. Çoğaltma verilerini alıp bu verileri önbelleğe alma, sıkıştırma ve şifreleme işlemleriyle iyileştirir ve Azure depolama alanına gönderir.<br/><br/> İşlem sunucusu ayrıca Mobility hizmetinin korunan makinelere göndermeli yüklemesini ele alır ve VMware VM’lerinin otomatik olarak bulunmasını gerçekleştirir.<br/><br/> Dağıtımınız büyüdükçe artan çoğaltma trafiği hacimlerini idare etmek için ilave olarak ayrı ayrı adanmış işlem sunucuları ekleyebilirsiniz.
- **Ana hedef sunucu** | Varsayılan olarak şirket içi yapılandırma sunucusuna yüklenir. | Azure’dan yeniden çalışma sırasında çoğaltma verilerini işler.<br/><br/> Yeniden çalışma trafiğinin hacmi yüksekse, yeniden çalışma için ayrı bir ana hedef sunucu dağıtabilirsiniz.
-**VMware sunucuları** | VMware VM’leri vSphere ESXi sunucularında barındırılır. Ana bilgisayarları yönetmek için bir vCenter sunucusu kullanılması önerilir. | VMware sunucularını Kurtarma Hizmetleri kasanıza eklersiniz.
-**Çoğaltılan makineler** | Mobility hizmeti, çoğaltmak istediğiniz her VMware VM’ine yüklenir. Her makineye el ile yüklenebileceği gibi, işlem sunucusundan göndererek yükleme yoluyla da yüklenebilir.
+**Azure** | Azure’da bir Azure hesabına, bir Azure depolama hesabına ve bir Azure ağına ihtiyacınız vardır. | Çoğaltılan veriler hello depolama hesabında depolanır ve şirket içi sitenizdeki yük devretme durumunda Azure Vm'leri çoğaltılan hello verilerle oluşturulur. Hello Azure VM'ler, oluşturuldukları zaman toohello Azure sanal ağı bağlayın.
+**Yapılandırma sunucusu** | Tek bir yönetim sunucusu (VMWare VM) hello yapılandırma sunucusuna işlem sunucusu, ana hedef sunucusu da dahil olmak üzere hello dağıtım için gerekli tüm hello şirket içi bileşenleri çalıştıran şirket içi | Merhaba yapılandırma sunucusu bileşeni şirket içi ve Azure arasındaki iletişimi düzenler ve veri çoğaltma işlemlerini yönetir.
+ **İşlem sunucusu**:  | Varsayılan olarak hello yapılandırma sunucusunda yüklü. | Çoğaltma ağ geçidi olarak davranır. Çoğaltma verilerini alıp, önbelleğe alma, sıkıştırma ve şifreleme iyileştirir ve tooAzure depolama gönderir.<br/><br/> Merhaba işlem sunucusu da hello Mobility hizmeti tooprotected makinelere göndermeli yüklemesini işler ve VMware vm'lerinin otomatik bulma işlemini gerçekleştirir.<br/><br/> Dağıtımınız büyüdükçe, çoğaltma trafik artırma ek ayrı adanmış işlem sunucuları toohandle ekleyebilirsiniz.
+ **Ana hedef sunucu** | Merhaba şirket içi yapılandırma sunucusu üzerinde varsayılan olarak yüklüdür. | Azure’dan yeniden çalışma sırasında çoğaltma verilerini işler.<br/><br/> Yeniden çalışma trafiğinin hacmi yüksekse, yeniden çalışma için ayrı bir ana hedef sunucu dağıtabilirsiniz.
+**VMware sunucuları** | VMware Vm'lerini vSphere ESXi sunucularda barındırılan ve bir vCenter server toomanage hello konakları öneririz. | VMware sunucularını tooyour kurtarma Hizmetleri kasası ekleyin.
+**Çoğaltılan makineler** | Merhaba Mobility hizmeti her VMware tooreplicate istediğiniz VM yüklenir. El ile her makinede veya hello işlem sunucusu anında yüklemesinden ile yüklenebilir.
 
-[Destek matrisinde](site-recovery-support-matrix-to-azure.md), bu bileşenlerden her birine ilişkin dağıtım önkoşulları ve gereksinimler hakkında bilgi edinin.
+Merhaba dağıtımının önkoşulları ve hello de bu bileşenlerin her birini gereksinimleri hakkında bilgi edinin [destek matrisi](site-recovery-support-matrix-to-azure.md).
 
-**Şekil 1: VMware’den Azure bileşenlerine**
+**Şekil 1: VMware tooAzure bileşenleri**
 
 ![Bileşenler](./media/site-recovery-components/arch-enhanced.png)
 
 ## <a name="replication-process"></a>Çoğaltma işlemi
 
-1. Azure bileşenleri ve bir Kurtarma Hizmetleri kasası dahil olmak üzere dağıtım işlemini siz ayarlarsınız. Kasada çoğaltma kaynağını ve hedefini belirtir, yapılandırma sunucusunu ayarlar, VMware sunucuları ekler, bir çoğaltma ilkesi oluşturur, Mobility hizmetini dağıtır, çoğaltmayı etkinleştirir ve bir yük devretme testi çalıştırırsınız.
-2.  Makineler çoğaltma ilkesine uygun olarak çoğaltılmaya başlanır ve verilerin ilk kopyası Azure depolamaya çoğaltılır.
-4. Delta değişikliklerinin Azure’a çoğaltılması ilk çoğaltma işlemi tamamlandıktan sonra başlar. Bir makine için izlenen değişiklikler bir .hrl dosyasında saklanır.
-    - Çoğaltılan makineler çoğaltma yönetimi için HTTPS 443 gelen bağlantı noktasındaki yapılandırma sunucusuyla iletişim kurar.
-    - Çoğaltılan makineler çoğaltma verilerini HTTPS 9443 gelen bağlantı noktasındaki (yapılandırılabilir) işlem sunucusuna gönderir.
-    - Yapılandırma sunucusu, HTTPS 443 giden bağlantı noktası üzerinden Azure ile çoğaltma yönetimini düzenler.
-    - İşlem sunucusu kaynak makinelerden gelen verileri alır, iyileştirip şifreler ve 443 giden bağlantı noktası üzerinden Azure depolamaya gönderir.
-    - Çoklu VM tutarlılığını etkinleştirirseniz çoğaltma grubundaki makineler birbiriyle 20004 bağlantı noktası üzerinden iletişim kurar. Çoklu VM, birden çok makineyi yük devrettikleri zaman kilitlenmeyle tutarlı ve uygulamayla tutarlı kurtarma noktalarını paylaşan çoğaltma grupları halinde gruplandırdığınızda kullanılır. Bu özellik, makinelerin aynı iş yükünü çalıştırdığı ve tutarlı olmasının gerektiği durumlarda kullanışlıdır.
-5. Trafik İnternet üzerinden Azure depolama genel uç noktalarına çoğaltılır. Alternatif olarak, Azure ExpressRoute [genel eşliğini](../expressroute/expressroute-circuit-peerings.md#public-peering) kullanabilirsiniz. Trafiğin siteden siteye bir VPN aracılığıyla şirket içi bir siteden Azure’a çoğaltılması desteklenmez.
+1. Azure bileşenleri ve bir kurtarma Hizmetleri kasası gibi hello dağıtım, ayarlayın. Merhaba kasasına hello çoğaltma kaynak ve hedef hello yapılandırma sunucusunu ayarlamayı, VMware sunucularını ekleyin, bir çoğaltma ilkesi oluşturun, hello Mobility hizmeti dağıtmak, çoğaltmayı etkinleştirmek ve yük devretme testi çalıştırmak belirtin.
+2.  Merhaba çoğaltma ilkesiyle uygun şekilde çoğaltma makineleri başlatmayın ve bir başlangıç hello verilerin çoğaltılmış tooAzure depolama kopyasıdır.
+4. Merhaba ilk çoğaltma sonlandırıldıktan sonra delta değişiklikleri tooAzure çoğaltma başlar. Bir makine için izlenen değişiklikler bir .hrl dosyasında saklanır.
+    - Çoğaltma HTTPS 443 numaralı bağlantı noktasında hello yapılandırma sunucusuyla gelen çoğaltma yönetimi için iletişim kurar.
+    - Çoğaltılan makineler Gönder çoğaltma verileri toohello işlem sunucusu HTTPS 9443 bağlantı noktasına gelen (yapılandırılabilir).
+    - Merhaba yapılandırma sunucusu Azure ile çoğaltma yönetimi HTTPS 443 giden bağlantı noktası üzerinden düzenler.
+    - Merhaba işlem sunucusu kaynak makinelerden verileri alan, en iyi duruma getirir ve bunu şifreler ve tooAzure depolama bağlantı noktası 443 üzerinden giden gönderir.
+    - Çoklu VM tutarlılığını etkinleştirmek, ardından hello çoğaltma grubundaki birbiriyle 20004 bağlantı noktası üzerinden iletişim kurar. Çoklu VM, birden çok makineyi yük devrettikleri zaman kilitlenmeyle tutarlı ve uygulamayla tutarlı kurtarma noktalarını paylaşan çoğaltma grupları halinde gruplandırdığınızda kullanılır. Bu makineler çalışıyorsa yararlıdır hello aynı iş yükünü ve toobe tutarlı gerekir.
+5. Trafiğidir çoğaltılmış tooAzure depolama ortak uç noktaları, üzerinde Internet hello. Alternatif olarak, Azure ExpressRoute [genel eşliğini](../expressroute/expressroute-circuit-peerings.md#public-peering) kullanabilirsiniz. Bir siteden siteye VPN bağlantısını bir şirket içi site tooAzure üzerinden trafik çoğaltma desteklenmiyor.
 
-**Şekil 2: VMware’den Azure’a çoğaltma**
+**Şekil 2: VMware tooAzure çoğaltma**
 
 ![Gelişmiş](./media/site-recovery-components/v2a-architecture-henry.png)
 
 ## <a name="failover-and-failback-process"></a>Yük devretme ve yeniden çalışma işlemi
 
-1. Yük devretme testinin beklenen şekilde çalıştığını doğruladıktan sonra, gerektiğinde Azure’a planlanmamış yük devretmeler çalıştırabilirsiniz. Planlanan yük devretme desteklenmez.
-2. Tek bir makine üzerinden yük devredebilir veya [kurtarma planları](site-recovery-create-recovery-plans.md) oluşturarak birden çok VM’in devredilmesini düzenleyebilirsiniz.
-3. Yük devretme işlemini çalıştırdığınızda Azure’da çoğaltma sanal makineleri oluşturulur. Kopya Azure VM’sindeki iş yüküne erişmeye başlamak için bir yük devretme yürütürsünüz.
-4. Birincil şirket içi siteniz yeniden kullanılabilir olduğunda siteyi yeniden çalıştırabilirsiniz. Bir yeniden çalışma altyapısı ayarlarsınız, makineyi ikincil siteden birincil siteye çoğaltmaya başlar ve ikincil siteden planlanmamış bir yük devretme gerçekleştirirsiniz. Bu yük devretme yürütüldükten sonra, veriler şirket içine döner ve Azure’a çoğaltmayı yeniden etkinleştirmeniz gerekir. [Daha fazla bilgi](site-recovery-failback-azure-to-vmware.md)
+1. Yük devretme sınaması beklenen şekilde çalıştığını doğruladıktan sonra planlanmamış yük devretmeler tooAzure gerektiği gibi çalıştırabilirsiniz. Planlanan yük devretme desteklenmez.
+2. Üzerinde tek bir makine başarısız veya oluşturma [kurtarma planlarına](site-recovery-create-recovery-plans.md), birden çok VM üzerinden toofail.
+3. Yük devretme işlemini çalıştırdığınızda Azure’da çoğaltma sanal makineleri oluşturulur. Bir yük devretme toostart erişilirken hello iş yükü Azure VM hello çoğaltmasından uygulayın.
+4. Birincil şirket içi siteniz yeniden kullanılabilir olduğunda siteyi yeniden çalıştırabilirsiniz. Bir yeniden çalışma altyapısını ayarlamak, hello makine hello ikincil site toohello birincil çoğaltma işlemi başlatma ve hello ikincil siteden planlanmamış bir yük devretme çalıştırın. Bu yük devretme yürüttükten sonra veri arka şirket içi olur ve yeniden tooenable çoğaltma tooAzure gerekir. [Daha fazla bilgi](site-recovery-failback-azure-to-vmware.md)
 
 Birkaç yeniden çalışma gereksinimi vardır:
 
 
-- **Azure'da geçici işlem sunucusu**: Yük devretmeden sonra Azure'da yeniden çalıştırma işlemini gerçekleştirmek isterseniz Azure'dan çoğaltmayı düzenlemek için işlem sunucusu olarak yapılandırılan bir Azure VM ayarlamanız gerekir. Yeniden çalışma sona erdikten sonra bu VM'yi silebilirsiniz.
-- **VPN bağlantısı**: Yeniden çalışma için, Azure ağından şirket içi siteye olacak şekilde ayarlanmış bir VPN bağlantısına (veya Azure ExpressRoute) sahip olmanız gerekir.
-- **Ayrı şirket içi ana hedef sunucusu**: Şirket içi ana hedef sunucusu yeniden çalışma işlemini yürütür. Ana hedef sunucusu varsayılan olarak yönetim sunucusunda yüklüdür. Ancak daha fazla hacimli trafikte yeniden çalıştırma işlemini gerçekleştiriyorsanız bu işlem için ayrı bir şirket içi ana hedef sunucusu ayarlamanız gerekir.
-- **Yeniden çalışma ilkesi**: Şirket içi sitenize geri çoğaltmak için bir yeniden çalışma ilkeniz olmalıdır. Bu ilke çoğaltma ilkenizi oluşturduğunuzda otomatik olarak oluşturulur.
-- **VMware altyapısı**: Bir şirket içi VMware VM'ye geri dönmeniz gerekir. Bu, şirket içi fiziksel sunucuları Azure'a çoğaltıyor olsanız bile şirket içi VMware altyapısına ihtiyacınız olduğu anlamına gelir.
+- **Azure'da geçici işlem sunucusu**: toofail geri azure'dan yük devretme sonrasında istiyorsanız Azure toohandle çoğaltmadan bir işlem sunucusu olarak yapılandırılan bir Azure VM yukarı tooset gerekir. Yeniden çalışma sona erdikten sonra bu VM'yi silebilirsiniz.
+- **VPN bağlantısı**: hello Azure ağ toohello şirket içi siteden gerekir yeniden çalışma için bir VPN bağlantısı (veya Azure ExpressRoute) ayarlayın.
+- **Ayrı şirket içi ana hedef sunucusu**: hello şirket içi ana hedef sunucusu yeniden çalışma işlemini yürütür. Hello ana hedef sunucusu varsayılan olarak hello yönetim sunucusunda yüklü, ancak daha fazla hacimli trafikte çalıştırma işlemini gerçekleştiriyorsanız bu amaç için bir ayrı şirket içi ana hedef sunucusu ayarlamanız gerekir.
+- **Yeniden çalışma ilkesi**: tooreplicate geri tooyour şirket içi site, bir yeniden çalışma ilkesi gerekir. Bu ilke çoğaltma ilkenizi oluşturduğunuzda otomatik olarak oluşturulur.
+- **VMware altyapı**: geri başarısız olması tooan şirket içi VMware VM. Şirket içi fiziksel sunucuların tooAzure çoğaltıyorsanız bile bu, bir şirket içi VMware altyapı ihtiyacınız anlamına gelir.
 
 **Şekil 3: VMware/fiziksel yeniden çalışma**
 
@@ -92,4 +92,4 @@ Birkaç yeniden çalışma gereksinimi vardır:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Destek matrisini](site-recovery-support-matrix-to-azure.md) inceleyin
+Gözden geçirme hello [destek matrisi](site-recovery-support-matrix-to-azure.md)

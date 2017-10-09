@@ -1,5 +1,5 @@
 ---
-title: "Ayarlayın ve nesne özellikleri ve Azure depolama alanında meta veri alma | Microsoft Docs"
+title: "aaaSet alma nesne ve özellikleri ve meta veriler Azure depolama alanında | Microsoft Docs"
 description: "Azure Storage nesnelerde özel meta verileri depolamak ve ayarlayın ve sistem alınamıyor."
 services: storage
 documentationcenter: 
@@ -14,47 +14,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: marsma
-ms.openlocfilehash: 6af66607478c58874f00bcf017a35abfc37888df
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 44f9243183014845964f337b476a6b0069dc0902
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Özellikler ile meta verileri ayarlama ve alma
 
-Azure Storage destek Sistem özellikleri ve kullanıcı tanımlı meta veriler, içerdikleri verilere ek olarak nesneleri. Bu makalede ele yönetme Sistem özellikleri ve kullanıcı tanımlı meta verileriyle [.NET için Azure Storage istemci Kitaplığı](https://www.nuget.org/packages/WindowsAzure.Storage/).
+Ayrıca Azure Storage destek Sistem özellikleri ve kullanıcı tanımlı meta veriler, içerdikleri toohello veri nesneleri. Bu makalede ele yönetme Sistem özellikleri ve kullanıcı tanımlı meta verileriyle hello [.NET için Azure Storage istemci Kitaplığı](https://www.nuget.org/packages/WindowsAzure.Storage/).
 
-* **Sistem Özellikleri**: Sistem özellikleri her depolama kaynağı yok. Bunlardan bazıları okunabilir veya başkalarının salt okunur durumdayken ayarlayın. Perde arkasında bazı sistem özellikleri belirli standart HTTP üstbilgilerine karşılık gelir. Azure storage istemci kitaplığı bunları tutar.
+* **Sistem Özellikleri**: Sistem özellikleri her depolama kaynağı yok. Bunlardan bazıları okunabilir veya başkalarının salt okunur durumdayken ayarlayın. Merhaba perde arkasında bazı sistem özellikleri toocertain standart HTTP üstbilgilerini karşılık gelir. Hello Azure storage istemci kitaplığı bunları tutar.
 
-* **Kullanıcı tanımlı meta veriler**: kullanıcı tanımlı meta veriler olan bir ad-değer çifti biçiminde belirli bir kaynak üzerinde belirtin meta verileri. Meta veri depolama kaynağı ek değerlerle depolamak için kullanabilirsiniz. Bu ek meta veri değerleri kendi yalnızca amaçlıdır ve kaynak biçimini etkilemez.
+* **Kullanıcı tanımlı meta veriler**: kullanıcı tanımlı meta veriler olan bir ad-değer çiftinin hello formundaki belirli bir kaynak üzerinde belirtin meta verileri. Meta veri toostore ek değerler ile depolama kaynağı kullanabilirsiniz. Bu ek meta veri değerleri kendi yalnızca amaçlıdır ve hello kaynak biçimini etkilemez.
 
-Depolama kaynak için özellik ve meta veri değerlerini alma iki adımlı bir işlemdir. Bu değerleri okumadan önce açıkça bunları çağırarak alması gerekir **FetchAttributes** yöntemi.
+Depolama kaynak için özellik ve meta veri değerlerini alma iki adımlı bir işlemdir. Bu değerleri okumadan önce açıkça bunları tarafından arama hello alması gerekir **FetchAttributes** yöntemi.
 
 > [!IMPORTANT]
-> Özellik ve meta veri değerlerini depolama kaynağı için aşağıdakilerden birini gerektirmediği sürece doldurulmamış **FetchAttributes** yöntemleri.
+> Depolama kaynağı için özellik ve meta veri değerleri hello birini çağırın sürece doldurulmamış **FetchAttributes** yöntemleri.
 >
-> Alacağınız bir `400 Bad Request` tüm ad/değer çiftleri ASCII olmayan karakterler içeriyorsa. Meta veri ad/değer çiftleri geçerli HTTP üstbilgi olduğundan ve bu nedenle tüm kısıtlamaları HTTP üstbilgileri yöneten uyması gerekir. Bu nedenle, URL kodlaması veya adları ve ASCII olmayan karakterler içeren bir değer için Base64 kodlaması kullanmanız önerilir.
+> Alacağınız bir `400 Bad Request` tüm ad/değer çiftleri ASCII olmayan karakterler içeriyorsa. Meta veri ad/değer çiftleridir geçerli HTTP üstbilgileri ve HTTP üstbilgileri yöneten tooall kısıtlamaları uyması gerekir. Bu nedenle, URL kodlaması veya adları ve ASCII olmayan karakterler içeren bir değer için Base64 kodlaması kullanmanız önerilir.
 >
 
 ## <a name="setting-and-retrieving-properties"></a>Özellikler alma ve ayarlama
-Özellik değerlerini almak için arama **FetchAttributes** yöntemi blob veya özelliklerini doldurmak için kapsayıcı ardından değerleri okuyun.
+tooretrieve özellik değerleri, çağrı hello **FetchAttributes** yöntemi, blob veya kapsayıcı toopopulate hello özellikleri, ardından hello değerleri okuyun.
 
-Bir nesne üzerinde özelliklerini ayarlamak için özellik belirtmek değer sonra çağırın **SetProperties** yöntemi.
+tooset özellikleri bir nesne üzerinde hello özellik değeri belirtin ve sonra arama hello **SetProperties** yöntemi.
 
-Aşağıdaki kod örneğinde bir kapsayıcı oluşturur, ardından özellik değerlerini bazıları konsol penceresine yazar.
+Merhaba aşağıdaki kod örneğinde bir kapsayıcı oluşturur, ardından bazı özellik değerleri tooa konsol penceresine yazar.
 
 ```csharp
-//Parse the connection string for the storage account.
+//Parse hello connection string for hello storage account.
 const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
 
-//Create the service client object for credentialed access to the Blob service.
+//Create hello service client object for credentialed access toohello Blob service.
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-// Retrieve a reference to a container.
+// Retrieve a reference tooa container.
 CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-// Create the container if it does not already exist.
+// Create hello container if it does not already exist.
 container.CreateIfNotExists();
 
 // Fetch container properties and write out their values.
@@ -66,36 +66,36 @@ Console.WriteLine();
 ```
 
 ## <a name="setting-and-retrieving-metadata"></a>Meta veri alma ve ayarlama
-Meta veriler blob veya kapsayıcı kaynak üzerinde bir veya daha fazla ad-değer çiftleri olarak belirtebilirsiniz. Meta veri ayarlamak için ad-değer çiftlerini eklemek **meta veri** kaynak koleksiyonu'ı çağırın **SetMetadata** değerleri hizmete kaydetmek için yöntem.
+Meta veriler blob veya kapsayıcı kaynak üzerinde bir veya daha fazla ad-değer çiftleri olarak belirtebilirsiniz. tooset meta verileri, ad-değer çiftleri toohello ekleme **meta veri** hello kaynak koleksiyonu ardından hello çağıran **SetMetadata** yöntemi toosave hello değerleri toohello hizmet.
 
 > [!NOTE]
-> Meta verilerinizin adını C# tanımlayıcıları için adlandırma kuralları için uygun olmalıdır.
+> Meta verilerinizin Hello adını C# tanımlayıcıları için adlandırma kurallarını toohello uygun olmalıdır.
 >
 >
 
-Aşağıdaki kod örneğinde bir kapsayıcıda meta verilerini ayarlar. Bir değer koleksiyonunun kullanılarak ayarlanır **Ekle** yöntemi. Başka bir değer örtük anahtar/değer sözdizimi kullanılarak yapılır. Her ikisi de geçerlidir.
+Merhaba aşağıdaki kod örneğinde meta verileri bir kapsayıcıda ayarlar. Bir değer hello koleksiyonunun kullanılarak ayarlanır **Ekle** yöntemi. Merhaba başka bir değer örtük anahtar/değer sözdizimi kullanılarak yapılır. Her ikisi de geçerlidir.
 
 ```csharp
 public static void AddContainerMetadata(CloudBlobContainer container)
 {
-    //Add some metadata to the container.
+    //Add some metadata toohello container.
     container.Metadata.Add("docType", "textDocuments");
     container.Metadata["category"] = "guidance";
 
-    //Set the container's metadata.
+    //Set hello container's metadata.
     container.SetMetadata();
 }
 ```
 
-Meta verilerini almak için çağrı **FetchAttributes** yöntemi blob veya doldurmak için kapsayıcı **meta veri** koleksiyonu, aşağıdaki örnekte gösterildiği gibi değerler ardından okuyun.
+tooretrieve meta verileri, çağrı hello **FetchAttributes** , blob veya kapsayıcı toopopulate hello yöntemi **meta veri** sonra Merhaba, hello aşağıdaki örnekte gösterildiği gibi değerler koleksiyonu.
 
 ```csharp
 public static void ListContainerMetadata(CloudBlobContainer container)
 {
-    //Fetch container attributes in order to populate the container's properties and metadata.
+    //Fetch container attributes in order toopopulate hello container's properties and metadata.
     container.FetchAttributes();
 
-    //Enumerate the container's metadata.
+    //Enumerate hello container's metadata.
     Console.WriteLine("Container metadata:");
     foreach (var metadataItem in container.Metadata)
     {

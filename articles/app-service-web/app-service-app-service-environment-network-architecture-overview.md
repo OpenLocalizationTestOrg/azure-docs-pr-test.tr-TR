@@ -1,5 +1,5 @@
 ---
-title: "App Service Ortamlarının Ağ Mimarisine Genel Bakış"
+title: "aaaNetwork App Service ortamları, mimarisi genel bakış"
 description: "Ağ topolojisi ofApp hizmeti ortamları mimarisine genel bakış."
 services: app-service
 documentationcenter: 
@@ -14,77 +14,77 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
-ms.openlocfilehash: b2afe86d8774b449a257312d4e60b5f6125336ca
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3cbc86883f5687a9ada35a3ab2f577a450a3fa0b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="network-architecture-overview-of-app-service-environments"></a>App Service Ortamlarının Ağ Mimarisine Genel Bakış
 ## <a name="introduction"></a>Giriş
-Uygulama hizmeti ortamları her zaman bir alt ağ içinde oluşturulmuş bir [sanal ağ] [ virtualnetwork] -uygulama hizmeti ortamı'nda çalışan uygulamalar aynı içinde sanal bulunan özel uç noktalar ile iletişim kurabilir Ağ topolojisi.  Müşteriler kendi sanal ağ altyapısı bölümlerini kilitlemek, bir uygulama hizmeti ortamı ile ortaya ağ iletişimi akışları türlerini anlamak önemlidir.
+Uygulama hizmeti ortamları her zaman bir alt ağ içinde oluşturulmuş bir [sanal ağ] [ virtualnetwork] -uygulama hizmeti ortamı'nda çalışan uygulamalar ile özel iletişim uç noktalar aynı sanal hello içinde bulunan Ağ topolojisi.  Müşteriler kendi sanal ağ altyapısı bölümlerini kilitlemek olduğundan, bir uygulama hizmeti ortamı ile ortaya ağ iletişimi akışlarının önemli toounderstand hello türleri kalır.
 
 ## <a name="general-network-flow"></a>Genel ağ akışı
-Uygulama hizmeti ortamı (ana) uygulamaları için ortak bir sanal IP adresi (VIP) kullandığında, tüm gelen trafiği, genel VIP ulaşır.  Bu uygulamalar için HTTP ve HTTPS trafiğini yanı sıra, diğer trafik FTP, uzaktan hata ayıklama işlevselliği ve Azure yönetim işlemleri için içerir.  Ortak VIP kullanılabilen belirli bağlantı noktaları (gerekli ve isteğe bağlı) tam listesi için makaleyi bakın [gelen trafik denetleme] [ controllinginboundtraffic] bir uygulama hizmeti ortamı. 
+Uygulama hizmeti ortamı (ana) uygulamaları için ortak bir sanal IP adresi (VIP) kullandığında, tüm gelen trafiği, genel VIP ulaşır.  Bu uygulamalar için HTTP ve HTTPS trafiğini yanı sıra, diğer trafik FTP, uzaktan hata ayıklama işlevselliği ve Azure yönetim işlemleri için içerir.  Merhaba tam listesi için hello ortak VIP kullanılabilen belirli bağlantı noktaları (gerekli ve isteğe bağlı) üzerinde hello makalesine bakın [gelen trafik denetleme] [ controllinginboundtraffic] tooan uygulama hizmeti ortamı. 
 
-Uygulama hizmeti ortamları, aynı zamanda bir ILB (iç yük dengeleyici) adresi olarak da adlandırılan yalnızca bir sanal ağ iç adresine bağlı çalışan uygulamaları destekler.  Uygulamalar ve bunun yanı sıra uzaktan hata ayıklama çağrıları için etkin ana, HTTP ve HTTPS trafiği üzerinde bir ILB ILB adresinde ulaşır.  ILB ana yapılandırmaların çoğu için FTP/FTPS trafiğinin de ILB adresinde ulaşırsınız.  Ancak Azure yönetim işlemlerini hala bir ILB, genel VIP bağlantı noktalarına 454/455 akar ana etkin.
+Uygulama hizmeti ortamları da çalışan destek tooa sanal ağ yalnızca iç adresi, bağlı olan uygulamalar da tooas bir ILB (iç yük dengeleyici) adresi denir.  Uygulamalar ve bunun yanı sıra uzaktan hata ayıklama çağrıları için etkin ana, HTTP ve HTTPS trafiği üzerinde bir ILB ILB adresi hello üzerinde ulaşır.  ILB ana yapılandırmaların çoğu için FTP/FTPS trafiğinin ILB adresi hello üzerinde de ulaşırsınız.  Ancak Azure yönetim işlemlerini hala tooports 454/455 bir ILB, genel VIP hello üzerinde akar ana etkin.
 
-Aşağıdaki diyagram, burada uygulamaları bir genel sanal IP adresine bağlı olan bir uygulama hizmeti ortamı için çeşitli gelen ve giden ağ akışına genel bir bakış gösterir:
+Merhaba diyagrama hello genel bir bakış uygulama hizmeti ortamı hello uygulamaları ilişkili tooa genel sanal IP adresi olduğu için çeşitli gelen ve giden ağ akışları gösterir:
 
 ![Genel ağ akışlar][GeneralNetworkFlows]
 
-Bir uygulama hizmeti ortamı çeşitli özel müşteri uç noktalar ile iletişim kurabilir.  Örneğin, uygulama hizmeti ortamı'nda çalışan uygulamalar aynı sanal ağ topolojisinde Iaas sanal makinelerde çalışan veritabanı sunucuları bağlanabilir.
+Bir uygulama hizmeti ortamı çeşitli özel müşteri uç noktalar ile iletişim kurabilir.  Örneğin, uygulama hizmeti ortamı Iaas sanal makinelerde çalışan toodatabase sunucuları bağlanabilir hello çalışan uygulamalar aynı sanal ağ topolojisi hello.
 
 > [!IMPORTANT]
-> Ağ Diyagramı baktığınızda, diğer işlem kaynaklarını"" uygulama hizmeti ortamı'ndan farklı bir alt ağ dağıtılır. Ana ile aynı alt ağdaki kaynakları dağıtma (dışında belirli içi ana yönlendirme) kaynaklarla ana bağlantısını engeller. Farklı bir alt ağa, bunun yerine (aynı VNET içinde) dağıtın. Uygulama hizmeti ortamı sonra bağlanabiliyor olacaktır. Hiçbir ek yapılandırma gerekli değildir.
+> Merhaba Ağ Diyagramı baktığınızda, hello diğer işlem kaynaklarını"" Merhaba uygulama hizmeti ortamı'ndan farklı bir alt ağ dağıtılır. Merhaba kaynaklarında dağıtma hello ana ile aynı alt ağda ana toothose kaynakları (dışında belirli içi ana yönlendirme) bağlantısını engeller. Tooa dağıtmak farklı alt yerine (içinde aynı sanal ağı hello). Uygulama hizmeti ortamı Hello ardından mümkün tooconnect olacaktır. Hiçbir ek yapılandırma gerekli değildir.
 > 
 > 
 
-Uygulama hizmeti ortamları yönetme ve bir uygulama hizmeti ortamı işletim için gerekli kaynaklar da Sql DB ve Azure Storage ile iletişim kurar.  Diğer uzak Azure bölgelerinde bulunan bir uygulama hizmeti ortamı kurduğu Sql ve depolama kaynaklarını bazıları uygulama hizmeti ortamı ile aynı bölgede yer alır.  Sonuç olarak, giden Internet bağlantısı her zaman düzgün çalışması uygulama hizmeti ortamı için gerekli değildir. 
+Uygulama hizmeti ortamları yönetme ve bir uygulama hizmeti ortamı işletim için gerekli kaynaklar da Sql DB ve Azure Storage ile iletişim kurar.  Bir uygulama hizmeti ortamı kurduğu hello Sql ve depolama kaynaklarını bazıları hello bulunan hello başkalarının uzaktan Azure bölgelerinde bulunan uygulama hizmeti ortamı, aynı bölgeye.  Sonuç olarak, giden bağlantı toohello Internet her zaman doğru bir uygulama hizmeti ortamı toofunction için gereklidir. 
 
-Bir uygulama hizmeti ortamı bir alt ağda dağıtılan olduğundan, alt ağa gelen trafiği denetlemek için ağ güvenlik grupları kullanılabilir.  Bir uygulama hizmeti ortamına gelen trafiği denetlemek nasıl ilgili ayrıntılar için şu [makale][controllinginboundtraffic].
+Bir uygulama hizmeti ortamı bir alt ağda dağıtılan olduğundan, ağ güvenlik grupları kullanılan toocontrol olabilir gelen trafik toohello alt.  Merhaba aşağıdaki nasıl toocontrol gelen trafiği tooan uygulama hizmeti ortamı hakkında daha fazla bilgi için bkz [makale][controllinginboundtraffic].
 
-Uygulama hizmeti ortamı ', giden Internet bağlantısına izin vermek nasıl ilgili ayrıntılar için aşağıdaki makaleyi ile çalışma hakkında [hızlı rota][ExpressRoute].  Ve kullanarak zorlanan tünel siteden siteye bağlantı ile çalışırken makalesinde açıklanan aynı yaklaşımı geçerlidir.
+Ayrıntılar için bir uygulama hizmeti ortamı tooallow giden Internet bağlantısı ile çalışma hakkında makale aşağıdaki hello bkz [hızlı rota][ExpressRoute].  Siteden siteye bağlantı çalışma ve kullanarak Hello makalesinde açıklanan aynı yaklaşımı uygulanır hello zorlanan tünel.
 
 ## <a name="outbound-network-addresses"></a>Giden ağ adresleri
-Bir IP adresi, her zaman bir uygulama hizmeti ortamı giden çağrıları yaptığında, giden çağrıları ile ilişkilidir.  Kullanılan belirli bir IP adresi çağrılan uç sanal ağ topolojisi içinde ya da sanal ağ topolojisi dışında bulunan olmasına bağlıdır.
+Bir IP adresi, her zaman bir uygulama hizmeti ortamı giden çağrı yaptığında hello giden çağrıları ile ilişkilidir.  kullanılan hello belirli IP adresi çağrılan hello endpoint hello sanal ağ topolojisi içinde veya dışında hello sanal ağ topolojisi bulunduğu olmasına bağlıdır.
 
-Çağrılan uç nokta ise **dışında** sanal ağ topolojisini, ardından kullanılan giden (diğer adıyla giden NAT adresi) uygulama hizmeti ortamı genel VIP adresidir.  Bu adres özellikleri dikey penceresinde uygulama hizmeti ortamı için portal kullanıcı arabiriminde bulunabilir.
+Çağrılan hello uç nokta ise **dışında** hello sanal ağ topolojisi sonra hello kullanılan giden (diğer adıyla hello giden NAT adresi) hello uygulama hizmeti ortamı, genel VIP hello adresidir.  Bu adres hello portal kullanıcı arabirimi özellikleri dikey penceresinde hello uygulama hizmeti ortamı için bulunabilir.
 
 ![Giden IP adresi][OutboundIPAddress]
 
-Bu adres, genel VIP uygulama hizmeti ortamı'nda bir uygulama oluşturma ve ardından gerçekleştirme yeterlidir ASEs için de belirlenebilir bir *nslookup* uygulamanın adresinde. Sonuç IP adresi, hem genel VIP yanı sıra uygulama hizmeti ortamı'nın giden NAT adresi değil.
+Bu adres, genel VIP hello uygulama hizmeti ortamı bir uygulama oluşturma ve ardından gerçekleştirme yeterlidir ASEs için de belirlenebilir bir *nslookup* hello uygulamanın adresinde. Merhaba sonuç IP adresi hem hello genel VIP yanı sıra hello uygulama hizmeti ortamı'nın giden NAT adresi değil.
 
-Çağrılan uç nokta ise **içinde** sanal ağ topolojisini, çağıran uygulama giden adresini uygulamayı çalıştıran tek işlem kaynağının iç IP adresi olacaktır.  Ancak yok kalıcı uygulamalara iç IP adresleri sanal ağ eşlemesi.  Uygulamaları farklı işlem kaynakları ve kaynakları bir uygulama hizmeti ortamı ölçeklendirme işlemleri nedeniyle değiştirebilirsiniz kullanılabilir işlem havuzu arasında taşıyabilirsiniz.
+Çağrılan hello uç nokta ise **içinde** hello sanal ağ topolojisi, hello iç IP adresi hello uygulamayı çalıştıran hello tek tek işlem kaynağının hello giden adresi hello arama uygulaması olacaktır.  Ancak yok sanal ağ iç IP adreslerini tooapps kalıcı eşlemesi.  Uygulamaları farklı işlem kaynakları arasında hareket etmek ve bir uygulama hizmeti ortamı kullanılabilir işlem kaynakları hello havuzu tooscaling işlemleri değiştirebilirsiniz.
 
-Ancak, bir uygulama hizmeti ortamı her zaman bir alt ağ içinde bulunduğundan, bir uygulama çalıştıran bir işlem kaynağın iç IP adresi her zaman alt ağ CIDR aralığı içinde kalan sağlanır.  Diğer uç noktaları sanal ağda güvenli şekilde hassas ACL'leri ya da ağ güvenlik grupları kullanıldığında, sonuç olarak, uygulama hizmeti ortamı içeren alt ağ aralığı erişim verilmesi gerekir.
+Ancak, bir uygulama hizmeti ortamı her zaman bir alt ağ içinde bulunduğundan, bir uygulama çalıştıran bir işlem kaynağı hello iç IP adresi her zaman hello CIDR aralığı hello alt ağ içinde kalan sağlanır.  Sonuç olarak, hassas ACL'leri ya da ağ güvenlik grupları kullanıldığında toosecure tooother uç noktalarda hello sanal ağ erişim, erişim izni hello uygulama hizmeti ortamı gereksinimlerini toobe içeren alt ağ aralığı hello.
 
-Aşağıdaki diyagramda bu kavramları daha ayrıntılı olarak gösterilmiştir:
+Merhaba Aşağıdaki diyagramda bu kavramları daha ayrıntılı olarak gösterilmiştir:
 
 ![Giden ağ adresleri][OutboundNetworkAddresses]
 
-Yukarıdaki diyagramda:
+Yukarıdaki diyagramda Hello:
 
-* Uygulama hizmeti ortamı genel VIP 192.23.1.2 olduğundan, "Internet" Uç noktalara çağrıları yapılırken kullanılan giden IP adresidir.
-* Uygulama hizmeti ortamı için içeren alt ağ CIDR aralığı 10.0.1.0/26 ' dir.  Diğer uç noktalar aynı sanal ağ altyapısı içinde çağrıları uygulamalardan herhangi bir yerde bu adres aralığı içinde kaynaklanan olarak görürsünüz.
+* Merhaba uygulama hizmeti ortamı, genel VIP Hello 192.23.1.2 olduğundan olan çağrıları çok yapılırken kullanılan hello giden IP adresi "Internet" uç noktaları.
+* Merhaba hello uygulama hizmeti ortamı için alt ağ içeren hello CIDR aralığı 10.0.1.0/26 ' dir.  Diğer uç noktaları hello içinde aynı sanal ağ altyapısı çağrıları uygulamalardan herhangi bir yerde bu adres aralığı içinde kaynaklanan olarak görürsünüz.
 
 ## <a name="calls-between-app-service-environments"></a>Uygulama hizmeti ortamları arasında çağrıları
-Daha karmaşık bir senaryo, aynı sanal ağda birden çok uygulama hizmeti ortamında dağıtmak ve başka bir uygulama hizmeti ortamı için bir uygulama hizmeti ortamı'ndan giden çağrıları yapma ortaya çıkabilir.  Bu tür uygulama hizmeti ortamı'nın çağrıları ayrıca "Internet" çağrısı olarak kabul edilecek arası.
+Birden fazla App Service ortamları dağıtırsanız, daha karmaşık bir senaryo ortaya çıkabilir hello aynı sanal ağ ve bir uygulama hizmeti ortamı tooanother uygulama hizmeti ortamı'ndan giden çağrıları yapma.  Bu tür uygulama hizmeti ortamı'nın çağrıları ayrıca "Internet" çağrısı olarak kabul edilecek arası.
 
-(Örneğin bir uygulama hizmeti ortamı üzerinde Aşağıdaki diyagramda uygulamalarıyla katmanlı mimari örneği gösterilmektedir Web uygulamaları "Ön kapı") uygulamaları (örn. iç uç API uygulamaları amaçlanmayan Internet'ten erişilebilir) ikinci bir uygulama hizmeti ortamı çağrılması. 
+(örneğin, üzerinde bir uygulama hizmeti ortamı diyagramı aşağıdaki hello uygulamalarıyla katmanlı mimari örneği gösterilmektedir Web uygulamaları "Ön kapı") uygulamaları (örn. iç uç API uygulamaları belirtmezseniz toobe Internet hello erişilebilir) ikinci bir uygulama hizmeti ortamı çağrılması. 
 
 ![Uygulama hizmeti ortamları arasında çağrıları][CallsBetweenAppServiceEnvironments] 
 
-Yukarıdaki örnekte, uygulama hizmeti ortamı'nı "Ana bir" 192.23.1.2 giden IP adresi vardır.  Bu bilgisayarda çalışan bir uygulama, uygulama hizmeti ortamı'nın bir ikinci uygulama hizmeti ortamı üzerinde ("ana iki") çalışan bir uygulama için giden bir çağrı aynı sanal ağda, giden çağrı bulunan yapar olacak bir "Internet" çağrısı olarak kabul.  Uygulama hizmeti ortamı ikinci gelen ağ trafiğini sonuç olarak gösterir (örn. alt ağ adres aralığı ilk uygulama hizmeti ortamı) 192.23.1.2 kaynaklanan olarak.
+Hello uygulama hizmeti ortamı "Ana bir" Merhaba Yukarıdaki örnek 192.23.1.2 giden IP adresi vardır.  Bu uygulama hizmeti ortamı üzerinde çalışan bir uygulama bir ikinci uygulama hizmeti aynı sanal ağ, hello hello bulunan ortamı ("ana iki") giden çalışan bir giden çağrı tooan uygulama yaparsa çağrı kabul "Internet" çağrısı olarak.  Merhaba ağ trafiği üzerinde hello ulaşan ikinci uygulama hizmeti ortamı sonucunda gösterecektir 192.23.1.2 kaynaklanan olarak (örn. ilk uygulama hizmeti ortamı hello değil hello alt ağ adres aralığı).
 
-Her iki uygulama hizmeti ortamları aynı Azure bölgesinde bulunduğunda çağrıları farklı uygulama hizmeti ortamları arasında "Internet" çağrısı olarak kabul edilir olsa bile ağ trafiğini bölgesel Azure ağ üzerinde kalır ve fiziksel olarak akış üzerinden almayacak ortak Internet.  Sonuç olarak bir ağ güvenlik grubu ikinci uygulama hizmeti ortamı alt ağda yalnızca ortamından ilk App Service (giden IP adresini 192.23.1.2 olduğu) böylece uygulama arasında güvenli iletişim sağlamak, gelen çağrılarına izin vermek için kullanabileceğiniz Hizmeti ortamları.
+Rağmen hem App Service ortamları aynı Azure bölgesinde hello ağ trafiğini hello bölgesel Azure ağ üzerinde kalır ve değil fiziksel olarak akar hello bulunduğunda çağrıları farklı uygulama hizmeti ortamları arasında "Internet" çağrısı olarak kabul edilir üzerinden genel Internet hello.  Sonuç olarak bir ağ güvenlik grubu kullanabilirsiniz hello hello alt ağda tooonly izin gelen gelen çağrıları ikinci uygulama hizmeti ortamı hello ilk uygulama hizmeti (yalnızca giden IP adresidir 192.23.1.2) böylece hello arasında güvenli iletişim sağlama ortamı, Uygulama hizmeti ortamları.
 
 ## <a name="additional-links-and-information"></a>Ek bağlantıları ve bilgileri
-Tüm makaleler ve nasıl-için uygulama hizmeti ortamları kullanılabilir için kullanıcının [uygulama hizmeti ortamları için Benioku](../app-service/app-service-app-service-environments-readme.md).
+Tüm makaleler ve nasıl-için uygulama hizmeti ortamları hello kullanılabilir için kullanıcının [uygulama hizmeti ortamları için Benioku](../app-service/app-service-app-service-environments-readme.md).
 
-App Service ortamları tarafından kullanılan bağlantı noktaları hakkında ayrıntılar gelen ve gelen trafiği denetlemek için ağ güvenlik gruplarını kullanarak kullanılabilir [burada][controllinginboundtraffic].
+İlgili Ayrıntılar gelen App Service ortamları tarafından kullanılan bağlantı noktaları ve ağ güvenlik grupları toocontrol kullanarak gelen trafik kullanılabilir [burada][controllinginboundtraffic].
 
-Kullanıcı kullanımıyla ilgili ayrıntılar tanımlanan yollar giden Internet erişimi App Service ortamları için bu konuda kullanılabilir verin [makale][ExpressRoute]. 
+Kullanıcı tanımlı yollar toogrant giden Internet erişimi tooApp hizmeti ortamları kullanımıyla ilgili ayrıntılar bu konuda kullanılabilir [makale][ExpressRoute]. 
 
 <!-- LINKS -->
 [virtualnetwork]: http://azure.microsoft.com/services/virtual-network/

@@ -1,6 +1,6 @@
 ---
-title: "Sertifika yenileme Office 365 ve Azure AD kullanıcıları için | Microsoft Docs"
-description: "Bu makalede, Office 365 kullanıcıları için bir sertifika yenileme hakkında bildirim e-postalar ile ilgili sorunları gidermek nasıl açıklanmaktadır."
+title: "Office 365 ve Azure AD kullanıcıları için aaaCertificate yenileme | Microsoft Docs"
+description: "Bu makalede tooOffice 365 kullanıcıların nasıl tooresolve bir sertifika yenileme hakkında bildirim e-postaları sorunlar açıklanmaktadır."
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -14,40 +14,40 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 7f1a3303eff9c413602e745b702baa659343eba6
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: b9b309e06949dc5488cd628650be413f366ed347
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Office 365 ve Azure Active Directory Federasyon sertifikalarını yenileme
 ## <a name="overview"></a>Genel Bakış
-Azure Active Directory (Azure AD) ve Active Directory Federasyon Hizmetleri (AD FS) arasındaki başarılı Federasyon için Azure AD içinde yapılandırılmış Azure AD'ye güvenlik belirteçleri imzalamak için AD FS tarafından kullanılan sertifikalar ile eşleşmesi gerekir. Öğelerdeki uyuşmazlık kaldırılmış güven yol açabilir. Azure AD, AD FS ve Web uygulama proxy'si (extranet erişimi için) dağıtırken bu bilgileri eşitlenmiş olarak saklanmasını sağlar.
+Azure Active Directory (Azure AD) ve Active Directory Federasyon Hizmetleri (AD FS) arasındaki başarılı Federasyon için Azure AD içinde yapılandırılmış AD FS toosign güvenlik belirteçleri tooAzure AD tarafından kullanılan hello sertifikaları eşleşmesi gerekir. Öğelerdeki uyuşmazlık toobroken güven yol açabilir. Azure AD, AD FS ve Web uygulama proxy'si (extranet erişimi için) dağıtırken bu bilgileri eşitlenmiş olarak saklanmasını sağlar.
 
-Bu makalede, belirteç imzalama sertifikalarını yönetmek ve aşağıdaki durumlarda bunları Azure AD ile eşitlenmiş tutmak için ek bilgiler sağlanmaktadır:
+Bu makalede, belirteç imzalama sertifikalarının, ek bilgi toomanage sağlar ve aşağıdaki durumlarda hello bunları Azure AD ile eşitlenmiş tut:
 
-* Web uygulaması Ara sunucusu dağıtma değil ve bu nedenle Federasyon meta verilerinin extranet kullanılabilir değildir.
-* AD FS varsayılan yapılandırması için belirteç imzalama sertifikaları kullanarak değil.
+* Hello Web uygulaması Ara sunucusu dağıtma değil ve bu nedenle hello Federasyon meta verileri hello extranet mevcut değil.
+* AD FS hello varsayılan yapılandırması için belirteç imzalama sertifikalarının kullanarak değil.
 * Bir üçüncü taraf kimlik sağlayıcısı kullanıyor.
 
 ## <a name="default-configuration-of-ad-fs-for-token-signing-certificates"></a>AD FS belirteç imzalama sertifikaları için varsayılan yapılandırma
-Belirteç imzalama ve belirteç şifre çözme sertifikaları genellikle otomatik olarak imzalanan sertifikalar ve bir yıl için iyidir. Varsayılan olarak, AD FS adlı bir otomatik yenileme işlemi içerir **AutoCertificateRollover**. Otomatik olarak AD FS 2.0 veya üstü, Office 365 ve Azure AD kullanıyorsanız, sertifikanızın süresi dolmadan önce güncelleştirin.
+Merhaba belirteç imzalama ve belirteç şifre çözme sertifikaları genellikle otomatik olarak imzalanan sertifikalar ve bir yıl için iyidir. Varsayılan olarak, AD FS adlı bir otomatik yenileme işlemi içerir **AutoCertificateRollover**. Otomatik olarak AD FS 2.0 veya üstü, Office 365 ve Azure AD kullanıyorsanız, sertifikanızın süresi dolmadan önce güncelleştirin.
 
-### <a name="renewal-notification-from-the-office-365-portal-or-an-email"></a>Office 365 portalı ya da bir e-posta bildirim yenileme
+### <a name="renewal-notification-from-hello-office-365-portal-or-an-email"></a>Yenileme bildirim hello Office 365 portalı ya da bir e-posta
 > [!NOTE]
-> Bir e-posta veya Office sertifikanızı yenilemek için bkz: isteyen bir portal bildirim alınırsa, [belirteç imzalama sertifikaları yapılan değişiklikleri yönetme](#managecerts) herhangi bir eylemde bulunmanız gerektiğinde denetlemek için. Microsoft, hiçbir eylem gerekli olduğunda bile, gönderilen sertifika yenileme için bildirimleri yol açabilir olası bir sorunu bilmektedir.
+> Bir e-posta veya toorenew soran bir portal bildirim alındı sertifikanızı Office için bkz: [yönetme değişiklikleri imzalama sertifikalarının tootoken](#managecerts) herhangi bir eylem tootake gerekiyorsa toocheck. Microsoft, hiçbir eylem gerekli olduğunda bile, gönderilen sertifika yenileme toonotifications yol açabilecek olası bir sorunu bilmektedir.
 >
 >
 
-Federasyon meta verilerini izlemek ve bu meta verileri tarafından belirtildiği şekilde imzalama sertifikalarının belirtecinizi güncelleştirmek Azure AD çalışır. 30 gün önce sona erme tarihini belirteç imzalama sertifikalarını, Azure AD Federasyon meta verileri yoklayarak yeni sertifikalar kullanılabilir olup olmadığını denetler.
+Azure AD toomonitor hello Federasyon meta verileri ve güncelleştirme hello belirteç imzalama sertifikaları bu meta verileri tarafından belirtildiği şekilde çalışır. 30 gün önce hello belirteç imzalama sertifikalarının, sona erme tarihi hello Azure AD hello Federasyon meta verileri yoklayarak yeni sertifikalar kullanılabilir olup olmadığını denetler.
 
-* Bu başarılı şekilde Federasyon meta verileri sorgulamak ve yeni sertifika almak, kullanıcıya e-posta bildirim veya Office 365 portalında uyarı verilir.
-* Yeni belirteç imzalama sertifikaları alamıyorsa, ya da Federasyon meta verilerinin ulaşılabilir olmadığından veya otomatik sertifika aktarma etkin değil, Azure AD bir e-posta bildirimi ve Office 365 portalında bir uyarı verir.
+* Bu başarılı şekilde hello Federasyon meta verileri sorgulamak ve hello yeni sertifika almak, e-posta bildirim veya uyarı hello Office 365 portalında toohello kullanıcı verilir.
+* Merhaba yeni belirteç imzalama sertifikalarının alamıyorsa, ya da hello Federasyon meta verileri ulaşılabilir olmadığından veya otomatik sertifika aktarma etkin değil, Azure AD bir e-posta bildirimi ve hello Office 365 Portalı'nda bir uyarı verir.
 
 ![Office 365 portalı bildirim](./media/active-directory-aadconnect-o365-certs/notification.png)
 
 > [!IMPORTANT]
-> İş sürekliliğini sağlamak üzere AD FS kullanıyorsanız, böylece bilinen sorunlara yönelik kimlik doğrulama hatalarının meydana gelmediğinden, sunucularınızı aşağıdaki güncelleştirmeleri olduğunu doğrulayın. Bu yenileme ve gelecekteki yenileme dönemleri için bilinen AD FS proxy sunucu sorunları azaltır:
+> AD FS, tooensure iş sürekliliği, kullanıyorsanız Lütfen sunucularınızı bilinen sorunlara yönelik kimlik doğrulama hatalarının meydana gelmediğinden emin şu güncelleştirmeleri hello sahip olduğunuzu doğrulayın. Bu yenileme ve gelecekteki yenileme dönemleri için bilinen AD FS proxy sunucu sorunları azaltır:
 >
 > Server 2012 R2 - [Windows Server Mayıs 2014 paketi](http://support.microsoft.com/kb/2955164)
 >
@@ -55,9 +55,9 @@ Federasyon meta verilerini izlemek ve bu meta verileri tarafından belirtildiği
 >
 >
 
-## Sertifikaları güncelleştirilmesi gerekip gerekmediğini denetleyin<a name="managecerts"></a>
-### <a name="step-1-check-the-autocertificaterollover-state"></a>1. adım: AutoCertificateRollover durumunu denetle
-AD FS sunucunuzda, PowerShell'i açın. AutoCertificateRollover değeri True olarak ayarlanmış olduğundan emin olun.
+## Merhaba sertifikaları güncelleştirilmiş toobe gerekip gerekmediğini denetleyin<a name="managecerts"></a>
+### <a name="step-1-check-hello-autocertificaterollover-state"></a>1. adım: Merhaba AutoCertificateRollover durumunu denetle
+AD FS sunucunuzda, PowerShell'i açın. Merhaba AutoCertificateRollover değeri tooTrue ayarlanmış olduğundan emin olun.
 
     Get-Adfsproperties
 
@@ -67,7 +67,7 @@ AD FS sunucunuzda, PowerShell'i açın. AutoCertificateRollover değeri True ola
 >AD FS 2.0 kullanıyorsanız, önce Ekle-Pssnapın Microsoft.Adfs.Powershell çalıştırın.
 
 ### <a name="step-2-confirm-that-ad-fs-and-azure-ad-are-in-sync"></a>2. adım: AD FS ile Azure AD eşitleme olduğundan emin olun
-AD FS sunucunuzun Azure AD PowerShell komut istemini açın ve Azure AD connect.
+AD FS sunucunuzun hello Azure AD PowerShell komut istemini açın ve tooAzure AD connect.
 
 > [!NOTE]
 > Azure AD PowerShell indirebilirsiniz [burada](https://technet.microsoft.com/library/jj151815.aspx).
@@ -76,16 +76,16 @@ AD FS sunucunuzun Azure AD PowerShell komut istemini açın ve Azure AD connect.
 
     Connect-MsolService
 
-AD FS ile Azure AD güven özellikleri belirtilen etki alanı için yapılandırılan sertifikaları denetleyin.
+AD FS Hello sertifikaları yapılandırılmış ve etki alanı hello Azure AD güven özelliklerinde belirtilen denetleyin.
 
     Get-MsolFederationProperty -DomainName <domain.name> | FL Source, TokenSigningCertificate
 
 ![Get-MsolFederationProperty](./media/active-directory-aadconnect-o365-certs/certsync.png)
 
-Her iki çıkışları parmak eşleşiyorsa sertifikalarınızı Azure AD ile eşitlenmiş.
+Merhaba parmak izleri hem de çıkış hello varsa eşleşme sertifikalarınızı Azure AD ile eşitlenmiş.
 
-### <a name="step-3-check-if-your-certificate-is-about-to-expire"></a>3. adım: sertifikanızı dolmak üzere olup olmadığını denetleyin
-Get-MsolFederationProperty veya Get-AdfsCertificate çıktısında "Değil sonra" altında tarihi denetleyin Tarih 30 günden az hemen ise eylemi gerçekleştirmelisiniz.
+### <a name="step-3-check-if-your-certificate-is-about-tooexpire"></a>3. adım: sertifikanızı hakkında tooexpire olup olmadığını denetleyin
+Başlangıç tarihi altında "Değil sonra" Get-MsolFederationProperty veya Get-AdfsCertificate Hello çıktısında denetle Başlangıç tarihi 30 günden az hemen ise, eylemi gerçekleştirmelisiniz.
 
 | AutoCertificateRollover | Sertifikaları Azure AD ile eşitleme | Federasyon meta verileri genel olarak erişilebilir | Geçerlilik | Eylem |
 |:---:|:---:|:---:|:---:|:---:|
@@ -95,43 +95,43 @@ Get-MsolFederationProperty veya Get-AdfsCertificate çıktısında "Değil sonra
 
 \[-] Önemli değildir
 
-## Belirteç imzalama sertifikasının otomatik yenileme (önerilir)<a name="autorenew"></a>
-Aşağıdakilerin her ikisi de doğruysa herhangi manuel adımları uygulamanız gerekmez:
+## Merhaba belirteç imzalama sertifikası otomatik olarak yenilemek (önerilir)<a name="autorenew"></a>
+Merhaba aşağıdaki her ikisi de doğruysa tooperform el ile adımlar gerekmez:
 
-* Erişim için Federasyon meta verilerinin extranet etkinleştirebilirsiniz Web uygulaması proxy'si dağıtmış.
-* AD FS varsayılan yapılandırması (AutoCertificateRollover etkin) kullanıyor.
+* Merhaba extranet erişimi toohello Federasyon meta verilerini etkinleştirebilirsiniz Web uygulaması proxy'si dağıtmış.
+* Merhaba AD FS varsayılan yapılandırması (AutoCertificateRollover etkin) kullanıyor.
 
-Sertifika otomatik olarak güncelleştirilebilir onaylamak için şunları denetleyin.
+Sertifika hello tooconfirm aşağıdaki onay hello otomatik olarak güncelleştirilebilir.
 
-**1. AutoCertificateRollover AD FS özelliği True olarak ayarlanması gerekir.** Bu AD FS yeni belirteç imzalama ve belirteç şifre çözme sertifikaları otomatik olarak oluşturur, önce eski olanları sona gösterir.
+**1. hello AD FS özelliği AutoCertificateRollover tooTrue ayarlamanız gerekir.** Bu, AD FS yeni belirteç imzalama ve belirteç şifre çözme sertifikaları hello eski olanları sona önce otomatik olarak oluşturur gösterir.
 
-**2. AD FS federasyon meta verileri genel olarak erişilebilir.** (Dışına şirket ağına) genel internet üzerindeki bir bilgisayardan aşağıdaki URL'sine giderek Federasyon meta verileri genel olarak erişilebilir olduğundan emin olun:
+**2. hello AD FS federasyon meta verileri genel olarak erişilebilir.** Toohello giderek Federasyon meta verileri genel olarak erişilebilir olduğundan emin olun URL bir bilgisayardan aşağıdaki hello ortak Internet (dışına hello şirket ağı):
 
 https:// (your_FS_name) /federationmetadata/2007-06/federationmetadata.xml
 
-Burada `(your_FS_name) `kuruluşunuzun kullandığı, fs.contoso.com gibi Federasyon Hizmeti ana bilgisayar adı ile değiştirilir.  Her ikisi de doğrulayamazsınız varsa bu ayarları başarıyla, başka bir şey yapmanız gerekmez.  
+Burada `(your_FS_name) `kuruluşunuzun kullandığı, fs.contoso.com gibi hello Federasyon Hizmeti ana bilgisayar adı ile değiştirilir.  Mümkün tooverify varsa bu ayarları başarıyla da toodo başka bir şey yok.  
 
 Örnek: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 
-## Belirteç imzalama sertifikasının el ile yenileme<a name="manualrenew"></a>
-Belirteç imzalama sertifikalarının el ile yenilemek tercih edebilirsiniz. Örneğin, aşağıdaki senaryolar için el ile yenileme daha iyi çalışabilir:
+## Merhaba belirteç imzalama sertifikasını el ile yenileme<a name="manualrenew"></a>
+El ile Merhaba belirteç imzalama sertifikaları toorenew tercih edebilirsiniz. Örneğin, hello aşağıdaki senaryolarda daha iyi el ile yenileme için çalışabilir:
 
-* Belirteç imzalama sertifikalarının otomatik olarak imzalanan sertifikalar. Bunun en yaygın nedeni, kuruluşunuzun AD FS sertifikalarının bir kuruluş sertifika yetkilisinden kayıtlı yönetir ' dir.
-* Ağ güvenliği genel olarak kullanılabilir olması Federasyon meta verilerinin izin vermiyor.
+* Belirteç imzalama sertifikalarının otomatik olarak imzalanan sertifikalar. Merhaba en yaygın nedeni bu, kuruluşunuzun AD FS sertifikalarının bir kuruluş sertifika yetkilisinden kayıtlı yönetir olmasıdır.
+* Ağ güvenliği hello Federasyon meta verileri toobe genel kullanıma açık izin vermiyor.
 
-Belirteç imzalama sertifikalarını, güncelleştirdiğiniz her sefer bu senaryolarda da Office 365 etki alanınızın güncelleştirme MsolFederatedDomain PowerShell komutunu kullanarak güncelleştirmeniz gerekir.
+Merhaba belirteç imzalama sertifikalarının, güncelleştirdiğiniz her sefer bu senaryolarda da Office 365 etki alanınızın hello PowerShell komutu, güncelleştirme MsolFederatedDomain kullanarak güncelleştirmeniz gerekir.
 
 ### <a name="step-1-ensure-that-ad-fs-has-new-token-signing-certificates"></a>1. adım: AD FS yeni bir belirteç imzalama sertifikalarının sahip olduğundan emin olun.
 **Varsayılan olmayan yapılandırma**
 
-Varsayılan olmayan yapılandırma AD FS kullanıyorsanız, (burada **AutoCertificateRollover** ayarlanır **False**), büyük olasılıkla özel sertifikaları (kendinden imzalı) kullanıyor. AD FS belirteç imzalama sertifikalarını yenileme hakkında daha fazla bilgi için bkz: [yönergeler AD FS kullanmayan müşterileri için otomatik olarak imzalanan sertifikalar](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
+Varsayılan olmayan yapılandırma AD FS kullanıyorsanız, (burada **AutoCertificateRollover** çok ayarlanır**False**), büyük olasılıkla özel sertifikaları (kendinden imzalı) kullanıyor. Nasıl toorenew hello AD FS belirteç imzalama sertifikaları hakkında daha fazla bilgi için bkz: [yönergeler AD FS kullanmayan müşterileri için otomatik olarak imzalanan sertifikalar](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
 
 **Federasyon meta veri genel kullanıma açık değil**
 
-Öte yandan, **AutoCertificateRollover** ayarlanır **doğru**, ancak, Federasyon meta verileri genel olarak erişilebilir değil, öncelikle yeni belirteç imzalama sertifikaları AD FS tarafından oluşturulan olduğundan emin olun. Yeni bir belirteç imzalama sertifikalarının aşağıdaki adımları uygulayarak sahip onaylayın:
+Üzerinde hello diğer yandan, **AutoCertificateRollover** çok ayarlanır**doğru**, ancak, Federasyon meta verileri genel olarak erişilebilir değil, öncelikle yeni belirteç imzalama sertifikaları AD tarafından oluşturulan olduğundan emin olun FS. Yeni bir belirteç imzalama sertifikalarının tarafından alma hello aşağıdaki adımları sahip onaylayın:
 
-1. Birincil AD FS sunucusunda oturum açan doğrulayın.
-2. Bir PowerShell komut penceresi açıp aşağıdaki komutu çalıştırarak AD FS geçerli İmzalama sertifikaları denetleyin:
+1. Toohello birincil AD FS sunucusuna kaydedildiğini doğrulayın.
+2. Merhaba geçerli imzalama sertifikalarının, AD FS'de bir PowerShell komut penceresini açma ve komut aşağıdaki hello çalıştıran denetleyin:
 
     PS C:\>Get-ADFSCertificate – Encryption belirteç imzalama
 
@@ -139,28 +139,28 @@ Varsayılan olmayan yapılandırma AD FS kullanıyorsanız, (burada **AutoCertif
    > AD FS 2.0 kullanıyorsanız, Add-Pssnapın Microsoft.Adfs.Powershell ilk çalıştırmanız gerekir.
    >
    >
-3. Listelenen herhangi bir sertifika komutu çıktıyı bakın. AD FS yeni bir sertifika oluşturmuşsa, iki sertifika çıktı görmeniz gerekir: biri için hangi **IsPrimary** değer **True** ve **NotAfter** tarihidir 5 gün ve biri için hangi içinde **IsPrimary** olan **False** ve **NotAfter** gelecekte bir yıl hakkında.
-4. Yalnızca bir sertifika görüyorsanız ve **NotAfter** tarihi 5 gün içinde yeni bir sertifika oluşturmak gerekir.
-5. Yeni bir sertifika oluşturmak için bir PowerShell komut isteminde aşağıdaki komutu yürütün: `PS C:\>Update-ADFSCertificate –CertificateType token-signing`.
-6. Aşağıdaki komutu yeniden çalıştırarak güncelleştirme doğrulayın: PS C:\>Get-ADFSCertificate – Encryption belirteç imzalama
+3. Listelenen herhangi bir sertifika hello komutu çıktıyı bakın. AD FS yeni bir sertifika oluşturmuşsa hello çıktısında iki sertifika görmeniz gerekir: biri hangi hello **IsPrimary** değer **True** ve hello **NotAfter** tarihi 5 gün ve biri için hangi içinde **IsPrimary** olan **False** ve **NotAfter** hello gelecekteki yılda hakkındadır.
+4. Yalnızca bir sertifika görürseniz ve hello **NotAfter** tarihi 5 gün içinde toogenerate yeni bir sertifika gerekir.
+5. toogenerate yeni bir sertifika yürütme komut bir PowerShell komut isteminde aşağıdaki hello: `PS C:\>Update-ADFSCertificate –CertificateType token-signing`.
+6. Komut yeniden aşağıdaki hello çalıştırarak Hello güncelleştirme doğrulayın: PS C:\>Get-ADFSCertificate – Encryption belirteç imzalama
 
-İki sertifika artık listelenir, bunlardan biri olan bir **NotAfter** tarih yaklaşık bir yıl sonra ve hangi **IsPrimary** değer **False**.
+İki sertifika artık listelenir, bunlardan biri olan bir **NotAfter** yaklaşık bir yıl hello gelecekteki ve hangi hello tarihi **IsPrimary** değer **False**.
 
-### <a name="step-2-update-the-new-token-signing-certificates-for-the-office-365-trust"></a>2. adım: yeni belirteç imzalama sertifikalarının Office 365 güven güncelleştirmek
-Office 365 imzalama sertifikalarının gibi güven için kullanılacak olan yeni belirteci ile güncelleştirin.
+### <a name="step-2-update-hello-new-token-signing-certificates-for-hello-office-365-trust"></a>2. adım: hello yeni belirteç imzalama sertifikalarının hello Office 365 güven güncelleştirmek
+Office 365 gibi hello güven için kullanılan hello yeni belirteç imzalama sertifikaları toobe ile güncelleştirin.
 
-1. Microsoft Azure Active Directory modülü için Windows PowerShell'i açın.
+1. Merhaba Microsoft Azure Active Directory için Windows PowerShell modülü açın.
 2. $Cred Çalıştır Get-Credential =. Bu cmdlet, kimlik bilgilerini ister, bulut hizmet yönetici hesabı kimlik bilgilerini yazın.
-3. Connect MsolService Çalıştır – kimlik bilgisi $cred. Bu cmdlet bulut hizmetine bağlanır. Bulut hizmetine bağlanan bir içeriği oluşturma aracı tarafından yüklü ek cmdlet'lerinden herhangi birini çalıştırmadan önce gereklidir.
-4. Bu komutlar, AD FS birincil Federasyon sunucusu olmayan bir bilgisayar üzerinde çalıştırıyorsanız, Set-MSOLAdfscontext Çalıştır-bilgisayar <AD FS primary server>, burada <AD FS primary server> iç FQDN birincil AD FS sunucusunun adıdır. Bu cmdlet için AD FS bağlanan bir içeriği oluşturur.
-5. Güncelleştirme MSOLFederatedDomain – DomainName çalıştırmak <domain>. Bu cmdlet, AD FS ayarları bulut hizmete güncelleştirir ve ikisi arasında güven ilişkisi yapılandırır.
+3. Connect MsolService Çalıştır – kimlik bilgisi $cred. Bu cmdlet toohello bulut hizmetine bağlanır. Bağlanan bir içeriği toohello bulut hizmeti oluşturuluyor hello aracı tarafından yüklenen hello ek cmdlet'lerinden herhangi birini çalıştırmadan önce gereklidir.
+4. Bu komutlar hello AD FS birincil Federasyon sunucusu olmayan bir bilgisayar üzerinde çalıştırıyorsanız, Set-MSOLAdfscontext Çalıştır-bilgisayar <AD FS primary server>, burada <AD FS primary server> hello iç FQDN hello birincil AD FS sunucusunun adıdır. Bu cmdlet, bağlanan bir içeriği tooAD FS oluşturur.
+5. Güncelleştirme MSOLFederatedDomain – DomainName çalıştırmak <domain>. Bu cmdlet hello bulut hizmeti içine AD FS hello ayarlarını güncelleştirir ve hello hello iki arasında güven ilişkisi yapılandırır.
 
 > [!NOTE]
-> Contoso.com ve fabrikam.com, gibi birden çok üst düzey etki alanlarının desteklemeniz gerekiyorsa, kullanmalısınız **SupportMultipleDomain** geçiş herhangi cmdlet'lerle. Daha fazla bilgi için bkz: [birden çok üst düzey etki alanı için destek](active-directory-aadconnect-multiple-domains.md).
+> Contoso.com ve fabrikam.com, gibi birden çok üst düzey etki toosupport gerekiyorsa hello kullanmalısınız **SupportMultipleDomain** geçiş herhangi cmdlet'lerle. Daha fazla bilgi için bkz: [birden çok üst düzey etki alanı için destek](active-directory-aadconnect-multiple-domains.md).
 >
 >
 
 ## Azure AD Connect kullanarak Azure AD güvenini Onar<a name="connectrenew"></a>
-Azure AD Connect kullanarak AD FS grubu ve Azure AD güveni yapılandırdıysanız, belirteç imzalama sertifikaları için herhangi bir eylemde bulunmanız gerektiğinde algılamak için Azure AD Connect kullanabilirsiniz. Sertifikaları yenilemek gerekiyorsa, bunu yapmak için Azure AD Connect kullanabilirsiniz.
+Azure AD Connect kullanarak AD FS grubu ve Azure AD güveni yapılandırdıysanız, belirteç imzalama sertifikaları için herhangi bir eylem tootake gerekiyorsa, Azure AD Connect toodetect kullanabilirsiniz. Toorenew hello sertifikalar gerekiyorsa, Azure AD Connect toodo şekilde kullanabilirsiniz.
 
-Daha fazla bilgi için bkz: [güven onarma](active-directory-aadconnect-federation-management.md).
+Daha fazla bilgi için bkz: [hello güven onarma](active-directory-aadconnect-federation-management.md).

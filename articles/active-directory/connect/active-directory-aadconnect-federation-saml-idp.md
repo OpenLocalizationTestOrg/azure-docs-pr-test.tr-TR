@@ -12,87 +12,87 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 048697f87383662506fb851bb3ea510c2cddf043
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: f9653dc44fb284a9b3c1988f623c33f27ae148cc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Çoklu oturum açma için SAML 2.0 kimlik sağlayıcısı (IDP) kullanın
 
-Bu konudaki bilgileri içeren bir SAML 2.0 kullanımına uyumlu SP Lite profili kimlik sağlayıcısı olarak tercih edilen güvenlik belirteci hizmeti (STS) dayalı / kimlik sağlayıcısı. Zaten bir kullanıcı dizini ve SAML 2.0 kullanarak erişilen şirket içi depolama parola olduğu bu yararlı olur. Bu olan bir kullanıcı dizini, oturum açma Office 365 ve Azure AD güvenli kaynaklar için kullanılabilir. SAML 2.0 SP-Lite profili, bir oturum açma ve öznitelik exchange çerçeve sağlamak üzere yaygın olarak kullanılan güvenlik onaylama işlemi biçimlendirme dili (SAML) federe kimlik standardını temel temel alır.
+Bu konu, bilgiler içerir hello güvenlik belirteci hizmeti (STS) tercih edilen olarak SAML 2.0 kullanımına uyumlu SP Lite profili kimlik sağlayıcısı dayalı / kimlik sağlayıcısı. Zaten bir kullanıcı dizini ve SAML 2.0 kullanarak erişilen şirket içi depolama parola olduğu bu yararlı olur. Bu olan bir kullanıcı dizini, oturum açma 365 tooOffice ve diğer Azure AD güvenli kaynaklar için kullanılabilir. SAML 2.0 SP-profili hello üzerinde yaygın olarak dayanır Lite Hello güvenlik onaylama işlemi biçimlendirme dili (SAML) federe kimlik standart tooprovide bir oturum açma ve öznitelik exchange framework kullanılır.
 
 >[!NOTE]
->3. taraf Azure AD ile kullanmak için test Idps listesi için bkz: [Azure AD Federasyonu uyumluluk listesi](active-directory-aadconnect-federation-compatibility.md)
+>3. taraf için Azure AD ile kullanmak için test Idps hello listesini [Azure AD Federasyonu uyumluluk listesi](active-directory-aadconnect-federation-compatibility.md)
 
-Microsoft Office 365 gibi bir Microsoft bulut Hizmeti Tümleştirme olarak bu oturum açma deneyimini destekler, düzgün şekilde yapılandırılmış, SAML 2.0 ile IDP profiline dayalı. SAML 2.0 kimlik sağlayıcısı üçüncü taraf ürünleri olan ve bu nedenle Microsoft destek dağıtımı için yapılandırma, bunları ilgili en iyi uygulamaları sorunlarını giderme sağlamaz. Bir kez düzgün bir şekilde yapılandırılmış, SAML kimlik sağlayıcısı için uygun yapılandırma aşağıdaki daha ayrıntılı olarak açıklanan Microsoft bağlantı Çözümleyicisi aracını kullanarak test edilebilir 2.0 ile tümleştirme. SAML 2.0 SP-Lite profili tabanlı kimlik sağlayıcınızı hakkında daha fazla bilgi için onu sağlanan kuruluş isteyin.
+Microsoft Office 365 gibi bir Microsoft bulut hizmeti hello tümleştirilmesi olarak bu oturum açma deneyimini destekler, düzgün şekilde yapılandırılmış, SAML 2.0 ile IDP profiline dayalı. SAML 2.0 kimlik sağlayıcısı üçüncü taraf ürünleri olan ve bu nedenle Microsoft destek hello dağıtımı için yapılandırma, bunları ilgili en iyi uygulamaları sorunlarını giderme sağlamaz. Bir kez düzgün yapılandırıldığından hello tümleşme hello SAML 2.0 kimlik sağlayıcısı için uygun yapılandırma hello aşağıdaki daha ayrıntılı olarak açıklanan Microsoft bağlantı Çözümleyicisi aracını kullanarak test. SAML 2.0 SP-Lite profili tabanlı kimlik sağlayıcınızı hakkında daha fazla bilgi için onu sağlanan hello kuruluş isteyin.
 
 >[!IMPORTANT]
 >Bu, sınırlı sayıda istemciyle yalnızca bu senaryoda oturum açma SAML 2.0 kimlik sağlayıcısı ile kullanılabilir içerir:
 
 >- Outlook Web Access ve SharePoint Online gibi Web tabanlı istemciler
-- E-posta zengin istemciler, temel kimlik doğrulaması ve IMAP, POP, Active Sync, MAPI, (Gelişmiş istemci protokol uç noktası dağıtılması için gerekli değildir) vb. gibi desteklenen bir Exchange erişim yöntemi de dahil olmak üzere kullanır:
+- Temel kimlik doğrulaması ve IMAP, POP, Active Sync, MAPI, gibi desteklenen bir Exchange erişim yöntemi kullanan e-posta zengin istemcileri vb. (Merhaba uç noktasıdır dağıtılan gerekli toobe Gelişmiş istemci Protokolü) gibi:
     - Outlook 2013/Microsoft Outlook 2010/Outlook 2016, Apple iPhone (çeşitli iOS sürümleri)
     - Çeşitli Google Android cihazları
     - Windows Phone 7, Windows Phone 7,8 ve Windows Phone 8.0
     - Windows 8 posta istemcisi ve Windows 8.1 posta istemcisi
     - Windows 10 posta istemcisi
 
-Diğer tüm istemcileri, bu senaryoda oturum açma, SAML 2.0 kimlik sağlayıcısı ile kullanılamaz. Örneğin, Lync 2010 masaüstü istemcisi için çoklu oturum açmayı yapılandırılmış, SAML 2.0 kimlik sağlayıcısı ile hizmette oturum açabilmeniz değil.
+Diğer tüm istemcileri, bu senaryoda oturum açma, SAML 2.0 kimlik sağlayıcısı ile kullanılamaz. Örneğin, hello Lync 2010 masaüstü istemcisi için çoklu oturum açmayı yapılandırılmış, SAML 2.0 kimlik sağlayıcısı ile Merhaba hizmete mümkün toologin değil.
 
 ## <a name="azure-ad-saml-20-protocol-requirements"></a>Azure AD SAML 2.0 protokolü gereksinimleri
-Bu konu, ayrıntılı gereksinimler protokolü ve oturum açma bir veya daha fazla Microsoft bulut hizmetlerine (örneğin, Office 365) etkinleştirmek için Azure AD ile birleştirmek için SAML 2.0 kimlik sağlayıcısı uygulamalıdır biçimlendirme iletiyi içerir. Bu senaryoda kullanılan bir Microsoft bulut hizmeti için SAML 2.0 bağlı olan taraf (SP-STS) Azure AD ' dir.
+Bu konu, ayrıntılı gereksinimler hello iletişim kuralı ve ileti SAML 2.0 kimlik sağlayıcısı ile oturum açma Azure AD tooenable tooone toofederate ya da daha fazla Microsoft bulut hizmetlerine (örneğin, Office 365) uygulamalıdır biçimlendirme içerir. Bu senaryoda kullanılan bir Microsoft bulut hizmeti için Hello SAML 2.0 bağlı olan taraf (SP-STS) Azure AD ' dir.
 
-SAML 2.0 kimlik sağlayıcısı sağlamanız önerilir çıktı iletileri için sağlanan örnek izlemeleri kadar benzer mümkün olduğunca. Ayrıca, sağlanan belirli öznitelik değerlerinden kullanın Azure AD meta verileri, mümkün olduğunda. Çıktı iletilerinizi Mutluluk duyuyoruz sonra ile Microsoft bağlantı Çözümleyicisi'ni aşağıda açıklandığı gibi test edebilirsiniz.
+Kimlik sağlayıcısı çıkış örnek izlemeleri mümkün olduğunca sağlanan benzer toohello olarak mesajlarının, SAML 2.0 olun önerilir. Ayrıca, mümkün olduğunda sağlanan hello Azure AD meta verilerden belirli öznitelik değerlerini kullanın. Çıktı iletilerinizi mutluluk olduktan sonra aşağıda açıklandığı gibi Microsoft bağlantı Çözümleyicisi'ni hello ile test edebilirsiniz.
 
-Azure AD meta verileri bu URL'den indirilebilir: [https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml](http://https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml).
-Office 365 Çin özgü örneğini kullanan Çin'de müşteriler için aşağıdaki Federasyon bitiş noktasını kullanılmalıdır: [https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml](https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml).
+Hello Azure AD meta verileri bu URL'den indirilebilir: [https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml](http://https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml).
+Office 365 Çin özgü örneğini Çin kullanarak müşteriler hello için Federasyon uç noktası aşağıdaki hello kullanılmalıdır: [https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml](https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml).
 
 ## <a name="saml-protocol-requirements"></a>SAML protokolü gereksinimleri
-İstek ve yanıt iletisi çiftleri birlikte put nasıl ayrıntıları sipariş iletilerinizi doğru biçimlendirmek için yardımcı olması için bu bölümü.
+Bu bölüm ayrıntıları nasıl hello istek ve yanıt iletisi çiftleridir sipariş toohelp, tooformat bir araya iletilerinizi doğru.
 
-Azure AD, aşağıda listelenen bazı belirli gereksinimleri ile SAML 2.0 SP Lite profilini kullanan kimlik sağlayıcıları çalışmak üzere yapılandırılabilir. Otomatik ve el ile test birlikte örnek SAML istek ve yanıt iletileri kullanarak, Azure AD ile birlikte çalışabilirlik elde etmek için çalışabilir.
+Azure AD, aşağıda listelenen bazı belirli gereksinimleri ile Merhaba SAML 2.0 SP Lite profili kullanan kimlik sağlayıcıları ile yapılandırılmış toowork olabilir. Otomatik ve el ile test birlikte Merhaba örnek SAML istek ve yanıt iletileri kullanan, tooachieve birlikte çalışabilirlik Azure AD ile çalışabilirsiniz.
 
 ## <a name="signature-block-requirements"></a>İmza bloğu gereksinimleri
-SAML yanıt iletisi içinde imza düğüm iletinin dijital imza hakkında bilgi içerir. İmza bloğunu aşağıdaki gereksinimlere sahiptir:
+SAML yanıtını Hello içinde ileti hello imza düğümü hello dijital imza selamlama iletisine kendisi için ilgili bilgiler içerir. Merhaba imza bloğunu hello gereksinimlerine sahiptir:
 
-1. Onaylama işlemi düğüm imzalanmalıdır.
-2.  RSA sha1 algoritması DigestMethod kullanılmalıdır. Diğer dijital imza algoritması kabul edilmedi.
+1. Merhaba onaylama düğüm imzalanmalıdır.
+2.  Merhaba RSA sha1 algoritması DigestMethod hello olarak kullanılmalıdır. Diğer dijital imza algoritması kabul edilmedi.
    `<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>`
-3.  XML belgesi de kaydolabilirsiniz. 
-4.  Dönüştürme algoritmasını aşağıdaki örneği değerleri aynı olması gerekir.`<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+3.  Merhaba XML belgesi de kaydolabilirsiniz. 
+4.  Merhaba dönüştürme algoritması örnek aşağıdaki hello başlangıç değerleri aynı olması gerekir.`<ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
        <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>`
-9.  SignatureMethod'a algoritması aşağıdaki örnekle eşleşmesi gerekir:`<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>`
+9.  Merhaba SignatureMethod'a algoritması örnek aşağıdaki hello eşleşmesi gerekir:`<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>`
 
 ## <a name="supported-bindings"></a>Desteklenen bağlamaları
-Bağlamaları değil taşıma ilgili gerekli iletişimleri parametreleri. Aşağıdaki gereksinimleri bağlamaları için geçerlidir
+Bağlamaları değil hello aktarım ilgili gerekli iletişimleri parametreleri. hello gereksinimleri aşağıdaki toohello bağlamaları Uygula
 
-1. HTTPS gerekli Aktarım ' dir.
+1. HTTPS gerekli hello Aktarım ' dir.
 2.  Azure AD oturum açma sırasında belirteci gönderimi için HTTP POST gerektirir
-3.  Azure AD kimlik doğrulama isteğini yeniden yönlendirme ve kimlik sağlayıcısı kimlik sağlayıcısı için oturum kapatma iletisi için HTTP POST kullanır.
+3.  Azure AD hello oturum kapatma iletisi toohello kimlik sağlayıcısı için HTTP POST hello kimlik doğrulama isteği toohello kimlik sağlayıcısı ve yeniden yönlendirme için kullanır.
 
 ## <a name="required-attributes"></a>Gerekli öznitelikler
-Bu tablo belirli öznitelikler için gereksinimleri SAML 2.0 iletisinde gösterir.
+Bu tablo belirli öznitelikler için gereksinimleri hello SAML 2.0 iletisinde gösterir.
  
 |Öznitelik|Açıklama|
 | ----- | ----- |
-|NameID|Bu onay değeri Azure AD kullanıcının İmmutableıd ile aynı olması gerekir. En fazla 64 alfasayısal karakter olabilir. Güvenli olmayan HTML karakterler kodlanmış olmalıdır, örneğin "+" karakter ".2B" gösterilir.|
-|IDPEmail|Kullanıcı asıl adı (UPN) listelenen Azure AD/Office 365'te kullanıcının UserPrincipalName (UPN) budur IDPEmail ada sahip bir öğe olarak SAML yanıt. UPN, e-posta adresi biçime sahip. Windows Office 365 (Azure Active Directory) UPN değeri.|
-|Veren|Bu, kimlik sağlayıcısı, bir URI olması gereklidir. Örnek iletileri verenden yeniden kullanmamalısınız. Veren, Azure AD kiracılar birden çok üst düzey etki alanı varsa, etki alanı başına yapılandırılmış belirtilen URI ayarı eşleşmesi gerekir.|
+|NameID|Bu onaylama Hello değerini gerekir olması hello hello Azure AD kullanıcının İmmutableıd aynıdır. Too64 alfa sayısal karakterler olabilir. Güvenli olmayan HTML karakterler kodlanmış olmalıdır, örneğin "+" karakter ".2B" gösterilir.|
+|IDPEmail|Merhaba kullanıcı asıl adı (UPN) listelenen hello sahip bir öğe adı IDPEmail bu hello SAML yanıt hello kullanıcının UserPrincipalName (UPN) Azure AD/Office 365'te aynıdır. Merhaba UPN e-posta adresi biçimindedir. Windows Office 365 (Azure Active Directory) UPN değeri.|
+|Veren|Gerekli toobe hello kimlik sağlayıcısı URI'sini budur. Merhaba veren hello örnek iletilerden yeniden kullanmamalısınız. Veren eşleşmelidir, Azure AD kiracılar hello birden çok üst düzey etki alanı varsa, etki alanı başına yapılandırılmış URI ayarı hello belirtildi.|
 
 >[!IMPORTANT]
->Şu anda Azure AD için SAML 2.0:urn:oasis:names:tc:SAML:2.0:nameid aşağıdaki NameID biçimi URI destekler-biçimi: kalıcı.
+>Şu anda Azure AD destekleyen SAML 2.0:urn:oasis:names:tc:SAML:2.0:nameid NameID biçimi URI aşağıdaki hello-biçimi: kalıcı.
 
 ## <a name="sample-saml-request-and-response-messages"></a>Örnek SAML istek ve yanıt iletileri
-Bir istek ve yanıt iletisi çift oturum açma ileti değişimi için gösterilir.
-Azure AD'den bir örnek SAML 2.0 kimlik sağlayıcısı için gönderilen bir örnek istek iletisi budur. Örnek SAML 2.0 kimlik sağlayıcısı Active Directory Federasyon Hizmetleri (AD FS) SAML-P protokolünü kullanmak üzere yapılandırılmış ' dir. Birlikte çalışabilirlik sınaması diğer SAML 2.0 kimlik sağlayıcıları ile tamamlandı.
+Bir istek ve yanıt iletisi çifti hello oturum açma ileti değişimi için gösterilir.
+Azure AD tooa örnek SAML 2.0 kimlik sağlayıcısı'ndan gönderilen bir örnek istek iletisi budur. Merhaba örnek SAML 2.0 kimlik sağlayıcısı Active Directory Federasyon Hizmetleri (AD FS) toouse SAML-P Protokolü yapılandırıldı. Birlikte çalışabilirlik sınaması diğer SAML 2.0 kimlik sağlayıcıları ile tamamlandı.
 
     `<samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="_7171b0b2-19f2-4ba2-8f94-24b5e56b7f1e" IssueInstant="2014-01-30T16:18:35Z" Version="2.0" AssertionConsumerServiceIndex="0" >
     <saml:Issuer>urn:federation:MicrosoftOnline</saml:Issuer>
     <samlp:NameIDPolicy Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"/>
     </samlp:AuthnRequest>`
 
-Bu örnek SAML 2.0 uyumlu kimlik sağlayıcısından Azure AD ile gönderilen örnek yanıt iletisidir / Office 365.
+Merhaba örnek SAML 2.0 uyumlu kimlik sağlayıcısı tooAzure AD gönderilen bir örnek yanıt iletisi budur / Office 365.
 
     `<samlp:Response ID="_592c022f-e85e-4d23-b55b-9141c95cd2a5" Version="2.0" IssueInstant="2014-01-31T15:36:31.357Z" Destination="https://login.microsoftonline.com/login.srf" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified" InResponseTo="_049917a6-1183-42fd-a190-1d2cbaf9b144" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
     <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">http://WS2012R2-0.contoso.com/adfs/services/trust</Issuer>
@@ -146,60 +146,60 @@ Bu örnek SAML 2.0 uyumlu kimlik sağlayıcısından Azure AD ile gönderilen ö
     </samlp:Response>`
 
 ## <a name="configure-your-saml-20-compliant-identity-provider"></a>SAML 2.0 uyumlu kimlik sağlayıcısı yapılandırma
-Bu konu, tek oturum açma SAML 2.0 protokolünü kullanarak bir veya daha fazla Microsoft bulut hizmetlerine erişim (örneğin, Office 365) etkinleştirmek için Azure AD ile birleştirmek için SAML 2.0 kimlik sağlayıcısı yapılandırma hakkında yönergeler içerir. Azure AD bağlı olan taraf Bu senaryoda kullanılan bir Microsoft bulut hizmeti için SAML 2.0 olur.
+Bu konu, tooconfigure (Office 365 gibi), SAML 2.0 kimlik sağlayıcısı toofederate Azure AD tooenable tek oturum açma erişimini tooone veya daha fazla Microsoft bulut hizmetleri nasıl yönergeler içerir hello SAML 2.0 protokolü kullanarak. Merhaba SAML 2.0 bağlı olan taraf Bu senaryoda kullanılan bir Microsoft bulut hizmeti için Azure AD olur.
 
 ## <a name="add-azure-ad-metadata"></a>Azure AD meta verileri ekleme
-SAML 2.0 kimlik sağlayıcısı, bağlı olan taraf Azure AD ile ilgili bilgilere bağlı olması gerekiyor. Azure AD https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml konumundaki meta verilerini yayımlar.
+SAML 2.0 kimlik sağlayıcısı hello Azure AD bağlı olan taraf hakkında tooadhere tooinformation gerekir. Azure AD https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml konumundaki meta verilerini yayımlar.
 
-Her zaman en son Azure AD meta SAML 2.0 kimlik sağlayıcısı yapılandırırken içe olduğunu önerilir. Azure AD kimlik sağlayıcısı'ndan meta verileri okumaz unutmayın.
+Her zaman en son Azure AD hello meta SAML 2.0 kimlik sağlayıcısı yapılandırırken içe olduğunu önerilir. Azure AD hello kimlik sağlayıcısından meta verileri okumaz unutmayın.
 
 ## <a name="add-azure-ad-as-a-relying-party"></a>Azure AD bağlı olan taraf Ekle
-SAML 2.0 kimlik sağlayıcısı ve Azure AD arasındaki iletişimi etkinleştirmeniz gerekir. Bu yapılandırma, belirli bir kimlik sağlayıcısı bağımlı olur ve bu belgelere başvurmalıdır. Genellikle bağlı olan taraf kimliği Entityıd aynı Azure AD meta verilerini ayarlamanız.
+SAML 2.0 kimlik sağlayıcısı ve Azure AD arasındaki tooenable iletişimi var. Bu yapılandırma, belirli bir kimlik sağlayıcısı bağımlı olur ve bunun için toodocumentation başvurmalıdır. Genelde hello bağlı olan taraf kimliği toohello ayarlanan hello Azure AD meta verilerden hello Entityıd aynıdır.
 
 >[!NOTE]
->SAML 2.0 kimlik sağlayıcısı sunucunuzda saat için doğru zaman kaynağı eşitlendiğini doğrulayın. Yanlış bir saatin, federe oturum açma başarısız olmasına neden olabilir.
+>SAML 2.0 kimlik sağlayıcısı sunucunuzda Hello saati eşitlenmiş tooan doğru zaman kaynağı olduğundan emin olun. Yanlış bir saatin, federe oturum açma bilgileri toofail neden olabilir.
 
 ## <a name="install-windows-powershell-for-sign-on-with-saml-20-identity-provider"></a>SAML 2.0 kimlik sağlayıcısı ile oturum açma için Windows PowerShell yükleme
-Azure AD oturum açma ile kullanım için SAML 2.0 kimlik sağlayıcınız yapılandırdıktan sonra sonraki adım Azure Active Directory için Windows PowerShell modülü yükleyip olmaktır. Yüklendikten sonra Azure AD etki alanlarınızı Federasyon etki alanı yapılandırmak için bu cmdlet'leri kullanır.
+Azure AD oturum açma ile kullanım için SAML 2.0 kimlik sağlayıcınız yapılandırdıktan sonra hello sonraki toodownload ve yükleme hello Azure Active Directory için Windows PowerShell modülü adımdır. Bir kez yüklendikten sonra bu cmdlet'leri tooconfigure Federasyon etki alanı Azure AD etki alanlarınızı kullanır.
 
-Azure Active Directory için Windows PowerShell modülü, Azure AD'de Kuruluş verilerinizde yönetmeye yönelik bir yüklemedir. Bu modül için Windows PowerShell cmdlet'leri kümesini yükler; Azure ad çoklu oturum açma erişimini ayarlamak için bu cmdlet'leri çalıştırın ve ardından tüm bulut hizmetlerine abone olduğunuz. Cmdlet'leri yükleyip hakkında yönergeler için bkz: [http://technet.microsoft.com/library/jj151815.aspx](http://technet.microsoft.com/library/jj151815.aspx)
+Hello Azure Active Directory için Windows PowerShell modülü, Azure AD'de Kuruluş verilerinizde yönetmeye yönelik bir yüklemedir. Bu modül, PowerShell cmdlet'leri tooWindows kümesi yükler; Bu cmdlet tooset tek oturum açma erişimini tooAzure AD yukarı çalıştırın ve sırayla hello tooall bulut hizmetlerini abone olduğunuz. Toodownload ve yükleme cmdlet'lerini nasıl hello hakkında yönergeler için bkz: [http://technet.microsoft.com/library/jj151815.aspx](http://technet.microsoft.com/library/jj151815.aspx)
 
 ## <a name="set-up-a-trust-between-your-saml-identity-provider-and-azure-ad"></a>SAML kimlik sağlayıcısı ve Azure AD arasında güven oluşturma
-Azure AD etki alanı üzerinde Federasyon yapılandırmadan önce özel bir etki alanı yapılandırılmış olması gerekir. Microsoft tarafından sağlanan varsayılan etki alanını birleştiremeyiz. Varsayılan etki alanı Microsoft "onmicrosoft.com" ile sona erer.
-Cmdlet'leri bir dizi eklemek veya etki alanları için çoklu oturum açma dönüştürmek için Windows PowerShell komut satırı arabirimi çalıştırır.
+Azure AD etki alanı üzerinde Federasyon yapılandırmadan önce özel bir etki alanı yapılandırılmış olması gerekir. Microsoft tarafından sağlanan hello varsayılan etki alanını birleştiremeyiz. Microsoft'tan Hello varsayılan etki alanı "onmicrosoft.com" ile sona erer.
+Bir dizi cmdlet'leri hello Windows PowerShell komut satırı arabirimi tooadd çalıştırmadan veya etki alanları için çoklu oturum açma Dönüştür.
 
-SAML 2.0 kimlik sağlayıcısı kullanarak birleştirmek istediğiniz her bir Azure Active Directory etki alanı bir tek oturum açma etki olarak eklenmeli veya bir tek oturum açma etki alanından standart bir etki alanına dönüştürülmelidir. SAML 2.0 kimlik sağlayıcısı ve Azure AD arasında güven ekleme veya bir etki alanı dönüştürme ayarlar.
+SAML 2.0 kimlik sağlayıcısı kullanarak toofederate aşağıdakilerden birini yapmalısınız istediğiniz her bir Azure Active Directory etki alanı bir tek oturum açma etki alanı veya dönüştürülmüş toobe tek bir oturum açma etki standart bir etki alanından eklenmesi. SAML 2.0 kimlik sağlayıcısı ve Azure AD arasında güven ekleme veya bir etki alanı dönüştürme ayarlar.
 
-Aşağıdaki yordamda var olan bir standart etki SAML 2.0 SP-Lite kullanarak bir Federasyon etki alanına dönüştürme konusunda size yol gösterir. Etki alanınızı kullanıcılar için bu adımı sonraki 2 saat etkiler kesinti yaşayabilirsiniz unutmayın.
+Merhaba aşağıdaki yordam, SAML 2.0 SP-Lite kullanarak bir var olan standart bir etki alanı tooa Federasyon etki alanını dönüştürme konusunda size yol gösterir. Etki alanınızı too2 saat bu adımı sonra kullanıcıları etkiler kesinti yaşayabilirsiniz unutmayın.
 
 ## <a name="configuring-a-domain-in-your-azure-ad-directory-for-federation"></a>Federasyon için Azure AD dizininizdeki bir etki alanını yapılandırma
 
 
-1. Azure AD dizininizi bir kiracı yönetici olarak bağlanın: bağlanmak MsolService.
-2.  SAML 2.0 ile Federasyon kullanmak için istenen Office 365 etki alanınızı yapılandırın:`$dom = "contoso.com" $BrandName - "Sample SAML 2.0 IDP" $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" $MyURI = "urn:uri:MySamlp2IDP" $MySigningCert = @" MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" "@ $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" $Protocol = "SAMLP" Set-MsolDomainAuthentication -DomainName $dom -FederationBrandName $dom -Authentication Federated -PassiveLogOnUri $MyURI -ActiveLogOnUri $ecpUrl -SigningCertificate $MySigningCert -IssuerUri $uri -LogOffUri $url -PreferredAuthenticationProtocol $Protocol` 
+1. Tooyour Azure AD dizini bir kiracı yönetici olarak bağlanın: bağlanmak MsolService.
+2.  İstenen Office 365 etki alanı toouse Federasyon SAML 2.0 ile yapılandırın:`$dom = "contoso.com" $BrandName - "Sample SAML 2.0 IDP" $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" $MyURI = "urn:uri:MySamlp2IDP" $MySigningCert = @" MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" "@ $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" $Protocol = "SAMLP" Set-MsolDomainAuthentication -DomainName $dom -FederationBrandName $dom -Authentication Federated -PassiveLogOnUri $MyURI -ActiveLogOnUri $ecpUrl -SigningCertificate $MySigningCert -IssuerUri $uri -LogOffUri $url -PreferredAuthenticationProtocol $Protocol` 
 
-3.  İmzalama sertifikası base64 kodlu dize IDP meta veri dosyasından elde edebilirsiniz. Bu konum örneği sağlanmış olan ancak biraz uygulamanız göre farklılık gösterebilir.
+3.  Sertifika base64 kodlu dize IDP meta veri dosyanızdan imzalama hello elde edebilirsiniz. Bu konum örneği sağlanmış olan ancak biraz uygulamanız göre farklılık gösterebilir.
 
     `<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"> <KeyDescriptor use="signing"> <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#"> <X509Data> <X509Certificate>MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate> </X509Data> </KeyInfo> </KeyDescriptor>` 
 
 "Set-MsolDomainAuthentication" hakkında daha fazla bilgi için bkz: [http://technet.microsoft.com/library/dn194112.aspx](http://technet.microsoft.com/library/dn194112.aspx).
 
 >[!NOTE]
->Kullanım çalıştırmanız gerekir "$ecpUrl"https://WS2012R2-0.contoso.com/PAOS"=" Kimlik sağlayıcısı için ECP uzantı ayarlarsanız. Exchange Online istemciler, Outlook Web uygulaması (OWA) hariç Bel etkin uç noktası bir POST tabanlı. SAML 2.0 STS Shibboleth'ın ECP uyarlamasını bir etkin uç noktası için benzer bir etkin uç noktası uyguluyorsa Exchange Online hizmetiyle etkileşim kurmak bu zengin istemcileri için mümkün olabilir.
+>Kullanım çalıştırmanız gerekir "$ecpUrl"https://WS2012R2-0.contoso.com/PAOS"=" Kimlik sağlayıcısı için ECP uzantı ayarlarsanız. Exchange Online istemciler, Outlook Web uygulaması (OWA) hariç Bel etkin uç noktası bir POST tabanlı. SAML 2.0 STS bir etkin uç noktası bir etkin uç noktası benzer tooShibboleth's ECP uygulaması uyguluyorsa hello Exchange Online hizmeti ile bu zengin istemciler toointeract mümkün olabilir.
 
-Federasyon yapılandırıldıktan sonra geri "Federasyon olmayan" (veya "yönetilen"), ancak bu değişikliği tamamlamak için iki saat sürer geçiş yapabilirsiniz ve her kullanıcı için bulut tabanlı oturum açma için yeni rastgele parolaları atama gerektirir. Geri "yönetilen" geçiş bazı senaryolarda ayarlarınızda hata sıfırlamak için gerekebilir. Etki alanı dönüştürme hakkında daha fazla bilgi için bkz: [http://msdn.microsoft.com/library/windowsazure/dn194122.aspx](http://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
+Federasyon yapılandırıldıktan sonra geri çok "Federasyon olmayan" (veya "yönetilen"), ancak bu değişikliği tootwo saatleri toocomplete alır ve bulut için yeni rastgele parolaları atama tooeach oturum açma kullanıcı tabanlı gerektirir geçiş yapabilirsiniz. Yeniden geçiş yapmayı çok "yönetilen" olabilir ayarlarınızda hata bazı senaryolar tooreset gerekli. Etki alanı dönüştürme hakkında daha fazla bilgi için bkz: [http://msdn.microsoft.com/library/windowsazure/dn194122.aspx](http://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
 
-## <a name="provision-user-principals-to-azure-ad--office-365"></a>Azure ad kullanıcı ilkeleri sağlamak / Office 365
-Office 365 kullanıcılarınızın kimliğini doğrulamadan önce SAML 2.0 talep onaylama karşılık gelen kullanıcı ilkeleri ile Azure AD hazırlamanız gerekir. Bu kullanıcı ilkeleri önceden Azure AD ile bilinmiyorsa sonra bunlar federe oturum açma için kullanılamaz. Azure AD Connect veya Windows PowerShell, kullanıcı ilkeleri sağlamak için kullanılabilir.
+## <a name="provision-user-principals-tooazure-ad--office-365"></a>Kullanıcı ilkeleri tooAzure AD sağlamak / Office 365
+Kullanıcıların tooOffice 365 kimlik doğrulama gerçekleştirmeden önce Azure AD toohello onaylama hello SAML 2.0 içinde karşılık gelen sorumluları talep kullanıcıyla hazırlamanız gerekir. Bu kullanıcı ilkeleri tooAzure AD önceden bilinmiyorsa sonra bunlar federe oturum açma için kullanılamaz. Azure AD Connect veya Windows PowerShell kullanılan tooprovision kullanıcı ilkeleri olabilir.
 
-Azure AD Connect, şirket içi Active Directory'den Azure AD dizininizdeki etki alanlarınızı için asıl adlar sağlamak için kullanılabilir. Daha ayrıntılı bilgi için bkz: [şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md).
+Azure AD Connect kullanılan tooprovision sorumluları tooyour Azure AD dizininizi hello şirket içi Active Directory etki alanlarında olabilir. Daha ayrıntılı bilgi için bkz: [şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md).
 
-Windows PowerShell için Azure AD yeni kullanıcı ekleme otomatikleştirmek ve şirket içi dizin değişikliklerden eşitlemek için de kullanılabilir. İndirmeniz gerekir Windows PowerShell cmdlet'lerini kullanmak için [Azure Active Directory modülleri](https://docs.microsoft.com/powershell/azure/install-adv2?view=azureadps-2.0).
+Windows PowerShell de yeni kullanıcılar tooAzure AD ekleme kullanılan tooautomate olabilir ve hello şirket içi dizininden toosynchronize değiştirir. toouse hello hello indirmesi Windows PowerShell cmdlet'leri [Azure Active Directory modülleri](https://docs.microsoft.com/powershell/azure/install-adv2?view=azureadps-2.0).
 
-Bu yordamda, Azure AD ile tek bir kullanıcı eklemek gösterilmiştir.
+Bu yordam gösterir nasıl tooadd tek kullanıcı tooAzure AD.
 
 
-1. Azure AD dizininizi bir kiracı yönetici olarak bağlanın: bağlanmak MsolService.
+1. Tooyour Azure AD dizini bir kiracı yönetici olarak bağlanın: bağlanmak MsolService.
 2.  Yeni bir kullanıcı asıl oluşturun:` New-MsolUser
         -UserPrincipalName elwoodf1@contoso.com
         -ImmutableId ABCDEFG1234567890
@@ -213,55 +213,55 @@ Bu yordamda, Azure AD ile tek bir kullanıcı eklemek gösterilmiştir.
 "Yeni-MsolUser" kullanıma, hakkında daha fazla bilgi için [http://technet.microsoft.com/library/dn194096.aspx](http://technet.microsoft.com/library/dn194096.aspx)
 
 >[!NOTE]
->"UserPrinciplName" değeri "IDPEmail için" içinde SAML 2.0 talebi gönderecek değerle eşleşmelidir ve "İmmutableıd" değeri "NameID" değerinizi gönderilen değerle eşleşmelidir.
+>Merhaba "UserPrinciplName" değeri "IDPEmail" için SAML 2.0 talep ve Başlangıç "değeri"NameID"değerinizi gönderilen hello değeriyle eşleşmelidir İmmutableıd" göndereceğiniz hello değeriyle eşleşmelidir.
 
 ## <a name="verify-single-sign-on-with-your-saml-20-idp"></a>Çoklu oturum açma ile SAML 2.0 IDP doğrulayın
-Yönetici olarak doğrulayın ve çoklu oturum açma (Ayrıca çağrılan Kimlik Federasyonu) yönetmek için önce bilgileri gözden geçirin ve çoklu oturum açma SAML 2.0 SP-Lite tabanlı kimlik sağlayıcınız ile ayarlamak için aşağıdaki makalelerde adımları uygulayın:
+Merhaba yönetici olarak doğrulayın ve çoklu oturum açma (Ayrıca çağrılan Kimlik Federasyonu) yönetmek önce hello bilgileri gözden geçirin ve çoklu oturum açma, SAML 2.0 SP-Lite tabanlı kimlik sağlayıcısı ile yedekleme makaleleri tooset aşağıdaki hello hello adımları gerçekleştirin:
 
 
-1.  Azure AD SAML 2.0 protokolü gereksinimleri gözden geçirdikten
+1.  Hello Azure AD SAML 2.0 protokolü gereksinimleri gözden geçirdikten
 2.  SAML 2.0 kimlik sağlayıcısı yapılandırmış olduğunuz
 3.  SAML 2.0 kimlik sağlayıcısı ile çoklu oturum açma için Windows PowerShell yükleme
 4.  SAML 2.0 kimlik sağlayıcısı ve Azure AD arasında güven oluşturma
-5.  Bir bilinen test kullanıcı asıl Azure Active Directory (Office 365) için Windows PowerShell veya Azure AD Connect ile sağlandı.
+5.  Bir bilinen test kullanıcı asıl tooAzure Active Directory (Office 365), Windows PowerShell veya Azure AD Connect ile sağlandı.
 6.  Dizin eşitleme kullanarak yapılandırma [Azure AD Connect](active-directory-aadconnect.md).
 
 Çoklu oturum açma SAML 2.0 SP-tabanlı Lite kimliğinizi sağlayıcısı ile kurduktan sonra düzgün çalıştığını doğrulamanız gerekir.
 
 >[!NOTE]
->Eklenirken bir yerine bir etki alanı dönüştürülürse, çoklu oturum açmayı kurduğunuzda 24 saate kadar sürebilir.
+>Eklenirken bir yerine bir etki alanı dönüştürülürse too24 saatleri tooset çoklu oturum açma Yukarı Yukarı sürebilir.
 Çoklu oturum açmayı doğrulamak için önce Active Directory eşitleme kurulumunun tamamlanması, dizinlerinizi eşitleyin ve eşitlenmiş kullanıcıları etkinleştirme gerekir.
 
-### <a name="use-the-tool-to-verify-that-single-sign-on-has-been-set-up-correctly"></a>Bu çoklu oturum açma doğru olarak ayarlanmış olan doğrulamak için Aracı'nı kullanın
-Bu çoklu oturum açma doğru olarak ayarlanmış olan doğrulamak için bulut hizmeti şirket kimlik bilgilerinizle oturum açmak sorunsuz yaptığınızı doğrulamak için aşağıdaki yordamı gerçekleştirebilirsiniz.
+### <a name="use-hello-tool-tooverify-that-single-sign-on-has-been-set-up-correctly"></a>Çoklu oturum açmayı kullanmak hello aracı tooverify doğru olarak ayarlanmış
+tooverify, çoklu oturum açma doğru olarak ayarlanmış olan, şirket kimlik bilgilerinizle toohello bulut hizmetindeki mümkün toosign olduğunu yordamı tooconfirm aşağıdaki hello gerçekleştirebilirsiniz.
 
-Microsoft, SAML 2.0 tabanlı kimlik sağlayıcınızı test etmek için kullanabileceğiniz bir aracı sağlamıştır. Test aracı çalıştırmadan önce kimlik sağlayıcınız ile birleştirmek için Azure AD kiracısı yapılandırmış olmanız gerekir.
+Microsoft bir aracı sağlanan dayalı kimlik sağlayıcısı, SAML 2.0 tootest kullanabilirsiniz. Merhaba çalıştırmadan önce kimlik sağlayıcınız ile bir Azure AD Kiracı toofederate yapılandırılmış gerekir aracı test edin.
 
 >[!NOTE]
->Bağlantı Çözümleyicisi'ni Internet Explorer 10 veya üstünü gerektirir.
+>Merhaba bağlantı Çözümleyicisi'ni Internet Explorer 10 veya üstünü gerektirir.
 
 
 
-1. Bağlantı Çözümleyicisi'ni indirin [https://testconnectivity.microsoft.com/?tabid=Client](https://testconnectivity.microsoft.com/?tabid=Client).
-2.  Başlamak için Şimdi Yükle'yi tıklatın indiriliyor ve aracı yükleniyor.
+1. İndirme hello bağlantı Çözümleyicisi'ni, [https://testconnectivity.microsoft.com/?tabid=Client](https://testconnectivity.microsoft.com/?tabid=Client).
+2.  Şimdi Yükle toobegin indirme ve hello aracı Yükleme'yi tıklatın.
 3.  "I Office 365, Azure veya Azure Active Directory kullanan diğer hizmetler ile Federasyon ayarlayamazsınız" seçin.
-4.  Sonra aracı yüklenir ve çalışan, bağlantı tanılama penceresinde görürsünüz. Aracı Federasyon bağlantınızı test aracılığıyla adım.
-5.  Bağlantı Çözümleyicisi'ni, oturum açma, test ettiğiniz kullanıcı asıl adı için kimlik bilgilerini girmek, SAML 2.0 IDP açılır: ![SAML](media/active-directory-aadconnect-federation-saml-idp/saml1.png)
-6.  Federasyon test oturum açma penceresine SAML 2.0 kimlik sağlayıcınız ile birleştirilecek yapılandırılmış Azure AD kiracısı için bir hesap adı ve parola girmelisiniz. Aracı bu kimlik bilgilerini kullanarak oturum açın dener ve oturum açma denemesi sırasında gerçekleştirilen testleri ayrıntılı sonuçlarını çıkış olarak sağlanacaktır.
+4.  Merhaba aracı yüklenmiş ve çalışıyor olduğundan sonra hello bağlantı tanılama penceresinde göreceksiniz. Merhaba aracı Federasyon bağlantınızı test aracılığıyla adım.
+5.  Merhaba bağlantı Çözümleyicisi'ni, toologon, SAML 2.0 IDP açın, test ettiğiniz hello kullanıcı asıl adı için hello kimlik bilgilerini girin: ![SAML](media/active-directory-aadconnect-federation-saml-idp/saml1.png)
+6.  Federasyon Merhaba oturum açma penceresi SAML 2.0 kimlik sağlayıcınız ile Federasyon yapılandırılmış toobe olan hello Azure AD kiracısı için bir hesap adı ve parola girmelisiniz sınayın. Merhaba aracı toosign bileşenini bu kimlik bilgilerini kullanarak çalışır ve hello oturum açma girişimi sırasında gerçekleştirilen testleri ayrıntılı sonuçlarını çıkış olarak sağlanacaktır.
 ![SAML](media/active-directory-aadconnect-federation-saml-idp/saml2.png)
-7. Bu pencere sınama başarısız sonucunu gösterir. Ayrıntılı sonuçları gerçekleştirilen her testi sonuçlarıyla ilgili bilgileri gösterir İnceleme tıklayarak. Onları paylaşmak için diske sonuçları kaydedebilirsiniz.
+7. Bu pencere sınama başarısız sonucunu gösterir. Ayrıntılı sonuçları gerçekleştirildiği her test hello sonuçlarıyla ilgili bilgileri gösterir İnceleme tıklayarak. Merhaba sonuçları toodisk sipariş tooshare kaydedebilirsiniz bunları.
  
 >[!NOTE]
->Bağlantı Çözümleyicisi'ni kullanarak WS * Active Federasyon da test-tabanlı ve ECP/PAOS protokoller. Bunlar kullanmıyorsanız şu hatayı göz ardı edebilirsiniz: kullanan kimlik sağlayıcısının etkin Federasyon uç noktasını etkin oturum açma akışını test etme.
+>Merhaba bağlantı Çözümleyicisi'ni da etkin hello WS * kullanarak Federasyon test-tabanlı ve ECP/PAOS protokoller. Bunlar kullanmıyorsanız aşağıdaki hata hello göz ardı edebilirsiniz: Test hello oturum açma, kimlik sağlayıcısının etkin Federasyon endpoint kullanarak etkin akış.
 
 ### <a name="manually-verify-that-single-sign-on-has-been-set-up-correctly"></a>Bu çoklu oturum açma doğru olarak ayarlanmış olan el ile doğrulayın
-El ile doğrulama SAML 2.0 kimlik sağlayıcısı birçok senaryoda düzgün çalıştığından emin olmak için yapabileceğiniz ek adımları sağlar.
-Bu çoklu oturum açma doğru olarak ayarlanmış olan doğrulamak için aşağıdaki adımları tamamlayın:
+El ile doğrulama SAML 2.0 kimlik sağlayıcısı, birçok senaryoda düzgün çalıştığını tooensure yapabileceğiniz ek adımları sağlar.
+Çoklu oturum açmayı tooverify doğru olarak ayarlanmış, hello aşağıdaki tam adımlar:
 
 
-1. Bulut hizmetiniz için şirket kimlik bilgilerinizi kullanın aynı oturum açma adını kullanarak etki alanına katılmış bir bilgisayarda oturum açın.
-2.  Parola kutusunun içine tıklayın. Çoklu oturum açma ayarlandığından, parola kutusu gölgeli olur ve aşağıdaki iletiyi görürsünüz: "sırasında oturum açmak için artık gerekli <your company>."
-3.  Oturum açma tıklatın <your company> bağlantı. Oturum açabilir, ardından çoklu oturum açma ayarlanmış olması.
+1. Etki alanına katılmış bir bilgisayar üzerinde tooyour bulut Hizmeti'nde aynı oturum açma için şirket kimlik bilgilerinizi kullanın adınız hello kullanarak oturum açın.
+2.  Merhaba parola kutusunun içine tıklayın. Çoklu oturum açma ayarlandığından, hello parola kutusu gölgeli olacaktır ve iletiden hello görürsünüz: "konumunda ın gerekli toosign sunulmuştur <your company>."
+3.  Merhaba tıklatın adresinde oturum açın <your company> bağlantı. İçinde mümkün toosign varsa, ardından çoklu oturum açma ayarlanmış olması.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

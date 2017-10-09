@@ -1,0 +1,2 @@
+## <a name="additional-resources"></a>Ek kaynaklar
+Esnek veritabanı araçlarını henüz kullanmıyor musunuz? Kullanıma bizim [Başlarken Kılavuzu](../articles/sql-database/sql-database-elastic-scale-get-started.md).  Sorular için lütfen hello üzerinde toous ulaşmak [SQL veritabanı Forumu](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) ve özellik istekleri için lütfen toohello eklemesini [SQL veritabanı geri bildirim Forumunda](https://feedback.azure.com/forums/217321-sql-database/).

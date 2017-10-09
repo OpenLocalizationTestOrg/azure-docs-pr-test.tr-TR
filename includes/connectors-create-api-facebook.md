@@ -1,16 +1,16 @@
 ### <a name="prerequisites"></a>Ön koşullar
 * A [Facebook](https://www.facebook.com/) hesabı 
 
-Bir mantıksal uygulama Facebook hesabınızı kullanmadan önce Facebook hesabınıza bağlanmak için mantığı uygulamasını yetkilendirmeniz gerekir. Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz. 
+Bir mantıksal uygulama Facebook hesabınızı kullanabilmeniz için önce hello mantığı uygulama tooconnect tooyour Facebook hesabıyla yetkilendirmeniz gerekir. Neyse ki, kolayca hello Azure portalı üzerinde mantıksal uygulama içinde bunu yapabilirsiniz. 
 
-Mantıksal uygulamanızı Facebook hesabınıza bağlanmak için yetki vermek için adımlar şunlardır:
+Mantıksal uygulama tooconnect tooyour Facebook hesabıyla hello adımları tooauthorize şunlardır:
 
-1. Mantıksal Uygulama Tasarımcısı'nda Facebook, bir bağlantı oluşturmak için seçin **Göster Microsoft yönetilen API'ler** açılır listesinde enter *Facebook* arama kutusuna. Tetikleyici seçin veya eylem kullanmak ister:  
+1. Merhaba mantığı Uygulama Tasarımcısı'nda bir bağlantı tooFacebook toocreate seçin **Göster Microsoft yönetilen API'ler** Merhaba, açılan liste ardından girin *Facebook* hello arama kutusuna. Merhaba tetikleyici veya toouse beğendiğiniz eylem seçin:  
    ![Adım 1'in facebook](./media/connectors-create-api-facebook/facebook-1.png)
-2. Facebook önce bağlantılarına oluşturmadıysanız, Facebook kimlik bilgilerinizi girmeniz istendiğinde şunu. Bu kimlik bilgileri bağlanmak için mantıksal uygulamanızı yetkilendirmek için kullanılır ve Facebook hesabınızın veri erişim:  
+2. Tüm bağlantılar tooFacebook önce oluşturmadıysanız, Facebook kimlik bilgileriniz istendiğinde tooprovide elde edersiniz. Bu kimlik bilgileri, Logic app tooconnect kullanılan tooauthorize olması ve Facebook hesabınızın veri erişim:  
    ![facebook adım 2](./media/connectors-create-api-facebook/facebook-2.png)
-3. Facebook kullanıcı adı ve mantıksal uygulamanızı yetkilendirmek için parola sağlayın:  
+3. Facebook kullanıcı adı ve parola tooauthorize mantıksal uygulamanızı sağlar:  
    ![facebook adım 3](./media/connectors-create-api-facebook/facebook-3.png)   
-4. Bağlantı oluşturuldu ve artık bir mantıksal uygulamanızı adımlarda yüklemeye devam etmek ücretsiz dikkat edin:  
+4. Merhaba bağlantı oluşturulur ve mantıksal uygulamanızı ücretsiz tooproceed hello diğer sahip adımlarını artık olduğunuz dikkat edin:  
    ![facebook adım 4](./media/connectors-create-api-facebook/facebook-4.png)   
 

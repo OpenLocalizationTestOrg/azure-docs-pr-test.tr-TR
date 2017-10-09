@@ -1,6 +1,6 @@
 ---
-title: "Market veri hizmeti oluşturmak için teknik ön koşullar | Microsoft Docs"
-description: "Dağıtma ve Azure Marketi satmak için veri hizmeti oluşturmak için gereksinimleri anlama"
+title: "aaaTechnical hello Market için veri hizmeti oluşturmak için ön koşullar | Microsoft Docs"
+description: "Veri Hizmeti toodeploy oluşturmak için hello gereksinimleri anlamak ve Azure Marketi hello üzerinde satmak"
 services: marketplace-publishing
 documentationcenter: 
 author: HannibalSII
@@ -14,56 +14,56 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-ms.openlocfilehash: 52827723477677bc292c645e2390c435fbad3ee4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2bba4282473fed63c3fcab43043a97e179705844
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="technical-pre-requisites-for-creating-a-data-service-offer-for-the-azure-marketplace"></a>Veri Hizmeti oluşturmak için teknik ön koşullar için Azure Marketi teklifi
+# <a name="technical-pre-requisites-for-creating-a-data-service-offer-for-hello-azure-marketplace"></a>Veri Hizmeti oluşturmak için teknik ön koşullar hello Azure Marketi teklifi
 > [!IMPORTANT]
-> **Şu anda artık ekleme duyuyoruz herhangi yeni veri hizmeti yayımcılar. Yeni dataservices listesine onaylanmamış.** Üzerinde AppSource yayımlamak istediğiniz bir SaaS iş uygulaması varsa daha fazla bilgi bulabilirsiniz [burada](https://appsource.microsoft.com/partners). Bir Iaas uygulamalar varsa veya Azure marketi, yayımlamak istediğiniz Geliştirici hizmet, daha fazla bilgi bulabilirsiniz [burada](https://azure.microsoft.com/marketplace/programs/certified/).
+> **Şu anda artık ekleme duyuyoruz herhangi yeni veri hizmeti yayımcılar. Yeni dataservices listesine onaylanmamış.** Bir SaaS iş uygulaması varsa toopublish istediğiniz AppSource hakkında daha fazla bilgi bulabilirsiniz [burada](https://appsource.microsoft.com/partners). Bir Iaas uygulamalar varsa veya Geliştirici hizmeti misiniz Azure Market'te toopublish gibi daha fazla bilgi bulabilirsiniz [burada](https://azure.microsoft.com/marketplace/programs/certified/).
 > 
 > 
 
-İşlemi başlamadan önce baştan sona okuyun ve nerede ve neden her adım gerçekleştirilir anlayın. Mümkün olduğunca, şirket bilgilerinizi ve diğer verileri hazırlama, gerekli Araçları'nı indirmek ve/veya teknik bileşenleri teklifi oluşturma işlemi başlamadan önce oluşturun.
+Merhaba işlemi başlamadan önce baştan sona okuyun ve nerede ve neden her adım gerçekleştirilir anlayın. Mümkün olduğunca, şirket bilgilerinizi ve diğer verileri hazırlama, gerekli Araçları'nı indirmek ve/veya teknik bileşenleri hello teklif oluşturma işlemi başlamadan önce oluşturun.
 
-Aşağıdaki öğeler işlemine başlamadan önce hazır olmalıdır:
+Merhaba aşağıdaki öğelerindeki hello işlemine başlamadan önce hazır olması gerekir:
 
-## <a name="make-a-decision-on-what-technology-will-be-used-to-publish-your-data-service-offer"></a>Hangi teknoloji veri hizmeti teklifiniz yayımlamak için kullanılan üzerinde kararı
-Bir yayımcı veri hizmeti Azure Marketi'nde yayımlama sırasında birden çok teknolojileri arasında karar verebilirsiniz. Aşağıda açıklanan desteklenen ana teknolojileri. Ne olursa olsun hangi teknolojisi, veri hizmeti yayımlamak için kullanılır, son kullanıcı verilerine tüketir **OData akışı** Azure Market servisi tarafından açılmış. Tam üzerinde Bul OData hizmeti hakkında bilgi [http://www.odata.org/](http://www.odata.org/)
+## <a name="make-a-decision-on-what-technology-will-be-used-toopublish-your-data-service-offer"></a>Hangi teknolojisi kullanılan toopublish olacaktır üzerinde bir veri hizmeti teklifiniz kararı
+Bir yayımcı veri hizmeti Azure Marketi'nde yayımlama sırasında birden çok teknolojileri arasında karar verebilirsiniz. aşağıda açıklanan desteklenen hello ana teknolojileri. Ne olursa olsun hangi teknolojisi kullanılan toopublish hello veri hizmeti, hello son kullanıcı tüketir hello hello verilerine **OData akışı** Azure Market servisi tarafından açılmış. Tam üzerinde Bul OData hizmeti hakkında bilgi [http://www.odata.org/](http://www.odata.org/)
 
 ## <a name="sql-azure-database"></a>SQL Azure veritabanı
-Veri kümesi SQL Azure içinde hazır olan yayımcının sorumluluğundadır. Azure abone olmak için veritabanı uygun boyutta sağlamak ve verilerinizi SQL Azure Veritabanına karşıya gerekir. Yayımcı güncelleştirmesini verileri her zaman güncel tutmak için de sorumludur. Azure üzerinde bulabilir hizmetlerine abone olma hakkında daha fazla bilgi [https://azure.microsoft.com/services/sql-database/](https://azure.microsoft.com/services/sql-database/)
+Veri kümesi SQL Azure içinde hazır olan yayımcının sorumluluğundadır. Toosubscribe tooAzure gerekir veritabanı uygun boyutta sağlamak ve verilerinizi SQL Azure Veritabanına yükleyin. Yayımcı de sorumlu tookeep güncelleştirmesini her zaman güncel veridir. Üzerinde bulabilirsiniz tooAzure Hizmetleri abone olma hakkında daha fazla bilgi [https://azure.microsoft.com/services/sql-database/](https://azure.microsoft.com/services/sql-database/)
 
-Verileri SQL Azure taşırken, Azure Marketi tabloları ve görünümleri getirebilir. Yayımcı, hangi tabloları/görünümlerini ve sütunları son kullanıcıya sunulan belirtebilirsiniz. Daha fazla içerik sağlayıcısı Ayrıca son kullanıcı tarafından hangi sütunların sorgulanabilir ve hangilerinin yalnızca yükte döndürülür belirtebilirsiniz. Bu, yüksek düzeyde bir veritabanındaki verileri hakkında açılmamalıdır esneklik sağlar. Bir veya daha fazla veritabanı dizinlerini yedeklenmesi sorgulanabilir sütunları gerekir.
+Merhaba veri SQL Azure taşırken hello Azure Marketi tabloları ve görünümleri getirebilir. Merhaba yayımcı hangi tabloları/görünümlerini ve sütunların gösterilen toohello son kullanıcı olduğunu belirtebilirsiniz. Daha fazla hello içerik sağlayıcı hello son kullanıcı tarafından hangi sütunların sorgulanabilir ve hangilerinin yalnızca hello yükünde döndürülen de belirtebilirsiniz. Bu yüksek düzeyde bir hakkında hello veritabanındaki verileri açılmamalıdır esneklik sağlar. Bir veya daha fazla veritabanı dizinlerini tarafından yedeklenen toobe sorgulanabilir sütunları gerekir.
 
 ## <a name="rest-based-web-service"></a>REST tabanlı web hizmeti
 Desteklenen protokolü: **yalnızca HTTPS**
 
-Varolan REST tabanlı hizmetler Azure Marketi'nde gösterilebilir. Veri kümesi için son kullanıcı bir OData akışı olarak her zaman açık olduğu için bir OData hizmeti eşlemek için Azure Marketi hizmet gereksinimleri hizmeti temel. Uç noktaları REST tabanlı Bunu yapmak için tüm parametreleri HTTP parametre olarak kullanıma sunmak gerekir.
+Varolan REST tabanlı hizmetler hello Azure Market gösterilebilir. Bir OData akışı olarak hello Azure Marketi hizmet hello veri kümesi her zaman gösterilen toohello son kullanıcı olduğundan toobe mümkün toomap hizmet tooa göre OData hizmeti hello. uç noktaları Hello REST tabanlı şekilde toodo tüm parametreleri tooexpose HTTP parametre olarak gerekir.
 
-Yükü bir ATOM yanıtına eşlenebilir. bir biçimde olması gerekir. Bu nedenle Hizmetleri XML biçiminde ve yalnızca can olması gerekiyor yanıttan (ör. kayıt kümesi) yükü değerleri içeren bir yinelenen öğe içeriyor. Azure Marketi'nden hizmet yinelenen düğüm ATOM ve yükü değerleri girişi düğüme girişi düğümü içinde özellik düğümleri içine eşler.
+Merhaba yükü bir ATOM yanıtına eşlenebilir. bir biçimde toobe gerekir. Bu nedenle hello Hizmetleri hello yanıttan toobe XML biçiminde olmalıdır ve yalnızca hello yükü değerleri (ör. kayıt kümesi) içeren bir yinelenen öğe içerebilir. Hello Azure Marketi hizmet hello girişi düğümü içinde özellik düğümleri içine düğümü toohello girişi düğümü ATOM ve hello yükü değerleri yinelenen hello eşler.
 
-Yetkilendirme bilgileri (örneğin, kimlik doğrulama belirteci, vb. anahtar, API) HTTP parametresi olarak veya HTTP üstbilgisi (anahtar değer çifti) – temel kimlik doğrulaması da desteklenir sağlanan olması gerekir. Geçerli bir anahtar sağlanmalıdır ve Azure Market üzerinden tüm istekleri anahtara yapıldığını. İzleme ve faturalama kullanıcı Azure Marketi katmanında olur.
+Bir HTTP parametre olarak ya da hello HTTP üstbilgisinde (anahtar değer çifti) – temel kimlik doğrulaması da desteklenir sağlanan yetkilendirme bilgilerini (örneğin, kimlik doğrulama belirteci, vb. anahtar, API) toobe gerekir. Sağlanan toobe geçerli bir anahtar gerektiriyor ve bu anahtar tüm istekleri Azure Market üzerinden yapılan. İzleme ve faturalama kullanıcı hello Azure Marketi katmanında olur.
 
-Hizmet tarafından döndürülen hataları, HTTP durum kodları eşlenmesi gerekir. HTTP durum kodları için Azure Marketi hizmeti tarafından eşlenmesi bu adımıdır durumunda hata içeren bir XML hizmeti döndürür.
+Merhaba hizmeti tarafından döndürülen hataları, HTTP durum kodları eşlenen toobe gerekir. Merhaba hata içeren bir XML Hello hizmet verir durumda bunlar hello Azure Marketi hizmet tooHTTP durum kodları tarafından eşlenen toobe adımıdır.
 
 ## <a name="soap-based-web-services"></a>SOAP tabanlı web Hizmetleri
 Protokol: **yalnızca HTTPS**
 
-REST olduğu gibi aynı hizmet bölümü dayalı gereksinimleridir. Tek fark, parametreleri Publisher'ın hizmetine ile Azure Market üzerinden yapılan her isteği gönderiliyor bir XML gövdesinde de girilebilir ' dir. Bu, kullanıcı ön uç sağlar HTTP parametreleri XML öğelerine içerik sağlayıcının web hizmeti için istekle birlikte gönderilen XML belgesinin çevrildiğini anlamına gelir.
+aynı hello REST tabanlı hizmet bölümü olduğu gibi hello Hello gereksinimleri verilmiştir. Merhaba yalnızca parametreleri toohello Publisher'ın hizmeti ile Azure Market üzerinden yapılan her isteği gönderiliyor bir XML gövdesinde de girilebilir farktır. Başka bir deyişle, HTTP parametreleri hello kullanıcı XML öğelerine hello isteği toohello içerik sağlayıcının web hizmetiyle gönderilen XML belgesinin çevrilen hello ön uç sağlar.
 
 ## <a name="odata-based-web-services"></a>OData tabanlı web Hizmetleri
 Protokol: **yalnızca HTTPS**
 
-Verileri Azure Marketi'nde bir OData hizmeti olarak gösterilebilir. Sistem hizmeti aracılığıyla geçirmek için giderek ve tüm sonraki çağrılar Azure Market üzerinden Git emin olmak için Azure Marketi hizmet kök – hizmetinin kökü değiştirir.
+Verileri bir OData hizmeti tooAzure Market gösterilebilir. Merhaba sisteminiz giderek toopass hello hizmeti aracılığıyla ve hello hizmetinin hello kökü hello Azure Marketi hizmet kök – Azure Market üzerinden tüm sonraki çağrılar Git tooensure ile değiştirir.
 
-OData hizmetlerini yalnızca arka uç veritabanı karşı Git gerekmez. OData hizmet sürücü depolama veya iş mantığı her türlü destekler.
+OData hizmetlerini yalnızca hello arka uç veritabanı karşı toogo gerek yoktur. OData herhangi bir depolama veya iş mantığı toodrive hello hizmet türünü destekler.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Ön koşulları gözden geçirdikten ve gerekli görevleri tamamlandı artık, ileriye doğru veri hizmeti teklifiniz içinde ayrıntılı olarak oluşturmayla taşıyabilirsiniz [veri hizmeti yayımlama Kılavuzu](marketplace-publishing-data-service-creation.md).
+Merhaba önkoşulları gözden geçirdikten ve tamamlanan hello gerekli görevler artık, ileriye doğru veri hizmeti teklifiniz içinde ayrıntılı hello olarak oluşturma hello ile taşıyabilirsiniz [veri hizmeti yayımlama Kılavuzu](marketplace-publishing-data-service-creation.md).
 
-Veya genel işlem ve ilgili makaleler her yayımlama aşamaları için gözden geçirmek istiyorsanız, lütfen makalede ziyaret [Başlarken: bir teklifi Azure Marketinde yayımlama](marketplace-publishing-getting-started.md).
+Veya tooreview hello genel işlem ve hello ilgili makaleler her aşama yayımlama hello için isterseniz, lütfen hello makale ziyaret [Başlarken: nasıl toopublish bir teklif toohello Azure Marketi](marketplace-publishing-getting-started.md).
 
 [link-acct]:marketplace-publishing-accounts-creation-registration.md

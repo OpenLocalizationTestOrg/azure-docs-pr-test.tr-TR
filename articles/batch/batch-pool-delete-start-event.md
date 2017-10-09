@@ -1,5 +1,5 @@
 ---
-title: "Azure Batch havuzu delete başlangıç olayı | Microsoft Docs"
+title: "aaa \"Azure Batch havuzu delete başlangıç olayı | Microsoft Docs\""
 description: "Batch havuzu delete başlangıç olayı referansı."
 services: batch
 author: tamram
@@ -12,17 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: tamram
-ms.openlocfilehash: f8a5241dce422e5c826ab428da6d7bc93284a1cf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 79bb28bffc760a49cc0a95062f5086dc96c6a795
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="pool-delete-start-event"></a>Havuz delete başlangıç olayı
 
- Bir havuzu silme işlemi başlatıldığında bu olay yayınlanır. Zaman uyumsuz bir olay havuzu silme olduğuna göre silme işlemi tamamlandıktan sonra yayınlaması için bir havuz Sil Tamam olayını bekleyebilirsiniz.
+ Bir havuzu silme işlemi başlatıldığında bu olay yayınlanır. Zaman uyumsuz bir olay Hello havuzu silme olduğuna göre hello sildikten sonra işlemi yayılan bir havuzu Sil Tamam olayını toobe tamamlandıktan bekleyebilirsiniz.
 
- Aşağıdaki örnek, havuzu silme başlangıç olayı gövdesi gösterir.
+ Merhaba aşağıdaki örnek havuzu silme başlangıç olayı hello gövdesi gösterir.
 
 ```
 {
@@ -32,4 +32,4 @@ ms.lasthandoff: 07/11/2017
 
 |Öğesi|Tür|Notlar|
 |-------------|----------|-----------|
-|id|Dize|Havuzun kimliği.|
+|id|Dize|Merhaba havuzun Hello kimliği.|

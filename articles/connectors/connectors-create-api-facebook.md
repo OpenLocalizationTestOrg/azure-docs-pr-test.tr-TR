@@ -1,6 +1,6 @@
 ---
-title: "Logic Apps içinde Facebook bağlayıcısını ekleyin | Microsoft Docs"
-description: "REST API parametrelerle Facebook bağlayıcısını genel bakış"
+title: "Mantıksal uygulamalarınızı aaaAdd hello Facebook bağlayıcısını | Microsoft Docs"
+description: "REST API parametrelerle hello Facebook bağlayıcısını genel bakış"
 services: 
 documentationcenter: 
 author: MandiOhlinger
@@ -15,34 +15,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: e10a30ccef3e81cb3d7749696453d82b8958d076
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 962c6ed5d36e465de9d485d50e5c6dca6d44f470
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-the-facebook-connector"></a>Facebook Bağlayıcısı ile çalışmaya başlama
-Facebook hesabına bağlanma ve gönderi, sayfa akışı ve daha fazla bilgi edinin. Facebook ile şunları yapabilirsiniz:
+# <a name="get-started-with-hello-facebook-connector"></a>Merhaba Facebook Bağlayıcısı ile çalışmaya başlama
+TooFacebook bağlanmak ve tooa zaman çizelgesi işlemleri sonrasında, sayfa akışı ve daha fazla bilgi edinin. Facebook ile şunları yapabilirsiniz:
 
-* Facebook alma verileri temel alan, iş akışınızı oluşturun. 
+* İş akışınız hello verileri Facebook Al esas oluşturun. 
 * Yeni bir posta alındığında bir tetikleyici kullanın.
-* Zaman Çizelgesi'sonrası kullanım Eylemler ve sayfa akışı alın. Bu eylemler bir yanıt ve çıkış diğer eylemler için kullanılabilir yapın. Örneğin, kendi zaman çizelgesi üzerinde yeni bir posta olduğunda bu posta ele ve Twitter akışınıza gönderim. 
+* Tooyour zaman çizelgesi sonrası kullanım Eylemler ve sayfa akışı alın. Bu eylemler bir yanıt ve hello çıkış diğer eylemler için kullanılabilir yapın. Örneğin, kendi zaman çizelgesi üzerinde yeni bir posta olduğunda bu posta ele ve tooyour Twitter akışı gönderme. 
 
 Bir mantıksal uygulama'yi şimdi oluşturmaya başlamak, bkz: [mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## <a name="create-a-connection-to-facebook"></a>Facebook bağlantı oluşturun.
-Bu bağlayıcı mantıksal uygulamalarınızı eklediğinizde, Facebook bağlanmak için logic apps yetkilendirmeniz gerekir.
+## <a name="create-a-connection-toofacebook"></a>Bir bağlantı tooFacebook oluşturma
+Bu bağlayıcı tooyour logic apps eklediğinizde, logic apps tooconnect tooyour Facebook yetkilendirmeniz gerekir.
 
-1. Facebook hesabınızda oturum açın
-2. Seçin **Authorize**ve logic apps, Facebook bağlanıp izin verin. 
+1. İçinde tooyour Facebook hesabıyla oturum açın
+2. Seçin **Authorize**, logic apps tooconnect izin ve, Facebook kullanın. 
 
-> [!INCLUDE [Steps to create a connection to Facebook](../../includes/connectors-create-api-facebook.md)]
+> [!INCLUDE [Steps toocreate a connection tooFacebook](../../includes/connectors-create-api-facebook.md)]
 > 
 
 
 ## <a name="connector-specific-details"></a>Bağlayıcı özgü ayrıntıları
 
-Tüm tetikleyiciler ve Eylemler swagger tanımlanan görüntüleyebilir ve ayrıca herhangi bir sınır bkz [Bağlayıcısı ayrıntıları](/connectors/facebook/).
+Tüm tetikleyiciler ve Eylemler hello swagger içinde tanımlanan görüntüleyebilir ve ayrıca hello herhangi bir sınır bkz. [Bağlayıcısı ayrıntıları](/connectors/facebook/).
 
 ## <a name="more-connectors"></a>Daha fazla bağlayıcılar
-Geri dönerek [API'leri listesi](apis-list.md).
+Toohello dönün [API'leri listesi](apis-list.md).

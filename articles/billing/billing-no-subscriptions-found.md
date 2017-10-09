@@ -1,6 +1,6 @@
 ---
-title: "Abonelik bulunamadı hatası Azure portalında veya Azure hesap merkezi oturum açmaya çalıştığınızda | Microsoft Docs"
-description: "Hayır abonelik bulunamadı hata oluşur. sorunu için çözüm sağlar Azure portalında veya Azure hesap merkezi ne zaman oturum açın."
+title: "aaaNo abonelik bulunamadı hatası toosign tooAzure portalında veya Azure hesap merkezi çalıştığınızda | Microsoft Docs"
+description: "Hayır abonelik bulunamadı hata oluşur. sorunu için Hello çözümü sağlar tooAzure portalı veya Azure hesap merkezi oturum açtığınızda."
 services: 
 documentationcenter: 
 author: genlin
@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: genli
-ms.openlocfilehash: a4ce9b219c05f8469379c2aac5241fcfffd16033
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: def4d4a1f883dd948fe8132f2d85abc4c23ae624
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="no-subscriptions-found-error-in-azure-portal-or-azure-account-center"></a>Abonelik Azure portalında veya Azure hesap merkezi hata bulunamadı
-Oturum açmaya çalıştığınızda "abonelik bulunamadı" hata iletisini alabilirsiniz [Azure portal](https://portal.azure.com/) veya [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions). Bu makalede, bu sorun için bir çözüm sağlar.
+Toohello toosign çalıştığınızda bir "abonelik bulunamadı" hata iletisini alabilirsiniz [Azure portal](https://portal.azure.com/) veya hello [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions). Bu makalede, bu sorun için bir çözüm sağlar.
 
 ## <a name="symptom"></a>Belirti
 
-Oturum açmaya çalıştığınızda [Azure portal](https://portal.azure.com/) veya [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions), aşağıdaki hata iletisini alıyorsunuz: "abonelik bulunamadı".
+Toohello toosign çalıştığınızda [Azure portal](https://portal.azure.com/) veya hello [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions), hello aşağıdaki hata iletisini alıyorsunuz: "abonelik bulunamadı".
 
 ## <a name="cause"></a>Nedeni
 
@@ -34,26 +34,26 @@ Hesabınızın yeterli izinleri yoksa, bu sorun oluşur.
 
 ## <a name="solution"></a>Çözüm
 
-Doğru yönetici olarak oturum açtığınızdan emin olun. Bir hesabı yönetici yalnızca hesap merkezi erişebilir. Hizmet yöneticileri (SA) ve ortak Yöneticiler (CA) yalnızca Azure portalından veya Klasik Azure portalı için erişim iznine sahip.
+Hello doğru yönetici olarak oturum açtığınızdan emin olun. Bir hesabı yönetici yalnızca hello hesap Merkezi'nde erişebilir. Hizmet yöneticileri (SA) ve ortak Yöneticiler (CA) erişim izni yalnızca toohello Azure portalında veya Klasik Azure portalı hello.
 
-### <a name="scenario-1-error-message-is-received-in-the-azure-portalhttpsportalazurecom"></a>Senaryo 1: Hata iletisi alındığında [Azure portalı](https://portal.azure.com)
+### <a name="scenario-1-error-message-is-received-in-hello-azure-portalhttpsportalazurecom"></a>Senaryo 1: Hello hata iletisi alındığında [Azure portalı](https://portal.azure.com)
 
-Bu sorunu gidermek için:
+toofix bu sorunu:
 
-* Hesabınızı sağ üst köşedeki tıklayarak doğru Azure directory seçildiğinden emin olun.
+* Azure directory hesabınıza hello üst sağ tıklayarak seçili doğru bu hello emin olun.
 
-  ![Üst dizini seçin Azure portalının sağ](./media/billing-no-subscriptions-found/directory-switch.png)
+  ![Merhaba SELECT hello dizininde hello Azure portal sağ üst](./media/billing-no-subscriptions-found/directory-switch.png)
 
-* Sağ Azure directory seçilir, ancak hata iletisini almaya devam [sahibi olarak eklenen hesabınızın](billing-add-change-azure-subscription-administrator.md).
+* Merhaba sağ Azure directory seçiliyse ancak hello hata iletisini almaya devam [sahibi olarak eklenen hesabınızın](billing-add-change-azure-subscription-administrator.md).
 
-### <a name="scenario-2-error-message-is-received-in-the-azure-account-centerhttpsaccountwindowsazurecomsubscriptions"></a>Senaryo 2: Hata iletisi alındığında [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions)
+### <a name="scenario-2-error-message-is-received-in-hello-azure-account-centerhttpsaccountwindowsazurecomsubscriptions"></a>Senaryo 2: Hello hata iletisi alındığında [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions)
 
-Kullandığınız hesabın hesap yöneticisi olup olmadığını denetleyin. Hesap Yöneticisi olan doğrulamak için aşağıdaki adımları izleyin:
+Merhaba hesabı hello Hesap Yöneticisi olup olmadığını denetleyin. Hesap Yöneticisi hello tooverify, şu adımları izleyin:
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Hub menüsünde seçin **abonelik**.
-3. Kontrol edin ve ardından istediğiniz aboneliği seçin **ayarları**.
-4. Seçin **özellikleri**. Aboneliğin Hesap Yöneticisi görüntülenen **Hesap Yöneticisi** kutusu.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
+2. Merhaba Hub menüsünde seçin **abonelik**.
+3. Toocheck istediğiniz ve ardından hello aboneliği seçin **ayarları**.
+4. Seçin **özellikleri**. hello aboneliğin Hesap Yöneticisi Hello hello görüntülenen **Hesap Yöneticisi** kutusu.
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
-Hala yardıma gereksiniminiz varsa [desteğine başvurun](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) hızla çözümlenen sorunu almak için. 
+Hala yardıma gereksiniminiz varsa [desteğine başvurun](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) sorunu Çözümlendi hızla tooget. 

@@ -1,6 +1,6 @@
 ---
-title: "Microsoft Azure Depolama'da Eşzamanlılığı Yönetme"
-description: "Blob, kuyruk, tablo ve Dosya Hizmetleri için eşzamanlılık yönetme"
+title: "aaaManaging eşzamanlılık Microsoft Azure depolama"
+description: "Nasıl toomanage eşzamanlılık hello Blob, kuyruk, tablo ve Dosya Hizmetleri"
 services: storage
 documentationcenter: 
 author: jasontang501
@@ -14,47 +14,47 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
-ms.openlocfilehash: 8b894af2f15cd22f04701c545d8250e20b99a094
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 277fbbb880906da6be67b2267ed5c8e457455bd1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Microsoft Azure Depolama'da Eşzamanlılığı Yönetme
 ## <a name="overview"></a>Genel Bakış
-Modern Internet tabanlı uygulamalar genellikle görüntüleme ve verileri aynı anda güncelleştirme birden çok kullanıcı sahiptir. Bu, uygulama geliştiricilerin kendi son kullanıcıları için özellikle birden çok kullanıcı aynı verileri nerede güncelleştirebilirsiniz senaryoları için öngörülebilir bir deneyim sağlamaya nasıl dikkatlice düşünün gerektirir. Geliştiriciler genellikle değerlendirir üç ana veri eşzamanlılık stratejisi vardır:  
+Modern Internet tabanlı uygulamalar genellikle görüntüleme ve verileri aynı anda güncelleştirme birden çok kullanıcı sahiptir. Bu uygulama geliştiricilerin toothink dikkatli bir şekilde nasıl tooprovide öngörülebilir bir deneyim tootheir son kullanıcılar, hakkında özellikle birden çok kullanıcı burada güncelleştirebilirsiniz senaryoları aynı hello için gerektirir veri. Geliştiriciler genellikle değerlendirir üç ana veri eşzamanlılık stratejisi vardır:  
 
-1. İyimser eşzamanlılık – bir güncelleştirme, güncelleştirme bir parçası olarak veri uygulama itibaren değişip değişmediğini doğrulayın gerçekleştiren bir uygulama bu verileri son okuyun. Bir wiki sayfa görüntüleme iki kullanıcı aynı sayfaya bir güncelleştirme yaparsanız Örneğin, ardından wiki platform ikinci güncelleştirmeyi ilk güncelleştirmesi – üzerine değildir ve her iki kullanıcı kendi güncelleştirme başarılı olup olmadığını anlamak emin olmalısınız. Bu strateji, web uygulamaları en sık kullanılır.
-2. Eşzamanlılık – bir güncelleştirme gerçekleştirmek için bir uygulama arayan bir kilit diğer kullanıcıların kilidi serbest kadar verileri güncelleştirme engelleyen bir nesne üzerinde olur. Örneğin, yalnızca ana güncelleştirmeleri nerede gerçekleştirecek ana/bağımlı veri çoğaltma senaryoda asıl genellikle özel bir kilit kimsenin güncelleştirebilirsiniz emin olmak için verileri zamanında uzun bir süre için tutar.
-3. Son yazıcı WINS – başka bir uygulama verileri bu yana uygulama ilk güncelleştirdi, doğrulamadan devam etmek tüm güncelleştirme işlemlerine izin veren bir yaklaşım verilerini okur. Bu strateji (veya bir resmi stratejisi eksikliği) genellikle veri birden çok kullanıcı aynı verilere erişecek hiçbir olasılığı olan yolu burada bölümlenmiş kullanılır. Bu da kısa süreli veri akışlarını burada işlenen yararlı olabilir.  
+1. İyimser eşzamanlılık – bir güncelleştirme, güncelleştirme bir parçası olarak hello veri Merhaba uygulaması itibaren değişip değişmediğini doğrulayın gerçekleştiren bir uygulama bu verileri son okuyun. Bir wiki sayfa görüntüleme iki kullanıcı bir güncelleştirme toohello yaparsanız, örneğin, aynı hello wiki platform hello ikinci güncelleştirmenin hello ilk güncelleştirmesi – üzerine yazmaz emin olmalısınız ve her iki kullanıcı kendi güncelleştirme başarılı olup olmadığını anlamak daha sonra sayfa. Bu strateji, web uygulamaları en sık kullanılır.
+2. Eşzamanlılık – tooperform bir güncelleştirme arayan bir uygulama, diğer kullanıcıların hello kilidi serbest kadar hello verileri güncelleştirme engelleyen bir nesne üzerinde bir kilit olur. Merhaba veri tooensure hiç kimsenin zamanında uzun bir süre güncelleştirmek için örneğin, yalnızca hello ana güncelleştirmeleri nerede gerçekleştirecek ana/bağımlı veri çoğaltma senaryoda hello ana genellikle özel bir kilit tutar.
+3. Son yazıcı WINS – tüm güncelleştirme işlemleri tooproceed Merhaba uygulaması ilk hello veri okuma beri hello verileri başka bir uygulama güncelleştirdi, doğrulamadan sağlayan bir yaklaşımdır. Bu strateji (veya bir resmi stratejisi eksikliği) genellikle veri birden çok kullanıcı hello erişecek hiçbir olasılığı olan yolu burada bölümlenmiş kullanılan aynı veri. Bu da kısa süreli veri akışlarını burada işlenen yararlı olabilir.  
 
-Bu makalede bu eşzamanlılık stratejileri üçü için birinci sınıf destek sağlayan Azure Storage platform geliştirme nasıl basitleştirir genel bir bakış sağlar.  
+Bu makalede bu eşzamanlılık stratejileri üçü için birinci sınıf destek sağlayarak hello Azure Storage platform geliştirme nasıl basitleştirir genel bir bakış sağlar.  
 
 ## <a name="azure-storage--simplifies-cloud-development"></a>Azure Storage – bulut geliştirme basitleştirir
-Depolama hizmetinin veri ekleme kaydeder veya güncelleştirme işlemi tüm daha fazla için verileri en son güncelleştirmeyi görürler erişir garanti bir güçlü tutarlılık modelini kapsayacak şekilde tasarlandığından iyimser ve kötümser eşzamanlılık için tam destek sağlamak yeteneğini farklı olmasına rağmen Azure depolama hizmeti tüm üç stratejileri destekler. Bir kullanıcı tarafından ve güncelleştirilmiş verileri, böylece tutarsızlıklar son kullanıcıların etkilemesini önlemek için istemci uygulamaları geliştirme karmaşıklaştırarak diğer kullanıcılar tarafından görülebilir yazma gerçekleştirildiğinde nihai tutarlılık modelini kullanan depolama platformları arasında bir gecikme vardır.  
+tasarlanmış tooembrace olduğunda garanti bir güçlü tutarlılık modeli olduğundan iyimser ve kötümser eşzamanlılık için kendi yeteneği tooprovide tam destek farklı olmasına rağmen tüm üç stratejileri, hello Azure depolama hizmeti destekler veri ekleme veya güncelleştirme işlemi tüm başka toothat verilere erişir son güncelleştirme hello görürsünüz depolama hizmeti işlemeleri hello. Nihai tutarlılık modelini kullanan depolama platformları yazma bir kullanıcı tarafından ne zaman gerçekleştirilen arasında bir gecikme olması ve hello güncelleştirildiği veri böylece sipariş tooprevent tutarsızlıklar istemci uygulamalarını geliştirme karmaşıklaştırarak diğer kullanıcılar tarafından görülebilir. Son kullanıcıları etkileyen.  
 
-Uygun eşzamanlılık stratejisi seçmenin yanı sıra geliştiriciler ayrıca bir depolama platform değişiklikler – özellikle de aynı nesneye işlemleri arasında nasıl yalıtır bilmeniz gerekir. Azure depolama hizmeti anlık görüntü yalıtımı yazma işlemlerini tek bir bölüm içinde eşzamanlı olarak gerçekleşecek şekilde okuma işlemleri izin vermek için kullanır. Diğer yalıtım düzeyi farklı olarak, tüm okuma verilerin tutarlı bir anlık görüntü gördüğünüz bile güncelleştirmeleri yaşanan – temelde son kabul edilen değerlerin bir güncelleştirme sırasında döndürerek işlem işleniyor sırada anlık görüntü yalıtımı garanti eder.  
+Ayrıca tooselecting uygun eşzamanlılık stratejisi geliştiriciler ayrıca bir depolama platform değişiklikleri – özellikle aynı işlemleri arasında nesne değişiklikleri toohello nasıl yalıtır bilmeniz gerekir. Hello Azure depolama hizmeti işlemleri toohappen yazma işlemlerini tek bir bölüm aynı anda okuma anlık görüntü yalıtım tooallow kullanır. Diğer yalıtım düzeyleri farklı olarak, anlık görüntü yalıtımı bile güncelleştirmeler – aslında bir güncelleştirme işlemi gerçekleştirilirken hello son kabul edilen değerler döndüren tarafından yaşanan sırada tüm okuma hello verilerin tutarlı bir anlık görüntü bkz güvence altına alır.  
 
 ## <a name="managing-concurrency-in-blob-storage"></a>Blob depolama alanına eşzamanlılık yönetme
-BLOB'ları ve blob hizmetinde kapsayıcıları erişimi yönetmek için ya da iyimser veya kötümser eşzamanlılık modelleriyle kullanmayı tercih edebilirsiniz. Bir strateji son yazma WINS açıkça belirtmezseniz varsayılandır.  
+İyimser veya kötümser eşzamanlılık toomanage erişim tooblobs modeller ve blob hizmeti kapsayıcılarında hello toouse tercih edebilirsiniz. Bir strateji açıkça belirtmezseniz, son WINS hello varsayılan yazar.  
 
 ### <a name="optimistic-concurrency-for-blobs-and-containers"></a>BLOB'ları ve kapsayıcıları için iyimser eşzamanlılık
-Depolama Birimi hizmeti depolanan her nesne için bir tanımlayıcı atar. Bu tanımlayıcı, bir nesne üzerinde her bir güncelleştirme işlemi gerçekleştirildiğinde güncelleştirilir. Tanımlayıcı, istemci HTTP Protokolü içinde tanımlanan ETag (varlık etiketi) üstbilgisi kullanarak bir HTTP GET yanıtında bir parçası olarak döndürülür. Böyle bir nesnenin bir güncelleştirmesi gerçekleştiren bir kullanıcı bir güncelleştirme yalnızca oluşacağını belirli bir koşulun yerine – bu durumda güncelleştirme isteğinde belirtilen ETag değeri depolama hizmetinde depolanan aynı olduğundan emin olmak depolama birimi hizmeti gerektiren bir "If-Match" üst bilgisi bir durumdur, emin olmak için koşullu üstbilgi birlikte özgün ETag gönderebilirsiniz.  
+Merhaba depolama hizmeti depolanan bir tanımlayıcı tooevery nesne atar. Bu tanımlayıcı, bir nesne üzerinde her bir güncelleştirme işlemi gerçekleştirildiğinde güncelleştirilir. Merhaba tanıtıcısı toohello istemci hello HTTP Protokolü içinde tanımlanan hello (varlık etiketi) ETag üstbilgisi kullanarak bir HTTP GET yanıtında bir parçası olarak döndürülür. Böyle bir nesne üzerinde bir güncelleştirme gönderebilirsiniz gerçekleştiren bir kullanıcı, bir güncelleştirme yalnızca oluşur belirli bir koşulun yerine – bu durumda hello hello depolama gerektiren bir "If-Match" üst bilgisi bir durumdur, koşullu üstbilgi tooensure birlikte özgün ETag hello Hizmet tooensure hello değeri hello hello güncelleştirme isteğinde belirtilen ETag olduğu hello hello depolama hizmeti depolanan aynıdır.  
 
-Bu işlem anahat aşağıdaki gibidir:  
+Bu işlemin Hello anahat aşağıdaki gibidir:  
 
-1. Bir blob Depolama hizmetinden alın, yanıt nesnesinin geçerli sürümü, depolama hizmetindeki tanımlayan bir HTTP ETag üstbilgi değeri içeriyor.
-2. Blob'ı güncelleştirdiğinizde, adım 1'de alınan ETag değeri içeren **IF-Match** hizmete gönderme isteği koşullu üstbilgi.
-3. Hizmet isteği ETag değeri blob geçerli ETag değeri ile karşılaştırır.
-4. BLOB geçerli ETag değeri ETag sürümünden farklı bir sürüm ise **IF-Match** hizmet isteği koşullu üstbilgisinde istemciye 412 hata döndürür. Bu, istemciye, istemcinin alınan bu yana başka bir işlem blob güncelleştirdi gösterir.
-5. BLOB geçerli ETag değeri ETag ile aynı sürüme ise **IF-Match** hizmet isteği koşullu üstbilgisinde istenen işlem gerçekleştirir ve yeni bir sürümü oluşturdu göstermek için blob geçerli ETag değeri güncelleştirir.  
+1. Bir blob hello Depolama hizmetinden alın, hello yanıt hello nesnesinin geçerli sürümü, hello hello depolama hizmetindeki tanımlayan bir HTTP ETag üstbilgi değeri içeriyor.
+2. Merhaba blob güncelleştirdiğinizde hello de 1. adımda alınan hello ETag değeri içeren **IF-Match** toohello hizmet gönderdiğiniz hello isteğinin koşullu üstbilgi.
+3. Merhaba hizmet hello istekteki hello ETag değeri hello hello blob geçerli ETag değeri ile karşılaştırır.
+4. Merhaba geçerli ETag değeri hello BLOB ETag hello hello daha farklı bir sürümü ise **IF-Match** hello isteğindeki hello hizmet koşullu üstbilgi toohello istemci 412 hata döndürür. Bu, başka bir işlem hello istemci, alınan bu yana hello blob güncelleştirdi toohello istemci gösterir.
+5. Merhaba geçerli hello blob değeri ETag aynı sürümde Merhaba, ETag hello hello **IF-Match** hello isteğindeki hello hizmet koşullu üstbilgi gerçekleştirir hello istenen işlemi ve güncelleştirmeleri hello hello blob geçerli ETag değeri tooshow yeni bir sürümü oluşturdu.  
 
-(İstemci depolama kitaplığı 4.2.0 kullanarak) aşağıdaki C# kod parçacığını nasıl oluşturulacağını basit bir örneği gösterir bir **IF-Match AccessCondition** , daha önce kopya alınan eklenmiş veya silinmiş bir blob özelliklerinden erişilen ETag değere göre. Daha sonra kullanır **AccessCondition** nesne olduğunda, blob güncelleştiriliyor: **AccessCondition** nesnesi ekler **IF-Match** isteği üstbilgisi. Başka bir işlem blob güncelleştirdi, blob hizmeti bir HTTP 412 (önkoşul başarısız oldu) durum iletisi döndürür. Tam örnek buradan indirebilirsiniz: [Azure Storage kullanarak eşzamanlılık yönetme](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).  
+Merhaba (Merhaba istemci depolama kitaplığı 4.2.0 kullanarak) aşağıdaki C# kod parçası nasıl basit bir örneği gösterir tooconstruct bir **IF-Match AccessCondition** hello hello olan blob özelliklerinden erişilen ETag değeri göre daha önce alınan ya da eklenen. Ardından hello kullanır **AccessCondition** nesne zaman onu hello blob güncelleştiriliyor: hello **AccessCondition** nesnesi ekler hello **IF-Match** üstbilgi toohello isteği. Başka bir işlem hello blob güncelleştirdi, hello blob hizmeti bir HTTP 412 (önkoşul başarısız oldu) durum iletisi döndürür. Merhaba tam örnek buradan indirebilirsiniz: [Azure Storage kullanarak eşzamanlılık yönetme](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).  
 
 ```csharp
-// Retrieve the ETag from the newly created blob
+// Retrieve hello ETag from hello newly created blob
 // Etag is already populated as UploadText should cause a PUT Blob call
-// to storage blob service which returns the etag in response.
+// toostorage blob service which returns hello etag in response.
 string orignalETag = blockBlob.Properties.ETag;
 
 // This code simulates an update by a third party.
@@ -65,10 +65,10 @@ blockBlob.UploadText(helloText);
 Console.WriteLine("Blob updated. Updated ETag = {0}",
 blockBlob.Properties.ETag);
 
-// Now try to update the blob using the orignal ETag provided when the blob was created
+// Now try tooupdate hello blob using hello orignal ETag provided when hello blob was created
 try
 {
-    Console.WriteLine("Trying to update blob using orignal etag to generate if-match access condition");
+    Console.WriteLine("Trying tooupdate blob using orignal etag toogenerate if-match access condition");
     blockBlob.UploadText(helloText,accessCondition:
     AccessCondition.GenerateIfMatchCondition(orignalETag));
 }
@@ -77,16 +77,16 @@ catch (StorageException ex)
     if (ex.RequestInformation.HttpStatusCode == (int)HttpStatusCode.PreconditionFailed)
     {
         Console.WriteLine("Precondition failure as expected. Blob's orignal etag no longer matches");
-        // TODO: client can decide on how it wants to handle the 3rd party updated content.
+        // TODO: client can decide on how it wants toohandle hello 3rd party updated content.
     }
     else
         throw;
 }  
 ```
 
-Depolama hizmeti için de destek ek koşullu üstbilgileri gibi içerir **If-Modified-Since**, **IF-Unmodified-Since** ve **If-None-Match** birleşimleri bunların yanı sıra. Daha fazla bilgi için bkz: [Blob hizmeti işlemleri için koşullu üstbilgileri belirtme](http://msdn.microsoft.com/library/azure/dd179371.aspx) konusuna bakın.  
+Merhaba depolama hizmeti için de destek içerir ek koşullu üstbilgileri gibi **If-Modified-Since**, **IF-Unmodified-Since** ve **If-None-Match** yanı bunların bileşimleri. Daha fazla bilgi için bkz: [Blob hizmeti işlemleri için koşullu üstbilgileri belirtme](http://msdn.microsoft.com/library/azure/dd179371.aspx) konusuna bakın.  
 
-Aşağıdaki tabloda koşullu üstbilgileri gibi kabul kapsayıcı işlemleri özetlenmektedir **IF-Match** istek ve yanıtta bir ETag değeri döndürür.  
+Merhaba aşağıdaki tabloda özetlenmiştir koşullu üstbilgileri gibi kabul hello kapsayıcı işlemleri **IF-Match** hello istek ve hello yanıt ETag değeri döndürür.  
 
 | İşlem | Kapsayıcı ETag değeri döndürür | Koşullu üstbilgileri kabul eder |
 |:--- |:--- |:--- |
@@ -100,9 +100,9 @@ Aşağıdaki tabloda koşullu üstbilgileri gibi kabul kapsayıcı işlemleri ö
 | Kira kapsayıcısı |Evet |Evet |
 | Liste BLOB'ları |Hayır |Hayır |
 
-(*) SetContainerACL tarafından tanımlanan izinleri önbelleğe alınır ve bu izinleri güncelleştirmeleri 30 yaymak için hangi dönemde güncelleştirmeleri tutarlı olması garanti edilmez saniye sürebilir.  
+Merhaba SetContainerACL tarafından tanımlanan (*) izinleri önbelleğe alınır ve güncelleştirmeleri toothese izinleri hangi dönemde güncelleştirmeleri değildir toopropagate toobe tutarlı garanti 30 saniye sürebilir.  
 
-Aşağıdaki tabloda koşullu üstbilgileri gibi kabul blobu işlemleri özetlenmektedir **IF-Match** istek ve yanıtta bir ETag değeri döndürür.
+Merhaba aşağıdaki tabloda özetlenmiştir koşullu üstbilgileri gibi kabul hello blobu işlemleri **IF-Match** hello istek ve hello yanıt ETag değeri döndürür.
 
 | İşlem | ETag değeri döndürür | Koşullu üstbilgileri kabul eder |
 |:--- |:--- |:--- |
@@ -123,14 +123,14 @@ Aşağıdaki tabloda koşullu üstbilgileri gibi kabul blobu işlemleri özetlen
 | Sayfa yerleştirin |Evet |Evet |
 | Sayfa aralıklarını alma |Evet |Evet |
 
-(*) Kira blob'u blob üzerinde ETag değiştirmez.  
+(*) Kira blob'u blob üzerinde hello ETag değiştirmez.  
 
 ### <a name="pessimistic-concurrency-for-blobs"></a>Eşzamanlılık BLOB'lar için
-Özel kullanım için bir blob kilitlemek için elde edebilirsiniz bir [kira](http://msdn.microsoft.com/library/azure/ee691972.aspx) üzerindeki. Bir kira aldığınızda, kira ne kadar süreyle ihtiyacınız belirtin: Bu için 15-60 saniye arasında bir değer veya sonsuz olduğu için özel bir kilit tutar olabilir. Genişletmek için sınırlı bir kira yenileme ve ile işiniz bittiğinde, tüm kira serbest bırakabilirsiniz. Bunlar sona erdiğinde blob hizmeti otomatik olarak sınırlı kira serbest bırakır.  
+elde toolock özel kullanım için bir blob, bir [kira](http://msdn.microsoft.com/library/azure/ee691972.aspx) üzerindeki. Bir kira aldığınızda, ne kadar süreyle kira hello belirtin: Bu için 15 too60 saniye arasında bir değer veya sonsuz hangi tutarlar tooan özel kullanım kilidi olabilir. İle işiniz bittiğinde ve tüm kira serbest bırakabilirsiniz sınırlı kira tooextend yenileyebilirsiniz. Bunlar sona erdiğinde hello blob hizmeti otomatik olarak sınırlı kira serbest bırakır.  
 
-Kira farklı eşitleme stratejileri desteklenmesi özel yazma dahil olmak üzere etkinleştir / okuma, özel yazma paylaşılan / özel okuma ve yazma paylaşılan / özel okuyun. Bir kira var. burada Depolama Birimi Hizmeti (put, ayarlayın ve silme işlemleri) yazma gerektirir tüm istemci uygulamaları bir kira kimliği ve yalnızca bir istemci aynı anda kullandığınızdan emin olmak Geliştirici exclusivity okuma işlemleri için sağlama ancak geçerli bir kira kimliğe sahip özel zorlar. Bir kira kimliği sonucu paylaşılan okuma içermez okuma işlemleri.  
+Kira desteklenen farklı eşitleme stratejileri toobe özel yazma dahil olmak üzere etkinleştir / okuma, özel yazma paylaşılan / özel okuma ve yazma paylaşılan / özel okuyun. Bir kira var. burada hello Depolama Birimi Hizmeti (put, ayarlayın ve silme işlemleri) yazma hello Geliştirici tooensure tüm istemci uygulamaları aynı anda yalnızca bir istemci ve bir kira kimliği kullanın gerektirir ancak exclusivity okuma işlemleri için sağlama özel zorlar. Geçerli bir kira kimliği vardır. Bir kira kimliği sonucu paylaşılan okuma içermez okuma işlemleri.  
 
-Aşağıdaki C# kod parçacığını bir blob 30 saniye için özel bir kira alınırken, blob içeriği güncelleştirme ve kira serbest bırakma bir örneği gösterir. Blob hizmeti zaten varsa geçerli bir kira blob üzerindeki yeni bir kira almaya çalıştığında, bir "HTTP (409) çakışma" durum sonucunu döndürür. Kullandığı aşağıdaki kod parçacığını bir **AccessCondition** blob depolama hizmetindeki güncelleştirmek için bir istek yaptığında, kiralama bilgileri yalıtan nesne.  Tam örnek buradan indirebilirsiniz: [Azure Storage kullanarak eşzamanlılık yönetme](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
+Merhaba aşağıdaki C# kod parçacığında 30 saniye kadar bir blob için özel bir kira alınırken, hello blob Merhaba içeriğine güncelleştirme ve hello kira serbest bırakma bir örneği gösterir. Zaten varsa geçerli bir kira hello blob üzerindeki tooacquire yeni bir kira çalıştığınızda, hello blob hizmeti bir "HTTP (409) çakışma" durum sonucunu döndürür. kullandığı aşağıdaki Hello kod parçacığını bir **AccessCondition** hello depolama hizmetinde bir istek tooupdate hello blob yaptığında tooencapsulate hello kiralama bilgilerini nesnesi.  Merhaba tam örnek buradan indirebilirsiniz: [Azure Storage kullanarak eşzamanlılık yönetme](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
 ```csharp
 // Acquire lease for 15 seconds
@@ -143,11 +143,11 @@ var accessCondition = AccessCondition.GenerateLeaseCondition(lease);
 blockBlob.UploadText(helloText, accessCondition: accessCondition);
 Console.WriteLine("Blob updated using an exclusive lease");
 
-//Simulate third party update to blob without lease
+//Simulate third party update tooblob without lease
 try
 {
     // Below operation will fail as no valid lease provided
-    Console.WriteLine("Trying to update blob without valid lease");
+    Console.WriteLine("Trying tooupdate blob without valid lease");
     blockBlob.UploadText("Update without lease, will fail");
 }
 catch (StorageException ex)
@@ -159,9 +159,9 @@ catch (StorageException ex)
 }  
 ```
 
-Bir yazma işlemi kiralık blob kira kimliği geçmeden çalışırsanız, istek 412 bir hata ile başarısız olur. Çağırmadan önce kira süresi dolarsa unutmayın **UploadText** yöntem, ancak hala kira kimliği geçişi, istek ile de başarısız bir **412** hata. Kira bitiş zamanları ve kira kimlikleri yönetme hakkında daha fazla bilgi için bkz: [kira blob'u](http://msdn.microsoft.com/library/azure/ee691972.aspx) REST belgeleri.  
+Hello kira kimliği geçmeden bir yazma işlemi kiralık blob çalışırsanız hello istek 412 bir hata ile başarısız olur. Merhaba, kiralama hello çağırmadan önce süresi Not **UploadText** yöntem, ancak hala hello kira kimliği geçişi, hello isteği ayrıca başarısız olan bir **412** hata. Merhaba kira bitiş zamanları ve kira kimlikleri yönetme hakkında daha fazla bilgi için bkz: [kira blob'u](http://msdn.microsoft.com/library/azure/ee691972.aspx) REST belgeleri.  
 
-Aşağıdaki blobu işlemleri kiraları eşzamanlılık yönetmek için kullanabilirsiniz:  
+Merhaba aşağıdaki blobu işlemleri kiraları toomanage eşzamanlılık kullanabilirsiniz:  
 
 * BLOB yerleştirme
 * BLOB alma
@@ -176,14 +176,14 @@ Aşağıdaki blobu işlemleri kiraları eşzamanlılık yönetmek için kullanab
 * Sayfa yerleştirin
 * Sayfa aralıklarını alma
 * Anlık görüntü Blob - kira kimliği bir kira varsa, isteğe bağlı
-* BLOB - bir kira hedef blob üzerindeki var olup olmadığını kimliği gerekli kira kopyalama
-* Sonsuz bir kira hedef blob üzerindeki var olup olmadığını kira kimliği durdurma kopyalama Blob - gerekli
+* BLOB - bir kira hello hedef blob üzerindeki var olup olmadığını kimliği gerekli kira kopyalama
+* Sonsuz bir kira hello hedef blob üzerindeki var olup olmadığını kira kimliği durdurma kopyalama Blob - gerekli
 * Kira blob'u  
 
 ### <a name="pessimistic-concurrency-for-containers"></a>Eşzamanlılık kapsayıcıları için
-Kiraları kapsayıcılarında BLOB olarak desteklenmesi aynı eşitleme stratejileri etkinleştirme (özel yazma / okuma, özel yazma paylaşılan / özel okuma ve yazma paylaşılan / özel okuma) ancak BLOB Depolama hizmetinin yalnızca silme işlemlerini exclusivity zorlar. Etkin bir kira kapsayıcıyla silmek için bir istemci silme isteği etkin kira Kimliğiyle eklemeniz gerekir. Kira kimliği dahil olmak üzere diğer tüm kapsayıcı işlemleri kiralık bir kapsayıcıda başarılı durumda olduklarını işlemleri paylaşılan. Güncelleştirme (put veya kümesi) veya okuma işlemleri exclusivity gerekliyse, ardından geliştiriciler aynı anda bir istemci geçerli bir kira kimliğe sahip yalnızca bir kira kimliği ve, tüm istemcilerin kullanın emin olmalısınız  
+Kiraları kapsayıcılarına hello BLOB'lar gibi aynı eşitleme stratejileri toobe desteklenmiyor etkinleştirmek (özel yazma / okuma, özel yazma paylaşılan / özel okuma ve yazma paylaşılan / özel okuma) ancak BLOB'lar hello depolama hizmeti yalnızca exclusivity zorlar üzerinde silme işlemleri. toodelete etkin bir kira ile bir kapsayıcı, bir istemci hello etkin kira hello silme isteği Kimliğiyle eklemeniz gerekir. Hello kira kimliği dahil olmak üzere diğer tüm kapsayıcı işlemleri kiralık bir kapsayıcıda başarılı durumda olduklarını işlemleri paylaşılan. Güncelleştirme (put veya kümesi) veya okuma işlemleri exclusivity gerekliyse, ardından geliştiriciler aynı anda bir istemci geçerli bir kira kimliğe sahip yalnızca bir kira kimliği ve, tüm istemcilerin kullanın emin olmalısınız  
 
-Aşağıdaki kapsayıcı işlemleri kiraları eşzamanlılık yönetmek için kullanabilirsiniz:  
+Merhaba aşağıdaki kapsayıcı işlemleri kiraları toomanage eşzamanlılık kullanabilirsiniz:  
 
 * Kapsayıcısını silmek
 * Kapsayıcı özellikleri Al
@@ -199,20 +199,20 @@ Daha fazla bilgi için bkz:
 * [Kira kapsayıcısı](http://msdn.microsoft.com/library/azure/jj159103.aspx)
 * [Kira blob'u](http://msdn.microsoft.com/library/azure/ee691972.aspx)
 
-## <a name="managing-concurrency-in-the-table-service"></a>Tablo hizmetinde eşzamanlılık yönetme
-Tablo hizmeti iyimser eşzamanlılık burada açıkça iyimser eşzamanlılık denetimleri gerçekleştirmek için seçtiğiniz gerekir blob hizmeti aksine varlıklarla çalışırken varsayılan davranış olarak denetler kullanır. Diğer tablo ve blob hizmetleri arasında blob hizmetiyle kapsayıcılar ve bloblar eşzamanlılığı yönetebilir ancak varlıklar eşzamanlılık davranışını yalnızca yönetebilir farktır.  
+## <a name="managing-concurrency-in-hello-table-service"></a>Eşzamanlılık hello tablo hizmeti yönetme
+Merhaba tablo hizmeti iyimser eşzamanlılık burada açıkça tooperform iyimser eşzamanlılık denetimleri seçmelisiniz hello blob hizmeti aksine varlıklarla çalışırken hello varsayılan davranış olarak denetler kullanır. Merhaba diğer hello tablo ve blob hizmetleri arasında hello blob hizmeti ile Merhaba kapsayıcılara ve blob'lara eşzamanlılığı yönetebilir ancak hello eşzamanlılık varlıkların davranışlarındaki yalnızca yönetebilir farktır.  
 
-İyimser eşzamanlılık kullanın ve tablo Depolama hizmetinden alınan bu yana başka bir işlem varlıkta değişiklik olmadığını denetlemek için tablo hizmeti bir varlık döndürdüğünde aldığınız ETag değeri kullanabilirsiniz. Bu işlem anahat aşağıdaki gibidir:  
+toouse iyimser eşzamanlılık ve başka bir işlem hello tablo Depolama hizmetinden alınan bu yana bir varlık değiştirilirse toocheck, hello tablo hizmeti bir varlık döndürdüğünde aldığınız hello ETag değeri kullanabilirsiniz. Bu işlemin Hello anahat aşağıdaki gibidir:  
 
-1. Bir varlık tablo Depolama hizmetinden alın, yanıt depolama hizmetindeki varlık ile ilişkili geçerli bir tanımlayıcı tanımlayan bir ETag değeri içeriyor.
-2. Varlık güncelleştirdiğinizde, zorunlu olarak 1. adımda alınan ETag değeri içeren **IF-Match** hizmete gönderme isteği üstbilgisi.
-3. Hizmet isteği ETag değeri varlık geçerli ETag değeri ile karşılaştırır.
-4. Varlık geçerli ETag değeri zorunlu ETag farklı ise **IF-Match** hizmet istek üstbilgisinde istemciye 412 hata döndürür. Bu, istemciye, istemcinin alınan bu yana başka bir işlem varlık güncelleştirdi gösterir.
-5. Varlık geçerli ETag değeri ETag zorunlu ile aynı olduğunda **IF-Match** istek üstbilgisinde veya **IF-Match** üst bilgiyi içeren joker karakter (*), hizmet istenen işlem gerçekleştirir ve güncelleştirilmiş göstermek için varlık geçerli ETag değeri güncelleştirir.  
+1. Bir varlık hello tablo Depolama hizmetinden alın, hello yanıt hello depolama hizmetindeki varlık ile ilişkili hello geçerli tanımlayıcı tanımlayan bir ETag değeri içeriyor.
+2. Merhaba varlık güncelleştirdiğinizde hello zorunlu de 1. adımda alınan hello ETag değeri içeren **IF-Match** toohello hizmet gönderdiğiniz hello isteği üstbilgisi.
+3. Merhaba hizmet hello istekteki hello ETag değeri hello varlık hello geçerli ETag değeri ile karşılaştırır.
+4. Merhaba geçerli ETag değeri hello varlığın hello zorunlu hello ETag farklı ise **IF-Match** hello isteği, hello hizmet üstbilgisinde toohello istemci 412 hata döndürür. Bu, başka bir işlem hello istemci, alınan bu yana hello varlık güncelleştirdi toohello istemci gösterir.
+5. Merhaba varlık Hello geçerli ETag değeri olan hello varsa ETag hello zorunlu hello aynı **IF-Match** hello istek veya hello üstbilgisinde **IF-Match** üstbilgisi hello joker karakter (*) hello hizmeti içerir gerçekleştirir hello istenen işlemi ve güncelleştirmeleri hello hello varlık tooshow güncelleştirilmiş geçerli ETag değeri.  
 
-Blob hizmeti, dahil etmek istemci tablo hizmeti gerektirdiğini Not bir **IF-Match** güncelleştirme isteği üstbilgisi. Ancak, bir koşulsuz zorlama mümkündür (son yazıcı WINS stratejisi) güncelleştirin ve istemci ayarlar eşzamanlılık denetimleri atlanmasına **IF-Match** joker karakter (*) istekteki üstbilgi.  
+Not Hello blob hizmeti hello istemci tooinclude hello tablo hizmeti gerektiren bir **IF-Match** güncelleştirme isteği başlığı. Ancak, olası tooforce bir koşulsuz olur (son yazıcı WINS stratejisi) güncelleştirin ve hello istemci hello ayarlarsa eşzamanlılık denetimlerini atlamak **IF-Match** üstbilgi toohello joker karakter (*) hello isteği.  
 
-Aşağıdaki C# kod parçacığını ya da daha önce oluşturulmuş veya güncelleştirilmiş kendi e-posta adresi alınan bir müşteri varlığı gösterir. İlk ekleme işlemi depoları ETag değeri veya müşteri nesnesindeki ve değiştirme işlemi yürüttüğünde örnek aynı nesne örneğini kullandığından, otomatik olarak ETag değeri eşzamanlılık ihlali denetlemek hizmet etkinleştirme geri tablo hizmetine gönderir. Başka bir işlem tablo depolama varlıkta güncelleştirdi, hizmeti bir HTTP 412 (önkoşul başarısız oldu) durum iletisi döndürür.  Tam örnek buradan indirebilirsiniz: [Azure Storage kullanarak eşzamanlılık yönetme](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
+C# kod parçacığında aşağıdaki hello ya da daha önce oluşturulmuş veya güncelleştirilmiş kendi e-posta adresi alınan bir müşteri varlığı gösterir. Merhaba ilk ekleme işlemi depoları hello ETag değeri veya hello müşteri nesnesindeki ve hello örnek kullandığından hello hello yürüttüğünde aynı nesne örneğini değiştirme işlemi, hello ETag değeri geri toohello tablo hizmeti otomatik olarak gönderir Merhaba hizmet toocheck eşzamanlılık ihlalleri için etkinleştiriliyor. Başka bir işlem tablo depolama hello varlık güncelleştirdi, hello hizmeti bir HTTP 412 (önkoşul başarısız oldu) durum iletisi döndürür.  Merhaba tam örnek buradan indirebilirsiniz: [Azure Storage kullanarak eşzamanlılık yönetme](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114).
 
 ```csharp
 try
@@ -231,13 +231,13 @@ catch (StorageException ex)
 }  
 ```
 
-Açıkça eşzamanlılık denetimi devre dışı bırakmak için ayarlamalısınız **ETag** özelliği **çalışan** nesnesine "*" değiştirme işlemini yürütmeden önce.  
+tooexplicitly hello eşzamanlılık denetimi devre dışı bırakmak, hello ayarlamalısınız **ETag** hello özelliğinin **çalışan** çok nesne "*" Merhaba değiştirme işlemini yürütmeden önce.  
 
 ```csharp
 customer.ETag = "*";  
 ```
 
-Aşağıdaki tabloda, tablo varlık işlemleri ETag değerleri kullanma özetlenmektedir:
+Merhaba aşağıdaki tabloda hello tablo varlık işlemleri ETag değerleri kullanma özetlenmektedir:
 
 | İşlem | ETag değeri döndürür | IF-Match istek üstbilgisi gerektirir |
 |:--- |:--- |:--- |
@@ -249,44 +249,44 @@ Aşağıdaki tabloda, tablo varlık işlemleri ETag değerleri kullanma özetlen
 | Ekleme veya değiştirme varlık |Evet |Hayır |
 | INSERT veya birleştirme varlık |Evet |Hayır |
 
-Unutmayın **ekleme veya değiştirme varlık** ve **ekleme veya birleştirme varlık** işlemleri yapıp *değil* tablo hizmetine bir ETag değeri göndermeyin her eşzamanlılık denetim gerçekleştirilemiyor.  
+Bu hello unutmayın **ekleme veya değiştirme varlık** ve **ekleme veya birleştirme varlık** işlemleri yapıp *değil* bir ETag değeri toohello göndermeyin her eşzamanlılık denetim gerçekleştirilemiyor Tablo hizmeti.  
 
-Genel tabloları kullanarak geliştiricilerin ölçeklenebilir uygulamalar geliştirirken üzerinde iyimser eşzamanlılık yararlanmalıdır. Kötümser kilitleme gerekirse tabloları erişen her tablo için atanmış bir blob atayın ve tabloda işletim önce blob üzerindeki bir kira yararlanmaya çalışan olduğunda bir yaklaşım geliştiriciler alabilir. Bu yaklaşım, tüm veri erişim yolları tabloda işletim önce kira elde emin olmak için uygulama gerektirir. Ayrıca, ölçeklenebilirlik için dikkat gerektiren 15 saniye minimum kira süresi olan unutmamalısınız.  
+Genel tabloları kullanarak geliştiricilerin ölçeklenebilir uygulamalar geliştirirken üzerinde iyimser eşzamanlılık yararlanmalıdır. Kötümser kilitleme gerekirse bir yaklaşım geliştiriciler tabloları erişme tooassign her tablo için atanmış bir blob olduğunda götürün ve hello tablosunda işletim önce tootake hello blob üzerinde bir kira deneyin. Bu yaklaşım hello uygulama tooensure tüm veri erişim gerektiren yolları elde hello kira önceki toooperating hello tablosunda. Ayrıca, ölçeklenebilirlik için dikkat gerektiren hello minimum kira süresi 15 saniye olduğuna dikkat edin.  
 
 Daha fazla bilgi için bkz:  
 
 * [Varlıklar üzerinde işlemler](http://msdn.microsoft.com/library/azure/dd179375.aspx)  
 
-## <a name="managing-concurrency-in-the-queue-service"></a>Kuyruk hizmetinde eşzamanlılık yönetme
-Hangi eşzamanlılık Çağrısı hizmetindeki bir sorun olduğu bir senaryo, burada birden çok istemciye iletilerin bir kuyruktan alıyor ' dir. Kuyruktan bir ileti alındığında, yanıt iletisi ve ileti silmek için gerekli bir pop giriş değeri içeriyor. İletiyi kuyruktan otomatik olarak silinmez, ancak bunu alındıktan sonra visibilitytimeout parametresi tarafından belirtilen zaman aralığı için diğer istemcilere görünür değil. İletiyi alır istemci ileti işlendikten sonra TimeNextVisible tarafından belirtilen süreden önce hesaplanır yanıt öğesinin visibilitytimeout parametre değeri temel alınarak silme bekleniyor. Visibilitytimeout değerini TimeNextVisible değerini belirlemek için hangi ileti alınır zaman eklenir.  
+## <a name="managing-concurrency-in-hello-queue-service"></a>Eşzamanlılık hello sıra hizmeti yönetme
+Hangi eşzamanlılık hello Çağrısı hizmetindeki bir sorun olduğu bir senaryo, burada birden çok istemciye iletilerin bir kuyruktan alıyor ' dir. Merhaba kuyruktan bir ileti alındığında hello yanıt selamlama iletisine ve gerekli toodelete hello iletisi pop giriş değeri içeriyor. Selamlama iletisine hello sıradan otomatik olarak silinmez, ancak bunu alındıktan sonra görünür tooother istemcileri hello visibilitytimeout parametresi tarafından belirtilen zaman aralığı hello olmadığı. Merhaba iletiyi alır hello istemci beklenen toodelete hello işlendikten sonra hello önce zaman hello tarafından TimeNextVisible öğesi yanıtının hello değerine göre hello visibilitytimeout hesaplanan Merhaba, belirtilen iletisidir parametre. visibilitytimeout Hello değeri toodetermine hello TimeNextVisible değerini toohello zaman hangi hello ileti alınan eklenir.  
 
-Sıra Hizmeti iyimser veya kötümser eşzamanlılık desteği yok ve bir ıdempotent şekilde işlenen iletileri bir sıradan alınan iletileri işleme neden istemcileri bu için emin olmalısınız. Bir son yazıcı WINS stratejisi SetQueueServiceProperties, SetQueueMetaData, SetQueueACL ve UpdateMessage gibi güncelleştirme işlemleri için kullanılır.  
+Merhaba sıra hizmeti iyimser veya kötümser eşzamanlılık desteği yok ve bir ıdempotent şekilde işlenen iletileri bir sıradan alınan iletileri işleme neden istemcileri bu için emin olmalısınız. Bir son yazıcı WINS stratejisi SetQueueServiceProperties, SetQueueMetaData, SetQueueACL ve UpdateMessage gibi güncelleştirme işlemleri için kullanılır.  
 
 Daha fazla bilgi için bkz:  
 
 * [Kuyruk hizmeti REST API'si](http://msdn.microsoft.com/library/azure/dd179363.aspx)
 * [İletileri alma](http://msdn.microsoft.com/library/azure/dd179474.aspx)  
 
-## <a name="managing-concurrency-in-the-file-service"></a>Dosya hizmeti eşzamanlılık yönetme
-Dosya hizmeti, iki farklı protokol uç noktalarını – SMB ve REST kullanarak erişilebilir. REST hizmeti İyimser kilitleme veya kötümser kilitleme desteği yoktur ve tüm güncelleştirmeleri bir son yazıcı WINS stratejisi izler. Dosya paylaşımları bağlama SMB istemcileri paylaşılan dosyaları – kötümser kilitleme gerçekleştirme yeteneğini de dahil olmak üzere erişimi yönetmek için dosya sistemi kilitleme mekanizmaları yararlanabilirsiniz. SMB istemcisi bir dosyayı açtığında dosya erişim ve Paylaşım belirtir modu. Dosya erişimi seçeneği "Yazma" veya "Okuma/yazma" bir dosya paylaşımı modu birlikte "None" dosya kapatılana kadar bir SMB istemci tarafından kilitleniyor dosyasında neden olur. SMB istemci kilitli dosyanın bulunduğu bir dosya REST işleminin denenmesi durumunda REST hizmeti hata kodu SharingViolation durum koduyla 409 (Çakışma) döndürür.  
+## <a name="managing-concurrency-in-hello-file-service"></a>Eşzamanlılık hello dosya hizmeti yönetme
+Merhaba dosya hizmeti, iki farklı protokol uç noktalarını – SMB ve REST kullanarak erişilebilir. Merhaba REST hizmeti İyimser kilitleme veya kötümser kilitleme için destek yok ve tüm güncelleştirmeleri bir son yazıcı WINS stratejisi izler. Dosya paylaşımları bağlama SMB istemcileri hello özelliği tooperform kötümser kilitleme dahil olmak üzere dosya sistemi kilitleme mekanizmaları toomanage erişim tooshared dosya – yararlanabilirsiniz. SMB istemcisi bir dosya açıldığında hello dosya erişim ve Paylaşım belirtir modu. Bir dosya erişimi seçeneğiyle "Yazma" veya "Okuma/yazma", "None" dosya paylaşımı modu ayarı hello dosya kapatılana kadar bir SMB istemci tarafından kilitleniyor hello dosyasında neden olur. SMB istemcisi kilitli hello dosya sahip olduğu bir dosyada REST işlemini denenirse hello REST hizmeti hata kodu SharingViolation durum koduyla 409 (Çakışma) döndürür.  
 
-SMB istemcisi silme için bir dosya açıldığında, bu dosyada açık tanıtıcıların bekleyen silme diğer tüm SMB istemci kadar kapalı olarak dosyayı işaretler. Bir dosya bekleyen silme olarak işaretlenmiş, ancak bu dosya üzerinde herhangi bir REST işlemi hata kodu SMBDeletePending durum koduyla 409 (Çakışma) döndürür. Dosyayı kapatmadan önce bekleyen silme bayrağı kaldırmak SMB istemcisi için olası olduğundan durum kodu 404 (bulunamadı) döndürülmez. Diğer bir deyişle, durum kodu 404 (bulunamadı), yalnızca dosya kaldırıldığında beklenir. Delete durumu bekleyen bir SMB dosya olarak kullanılırken, liste dosyaları sonuçlarında katılmaz olduğunu unutmayın. Ayrıca REST Dosya Sil ve REST dizin silme işlemlerini otomatik olarak uygulanır ve silme durumu yol açmamasını unutmayın.  
+SMB istemcisi silme için bir dosya açıldığında, bu dosyada açık tanıtıcıların bekleyen silme diğer tüm SMB istemci kadar kapalı olarak hello dosyayı işaretler. Bir dosya bekleyen silme olarak işaretlenmiş, ancak bu dosya üzerinde herhangi bir REST işlemi hata kodu SMBDeletePending durum koduyla 409 (Çakışma) döndürür. Merhaba SMB istemci tooremove hello bekleyen silme bayrağı önceki tooclosing hello dosya mümkün olduğundan, durum kodu 404 (bulunamadı) döndürülmez. Diğer bir deyişle, durum kodu 404 (bulunamadı), yalnızca Hello dosya kaldırıldığında beklenir. Delete durumu bekleyen bir SMB dosya olarak kullanılırken, sonuçları liste dosyaları hello katılmaz olduğunu unutmayın. Ayrıca hello REST Dosya Sil ve REST dizin silme işlemlerini otomatik olarak uygulanır ve bekleyen yol açmamasını Not durumu silin.  
 
 Daha fazla bilgi için bkz:  
 
 * [Dosya Yönetimi kilitler](http://msdn.microsoft.com/library/azure/dn194265.aspx)  
 
 ## <a name="summary-and-next-steps"></a>Özet ve sonraki adımlar
-Microsoft Azure depolama hizmeti, geliştiricilerin tehlikeye veya için verilen alın gelmiş eşzamanlılık ve veri tutarlılığı gibi temel tasarım varsayımları zorlanıyor zorlamadan en karmaşık çevrimiçi uygulamalar ihtiyaçlarını karşılamak üzere tasarlanmıştır.  
+Merhaba Microsoft Azure depolama hizmeti toomeet hello hello en karmaşık çevrimiçi uygulamalar ihtiyaçlarını tootake gelmiş geliştiriciler toocompromise veya zorlanıyor temel tasarım varsayımları eşzamanlılık ve veri tutarlılığı gibi zorlamadan tasarlanmış verilen için.  
 
-Bu Web Günlüğü'ndeki başvurulan tam örnek uygulama için:  
+Merhaba, bu Web Günlüğü'ndeki başvurulan örnek uygulama tamamlayın:  
 
 * [Azure Storage - örnek uygulaması kullanarak eşzamanlılık yönetme](http://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)  
 
 Azure Storage bakın hakkında daha fazla bilgi için:  
 
 * [Microsoft Azure depolama giriş sayfası](https://azure.microsoft.com/services/storage/)
-* [Azure Storage'a giriş](storage-introduction.md)
+* [Giriş tooAzure depolama](storage-introduction.md)
 * Başlarken depolama [Blob](storage-dotnet-how-to-use-blobs.md), [tablo](storage-dotnet-how-to-use-tables.md), [sıraları](storage-dotnet-how-to-use-queues.md), ve [dosyaları](storage-dotnet-how-to-use-files.md)
 * Depolama mimarisi – [Azure Storage: güçlü tutarlılık sahip yüksek oranda kullanılabilir bulut depolama hizmeti](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 

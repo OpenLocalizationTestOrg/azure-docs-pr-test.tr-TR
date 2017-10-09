@@ -1,6 +1,6 @@
 ---
-title: "Azure AD .NET web API'si Başlarken | Microsoft Docs"
-description: ".NET MVC web kimlik doğrulama ve yetkilendirme için Azure AD ile tümleşir API'si oluşturma."
+title: "aaaAzure AD .NET web API'si Başlarken | Microsoft Docs"
+description: "Nasıl toobuild .NET MVC web API, kimlik doğrulama ve yetkilendirme için Azure AD ile tümleşir."
 services: active-directory
 documentationcenter: .net
 author: dstrockis
@@ -15,63 +15,63 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: f44d75f45073a5d9aa9b1863ed227aba4efcf785
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 91c93e1fe18855f5648076e59e2ccf081eec34bc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="help-protect-a-web-api-by-using-bearer-tokens-from-azure-ad"></a>Azure AD'den taşıyıcı belirteçlerini kullanarak bir web API korunmasına yardımcı olma
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Korunan kaynaklara erişim sağlayan bir uygulama oluşturuyorsanız, bu kaynakları unwarranted erişimi engellemek nasıl bilmeniz gerekir.
-Basit ve basit bir web API OAuth 2.0 taşıyıcı erişimi kullanarak korunmasına yardımcı olmak yalnızca birkaç kod satırıyla belirteçler azure Active Directory (Azure AD) yapar.
+Tooprotected kaynaklara erişim sağlayan bir uygulama oluşturuyorsanız tooknow gereksinim nasıl tooprevent unwarranted toothose kaynaklarına erişim.
+Azure Active Directory (Azure AD), kolaylaştırır ve basit toohelp yalnızca birkaç kod satırıyla, OAuth 2.0 taşıyıcı erişim belirteçleri kullanarak web API'si koruyun.
 
-ASP.NET web uygulamalarında .NET Framework 4. 5 ' bulunan topluluk odaklı OWIN ara yazılımı Microsoft uyarlamasını kullanarak bu koruma gerçekleştirebilirsiniz. OWIN için burada kullanacağız bir "Yapılacaklar listesi" web API'si oluşturma:
+ASP.NET web uygulamalarında hello Microsoft .NET Framework 4. 5 ' dahil hello topluluk odaklı OWIN ara yazılımı uyarlamasını kullanarak bu koruma gerçekleştirebilirsiniz. OWIN toobuild "tooDo listesi" web API'sini burada kullanacağız:
 
 * API olan atayan korumalı.
-* Web API çağrıları geçerli erişim belirteci içeren doğrular.
+* Merhaba web API çağrıları geçerli erişim belirteci içeren doğrular.
 
-Yapmak listesi API'sine oluşturmak için önce gerekir:
+toobuild hello tooDo listesi API, önce yapmanız gerekir:
 
 1. Bir uygulamayı Azure AD'ye kaydedin.
-2. OWIN kimlik doğrulaması ardışık kullanmak için uygulama ayarlama.
-3. Web API'sini çağırmak için bir istemci uygulaması yapılandırın.
+2. Merhaba uygulama toouse hello OWIN kimlik doğrulaması ardışık ayarlayın.
+3. İstemci uygulama toocall hello web API'si yapılandırın.
 
-Başlamak için [uygulama çatıyı indirmeniz](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip) veya [tamamlanan örnek indirme](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Her bir Visual Studio 2013 çözümüdür. Ayrıca, uygulamanızın kaydedileceği Azure AD kiracısı gerekir. Zaten yoksa, [edinebileceğinizi öğrenin](active-directory-howto-tenant.md).
+başlatıldı, tooget [hello uygulama çatıyı indirmeniz](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip) veya [tamamlandı hello örnek indirme](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Her bir Visual Studio 2013 çözümüdür. Ayrıca, uygulamanızın hangi tooregister içinde Azure AD kiracısı gerekir. Zaten yoksa, [öğrenin nasıl tooget bir](active-directory-howto-tenant.md).
 
 ## <a name="step-1-register-an-application-with-azure-ad"></a>1. adım: bir uygulamayı Azure AD ile kaydedin.
-Güvenliğini sağlamaya yardımcı olmak için uygulamanızın, önce kiracınızda bir uygulama oluşturun ve birkaç temel bilgiler ile Azure AD sağlamak gerekir.
+toohelp güvenli uygulamanız, ilk kiracınızda toocreate uygulamanın gereksinim ve birkaç temel bilgiler ile Azure AD sağlayın.
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
 
-2. Üst çubuğunda hesabınızı tıklatın. İçinde **Directory** listesinde, Azure AD Kiracı uygulamanızı kaydetmek istediğiniz yeri seçin.
+2. Merhaba üst çubuğunda hesabınızı tıklatın. Merhaba, **Directory** listesinde, uygulamanızın hello Azure AD Kiracı tooregister istediğiniz yeri seçin.
 
-3. Tıklatın **daha Hizmetleri** sol bölmesinde ve seçip **Azure Active Directory**.
+3. Tıklatın **daha Hizmetleri** hello sol bölmesinde ve ardından **Azure Active Directory**.
 
 4. Tıklatın **uygulama kayıtlar**ve ardından **Ekle**.
 
-5. Komut istemlerini izleyin ve yeni bir **Web uygulaması ve/veya Web API**.
-  * **Ad** kullanıcılar uygulamanıza açıklar. Girin **hizmet listelemek için**.
-  * **Yeniden yönlendirme URI'si** uygulamanızı istedi herhangi bir belirtece döndürmek için Azure AD kullanır ve dize şeması bir birleşimidir. Girin `https://localhost:44321/` bu değer için.
+5. Merhaba komut istemlerini izleyin ve yeni bir **Web uygulaması ve/veya Web API**.
+  * **Ad** uygulama toousers açıklar. Girin **tooDo listesi hizmeti**.
+  * **Yeniden yönlendirme URI'si** herhangi belirteçler uygulamanızı istedi tooreturn Azure AD kullanır ve dize şeması bir birleşimidir. Girin `https://localhost:44321/` bu değer için.
 
-6. Gelen **ayarları** -> **özellikleri** sayfasında uygulamanız için uygulama kimliği URI'si güncelleştirin. Kiracı özgü bir tanımlayıcı girin. Örneğin, `https://contoso.onmicrosoft.com/TodoListService` girin.
+6. Merhaba gelen **ayarları** -> **özellikleri** sayfasında uygulamanız için uygulama kimliği URI'si hello güncelleştirin. Kiracı özgü bir tanımlayıcı girin. Örneğin, `https://contoso.onmicrosoft.com/TodoListService` girin.
 
-7. Yapılandırmayı kaydedin. Ayrıca istemci uygulamanızın kısa bir süre sonra kaydetmeniz gerekir çünkü portal kapatmayın.
+7. Merhaba yapılandırmayı kaydedin. Ayrıca tooregister istemci uygulamanızın kısa bir süre içinde gerekir çünkü hello portal kapatmayın.
 
-## <a name="step-2-set-up-the-app-to-use-the-owin-authentication-pipeline"></a>2. adım: uygulama OWIN kimlik doğrulaması ardışık kullanmak için ayarlama.
-Gelen istekleri ve belirteçleri doğrulamak için uygulamanızı Azure AD ile iletişim kurmak için ayarlamanız gerekir.
+## <a name="step-2-set-up-hello-app-toouse-hello-owin-authentication-pipeline"></a>2. adım: hello uygulama toouse hello OWIN kimlik doğrulaması ardışık ayarlayın
+toovalidate gelen istekleri ve belirteçler, Azure AD ile uygulama toocommunicate yukarı tooset gerekir.
 
-1. Başlamak için çözümü açın ve OWIN ara yazılımı NuGet paketleri Paket Yöneticisi konsolu kullanılarak TodoListService projeye ekleyin.
+1. toobegin, hello çözüm açın ve hello Paket Yöneticisi konsolu kullanarak hello OWIN ara yazılımı NuGet paketleri toohello TodoListService projesi ekleyin.
 
     ```
     PM> Install-Package Microsoft.Owin.Security.ActiveDirectory -ProjectName TodoListService
     PM> Install-Package Microsoft.Owin.Host.SystemWeb -ProjectName TodoListService
     ```
 
-2. Adlı TodoListService projesine OWIN başlangıç sınıfı ekleyin `Startup.cs`.  Projeye sağ tıklayın, **Ekle** > **yeni öğe**, arayın ve sonra **OWIN**. OWIN ara yazılımı, uygulamanız başlatıldığında `Configuration(…)` yöntemini çağırır.
+2. Adlı bir OWIN başlangıç sınıfı toohello TodoListService projesi eklemek `Startup.cs`.  Sağ hello proje, select **Ekle** > **yeni öğe**, arayın ve sonra **OWIN**. Merhaba OWIN ara yazılımı hello çağırılır `Configuration(…)` uygulamanız başladığında yöntemi.
 
-3. Sınıf bildirimi değiştirme `public partial class Startup`. Zaten bu sınıfın parçası sizin için başka bir dosyaya uyguladık. İçinde `Configuration(…)` yöntemi çağrısına duruma `ConfgureAuth(…)` web uygulamanız için kimlik doğrulaması ayarlamak için.
+3. Merhaba sınıf bildirimi çok değiştirmek`public partial class Startup`. Zaten bu sınıfın parçası sizin için başka bir dosyaya uyguladık. Merhaba, `Configuration(…)` yöntemi, çok çağırmaya`ConfgureAuth(…)` tooset web uygulamanız için kimlik doğrulaması ayarlama.
 
     ```C#
     public partial class Startup
@@ -83,7 +83,7 @@ Gelen istekleri ve belirteçleri doğrulamak için uygulamanızı Azure AD ile i
     }
     ```
 
-4. Dosyayı açmak `App_Start\Startup.Auth.cs` ve uygulamanıza `ConfigureAuth(…)` yöntemi. Sağladığınız parametreler `WindowsAzureActiveDirectoryBearerAuthenticationOptions` uygulamanız için Azure AD ile iletişim kurmak için koordinatları olarak hizmet verecektir.
+4. Açık hello dosya `App_Start\Startup.Auth.cs` ve hello uygulamak `ConfigureAuth(…)` yöntemi. Merhaba sağladığınız parametreler `WindowsAzureActiveDirectoryBearerAuthenticationOptions` , uygulama toocommunicate Azure AD ile koordinatları olarak hizmet verecektir.
 
     ```C#
     public void ConfigureAuth(IAppBuilder app)
@@ -97,7 +97,7 @@ Gelen istekleri ve belirteçleri doğrulamak için uygulamanızı Azure AD ile i
     }
     ```
 
-5. Kullanabileceğiniz artık `[Authorize]` denetleyicileri ve eylemleri JSON Web Token (JWT) taşıyıcı kimlik doğrulaması ile korumaya yardımcı olmak için öznitelikler. İşaretleme `Controllers\TodoListController.cs` bir authorize etiketiyle sınıfı. Bu sayfayı erişmeden önce oturum açmak için kullanıcının zorlar.
+5. Kullanabileceğiniz artık `[Authorize]` öznitelikleri toohelp denetleyicileri ve eylemleri JSON Web Token (JWT) taşıyıcı kimlik doğrulaması ile koruyun. Merhaba tasarlamanız `Controllers\TodoListController.cs` bir authorize etiketiyle sınıfı. Bu sayfaya erişmeden önce bu hello kullanıcı toosign zorlar.
 
     ```C#
     [Authorize]
@@ -105,51 +105,51 @@ Gelen istekleri ve belirteçleri doğrulamak için uygulamanızı Azure AD ile i
     {
     ```
 
-    Ne zaman bir yetkili çağıran başarıyla çağırır birini `TodoListController` API'leri, eylem çağıran hakkında bilgilere erişimi gerekebilir. OWIN taşıyıcı belirteci içinde talep erişim sağlar `ClaimsPrincpal` nesnesi.  
+    Ne zaman bir yetkili çağıran başarıyla çağırır hello birini `TodoListController` API'leri, hello eylem erişim tooinformation hello çağıran hakkında. OWIN sağlar erişim toohello talep hello taşıyıcı belirteci hello aracılığıyla içinde `ClaimsPrincpal` nesnesi.  
 
-6. Web API’lerine yönelik genel bir gereksinim, belirteçteki mevcut "kapsamların" doğrulanmasıdır. Bu kullanıcı yapmak listesi hizmete erişmek için gerekli izinleri seçtiği sağlar.
+6. Web API'leri için ortak bir gereksinim toovalidate hello "kapsamlar" Merhaba belirtecinde ' dir. Bu, o hello kullanıcı toohello izinleri gerekli tooaccess hello tooDo listesi hizmet verdiği sağlar.
 
     ```C#
     public IEnumerable<TodoItem> Get()
     {
-        // user_impersonation is the default permission exposed by applications in Azure AD
+        // user_impersonation is hello default permission exposed by applications in Azure AD
         if (ClaimsPrincipal.Current.FindFirst("http://schemas.microsoft.com/identity/claims/scope").Value != "user_impersonation")
         {
             throw new HttpResponseException(new HttpResponseMessage {
               StatusCode = HttpStatusCode.Unauthorized,
-              ReasonPhrase = "The Scope claim does not contain 'user_impersonation' or scope claim not found"
+              ReasonPhrase = "hello Scope claim does not contain 'user_impersonation' or scope claim not found"
             });
         }
         ...
     }
     ```
 
-7. Açık `web.config` dosya TodoListService proje kök dizininde ve yapılandırma değerlerinizi girin `<appSettings>` bölümü.
-  * `ida:Tenant`Azure AD kiracınıza--Örneğin, contoso.onmicrosoft.com adıdır.
-  * `ida:Audience`Azure portalında girdiğiniz uygulamanın uygulama kimliği URI'si değil.
+7. Açık hello `web.config` hello TodoListService proje hello kökünde bulunan dosya ve hello yapılandırma değerlerini girin `<appSettings>` bölümü.
+  * `ida:Tenant`Azure AD kiracınıza--Örneğin, contoso.onmicrosoft.com Hello adıdır.
+  * `ida:Audience`olan hello hello Azure portal girdiğiniz hello uygulamanın uygulama kimliği URI'si.
 
-## <a name="step-3-configure-a-client-application-and-run-the-service"></a>3. adım: bir istemci uygulamasını yapılandırma ve hizmet çalıştırma
-İçin yapmak listesi hizmetinde eylem görebilmeniz için öncelikle Azure AD'den belirteçleri almak ve hizmet çağrı yapmak için yapılacaklar listesi istemci yapılandırmanız gerekir.
+## <a name="step-3-configure-a-client-application-and-run-hello-service"></a>3. adım: bir istemci uygulamasını yapılandırma ve hello hizmeti çalıştırma
+Eylem hello tooDo listesi hizmeti görebilirsiniz önce Azure AD'den belirteçleri almak ve çağrıları toohello hizmeti hale tooconfigure hello tooDo listesi istemci gerekir.
 
-1. Geri dönerek [Azure portal](https://portal.azure.com).
+1. Toohello dönün [Azure portal](https://portal.azure.com).
 
-2. Azure AD kiracınızda yeni bir uygulama oluşturun ve seçin **yerel istemci uygulaması** elde edilen istemi.
-  * **Ad** kullanıcılar uygulamanıza açıklar.
-  * Girin `http://TodoListClient/` için **yeniden yönlendirme URI'si** değeri.
+2. Azure AD kiracınızda yeni bir uygulama oluşturun ve seçin **yerel istemci uygulaması** hello elde edilen isteminde.
+  * **Ad** uygulama toousers açıklar.
+  * Girin `http://TodoListClient/` hello için **yeniden yönlendirme URI'si** değeri.
 
-3. Kayıt işlemini tamamladıktan sonra Azure AD benzersiz uygulama kimliği uygulamanıza atar. Bu değer gerekir sonraki adımlarda bu nedenle uygulama sayfasından kopyalayın.
+3. Kayıt işlemini tamamladıktan sonra Azure AD benzersiz uygulama kimliği tooyour uygulama atar. Bu değer gerekir hello sonraki adımlarda, böylece hello uygulama sayfadan kopyalayın.
 
-4. Gelen **ayarları** sayfasında, **gerekli izinler**ve ardından **Ekle**. Bulun ve için yapmak listesi hizmeti seçin, eklemeniz **erişim TodoListService** altında izni **izinlere temsilci**ve ardından **Bitti**.
+4. Merhaba gelen **ayarları** sayfasında, **gerekli izinler**ve ardından **Ekle**. Bulun ve hello tooDo listesi hizmeti seçin, hello eklemeniz **erişim TodoListService** altında izni **izinlere temsilci**ve ardından **Bitti**.
 
-5. Visual Studio'da açın `App.config` TodoListClient içinde proje ve yapılandırma değerleriniz enter `<appSettings>` bölümü.
+5. Visual Studio'da açın `App.config` TodoListClient proje hello ve yapılandırma değerleriniz hello enter `<appSettings>` bölümü.
 
-  * `ida:Tenant`Azure AD kiracınıza--Örneğin, contoso.onmicrosoft.com adıdır.
-  * `ida:ClientId`Azure portalından kopyalandığından uygulama kimliğidir.
-  * `todo:TodoListResourceId`Azure portalında girdiğiniz listesi hizmeti yapmak için uygulamanın uygulama kimliği URI'si değil.
+  * `ida:Tenant`Azure AD kiracınıza--Örneğin, contoso.onmicrosoft.com Hello adıdır.
+  * `ida:ClientId`Azure portal hello kopyalanan hello uygulama kimliği değil.
+  * `todo:TodoListResourceId`Merhaba hello tooDo hello Azure portal girdiğiniz listesi hizmet uygulaması, uygulama kimliği URI'si değil.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Son olarak, temiz, yapı ve her proje çalıştırın. Henüz yapmadıysanız, şimdi yeni bir kullanıcı ile kiracınızda oluşturma vakti bir *. onmicrosoft.com etki alanı. Bu kullanıcının yapılacaklar listesi istemcisiyle oturum açın ve bazı görevler kullanıcının yapılacaklar listesine ekleyin.
+Son olarak, temiz, yapı ve her proje çalıştırın. Henüz yapmadıysanız, başlangıç saati toocreate yeni bir kullanıcı ile kiracınızda sunulmuştur bir *. onmicrosoft.com etki alanı. Oturum açma kullanıcı toohello tooDo listesi istemci ve bazı görevler toohello kullanıcının yapılacaklar listesi ekleyin.
 
-Başvuru için (yapılandırma değerleriniz olmadan) tamamlanan örnek kullanılabilir [GitHub](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Şimdi daha fazla kimlik senaryo da taşıyabilirsiniz.
+Başvuru için (yapılandırma değerleriniz olmadan) tamamlandı hello örnek kullanılabilir [GitHub](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Şimdi toomore kimlik senaryoları taşıyabilirsiniz.
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]

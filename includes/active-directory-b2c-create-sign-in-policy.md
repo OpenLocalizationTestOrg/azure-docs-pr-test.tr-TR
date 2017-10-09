@@ -1,23 +1,23 @@
-Uygulamanızda oturum açmayı etkinleştirmek için bir oturum açma ilkesi oluşturmanız gerekir. Bu ilke, tüketicilerin profil düzenleme sırasında karşılaşacağı deneyimleri ve işlem başarıyla tamamlandığında uygulamanın alacağı belirteçlerin içeriğini açıklar.
+tooenable oturum açma, uygulamanızda, bir oturum açma toocreate İlkesi gerekir. Bu ilke başarılı oturum açma işlemleri üzerinde tüketicileri oturum açma sırasında geçilir ve uygulama hello belirteçleri Merhaba içeriğine alacak hello deneyimleri açıklanmaktadır.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)] **Oturum açma ilkeleri**’ne tıklayın.
 
-Dikey pencerenin en üstündeki **+Add (+Ekle)** seçeneğine tıklayın.
+Tıklatın **+ Ekle** hello dikey penceresinde hello üstünde.
 
-**Ad**, uygulamanız tarafından kullanılan oturum açma ilke adını belirler. Örneğin, **SiIn** adını girin.
+Merhaba **adı** uygulamanız tarafından kullanılan hello ilkesi oturum açma adını belirler. Örneğin, **SiIn** adını girin.
 
 **Kimlik sağlayıcıları**’na tıklayın ve **Yerel Hesapla Oturum Aç**’ı seçin. İsteğe bağlı olarak, zaten yapılandırılmışsa sosyal kimlik sağlayıcıları öğesini de seçebilirsiniz. **Tamam** düğmesine tıklayın.
 
-**Uygulama talepleri**’ne tıklayın. Burada, başarılı bir oturum açma deneyiminden sonra uygulamanıza geri gönderilen belirteçlerde döndürülmesini istediğiniz talepleri seçin. Örneğin, **Görünen Ad**, **Kimlik Sağlayıcısı**, **Posta Kodu** ve **Kullanıcının Nesne Kimliği**’ni işaretleyin. **Tamam** düğmesine tıklayın.
+**Uygulama talepleri**’ne tıklayın. Burada başarılı bir oturum açma deneyimi sonra geri tooyour uygulama hello belirteçleri döndürmesini istediğiniz talep gönderilen seçin. Örneğin, **Görünen Ad**, **Kimlik Sağlayıcısı**, **Posta Kodu** ve **Kullanıcının Nesne Kimliği**’ni işaretleyin. **Tamam** düğmesine tıklayın.
 
-**Oluştur**’a tıklayın. Yeni oluşturduğunuz ilkenin **Oturum açma ilkeleri** dikey penceresinde **B2C_1_SiIn** olarak görüneceğini unutmayın (**B2C\_1\_**  parçası otomatik olarak eklenir).
+**Oluştur**'a tıklayın. Yeni oluşturduğunuz hello ilkesi olarak görünür **B2C_1_SiIn** (Merhaba **B2C\_1\_**  parça otomatik olarak eklenir) hello içinde **oturum açmailkeleri**dikey.
 
-**B2C_1_SiIn** adına tıklayarak ilkeyi açın.
+Açık hello İlkesi tıklayarak **B2C_1_SiIn**.
 
-**Uygulamalar** açılır menüsünde **Contoso B2C uygulamasını** ve **Yanıt URL'si / Yeniden Yönlendirme URI'si** altında `https://localhost:44321/` seçeneğini belirleyin.
+Seçin **Contoso B2C uygulaması** hello içinde **uygulamaları** açılır ve `https://localhost:44321/` hello içinde **yanıt URL'si / yeniden yönlendirme URI'si** açılır.
 
-**Şimdi çalıştır**’a tıklayın. Yeni bir tarayıcı sekmesi açılır. Buradan, uygulamanız için oturum açmaya yönelik tüketici deneyimi üzerinde işlem yapabilirsiniz.
+**Şimdi çalıştır**’a tıklayın. Yeni bir tarayıcı sekmesi açar ve uygulamanıza imzalama hello tüketici deneyimi aracılığıyla çalıştırabilirsiniz.
 
 > [!NOTE]
-> İlke oluşturma ve güncelleştirmelerinin etkili olması bir dakika kadar alabilir.
+> İlke oluşturma tooa dakika sürer ve tootake etkisi güncelleştirir.
 >

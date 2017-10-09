@@ -1,6 +1,6 @@
 ---
-title: "WebJobs SDK ile Azure tablo depolama kullanımı"
-description: "WebJobs SDK ile Azure tablo depolaması kullanmayı öğrenin. Tablolar oluşturma tablolar için varlıklar ekleyebilir ve var olan tabloları okunur."
+title: "aaaHow toouse hello WebJobs SDK ile Azure tablo depolaması"
+description: "Nasıl toouse Azure tablo depolama hello WebJobs SDK ile bilgi edinin. Tabloları oluşturma, varlıkları tootables eklemek ve varolan tabloları okunur."
 services: app-service\web, storage
 documentationcenter: .net
 author: ggailey777
@@ -14,24 +14,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/01/2016
 ms.author: glenga
-ms.openlocfilehash: 13cfc788c14d714df7022ce003d34691cf73d121
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8e28c69df4a934646add9e50c6de28e76dca1636
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-azure-table-storage-with-the-webjobs-sdk"></a>WebJobs SDK ile Azure tablo depolama kullanımı
+# <a name="how-toouse-azure-table-storage-with-hello-webjobs-sdk"></a>Nasıl toouse Azure tablo depolama hello WebJobs SDK ile
 ## <a name="overview"></a>Genel Bakış
-Bu kılavuz kullanarak Azure depolama tabloları okumasına ve yazmasına nasıl gösteren C# kod örnekleri sağlar [WebJobs SDK](websites-dotnet-webjobs-sdk.md) sürüm 1.x.
+Bu kılavuz C# kod örnekleri nasıl tooread ve yazma Azure depolama tabloları kullanarak gösteren sağlar [WebJobs SDK](websites-dotnet-webjobs-sdk.md) sürüm 1.x.
 
-Bildiğiniz Kılavuzu varsayar [bağlantıyla Visual Studio'da bir Web işi projesi oluşturma, depolama hesabınıza o noktadan dizeleri](websites-dotnet-webjobs-sdk-get-started.md) veya [birden çok depolama hesabı](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
+Merhaba Kılavuzu varsayar bildiğiniz [nasıl toocreate bağlantısı ile Visual Studio'da bir Web işi projesi bu noktası tooyour depolama hesabı dizeleri](websites-dotnet-webjobs-sdk-get-started.md) veya çok[birden çok depolama hesabı](https://github.com/Azure/azure-webjobs-sdk/blob/master/test/Microsoft.Azure.WebJobs.Host.EndToEndTests/MultipleStorageAccountsEndToEndTests.cs).
 
-Kod parçacıkları Göster bazıları `Table` olan işlevlerde kullanılan öznitelik [el ile olarak adlandırılan](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual), diğer bir deyişle, tetikleyici özniteliklerden birini kullanarak değil. 
+Merhaba kod parçacıkları bazıları hello Göster `Table` olan işlevlerde kullanılan öznitelik [el ile olarak adlandırılan](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#manual), diğer bir deyişle, birini kullanarak hello tetikleyici öznitelikleri değil. 
 
-## <a id="ingress"></a>Bir tabloya varlıklar ekleme
-Bir tabloya varlıkları eklemek için kullanın `Table` ile öznitelik bir `ICollector<T>` veya `IAsyncCollector<T>` parametresi nerede `T` eklemek istediğiniz varlıklar şeması belirtir. Öznitelik oluşturucunun tablonun adını belirten bir dize parametresi alan. 
+## <a id="ingress"></a>Nasıl tooadd varlıklar tooa tablosu
+tooadd varlıklar tooa tablo, kullanım hello `Table` ile öznitelik bir `ICollector<T>` veya `IAsyncCollector<T>` parametresi nerede `T` hello şema belirtir hello varlıklarının tooadd istiyor. Merhaba öznitelik oluşturucunun hello Merhaba tablonun adını belirten bir dize parametresi alan. 
 
-Aşağıdaki kod örneği ekler `Person` adlı bir tablo varlıklara *giriş*.
+Merhaba aşağıdaki kod örneği ekler `Person` adlı varlıklar tooa tablo *giriş*.
 
         [NoAutomaticTrigger]
         public static void IngressDemo(
@@ -48,7 +48,7 @@ Aşağıdaki kod örneği ekler `Person` adlı bir tablo varlıklara *giriş*.
             }
         }
 
-Genellikle türü ile kullandığınız `ICollector` türetilen `TableEntity` veya uygulayan `ITableEntity`, ancak gerekli değildir. Aşağıdakilerden birini `Person` önceki gösterilen kodu ile çalışma sınıfları `Ingress` yöntemi.
+Genellikle, kullandığınız ile türünün hello `ICollector` türetilen `TableEntity` veya uygulayan `ITableEntity`, ancak gerekli değildir. Merhaba aşağıdakilerden birini `Person` hello önceki gösterilen hello kodu ile çalışma sınıfları `Ingress` yöntemi.
 
         public class Person : TableEntity
         {
@@ -62,25 +62,25 @@ Genellikle türü ile kullandığınız `ICollector` türetilen `TableEntity` ve
             public string Name { get; set; }
         }
 
-Ekleyebileceğiniz doğrudan Azure storage ile API çalışmak isterseniz, bir `CloudStorageAccount` yöntem imzası parametresi.
+Ekleyebileceğiniz hello Azure storage API'si ile doğrudan toowork isterseniz, bir `CloudStorageAccount` parametre toohello yöntemi imzası.
 
 ## <a id="monitor"></a>Gerçek zamanlı izleme
-Veri giriş işlevleri genellikle büyük miktarda veriyi işlemek için Web işleri SDK'si Pano gerçek zamanlı izleme verileri sağlar. **Çağırma günlüğü** bölüm bildirir işlevi halen çalışmakta olup olmadığını.
+Veri giriş işlevleri genellikle büyük miktarda veriyi işlemek için hello Web işleri SDK'si Pano gerçek zamanlı izleme verileri sağlar. Merhaba **çağırma günlüğü** bölüm bildirir hello işlevi halen çalışmakta olup olmadığını.
 
 ![Çalışan giriş işlevi](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressrunning.png)
 
-**Çağırma ayrıntıları** Raporları Sayfası işlevin ilerleme durumu (yazılmış varlıkların sayısı) çalıştıran ve onu abort fırsatı sunar. 
+Merhaba **çağırma ayrıntıları** Raporları Sayfası hello işlevin ilerleme durumu (yazılmış varlıkların sayısı) çalıştıran ve bir fırsat tooabort verir ancak onu. 
 
 ![Çalışan giriş işlevi](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingressprogress.png)
 
-İşlev sona erdiğinde, **çağırma ayrıntıları** Raporları Sayfası yazılmış satırların sayısı.
+Merhaba işlevi tamamlandığında, hello **çağırma ayrıntıları** Raporları Sayfası hello yazılmış satırların sayısı.
 
 ![Tamamlanmış Giriş işlevi](./media/websites-dotnet-webjobs-sdk-storage-tables-how-to/ingresssuccess.png)
 
-## <a id="multiple"></a>Birden çok varlık bir tablodan okumak nasıl
-Bir tablo okumak için kullandığınız `Table` ile öznitelik bir `IQueryable<T>` parametresi girildiği `T` türetilen `TableEntity` veya uygulayan `ITableEntity`.
+## <a id="multiple"></a>Nasıl tooread bir tablodaki birden çok varlık
+tooread bir tablo kullanmak hello `Table` ile öznitelik bir `IQueryable<T>` parametresi girildiği `T` türetilen `TableEntity` veya uygulayan `ITableEntity`.
 
-Aşağıdaki kod örneği okur ve tüm satırları günlüklerini `Ingress` tablosu:
+Merhaba aşağıdaki kod örneği okur ve tüm satırları hello günlüklerini `Ingress` tablosu:
 
         public static void ReadTable(
             [Table("Ingress")] IQueryable<Person> tableBinding,
@@ -94,10 +94,10 @@ Aşağıdaki kod örneği okur ve tüm satırları günlüklerini `Ingress` tabl
             }
         }
 
-### <a id="readone"></a>Tek bir varlık tablodan okumak nasıl
-Var olan bir `Table` öznitelik oluşturucunun tek tablo varlığa bağlamak istediğinizde bölüm anahtarını ve satır anahtarını belirtmenize olanak sağlayan iki ek parametrelere sahip.
+### <a id="readone"></a>Nasıl tooread bir tablodaki tek bir varlık
+Var olan bir `Table` öznitelik oluşturucunun toobind tooa tek tablo varlığı istediğinizde hello bölüm anahtarı ve satır anahtarını belirtmenize olanak sağlayan iki ek parametrelere sahip.
 
-Aşağıdaki kod örneği için bir tablo satır okuyan bir `Person` bir kuyruk iletisi alınan bölüm anahtarını ve satır anahtarı değerleri temel varlık:  
+Merhaba aşağıdaki kod örneği okuyan bir tablo satır için bir `Person` bir kuyruk iletisi alınan bölüm anahtarını ve satır anahtarı değerleri temel varlık:  
 
         public static void ReadTableEntity(
             [QueueTrigger("inputqueue")] Person personInQueue,
@@ -117,12 +117,12 @@ Aşağıdaki kod örneği için bir tablo satır okuyan bir `Person` bir kuyruk 
         }
 
 
-`Person` Uygulamak Bu örnekte sınıfı yok `ITableEntity`.
+Merhaba `Person` sınıfı bu örnekte tooimplement yok `ITableEntity`.
 
-## <a id="storageapi"></a>Bir tablo ile doğrudan çalışmak için .NET depolama API kullanma
-Aynı zamanda `Table` ile öznitelik bir `CloudTable` nesne bir tablo ile çalışma daha fazla esneklik için.
+## <a id="storageapi"></a>Nasıl toouse hello .NET depolama API doğrudan toowork bir tablo ile
+Merhaba de kullanabilirsiniz `Table` ile öznitelik bir `CloudTable` nesne bir tablo ile çalışma daha fazla esneklik için.
 
-Aşağıdaki kod örneği kullanan bir `CloudTable` tek bir varlık eklemek için nesne *giriş* tablo. 
+Merhaba aşağıdaki kod örneği kullanan bir `CloudTable` tooadd tek bir varlık toohello nesne *giriş* tablo. 
 
         public static void UseStorageAPI(
             [Table("Ingress")] CloudTable tableBinding,
@@ -138,22 +138,22 @@ Aşağıdaki kod örneği kullanan bir `CloudTable` tek bir varlık eklemek içi
             tableBinding.Execute(insertOperation);
         }
 
-Nasıl kullanılacağı hakkında daha fazla bilgi için `CloudTable` nesne için bkz: [.NET tablo depolamasından kullanmayı](../cosmos-db/table-storage-how-to-use-dotnet.md). 
+Hakkında daha fazla bilgi için toouse hello `CloudTable` nesne için bkz: [nasıl toouse .NET tablo depolamasından](../cosmos-db/table-storage-how-to-use-dotnet.md). 
 
-## <a id="queues"></a>Kuyruklar nasıl yapılır makalesi tarafından kapsanan ilgili konular
-Bir kuyruk iletisi tarafından tetiklenen tablo işleme nasıl ele alınacağını hakkında bilgi için veya tablo işlemeye özel olmayan Web işleri SDK'si senaryoları için bkz: [WebJobs SDK ile Azure kuyruk depolama kullanma](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
+## <a id="queues"></a>Merhaba sıraları nasıl-tooarticle tarafından kapsanan ilgili konular
+Nasıl toohandle tablo işleme bir kuyruk iletisi tarafından veya WebJobs SDK senaryoları tetiklenen değil hakkında bilgi için işleme, özel tootable bakın [nasıl toouse Azure kuyruk depolama hello WebJobs SDK ile](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
-Bu makalede ele alınan konular şunlardır:
+Bu makalede ele alınan konular hello şunları içerir:
 
 * Zaman uyumsuz işlevleri
 * Birden çok örneği
 * Kapama
-* Web işleri SDK'si öznitelikleri bir işlev gövdesine kullanın
-* Kod içinde SDK bağlantı dizelerini ayarlayın
+* Web işleri SDK'si özniteliklerini işlevinin hello gövdesindeki kullanın
+* Kod içinde Hello SDK bağlantı dizelerini ayarlayın
 * Değerleri için Web işleri SDK'si Oluşturucu parametreleri kodda ayarlama
 * Tetik el ile bir işlevi
 * Günlüklerini yazma
 
 ## <a id="nextsteps"></a> Sonraki adımlar
-Bu kılavuz, Azure tabloları ile çalışmak için genel senaryolar nasıl ele alınacağını gösteren kod örnekleri sağlamıştır. Azure Web işleri ve WebJobs SDK nasıl kullanılacağı hakkında daha fazla bilgi için bkz: [Azure Web işleri önerilen kaynakları](http://go.microsoft.com/fwlink/?linkid=390226).
+Bu kılavuz kodu sağlamıştır gösteren nasıl örnekleri Azure tabloları ile çalışmak için genel senaryolar toohandle. Toouse Azure Web işleri ve hello Web işleri SDK'si nasıl görürüm hakkında daha fazla bilgi için [Azure Web işleri önerilen kaynakları](http://go.microsoft.com/fwlink/?linkid=390226).
 

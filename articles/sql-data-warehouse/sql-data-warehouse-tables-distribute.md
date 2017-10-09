@@ -1,5 +1,5 @@
 ---
-title: "SQL veri ambarı tablolarda dağıtma | Microsoft Docs"
+title: "SQL veri ambarı aaaDistributing tablolarda | Microsoft Docs"
 description: "Azure SQL Data Warehouse tablolarda dağıtma ile çalışmaya başlama."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 10/31/2016
 ms.author: shigu;barbkess
-ms.openlocfilehash: d0e12bf821a81826a20b8db84e76c48fa60ad9b5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 65093eeaeb00fef85aaa6070da2c976fed3f4bbe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="distributing-tables-in-sql-data-warehouse"></a>SQL veri ambarı tablolarda dağıtma
 > [!div class="op_single_selector"]
@@ -33,36 +33,36 @@ ms.lasthandoff: 07/11/2017
 >
 >
 
-SQL Veri Ambarı, yüksek düzeyde paralel işleme (MPP) ile dağıtılmış bir veritabanı sistemidir.  Birden fazla düğümde verileri ve işleme özelliğini bölerek, SQL Veri Ambarı tek bir sistemin sağlayabileceğinden çok büyük ölçeklenebilirlik sunabilir.  SQL veri ambarı içindeki verilerinizi dağıtmak nasıl karar verme en iyi performans elde için en önemli faktörler biridir.   En iyi performans anahtarına veri taşıma en aza indirerek ve veri taşıma en aza indirmek için anahtarı doğru Dağıtım stratejisi sırayla seçme.
+SQL Veri Ambarı, yüksek düzeyde paralel işleme (MPP) ile dağıtılmış bir veritabanı sistemidir.  Birden fazla düğümde verileri ve işleme özelliğini bölerek, SQL Veri Ambarı tek bir sistemin sağlayabileceğinden çok büyük ölçeklenebilirlik sunabilir.  Toodistribute verilerinizi SQL veri ambarı içinde ne olduğuna karar vermeyle hello en önemli birini Etkenler tooachieving en iyi performans.   Veri taşıma Hello anahtar toooptimal performans en aza indirerek ve hello anahtar toominimizing veri taşıma hello doğru Dağıtım stratejisi sırayla seçme.
 
 ## <a name="understanding-data-movement"></a>Veri taşıma anlama
-MPP sistemde, her tablodan veri birkaç temel veritabanları arasında bölünür.  MPP sistemde en iyileştirilmiş sorgular yalnızca üzerinden diğer veritabanları arasındaki etkileşimi olmadan dağıtılmış veritabanlarını yürütmek için geçirilebilir.  Örneğin, iki tablo, satış ve müşteriler içeren satış verilerini içeren bir veritabanına sahip varsayalım.  Ayrı bir veritabanında, her bir müşteri koyma, satış ve müşteri katılma herhangi bir sorgu içinde her müşteri tablonuz satış tablonuz katılmak için gereken bir sorgu varsa ve müşteri sayıya hem satış hem de müşteri tabloları bölme çözülebilir Veritabanı diğer veritabanlarından olanağıyla ile.  Sipariş numarası ve müşteri verilerinizi müşteri numarasına göre satış verilerinizi bölünmüş, buna karşılık, ardından tüm verilen veritabanı karşılık gelen verilerin her müşteri için sahip olmaz ve bu nedenle, müşteri verileri için satış verilerinizi katılmak istiyorsanız, t yapılandırtmanız gerekir Müşterinizle diğer veritabanlarındaki her bir müşteri için verileri.  Bu ikinci örnekte, iki tablo katılabilir satış verileri için müşteri verileri taşımak için gerçekleşmesini veri taşıma gerekir.  
+Bir MPP sisteminde hello veriler her tablodan birkaç temel veritabanları arasında bölünür.  en iyileştirilmiş hello sorguları bir MPP sistemde yalnızca geçirilebilir tooexecute üzerinde hello etkileşimi olmadan tek tek dağıtılan veritabanları arasında diğer veritabanlarına hello.  Örneğin, iki tablo, satış ve müşteriler içeren satış verilerini içeren bir veritabanına sahip varsayalım.  Satış tooyour müşteri tablo toojoin gerektiren bir sorgu varsa ve hem satış hem de müşteri tabloları müşteri numarası tarafından ayrı bir veritabanında her müşteri koyma bölme, satış ve müşteri birleştiren herhangi bir sorgu her içinde çözülebilir hiçbir bilgisine sahip veritabanı diğer veritabanlarından hello.  Sipariş numarası ve müşteri verilerinizi müşteri numarasına göre satış verilerinizi bölünmüş, buna karşılık, ardından tüm verilen veritabanı hello karşılık gelen verilerin her müşteri için sahip olmaz ve bu nedenle, satış verileri tooyour müşteri verilerinizi toojoin istediyseniz, gerekir tooget hello veri hello gelen her bir müşteri için diğer veritabanları.  Böylece Hello iki tabloları katılabilir bu ikinci örnekte toooccur toomove hello müşteri veri toohello satış verileri, veri taşıma gerekir.  
 
-Veri taşıma her zaman hatalı bir şey değilse, bazen bir sorgu çözmek gerekli değildir.  Ancak bu ek adım önlenebilir doğal olarak sorgunuzu daha hızlı çalışır.  Veri taşıma en yaygın olarak tablolar birleştirilir veya toplamalar gerçekleştirilen ortaya çıkar.  Her ikisi de, gerçekleştirmeniz gereken genellikle bir birleştirme gibi bir senaryo için en iyi duruma olabilir ancak bir toplama gibi diğer senaryo için çözmenize yardımcı olmak için veri taşıma hala gerekir.  Eli daha az iş olduğu çıkışı çıkarılıyor.  Çoğu durumda, büyük olgu tabloları genellikle birleştirilmiş bir sütunda dağıtma çoğu veri taşıma azaltma en etkili yöntemdir.  Veri birleştirme sütunlarda dağıtma, bir toplama söz konusu sütunlarda veri dağıtma daha veri taşıma azaltmak için daha yaygın bir yöntemdir.
+Veri taşıma her zaman hatalı bir şey değilse, bazen gerekli toosolve bir sorgu olabilir.  Ancak bu ek adım önlenebilir doğal olarak sorgunuzu daha hızlı çalışır.  Veri taşıma en yaygın olarak tablolar birleştirilir veya toplamalar gerçekleştirilen ortaya çıkar.  Genellikle mümkün olabilir ancak bir birleştirme, siz hala gibi bir senaryoya ihtiyaç için veri taşıma toohelp için çözmek toooptimize hello için bir toplama gibi diğer senaryo toodo ikisini olması gerekir.  Merhaba eli daha az iş olduğu çıkışı çıkarılıyor.  Çoğu durumda, büyük olgu tabloları genellikle birleştirilmiş bir sütunda dağıtma olduğu hello hello azaltma en etkili yöntemi çoğu veri taşıma.  Verileri birleştirme sütunlarda dağıtma veri bir toplama söz konusu sütunlarda dağıtma daha bir çok daha yaygın yöntemi tooreduce veri hareketi olur.
 
 ## <a name="select-distribution-method"></a>Dağıtım yöntemini seçin
-Arka planda, SQL Data Warehouse verilerinizi 60 veritabanlarına böler.  Her bağımsız veritabanı olarak adlandırılır bir **dağıtım**.  Veri her tabloya yüklendiğinde, SQL Data Warehouse verilerinizi 60 bu dağıtımlar arasında bölmek nasıl bilmesi gerekir.  
+Merhaba arka planda, SQL Data Warehouse verilerinizi 60 veritabanlarına böler.  Başvurulan tooas tek tek her veritabanı olan bir **dağıtım**.  Veri her tabloya yüklendiğinde, SQL Data Warehouse tooknow nasıl sahip toodivide verilerinizi 60 bu dağıtımlar arasında.  
 
-Dağıtım yöntemi tablo düzeyinde tanımlanır ve şu anda iki seçeneğiniz vardır:
+Merhaba dağıtım yöntemini hello tablo düzeyinde tanımlanır ve şu anda iki seçeneğiniz vardır:
 
 1. **Hepsini bir kez** eşit ancak rastgele veri dağıtın.
 2. **Dağıtılmış karma** tek bir sütun değerlerinden karma göre verileri dağıtır
 
-Bir veri dağıtım yöntemi olmayan tanımlarken varsayılan olarak, tablonuz kullanarak dağıtılacak **hepsini** dağıtım yöntemi.  Bununla birlikte, uygulamanızda daha karmaşık hale geldikçe kullanarak düşünmek isteyebilirsiniz **dağıtılmış karma** hangi sırayla iyileştirir veri taşıma en aza indirmek için tabloları sorgu performansı.
+Bir veri dağıtım yöntemi olmayan tanımlarken varsayılan olarak, tablonuz hello kullanarak dağıtılacak **hepsini** dağıtım yöntemi.  Uygulamanızda daha karmaşık hale geldikçe ancak tooconsider kullanarak istediğiniz **dağıtılmış karma** tabloları sırayla sorgu performansı en iyi duruma getirir, toominimize veri taşıma.
 
 ### <a name="round-robin-tables"></a>Hepsini bir kez tabloları
-Veri dağıtmanın hepsini bir kez yöntemi kullanarak çok nasıl, göründüğü değildir.  Verilerinizi yüklenen gibi her satır yalnızca ileri dağıtım noktasına gönderilir.  Veri dağıtmanın bu yöntem her zaman rastgele veriler çok eşit tüm dağıtımlar arasında dağıtır.  Diğer bir deyişle, var. verilerinizi yerleştirir hepsini bir kez işlemi sırasında yapılan sıralama  Hepsini bir kez dağıtım, bu nedenle rastgele bir karma bazen denir.  Hepsini dağıtılmış tablo ile veri anlamak için gerek yoktur.  Bu nedenle, hepsini tabloları genellikle iyi yükleme hedefleri olun.
+Merhaba veri dağıtmanın hepsini bir kez yöntemi kullanarak çok nasıl, göründüğü değildir.  Verilerinizi yüklenen gibi her satır yalnızca toohello sonraki dağıtım gönderilir.  Merhaba veri dağıtmanın bu yöntem her zaman rastgele hello veri çok eşit tüm hello dağıtımlar arasında dağıtır.  Diğer bir deyişle, var. sıralama Bitti'yi verilerinizi koyan bir kez deneme işlemi round hello sırasında  Hepsini bir kez dağıtım, bu nedenle rastgele bir karma bazen denir.  Hepsini dağıtılmış tabloyla gerek toounderstand hello verisi yok.  Bu nedenle, hepsini tabloları genellikle iyi yükleme hedefleri olun.
 
-Hiçbir dağıtım yöntemi seçilirse, varsayılan olarak, hepsini bir kez dağıtım yöntemi kullanılır.  Ancak, sistem hangi dağıtım garanti edemez anlamına gelir sistem veri rastgele dağıtıldığından hepsini bir kez tablolar kullanmayı, durumdayken her satırın'dır.  Sonuç olarak, sistem, bir sorgu çözebilmek için önce verilerinizi daha iyi düzenlemek için bir veri taşıma işlemini çağırmak bazen gerekir.  Bu ek adım sorgularınızı yavaşlatabilir.
+Hiçbir dağıtım yöntemi seçilirse, varsayılan olarak, hello hepsini dağıtım yöntemi kullanılır.  Ancak, veri rastgele hello sistem hangi dağıtım garanti edemez anlamına gelir hello sistem dağıtıldığı hepsini bir kez tabloları kolay toouse durumdayken her satırın'dır.  Sonuç, bazen hello sistem tooinvoke veri taşıma işlemi toobetter gerektiği bir sorgu çözebilmek için önce verilerinizi düzenleyin.  Bu ek adım sorgularınızı yavaşlatabilir.
 
-Aşağıdaki senaryolarda tablonuzun hepsini dağıtım kullanmayı dikkate alın:
+Hepsini bir kez dağıtım senaryoları aşağıdaki hello tablonuzda için kullanmayı dikkate alın:
 
 * Basit bir başlangıç noktası olarak çalışmaya
 * Hiçbir belirgin katılma anahtarı ise
-* Karma tablo dağıtmak için iyi bir adaydır sütun değilse
-* Tablo diğer tablolarla ortak bir birleşim anahtar paylaşmaz varsa
-* Join sorgu diğer birleşimlerde'den daha az önemli ise
-* Tablo geçici bir hazırlama tablosunda olduğunda
+* Karma hello tablo dağıtmak için iyi bir adaydır sütun değilse
+* Merhaba, tablo ortak bir birleşim anahtar diğer tablolarla paylaşmaz
+* Merhaba birleştirme hello sorgu diğer birleşimlerde'den daha az önemli ise
+* Merhaba tablo geçici bir hazırlama tablosunda olduğunda
 
 Bu örneklerin her ikisi de hepsini bir kez tablo oluşturacak:
 
@@ -99,12 +99,12 @@ WITH
 ```
 
 > [!NOTE]
-> Hepsini bir kez olsa da, DDL'de açık olan varsayılan tablo türü bir tablo düzeni amaçları başkalarına açık olmasını sağlamak en iyi yöntem olarak kabul edilir.
+> Hepsini bir kez olsa hello varsayılan tablo türü, DDL'de açık olan bir tablo düzeni hello amaçları Temizle tooothers; böylece en iyi yöntem olarak kabul edilir.
 >
 >
 
 ### <a name="hash-distributed-tables"></a>Dağıtılmış tabloları karma
-Kullanarak bir **dağıtılmış karma** tablolarınızı dağıtmak için algoritma sorgu zamanında veri taşıma azaltarak pek çok senaryoyla performansı geliştirebilir.  Dağıtılmış karma, seçtiğiniz tek bir sütun üzerinde bir karma algoritması kullanılarak dağıtılan veritabanları arasında bölünmüş tabloların tablolardır.  Dağıtım ne veriler dağıtılan veritabanları arasında nasıl bölünür belirler bir sütundur.  Karma işlevi dağıtım sütun dağıtımları için satır atamak için kullanır.  Karma algoritması ve sonuçta elde edilen dağıtım belirleyici.  Aynı veri türüne sahip aynı değer her zaman aynı dağıtım noktasına sahip olmasıdır.    
+Kullanarak bir **dağıtılmış karma** algoritması toodistribute tablolarınızı birçok senaryoları için sorgu zamanında veri taşıma azaltarak performansı artırabilir.  Dağıtılmış tablolar arasında hello bölünen tablolardır karma seçtiğiniz tek bir sütun üzerinde bir karma algoritması kullanarak veritabanlarını dağıtılmış.  Merhaba dağıtım ne hello veriler dağıtılan veritabanları arasında nasıl bölünür belirler bir sütundur.  Merhaba karma işlevi hello dağıtım sütun tooassign satırları toodistributions kullanır.  karma algoritma hello ve sonuçta elde edilen dağıtım belirleyici.  Diğer bir deyişle hello aynı veri türünde olacak her zaman hello ile aynı değere sahip toohello aynı dağıtım.    
 
 Bu örnek kimliği, dağıtılmış bir tablo oluşturacak:
 
@@ -127,7 +127,7 @@ WITH
 ```
 
 ## <a name="select-distribution-column"></a>Dağıtım sütun seçin
-Seçtiğinizde **karma dağıtmak** bir tablo tek dağıtım sütun seçmeniz gerekir.  Bir dağıtım sütun seçerken, dikkate alınması gereken üç temel Etkenler vardır.  
+Çok seçtiğinizde**karma dağıtmak** bir tablo tooselect tek dağıtım sütun gerekir.  Bir dağıtım sütun seçerken, üç ana Etkenler tooconsider vardır.  
 
 Olur, tek bir sütun seçin:
 
@@ -136,52 +136,52 @@ Olur, tek bir sütun seçin:
 3. Veri taşıma simge durumuna küçült
 
 ### <a name="select-distribution-column-which-will-not-be-updated"></a>Güncelleştirilmez dağıtım sütun seçin
-Dağıtım sütunları bu nedenle güncelleştirilebilir, değildir, statik değerleri içeren bir sütun seçin.  Bir sütun güncelleştirilmesi gerekiyorsa, genelde iyi dağıtım aday değildir.  Bir dağıtım sütun güncelleştirme söz konusu ise, bu ilk satırın silinmesi ve yeni satır ekleme yapılabilir.
+Dağıtım sütunları bu nedenle güncelleştirilebilir, değildir, statik değerleri içeren bir sütun seçin.  Bir sütun güncelleştirilmiş toobe gerekecekse, genellikle iyi dağıtım aday değil.  Bir dağıtım sütun güncelleştirme söz konusu ise, bu ilk hello satırın silinmesi ve yeni satır ekleme yapılabilir.
 
 ### <a name="select-distribution-column-which-will-distribute-data-evenly"></a>Veri eşit olarak dağıtmanızı dağıtım sütun seçin
-Dağıtılmış bir sistemde yalnızca olabildiğince hızlı şekilde kendi yavaş dağıtım gerçekleştirir, iş dengeli yürütme sistem üzerindeki elde etmek için dağıtımlar arasında eşit olarak bölmek önemlidir.  Dağıtılmış bir sistemde iş bölünmüş şekilde, burada her dağıtım için veri yaşamaktadır temel alır.  Bu, böylece her dağıtım eşit bir iş ve kendi iş kısmını tamamlamak için aynı anda sürer verileri dağıtmak için doğru dağıtım sütun seçmek çok önemli kolaylaştırır.  İş iyi sistem üzerindeki ayrıldığında, verileri dağıtımlar arasında dengelenir.  Veri eşit dengeli değil, bu diyoruz **veri eğme**.  
+Dağıtılmış bir sistemde yalnızca olabildiğince hızlı şekilde kendi yavaş dağıtım gerçekleştirir olduğundan, bu önemli toodivide hello iş eşit sipariş dengeli tooachieve yürütmesinde hello dağıtımlar arasında hello arasında sistemidir.  Hello iş dağıtılmış bir sistemde ayrılmıştır hello yolu, her dağıtım için hello veri nerede yaşıyor temel alır.  Bu, böylece her dağıtım eşit iş sahiptir ve Al aynı zaman toocomplete hello iş kendi kısmı hello hello veri dağıtmak için çok önemli tooselect hello doğru dağıtım sütun kolaylaştırır.  İş iyi hello sistem ayrıldığında, hello veri hello dağıtımlar arasında dengelenir.  Veri eşit dengeli değil, bu diyoruz **veri eğme**.  
 
-Veri eşit ayırın ve verileri eğme önlemek için dağıtım sütun seçerken aşağıdakileri göz önünde bulundurun:
+toodivide veri eşit ve veri eğme kaçınmak için dağıtım sütun seçerken hello aşağıdakileri dikkate alın:
 
 1. Çok sayıda farklı değerleri içeren bir sütun seçin.
 2. Veri birkaç farklı değerleri olan sütunlarda dağıtma kaçının.
 3. Null değerlere yüksek sıklığını sahip sütunlarda veri dağıtma kaçının.
 4. Veri tarih sütunlarda dağıtma kaçının.
 
-Her değer 60 dağıtımları 1 için karma olduğundan, hatta dağıtım elde etmek için yüksek oranda benzersiz olan ve birden fazla 60 benzersiz değerler içeren bir sütun seçmek istediğiniz.  Göstermek için bir sütun yalnızca 40 benzersiz değerlere sahip olduğu bir durumu göz önünde bulundurun.  Bu sütun dağıtım anahtarı olarak seçtiyseniz, bu tablo için veri üzerinde 40 dağıtımları en fazla 20 dağıtımları hiçbir veri ve hiçbir işlem yapmak için bırakarak güden.  Buna karşılık, diğer 40 dağıtımları verileri, eşit 60 dağıtımları yayılan, bunu yapmak için daha fazla iş gerekir.  Bu senaryoda, veri eğme örneğidir.
+Tooachieve bile dağıtım her değer 60 dağıtımları, karma too1 olduğundan, yüksek oranda benzersiz olan ve birden fazla 60 benzersiz değerler içeren bir sütun tooselect isteyeceksiniz.  tooillustrate, bir sütun yalnızca sahip olduğu 40 benzersiz değerler bir durum düşünün.  Bu sütun hello dağıtım anahtarı olarak seçtiyseniz, bu tablo için hello veri üzerinde 40 dağıtımları en fazla 20 dağıtımları hiçbir veri ve hiçbir işlem toodo bırakarak güden.  Buna karşılık, hello diğer 40 dağıtımları hello varsa veri eşit 60 dağıtımları yayılan, daha fazla iş toodo gerekir.  Bu senaryoda, veri eğme örneğidir.
 
-MPP sistemdeki her sorgu adım için tüm dağıtımları kendi paylaşımı iş tamamlamak bekler.  Bir dağıtım diğerlerinden daha fazla iş yapıyor, ardından diğer dağıtımlar kaynak temelde küçülttüğü iyi bir şekilde yalnızca meşgul dağıtım bekleniyor.  İş eşit tüm dağıtımlar arasında yayılır değil, bu diyoruz **işleme eğme**.  İşleme eğme sorgu iş yükü dağıtımlar arasında eşit olarak yayılabilen varsa daha yavaş çalışmasına neden olur.  Veri eğme işleme eğme götürür.
+MPP sistemdeki her sorgu adım için tüm dağıtımların toocomplete kendi paylaşımı hello iş bekler.  Bir dağıtım başkalarının hello daha fazla çalışma yapılması olduğu sonra hello kaynak hello diğer dağıtımlar temelde yalnızca hello meşgul dağıtım noktasında bekleme küçülttüğü iyi bir şekilde.  İş eşit tüm dağıtımlar arasında yayılır değil, bu diyoruz **işleme eğme**.  İşleme eğme sorguları toorun hello iş yükü hello dağıtımlar arasında eşit olarak yayılabilen varsa daha yavaş neden olur.  Veri eğme tooprocessing eğme götürür.
 
-Null değerler tüm aynı dağıtım gideceksiniz gibi yüksek oranda boş değer atanabilir sütun dağıtma kaçının. Tüm veriler belirli bir tarih için aynı dağıtım gideceksiniz çünkü bir tarih sütunu dağıtma işleme eğme da neden olabilir. Birkaç kullanıcı sorguları yürütme tüm filtreleme aynı tarihte 60 dağıtımları yalnızca 1 tüm belirli bir tarihten bu yana iş istediğimizi sonra yalnızca bir dağıtım noktasında olur. Bu senaryoda, sorguları büyük olasılıkla 60 kez veri eşit tüm dağıtımları yayılan, daha yavaş çalışır.
+Merhaba null değerler tüm hello üzerinde aynı gideceksiniz gibi yüksek oranda boş değer atanabilir sütun dağıtmaktan kaçınmak dağıtım. Bir tarih sütunu dağıtma de neden olabilir işleme eğme belirli bir tarih için tüm veriler üzerinde hello aynı gideceksiniz çünkü dağıtım. Birkaç kullanıcı sorguları tüm filtreleme hello üzerinde çalıştırıyorsanız belirli bir tarih yalnızca bir dağıtım noktasında olacağından yalnızca 1'hello 60 dağıtımları, tüm hello iş istediğimizi sonra aynı, tarih. Bu senaryoda, hello sorguları büyük olasılıkla 60 kez hello veri eşit tüm hello dağıtımları yayılan, daha yavaş çalışır.
 
-İyi bir adaydır sütun mevcut olduğunda dağıtım yöntemi olarak hepsini kullanarak düşünün.
+İyi bir adaydır sütun mevcut olduğunda hello dağıtım yöntemi olarak hepsini kullanarak düşünün.
 
 ### <a name="select-distribution-column-which-will-minimize-data-movement"></a>Veri taşıma en aza indirecek dağıtım sütun seçin
-Veri taşıma doğru dağıtım sütun seçerek en aza SQL veri ambarı performansını iyileştirmek için en önemli stratejileri biridir.  Veri taşıma en yaygın olarak tablolar birleştirilir veya toplamalar gerçekleştirilen ortaya çıkar.  Kullanılan sütunlar `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` ve `HAVING` tüm hale getirmek için yan tümceleri **iyi** dağıtım adayları karma.
+Veri taşıma hello doğru dağıtım sütun seçerek en aza SQL veri ambarı performansını iyileştirmek için en önemli stratejileri hello biridir.  Veri taşıma en yaygın olarak tablolar birleştirilir veya toplamalar gerçekleştirilen ortaya çıkar.  Kullanılan sütunlar `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` ve `HAVING` tüm hale getirmek için yan tümceleri **iyi** dağıtım adayları karma.
 
-Diğer yandan, sütunlarında `WHERE` yan tümcesi **değil** hangi dağıtımları işleme neden sorguda katılmak sınırlamak için iyi bir karma sütun adayları eğme olun.  İyi üzerinde dağıtmak için tempting olabilir, ancak bu işleme eğme genellikle neden olabilir bir sütunun bir tarih sütunu bir örnektir.
+Üzerinde diğer yandan, hello sütunlarında hello `WHERE` yan tümcesi **değil** hangi dağıtımları işleme neden hello sorguda katılmak sınırlamak için iyi bir karma sütun adayları eğme olun.  İyi tempting toodistribute olabilir, ancak bu işleme eğme genellikle neden olabilir bir sütunun bir tarih sütunu bir örnektir.
 
-Genel olarak bakıldığında, bir birleştirme sık söz konusu iki büyük olgu tabloları varsa, her iki tabloyu birleştirme sütunları birinde dağıtarak çoğu performans elde edersiniz.  Hiçbir zaman başka bir büyük olgu tablosu için birleştirilmiş bir tablo varsa, sık içinde sütunları Ara `GROUP BY` yan tümcesi.
+Bir birleştirme sık söz konusu iki büyük olgu tabloları varsa, genel olarak bakıldığında, hello çoğu performans hello birleştirme sütunları her iki tablolarda dağıtarak elde edersiniz.  Hiçbir zaman birleştirilmiş tooanother büyük Olgu Tablosu olan bir tablo varsa, sık hello olan toocolumns Ara `GROUP BY` yan tümcesi.
 
-Veri taşıma sırasında bir birleştirme önlemek için karşılanması gereken birkaç anahtar ölçütleri vardır:
+Ölç tooavoid veri taşıma sırasında bir birleştirme olması gereken birkaç anahtar ölçütleri vardır:
 
-1. Birleştirme söz konusu tablolar üzerinde dağıtılmış karma olmalıdır **bir** birleşimde yer alan sütun.
-2. Birleşim sütunların veri türlerini iki tablo arasında eşleşmelidir.
-3. Sütunları olan bir eşittir işleci katılması gerekir.
-4. Birleşim türü olamaz bir `CROSS JOIN`.
+1. Merhaba hello birleştirme söz konusu tablolar üzerinde dağıtılmış karma olmalıdır **bir** hello birleştirme katılan hello sütunların.
+2. Merhaba birleştirme sütunların veri türlerini Hello her iki tablo arasında eşleşmelidir.
+3. Merhaba sütunları olan bir eşittir işleci katılması gerekir.
+4. Merhaba birleşim türü olamaz bir `CROSS JOIN`.
 
 ## <a name="troubleshooting-data-skew"></a>Veri eğme sorunlarını giderme
-Tablo verisi karma dağıtım yöntemi kullanılarak dağıtıldığında diğerlerinden orantısız daha fazla veri sağlamak için bazı dağıtımları eğri şansı yoktur. Bir dağıtılmış sorgu sonucunu uzun süre çalışan dağıtım için beklemeniz gerekir çünkü aşırı miktarda verinin eğme sorgu performansını etkileyebilir. Veri eğme derecesini bağlı olarak ele gerekebilir.
+Tablo verisi yok hello karma dağıtım yöntemini kullanarak dağıtıldığında bazı dağıtımları olacak şansı toohave diğerlerinden orantısız daha fazla veri eğri. Dağıtılmış bir sorguyla Hello sonucunu hello uzun çalışan dağıtım toofinish için beklemeniz gerekir çünkü aşırı miktarda verinin eğme sorgu performansını etkileyebilir. Merhaba veri tooaddress gerekebilecek eğme Hello derecesini, bağlı olarak.
 
 ### <a name="identifying-skew"></a>Eğme tanımlama
-Eğri bir tablo tanımlamak için basit bir yol kullanmaktır `DBCC PDW_SHOWSPACEUSED`.  Her 60 dağıtımları veritabanınızın depolanan tablo satır sayısını görmek için çok hızlı ve kolay bir yolu budur.  En dengeli performans için unutmayın, dağıtılmış, tablosundaki satırları tüm dağıtımları eşit yayılan.
+Toouse basit yol tooidentify eğri gibi bir tablo olduğundan `DBCC PDW_SHOWSPACEUSED`.  Çok hızlı ve basit bir yol toosee budur hello her hello 60 dağıtımları veritabanınızın depolanır tablosu satır sayısı.  En dengeli hello performans için Dağıtılmış tablonuz hello satır eşit tüm hello dağıtımlar arasında yayılan olduğunu unutmayın.
 
 ```sql
 -- Find data skew for a distributed table
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-Ancak, Azure SQL Data Warehouse dinamik yönetim görünümlerini (DMV) sorgu varsa daha ayrıntılı bir analiz gerçekleştirebilir.  Başlatmak için Görünüm oluşturma [dbo.vTableSizes] [ dbo.vTableSizes] SQL kullanarak görüntülemek [tablo genel bakışı] [ Overview] makalesi.  Görünüm oluşturulduğunda, en fazla % 10 veri eğme hangi tabloları tanımlamak için bu sorguyu çalıştırın.
+Ancak, hello Azure SQL Data Warehouse dinamik yönetim görünümlerini (DMV) sorgu varsa daha ayrıntılı bir analiz gerçekleştirebilir.  toostart, hello görünümü oluşturma [dbo.vTableSizes] [ dbo.vTableSizes] kullanarak görüntülemek SQL'den hello [tablo genel bakışı] [ Overview] makalesi.  Merhaba görünüm oluşturulduktan sonra hangi tabloları % 10 veri eğme birden fazla sahip bu sorgu tooidentify çalıştırın.
 
 ```sql
 select *
@@ -199,14 +199,14 @@ order by two_part_name, row_count
 ```
 
 ### <a name="resolving-data-skew"></a>Veri eğme çözme
-Bir düzeltme garanti etmeye yetecek tüm eğme değil.  Bazı durumlarda, bazı sorgular tabloda performans verileri eğme zarar daha ağır basar.  Veri çözümlenmelidir varsa karar vermek için bir tabloda eğme, sorgular ve veri birimleri hakkında mümkün olduğunca, iş yükü anlamanız gerekir.   Eğme etkisini bakmak için bir yoldur adımlarda kullanmak üzere [sorgu izleme] [ Query Monitoring] eğme sorgu performansı üzerindeki etkisini ve özellikle nasıl etkisini uzun izlemek için makale sorgular tamamlanması Al tek tek dağıtımları.
+Tüm eğme yeterli toowarrant bir düzeltme bulunur.  Bazı durumlarda, bazı sorgular tabloda hello performansını hello zarar eğme verilerin daha ağır basar.  Veri çözümlenmelidir varsa toodecide eğme bir tabloda, hello veri birimleri ve sorguları hakkında mümkün olduğunca, iş yükü anlamalısınız.   Tek yönlü toolook eğme hello etkisini en olduğu toouse hello hello adımlarda [sorgu izleme] [ Query Monitoring] makale toomonitor hello etkisini sorgu performansı eğme ve özellikle etkisi toohow uzun sorguları hello toocomplete hello tek tek dağıtımları üzerinde gerçekleştirin.
 
-Veri dağıtma veri eğme en aza indirerek ve veri taşıma en aza arasında doğru dengeyi bulma bir konudur. Bu hedefleri karşıt ve bazen veri veri taşıma azaltmak için eğme tutmak isteyeceksiniz. Dağıtım sütun sık birleşimler ve toplamalar paylaşılan sütunu olduğunda, örneğin, veri taşıma en aza indirme. En düşük düzeyde veri hareketini sahip yararı eğme verilere sahip olmak etkisini üstün olabilir.
+Veri dağıtma veri eğme en aza indirerek ve veri taşıma en aza arasında doğru dengeyi hello bulma bir konudur. Bu hedefleri karşıt ve bazen tookeep veri sırası tooreduce veri taşıma eğme isteyeceksiniz. Merhaba dağıtım sütun sık birleşimler ve toplamalar paylaşılan sütununda hello olduğunda, örneğin, veri taşıma en aza indirme. Merhaba bir eğme verilere sahip olmak hello etkisi en hello en düşük düzeyde veri taşıma sahip olmanın avantajı üstün olabilir.
 
-Veri eğme çözümlemek için tipik tablonun farklı dağıtım sütunu yeniden oluşturmanız yoludur. Varolan bir tabloda, bir tablo dağıtımını değiştirmek için yol dağıtım sütunu değiştirmek mümkün olduğundan yeniden oluşturmak için [CTAS] [] ile.  İşte nasıl iki örnek veri eğme çözün:
+Merhaba normal şekilde tooresolve veri eğme olan toore-farklı dağıtım sütunla hello tablo oluşturun. Olduğundan toochange hello dağıtım sütun üzerinde var olan tablo, hello yolu toochange hello dağıtımı bir tablonun hiçbir şekilde bunu toorecreate [CTAS] [] ile.  İşte nasıl iki örnek veri eğme çözün:
 
-### <a name="example-1-re-create-the-table-with-a-new-distribution-column"></a>Örnek 1: yeni bir dağıtım sütun içeren tabloyu yeniden oluşturun
-Bu örnekte, farklı bir karma dağıtım sütunlu bir tablo yeniden oluşturmak için [CTAS] [] kullanır.
+### <a name="example-1-re-create-hello-table-with-a-new-distribution-column"></a>Örnek 1: yeni bir dağıtım sütun ile Merhaba tabloyu yeniden oluşturun
+Bu örnek [CTAS] [] toore kullanır-farklı bir karma dağıtım sütun bir tablo oluşturun.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_CustomerKey]
@@ -239,13 +239,13 @@ CREATE STATISTICS [OrderQuantity] ON [FactInternetSales_CustomerKey] ([OrderQuan
 CREATE STATISTICS [UnitPrice] ON [FactInternetSales_CustomerKey] ([UnitPrice]);
 CREATE STATISTICS [SalesAmount] ON [FactInternetSales_CustomerKey] ([SalesAmount]);
 
---Rename the tables
-RENAME OBJECT [dbo].[FactInternetSales] TO [FactInternetSales_ProductKey];
-RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
+--Rename hello tables
+RENAME OBJECT [dbo].[FactInternetSales] too[FactInternetSales_ProductKey];
+RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] too[FactInternetSales];
 ```
 
-### <a name="example-2-re-create-the-table-using-round-robin-distribution"></a>Örnek 2: hepsini dağıtım kullanarak tabloyu yeniden oluşturun
-Bu örnek [CTAS] [] hepsini bir karma dağıtım yerine içeren bir tablo yeniden oluşturmak için kullanır. Bu değişiklik bile artan veri taşıma, veri dağıtımı oluşturur.
+### <a name="example-2-re-create-hello-table-using-round-robin-distribution"></a>Örnek 2: hello tabloyu hepsini dağıtım kullanarak yeniden oluşturun
+Bu örnek [CTAS] [] toore kullanır-hepsini bir karma dağıtım yerine bir tablo oluşturun. Bu değişiklik, hatta veri dağıtımını hello maliyetle artan veri taşıma oluşturur.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_ROUND_ROBIN]
@@ -278,13 +278,13 @@ CREATE STATISTICS [OrderQuantity] ON [FactInternetSales_ROUND_ROBIN] ([OrderQuan
 CREATE STATISTICS [UnitPrice] ON [FactInternetSales_ROUND_ROBIN] ([UnitPrice]);
 CREATE STATISTICS [SalesAmount] ON [FactInternetSales_ROUND_ROBIN] ([SalesAmount]);
 
---Rename the tables
-RENAME OBJECT [dbo].[FactInternetSales] TO [FactInternetSales_HASH];
-RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
+--Rename hello tables
+RENAME OBJECT [dbo].[FactInternetSales] too[FactInternetSales_HASH];
+RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] too[FactInternetSales];
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Tablo tasarımı hakkında daha fazla bilgi için bkz: [Dağıt][Distribute], [dizin][Index], [bölüm] [ Partition], [Veri türleri][Data Types], [istatistikleri] [ Statistics] ve [geçici tablolar] [ Temporary] makaleleri.
+Tablo tasarımı hakkında daha fazla toolearn bkz hello [Dağıt][Distribute], [dizin][Index], [bölüm] [ Partition], [Veri türleri][Data Types], [istatistikleri] [ Statistics] ve [geçici tablolar] [ Temporary] makaleleri.
 
 En iyi yöntemler genel bakış için bkz: [SQL veri ambarı en iyi uygulamalar][SQL Data Warehouse Best Practices].
 

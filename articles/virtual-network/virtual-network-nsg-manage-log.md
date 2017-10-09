@@ -1,6 +1,6 @@
 ---
-title: "İzleme işlemleri, olaylar ve sayaçlar için Nsg'ler | Microsoft Docs"
-description: "Sayaçlar, olayları ve Nsg'ler için işlem günlüğünü etkinleştirme hakkında bilgi edinin"
+title: "aaaMonitor işlemleri, olayları ve Nsg'ler sayaçları | Microsoft Docs"
+description: "Bilgi nasıl tooenable sayaçları, olaylar ve Nsg'ler için işlem günlüğü"
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,59 +15,59 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2017
 ms.author: jdial
-ms.openlocfilehash: 552f37dd704de25159bc0f0ad34fdae9ed8b73f5
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: f16f1a0ad693028ee7aba21574b5c8ddfcd27096
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="log-analytics-for-network-security-groups-nsgs"></a>Ağ güvenlik grupları (NSG’ler) için Log Analytics
 
-Aşağıdaki tanılama günlük kategorileri için Nsg'ler etkinleştirebilirsiniz:
+Tanılama günlük kategorileri için Nsg'ler aşağıdaki hello etkinleştirebilirsiniz:
 
-* **Olay:** hangi NSG kuralları Vm'lere uygulanan ve örnek MAC adresine dayalı rolleri girişleri içerir. Bu kurallar durumunun her 60 saniyede toplanır.
-* **Kural sayacı:** kaç kez her NSG için içerir girişleri kural reddetmek veya trafiğine izin vermek üzere uygulanır.
+* **Olay:** için hangi NSG kuralları: uygulanan tooVMs ve örnek rolleriniz MAC adresine dayalı girişleri içerir. Bu kurallar Hello durumunun her 60 saniyede toplanır.
+* **Kural sayacı:** kaç kez her NSG için içerir girişleri kural uygulanan toodeny ya da trafiğine izin verme.
 
 > [!NOTE]
-> Tanılama günlükleri, yalnızca Azure Resource Manager dağıtım modeli aracılığıyla dağıtılan Nsg'ler için kullanılabilir. Klasik dağıtım modeli aracılığıyla dağıtılan Nsg'ler için tanılama günlüğü etkinleştiremezsiniz. Daha iyi iki modellerinin anlamak için başvuru [anlama Azure dağıtım modelleri](../resource-manager-deployment-model.md) makalesi.
+> Tanılama günlüklerini yalnızca hello Azure Resource Manager dağıtım modeli aracılığıyla dağıtılan Nsg'ler için kullanılabilir. Merhaba Klasik dağıtım modeli aracılığıyla dağıtılan Nsg'ler için tanılama günlüğü etkinleştiremezsiniz. Daha iyi hello iki modellerinin anlamak için hello başvuru [anlama Azure dağıtım modelleri](../resource-manager-deployment-model.md) makalesi.
 
-Etkinlik günlüğü (daha önce denetim veya işlem günlükleri olarak bilinir) ya da Azure dağıtım modeliyle oluşturulan Nsg'ler için varsayılan olarak etkindir. Hangi işlemleri üzerinde Nsg'ler etkinlik günlüğünde tamamlandığını belirlemek için aşağıdaki kaynak türlerini içeren girdilerini arayın: 
+Etkinlik günlüğü (daha önce denetim veya işlem günlükleri olarak bilinir) ya da Azure dağıtım modeliyle oluşturulan Nsg'ler için varsayılan olarak etkindir. hangi işlemleri hello etkinlik günlüğünde, kaynak türleri aşağıdaki hello içeren girdileri arayın üzerinde Nsg'ler tamamlandığını toodetermine: 
 
 - Microsoft.ClassicNetwork/networkSecurityGroups 
 - Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
 - Microsoft.Network/networkSecurityGroups
 - Microsoft.Network/networkSecurityGroups/securityRules 
 
-Okuma [Azure etkinlik günlüğü'ne genel bakış](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) etkinlik günlükleri hakkında daha fazla bilgi için makalenin. 
+Okuma hello [hello Azure etkinlik günlüğü'ne genel bakış](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) makale toolearn etkinlik günlükleri hakkında daha fazla bilgi. 
 
 ## <a name="enable-diagnostic-logging"></a>Tanılama günlüğünü etkinleştirme
 
-Tanılama günlüğü etkin, için *her* için veri toplamak istediğiniz NSG. [Genel bakış, Azure tanılama günlükleri](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) makalede açıklanır tanılama günlüklerini burada gönderilebilir. Varolan bir NSG yoksa, bölümündeki adımları tamamlamanız [bir ağ güvenlik grubu oluşturun](virtual-networks-create-nsg-arm-pportal.md) makale bir tane oluşturun. NSG aşağıdaki yöntemlerden birini kullanarak oturum tanılama etkinleştirebilirsiniz:
+Tanılama günlüğü etkin, için *her* NSG toocollect verileri istiyor. Merhaba [genel bakış, Azure tanılama günlükleri](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) makalede açıklanır tanılama günlüklerini burada gönderilebilir. Varolan bir NSG yoksa, tam hello hello adımları [bir ağ güvenlik grubu oluşturun](virtual-networks-create-nsg-arm-pportal.md) makale toocreate biri. NSG herhangi bir yöntem aşağıdaki hello kullanarak oturum tanılama etkinleştirebilirsiniz:
 
 ### <a name="azure-portal"></a>Azure portalına
 
-Günlük, oturum açma etkinleştirmek için portalı kullanmak için [portal](https://portal.azure.com). Tıklatın **daha fazla hizmet**, ardından *ağ güvenlik grubu*. İçin günlük kaydını etkinleştirmek istediğiniz NSG seçin. İşlem olmayan kaynakları için yönergeleri izleyin [portalında tanılama günlüklerini etkinleştirme](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) makalesi. Seçin **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter**, veya her iki kategorilerini günlükleri.
+toouse hello portal tooenable günlüğe kaydetme, oturum açma toohello [portal](https://portal.azure.com). Tıklatın **daha fazla hizmet**, ardından *ağ güvenlik grubu*. Hello için oturum açma tooenable istediğiniz NSG seçin. İşlem olmayan kaynakları hello Hello yönergeleri izleyin [hello portalında tanılama günlüklerini etkinleştirme](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) makalesi. Seçin **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter**, veya her iki kategorilerini günlükleri.
 
 ### <a name="powershell"></a>PowerShell
 
-Günlük kaydını etkinleştirmek için PowerShell kullanmak için ' ndaki yönergeleri izleyin [PowerShell aracılığıyla tanılama günlüklerini etkinleştirme](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) makalesi. Bir komut makaleden girmeden önce aşağıdaki bilgileri değerlendirin:
+Günlük, toouse PowerShell tooenable hello içinde hello yönergeleri izleyerek [PowerShell aracılığıyla tanılama günlüklerini etkinleştirme](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) makale. Bir komut hello makaleden girmeden önce bilgisinden hello değerlendirin:
 
-- İçin kullanılacak bir değer belirleyebilirsiniz `-ResourceId` aşağıdaki değiştirerek parametresi [metin] uygun şekilde, sonra komutu girerek `Get-AzureRmNetworkSecurityGroup -Name [nsg-name] -ResourceGroupName [resource-group-name]`. Komut Kimliği çıktısı için benzer */subscriptions/ [abonelik Id]/resourceGroups/[resource-group]/providers/Microsoft.Network/networkSecurityGroups/[NSG adı]*.
-- Yalnızca günlük kategoriden veri toplamak istiyorsanız eklemek `-Categories [category]` kategori olduğu ya da makalede, komut sonuna *NetworkSecurityGroupEvent* veya *NetworkSecurityGroupRuleCounter*. Kullanmazsanız `-Categories` parametresi, veri toplama kategorileri hem günlük için etkinleştirildi.
+- Merhaba değeri toouse hello için belirleyebilirsiniz `-ResourceId` hello komutunu girerek aşağıdaki hello [metin] uygun şekilde değiştirerek parametresi `Get-AzureRmNetworkSecurityGroup -Name [nsg-name] -ResourceGroupName [resource-group-name]`. Merhaba kimliği hello komut çıktısı arar benzer çok*/subscriptions/ [abonelik Id]/resourceGroups/[resource-group]/providers/Microsoft.Network/networkSecurityGroups/[NSG adı]*.
+- Günlük kategori toocollect verileri yalnızca istiyorsanız ekleyin `-Categories [category]` toohello kategori olduğu ya da hello makaledeki hello komutunun sonuna *NetworkSecurityGroupEvent* veya *NetworkSecurityGroupRuleCounter*. Merhaba kullanmazsanız `-Categories` parametresi, veri toplama kategorileri hem günlük için etkinleştirildi.
 
 ### <a name="azure-command-line-interface-cli"></a>Azure komut satırı arabirimi (CLI)
 
-Günlük kaydını etkinleştirmek için CLI kullanmak için ' ndaki yönergeleri izleyin [CLI aracılığıyla tanılama günlüklerini etkinleştirme](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) makalesi. Bir komut makaleden girmeden önce aşağıdaki bilgileri değerlendirin:
+toouse CLI tooenable günlük Merhaba, hello hello yönergeleri izleyin [CLI aracılığıyla tanılama günlüklerini etkinleştirme](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs) makalesi. Bir komut hello makaleden girmeden önce bilgisinden hello değerlendirin:
 
-- İçin kullanılacak bir değer belirleyebilirsiniz `-ResourceId` aşağıdaki değiştirerek parametresi [metin] uygun şekilde, sonra komutu girerek `azure network nsg show [resource-group-name] [nsg-name]`. Komut Kimliği çıktısı için benzer */subscriptions/ [abonelik Id]/resourceGroups/[resource-group]/providers/Microsoft.Network/networkSecurityGroups/[NSG adı]*.
-- Yalnızca günlük kategoriden veri toplamak istiyorsanız eklemek `-Categories [category]` kategori olduğu ya da makalede, komut sonuna *NetworkSecurityGroupEvent* veya *NetworkSecurityGroupRuleCounter*. Kullanmazsanız `-Categories` parametresi, veri toplama kategorileri hem günlük için etkinleştirildi.
+- Merhaba değeri toouse hello için belirleyebilirsiniz `-ResourceId` hello komutunu girerek aşağıdaki hello [metin] uygun şekilde değiştirerek parametresi `azure network nsg show [resource-group-name] [nsg-name]`. Merhaba kimliği hello komut çıktısı arar benzer çok*/subscriptions/ [abonelik Id]/resourceGroups/[resource-group]/providers/Microsoft.Network/networkSecurityGroups/[NSG adı]*.
+- Günlük kategori toocollect verileri yalnızca istiyorsanız ekleyin `-Categories [category]` toohello kategori olduğu ya da hello makaledeki hello komutunun sonuna *NetworkSecurityGroupEvent* veya *NetworkSecurityGroupRuleCounter*. Merhaba kullanmazsanız `-Categories` parametresi, veri toplama kategorileri hem günlük için etkinleştirildi.
 
 ## <a name="logged-data"></a>Günlüğe kaydedilen veriler
 
-JSON biçimli veriler için her iki günlüklerine yazılır. Her günlük türü için yazılan özel veriler aşağıdaki bölümlerde listelenmiştir:
+JSON biçimli veriler için her iki günlüklerine yazılır. Her günlük türü için yazılan hello belirli veri bölümleri aşağıdaki hello listelenir:
 
 ### <a name="event-log"></a>Olay günlüğü
-Bu günlük kuralları Vm'lere uygulanan ve MAC adresine dayalı hizmet rolü örneklerinin bulut hangi NSG hakkında bilgiler içerir. Aşağıdaki örnek veriler, her olay için günlüğe kaydedilir:
+Bu günlük kuralları uygulanan tooVMs olan ve MAC adresine dayalı hizmet rolü örneklerinin bulut hangi NSG hakkında bilgiler içerir. Örnek veri aşağıdaki hello her olay için günlüğe kaydedilir:
 
 ```json
 {
@@ -98,7 +98,7 @@ Bu günlük kuralları Vm'lere uygulanan ve MAC adresine dayalı hizmet rolü ö
 
 ### <a name="rule-counter-log"></a>Kural sayacı günlüğü
 
-Bu günlük kaynaklara uygulanma her bir kural hakkındaki bilgileri içerir. Aşağıdaki örnek veriler her zaman bir kuralın uygulanacağı günlüğe kaydedilir:
+Bu günlük, her kural tooresources hakkında bilgi içerir. Hello bir kuralın uygulanacağı her zaman en aşağıdaki örnek veriler günlüğe kaydedilir:
 
 ```json
 {
@@ -122,4 +122,4 @@ Bu günlük kaynaklara uygulanma her bir kural hakkındaki bilgileri içerir. A�
 
 ## <a name="view-and-analyze-logs"></a>Görüntülemek ve günlüklerini analiz edin
 
-Etkinlik günlüğü verilerini görüntülemek nasıl öğrenmek için [Azure etkinlik günlüğü'ne genel bakış](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) makalesi. Tanılama günlük verilerini görüntülemek nasıl öğrenmek için [genel bakış, Azure tanılama günlükleri](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) makalesi. Günlük analizi için tanılama verilerini gönderirseniz, kullanabileceğiniz [Azure ağ güvenlik grubu analytics](../log-analytics/log-analytics-azure-networking-analytics.md) Gelişmiş ınsights (Önizleme) yönetimi çözümü. 
+toolearn tooview etkinlik oturum nasıl veri okuma hello [hello Azure etkinlik günlüğü'ne genel bakış](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) makalesi. toolearn tooview tanılama günlük nasıl veri okuma hello [genel bakış, Azure tanılama günlükleri](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) makalesi. Tanılama veri tooLog Analytics gönderirseniz, hello kullanabilirsiniz [Azure ağ güvenlik grubu analytics](../log-analytics/log-analytics-azure-networking-analytics.md) Gelişmiş ınsights (Önizleme) yönetimi çözümü. 

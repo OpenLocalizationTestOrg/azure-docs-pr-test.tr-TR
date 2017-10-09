@@ -1,5 +1,5 @@
 ---
-title: "Azure Service Fabric XPlat CLI ile çalışmaya başlama"
+title: "Azure Service Fabric XPlat CLI ile aaaGetting başlatıldı"
 description: "Azure Service Fabric XPlat CLI ile çalışmaya başlama"
 services: service-fabric
 documentationcenter: .net
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: ddf881f6c202a82a3f64773639aa29b660057f8d
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: e4baa30536b4d8668d8efad301ed8210eb9c0335
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="using-the-xplat-cli-to-interact-with-a-service-fabric-cluster"></a>Service Fabric kümeyle etkileşim kurmak için XPlat CLI kullanma
+# <a name="using-hello-xplat-cli-toointeract-with-a-service-fabric-cluster"></a>Service Fabric kümesi ile Merhaba XPlat CLI toointeract kullanma
 
-Service Fabric kümesi Linux'ta XPlat CLI kullanarak Linux makinelerden etkileşim kurabilirsiniz.
+Service Fabric kümesi Linux'ta hello XPlat CLI kullanarak Linux makinelerden etkileşim kurabilirsiniz.
 
-İlk adımı get git rep CLI en son sürümünü ve aşağıdaki komutları kullanarak yolunuzda ayarlayın:
+Hello ilk adım olan Al hello CLI hello en son sürümünü hello git rep ve bunun yolu kullanarak hello komutları aşağıdaki kümesi:
 
 ```sh
  git clone https://github.com/Azure/azure-xplat-cli.git
@@ -34,20 +34,20 @@ Service Fabric kümesi Linux'ta XPlat CLI kullanarak Linux makinelerden etkileş
  azure servicefabric
 ```
 
-Her komut destekliyorsa, bu komut için Yardım almak için komut adını yazabilirsiniz.
-Otomatik Tamamlama komutlar için desteklenir. Örneğin, aşağıdaki komut, Yardım için tüm uygulama komutları sağlar. 
+Her komut destekliyorsa, bu komut için hello komut tooobtain hello Yardımı hello adı yazabilirsiniz.
+Otomatik Tamamlama hello komutları için desteklenmiyor. Örneğin, tüm hello uygulama komutlar için Yardım komut verir aşağıdaki hello. 
 
 ```sh
  azure servicefabric application 
 ```
 
-Aşağıdaki örnekte gösterildiği gibi belirli bir komut için Yardım daha fazla filtreleyebilirsiniz:
+Aşağıdaki örnekte gösterildiği hello hello Yardım tooa belirli komut, daha fazla filtreleyebilirsiniz:
 
 ```sh
  azure servicefabric application  create
 ```
 
-CLI otomatik tamamlama etkinleştirmek için aşağıdaki komutları çalıştırın:
+tooenable otomatik-tamamlama hello CLI, hello aşağıdaki komutları çalıştırın:
 
 ```sh
 azure --completion >> ~/azure.completion.sh
@@ -55,70 +55,70 @@ echo 'source ~/azure.completion.sh' >> ~/.sh\_profile
 source ~/azure.completion.sh
 ```
 
-Aşağıdaki komutlar kümeye bağlanın ve kümedeki düğümlerin göster:
+Aşağıdaki komutları hello toohello küme ve hello kümedeki düğümler hello Göster Bağlan:
 
 ```sh
  azure servicefabric cluster connect http://localhost:19080
  azure servicefabric node show
 ```
 
-Adlandırılmış parametreleri kullanmanız ve bunların ne olduğunu bulmak için bir komutundan sonra yazabilirsiniz--yardımcı olur. Örneğin:
+toouse adlandırılmış parametreleri ve bunların ne olduğunu bulun, yazabilirsiniz--Yardım komutundan sonra. Örneğin:
 
 ```sh
  azure servicefabric node show --help
  azure servicefabric application create --help
 ```
 
-Çoklu makine bir küme için bir makineden bağlanırken **değil parçası olan küme**, aşağıdaki komutu kullanın:
+Tooa çoklu makine küme bir makineden bağlanırken **değil parçası olan hello küme**, komutu aşağıdaki hello kullanın:
 
 ```sh
  azure servicefabric cluster connect http://PublicIPorFQDN:19080
 ```
 
-PublicIPorFQDN etiketi gerçek IP veya FQDN ile uygun şekilde değiştirin. Çoklu makine bir küme için bir makineden bağlanırken **olan kümesinin parçası**, aşağıdaki komutu kullanın:
+Merhaba PublicIPorFQDN etiketi hello gerçek IP veya FQDN ile uygun şekilde değiştirin. Tooa çoklu makine küme bir makineden bağlanırken **hello kümesinin parçası olan**, komutu aşağıdaki hello kullanın:
 
 ```sh
  azure servicefabric cluster connect --connection-endpoint http://localhost:19080 --client-connection-endpoint PublicIPorFQDN:19000
 ```
 
-Azure portalı üzerinden, Linux Service Fabric kümesi ile etkileşim kurmak için CLI oluşturulan veya PowerShell kullanabilirsiniz.
+Hello Azure portal CLI toointeract Linux Service Fabric kümesi ile oluşturulan veya PowerShell kullanabilirsiniz.
 
 > [!WARNING]
-> Bu kümeleri güvenli değil, bu nedenle, bir-kutusunu küme bildiriminde genel IP adresi ekleyerek açmakta.
+> Bu kümeleri güvenli değil, bu nedenle, bir-kutusunu hello küme bildiriminde hello genel IP adresi ekleyerek açmakta.
 
-## <a name="using-the-xplat-cli-to-connect-to-a-service-fabric-cluster"></a>Bir Service Fabric kümeye bağlanmak için XPlat CLI kullanma
+## <a name="using-hello-xplat-cli-tooconnect-tooa-service-fabric-cluster"></a>Merhaba XPlat CLI tooconnect tooa Service Fabric kümesi kullanma
 
-Aşağıdaki Azure CLI komutları güvenli bir kümeye bağlanmak nasıl açıklar. Sertifika ayrıntılarını küme düğümlerinde bir sertifika ile eşleşmesi gerekir.
+Azure CLI komutları aşağıdaki hello nasıl tooconnect tooa güvenli küme açıklanmaktadır. Merhaba sertifika ayrıntıları hello küme düğümlerinde bir sertifika ile eşleşmesi gerekir.
 
 ```sh
 azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert
 ```
 
-Sertifikanızı sertifika yetkilileri (CA) varsa, aşağıdaki örnekteki gibi--ca sertifikası path parametresi eklemeniz gerekir: 
+Sertifikanızı sertifika yetkilileri (CA) varsa, aşağıdaki örneğine hello gibi tooadd hello--ca sertifikası path parametresi gerekir: 
 
 ```sh
  azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 
 ```
 
-Birden fazla CA varsa, ayırıcı olarak virgül kullanın.
+Birden fazla CA varsa, hello ayırıcı olarak virgül kullanın.
 
-Sertifikadaki ortak adınızı bağlantı uç noktasının eşleşmiyorsa parametresi kullanabileceğinizi `--strict-ssl-false` aşağıdaki komutta gösterildiği gibi doğrulama atlamak için:
+Merhaba sertifikadaki ortak adınızı hello bağlantı uç noktasının eşleşmiyorsa hello parametre kullanabilirsiniz `--strict-ssl-false` toobypass hello komutu aşağıdaki gösterildiği gibi doğrulama hello:
 
 ```sh
 azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false 
 ```
 
-CA doğrulama atlamak istediğiniz varsa, ekleyebilirsiniz aşağıdaki komutta gösterildiği gibi Reddet yetkisiz yanlış parametre: 
+Tooskip hello CA doğrulama isterseniz hello--hello komutu aşağıdaki gösterildiği gibi Reddet yetkisiz yanlış parametre ekleyebilirsiniz: 
 
 ```sh
 azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized-false 
 ```
 
-Bağlandıktan sonra kümeyle etkileşim kurmak için diğer CLI komutları çalıştırmak görebilmeniz gerekir.
+Bağlandıktan sonra diğer CLI komutları toointeract ile mümkün toorun olmalıdır hello küme.
 
 ## <a name="deploying-your-service-fabric-application"></a>Service Fabric uygulamanızı dağıtma
 
-Kopyalama, kaydetme ve service fabric uygulaması başlatmak için aşağıdaki komutları yürütün:
+Toocopy, kaydetme ve hello service fabric uygulaması Başlat komutlarını aşağıdaki hello yürütün:
 
 ```sh
 azure servicefabric application package copy [applicationPackagePath] [imageStoreConnectionString] [applicationPathInImageStore]
@@ -128,9 +128,9 @@ azure servicefabric application create [applicationName] [applicationTypeName] [
 
 ## <a name="upgrading-your-application"></a>Uygulamanızı yükseltme
 
-İşlem benzer [Windows işlem](service-fabric-application-upgrade-tutorial-powershell.md)).
+Merhaba işlemdir benzer toohello [Windows işlem](service-fabric-application-upgrade-tutorial-powershell.md)).
 
-Yapı, kopyalama, kaydetme ve proje kök dizininde uygulamanızı oluşturun. Uygulama örneği olarak adlandırılmışsa `fabric:/MySFApp`ve MySFApp türdür, komutları aşağıdaki gibi olur:
+Yapı, kopyalama, kaydetme ve proje kök dizininde uygulamanızı oluşturun. Uygulama örneği olarak adlandırılmışsa `fabric:/MySFApp`ve hello türdür MySFApp, hello komutları şu şekilde olacaktır:
 
 ```sh
  azure servicefabric cluster connect http://localhost:19080
@@ -139,7 +139,7 @@ Yapı, kopyalama, kaydetme ve proje kök dizininde uygulamanızı oluşturun. Uy
  azure servicefabric application create fabric:/MySFApp MySFApp 1.0
 ```
 
-Uygulamanızda değişikliği yapın ve değiştirilen hizmeti yeniden derleyin.  Değiştirilen hizmetin bildirim dosyası (ServiceManifest.xml) hizmeti (ve kod veya yapılandırma ve verileri uygun şekilde) için güncelleştirilmiş sürümleri ile güncelleştirin. Ayrıca uygulama bildirimi (ApplicationManifest.xml) uygulama ve değiştirilen hizmet için güncelleştirilmiş sürüm numarasıyla değiştirin.  Şimdi, kopyalamak ve aşağıdaki komutları kullanarak güncelleştirilmiş uygulamanızı kaydetme:
+Tooyour uygulama değiştirmek ve değişiklik hello hizmeti yeniden hello olun.  Güncelleştirme hello hizmetin bildirim dosyası (ServiceManifest.xml) güncelleştirilmiş hello sürümleriyle hello hizmeti için (ve kod veya yapılandırma ve verileri uygun olarak) değiştirdi. Ayrıca hello güncelleştirilmiş sürüm numarasıyla Merhaba uygulaması için hello uygulama bildirimi (ApplicationManifest.xml) değiştirin ve değiştirilen hizmet hello.  Şimdi, kopyalayabilir ve güncelleştirilmiş uygulamanızı hello aşağıdaki komutları kullanarak kaydedin:
 
 ```sh
  azure servicefabric cluster connect http://localhost:19080>
@@ -147,68 +147,68 @@ Uygulamanızda değişikliği yapın ve değiştirilen hizmeti yeniden derleyin.
  azure servicefabric application type register MySFApp
 ```
 
-Şimdi, aşağıdaki komutla uygulama yükseltme başlatabilirsiniz:
+Şimdi, komutu aşağıdaki hello ile Merhaba uygulama yükseltme başlatabilirsiniz:
 
 ```sh
  azure servicefabric application upgrade start -–application-name fabric:/MySFApp -–target-application-type-version 2.0 --rolling-upgrade-mode UnmonitoredAuto
 ```
 
-Şimdi SFX kullanarak uygulama yükseltmesi izleyebilirsiniz. Birkaç dakika içinde uygulamanız güncelleştirilmiş olur. Ayrıca, bir hata ile güncelleştirilmiş bir uygulamayı deneyin ve hizmet yapıda otomatik geri alma işlevselliği denetleyin.
+Şimdi hello uygulama yükseltme SFX kullanarak izleyebilirsiniz. Birkaç dakika içinde Merhaba uygulaması güncelleştirilmiş. Ayrıca, bir hata ile güncelleştirilmiş bir uygulamayı deneyin ve service fabric hello otomatik geri alma işlevselliği denetleyin.
 
-## <a name="converting-from-pfx-to-pem-and-vice-versa"></a>PEM ve tersi yönde PFX dönüştürme
+## <a name="converting-from-pfx-toopem-and-vice-versa"></a>PFX tooPEM ve tersi yönde dönüştürme
 
-Farklı bir ortamda olabilir güvenli küme erişmek için yerel makinenizdeki (Windows veya Linux ile) bir sertifika yüklemeniz gerekebilir. Örneğin, bir Windows makineden ve güvenli bir Linux kümesi erişirken sertifikanızı PEM ve tersi yönde PFX dönüştürmeniz gerekebilir. 
+Farklı bir ortamda olabilir, yerel makine (Windows veya Linux) tooaccess güvenli kümelerinde tooinstall sertifika gerekebilir. Örneğin, bir Windows makineden ve güvenli bir Linux kümesi erişirken tooconvert sertifikanızı PFX tooPEM ve bunun tersi de gerekebilir. 
 
-PEM dosyasından bir PFX dosyasına dönüştürmek için aşağıdaki komutu kullanın:
+PEM dosyası tooa PFX dosyası, komut aşağıdaki kullanım hello gelen tooconvert:
 
 ```bash
 openssl pkcs12 -export -out certificate.pfx -inkey mycert.pem -in mycert.pem -certfile mycert.pem
 ```
 
-Bir PFX dosyasını PEM dosyasına dönüştürmek için aşağıdaki komutu kullanın:
+tooconvert dosyasından bir PFX dosyası tooa PEM, komutu aşağıdaki kullanım hello:
 
 ```bash
 openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 ```
 
-Ayrıntılar için [OpenSSL belgelerine](https://www.openssl.org/docs/man1.0.1/apps/pkcs12.html) bakın.
+Çok başvuran[OpenSSL belgelerine](https://www.openssl.org/docs/man1.0.1/apps/pkcs12.html) Ayrıntılar için.
 
 <a id="troubleshooting"></a>
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
 
-### <a name="copying-of-the-application-package-does-not-succeed"></a>Uygulama paketi kopyalama başarılı değil
+### <a name="copying-of-hello-application-package-does-not-succeed"></a>Merhaba uygulama paketi kopyalama başarılı değil
 
-Olup olmadığını denetleyin `openssh` yüklenir. Varsayılan olarak, Ubuntu Masaüstü yüklü sahip değil. Aşağıdaki komutu kullanarak yükleyin:
+Olup olmadığını denetleyin `openssh` yüklenir. Varsayılan olarak, Ubuntu Masaüstü yüklü sahip değil. Komutu aşağıdaki hello kullanarak yükleyin:
 
 ```sh
 sudo apt-get install openssh-server openssh-client**
 ```
 
-Sorun devam ederse, PAM için ssh değiştirerek devre dışı bırakmayı deneyin `sshd_config` aşağıdaki komutları kullanarak dosya:
+Merhaba sorun devam ederse, PAM için ssh hello değiştirerek devre dışı bırakmayı deneyin `sshd_config` hello aşağıdaki komutları kullanarak dosyası:
 
 ```sh
 sudo vi /etc/ssh/sshd_config
-#Change the line with UsePAM to the following: UsePAM no
+#Change hello line with UsePAM toohello following: UsePAM no
 sudo service sshd reload
 ```
 
-Sorun devam ederse sayısını ssh oturumları aşağıdaki komutları yürüterek artırmayı deneyin:
+Merhaba sorun devam ederse, artan hello sayıda ssh oturumları hello aşağıdaki komutları yürüterek deneyin:
 
 ```sh
 sudo vi /etc/ssh/sshd\_config
-# Add the following to lines:
+# Add hello following toolines:
 # MaxSessions 500
 # MaxStartups 300:30:500
 sudo service sshd reload
 ```
 
-(Platform ssh paketleri kopyalamak için kullandığından) ssh kimlik doğrulaması (parola) aksine henüz desteklenmeyen için anahtarları kullanarak parola kimlik doğrulaması yerine kullanın.
+Tuşları kullanarak (Merhaba platform ssh toocopy paketleri kullandığından) ssh kimlik doğrulaması (olarak karşılıklı toopasswords) henüz desteklenmiyor, bu nedenle parola kimlik doğrulaması kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Geliştirme ortamını ayarlama ve Linux kümesi için Service Fabric uygulaması dağıtın.](service-fabric-get-started-linux.md)
+[Merhaba geliştirme ortamını ayarlama ve bir Service Fabric uygulaması tooa Linux kümesi dağıtabilirsiniz.](service-fabric-get-started-linux.md)
 
 ## <a name="related-articles"></a>İlgili makaleler
 

@@ -1,6 +1,6 @@
 ---
-title: "Bir Azure içeri/dışarı aktarma dışarı aktarma işinin - v1 onarma | Microsoft Docs"
-description: "Oluşturulmuş ve Azure içeri/dışarı aktarma hizmeti kullanarak çalışan bir dışarı aktarma işinin onarmak öğrenin."
+title: "bir Azure içeri/dışarı aktarma dışarı aktarma işinin - v1 aaaRepairing | Microsoft Docs"
+description: "Nasıl toorepair oluşturulmuş ve kullanarak çalışan bir dışarı aktarma işinin hello Azure içeri/dışarı aktarma bilgi hizmeti."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,55 +14,55 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 30ca0f8d06cb1927c19e66035ff485db0fc09e5a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 96c674fc7c697c37882fb2980c340303896ac6c8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="repairing-an-export-job"></a>Bir dışarı aktarma işini onarma
-Bir dışarı aktarma işi tamamlandıktan sonra Microsoft Azure içeri/dışarı aktarma aracı şirket içi çalıştırabilirsiniz:  
+Bir dışarı aktarma işi tamamlandıktan sonra Microsoft Azure içeri/dışarı aktarma aracı şirket içi hello çalıştırabilirsiniz:  
   
-1.  Azure içeri/dışarı aktarma hizmeti veremedi dosyalarını indirin.  
+1.  Hello Azure içeri/dışarı aktarma hizmeti oluşturamıyor tooexport olduğunu dosyalarını indirin.  
   
-2.  Sürücüdeki dosyalar doğru aktarılmış doğrulayın.  
+2.  Merhaba dosyaları hello sürücüye doğru şekilde aktarılmış doğrulayın.  
   
-Bu işlevselliği kullanmak için Azure Storage bağlantısı olması gerekir.  
+Bu işlev bağlantısı tooAzure depolama toouse olması gerekir.  
   
-İçe aktarma işi onarmak için komut **RepairExport**.
+içe aktarma işi onarmak için hello komutu **RepairExport**.
 
 ## <a name="repairexport-parameters"></a>RepairExport parametreleri
 
-Aşağıdaki parametreleri ile belirtilen **RepairExport**:  
+Merhaba aşağıdaki parametreleri ile belirtilebilir **RepairExport**:  
   
 |Parametre|Açıklama|  
 |---------------|-----------------|  
-|**/ r: < RepairFile\>**|Gerekli. Onarım ilerleyişini izler ve kesintiye uğramış bir onarım sürdürmek için veren onarım dosyasının yolu. Her bir sürücü bir ve yalnızca bir onarım dosyası olması gerekir. Belirli bir sürücü için onarım başlattığınızda, henüz var olmayan bir onarım dosya yolunda geçer. Kesintiye uğramış bir onarım sürdürmek için varolan bir onarma dosya adına geçirmelisiniz. Onarım dosya hedef sürücüye karşılık gelen her zaman belirtilmesi gerekir.|  
-|**/ LOGDIR: < LogDirectory\>**|İsteğe bağlı. Günlük dosyası dizini. Bu dizin için ayrıntılı günlük dosyalarına yazılır. Günlük dizini belirtilmezse, geçerli dizin günlük dizini olarak kullanılır.|  
-|**/ d: < TargetDirectory\>**|Gerekli. Doğrulama ve onarmak için dizin. Bu genellikle verme sürücüsünün kök dizinindeki olmakla birlikte, bir ağ dosya paylaşımı dışa aktarılan dosyaların bir kopyasını da içeren.|  
-|**/BK: < BitLockerKey\>**|İsteğe bağlı. Bir şifrelenmiş dışa aktarılan dosyaların depolandığı kilidini açmak için aracın istiyorsanız BitLocker anahtarını belirtmeniz gerekir.|  
-|**/sn: < StorageAccountName\>**|Gerekli. Dışa aktarma işi için depolama hesabı adı.|  
-|**/SK: < StorageAccountKey\>**|**Gerekli** bir kapsayıcı SAS varsa ve yalnızca belirtilmezse. Dışa aktarma işi için depolama hesabı için hesap anahtarı.|  
-|**/csas: < ContainerSas\>**|**Gerekli** depolama hesabı anahtarı belirtilmezse varsa ve yalnızca. Dışa aktarma işi ile ilişkili BLOB'ları erişmek için kapsayıcı SAS.|  
-|**/ CopyLogFile: < DriveCopyLogFile\>**|Gerekli. Sürücüyü Kopyala günlük dosyası yolu. Dosya Windows Azure içeri/dışarı aktarma hizmeti tarafından oluşturulan ve işle ilişkili blob depolama biriminden indirilebilir. Kopya günlük dosyası başarısız BLOB veya onarılması dosyaları hakkında bilgi içerir.|  
-|**/ Manıfestfıle: < DriveManifestFile\>**|İsteğe bağlı. Dışarı aktarma sürücünün bildirim dosyasının yolu. Bu dosya Windows Azure içeri/dışarı aktarma hizmeti tarafından oluşturulan ve dışarı aktarma sürücü ve isteğe bağlı olarak işle ilişkili depolama hesabındaki blob depolanır.<br /><br /> Dosyaları dışarı aktarma sürücüde içeriğini bu dosyada bulunan MD5 karma ile doğrulanır. Bozuk olduğu belirlenir herhangi bir dosya indirilir ve hedef dizinleri yeniden yazılmıştır.|  
+|**/ r: < RepairFile\>**|Gereklidir. Hello onarım hello ilerleyişini izler ve tooresume kesintiye uğramış bir onarım veren yolu toohello onarım dosyası. Her bir sürücü bir ve yalnızca bir onarım dosyası olması gerekir. Belirli bir sürücü için onarım başlattığınızda, henüz var olmayan hello yolu tooa onarım dosyasında geçer. tooresume kesintiye uğramış bir onarım, varolan bir onarma dosyasını hello adlarında geçirmelisiniz. Merhaba onarım dosya karşılık gelen toohello hedef sürücüde her zaman belirtilmesi gerekir.|  
+|**/ LOGDIR: < LogDirectory\>**|İsteğe bağlı. Merhaba günlük dosyası dizini. Ayrıntılı günlük dosyalarını toothis dizin yazılır. Günlük dizini belirtilirse, hello geçerli dizin hello günlük dizini kullanılır.|  
+|**/ d: < TargetDirectory\>**|Gereklidir. Merhaba dizin toovalidate ve Onar. Bu genellikle hello verme sürücüsünün kök dizinindeki hello olmakla birlikte, bir ağ dosya paylaşımına dışarı hello dosyalarının bir kopyasını da içeren.|  
+|**/BK: < BitLockerKey\>**|İsteğe bağlı. Bir şifrelenmiş dosyaların nerede hello dışarı depolanır hello aracı toounlock istiyorsanız hello BitLocker anahtar belirtmeniz gerekir.|  
+|**/sn: < StorageAccountName\>**|Gereklidir. Merhaba depolama hesabının adını Hello hello için iş verin.|  
+|**/SK: < StorageAccountKey\>**|**Gerekli** bir kapsayıcı SAS varsa ve yalnızca belirtilmezse. Merhaba hesap anahtarı hello depolama hesabı hello için iş verin.|  
+|**/csas: < ContainerSas\>**|**Gerekli** hello depolama hesabı anahtarı belirtilmezse varsa ve yalnızca. Merhaba kapsayıcı SAS hello hello dışa aktarma işi ile ilişkili BLOB'ları erişmek için.|  
+|**/ CopyLogFile: < DriveCopyLogFile\>**|Gereklidir. Merhaba yol toohello sürücü kopyalama günlük dosyası. Merhaba dosya hello Windows Azure içeri/dışarı aktarma hizmeti tarafından oluşturulan ve hello işle ilişkili hello blob depolama biriminden indirilebilir. Merhaba kopyalama günlük dosyası başarısız BLOB veya onarıldı toobe dosyaları hakkında bilgi içerir.|  
+|**/ Manıfestfıle: < DriveManifestFile\>**|İsteğe bağlı. Merhaba yolu toohello verme sürücünün bildirim dosyası. Bu dosya hello Windows Azure içeri/dışarı aktarma hizmeti tarafından oluşturulan ve hello verme sürücüsünde ve isteğe bağlı olarak hello işle ilişkili hello depolama hesabındaki blob içinde depolanır.<br /><br /> Merhaba hello verme sürücüde hello dosyaların içeriğini bu dosyada bulunan hello MD5 karma ile doğrulanır. Bozuk belirlendiği toobe tüm dosyalar indirildi ve yeniden toohello hedef dizinleri olacaktır.|  
   
-## <a name="using-repairexport-mode-to-correct-failed-exports"></a>Başarısız dışarı aktarmaları düzeltmek için RepairExport modunu kullanma  
-Dışarı aktarılamadı dosyalarını indirmek için Azure içeri/dışarı aktarma aracını kullanabilirsiniz. Dosya Kopyala günlük dışarı aktarılamadı dosyaların bir listesini içerir.  
+## <a name="using-repairexport-mode-toocorrect-failed-exports"></a>RepairExport kullanarak modu toocorrect dışarı aktarma başarısız oldu  
+Tooexport başarısız hello Azure içeri/dışarı aktarma aracı toodownload dosyalarını kullanabilirsiniz. Merhaba kopyalama günlük dosyası tooexport başarısız dosyaların bir listesini içerir.  
   
-Dışarı aktarma hatalarının nedenlerini aşağıdaki özellikleri içerir:  
+Merhaba dışa aktarma hatalarının olasılıklar aşağıdaki hello nedenler:  
   
 -   Bozuk sürücüler  
   
--   Aktarma işlemi sırasında değiştirilmiş depolama hesabı anahtarı  
+-   Merhaba depolama hesabı anahtarı Hello aktarma işlemi sırasında değiştirildi  
   
-Aracı çalıştırmak için **RepairExport** modu, ilk ihtiyacınız bilgisayarınıza dışa aktarılan dosyaları içeren sürücü bağlanmak. Ardından, bu sürücüyle yolunu belirtme Azure içeri/dışarı aktarma aracı çalıştırın `/d` parametresi. Ayrıca indirdiğiniz sürücünün kopyalama günlük dosyası yolunu belirtmeniz gerekir. Aşağıdaki komut satırı örnek dışarı aktarılamadı dosyalarını onarmak için aracını çalıştırır:  
+toorun hello aracında **RepairExport** modu, ilk ihtiyacınız hello dışa aktarılan dosyaları tooyour bilgisayar içeren tooconnect hello sürücü. Ardından, hello hello yolu toothat sürücünün ile Merhaba belirtilmesi Azure içeri/dışarı aktarma aracı çalıştırın `/d` parametresi. İndirdiğiniz toospecify hello yolu toohello sürücünün kopyalama günlük dosyası da gerekir. Merhaba aşağıdaki aşağıdaki komut satırı örnek hello aracı toorepair tooexport başarısız herhangi bir dosya çalıştırır:  
   
 ```  
 WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C3U.log  
 ```  
   
-Blob içinde bir bloğu gösterir kopyalama günlük dosyası örneği dışarı aktarılamadı verilmiştir:  
+Merhaba, bu bir blok hello başarısız blob tooexport gösteren günlük dosya Kopyala örneği aşağıdadır:  
   
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
@@ -81,20 +81,20 @@ Blob içinde bir bloğu gösterir kopyalama günlük dosyası örneği dışarı
 </DriveLog>  
 ```  
   
-Windows Azure içeri/dışarı aktarma hizmeti blob'un blokları birini verme sürücüsündeki dosyanın indirilmesi edildi uygulanırken bir hata oluştu kopyalama günlük dosyasında belirtilir. Dosyanın diğer bileşenleri başarıyla indirildi ve dosya uzunluğunu doğru şekilde ayarlandı. Bu durumda, araç sürücüde dosyasını açın, blok depolama hesabından karşıdan yükle ve uzaklık 65536 uzunluğu 65536 ile başlayarak dosya aralığına yazma.  
+Merhaba kopyalama günlük dosyası hello Windows Azure içeri/dışarı aktarma hizmeti hello verme sürücüde hello blob'un blokları toohello dosyası birini indirme uygulanırken bir hata oluştu gösterir. diğer bileşenleri başarıyla indirildi hello dosyasının hello ve hello dosya uzunluğunu doğru şekilde ayarlandı. Bu durumda, hello aracı hello sürücüde hello dosyasını açın, hello blok hello depolama hesabından karşıdan yükle ve toohello dosya aralık uzaklığı 65536 uzunluğu 65536 ile başlayarak yazma.  
   
-## <a name="using-repairexport-to-validate-drive-contents"></a>Sürücü içeriklerini doğrulamak için RepairExport kullanma  
-Azure içeri/dışarı aktarma ile de kullanabileceğiniz **RepairExport** sürücüde içeriklerini doğrulamak için seçeneği doğru. Bildirim dosyası her dışarı aktarma sürücüde sürücü içeriğini için MD5s içerir.  
+## <a name="using-repairexport-toovalidate-drive-contents"></a>RepairExport toovalidate sürücü içeriğini kullanma  
+Azure içeri/dışarı aktarma ile Merhaba kullanabilirsiniz **RepairExport** hello sürücü seçeneği toovalidate Merhaba içeriğine doğru. Merhaba bildirim dosyası her dışarı aktarma sürücüde MD5s hello hello sürücü içeriğini içerir.  
   
-Azure içeri/dışarı aktarma hizmeti de bildirim dosyaları bir depolama hesabı için dışa aktarma işlemi sırasında kaydedebilirsiniz. Bildirim dosyalarının konumunu aracılığıyla kullanılabilir [alma işi](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) iş tamamlandığında işlemi. Bkz: [içeri/dışarı aktarma hizmeti bildirim dosyası biçimi](storage-import-export-file-format-metadata-and-properties.md) sürücü bildirim dosyası biçimi hakkında daha fazla bilgi için.  
+Hello Azure içeri/dışarı aktarma hizmeti ayrıca hello bildirim dosyaları tooa depolama hesabı hello dışa aktarma işlemi sırasında kaydedebilirsiniz. Merhaba hello bildirim dosyalarının konumu hello kullanılabilir [alma işi](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) hello iş tamamlandığında işlemi. Bkz: [içeri/dışarı aktarma hizmeti bildirim dosyası biçimi](storage-import-export-file-format-metadata-and-properties.md) sürücü bildirim dosyası hello biçimi hakkında daha fazla bilgi için.  
   
-Aşağıdaki örnek, Azure içeri/dışarı aktarma aracı ile çalıştırmak gösterilmiştir **/ManifestFile** ve **/CopyLogFile** Parametreler:  
+Merhaba aşağıdaki örnekte nasıl toorun hello Azure içeri/dışarı aktarma aracı ile Merhaba gösterir **/ManifestFile** ve **/CopyLogFile** Parametreler:  
   
 ```  
 WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C3U.log /ManifestFile:G:\9WM35C3U.manifest  
 ```  
   
-Bildirim dosyası örneği verilmiştir:  
+Merhaba, bir bildirim dosyası örneği verilmiştir:  
   
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
@@ -131,7 +131,7 @@ Bildirim dosyası örneği verilmiştir:
 </DriveManifest>  
 ``` 
   
-Onarım işlemi bittikten sonra aracı bildirim dosyasında başvurulan her bir dosya aracılığıyla okuma ve MD5 karma ile dosya bütünlüğünü doğrulayın. Listesi için aşağıdaki bileşenleri geçer.  
+Sonlandırma hello Onarım işleminden sonra hello aracı hello bildirim dosyasında başvurulan her bir dosya üzerinden okuma ve hello MD5 karma ile Merhaba dosyanın bütünlüğünü doğrular. Yukarıdaki Hello bildirimi için bileşenleri aşağıdaki hello geçer.  
 
 ```  
 G:\pictures\city\redmond.jpg, offset 0, length 3584  
@@ -153,12 +153,12 @@ G:\pictures\wild\canyon.jpg, offset 8163, length 2721
 G:\pictures\wild\canyon.jpg.properties  
 ```
 
-Doğrulama başarısız olan herhangi bir bileşeni aracı tarafından indirilir ve sürücüde aynı dosyaya yeniden yazılmıştır.  
+Merhaba doğrulama başarısız olan herhangi bir bileşeni hello aracı tarafından indirilir ve yeniden yazılmıştır hello sürücüde dosya aynı toohello.  
   
 ## <a name="next-steps"></a>Sonraki adımlar
  
-* [Azure içeri/dışarı aktarma aracı ayarlama](storage-import-export-tool-setup-v1.md)   
+* [Kurulum hello Azure içeri/dışarı aktarma aracı](storage-import-export-tool-setup-v1.md)   
 * [Sabit sürücüleri içeri aktarma işine hazırlama](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
 * [Kopyalama günlük dosyalarıyla iş durumunu gözden geçirme](storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Bir içeri aktarma işini onarma](storage-import-export-tool-repairing-an-import-job-v1.md)   
-* [Azure İçeri/Dışarı Aktarma Aracı ile ilgili sorunları giderme](storage-import-export-tool-troubleshooting-v1.md)
+* [Sorun giderme hello Azure içeri/dışarı aktarma aracı](storage-import-export-tool-troubleshooting-v1.md)

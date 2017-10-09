@@ -1,6 +1,6 @@
 ---
-title: "Yönergeler için Azure araç setini Eclipse oturum | Microsoft Docs"
-description: "Eclipse için Azure Araç Seti kullanarak Microsoft Azure'da oturum öğrenin."
+title: "Merhaba Eclipse için Azure Araç Seti için yönergeler de aaaSign | Microsoft Docs"
+description: "Eclipse için Azure Araç Seti kullanarak Microsoft Azure içine toosign hello nasıl öğrenin."
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,26 +14,26 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: robmcm
-ms.openlocfilehash: 02dd9935086c4c40d9ed54cc9ff2412ca96889f5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 95be64750ca0147f76dae8f364fad80cb9ccc969
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="azure-sign-in-instructions-for-the-azure-toolkit-for-eclipse"></a>Azure oturum açma Eclipse için Azure Araç Seti için yönergeler
+# <a name="azure-sign-in-instructions-for-hello-azure-toolkit-for-eclipse"></a>Merhaba Eclipse için Azure araç seti, Azure oturum yönergeleri
 
-Eclipse için Azure Araç Seti Azure hesabınızda oturum için iki yöntem sunar:
+Hello Azure araç setini Eclipse için Azure hesabınızda oturum için iki yöntem sunar:
 
   * **Etkileşimli** - bu yöntemi kullanırken her Azure hesabınızda oturum açışınızda Azure kimlik bilgilerinizi girer.
-  * **Otomatik** - bu yöntemi kullanırken geçmesi kimlik bilgileri dosyası otomatik olarak Azure hesabınızda oturum için kullanabileceğiniz, hizmet asıl verilerinizi içeren bir kimlik bilgileri dosyası oluşturur.
+  * **Otomatik** - bu yöntemi kullandığınızda daha sonra kullanabileceğiniz hello kimlik bilgileri dosyası tooautomatically oturum Azure hesabınızda, hizmet asıl verilerinizi içeren bir kimlik bilgileri dosyası oluşturur.
 
-Aşağıdaki bölümlerdeki adımları her yönteminin nasıl kullanılacağını anlatmaktadır.
+Merhaba hello bölümleri aşağıdaki adımlarda anlatmaktadır nasıl toouse her yöntemi.
 
 [!INCLUDE [azure-toolkit-for-eclipse-prerequisites](../includes/azure-toolkit-for-eclipse-prerequisites.md)]
 
 ## <a name="signing-into-your-azure-account-interactively"></a>Azure hesabınızda etkileşimli olarak imzalama
 
-Aşağıdaki adımlar, Azure kimlik bilgilerinizi el ile girerek Azure'da oturum nasıl çalışılacağını.
+Merhaba aşağıdaki adımları gösterecektir nasıl Azure kimlik bilgilerinizi el ile girerek toosign Azure içine.
 
 1. Projenizi Eclipse ile açın.
 
@@ -41,33 +41,33 @@ Aşağıdaki adımlar, Azure kimlik bilgilerinizi el ile girerek Azure'da oturum
 
    ![Azure oturum açma için Eclipse menüsü][I01]
 
-1. Zaman **Azure oturum açma** seçin iletişim kutusu görüntülenirse, **etkileşimli**ve ardından **oturum**.
+1. Ne zaman hello **Azure oturum açma** seçin iletişim kutusu görüntülenirse, **etkileşimli**ve ardından **oturum**.
 
    ![İletişim kutusuna oturum][I02]
 
-1. Zaman **Azure oturum açma** iletişim kutusu görüntülenirse, Azure kimlik bilgilerinizi girin ve ardından **oturum**.
+1. Ne zaman hello **Azure oturum açma** iletişim kutusu görüntülenirse, Azure kimlik bilgilerinizi girin ve ardından **oturum**.
 
    ![Azure Oturum Açma İletişim Kutusu][I03]
 
-1. Zaman **seçin abonelikleri** iletişim kutusu görüntülenirse, kullanın ve ardından istediğiniz abonelikleri seçin **Tamam**.
+1. Ne zaman hello **seçin abonelikleri** iletişim kutusu görüntülenirse, toouse istediğiniz ve ardından select hello abonelikleri **Tamam**.
 
    ![Select abonelikleri iletişim kutusu][I04]
 
 ## <a name="signing-out-of-your-azure-account-when-you-signed-in-interactively"></a>Etkileşimli olarak oturum açıp Azure hesabınızda oturumu imzalama
 
-Önceki bölümdeki adımları yapılandırdıktan sonra otomatik olarak her zaman Eclipse yeniden hesabınızda Azure oturumu kapattınız olur. Ancak, Eclipse başlatmadan dışında Azure hesabınızda oturum istiyorsanız, aşağıdaki adımları kullanın.
+Merhaba önceki bölümde hello adımları yapılandırdıktan sonra otomatik olarak her zaman Eclipse yeniden hesabınızda Azure oturumu kapattınız olur. Ancak, toosign, Eclipse başlatmadan Azure hesabınızda oturumu istiyorsanız hello aşağıdaki adımları kullanın.
 
 1. Eclipse'te, tıklatın **Araçları**, ardından **Azure**ve ardından **oturum kapatma**.
 
    ![Azure oturum kapatma için Eclipse menüsü][L01]
 
-1. Zaman **Azure Oturumu Kapat** iletişim kutusu görüntülenirse, tıklatın **Evet**.
+1. Ne zaman hello **Azure Oturumu Kapat** iletişim kutusu görüntülenirse, tıklatın **Evet**.
 
    ![İletişim kutusunu oturum][L02]
 
-## <a name="signing-into-your-azure-account-automatically-and-creating-a-credentials-file-to-use-in-the-future"></a>Azure hesabınızda oturum otomatik olarak imzalama ve kimlik bilgileri dosyası oluşturma gelecekte kullanmak için
+## <a name="signing-into-your-azure-account-automatically-and-creating-a-credentials-file-toouse-in-hello-future"></a>Azure hesabınızda oturum otomatik olarak imzalama ve bir kimlik bilgileri oluşturma toouse hello gelecekteki dosya
 
-Aşağıdaki adımlar, hizmet asıl verilerinizi içeren bir kimlik bilgileri dosyası oluşturmada size yol gösterir. Bu adımları tamamladıktan sonra Eclipse projenizin her açtığınızda Azure'da otomatik olarak oturum için kimlik bilgileri dosyası otomatik olarak kullanır.
+Merhaba aşağıdaki adımlar, hizmet asıl verilerinizi içeren bir kimlik bilgileri dosyası oluşturmada size yol gösterir. Otomatik olarak bu adımları, Eclipse tamamladıktan sonra size içine Azure her zaman kullanım hello kimlik bilgileri dosyası tooautomatically oturum projenizi açın.
 
 1. Projenizi Eclipse ile açın.
 
@@ -75,45 +75,45 @@ Aşağıdaki adımlar, hizmet asıl verilerinizi içeren bir kimlik bilgileri do
 
    ![Azure oturum açma için Eclipse menüsü][A01]
 
-1. Zaman **Azure oturum açma** seçin iletişim kutusu görüntülenirse, **otomatik**ve ardından **yeni**.
+1. Ne zaman hello **Azure oturum açma** seçin iletişim kutusu görüntülenirse, **otomatik**ve ardından **yeni**.
 
    ![İletişim kutusuna oturum][A02]
 
-1. Zaman **Azure oturum açma** iletişim kutusu görüntülenirse, Azure kimlik bilgilerinizi girin ve ardından **oturum**.
+1. Ne zaman hello **Azure oturum açma** iletişim kutusu görüntülenirse, Azure kimlik bilgilerinizi girin ve ardından **oturum**.
 
    ![Azure Oturum Açma İletişim Kutusu][A03]
 
-1. Zaman **kimlik doğrulama dosyalarını oluşturmak** iletişim kutusu görüntülenirse, kullanma, hedef dizininizi seçin ve ardından istediğiniz abonelikleri seçin **Başlat**.
+1. Ne zaman hello **kimlik doğrulama dosyalarını oluşturmak** iletişim kutusu görüntülenirse, toouse istediğiniz hedef dizininizi seçin ve ardından select hello abonelikleri **Başlat**.
 
    ![Azure Oturum Açma İletişim Kutusu][A04]
 
-1. **Hizmet sorumlusu Creatation durumu** iletişim kutusu görüntülenir, tıklatıp dosyalarınızı başarıyla oluşturduktan sonra **Tamam**.
+1. Merhaba **hizmet sorumlusu Creatation durumu** iletişim kutusu görüntülenir, tıklatıp dosyalarınızı başarıyla oluşturduktan sonra **Tamam**.
 
    ![Hizmet sorumlusu Creatation durumu iletişim kutusu][A05]
 
-1. Zaman **Azure oturum açma** iletişim kutusu görüntülenirse, tıklatın **oturum**.
+1. Ne zaman hello **Azure oturum açma** iletişim kutusu görüntülenirse, tıklatın **oturum**.
 
    ![Azure Oturum Açma İletişim Kutusu][A06]
 
-1. Zaman **seçin abonelikleri** iletişim kutusu görüntülenirse, kullanın ve ardından istediğiniz abonelikleri seçin **Tamam**.
+1. Ne zaman hello **seçin abonelikleri** iletişim kutusu görüntülenirse, toouse istediğiniz ve ardından select hello abonelikleri **Tamam**.
 
    ![Select abonelikleri iletişim kutusu][A07]
 
 ## <a name="signing-out-of-your-azure-account-when-you-signed-in-automatically"></a>Azure hesabınızda oturumu otomatik olarak imzalanmış imzalarken
 
-Önceki bölümdeki adımları yapılandırdıktan sonra Azure Araç Seti otomatik olarak, her zaman Eclipse yeniden Azure hesabınızda oturum açın. Ancak, dışında Azure hesabınızda oturum açın ve Azure Araç Seti otomatik olarak oturum açma engellemek için aşağıdaki adımları kullanın.
+Merhaba önceki bölümde hello adımları yapılandırdıktan sonra hello Azure Araç Seti otomatik olarak, her zaman Eclipse yeniden Azure hesabınızda oturum açın. Ancak, toosign Azure hesabınızda out ve otomatik olarak, aşağıdaki adımları kullanın hello kaydınızı hello Azure Araç Seti engelleyebilirsiniz.
 
 1. Eclipse'te, tıklatın **Araçları**, ardından **Azure**ve ardından **oturum kapatma**.
 
    ![Azure oturum kapatma için Eclipse menüsü][L01]
 
-1. Zaman **Azure Oturumu Kapat** iletişim kutusu görüntülenirse, tıklatın **Evet**.
+1. Ne zaman hello **Azure Oturumu Kapat** iletişim kutusu görüntülenirse, tıklatın **Evet**.
 
    ![İletişim kutusunu oturum][L03]
 
 ## <a name="signing-into-your-azure-account-automatically-using-a-credentials-file-which-you-have-already-created"></a>Önceden oluşturduğunuz bir kimlik bilgileri dosyası kullanılarak otomatik olarak Azure hesabınızda imzalama
 
-Eclipse kullanırken Azure oturumunu oturum açarsanız, otomatik olarak Azure hesabınız oturum önce oluşturmuş olduğunuz bir kimlik bilgileri dosyası kullanmak Eclipse için Azure Araç Seti yeniden yapılandırmanız gerekir. Aşağıdaki adımlar varolan kimlik bilgileri dosyasını kullanmak için Azure Araç Seti yapılandırırken size yol gösterir.
+Eclipse kullanırken Azure oturumunu oturum açarsanız, Eclipse toouse otomatik olarak Azure hesabınız oturum önce oluşturmuş olduğunuz bir kimlik bilgileri dosyası tooreconfigure hello Azure Araç Seti gerekir. Merhaba aşağıdaki adımları hello Azure Araç Seti toouse nasıl yapılandıracağınız varolan kimlik bilgileri dosyasını anlatılmaktadır.
 
 1. Projenizi Eclipse ile açın.
 
@@ -121,37 +121,37 @@ Eclipse kullanırken Azure oturumunu oturum açarsanız, otomatik olarak Azure h
 
    ![Azure oturum açma için Eclipse menüsü][A01]
 
-1. Zaman **Azure oturum açma** seçin iletişim kutusu görüntülenirse, **otomatik**ve ardından **Gözat**.
+1. Ne zaman hello **Azure oturum açma** seçin iletişim kutusu görüntülenirse, **otomatik**ve ardından **Gözat**.
 
    ![İletişim kutusuna oturum][A02]
 
-1. Zaman **kimliği doğrulanmış Dosya Seç** iletişim kutusu görüntülenirse, daha önce oluşturduğunuz bir kimlik bilgileri dosyasını seçin ve ardından **seçin**.
+1. Ne zaman hello **kimliği doğrulanmış Dosya Seç** iletişim kutusu görüntülenirse, daha önce oluşturduğunuz bir kimlik bilgileri dosyasını seçin ve ardından **seçin**.
 
    ![İletişim kutusuna oturum][A08]
 
-1. Zaman **Azure oturum açma** iletişim kutusu görüntülenirse, tıklatın **oturum**.
+1. Ne zaman hello **Azure oturum açma** iletişim kutusu görüntülenirse, tıklatın **oturum**.
 
    ![Azure Oturum Açma İletişim Kutusu][A06]
 
-1. Zaman **seçin abonelikleri** iletişim kutusu görüntülenirse, kullanın ve ardından istediğiniz abonelikleri seçin **Tamam**.
+1. Ne zaman hello **seçin abonelikleri** iletişim kutusu görüntülenirse, toouse istediğiniz ve ardından select hello abonelikleri **Tamam**.
 
    ![Select abonelikleri iletişim kutusu][A07]
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-Java IDE’leri için Azure Araç Setleri hakkında daha fazla bilgi için aşağıdaki bağlantılara bakın:
+Java IDE hello Azure araç takımları hakkında daha fazla bilgi için bağlantılar aşağıdaki hello bakın:
 
 * [Eclipse için Azure Araç Seti]
-  * [Eclipse için Azure Araç Seti Yenilikleri]
-  * [Eclipse için Azure Araç Setini Yükleme]
-  * *Yönergeler için Azure araç setini Eclipse (Bu makalede) Kaydol*
+  * [Yeni hello Eclipse için Azure Araç Seti nedir]
+  * [Yükleme hello Eclipse için Azure Araç Seti]
+  * *Hello Azure araç setini Eclipse (Bu makalede) için oturum yönergeleri*
   * [Eclipse Azure'da Hello World Web uygulaması oluşturun]
 * [IntelliJ için Azure Araç Seti]
-  * [IntelliJ için Azure Araç Seti Yenilikleri]
-  * [IntelliJ için Azure Araç Setini Yükleme]
-  * [IntelliJ için Azure Araç Setinde Oturum Açma Yönergeleri]
+  * [Yeni hello Intellij için Azure Araç Seti nedir]
+  * [Yükleme hello Intellij için Azure Araç Seti]
+  * [Merhaba Intellij için Azure Araç Seti içinde oturum yönergeleri]
   * [Intellij Azure'da Hello World Web uygulaması oluşturun]
 
-Azure’u Java ile kullanma hakkında daha fazla bilgi edinmek için bkz. [Azure Java Geliştirici Merkezi] ve [Visual Studio Team Services için Java Araçları].
+Azure Java ile kullanma hakkında daha fazla bilgi için bkz: Merhaba [Azure Java Geliştirici Merkezi] ve hello [Visual Studio Team Services için Java Araçları].
 
 <!-- URL List -->
 
@@ -159,12 +159,12 @@ Azure’u Java ile kullanma hakkında daha fazla bilgi edinmek için bkz. [Azure
 [IntelliJ için Azure Araç Seti]: ./azure-toolkit-for-intellij.md
 [Eclipse Azure'da Hello World Web uygulaması oluşturun]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [Intellij Azure'da Hello World Web uygulaması oluşturun]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
-[Eclipse için Azure Araç Setini Yükleme]: ./azure-toolkit-for-eclipse-installation.md
-[IntelliJ için Azure Araç Setini Yükleme]: ./azure-toolkit-for-intellij-installation.md
-[Sign In Instructions for the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
-[IntelliJ için Azure Araç Setinde Oturum Açma Yönergeleri]: ./azure-toolkit-for-intellij-sign-in-instructions.md
-[Eclipse için Azure Araç Seti Yenilikleri]: ./azure-toolkit-for-eclipse-whats-new.md
-[IntelliJ için Azure Araç Seti Yenilikleri]: ./azure-toolkit-for-intellij-whats-new.md
+[Yükleme hello Eclipse için Azure Araç Seti]: ./azure-toolkit-for-eclipse-installation.md
+[Yükleme hello Intellij için Azure Araç Seti]: ./azure-toolkit-for-intellij-installation.md
+[Sign In Instructions for hello Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Merhaba Intellij için Azure Araç Seti içinde oturum yönergeleri]: ./azure-toolkit-for-intellij-sign-in-instructions.md
+[Yeni hello Eclipse için Azure Araç Seti nedir]: ./azure-toolkit-for-eclipse-whats-new.md
+[Yeni hello Intellij için Azure Araç Seti nedir]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Azure Java Geliştirici Merkezi]: https://azure.microsoft.com/develop/java/
 [Visual Studio Team Services için Java Araçları]: https://java.visualstudio.com/

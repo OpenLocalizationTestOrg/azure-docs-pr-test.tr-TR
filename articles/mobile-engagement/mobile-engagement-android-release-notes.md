@@ -1,5 +1,5 @@
 ---
-title: "Azure Mobile Engagement Android SDK tümleştirmesi"
+title: "aaaAzure Mobile Engagement Android SDK tümleştirmesi"
 description: "En son güncelleştirmeler ve yordamlar için Azure Mobile Engagement Android SDK"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,26 +14,26 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.openlocfilehash: c179c39a43da0aa35e945acceacbf27fe8e328f3
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 16b098198674c49567d720d0c01d984cb763ed8a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="release-notes"></a>Sürüm notları
 
 ## <a name="431-07172017"></a>4.3.1 (07/17/2017)
-* Çağrılırken nadiren bir kilitlenme düzeltme `EngagementAgentUtils.isInDedicatedEngagementProcess`, ayrıca kullanılan tarafından `EngagementApplication` sınıfı.
+* Çağrılırken nadiren bir kilitlenme düzeltme `EngagementAgentUtils.isInDedicatedEngagementProcess`, ayrıca hello tarafından kullanılan `EngagementApplication` sınıfı.
 
 ## <a name="430-06272017"></a>4.3.0 (06/27/2017)
-* Android 8 desteği (SDK'ın önceki sürümleri üzerinde Android 8 çalışmaz).
+* Android 8 desteği (SDK'sı üzerinde Android 8 çalışmaz hello önceki sürümler).
 * Daha fazla hiçbir bağımlılık destek kitaplığı.
 * Kaldırma `EngagementFragmentActivity` sınıfı.
-* Nedeniyle [arka plan yürütme sınırları](https://developer.android.com/preview/features/background.html) arka planda günlükleri Android 8'de kullanıcı aygıt ile etkileşim kadar gecikebilir, bu bir itme kampanya etkileyecek **teslim edildi** ve **sistem bildirimi görüntülenir** Aygıt uyku durumunda erteleniyor istatistikleri (bildirim görüntülenmeye devam eder, halka ve gerçek zamanlı sorun olmadan Titret).
-* Nedeniyle [arka plan konum sınırları](https://developer.android.com/preview/features/background-location-limits.html), arka plan konumda güncelleştirilmeyecek sık üzerinde Android 8 gerçek zamanlı.
+* Son çok[arka plan yürütme sınırları](https://developer.android.com/preview/features/background.html) hello kullanıcı hello aygıt ile etkileşim kadar arka planda günlükleri Android 8'de Gecikmeli, bu bir itme kampanya etkileyecek **teslim edildi** ve **Sistem bildirimi görüntülenir** hello Aygıt uyku durumunda erteleniyor istatistikleri (Merhaba bildirim görüntülenmeye devam eder, halka ve gerçek zamanlı sorun olmadan Titret).
+* Son çok[arka plan konum sınırları](https://developer.android.com/preview/features/background-location-limits.html), arka planda hello gerçek zamanlı konum güncelleştirilmeyecek sık üzerinde Android 8.
 
 ## <a name="424-03302017"></a>4.2.4 (03/30/2017)
-* Uygulama içi bildirim metin renkleri Android 7 eski Android sürümleri ile aynı olacak şekilde düzeltin.
+* Uygulama içi bildirim Android 7 toobe metin renkleri aynı eski Android sürümler olarak hello düzeltin.
 
 ## <a name="423-08102016"></a>4.2.3 (08/10/2016)
 * Daha fazla WIFI kilit yok.
@@ -45,10 +45,10 @@ ms.lasthandoff: 08/03/2017
 ## <a name="421-05102016"></a>4.2.1 (05/10/2016)
 * Güvenlik: web görünümü yerel dosya erişimini devre dışı bırakın.
 * Güvenliği: kaldırma `EngagementPreferenceActivity` artık kullanılmayan ve güvenli olmayan genişleten sınıf `PreferenceActivity` sınıfı.
-* Güvenlik: etkinlikleri kullanmak için şimdi belgelenmiştir ulaşma `exported="false"`, bu bayrak, önceki SDK sürümlerinde kullanılabilir.
+* Güvenlik: etkinliklerdir şimdi ulaşma toouse belgelenen `exported="false"`, bu bayrak, önceki SDK sürümlerinde kullanılabilir.
 
 ## <a name="420-03112016"></a>4.2.0 (03/11/2016)
-* SDK şimdi MIT altında lisanslanmıştır.
+* Merhaba SDK şimdi MIT altında lisanslanmıştır.
 * Bir özel cihaz tanımlayıcısı SDK başlatma zamanında belirtmeye izin.
 
 ## <a name="415-02012016"></a>4.1.5 (02/01/2016)
@@ -73,19 +73,19 @@ ms.lasthandoff: 08/03/2017
 * İstikrara yönelik iyileştirmeler.
 
 ## <a name="400-07062015"></a>4.0.0 (07/06/2015)
-* Analizler ve anında iletme daha güvenilir sağlamak için iç protokol değişiklikleri.
-* İtme kampanya herhangi bir türde yerel gönderim kimlik bilgilerini yapılandırmak için yerel gönderim (GCM/ADM) şimdi de için uygulama içi Bildirimlerde kullanılır.
+* İç protokol toomake analizler ve anında iletme daha güvenilir değiştirir.
+* İtme kampanya herhangi bir türde hello yerel gönderim kimlik bilgilerini yapılandırmak için yerel gönderim (GCM/ADM) şimdi de için uygulama içi Bildirimlerde kullanılır.
 * Büyük resim bildirim düzeltin: gönderilen sonra görüntülenen yalnızca 10'luk oldukları.
-* Web görünümünde bir hatayı düzeltmek: bir bağlantıyı tıklatmak olduğu da yürütülürken varsayılan eylem URL'si.
-* Yerel depolama yönetimiyle ilgili nadir bir kilitlenme düzeltin.
+* Web görünümünde bir hatayı düzeltmek: bir bağlantıyı tıklatmak olduğu da yürütülürken hello varsayılan eylem URL'si.
+* Nadir çökmeyle düzeltme ilgili toolocal Depolama Yönetimi.
 * Dinamik yapılandırma dizesi yönetim düzeltin.
 * EULA güncelleştirin.
 
 ## <a name="300-02172015"></a>3.0.0 (02/17/2015)
 * Azure Mobile Engagement ilk sürümünü
 * AppID yapılandırma bağlantı dizesini yapılandırma tarafından değiştirilir.
-* Rastgele XMPP varlıklardan rasgele XMPP ileti alıp göndermek için API kaldırıldı.
-* Cihazlar arasında ileti gönderme ve alma için API kaldırıldı.
+* Rastgele XMPP varlıklardan rasgele XMPP ileti alıp API toosend kaldırıldı.
+* Cihazlar arasında ileti alıp API toosend kaldırıldı.
 * Güvenlik geliştirmeleri.
 * Google Play ve SmartAd izleme kaldırıldı.
 

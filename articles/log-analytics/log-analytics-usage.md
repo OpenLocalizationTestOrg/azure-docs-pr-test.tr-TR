@@ -1,6 +1,6 @@
 ---
-title: "Log Analytics'te veri kullanımını çözümleme | Microsoft Belgeleri"
-description: "Log Analytics hizmetine ne kadar veri gönderildiğini görmek ve neden büyük miktarda veri gönderildiğiyle ilgili sorunları gidermek için Log Analytics'in Kullanım panosunu kullanın."
+title: "Günlük analizi aaaAnalyze veri kullanımı | Microsoft Docs"
+description: "Kullanım hello kullanım günlük analizi tooview panosunda ne kadar veri toohello günlük analizi hizmeti gönderilen ve büyük miktarlarda verinin gönderilen neden giderebilirsiniz."
 services: log-analytics
 documentationcenter: 
 author: MGoedtel
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/21/2017
 ms.author: magoedte
-ms.openlocfilehash: 9a4709f298131722e9c473a19f7eee0aebf7e1e6
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c30373dd6edbe3ff900fbebc865575fee61ce14c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics'te veri kullanımını çözümleme
-Log Analytics toplanan veri miktarı, verileri hangi bilgisayarların gönderdiği ve gönderilen farklı veri türleri hakkındaki bilgileri içerir.  Log Analytics hizmetine gönderilen veri miktarını görmek için **Log Analytics Kullanımı** panosunu kullanın. Panoda her çözüm tarafından ne kadar veri toplandığı ve bilgisayarlarınızın ne kadar veri gönderdiği gösterilir.
+Günlük analizi hello hello veri ve gönderilen verileri hello farklı türlerde bilgisayarlar gönderilen toplanan, veri miktarını hakkında bilgi içerir.  Kullanım hello **günlük analizi kullanımını** Pano toosee hello veri miktarını gönderilen toohello günlük analizi hizmeti. Merhaba Pano bilgisayarlarınızı gösterir her çözümü tarafından toplanan veri miktarını ve ne kadar veri gönderiyor.
 
-## <a name="understand-the-usage-dashboard"></a>Kullanım panosunu anlama
-**Log Analytics kullanım** panosu aşağıdaki bilgileri gösterir:
+## <a name="understand-hello-usage-dashboard"></a>Merhaba kullanım Pano anlama
+Merhaba **günlük analizi kullanım** Pano bilgisinden hello görüntüler:
 
 - Veri hacmi
     - Zaman içindeki veri hacmi (geçerli zaman kapsamınıza bağlı olarak)
@@ -38,94 +38,94 @@ Log Analytics toplanan veri miktarı, verileri hangi bilgisayarların gönderdi�
     - Otomasyon ve Kontrol düğümleri
     - Güvenlik düğümleri
 - Performans
-    - Verileri toplamak ve dizinlemek için harcanan süre
+    - Toocollect ve dizin verilerini harcanan süre
 - Sorgu listesi
 
 ![kullanım panosu](./media/log-analytics-usage/usage-dashboard01.png)
 
-### <a name="to-work-with-usage-data"></a>Kullanım verileriyle çalışma
-1. Önceden yapmadıysanız Azure aboneliğinizi kullanarak [Azure portalında](https://portal.azure.com) oturum açın.
-2. **Hub** menüsünde **Diğer hizmetler**’e tıklayıp kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i tıklayın.  
+### <a name="toowork-with-usage-data"></a>kullanım verileri ile toowork
+1. Zaten yapmadıysanız, toohello içinde oturum [Azure portal](https://portal.azure.com) Azure aboneliğinizi kullanarak.
+2. Merhaba üzerinde **Hub** menüsünde tıklatın **daha fazla hizmet** ve kaynakları hello listesinde yazın **günlük analizi**. Yazmaya başladığınızda liste filtreleri, girişinize göre hello. **Log Analytics**’i tıklayın.  
     ![Azure hub'ı](./media/log-analytics-usage/hub.png)
-3. **Log Analytics** panosunda çalışma alanlarınızın listesi gösterilir. Bir çalışma alanı seçin.
-4. *Çalışma alanı* panosunda **Log Analytics kullanımı**’na tıklayın.
-5. **Log Analytics Kullanım** panosunda **Zaman: Son 24 saat**’e tıklayarak zaman aralığını değiştirin.  
+3. Merhaba **günlük analizi** Pano alanlarınızı listesini gösterir. Bir çalışma alanı seçin.
+4. Merhaba, *çalışma* panoyu tıklatın **günlük analizi kullanım**.
+5. Hello üzerinde **günlük analizi kullanımını** panoyu tıklatın **zaman: Son 24 saat** toochange hello zaman aralığı.  
     ![zaman aralığı](./media/log-analytics-usage/time.png)
-6. İlginizi çeken alanları gösteren kategori dikey pencerelerini görüntüleyin. Bir dikey pencere seçin [Günlük Arama](log-analytics-log-searches.md)’te ayrıntılarını görüntülemek istediğiniz öğeye tıklayın.  
+6. Alanları Göster görünümü hello kullanım kategori Kanatlar ilgilendiğiniz. Bir dikey pencere seçin ve bir öğede daha fazla ayrıntı tooview ardından [günlük arama](log-analytics-log-searches.md).  
     ![örnek veri kullanım dikey penceresi](./media/log-analytics-usage/blade.png)
-7. Günlük Arama panosunda aramanın döndürdüğü sonuçları inceleyin.  
+7. Merhaba günlük arama Panoda hello aramadan döndürülen hello sonuçlarını gözden geçirin.  
     ![örnek kullanım günlüğü araması](./media/log-analytics-usage/usage-log-search.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Toplanan veriler beklenenden fazlaysa uyarı oluşturma
-Bu bölümde, aşağıdaki durumlarda nasıl uyarı oluşturulacağı açıklanır:
+Bu bölümde açıklanmıştır nasıl toocreate Uyarı:
 - Veri hacmi belirtilen bir miktarı aştığında.
-- Veri hacminin belirtilen bir miktarı aşacağı tahmin edildiğinde.
+- Veri, tahmin edilen tooexceed belirtilen birimdir.
 
-Log Analytics [uyarılarında](log-analytics-alerts-creating.md) arama sorguları kullanılır. Aşağıdaki sorgu, son 24 saatte 100 GB'den fazla veri toplandığında bir sonuç verir:
+Log Analytics [uyarılarında](log-analytics-alerts-creating.md) arama sorguları kullanılır. Son 24 saat hello toplanan verilerin birden fazla 100 GB olduğunda hello aşağıdaki sorgu bir sonuç vardır:
 
 `Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(Quantity,1024)) as DataGB by Type | where DataGB > 100`
 
-Aşağıdaki sorgu, ne zaman bir günde 100 GB'den fazla veri toplanacağını tahmin etmek için basit bir formül kullanır: 
+bir günde 100 GB'tan fazla veri gönderilecek hello aşağıdaki sorguyu basit bir formül toopredict kullanır: 
 
 `Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(mul(Quantity,8),1024)) as EstimatedGB by Type | where EstimatedGB > 100`
 
-Farklı bir veri hacminde uyarıda bulunmak için, sorgulardaki 100 değerini uyarılmak istediğiniz GB sayısıyla değiştirin.
+farklı veri birimde, değişiklik hello 100 hello tooalert tooalert istediğiniz GB toohello sayısını sorgular.
 
-Toplanan veri beklenen miktarı aştığında size bildirilmesini sağlamak için, [Uyarı kuralı oluşturma](log-analytics-alerts-creating.md#create-an-alert-rule) başlığı altında açıklanan adımları kullanın.
+Açıklanan başlangıç adımları kullanın [bir uyarı kuralı oluştur](log-analytics-alerts-creating.md#create-an-alert-rule) veri toplama beklenenden daha yüksek olduğunda bildirim toobe.
 
-İlk sorgu için, yani 24 saat içinde 100 GB'den fazla veri toplandığında uyarı oluştururken şu ayarları yapın:
-- **Ad**: *24 saat içinde 100 GB'den büyük veri hacmi*
-- **Önem derecesi**: *Uyarı*
-- **Arama sorgusu**: `Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(Quantity,1024)) as DataGB by Type | where DataGB > 100`
-- **Zaman penceresi**: *24 Saat*.
-- **Uyarı sıklığı**: Kullanım verileri yalnızca bir saat arayla güncelleştirildiğinden bir saat.
-- **Şuna bağlı olarak uyarı oluştur**: *sonuç sayısı*
-- **Sonuç sayısı**: *Şundan büyüktür: 0*
+24 saat içindeki 100 GB'tan fazla veri olduğunda hello ilk sorgu--hello uyarı oluştururken ayarlayın:
+- **Ad** çok*24 saatte 100 GB'den büyük veri birimi*
+- **Önem derecesi** çok*uyarı*
+- **Arama sorgusu** çok`Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(Quantity,1024)) as DataGB by Type | where DataGB > 100`
+- **Zaman penceresi** çok*24 saat*.
+- **Uyarı sıklığı** toobe bir hello kullanım verileri yalnızca saatte bir kez güncelleştiren bir işlem olduğundan saat.
+- **Temel uyarı Oluştur** toobe *sonuçları sayısı*
+- **Sonuç sayısı** toobe *0'dan büyük*
 
-Uyarı kuralı olarak bir e-postayı, web kancasını veya runbook eylemini yapılandırmak için, [Uyarı kurallarına eylemler ekleme](log-analytics-alerts-actions.md) başlığı altında açıklanan adımları kullanın.
+Açıklanan başlangıç adımları kullanın [Eylemler tooalert kuralları eklemeniz](log-analytics-alerts-actions.md) hello uyarı kuralı için bir e-posta, Web kancası veya runbook eylemi yapılandırın.
 
-İkinci sorgu için, yani 24 saat içinde 100 GB'den fazla veri olacağı tahmin edildiğinde uyarı oluştururken şu ayarları yapın:
-- **Ad**: *24 saat içinde veri hacminin 100 GB'den büyük olacağı tahmin ediliyor*
-- **Önem derecesi**: *Uyarı*
-- **Arama sorgusu**: `Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(mul(Quantity,8),1024)) as EstimatedGB by Type | where EstimatedGB > 100`
-- **Zaman penceresi**: *3 Saat*.
-- **Uyarı sıklığı**: Kullanım verileri yalnızca bir saat arayla güncelleştirildiğinden bir saat.
-- **Şuna bağlı olarak uyarı oluştur**: *sonuç sayısı*
-- **Sonuç sayısı**: *Şundan büyüktür: 0*
+Ne zaman 24 saat içindeki 100 GB'tan fazla veri olacağını tahmin oluşturma hello uyarı hello ikinci sorguyu için--ayarlanır:
+- **Ad** çok*veri birimi 24 saat içindeki 100 GB'den toogreater bekleniyor*
+- **Önem derecesi** çok*uyarı*
+- **Arama sorgusu** çok`Type=Usage QuantityUnit=MBytes IsBillable=true | measure sum(div(mul(Quantity,8),1024)) as EstimatedGB by Type | where EstimatedGB > 100`
+- **Zaman penceresi** çok*3 saat*.
+- **Uyarı sıklığı** toobe bir hello kullanım verileri yalnızca saatte bir kez güncelleştiren bir işlem olduğundan saat.
+- **Temel uyarı Oluştur** toobe *sonuçları sayısı*
+- **Sonuç sayısı** toobe *0'dan büyük*
 
-Uyarı aldığınızda, kullanımın neden beklenenden fazla olduğu konusundaki sorunları gidermek için aşağıdaki bölümde yer alan adımları kullanın.
+Bir uyarı aldığınızda, neden kullanım beklenenden daha büyük bölümü tootroubleshoot aşağıdaki hello hello adımları kullanın.
 
 ## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Kullanımın neden beklenenden daha yüksek olduğuyla ilgili sorunları giderme
-Kullanım panosu, kullanımın (dolayısıyla da maliyetin) neden beklediğinizden yüksek olduğunu belirlemenize yardımcı olur.
+Merhaba kullanım Pano yardımcı olan tooidentify neden kullanımı (ve bu nedenle maliyet) beklediğiniz daha yüksektir.
 
 Yüksek kullanımın nedeni aşağıdakilerden biri veya her ikisidir:
-- Log Analytics'da beklenenden daha fazla veri gönderiliyordur
-- Log Analytics'e beklenenden daha fazla düğüm veri gönderiyordur
+- TooLog Analytics gönderilen beklenenden daha çok veri
+- Veri tooLog Analytics gönderme beklenenden daha fazla düğüm
 
 ### <a name="check-if-there-is-more-data-than-expected"></a>Beklenenden daha fazla veri olup olmadığını denetleme 
-Kullanım sayfasında, çok veri toplanmasına neyin neden olduğunu belirlemenize yardımcı olacak iki önemli bölüm vardır.
+Çoğu veri toobe toplanan hello neden olduğunu belirlemenize yardımcı iki anahtar bölümleri hello kullanım sayfasının vardır.
 
-*Zaman içindeki veri hacmi* grafiği, gönderilen toplam veri hacmini ve en çok veriyi gönderen bilgisayarları gösterir. Üstteki grafik, genel olarak veri kullanımınızın arttığını, sabit kaldığını veya azaldığını görmenizi sağlar. Bilgisayar listesi, en çok veri gönderen 10 bilgisayarı gösterir.
+Merhaba *zaman içinde veri birimi* gönderme hello bilgisayarlar hello çoğu veri ve grafik hello toplam gönderilen veri hacmini gösterir. sürekli veya azalan kalan genel veri kullanımınızı artıyor yoksa hello grafik hello üstünde toosee sağlar. Merhaba bilgisayarların listesini hello çoğu veri gönderme hello 10 bilgisayarları gösterir.
 
-*Çözüme göre veri hacmi* grafiği, her çözüm tarafından gönderilen veri hacmini ve en çok veri gönderen çözümleri gösterir. Üstteki grafik, zaman içinde her çözüm tarafından gönderilen toplam veri hacmini gösterir. Bu bilgiler bir çözümün zaman içinde daha fazla veri gönderdiğini, yaklaşık aynı miktarda veri gönderdiğini veya daha az veri gönderdiğini belirlemenize olanak tanır. Çözüm listesinde, en çok veriyi gönderen 10 çözüm gösterilir. 
+Merhaba *çözüm bazında veri hacmi* grafik hello her çözüm ve hello çoğu veri gönderme hello çözümleri tarafından gönderilen veri hacmini gösterir. Merhaba grafik hello üstünde hello toplam zaman içinde her çözümü tarafından gönderilen veri hacmini gösterir. Bu bilgileri bir çözüm aynı veri ya da veri daha az zaman içinde tutar hello hakkında daha fazla veri göndermek isteyip tooidentify sağlar. çözümleri Hello listesini hello çoğu veri gönderme hello 10 çözümleri gösterir. 
 
-Bu iki grafik, tüm verileri görüntüler. Bazı veriler faturalanabilir, bazıları ise ücretsizdir. Yalnızca faturalanabilir verilere odaklanmak için arama sayfasındaki sorguyu `IsBillable=true` ifadesini içerecek şekilde değiştirin.  
+Bu iki grafik, tüm verileri görüntüler. Bazı veriler faturalanabilir, bazıları ise ücretsizdir. yalnızca bu Faturalanabilir veriler üzerinde toofocus değiştirme hello arama sayfası tooinclude hello sorgusu `IsBillable=true`.  
 
 ![veri hacmi grafikleri](./media/log-analytics-usage/log-analytics-usage-data-volume.png)
 
-*Zaman içinde veri hacmi* grafiğine bakın. Belirli bir bilgisayara en çok veriyi gönderen çözümleri ve veri türlerini görmek için, bilgisayarın adına tıklayın. Listedeki ilk bilgisayarın adına tıklayın.
+Ara hello *veri birimi zamanla* grafik. toosee hello çözümleri ve hello belirli bir bilgisayar için en çok veri gönderme veri türleri hello hello bilgisayar adına tıklayın. Merhaba hello listesinde hello ilk bilgisayarın adını tıklatın.
 
-Aşağıdaki ekran görüntüsünde, bilgisayar için en fazla gönderilen veri *Günlük Yönetimi / Perf* veri türündedir. 
+Aşağıdaki ekran görüntüsü hello hello *Günlüğü Yönetimi / Perf* veri türü hello hello bilgisayar için en çok veri gönderiyor. 
 
 ![bilgisayar için veri hacmi](./media/log-analytics-usage/log-analytics-usage-data-volume-computer.png)
 
-Ardından, *Kullanım* panosuna dönün ve *Çözüme göre veri hacmi* grafiğine bakın. Bir çözümle ilgili en fazla veriyi gönderen bilgisayarları görmek için, listede çözümün adına tıklayın. Listedeki ilk çözümün adına tıklayın. 
+Ardından, toohello geri dönün *kullanım* Pano ve hello göz *çözüm bazında veri hacmi* grafik. Merhaba bir çözüm için çoğu veri gönderme toosee hello bilgisayarlar hello çözüm hello listesinde hello adını tıklatın. Merhaba listesindeki ilk çözüm hello hello adını tıklatın. 
 
-Aşağıdaki ekran görüntüsünde, Günlük Yönetimi çözümü için en çok veriyi *acmetomcat* bilgisayarının gönderdiği doğrulanır.
+İsteğe bağlı olarak aşağıdaki ekran görüntüsü hello bu hello onaylar *acmetomcat* bilgisayar hello hello günlük yönetim çözümünün çoğu veri gönderiyor.
 
 ![çözüm için veri hacmi](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)
 
-Gerekirse, bir çözüm veya veri türü içindeki büyük hacimleri belirlemek için ek çözümlemeler yapın. Örnek sorgular şunları içerir:
+Gerekirse, ek çözümleme tooidentify büyük birimleri, bir çözüm ya da veri türü içinde gerçekleştirin. Örnek sorgular şunları içerir:
 
 + **Güvenlik** çözümü
   - `Type=SecurityEvent | measure count() by EventID`
@@ -143,31 +143,31 @@ Gerekirse, bir çözüm veya veri türü içindeki büyük hacimleri belirlemek 
 + **AzureDiagnostics** veri türü
   - `Type=AzureDiagnostics | measure count() by ResourceProvider, ResourceId`
 
-Toplanan günlük hacmini azaltmak için aşağıdaki adımları kullanın:
+Aşağıdaki adımları tooreduce hello toplanan günlüklerini hacmi hello kullan:
 
-| Yüksek veri hacminin kaynağı | Veri hacmi nasıl azaltılır |
+| Yüksek veri hacminin kaynağı | Nasıl tooreduce veri birimi |
 | -------------------------- | ------------------------- |
-| Güvenlik olayları            | [Yaygın veya en az güvenlik olaylarını](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) seçin <br> Güvenlik denetimi ilkesini yalnızca gerekli olayları toplayacak şekilde değiştirin. Özellikle, şunlarla ilgili olayları toplamak gerekip gerekmediğini gözden geçirin: <br> - [filtre platformu denetimi](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [kayıt defteri denetimi](https://docs.microsoft.com/windows/device-security/auditing/audit-registry)<br> - [dosya sistemi denetimi](https://docs.microsoft.com/windows/device-security/auditing/audit-file-system)<br> - [çekirdek nesnesi denetimi](https://docs.microsoft.com/windows/device-security/auditing/audit-kernel-object)<br> - [tanıtıcı değiştirme denetimi](https://docs.microsoft.com/windows/device-security/auditing/audit-handle-manipulation)<br> - [çıkarılabilir depolama birimi denetimi](https://docs.microsoft.com/windows/device-security/auditing/audit-removable-storage) |
-| Performans sayaçları       | [Performans sayacı yapılandırmasını](log-analytics-data-sources-performance-counters.md) şöyle değiştirin: <br> - Koleksiyonun sıklığını azaltın <br> - Performans sayaçlarının sayısını azaltın |
-| Olay günlükleri                 | [Olay günlüğü yapılandırmasını](log-analytics-data-sources-windows-events.md) şöyle değiştirin: <br> - Toplanan olay günlüklerinin sayısını azaltın <br> - Yalnızca gerekli olay düzeylerini toplayın. Örneğin, *Bilgi* düzeyindeki olayları toplamayın |
-| Syslog                     | [Syslog yapılandırmasını](log-analytics-data-sources-syslog.md) şu şekilde değiştirin: <br> - Toplanan tesislerin sayısını azaltın <br> - Yalnızca gerekli olay düzeylerini toplayın. Örneği *Bilgi* ve *Hata Ayıklama* düzeyindeki olayları toplamayın |
-| AzureDiagnostics           | Aşağıdaki amaçlarla kaynak günlüğü koleksiyonunu değiştirin: <br> - Log Analytics’e günlük gönderen kaynak sayısını azaltma <br> - Yalnızca gerekli günlükleri toplama |
-| Çözüm ihtiyacı olmayan bilgisayarlardan toplanan çözüm verileri | Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../operations-management-suite/operations-management-suite-solution-targeting.md) özelliğini kullanın. |
+| Güvenlik olayları            | [Yaygın veya en az güvenlik olaylarını](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) seçin <br> Merhaba güvenlik denetim ilkesi yalnızca gerekli toocollect olaylarını değiştirin. Özellikle, hello gerek toocollect olayları gözden geçirin <br> - [filtre platformu denetimi](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [kayıt defteri denetimi](https://docs.microsoft.com/windows/device-security/auditing/audit-registry)<br> - [dosya sistemi denetimi](https://docs.microsoft.com/windows/device-security/auditing/audit-file-system)<br> - [çekirdek nesnesi denetimi](https://docs.microsoft.com/windows/device-security/auditing/audit-kernel-object)<br> - [tanıtıcı değiştirme denetimi](https://docs.microsoft.com/windows/device-security/auditing/audit-handle-manipulation)<br> - [çıkarılabilir depolama birimi denetimi](https://docs.microsoft.com/windows/device-security/auditing/audit-removable-storage) |
+| Performans sayaçları       | [Performans sayacı yapılandırmasını](log-analytics-data-sources-performance-counters.md) şöyle değiştirin: <br> -Koleksiyon hello sıklığını azaltın <br> - Performans sayaçlarının sayısını azaltın |
+| Olay günlükleri                 | [Olay günlüğü yapılandırmasını](log-analytics-data-sources-windows-events.md) şöyle değiştirin: <br> -Toplanan olay günlüklerini hello sayısını azaltın <br> - Yalnızca gerekli olay düzeylerini toplayın. Örneğin, *Bilgi* düzeyindeki olayları toplamayın |
+| Syslog                     | [Syslog yapılandırmasını](log-analytics-data-sources-syslog.md) şu şekilde değiştirin: <br> -Toplanan tesis hello sayısını azaltın <br> - Yalnızca gerekli olay düzeylerini toplayın. Örneği *Bilgi* ve *Hata Ayıklama* düzeyindeki olayları toplamayın |
+| AzureDiagnostics           | Aşağıdaki amaçlarla kaynak günlüğü koleksiyonunu değiştirin: <br> -Kaynakları gönderme günlükleri tooLog Analytics hello sayısını azaltın <br> - Yalnızca gerekli günlükleri toplama |
+| Merhaba çözüm gerekmeyen bilgisayardan çözüm verileri | Kullanım [çözüm hedefleme](../operations-management-suite/operations-management-suite-solution-targeting.md) toocollect gruplarından verileri yalnızca gerekli bilgisayarların. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Beklenenden çok düğüm olup olmadığını denetleme
-*Düğüm başına (OMS)* fiyatlandırma katmanındaysanız kullandığınız düğüm ve çözüm sayısına göre ücretlendirilirsiniz. Kullanım panosunun *teklifler* bölümünde her tekliften kaç düğümün kullanıldığını görebilirsiniz.
+Merhaba üzerinde olduğunda *her düğüm (OMS)* sizden ücret sonra fiyatlandırma katmanı, temel hello sayısına düğümleri ve kullandığınız çözümler. Kaç tane düğümlerinin her teklif hello kullanıldığını görmek *teklifleri* hello kullanım Pano bölümü.
 
 ![kullanım panosu](./media/log-analytics-usage/log-analytics-usage-offerings.png)
 
-Belirli bir teklifle ilgili veri gönderen bilgisayarların tam listesini görüntülemek için **Tümünü göster...** öğesine tıklayın.
+Tıklayın **tümünü görmek...**  tooview hello tam hello seçili teklif için veri gönderme bilgisayarların listesini.
 
-Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../operations-management-suite/operations-management-suite-solution-targeting.md) özelliğini kullanın.
+Kullanım [çözüm hedefleme](../operations-management-suite/operations-management-suite-solution-targeting.md) toocollect gruplarından verileri yalnızca gerekli bilgisayarların.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Arama dilini nasıl kullanacağınızı öğrenmek için bkz. [Log Analytics'te günlük aramaları](log-analytics-log-searches.md). Kullanım verilerinde başka analizler yapmak için arama sorgularını kullanabilirsiniz.
-* Bir arama ölçütü karşılandığında size bildirilmesini sağlamak için, [Uyarı kuralı oluşturma](log-analytics-alerts-creating.md#create-an-alert-rule) başlığı altında açıklanan adımları kullanın
-* Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../operations-management-suite/operations-management-suite-solution-targeting.md) özelliğini kullanın
+* Bkz: [günlük analizi aramaları oturum](log-analytics-log-searches.md) toolearn nasıl toouse hello arama dili. Arama sorguları tooperform ek çözümleme hello kullanım verilerini kullanabilirsiniz.
+* Açıklanan başlangıç adımları kullanın [bir uyarı kuralı oluştur](log-analytics-alerts-creating.md#create-an-alert-rule) arama ölçütü bildirim toobe karşılanıyorsa
+* Kullanım [çözüm hedefleme](../operations-management-suite/operations-management-suite-solution-targeting.md) toocollect gruplarından verileri yalnızca gerekli bilgisayarların
 * [Yaygın veya en az güvenlik olaylarını](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) seçin
 * [Performans sayacı yapılandırmasını](log-analytics-data-sources-performance-counters.md) değiştirin
 * [Olay günlüğü yapılandırmasını](log-analytics-data-sources-windows-events.md) değiştirin

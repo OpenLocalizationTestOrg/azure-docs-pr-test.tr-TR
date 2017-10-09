@@ -1,6 +1,6 @@
 ---
-title: "Azure bulut Kabuğu (Önizleme) genel bakış | Microsoft Docs"
-description: "Azure bulut Kabuk genel bakış."
+title: "aaaAzure bulut Kabuğu (Önizleme) genel bakış | Microsoft Docs"
+description: "Hello Azure bulut Kabuk genel bakış."
 services: 
 documentationcenter: 
 author: jluk
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: juluk
-ms.openlocfilehash: 7165633cd354eeea2e3619f839338e6af1524e56
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 45c6c85b167a90947a333f44a9186e2c01b4fa7b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="overview-of-azure-cloud-shell-preview"></a>Azure bulut Kabuğu (Önizleme) genel bakış
 Azure bulut Kabuk Azure kaynaklarını yönetmek için etkileşimli, tarayıcı erişilebilir bir kabuk ' dir.
@@ -27,24 +27,24 @@ Azure bulut Kabuk Azure kaynaklarını yönetmek için etkileşimli, tarayıcı 
 
 ## <a name="features"></a>Özellikler
 ### <a name="browser-based-shell-experience"></a>Kabuk tarayıcı tabanlı deneyimi
-Bulut Kabuk aklınızda Azure yönetim görevleri ile yerleşik bir tarayıcı tabanlı komut satırı deneyimi erişmesini sağlar. Bir yalnızca bulut yolla yerel makineden untethered çalışması için Dengeleme bulut Kabuk sağlayabilir.
+Azure yönetim görevlerinizi aklınızda ile oluşturulan Kabuk etkinleştirir erişim tooa tarayıcı tabanlı komut satırı deneyimi bulut. Yerel makinede yalnızca hello bulut sağlayabilir şekilde untethered bulut Kabuk toowork yararlanın.
 
 ### <a name="pre-configured-azure-workstation"></a>Önceden yapılandırılmış Azure iş istasyonu
 Bulut Kabuk popüler komut satırı araçları ile önceden yüklü olarak gelen ve daha hızlı çalışabilmeniz için dil desteği.
 
-[Tam araç listesi için Azure bulut Kabuk burada görüntüleyin.](features.md#tools)
+[Görünüm hello tam araç listesini Azure bulut Kabuğu burada.](features.md#tools)
 
 ### <a name="automatic-authentication"></a>Otomatik kimlik doğrulama
-Bulut Kabuğu güvenli bir şekilde otomatik olarak her oturum için anlık kaynaklarınıza erişmek için Azure CLI 2.0 aracılığıyla üzerinde kimliğini doğrular.
+Bulut Kabuğu güvenli bir şekilde otomatik olarak her oturum için anında erişim tooyour kaynaklara hello Azure CLI 2.0 aracılığıyla üzerinde kimliğini doğrular.
 
 ### <a name="connect-your-azure-file-storage"></a>Azure dosya depolama birimini bağlayın
-Bulut Kabuk makine geçicidir ve sonuç olarak Azure dosya paylaşımının olarak bağlanmasını gerektiren `clouddrive` $Home dizininize kalıcı hale getirmek için.
-Bir kaynak oluşturmak için bulut Kabuk ister üzerinde ilk kez başlatıldığında, sizin adınıza grup, depolama hesabı ve dosya paylaşımı. Bu tek seferlik bir adımdır ve tüm oturumları için otomatik olarak eklenir. 
+Bulut Kabuk makineler geçicidir ve sonuç olarak olarak oluşturulmuş bir Azure dosya paylaşımı toobe gerektiren `clouddrive` toopersist $Home dizin.
+Üzerinde ilk kez başlatıldığında, sizin adınıza bir kaynak grubu, depolama hesabı ve dosya paylaşımı toocreate bulut Kabuk ister. Bu tek seferlik bir adımdır ve tüm oturumları için otomatik olarak eklenir. 
 
 #### <a name="create-new-storage"></a>Yeni depolama alanı oluşturma
 ![](media/basic-storage.png)
 
-Yerel olarak yedekli depolama (LRS) hesabı sizin adınıza bir varsayılan 5 GB disk görüntüsü içeren bir Azure dosya paylaşımı ile oluşturulabilir. Dosya Paylaşımı bağladığı olarak `clouddrive` eşitleme ve $Home dizininize kalıcı hale getirmek için kullanılan disk görüntüsü ile etkileşim için dosya paylaşımı. Normal depolama ücretleri.
+Yerel olarak yedekli depolama (LRS) hesabı sizin adınıza bir varsayılan 5 GB disk görüntüsü içeren bir Azure dosya paylaşımı ile oluşturulabilir. Merhaba dosya paylaşımı bağladığı olarak `clouddrive` hello disk görüntüsü ile etkileşim için dosya paylaşımı kullanılan toosync olması ve $Home dizininize kalır. Normal depolama ücretleri.
 
 Üç kaynakları sizin adınıza oluşturulacak:
 1. Kaynak grubu adı:`cloud-shell-storage-<region>`
@@ -57,7 +57,7 @@ Yerel olarak yedekli depolama (LRS) hesabı sizin adınıza bir varsayılan 5 GB
 #### <a name="use-existing-resources"></a>Var olan kaynakları kullanın
 ![](media/advanced-storage.png)
 
-Gelişmiş bir seçenek de bulut Kabuğu mevcut kaynaklarla ilişkilendirmek olanak sağlanır. Depolama Kurulum istemiyle sunulduğunda "Göster ayarları" Gelişmiş ek seçenekleri seçin. Bırakmalar atanmış olan bulut Kabuk bölge ve yerel olarak/genel-yedekli depolama hesapları için filtrelenir.
+Gelişmiş bir seçenek de izin verme, tooassociate mevcut kaynakları tooCloud Kabuk sağlanır. Merhaba depolama Kurulum istemiyle sunulduğunda "Gelişmiş Göster ayarları" tooselect Ek Seçenekler'i tıklatın. Bırakmalar atanmış olan bulut Kabuk bölge ve yerel olarak/genel-yedekli depolama hesapları için filtrelenir.
 
 [Öğrenin bulut Kabuk depolama hakkında dosya paylaşımları güncelleştirme ve karşıya yükleme ve indirme dosyaları.] (kalıcı-shell-storage.md)
 
@@ -71,19 +71,19 @@ Gelişmiş bir seçenek de bulut Kabuğu mevcut kaynaklarla ilişkilendirmek ola
 [Tüm bulut Kabuk özellikleri hakkında daha fazla bilgi edinin.](features.md)
 
 ## <a name="examples"></a>Örnekler
-* Oluşturma veya Azure Yönetimi otomatikleştirmek için komut dosyaları düzenleme
+* Oluşturma veya komut dosyaları tooautomate Azure Yönetimi düzenleme
 * Aynı anda Azure portalı ve Azure CLI 2.0 aracılığıyla kaynaklarını yönetme
 * Azure CLI 2.0 dediğini
 
-[Bulut Kabuk hızlı başlangıç, tüm bu örneklerde deneyin.](quickstart.md)
+[Bu örnekler hello bulut Kabuk hızlı başlangıç adresindeki deneyin.](quickstart.md)
 
 ## <a name="pricing"></a>Fiyatlandırma
-Bulut Kabuk barındıran makine, bir önkoşul $Home dizininize kalıcı hale getirmek için bir bağlı Azure dosya paylaşımı ile ücretsizdir. Normal depolama ücretleri.
+Merhaba makine bulut Kabuk barındırma ücretsizdir, önkoşul bağlı Azure dosyasının ile toopersist $Home dizininize paylaşma. Normal depolama ücretleri.
 
 ## <a name="supported-browsers"></a>Desteklenen tarayıcılar
-Bulut Kabuk Chrome, sınır ve Safari için önerilir. Bulut Kabuk Chrome, Firefox, Safari, IE ve kenar desteklense de, bulut Kabuk belirli tarayıcı ayarları tabi değil.
+Bulut Kabuk Chrome, sınır ve Safari için önerilir. Bulut Kabuk Chrome, Firefox, Safari, IE ve kenar desteklense de, bulut Kabuk konu toospecific tarayıcı ayarları'dır.
 
 ## <a name="troubleshooting"></a>Sorun giderme
-1. Bir Azure Active Directory aboneliğine kullanırken, depolama hata nedeniyle oluşturulamıyor: 400 DisallowedOperation. Bu sorunu çözmek için lütfen depolama kaynaklarını oluşturabileceğinden Azure aboneliği kullanın. AD abonelikleri Azure kaynaklarını oluşturmak mümkün değildir.
+1. Bir Azure Active Directory aboneliğine kullanırken, depolama oluşturulamıyor son tooError: 400 DisallowedOperation. tooresolve Bu, lütfen depolama kaynaklarını oluşturabileceğinden Azure aboneliği kullanın. AD aboneliklerini erişilemiyor toocreate Azure kaynaklardır.
 
 Belirli bilinen sınırlamalar ziyaret [bulut Kabuk sınırlamaları](limitations.md).

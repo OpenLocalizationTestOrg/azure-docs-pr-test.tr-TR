@@ -1,6 +1,6 @@
 ---
-title: "Ne zaman belirli bir kullanıcı bir uygulamaya erişim kuramaz çıkışı Bul | Microsoft Docs"
-description: "Kritik düzeyde önemli bir kullanıcı, kullanıcı Azure AD ile sağlamak için yapılandırdığınız uygulama erişebilmeleri zaman öğrenmek nasıl"
+title: "belirli bir kullanıcı mümkün tooaccess uygulamanın ne zaman olacağını çıkışı aaaFind | Microsoft Docs"
+description: "Nasıl oldukça önemli bir kullanıcı mümkün tooaccess uygulamanın ne zaman olması çıkışı toofind kullanıcı Azure AD ile sağlamak için yapılandırdığınız"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,37 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: fcefb31904cfb77022db0358e9feee6a0479db81
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: bb9520499dcc8bbbe6fae05c5238c8852815ea0a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="find-out-when-a-specific-user-will-be-able-to-access-an-application"></a>Belirli bir kullanıcı bir uygulamaya erişim mümkün olduğunda öğrenin
+# <a name="find-out-when-a-specific-user-will-be-able-tooaccess-an-application"></a>Belirli bir kullanıcı mümkün tooaccess bir uygulamayı kullanırken öğrenin
 Bir uygulama ile otomatik kullanıcı sağlamayı kullanırken, Azure AD uygulama sağlama ve güncelleştirme kullanıcı hesapları gibi şeyleri temel alınarak otomatik olarak [kullanıcı ve grup atama](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) genellikle her 10 dakikada bir düzenli olarak zamanlanan saat aralığında.
 
 ## <a name="how-long-does-it-take"></a>Ne kadar sürer?
 
-Sağlanacak belirli bir kullanıcı için geçen süre, çoğunlukla desteklemediğini ilk bir "tam" eşitleme zaten oluştu üzerinde bağlıdır.
+Merhaba süresini sağlanan verilen kullanıcı toobe için çoğunlukla desteklemediğini ilk bir "tam" eşitleme zaten oluştu üzerinde bağlıdır.
 
-İlk eşitleme Azure AD arasında ve bir uygulama herhangi bir yere Azure AD dizini ve sayısı, kullanıcı sağlama kapsamında boyutuna bağlı olarak birkaç saat 20 dakika sürebilir. 
+Merhaba ilk eşitleme Azure AD arasında ve bir uygulamayı herhangi bir yere hello boyutunu hello Azure AD dizini ve hello sayısı, kullanıcı sağlama kapsamında bağlı olarak 20 dakika tooseveral saat sürebilir. 
 
-Sonraki eşitlemeler performansını iyileştirme ilk eşitleme sonrasında her iki sistem durumunu temsil filigranlar sağlama hizmeti depolar ilk eşitleme sonrasında sonraki eşitlemeler (örn. 10 dakika içinde), daha hızlı olması.
+Hizmet sağlama hello sonraki eşitlemeler performansını iyileştirme hello ilk eşitleme sonrasında her iki sistemle hello durumunu temsil filigranlar depolar hello ilk eşitleme sonrasında sonraki eşitlemeler (örn. 10 dakika içinde), daha hızlı olması.
 
-## <a name="how-to-check-the-status-of-a-user"></a>Kullanıcı durumunu denetleme
+## <a name="how-toocheck-hello-status-of-a-user"></a>Nasıl toocheck hello kullanıcı durumu
 
-Seçilen kullanıcı için sağlama durumunu görmek için Azure AD'de denetim günlüklerine bakın.
+Seçili bir kullanıcı için toosee hello sağlama durumu hello Azure AD'de denetim günlüklerini inceleyin.
 
-Sağlama denetim günlüklerini Azure portalında erişilebilen **Azure Active Directory &gt; Kurumsal uygulamaları &gt; \[uygulama adı\] &gt; denetim günlüklerini** sekmesi. Günlükleri filtre **hesap sağlama** yalnızca bu uygulama için sağlama olayları görmek için kategori. "İçinde öznitelik eşlemelerini kendileri için yapılandırılan eşleşen ID" temel alarak kullanıcılara arayabilirsiniz. 
+Denetim günlüklerini sağlama hello hello Azure portalında, hello erişilebilir **Azure Active Directory &gt; Kurumsal uygulamaları &gt; \[uygulama adı\] &gt; denetim günlükleri**sekmesi. Filtre hello hello üzerinde oturum **hesap sağlama** kategori tooonly olayları bu uygulama için sağlama hello bakın. "Hello öznitelik eşlemelerini kendileri için yapılandırılan hello eşleşen ID" temel alarak kullanıcılara arayabilirsiniz. 
 
-Örneğin "kullanıcı asıl adı" veya "Azure AD tarafında eşleşen öznitelik olarak e-posta adresi" yapılandırılmış ve değil sağlama kullanıcı değerine sahip "audrey@contoso.com", denetim günlüklerini arama "audrey@contoso.com" ve gözden geçirin, ardından girdi döndü.
+Örneğin hello "kullanıcı asıl adı" veya "Merhaba Azure AD tarafında özniteliği eşleşen hello olarak e-posta adresi" yapılandırılmış ve değil sağlama hello kullanıcı değerine sahip "audrey@contoso.com", için arama hello denetim günlüklerini"audrey@contoso.com" ve gözden geçirin girişleri döndürdü.
 
-Sağlama denetim günlüklerini sağlama hizmeti tarafından gerçekleştirilen tüm işlemlerin kayıt dahil olmak üzere:
+Denetim sağlama hello tüm hello hizmeti sağlama hello tarafından gerçekleştirilen işlemler kayıt günlüklerini de dahil olmak üzere:
 
 * Azure AD sağlama kapsamında atanan kullanıcılar için sorgulama
-* Hedef uygulama kullanıcılarla varlığı için sorgulama
-* Sistem arasında kullanıcı nesneleri karşılaştırma
-* Ekleme, güncelleştirme ya da karşılaştırma üzerine dayalı hedef sistem kullanıcı hesabı devre dışı bırakma
+* Merhaba hedef uygulama kullanıcılarla hello varlığı sorgulama
+* Merhaba sistem arasında Hello kullanıcı nesneleri karşılaştırma
+* Ekleme, güncelleştirme veya hello karşılaştırma üzerine dayalı hello hedef sistemdeki hello kullanıcı hesabı devre dışı bırakma
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Kullanıcı sağlama ve Azure Active Directory ile SaaS uygulamalarına sağlamayı otomatikleştirmek](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning)''
+[Kullanıcı hazırlama ve sağlamayı kaldırma işlemlerini tooSaaS Azure Active Directory ile uygulamaları otomatikleştirmek](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning)''

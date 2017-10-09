@@ -1,0 +1,2 @@
+Bu öğreticide hello Azure portal hello çözümden oluşturma sürecinde açıklanmaktadır. Bu çözüm bir şablondan oluşturmada ilgileniyorsanız hello uygun şablondan seçebilir [Microsoft Azure GitHub şablonları](http://github.com/Azure/azure-quickstart-templates). Merhaba [ile SQL Server 2014'ü çoğaltma sanal makineleri bir kullanılabilirlik grubu oluşturun](http://github.com/Azure/azure-quickstart-templates/tree/master/sqlvm-alwayson-cluster) şablon oluşturur hello aynı çözüm de Bu öğretici. 
+

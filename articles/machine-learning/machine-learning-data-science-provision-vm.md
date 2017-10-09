@@ -1,5 +1,5 @@
 ---
-title: "Microsoft Veri bilimi sanal makine sağlama | Microsoft Docs"
+title: Microsoft Veri bilimi sanal makine aaaProvision hello | Microsoft Docs
 description: "Yapılandırma ve analizi için Azure üzerinde bir veri bilimi sanal makine oluşturun ve makine öğrenme."
 services: machine-learning
 documentationcenter: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: bradsev
-ms.openlocfilehash: 76cd54cd234dfe43e8f0d61f0b66f0ed0c09e8b7
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 907a3bdc7e480d05e8e245f5e50d632900fcf471
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="provision-the-microsoft-data-science-virtual-machine"></a>Microsoft Veri Bilimi Sanal Makinesini sağlama
-Microsoft Veri bilimi sanal makine önceden yüklenmiş ve veri analizi ve makine öğrenme için yaygın olarak kullanılan birkaç popüler araçları ile yapılandırılmış bir Windows Azure sanal makine (VM) görüntüsüdür. Bulunan araçlar şunlardır:
+# <a name="provision-hello-microsoft-data-science-virtual-machine"></a>Merhaba Microsoft Veri bilimi sanal makine sağlama
+Merhaba Microsoft Veri bilimi sanal makine önceden yüklenmiş ve veri analizi ve makine öğrenme için yaygın olarak kullanılan birkaç popüler araçları ile yapılandırılmış bir Windows Azure sanal makine (VM) görüntüsüdür. bulunan hello araçlar şunlardır:
 
 * Microsoft R Server Geliştirici sürümü
 * Anaconda Python dağıtımı
@@ -32,154 +32,154 @@ Microsoft Veri bilimi sanal makine önceden yüklenmiş ve veri analizi ve makin
   * [Hesaplama ağ Araç Seti (CNTK)](https://github.com/Microsoft/CNTK): Microsoft Research yazılım araç Seti'nin öğrenme derin.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): çevrimiçi, karma, allreduce, düşürülmesi, learning2search, etkin, gibi teknikler destekleme sistem öğrenme hızlı bir makine ve etkileşimli öğrenme.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): hızlı ve doğru boosted ağaç uygulama sağlayan bir araç.
-  * [Rattle](http://rattle.togaware.com/) (R analitik aracı için bilgi kolayca): veri analizi ve R ile GUI tabanlı veri keşfi kolay öğrenme ve otomatik R kod oluşturma ile modelleme makine ile çalışmaya başlama sağlayan bir araç.
+  * [Rattle](http://rattle.togaware.com/) (R analitik aracı tooLearn kolayca hello): veri analizi ve R ile GUI tabanlı veri keşfi kolay öğrenme ve otomatik R kod oluşturma ile modelleme makine ile çalışmaya başlama sağlayan bir araç.
   * [mxnet](https://github.com/dmlc/mxnet): verimliliği ve esneklik için tasarlanmış bir derin öğrenme çerçevesi
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/) : görsel veri araştırma ve makine öğrenimi Java yazılım.
-  * [Apache ayrıntıya](https://drill.apache.org/): bir şemasız SQL sorgu alt Hadoop, NoSQL ve bulut depolama.  Sorgulama NoSQL ve Power BI, Excel, Tableau gibi standart BI araçları dosyalarından etkinleştirmek için ODBC ve JDBC arabirimleri destekler.
+  * [Apache ayrıntıya](https://drill.apache.org/): bir şemasız SQL sorgu alt Hadoop, NoSQL ve bulut depolama.  ODBC ve JDBC arabirimleri tooenable NoSQL ve Power BI, Excel, Tableau gibi standart BI araçlarından dosyaları sorgulama destekler.
 * Azure Machine Learning ve diğer Azure hizmetleriyle R ve Python için kitaplıkları kullanma
-* Git Bash'i GitHub, Visual Studio Team Services de dahil olmak üzere kaynak kodu depoları ile çalışmak için de dahil olmak üzere Git
+* Git Bash'i toowork GitHub, Visual Studio Team Services de dahil olmak üzere kaynak kodu depoları dahil olmak üzere Git
 * Windows bağlantı noktalarını (awk azaltılabilir, perl, grep, Bul, wget, curl vb. dahil) çeşitli popüler Linux komut satırı yardımcı programlarını komut istemi üzerinden erişilebilir. 
 
 Veri Bilimi bulunurken bir dizi görev yineleme içerir:
 
 1. Bulma, yükleme ve verilerin önceden işlenmesi
 2. Derleme ve modelleri test etme
-3. Akıllı uygulamaları tüketimini modellerini dağıtma
+3. Merhaba modelleri akıllı uygulamalarında tüketimi için dağıtma
 
-Veri bilimcilerine, bu görevleri tamamlamak için çeşitli araçları kullanın. Oldukça uygun yazılım sürümlerini bulmak ve ardından indirin ve yükleyin zun olabilir. Microsoft Veri bilimi sanal makine, önceden yüklenmiş ve yapılandırılmış tüm çeşitli popüler araçları ile Azure'da sağlanabilir bir kullanıma hazır görüntüsü sağlayarak bu yük kolaylaştırabilir. 
+Araçlar toocomplete çeşitli veri bilimcilerine bu görevleri kullanın. Bunu hello uygun hello yazılım sürümlerini oldukça uzun süren toofind olması ve ardından indirin ve yükleyin. Merhaba Microsoft Veri bilimi sanal makine, önceden yüklenmiş ve yapılandırılmış tüm çeşitli popüler araçları ile Azure'da sağlanabilir bir kullanıma hazır görüntüsü sağlayarak bu yük kolaylaştırabilir. 
 
-Microsoft Veri bilimi sanal makine analytics projenizi jump-starts. R, Python, SQL ve C# dahil olmak üzere çeşitli dillerde görevler üzerinde çalışmanıza olanak tanır. Visual Studio geliştirmek ve kullanımı kolay kodunuzu test etmek için bir IDE sağlar. Azure VM'de bulunan SDK'sı, Microsoft bulut platformu üzerinde çeşitli Hizmetleri kullanarak uygulamalarınızı oluşturmanıza olanak verir. 
+Merhaba Microsoft Veri bilimi sanal makine analytics projenizi jump-starts. R, Python, SQL ve C# dahil olmak üzere çeşitli dillerde görevlerde toowork sağlar. Visual Studio IDE toodevelop sağlar ve kolay toouse olan kodunuzu test etmek. Hello Azure SDK'sını hello VM dahil, Microsoft'un bulut platformunda çeşitli Hizmetleri kullanarak uygulamalarınızı toobuild sağlar. 
 
-Bu veri bilimi VM görüntüsü için yazılım harcamanız yok. Yalnızca hangi bağımlı sağlamanız sanal makine boyutu için Azure kullanım ücretleri ödersiniz. Daha ayrıntılı bilgi işlem ücretleri fiyatlandırma Ayrıntıları bölümünde bulunabilir [veri bilimi sanal makine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) sayfası. 
+Bu veri bilimi VM görüntüsü için yazılım harcamanız yok. Yalnızca hello boyutunu hello sanal makine sağlamanız hangi bağımlı hello Azure kullanım ücretleri için ödeme. Ücretler hello fiyatlandırma ayrıntıları bölümü hello üzerinde bulunabilir hello hakkında daha ayrıntılı bilgi işlem [veri bilimi sanal makine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) sayfası. 
 
-## <a name="other-versions-of-the-data-science-virtual-machine"></a>Veri bilimi sanal makinenin diğer sürümleri
-A [CentOS](machine-learning-data-science-linux-dsvm-intro.md) görüntüdür de Windows görüntüsü olarak aynı araçları birçoğu ile kullanılabilir. Bir [Ubuntu](machine-learning-data-science-dsvm-ubuntu-intro.md) görüntüdür de çok benzer araçların yanı sıra çerçeveleri öğrenme derin ile kullanılabilir.
+## <a name="other-versions-of-hello-data-science-virtual-machine"></a>Merhaba veri bilimi sanal makine diğer sürümleri
+A [CentOS](machine-learning-data-science-linux-dsvm-intro.md) görüntü kullanılabilir Ayrıca, birçok hello ile aynı Windows görüntüsünü hello gibi araçları. Bir [Ubuntu](machine-learning-data-science-dsvm-ubuntu-intro.md) görüntüdür de çok benzer araçların yanı sıra çerçeveleri öğrenme derin ile kullanılabilir.
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bir Microsoft Veri bilimi sanal makine oluşturmadan önce aşağıdakilere sahip olmanız gerekir:
+Bir Microsoft Veri bilimi sanal makine oluşturmadan önce hello şunlara sahip olmanız gerekir:
 
-* **Bir Azure aboneliği**: bir tane almak için bkz: [alma Azure ücretsiz deneme sürümü](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Bir Azure depolama hesabı**: oluşturmak için bkz: [bir Azure depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account). Alternatif olarak, depolama hesabı var olan bir hesabı kullanacak şekilde istemiyorsanız VM oluşturma işleminin bir parçası olarak oluşturulabilir.
+* **Bir Azure aboneliği**: tooobtain bir, bkz: [alma Azure ücretsiz deneme sürümü](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Bir Azure depolama hesabı**: toocreate bir, bkz: [bir Azure depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account). Alternatif olarak, hello depolama hesabı toouse hesabınız istemiyorsanız hello VM oluşturma hello işleminin bir parçası olarak oluşturulabilir.
 
 ## <a name="create-your-microsoft-data-science-virtual-machine"></a>Microsoft Veri bilimi sanal makine oluşturma
-Örnek, Microsoft Veri bilimi sanal makine oluşturmak için adımlar şunlardır:
+Merhaba Microsoft Veri bilimi sanal makine örneği hello adımları toocreate şunlardır:
 
-1. Sanal makine üzerinde listeleme gidin [Azure portal](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
-2. Seçin **oluşturma** Sihirbazı'na gerçekleştirilecek altındaki düğmesini.![ yapılandırma verileri-Bilim-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
-3. Microsoft Veri bilimi sanal makine oluşturmak için kullanılan sihirbazın gerektirir **girişleri** her biri için **beş adımı** Bu şekil sağ tarafta numaralandırılır. Bu adımların her biri yapılandırmak için gereken girdiler şunlardır:
+1. Toohello sanal makine üzerinde listeleme gidin [Azure portal](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
+2. Select hello **oluşturma** Sihirbazı'na gerçekleştirilecek hello alt toobe düğmesini.![ yapılandırma verileri-Bilim-vm](./media/machine-learning-data-science-provision-vm/configure-data-science-virtual-machine.png)
+3. Microsoft Veri bilimi Virtual Machine gerektirir hello kullanılan sihirbaz toocreate hello **girişleri** her hello **beş adımı** üzerinde bu şekil sağında hello numaralandırılır. Merhaba gerekli girişleri tooconfigure her bu adımları şunlardır:
    
    1. **Temel Bilgiler**
       
       1. **Ad**: oluşturduğunuz veri bilimi sunucunuzun adını yazın.
       2. **Kullanıcı adı**: Yönetici hesap oturum açma kimliği.
       3. **Parola**: yönetici hesabı parolası.
-      4. **Abonelik**: birden fazla aboneliğiniz varsa, bir makine olduğu oluşturulur ve fatura için seçin.
+      4. **Abonelik**: birden fazla aboneliğiniz varsa, select hello biri üzerinde hangi hello makine oluşturulur ve fatura toobe.
       5. **Kaynak grubu**: yeni bir tane oluşturun veya varolan bir grubu kullanın.
-      6. **Konum**: en uygun olan veri merkezi seçin. Genellikle verilerinizden en iyi veya en yakın fiziksel konumunuza en hızlı ağ erişimi için veri merkezi olur.
-   2. **Boyutu**: işlev gereksinimi ve maliyet kısıtlamaları karşılayan sunucu türlerinden birini seçin. Daha fazla seçenek VM boyutları "Tümünü Görüntüle" seçerek alabilirsiniz.
+      6. **Konum**: en uygun seçim hello veri merkezi. Genellikle en hızlı ağ erişimi için en yakın tooyour fiziksel konumu veya verilerinizden en iyi sahip hello veri merkezi olur.
+   2. **Boyutu**: işlev gereksinimi ve maliyet kısıtlamaları karşılayan hello sunucusu türlerinden birini seçin. Daha fazla seçenek VM boyutları "Tümünü Görüntüle" seçerek alabilirsiniz.
    3. **Ayarları**:
       
       1. **Disk türü**: seçin Premium katı hal sürücüsü (SSD) tercih ederseniz başka seçin "Standard".
-      2. **Depolama hesabı**: aboneliğinizde yeni bir Azure depolama hesabı oluşturun veya mevcut bir aynı kullanın *konumu* üzerinde seçildi **Temelleri** sihirbazın.
-      3. **Diğer parametreler**: yalnızca genellikle varsayılan değerleri kullanın. Durumunda, varsayılan olmayan değerleri kullanmak isteyip istemediğinize karar belirli alanlar hakkında Yardım için bilgi bağlantısı üzerinden gelebilirsiniz.
+      2. **Depolama hesabı**: aboneliğinizde yeni bir Azure depolama hesabı oluşturun veya mevcut bir hello kullanın aynı *konumu* üzerinde hello seçildi **Temelleri** hello Sihirbazı.
+      3. **Diğer parametreler**: yalnızca genellikle hello varsayılan değerleri kullanın. Varsayılan olmayan değerleri tooconsider hello kullanımı istemeniz durumunda hello hello belirli alanlar hakkında Yardım için bilgi bağlantısı üzerinden gelebilirsiniz.
    4. **Özet**: girdiğiniz tüm bilgiler doğru olduğundan emin olun.
-   5. **Satın**: tıklatın **satın** sağlama başlatmak için. Bağlantı işlem koşullarını sağlanır. VM, seçtiğiniz sunucu boyutu işlem ötesinde herhangi bir ek ücret yok **boyutu** adım. 
+   5. **Satın**: tıklatın **satın** toostart hello sağlama. Bir bağlantı hello işlem toohello koşullarını sağlanır. Merhaba VM hello Seçtiğiniz hello sunucu boyutu hello işlem ötesinde herhangi bir ek ücret yok **boyutu** adım. 
 
 > [!NOTE]
-> Sağlama yaklaşık 10-20 dakika sürer. Sağlama durumu Azure portalda görüntülenir.
+> Merhaba sağlama yaklaşık 10-20 dakika sürer. Merhaba sağlama hello durumu hello Azure portalı üzerinde görüntülenir.
 > 
 > 
 
-## <a name="how-to-access-the-microsoft-data-science-virtual-machine"></a>Microsoft Veri bilimi sanal makine erişme
-VM oluşturulduktan sonra Uzak Masaüstü önceki yapılandırdığınız yönetici hesabı kimlik bilgilerini kullanarak içine yapabilecekleriniz **Temelleri** bölümü. 
+## <a name="how-tooaccess-hello-microsoft-data-science-virtual-machine"></a>Microsoft Veri bilimi sanal makine tooaccess nasıl hello
+Bir kez hello VM oluşturulduğunda, Uzak Masaüstü hello önceki yapılandırılmış hello yönetici hesabı kimlik bilgilerini kullanarak içine yapabilecekleriniz **Temelleri** bölümü. 
 
-VM oluşturup sağlanan sonra yüklenmiş ve yapılandırılmış Araçları'nı kullanmaya başlamak hazırsınız. Başlat menüsü döşeme ve araçlarının çoğu masaüstü simgelerini vardır. 
+VM oluşturup sağlanan sonra yüklü ve yapılandırılmış hello araçlarını kullanmaya hazır toostart demektir. Başlat menüsü kutucukları ve birçok hello araçları masaüstü simgelerini vardır. 
 
-## <a name="how-to-create-a-strong-password-for-jupyter-and-start-the-notebook-server"></a>Jupyter için güçlü bir parola oluşturma ve not defteri sunucuyu Başlat
-Varsayılan olarak, Jupyter not defteri sunucunun önceden yapılandırılmış ancak Jupyter parola ayarlanıncaya kadar VM devre dışı. Makinede yüklü Jupyter not defteri sunucu için güçlü bir parola oluşturmak için veri bilimi sanal makinede veya bir komut istemine aşağıdaki komutu olması koşuluyla Masaüstü kısayoluna çift Çalıştır adlı **Jupyter ayarlama Parola & Başlangıç** yerel VM yönetici hesabından.
+## <a name="how-toocreate-a-strong-password-for-jupyter-and-start-hello-notebook-server"></a>Nasıl toocreate Jupyter ve başlangıç için güçlü bir parola hello not defteri sunucusu
+Varsayılan olarak, hello Jupyter not defteri sunucu önceden yapılandırılmış ancak Jupyter parola ayarlanıncaya kadar hello VM üzerinde devre dışı. toocreate hello makinede yüklü hello Jupyter not defteri sunucu için güçlü bir parola, komutu bir komut isteminden veri bilimi sanal makine veya çift olması koşuluyla hello masaüstü kısayolu hello üzerinde aşağıdaki çalışma hello adlı  **Jupyter parolasını Ayarla & Başlangıç** yerel VM yönetici hesabından.
 
     C:\dsvm\tools\setup\JupyterSetPasswordAndStart.cmd
 
-İletileri izleyin ve istendiğinde güçlü bir parola seçin.
+Merhaba iletileri izleyin ve istendiğinde güçlü bir parola seçin.
 
-Önceki komut bir parola karması ve bunu Jupyter yapılandırma dosyasında bulunan deposu oluşturur: **C:\ProgramData\jupyter\jupyter_notebook_config.py** parametre adı altında ***c.NotebookApp.password***.
+Merhaba önceki komut bir parola karması ve onu hello Jupyter yapılandırma dosyasında bulunan deposu oluşturur: **C:\ProgramData\jupyter\jupyter_notebook_config.py** hello parametre adı altında ***c. NotebookApp.password***.
 
-Komut dosyası da sağlar ve Jupyter server arka planda çalıştırın. WIndows Görev Zamanlayıcısı'nı windows görevde olarak Jupyter sunucusu oluşturulan **Start_IPython_Notebook**.  Tarayıcınız Not açmadan önce parola ayarlandıktan sonra birkaç saniye beklemeniz gerekebilir. Başlıklı bölümüne bakın **Jupyter not defteri** Jupyter not defteri sunucusuna erişmek nasıl. 
+Merhaba komut dosyası da sağlar ve hello Jupyter sunucu hello arka planda çalıştırın. Jupyter sunucusu hello WIndows Görev Zamanlayıcısı'nı windows görevde olarak oluşturulan **Start_IPython_Notebook**.  Tarayıcınız hello Not açmadan önce hello parola ayarlandıktan sonra birkaç saniye boyunca toowait olabilir. Başlıklı hello bölümüne bakın **Jupyter not defteri** nasıl tooaccess Jupyter not defteri sunucu hello üzerinde. 
 
 
-## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Microsoft Veri bilimi sanal makinede yüklü araçları
+## <a name="tools-installed-on-hello-microsoft-data-science-virtual-machine"></a>Microsoft Veri bilimi sanal makine Hello üzerinde yüklü araçları
 
 ### <a name="microsoft-r-server-developer-edition"></a>Microsoft R Server Geliştirici sürümü
-R analizi için kullanmak istiyorsanız, VM yüklü Microsoft R Server Geliştirici sürümü vardır. Microsoft R Server geniş çapta dağıtılabilir kurumsal sınıf analytics desteklenen R bağlı, ölçeklenebilir ve güvenli platformudur. Büyük veri istatistikleri, Tahmine dayalı modelleme ve makine öğrenimi yetenekleri çeşitli destekleyici, R Server analytics – keşfi, analizi, Görselleştirme ve modelleme tam aralığını destekler. Kullanarak ve açık kaynak R genişletme Microsoft R Server tam R betiklerini, İşlevler ve kurumsal ölçekte verileri çözümlemek için CRAN paketleri ile uyumludur. Ayrıca, açık kaynak R bellek içi sınırlamaları'nin veri paralel ve öbekli işlenmesini ekleyerek giderir. Bu verileri analytics çok daha büyük ne ana bellekte uygun çalıştırmanıza olanak sağlar.  R ile çalışmak için tam bir IDE sağlar Visual Studio uzantısı için R araçları Visual Studio Community Edition VM dahil içerir Ayrıca indirmek ve diğer IDE de gibi kullandığınız [Rstudio'dan](http://www.rstudio.com). 
+Analizi için toouse R isterseniz hello VM yüklü Microsoft R Server Geliştirici sürümü vardır. Microsoft R Server geniş çapta dağıtılabilir kurumsal sınıf analytics desteklenen R bağlı, ölçeklenebilir ve güvenli platformudur. Büyük veri istatistikleri, Tahmine dayalı modelleme ve makine öğrenimi yetenekleri çeşitli destekleyici, R Server hello tam analytics – keşfi, analizi, Görselleştirme ve modelleme aralığını destekler. Kullanarak ve açık kaynak R genişletme Microsoft R Server tam R betiklerini, İşlevler ve CRAN paketleri, Kurumsal ölçekte tooanalyze veri ile uyumludur. Ayrıca, paralel ve öbekli verilerin işlenmesini ekleyerek hello bellek içi açık kaynak R sınırlamaları da giderir. Bu, verileri ana bellekte uygun'den çok büyük toorun analizi sağlar.  Visual Studio Community Edition VM r ile çalışmak için tam bir IDE sağlar Visual Studio uzantısı için hello R araçlarını içeren hello dahil Ayrıca indirmek ve diğer IDE de gibi kullandığınız [Rstudio'dan](http://www.rstudio.com). 
 
 ### <a name="python"></a>Python
-Python kullanarak geliştirme için Anaconda Python 2.7 ve 3.5 dağıtım yüklendi. Bu dağıtım yaklaşık 300 en popüler matematik, mühendislik ve veri analizi paketlerinin yanı sıra temel Python içerir. Python araçları için Visual Studio (Visual Studio 2015 Community edition veya paketlenmiş IDE boşta veya Spyder gibi Anaconda ile biri içinde yüklü PTVS) kullanabilirsiniz. Bu arama çubuğunda arayarak birini başlatabilirsiniz (**Win** + **S** anahtar).
+Python kullanarak geliştirme için Anaconda Python 2.7 ve 3.5 dağıtım yüklendi. Bu dağıtım hello içeren Python yaklaşık 300 hello en popüler matematik, mühendislik ve veri analizi paketlerinin yanı sıra temel. Python araçları için Visual Studio (Merhaba Visual Studio 2015 Community edition veya boşta veya Spyder gibi Anaconda IDE birlikte hello biri içinde yüklü PTVS) kullanabilirsiniz. Bunlardan birini hello arama çubuğunda arayarak başlatın (**Win** + **S** anahtar).
 
 > [!NOTE]
-> Anaconda Python 2.7 ve 3.5 Visual Studio için Python araçları işaret etmek için her sürüm için özel ortamları oluşturmanız gerekir. Bu ortam yolları Visual Studio 2015 Community Edition ayarlamak için gidin **Araçları** -> **Python Araçları** -> **Python ortamları**ve ardından **+ özel**. 
+> toopoint hello Anaconda Python 2.7, Visual Studio için Python araçları ve 3.5, toocreate özel ortamları için her bir sürümü gerekir. tooset hello Visual Studio 2015 Community Edition, bu ortam yollarında gidin çok**Araçları** -> **Python Araçları** -> **Python ortamları** ve ardından **+ özel**. 
 > 
 > 
 
 Anaconda Python 2.7 C:\Anaconda altında yüklenir ve c:\Anaconda\envs\py35 altında Anaconda Python 3.5 yüklenir. Bkz: [PTVS belgelerine](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) ayrıntılı adımlar için. 
 
 ### <a name="jupyter-notebook"></a>Jupyter Notebook
-Anaconda dağıtım ayrıca bir Jupyter not defteri ile kod ve analiz paylaşmak için bir ortamı bulunur. Jupyter not defteri sunucu Python 2.7, Python 3.4, Python 3.5 ve R tekrar ile önceden yapılandırılmış. "Jupyter not defteri sunucusuna erişmek için tarayıcı başlatmak için dizüstü bilgisayar adında bir masaüstü simgesi yok Uzak Masaüstü VM kullanıyorsanız, de ziyaret edebilirsiniz [https://localhost:9999 /](https://localhost:9999/) VM'ye oturum açıldığında Jupyter not defteri sunucusuna erişmek için.
+Anaconda dağıtım Ayrıca, bir ortam tooshare kodu ve analiz Jupyter not defteri ile birlikte gelir. Jupyter not defteri sunucu Python 2.7, Python 3.4, Python 3.5 ve R tekrar ile önceden yapılandırılmış. "Not Defteri sunucu Jupyter not defteri toolaunch hello tarayıcı tooaccess hello. adlı bir masaüstü simgesi yok Uzak Masaüstü hello VM kullanıyorsanız, de ziyaret edebilirsiniz [https://localhost:9999 /](https://localhost:9999/) tooaccess hello toohello VM oturum açıldığında Jupyter not defteri sunucu.
 
 > [!NOTE]
 > Hiçbir sertifika uyarısı alırsanız devam edin. 
 > 
 > 
 
-Biz birkaç örnek not defterlerini r ve Python de paketlenmiş Jupyter not defterleri için Jupyter oturum açtığında Microsoft R Server, SQL Server 2016 R Hizmetleri (veritabanı Analytics'i), Python, Microsoft Bilişsel Araç Seti (CNTK) ayrıntılı bilgi ve diğer Azure teknolojileri ile çalışmaya nasıl gösterir. Bir önceki adımda oluşturduğunuz parola kullanarak Jupyter not defteri için kimlik doğrulaması sonra not defteri giriş sayfasında örnekler bağlantısını görebilirsiniz. 
+Python birkaç örnek defterlerinde paketlenmiş ve r'de Jupyter not defterlerini göster nasıl hello toowork Microsoft R Server, SQL Server 2016 R Hizmetleri (veritabanı Analytics'i), Python, Microsoft Bilişsel Araç Seti (CNTK) ayrıntılı bilgi ve diğer Azure ile içinde tooJupyter oturum sonra teknolojileri. Toohello Jupyter not defteri bir önceki adımda oluşturduğunuz hello parola kullanarak kimlik doğrulaması sonra hello not defteri giriş sayfasında hello bağlantı toohello örneklerini görebilirsiniz. 
 
 ### <a name="visual-studio-2015-community-edition"></a>Visual Studio 2015 Community edition
-Visual Studio Community edition VM'de yüklü. Küçük ekipleri ve değerlendirme amaçları için kullanabileceğiniz bir Microsoft popüler IDE boş bir sürümüdür. Lisans sözleşmesinin koşullarını denetleyebilirsiniz [burada](https://www.visualstudio.com/support/legal/mt171547).  Masaüstü simgesini çift tıklayarak Visual Studio'yu açın veya **Başlat** menüsü. Ayrıca programlarla arayabilirsiniz **Win** + **S** ve "Visual Studio" girme. C#, Python, R, node.js gibi dillerde projeleri burada oluşturabilirsiniz sonra. Eklentileri de Azure veri Kataloğu, Azure Hdınsight (Hadoop, Spark) ve Azure Data Lake gibi Azure hizmetleriyle çalışmak uygun hale yüklenir. 
+Visual Studio Community edition Hello VM üzerinde yüklü. Merhaba, boş bir sürüm olduğu küçük ekipleri ve değerlendirme amaçları için kullanabileceğiniz bir Microsoft popüler IDE. Lisans koşullarını hello denetleyebilirsiniz [burada](https://www.visualstudio.com/support/legal/mt171547).  Merhaba Masaüstü simgesi veya hello çift tıklayarak Visual Studio'yu açın **Başlat** menüsü. Ayrıca programlarla arayabilirsiniz **Win** + **S** ve "Visual Studio" girme. C#, Python, R, node.js gibi dillerde projeleri burada oluşturabilirsiniz sonra. Eklentileri de Azure veri Kataloğu, Azure Hdınsight (Hadoop, Spark) ve Azure Data Lake gibi Azure hizmetleriyle kolay toowork hale yüklenir. 
 
 > [!NOTE]
-> Değerlendirme süreniz doldu bildiren bir ileti alabilirsiniz. Microsoft hesabı kimlik bilgilerinizi girin veya Visual Studio Community Edition erişmek için yeni bir boş hesabı oluşturun. 
+> Değerlendirme süreniz doldu bildiren bir ileti alabilirsiniz. Microsoft hesabı kimlik bilgilerinizi girin veya yeni bir ücretsiz hesap tooget erişim toohello Visual Studio Community Edition oluşturun. 
 > 
 > 
 
 ### <a name="sql-server-2016-developer-edition"></a>SQL Server 2016 Geliştirici sürümü
-Geliştirici sürümü SQL Server 2016 R hizmetleriyle veritabanı Analytics'i çalıştırmak için VM sağlanır. R hizmetler geliştirmek ve akıllı uygulamaları dağıtmak için bir platform sağlar. Model oluşturma ve SQL Server verileri için tahminleri oluşturmak için zengin ve güçlü R dil ve topluluktan birçok paketleri kullanabilirsiniz. R Hizmetleri (veritabanı-) R dil SQL Server ile tümleştirmek için analiz verileri yakın kullanmaya devam edebilir. Bu veri taşıma ile ilişkili güvenlik riskleri ve maliyetlerini ortadan kaldırır.
+Bir geliştirici sürümü SQL Server 2016 R Hizmetleri toorun veritabanı Analytics'i hello VM üzerinde sağlanır. R hizmetler geliştirmek ve akıllı uygulamaları dağıtmak için bir platform sağlar. Hello zengin ve güçlü R dil kullanmak ve birçok paketleri hello topluluk toocreate modellerinden hello ve SQL Server verileri için tahminleri oluşturmak. R Hizmetleri (veritabanı-) hello R dil SQL Server ile tümleştirmek için analiz Kapat toohello verileri tutabilirsiniz. Bu hello maliyetleri ve veri taşıma ile ilişkili güvenlik riskleri ortadan kaldırır.
 
 > [!NOTE]
-> SQL Server 2016 Geliştirici sürümü yalnızca geliştirme ve test amaçları için kullanılabilir. Üretimde çalıştırmak için bir lisansınız olmalıdır. 
+> SQL Server 2016 Hello Geliştirici sürümü yalnızca geliştirme için kullanılabilir ve amacıyla sınayın. Bir lisans toorun gereken üretim içinde. 
 > 
 > 
 
-SQL server başlatarak erişebilirsiniz **SQL Server Management Studio**. VM adı sunucu adı olarak doldurulur. Windows Windows Yönetici olarak oturum açıldığında kimlik doğrulaması kullanın. SQL Server Management Studio'da olduktan sonra diğer kullanıcıları oluşturun, veritabanları oluşturmak, veri içeri aktarın ve SQL sorguları çalıştırma. 
+Başlatarak hello SQL sunucusuna erişim sağlayabildiğinizden **SQL Server Management Studio**. VM adınızı hello sunucu adı doldurulur. Windows Yönetim Windows hello gibi oturum açıldığında kimlik doğrulaması kullanın. SQL Server Management Studio'da olduktan sonra diğer kullanıcıları oluşturun, veritabanları oluşturmak, veri içeri aktarın ve SQL sorguları çalıştırma. 
 
-Veritabanı Analytics'i Microsoft R kullanarak etkinleştirmek için bir tane aşağıdaki komutu çalıştırın zaman sunucu yönetici olarak oturum açtıktan sonra SQL Server management Studio'da eylemi. 
+Microsoft R, komut bir olarak aşağıdaki hello Çalıştır'ı kullanarak tooenable veritabanı analytics zaman hello sunucu yönetici olarak oturum açtıktan sonra SQL Server management Studio'da eylemi. 
 
         CREATE LOGIN [%COMPUTERNAME%\SQLRUserGroup] FROM WINDOWS 
 
-        (Please replace the %COMPUTERNAME% with your VM name)
+        (Please replace hello %COMPUTERNAME% with your VM name)
 
 
 ### <a name="azure"></a>Azure
-Birkaç Azure Araçları VM'de yüklü:
+Birkaç Azure Araçları hello VM üzerinde yüklenir:
 
-* Azure SDK Belgeleri erişmek için bir masaüstü kısayolu yoktur. 
-* **AzCopy**: Microsoft Azure Storage hesabınız ve dışındaki veri taşımak için kullanılır. Kullanımını görmek için şunu yazın **Azcopy** kullanımını görmek için komut isteminde. 
-* **Microsoft Azure Storage Gezgini**: Azure depolama hesabı ve aktarım verilerinizi Azure depolama gelen ve giden içinde depolanan nesneleri göz atmak için kullanılır. Yazabilirsiniz **Depolama Gezgini** içinde arama veya bu aracı erişmek için Windows Başlat menüsünden bulunamıyor. 
-* **Adlcopy**: Azure Data Lake verileri taşımak için kullanılır. Kullanımını görmek için şunu yazın **adlcopy** bir komut isteminde. 
-* **dtui**: verileri Azure Cosmos DB, bir NoSQL veritabanı bulut üzerinde gelen ve giden taşımak için kullanılır. Tür **dtui** komut istemi üzerinde. 
+* Hello Azure SDK Belgeleri masaüstü kısayolu tooaccess yoktur. 
+* **AzCopy**: toomove verileri Microsoft Azure Storage hesabınız ve kullanılır. toosee kullanımı, türü **Azcopy** bir komut istemi toosee hello kullanımı sırasında. 
+* **Microsoft Azure Storage Gezgini**: toobrowse, Azure depolama hesabı ve aktarım veri tooand Azure depolama biriminden içinde depolanan hello nesneleri aracılığıyla kullanılır. Yazabilirsiniz **Depolama Gezgini** arama veya Bul üzerinde hello Windows Başlat menüsünden tooaccess bu aracı. 
+* **Adlcopy**: toomove veri tooAzure Data Lake kullanılır. toosee kullanımı, türü **adlcopy** bir komut isteminde. 
+* **dtui**: toomove veri tooand Azure Cosmos DB'den hello buluttaki bir NoSQL veritabanı kullanılır. Tür **dtui** komut istemi üzerinde. 
 * **Microsoft Veri Yönetimi ağ geçidi**: şirket içi veri kaynakları ve bulut arasında veri taşıma sağlar. Azure Data Factory gibi araçlar içinde kullanılır. 
-* **Microsoft Azure Powershell**: komut dosyası dili de kendi VM'nizi yüklü PowerShell'de Azure kaynaklarınızı yönetmek için kullanılan bir araçtır. 
+* **Microsoft Azure Powershell**: bir aracı hello Powershell komut dosyası dili de kendi VM'nizi yüklü Azure kaynaklarınızı tooadminister kullanılan. 
 
 ### <a name="power-bi"></a>Power BI
-Panolar ve harika görselleştirmeleri oluşturmanıza yardımcı olmak için **Power BI Desktop** yüklendi. Bu aracı panolarınızı ve raporlarınızı yazmak ve buluta yayımlamak için farklı kaynaklardan veri çekmek için kullanın. Bilgi için bkz: [Power BI](http://powerbi.microsoft.com) site. Power BI desktop Başlat menüsünde bulabilirsiniz. 
+toohelp, derleme panoları ve harika görselleştirmeleri hello **Power BI Desktop** yüklendi. Bu aracı toopull verileri farklı kaynaklardan tooauthor kullanması panoları ve raporları ve toopublish bunları toohello bulut. Bilgi için bkz: Merhaba [Power BI](http://powerbi.microsoft.com) site. Power BI desktop hello Başlat menüsünde bulabilirsiniz. 
 
 > [!NOTE]
-> Power BI erişmek için Office 365 hesabı gerekir. 
+> Office 365 hesabı tooaccess Power BI gerekir. 
 > 
 > 
 
 ## <a name="additional-microsoft-development-tools"></a>Ek Microsoft geliştirme araçları
-[ **Microsoft Web Platformu yükleyicisi** ](https://www.microsoft.com/web/downloads/platform.aspx) bulmak ve diğer Microsoft geliştirme araçları'nı indirmek için kullanılabilir. Microsoft Veri bilimi sanal makine masaüstünde sağlanan aracı için bir kısayol yoktur.  
+Merhaba [ **Microsoft Web Platformu yükleyicisi** ](https://www.microsoft.com/web/downloads/platform.aspx) kullanılan toodiscover kullanılabilir ve diğer Microsoft geliştirme araçları yükleyin. Sağlanan hello Microsoft Veri bilimi sanal makine Masaüstünde kısayol toohello aracı yoktur.  
 
-## <a name="important-directories-on-the-vm"></a>VM önemli dizinleri
+## <a name="important-directories-on-hello-vm"></a>Merhaba VM önemli dizinleri
 | Öğe | Dizin |
 | --- | --- |
 | Jupyter not defteri sunucu yapılandırmaları |C:\ProgramData\jupyter |
@@ -193,16 +193,16 @@ Panolar ve harika görselleştirmeleri oluşturmanıza yardımcı olmak için **
 | Çeşitli araçlar |c:\dsvm\tools |
 
 > [!NOTE]
-> Örnekleri, Microsoft Veri bilimi (önce 3 Eylül 2016) 1.5.0 önce oluşturulan sanal makinenin bir biraz farklı dizin yapısı yukarıdaki tabloda belirtilenden kullanılır. 
+> Microsoft Veri bilimi sanal makine (önce 3 Eylül 2016) 1.5.0 önce oluşturulan hello örneklerini biraz farklı dizin yapısını tablo önceki hello belirtilenden kullanılır. 
 > 
 > 
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Öğrenme ve araştırması devam etmek için İleri bazı adımlar şunlardır. 
+Burada, öğrenme ve araştırması bazı sonraki adımları toocontinue bulunmaktadır. 
 
-* Çeşitli veri bilimi araçları veri bilimi VM Başlat menüsünden tıklatıp menüde listelenen araçları kullanıma keşfedin.
-* Gidin **C:\Program Files\Microsoft SQL Server\130\R_SERVER\library\RevoScaleR\demoScripts** veri analizi Kurumsal ölçekte destekler R RevoScaleR kitaplıkta kullanan örnekler için.  
-* Makaleyi okuyun: [veri bilimi sanal makine yapabileceğiniz 10 şey](http://aka.ms/dsvmtenthings)
-* Sistematik olarak kullanarak uçtan uca analitik çözümleri oluşturmayı öğrenin [takım veri bilimi işlemi](https://azure.microsoft.com/documentation/learning-paths/data-science-process/).
-* Ziyaret [Cortana Intelligence Galerisi](http://gallery.cortanaintelligence.com) Cortana Intelligence Suite kullanan machine learning ve veri analizi örnekleri için. Ayrıca bir simge üzerinde sağladık **Başlat** menüsünde ve masaüstünde sanal makinenin Bu galeri.
+* Başlat menüsü ve başlangıç menüsünde listelenen hello araçları kullanıma hello veri bilimi VM hello tıklatarak çeşitli veri bilimi araçları hello keşfedin.
+* Çok gidin**C:\Program Files\Microsoft SQL Server\130\R_SERVER\library\RevoScaleR\demoScripts** hello RevoScaleR Kitaplığı'nda veri analizi Kurumsal ölçekte destekler R kullanan örnekler için.  
+* Merhaba makale okuma: [hello veri bilimi sanal makine üzerinde yapabileceğiniz 10 şey](http://aka.ms/dsvmtenthings)
+* Toobuild uç tooend analitik çözümleri sistematik olarak kullanarak nasıl hello öğrenin [takım veri bilimi işlemi](https://azure.microsoft.com/documentation/learning-paths/data-science-process/).
+* Merhaba ziyaret [Cortana Intelligence Galerisi](http://gallery.cortanaintelligence.com) machine learning ve veri analizi, kullanım hello Cortana Intelligence Suite örnekleri için. Ayrıca bir simge üzerinde hello sağladık **Başlat** menü ve hello masaüstünde hello sanal makine toothis Galerisi.
 

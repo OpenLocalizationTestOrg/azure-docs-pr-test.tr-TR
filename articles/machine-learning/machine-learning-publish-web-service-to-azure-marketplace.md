@@ -1,6 +1,6 @@
 ---
-title: "(kullanım dışı) Machine learning yayımlama web hizmeti Azure Marketi'nde | Microsoft Docs"
-description: "(kullanım dışı) Azure Machine Learning Web hizmetinizi Azure Marketinde yayımlama"
+title: "Web hizmeti tooAzure Market öğrenme aaa(deprecated) Yayımla makine | Microsoft Docs"
+description: "(kullanım dışı) Nasıl toopublish, Azure Machine Learning Web hizmeti toohello Azure Market"
 services: machine-learning
 documentationcenter: 
 author: BharathS
@@ -16,78 +16,78 @@ ms.date: 06/02/2017
 ms.author: bharaths
 ROBOTS: NOINDEX
 redirect_url: machine-learning-gallery-experiments
-redirect_document_id: TRUE
-ms.openlocfilehash: 3e3420872f0c604e027d1f309a6de6f52a5a788c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+redirect_document_id: True
+ms.openlocfilehash: 149abc3df9b79c1b37d233d5e85e803592ff1020
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deprecated-publish-azure-machine-learning-web-service-to-the-azure-marketplace"></a>(kullanım dışı) Azure Machine Learning Web hizmeti Azure Marketi'nde yayımlama
+# <a name="deprecated-publish-azure-machine-learning-web-service-toohello-azure-marketplace"></a>(kullanım dışı) Azure Machine Learning Web hizmeti toohello Azure Marketi'nde yayımlama
 
 > [!NOTE]
 > DataMarket ve Veri Hizmetleri Çekildi ve mevcut abonelikleri kullanımdan kaldırılır ve başlangıç iptal 31/3/2017. Sonuç olarak, bu makalede onaylanmaz. 
 > 
-> Alternatif olarak, Machine Learning denemelerini yayımlayabilirsiniz [Cortana Intelligence Galerisi](https://gallery.cortanaintelligence.com/) veri bilimi topluluk yararlanması. Daha fazla bilgi için bkz: [paylaşımı ve Cortana Intelligence Galerisi kaynakları bulmak](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-gallery-how-to-use-contribute-publish).
+> Alternatif olarak, Machine Learning denemeleri toohello yayımlayabilirsiniz [Cortana Intelligence Galerisi](https://gallery.cortanaintelligence.com/) hello veri bilimi topluluğunun hello avantajı için. Daha fazla bilgi için bkz: [paylaşımı ve hello Cortana Intelligence Galerisi kaynakları bulmak](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-gallery-how-to-use-contribute-publish).
 
-Azure Market Ücretli gibi Azure Machine Learning web hizmetleri yayımlamak ya da dış müşterilere göre tüketimi için Hizmetleri serbest özelliği sağlar. Bu makalede başlamanıza yardımcı olacak yönergeler için bağlantılar ile birlikte bu işlemine genel bakış sağlar. Bu işlemi kullanarak, web hizmetlerinizi diğer geliştiricilerin uygulamalarında kullanmak kullanılabilir yapabilirsiniz.
+Hello Azure Marketi hello toopublish Azure Machine Learning web hizmetleri ücretli olarak sağlayabilir veya dış müşterilere göre tüketimi için Hizmetleri boşaltın. Bu makalede başlattığınız bağlantılar tooguidelines tooget bu işlemine genel bakış sağlar. Bu işlemi kullanarak, web hizmetlerinizi diğer geliştiriciler tooconsume için kullanılabilir uygulamalarında yapabilirsiniz.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## <a name="overview-of-the-publishing-process"></a>Yayımlama işlemine genel bakış
-Bir Azure Machine Learning web hizmeti Azure Marketinde yayımlama için adımlar şunlardır:
+## <a name="overview-of-hello-publishing-process"></a>İşlem yayımlama hello genel bakış
+Merhaba, bir Azure Machine Learning web hizmeti tooAzure Market yayımlama hello adımları şunlardır:
 
 1. Oluşturma ve makine öğrenme istek-yanıt hizmeti (RRS) yayımlama
-2. Hizmeti üretime dağıtmak ve API anahtarı ve OData uç nokta bilgileri alın.
-3. Yayımlamak için yayımlanan web hizmetinin URL'sini kullanın [Azure Marketi (veri Pazar)](https://publish.windowsazure.com/workspace/) 
-4. Sonra gönderildi, teklifiniz incelenir ve müşterilerinizin önce onaylanması, satın almayı başlatmak için. Yayımlama işlemi birkaç iş gün sürebilir. 
+2. Merhaba hizmet tooproduction dağıtmak ve hello API anahtarı ve OData uç nokta bilgileri alın.
+3. Hello kullan hello URL'sini yayımlanan web hizmeti toopublish çok[Azure Marketi (veri Pazar)](https://publish.windowsazure.com/workspace/) 
+4. Sonra gönderildi, teklifiniz incelenir ve bu satın alma, müşterilerinizin önce onaylanan toobe başlatabilirsiniz. Merhaba yayımlama işlemi birkaç iş gün sürebilir. 
 
 ## <a name="walk-through"></a>İzlenecek yol
 ### <a name="step-1-create-and-publish-a-machine-learning-request-response-service-rrs"></a>1. adım: Oluşturma ve makine öğrenme istek-yanıt hizmeti (RRS) yayımlama
  Siz bunu zaten yapmadıysanız, lütfen bu göz atın [size yol](machine-learning-walkthrough-5-publish-web-service.md).
 
-### <a name="step-2-deploy-the-service-to-production-and-obtain-the-api-key-and-odata-endpoint-information"></a>Adım 2: hizmeti üretime dağıtmak ve API anahtarı ve OData uç nokta bilgileri elde etmek
-1. Gelen [Klasik Azure portalı](http://manage.windowsazure.com)seçin **MACHINE LEARNING** seçeneği sol gezinti çubuğu'ndan ve çalışma alanınızı seçin. 
-2. Tıklayın **WEB Hizmetleri** sekmesini tıklatın ve Market'te yayımlamak istediğiniz web hizmetini seçin.
+### <a name="step-2-deploy-hello-service-tooproduction-and-obtain-hello-api-key-and-odata-endpoint-information"></a>2. adım: hello hizmet tooproduction dağıtmak ve hello API anahtarı ve OData uç nokta bilgileri alın
+1. Merhaba gelen [Klasik Azure portalı](http://manage.windowsazure.com)seçin hello **MACHINE LEARNING** seçeneği hello sol gezinti çubuğunda ve çalışma alanınızı seçin. 
+2. Tıklatın hello üzerinde **WEB Hizmetleri** sekmesi ve toopublish toohello Market istediğinizi seçin hello web hizmeti.
    
     ![Azure Market][workspace]
-3. Tüketen Market olmasını istediğiniz uç nokta seçin. Ek uç nokta oluşturmadıysanız, seçebileceğiniz **varsayılan** uç noktası.
-4. Uç noktada tıklattıktan sonra görmeye olacaktır **API anahtarı**. Bu parça gerekir adım 3'te daha sonra daha fazla bilgi için bu nedenle bir kopyasını oluşturun.
+3. Select hello uç noktası, toohave hello Market gibi kullanır. Ek uç nokta oluşturmadıysanız hello seçebilirsiniz **varsayılan** uç noktası.
+4. Merhaba noktadaki tıklattıktan sonra mümkün toosee hello olacaktır **API anahtarı**. Bu parça gerekir adım 3'te daha sonra daha fazla bilgi için bu nedenle bir kopyasını oluşturun.
    
     ![Azure Market][apikey]
-5. Tıklayın **istek/yanıt** değil destekliyoruz Marketi'nde yayımlama toplu iş yürütme Hizmetleri bu noktada yöntemi. Sizi istek/yanıt yöntemi için API yardım sayfasına götürür.
-6. Kopya **OData uç noktası adresi**, adım 3'te daha sonra bu bilgilere ihtiyacınız olacaktır.
+5. Tıklatın hello üzerinde **istek/yanıt** değil destekliyoruz yayımlama toplu iş yürütme bu noktada yöntemi toohello Market Hizmetleri. Sizi hello istek/yanıt yöntemi yönelik toohello API yardım sayfasına götürür.
+6. Kopya hello **OData uç noktası adresi**, adım 3'te daha sonra bu bilgilere ihtiyacınız olacaktır.
    
     ![Azure Market][odata]
 
-Hizmet üretime dağıtma.
+Merhaba hizmeti üretime dağıtma.
 
-### <a name="step-3-use-the-url-of-the-published-web-service-to-publish-to-azure-marketplace-datamarket"></a>3. adım: Azure Marketi (DataMarket) yayımlamak için yayımlanan web hizmetinin URL'sini kullanın.
-1. Gidin [Azure Market (veri Pazar)](http://datamarket.azure.com/home) 
-2. Tıklayın **Yayımla** sayfanın üst kısmındaki bağlantı. Bu, olanak sürecek [Microsoft Azure yayımlama portalında](https://publish.windowsazure.com)
-3. Tıklayın **yayımcılar** bir yayımcı olarak kaydetmek için bölüm.
+### <a name="step-3-use-hello-url-of-hello-published-web-service-toopublish-tooazure-marketplace-datamarket"></a>3. adım: Web hizmeti toopublish tooAzure Market (DataMarket) hello kullan hello URL'sini yayımlanan
+1. Çok gidin[Azure Marketi (veri Pazar)](http://datamarket.azure.com/home) 
+2. Tıklatın hello üzerinde **Yayımla** hello sayfanın üst kısmındaki hello bağlantı. Bu toohello sürecek [Microsoft Azure yayımlama portalında](https://publish.windowsazure.com)
+3. Tıklatın hello üzerinde **yayımcılar** bölüm tooregister bir yayımcı olarak.
 4. Yeni bir teklif oluştururken seçin **Veri Hizmetleri**, ardından **yeni bir veri hizmeti oluşturma**. 
    
    ![Azure Market][image1]
    
    <br />
-5. Altında **planları** fiyatlandırma planı dahil olmak üzere, teklifi hakkında bilgi sağlar. Boş ya da Ücretli bir hizmet sunacaktır varsa karar verin. Ücretli için Banka ve vergi bilgilerinizi gibi ödeme bilgilerini sağlayın.
-6. Altında **pazarlama** başlığı ve açıklamayı teklifiniz için gibi teklifiniz hakkında bilgi sağlar.
-7. Altında **fiyatlandırma** planlarınızı belirli ülkeler için fiyat ayarlamak veya "autoprice" Sistem teklifiniz olanak tanır.
-8. Üzerinde **veri hizmeti** sekmesini tıklatın, **Web hizmeti** olarak **veri kaynağı**.
+5. Altında **planları** fiyatlandırma planı dahil olmak üzere, teklifi hakkında bilgi sağlar. Boş ya da Ücretli bir hizmet sunacaktır varsa karar verin. Ücretli, tooget banka ve vergi bilgilerinizi gibi ödeme bilgilerini sağlar.
+6. Altında **pazarlama** teklifiniz için hello başlık ve açıklama gibi teklifiniz hakkında bilgi sağlar.
+7. Altında **fiyatlandırma** planlarınızı belirli ülkeler için için hello fiyat ayarlayabilir veya hello sistem "autoprice" teklifiniz olanak tanır.
+8. Merhaba üzerinde **veri hizmeti** sekmesini tıklatın, **Web hizmeti** hello olarak **veri kaynağı**.
    
     ![Azure Market][image2]
-9. Yukarıdaki 2. adımda açıklandığı gibi web hizmeti URL'sini ve API anahtarını Azure Klasik portalından alın.
-10. OData uç nokta adresine Market veri hizmeti Kurulumu iletişim kutusuna yapıştırın **hizmeti URL'si** metin kutusu.
-11. İçin **kimlik doğrulaması**, seçin **üstbilgi** olarak **kimlik doğrulama düzeni**.
+9. Merhaba, web hizmeti URL'sini ve API anahtarını yukarıda 2. adımda açıklandığı gibi Klasik Azure portalı, hello alın.
+10. Merhaba Market veri hizmeti Kurulumu iletişim kutusunda, hello OData uç noktası adresi hello yapıştırma **hizmeti URL'si** metin kutusu.
+11. İçin **kimlik doğrulaması**, seçin **üstbilgi** hello olarak **kimlik doğrulama düzeni**.
     
-    * "Yetkilendirme" girin **üstbilgi adı**.
-    * İçin **üstbilgi değeri**, "Bearer" (tırnak işaretleri olmadan) girin, tıklatın **alanı** çubuk ve API anahtarını yapıştırın.
-    * Seçin **bu hizmetidir OData** onay kutusu.
-    * Tıklatın **Bağlantıyı Sına** test edin.
+    * "Yetkilendirme" Merhaba girin **üstbilgi adı**.
+    * Hello için **üstbilgi değeri**, "Bearer" (Merhaba tırnak işaretleri olmadan) girin, hello tıklatın **alanı** çubuk ve hello API anahtarını yapıştırın.
+    * Select hello **bu hizmetidir OData** onay kutusu.
+    * Tıklatın **Bağlantıyı Sına** tootest hello bağlantı.
 12. Altında **kategorileri**, olun **Machine Learning** seçilir.
-13. İşiniz bittiğinde, teklif hakkında tüm meta veri girme tıklatın **Yayımla**ve ardından **anında hazırlık**. Bu noktada, düzeltmek için gereken tüm kalan sorunlarını bildirilir.
-14. Tüm bekleyen sorunları tamamlanmasından doğruladıktan sonra tıklatın **üretime gönderme için onay isteği**. Yayımlama işlemi birkaç iş gün sürebilir. 
+13. İşiniz bittiğinde meta verileri hello tüm girme teklifiniz hakkında tıklayın **Yayımla**ve ardından **anında tooStaging**. Bu noktada, tüm kalan sorunlarını toofix gerektiğini bildirilir.
+14. Tüm hello bekleyen sorunları tamamlanmasından doğruladıktan sonra tıklatın **isteği onay toopush tooProduction**. Merhaba yayımlama işlemi birkaç iş gün sürebilir. 
 
 [image1]:./media/machine-learning-publish-web-service-to-azure-marketplace/image1.png
 [image2]:./media/machine-learning-publish-web-service-to-azure-marketplace/image2.png

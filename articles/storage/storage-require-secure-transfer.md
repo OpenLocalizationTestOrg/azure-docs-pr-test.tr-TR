@@ -1,6 +1,6 @@
 ---
-title: "Azure storage'da güvenli aktarımı gerektiren | Microsoft Docs"
-description: "\"Güvenli aktarımı gerektirir\" özelliği Azure Storage ve bunun nasıl etkinleştirileceğini öğrenin."
+title: "Azure storage'da aaaRequire güvenli aktarımı | Microsoft Docs"
+description: "Azure Storage için Hello \"güvenli aktarımı gerektirir\" özelliği hakkında bilgi edinmek ve nasıl tooenable onu."
 services: storage
 documentationcenter: na
 author: fhryo-msft
@@ -14,45 +14,45 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/20/2017
 ms.author: fryu
-ms.openlocfilehash: bc5b7fc79869c632db96958f17aaf953a5fd3b19
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 27f745c5e771b50213c1dbb39dee081947be1f39
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="require-secure-transfer"></a>Güvenli aktarım gerektir
 
-"Güvenli aktarım gerekli" seçeneği, yalnızca istekleri depolama hesabınıza güvenli bağlantılardan vererek depolama hesabınızın güvenliğini artırır. Örneğin, depolama hesabınıza erişmek için REST API'leri çağrılırken, HTTPS kullanarak bağlanmanız gerekir. "Güvenli aktarım gerekli" etkinleştirildiğinde, HTTP kullanarak tüm istekler reddedilir.
+"Merhaba güvenli aktarımı gerekli" seçeneği, yalnızca istekleri güvenli bağlantılar toohello depolama hesabından izin vererek depolama hesabınız hello güvenliğini artırır. Örneğin, REST API'leri tooaccess depolama hesabınız çağrılırken, HTTPS kullanarak bağlanmanız gerekir. "Güvenli aktarım gerekli" etkinleştirildiğinde, HTTP kullanarak tüm istekler reddedilir.
 
-Azure dosyaları hizmetini kullanırken, "güvenli aktarım gerekli" etkinleştirilmişse, şifreleme olmadan herhangi bir bağlantı başarısız olur. Bu, SMB 2.1, SMB 3.0 şifreleme olmadan ve Linux SMB istemcisi bazı özellikleri kullanarak senaryolar içerir. 
+Hello Azure dosyaları hizmetini kullanırken, "güvenli aktarım gerekli" etkinleştirilmişse, şifreleme olmadan herhangi bir bağlantı başarısız olur. Bu, SMB 2.1, SMB 3.0 şifreleme olmadan ve bazı özellikleri hello Linux SMB istemcisi kullanarak senaryolar içerir. 
 
-Varsayılan olarak "güvenli aktarım gerekli" seçeneği devre dışıdır.
+Varsayılan olarak, "Merhaba güvenli aktarımı gerekli" seçenek devre dışıdır.
 
 > [!NOTE]
 > Azure depolama özel etki alanı adları HTTPS desteklemediğinden, bu seçenek özel etki alanı kullanırken uygulanmıyor.
 
-## <a name="enable-secure-transfer-required-in-the-azure-portal"></a>"Güvenli aktarım gerekli" Azure portalında etkinleştir
+## <a name="enable-secure-transfer-required-in-hello-azure-portal"></a>"Güvenli aktarımı gerekli" Merhaba Azure portal etkinleştir
 
-"Depolama hesabı oluşturduğunuzda, her ikisi de ayarlanması gereken güvenli aktarımı" etkinleştirebilirsiniz [Azure portal](https://portal.azure.com)ve var olan depolama hesapları için.
+"Hello bir depolama hesabı oluşturduğunuzda, her ikisi de ayarlanması gereken hello güvenli aktarımı" etkinleştirebilirsiniz [Azure portal](https://portal.azure.com)ve var olan depolama hesapları için.
 
 ### <a name="require-secure-transfer-when-you-create-a-storage-account"></a>Bir depolama hesabı oluşturduğunuzda güvenli aktarımı gerektirir
 
-1. Açık **depolama hesabı oluşturma** Azure portaldaki dikey pencere.
+1. Açık hello **depolama hesabı oluşturma** dikey penceresinde hello Azure portalı.
 1. Altında **güvenli aktarımı gerekli**seçin **etkin**.
 
   ![ekran görüntüsü](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
 
 ### <a name="require-secure-transfer-for-an-existing-storage-account"></a>Güvenli aktarımı için varolan bir depolama hesabı gerektirir
 
-1. Azure Portalı'nda mevcut bir depolama hesabını seçin.
-1. Seçin **yapılandırma** altında **ayarları** depolama hesabı menü dikey.
+1. Mevcut bir depolama hesabını hello Azure portal'ı seçin.
+1. Seçin **yapılandırma** altında **ayarları** hello depolama hesabı menü dikey penceresinde.
 1. Altında **güvenli aktarımı gerekli**seçin **etkin**.
 
   ![ekran görüntüsü](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
 
 ## <a name="enable-secure-transfer-required-programmatically"></a>"Güvenli aktarım gerekli" etkinleştirmek program aracılığıyla
 
-Ayar adı şudur _supportsHttpsTrafficOnly_ depolama hesabı özellikleri. "REST API, araçları veya kitaplıkları ile ayarlanması gereken güvenli aktarımı" etkinleştirebilirsiniz:
+Merhaba ayarı adı _supportsHttpsTrafficOnly_ depolama hesabı özellikleri. "REST API, araçları veya kitaplıkları ile ayarlanması gereken güvenli aktarımı" etkinleştirebilirsiniz:
 
 * **REST API** (sürüm: 2016-12-01): [sürüm paketi](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts)
 * **PowerShell** (sürüm: 4.1.0'da): [sürüm paketi](https://docs.microsoft.com/en-us/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0)
@@ -64,9 +64,9 @@ Ayar adı şudur _supportsHttpsTrafficOnly_ depolama hesabı özellikleri. "REST
 
 ### <a name="enable-secure-transfer-required-setting-with-rest-api"></a>"REST API'si ile ayarlanması gereken güvenli aktarımı" etkinleştirme
 
-REST API ile test etmeyi kolaylaştırmak için kullanabileceğiniz [ArmClient](https://github.com/projectkudu/ARMClient) komut satırından çağırmak için.
+REST API ile test toosimplify kullanabileceğiniz [ArmClient](https://github.com/projectkudu/ARMClient) komut satırından toocall.
 
- REST API ile ayarını denetlemek için komut satırını kullanın:
+ Komut satırı toocheck hello hello REST API ayarıyla aşağıda kullanabilirsiniz:
 
 ```
 # Login Azure and proceed with your credentials
@@ -75,7 +75,7 @@ REST API ile test etmeyi kolaylaştırmak için kullanabileceğiniz [ArmClient](
 > armclient GET  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}?api-version=2016-12-01
 ```
 
-Yanıtta, bulduğunuz _supportsHttpsTrafficOnly_ ayarı. Örnek:
+Merhaba yanıtta bulduğunuz _supportsHttpsTrafficOnly_ ayarı. Örnek:
 
 ```Json
 {
@@ -90,7 +90,7 @@ Yanıtta, bulduğunuz _supportsHttpsTrafficOnly_ ayarı. Örnek:
 }
 ```
 
-REST API ile ayarı etkinleştirmek için komut satırını kullanın:
+Komut satırı tooenable hello hello REST API ayarıyla aşağıda kullanabilirsiniz:
 
 ```
 # Login Azure and proceed with your credentials
@@ -109,4 +109,4 @@ Söz konusu Input.json örneği:
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure depolama birlikte geliştiricilerin güvenli uygulamalar oluşturmasını sağlama güvenlik özellikleri kapsamlı bir kümesini sağlar. Daha fazla ayrıntı için ziyaret [depolama Güvenlik Kılavuzu](storage-security-guide.md).
+Azure depolama toobuild güvenli uygulamalar birlikte, geliştiricilerin güvenlik özellikleri kapsamlı bir kümesini sağlar. Daha fazla ayrıntı için hello ziyaret [depolama Güvenlik Kılavuzu](storage-security-guide.md).

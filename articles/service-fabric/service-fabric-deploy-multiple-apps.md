@@ -1,6 +1,6 @@
 ---
-title: "MongoDB kullanan bir Node.js uygulaması dağıtma | Microsoft Docs"
-description: "Bir Azure Service Fabric kümesi dağıtmak için birden çok Konuk yürütülebilir dosyalar paketini konusunda gözden geçirme"
+title: "aaaDeploy MongoDB kullanan bir Node.js uygulaması | Microsoft Docs"
+description: "İzlenecek yol nasıl toopackage birden çok Konuk yürütülebilir dosyalar toodeploy tooan Azure Service Fabric kümesi"
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell;mikhegn
-ms.openlocfilehash: b71723034e5f663986c49481072bfd6779d3d57b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2775080f0d9d42d6ba15cca911e23067106be26d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-multiple-guest-executables"></a>Konuk tarafından yürütülebilir birden çok uygulama dağıtma
-Bu makalede, paket ve birden çok Konuk yürütülebilir dosyalar için Azure Service Fabric dağıtma gösterilmektedir. Derleme ve tek bir Service Fabric paketi dağıtmak için okuma nasıl için [yürütülebilir Konuk dağıtmak için Service Fabric](service-fabric-deploy-existing-app.md).
+Bu makalede gösterilmektedir nasıl toopackage ve birden çok Konuk yürütülebilir dosyalar tooAzure Service Fabric dağıtın. Oluşturma ve tek bir Service Fabric paketi dağıtma nasıl çok okumak için[Konuk yürütülebilir tooService doku dağıtmak](service-fabric-deploy-existing-app.md).
 
-Bu kılavuz, MongoDB veri deposu olarak kullanan bir Node.js ön ucuna sahip bir uygulamanın nasıl dağıtılacağı gösterilmektedir, ancak başka bir uygulama üzerinde bağımlılıklara sahip herhangi bir uygulama adımları uygulayabilirsiniz.   
+Bu kılavuzda nasıl toodeploy MongoDB hello veri deposu olarak kullanan bir Node.js ön ucuna sahip bir uygulama, başka bir uygulama bağımlılıkları olan hello adımları tooany uygulama uygulayabileceğiniz gösterirken.   
 
-Birden çok Konuk yürütülebilir dosyaları içeren uygulama paketini oluşturmak için Visual Studio'yu kullanabilirsiniz. Bkz: [var olan bir uygulama paketi için Visual Studio'yu kullanarak](service-fabric-deploy-existing-app.md). İlk Konuk yürütülebilir ekledikten sonra uygulama projesine sağ tıklayın ve seçin **Ekle -> Yeni Service Fabric hizmet** ikinci Konuk yürütülebilir proje çözüme eklemek için. Not: Visual Studio projesini kaynak bağlamayı seçerseniz, Visual Studio çözümü oluşturma uygulama paketinizi kaynağındaki değişikliklerle güncel olduğundan emin olun. 
+Birden çok Konuk yürütülebilir dosyaları içeren Visual Studio tooproduce hello uygulama paketi kullanabilirsiniz. Bkz: [kullanarak Visual Studio toopackage varolan bir uygulama](service-fabric-deploy-existing-app.md). Merhaba ilk Konuk yürütülebilir ekledikten sonra sağ hello uygulama projesi seçin hello tıklayın ve **Ekle -> Yeni Service Fabric hizmet** tooadd hello ikinci Konuk yürütülebilir proje toohello çözüm. Not: hello hello Visual Studio çözümü oluşturma, Visual Studio projesi toolink hello kaynağında, emin olmanızı sağlayacak seçerseniz, uygulama paketinizi hello kaynağındaki değişikliklerle toodate çalışıyor. 
 
 ## <a name="samples"></a>Örnekler
 * [Paketleme ve dağıtma bir konuk yürütülebilir dosyası için örnek](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [İki Konuk yürütülebilir dosyalar (C# ve nodejs) iletişim REST kullanarak Adlandırma Hizmeti örnek](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+* [İki Konuk yürütülebilir dosyalar (C# ve nodejs) iletişim REST kullanarak hello Adlandırma Hizmeti örnek](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
-## <a name="manually-package-the-multiple-guest-executable-application"></a>El ile birden çok Konuk yürütülebilir uygulama paketi
-Bunun yerine el ile yürütülebilir Konuk paketleyebilirsiniz. El ile paketleme için bu makalede şu adresten edinilebilir Service Fabric paketleme aracı kullanan [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
+## <a name="manually-package-hello-multiple-guest-executable-application"></a>El ile paket hello birden çok Konuk yürütülebilir uygulama
+Bunun yerine el ile Merhaba Konuk yürütülebilir paketleyebilirsiniz. Hello için el ile paketleme, bu makalede şu adresten edinilebilir hello Service Fabric paketleme aracı kullanır [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
 
-### <a name="packaging-the-nodejs-application"></a>Node.js Uygulama paketleme
-Bu makale, Node.js Service Fabric kümesindeki düğümlere yüklü olmadığını varsayar. Sonuç olarak paketlemeden önce düğüm uygulamanızın kök dizinine Node.exe eklemeniz gerekir. (Express web çerçevesi ve Jade şablon motoru kullanarak) Node.js uygulaması dizin yapısını birine benzer görünmelidir:
+### <a name="packaging-hello-nodejs-application"></a>Paketleme hello Node.js uygulaması
+Bu makale, Node.js hello Service Fabric kümesindeki hello düğümlerinde yüklü olmadığını varsayar. Sonuç olarak tooadd Node.exe toohello kök dizini paketleme önce düğüm uygulamanız gerekir. Merhaba dizin yapısını (Express web çerçevesi ve Jade şablon motoru kullanarak) Merhaba Node.js uygulaması, aşağıdaki benzer toohello bir görünmelidir:
 
 ```
 |-- NodeApplication
@@ -60,22 +60,22 @@ Bu makale, Node.js Service Fabric kümesindeki düğümlere yüklü olmadığın
     |-- node.exe
 ```
 
-Sonraki adım olarak, Node.js uygulaması için uygulama paketi oluşturun. Aşağıdaki kodu Node.js uygulaması içeren bir Service Fabric uygulama paketi oluşturur.
+Bir sonraki adım hello Node.js uygulaması için uygulama paketi oluşturun. Aşağıdaki Hello kodu Merhaba Node.js uygulaması içeren bir Service Fabric uygulama paketi oluşturur.
 
 ```
 .\ServiceFabricAppPackageUtil.exe /source:'[yourdirectory]\MyNodeApplication' /target:'[yourtargetdirectory] /appname:NodeService /exe:'node.exe' /ma:'bin/www' /AppType:NodeAppType
 ```
 
-Kullanılmakta olan parametreleri açıklamasını aşağıdadır:
+Kullanılmakta olan hello parametreleri açıklamasını aşağıdadır:
 
-* **/ source** paketlenmesi uygulama dizinine işaret eder.
-* **/ target** içinde paket oluşturulmalıdır dizin tanımlar. Bu dizin kaynak dizinden farklı olması gerekir.
-* **Appname** var olan uygulamaya uygulama adını tanımlar. Bu hizmet adı bildiriminde ve değil Service Fabric uygulama adı dönüşür anlamak önemlidir.
-* **/ exe** Service Fabric başlatın, bu durumda olması yürütülebilir tanımlar `node.exe`.
-* **/ma** yürütülebilir başlatmak için kullanılan bağımsız değişken tanımlar. Node.js yüklenmemiş gibi Service Fabric yürüterek Node.js web sunucusu başlatmak gereken `node.exe bin/www`.  `/ma:'bin/www'`kullanılacak paketleme aracı söyler `bin/ma` node.exe bağımsız değişkeni olarak.
-* **/ Uygulama türü** Service Fabric uygulaması türü adını tanımlar.
+* **/ source** paketlenmesi Merhaba uygulaması noktaları toohello dizini.
+* **/ target** hangi hello paket oluşturulmalıdır hello dizin tanımlar. Bu dizin toobe hello kaynak dizinden farklı sahiptir.
+* **Appname** hello uygulama hello var olan uygulamanın adını tanımlar. Bu hello bildiriminde toohello hizmet adı ve değil toohello Service Fabric uygulaması adı dönüşür önemli toounderstand olur.
+* **/ exe** hello Service Fabric toolaunch, bu durumda beklenir yürütülebilir tanımlar `node.exe`.
+* **/ma** kullanılan toolaunch hello yürütülebilir yüklenmekte olan hello bağımsız değişken tanımlar. Node.js yüklenmemiş gibi Service Fabric toolaunch hello Node.js web sunucusu yürüterek gereken `node.exe bin/www`.  `/ma:'bin/www'`Merhaba paketleme aracı toouse söyler `bin/ma` node.exe hello bağımsız değişken olarak.
+* **/ Uygulama türü** hello Service Fabric uygulaması türü adını tanımlar.
 
-/ Target parametresinde belirtilen dizine göz atarsanız, araç tümüyle işlevsel bir Service Fabric paketi aşağıda gösterildiği gibi oluşturdu görebilirsiniz:
+Merhaba/target parametresinde belirtilen toohello dizin göz atarsanız, aşağıda gösterildiği gibi hello aracı tam olarak işlevsel bir Service Fabric paketi oluşturdu görebilirsiniz:
 
 ```
 |--[yourtargetdirectory]
@@ -95,7 +95,7 @@ Kullanılmakta olan parametreleri açıklamasını aşağıdadır:
         |-- ServiceManifest.xml
     |-- ApplicationManifest.xml
 ```
-Oluşturulan ServiceManifest.xml şimdi nasıl Node.js web sunucusu başlatılması gerekir, aşağıdaki kod parçacığında gösterildiği gibi açıklayan bir bölümü vardır:
+Merhaba oluşturulan ServiceManifest.xml artık hello aşağıdaki kod parçacığında gösterildiği gibi nasıl hello Node.js web sunucusu başlatılması gerekir, açıklayan bir bölümü vardır:
 
 ```xml
 <CodePackage Name="C" Version="1.0">
@@ -108,7 +108,7 @@ Oluşturulan ServiceManifest.xml şimdi nasıl Node.js web sunucusu başlatılma
     </EntryPoint>
 </CodePackage>
 ```
-Aşağıda gösterildiği gibi ServiceManifest.xml dosyasında uç nokta bilgileri güncelleştirmek gereken şekilde bu örnekte, bağlantı noktası 3000, Node.js web sunucusu dinler.   
+Tooupdate hello uç nokta bilgileri aşağıda gösterildiği gibi hello ServiceManifest.xml dosyasında gerekir böylece bu örnekte, 3000, tooport hello Node.js web sunucusu dinler.   
 
 ```xml
 <Resources>
@@ -117,10 +117,10 @@ Aşağıda gösterildiği gibi ServiceManifest.xml dosyasında uç nokta bilgile
       </Endpoints>
 </Resources>
 ```
-### <a name="packaging-the-mongodb-application"></a>MongoDB Uygulama paketleme
-Node.js uygulaması paketlenmiş, devam edin ve MongoDB paket. Önceden belirtildiği gibi şimdi geçtikleri adımlar Node.js ve MongoDB özel değildir. Aslında, bir Service Fabric uygulaması olarak birlikte paketlenmesi yönelik tüm uygulamalar için geçerlidir.  
+### <a name="packaging-hello-mongodb-application"></a>Paketleme hello MongoDB uygulama
+Merhaba Node.js uygulaması paketlenmiş, devam edin ve MongoDB paket. Önceden belirtildiği gibi şimdi geçtikleri hello adımları belirli tooNode.js ve MongoDB olup olmadığı. Aslında, bunlar bir Service Fabric uygulaması olarak arada paketlenmiş toobe yöneliktir tooall uygulamalar geçerlidir.  
 
-MongoDB paketlemek için Mongod.exe ve Mongo.exe paketi emin olmak istersiniz. Her iki ikili dosyaları bulunan `bin` , MongoDB yükleme dizininin dizin. Dizin yapısı birine benzer.
+toopackage MongoDB, toomake Mongod.exe ve Mongo.exe paketi emin istiyor. Her iki ikili dosyaları hello bulunur `bin` , MongoDB yükleme dizininin dizin. Merhaba dizin yapısına benzer toohello biri aşağıda arar.
 
 ```
 |-- MongoDB
@@ -129,25 +129,25 @@ MongoDB paketlemek için Mongod.exe ve Mongo.exe paketi emin olmak istersiniz. H
         |-- mongo.exe
         |-- anybinary.exe
 ```
-Service Fabric gereken MongoDB, benzer bir komutla aşağıdaki başlatmak kullanmanız gereken şekilde `/ma` MongoDB paketleme, parametre.
+Service Fabric gereken bir komut benzer toohello biri ile toostart MongoDB aşağıdaki toouse hello gereken şekilde `/ma` MongoDB paketleme, parametre.
 
 ```
-mongod.exe --dbpath [path to data]
+mongod.exe --dbpath [path toodata]
 ```
 > [!NOTE]
-> Düğümün yerel dizin MongoDB veri dizini yerleştirirseniz veriler bir düğümü hatasına karşı korunmaz. Dayanıklı depolama kullanabilir veya veri kaybını önlemek için ayarlanmış bir MongoDB çoğaltma uygulamak.  
+> Merhaba düğümünün hello yerel dizin hello MongoDB veri dizini yerleştirirseniz hello veriler bir düğüm hatası hello durumda korunmaz. Dayanıklı depolama kullanabilir veya bir MongoDB çoğaltma sırası tooprevent veri kaybına kümesi uygulamak.  
 >
 >
 
-PowerShell ya da komut kabuğunu biz paketleme aracını aşağıdaki parametrelerle çalıştırın:
+PowerShell veya hello komut kabuğunda biz şu parametreler hello ile Merhaba paketleme aracını çalıştırın:
 
 ```
-.\ServiceFabricAppPackageUtil.exe /source: [yourdirectory]\MongoDB' /target:'[yourtargetdirectory]' /appname:MongoDB /exe:'bin\mongod.exe' /ma:'--dbpath [path to data]' /AppType:NodeAppType
+.\ServiceFabricAppPackageUtil.exe /source: [yourdirectory]\MongoDB' /target:'[yourtargetdirectory]' /appname:MongoDB /exe:'bin\mongod.exe' /ma:'--dbpath [path toodata]' /AppType:NodeAppType
 ```
 
-Service Fabric uygulama paketinizi MongoDB eklemek için uygulama zaten var. aynı dizine/target parametresi noktaları yanı sıra Node.js uygulama bildirimi emin olmanız gerekir. Ayrıca aynı ApplicationType adı kullandığınızdan emin olmanız gerekir.
+Sipariş tooadd MongoDB tooyour Service Fabric uygulama paketinde, toomake o hello/target parametresi toohello işaret ettiğinden emin gereksinim duyduğunuz zaten hello uygulama bildirimini Merhaba Node.js uygulaması ile birlikte içeren aynı dizini. Toomake kullanmakta olduğunuz emin etmeniz aynı ApplicationType adı hello.
 
-Şirketinizdeki dizine gözatın ve aracı oluşturulmuş inceleyin.
+Şimdi toohello dizinine göz atın ve incelemek hangi hello aracı oluşturdu.
 
 ```
 |--[yourtargetdirectory]
@@ -163,7 +163,7 @@ Service Fabric uygulama paketinizi MongoDB eklemek için uygulama zaten var. ayn
         |-- ServiceManifest.xml
     |-- ApplicationManifest.xml
 ```
-Gördüğünüz gibi aracı yeni bir klasör, MongoDB, MongoDB ikili dosyaları içeren dizine eklendi. Açarsanız `ApplicationManifest.xml` dosya, paket artık Node.js uygulaması ve MongoDB içerdiğini görebilirsiniz. Aşağıdaki kod, uygulama bildirimi içeriğini gösterir.
+Gördüğünüz gibi hello aracı hello MongoDB ikili dosyaları içeren yeni bir klasör, MongoDB, toohello dizin eklendi. Merhaba açarsanız `ApplicationManifest.xml` dosya, o hello şimdi pakette Merhaba Node.js uygulaması ve MongoDB görebilirsiniz. Aşağıdaki Hello kodu hello hello uygulama bildiriminin içerik gösterir.
 
 ```xml
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="MyNodeApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -188,8 +188,8 @@ Gördüğünüz gibi aracı yeni bir klasör, MongoDB, MongoDB ikili dosyaları 
 </ApplicationManifest>  
 ```
 
-### <a name="publishing-the-application"></a>Uygulama yayımlama
-PowerShell komut dosyalarını kullanarak yerel Service Fabric kümesi için uygulama yayımlamak için son adımdır bakın:
+### <a name="publishing-hello-application"></a>Yayımlama hello uygulama
+Merhaba son toopublish hello uygulama toohello yerel Service Fabric kümesi hello PowerShell betikleri kullanılarak adımdır:
 
 ```
 Connect-ServiceFabricCluster localhost:19000
@@ -203,18 +203,18 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
 
-Uygulamayı yerel kümeye başarıyla yayımlandığında, Node.js uygulaması--örneğin http://localhost: 3000 hizmet bildiriminde girmiş olduğunuz bağlantı noktasında Node.js uygulaması erişebilirsiniz.
+Merhaba uygulaması başarıyla yayımlanan toohello yerel kümeye eklendiğinde, Merhaba Node.js uygulaması hello hizmet bildiriminde Merhaba Node.js uygulaması--örneğin http://localhost: 3000 girmiş olduğunuz hello bağlantı noktasında erişebilir.
 
-Bu öğreticide, kolayca bir Service Fabric uygulaması olarak iki uygulamalarınız için nasıl gördünüz. Aynı zamanda yüksek kullanılabilirlik ve sistem durumu sistem tümleştirme gibi Service Fabric özelliklerinden bazıları yararlanabilir böylece Service Fabric dağıtmayı öğrendiniz.
+Bu öğreticide, nasıl tooeasily paketini iki varolan uygulamaları bir Service Fabric uygulaması olarak gördünüz. Ayrıca öğrendiniz nasıl toodeploy, tooService şekilde hello bazıları yüksek kullanılabilirlik ve sistem durumu sistem tümleştirme gibi Service Fabric özellikleri korumasından yararlanabilmek için doku.
 
 
-## <a name="adding-more-guest-executables-to-an-existing-application-using-yeoman-on-linux"></a>Yeoman Linux'ta kullanarak var olan bir uygulamaya daha fazla Konuk yürütülebilir dosyaları ekleme
+## <a name="adding-more-guest-executables-tooan-existing-application-using-yeoman-on-linux"></a>Yeoman Linux'ta kullanarak daha fazla Konuk yürütülebilir dosyalar tooan varolan uygulama ekleme
 
-`yo` kullanılarak oluşturulmuş bir uygulamaya başka bir hizmet eklemek için aşağıdaki adımları uygulayın: 
-1. Dizini mevcut uygulamanın kök dizinine değiştirin.  Örneğin Yeoman tarafından oluşturulan uygulama `MyApplication` ise `cd ~/YeomanSamples/MyApplication` olacaktır.
-2. Çalıştırma `yo azuresfguest:AddService` ve gerekli ayrıntıları sağlayın.
+tooadd başka bir hizmet tooan uygulaması zaten kullanılarak oluşturulan `yo`, hello aşağıdaki adımları gerçekleştirin: 
+1. Merhaba var olan uygulamanın toohello kök dizini değiştirin.  Örneğin, `cd ~/YeomanSamples/MyApplication`, `MyApplication` Yeoman tarafından oluşturulan hello uygulamasıdır.
+2. Çalıştırma `yo azuresfguest:AddService` ve hello gerekli ayrıntıları sağlayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * İle kapsayıcıları dağıtma hakkında bilgi edinin [Service Fabric ve kapsayıcıları genel bakış](service-fabric-containers-overview.md)
 * [Paketleme ve dağıtma bir konuk yürütülebilir dosyası için örnek](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [İki Konuk yürütülebilir dosyalar (C# ve nodejs) iletişim REST kullanarak Adlandırma Hizmeti örnek](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+* [İki Konuk yürütülebilir dosyalar (C# ve nodejs) iletişim REST kullanarak hello Adlandırma Hizmeti örnek](https://github.com/Azure-Samples/service-fabric-dotnet-containers)

@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL Veritabanı’nı sorgulamak için Visual Studio ve .NET kullanma | Microsoft Docs"
-description: "Bu konu başlığı altında, Visual Studio kullanarak Azure SQL Veritabanına bağlanan ve Transact-SQL deyimleriyle veritabanını sorgulayan bir program oluşturma işlemi gösterilir."
+title: "aaaUse Visual Studio ve .NET tooquery Azure SQL veritabanı | Microsoft Docs"
+description: "Bu konu, nasıl gösterir toouse Visual Studio toocreate tooan Azure SQL veritabanı ve sorgu Transact-SQL deyimi kullanarak bağlanan bir program."
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -15,67 +15,67 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 07/05/2017
 ms.author: carlrab
-ms.openlocfilehash: 105dab17823a7e7f6957a604833f4ecad35c14bd
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 038cfb9c680217dfeea5a9996a0abed88cc80559
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>Visual Studio ile .NET (C#) kullanarak Azure SQL veritabanına bağlanma ve veritabanını sorgulama
+# <a name="use-net-c-with-visual-studio-tooconnect-and-query-an-azure-sql-database"></a>.NET (C#) ile Visual Studio tooconnect kullanın ve Azure SQL veritabanını sorgulama
 
-Bu hızlı başlangıç öğreticisi, [.NET framework](https://www.microsoft.com/net/) kullanarak Visual Studio ile Azure SQL veritabanına bağlanan ve Transact-SQL deyimleriyle veri sorgulayan bir C# programı oluşturmayı gösterir.
+Bu hızlı başlangıç Öğreticisi gösteren nasıl toouse hello [.NET framework](https://www.microsoft.com/net/) toocreate C# programı ile Visual Studio tooconnect tooan Azure SQL veritabanı ve Transact-SQL deyimleri tooquery verileri kullanın.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu hızlı başlangıç öğreticisini tamamlamak için aşağıdakilere sahip olduğunuzdan emin olun:
+toocomplete Bu hızlı başlangıç Öğreticisi, hello aşağıdaki sahip olduğunuzdan emin olun:
 
-- Bir Azure SQL veritabanı. Bu hızlı başlangıçta, aşağıdaki hızlı başlangıçlardan birinde oluşturulan kaynaklar kullanılır: 
+- Bir Azure SQL veritabanı. Bu hızlı başlangıç Bu hızlı başlangıçlar birinde oluşturulan hello kaynakları kullanır: 
 
    - [DB Oluşturma - Portal](sql-database-get-started-portal.md)
    - [DB oluşturma - CLI](sql-database-get-started-cli.md)
    - [DB Oluşturma - PowerShell](sql-database-get-started-powershell.md)
 
-- Bu hızlı başlangıç öğreticisinde kullanacağınız bilgisayarın genel IP adresi için [sunucu düzeyinde bir güvenlik duvarı kuralı](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).
+- A [sunucu düzeyinde güvenlik duvarı kuralı](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) hello için genel IP adresi hello bilgisayarın bu hızlı başlangıç öğreticisi için kullanın.
 - [Visual Studio Community 2017, Visual Studio Professional 2017 veya Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/) yüklemesi.
 
 ## <a name="sql-server-connection-information"></a>SQL Server bağlantı bilgileri
 
-Azure SQL veritabanına bağlanmak için gereken bağlantı bilgilerini alın. Sonraki yordamlarda tam sunucu adına, veritabanı adına ve oturum açma bilgilerine ihtiyacınız olacaktır.
+Merhaba bağlantı gerekli bilgileri tooconnect toohello Azure SQL veritabanı alın. Merhaba tam sunucu adını, veritabanı adının ve oturum açma bilgilerini hello sonraki yordamlarda gerekir.
 
-1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
-2. Soldaki menüden **SQL Veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın. 
-3. Veritabanınızın **Genel Bakış** sayfasında, aşağıdaki görüntüde gösterildiği gibi tam sunucu adını gözden geçirin. Sunucu adının üzerine gelerek **Kopyalamak için tıklayın** seçeneğini ortaya çıkarabilirsiniz. 
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com/).
+2. Seçin **SQL veritabanları** hello sol taraftaki menüden veritabanınızda hello tıklatıp **SQL veritabanları** sayfası. 
+3. Merhaba üzerinde **genel bakış** gözden geçirme hello veritabanınız için sayfa hello görüntü aşağıdaki gösterildiği gibi sunucu adı tam olarak nitelenmiş. Merhaba sunucu adı toobring hello yukarı üzerine getirin **tıklatın toocopy** seçeneği. 
 
    ![server-name](./media/sql-database-connect-query-dotnet/server-name.png) 
 
-4. Azure SQL Veritabanı sunucunuzun oturum açma bilgilerini unuttuysanız, SQL Veritabanı sunucu sayfasına giderek sunucu yöneticisi adını görüntüleyin. Gerekirse parolayı sıfırlayabilirsiniz.
+4. Azure SQL veritabanı sunucusu oturum açma bilgilerinizi unutursanız, toohello SQL veritabanı sunucusu sayfa tooview hello sunucu yönetici adı gidin. Gerekirse, hello parolayı sıfırlayabilirsiniz.
 
 5. **Veritabanı bağlantı dizelerini göster**’e tıklayın.
 
-6. Tam **ADO.NET** bağlantı dizesini gözden geçirin.
+6. Gözden geçirme hello tam **ADO.NET** bağlantı dizesi.
 
     ![ADO.NET bağlantı dizesi](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
 
 > [!IMPORTANT]
-> Bu hızlı başlangıç öğreticisinde kullanacağınız bilgisayarın genel IP adresi için bir güvenlik duvarı kuralınız olmalıdır. Farklı bir bilgisayar kullanıyorsanız veya farklı bir genel IP adresiniz varsa [Azure portal kullanarak bir sunucu düzeyi güvenlik duvarı kuralı](sql-database-get-started-portal.md#create-a-server-level-firewall-rule) oluşturun. 
+> Bu öğreticiyi gerçekleştirme hello bilgisayarın hello ortak IP adresi için yerinde bir güvenlik duvarı kuralı olması gerekir. Farklı bir bilgisayarda olan veya farklı bir ortak IP adresi varsa, oluşturma bir [sunucu düzeyinde güvenlik duvarı kuralı kullanarak hello Azure portal](sql-database-get-started-portal.md#create-a-server-level-firewall-rule). 
 >
   
 ## <a name="create-a-new-visual-studio-project"></a>Yeni Visual Studio projesi oluşturma
 
 1. Visual Studio'da **Dosya**, **Yeni**, **Proje**’yi seçin. 
-2. **Yeni Proje** iletişim kutusunda **Visual C#** öğesini genişletin.
-3. **Konsol Uygulaması**’nı seçin ve projenin adı için *sqltest* girin.
-4. Visual Studio’da yeni projeyi oluşturmak ve açmak için **Tamam**’a tıklayın.
+2. Merhaba, **yeni proje** iletişim kutusunda ve genişletin **Visual C#**.
+3. Seçin **konsol uygulaması** ve girin *sqltest* hello proje adı.
+4. Tıklatın **Tamam** toocreate ve açık hello Visual Studio'da yeni proje
 4. Çözüm Gezgini'nde, **sqltest**'e sağ tıklayın ve **NuGet Paketlerini Yönet**'e tıklayın. 
-5. **Gözat**’ta ```System.Data.SqlClient``` öğesini arayın ve bulduğunuzda seçin.
-6. **System.Data.SqlClient** sayfasında **Yükle**’ye tıklayın.
-7. Yükleme tamamlandığında değişiklikleri gözden geçirin ve **Önizleme** penceresini kapamak için **Tamam**’a tıklayın. 
+5. Merhaba üzerinde **Gözat**, arama ```System.Data.SqlClient``` ve, ne zaman bulunamadı, onu seçin.
+6. Merhaba, **System.Data.SqlClient** sayfasında, **yükleme**.
+7. Merhaba yükleme tamamlandığında, hello değişiklikleri gözden geçirin ve ardından **Tamam** tooclose hello **Önizleme** penceresi. 
 8. **Lisans Kabulü** penceresi gösterilirse **Kabul Ediyorum**’a tıklayın.
 
-## <a name="insert-code-to-query-sql-database"></a>SQL veritabanını sorgulamak için kod girme
-1. **Program.cs**’ye geçin (veya gerekiyorsa açın)
+## <a name="insert-code-tooquery-sql-database"></a>Kod tooquery SQL veritabanı Ekle
+1. Çok geçiş (veya gerekirse açın) **Program.cs**
 
-2. **Program.cs** dosyasının içeriğini aşağıdaki kodla değiştirin ve sunucunuz, veritabanınız, kullanıcınız ve parolanız için uygun değerleri ekleyin.
+2. Merhaba Değiştir **Program.cs** aşağıdaki kod ve sunucu, veritabanı, kullanıcı ve parola için uygun değerleri hello ekleme hello ile.
 
 ```csharp
 using System;
@@ -131,14 +131,14 @@ namespace sqltest
 }
 ```
 
-## <a name="run-the-code"></a>Kodu çalıştırma
+## <a name="run-hello-code"></a>Merhaba kodu çalıştırma
 
-1. Uygulamayı çalıştırmak için **F5**'e basın.
-2. En üst 20 satırın döndürüldüğünü doğrulayın ve sonra uygulama penceresini kapatın.
+1. Tuşuna **F5** toorun Merhaba uygulaması.
+2. Merhaba üst 20 satır döndürülür ve hello uygulama penceresini kapatın doğrulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Windows/Linus/macOS’ta [.NET Core kullanarak Azure SQL veritabanını bağlamayı ve sorgulamayı](sql-database-connect-query-dotnet-core.md) öğrenin.  
-- [Komut satırını kullanarak Windows/Linus/macOS’ta .NET Core ile çalışmaya başlama](/dotnet/core/tutorials/using-with-xplat-cli) hakkında bilgi edinin.
-- [SSMS kullanarak ilk Azure SQL veritabanınızı tasarlamayı](sql-database-design-first-database.md) veya [.NET kullanarak ilk Azure SQL veritabanınızı tasarlamayı](sql-database-design-first-database-csharp.md) öğrenin.
+- Nasıl çok öğrenin[bağlanma ve .NET core kullanarak Azure SQL veritabanını sorgulama](sql-database-connect-query-dotnet-core.md) Linux/Windows/macOS üzerinde.  
+- Hakkında bilgi edinin [Windows/Linux/macOS hello komut satırını kullanarak .NET Çekirdeğinde ile çalışmaya başlama](/dotnet/core/tutorials/using-with-xplat-cli).
+- Nasıl çok öğrenin[SSMS kullanarak ilk Azure SQL veritabanınızı tasarım](sql-database-design-first-database.md) veya [.NET kullanarak ilk Azure SQL veritabanınızı tasarım](sql-database-design-first-database-csharp.md).
 - .NET hakkında daha fazla bilgi edinmek için [.NET belgelerine](https://docs.microsoft.com/dotnet/) bakın.

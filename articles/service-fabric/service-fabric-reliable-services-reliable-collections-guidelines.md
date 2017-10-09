@@ -1,5 +1,5 @@
 ---
-title: "Yönergeleri & Azure güvenilir koleksiyonlar için öneriler hizmeti doku | Microsoft Docs"
+title: "aaaGuidelines & Azure Service Fabric güvenilir koleksiyonlar için öneriler | Microsoft Docs"
 description: "Kılavuzları ve önerileri Service Fabric güvenilir koleksiyonları kullanma"
 services: service-fabric
 documentationcenter: .net
@@ -14,37 +14,37 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/3/2017
 ms.author: mcoskun
-ms.openlocfilehash: 053a7bca76362035e428fc11806b3e4f83d00946
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bcdbc9d013bc044e06c43761e7f515c7e4bf340c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Kılavuzları ve önerileri Azure Service Fabric güvenilir koleksiyonlar için
-Bu bölümde, durum Yöneticisi'ni güvenilir ve güvenilir koleksiyonları kullanma yönergeleri sağlar. Amacı kullanıcıların yaygın tehlikesinden yardımcı olmaktır.
+Bu bölümde, durum Yöneticisi'ni güvenilir ve güvenilir koleksiyonları kullanma yönergeleri sağlar. Merhaba toohelp kullanıcılar ortak tehlikesinden hedeftir.
 
-Yönergeler koşulları önekli basit öneriler olarak düzenlenir *yapmak*, *düşünün*, *kaçının* ve *sağlamadığı*.
+Merhaba yönergeleri hello şartlarını önekli basit öneriler olarak düzenlenir *yapmak*, *düşünün*, *kaçının* ve *sağlamadığı*.
 
-* Okuma işlemleri tarafından döndürülen özel türde bir nesne değiştirmeyin (örneğin, `TryPeekAsync` veya `TryGetValueAsync`). Eşzamanlı koleksiyonları gibi güvenilir koleksiyonları nesneleri ve bir kopyasını bir başvuru döndürür.
-* Derin kopyalama değiştirmeden önce bir özel tür döndürülen nesne yapın. Yapılar ve yerleşik türler geçişi değerli olduğundan, onlar üzerinde derin bir kopya yapmak gerekmez.
-* Kullanmayın `TimeSpan.MaxValue` zaman aşımları için. Zaman aşımları kilitlenmeleri algılamak için kullanılmalıdır.
+* Okuma işlemleri tarafından döndürülen özel türde bir nesne değiştirmeyin (örneğin, `TryPeekAsync` veya `TryGetValueAsync`). Eşzamanlı koleksiyonları gibi güvenilir koleksiyonları başvuru toohello nesneleri ve bir kopyasını döndürür.
+* Derin kopyalama hello değiştirmeden önce bir özel tür nesnesinin döndürülen yapın. Yapılar ve yerleşik türler geçişi değerli olduğundan, bunları derin bir kopyasında toodo gerekmez.
+* Kullanmayın `TimeSpan.MaxValue` zaman aşımları için. Zaman aşımları kullanılan toodetect kilitlenmeleri olmalıdır.
 * Bunu kabul edilen, iptal, atıldı veya oluşturulduktan sonra bir işlem kullanmayın.
-* Numaralandırma oluşturulduğu işlem kapsamı dışında kullanmayın.
+* Numaralandırma oluşturulduğu hello işlem kapsamı dışında kullanmayın.
 * Bir işlem içinde başka bir işlemdeki oluşturmayın `using` deyimi kilitlenmeleri neden.
-* Emin olun, `IComparable<TKey>` uygulamasıdır doğru. Sistem bağımlılık alır `IComparable<TKey>` kontrol noktalarına ve satır birleştirmek için.
-* Güncelleştirme kilidi belirli bir sınıf kilitlenmelerin önlemek amacıyla güncelleştirmek için bir amaç bir öğesiyle okunurken kullanın.
-* 80 Kbayt öğelerinizi (örneğin, TKey + güvenilir sözlüğü için TValue) halde tutmayı düşünün: kadar küçük olursa o kadar iyi olur. Bu, büyük nesne yığın kullanımı yanı sıra disk ve ağ g/ç gereksinimleri miktarını azaltır. Genellikle, yalnızca bir küçük değerinin bir parçası güncelleştirildiğinde yinelenen veri çoğaltmak azaltır. Bu güvenilir sözlükte elde etmek için genel yoludur, satır birden çok satıra geçirmesini.
-* Yedekleme kullanmayı düşünün ve olağanüstü durum kurtarma için işlevselliği geri yükleyin.
-* Tek bir varlık işlemleri ve birden çok varlık işlemleri karıştırma önlemek (örneğin `GetCountAsync`, `CreateEnumerableAsync`) farklı yalıtım düzeyi nedeniyle aynı işlem.
-* InvalidOperationException işleyin. Kullanıcı işlemleri birçok nedenden dolayı sistem tarafından iptal. Örneğin, güvenilir durum Yöneticisi rolüne birincil dışında değiştirirken veya uzun süre çalışan işlem, işlem günlüğü kesilmesi engelliyor. Böyle durumlarda, kullanıcı kendi işlem zaten sonlandırıldı belirten InvalidOperationException alabilirsiniz. Varsayıldığında, işlemin sonlandırılması kullanıcı tarafından bu özel durumu işlemek için en iyi yoldur işlem silmek için istenmemiştir iptal belirteci işaret (veya çoğaltma rolü değiştirildi varsa) onay ve yeni bir oluşturma işlem ve yeniden deneyin.  
+* Emin olun, `IComparable<TKey>` uygulamasıdır doğru. Merhaba sistemi bağımlılık yararlanır `IComparable<TKey>` kontrol noktalarına ve satır birleştirmek için.
+* Güncelleştirme kilidi bir amaç tooupdate bir öğesiyle okunurken kullanın, tooprevent kilitlenmelerin belirli bir sınıf.
+* 80 Kbayt öğelerinizi (örneğin, TKey + güvenilir sözlüğü için TValue) halde tutmayı düşünün: küçük hello daha iyi. Bu, büyük nesne yığın kullanımı yanı sıra disk ve ağ g/ç gereksinimleri hello miktarını azaltır. Genellikle, yalnızca bir küçük değerinin bir parçası hello güncelleştirildiğinde yinelenen veri çoğaltmak azaltır. Yaygın şekilde tooachieve güvenilir sözlükte budur toobreak, satır toomultiple satır.
+* Yedekleme kullanmayı düşünün ve işlevselliği toohave olağanüstü durum kurtarma geri yükleyin.
+* Tek bir varlık işlemleri ve birden çok varlık işlemleri karıştırma önlemek (örneğin `GetCountAsync`, `CreateEnumerableAsync`) hello içinde aynı işlem toohello farklı yalıtım düzeylerinde son.
+* InvalidOperationException işleyin. Kullanıcı işlemleri çeşitli nedenlerle hello sistem tarafından iptal. Örneğin, hello güvenilir durum Yöneticisi rolüne birincil dışında değiştirirken veya uzun süre çalışan işlem zaman hello işlem günlük kesilmesi engelliyor. Böyle durumlarda, kullanıcı kendi işlem zaten sonlandırıldı belirten InvalidOperationException alabilirsiniz. Varsayıldığında, hello işlem hello sonlandırılması hello kullanıcı tarafından istenen değil, en iyi şekilde toohandle bu özel durumun toodispose hello işlem hello iptal belirteci işaret (veya hello çoğaltma hello rolü değiştirildi varsa), onay ve aksi durumda Yeni işlem ve yeniden oluşturun.  
 
-Göz önünde bulundurmanız gereken bazı şeyler şunlardır:
+Göz önünde bazı şeyleri tookeep şunlardır:
 
-* Varsayılan zaman aşımı, tüm güvenilir koleksiyonu API'leri için dört saniyedir. Kullanıcıların çoğunun varsayılan zaman aşımı kullanmanız gerekir.
-* Varsayılan iptal belirteci `CancellationToken.None` tüm güvenilir koleksiyonları API'lerde.
-* Anahtar türü parametre (*TKey*) güvenilir bir sözlük doğru uygulamalıdır için `GetHashCode()` ve `Equals()`. Anahtarları sabit olmalıdır.
-* Güvenilir koleksiyonlar için yüksek kullanılabilirlik elde etmek için her hizmetin en az bir hedef ve en küçük çoğaltma kümesi boyutu 3 olması gerekir.
-* Okuma işlemleri ikincil kaydedilen çekirdek değildir sürümleri okuyabilirsiniz.
+* Merhaba varsayılan zaman aşımı değeri, tüm hello güvenilir koleksiyonu API'leri için dört saniyedir. Kullanıcıların çoğunun hello varsayılan zaman aşımı kullanmanız gerekir.
+* Merhaba varsayılan iptal belirteci olan `CancellationToken.None` tüm güvenilir koleksiyonları API'lerde.
+* anahtar türü parametre hello (*TKey*) güvenilir bir sözlük doğru uygulamalıdır için `GetHashCode()` ve `Equals()`. Anahtarları sabit olmalıdır.
+* tooachieve hello güvenilir koleksiyonlar için yüksek kullanılabilirlik, her hizmetin en az bir hedef ve en küçük çoğaltma kümesi boyutu 3 olmalıdır.
+* Merhaba ikincil okuma işlemleri kaydedilen çekirdek değildir sürümleri okuyabilirsiniz.
   Başka bir deyişle, tek bir ikincil okuma verilerinin sürümü yanlış progressed.
   Birincil okuma kararlı her zaman: hiçbir zaman false progressed.
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure AD Azure AD Klasik portalında raporlama API'si ile çalışmaya başlama | Microsoft Docs"
-description: "Azure Active raporlama API'si ile dizinde nereden başlayacaksınız"
+title: "hello Azure AD Klasik portalında hello Azure AD raporlama API'si ile çalışmaya aaaGetting | Microsoft Docs"
+description: "Nasıl kullanmaya tooget hello Azure Active Directory raporlama API'si"
 services: active-directory
 documentationcenter: 
 author: dhanyahk
@@ -14,33 +14,33 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/18/2017
 ms.author: dhanyahk;markvi
-ms.openlocfilehash: 5e98b660fe19bb8abebf1c3b996b6295a6c4e728
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 52e22d442650731fc6ed28991fc65f9182af0540
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="getting-started-with-the-azure-active-directory-reporting-api-on-the-azure-ad-classic-portal"></a>Azure Active Directory'ı Azure AD Klasik portalında raporlama API'si ile çalışmaya başlama
-*Bu konuda yer [Azure Active Directory raporlama Kılavuzu](active-directory-reporting-guide.md).*
+# <a name="getting-started-with-hello-azure-active-directory-reporting-api-on-hello-azure-ad-classic-portal"></a>Hello Azure Active Directory hello Azure AD Klasik portalında raporlama API'si ile çalışmaya başlama
+*Bu konu hello parçasıdır [Azure Active Directory raporlama Kılavuzu](active-directory-reporting-guide.md).*
 
-Azure Active Directory ile çok çeşitli raporlar sağlar. Bu raporların verileri SIEM sistemleri, denetim ve iş zekası araçları gibi uygulamalarınız için çok yararlı olabilir. Azure AD raporlama API'leri, bir dizi REST tabanlı API aracılığıyla verilere programlı erişim sağlar. Çeşitli programlama dilleri ve araçlarından bu API'leri çağırabilirsiniz.
+Azure Active Directory ile çok çeşitli raporlar sağlar. Bu raporların Hello veriler SIEM sistemleri, Denetim ve iş zekası araçları gibi çok kullanışlı tooyour uygulamalar olabilir. bir dizi REST tabanlı API'ler aracılığıyla programlı erişim toohello veri API'leri sağlamak Hello Azure AD raporlama. Çeşitli programlama dilleri ve araçlarından bu API'leri çağırabilirsiniz.
 
-Bu makalede, Azure AD ile çalışmaya başlamak gereken bilgilerle API'leri raporlama sağlar.
-Sonraki bölümde, Denetim kullanma hakkında daha fazla ayrıntı ve API oturum açın. Diğer tüm API'leri için bkz: [Azure AD raporları ve events(preview)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview) makalesi.
+Bu makale hello Azure AD Raporlama ile çalışmaya tooget ihtiyacınız hello bilgilerle sağlar API'leri.
+Merhaba sonraki bölümde hello kullanma hakkında daha fazla ayrıntı denetim ve oturum API bileşenini bulun. Diğer tüm API'leri için hello bkz [Azure AD raporları ve events(preview)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview) makalesi.
 
 Sorularınız, sorunları veya Geri bildiriminiz için lütfen başvurun [raporlama AAD Yardım](mailto:aadreportinghelp@microsoft.com).
 
 ## <a name="learning-map"></a>Öğrenme haritası
-1. **Hazırlama** -API örneklerinizi test etmeden önce tamamlamanız gereken [Azure AD raporlama API'si erişmek için Önkoşullar](active-directory-reporting-api-prerequisites.md).
-2. **Araştır** -raporlama API'leri bir ilk izlenim alın:
+1. **Hazırlama** -API örneklerinizi test etmeden önce toocomplete hello gereksinim [Önkoşullar tooaccess hello Azure AD raporlama API'si](active-directory-reporting-api-prerequisites.md).
+2. **Araştır** -API'leri raporlama hello bir ilk izlenim alın:
    
-   * [Denetim API'si örnekleri kullanma](active-directory-reporting-api-audit-samples.md) 
-   * [Oturum açma etkinliği raporu API örnekleri kullanma](active-directory-reporting-api-sign-in-activity-samples.md)
+   * [Merhaba örnekleri hello denetim API kullanma](active-directory-reporting-api-audit-samples.md) 
+   * [Hello örnekleri için hello oturum açma etkinliği raporu API kullanma](active-directory-reporting-api-sign-in-activity-samples.md)
 3. **Özelleştirme** -kendi çözümü oluşturun: 
    
-   * [API Başvurusu denetim kullanma](active-directory-reporting-api-audit-reference.md) 
-   * [Oturum açma etkinliği raporu API başvurusunu kullanma](active-directory-reporting-api-sign-in-activity-reference.md)
+   * [Merhaba denetim API başvurusunu kullanma](active-directory-reporting-api-audit-reference.md) 
+   * [Merhaba oturum açma etkinliği raporu kullanarak API Başvurusu](active-directory-reporting-api-sign-in-activity-reference.md)
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Tüm mevcut Azure AD Graph API uç noktaları giderek görmek merak ediyorsanız [https://graph.windows.net/tenant-name/reports/$ metadata? api-version beta =](https://graph.windows.net/tenant-name/reports/$metadata?api-version=beta).
+Merak toosee varsa tüm mevcut Azure AD Graph API uç noktaları çok giderek hello[https://graph.windows.net/tenant-name/reports/$ metadata? api-version beta =](https://graph.windows.net/tenant-name/reports/$metadata?api-version=beta).
 

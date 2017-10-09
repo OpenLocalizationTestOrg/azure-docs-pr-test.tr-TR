@@ -1,5 +1,5 @@
 ---
-title: "Azure Mobile Engagement iOS SDK Yükseltme yordamı | Microsoft Docs"
+title: "Mobile Engagement iOS SDK Yükseltme yordamı aaaAzure | Microsoft Docs"
 description: "En son güncelleştirmeler ve iOS için Azure Mobile Engagement SDK'sı için yordamlar"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,23 +14,23 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: piyushjo
-ms.openlocfilehash: 37c7f133d079186f828d58cabce0d2a259efd085
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5a81bcaaec72aec665b3334e6400d520454d56a7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="upgrade-procedures"></a>Yükseltme yordamları
-Uygulamanıza katılım daha eski bir sürümü zaten bütünleştirdiyseniz, SDK'yı yükseltirken aşağıdaki noktaları dikkate almanız gerekir.
+Uygulamanıza katılım daha eski bir sürümü zaten bütünleştirdiyseniz noktaları hello SDK yükseltirken aşağıdaki tooconsider hello sahip.
 
-SDK'sı için her yeni sürümü, ilk değiştirmeniz gerekir (kaldırın ve yeniden xcode'da içeri aktarın) EngagementSDK ve EngagementReach klasörler.
+Hello SDK her yeni sürümü için önce değiştirmeniz gerekir (kaldırın ve yeniden xcode'da içeri aktarın) EngagementSDK ve EngagementReach klasörleri hello.
 
-## <a name="from-300-to-400"></a>3.0.0 4.0.0 için
+## <a name="from-300-too400"></a>3.0.0 gelen too4.0.0
 ### <a name="xcode-8"></a>XCode 8
-XCode 8 SDK 4.0.0 sürümünden başlayarak zorunludur.
+XCode 8 hello SDK 4.0.0 sürümünden başlayarak zorunludur.
 
 > [!NOTE]
-> XCode 7'de gerçekten bağımlı sonra kullanabilirsiniz [iOS Engagement SDK'sı v3.2.4](https://aka.ms/r6oouh). Bir bilinen hata varsa bu önceki sürüm reach modülünü 10 ios'de çalıştırılırken: Sistem bildirimleri işleme alınan değildir. Bu kullanım dışı API uygulamak için olacaktır sorunu gidermek için `application:didReceiveRemoteNotification:` uygulamanızda temsilci gibi:
+> XCode 7'de gerçekten bağımlı sonra hello kullanabilir [iOS Engagement SDK'sı v3.2.4](https://aka.ms/r6oouh). Bir bilinen hata varsa bu önceki sürümünü reach modülünü hello 10 ios'de çalıştırılırken: Sistem bildirimleri işleme alınan değildir. toofix bu tooimplement hello olacaktır API kullanım dışı `application:didReceiveRemoteNotification:` uygulamanızda temsilci gibi:
 > 
 > 
 
@@ -41,22 +41,22 @@ XCode 8 SDK 4.0.0 sürümünden başlayarak zorunludur.
     }
 
 > [!IMPORTANT]
-> **Bu geçici çözüm önermiyoruz** gibi bu iOS API kullanım dışı olduğundan tüm yaklaşan (hatta küçük) iOS sürüm yükseltme Bu davranışı değiştirebilirsiniz. Mümkün olan en kısa sürede XCode 8'e geçer.
+> **Bu geçici çözüm önermiyoruz** gibi bu iOS API kullanım dışı olduğundan tüm yaklaşan (hatta küçük) iOS sürüm yükseltme Bu davranışı değiştirebilirsiniz. Mümkün olan en kısa sürede tooXCode 8 geçmelisiniz.
 > 
 > 
 
 ### <a name="usernotifications-framework"></a>UserNotifications framework
-Eklemenize gerek `UserNotifications` derleme aşamaları framework.
+Tooadd hello gereksinim `UserNotifications` derleme aşamaları framework.
 
-Proje Gezgini'nde, proje bölmesini açın ve doğru hedef seçin. Ardından, açın **"Derleme aşamaları"** sekmesi ve **"Bağlantı ikiliyi kitaplıklara"** menüsünde framework eklemek `UserNotifications.framework` -bağlantı olarak ayarlayın`Optional`
+Merhaba proje Gezgini'nde, proje bölmesini açın ve hello doğru hedef seçin. Merhaba açın **"Derleme aşamaları"** sekmesi ve hello **"Bağlantı ikiliyi kitaplıklara"** menüsünde framework eklemek `UserNotifications.framework` -kümesi hello bağlantı olarak`Optional`
 
 ### <a name="application-push-capability"></a>Uygulamayı anında iletme yeteneği
-XCode 8 uygulamanızı sıfırlama anında iletme yeteneği, lütfen tekrar gözden geçirin `capability` seçilen hedef sekmesi.
+XCode 8 uygulamanızı sıfırlama anında iletme yeteneği, Lütfen çift hello denetleyin `capability` seçilen hedef sekmesi.
 
-### <a name="add-the-new-ios-10-notification-registration-code"></a>Yeni iOS 10 bildirim kayıt kodu ekleyin
-Uygulama bildirimleri kaydetmek için eski kod parçacığını hala çalışır ancak iOS 10 çalıştırılırken kullanım dışı API'lerini kullanarak.
+### <a name="add-hello-new-ios-10-notification-registration-code"></a>Merhaba yeni iOS 10 bildirim kayıt kodu ekleyin
+toonotifications hala çalışır ancak kullanıyor hello eski kod parçacığını tooregister hello uygulaması, iOS 10 çalıştırılırken API'leri kullanım dışı.
 
-İçeri aktarma `User Notification` framework:
+İçeri aktarma hello `User Notification` framework:
 
         #import <UserNotifications/UserNotifications.h> 
 
@@ -93,11 +93,11 @@ tarafından:
 
 *Uygulamanızı ya da üçüncü taraf Kitaplıklarınızı biri uygulayan bir `UNUserNotificationCenterDelegate` sonra da bu bölümü atlayabilirsiniz.*
 
-A `UNUserNotificationCenter` temsilci SDK tarafından katılım bildirimleri 10 veya daha büyük iOS çalıştıran cihazlarda yaşam döngüsünü izlemek için kullanılır. SDK, kendi uygulamanızda `UNUserNotificationCenterDelegate` protokol ancak yalnızca bir olabilir `UNUserNotificationCenter` temsilci uygulama başına. Eklenen herhangi bir temsilci `UNUserNotificationCenter` nesne katılım bir çakışma. SDK veya herhangi diğer üçüncü bir tarafın temsilci algılarsa sonra kendi uygulama çakışmaları olanağı vermek için kullanmaz. Çakışmaları çözümlemek amacıyla kendi temsilciye katılım mantığı eklemeniz gerekir.
+A `UNUserNotificationCenter` temsilci hello SDK toomonitor hello yaşam döngüsü katılım bildirimler iOS 10 veya daha büyük çalıştıran cihazlarda tarafından kullanılır. Merhaba SDK sahip hello kendi uyarlamasını `UNUserNotificationCenterDelegate` protokol ancak yalnızca bir olabilir `UNUserNotificationCenter` temsilci uygulama başına. Herhangi bir temsilci eklenen toohello `UNUserNotificationCenter` nesne katılım bir hello ile çakışan. Merhaba SDK veya herhangi diğer üçüncü bir tarafın temsilci algılarsa, kendi uygulama toogive kullanmayacak sonra bir fırsat tooresolve çakışmaları hello. Tooadd hello katılım mantığı tooyour tooresolve hello çakışmaları temsilci sırada sahip olacaktır.
 
-Bunu başarmak için iki yolu vardır.
+Var olan iki yolu tooachieve bu.
 
-SDK çağrıları temsilciniz iletme tarafından yalnızca 1, Teklif:
+Teklif 1, temsilciniz ileterek toohello SDK çağırır:
 
     #import <UIKit/UIKit.h>
     #import "EngagementAgent.h"
@@ -124,7 +124,7 @@ SDK çağrıları temsilciniz iletme tarafından yalnızca 1, Teklif:
     }
     @end
 
-Veya içinden devralma tarafından 2, teklif `AEUserNotificationHandler` sınıfı
+Veya hello devralan tarafından 2, teklif `AEUserNotificationHandler` sınıfı
 
     #import "AEUserNotificationHandler.h"
     #import "EngagementAgent.h"
@@ -151,10 +151,10 @@ Veya içinden devralma tarafından 2, teklif `AEUserNotificationHandler` sınıf
     @end
 
 > [!NOTE]
-> Bir bildirim geçirerek değil veya katılım üzerinden gelen olup olmadığını belirlemek, `userInfo` aracı sözlüğe `isEngagementPushPayload:` sınıf yöntemi.
+> Bir bildirim geçirerek değil veya katılım üzerinden gelen olup olmadığını belirlemek, `userInfo` sözlük toohello Aracısı `isEngagementPushPayload:` sınıf yöntemi.
 
-Olduğundan emin olun `UNUserNotificationCenter` nesnenin temsilci temsilciniz ya da içinde ayarlanmış `application:willFinishLaunchingWithOptions:` veya `application:didFinishLaunchingWithOptions:` uygulama temsilcinizi yöntemi.
-Örneğin, yukarıdaki teklifi 1 uygulanırsa:
+Bu hello emin olun `UNUserNotificationCenter` nesnenin temsilci ya da hello içinde tooyour temsilci Ayarla `application:willFinishLaunchingWithOptions:` veya hello `application:didFinishLaunchingWithOptions:` uygulama temsilcinizi yöntemi.
+Örneğin, Teklif 1 yukarıda hello uygulanırsa:
 
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
         // Any other code
@@ -163,30 +163,30 @@ Olduğundan emin olun `UNUserNotificationCenter` nesnenin temsilci temsilciniz y
         return YES;
       }
 
-## <a name="from-200-to-300"></a>2.0.0 3.0.0 için
-İOS için destek bırakılan 4.X. Uygulamanızın dağıtım hedef bu sürümünden başlayarak olmalıdır en az iOS 6.
+## <a name="from-200-too300"></a>2.0.0 gelen too3.0.0
+İOS için destek bırakılan 4.X. Bu sürüm hello dağıtım hedefi, uygulamanızın başlangıç olmalıdır en az iOS 6.
 
-Reach uygulamanızda kullanıyorsanız, eklemelisiniz `remote-notification` değeri `UIBackgroundModes` dizi Info.plist dosyanızdaki uzak bildirimleri almak için.
+Reach uygulamanızda kullanıyorsanız, eklemelisiniz `remote-notification` değeri toohello `UIBackgroundModes` Info.plist dosyanızdaki sipariş tooreceive uzak bildirimler dizisinde.
 
-Yöntem `application:didReceiveRemoteNotification:` tarafından değiştirilmesi gereken `application:didReceiveRemoteNotification:fetchCompletionHandler:` uygulama temsilcinizi içinde.
+Merhaba yöntemi `application:didReceiveRemoteNotification:` değiştirilmiştir toobe gereken `application:didReceiveRemoteNotification:fetchCompletionHandler:` uygulama temsilcinizi içinde.
 
-"AEPushDelegate.h" kullanım dışı arabirimi ve tüm başvurularını kaldırmanız gerekir. Bu kaldırma içerir `[[EngagementAgent shared] setPushDelegate:self]` ve uygulama temsilcinizi temsilci yöntemleri:
+"AEPushDelegate.h" kullanım dışı arabirimi ve tüm başvuruları tooremove gerekir. Bu kaldırma içerir `[[EngagementAgent shared] setPushDelegate:self]` ve uygulama temsilcinizi yöntemleri temsilci hello:
 
     -(void)willRetrieveLaunchMessage;
     -(void)didFailToRetrieveLaunchMessage;
     -(void)didReceiveLaunchMessage:(AEPushMessage*)launchMessage;
 
-## <a name="from-1160-to-200"></a>1.16.0 2.0.0 için
-Aşağıdaki nasıl Azure Mobile Engagement tarafından desteklenen bir uygulamaya Capptain SAS tarafından sunulan Capptain hizmetinden bir SDK tümleştirmesi geçirileceğini açıklar.
-Önceki bir sürümünden geçiş yapıyorsanız, Lütfen 1.16 için önce geçirmenizi sonra aşağıdaki yordamı uygulamak için Capptain web sitesine bakın.
+## <a name="from-1160-too200"></a>1.16.0 gelen too2.0.0
+Merhaba toomigrate'nın Azure Mobile Engagement tarafından desteklenen bir uygulamaya bir SDK tümleştirmesi hello Capptain hizmet gelen Capptain SAS tarafından nasıl sunulan açıklanmıştır.
+Önceki bir sürümünden geçiş yapıyorsanız, lütfen hello Capptain web sitesi toomigrate too1.16 ilk başvurun sonra hello aşağıdaki yordamı uygulayın.
 
 > [!IMPORTANT]
-> Capptain ve Mobile Engagement aynı Hizmetleri değildir ve aşağıda verilen yordamı yalnızca istemci uygulaması geçirmek nasıl vurgular. Uygulama SDK'yı geçirme verilerinizi Capptain sunucularından Mobile Engagement sunucuya geçişi YAPILMAZ
+> Capptain ve Mobile Engagement olan değil hello aynı Hizmetleri ve yalnızca aşağıda verilen hello yordamı nasıl toomigrate hello istemci uygulamaları vurgular. Geçirme hello SDK hello uygulama hello Capptain sunucuları toohello Mobile Engagement sunuculardan veri geçişi YAPILMAZ
 > 
 > 
 
 ### <a name="agent"></a>Aracı
-Yöntem `registerApp:` yeni yöntemi tarafından değiştirildiğini `init:`. Uygulama temsilcinizi uygun şekilde güncelleştirilmesi gerekir ve bağlantı dizesi kullanın:
+Merhaba yöntemi `registerApp:` hello yeni yöntemi tarafından değiştirildiğini `init:`. Uygulama temsilcinizi uygun şekilde güncelleştirilmesi gerekir ve bağlantı dizesi kullanın:
 
             - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
             {
@@ -195,23 +195,23 @@ Yöntem `registerApp:` yeni yöntemi tarafından değiştirildiğini `init:`. Uy
               [...]
             }
 
-SmartAd izleme yalnızca sahip tüm örneklerini kaldırmak için SDK'dan kaldırıldı `AETrackModule` sınıfı
+SmartAd izleme yalnızca gerekir tooremove tüm örneklerini SDK'dan kaldırıldı `AETrackModule` sınıfı
 
 ### <a name="class-name-changes"></a>Sınıf adı değişikliği
-Rebranding bir parçası olarak değiştirilmesi gereken sınıf/dosya adları birkaç vardır.
+Merhaba rebranding bir parçası olarak değiştirilen toobe gereken sınıf/dosya adları birkaç vardır.
 
 Tüm sınıflar "CP" öneki "AE" önekiyle adlandırılır.
 
 Örnek:
 
-* `CPModule.h`yeniden adlandırılır `AEModule.h`.
+* `CPModule.h`çok adlandırılır`AEModule.h`.
 
 Tüm sınıflar "İle Capptain" öneki "Katılım" önekiyle adlandırılır.
 
 Örnekler:
 
-* Sınıf `CapptainAgent` adlandırılır `EngagementAgent`.
-* Sınıf `CapptainTableViewController` adlandırılır `EngagementTableViewController`.
-* Sınıf `CapptainUtils` adlandırılır `EngagementUtils`.
-* Sınıf `CapptainViewController` adlandırılır `EngagementViewController`.
+* Merhaba sınıfı `CapptainAgent` çok adlandırılır`EngagementAgent`.
+* Merhaba sınıfı `CapptainTableViewController` çok adlandırılır`EngagementTableViewController`.
+* Merhaba sınıfı `CapptainUtils` çok adlandırılır`EngagementUtils`.
+* Merhaba sınıfı `CapptainViewController` çok adlandırılır`EngagementViewController`.
 

@@ -1,16 +1,16 @@
 ### <a name="prerequisites"></a>Ön koşullar
 * A [ProjectOnline](https://products.office.com/Project/project-online-with-project-for-office-365) hesabı 
 
-Bir mantıksal uygulama ProjectOnline hesabınızı kullanabilmeniz için önce ProjectOnline hesabınıza bağlanmak için mantığı uygulamasını yetkilendirmeniz gerekir. Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz. 
+Bir mantıksal uygulama ProjectOnline hesabınızı kullanabilmeniz için önce hello mantığı uygulama tooconnect tooyour ProjectOnline hesabını yetkilendirmeniz gerekir. Neyse ki, kolayca hello Azure portalı üzerinde mantıksal uygulama içinde bunu yapabilirsiniz. 
 
-Mantıksal uygulamanızı ProjectOnline hesabınıza bağlanmak için yetki vermek için adımlar şunlardır:
+Mantıksal uygulama tooconnect tooyour ProjectOnline hesabı hello adımları tooauthorize şunlardır:
 
-1. Mantıksal Uygulama Tasarımcısı'nda ProjectOnline, bir bağlantı oluşturmak için seçin **Göster Microsoft yönetilen API'ler** açılır listesinde enter *ProjectOnline* arama kutusuna. Tetikleyici seçin veya eylem kullanmak ister:  
+1. Merhaba mantığı Uygulama Tasarımcısı'nda bir bağlantı tooProjectOnline toocreate seçin **Göster Microsoft yönetilen API'ler** Merhaba, açılan liste ardından girin *ProjectOnline* hello arama kutusuna. Merhaba tetikleyici veya toouse beğendiğiniz eylem seçin:  
    ![Adım 1'in ProjectOnline](./media/connectors-create-api-projectonline/projectonline-1.png)
-2. Önce ProjectOnline bağlantılarına oluşturmadıysanız, ProjectOnline kimlik bilgilerinizi girmeniz istendiğinde şunu. Bu kimlik bilgileri bağlanmak için mantıksal uygulamanızı yetkilendirmek için kullanılır ve ProjectOnline hesabınızın veri erişim:  
+2. Tüm bağlantılar tooProjectOnline önce oluşturmadıysanız, ProjectOnline kimlik bilgileriniz istendiğinde tooprovide elde edersiniz. Bu kimlik bilgileri, Logic app tooconnect kullanılan tooauthorize olması ve ProjectOnline hesabınızın veri erişim:  
    ![ProjectOnline adım 2](./media/connectors-create-api-projectonline/projectonline-2.png)
-3. ProjectOnline kullanıcı adı ve mantıksal uygulamanızı yetkilendirmek için parola sağlayın:  
+3. ProjectOnline kullanıcı adı ve parola tooauthorize mantıksal uygulamanızı sağlar:  
    ![Adım 3'in ProjectOnline](./media/connectors-create-api-projectonline/projectonline-3.png)   
-4. Bağlantı oluşturuldu ve artık bir mantıksal uygulamanızı adımlarda yüklemeye devam etmek ücretsiz dikkat edin:  
+4. Merhaba bağlantı oluşturulur ve mantıksal uygulamanızı ücretsiz tooproceed hello diğer sahip adımlarını artık olduğunuz dikkat edin:  
    ![ProjectOnline adım 4](./media/connectors-create-api-projectonline/projectonline-4.png)   
 

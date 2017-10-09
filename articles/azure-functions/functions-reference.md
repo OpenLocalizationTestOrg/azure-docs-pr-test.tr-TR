@@ -1,6 +1,6 @@
 ---
-title: "Azure işlevleri geliştirmek için Kılavuzu | Microsoft Docs"
-description: "Azure işlevleri kavramlarını ve işlevlerinin Azure, tüm programlama dilleri ve bağlamaları geliştirmek için gereken teknikleri öğrenin."
+title: "Azure işlevleri geliştirmek için aaaGuidance | Microsoft Docs"
+description: "Hello Azure işlevleri kavramlar ve teknikler toodevelop işlevlerinin Azure, tüm programlama dilleri ve bağlamaları gerektiğini öğrenin."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -16,21 +16,21 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: chrande
-ms.openlocfilehash: 879be48150cfe13e31064475aa637f13f5f5f9d5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 86d37dae5333f615faafc966e9da6e08e0a6354e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-developers-guide"></a>Azure işlevleri Geliştirici Kılavuzu
-Azure işlevleri, belirli işlevleri birkaç temel teknik kavramlar ve bileşenler, dil veya kullandığınız bağlama bağımsız olarak paylaşın. Belirtilen dil ya da bağlama belirli Ayrıntılar öğrenme moduna geçmek önce bunların tümüne uygulanır Bu genel bakışta aracılığıyla okuduğunuzdan emin olun.
+Azure işlevleri, belirli işlevleri birkaç temel teknik kavramlar ve bileşenler hello dil veya kullandığınız bağlama bağımsız olarak paylaşın. Verilen dil veya bağlama ayrıntıları belirli tooa öğrenme moduna geçmek önce bunların tooall geçerlidir bu genel bakışta aracılığıyla emin tooread olun.
 
-Bu makalede, zaten okuduğunuz varsayılır [Azure işlevlerine genel bakış](functions-overview.md) ve bilginiz [WebJobs SDK'sı kavramları Tetikleyicileri ve bağlamaları JobHost çalışma zamanı gibi](../app-service-web/websites-dotnet-webjobs-sdk.md). Azure işlevleri WebJobs SDK dayanır. 
+Bu makalede, zaten hello okuduğunuz varsayılır [Azure işlevlerine genel bakış](functions-overview.md) ve bilginiz [WebJobs SDK'sı kavramları Tetikleyicileri ve bağlamaları hello JobHost çalışma zamanı gibi](../app-service-web/websites-dotnet-webjobs-sdk.md). Azure işlevleri Web işleri SDK'si hello üzerinde dayanır. 
 
 ## <a name="function-code"></a>İşlev kodu
-A *işlevi* Azure işlevlerinde birincil kavramdır. Kod bir işlev için tercih ettiğiniz dilde yazmak ve kod ve yapılandırma dosyaları aynı klasöre kaydedin. Yapılandırma adlı `function.json`, JSON yapılandırma verilerini içerir. Çeşitli diller desteklenir ve her birinin bu dil için en iyi şekilde çalışması için en iyi duruma getirilmiş biraz farklı bir deneyimle vardır. 
+A *işlevi* Azure işlevlerinde hello birincil kavramdır. Kod bir işlev için tercih ettiğiniz dilde yazmak ve hello kodu kaydetmek ve yapılandırma dosyaları aynı klasörde hello. Merhaba yapılandırma adlandırılan `function.json`, JSON yapılandırma verilerini içerir. Çeşitli diller desteklenir ve her birinin biraz farklı deneyimi en iyi duruma getirilmiş toowork o dil için en iyi vardır. 
 
-Function.json dosyası, işlev bağlamaları ve diğer yapılandırma ayarlarını tanımlar. Çalışma zamanı izlenecek olaylar belirlemek için bu dosyaya ve verilerini geçirin ve işlev yürütülmesini veri dönmek nasıl kullanır. Function.json dosyası örneği verilmiştir.
+Merhaba function.json dosyası hello işlev bağlamaları ve diğer yapılandırma ayarlarını tanımlar. Bu dosya toodetermine hello olayları toomonitor ve yürütme toopass verisine ve dönüş verileri nasıl işlev Hello çalışma zamanı kullanır. Merhaba, function.json dosyası örneği verilmiştir.
 
 ```json
 {
@@ -47,68 +47,68 @@ Function.json dosyası, işlev bağlamaları ve diğer yapılandırma ayarların
 }
 ```
 
-Ayarlama `disabled` özelliğine `true` işlevi çalıştırılmasını engellemek için.
+Set hello `disabled` özelliği çok`true` çalıştırılmasını tooprevent hello işlevi.
 
-`bindings` Özelliktir burada Tetikleyicileri ve bağlamaları yapılandırın. Her bağlama birkaç genel ayarları ve belirli bir bağlama türüne özgü bazı ayarlar paylaşır. Her bağlama aşağıdaki ayarları gerektirir:
+Merhaba `bindings` özelliktir burada Tetikleyicileri ve bağlamaları yapılandırın. Her bağlama birkaç genel ayarları ve belirli tooa bağlama belirli türdeki bazı ayarlar paylaşır. Her bağlama ayarları şu hello gerektirir:
 
 | Özellik | Değerleri/türleri | Yorumlar |
 | --- | --- | --- |
 | `type` |Dize |Bağlama türü. Örneğin, `queueTrigger`. |
-| `direction` |'in', 'out' |Bağlama işlevdeki veri alma veya işlevinden veri göndermek için olup olmadığını gösterir. |
-| `name` |Dize |Bağlı veri işlevinde için kullanılan ad. C# ' ta bir bağımsız değişken adı budur; JavaScript için bir anahtar/değer listesinde anahtardır. |
+| `direction` |'in', 'out' |Merhaba bağlama alıcı hello işlevine veya gönderen verilerini hello işlevden için olup olmadığını gösterir. |
+| `name` |Dize |Merhaba kullanılan hello adı veri hello işlevinde bağlı. C# ' ta bir bağımsız değişken adı budur; JavaScript için bir anahtar/değer listesi hello anahtarında kullanıcının. |
 
 ## <a name="function-app"></a>İşlev uygulaması
-Bir işlev uygulaması birlikte Azure App Service tarafından yönetilen bir veya daha fazla tekil işlevler oluşur. Bir işlev uygulaması işlevlerde tümünün aynı fiyatlandırma planı, sürekli dağıtımı ve çalışma zamanı sürümü paylaşır. Çeşitli dillerde yazılmış işlevleri tüm aynı işlev uygulaması paylaşabilirsiniz. Bir işlev uygulaması düzenlemek ve topluca işlevlerinizi yönetmek için bir yol olarak düşünün. 
+Bir işlev uygulaması birlikte Azure App Service tarafından yönetilen bir veya daha fazla tekil işlevler oluşur. Tüm hello işlevleri bir işlev uygulaması paylaşımda aynı fiyatlandırma planı, sürekli dağıtımı ve çalışma zamanı sürümü hello. Tüm hello paylaşır içinde birden çok dil can yazılmış işlevleri aynı uygulama işlevi. Bir işlev uygulaması bir şekilde tooorganize olarak düşünün ve topluca işlevlerinizi yönetin. 
 
 ## <a name="runtime-script-host-and-web-host"></a>Çalışma zamanı (komut dosyası ana bilgisayarı ve web ana bilgisayarı)
-Çalışma zamanı ya da komut dosyası ana bilgisayarı, olaylarını dinler, toplar ve verileri gönderir ve sonuçta kodunuzun çalıştığı temel Web işleri SDK'si ana bilgisayardır. 
+Merhaba çalışma zamanı ya da komut dosyası ana bilgisayarı, olaylarını dinler, toplar ve verileri gönderir ve sonuçta kodunuzun çalıştığı hello temel Web işleri SDK'si ana bilgisayardır. 
 
-HTTP Tetikleyicileri kolaylaştırmak için de bulunmaktadır komut dosyası ana bilgisayarı üretim senaryolarında önünde sit için tasarlanmış bir web ana bilgisayarı. İki ana sahip komut dosyası ana bilgisayarı Önden ayırmaya yardımcı web ana bilgisayar tarafından yönetilen trafiği sonlandırın.
+toofacilitate HTTP tetikleyiciler, ayrıca hello komut dosyası ana bilgisayarı üretim senaryolarında önünde tasarlanmış toosit olan bir web ana bilgisayarı vardır. İki ana sahip hello web ana bilgisayar tarafından yönetilen hello ön uç trafiğinden tooisolate hello komut dosyası ana bilgisayarı yardımcı olur.
 
 ## <a name="folder-structure"></a>Klasör yapısı
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-Azure App Service'te bir işlev uygulaması için işlevleri dağıtmak için bir proje ayarlama, bu klasör yapısı, site kodu olarak davranabilirsiniz. Sürekli tümleştirme ve dağıtım gibi mevcut araçlar kullanabilir veya özel dağıtım yapmak için komut dosyaları zaman paket yükleme dağıtmak veya transpilation kod.
+Azure App Service'teki işlevleri tooa işlevi uygulamasına dağıtmak için bir proje ayarlama, bu klasör yapısı, site kodu olarak davranabilirsiniz. Sürekli tümleştirme ve dağıtım gibi mevcut araçlar kullanabilir veya özel dağıtım yapmak için komut dosyaları zaman paket yükleme dağıtmak veya transpilation kod.
 
 > [!NOTE]
-> Dağıtmak emin olun, `host.json` dosya ve klasörleri doğrudan işlev `wwwroot` klasör. İçermeyen `wwwroot` dağıtımlarınızı klasöründe. Aksi takdirde, şunun `wwwroot\wwwroot` klasörler. 
+> Toodeploy emin olun, `host.json` dosya ve işlev klasörleri doğrudan toohello `wwwroot` klasör. Merhaba içermez `wwwroot` dağıtımlarınızı klasöründe. Aksi takdirde, şunun `wwwroot\wwwroot` klasörler. 
 > 
 > 
 
-## <a id="fileupdate"></a>İşlev uygulama dosyaları güncelleştirme
-Azure portalda yerleşik işlevi Düzenleyicisi güncelleştirmenizi sağlayan *function.json* dosyası ve bir işlev için kod dosyası. Karşıya yükleme veya güncelleştirme gibi diğer dosyaları *package.json* veya *project.json* veya bağımlılıkları, zorunda diğer dağıtım yöntemleri kullanabilirsiniz.
+## <a id="fileupdate"></a>Nasıl tooupdate işlev uygulama dosyaları
+Azure portal Hello yerleşik hello işlevi Düzenleyicisi hello güncelleştirme olanak tanır *function.json* dosyası ve bir işlev için hello kod dosyası. tooupload veya diğer güncelleştirme dosyaları gibi *package.json* veya *project.json* veya bağımlılıkları, diğer dağıtım yöntemleri toouse sahip.
 
-İşlev uygulamalarının, uygulama hizmeti, bu nedenle tüm yerleşiktir [standart web uygulamaları için dağıtım seçenekleri](../app-service-web/web-sites-deploy.md) de işlevi uygulamaları için kullanılabilir. Karşıya yükleme veya işlevi uygulama dosyalarını güncelleştirmek için kullanabileceğiniz bazı yöntemler şunlardır. 
+Tüm hello için işlev uygulamalarının uygulama hizmeti üzerinde yerleşiktir [dağıtım seçenekleri kullanılabilir toostandard web uygulamaları](../app-service-web/web-sites-deploy.md) de işlevi uygulamaları için kullanılabilir. Burada, bazı yöntemler tooupload kullanın ya da güncelleştirme işlevi uygulama dosyaları bulunmaktadır. 
 
-#### <a name="to-use-app-service-editor"></a>Uygulama hizmeti Düzenleyicisi'ni kullanmak için
-1. Azure işlevleri Portalı'nda tıklatın **işlev uygulaması ayarları**.
-2. İçinde **Gelişmiş ayarları** 'yi tıklatın **uygulama hizmeti ayarlarına Git**.
+#### <a name="toouse-app-service-editor"></a>toouse App Service Düzenleyicisi
+1. Hello Azure işlevleri Portalı'nda tıklatın **işlev uygulaması ayarları**.
+2. Merhaba, **Gelişmiş ayarları** 'yi tıklatın **Git tooApp hizmet ayarlarını**.
 3. Tıklatın **App Service Düzenleyicisi** uygulama menüsünden NAV altında **geliştirme araçları**.
 4. tıklatın **Git**.
    
-   Uygulama hizmeti Düzenleyicisi yüklendikten sonra göreceğiniz *host.json* altındaki dosya ve işlev klasörleri *wwwroot*. 
-5. Bunları, düzenlemek veya sürükleyip dosyaları karşıya yüklemek için geliştirme makinenizden dosyalarını açın.
+   Uygulama hizmeti Düzenleyicisi yüklendikten sonra hello görürsünüz *host.json* altındaki dosya ve işlev klasörleri *wwwroot*. 
+5. Açık dosyaları tooedit bunları veya sürükleyip geliştirme makine tooupload dosyalarınızdan.
 
-#### <a name="to-use-the-function-apps-scm-kudu-endpoint"></a>İşlev uygulamanın SCM (Kudu) uç noktası kullanmak için
+#### <a name="toouse-hello-function-apps-scm-kudu-endpoint"></a>toouse hello işlevi uygulamanın SCM (Kudu) uç noktası
 1. Gidin: `https://<function_app_name>.scm.azurewebsites.net`.
 2. Tıklatın **Debug konsol > CMD**.
-3. Gidin `D:\home\site\wwwroot\` güncelleştirmek için *host.json* veya `D:\home\site\wwwroot\<function_name>` bir işlevin dosyaları güncelleştirmek için.
-4. Sürükle ve bırak dosya kılavuzundaki uygun klasöre yüklemek istediğiniz bir dosya. Dosya burada bırakamazsınız dosya kılavuzda iki alan vardır. İçin *.zip* dosyaları, etiketle bir kutu görünür "sürükleyin burada karşıya yükleyin ve sıkıştırmasını açın." Diğer dosya türlerinde, dosya kılavuzunda ancak "sıkıştırmasını" kutusunu dışında bırakın.
+3. Çok gidin`D:\home\site\wwwroot\` tooupdate *host.json* veya `D:\home\site\wwwroot\<function_name>` tooupdate bir işlevin dosyaları.
+4. Sürükle ve bırak hello dosya kılavuzunda hello uygun klasöre tooupload istediğiniz bir dosya. Dosya burada bırakamazsınız hello dosya kılavuzunda iki alan vardır. İçin *.zip* dosyaları, bir kutusu hello etiketle görünür "tooupload buraya sürükleyin ve sıkıştırmasını açın." Diğer dosya türleri için hello dosya kılavuzunda ancak hello "sıkıştırmasını" kutusunu dışında bırakın.
 
-<!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --DonnaM -->
+<!--NOTE: I've removed documentation on FTP, because it does not sync triggers on hello consumption plan --DonnaM -->
 
-#### <a name="to-use-continuous-deployment"></a>Sürekli dağıtım kullanmak için
-Konudaki yönergeleri izleyerek [Azure işlevleri için sürekli dağıtım](functions-continuous-deployment.md).
+#### <a name="toouse-continuous-deployment"></a>toouse sürekli dağıtım
+Merhaba konudaki Hello yönergeleri [Azure işlevleri için sürekli dağıtım](functions-continuous-deployment.md).
 
 ## <a name="parallel-execution"></a>Paralel yürütme
-Birden çok tetikleyici olaylar tek iş parçacıklı işlevi çalışma zamanı bunları işleyebileceğinden daha hızlı gerçekleştiğinde, çalışma zamanı işlevinde birden çok kez paralel çağırabilir.  Bir işlev uygulaması kullanıyorsanız [barındırma planı tüketim](functions-scale.md#how-the-consumption-plan-works), işlev uygulaması otomatik olarak ölçeğini.  Her bir işlev uygulaması örneği olup olmadığını barındırma planı veya bir normal tüketimi'de uygulama'yı çalıştıran [App Service barındırma planı](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), eşzamanlı işlev çağrılarını birden çok iş parçacığı kullanma paralel işlem.  En fazla eşzamanlı işlev çağrılarını her işlevi app örneğindeki türü, işlev uygulaması içinde diğer işlevleri tarafından kullanılan kaynakları yanı sıra kullanılan tetikleyici göre değişir.
+Birden çok tetikleyici olaylar tek iş parçacıklı işlevi çalışma zamanı bunları işleyebileceğinden daha hızlı oluştuğunda hello çalışma zamanı hello işlevinde birden çok kez paralel çağırabilir.  Bir işlev uygulaması hello kullanıyorsanız [barındırma planı tüketim](functions-scale.md#how-the-consumption-plan-works), hello işlev uygulaması ölçek genişletme otomatik olarak.  Merhaba işlev uygulaması, her bir örneğini hello uygulama çalıştırıldığını barındırma planı veya bir normal tüketim hello [App Service barındırma planı](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), eş zamanlı işlev çağrılarını birden çok iş parçacığı kullanma paralel işlem.  en fazla eş zamanlı işlev çağrılarını her işlevi app örneğindeki Hello hello işlev uygulaması içinde diğer işlevleri tarafından kullanılan hello kaynakları yanı sıra kullanılan tetikleyici hello türünü göre değişir.
 
 ## <a name="functions-runtime-versioning"></a>İşlevler çalışma zamanı sürüm oluşturma
 
-Çalışma zamanı işlevleri kullanarak sürümünü yapılandırabilirsiniz `FUNCTIONS_EXTENSION_VERSION` uygulama ayarı. Örneğin, "~ 1" değeri, işlev uygulaması kendi ana sürüm 1 kullanacağını gösterir. İşlev uygulamalarının en yeni her ikincil sürüme yükseltilir. İşlev uygulamanızda'nün tam sürümünü görüntüleyebilirsiniz **ayarları** Azure Portalı'nda sekmesi.
+Merhaba işlevleri çalışma zamanı hello kullanarak hello sürümü yapılandırabilirsiniz `FUNCTIONS_EXTENSION_VERSION` uygulama ayarı. Örneğin, "~ 1" Merhaba değeri işlevi uygulamanızı 1 kendi ana sürüm kullanacağını gösterir. En işlevi uygulamaları yükseltilmiş tooeach yeni alt sürümü bulunur. Hello hello işlevi uygulamanızı'nün tam sürümünü görüntüleyebilirsiniz **ayarları** hello Azure Portal sekmesindedir.
 
 ## <a name="repositories"></a>Depolar
-Azure işlevleri için kod açık bir kaynaktır ve GitHub depolarının depolanır:
+Azure işlevleri Hello kodunu açık bir kaynaktır ve GitHub depolarının depolanır:
 
 * [Azure işlevleri çalışma zamanı](https://github.com/Azure/azure-webjobs-sdk-script/)
 * [Azure işlevleri portalına](https://github.com/projectkudu/AzureFunctionsPortal)
@@ -125,12 +125,12 @@ Aşağıda, tüm desteklenen bağlamaları tablosu verilmiştir.
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi için aşağıdaki kaynaklara bakın:
+Daha fazla bilgi için kaynakları aşağıdaki hello bakın:
 
 * [Azure İşlevleri için En İyi Uygulamalar](functions-best-practices.md)
 * [Azure işlevleri C# Geliştirici Başvurusu](functions-reference-csharp.md)
 * [Azure işlevleri F # Geliştirici Başvurusu](functions-reference-fsharp.md)
 * [Azure işlevleri NodeJS Geliştirici Başvurusu](functions-reference-node.md)
 * [Azure işlevleri Tetikleyicileri ve bağlamaları](functions-triggers-bindings.md)
-* [Azure işlevleri: Gezisine](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) Azure App Service ekip blogunda. Azure işlevlerinin nasıl geliştirilmiştir geçmişi.
+* [Azure işlevleri: Gezisine hello](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) hello Azure App Service ekip blogunda. Azure işlevlerinin nasıl geliştirilmiştir geçmişi.
 

@@ -1,6 +1,6 @@
 ---
-title: "JavaScript API’sini kullanarak raporlarla etkileşim kurma | Microsoft Belgeleri"
-description: "Power BI Embedded, JavaScript API’si kullanarak raporlarla etkileşim kurma"
+title: Merhaba JavaScript API kullanarak raporlarla aaaInteract | Microsoft Docs
+description: "Power BI Embedded, hello JavaScript API kullanarak raporlarla etkileşim"
 services: power-bi-embedded
 documentationcenter: 
 author: guyinacube
@@ -15,52 +15,52 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/06/2017
 ms.author: asaxton
-ms.openlocfilehash: 500462ac835674d80650c02aa7fc629b4a975857
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 657e4d5cee031bdda173ab3f451cc19b93ddb17b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>JavaScript API’sini kullanarak Power BI raporlarıyla etkileşim kurma
-Power BI JavaScript API’si, Power BI raporlarını uygulamalarınıza kolaylıkla eklemenizi sağlar. API ile uygulamalarınız sayfalar ve filtreler gibi farklı rapor öğeleri ile program aracılığıyla etkileşim kurabilir. Bu etkileşim Power BI raporlarını uygulamanızın daha tümleşik bir parçası yapar.
+# <a name="interact-with-power-bi-reports-using-hello-javascript-api"></a>Merhaba JavaScript API kullanarak Power BI raporları ile etkileşim
+tooeasily katıştırmak Power BI raporları uygulamalarınıza hello Power BI JavaScript API sağlar. Merhaba API uygulamalarınızı programlı olarak farklı rapor öğeleri sayfa ve filtreleri gibi etkileşim kurabilirsiniz. Bu etkileşim Power BI raporlarını uygulamanızın daha tümleşik bir parçası yapar.
 
-Uygulamanızın bir parçası olarak barındırılacak Power BI raporunu uygulamaya iframe kullanarak ekleyin. Aşağıdaki görüntüde görebileceğiniz gibi bu iframe uygulamanızla rapor arasında sınır işlevi görür. 
+Uygulamanızda barındırılan IFRAME Merhaba uygulaması bir parçası olarak kullanarak bir Power BI raporu ekleme. Görüntü aşağıdaki hello görebileceğiniz gibi hello IFRAME uygulama ve hello rapor arasında sınırı görevi görür. 
 
 ![Javascript API’si olmadan Power BI embedded iframe](media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-1.png)
 
-iframe katıştırma işlemini çok daha kolaylaştırır, ancak JavaScript API’si olmadan rapor ve uygulamanız birbiriyle etkileşim kuramaz. Bu etkileşimin kurulamaması raporun uygulamanızın bir parçası değilmiş gibi görünmesine neden olabilir. Rapor ve uygulama aşağıdaki görüntüde olduğu gibi çift yönlü bir iletişim kurmalıdır.
+işlem çok daha kolay katıştırma hello Hello IFRAME yapar, ancak hello JavaScript API hello rapor ve uygulamanızı birbirleriyle etkileşime giremezler. Bu etkileşimi eksikliği bunu hello rapor gerçekten hello uygulamanın parçası değil gibi eşitleyerek duruma getirebilirsiniz. gerçekten Hello rapor ve uygulama İleri ve geri toocommunicate görüntü aşağıdaki hello olduğu gibi gerekir.
 
 ![Javascript API’si ile Power BI embedded iframe](media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-2.png)
 
-Power BI JavaScript API’si iframe sınırından güvenli bir şekilde geçebilecek bir kod yazmanızı sağlar. Bunun yapılması uygulamanızın bir raporda program aracılığıyla eylem gerçekleştirmesini ve kullanıcıların rapor içinde gerçekleştirdiği eylemlerdeki olayları dinlemesini sağlar.
+Merhaba Power BI JavaScript API hello IFRAME sınır güvenli bir şekilde geçirebilir toowrite kod etkinleştirir. Bu etkinleştirir, uygulama tooprogrammatically bir eylemi gerçekleştirir bir rapor ve kullanıcıların hello rapor içinde açmak eylemlerine olayları için toolisten.
 
-## <a name="what-can-you-do-with-the-power-bi-javascript-api"></a>Power BI JavaScript API’si ile neler yapabilirsiniz?
-JavaScript API’si ile raporları yönetebilir, bir rapordaki sayfalarda gezinebilir, raporu filtreleyebilir ve katıştırma olaylarını gerçekleştirebilirsiniz. Aşağıdaki diyagramda API’nin yapısı gösterilmektedir.
+## <a name="what-can-you-do-with-hello-power-bi-javascript-api"></a>Power BI JavaScript API hello ile neler yapabileceğiniz?
+Merhaba JavaScript API ile raporlarını yönetme, bir raporda toopages gidin, bir raporu filtreleme ve olayları katıştırma işlemek. Merhaba Aşağıdaki diyagramda hello API hello yapısını gösterir.
 
 ![Power BI JavaScript API’si diyagramı](media/powerbi-embedded-interact-with-reports/powerbi-embedded-interact-report-3.png)
 
 ### <a name="manage-reports"></a>Raporları yönetme
-Javascript API’si rapor ve sayfa düzeyindeki davranışı yönetmenizi sağlar:
+Merhaba Javascript API hello rapor ve sayfa düzeyinde toomanage davranışı etkinleştirir:
 
-* Belirli bir Power BI Raporunu uygulamanıza güvenli bir şekilde katıştırma - [katıştırma demo uygulamasını](http://azure-samples.github.io/powerbi-angular-client/#/scenario1) deneyin
+* Belirli bir Power BI rapor uygulamanızda güvenli bir şekilde ekleme - hello deneyin [demo uygulama ekleme](http://azure-samples.github.io/powerbi-angular-client/#/scenario1)
   * Erişim belirteci ayarlama
-* Raporu yapılandırma
-  * Filtre bölmesini ve sayfa gezinti bölmesini etkinleştirme ve devre dışı bırakma - [ayar güncelleştirme demo uygulamasını](http://azure-samples.github.io/powerbi-angular-client/#/scenario6) deneyin
-  * Sayfalar ve filtreler için varsayılanları ayarlama - [varsayılanları ayarlama demosunu](http://azure-samples.github.io/powerbi-angular-client/#/scenario5) deneyin
+* Merhaba rapor yapılandırın
+  * Etkinleştirme ve hello filtre bölmesi ve sayfa gezinti bölmesinde devre dışı bırak - hello deneyin [güncelleştirme ayarları demo uygulaması](http://azure-samples.github.io/powerbi-angular-client/#/scenario6)
+  * Sayfalar ve filtreleri için varsayılan değerleri ayarlamak - hello deneyin [kümesi Varsayılanları Tanıtımı](http://azure-samples.github.io/powerbi-angular-client/#/scenario5)
 * Tam ekran moduna giriş ve çıkış
 
 [Bir raporu ekleme hakkında daha fazla bilgi edinin](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embedding-Basics)
 
-### <a name="navigate-to-pages-in-a-report"></a>Rapordaki sayfalarda gezinme
-JavaScript API’si bir rapordaki tüm sayfaları bulmanızı ve geçerli sayfayı ayarlamanızı sağlar. [Gezinti demo uygulamasını](http://azure-samples.github.io/powerbi-angular-client/#/scenario3) deneyin.
+### <a name="navigate-toopages-in-a-report"></a>Bir rapordaki toopages gidin
+Merhaba JavaScript API enbales bir rapor ve tooset hello geçerli sayfada, toodiscover tüm sayfaları. Merhaba deneyin [Gezinti demo uygulaması](http://azure-samples.github.io/powerbi-angular-client/#/scenario3).
 
 [Sayfa gezintisi hakkında daha fazla bilgi edinin](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Page-Navigation)
 
 ### <a name="filter-a-report"></a>Bir raporu filtreleme
-JavaScript API’si katıştırılmış raporlar ve rapor sayfaları için temel ve gelişmiş filtreleme özellikleri sağlar. [Filtreleme demo uygulamasını](http://azure-samples.github.io/powerbi-angular-client/#/scenario4) deneyin ve giriş niteliğindeki bazı kodları burada gözden geçirin.  
+Merhaba JavaScript API temel ve Gelişmiş filtreleme katıştırılmış raporlar ve rapor sayfaları için özellikleri sağlar. Merhaba deneyin [demo uygulama filtreleme](http://azure-samples.github.io/powerbi-angular-client/#/scenario4), bazı tanıtım kodu buraya gözden geçirin.  
 
 #### <a name="basic-filters"></a>Temel filtreler
-Temel filtre bir sütuna veya hiyerarşi düzeyine yerleştirilir ve dahil edilecek ya da hariç tutulacak değerler listesini içerir.
+Temel bir filtre bir sütun veya hiyerarşi düzeyi yerleştirilir ve değerleri tooinclude veya hariç tutma listesini içerir.
 
 ```
 const basicFilter: pbi.models.IBasicFilter = {
@@ -76,7 +76,7 @@ const basicFilter: pbi.models.IBasicFilter = {
 
 
 #### <a name="advanced-filters"></a>Gelişmiş filtreler
-Gelişmiş filtreler AND veya OR mantıksal işlecini kullanır ve her biri kendi işlecine ve değerine sahip bir ya da iki koşulu kabul eder. Desteklenen koşullar şunlardır:
+Gelişmiş filtreleri kullanma hello mantıksal işleci veya OR ve her biri kendi işleç ve değer bir veya iki koşulları kabul edin. Desteklenen koşullar şunlardır:
 
 * None
 * LessThan
@@ -115,7 +115,7 @@ const advancedFilter: pbi.models.IAdvancedFilter = {
 [Filtreleme hakkında daha fazla bilgi edinin](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Filters)
 
 ### <a name="handling-events"></a>Olayları işleme
-iframe’e bilgi göndermeye ek olarak uygulamanız iframe’den gelen aşağıdaki olaylara ilişkin bilgi de alabilir:
+Ayrıca hello IFRAME toosending bilgileri, uygulamanız da hello IFRAME gelen olayların aşağıdaki hello hakkında bilgi alabilirsiniz:
 
 * Embed
   * loaded
@@ -127,7 +127,7 @@ iframe’e bilgi göndermeye ek olarak uygulamanız iframe’den gelen aşağıd
 [Olayları işleme hakkında daha fazla bilgi edinin](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Handling-Events)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Power BI JavaScript API’si hakkında daha fazla bilgi için aşağıdaki bağlantılara göz atın:
+Merhaba Power BI JavaScript API hakkında daha fazla bilgi için bağlantılar aşağıdaki hello denetleyin:
 
 * [JavaScript API’si Wiki](https://github.com/Microsoft/PowerBI-JavaScript/wiki)
 * [Nesne modeli başvurusu](https://microsoft.github.io/powerbi-models/modules/_models_.html)

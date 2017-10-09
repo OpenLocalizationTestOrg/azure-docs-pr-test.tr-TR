@@ -1,6 +1,6 @@
 ---
-title: "Azure Notification Hubs ve Firebase Cloud Messaging ile Android'e anında iletme bildirimleri gönderme | Microsoft Belgeleri"
-description: "Bu öğreticide, Android cihazlarına anında iletme bildirimleri göndermek için Azure Notification Hubs ve Firebase Cloud Messaging’in nasıl kullanılacağını öğrenirsiniz."
+title: "Azure Notification Hubs ve Firebase bulut Mesajlaşma ile aaaSending anında iletme bildirimleri tooAndroid | Microsoft Docs"
+description: "Bu öğreticide, bilgi nasıl toouse Azure bildirim hub'ları ve Firebase Cloud Messaging toopush bildirimleri tooAndroid aygıtlar."
 services: notification-hubs
 documentationcenter: android
 keywords: "anında iletme bildirimleri,anında iletme bildirimi,android anında iletme bildirimi,fcm,firebase cloud messaging"
@@ -15,35 +15,35 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 07/14/2016
 ms.author: yuaxu
-ms.openlocfilehash: 45a3fa5c7190e039fd637c78a41eeb3f6ede9bc7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d2e57437ac7b0ef77abf048f991043620621e58d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="sending-push-notifications-to-android-with-azure-notification-hubs"></a>Azure Notification Hubs ile Android'e anında iletme bildirimleri gönderme
+# <a name="sending-push-notifications-tooandroid-with-azure-notification-hubs"></a>Azure Notification Hubs ile anında iletme bildirimleri tooAndroid gönderme
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## <a name="overview"></a>Genel Bakış
 > [!IMPORTANT]
-> Bu konuda Google Firebase Cloud Messaging (FCM) ile anında iletme bildirimleri gösterilmektedir. Hala Google Cloud Messaging (GCM) kullanıyorsanız bkz. [Azure Notification Hubs ve GCM ile Android’e anında iletme bildirimleri gönderme](notification-hubs-android-push-notification-google-gcm-get-started.md).
+> Bu konuda Google Firebase Cloud Messaging (FCM) ile anında iletme bildirimleri gösterilmektedir. Google Cloud Messaging (GCM) kullanmaya devam ediyorsanız, bkz: [gönderme anında iletme bildirimleri tooAndroid Azure Notification Hubs ve GCM ile](notification-hubs-android-push-notification-google-gcm-get-started.md).
 > 
 > 
 
-Bu öğreticide, bir Android uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs ve Firebase Cloud Messaging'in nasıl kullanılacağı gösterilir.
+Bu öğretici nasıl toouse Azure Notification Hubs ve Firebase Cloud Messaging toosend bildirimleri tooan Android uygulaması anında gösterir.
 Firebase Cloud Messaging (FCM) kullanarak anında iletme bildirimleri alan bir Android uygulaması oluşturacaksınız.
 
 [!INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
 
-Bu öğreticinin tamamlanan kodu GitHub'da [buradan](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStartedFirebase) indirilebilir.
+Bu öğreticinin tamamlanan hello kodu Github'dan indirilebilir [burada](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStartedFirebase).
 
 ## <a name="prerequisites"></a>Ön koşullar
 > [!IMPORTANT]
-> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started).
+> toocomplete Bu öğretici, etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started).
 > 
 > 
 
-* Yukarıda belirtilen etkin bir Azure hesabının yanı sıra, bu öğretici [Android Studio](http://go.microsoft.com/fwlink/?LinkId=389797)'nun en son sürümünü gerektirir.
+* Ayrıca tooan etkin Azure hesabı belirtilen yukarıdaki Bu öğretici için hello en son sürümü [Android Studio](http://go.microsoft.com/fwlink/?LinkId=389797).
 * Firebase Cloud Messaging için Android 2.3 veya üstü.
 * Firebase Cloud Messaging için Google Deposu düzeltme 27 gereklidir.
 * Firebase Cloud Messaging için Google Play Services 9.0.2 veya üstü.
@@ -53,10 +53,10 @@ Bu öğreticinin tamamlanan kodu GitHub'da [buradan](https://github.com/Azure/az
 1. Android Studio'da yeni bir Android Studio projesi başlatın.
    
        ![Android Studio - new project](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-new-project.png)
-2. **Telefon ve Tablet** form faktörünü ve desteklemek istediğiniz **Minimum SDK**'yı seçin. Ardından **İleri**'ye tıklayın.
+2. Merhaba seçin **telefon ve Tablet** form faktörünü ve hello **Minimum SDK** toosupport istiyor. Ardından **İleri**'ye tıklayın.
    
        ![Android Studio - project creation workflow](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-choose-form-factor.png)
-3. Ana etkinlik için **Boş Etkinlik**'i seçin, **İleri**'ye tıklayın ve ardından **Son**'a tıklayın.
+3. Seçin **boş etkinlik** hello ana etkinlik için tıklatın **sonraki**ve ardından **son**.
 
 ## <a name="create-a-project-that-supports-firebase-cloud-messaging"></a>Firebase Cloud Messaging'i destekleyen bir proje oluşturma
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
@@ -64,22 +64,22 @@ Bu öğreticinin tamamlanan kodu GitHub'da [buradan](https://github.com/Azure/az
 ## <a name="configure-a-new-notification-hub"></a>Yeni bir bildirim hub'ı yapılandırma
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-&emsp;&emsp;6. Bildirim hub’ınızın **Ayarlar** dikey penceresinde **Bildirim Hizmetleri**'ni ve ardından **Google (GCM)** seçeneğini belirleyin. Daha önce [Firebase konsolundan](https://firebase.google.com/console/) kopyaladığınız FCM sunucu anahtarını girin ve **Kaydet**’e tıklayın.
+&emsp;&emsp;6. Merhaba, **ayarları** , bildirim hub ' ınızı seçin dikey **Bildirim Hizmetleri** ve ardından **Google (GCM)**. Daha önce kopyaladığınız hello hello FCM sunucu anahtarını girin [Firebase konsol](https://firebase.google.com/console/) tıklatıp **kaydetmek**.
 
 &emsp;&emsp;![Azure Notification Hubs - Google (GCM)](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-gcm-api.png)
 
-Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üzere yapılandırıldı. Uygulamanızı anında iletme bildirimleri alması ve göndermesi amacıyla kaydetmek için bağlantı dizelerine sahipsiniz.
+Bildirim hub'ınız artık Firebase bulut Messagin ile yapılandırılmış toowork ve uygulama tooreceive kaydolun ve anında iletme bildirimleri göndermek hello bağlantı dizeleri tooboth sahip.
 
-## <a id="connecting-app"></a>Uygulamanızı bildirim hub'ına bağlama
-### <a name="add-google-play-services-to-the-project"></a>Projeye Google Play hizmetlerini ekleme
+## <a id="connecting-app"></a>Uygulama toohello bildirim hub'ınıza bağlanın
+### <a name="add-google-play-services-toohello-project"></a>Google Play Hizmetleri toohello proje ekleyin
 [!INCLUDE [Add Play Services](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
 
 ### <a name="adding-azure-notification-hubs-libraries"></a>Azure Notification Hubs kitaplıkları ekleme
-1. **Uygulamanın** `Build.Gradle` dosyasında **bağımlılıklar** bölümüne aşağıdaki satırları ekleyin.
+1. Merhaba, `Build.Gradle` hello dosyası **uygulama**, hello satırlarında aşağıdaki hello eklemek **bağımlılıkları** bölümü.
    
         compile 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
         compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
-2. **Bağımlılıklar** bölümünden sonra aşağıdaki depoyu ekleyin.
+2. Depo hello sonra aşağıdaki hello eklemek **bağımlılıkları** bölümü.
    
         repositories {
             maven {
@@ -87,25 +87,25 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
             }
         }
 
-### <a name="updating-the-androidmanifestxml"></a>AndroidManifest.xml'i güncelleştirme
-1. FCM'yi desteklemek için kodumuza, [Google'ın FirebaseInstanceId API'sini](https://firebase.google.com/docs/reference/android/com/google/firebase/iid/FirebaseInstanceId) kullanarak [kayıt belirteçleri elde etmek](https://firebase.google.com/docs/cloud-messaging/android/client#sample-register) için kullanılan bir Örnek Kimliği dinleme hizmeti eklememiz gereklidir. Bu öğreticide sınıfa `MyInstanceIDService` adını vereceğiz. 
+### <a name="updating-hello-androidmanifestxml"></a>Merhaba AndroidManifest.xml güncelleştiriliyor.
+1. toosupport FCM, biz uygulanmalı bir örnek kimliği dinleme hizmeti çok kullanılan bizim kodda[kayıt belirteçleri elde](https://firebase.google.com/docs/cloud-messaging/android/client#sample-register) kullanarak [Google FirebaseInstanceId API](https://firebase.google.com/docs/reference/android/com/google/firebase/iid/FirebaseInstanceId). Bu öğreticide biz hello sınıfı adlandıracaktır `MyInstanceIDService`. 
    
-    Aşağıdaki hizmet tanımını AndroidManifest.xml dosyasında `<application>` etiketinin içine ekleyin. 
+    Hizmet tanımı toohello AndroidManifest.xml dosyasına hello aşağıdaki hello eklemek `<application>` etiketi. 
    
         <service android:name=".MyInstanceIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
             </intent-filter>
         </service>
-2. FirebaseInstanceId API'sinden FCM kayıt belirtecimizi aldıktan sonra, [Azure Notification Hub'a kaydolmak](notification-hubs-push-notification-registration-management.md) için bu belirteci kullanacağız. `RegistrationIntentService` adlı bir `IntentService` kullanarak bu kaydı arka planda destekleyeceğiz. Bu hizmet, FCM kayıt belirtecimizi yenilemekten de sorumludur.
+2. Bizim FCM kayıt belirtecinizi hello FirebaseInstanceId API aldıktan sonra onu çok kullanacağız[hello Azure bildirim hub'ı ile kayıt](notification-hubs-push-notification-registration-management.md). Arka plan hello kullanarak Biz bu kayıt destekleyecek bir `IntentService` adlı `RegistrationIntentService`. Bu hizmet, FCM kayıt belirtecimizi yenilemekten de sorumludur.
    
-    Aşağıdaki hizmet tanımını AndroidManifest.xml dosyasında `<application>` etiketinin içine ekleyin. 
+    Hizmet tanımı toohello AndroidManifest.xml dosyasına hello aşağıdaki hello eklemek `<application>` etiketi. 
    
         <service
             android:name=".RegistrationIntentService"
             android:exported="false">
         </service>
-3. Bildirimleri almak için bir alıcı da tanımlayacağız. Aşağıdaki alıcı tanımını AndroidManifest.xml dosyasına `<application>` etiketinin içine ekleyin. `<your package>` yer tutucusunu, `AndroidManifest.xml` dosyasının üst kısmında gösterilen asıl paket adınızla değiştirin.
+3. Biz de alıcı tooreceive bildirimleri tanımlayacaksınız. Aşağıdaki alıcı tanımını toohello AndroidManifest.xml dosyasına hello hello eklemek `<application>` etiketi. Hello yerine `<your package>` tutucuyla hello hello hello üst kısmında gösterilen asıl Paket adınızla `AndroidManifest.xml` dosya.
    
         <receiver android:name="com.microsoft.windowsazure.notifications.NotificationsBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
@@ -114,24 +114,24 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
                 <category android:name="<your package name>" />
             </intent-filter>
         </receiver>
-4. Aşağıdaki FCM ile ilgili gerekli izinleri `</application>` etiketinin altına ekleyin. `<your package>` öğesini, `AndroidManifest.xml` dosyasının üst kısmında gösterilen paket adıyla değiştirdiğinizden emin olun.
+4. Gerekli FCM aşağıdaki hello ilgili hello aşağıdaki izinleri ekleyin `</application>` etiketi. Emin tooreplace olun `<your package>` hello hello üst kısmında gösterilen hello paket adı ile `AndroidManifest.xml` dosya.
    
-    Bu izinler hakkında daha fazla bilgi için bkz. [Android için GCM İstemci uygulaması ayarlama](https://developers.google.com/cloud-messaging/android/client#manifest) ve [Android için GCM İstemci Uygulamasını Firebase Cloud Messaging’e geçirme](https://developers.google.com/cloud-messaging/android/android-migrate-fcm#remove_the_permissions_required_by_gcm).
+    Bu izinler hakkında daha fazla bilgi için bkz: [Android için bir GCM İstemcisi uygulaması kurma](https://developers.google.com/cloud-messaging/android/client#manifest) ve [Android tooFirebase Cloud Messaging için bir GCM İstemcisi uygulaması geçirmek](https://developers.google.com/cloud-messaging/android/android-migrate-fcm#remove_the_permissions_required_by_gcm).
    
         <uses-permission android:name="android.permission.INTERNET"/>
         <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
         <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
 ### <a name="adding-code"></a>Kod ekleme
-1. Proje Görünümü'nde **app** > **src** > **main** > **java**'yı genişletin. **Java**'nın altındaki paket klasörünüze sağ tıklayın, **Yeni**'ye tıklayın ve ardından **Java Sınıfı**'na tıklayın. `NotificationSettings` adlı yeni bir sınıf ekleyin. 
+1. Hello Proje Görünümü'da, genişletin **uygulama** > **src** > **ana** > **java**. **Java**'nın altındaki paket klasörünüze sağ tıklayın, **Yeni**'ye tıklayın ve ardından **Java Sınıfı**'na tıklayın. `NotificationSettings` adlı yeni bir sınıf ekleyin. 
    
     ![Android Studio - yeni Java sınıfı](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hub-android-new-class.png)
    
-    Aşağıdaki kodda `NotificationSettings` sınıfı için bu üç yer tutucuyu güncelleştirdiğinizden emin olun:
+    Tooupdate hello hello kodunu aşağıdaki hello bu üç yer tutucuları emin olun `NotificationSettings` sınıfı:
    
-   * **SenderId**: [Firebase konsolundaki](https://firebase.google.com/console/) proje ayarlarınızın **Cloud Messaging** sekmesinde daha önce edindiğiniz Gönderen Kimliği.
-   * **HubListenConnectionString**: Hub'ınız için **DefaultListenAccessSignature** bağlantı dizesi. [Azure Portal]'da hub'ınızın **Ayarlar** dikey penceresinde bulunan **Erişim İlkeleri**'ne tıklayarak bağlantı dizesini kopyalayabilirsiniz.
-   * **HubName**: [Azure Portal]'daki hub dikey penceresinde görünen bildirim hub'ınızın adını kullanın.
+   * **Senderıd**: hello daha önce aldığınız Gönderen Kimliği hello **Cloud Messaging** proje ayarlarınızı hello sekmesinde [Firebase konsol](https://firebase.google.com/console/).
+   * **HubListenConnectionString**: Merhaba **DefaultListenAccessSignature** hub'ınız için bağlantı dizesi. Tıklayarak bağlantı dizesini kopyalayabilirsiniz **erişim ilkeleri** hello üzerinde **ayarları** dikey penceresinde hello üzerinde hub'ınızın [Azure Portal].
+   * **HubName**: hello hub dikey penceresinde hello görünen bildirim hub'ınızın hello adını kullan [Azure Portal].
      
      `NotificationSettings` kodu:
      
@@ -141,9 +141,9 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
            public static String HubName = "<Your HubName>";
            public static String HubListenConnectionString = "<Enter your DefaultListenSharedAccessSignature connection string>";
        }
-2. Yukarıdaki adımları kullanarak `MyInstanceIDService` adlı yeni bir sınıf daha ekleyin. Bu bizim Örnek Kimliği dinleme hizmeti uygulamamız olacak.
+2. Yukarıdaki Hello adımları kullanarak adlı başka bir yeni sınıf ekleyin `MyInstanceIDService`. Bu bizim Örnek Kimliği dinleme hizmeti uygulamamız olacak.
    
-    Bu sınıfın kodu, arka planda `IntentService`FCM belirtecini yenileme[ amacıyla ](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) hizmetimizi çağırır.
+    Bu sınıfın Hello kodu çağıracaktır bizim `IntentService` çok[yenileme hello FCM belirteci](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) hello arka planda.
    
         import android.content.Intent;
         import android.util.Log;
@@ -164,9 +164,9 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
         };
 
 
-1. `RegistrationIntentService` adlı projenize, başka bir yeni sınıf ekleyin. Bu, [FCM belirtecini yenileme](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) ve [bildirim hub'ıyla kayıt yapma](notification-hubs-push-notification-registration-management.md) işlemlerini ele alacak `IntentService` hizmetimizin uygulanması olacak.
+1. Adlı başka bir yeni sınıf tooyour projesi eklemek `RegistrationIntentService`. Bu hello uygulaması olacak bizim `IntentService` işleyecek [yenileme hello FCM belirteci](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) ve [hello bildirim hub'kaydetme](notification-hubs-push-notification-registration-management.md).
    
-    Bu sınıf için aşağıdaki kod kullanın.
+    Bu sınıfın kodu aşağıdaki hello kullanın.
    
         import android.app.IntentService;
         import android.content.Intent;
@@ -198,9 +198,9 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
                     String FCM_token = FirebaseInstanceId.getInstance().getToken();
                     Log.d(TAG, "FCM Registration Token: " + FCM_token);
    
-                    // Storing the registration id that indicates whether the generated token has been
-                    // sent to your server. If it is not stored, send the token to your server,
-                    // otherwise your server should have already received the token.
+                    // Storing hello registration id that indicates whether hello generated token has been
+                    // sent tooyour server. If it is not stored, send hello token tooyour server,
+                    // otherwise your server should have already received hello token.
                     if (((regID=sharedPreferences.getString("registrationID", null)) == null)){
    
                         NotificationHub hub = new NotificationHub(NotificationSettings.HubName,
@@ -208,8 +208,8 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
                         Log.d(TAG, "Attempting a new registration with NH using FCM token : " + FCM_token);
                         regID = hub.register(FCM_token).getRegistrationId();
    
-                        // If you want to use tags...
-                        // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
+                        // If you want toouse tags...
+                        // Refer too: https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
                         // regID = hub.register(token, "tag1,tag2").getRegistrationId();
    
                         resultString = "New NH Registration Successfully - RegId : " + regID;
@@ -219,7 +219,7 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
                         sharedPreferences.edit().putString("FCMtoken", FCM_token ).apply();
                     }
    
-                    // Check if the token may have been compromised and needs refreshing.
+                    // Check if hello token may have been compromised and needs refreshing.
                     else if ((storedToken=sharedPreferences.getString("FCMtoken", "")) != FCM_token) {
    
                         NotificationHub hub = new NotificationHub(NotificationSettings.HubName,
@@ -227,8 +227,8 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
                         Log.d(TAG, "NH Registration refreshing with token : " + FCM_token);
                         regID = hub.register(FCM_token).getRegistrationId();
    
-                        // If you want to use tags...
-                        // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
+                        // If you want toouse tags...
+                        // Refer too: https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
                         // regID = hub.register(token, "tag1,tag2").getRegistrationId();
    
                         resultString = "New NH Registration Successfully - RegId : " + regID;
@@ -242,9 +242,9 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
                         resultString = "Previously Registered Successfully - RegId : " + regID;
                     }
                 } catch (Exception e) {
-                    Log.e(TAG, resultString="Failed to complete registration", e);
-                    // If an exception happens while fetching the new token or updating our registration data
-                    // on a third-party server, this ensures that we'll attempt the update at a later time.
+                    Log.e(TAG, resultString="Failed toocomplete registration", e);
+                    // If an exception happens while fetching hello new token or updating our registration data
+                    // on a third-party server, this ensures that we'll attempt hello update at a later time.
                 }
    
                 // Notify UI that registration has completed.
@@ -253,7 +253,7 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
                 }
             }
         }
-2. `MainActivity` sınıfınızda aşağıdaki `import` deyimlerini sınıf bildiriminin üstüne ekleyin.
+2. İçinde `MainActivity` sınıfı, hello aşağıdakileri ekleyin `import` deyimleri hello yukarıda sınıf bildiriminin.
    
         import com.google.android.gms.common.ConnectionResult;
         import com.google.android.gms.common.GoogleApiAvailability;
@@ -262,18 +262,18 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
         import android.util.Log;
         import android.widget.TextView;
         import android.widget.Toast;
-3. Aşağıdaki özel üyeleri sınıfın en üst kısmına ekleyin. [Google Play Hizmetleri'nin kullanılabilirliğini Google tarafından önerildiği şekilde denetlemek](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk) için bunları kullanırız.
+3. Özel üyelerin hello sınıfı hello üstündeki aşağıdaki hello ekleyin. Bunları kullanırız [hello Google Play Hizmetleri'nin kullanılabilirliğini Google tarafından önerildiği şekilde denetlemek](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
    
         public static MainActivity mainActivity;
         public static Boolean isVisible = false;    
         private static final String TAG = "MainActivity";
         private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
-4. `MainActivity` sınıfınızda Google Play Hizmetleri'nin kullanılabilirliğine aşağıdaki yöntemi ekleyin. 
+4. İçinde `MainActivity` sınıfı, yöntemi toohello Google Play Hizmetleri'nin kullanılabilirliğini izleyen hello ekleyin. 
    
         /**
-         * Check the device to make sure it has the Google Play Services APK. If
-         * it doesn't, display a dialog that allows users to download the APK from
-         * the Google Play Store or enable it in the device's system settings.
+         * Check hello device toomake sure it has hello Google Play Services APK. If
+         * it doesn't, display a dialog that allows users toodownload hello APK from
+         * hello Google Play Store or enable it in hello device's system settings.
          */
         private boolean checkPlayServices() {
             GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
@@ -291,17 +291,17 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
             }
             return true;
         }
-5. `MainActivity` sınıfınızda, FCM kayıt belirtecinizi almak ve bildirim hub'ınızla kaydolmak için `IntentService` hizmetinizi çağırmadan önce Google Play Hizmetleri'ni denetleyecek aşağıdaki kodu ekleyin.
+5. İçinde `MainActivity` sınıfı, çağırmadan önce Google Play Hizmetleri'ni denetleyecek koddan hello eklemek, `IntentService` tooget FCM kayıt belirtecini ve bildirim hub'ınızı ile kaydedin.
    
         public void registerWithNotificationHubs()
         {
             if (checkPlayServices()) {
-                // Start IntentService to register this application with FCM.
+                // Start IntentService tooregister this application with FCM.
                 Intent intent = new Intent(this, RegistrationIntentService.class);
                 startService(intent);
             }
         }
-6. `MainActivity` sınıfının `OnCreate` yönteminde, etkinlik oluşturulduğunda kayıt işlemini başlatmak için aşağıdaki kodu ekleyin.
+6. Merhaba, `OnCreate` hello yöntemi `MainActivity` sınıfı, etkinlik oluşturulduğunda kod toostart hello kayıt işlemi aşağıdaki hello ekleyin.
    
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -312,7 +312,7 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
             NotificationsManager.handleNotifications(this, NotificationSettings.SenderId, MyHandler.class);
             registerWithNotificationHubs();
         }
-7. Uygulama durumunu doğrulamak ve uygulamanızda durumu raporlamak için bu ek yöntemleri `MainActivity` öğesine ekleyin.
+7. Bu ek yöntemleri toohello ekleme `MainActivity` uygulamanızda tooverify uygulama durumu ve rapor durumu.
    
         @Override
         protected void onStart() {
@@ -348,11 +348,11 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
                 }
             });
         }
-8. `ToastNotify` yöntemi, uygulamada kalıcı olarak durumu ve bildirimleri raporlamak için *"Hello World"* `TextView` denetimini kullanır. activity_main.xml düzeninizde bu denetim için aşağıdaki kimliği ekleyin.
+8. Merhaba `ToastNotify` yöntemi kullanan hello *"Hello World"* `TextView` kontrol tooreport durumunu ve bildirimleri hello uygulamasında kalıcı olarak. Activity_main.xml düzeninizde, bu denetim için kimliği hello ekleyin.
    
        android:id="@+id/text_hello"
-9. Ardından, AndroidManifest.xml'de tanımladığımız alıcımız için bir alt sınıf ekleyeceğiz. `MyHandler` adlı projenize başka bir yeni sınıf ekleyin.
-10. `MyHandler.java`'in üst kısmına şu içeri aktarma deyimlerini ekleyin:
+9. Merhaba AndroidManifest.xml tanımladığımız bizim alıcısı için bir alt sınıfı sonraki ekleyeceğiz. Adlı başka bir yeni sınıf tooyour projesi eklemek `MyHandler`.
+10. İçeri aktarma deyimlerini hello üst kısmındaki aşağıdaki hello eklemek `MyHandler.java`:
     
         import android.app.NotificationManager;
         import android.app.PendingIntent;
@@ -363,9 +363,9 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
         import android.os.Bundle;
         import android.support.v4.app.NotificationCompat;
         import com.microsoft.windowsazure.notifications.NotificationsHandler;
-11. `MyHandler` sınıfı için aşağıdaki kodu ekleyip bunu `com.microsoft.windowsazure.notifications.NotificationsHandler` öğesinin bir alt sınıfı haline getirin.
+11. Merhaba kodunu aşağıdaki hello eklemek `MyHandler` öğesinin bir alt kolaylaştırarak sınıfı `com.microsoft.windowsazure.notifications.NotificationsHandler`.
     
-    Bu kod, `OnReceive` yöntemini geçersiz kılar; böylece işleyici alınan bildirimleri raporlar. İşleyici, `sendNotification()` yöntemini kullanarak Android bildirim yöneticisine anında iletme bildirimi gönderir. `sendNotification()` yöntemi, uygulama çalışmıyorken ve bir bildirim alındığında yürütülmelidir.
+    Bu kod hello geçersiz kılmaları `OnReceive` hello işleyici alınan bildirimleri bildirmesi yöntemi. Merhaba işleyici ayrıca hello kullanarak hello anında iletme bildirimi toohello Android bildirim Yöneticisi gönderir `sendNotification()` yöntemi. Merhaba `sendNotification()` yöntemi hello uygulama çalışmıyorken ve bir bildirim alındığında yürütülmelidir.
     
         public class MyHandler extends NotificationsHandler {
             public static final int NOTIFICATION_ID = 1;
@@ -408,30 +408,30 @@ Bildirim hub'ınız şimdi Firebase Cloud Messaging ile birlikte çalışmak üz
                 mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
             }
         }
-12. Android Studio'nun menü çubuğunda, kodunuzda hiçbir hata bulunmadığından emin olmak için **Oluştur** > **Projeyi Yeniden Oluştur**'a tıklayın.
-13. Cihazınızda uygulamayı çalıştırın ve uygulamanın bildirim hub'ına başarıyla kaydolduğunu doğrulayın. 
+12. Merhaba menü çubuğunda Android Studio'da sırasıyla **yapı** > **projeyi** toomake kodunuzda hiçbir hata bulunmadığından emin.
+13. Cihazınızda Hello uygulamayı çalıştırın ve başarıyla hello bildirim hub'ı ile kaydeder doğrulayın. 
     
     > [!NOTE]
-    > Kayıt, örnek kimlik hizmetinin `onTokenRefresh()` yöntemi çağrılana kadar ilk başlatmada başarısız olabilir. Yenileme işlemi bildirim hub’ına başarılı bir kayıt başlatmalıdır.
+    > Kayıt hello ilk başlatılırken hello kadar başarısız olabilir `onTokenRefresh()` kimliği hizmeti örneğinin yöntemi çağrılır. Merhaba yenileme intiate hello bildirim hub'ı başarılı bir kaydı gerekir.
     > 
     > 
 
 ## <a name="sending-push-notifications"></a>Anında iletme bildirimleri gönderme
-Uygulamanızda anında iletme bildirimlerini aldığınızı, bunları [Azure Portal] aracılığıyla göndererek test edebilirsiniz; aşağıda gösterildiği gibi hub dikey penceresinin **Sorun Giderme** Bölümü'nü bulun.
+Merhaba göndererek uygulamanızda anında iletme bildirimleri almayı test edebilirsiniz [Azure Portal] -Merhaba Ara **sorun giderme** bölümünde hello hub dikey penceresinde, aşağıda gösterildiği gibi.
 
 ![Azure Notification Hubs - Test Gönderimi](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-test-send.png)
 
 [!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
-## <a name="optional-send-push-notifications-directly-from-the-app"></a>(İsteğe bağlı) Doğrudan uygulamadan anında iletme bildirimleri gönderme
+## <a name="optional-send-push-notifications-directly-from-hello-app"></a>(İsteğe bağlı) Doğrudan hello uygulamadan anında iletme bildirimleri gönderme
 > [!IMPORTANT]
-> İstemci uygulamasından bildirim göndermeye yönelik bu örnek yalnızca öğrenme amacıyla verilmiştir. Bu işlem istemci uygulamada `DefaultFullSharedAccessSignature` gerektireceğinden, bildirim hub’ınızı bir kullanıcının istemcilerinize yetkisiz bildirimler göndermek üzere erişim kazanabilmesi riskine maruz bırakır.
+> Bu örneği hello istemci uygulamasından bildirim gönderme sadece öğrenme amaçları için sağlanır. Bu hello gerektirir beri `DefaultFullSharedAccessSignature` toobe hello istemci uygulaması varsa, bir kullanıcının erişim yetkisiz toosend bildirimlerine tooyour istemcileri kazanabilir bildirim hub'ı toohello riskini gösterir.
 > 
 > 
 
-Normalde bildirimleri bir arka uç sunucusu kullanarak gönderirsiniz. Bazı durumlarda, anında iletme bildirimlerini doğrudan istemci uygulamasından gönderebilmek isteyebilirsiniz. Bu bölüm, [Azure Notification Hubs REST API'si](https://msdn.microsoft.com/library/azure/dn223264.aspx) kullanarak istemciden nasıl bildirim gönderildiğini açıklamaktadır.
+Normalde bildirimleri bir arka uç sunucusu kullanarak gönderirsiniz. Bazı durumlarda, toobe mümkün toosend anında iletme bildirimleri hello istemci uygulamasından doğrudan isteyebilirsiniz. Bu bölümde, nasıl toosend bildirimleri kullanan hello istemciden hello açıklanmaktadır [Azure bildirim hub'ı REST API](https://msdn.microsoft.com/library/azure/dn223264.aspx).
 
-1. Android Studio Proje Görünümü'nde, **App** > **src** > **main** > **res** > **layout**'u genişletin. `activity_main.xml` düzen dosyasını açın ve dosyanın metin içeriğini güncelleştirmek için **Metin** sekmesine tıklayın. Bildirim hub'ına anında iletme bildirimi iletileri göndermek için yeni `Button` ve `EditText` denetimlerini ekleyen aşağıdaki kod ile güncelleştirin. Bu kodu en alta, `</RelativeLayout>` öğesinin hemen önüne ekleyin.
+1. Android Studio Proje Görünümü'nde, **App** > **src** > **main** > **res** > **layout**'u genişletin. Açık hello `activity_main.xml` düzeni dosya ve hello tıklatın **metin** sekmesinde hello dosyasının tooupdate hello metin içeriği. Aşağıdaki hello kodu ile yeni ekleyen güncelleştirmek `Button` ve `EditText` göndermek için denetimleri anında bildirim iletileri toohello bildirim hub'ı. Bu kod hello altındaki hemen önüne ekleyin `</RelativeLayout>`.
    
         <Button
         android:layout_width="wrap_content"
@@ -450,16 +450,16 @@ Normalde bildirimleri bir arka uç sunucusu kullanarak gönderirsiniz. Bazı dur
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="42dp"
         android:hint="@string/notification_message_hint" />
-2. Android Studio Proje Görünümü'nde **App** > **src** > **main** > **res** > **values**'u genişletin. `strings.xml` dosyasını açın ve yeni `Button` ve `EditText` denetimleri tarafından başvurulan dize değerlerini ekleyin. Bunları dosyanın en altına, `</resources>` öğesinin hemen önüne ekleyin.
+2. Android Studio Proje Görünümü'nde **App** > **src** > **main** > **res** > **values**'u genişletin. Açık hello `strings.xml` dosya ve hello yeni tarafından başvurulan hello dize değerlerini ekleyin `Button` ve `EditText` kontrol eder. Bunlar hello dosyasının hello altındaki hemen önüne ekleyin `</resources>`.
    
         <string name="send_button">Send Notification</string>
         <string name="notification_message_hint">Enter notification message text</string>
-3. `NotificationSetting.java` dosyanızda `NotificationSettings` sınıfına aşağıdaki ayarı ekleyin.
+3. İçinde `NotificationSetting.java` dosya, ayar toohello aşağıdaki hello eklemek `NotificationSettings` sınıfı.
    
-    `HubFullAccess` öğesini, **DefaultFullSharedAccessSignature** bağlantı dizesiyle hub'ınız için güncelleştirin. Bu bağlantı dizesi, bildirim hub'ınızın **Ayarlar** dikey penceresinde **Erişim İlkeleri**'ne tıklanarak [Azure Portal]'dan kopyalanabilir.
+    Güncelleştirme `HubFullAccess` hello ile **DefaultFullSharedAccessSignature** hub'ınız için bağlantı dizesi. Bu bağlantı dizesi hello kopyalanabilir [Azure Portal] tıklayarak **erişim ilkeleri** hello üzerinde **ayarları** dikey bildirim hub'ınız için.
    
         public static String HubFullAccess = "<Enter Your DefaultFullSharedAccessSignature Connection string>";
-4. `MainActivity.java` dosyanızda aşağıdaki `import` deyimlerini `MainActivity` sınıfının üstüne ekleyin.
+4. İçinde `MainActivity.java` dosya, hello aşağıdakileri ekleyin `import` deyimleri hello yukarıda `MainActivity` sınıfı.
    
         import java.io.BufferedOutputStream;
         import java.io.BufferedReader;
@@ -473,21 +473,21 @@ Normalde bildirimleri bir arka uç sunucusu kullanarak gönderirsiniz. Bazı dur
         import android.util.Base64;
         import android.view.View;
         import android.widget.EditText;
-5. `MainActivity.java` dosyanızda aşağıdaki üyeleri `MainActivity` sınıfının üstüne ekleyin.    
+5. İçinde `MainActivity.java` dosya, üyeleri hello hello üstündeki aşağıdaki hello eklemek `MainActivity` sınıfı.    
    
         private String HubEndpoint = null;
         private String HubSasKeyName = null;
         private String HubSasKeyValue = null;
-6. Bildirim hub'ınıza ileti göndermek amacıyla bir POST isteğinin kimlik doğrulamasını yapmak için bir Yazılım Erişim İmzası (SaS) belirteci oluşturmanız gerekir. Bu, anahtar verilerini bağlantı dizesinden ayrıştırarak ve ardından [Ortak Kavramlar](http://msdn.microsoft.com/library/azure/dn495627.aspx) REST API'si başvurusunda belirtildiği gibi SaS belirtecini oluşturarak yapılır. Aşağıdaki kod örnek bir uygulamadır.
+6. Bir POST isteği toosend iletileri tooyour bildirim hub'ı bir yazılım erişim imzası (SaS) belirteci tooauthenticate oluşturmanız gerekir. Bu hello anahtar veri hello bağlantı dizesinden ayrıştırarak yapılır ve ardından oluşturarak hello SaS belirteci hello belirtildiği gibi [ortak kavramlar](http://msdn.microsoft.com/library/azure/dn495627.aspx) REST API Başvurusu. koddan hello örnek bir uygulamadır.
    
-    Bağlantı dizenizi ayrıştırmak için `MainActivity.java` öğesinde aşağıdaki yöntemi `MainActivity` sınıfına ekleyin.
+    İçinde `MainActivity.java`, yöntem toohello aşağıdaki hello eklemek `MainActivity` tooparse bağlantı dizenizi sınıfı.
    
         /**
          * Example code from http://msdn.microsoft.com/library/azure/dn495627.aspx
-         * to parse the connection string so a SaS authentication token can be
+         * tooparse hello connection string so a SaS authentication token can be
          * constructed.
          *
-         * @param connectionString This must be the DefaultFullSharedAccess connection
+         * @param connectionString This must be hello DefaultFullSharedAccess connection
          *                         string for this example.
          */
         private void ParseConnectionString(String connectionString)
@@ -507,14 +507,14 @@ Normalde bildirimleri bir arka uç sunucusu kullanarak gönderirsiniz. Bazı dur
                 }
             }
         }
-7. Bir SaS kimlik doğrulaması belirteci oluşturmak için `MainActivity.java` öğesinde aşağıdaki yöntemi `MainActivity` sınıfına ekleyin.
+7. İçinde `MainActivity.java`, yöntem toohello aşağıdaki hello eklemek `MainActivity` sınıfı toocreate bir SaS kimlik doğrulama belirteci.
    
         /**
          * Example code from http://msdn.microsoft.com/library/azure/dn495627.aspx to
-         * construct a SaS token from the access key to authenticate a request.
+         * construct a SaS token from hello access key tooauthenticate a request.
          *
-         * @param uri The unencoded resource URI string for this operation. The resource
-         *            URI is the full URI of the Service Bus resource to which access is
+         * @param uri hello unencoded resource URI string for this operation. hello resource
+         *            URI is hello full URI of hello Service Bus resource toowhich access is
          *            claimed. For example,
          *            "http://<namespace>.servicebus.windows.net/<hubName>"
          */
@@ -533,15 +533,15 @@ Normalde bildirimleri bir arka uç sunucusu kullanarak gönderirsiniz. Bazı dur
                 long expires = expiresOnDate / 1000;
                 String toSign = targetUri + "\n" + expires;
    
-                // Get an hmac_sha1 key from the raw key bytes
+                // Get an hmac_sha1 key from hello raw key bytes
                 byte[] keyBytes = HubSasKeyValue.getBytes("UTF-8");
                 SecretKeySpec signingKey = new SecretKeySpec(keyBytes, "HmacSHA256");
    
-                // Get an hmac_sha1 Mac instance and initialize with the signing key
+                // Get an hmac_sha1 Mac instance and initialize with hello signing key
                 Mac mac = Mac.getInstance("HmacSHA256");
                 mac.init(signingKey);
    
-                // Compute the hmac on input data bytes
+                // Compute hello hmac on input data bytes
                 byte[] rawHmac = mac.doFinal(toSign.getBytes("UTF-8"));
    
                 // Using android.util.Base64 for Android Studio instead of
@@ -560,14 +560,14 @@ Normalde bildirimleri bir arka uç sunucusu kullanarak gönderirsiniz. Bazı dur
    
             return token;
         }
-8. **Bildirim Gönder** düğmesine tıklanmasını ele almak ve yerleşik REST API'sini kullanarak hub'a anında iletme bildirimi iletisi göndermek için `MainActivity.java` öğesinde `MainActivity` sınıfına aşağıdaki yöntemi ekleyin.
+8. İçinde `MainActivity.java`, yöntemi toohello aşağıdaki hello eklemek `MainActivity` sınıfı toohandle hello **bildirim gönder** düğmesini tıklatın ve yerleşik REST API'sini kullanarak ileti toohello hub hello hello anında iletme bildirimi gönderin.
    
         /**
          * Send Notification button click handler. This method parses the
          * DefaultFullSharedAccess connection string and generates a SaS token. The
-         * token is added to the Authorization header on the POST request to the
-         * notification hub. The text in the editTextNotificationMessage control
-         * is added as the JSON body for the request to add a GCM message to the hub.
+         * token is added toohello Authorization header on hello POST request toothe
+         * notification hub. hello text in hello editTextNotificationMessage control
+         * is added as hello JSON body for hello request tooadd a GCM message toohello hub.
          *
          * @param v
          */
@@ -593,7 +593,7 @@ Normalde bildirimleri bir arka uç sunucusu kullanarak gönderirsiniz. Bazı dur
                             // POST request
                             urlConnection.setDoOutput(true);
    
-                            // Authenticate the POST request with the SaS token
+                            // Authenticate hello POST request with hello SaS token
                             urlConnection.setRequestProperty("Authorization", 
                                 generateSasToken(url.toString()));
    
@@ -602,7 +602,7 @@ Normalde bildirimleri bir arka uç sunucusu kullanarak gönderirsiniz. Bazı dur
    
                             // Include any tags
                             // Example below targets 3 specific tags
-                            // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
+                            // Refer too: https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
                             // urlConnection.setRequestProperty("ServiceBusNotification-Tags", 
                             //        "tag1 || tag2 || tag3");
    
@@ -641,28 +641,28 @@ Normalde bildirimleri bir arka uç sunucusu kullanarak gönderirsiniz. Bazı dur
         }
 
 ## <a name="testing-your-app"></a>Uygulamanızı test etme
-#### <a name="push-notifications-in-the-emulator"></a>Öykünücüde anında iletme bildirimleri
-Anında iletme bildirimlerini bir öykünücüde test etmek isterseniz öykünücü görüntünüzün, uygulamanız için seçtiğiniz Google API düzeyini desteklediğinden emin olun. Görüntünüz yerel Google API'lerini desteklemiyorsa **HİZMET\_\_KULLANILAMIYOR** özel durumuyla karşılaşırsınız.
+#### <a name="push-notifications-in-hello-emulator"></a>Merhaba öykünücüde anında iletme bildirimleri
+Tootest anında iletme bildirimlerini bir öykünücüde isterseniz öykünücü görüntünüzün, uygulamanız için seçtiğiniz hello Google API düzeyini desteklediğinden emin olun. Görüntünüzü yerel Google API'lerini desteklemiyorsa, hello ile karşılaşırsınız **hizmet\_değil\_kullanılabilir** özel durum.
 
-Yukarıdakine ek olarak, **Ayarlar** > **Hesaplar**'ın altında çalışan öykünücünüze Google hesabınızı eklediğinizden emin olun. Aksi halde, GCM ile kayıt girişimleriniz **KİMLİK DOĞRULAMASI\_BAŞARISIZ** özel durumuyla sonuçlanabilir.
+Buna ek olarak toohello yukarıdaki emin öykünücüsü altında çalışan, Google hesabı tooyour eklediğiniz **ayarları** > **hesapları**. Aksi takdirde, deneme tooregister GCM ile hello sonuçlanabilir **kimlik doğrulaması\_başarısız** özel durum.
 
-#### <a name="running-the-application"></a>Uygulamayı çalıştırma
-1. Uygulamayı çalıştırın ve kayıt kimliğinin başarılı bir kaydı bildirdiğine dikkat edin.
+#### <a name="running-hello-application"></a>Çalışan hello uygulama
+1. Merhaba uygulamayı çalıştırın ve hello kayıt kimliği başarılı bir kaydı bildirdiğine dikkat edin.
    
        ![Testing on Android - Channel registration](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-registered.png)
-2. Hub'da kayıtlı tüm Android cihazlara gönderilecek bir bildirim iletisi girin.
+2. Merhaba hub'da kayıtlı Android cihazlar tooall gönderilen bir bildirim iletisi toobe girin.
    
        ![Testing on Android - sending a message](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-set-message.png)
-3. **Bildirim Gönder**'e basın. Uygulamayı çalıştıran tüm cihazlarda, anında iletme bildirimi iletisiyle birlikte bir `AlertDialog` örneği görünür. Uygulamayı çalıştırmayan ancak anında iletme bildirimleri için daha önce kaydolan cihazlar, Android Bildirim Yöneticisi'nde bir bildirim alır. Bunlar, sol üst köşeden aşağı çekilerek görüntülenebilir.
+3. **Bildirim Gönder**'e basın. Merhaba uygulamasının çalışıyor cihazlarını göstermeyecektir bir `AlertDialog` hello anında iletme bildirimi iletisi örneğiyle. Merhaba uygulamasının çalışıyor yoksa, ancak daha önce kaydolan cihazlar anında iletme bildirimleri için hello Android bildirim Yöneticisi bir bildirim alırsınız. Bu, hello sol üst köşeden aşağı çekilerek görüntülenebilir.
    
        ![Testing on Android - notifications](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-received-message.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Sonraki adım olarak [Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs’ı kullanma] öğreticisini öneririz. Bu, belirli kullanıcıları hedeflemek için etiketler kullanarak ASP.NET arka ucundan nasıl bildirim göndereceğinizi gösterir.
+Merhaba öneririz [Notification Hubs kullanma toopush bildirimleri toousers] hello sonraki adım olarak Öğreticisi. Bunu nasıl kullanarak bir ASP.NET arka uç toosend bildirimleri etiketler tootarget belirli kullanıcılara gösterilir.
 
-Kullanıcılarınızı ilgi alanı gruplarına göre segmentlere ayırmak istiyorsanız [Son dakika haberleri göndermek için Notification Hubs kullanma] öğreticisine göz atın.
+Kullanıcılarınızı ilgi alanı gruplarına göre toosegment istiyorsanız, hello denetleyin [son dakika haberleri Notification Hubs kullanma toosend] Öğreticisi.
 
-Notification Hubs hakkında daha fazla genel bilgi edinmek için bkz. [Notification Hubs Kılavuzu].
+toolearn Notification Hubs hakkında daha fazla genel bilgi bizim [Notification Hubs Kılavuzu].
 
 <!-- Images. -->
 
@@ -674,6 +674,6 @@ Notification Hubs hakkında daha fazla genel bilgi edinmek için bkz. [Notificat
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Azure Classic Portal]: https://manage.windowsazure.com/
 [Notification Hubs Kılavuzu]: notification-hubs-push-notification-overview.md
-[Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs’ı kullanma]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-[Son dakika haberleri göndermek için Notification Hubs kullanma]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
+[Notification Hubs kullanma toopush bildirimleri toousers]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
+[son dakika haberleri Notification Hubs kullanma toosend]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [Azure Portal]: https://portal.azure.com

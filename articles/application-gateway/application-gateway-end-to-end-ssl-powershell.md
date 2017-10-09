@@ -1,6 +1,6 @@
 ---
-title: "Azure uygulama ağ geçidi ile uçtan uca SSL'yi yapılandırma | Microsoft Docs"
-description: "Bu makalede uçtan uca SSL uygulama ağ geçidi kullanarak Azure Resource Manager PowerShell ile nasıl yapılandırılacağı açıklanmaktadır"
+title: "aaaConfigure son tooend SSL Azure uygulama ağ geçidi ile | Microsoft Docs"
+description: "Bu makalede nasıl tooconfigure sona tooend SSL Azure Resource Manager PowerShell kullanarak uygulama ağ geçidi ile açıklanır"
 services: application-gateway
 documentationcenter: na
 author: georgewallace
@@ -14,51 +14,51 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: gwallace
-ms.openlocfilehash: 6d969d6a0c649c263e1d5bb99bdbceec484cb9a3
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 7c280478e143d309e7665219441cbee8c81d9a80
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configure-end-to-end-ssl-with-application-gateway-using-powershell"></a>Uygulama ağ geçidi PowerShell kullanarak ile uçtan uca SSL yapılandırma
+# <a name="configure-end-tooend-ssl-with-application-gateway-using-powershell"></a>Uygulama ağ geçidi PowerShell kullanarak ile son tooend SSL yapılandırma
 
 ## <a name="overview"></a>Genel Bakış
 
-Uygulama ağ geçidi uçtan uca şifreleme trafiği destekler. Application Gateway bu işlemi uygulama ağ geçidindeki SSL bağlantısını sonlandırarak yapar. Ağ geçidi bundan sonra yönlendirme kurallarını trafiğe uygular, paketi yeniden şifreler ve tanımlanan yönlendirme kurallarına göre paketi uygun arka uca iletir. Web sunucusundan alınan herhangi bir yanıt, son kullanıcıya dönerken aynı süreci izler.
+Uygulama ağ geçidi destekler tooend şifreleme trafik sonlandırın. Uygulama ağ geçidi bunu hello uygulama ağ geçidi hello SSL bağlantısını sonlandırarak yapar. Hello ağ geçidi sonra toohello trafiği hello paket yeniden şifreler ve tanımlanan hello yönlendirme kurallarına göre hello paket toohello uygun arka uç iletir hello yönlendirme kuralları uygular. Merhaba web sunucusundan herhangi bir yanıt hello gider aynı işlemi geri toohello son kullanıcı.
 
-Başka bir özellik, bu uygulama ağ geçidi özel SSL seçenekleri tanımlama destekler. Uygulama ağ geçidi, aşağıdaki iletişim kuralı sürüm devre dışı bırakma destekler; **TLSv1.0**, **TLSv1.1**, ve **TLSv1.2** iyi tanımlayıcı olarak hangi şifre paketleri ve tercih sırasına göre.  Yapılandırılabilir SSL seçenekler hakkında daha fazla bilgi için [SSL ilkesine genel bakış](application-gateway-SSL-policy-overview.md).
+Başka bir özellik, bu uygulama ağ geçidi özel SSL seçenekleri tanımlama destekler. Uygulama Ağ Geçidi Protokolü sürüm aşağıdaki devre dışı bırakma hello destekler; **TLSv1.0**, **TLSv1.1**, ve **TLSv1.2** de şifre paketleri toouse ve hello tercih sırasına göre hello tanımlama.  yapılandırılabilir SSL seçenekleri hakkında daha fazla toolearn ziyaret [SSL ilkesine genel bakış](application-gateway-SSL-policy-overview.md).
 
 > [!NOTE]
-> SSL 2.0 ve SSL 3.0 varsayılan olarak devre dışıdır ve etkinleştirilemez. Bunlar Güvensiz olarak kabul edilir ve uygulama ağ geçidi ile kullanılması mümkün değildir.
+> SSL 2.0 ve SSL 3.0 varsayılan olarak devre dışıdır ve etkinleştirilemez. Bunlar Güvensiz olarak kabul edilir ve uygulama ağ geçidi ile kullanılan mümkün toobe değildir.
 
 ![Senaryo görüntüsü][scenario]
 
 ## <a name="scenario"></a>Senaryo
 
-Bu senaryoda, PowerShell kullanarak uçtan uca SSL kullanan bir uygulama ağ geçidi oluşturmayı öğrenin.
+Bu senaryoda, nasıl kullanarak bir uygulama ağ geçidi toocreate sona tooend SSL öğrenin PowerShell kullanarak.
 
 Bu senaryo aşağıdakileri yapar:
 
 * Adlı bir kaynak grubu oluşturmak **appgw-rg**
 * Adlı bir sanal ağ oluşturma **appgwvnet** 10.0.0.0/16 bir adres alanı ile.
 * Adlı iki alt ağ oluşturmak **appgwsubnet** ve **appsubnet**.
-* Uçtan uca SSL şifrelemesini destekleyen bir küçük uygulama ağ geçidi, o sınırlar SSL protokolleri sürümlerini ve şifre paketleri oluşturun.
+* Bir küçük uygulama ağ geçidi destek bitiş tooend SSL şifrelemesi bu sınırları SSL protokolleri sürümlerini ve şifre paketleri oluşturun.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bir uygulama ağ geçidi ile uçtan uca SSL'yi yapılandırmak için bir sertifika ağ geçidi için gereklidir ve sertifikaları arka uç sunucuları için gereklidir. Ağ geçidi sertifikası şifrelemek ve SSL ile gönderilen trafiğin şifresini çözmek için kullanılır. Ağ geçidi sertifikası kişisel bilgi değişimi (pfx) biçiminde olması gerekir. Bu dosya biçimi, uygulama ağ geçidi tarafından şifreleme ve şifre çözme trafik gerçekleştirmek için gereken özel anahtar verilebilsin sağlar.
+bir uygulama ağ geçidi ile tooconfigure son tooend SSL, bir sertifika hello ağ geçidi için gereklidir ve sertifikaları hello arka uç sunucuları için gereklidir. SSL ile kullanılan tooencrypt ve şifre çözme hello gönderilen trafiğin tooit Hello ağ geçidi sertifikasıdır. Merhaba ağ geçidi sertifikası kişisel bilgi değişimi (pfx) biçiminde toobe gerekir. Bu dosya biçimi, hangi hello uygulama ağ geçidi tooperform hello şifreleme ve şifre çözme trafik tarafından gerekli anahtar toobe dışarı Merhaba özel sağlar.
 
-Uçtan uca SSL şifrelemesi için arka uç uygulama ağ geçidi ile güvenilir listesinde olması gerekir. Bu uygulama ağ geçidi arka uçlarını ortak sertifikasını karşıya yükleyerek gerçekleştirilir. Bu uygulama ağ geçidi ile bilinen arka uç örnekleri yalnızca iletişim kurar sağlar. Bu ek uçtan uca iletişimin güvenliğini sağlar.
+End tooend SSL şifreleme hello arka uç uygulama ağ geçidi ile Güvenilenler listesine olması gerekir. Bu, hello arka uçlarını toohello uygulama ağ geçidi hello ortak sertifikasını karşıya yükleyerek gerçekleştirilir. Bu, o hello uygulama ağ geçidi yalnızca bilinen arka uç örnekleri ile iletişim kurar sağlar. Bu daha fazla hello son tooend iletişimin güvenliğini sağlar.
 
-Bu işlem aşağıdaki adımlarda açıklanmaktadır:
+Bu işlem aşağıdaki adımları hello açıklanmıştır:
 
-## <a name="create-the-resource-group"></a>Kaynak grubu oluştur
+## <a name="create-hello-resource-group"></a>Merhaba kaynak grubu oluştur
 
-Bu bölümde uygulama ağ geçidi içeren bir kaynak grubu oluşturmada size yol gösterir.
+Bu bölümde hello uygulama ağ geçidi içeren bir kaynak grubu oluşturmada size yol gösterir.
 
 ### <a name="step-1"></a>1. Adım
 
-Azure hesabınızda oturum açın.
+Tooyour Azure hesabı oturum açın.
 
 ```powershell
 Login-AzureRmAccount
@@ -66,7 +66,7 @@ Login-AzureRmAccount
 
 ### <a name="step-2"></a>2. Adım
 
-Bu senaryo için kullanılacak aboneliği seçin.
+Bu senaryo için Hello abonelik toouse seçin.
 
 ```powershell
 Select-AzureRmsubscription -SubscriptionName "<Subscription name>"
@@ -80,26 +80,26 @@ Bir kaynak grubu oluşturun (mevcut bir kaynak grubu kullanıyorsanız bu adım�
 New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
 ```
 
-## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Uygulama ağ geçidi için bir sanal ağ ve bir alt ağ oluşturun
+## <a name="create-a-virtual-network-and-a-subnet-for-hello-application-gateway"></a>Bir sanal ağ ve hello uygulama ağ geçidi için bir alt ağ oluşturma
 
-Aşağıdaki örnek, bir sanal ağ ve iki alt ağı oluşturur. Bir alt ağ, uygulama ağ geçidi tutmak için kullanılır. Diğer alt web uygulamasını barındıran arka uçlarını için kullanılır.
+Merhaba aşağıdaki örnek bir sanal ağ ve iki alt ağı oluşturur. Bir alt ağda kullanılan toohold hello uygulama ağ geçidi ' dir. Merhaba diğer alt hello arka uçlarını barındırma hello web uygulaması için kullanılır.
 
 ### <a name="step-1"></a>1. Adım
 
-Alt ağ uygulama ağ geçidi için kendisini kullanılması için bir adres aralığı atayın.
+Merhaba alt hello uygulama ağ geçidi kendisi için kullanılması için bir adres aralığı atayın.
 
 ```powershell
 $gwSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPrefix 10.0.0.0/24
 ```
 
 > [!NOTE]
-> Uygulama ağ geçidi için yapılandırılmış alt ağlar doğru boyutta olması. Bir uygulama ağ geçidi için en fazla 10 örneğini yapılandırılabilir. Her örneğin bir IP adresi alt ağdan alır. Çok küçük bir alt ağın, bir uygulama ağ geçidi ölçeklendirme olumsuz yönde etkileyebilir.
+> Uygulama ağ geçidi için yapılandırılmış alt ağlar doğru boyutta olması. Bir uygulama ağ geçidi too10 örneği için yapılandırılabilir. Her bir örnek hello alt ağdan bir IP adresi alır. Çok küçük bir alt ağın, bir uygulama ağ geçidi ölçeklendirme olumsuz yönde etkileyebilir.
 > 
 > 
 
 ### <a name="step-2"></a>2. Adım
 
-Arka uç adres havuzu için kullanılacak bir adres aralığı atayın.
+Merhaba arka uç adres havuzu için kullanılan bir adres aralığı toobe atayın.
 
 ```powershell
 $nicSubnet = New-AzureRmVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.2.0/24
@@ -107,7 +107,7 @@ $nicSubnet = New-AzureRmVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPr
 
 ### <a name="step-3"></a>3. Adım
 
-Önceki adımlarda tanımlanan alt ağları ile bir sanal ağ oluşturun.
+Önceki adımları hello tanımlanan hello alt ağlar ile bir sanal ağ oluşturun.
 
 ```powershell
 $vnet = New-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $gwSubnet, $nicSubnet
@@ -115,7 +115,7 @@ $vnet = New-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg 
 
 ### <a name="step-4"></a>4. Adım
 
-Aşağıdaki adımlarda kullanılacak alt ağ kaynaklarının ve sanal ağ kaynak Al:
+Aşağıdaki adımları hello kullanılan hello sanal ağ kaynak ve alt ağ kaynakları toobe Al:
 
 ```powershell
 $vnet = Get-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg
@@ -123,24 +123,24 @@ $gwSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -VirtualNe
 $nicSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'appsubnet' -VirtualNetwork $vnet
 ```
 
-## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Ön uç yapılandırma için genel bir IP adresi oluşturun
+## <a name="create-a-public-ip-address-for-hello-front-end-configuration"></a>Merhaba ön uç yapılandırma için genel bir IP adresi oluştur
 
-Uygulama ağ geçidi için kullanılacak genel bir IP kaynağı oluşturun. Bu genel IP adresi kullanılır aşağıdaki adımı.
+Merhaba uygulama ağ geçidi için kullanılan bir ortak IP kaynak toobe oluşturun. Bu genel IP adresi kullanılır aşağıdaki adımı.
 
 ```powershell
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'publicIP01' -Location "West US" -AllocationMethod Dynamic
 ```
 
 > [!IMPORTANT]
-> Uygulama ağ geçidi, tanımlı bir etki alanı etiketi ile oluşturulan bir ortak IP adresi kullanımını desteklemiyor. Yalnızca bir ortak IP adresi dinamik olarak oluşturulan etki alanı etiketi ile desteklenir. Uygulama ağ geçidi için bir kolay dns adı gerekiyorsa, bir CNAME kaydı bir diğer ad olarak kullanmak için önerilir.
+> Uygulama ağ geçidi hello tanımlı bir etki alanı etiketi ile oluşturulan bir ortak IP adresi kullanımını desteklemez. Yalnızca bir ortak IP adresi dinamik olarak oluşturulan etki alanı etiketi ile desteklenir. Merhaba uygulama ağ geçidi için bir kolay dns adı gerekiyorsa, önerilen toouse bir CNAME kaydı bir diğer ad olarak.
 
 ## <a name="create-an-application-gateway-configuration-object"></a>Uygulama ağ geçidi yapılandırma nesnesi oluşturun
 
-Tüm yapılandırma öğeleri, uygulama ağ geçidi oluşturmadan önce ayarlanır. Aşağıdaki adımlar uygulama ağ geçidi kaynağı için gerekli yapılandırma öğelerini oluşturur.
+Tüm yapılandırma öğeleri hello uygulama ağ geçidi oluşturmadan önce ayarlanır. Merhaba aşağıdaki adımları hello uygulama ağ geçidi kaynağı için gerekli olan yapılandırma öğeleri oluşturun.
 
 ### <a name="step-1"></a>1. Adım
 
-Uygulama ağ geçidi IP yapılandırması oluşturun, bu ayarı, uygulama ağ geçidini kullanır hangi alt yapılandırır. Uygulama ağ geçidi başladığında, yapılandırılan alt ağdan bir IP adresi seçer ve arka uç IP havuzundaki IP adresleri için ağ trafiğini yönlendirir. Her örneğin bir IP adresi aldığını göz önünde bulundurun.
+Uygulama ağ geçidi IP yapılandırması oluşturun, bu ayarı, hangi alt hello uygulama ağ geçidi kullanan yapılandırır. Application gateway başladığında, yapılandırılan hello alt ağdan bir IP adresi seçer ve ağ trafiğini toohello IP adreslerini hello arka uç IP havuzundaki yönlendirir. Her örneğin bir IP adresi aldığını göz önünde bulundurun.
 
 ```powershell
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
@@ -148,7 +148,7 @@ $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name 'gwconfig' -Subn
 
 ### <a name="step-2"></a>2. Adım
 
-Bir ön uç IP yapılandırmasını oluşturur, bu ayar, uygulama ağ geçidi ön ucu bir özel veya genel IP adresi eşler. Aşağıdaki adım önceki adımda genel IP adresi ön uç IP yapılandırmasını ilişkilendirir.
+Bu ayar hello uygulama ağ geçidi bir özel veya genel IP adresi toohello ön ucu eşlemeleri, ön uç IP yapılandırmasını oluşturun. adımı aşağıdaki hello hello ön uç IP yapılandırmasını adımıyla önceki hello hello genel IP adresi ilişkilendirir.
 
 ```powershell
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAddress $publicip
@@ -156,18 +156,18 @@ $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name 'fip01' -Public
 
 ### <a name="step-3"></a>3. Adım
 
-Arka uç IP adresi havuzu ile arka uç web sunucularının IP adreslerini yapılandırın. Bu IP adresleri ön uç IP uç noktasından gelen ağ trafiğinin yönlendirildiği IP adresleridir. Kendi uygulama IP adresi uç noktalarını eklemek için aşağıdaki IP adreslerini değiştirin.
+Merhaba arka uç IP adresi havuzu ile Merhaba arka uç web sunucularının hello IP adreslerini yapılandırın. Bu IP adreslerine hello ön uç IP uç noktasından gelen ağ trafiğini hello aldığınız hello IP adresleridir. Kendi uygulama IP adresi bitiş IP adreslerini tooadd aşağıdaki hello değiştirin.
 
 ```powershell
 $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 1.1.1.1, 2.2.2.2, 3.3.3.3
 ```
 
 > [!NOTE]
-> Bir tam etki alanı adı (FQDN) aynı zamanda arka uç sunucuları için bir IP adresi yerine geçerli bir değer - BackendFqdns anahtar kullanmaktır. 
+> Bir tam etki alanı adı (FQDN) da geçerli bir değer hello arka uç sunucuları için bir IP adresi yerine hello - BackendFqdns anahtar kullanmaktır. 
 
 ### <a name="step-4"></a>4. Adım
 
-Genel IP uç noktası için ön uç IP bağlantı noktası yapılandırın. Bu bağlantı noktası, son kullanıcılara bağlanan bağlantı noktasıdır.
+Merhaba ön uç IP bağlantı noktası hello genel IP uç noktası için yapılandırın. Bu bağlantı noktası, son kullanıcılara bağlanan hello bağlantı noktasıdır.
 
 ```powershell
 $fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 443
@@ -175,18 +175,18 @@ $fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 443
 
 ### <a name="step-5"></a>5. Adım
 
-Uygulama ağ geçidi için sertifika yapılandırın. Bu sertifika, uygulama ağ geçidi trafiğinde yeniden şifrelemek ve şifresini çözmek için kullanılır.
+Merhaba hello uygulama ağ geçidi için yapılandırın. Bu sertifika kullanılan toodecrypt ve hello uygulama ağ geçidi üzerinde hello trafiğini yeniden şifreleyin.
 
 ```powershell
-$cert = New-AzureRmApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password <password for certificate file>
+$cert = New-AzureRmApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path too.pfx file> -Password <password for certificate file>
 ```
 
 > [!NOTE]
-> Bu örnek, SSL bağlantısı için kullanılan sertifikayı yapılandırır. Sertifikanın .pfx formatında olması gerekir ve parola 4 ile 12 karakter arasında olmalıdır.
+> Bu örnek, SSL bağlantısı için kullanılan hello sertifika yapılandırır. Merhaba sertifikanın .pfx biçiminde toobe gerekir ve hello parola 4 too12 karakter arasında olmalıdır.
 
 ### <a name="step-6"></a>6. Adım
 
-HTTP dinleyicisi için uygulama ağ geçidi oluşturun. Ön uç IP yapılandırması, bağlantı noktası ve kullanmak için SSL sertifikası atayın.
+Merhaba HTTP dinleyicisi hello uygulama ağ geçidi için oluşturun. Merhaba ön uç IP yapılandırması, bağlantı noktası ve SSL sertifika toouse atayın.
 
 ```powershell
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SSLCertificate $cert
@@ -194,21 +194,21 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol
 
 ### <a name="step-7"></a>7. Adım
 
-SSL etkin arka uç havuzu kaynaklardaki kullanılan sertifikayı karşıya yükleyin.
+Arka uç havuzu kaynaklarına SSL Hello üzerinde kullanılan toobe etkin hello sertifikasını yükleyin.
 
 > [!NOTE]
-> Ortak anahtarı ile varsayılan araştırmasını alır **varsayılan** SSL bağlaması arka uç bilgisayarın IP adresi ve aldığı ortak anahtar değeri, ortak anahtar değeri sağlamak burada karşılaştırır. Alınan ortak anahtar hangi trafik akışları hedeflenen siteye mutlaka olmayabilir **varsa** ana bilgisayar üstbilgilerinin ve SNI uç kullanma. Emin değilseniz, hangi sertifika için kullanılan onaylamak için arka uç https://127.0.0.1/ ziyaret **varsayılan** SSL bağlaması. Bu bölümde bu istek ortak anahtarı kullanın. Ana bilgisayar üstbilgilerinin ve SNI HTTPS bağlantılarına kullanıyorsanız ve bir yanıt ve sertifika el ile tarayıcı isteğinden arka ucunda https://127.0.0.1/ için aldığınız olmayan bir varsayılan SSL bağlaması arka ucunda ayarlamanız gerekir. Bunu yaparsanız, araştırmalar başarısız ve arka uç izin verilenler listesinde değil.
+> Merhaba varsayılan araştırmasını alır hello ortak anahtar hello **varsayılan** SSL bağlaması hello arka uç bilgisayarın IP adresi ve toohello ortak anahtar değeri burada aldığı karşılaştırır hello ortak anahtar değeri. Merhaba alınan ortak anahtar mutlaka hedeflenen hello site toowhich trafik akışına olabilir **varsa** ana bilgisayar üstbilgilerinin ve SNI hello arka uçta kullanma. Emin değilseniz, hangi sertifikanın hello için kullanılan hello arka uçları tooconfirm https://127.0.0.1/ ziyaret **varsayılan** SSL bağlaması. Bu bölümde bu istek Hello ortak anahtar kullanın. Ana bilgisayar üstbilgilerinin ve SNI HTTPS bağlantılarına kullanıyorsanız ve, yanıt ve sertifikayı el ile tarayıcı istek toohttps://127.0.0.1/ hello arka ucunda alırsınız olmayan bir varsayılan SSL bağlaması hello arka ucunda ayarlamanız gerekir. Bunu yaparsanız, araştırmalar başarısız ve hello arka uç izin verilenler listesinde değil.
 
 ```powershell
 $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
 ```
 
 > [!NOTE]
-> Bu adımda sağlanan sertifikanın arka uç mevcut pfx sertifika ortak anahtarı olması gerekir. Arka uç sunucuda yüklü sertifikayı (kök sertifikanın değil) verin. CER biçimlendirin ve bu adımda kullanın. Bu adım whitelists arka uç uygulama ağ geçidi ile.
+> Bu adımda sağlanan hello sertifika hello ortak anahtarı hello pfx sertifika hello arka uç üzerinde mevcut olmalıdır. Merhaba arka uç sunucusunda yüklü hello sertifika (Merhaba kök sertifikanın değil) verin. CER biçimlendirin ve bu adımda kullanın. Bu adım whitelists hello uygulama ağ geçidi ile arka uç hello.
 
 ### <a name="step-8"></a>8. Adım
 
-Uygulama ağ geçidi arka uç http ayarları yapılandırın. Http ayarları için önceki adımda yüklediğiniz sertifikayı atayın.
+Merhaba uygulama ağ geçidi arka uç http ayarları yapılandırın. Adım toohello http ayarları önceki hello karşıya hello sertifika atayın.
 
 ```powershell
 $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name 'setting01' -Port 443 -Protocol Https -CookieBasedAffinity Enabled -AuthenticationCertificates $authcert
@@ -216,7 +216,7 @@ $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name 'setting01
 
 ### <a name="step-9"></a>9. Adım
 
-Yük Dengeleyici davranışını yapılandıran Yük Dengeleyiciyi yönlendirme kuralını oluşturun. Bu örnekte, bir temel hepsini bir kural oluşturulur.
+Merhaba yük dengeleyici davranışını yapılandıran Yük Dengeleyiciyi yönlendirme kuralını oluşturun. Bu örnekte, bir temel hepsini bir kural oluşturulur.
 
 ```powershell
 $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
@@ -224,34 +224,34 @@ $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType
 
 ### <a name="step-10"></a>10. adım
 
-Uygulama ağ geçidinin örnek boyutunu yapılandırın.  Kullanılabilir boyutları: **standart\_küçük**, **standart\_orta**, ve **standart\_büyük**.  Kapasite için 1 ile 10 değerleri kullanılabilir.
+Merhaba uygulama ağ geçidi Hello örnek boyutunu yapılandırın.  Merhaba kullanılabilir boyutları: **standart\_küçük**, **standart\_orta**, ve **standart\_büyük**.  Kapasite için 1 ile 10 hello değerleri kullanılabilir.
 
 ```powershell
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 ```
 
 > [!NOTE]
-> Test amacıyla örnek sayısını 1 seçilebilir. Tüm örnek sayısı iki örneği altında SLA kapsamında değildir ve bu nedenle önerilmez bilmeniz önemlidir. Küçük ağ geçitleri geliştirme test ve üretim amaçları için kullanılacak olan.
+> Test amacıyla örnek sayısını 1 seçilebilir. Herhangi bir örneğine altında iki örnek sayısı tooknow hello tarafından SLA kapsamında değildir ve bu nedenle önerilmez önemlidir. Küçük ağ geçitleri geliştirme test ve üretim amaçları için kullanılan toobe ' dir.
 
 ### <a name="step-11"></a>11. adım
 
-Uygulama ağ geçidinde kullanılacak SSL ilkesini yapılandırın. Uygulama ağ geçidi SSL protokol sürümleri için en düşük sürüm ayarlama özelliği destekler.
+Uygulama ağ geçidi Hello üzerinde kullanılan hello SSL İlkesi toobe yapılandırın. Uygulama ağ geçidi hello özelliği tooset en düşük sürüm SSL protokol sürümleri için destekler.
 
-Aşağıdaki değerleri tanımlanabilir protokol sürümleri listesi verilmiştir.
+Merhaba aşağıdaki değerleri tanımlanabilir protokol sürümleri listesi verilmiştir.
 
 * **TLSv1_0**
 * **TLSv1_1**
 * **TLSv1_2**
 
-En düşük protokol sürümü ayarlar **TLSv1_2** ve sağlar **TLS\_ECDHE\_ECDSA\_ile\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_ile\_AES\_256\_GCM\_SHA384**ve  **TLS\_RSA\_ile\_AES\_128\_GCM\_SHA256** yalnızca.
+Ayarlar hello en düşük protokol sürümü çok**TLSv1_2** ve sağlar **TLS\_ECDHE\_ECDSA\_ile\_AES\_128\_GCM\_ SHA256**, **TLS\_ECDHE\_ECDSA\_ile\_AES\_256\_GCM\_SHA384**ve **TLS\_RSA\_ile\_AES\_128\_GCM\_SHA256** yalnızca.
 
 ```powershell
 $SSLPolicy = New-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
 ```
 
-## <a name="create-the-application-gateway"></a>Uygulama ağ geçidi oluşturma
+## <a name="create-hello-application-gateway"></a>Merhaba uygulama ağ geçidi oluşturma
 
-Yukarıdaki adımları kullanarak uygulama ağ geçidi oluşturun. Ağ geçidi oluşturma uzun süren bir işlemdir.
+Adımları önceki tüm hello kullanarak hello uygulama ağ geçidi oluşturun. Merhaba ağ geçidi Hello oluşturulmasını uzun süren bir işlemdir.
 
 ```powershell
 $appgw = New-AzureRmApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
@@ -259,11 +259,11 @@ $appgw = New-AzureRmApplicationGateway -Name appgateway -SSLCertificates $cert -
 
 ## <a name="limit-ssl-protocol-versions-on-an-existing-application-gateway"></a>Mevcut bir uygulama ağ geçidi SSL protokolü sürümlerinde sınırla
 
-Önceki adımlar, uçtan uca SSL ile uygulama oluşturma ve belirli SSL protokol sürümleri devre dışı bırakma uygulayın. Aşağıdaki örnekte belirli SSL ilkeleri var olan bir uygulama ağ geçidi üzerinde devre dışı bırakır.
+Merhaba önceki son tooend SSL ile uygulama oluşturma ve belirli SSL protokol sürümleri devre dışı bırakma adımlar. Merhaba aşağıdaki örnekte belirli SSL ilkeleri var olan bir uygulama ağ geçidi üzerinde devre dışı bırakır.
 
 ### <a name="step-1"></a>1. Adım
 
-Uygulama ağ geçidi güncelleştirilecek alın.
+Merhaba uygulama ağ geçidi tooupdate alın.
 
 ```powershell
 $gw = Get-AzureRmApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
@@ -271,7 +271,7 @@ $gw = Get-AzureRmApplicationGateway -Name AdatumAppGateway -ResourceGroupName Ad
 
 ### <a name="step-2"></a>2. Adım
 
-SSL ilke tanımlayın. Aşağıdaki örnekte, TLSv1.0 ve TLSv1.1 devre dışı bırakıldı ve şifre paketleri olduğundan **TLS\_ECDHE\_ECDSA\_ile\_AES\_128\_GCM\_SHA256** , **TLS\_ECDHE\_ECDSA\_ile\_AES\_256\_GCM\_SHA384**, ve  **TLS\_RSA\_ile\_AES\_128\_GCM\_SHA256** olan izin verilen yalnızca bu çalışanların.
+SSL ilke tanımlayın. Merhaba, aşağıdaki örneğine TLSv1.0 ve TLSv1.1 devre dışı bırakılır ve şifre paketleri hello **TLS\_ECDHE\_ECDSA\_ile\_AES\_128\_GCM\_SHA256** , **TLS\_ECDHE\_ECDSA\_ile\_AES\_256\_GCM\_SHA384**, ve  **TLS\_RSA\_ile\_AES\_128\_GCM\_SHA256** hello izin yalnızca olanlardır.
 
 ```powershell
 Set-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
@@ -280,7 +280,7 @@ Set-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion -PolicyType Custom -C
 
 ### <a name="step-3"></a>3. Adım
 
-Son olarak, ağ geçidini güncelleştirin. Bu son adım uzun çalışan bir görev olduğunu dikkate almak önemlidir. Tamamlandığında, uçtan uca SSL uygulama ağ geçidinde yapılandırılır.
+Son olarak, hello ağ geçidini güncelleştirin. Önemli toonote bu son adım uzun çalışan bir görev olduğundan emin olur. Tamamlandığında, son tooend SSL hello uygulama ağ geçidinde yapılandırılır.
 
 ```powershell
 $gw | Set-AzureRmApplicationGateway
@@ -288,7 +288,7 @@ $gw | Set-AzureRmApplicationGateway
 
 ## <a name="get-application-gateway-dns-name"></a>Uygulama ağ geçidi DNS adını alma
 
-Ağ geçidi oluşturulduktan sonraki adım, iletişim için ön uç yapılandırması yapmaktır. Genel IP kullanırken uygulama ağ geçidi için dinamik olarak atanan DNS adı gerekir ve bu durum çok kullanışlı değildir. Son kullanıcıların uygulama ağ geçidine ulaşmasını sağlamak için uygulama ağ geçidinin genel uç noktasını işaret edecek bir CNAME kaydı kullanılabilir. [Azure’da özel etki alanı adı yapılandırma](../cloud-services/cloud-services-custom-domain-name-portal.md). Bunu yapmak için uygulama ağ geçidinin ayrıntılarını ve onunla ilişkilendirilmiş olan IP/DNS adını uygulama ağ geçidine eklenmiş PublicIPAddress öğesini kullanarak alın. Uygulama ağ geçidinin DNS adı, iki web uygulamasını bu DNS adına götüren bir CNAME kaydı oluşturmak için kullanılmalıdır. Uygulama ağ geçidi yeniden başlatıldığında VIP değişebileceğinden A kaydı kullanımı önerilmez.
+Merhaba ağ geçidi oluşturulduktan sonra hello sonraki tooconfigure hello ön uç iletişimi için adımdır. Genel IP kullanırken uygulama ağ geçidi için dinamik olarak atanan DNS adı gerekir ve bu durum çok kullanışlı değildir. hello uygulama ağ geçidi isabet tooensure son kullanıcılar, bir CNAME kaydı kullanılan toopoint toohello genel bir uç nokta hello uygulama ağ geçidi olabilir. [Azure’da özel etki alanı adı yapılandırma](../cloud-services/cloud-services-custom-domain-name-portal.md). toodo Bu, alma ayrıntılarını hello uygulama ağ geçidi ve hello Publicıpaddress öğesi ekli toohello uygulama ağ geçidi kullanarak ilişkili IP/DNS adı. Merhaba uygulama ağ geçidi DNS adı kullanılan toocreate bir CNAME kaydı hangi noktaları hello iki web uygulamaları toothis DNS adı olmalıdır. Uygulama ağ geçidi başlatmada Hello VIP değişebileceği A kayıtlarını hello kullanımı önerilmez.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
@@ -318,6 +318,6 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Uygulama ağ geçidi üzerinden Web uygulaması güvenlik duvarı ile web uygulamalarınızın güvenliğini ziyaret ederek artırma hakkında bilgi edinin [Web uygulaması güvenlik duvarı genel bakış](application-gateway-webapplicationfirewall-overview.md)
+Web uygulamalarınızın uygulama ağ geçidi üzerinden Web uygulaması güvenlik duvarı ile Merhaba güvenlik ziyaret ederek artırma hakkında bilgi edinin [Web uygulaması güvenlik duvarı genel bakış](application-gateway-webapplicationfirewall-overview.md)
 
 [scenario]: ./media/application-gateway-end-to-end-SSL-powershell/scenario.png

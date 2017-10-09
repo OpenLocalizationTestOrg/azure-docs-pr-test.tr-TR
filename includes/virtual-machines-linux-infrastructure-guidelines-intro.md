@@ -1,0 +1,2 @@
+Bu makalede, tasarım konuları ve kılavuz olarak, bir uygulama altyapısı Azure çıkışı derleme daha geniş bir seri tooprovide bir parçasıdır. Yapabilecekleriniz [hello ek konular hello serisinde görüntülemek](#next-steps). Hızlı bir şekilde Azure geliştirme ve test ortamında kullanıma oluşturabilirsiniz, vardır, ancak ek hususlar üretime hazır, yüksek oranda kullanılabilir ve güvenli bir ortam uygularken.
+

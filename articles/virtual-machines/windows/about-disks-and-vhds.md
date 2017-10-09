@@ -1,6 +1,6 @@
 ---
-title: "Diskler ve Microsoft Azure Windows VM'ler için VHD'ler hakkında | Microsoft Docs"
-description: "Diskleri ve VHD'ler için Windows Azure sanal makineleri temelleri hakkında bilgi edinin."
+title: "aaaAbout diskleri ve Microsoft Azure Windows VM'ler için VHD'ler | Microsoft Docs"
+description: "Diskleri ve sanal makineleri Azure VHD'ler için Windows hello temelleri hakkında bilgi edinin."
 services: storage
 documentationcenter: 
 author: robinsh
@@ -14,71 +14,71 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: robinsh
-ms.openlocfilehash: c194ca0f31d077ffa998764b9d63b12dd596ac32
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 1b0d6bf05237bb3d1497b2c60f79a0159b730108
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="about-disks-and-vhds-for-azure-windows-vms"></a>Diskleri ve Azure Windows VM'ler için VHD'ler hakkında
-Yalnızca başka bir bilgisayarda gibi azure'daki sanal makinelerde bir işletim sistemini, uygulamaları ve verileri depolamak için bir yer olarak diskleri kullanın. Tüm Azure sanal makineler en az iki disk – bir Windows işletim sistemi diski ve geçici bir diske sahip. İşletim sistemi diski bir görüntüden oluşturulur ve hem işletim sistemi diski ve görüntünün sanal bir Azure depolama hesabında depolanan sabit diskler (VHD). Sanal makineler ayrıca VHD'ler olarak da depolanan bir veya daha fazla veri diski olabilir. 
+Yalnızca başka bir bilgisayarda gibi azure'daki sanal makinelerde diskleri yer toostore bir işletim sistemi olarak, uygulamaları ve verileri kullanın. Tüm Azure sanal makineler en az iki disk – bir Windows işletim sistemi diski ve geçici bir diske sahip. Merhaba işletim sistemi diski bir görüntüden oluşturulur ve hem hello işletim sistemi diski ve hello görüntü sabit bir Azure depolama hesabında depolanan sanal diskler (VHD). Sanal makineler ayrıca VHD'ler olarak da depolanan bir veya daha fazla veri diski olabilir. 
 
-Bu makalede, biz diskler için farklı kullanımlar hakkında konuşun ve oluşturma ve kullanma disklerinin farklı türleri açıklanmaktadır. Bu makalede ayrıca kullanılabilir [Linux sanal makineleri](about-disks-and-vhds.md).
+Bu makalede, biz hello hello diskler için farklı kullanımlar hakkında konuşun ve hello oluşturma ve kullanma disklerinin farklı türleri açıklanmaktadır. Bu makalede ayrıca kullanılabilir [Linux sanal makineleri](about-disks-and-vhds.md).
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="disks-used-by-vms"></a>VM'ler tarafından kullanılan diskler
 
-Diskleri VM'ler tarafından nasıl kullanıldığı bir bakalım.
+Merhaba diskleri hello VM'ler tarafından nasıl kullanıldığı bir bakalım.
 
 ### <a name="operating-system-disk"></a>İşletim sistemi diski
-Her bir sanal makinede bir ekli işletim sistemi diski var. SATA sürücü olarak kayıtlı ve C: sürücüsündeki varsayılan olarak etiketli. Bu disk 2048 gigabayt (GB) en fazla kapasiteye sahiptir. 
+Her bir sanal makinede bir ekli işletim sistemi diski var. SATA sürücü olarak kayıtlı ve hello C: sürücüsündeki varsayılan olarak etiketli. Bu disk 2048 gigabayt (GB) en fazla kapasiteye sahiptir. 
 
 ### <a name="temporary-disk"></a>Geçici disk
-Her VM geçici disk içerir. Geçici disk uygulamalar ve işlemler için kısa vadeli depolama sağlar ve yalnızca sayfa veya takas dosyaları gibi verileri depolamak için kullanılması amaçlanmıştır. Geçici disk üzerindeki verileri kaybolabilir sırasında bir [bakım olayı](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) veya ne zaman, [VM yeniden](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Sırasında standart yeniden başlatma VM geçici sürücüdeki verilerin kalıcı olması.
+Her VM geçici disk içerir. Merhaba geçici disk uygulamalar ve işlemler için kısa vadeli depolama sağlar ve sayfa veya takas dosyaları gibi hedeflenen tooonly deposu veriler. Merhaba geçici disk üzerindeki verileri kaybolabilir sırasında bir [bakım olayı](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) veya ne zaman, [VM yeniden](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Merhaba VM standart yeniden sırasında hello geçici sürücüdeki hello verilerin kalıcı.
 
-Geçici disk varsayılan ve pagefile.sys depolamak için kullanılan tarafından D: sürücü olarak etiketlenir. Farklı bir sürücü harfi için bu diski yeniden eşlemek için bkz: [Windows geçici disk sürücü harfini değiştirin](change-drive-letter.md). Geçici diskin boyutunu, sanal makine boyutuna göre değişir. Daha fazla bilgi için bkz: [boyutları için Windows sanal makineleri](sizes.md).
+Merhaba geçici disk varsayılan ve pagefile.sys depolamak için kullanılan tarafından hello D: sürücü etiketlenir. tooremap bu disk tooa farklı bir sürücü harfi bkz [değişiklik hello sürücü harfi hello Windows geçici disk](change-drive-letter.md). Merhaba hello geçici diskin boyutunu, hello hello sanal makine boyutuna göre değişir. Daha fazla bilgi için bkz: [boyutları için Windows sanal makineleri](sizes.md).
 
-Azure geçici disk nasıl kullandığı hakkında daha fazla bilgi için bkz: [geçici sürücü Microsoft Azure sanal makineler üzerinde anlama](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
+Azure hello geçici disk nasıl kullandığı hakkında daha fazla bilgi için bkz: [hello geçici sürücü Microsoft Azure sanal makineler üzerinde anlama](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
 
 ### <a name="data-disk"></a>Veri diski
-Uygulama verileri veya tutmak için gereksinim duyduğunuz diğer veri depolamak için bir sanal makineye bağlı VHD veri disktir. Veri diskleri SCSI sürücüsü olarak kaydedilir ve seçtiğiniz bir harf ile etiketlenir. Her veri diski maksimum 4095 GB kapasitesine sahiptir. Kaç tane veri diskleri ve depolama türü için iliştirebilirsiniz diskleri barındırmak için kullanabileceğiniz sanal makine boyutunu belirler.
+Bir veri diski tookeep gereksinim duyduğunuz diğer veri mi ekli tooa sanal makine toostore uygulama verilerini bir VHD ' dir. Veri diskleri SCSI sürücüsü olarak kaydedilir ve seçtiğiniz bir harf ile etiketlenir. Her veri diski maksimum 4095 GB kapasitesine sahiptir. Merhaba hello sanal makine boyutunu belirler kullanabileceğiniz depolama tooit ve hello türü iliştirebilirsiniz kaç tane veri diskleri toohost hello diskler.
 
 > [!NOTE]
 > Sanal makineler kapasiteleri hakkında daha fazla bilgi için bkz: [boyutları için Windows sanal makineleri](sizes.md).
 > 
 
-Bir görüntüden sanal makine oluşturduğunuzda azure bir işletim sistemi diski oluşturur. Veri diskleri içeren bir görüntü kullanırsanız, sanal makine oluştururken Azure ayrıca veri diskleri oluşturur. Aksi halde, sanal makineyi oluşturduktan sonra veri diski ekleyin.
+Bir görüntüden sanal makine oluşturduğunuzda azure bir işletim sistemi diski oluşturur. Veri diskleri içeren bir görüntü kullanırsanız, hello sanal makine oluştururken Azure hello veri diskleri da oluşturur. Aksi takdirde hello sanal makineyi oluşturduktan sonra veri diski ekleyin.
 
-Veri diski bir sanal makine için herhangi bir zamanda göre ekleyebileceğiniz **ekleme** sanal makineye disk. Karşıya veya depolama hesabınız veya bir Azure sizin için oluşturduğu kopyalanan VHD kullanabilirsiniz. Bir veri diski eklemeyi hala bağlıyken depolama biriminden silinemez şekilde VHD 'kira' koyarak VHD dosyasını VM ile ilişkilendirir.
+Veri diskleri tooa sanal makine olarak herhangi bir zamanda ekleyebilirsiniz **ekleme** disk toohello sanal makine hello. Karşıya veya tooyour depolama hesabı kopyalanan ya da bir, Azure sizin için oluşturduğu bir VHD kullanabilirsiniz. Bir veri diski eklemeyi hala bağlıyken depolama biriminden silinemez şekilde 'kira' hello VHD üzerinde koyarak hello VHD dosyasını hello VM ile ilişkilendirir.
 
 
 [!INCLUDE [storage-about-vhds-and-disks-windows-and-linux](../../../includes/storage-about-vhds-and-disks-windows-and-linux.md)]
 
 ## <a name="one-last-recommendation-use-trim-with-unmanaged-standard-disks"></a>Bir son öneri: kullanım yönetilmeyen standart disklerle KIRPMA 
 
-Yönetilmeyen standart disk (HDD) kullanırsanız, KIRPMA etkinleştirmeniz gerekir. Yalnızca gerçekten kullandığınız depolama için faturalandırılır şekilde KIRPMA diskte kullanılmayan blokları atar. Büyük dosyaları oluşturmak ve bunları silerseniz bu maliyetleri kaydedebilirsiniz. 
+Yönetilmeyen standart disk (HDD) kullanırsanız, KIRPMA etkinleştirmeniz gerekir. Yalnızca gerçekten kullandığınız depolama için faturalandırılır şekilde KIRPMA hello diskte kullanılmayan blokları atar. Büyük dosyaları oluşturmak ve bunları silerseniz bu maliyetleri kaydedebilirsiniz. 
 
-KIRPMA ayarını denetlemek için bu komutu çalıştırabilirsiniz. Windows VM ve türü bir komut istemi açın:
+Bu komut toocheck hello KIRPMA ayarı çalıştırabilirsiniz. Windows VM ve türü bir komut istemi açın:
 
 
 ```
 fsutil behavior query DisableDeleteNotify
 ```
 
-Komut 0 döndürürse, KIRPMA doğru şekilde etkinleştirilir. 1 değeri döndürülürse, KIRPMA etkinleştirmek için aşağıdaki komutu çalıştırın:
+Merhaba komut 0 döndürürse, KIRPMA doğru şekilde etkinleştirilir. 1 değeri döndürülürse, komut tooenable KIRPMA aşağıdaki hello çalıştırın:
 
 ```
 fsutil behavior set DisableDeleteNotify 0
 ```
 
 > [!NOTE]
-> Not: Windows Server 2012 ile kırpma desteği başlatır / Windows 8 ve yukarıda bkz bkz [yeni API sağlar "KIRPMA ve eşlemesini" ipuçları depolama ortamına göndermek uygulamalar](https://msdn.microsoft.com/windows/compatibility/new-api-allows-apps-to-send-trim-and-unmap-hints).
+> Not: Windows Server 2012 ile kırpma desteği başlatır / Windows 8 ve yukarıda bkz bkz [yeni API apps toosend "KIRPMA ve eşlemesini" ipuçları toostorage medya sağlar](https://msdn.microsoft.com/windows/compatibility/new-api-allows-apps-to-send-trim-and-unmap-hints).
 > 
 
-<!-- Might want to match next-steps from overview of managed disks -->
+<!-- Might want toomatch next-steps from overview of managed disks -->
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Bir diski kullanıma açın](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) VM için ek depolama alanı eklemek için.
-* [Windows geçici disk sürücü harfini değiştirin](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) uygulamanız için verileri D: sürücü kullanabilirsiniz.
+* [Bir diski kullanıma açın](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) tooadd, VM için ek depolama alanı.
+* [Değişiklik hello sürücü harfi hello Windows geçici disk](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) uygulamanız için verileri hello D: sürücü kullanabilirsiniz.
 

@@ -1,5 +1,5 @@
 ---
-title: "Azure Resource Manager şablonları ile Linux işlem kaynaklarını dağıtma | Microsoft Docs"
+title: "Azure Resource Manager şablonları ile Linux işlem kaynaklarına aaaDeploying | Microsoft Docs"
 description: "Azure sanal makinesi DotNet çekirdek Öğreticisi"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,24 +16,24 @@ ms.workload: infrastructure
 ms.date: 05/12/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c3f9f98079e0c89d1231f9c3e62e82c33ad18236
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0bc26805860fed47923d46fc84f357060f68a951
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="application-architecture-with-azure-resource-manager-templates-for-linux-vms"></a>Linux VM'ler için Azure Resource Manager şablonları ile uygulama mimarisi
 
-Bir Azure Resource Manager dağıtım geliştirirken, hesaplama gereksinimleri Azure kaynaklarını ve Hizmetleri için eşlenmesi gerekir. Bir uygulama birkaç http uç noktaları, bir veritabanı ve bir veri hizmeti önbelleğe alma oluşuyorsa, Azure kaynaklarını barındıran her bu bileşenlerin ayrıştıran gerekir. Örneğin, örnek müzik deposu uygulaması sanal bir makinede barındırılan bir web uygulaması ve Azure SQL veritabanı'nda barındırılan bir SQL veritabanı içerir. 
+Bir Azure Resource Manager dağıtım geliştirirken, hesaplama gereksinimleri eşlenen toobe tooAzure kaynaklarını ve Hizmetleri gerekir. Bir uygulama birkaç http uç noktaları, bir veritabanı ve bir veri hizmeti önbelleğe alma oluşuyorsa, hello bu bileşenlerin her birini barındıran Azure kaynaklarını gerekiyor ayrıştıran toobe. Örneğin, Merhaba örnek müzik deposu uygulaması sanal bir makinede barındırılan bir web uygulaması ve Azure SQL veritabanı'nda barındırılan bir SQL veritabanı içerir. 
 
-Bu belge, müzik deposu işlem kaynakları örnek Azure Resource Manager şablonunda nasıl yapılandırılacağını ayrıntıları. Tüm bağımlılıkları ve benzersiz yapılandırmaları vurgulanır. En iyi deneyim için Azure aboneliği ve Azure Resource Manager şablonu ile birlikte çalışma çözümü örneği önceden dağıtın. Tam veri şablonunun burada – bulunabilir [Ubuntu müzik deposu dağıtımı](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux). 
+Bu belge hello müzik deposu işlem kaynakları hello örnek Azure Resource Manager şablonunda nasıl yapılandırılacağını ayrıntıları verilmektedir. Tüm bağımlılıkları ve benzersiz yapılandırmaları vurgulanır. Merhaba en iyi deneyim için önceden hello çözüm tooyour Azure aboneliği ve hello Azure Resource Manager şablonu ile birlikte çalışma örneği dağıtın. Merhaba tam şablon burada – bulunabilir [Ubuntu müzik deposu dağıtımı](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux). 
 
 ## <a name="virtual-machine"></a>Sanal Makine
-Müzik deposu uygulama burada müşteriler göz atın ve Müzik satın alma bir web uygulaması içerir. Bu örnek için web uygulamalarını barındırabilir birkaç Azure Hizmetleri varken bir sanal makine kullanılır. Örnek Müzik deposu şablonu kullanarak bir sanal makinenin dağıtıldığı, bir web sunucusu yüklemek ve müzik deposu Web sitesine yüklenir ve yapılandırılır. Bu makalede amacıyla, yalnızca sanal makine dağıtımı ayrıntılı olarak gösterilmiştir. Web sunucusu ve uygulama yapılandırmasını bir sonraki makalesinde ayrıntılı olarak gösterilmiştir.
+Merhaba müzik deposu uygulama burada müşteriler göz atın ve Müzik satın alma bir web uygulaması içerir. Bu örnek için web uygulamalarını barındırabilir birkaç Azure Hizmetleri varken bir sanal makine kullanılır. Merhaba örnek müzik deposu şablonu kullanarak bir sanal makinenin dağıtıldığı, bir web sunucusu yüklemek ve hello müzik deposu Web sitesine yüklenir ve yapılandırılır. Bu makalede Hello artırmak amacıyla için yalnızca hello sanal makine dağıtımı ayrıntılı olarak gösterilmiştir. Merhaba web sunucusu ve Merhaba uygulaması Hello yapılandırmasını bir sonraki makalesinde ayrıntılı olarak gösterilmiştir.
 
-Bir sanal makine, Visual Studio yeni kaynak Ekleme Sihirbazı'nı kullanarak bir şablonla ya da geçerli JSON Dağıtım şablonuna ekleyerek eklenebilir. Bir sanal makineyi dağıtırken bazı ilgili kaynaklar de gereklidir. Visual Studio şablonu oluşturmak için kullanıyorsanız, bu kaynakları sizin için oluşturulur. El ile şablon oluşturmak, bu kaynakları eklenen ve yapılandırılmış olması gerekir.
+Bir sanal makine hello Visual Studio yeni kaynak Ekleme Sihirbazı, ya geçerli bir JSON hello Dağıtım şablonuna ekleyerek kullanarak tooa şablonunu eklenebilir. Bir sanal makineyi dağıtırken bazı ilgili kaynaklar de gereklidir. Visual Studio toocreate hello şablonu kullanıyorsanız, bu kaynakları sizin için oluşturulur. El ile Merhaba şablon oluşturma, bu kaynakları eklenen ve yapılandırılmış toobe gerekir.
 
-Resource Manager şablonu – içindeki JSON örnek görmek için bu bağlantıyı izleyin [sanal makine JSON](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L295).
+Bu bağlantıyı toosee hello JSON örnek hello Resource Manager şablonu içinde– izleyin [sanal makine JSON](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L295).
 
 ```json
 {
@@ -61,14 +61,14 @@ Resource Manager şablonu – içindeki JSON örnek görmek için bu bağlantıy
     }
 ```
 
-Uygulama dağıtıldıktan sonra sanal makine özelliklerini Azure portalında görülebilir.
+Uygulama dağıtıldıktan sonra hello sanal makine özellikleri hello Azure portal görülebilir.
 
 ![Sanal Makine](./media/dotnet-core-2-architecture/vm.png)
 
-## <a name="storage-account"></a>Depolama hesabı
-Depolama hesapları, çok sayıda depolama seçenekleri ve özelliklere sahip. Azure sanal makineleri bağlam için bir depolama hesabı olan ek veri disklerinin ile sanal makine ve sanal sabit disk sürücüler tutar. Müzik deposu örnek dağıtımda, her bir sanal makinenin sanal sabit sürücü tutmak için bir depolama hesabını içerir. 
+## <a name="storage-account"></a>Depolama Hesabı
+Depolama hesapları, çok sayıda depolama seçenekleri ve özelliklere sahip. Azure sanal makineleri Hello bağlamının hello hello sanal makinenin sanal sabit sürücüler ve ek diskleri bir depolama hesabı tutar. Merhaba müzik deposu örnek bir depolama hesabı toohold hello sanal sabit sürücü, her bir sanal makinenin hello dağıtımda içerir. 
 
-Resource Manager şablonu – içindeki JSON örnek görmek için bu bağlantıyı izleyin [depolama hesabı](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L109).
+Bu bağlantıyı toosee hello JSON örnek hello Resource Manager şablonu içinde– izleyin [depolama hesabı](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L109).
 
 ```json
 {
@@ -85,9 +85,9 @@ Resource Manager şablonu – içindeki JSON örnek görmek için bu bağlantıy
 }
 ```
 
-Resource Manager şablonu bildirimi sanal makinenin içindeki bir sanal makine ile ilişkilendirilecek bir depolama hesabıdır. 
+İlişkilendirme hello Resource Manager şablonu bildirimi hello sanal makinenin içindeki bir sanal makine ile bir depolama hesabıdır. 
 
-Resource Manager şablonu – içindeki JSON örnek görmek için bu bağlantıyı izleyin [sanal makine ve depolama hesabı ilişkisi](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L341).
+Bu bağlantıyı toosee hello JSON örnek hello Resource Manager şablonu içinde– izleyin [sanal makine ve depolama hesabı ilişkisi](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L341).
 
 ```json
 "osDisk": {
@@ -100,20 +100,20 @@ Resource Manager şablonu – içindeki JSON örnek görmek için bu bağlantıy
 }
 ```
 
-Dağıtım sonrasında, Azure Portal'da depolama hesabı görüntülenebilir.
+Dağıtımdan sonra hello depolama hesabı hello Azure portal görüntülenebilir.
 
-![Depolama hesabı](./media/dotnet-core-2-architecture/storacct.png)
+![Depolama Hesabı](./media/dotnet-core-2-architecture/storacct.png)
 
-Depolama hesabı blob kapsayıcısı tıklatarak, şablonla dağıtılan her bir sanal makine için sanal sabit disk dosyası görülebilir.
+Merhaba depolama hesabı blob kapsayıcıya tıklatarak, hello hello şablonla dağıtılan her bir sanal makine için sanal sabit disk dosyası görülebilir.
 
 ![Sanal sabit disk sürücüler](./media/dotnet-core-2-architecture/vhd.png)
 
 Azure Storage hakkında daha fazla bilgi için bkz: [Azure Storage belgeleri](https://azure.microsoft.com/documentation/services/storage/).
 
 ## <a name="virtual-network"></a>Sanal Ağ
-Bir sanal makinenin diğer sanal makineler ve Azure kaynakları ile iletişim kurmasına olanak gibi iç ağ gerektiriyorsa, bir Azure sanal ağı gereklidir.  Bir sanal ağ sanal makine internet üzerinden erişilebilir değil. Genel bağlantı daha sonra bu dizide ayrıntılı bir genel IP adresi gerektirir.
+Bir sanal makinenin diğer sanal makineler ve Azure kaynakları ile Merhaba özelliği toocommunicate gibi iç ağ gerektiriyorsa, bir Azure sanal ağı gereklidir.  Bir sanal ağ hello sanal makine üzerinden erişilebilir yapmaz Internet hello. Genel bağlantı daha sonra bu dizide ayrıntılı bir genel IP adresi gerektirir.
 
-Resource Manager şablonu – içindeki JSON örnek görmek için bu bağlantıyı izleyin [sanal ağ ve alt ağları](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L136).
+Bu bağlantıyı toosee hello JSON örnek hello Resource Manager şablonu içinde– izleyin [sanal ağ ve alt ağları](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L136).
 
 ```json
 {
@@ -148,14 +148,14 @@ Resource Manager şablonu – içindeki JSON örnek görmek için bu bağlantıy
 }
 ```
 
-Azure portalından, sanal ağ aşağıdaki görüntü gibi görünüyor. Şablonla dağıtılan tüm sanal makineleri sanal ağa takılı olduğunu dikkat edin.
+Hello Azure portal hello sanal ağ görüntü aşağıdaki hello gibi görünüyor. Merhaba şablonla dağıtılan tüm sanal makineleri ekli toohello sanal ağ olduğuna dikkat edin.
 
 ![Sanal Ağ](./media/dotnet-core-2-architecture/vnet.png)
 
 ## <a name="network-interface"></a>Ağ arabirimi
- Bir ağ arabirimi bir sanal makinenin sanal ağ içinde tanımlanan daha belirgin bir alt ağ için sanal bir ağa bağlanır. 
+ Bir ağ arabirimi bir sanal makine tooa sanal ağ, hello sanal ağ içinde tanımlanan daha açık belirtmek gerekirse tooa alt ağa bağlanır. 
 
- Resource Manager şablonu – içindeki JSON örnek görmek için bu bağlantıyı izleyin [ağ arabirimi](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L166).
+ Bu bağlantıyı toosee hello JSON örnek hello Resource Manager şablonu içinde– izleyin [ağ arabirimi](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L166).
 
 ```json
 {
@@ -202,9 +202,9 @@ Azure portalından, sanal ağ aşağıdaki görüntü gibi görünüyor. Şablon
 }
 ```
 
-Her sanal makine kaynağı bir ağ profili içerir. Bu profildeki sanal makineyle ilişkilendirilmiş Ağ arabirimidir.  
+Her sanal makine kaynağı bir ağ profili içerir. Hello ağ arabirimi, bu profilde hello sanal makine ile ilişkilidir.  
 
-Resource Manager şablonu – içindeki JSON örnek görmek için bu bağlantıyı izleyin [sanal makine ağ profili](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L350).
+Bu bağlantıyı toosee hello JSON örnek hello Resource Manager şablonu içinde– izleyin [sanal makine ağ profili](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L350).
 
 ```json
 "networkProfile": {
@@ -216,18 +216,18 @@ Resource Manager şablonu – içindeki JSON örnek görmek için bu bağlantıy
 }
 ```
 
-Azure portalından, ağ arabiriminin aşağıdaki görüntü gibi görünüyor. İç IP adresi ve sanal makine ilişkilendirme ağ arabirimi kaynakta görülebilir.
+Azure portal Hello görüntü aşağıdaki hello gibi hello ağ arabirimi arar. Merhaba iç IP adresi ve hello sanal makine ilişkilendirme hello ağ arabirimi kaynakta görülebilir.
 
 ![Ağ arabirimi](./media/dotnet-core-2-architecture/nic.png)
 
 Azure sanal ağlar hakkında daha fazla bilgi için bkz: [Azure sanal ağ belgeleri](https://azure.microsoft.com/documentation/services/virtual-network/).
 
 ## <a name="azure-sql-database"></a>Azure SQL Database
-Bir müzik deposu Web sitesi barındırma ek olarak sanal makine, müzik deposu veritabanını barındırmak için bir Azure SQL veritabanı dağıtıldı. Azure SQL veritabanı burada kullanmanın avantajı, ikinci bir kümede sanal makinelerin gerekli değildir ve ölçek ve kullanılabilirlik hizmete yerleşik ' dir.
+Ayrıca tooa sanal makine hello müzik deposu Web sitesi, bir Azure SQL veritabanı barındırma dağıtılan toohost hello müzik deposu veritabanıdır. Azure SQL veritabanı burada kullanarak hello avantajı, ikinci bir kümede sanal makinelerin gerekli değildir ve ölçek ve kullanılabilirlik hello hizmetinde yerleşik olmasıdır.
 
-Visual Studio yeni kaynak Ekleme Sihirbazı, veya bir şablona geçerli JSON ekleyerek kullanarak Azure SQL veritabanına eklenebilir. SQL Server Kaynak, bir kullanıcı adı ve SQL örneğinde yönetici hakları verilen parola içerir. Ayrıca, bir SQL güvenlik duvarı kaynak eklenir. Varsayılan olarak, Azure üzerinde barındırılan uygulamalar SQL örneğine bağlanamıyor. Dış uygulama izin vermek için bir tür SQL Server Management studio güvenlik duvarını SQL örneğine bağlanmak için yapılandırılması gerekir. Müzik deposu tanıtım amacıyla varsayılan yapılandırmayı uygundur. 
+Bir Azure SQL veritabanı hello Visual Studio yeni kaynak Ekleme Sihirbazı, veya bir şablona geçerli JSON ekleyerek kullanılarak eklenebilir. Merhaba SQL Server Kaynak, bir kullanıcı adı ve hello SQL örneğinde yönetici hakları verilen parola içerir. Ayrıca, bir SQL güvenlik duvarı kaynak eklenir. Varsayılan olarak, Azure üzerinde barındırılan hello SQL örneğiyle mümkün tooconnect uygulamalardır. tooallow dış uygulama böyle bir SQL Server Management studio tooconnect toohello SQL örneği, yapılandırılmış toobe hello güvenlik duvarı gerekir. Merhaba varsayılan yapılandırma hello müzik deposu demo Hello artırmak amacıyla için uygundur. 
 
-Resource Manager şablonu – içindeki JSON örnek görmek için bu bağlantıyı izleyin [Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L401).
+Bu bağlantıyı toosee hello JSON örnek hello Resource Manager şablonu içinde– izleyin [Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L401).
 
 ```json
 {
@@ -262,7 +262,7 @@ Resource Manager şablonu – içindeki JSON örnek görmek için bu bağlantıy
 }
 ```
 
-SQL server ve Azure portalında göründüğü gibi MusicStore veritabanı görünümü.
+Merhaba SQL server ve hello Azure portal görülen MusicStore veritabanı görünümü.
 
 ![SQL Server](./media/dotnet-core-2-architecture/sql.png)
 

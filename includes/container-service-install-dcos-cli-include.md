@@ -1,6 +1,6 @@
 ---
-title: "DC/OS CLI’yi yükleme | Microsoft Belgeleri"
-description: "DC/OS CLI’yi yükleyin."
+title: aaaInstall hello DC/OS CLI | Microsoft Docs
+description: "Merhaba DC/OS CLI yükleyin."
 services: container-service
 documentationcenter: 
 author: rgardler
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/10/2016
 ms.author: rogardle
-ms.openlocfilehash: a8ea47f158c0d666340815d2e039995c7483257f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b077c05beff9a5638486ea5efe9df31089e32701
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 > [!NOTE]
-> DC/OS tabanlı ACS kümeleriyle çalışmak içindir. Swarm tabanlı ACS kümeleri için bunu yapmaya gerek yoktur.
+> DC/OS tabanlı ACS kümeleriyle çalışmak içindir. Var. gerek toodo bu Swarm tabanlı ACS kümeleri için
 > 
 > 
 
-Önce, [DC/OS tabanlı ACS kümenize bağlanın](../articles/container-service/container-service-connect.md). Bunu yaptıktan sonra aşağıdaki komutlarla istemci makinenize DC/OS CLI’yi yükleyebilirsiniz:
+İlk olarak, [tooyour DC/OS tabanlı ACS kümesine bağlanın](../articles/container-service/container-service-connect.md). Bunu yaptıktan sonra aşağıdaki hello komutlarla istemci makinenize DC/OS CLI hello yükleyebilirsiniz:
 
 ```bash
 sudo pip install virtualenv
@@ -38,7 +38,7 @@ chmod +x install-optout-dcos-cli.sh
 
 Python’un eski bir sürümünü kullanıyorsanız, birkaç "InsecurePlatformWarnings" fark edebilirsiniz. Bunları güvenle yok sayabilirsiniz.
 
-Kabuğunuzu yeniden başlatmadan başlamak için şunu çalıştırın:
+Kabuğunuzu yeniden başlatmadan başlatılan sipariş tooget içinde çalıştırın:
 
 ```bash
 source ~/.bashrc
@@ -46,7 +46,7 @@ source ~/.bashrc
 
 Yeni kabukları başlattığınızda bu adım gerekmeyecektir.
 
-Artık CLI’nin yüklü olduğunu doğrulayabilirsiniz:
+Artık CLI'nin yüklü o hello doğrulayabilirsiniz:
 
 ```bash
 dcos --help

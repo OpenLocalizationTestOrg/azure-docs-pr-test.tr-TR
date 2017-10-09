@@ -1,6 +1,6 @@
 ---
-title: "Denetim ve - Microsoft tehdit modelleme aracı - Azure günlük | Microsoft Docs"
-description: "Azaltıcı Etkenler tehdit modelleme Aracı kullanıma sunulan tehditleri"
+title: "aaaAuditing ve günlüğe kaydetme - Microsoft tehdit modelleme aracı - Azure | Microsoft Docs"
+description: "Azaltıcı Etkenler hello tehdit modelleme Aracı kullanıma sunulan tehditleri"
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 3f1933fc59862eca7ae6ee40bbd5136e449e5cf1
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: f28988833eba251b6ceb8bbd47cde37e871af609
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Güvenlik çerçevesi: Denetim ve günlük | Azaltıcı Etkenler 
 | Ürün/hizmet | Makale |
 | --------------- | ------- |
 | **Dynamics CRM**    | <ul><li>[Çözümünüzdeki hassas varlıkları tanımlamak ve değişiklik denetimi uygulama](#sensitive-entities)</li></ul> |
-| **Web uygulaması** | <ul><li>[Denetim ve günlük uygulamada zorlanan emin olun](#auditing)</li><li>[Günlük rotasyonunun ve ayırma yerinde olduğundan emin olun](#log-rotation)</li><li>[Uygulama hassas kullanıcı verilerini günlüğe kaydetmez emin olun](#log-sensitive-data)</li><li>[Denetim ve günlük dosyalarını sınırlı erişimi olduğundan emin olun](#log-restricted-access)</li><li>[Kullanıcı Yönetimi olayları oturum açtığınızdan emin olun](#user-management)</li><li>[Sistemi olduğundan emin olun kötüye karşı yerleşik savunma](#inbuilt-defenses)</li><li>[Azure App Service'te web uygulamalarını için tanılama günlüğünü etkinleştirme](#diagnostics-logging)</li></ul> |
+| **Web uygulaması** | <ul><li>[Denetim ve günlük, hello uygulamada zorlanan emin olun](#auditing)</li><li>[Günlük rotasyonunun ve ayırma yerinde olduğundan emin olun](#log-rotation)</li><li>[Merhaba uygulaması hassas kullanıcı verilerini günlüğe kaydetmez emin olun](#log-sensitive-data)</li><li>[Denetim ve günlük dosyalarını sınırlı erişimi olduğundan emin olun](#log-restricted-access)</li><li>[Kullanıcı Yönetimi olayları oturum açtığınızdan emin olun](#user-management)</li><li>[Merhaba sistemi olduğundan emin olun kötüye karşı yerleşik savunma](#inbuilt-defenses)</li><li>[Azure App Service'te web uygulamalarını için tanılama günlüğünü etkinleştirme](#diagnostics-logging)</li></ul> |
 | **Veritabanı** | <ul><li>[SQL Server'da oturum açma denetimi etkin olduğundan emin olun](#identify-sensitive-entities)</li><li>[Azure SQL tehdit algılamayı etkinleştir](#threat-detection)</li></ul> |
-| **Azure Depolama** | <ul><li>[Azure Storage erişimi denetlemek için Azure Storage Analytics kullanın](#analytics)</li></ul> |
+| **Azure Depolama** | <ul><li>[Azure Storage, Azure depolama çözümlemeleri tooaudit erişimi kullanın.](#analytics)</li></ul> |
 | **WCF** | <ul><li>[Yeterli günlük kaydı uygulayın](#sufficient-logging)</li><li>[Uygulama yeterli denetim hata işleme](#audit-failure-handling)</li></ul> |
 | **Web API** | <ul><li>[Denetim ve günlük, Web API uygulanmasını sağlamak](#logging-web-api)</li></ul> |
 | **IOT alan ağ geçidi** | <ul><li>[Uygun denetim ve günlük alan ağ geçidinde zorlanır emin olun](#logging-field-gateway)</li></ul> |
@@ -43,7 +43,7 @@ ms.lasthandoff: 08/29/2017
 | **Başvuruları**              | Yok  |
 | **Adımları**                   | Hassas veri içeren çözümünüzdeki varlıkları tanımlamak ve o varlıklar ile alanları değişikliğini denetleme uygulamak |
 
-## <a id="auditing"></a>Denetim ve günlük uygulamada zorlanan emin olun
+## <a id="auditing"></a>Denetim ve günlük, hello uygulamada zorlanan emin olun
 
 | Başlık                   | Ayrıntılar      |
 | ----------------------- | ------------ |
@@ -63,9 +63,9 @@ ms.lasthandoff: 08/29/2017
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları**                   | <p>Günlük rotasyonunun tarihli günlük dosyalarını arşivlenmiş sistem yönetiminde kullanılan otomatik bir işlemdir. Büyük uygulamalar genellikle çalıştırdığı sunucuları oturum her istek: hantal günlükleri karşısında günlük rotasyonunun hala son olayların analizini verirken günlükleri toplam boyutunu sınırlamak için bir yoldur. </p><p>Oturum ayrımı temelde günlüğünüzün depolamak için kullandığınız anlamına gelir, işletim sistemi/uygulama bir hizmet reddi saldırısına ya da uygulamanızın veya eski sürüme düşürmeyi avert için çalıştığı olarak farklı bir bölüme performansını dosyaları</p>|
+| **Adımları**                   | <p>Günlük rotasyonunun tarihli günlük dosyalarını arşivlenmiş sistem yönetiminde kullanılan otomatik bir işlemdir. Büyük uygulamalar genellikle çalıştırdığı sunucuları oturum her istek: hantal günlüklerinin hello karşılaştıkları yolu toolimit hello günlük rotasyonunun olan toplam boyutu hello günlüklerinin hala son olayların analizini verirken. </p><p>Günlük dosyalarınızın işletim sistemi/uygulama sipariş tooavert bir hizmet reddi çalıştığı olarak farklı bir bölüme saldırı veya uygulamanızın performansını eski sürüme düşürmeyi hello toostore sahip günlük ayrımı temelde anlamına gelir</p>|
 
-## <a id="log-sensitive-data"></a>Uygulama hassas kullanıcı verilerini günlüğe kaydetmez emin olun
+## <a id="log-sensitive-data"></a>Merhaba uygulaması hassas kullanıcı verilerini günlüğe kaydetmez emin olun
 
 | Başlık                   | Ayrıntılar      |
 | ----------------------- | ------------ |
@@ -74,7 +74,7 @@ ms.lasthandoff: 08/29/2017
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları**                   | <p>Siteniz için bir kullanıcının gönderdiğini herhangi bir duyarlı veri günlük tutma denetleyin. Tasarım sorunları neden yan etkileri yanı sıra kasıtlı günlüğünü denetleyin. Gizli verilerin örnekleri şunlardır:</p><ul><li>Kullanıcı kimlik bilgileri</li><li>Sosyal Güvenlik numarası veya başka tanımlayıcı bilgiler</li><li>Kredi kartı numaraları veya diğer finansal bilgileri</li><li>Sistem durumu bilgileri</li><li>Özel anahtarlar veya şifrelenmiş bilgilerin şifresini çözmek için kullanılabilecek diğer veri</li><li>Uygulama daha etkili bir şekilde saldırmak için kullanılan sistem veya uygulama bilgileri</li></ul>|
+| **Adımları**                   | <p>Bir kullanıcı tooyour site gönderen herhangi bir duyarlı veri günlük tutma denetleyin. Tasarım sorunları neden yan etkileri yanı sıra kasıtlı günlüğünü denetleyin. Gizli verilerin örnekleri şunlardır:</p><ul><li>Kullanıcı kimlik bilgileri</li><li>Sosyal Güvenlik numarası veya başka tanımlayıcı bilgiler</li><li>Kredi kartı numaraları veya diğer finansal bilgileri</li><li>Sistem durumu bilgileri</li><li>Özel anahtarlar veya şifrelenmiş kullanılan toodecrypt bilgiler olabilir diğer verileri</li><li>Kullanılabilir sistem veya uygulama bilgilerini toomore etkili bir şekilde hello uygulama saldırısı</li></ul>|
 
 ## <a id="log-restricted-access"></a>Denetim ve günlük dosyalarını sınırlı erişimi olduğundan emin olun
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 08/29/2017
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları**                   | <p>Günlük dosyalarına erişim hakları uygun şekilde ayarlandığından emin olun. Uygulama hesapları yalnızca yazma erişimi ve işleçler olması gerekir ve destek personeli, gerektiği gibi salt okunur erişimi olması gerekir.</p><p>Yöneticiler, tam erişimi yalnızca hesapları hesaplarıdır. Günlük dosyaları düzgün kısıtlı olduklarından emin olmak için Windows ACL denetleyin:</p><ul><li>Uygulama hesapları yalnızca yazma erişimi olması gerekir</li><li>İşleçler ve destek personeli salt okunur erişim gerektiğinde olmalıdır</li><li>Yöneticiler tam erişime sahip olması gereken yalnızca hesaplardır</li></ul>|
+| **Adımları**                   | <p>Tooensure erişim hakları toolog dosyaları uygun şekilde ayarlanmış denetleyin. Uygulama hesapları yalnızca yazma erişimi ve işleçler olması gerekir ve destek personeli, gerektiği gibi salt okunur erişimi olması gerekir.</p><p>Yöneticiler hesapları tam erişimi olan hello yalnızca hesaplarıdır. Düzgün şekilde kısıtlanır tooensure Windows ACL günlük dosyaları denetleyin:</p><ul><li>Uygulama hesapları yalnızca yazma erişimi olması gerekir</li><li>İşleçler ve destek personeli salt okunur erişim gerektiğinde olmalıdır</li><li>Yöneticiler tam erişime sahip olması gereken hello yalnızca hesaplardır</li></ul>|
 
 ## <a id="user-management"></a>Kullanıcı Yönetimi olayları oturum açtığınızdan emin olun
 
@@ -96,9 +96,9 @@ ms.lasthandoff: 08/29/2017
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları**                   | <p>Uygulama kullanıcı başarılı ve başarısız oturum açma bilgileri gibi kullanıcı yönetimi olayları izler, parolasını sıfırlar, parola değişiklikleri, hesap kilitleme, kullanıcı kaydı emin olun. Algılamak ve şüpheli olabilecek davranışları tepki vermek için bu yardımcı yapılıyor. Ayrıca operations veri toplamak üzere sağlar; Uygulama erişen izlemek için örnek için</p>|
+| **Adımları**                   | <p>Merhaba uygulaması başarılı ve başarısız bir kullanıcı oturum açma bilgileri gibi kullanıcı yönetimi olayları izler, parolasını sıfırlar, parola değişiklikleri, hesap kilitleme, kullanıcı kaydı emin olun. Bunun yapılması, fotoğraflar ve toopotentially şüpheli davranış tepki toodetect yardımcı olur. Ayrıca, toogather işlemleri veri sağlar; Örneğin, hello uygulamaya erişmeyi tootrack</p>|
 
-## <a id="inbuilt-defenses"></a>Sistemi olduğundan emin olun kötüye karşı yerleşik savunma
+## <a id="inbuilt-defenses"></a>Merhaba sistemi olduğundan emin olun kötüye karşı yerleşik savunma
 
 | Başlık                   | Ayrıntılar      |
 | ----------------------- | ------------ |
@@ -107,7 +107,7 @@ ms.lasthandoff: 08/29/2017
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları**                   | <p>Denetimler, uygulama kötüye kullanılması durumunda güvenlik özel durum yerinde olmalıdır. Örneğin, giriş doğrulaması yerinde olduğundan ve bir saldırgan regex eşleşmiyor kötü amaçlı kod ekleme girişiminde, bir güvenlik özel durumu, sistemin kötüye kullanımı bir vurgulayan olabilen atılabilen</p><p>Örneğin, güvenlik özel durumları günlüğe ve aşağıdaki sorunlar için yapılan eylemler için önerilir:</p><ul><li>Giriş doğrulaması</li><li>CSRF ihlalleri</li><li>Deneme yanılma saldırısı (kullanıcı kaynak başına istek sayısı için üst sınır)</li><li>Dosya karşıya yükleme ihlalleri</li><ul>|
+| **Adımları**                   | <p>Denetimler, uygulama kötüye kullanılması durumunda güvenlik özel durum yerinde olmalıdır. Örneğin, giriş doğrulaması yerinde olduğundan ve bir saldırgan hello regex eşleşmiyor tooinject kötü amaçlı kod çalışır, bir güvenlik özel durumu, sistemin kötüye kullanımı bir vurgulayan olabilen atılabilen</p><p>Örneğin, oturum açmış toohave güvenlik özel durumları ve sorunları aşağıdaki hello için yapılan eylemler önerilir:</p><ul><li>Giriş doğrulaması</li><li>CSRF ihlalleri</li><li>Deneme yanılma saldırısı (kullanıcı kaynak başına istek sayısı için üst sınır)</li><li>Dosya karşıya yükleme ihlalleri</li><ul>|
 
 ## <a id="diagnostics-logging"></a>Azure App Service'te web uygulamalarını için tanılama günlüğünü etkinleştirme
 
@@ -118,7 +118,7 @@ ms.lasthandoff: 08/29/2017
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | EnvironmentType - Azure |
 | **Başvuruları**              | Yok  |
-| **Adımları** | <p>Azure uygulama hizmeti hata ayıklamaya yardımcı olması için yerleşik tanılama web uygulaması sağlar. Ayrıca, API uygulamaları ve mobil uygulamalar için de geçerlidir. App Service web uygulamalarının web sunucusu ve web uygulamasının içinden bilgileri günlüğe kaydetme için tanılama işlevsellik sağlar.</p><p>Bu web sunucusu tanılama ve uygulama tanılama mantıksal olarak ayrılır</p>|
+| **Adımları** | <p>Azure web uygulaması bir uygulama hizmeti ayıklama yerleşik tanılama tooassist sağlar. TooAPI uygulamaları ve mobil uygulamalara da uygulanır. App Service web apps hello web sunucusu ve hello web uygulamasının içinden bilgileri günlüğe kaydetme için tanılama işlevsellik sağlar.</p><p>Bu web sunucusu tanılama ve uygulama tanılama mantıksal olarak ayrılır</p>|
 
 ## <a id="identify-sensitive-entities"></a>SQL Server'da oturum açma denetimi etkin olduğundan emin olun
 
@@ -129,7 +129,7 @@ ms.lasthandoff: 08/29/2017
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [Oturum açma denetimi yapılandırma](https://msdn.microsoft.com/library/ms175850.aspx) |
-| **Adımları** | <p>Veritabanı sunucusu oturum açma denetimi algılamak ve Onayla parola saldırılarını tahmin etkinleştirilmesi gerekir. Başarısız oturum açma denemesi yakalamak önemlidir. Hem başarılı ve başarısız oturum açma denemesi yakalama sırasında adli incelemelere ek bir fayda sağlar</p>|
+| **Adımları** | <p>Veritabanı sunucusu oturum açma denetimi saldırıları tahmin etkin toodetect/parolayı olması gerekir. Toocapture başarısız oturum açma denemeleri önemlidir. Hem başarılı ve başarısız oturum açma denemesi yakalama sırasında adli incelemelere ek bir fayda sağlar</p>|
 
 ## <a id="threat-detection"></a>Azure SQL tehdit algılamayı etkinleştir
 
@@ -140,9 +140,9 @@ ms.lasthandoff: 08/29/2017
 | **İlgili teknolojiler** | SQL Azure |
 | **Öznitelikleri**              | SQL sürümü - V12 |
 | **Başvuruları**              | [SQL veritabanı tehdit algılama ile çalışmaya başlama](https://azure.microsoft.com/documentation/articles/sql-database-threat-detection-get-started/)|
-| **Adımları** |<p>Tehdit algılama veritabanına olası güvenlik tehditlerini gösteren anormal veritabanı etkinliklerini algılar. Yeni bir katman müşterilerine algılamak ve anormal etkinlikler güvenlik uyarıları sağlayarak göründüklerinde olası risklere yanıt sağlayan bir güvenlik sağlar.</p><p>Kullanıcılar, bunlar erişim, ihlal ya da veritabanındaki verileri yararlanma girişimi sonucu olmadığını belirlemek için Azure SQL veritabanı denetimi kullanarak şüpheli olayları gözden geçirebilirsiniz.</p><p>Tehdit algılama, veritabanına Uzman güvenlik olması veya sistemleri izleme Gelişmiş Güvenlik yönetmek zorunda kalmadan adresi olası tehditlere kolaylaştırır</p>|
+| **Adımları** |<p>Tehdit algılama, olası güvenlik tehditlerine toohello veritabanı gösteren anormal veritabanı etkinliklerini algılar. Yeni bir katman müşterileri toodetect sağlar ve güvenlik uyarıları anormal etkinlikler sağlayarak göründüklerinde toopotential tehditlerine yanıt güvenliği sağlar.</p><p>Kullanıcıları, Azure SQL veritabanı bir girişim tooaccess sağlamazsa toodetermine ihlal denetimi kullanarak hello şüpheli olayları keşfedin veya hello veritabanındaki verileri yararlanma.</p><p>Tehdit algılama basit tooaddress olası tehditler toohello veritabanı hello gerek toobe güvenlik Uzman olmadan yapan veya sistemleri izleme Gelişmiş Güvenlik yönetme</p>|
 
-## <a id="analytics"></a>Azure Storage erişimi denetlemek için Azure Storage Analytics kullanın
+## <a id="analytics"></a>Azure Storage, Azure depolama çözümlemeleri tooaudit erişimi kullanın.
 
 | Başlık                   | Ayrıntılar      |
 | ----------------------- | ------------ |
@@ -150,8 +150,8 @@ ms.lasthandoff: 08/29/2017
 | **SDL aşaması**               | Dağıtım |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok |
-| **Başvuruları**              | [Storage Analytics Yetkilendirme türü izlemek için kullanma](https://azure.microsoft.com/documentation/articles/storage-security-guide/#storage-analytics) |
-| **Adımları** | <p>Her Depolama hesabı için bir günlük kaydı gerçekleştirmek ve ölçüm verilerini depolamak Azure Storage Analytics etkinleştirebilirsiniz. Storage analytics günlükleri depolama eriştiklerinde birisi tarafından kullanılan kimlik doğrulama yöntemi gibi önemli bilgileri sağlar.</p><p>Bu depolama alanına erişimi sıkı bir şekilde kullanılan koruyarak gerçekten yardımcı olabilir. Örneğin, Blob depolama alanına tüm kapsayıcıların özel ayarlayın ve uygulamalarınızı bir SAS hizmet kullanımını uygulayın. Ardından, düzenli olarak bloblarınızın bir güvenlik açığını gösterebilir, depolama hesabı anahtarları kullanılarak erişilir mı yoksa BLOB ortak ancak bunlar olmamalıdır görmek için günlüklere denetleyebilirsiniz.</p>|
+| **Başvuruları**              | [Storage Analytics toomonitor yetkilendirme türünü kullanma](https://azure.microsoft.com/documentation/articles/storage-security-guide/#storage-analytics) |
+| **Adımları** | <p>Her Depolama hesabı için bir Azure depolama çözümlemeleri tooperform günlüğe yazılmasını etkinleştirmek ve ölçüm verilerini depolar. Merhaba depolama analytics günlükleri depolama eriştiklerinde birisi tarafından kullanılan kimlik doğrulama yöntemi gibi önemli bilgileri sağlar.</p><p>Bu erişim toostorage sıkı bir şekilde kullanılan koruyarak gerçekten yardımcı olabilir. Örneğin, Blob depolama alanına Merhaba kapsayıcılara tooprivate tümünün ayarlayın ve uygulamalarınızı hello hizmeti kullanımı için bir SAS uygulamak. Ardından hello düzenli olarak bloblarınızın bir güvenlik açığını gösterebilir, hello depolama hesabı anahtarları kullanılarak erişilir veya hello BLOB'lar ortak ancak bunlar olmamalıdır toosee günlüklerini denetleyin.</p>|
 
 ## <a id="sufficient-logging"></a>Yeterli günlük kaydı uygulayın
 
@@ -162,10 +162,10 @@ ms.lasthandoff: 08/29/2017
 | **İlgili teknolojiler** | .NET framework |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Krallık Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
-| **Adımları** | <p>Bir güvenlik olayı sonra uygun denetim izi eksikliği adli çaba engel olabilir. Windows Communication Foundation (WCF) başarılı ve/veya başarısız kimlik doğrulama girişimlerini oturum olanağı sunar.</p><p>Başarısız kimlik doğrulama girişimlerini günlüğe olası kaba kuvvet saldırıları yöneticileri uyarır. Yasal bir hesap güvenliği aşıldığında benzer şekilde, başarılı kimlik doğrulama olaylarını günlüğe yararlı denetim izi sağlayabilir. WCF'ın hizmeti güvenlik denetim özelliğini etkinleştir |
+| **Adımları** | <p>bir güvenlik olayı sonra uygun denetim izi Hello eksikliği adli çaba engel olabilir. Windows Communication Foundation (WCF) hello özelliği toolog başarılı ve/veya başarısız kimlik doğrulama girişimlerini sunar.</p><p>Başarısız kimlik doğrulama girişimlerini günlüğe olası kaba kuvvet saldırıları yöneticileri uyarır. Yasal bir hesap güvenliği aşıldığında benzer şekilde, başarılı kimlik doğrulama olaylarını günlüğe yararlı denetim izi sağlayabilir. WCF'ın hizmeti güvenlik denetim özelliğini etkinleştir |
 
 ### <a name="example"></a>Örnek
-Denetim etkin olan bir örnek yapılandırma aşağıda verilmiştir
+Denetim etkin olan bir örnek yapılandırma Hello aşağıda verilmiştir
 ```
 <system.serviceModel>
     <behaviors>
@@ -191,10 +191,10 @@ Denetim etkin olan bir örnek yapılandırma aşağıda verilmiştir
 | **İlgili teknolojiler** | .NET framework |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Krallık Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
-| **Adımları** | <p>Geliştirilmiş çözüm bir denetim günlüğüne yazılması başarısız olduğunda bir özel durum oluşturmak değil üzere yapılandırılmıştır. WCF bir denetim günlüğüne yazamadığını olduğunda bir özel durum değil için yapılandırılmışsa, program hatasını bildirilmez ve kritik güvenlik olaylarının denetlenmesi gerçekleşmeyebilir.</p>|
+| **Adımları** | <p>Geliştirilmiş çözüm yapılandırılmış toogenerate toowrite tooan denetim günlüğü başarısız olduğunda bir özel durum. WCF yapılandırılmışsa toothrow oluşturulamıyor toowrite tooan denetim günlüğü olduğunda, hello program hello başarısızlığını değil bildirilir ve kritik güvenlik olaylarının denetlenmesi algılanamayabilir bir özel durum.</p>|
 
 ### <a name="example"></a>Örnek
-`<behavior/>` Öğesi aşağıdaki WCF yapılandırma dosyasının bir denetim günlüğüne yazılması WCF başarısız olduğunda uygulamayı bilgilendirecek değil WCF bildirir.
+Merhaba `<behavior/>` hello WCF yapılandırma dosyasının aşağıdaki öğesinin bildirir WCF toonot Merhaba uygulaması WCF toowrite tooan denetim günlüğü başarısız olduğunda bildir.
 ````
 <behaviors>
     <serviceBehaviors>
@@ -207,7 +207,7 @@ Denetim etkin olan bir örnek yapılandırma aşağıda verilmiştir
     </serviceBehaviors>
 </behaviors>
 ````
-Bir denetim günlüğüne yazamadığını olduğunda program bildirmek için WCF yapılandırın. Program bir alternatif bildirim düzeni denetim izlemeyi kuruluş korunmaz uyarı yerinde olması gerekir. 
+%S toowrite tooan denetim günlüğü olduğunda WCF toonotify hello programı yapılandırın. Merhaba program bir alternatif bildirim düzeni denetim izleri tutulan değil yer tooalert hello kuruluşta olması gerekir. 
 
 ## <a id="logging-web-api"></a>Denetim ve günlük, Web API uygulanmasını sağlamak
 
@@ -229,7 +229,7 @@ Bir denetim günlüğüne yazamadığını olduğunda program bildirmek için WC
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları** | <p>Birden çok aygıt bir alan ağ geçidi bağladığınızda, bağlantı denemeleri ve bireysel aygıtlar için kimlik doğrulama durumu (başarı veya başarısızlık) oturum açmış ve alan ağ geçidi üzerinde tutulan emin olun.</p><p>Ayrıca, alan ağ geçidi tek bir cihazı IOT Hub kimlik bilgileri burada koruma durumlarda bu kimlik bilgileri alınırken denetim özelliğinin gerçekleştirildiğinden emin olun. Uzun vadeli bekletme için Azure IOT hub'ı / depolama için düzenli aralıklarla günlükleri karşıya yüklemek için bir işlem geliştirin.</p> |
+| **Adımları** | <p>Birden çok aygıt tooa alan ağ geçidi bağladığınızda, bağlantı denemeleri ve bireysel aygıtlar için kimlik doğrulama durumu (başarı veya başarısızlık) oturum açmış ve hello alan ağ geçidi üzerinde tutulan emin olun.</p><p>Ayrıca, alan ağ geçidi hello sorumlu olduğu durumlarda IOT hub'ı bireysel aygıtlar için kimlik bilgileri, bu kimlik bilgileri alınırken denetim özelliğinin gerçekleştirildiğinden emin olun. Bir işlem tooperiodically karşıya yükleme hello günlükleri tooAzure IOT hub'ı / depolama uzun vadeli bekletme için geliştirin.</p> |
 
 ## <a id="logging-cloud-gateway"></a>Uygun denetim ve günlük bulut ağ geçidinde zorlanır emin olun
 
@@ -239,5 +239,5 @@ Bir denetim günlüğüne yazamadığını olduğunda program bildirmek için WC
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [IOT hub'ı operations izleme giriş](https://azure.microsoft.com/documentation/articles/iot-hub-operations-monitoring/) |
-| **Adımları** | <p>Toplama ve IOT Hub işlemlerini izleme ile toplanan denetim verilerini depolamak için tasarlayın. Aşağıdaki izleme kategorileri etkinleştirin:</p><ul><li>Aygıt Kimliği işlemleri</li><li>Cihaz bulut iletişimleri</li><li>Bulut-cihaz iletişimi</li><li>Bağlantılar</li><li>Dosya yüklemeleri</li></ul>|
+| **Başvuruları**              | [Giriş tooIoT Hub işlemlerini izleme](https://azure.microsoft.com/documentation/articles/iot-hub-operations-monitoring/) |
+| **Adımları** | <p>Toplama ve IOT Hub işlemlerini izleme ile toplanan denetim verilerini depolamak için tasarlayın. İzleme kategorisi aşağıdaki hello etkinleştirin:</p><ul><li>Aygıt Kimliği işlemleri</li><li>Cihaz bulut iletişimleri</li><li>Bulut-cihaz iletişimi</li><li>Bağlantılar</li><li>Dosya yüklemeleri</li></ul>|

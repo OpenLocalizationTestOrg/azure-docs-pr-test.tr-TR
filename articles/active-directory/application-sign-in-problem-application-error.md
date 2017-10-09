@@ -1,6 +1,6 @@
 ---
-title: "Oturum açtıktan sonra bir uygulamanın sayfada hata | Microsoft Docs"
-description: "Uygulama bir hata olduğunda yayar Azure AD oturum ile ilgili sorunları gidermek nasıl"
+title: "oturum açtıktan sonra bir uygulamanın sayfasında aaaError | Microsoft Docs"
+description: "Bir hata Hello uygulama kendisini yayar zaman nasıl tooresolve sorunları Azure AD ile oturum açın"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,111 +13,111 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: a8cd93256f79ece268ec3411dfbdf590f4b24447
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 317b6f8e6417520ead80ae4e26c591ba6b134683
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>Oturum açtıktan sonra bir uygulamanın sayfada hata
 
-Bu senaryoda, Azure AD kullanıcı oturumu, ancak uygulama başarıyla oturum açma akışını son kullanıcıya izin hata görüntüleme. Bu senaryoda, uygulamanın yanıt sorunu Azure AD tarafından kabul etmiyor.
+Bu senaryoda, Azure AD hello kullanıcı oturumu, ancak Merhaba uygulaması hello kullanıcı toosuccessfully bitiş hello oturum akışı sağlanmıyor hata görüntüleme. Bu senaryoda, Merhaba uygulaması hello yanıt sorunu Azure AD tarafından kabul etmiyor.
 
-Uygulama Azure AD'den yanıt neden kabul etmediğiniz bazı olası nedenleri vardır. Uygulamada hata ne sonra yanıtta eksik olduğunu bilmeniz açık değilse:
+Merhaba uygulaması Azure AD'den hello yanıt neden kabul etmediğiniz bazı olası nedenleri vardır. Merhaba uygulamasında Hello hatası yeterince Temizle tooknow değilse ne sonra hello yanıtta eksik:
 
--   Azure AD galeri uygulamasıysa, makaledeki tüm adımları doğrulayın [SAML tabanlı çoklu oturum açma Azure Active Directory'de uygulamalar için hata ayıklama](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
+-   Merhaba uygulaması hello Azure AD Galerisi, hello makaledeki tüm hello adımları takip doğrulayıp [nasıl toodebug SAML tabanlı tek oturum açma tooapplications Azure Active Directory'de](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).
 
--   Gibi bir araç kullanın [Fiddler](http://www.telerik.com/fiddler) SAML isteği SAML yanıtını ve SAML belirteci yakalamak için.
+-   Gibi bir araç kullanın [Fiddler](http://www.telerik.com/fiddler) toocapture SAML istek, SAML yanıtını ve SAML belirteci.
 
--   SAML yanıtını eksik biliyor için uygulama satıcısına ile paylaşır.
+-   Merhaba SAML yanıtını, eksik olana hello uygulama satıcı tooknow ile paylaşır.
 
-## <a name="missing-attributes-in-the-saml-response"></a>SAML yanıtını eksik öznitelikleri
+## <a name="missing-attributes-in-hello-saml-response"></a>Merhaba SAML yanıtını eksik öznitelikleri
 
-Azure AD yanıtta gönderilecek Azure AD yapılandırmasında bir öznitelik eklemek için aşağıdaki adımları izleyin:
+tooadd hello Azure AD yapılandırma toobe hello Azure AD yanıt olarak gönderilen bir öznitelikte hello adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
+1.  Açık hello [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık hello **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** hello ana sol taraftaki gezinti menüsünde hello sonundaki.
 
-3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" Merhaba filtre arama kutusunda ve select hello **Azure Active Directory** öğesi.
 
-4.  tıklatın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
+4.  Tıklatın **kurumsal uygulamalar** hello Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
+5.  Tıklatın **tüm uygulamaları** tooview tüm uygulamalarınızın listesi.
 
-   * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm uygulamaları.**
+   * Burada göstermek istediğiniz Merhaba uygulaması görmüyorsanız hello kullan **filtre** denetim hello hello üstündeki **tüm uygulamalar listesini** ve kümesi hello **Göster** çok seçenek **Tüm uygulamalar.**
 
-6.  Çoklu oturum açma yapılandırmak istediğiniz uygulamayı seçin.
+6.  Tooconfigure çoklu oturum açma hello uygulamasını seçin.
 
-7.  Uygulamanın yüklediği sonra tıklayın **çoklu oturum açma** uygulamanın sol taraftaki gezinti menüsünde.
+7.  Merhaba uygulamanın yüklediği sonra hello tıklayın **çoklu oturum açma** hello uygulamanın sol taraftaki gezinti menüsünde.
 
-8.  tıklatın **görüntüleme ve düzenleme diğer tüm kullanıcı özniteliklerini altında** **kullanıcı öznitelikleri** kullanıcı oturum açtığında SAML belirteci uygulamada gönderilmesini öznitelikleri düzenlemek için bölüm.
+8.  tıklatın **görüntüleme ve düzenleme diğer tüm kullanıcı özniteliklerini altında** hello **kullanıcı öznitelikleri** bölüm tooedit hello kullanıcı oturum açtığında gönderilen toobe toohello hello SAML belirteci uygulamada öznitelikleri.
 
-   Bir öznitelik eklemek için:
+   bir öznitelik tooadd:
 
-   * tıklatın **Ekle özniteliği**. Girin **adı** seçip **değeri** gelen açılır.
+   * tıklatın **Ekle özniteliği**. Merhaba girin **adı** ve hello select hello **değeri** gelen hello açılır.
 
-   * Tıklatın **kaydedin.** Yeni öznitelik tablosundaki bakın.
+   * Tıklatın **kaydedin.** Yeni bir öznitelik hello hello tablosundaki bakın.
 
-9.  Yapılandırmayı kaydedin.
+9.  Merhaba yapılandırmayı kaydedin.
 
-Uygulama için kullanıcı oturum açtığında sonraki zaman Azure AD yeni öznitelik SAML yanıt olarak gönderin.
+Bir sonraki defa Hello toohello uygulamada oturum açtığında Azure AD hello yeni öznitelik hello SAML yanıtını gönderir.
 
-## <a name="the-application-expects-a-different-user-identifier-value-or-format"></a>Farklı kullanıcı tanımlayıcısı value veya format uygulama bekliyor
+## <a name="hello-application-expects-a-different-user-identifier-value-or-format"></a>Merhaba uygulaması farklı kullanıcı tanımlayıcısı value veya format bekliyor
 
-Oturum açma uygulamaya SAML yanıtını rolleri gibi öznitelikleri eksik veya uygulama Entityıd özniteliği için farklı bir biçim bekleniyordu nedeniyle başarısız oluyor.
+Merhaba oturum açma toohello uygulama hello SAML yanıtını rolleri gibi öznitelikleri eksik veya Merhaba uygulaması hello Entityıd özniteliği için farklı bir biçim bekleniyordu nedeniyle başarısız oluyor.
 
-## <a name="add-an-attribute-in-the-azure-ad-application-configuration"></a>Azure AD uygulama yapılandırmasında bir özniteliği ekleyin:
+## <a name="add-an-attribute-in-hello-azure-ad-application-configuration"></a>Bir öznitelik hello Azure AD uygulama yapılandırmasında ekleyin:
 
-Kullanıcı tanımlayıcısı değeri değiştirmek için aşağıdaki adımları izleyin:
+toochange hello kullanıcı tanımlayıcısı değeri hello adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
+1.  Açık hello [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık hello **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** hello ana sol taraftaki gezinti menüsünde hello sonundaki.
 
-3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" Merhaba filtre arama kutusunda ve select hello **Azure Active Directory** öğesi.
 
-4.  tıklatın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
+4.  Tıklatın **kurumsal uygulamalar** hello Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
+5.  Tıklatın **tüm uygulamaları** tooview tüm uygulamalarınızın listesi.
 
-   * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm uygulamaları.**
+   * Burada göstermek istediğiniz Merhaba uygulaması görmüyorsanız hello kullan **filtre** denetim hello hello üstündeki **tüm uygulamalar listesini** ve kümesi hello **Göster** çok seçenek **Tüm uygulamalar.**
 
-6.  Çoklu oturum açma yapılandırmak istediğiniz uygulamayı seçin.
+6.  Tooconfigure çoklu oturum açma hello uygulamasını seçin.
 
-7.  Uygulamanın yüklediği sonra tıklayın **çoklu oturum açma** uygulamanın sol taraftaki gezinti menüsünde.
+7.  Merhaba uygulamanın yüklediği sonra hello tıklayın **çoklu oturum açma** hello uygulamanın sol taraftaki gezinti menüsünde.
 
-8.  Altında **kullanıcı öznitelikleri**, kullanıcılarınız için benzersiz tanımlayıcı seçin **kullanıcı tanımlayıcısı** açılır.
+8.  Merhaba altında **kullanıcı öznitelikleri**, select hello hello kullanıcılarınız için benzersiz tanımlayıcı **kullanıcı tanımlayıcısı** açılır.
 
 ## <a name="change-entityid-user-identifier-format"></a>Entityıd (kullanıcı tanımlayıcısı) biçimini değiştirme
 
-Uygulama Entityıd özniteliği için başka bir biçime görüyorsa. Ardından, Azure AD kullanıcı kimlik doğrulamasının ardından yanıt uygulamaya gönderir Entityıd (kullanıcı tanımlayıcısı) biçimi seçin mümkün olmayacaktır.
+Merhaba uygulaması hello Entityıd özniteliği için başka bir biçime görüyorsa. Ardından, Azure AD hello yanıtta toohello uygulama kullanıcı kimlik doğrulamasından sonra gönderir mümkün tooselect hello Entityıd (kullanıcı tanımlayıcısı) biçimi olmayacaktır.
 
-Azure AD seçin (kullanıcı tanımlayıcısı) NameID özniteliğin biçimini değere göre seçilen veya biçimi SAML AuthRequest uygulama tarafından istenen. Daha fazla bilgi için makaleyi ziyaret [tek oturum açma SAML Protokolü](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) NameIDPolicy bölümünde.
+Merhaba NameID özniteliği (kullanıcı tanımlayıcısı) için Azure AD select hello biçimi seçili hello değere göre veya hello SAML AuthRequest hello uygulama tarafından istenen biçim hello. Daha fazla bilgi için hello makalesine bakın [tek oturum açma SAML Protokolü](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) NameIDPolicy altında hello bölüm.
 
-## <a name="the-application-expects-a-different-signature-method-for-the-saml-response"></a>SAML yanıtını için farklı imza yöntemi uygulama bekliyor
+## <a name="hello-application-expects-a-different-signature-method-for-hello-saml-response"></a>Merhaba uygulaması farklı imza yöntemi hello SAML yanıtını için bekliyor
 
-SAML belirteci hangi kısımlarının Azure Active Directory tarafından dijital olarak imzalanmış değiştirmek için. Aşağıdaki adımları izleyin:
+Merhaba SAML belirtecine hangi kısımlarının Azure Active Directory tarafından dijital olarak imzalanmış toochange. Merhaba adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
+1.  Açık hello [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık hello **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** hello ana sol taraftaki gezinti menüsünde hello sonundaki.
 
-3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" Merhaba filtre arama kutusunda ve select hello **Azure Active Directory** öğesi.
 
-4.  tıklatın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
+4.  Tıklatın **kurumsal uygulamalar** hello Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
+5.  Tıklatın **tüm uygulamaları** tooview tüm uygulamalarınızın listesi.
 
-  * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm uygulamaları.**
+  * Burada göstermek istediğiniz Merhaba uygulaması görmüyorsanız hello kullan **filtre** denetim hello hello üstündeki **tüm uygulamalar listesini** ve kümesi hello **Göster** çok seçenek **Tüm uygulamalar.**
 
-6.  Çoklu oturum açma yapılandırmak istediğiniz uygulamayı seçin.
+6.  Tooconfigure çoklu oturum açma hello uygulamasını seçin.
 
-7.  Uygulamanın yüklediği sonra tıklayın **çoklu oturum açma** uygulamanın sol taraftaki gezinti menüsünde.
+7.  Merhaba uygulamanın yüklediği sonra hello tıklayın **çoklu oturum açma** hello uygulamanın sol taraftaki gezinti menüsünde.
 
-8.  tıklatın **Göster gelişmiş sertifika imzalama ayarları** altında **SAML imzalama sertifikası** bölümü.
+8.  tıklatın **Göster gelişmiş sertifika imzalama ayarları** hello altında **SAML imzalama sertifikası** bölümü.
 
-9.  Uygun seçin **imzalama seçeneği** uygulama tarafından beklenen:
+9.  Select hello uygun **imzalama seçeneği** hello uygulama tarafından beklenen:
 
   * Oturum SAML yanıtını
 
@@ -125,35 +125,35 @@ SAML belirteci hangi kısımlarının Azure Active Directory tarafından dijital
 
   * Oturum SAML onayı
 
-Uygulama için kullanıcı oturum açtığında sonraki zaman Azure AD oturum seçili SAML yanıtını parçası.
+Bir sonraki defa Hello toohello uygulamada oturum açtığında, Azure AD oturum seçili hello SAML yanıtını parçası hello.
 
-## <a name="the-application-expects-the-signing-algorithm-to-be-sha-1"></a>SHA-1 olması için imzalama algoritmasını uygulama bekliyor
+## <a name="hello-application-expects-hello-signing-algorithm-toobe-sha-1"></a>Merhaba uygulaması algoritması toobe SHA-1 imzalama hello bekliyor
 
-Varsayılan olarak, Azure AD çoğu güvenlik algoritmasını kullanarak SAML belirteci imzalar. Oturum algoritması SHA-1'den değiştirilmesi uygulama tarafından gerekli kılınmadıkça hiçbir önerilmez.
+Varsayılan olarak, Azure AD çoğu güvenlik algoritması hello kullanarak hello SAML belirteci imzalar. Merhaba oturum algoritma tooSHA-1 değiştirme hello uygulama tarafından gerekli kılınmadıkça hiçbir önerilmez.
 
-İmza algoritmasını değiştirmek için aşağıdaki adımları izleyin:
+toochange imzalama algoritmasını Merhaba, hello adımları izleyin:
 
-1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
+1.  Açık hello [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici** veya **ortak yönetici**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+2.  Açık hello **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** hello ana sol taraftaki gezinti menüsünde hello sonundaki.
 
-3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" Merhaba filtre arama kutusunda ve select hello **Azure Active Directory** öğesi.
 
-4.  tıklatın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
+4.  Tıklatın **kurumsal uygulamalar** hello Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
+5.  Tıklatın **tüm uygulamaları** tooview tüm uygulamalarınızın listesi.
 
-   * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm uygulamaları.**
+   * Burada göstermek istediğiniz Merhaba uygulaması görmüyorsanız hello kullan **filtre** denetim hello hello üstündeki **tüm uygulamalar listesini** ve kümesi hello **Göster** çok seçenek **Tüm uygulamalar.**
 
-6.  Çoklu oturum açma yapılandırmak istediğiniz uygulamayı seçin.
+6.  Tooconfigure çoklu oturum açma hello uygulamasını seçin.
 
-7.  Uygulamanın yüklediği sonra tıklayın **çoklu oturum açma** uygulamanın sol taraftaki gezinti menüsünde.
+7.  Merhaba uygulamanın yüklediği sonra hello tıklayın **çoklu oturum açma** hello uygulamanın sol taraftaki gezinti menüsünde.
 
-8.  tıklatın **Göster gelişmiş sertifika imzalama ayarları** altında **SAML imzalama sertifikası** bölümü.
+8.  tıklatın **Göster gelişmiş sertifika imzalama ayarları** hello altında **SAML imzalama sertifikası** bölümü.
 
-9.  SHA-1, seçin **imza algoritması**.
+9.  SHA-1, hello seçin **imzalama algoritması**.
 
-Sonraki sefer uygulama için kullanıcı oturum açtığında, Azure AD'sha-1 algoritmasını kullanarak SAML belirteci oturum açın.
+Sonraki kullanıcı işaretlerini toohello uygulamada Merhaba, SAML belirteci SHA-1 algoritmasını kullanarak Azure AD oturum hello.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[SAML tabanlı çoklu oturum açma Azure Active Directory uygulamalarında hata ayıklama](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging)
+[Nasıl toodebug SAML tabanlı tek oturum açma tooapplications Azure Active Directory'de](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging)

@@ -1,6 +1,6 @@
 ---
 title: "SensorTag cihaz & Azure IOT ağ geçidi - Ders 2: Get Araçlar (Ubuntu) | Microsoft Docs"
-description: "Araçlar ve yazılım Ubuntu çalıştıran ana bilgisayarınıza yüklemek, IOT hub'ı oluşturun ve IOT hub'ı Cihazınızı kaydedin."
+description: "Merhaba araçları ve hello yazılım Ubuntu çalıştıran ana bilgisayarınıza yüklemek, IOT hub'ı oluşturun ve hello IOT hub'da Cihazınızı kaydedin."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,13 +17,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 234b60e1f8eaff52ce07f54d4d12de2421cc1a52
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c9edca91e791ef914b1920178b66eadd12ae0281
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-the-tools-ubuntu-1604"></a>Araçları edinme (Ubuntu 16.04)
+# <a name="get-hello-tools-ubuntu-1604"></a>Merhaba Araçları (Ubuntu 16.04) alın
 > [!div class="op_single_selector"]
 > * [Windows 7 veya üzeri](iot-hub-gateway-kit-c-lesson2-get-the-tools-win32.md)
 > * [Ubuntu 16.04](iot-hub-gateway-kit-c-lesson2-get-the-tools-ubuntu.md)
@@ -32,36 +32,36 @@ ms.lasthandoff: 07/11/2017
 ## <a name="what-you-will-do"></a>Ne yapacağını
 
 - Git, Node.js, Gulp, Python yükleyin.
-- Azure komut satırı arabirimi (Azure CLI) yükleyin. 
+- Hello Azure komut satırı arabirimi (Azure CLI) yükleyin. 
 
-Herhangi bir sorun varsa, çözümleri için Ara [sorun giderme sayfası](iot-hub-gateway-kit-c-troubleshooting.md).
+Herhangi bir sorun varsa, hello çözümlerini arayın [sorun giderme sayfası](iot-hub-gateway-kit-c-troubleshooting.md).
 ## <a name="what-you-will-learn"></a>Bilgi edineceksiniz
 
 Bu alıştırmanın ilerisinde şunları öğreneceksiniz:
 
-- Git ve Node.js nasıl yüklenir.
-  - Git bir açık kaynak dağıtılmış sürüm denetim sistemidir. Örnek bir uygulama bu ders için Git üzerinde depolanır.
+- Nasıl tooinstall Git ve Node.js.
+  - Git bir açık kaynak dağıtılmış sürüm denetim sistemidir. Merhaba örnek bir uygulama bu ders için Git üzerinde depolanır.
   - Node.js, JavaScript çalışma zamanı zengin paket ekosistemi ile olur.
-- NPM Node.js Geliştirme Araçları'nı yüklemek için nasıl kullanılacağını.
-  - Node.js, gerekli en düşük sürüm 4.5 LTS ' dir.
-  - NPM Node.js paket yöneticilerinden biridir.
-- Visual Studio Code yükleme.
+- Nasıl toouse NPM tooinstall Node.js geliştirme araçları.
+  - Merhaba gerekli en düşük sürümü Node.js 4.5 LTS ' dir.
+  - NPM hello paket Node.js yöneticilerinden biridir.
+- Nasıl tooinstall Visual Studio Code.
   - Visual Studio platformlar arası, Windows, Linux ve macOS için basit ancak güçlü kaynak kod düzenleyicisini kodudur. Hata ayıklama, katıştırılmış Git denetimi, sözdizimi vurgulama, akıllı kod tamamlama, parçacıkları ve kod da yeniden düzenleme için harika desteğe sahiptir.
-- Azure CLI yükleme
-  - Azure CLI, Azure için birden çok platformlu bir komut satırı deneyimi sağlar. Doğrudan komut satırından sağlamak için çalışır ve kaynaklarını yönetme.
-- IOT hub'ı oluşturmak için Azure CLI kullanma
+- Nasıl tooinstall hello Azure CLI
+  - Hello Azure CLI, Azure için birden çok platformlu bir komut satırı deneyimi sağlar. Doğrudan bir komut satırı tooprovision çalışma ve kaynaklarını yönetme.
+- Nasıl toouse hello Azure CLI toocreate IOT hub'ı.
 
 ## <a name="what-you-need"></a>Ne gerekiyor
 
-- Araçlar ve yazılım indirmesi için Internet bağlantısı.
+- Bir Internet bağlantısı toodownload araçları ve yazılım hello.
 - Ubuntu 16.04 veya sonraki sürümünü çalıştıran bir bilgisayar.
 
 ## <a name="install-git-and-nodejs"></a>Git ve Node.js yükleyin
 
-Git ve Node.js yüklemek için aşağıdaki adımları izleyin:
+tooinstall Git ve Node.js, şu adımları izleyin:
 
-1. Tuşuna `Ctrl + Alt + T` bir Terminali açın.
-2. Aşağıdaki komutları çalıştırın:
+1. Tuşuna `Ctrl + Alt + T` tooopen bir terminal.
+2. Merhaba aşağıdaki komutları çalıştırın:
 
    ```bash
    sudo apt-get update
@@ -72,24 +72,24 @@ Git ve Node.js yüklemek için aşağıdaki adımları izleyin:
 
 ## <a name="install-nodejs-development-tools"></a>Node.js geliştirme araçlarını yükleme
 
-Kullandığınız [gulp.js](http://gulpjs.com/) dağıtım ve betiklerinin yürütülmesi otomatik hale getirmek için.
+Kullandığınız [gulp.js](http://gulpjs.com/) tooautomate dağıtım ve komut dosyası yürütme.
 
-Gulp yüklemek için terminal aşağıdaki komutu çalıştırın:
+tooinstall gulp, komut hello terminalde aşağıdaki hello çalıştırın:
 
 ```bash
 sudo npm install -g gulp
 ```
 
-Yükleme sorunlarıyla karşılaşırsanız, bkz: [sorun giderme kılavuzu](iot-hub-gateway-kit-c-troubleshooting.md) yaygın sorunların çözümleri için.
+Merhaba yükleme sorunlarıyla karşılaşırsanız, hello bkz [sorun giderme kılavuzu](iot-hub-gateway-kit-c-troubleshooting.md) çözümleri toocommon sorunları.
 
 > [!Note]
-> Düğüm, NPM ve Gulp Node.js içinde geliştirilen Otomasyon betikleri çalıştırmak için gereklidir.
+> Düğüm, NPM ve Gulp Node.js içinde geliştirilen gerekli toorun Otomasyon betikleri vardır.
 
-## <a name="install-the-azure-cli"></a>Azure CLI'yı yükleme
+## <a name="install-hello-azure-cli"></a>Hello Azure CLI yükleme
 
-Azure CLI yüklemek için aşağıdaki adımları izleyin:
+tooinstall hello Azure CLI, şu adımları izleyin:
 
-1. Terminale aşağıdaki komutları çalıştırın:
+1. Komutları hello terminalde aşağıdaki hello çalıştırın:
 
    ```bash
    sudo apt-get update
@@ -101,25 +101,25 @@ Azure CLI yüklemek için aşağıdaki adımları izleyin:
    sudo pip install --upgrade azure-cli-iot
    ```
 
-   Yükleme 5 dakika sürebilir.
+   Merhaba yükleme 5 dakika sürebilir.
 
-2. Aşağıdaki komutu çalıştırarak yüklemeyi doğrulayın:
+2. Merhaba aşağıdaki komutu çalıştırarak Hello yüklemeyi doğrulayın:
 
    ```bash
    az iot -h
    ```
-Yükleme başarılı olursa aşağıdaki çıktı görmeniz gerekir.
+Merhaba yükleme başarılı olup olmadığını hello aşağıdaki çıktı görmeniz gerekir.
 ![Azure CLI yükleme doğrulayın](media/iot-hub-gateway-kit-lessons/lesson2/az_iot_help_ubuntu.png)
 
 ### <a name="install-visual-studio-code"></a>Visual Studio Kodu'nu yükle
 
-Visual Studio Code öğreticide daha sonra yapılandırma dosyalarını düzenlemek için kullanın.
+Visual Studio Code daha sonra hello öğretici tooedit yapılandırma dosyalarını kullanın.
 
 [Karşıdan](https://code.visualstudio.com/docs/setup/linux) ve Visual Studio Code yükleyin.
 
 ## <a name="summary"></a>Özet
 
-Tüm gerekli araçlar ve yazılım ana bilgisayara yüklediniz. Sonraki göreviniz IOT hub'ı oluşturun ve IOT hub'ınıza Cihazınızı kaydetmek için Azure CLI kullanmaktır.
+Tüm gerekli hello araçları ve yazılım ana bilgisayara yüklediniz. Sonraki görev toouse hello Azure CLI toocreate IOT hub'ı ve IOT hub'ınıza Cihazınızı kaydedin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [IoT hub'ı oluşturma ve cihazınızı kaydetme](iot-hub-gateway-kit-c-lesson2-register-device.md)

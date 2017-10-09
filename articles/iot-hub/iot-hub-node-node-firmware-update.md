@@ -1,6 +1,6 @@
 ---
-title: "Cihaz üretici yazılımı güncelleştirme ile Azure IOT hub'ı (düğüm) | Microsoft Docs"
-description: "Cihaz Yönetimi Azure IOT hub'ına aygıt üretici yazılımı güncelleştirmesi başlatmak için nasıl kullanılacağını. Sanal cihaz uygulaması ve bellenim güncelleştirme tetikleyen bir hizmet uygulaması uygulamak için Node.js için Azure IOT SDK'ları kullanın."
+title: "Azure IOT hub'ı (düğüm) aaaDevice ürün yazılımı güncelleştirmesini | Microsoft Docs"
+description: "Azure IOT Hub tooinitiate cihaz üretici yazılımı toouse cihaz yönetimini nasıl güncelleştirin. Sanal cihaz uygulaması ve hello bellenim güncelleştirme tetikleyen bir hizmet uygulaması hello Azure IOT SDK'ları için Node.js tooimplement kullanın."
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -14,55 +14,55 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/06/2017
 ms.author: juanpere
-ms.openlocfilehash: 350cf1cbec8847d1bbf29814435502af6f098e54
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 99d4b369e7aba334bf713e0c657e6e5d227fb691
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-device-management-to-initiate-a-device-firmware-update-nodenode"></a>Bir cihaz üretici yazılımı güncelleştirmesi (düğümü/düğümü) başlatmak için cihaz Yönetimi'ni kullanın
+# <a name="use-device-management-tooinitiate-a-device-firmware-update-nodenode"></a>Aygıt Yönetimi tooinitiate aygıt üretici yazılımı güncelleştirmesi (düğümü/düğümü) kullanın
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 ## <a name="introduction"></a>Giriş
-İçinde [aygıt Management'i kullanmaya başlama] [ lnk-dm-getstarted] Öğreticisi, nasıl kullanılacağını gördüğünüz [cihaz çifti] [ lnk-devtwin] ve [doğrudan yöntemleri ] [ lnk-c2dmethod] temelleri uzaktan bir aygıt yeniden başlatma. Bu öğretici aynı IOT hub'ı temelleri kullanır ve rehberlik sağlar ve bir uçtan uca sanal üretici yazılımı güncelleştirme yapmak nasıl gösterir.  Bu deseni bellenim güncelleştirme uygulamasında Intel Edison'u aygıt örnek için kullanılır.
+Merhaba, [aygıt Management'i kullanmaya başlama] [ lnk-dm-getstarted] öğretici, gördüğünüz nasıl toouse hello [cihaz çifti] [ lnk-devtwin] ve [doğrudan yöntemleri] [ lnk-c2dmethod] temelleri tooremotely bir aygıtı yeniden başlatın. Bu öğretici kullanır aynı IOT hub'ı temelleri hello ve rehberlik sağlar ve nasıl toodo bir uçtan uca bellenim güncelleştirme benzetimli gösterir.  Bu desen hello bellenim güncelleştirme uygulamasında hello Intel Edison'u aygıt örnek için kullanılır.
 
 Bu öğretici şunların nasıl yapıldığını gösterir:
 
-* IOT hub'ınız aracılığıyla sanal cihaz uygulamasında firmwareUpdate doğrudan yöntemini çağıran bir Node.js konsol uygulaması oluşturun.
-* Arabirimini uygulayan bir sanal cihaz uygulaması oluşturma bir **firmwareUpdate** doğrudan yöntemi. Bu yöntem bellenim görüntüsünü karşıdan yüklemek için bekleyeceği, bellenim görüntüyü indirir ve son bellenim görüntü geçerli bir çok aşama işlemi başlatır. Güncelleştirme her aşaması sırasında aygıt ilerlemesini bildirmek için bildirilen özelliklerini kullanır.
+* IOT hub'ınız aracılığıyla hello sanal cihaz uygulamasında hello firmwareUpdate doğrudan yöntemini çağıran bir Node.js konsol uygulaması oluşturun.
+* Arabirimini uygulayan bir sanal cihaz uygulaması oluşturma bir **firmwareUpdate** doğrudan yöntemi. Bu yöntem, toodownload hello bellenim görüntü bekler, hello bellenim görüntüyü indirir ve son olarak hello bellenim görüntü geçerlidir bir çok aşama işlemi başlatır. Merhaba güncelleştirme her aşaması sırasında hello aygıt kullanır hello ilerlemeyi özellikleri tooreport bildirdi.
 
-Bu öğreticinin sonunda iki Node.js konsol uygulamaları vardır:
+Bu öğreticinin Hello sonunda, iki Node.js konsol uygulamaları vardır:
 
-**dmpatterns_fwupdate_service.js**yanıt görüntüler, sanal cihaz uygulamada, doğrudan bir yöntemi çağırır ve düzenli aralıklarla (her 500ms) görüntüler güncelleştirilmiş bildirilen özellikleri.
+**dmpatterns_fwupdate_service.js**hello sanal cihaz uygulamada, doğrudan bir yöntem çağıran görüntüler hello yanıt ve düzenli aralıklarla (her 500ms) güncelleştirilmiş görüntüler hello bildirilen özellikleri.
 
-**dmpatterns_fwupdate_device.js**, daha önce oluşturulan cihaz kimliğiyle IOT hub'ınızı bağlayan firmwareUpdate doğrudan bir yöntem alır, bellenim güncelleştirme dahil benzetimini yapmak için çok durumlu bir işlem çalışır: görüntü için bekleniyor , yeni görüntüyü indirme ve son olarak görüntüyü uygulamadan indirin.
+**dmpatterns_fwupdate_device.js**, daha önce oluşturduğunuz hello cihaz kimliğiyle IOT hub'ı tooyour bağlayan firmwareUpdate doğrudan bir yöntem alır, bellenim güncelleştirme dahil çok durumlu işlem toosimulate çalıştırır: Merhaba bekleniyor Görüntü, hello yeni görüntüsünü indirerek ve son olarak hello görüntüyü uygulamadan'i yükleyin.
 
-Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
+toocomplete Bu öğretici, aşağıdaki hello gerekir:
 
-* Node.js sürümünü 0.12.x sürümü veya sonraki bir sürümü <br/>  [Geliştirme ortamınızı hazırlama] [ lnk-dev-setup] Node.js Bu öğretici için Windows veya Linux'ta nasıl yükleneceğini açıklar.
+* Node.js sürümünü 0.12.x sürümü veya sonraki bir sürümü <br/>  [Geliştirme ortamınızı hazırlama] [ lnk-dev-setup] açıklar nasıl tooinstall Node.js Bu öğretici için Windows veya Linux üzerinde.
 * Etkin bir Azure hesabı. (Hesabınız yoksa, yalnızca birkaç dakika içinde [ücretsiz bir hesap][lnk-free-trial] oluşturabilirsiniz.)
 
-İzleyin [aygıt Management'i kullanmaya başlama](iot-hub-node-node-device-management-get-started.md) IOT hub'ınızı oluşturun ve IOT Hub bağlantı dizenizi almak için makale.
+Merhaba izleyin [aygıt Management'i kullanmaya başlama](iot-hub-node-node-device-management-get-started.md) toocreate IOT hub'ınızı makalesi ve IOT Hub bağlantı dizenizi alın.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="trigger-a-remote-firmware-update-on-the-device-using-a-direct-method"></a>Doğrudan bir yöntem kullanarak aygıt bir uzak bellenim güncelleştirme Tetikle
-Bu bölümde, bir cihazda uzaktan bellenim güncelleştirme başlatan bir Node.js konsol uygulaması oluşturun. Uygulama güncelleştirme başlatmak için doğrudan bir yöntem kullanır ve etkin bellenim güncelleştirme durumunu düzenli aralıklarla almak için cihaz çifti sorgularını kullanır.
+## <a name="trigger-a-remote-firmware-update-on-hello-device-using-a-direct-method"></a>Merhaba cihaz doğrudan bir yöntem kullanarak bir uzak bellenim güncelleştirme Tetikle
+Bu bölümde, bir cihazda uzaktan bellenim güncelleştirme başlatan bir Node.js konsol uygulaması oluşturun. doğrudan yöntemi tooinitiate hello güncelleştirmesi Hello uygulamanın kullandığı ve kullandığı cihaz çifti sorguları tooperiodically hello hello etkin bellenim güncelleştirme durumunu alın.
 
-1. Adlı bir boş klasör oluşturun **triggerfwupdateondevice**.  İçinde **triggerfwupdateondevice** klasörü, komut isteminde aşağıdaki komutu kullanarak bir package.json dosyası oluşturun.  Tüm varsayılanları kabul edin:
+1. Adlı bir boş klasör oluşturun **triggerfwupdateondevice**.  Merhaba, **triggerfwupdateondevice** klasörü, komut, komut isteminde aşağıdaki hello kullanarak bir package.json dosyası oluşturun.  Tüm hello Varsayılanları kabul edin:
    
     ```
     npm init
     ```
-2. Komut isteminizde **triggerfwupdateondevice** klasörü yüklemek için aşağıdaki komutu çalıştırın, **azure IOT hub** ve **azure-IOT-cihaz-mqtt** cihaz SDK'sı paketler:
+2. Merhaba, komut isteminde **triggerfwupdateondevice** klasörüne, komut tooinstall hello aşağıdaki hello **azure IOT hub** ve **azure-IOT-cihaz-mqtt** aygıt SDK paketler:
    
     ```
     npm install azure-iothub --save
     ```
-3. Bir metin düzenleyicisi kullanarak oluşturduğunuz bir **dmpatterns_getstarted_service.js** dosyasını **triggerfwupdateondevice** klasör.
-4. Aşağıdaki 'İste' deyimleri başlangıcında eklemek **dmpatterns_getstarted_service.js** dosyası:
+3. Bir metin düzenleyicisi kullanarak oluşturduğunuz bir **dmpatterns_getstarted_service.js** hello dosyasında **triggerfwupdateondevice** klasör.
+4. Merhaba aşağıdaki 'İste' hello hello başlangıç deyimleri ekleme **dmpatterns_getstarted_service.js** dosyası:
    
     ```
     'use strict';
@@ -70,7 +70,7 @@ Bu bölümde, bir cihazda uzaktan bellenim güncelleştirme başlatan bir Node.j
     var Registry = require('azure-iothub').Registry;
     var Client = require('azure-iothub').Client;
     ```
-5. Aşağıdaki değişken bildirimlerini ekleme ve yer tutucu değerlerini değiştirin:
+5. Değişken bildirimleri aşağıdaki hello ekleyin ve hello yer tutucu değerlerini değiştirin:
    
     ```
     var connectionString = '{device_connectionstring}';
@@ -78,7 +78,7 @@ Bu bölümde, bir cihazda uzaktan bellenim güncelleştirme başlatan bir Node.j
     var client = Client.fromConnectionString(connectionString);
     var deviceToUpdate = 'myDeviceId';
     ```
-6. Bulmak için aşağıdaki işlevi ekleyin ve özellik görüntü firmwareUpdate değerini bildirdi.
+6. Merhaba aşağıdaki toofind işlev ve hello firmwareUpdate hello değerini görüntülemek ekleme özelliği bildirdi.
    
     ```
     var queryTwinFWUpdateReported = function() {
@@ -91,7 +91,7 @@ Bu bölümde, bir cihazda uzaktan bellenim güncelleştirme başlatan bir Node.j
         });
     };
     ```
-7. Hedef aygıt yeniden firmwareUpdate yöntemini çağırmak için aşağıdaki işlevi ekleyin:
+7. İşlev tooinvoke hello firmwareUpdate yöntemi tooreboot hello hedef aygıt aşağıdaki hello ekleyin:
    
     ```
     var startFirmwareUpdateDevice = function() {
@@ -110,40 +110,40 @@ Bu bölümde, bir cihazda uzaktan bellenim güncelleştirme başlatan bir Node.j
    
       client.invokeDeviceMethod(deviceToUpdate, methodParams, function(err, result) {
         if (err) {
-          console.error('Could not start the firmware update on the device: ' + err.message)
+          console.error('Could not start hello firmware update on hello device: ' + err.message)
         } 
       });
     };
     ```
-8. Son olarak, aşağıdaki işlev bellenim güncelleştirme sırası ve düzenli olarak bildirilen özelliklerini gösteren başlatmak için kodu ekleyin:
+8. Son olarak, Ekle hello aşağıdaki işlev toocode toostart hello bellenim güncelleştirme sırası ve düzenli aralıklarla gösteren Başlat hello bildirilen özellikleri:
    
     ```
     startFirmwareUpdateDevice();
     setInterval(queryTwinFWUpdateReported, 500);
     ```
-9. Kaydet ve Kapat **dmpatterns_fwupdate_service.js** dosya.
+9. Kaydet ve Kapat hello **dmpatterns_fwupdate_service.js** dosya.
 
 [!INCLUDE [iot-hub-device-firmware-update](../../includes/iot-hub-device-firmware-update.md)]
 
-## <a name="run-the-apps"></a>Uygulamaları çalıştırma
-Şimdi uygulamaları çalıştırmaya hazırsınız.
+## <a name="run-hello-apps"></a>Merhaba uygulamaları çalıştırma
+Hazır toorun hello uygulamaları sunulmuştur.
 
-1. Komut isteminde **manageddevice** klasörü, yeniden başlatma doğrudan yöntemi için dinleme başlamak için aşağıdaki komutu çalıştırın.
+1. Merhaba hello komut isteminde **manageddevice** klasöründe şunu hello yeniden başlatma doğrudan yöntemi için dinleme komutu toobegin aşağıdaki hello çalıştırın.
    
     ```
     node dmpatterns_fwupdate_device.js
     ```
-2. Komut isteminde **triggerfwupdateondevice** klasörü, Uzaktan yeniden başlatma ve sorgu son bulmak cihaz çifti için yeniden başlatma zamanı tetikleyicisi için şu komutu çalıştırın.
+2. Merhaba hello komut isteminde **triggerfwupdateondevice** komutu tootrigger hello uzaktan aşağıdaki hello Çalıştır klasörü yeniden başlatın ve hello cihaz çifti toofind hello en son yeniden başlatma için zaman sorgu.
    
     ```
     node dmpatterns_fwupdate_service.js
     ```
-3. Konsolunda doğrudan yöntemi aygıt yanıta bakın.
+3. Merhaba aygıt yanıt toohello doğrudan yöntemi hello konsolunda bakın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, doğrudan bir yöntem bir cihazda uzaktan Bellenim güncelleştirmesini tetiklemek için bildirilen özellikleri bellenim güncelleştirme durumunu izlemek için kullanılır ve.
+Bu öğreticide kullandığınız doğrudan yöntemi tootrigger uzak bir cihaz ve kullanılan hello bellenim güncelleştirme özellikleri toofollow hello hello bellenim güncelleştirme ilerlemesini bildirdi.
 
-Çözüm ve zamanlama yöntemini çağıran birden fazla cihazda, IOT genişletmek öğrenmek için bkz: [zamanlama ve yayın işleri] [ lnk-tutorial-jobs] Öğreticisi.
+toolearn tooextend birden fazla cihazda IOT çözümü ve zamanlama yöntemi çağırır nasıl hello bkz [zamanlama ve yayın işleri] [ lnk-tutorial-jobs] Öğreticisi.
 
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md

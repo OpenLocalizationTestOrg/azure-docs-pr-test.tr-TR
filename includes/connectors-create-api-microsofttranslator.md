@@ -1,14 +1,14 @@
 ### <a name="prerequisites"></a>Ön koşullar
 * A [MicrosoftTranslator](https://www.microsoft.com/translator) hesabı  
 
-Bir mantıksal uygulama MicrosoftTranslator hesabınızı kullanabilmeniz için önce MicrosoftTranslator hesabınıza bağlanmak için mantığı uygulamasını yetkilendirmeniz gerekir. Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz.  
+Bir mantıksal uygulama MicrosoftTranslator hesabınızı kullanabilmeniz için önce hello mantığı uygulama tooconnect tooyour MicrosoftTranslator hesabını yetkilendirmeniz gerekir. Neyse ki, kolayca hello Azure portalı üzerinde mantıksal uygulama içinde bunu yapabilirsiniz.  
 
-Mantıksal uygulamanızı MicrosoftTranslator hesabınıza bağlanmak için yetki vermek için adımlar şunlardır:  
+Mantıksal uygulama tooconnect tooyour MicrosoftTranslator hesabı hello adımları tooauthorize şunlardır:  
 
-1. Mantıksal Uygulama Tasarımcısı'nda MicrosoftTranslator, bir bağlantı oluşturmak için seçin **Göster Microsoft yönetilen API'ler** açılır listesinde enter *MicrosoftTranslator* arama kutusuna. Tetikleyici seçin veya eylem kullanmak ister:  
+1. Merhaba mantığı Uygulama Tasarımcısı'nda bir bağlantı tooMicrosoftTranslator toocreate seçin **Göster Microsoft yönetilen API'ler** Merhaba, açılan liste ardından girin *MicrosoftTranslator* hello arama kutusuna. Merhaba tetikleyici veya toouse beğendiğiniz eylem seçin:  
    ![MicrosoftTranslator bağlantı oluşturma adım](./media/connectors-create-api-microsofttranslator/microsofttranslator-1.png)  
-2. Önce MicrosoftTranslator bağlantılarına oluşturmadıysanız, MicrosoftTranslator kimlik bilgilerinizi girmeniz istendiğinde şunu. Bu kimlik bilgileri bağlanmak için mantıksal uygulamanızı yetkilendirmek için kullanılır ve MicrosoftTranslator hesabınızın veri erişim:  
+2. Tüm bağlantılar tooMicrosoftTranslator önce oluşturmadıysanız, MicrosoftTranslator kimlik bilgileriniz istendiğinde tooprovide elde edersiniz. Bu kimlik bilgileri, Logic app tooconnect kullanılan tooauthorize olması ve MicrosoftTranslator hesabınızın veri erişim:  
    ![MicrosoftTranslator bağlantı oluşturma adım](./media/connectors-create-api-microsofttranslator/microsofttranslator-2.png)  
-3. Bağlantı oluşturuldu ve artık bir mantıksal uygulamanızı adımlarda yüklemeye devam etmek ücretsiz dikkat edin:  
+3. Merhaba bağlantı oluşturulur ve mantıksal uygulamanızı ücretsiz tooproceed hello diğer sahip adımlarını artık olduğunuz dikkat edin:  
    ![MicrosoftTranslator bağlantı oluşturma adım](./media/connectors-create-api-microsofttranslator/microsofttranslator-3.png)  
 

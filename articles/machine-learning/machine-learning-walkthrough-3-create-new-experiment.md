@@ -1,6 +1,6 @@
 ---
 title: "3. adım: yeni bir Machine Learning deneme oluşturma | Microsoft Docs"
-description: "Adım 3 / geliştirme Tahmine dayalı bir çözüm izlenecek yol: Azure Machine Learning Studio'da yeni bir eğitim deneme oluşturun."
+description: "Adım 3 / hello geliştirmek Tahmine dayalı bir çözüm izlenecek yol: Azure Machine Learning Studio'da yeni bir eğitim deneme oluşturun."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,123 +14,123 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-ms.openlocfilehash: cd410316910bce76f5c915c06e83b24c034481b7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4697d461a205c50c8d2aa6a3bd56697840cb30f9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="walkthrough-step-3-create-a-new-azure-machine-learning-experiment"></a>Kılavuz Adımı 3: Yeni bir Azure Machine Learning denemesi oluşturma
-Bu kılavuzu, üçüncü adımdır [Azure Machine learning'de Tahmine dayalı analiz çözümü geliştirme](machine-learning-walkthrough-develop-predictive-solution.md)
+Hello kılavuzun hello üçüncü adım budur [Azure Machine learning'de Tahmine dayalı analiz çözümü geliştirme](machine-learning-walkthrough-develop-predictive-solution.md)
 
 1. [Bir Machine Learning çalışma alanı oluşturma](machine-learning-walkthrough-1-create-ml-workspace.md)
 2. [Mevcut verileri yükleme](machine-learning-walkthrough-2-upload-data.md)
 3. **Yeni bir deneme oluşturma**
-4. [Modelleri eğitme ve değerlendirme](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-5. [Web hizmetini dağıtma](machine-learning-walkthrough-5-publish-web-service.md)
-6. [Web hizmetine erişim](machine-learning-walkthrough-6-access-web-service.md)
+4. [Eğitmek ve hello modelleri değerlendir](machine-learning-walkthrough-4-train-and-evaluate-models.md)
+5. [Merhaba Web hizmetini dağıtma](machine-learning-walkthrough-5-publish-web-service.md)
+6. [Merhaba Web hizmetine erişim](machine-learning-walkthrough-6-access-web-service.md)
 
 - - -
-Bu kılavuzda bir sonraki adım, Machine Learning Studio'da biz karşıya veri kümesi kullanan bir denemeyi oluşturmaktır.  
+Bu kılavuzda Hello sonraki adım toocreate biz karşıya hello veri kümesi kullanan bir Machine Learning Studio'da bir denemeyi olacaktır.  
 
-1. Studio'da sırasıyla **+ yeni** pencerenin altındaki.
+1. Studio'da sırasıyla **+ yeni** hello pencerenin hello altındaki.
 2. Seçin **deneme**ve ardından "Boş deneme" seçin. 
 
     ![Yeni bir deneme oluşturma][0]
 
-2. Tuvale üstündeki varsayılan deneme adını seçin ve anlamlı yeniden adlandırın.
+2. Select hello varsayılan hello tuvale hello başındaki ad denemeler ve toosomething anlamlı yeniden adlandırın.
 
     ![Denemeyi yeniden adlandırma][5]
    
    > [!TIP]
-   > Doldurmak için iyi bir uygulamadır **Özet** ve **açıklama** denemesinde için **özellikleri** bölmesi. Bu özellikler, böylece daha sonra görünüyor herkes amaçlar ve yöntemler anlayabileceği deneme belge şansı.
+   > İyi bir uygulama toofill konusu **Özet** ve **açıklama** hello hello denemesinde için **özellikleri** bölmesi. Böylece daha sonra görünüyor herkes amaçlar ve yöntemler anlayabileceği fırsat toodocument hello deneme hello bu özellikleri sağlar.
    > 
    > ![Deneme özellikleri][6]
    > 
-3. Deneme tuvalinin solundaki modül paletindeki genişletin **kaydedilen veri kümeleri**.
-4. Altında oluşturduğunuz veri kümesi bulma **My veri kümeleri** ve tuvale sürükleyin. Veri kümesi adı girerek bulabileceğiniz **arama** kutusunun palet üstünde.  
+3. İçinde Hello modül paleti toohello sol tarafındaki hello deneme tuvalinin genişletin **kaydedilen veri kümeleri**.
+4. Bul hello veri kümesi altında oluşturduğunuz **My veri kümeleri** hello tuvale sürükleyin. Hello hello adı girerek hello dataset bulabilirsiniz **arama** kutusunun hello palet üstünde.  
 
-    ![Veri kümesi için deneme ekleyin][7]
+    ![Merhaba dataset toohello deneme ekleme][7]
 
-## <a name="prepare-the-data"></a>Verileri hazırlama
-Veri ilk 100 satırı ve tüm veri kümesi için bazı istatistiksel bilgileri görüntüleyebilirsiniz: (küçük daire altındaki) kümesinin çıkış bağlantı noktasına tıklayın ve **Görselleştir**.  
+## <a name="prepare-hello-data"></a>Merhaba verileri hazırlama
+Görüntüleyebileceğiniz hello veri ilk 100 satırı ve bazı istatistiksel bilgileri hello tam veri kümesi için hello: hello veri kümesi (Merhaba küçük bir daire hello altındaki) hello çıkış bağlantı noktasına tıklayın ve **Görselleştir**.  
 
-Veri dosyasındaki sütun başlıkları ile eşleşmedi geldiğinden Studio genel başlıkları sağlamıştır (Col1, Col2, *vb.*). İyi başlıkları bir model oluşturmak için gerekli değildir, ancak bunlar denemede verilerle çalışmayı kolaylaştırır. Ayrıca, biz sonunda bu model bir web hizmeti yayımladığınızda, başlıkları hizmetinin kullanıcı sütunlara tanımlamaya yardımcı olur.  
+Merhaba veri dosyası sütun başlıkları ile eşleşmedi geldiğinden Studio genel başlıkları sağlamıştır (Col1, Col2, *vb.*). Temel toocreating bir model iyi başlıkları değil, ancak bunlar hello verilerle daha kolay toowork hello denemesinde olun. Ayrıca, biz sonunda bu model bir web hizmeti yayımladığınızda, hello başlıkları hello sütunları toohello kullanıcı hello hizmetinin tanımlamaya yardımcı olur.  
 
-Sütun başlıklarını kullanarak ekleyebiliriz [Düzenle meta veri] [ edit-metadata] modülü.
-Kullandığınız [Düzenle meta veri] [ edit-metadata] modülü bir veri kümesi ile ilişkili meta verileri değiştirmek için. Bu durumda, bu sütun başlıkları için daha fazla kolay adlar sağlamak için kullanırız. 
+Sütun başlıkları hello kullanarak ekleyebiliriz [Düzenle meta veri] [ edit-metadata] modülü.
+Merhaba kullandığınız [Düzenle meta veri] [ edit-metadata] modülü toochange meta veri kümesiyle ilişkilendirilmiş. Bu durumda, daha fazla kolay adlar tooprovide sütun başlıkları kullanırız. 
 
-Kullanılacak [Düzenle meta veri][edit-metadata], (Bu durumda, bunların tümünün.) değiştirmek için hangi sütunların ilk belirtin Ardından, bu sütunları (sütun başlıklarını değiştirme bu durumda,.) üzerinde gerçekleştirilecek eylemi belirtin
+toouse [Düzenle meta veri][edit-metadata], hangi sütunların toomodify (Bu durumda, bunların tümünün.) ilk belirtin Ardından, bu sütunları (sütun başlıklarını değiştirme bu durumda,.) üzerinde gerçekleştirilen hello eylem toobe belirtin
 
-1. Modül paletindeki "meta veri" yazın **arama** kutusu. [Düzenle meta veri] [ edit-metadata] modül listesinde görünür.
+1. Merhaba "meta" Merhaba modül paletindeki yazın **arama** kutusu. Merhaba [Düzenle meta veri] [ edit-metadata] hello modül listesinde görünür.
 
-2. ' I tıklatın ve sürükleyin [Düzenle meta veri] [ edit-metadata] tuvale modülü ve daha önce eklediğimiz dataset bırakın.
+2. Merhaba sürükleyip [Düzenle meta veri] [ edit-metadata] hello modülü tuvale ve daha önce eklediğimiz hello dataset bırakın.
 
-3. Veri kümesine Bağlan [Düzenle meta veri][edit-metadata]: (küçük daire alt kümesi) kümesinin çıkış bağlantı noktasına tıklayın, giriş bağlantı noktasına sürükleyin [Düzenle meta veri] [ edit-metadata] (modül üstündeki küçük daire) fare düğmesini bırakın. Ya da tuval üzerinde hareket ettirin olsa bile veri kümesi ve modül bağlı kalır.
+3. Merhaba dataset toohello bağlanmak [Düzenle meta veri][edit-metadata]: hello veri kümesi (Merhaba küçük bir daire hello dataset hello sonundaki) hello çıkış bağlantı noktasına tıklayın, toohello giriş bağlantı noktası sürükleyin [meta verileri düzenleme ] [ edit-metadata] (Merhaba küçük daire hello modülü hello üstündeki), hello fare düğmesini serbest bırakın. ya da hello tuval üzerinde hareket ettirin olsa bile hello veri kümesi ve modül bağlı kalır.
    
-   Denemeyi bu gibi görünmelidir:  
+   Merhaba deneme bu gibi görünmelidir:  
    
    ![Düzen meta verileri ekleme][1]
    
-   Kırmızı bir ünlem işareti Biz bu modül için özellikler henüz ayarlamadıysanız olduğunu gösterir. Biz bu sonraki gerçekleştirirsiniz.
+   Merhaba kırmızı bir ünlem işareti Biz bu modül için hello özellikleri henüz ayarlamadıysanız olduğunu gösterir. Biz bu sonraki gerçekleştirirsiniz.
    
    > [!TIP]
-   > Modüle çift tıklayıp metin girerek bir modüle yorum ekleyebilirsiniz. Bu, modülün denemenizde ne işe yaradığını bir bakışta görmenize yardımcı olabilir. Bu durumda, çift [Düzenle meta veri] [ edit-metadata] modülü ve Açıklama "Ekle sütun başlıkları" türü. Metin kutusunu kapatmak için tuval üzerinde başka bir yerde'ı tıklatın. Açıklamayı görüntülemek için modülü aşağı oka tıklayın.
+   > Bir yorum tooa modülü bağlantısındaki hello modülü ve metin girme tarafından ekleyebilirsiniz. Bu, bir bakışta görmenize yardımcı hangi hello modülün denemenizde yapıyor. Bu durumda, hello çift [Düzenle meta veri] [ edit-metadata] modülü ve türü hello Açıklama "Ekle sütun başlıkları". Başka bir yerde hello tuvale tooclose hello metin kutusuna tıklayın. toodisplay Merhaba yorum, hello modül hello aşağı oku tıklatın.
    > 
    > ![Meta veriler modülü açıklama eklendi Düzenle][8]
    > 
-4. Seçin [Düzenle meta veri][edit-metadata]hem de **özellikleri** tuvalin sağındaki bölmesi **başlatma Sütun seçiciyi**.
+4. Seçin [Düzenle meta veri][edit-metadata]ve hello **özellikleri** bölmesinde toohello hello tuvale sağına tıklayın **başlatma Sütun seçiciyi**.
 
-5. İçinde **seçin sütunları** iletişim kutusunda, tüm satırları seçin **kullanılabilir sütunlar** tıklatıp > taşımak için **seçili sütun**.
-   İletişim kutusu aşağıdaki gibi görünmelidir:
+5. Merhaba, **sütunları seçin** iletişim, tüm satırlarda hello select **kullanılabilir sütunlar** tıklatıp > toomove bunları çok**seçili sütun**.
+   Merhaba iletişim aşağıdaki gibi görünmelidir:
 
    ![Seçili tüm sütunlarla Sütun Seçici][2]
 
-6. Tıklatın **Tamam** onay işareti.
+6. Merhaba tıklatın **Tamam** onay işareti.
 
-7. Geri **özellikleri** bölmesinde, Ara **yeni sütun adları** parametresi. Bu alanda virgülle ve sütun sırasını ayrılmış kümesindeki 21 sütunların adlarının bir listesini girin. Veri kümesi belgelerindeki UCI Web sitesinde sütun adları elde edebilirsiniz veya kolaylık sağlamak için kopyalama ve yapıştırma aşağıdaki listede:  
+7. Merhaba edilene **özellikleri** bölmesinde, hello arayın **yeni sütun adları** parametresi. Bu alanda virgülle ve sütun sırasını ayrılmış hello kümesindeki hello 21 sütunların adlarının bir listesini girin. Merhaba dataset belgelerindeki hello UCI Web sitesinde hello sütun adları elde edebilirsiniz veya kolaylık sağlamak için kopyalama ve yapıştırma listesi aşağıdaki hello:  
    
        Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
    
-   Özellikler bölmesinde şöyle görünür:
+   Merhaba Özellikler bölmesinde şöyle görünür:
    
    ![Özellikleri düzenleme meta veriler için][3]
 
 > [!TIP]
-> Sütun başlıklarını doğrulamak istiyorsanız, denemeyi çalıştırın (tıklatın **çalıştırmak** deneme tuvalinin altında). Çalışan bittiğinde (yeşil bir onay işareti görünür [Düzenle meta veri][edit-metadata]), çıkış bağlantı noktasına tıklayın [Düzenle meta veri] [ edit-metadata] modülü ve select **Görselleştir**. Denemeyi verilerine ilerlemesini görüntülemek için aynı şekilde herhangi bir modül çıktısını görüntüleyin.
+> Tooverify hello sütun başlıkları istiyorsanız hello denemeyi çalıştırın (tıklatın **çalıştırmak** hello deneme tuvalinin altında). Çalışan bittiğinde (yeşil bir onay işareti görünür [Düzenle meta veri][edit-metadata]), hello hello çıkış bağlantı noktasına tıklayın [Düzenle meta veri] [ edit-metadata] Modül ' nı seçip **Görselleştir**. Herhangi bir modül hello çıktısını hello görüntüleyebilirsiniz aynı şekilde tooview hello ilerlemesini hello deneme hello verilerine.
 > 
 > 
 
 ## <a name="create-training-and-test-datasets"></a>Eğitim oluşturmak ve veri kümelerini test etme
-Modeli eğitmek için bazı veriler ve bazı test etmek için ihtiyacımız var.
-Denemeyi sonraki adımda size dataset iki ayrı kümelerine bölünmüş şekilde: modelimizi ve test için bir tane eğitim için bir tane.
+Bazı veri tootrain hello modeli ve bazı tootest ihtiyacımız onu.
+Merhaba sonraki adımında hello deneme biz hello dataset iki ayrı kümelerine bölünmüş şekilde: modelimizi ve test için bir tane eğitim için bir tane.
 
-Bunu yapmak için kullanırız [bölünmüş veri] [ split] modülü.  
+toodo bunu hello kullanırız [bölünmüş veri] [ split] modülü.  
 
-1. Bul [bölünmüş veri] [ split] modülünü tuvale sürükleyin ve buna bağlanmak [Düzenle meta veri] [ edit-metadata] modülü.
+1. Hello bulur [bölünmüş veri] [ split] modül hello tuvale sürükleyin ve toohello bağlayın [Düzenle meta veri] [ edit-metadata] modülü.
 
-2. Varsayılan olarak, 0,5 bölünmüş orandır ve **Randomized bölünmüş** parametrenin ayarlanmış. Bu rastgele yarı veri çıkışı bir bağlantı noktası üzerinden olduğu anlamına gelir [bölünmüş veri] [ split] modülü ve yarısı diğer aracılığıyla. Bu parametreleri ayarlayabilirsiniz yanı sıra **rastgele doldurma** eğitim ve test verileri arasında bölünmüş değiştirmek için parametre. Bu örnekte, biz bunları olarak bırakın-değil.
+2. Varsayılan olarak, hello bölünmüş 0,5 ve hello orandır **Randomized bölünmüş** parametrenin ayarlanmış. Bu rastgele yarı hello veri çıkışı hello bir bağlantı noktası üzerinden olduğu anlamına gelir [bölünmüş veri] [ split] modülü ve yarı ile Merhaba diğer. Siz bu parametreleri ayarlamak yanı sıra hello **rastgele doldurma** parametresi, eğitim ve test verileri arasında bölme toochange hello. Bu örnekte, biz bunları olarak bırakın-değil.
    
    > [!TIP]
-   > Özellik **ilk çıkış veri kümesinde satır kesir** çıkışı üzerinden verilerin ne kadar olacağını belirler *sol* çıkış bağlantı noktası. İçin 0,7 oranını ayarlamak, örneği için % 70 ' veri çıkış sol bağlantı noktası üzerinden ve doğru bağlantı noktası üzerinden % 30 olur.  
+   > Merhaba özelliği **hello satırlar için kesir değerini ilk çıkış veri kümesi** çıkışı hello üzerinden hello verilerin ne kadar olacağını belirler *sol* çıkış bağlantı noktası. Örneğin, hello oranı too0.7 ayarlarsanız, % 70'hello veri çıkışı hello doğru bağlantı noktası üzerinden sol bağlantı noktası ve % 30 hello üzerinden olabilir.  
    > 
    > 
 
-3. Çift [bölünmüş veri] [ split] modülü ve açıklama girin, "eğitim ve test veri Böl % 50". 
+3. Merhaba çift [bölünmüş veri] [ split] modülü ve hello açıklama girin, "eğitim ve test veri Böl % 50". 
 
-Çıkışları kullanırız [bölünmüş veri] [ split] modülü ancak biz gibi çalışır, ancak şimdi eğitim verilerini ve sağa çıktı olarak test verilerini sol çıkış kullanacak şekilde seçin.  
+Merhaba hello çıkışları kullanırız [bölünmüş veri] [ split] ancak biz gibi çalışır, ancak şimdi toouse seçin hello eğitim verisi olarak sol çıkış ve sağa hello modülü çıkış olarak test verileri.  
 
-Bölümünde belirtildiği gibi [önceki adımı](machine-learning-walkthrough-2-upload-data.md), düşük olarak yüksek kredi riski misclassifying maliyetidir beş kez yüksek olarak düşük kredi riski misclassifying maliyeti daha yüksek. Bu hesap için Biz bu maliyet işlevi yansıtır yeni bir veri kümesi oluşturur. Yeni veri kümesi her düşük riskli örnek çoğaltılmaz sırasında beş kez her yüksek riskli örnek çoğaltılır.   
+Hello belirtildiği gibi [önceki adımı](machine-learning-walkthrough-2-upload-data.md), düşük olarak yüksek kredi riski misclassifying hello maliyetidir beş kez yüksek olarak düşük kredi riski misclassifying hello maliyeti daha yüksek. Bu tooaccount, bu maliyet işlevi yansıtır yeni bir veri kümesi oluşturur. Her düşük riskli örnek çoğaltılmaz sırada hello yeni kümesindeki her yüksek riskli örnek beş kez çoğaltılır.   
 
 Bu çoğaltma yapabiliriz R kodu kullanarak:  
 
-1. Bulma ve sürükleyin [R betiği yürütün] [ execute-r-script] deneme tuvale modülü. 
+1. Bulma ve hello sürükleyin [R betiği yürütün] [ execute-r-script] hello deneme tuvale modülü. 
 
-2. Sol çıkış bağlantı noktasına bağlanmak [bölünmüş veri] [ split] ilk giriş bağlantı noktasını ("Dataset1") modülüne [R betiği yürütün] [ execute-r-script] modülü.
+2. Merhaba çıkış bağlantı noktasına sol hello bağlanmak [bölünmüş veri] [ split] modülü toohello Merhaba ilk bağlantı noktası ("Dataset1") giriş [R betiği yürütün] [ execute-r-script] Modül.
 
-3. Çift [R betiği yürütün] [ execute-r-script] modülü ve açıklamayı girin "maliyet ayarlaması Ayarla".
+3. Merhaba çift [R betiği yürütün] [ execute-r-script] modülü ve hello yorum girin "maliyet ayarlaması Ayarla".
 
-4. İçinde **özellikleri** bölmesinde, varsayılan metinde silme **R betiği** parametre ve bu komut dosyasını girin:
+4. Merhaba, **özellikleri** bölmesinde, delete hello varsayılan hello metinde **R betiği** parametre ve bu komut dosyasını girin:
    
        dataset1 <- maml.mapInputPort(1)
        data.set<-dataset1[dataset1[,21]==1,]
@@ -138,20 +138,20 @@ Bu çoğaltma yapabiliriz R kodu kullanarak:
        for (i in 1:5) data.set<-rbind(data.set,pos)
        maml.mapOutputPort("data.set")
 
-    ![R betiği R betiği yürütün Modülü][9]
+    ![R betiği hello R betiği yürütün Modülü][9]
 
-Bu aynı her çıktısını çoğaltma işlemi yapmak ihtiyacımız [bölünmüş veri] [ split] modülü böylece eğitim ve test verileri aynı maliyet ayarlama. Bunu yapmanın en kolay çoğaltarak yoludur [R betiği yürütün] [ execute-r-script] biz yalnızca yapılan modülü ve diğer bağlanma çıkış bağlantı noktasına [bölünmüş veri] [ split] modülü.
+Bu aynı çoğaltma işlemi için her çıktı Merhaba, toodo ihtiyacımız [bölünmüş veri] [ split] sahip eğitim ve test verileri bu hello hello şekilde aynı modülü maliyet ayarlama. Merhaba çoğaltarak budur en kolay yolu toodo hello [R betiği yürütün] [ execute-r-script] modülü biz yalnızca yapılan ve toohello bağlanan diğer çıkış başlangıç bağlantı noktası [bölünmüş veri] [ split] modülü.
 
-1. Sağ [R betiği yürütün] [ execute-r-script] modülü ve select **kopya**.
+1. Sağ hello [R betiği yürütün] [ execute-r-script] modülü ve select **kopya**.
 
-2. Deneme tuvalinin sağ tıklatıp **Yapıştır**.
+2. Merhaba deneme tuvalinin sağ tıklatıp **Yapıştır**.
 
-3. Yeni modül yerine sürükleyin ve doğru çıkış bağlantı noktasına bağlayın [bölünmüş veri] [ split] ilk giriş bağlantı noktası için bu yeni modül [R betiği yürütün] [ execute-r-script] modülü. 
+3. Merhaba yeni modül konumu sürükleyin ve hello hello sağ çıkış bağlantı noktasına bağlanmak [bölünmüş veri] [ split] modülü toohello ilk giriş bağlantı noktası bu yeni [R betiği yürütün] [ execute-r-script] modülü. 
 
-4. Tuvalin altındaki tıklatın **çalıştırmak**. 
+4. Merhaba tuvale Hello altındaki tıklatın **çalıştırmak**. 
 
 > [!TIP]
-> R betiği yürütün modülü kopyasını özgün modül olarak aynı komut dosyasını içerir. Tuvalde bir modül kopyalayıp, kopya özgün tüm özelliklerini korur.  
+> Merhaba R betiği yürütün modülü Hello kopyasını hello aynı hello özgün modülü olarak komut dosyası içerir. Merhaba tuvalde bir modül kopyalayıp, hello kopyalama hello özgün tüm hello özelliklerini korur.  
 > 
 > 
 
@@ -161,7 +161,7 @@ Bizim denemeyi şimdi şuna benzer:
 
 Denemelerinizi içinde R betiklerini kullanma hakkında daha fazla bilgi için bkz: [denemenizi R ile genişletme](machine-learning-extend-your-experiment-with-r.md).
 
-**Sonraki: [eğitimi ve modelleri değerlendir](machine-learning-walkthrough-4-train-and-evaluate-models.md)**
+**Sonraki: [eğitimi ve hello modelleri değerlendir](machine-learning-walkthrough-4-train-and-evaluate-models.md)**
 
 [0]: ./media/machine-learning-walkthrough-3-create-new-experiment/create-new-experiment.png
 [5]: ./media/machine-learning-walkthrough-3-create-new-experiment/rename-experiment.png

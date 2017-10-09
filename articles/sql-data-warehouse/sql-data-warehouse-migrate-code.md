@@ -1,6 +1,6 @@
 ---
-title: "SQL veri ambarına SQL kodunuzu geçirme | Microsoft Docs"
-description: "Çözümleri geliştirme için Azure SQL Data Warehouse SQL kodunuzu geçirmek için ipuçları."
+title: "aaaMigrate SQL kodu tooSQL veri ambarı | Microsoft Docs"
+description: "SQL geçirmek için ipuçları tooAzure SQL Data Warehouse çözümleri geliştirmek için kod."
 services: sql-data-warehouse
 documentationcenter: NA
 author: sqlmojo
@@ -15,17 +15,17 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 06/23/2017
 ms.author: joeyong;barbkess
-ms.openlocfilehash: c6e6b890f5e2d0e31b10bbb6803adad02bf60248
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7a16d579d068e9df9aba3dc61e4a09bcaa551588
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>SQL kodunuzu SQL veri ambarına geçirme
-Bu makalede, büyük olasılıkla kodunuzun başka bir veritabanından SQL veri ambarı'na geçirirken yapmanız gerekecektir kod değişiklikleri açıklanmaktadır. Dağıtılmış bir şekilde çalışması için tasarlanmış gibi bazı SQL veri ambarı özellikleri önemli ölçüde performansını iyileştirebilir. Ancak, performansı ve ölçeği korumak için bazı özellikler de kullanılamaz.
+# <a name="migrate-your-sql-code-toosql-data-warehouse"></a>SQL kod tooSQL veri ambarına geçirme
+Bu makalede, büyük olasılıkla toomake kodunuzun başka bir veritabanı tooSQL veri ambarı geçirilirken gerekir kod değişiklikleri açıklanmaktadır. Dağıtılmış bir şekilde tasarlanmış toowork oldukları gibi bazı SQL veri ambarı özellikleri önemli ölçüde performansını iyileştirebilir. Ancak, toomaintain performansı ve ölçeği, bazı özellikler de kullanılamaz.
 
 ## <a name="common-t-sql-limitations"></a>Ortak T-SQL sınırlamaları
-Aşağıdaki listede, SQL Data Warehouse desteklemediği en yaygın özellikler özetlenmektedir. Bağlantılar için desteklenmeyen özellikler geçici çözümler için gerçekleştirin:
+liste aşağıdaki hello SQL Data Warehouse desteklemediği hello en yaygın özellikler özetlenmektedir. Merhaba bağlantılar hello desteklenmeyen özellikler için tooworkarounds götürür:
 
 * [ANSI birleştirmeler güncelleştirmeleri][ANSI joins on updates]
 * [ANSI birleştirmeler üzerinde siler][ANSI joins on deletes]
@@ -52,10 +52,10 @@ Aşağıdaki listede, SQL Data Warehouse desteklemediği en yaygın özellikler 
 * [değişken ataması için seçimi kullanın][use of select for variable assignment]
 * [dinamik SQL dizeleri için hiçbir en büyük veri türü][no MAX data type for dynamic SQL strings]
 
-Neyse ki bu sınırlamalara çoğunu geçici çalışılan. Açıklamalar, yukarıda başvurulan ilgili geliştirme makalelerinde sağlanır.
+Neyse ki bu sınırlamalara çoğunu geçici çalışılan. Açıklamalar, yukarıda başvurulan hello ilgili geliştirme makalelerinde sağlanır.
 
 ## <a name="supported-cte-features"></a>Desteklenen CTE Özellikler
-Ortak tablo ifadelerinde (Cte'lerin) SQL veri ambarı'nda kısmen desteklenir.  Aşağıdaki CTE özellikleri şu anda desteklenir:
+Ortak tablo ifadelerinde (Cte'lerin) SQL veri ambarı'nda kısmen desteklenir.  şu anda CTE özellikler aşağıdaki hello desteklenir:
 
 * SELECT deyiminde bir CTE belirtilebilir.
 * Bir CTE CREATE VIEW deyiminde belirtilebilir.
@@ -70,17 +70,17 @@ Ortak tablo ifadelerinde (Cte'lerin) SQL veri ambarı'nda kısmen desteklenir.  
 Ortak tablo ifadelerinde SQL Data Warehouse dahil, bazı sınırlamalar vardır:
 
 * Bir CTE tek bir SELECT deyimi tarafından izlenmesi gerekir. INSERT, UPDATE, DELETE ve MERGE deyimleri desteklenmiyor.
-* Başvurular kendisi (bir özyinelemeli ortak tablo ifadesi) içeren bir ortak tablo ifadesi desteklenmiyor (bölüme bakın).
+* Başvuruları tooitself (bir özyinelemeli ortak tablo ifadesi) içeren bir ortak tablo ifadesi desteklenmiyor (bölüme bakın).
 * Birden çok yan tümcesi ile birlikte bir CTE belirtme izin verilmiyor. Bir CTE_query_definition bir alt sorgu içeriyorsa, örneğin, bu alt sorgu iç içe bir başka bir CTE tanımlayan yan tümcesiyle birlikte içeremez.
-* TOP yan tümcesi belirtildiğinde ORDER BY yan tümcesi dışında CTE_query_definition içinde kullanılamaz.
-* Bir CTE bir toplu iş parçası olan bir deyimde kullanıldığında, önceki deyimi noktalı virgülle gelmelidir.
-* Sp_prepare tarafından hazırlanan deyimlerinde kullanıldığında, Cte'lerin PDW diğer SELECT deyimlerinde aynı şekilde davranır. Cte'lerin CETAS sp_prepare tarafından hazırlanan bir parçası olarak kullanılıyorsa, ancak davranışı SQL Server ve diğer PDW deyimleri bağlama için sp_prepare uygulandığı yol nedeniyle erteleneceği. SEÇİN, başvuruları CTE içinde yok yanlış bir sütun CTE kullanarak sp_prepare hata algılama olmadan geçirir, ancak hata sırasında sp_execute yerine oluşturulur.
+* TOP yan tümcesi belirtildiğinde ORDER BY yan tümcesi hello CTE_query_definition, dışında kullanılamaz.
+* Bir CTE bir toplu iş parçası olan bir deyimde kullanıldığında, kendisinden önce hello deyimi noktalı virgülle gelmelidir.
+* Sp_prepare tarafından hazırlanan deyimlerinde kullanıldığında, Cte'lerin hello davranacak PDW diğer SELECT deyimlerinde aynı şekilde. Cte'lerin CETAS sp_prepare tarafından hazırlanan bir parçası olarak kullanılıyorsa, ancak hello davranışı SQL Server ve diğer PDW deyimleri bağlama için sp_prepare uygulanan hello şekilde nedeniyle erteleneceği. SEÇİN, başvuruları CTE içinde yok yanlış bir sütun CTE kullanarak hello sp_prepare hello hata algılama olmadan geçirir, ancak hello hata sırasında sp_execute yerine oluşturulur.
 
 ## <a name="recursive-ctes"></a>Özyinelemeli Cte'lerin
-Özyinelemeli Cte'lerin SQL veri ambarı'nda desteklenmez.  Özyinelemeli CTE geçişini biraz karmaşık olabilir ve içine birden çok adımı ayırmak için en iyi işlemidir. Genellikle, bir döngü kullanın ve geçici bir tablo özyinelemeli geçici sorguları yinelemek gibi doldurun. Geçici tablo doldurulduktan sonra için verileri tek bir sonuç kümesi olarak geri dönebilirsiniz. Benzer bir yaklaşım çözmek için kullanılan `GROUP BY WITH CUBE` içinde [Grup by tümcesi paketi / küp / gruplandırma kümeleri seçenekleri] [ group by clause with rollup / cube / grouping sets options] makalesi.
+Özyinelemeli Cte'lerin SQL veri ambarı'nda desteklenmez.  özyinelemeli CTE Hello geçişini biraz karmaşık olabilir ve hello en iyi işlemdir toobreak içine birden çok adımı. Genellikle, bir döngü kullanın ve geçici bir tablo hello özyinelemeli geçici sorguları yinelemek gibi doldurun. Merhaba geçici tablo doldurulduktan sonra için hello verileri tek bir sonuç kümesi olarak geri dönebilirsiniz. Benzer bir yaklaşım kullanılan toosolve bırakıldı `GROUP BY WITH CUBE` hello içinde [Grup by tümcesi paketi / küp / gruplandırma kümeleri seçenekleri] [ group by clause with rollup / cube / grouping sets options] makalesi.
 
 ## <a name="unsupported-system-functions"></a>Desteklenmeyen sistem işlevleri
-Desteklenmeyen bazı sistem işlevleri de vardır. Veri ambarı genellikle bulabileceğiniz Ana Kullanılanlar bazıları şunlardır:
+Desteklenmeyen bazı sistem işlevleri de vardır. Veri ambarı kullanılan genellikle bulabileceğiniz hello ana olanları bazıları şunlardır:
 
 * NEWSEQUENTIALID()
 * @@NESTLEVEL()
@@ -92,7 +92,7 @@ Desteklenmeyen bazı sistem işlevleri de vardır. Veri ambarı genellikle bulab
 Bu sorunlardan bazıları geçici çalışılan.
 
 ## <a name="rowcount-workaround"></a>@@ROWCOUNT geçici çözüm
-Desteğinin geçici olarak çözmek için@ROWCOUNT, son satır sayısı sys.dm_pdw_request_steps almak ve sonra yürütün bir saklı yordam oluşturmak `EXEC LastRowCount` DML deyimi sonra.
+desteğinin geçici toowork@ROWCOUNT, sys.dm_pdw_request_steps hello son satır sayısı almak ve sonra yürütün bir saklı yordam oluşturmak `EXEC LastRowCount` DML deyimi sonra.
 
 ```sql
 CREATE PROCEDURE LastRowCount AS

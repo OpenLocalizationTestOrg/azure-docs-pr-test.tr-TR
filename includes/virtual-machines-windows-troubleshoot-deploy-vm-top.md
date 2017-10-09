@@ -1,4 +1,4 @@
-Aşağıdaki üst sorunları, sorunu gidermenize yardımcı olabilir. Sorun giderme başlatmak için bu adımları gözden geçirin:
+Merhaba aşağıdaki üst sorunları, sorunu gidermenize yardımcı olabilir. sorun giderme, toostart adımları gözden geçirin:
 
-- [Küme istenen VM boyutu desteklemiyor](../articles/virtual-machines/windows/troubleshoot-deploy-vm.md#the-cluster-cannot-support-the-requested-vm-size)
-- [Küme kaynakları serbest bırakmak yok](../articles/virtual-machines/windows/troubleshoot-deploy-vm.md#the-cluster-does-not-have-free-resources)
+- [Merhaba küme destekleyemez hello istenen VM boyutu](../articles/virtual-machines/windows/troubleshoot-deploy-vm.md#the-cluster-cannot-support-the-requested-vm-size)
+- [Merhaba küme kaynakları serbest bırakmak yok](../articles/virtual-machines/windows/troubleshoot-deploy-vm.md#the-cluster-does-not-have-free-resources)

@@ -1,33 +1,33 @@
 <!--author=SharS last changed: 9/17/15-->
 
-### <a name="upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-storsomple-adapter-for-sharepoint"></a>SharePoint 2010 SharePoint 2013'e yükseltin ve sonra SharePoint için StorSomple bağdaştırıcısı yükleyin
+### <a name="upgrade-sharepoint-2010-toosharepoint-2013-and-then-install-hello-storsomple-adapter-for-sharepoint"></a>SharePoint 2010 tooSharePoint 2013 yükseltin ve sonra SharePoint için hello StorSomple bağdaştırıcısı yükleyin
 > [!IMPORTANT]
-> Yükseltme tamamlandıktan ve KKY özelliği yeniden etkinleştirilene kadar KKY dış depolama birimine önceden taşındı herhangi bir dosya kullanılamaz. Kullanıcı etkilerine sınırlamak için herhangi bir yükseltme veya planlı bakım penceresi sırasında yeniden gerçekleştirin.
+> Tüm daha önce KKY aracılığıyla tooexternal depolamaya hello yükseltme işlemi tamamlanana kadar kullanılamaz taşınan dosyaları ve hello KKY özelliği yeniden etkinleştirildi. toolimit kullanıcı etkisi, herhangi bir yükseltme veya planlı bakım penceresi sırasında yeniden gerçekleştirin.
 > 
 > 
 
-#### <a name="to-upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-adapter"></a>SharePoint 2010 SharePoint 2013'e yükselttikten sonra bağdaştırıcısı ve yüklemek için
-1. SharePoint 2010 grupta externalized BLOB'ları ve KKY etkin olduğu içerik veritabanları için BLOB Depolama yolu unutmayın. 
-2. Yükleyin ve yeni SharePoint 2013 grubuna yapılandırın. 
-3. Veritabanları, uygulamaları ve site koleksiyonları SharePoint 2010 grubundan yeni SharePoint 2013 grubuna taşıyın. Yönergeler için Git [SharePoint 2013 için yükseltme işlemine genel bakış](https://technet.microsoft.com/library/cc262483.aspx).
-4. Yeni gruptaki SharePoint için StorSimple bağdaştırıcısı yükleyin. Git [SharePoint için StorSimple bağdaştırıcısı](#install-the-storsimple-adapter-for-sharepoint) yordamlar.
-5. 1. adımda not ettiğiniz bilgileri kullanarak, aynı içerik veritabanları kümesi için KKY etkinleştirmek ve SharePoint 2010 yüklemesinde kullanılan BLOB deposu yolunu girin. Git [yapılandırma KKY](#configure-rbs) yordamlar. Bu adımı tamamladıktan sonra daha önce externalized dosyaları yeni grubundan erişilebilir olması gerekir. 
+#### <a name="tooupgrade-sharepoint-2010-toosharepoint-2013-and-then-install-hello-adapter"></a>SharePoint 2010 tooupgrade tooSharePoint 2013 ve ardından yükleme hello bağdaştırıcısı
+1. SharePoint 2010 Hello grupta hello BLOB Depolama hello yolunu not BLOB'ları ve hello içerik veritabanları KKY etkin olduğu externalized. 
+2. Yükleyin ve hello yeni SharePoint 2013 grubuna yapılandırın. 
+3. Veritabanları, uygulamaları ve site koleksiyonları hello SharePoint 2010 Grup toohello yeni SharePoint 2013 grubundan taşıyın. Yönergeler için çok gidin[hello yükseltme işlemi tooSharePoint 2013 genel bakış](https://technet.microsoft.com/library/cc262483.aspx).
+4. Merhaba yeni gruptaki SharePoint için StorSimple bağdaştırıcısı Hello yükleyin. Çok Git[yükleme hello SharePoint için StorSimple bağdaştırıcısı](#install-the-storsimple-adapter-for-sharepoint) yordamlar.
+5. 1. adımda not ettiğiniz hello bilgileri kullanarak, aynı içerik veritabanları ayarlayın ve aynı BLOB hello SharePoint 2010 yüklemesinde kullanılan yolu depolamak hello sağlamak hello için KKY etkinleştirin. Çok Git[yapılandırma KKY](#configure-rbs) yordamlar. Bu adımı tamamladıktan sonra daha önce externalized dosyaları hello yeni grubundan erişilebilir olması gerekir. 
 
-### <a name="upgrade-the-storsimple-adapter-for-sharepoint"></a>SharePoint için StorSimple bağdaştırıcısı yükseltme
+### <a name="upgrade-hello-storsimple-adapter-for-sharepoint"></a>Yükseltme hello SharePoint için StorSimple bağdaştırıcısı
 > [!IMPORTANT]
-> Bu yükseltme şu nedenlerden dolayı bir planlı bakım penceresi sırasında gerçekleşecek şekilde zamanlamanız gerekir:
+> Aşağıdaki nedenlerden hello için planlı bakım penceresi sırasında bu yükseltme toooccur zamanlamanız gerekir:
 > 
-> * Daha önce externalized içerik bağdaştırıcı yeniden kadar kullanılamaz.
-> * SharePoint için StorSimple bağdaştırıcısı önceki sürümünü kaldırdıktan sonra ancak yeni sürümü yüklemeden önce siteye yüklenen herhangi bir içerik içerik veritabanında depolanır. Yeni bağdaştırıcısı yükledikten sonra bu içeriği için StorSimple cihazı taşımanız gerekir. Microsoft kullanabilirsiniz` RBS Migrate()` PowerShell cmdlet'ini içeriği geçirmeyi SharePoint ile dahil. Daha fazla bilgi için bkz: [içine veya dışına KKY İçerik Geçişi](https://technet.microsoft.com/library/ff628255.aspx). 
+> * Daha önce externalized içerik Hello bağdaştırıcısı yeniden kadar kullanılamaz.
+> * SharePoint için StorSimple bağdaştırıcısı hello hello önceki sürümünü kaldırın, ancak hello yeni sürümü yüklemeden önce hello içerik veritabanında depolanan sonra herhangi bir içerik toohello site karşıya yüklendi. Merhaba yeni bağdaştırıcısı yükledikten sonra içerik toohello StorSimple cihazı toomove gerekir. Merhaba Microsoft kullanabilirsiniz` RBS Migrate()` SharePoint toomigrate Merhaba içeriğine dahil PowerShell cmdlet'i. Daha fazla bilgi için bkz: [içine veya dışına KKY İçerik Geçişi](https://technet.microsoft.com/library/ff628255.aspx). 
 > 
 > 
 
-#### <a name="to-upgrade-the-storsimple-adapter-for-sharepoint"></a>SharePoint için StorSimple bağdaştırıcısı yükseltmek için
-1. SharePoint için StorSimple Bağdaştırıcısı'nın önceki sürümünü kaldırın.
+#### <a name="tooupgrade-hello-storsimple-adapter-for-sharepoint"></a>tooupgrade hello SharePoint için StorSimple bağdaştırıcısı
+1. SharePoint için StorSimple bağdaştırıcısı Hello önceki sürümünü kaldırın.
    
    > [!NOTE]
-   > Bu otomatik olarak KKY içerik veritabanlarına devre dışı bırakır. Ancak, mevcut BLOB'ları StorSimple aygıtta kalır. KKY devre dışı bırakılır ve içerik veritabanları BLOB taşınmamış, bu BLOB'lar için tüm istekler başarısız olur. 
+   > Bu otomatik olarak KKY hello içerik veritabanlarında devre dışı bırakır. Ancak, mevcut BLOB'ları hello StorSimple aygıtta kalır. KKY devre dışı bırakılır ve hello BLOB'lar geçirilen geri toohello içerik veritabanları edilmemiş, bu BLOB'lar için tüm istekler başarısız olur. 
    > 
    > 
-2. SharePoint için yeni StorSimple bağdaştırıcısı yükleyin. Yeni bağdaştırıcısı önceden etkinleştirilmiş veya devre dışı KKY için içerik veritabanları otomatik olarak algılar ve önceki ayarları kullanır.
+2. SharePoint için yeni StorSimple bağdaştırıcısı hello yükleyin. Merhaba yeni bağdaştırıcısı önceden etkinleştirilmiş veya devre dışı KKY için hello içerik veritabanları otomatik olarak algılar ve hello önceki ayarları kullanır.
 

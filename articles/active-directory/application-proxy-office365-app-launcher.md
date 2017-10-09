@@ -1,6 +1,6 @@
 ---
-title: "Azure AD uygulama proxy'si aracılığıyla yayımlanan uygulamalar için özel bir ana sayfa ayarlama | Microsoft Docs"
-description: "Azure AD uygulama proxy'si bağlayıcılar hakkında temel bilgiler yer almaktadır"
+title: "Azure AD uygulama proxy'si kullanarak yayımlanan uygulamalar için özel bir ana sayfa aaaSet | Microsoft Docs"
+description: "Merhaba temel Azure AD uygulama proxy'si bağlayıcılar hakkında bilgiler yer almaktadır"
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -15,85 +15,85 @@ ms.date: 08/17/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 9069166259265f5d2b43043b75039e239f397f6c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 5bb695e904d285c3b440520f107c7bf63ba5cac9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Azure AD uygulama proxy'si kullanarak yayımlanan uygulamalar için özel bir ana sayfa ayarlayın
 
-Bu makalede, özel bir ana sayfa kullanıcıları yönlendirmek için uygulamaları yapılandırma anlatılmaktadır. Uygulama proxy'si ile bir uygulama yayımladığınızda, kullanıcılarınız ilk görmelisiniz sayfa olmayan bir iç URL ancak bazen ayarlayın. Özel bir ana sayfa ayarlayabilir, böylece uygulamaları Azure Active Directory erişim paneli veya Office 365 uygulama Başlatıcı eriştiklerinde, kullanıcılarınızın sağ sayfasına gidin.
+Bu makalede ele nasıl tooconfigure uygulamaları toodirect kullanıcılar tooa özel giriş sayfası. Uygulama proxy'si ile bir uygulama yayımladığınızda, bir iç URL ayarlanmış ancak bazen, kullanıcılarınızın ilk görmelisiniz hello sayfa değil. Özel bir ana sayfa hello uygulamaları hello Azure Active Directory erişim paneli veya hello Office 365 uygulama Başlatıcı eriştiklerinde, kullanıcılarınızın toohello sağ sayfa Git şekilde ayarlayın.
 
-Kullanıcıların uygulama başlattığında, varsayılan olarak yayımlanan uygulama kök etki alanı URL'si yönlendirilirsiniz. Giriş sayfası genellikle giriş sayfası URL'si olarak ayarlanır. Azure AD PowerShell modülü, uygulama kullanıcılarınızın uygulama içinde belirli bir sayfada güden istediğinizde özel giriş sayfası URL'leri tanımlamak için kullanın. 
+Kullanıcıların hello uygulama başlattığında, hello yayımlanan uygulama için varsayılan toohello kök etki alanı URL'si tarafından yönlendirilirsiniz. Merhaba giriş sayfası genellikle hello giriş sayfası URL'si olarak ayarlanır. Uygulama kullanıcıların tooland hello uygulama içinde belirli bir sayfada istediğinizde hello Azure AD PowerShell modülü toodefine özel giriş sayfası URL'si kullanın. 
 
 Örneğin:
-- Kullanıcıların gidin, şirket ağı içinde *https://ExpenseApp/login/login.aspx* oturum açın ve uygulamanıza erişmek için.
-- Uygulama proxy'si klasör yapısını en üst düzeyde erişmesi görüntüleri gibi diğer varlıklar olduğundan ile uygulama yayımlama *https://ExpenseApp* İç URL olarak.
-- Varsayılan dış URL *https://ExpenseApp-contoso.msappproxy.net*, değil almakta kullanıcılarınıza oturum açma sayfasında.  
-- Ayarlama *https://ExpenseApp-contoso.msappproxy.net/login/login.aspx* kullanıcılarınızın sorunsuz bir deneyim sunmak için giriş sayfası URL'si olarak. 
+- Kullanıcılar, şirket ağı içinde çok giderek*https://ExpenseApp/login/login.aspx* toosign içinde ve uygulamanızı erişebilirsiniz.
+- Uygulama proxy'si hello klasör yapısının hello üst düzeyde tooaccess gerektiğini görüntüleri gibi diğer varlıklar olduğundan hello uygulamayla yayımlama *https://ExpenseApp* İç URL hello gibi.
+- dış URL varsayılan Hello *https://ExpenseApp-contoso.msappproxy.net*, değil almakta kullanıcılar toohello oturum sayfasında.  
+- Ayarlama *https://ExpenseApp-contoso.msappproxy.net/login/login.aspx* kullanıcılarınız gibi hello giriş sayfası URL'si toogive sorunsuz bir deneyim. 
 
 >[!NOTE]
->Kullanıcıların yayımlanan uygulamalara erişim vermek, uygulamaları görüntülenen [Azure AD erişim paneli](active-directory-saas-access-panel-introduction.md) ve [Office 365 uygulama Başlatıcı](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher).
+>Toopublished uygulamaları kullanıcılara erişim vermek, hello uygulamaları hello görüntülenen [Azure AD erişim paneli](active-directory-saas-access-panel-introduction.md) ve hello [Office 365 uygulama Başlatıcı](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher).
 
 ## <a name="before-you-start"></a>Başlamadan önce
 
-Giriş sayfası URL'si ayarlamadan önce aşağıdaki gereksinimleri göz önünde bulundurun:
+Merhaba giriş sayfası URL'si ayarlamadan önce aşağıdaki gereksinimleri göz hello tutun:
 
-* Belirttiğiniz yolda kök etki alanı URL'si bir alt etki alanı yolu olduğundan emin olun.
+* Bir alt etki alanı yolu hello kök etki alanı URL'si belirtmeniz hello yol olduğundan emin olun.
 
-  Kök etki alanı URL'si, örneğin, https://apps.contoso.com/app1/, yapılandırdığınız giriş sayfası URL'si ile https://apps.contoso.com/app1/ başlatmanız gerekir.
+  Merhaba kök etki alanı URL ise, örneğin, https://apps.contoso.com/app1/, yapılandırdığınız hello giriş sayfası URL'si ile https://apps.contoso.com/app1/ başlatmanız gerekir.
 
-* Yayımlanan uygulama bir değişiklik yaparsanız, değişiklik giriş sayfası URL'si değerini sıfırlayabilir. Giriş sayfası URL'si, uygulama gelecekte yeniden denetle güncelleştirdiğinizde ve gerekirse güncelleştirin.
+* Bir değişiklik yaparsanız, toohello yayımlanan uygulama, hello değişiklik hello giriş sayfası URL'si hello değerini sıfırlama. Hello gelecekteki hello uygulamada güncelleştirdiğinizde yeniden denetle ve gerekir, gerekirse hello giriş sayfası URL'si güncelleştirin.
 
-## <a name="change-the-home-page-in-the-azure-portal"></a>Azure portalında giriş sayfasını değiştirme
+## <a name="change-hello-home-page-in-hello-azure-portal"></a>Hello Azure portal'de Hello giriş sayfasını değiştirme
 
-1. [Azure Portal](https://portal.azure.com)’da yönetici olarak oturum açın.
-2. Gidin **Azure Active Directory** > **uygulama kayıtlar** ve uygulamanızı listeden seçin. 
-3. Seçin **özellikleri** ayarlarından.
-4. Güncelleştirme **giriş sayfası URL'si** yeni yol ile alan. 
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com) yönetici olarak.
+2. Çok gidin**Azure Active Directory** > **uygulama kayıtlar** ve uygulamanızı hello listeden seçin. 
+3. Seçin **özellikleri** hello ayarları.
+4. Güncelleştirme hello **giriş sayfası URL'si** yeni yol ile alan. 
 
    ![Yeni giriş sayfası URL'si belirtin](./media/application-proxy-office365-app-launcher/homepage.png)
 
 5. Seçin **Kaydet**
 
-## <a name="change-the-home-page-with-powershell"></a>PowerShell ile giriş sayfasını değiştirme
+## <a name="change-hello-home-page-with-powershell"></a>PowerShell ile Merhaba giriş sayfasını Değiştir
 
-### <a name="install-the-azure-ad-powershell-module"></a>Azure AD PowerShell modülünü yükleyin
+### <a name="install-hello-azure-ad-powershell-module"></a>Hello Azure AD PowerShell modülünü yükleyin
 
-PowerShell kullanarak özel giriş sayfası URL'si tanımlamadan önce Azure AD PowerShell modülünü yükleyin. Paketten indirebilirsiniz [PowerShell Galerisi](https://www.powershellgallery.com/packages/AzureAD/2.0.0.131), Graph API uç noktası kullanır. 
+PowerShell kullanarak özel giriş sayfası URL'si tanımlamadan önce hello Azure AD PowerShell modülünü yükleyin. Hello hello paketini indirebilirsiniz [PowerShell Galerisi](https://www.powershellgallery.com/packages/AzureAD/2.0.0.131), hangi hello Graph API uç noktası kullanır. 
 
-Paketi yüklemek için aşağıdaki adımları izleyin:
+tooinstall hello paketini, şu adımları izleyin:
 
-1. Standart bir PowerShell penceresi açın ve aşağıdaki komutu çalıştırın:
+1. Standart bir PowerShell penceresi açın ve ardından hello aşağıdaki komutu çalıştırın:
 
     ```
      Install-Module -Name AzureAD
     ```
-    Bir yönetici olmayan komutu çalıştırıyorsanız kullanmak `-scope currentuser` seçeneği.
-2. Yükleme sırasında seçin **Y** Nuget.org iki paketleri yüklemek için. Her iki paketin de gereklidir. 
+    Bir yönetici olmayan hello komutu çalıştırıyorsanız hello kullan `-scope currentuser` seçeneği.
+2. Merhaba yükleme sırasında seçin **Y** tooinstall iki Nuget.org paketler. Her iki paketin de gereklidir. 
 
-### <a name="find-the-objectid-of-the-app"></a>Uygulama objectID Bul
+### <a name="find-hello-objectid-of-hello-app"></a>Hello hello uygulamasının objectID bulur
 
-Uygulama objectID alın ve sonra uygulama için kendi giriş sayfasına göre arayın.
+Hello hello uygulamasının objectID alın ve ardından hello uygulaması için kendi giriş sayfası tarafından arayın.
 
-1. PowerShell'i açın ve Azure AD modülünü içeri aktarın.
+1. PowerShell'i açın ve hello Azure AD modülünü içeri aktarın.
 
     ```
     Import-Module AzureAD
     ```
 
-2. Azure AD modülünü Kiracı yönetici olarak oturum açın.
+2. Toohello içinde Azure AD modülünü hello Kiracı Yöneticisi olarak oturum açın.
 
     ```
     Connect-AzureAD
     ```
-3. Giriş sayfası URL'sini tabanlı uygulamayı bulun. Giderek URL portalında bulabilirsiniz **Azure Active Directory** > **kurumsal uygulamalar** > **tüm uygulamaları**. Bu örnekte *sharepoint iddemo*.
+3. Kendi giriş sayfası URL'sine bağlı hello uygulamayı bulun. Çok giderek hello URL hello Portalı'nda bulabilirsiniz**Azure Active Directory** > **kurumsal uygulamalar** > **tüm uygulamaları**. Bu örnekte *sharepoint iddemo*.
 
     ```
     Get-AzureADApplication | where { $_.Homepage -like “sharepoint-iddemo” } | fl DisplayName, Homepage, ObjectID
     ```
-4. Burada gösterilen benzer bir sonuç almak. Sonraki bölümde kullanmak için objectID GUID kopyalayın.
+4. Benzer toohello bir burada gösterilen bir sonuç almanız gerekir. Merhaba objectID GUID toouse hello sonraki bölümde kopyalayın.
 
     ```
     DisplayName : SharePoint
@@ -101,44 +101,44 @@ Uygulama objectID alın ve sonra uygulama için kendi giriş sayfasına göre ar
     ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
     ```
 
-### <a name="update-the-home-page-url"></a>Giriş sayfası URL'si güncelleştir
+### <a name="update-hello-home-page-url"></a>Güncelleştirme hello giriş sayfası URL'si
 
-1. adım için kullanılan aynı PowerShell modülü, aşağıdaki adımları gerçekleştirin:
+Adım 1 ' için kullanılan aynı PowerShell modülü Hello hello aşağıdaki adımları gerçekleştirin:
 
-1. Doğru uygulamanız ve Değiştir onaylayın *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4* önceki adımda kopyaladığınız objectID ile.
+1. Uygulama düzeltin ve değiştirme hello sahip olduğunuzdan emin olun *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4* hello hello önceki adımda kopyaladığınız objectID ile.
 
     ```
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
     ```
 
- Uygulama Onaylandı, giriş sayfası aşağıdaki gibi güncelleştirmek hazırsınız.
+ Merhaba uygulama Onaylandı, hazır tooupdate hello giriş sayfasında, aşağıdaki gibi demektir.
 
-2. Yapmak istediğiniz değişiklikleri tutmak için bir boş uygulama nesnesi oluşturun. Bu değişken, güncelleştirmek istediğiniz değerleri tutar. Hiçbir şey bu adımda oluşturulur.
+2. Boş uygulama nesnesi toohold toomake istediğiniz hello değişiklikleri oluşturun. Bu değişken tooupdate istediğiniz hello değerler tutar. Hiçbir şey bu adımda oluşturulur.
 
     ```
     $appnew = New-Object “Microsoft.Open.AzureAD.Model.Application”
     ```
 
-3. Giriş sayfası URL'si istediğiniz değerine ayarlayın. Değer yayımlanan uygulama bir alt yolu olması gerekir. Örneğin, giriş sayfası URL'den değiştirirseniz *https://sharepoint-iddemo.msappproxy.net/* için *https://sharepoint-iddemo.msappproxy.net/hybrid/*, uygulama kullanıcılarınızın doğrudan özel giriş sayfasına git .
+3. İstediğiniz hello giriş sayfası URL'si toohello değerini ayarlayın. Merhaba değerin hello yayımlanan uygulama bir alt yolu olması gerekir. Giriş sayfası URL'den değiştirirseniz gibi hello *https://sharepoint-iddemo.msappproxy.net/* çok*https://sharepoint-iddemo.msappproxy.net/hybrid/*, uygulama kullanıcılarınızın Git doğrudan toohello özel Giriş sayfası.
 
     ```
     $homepage = “https://sharepoint-iddemo.msappproxy.net/hybrid/”
     ```
-4. İçinde kopyaladığınız GUID (objectID) kullanarak güncelleştirme yapmak "1. adım: uygulama objectID bulunamıyor."
+4. Merhaba, kopyalanan GUID (objectID) kullanarak güncelleştirme hello olun "1. adım: Bul hello hello uygulamasının objectID."
 
     ```
     Set-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4 -Homepage $homepage
     ```
-5. Değiştirme başarılı olduğunu doğrulamak için uygulamayı yeniden başlatın.
+5. Merhaba değişiklik başarılı olduğunu tooconfirm hello uygulamayı yeniden başlatın.
 
     ```
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
     ```
 
 >[!NOTE]
->Uygulama için yaptığınız tüm değişiklikler, giriş sayfası URL'si sıfırlayabilir. Giriş sayfası URL'nizi sıfırlar, 2. adımı yineleyin.
+>Toohello uygulama yaptığınız tüm değişiklikler hello giriş sayfası URL'si sıfırlayabilir. Giriş sayfası URL'nizi sıfırlar, 2. adımı yineleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [SharePoint Azure AD uygulama proxy'si ile uzaktan erişimi etkinleştir](application-proxy-enable-remote-access-sharepoint.md)
-- [Azure portalında uygulama ara sunucusunu etkinleştirme](active-directory-application-proxy-enable.md)
+- [Azure AD uygulama proxy'si ile uzaktan erişim tooSharePoint etkinleştir](application-proxy-enable-remote-access-sharepoint.md)
+- [Hello Azure portalında uygulama ara sunucusunu etkinleştirme](active-directory-application-proxy-enable.md)

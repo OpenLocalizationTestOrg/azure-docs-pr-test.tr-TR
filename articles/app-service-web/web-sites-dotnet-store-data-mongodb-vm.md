@@ -1,6 +1,6 @@
 ---
-title: "Sanal makinede çalışan MongoDB’ye bağlanan Azure web uygulaması oluşturma"
-description: "Git bir ASP.NET uygulamasını Azure App Service'e dağıtmak için nasıl kullanılacağını öğretilmektedir öğretici MongoDB üzerinde bir Azure sanal makinesine bağlı."
+title: "bir sanal makinede çalışan tooMongoDB bağlanan Azure web uygulamasında aaaCreate"
+description: "Bir ASP.NET uygulaması tooAzure uygulama hizmeti toouse Git toodeploy nasıl bağlanacağını öğretilmektedir öğretici tooMongoDB üzerinde bir Azure sanal makine."
 tags: azure-portal
 services: app-service\web, virtual-machines
 documentationcenter: .net
@@ -15,26 +15,26 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/29/2016
 ms.author: cephalin
-ms.openlocfilehash: a3f289ed9c764d0859573de4f834e042d0f103c6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1f5f42c28c3c294d92c9ebf1499374931d47c010
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-web-app-in-azure-that-connects-to-mongodb-running-on-a-virtual-machine"></a>Sanal makinede çalışan MongoDB’ye bağlanan Azure web uygulaması oluşturma
-Git kullanarak Azure App Service Web Apps için bir ASP.NET uygulamasını dağıtabilirsiniz. Bu öğreticide, basit bir ön uç ASP.NET MVC azure'da sanal makine üzerinde çalışan bir MongoDB veritabanına bağlayan görev listesi uygulaması oluşturacaksınız.  [MongoDB] [ MongoDB] bir popüler açık kaynak, yüksek performanslı NoSQL veritabanı. Çalıştıran ve ASP.NET uygulama geliştirme bilgisayarınızda testi sonra App Service Web Apps Git kullanarak uygulamaya karşıya yükler.
+# <a name="create-a-web-app-in-azure-that-connects-toomongodb-running-on-a-virtual-machine"></a>Azure'da bir sanal makinede çalışan tooMongoDB bağlanan bir web uygulaması oluşturma
+Git kullanarak bir ASP.NET uygulaması tooAzure App Service Web Apps dağıtabilirsiniz. Bu öğreticide, basit bir ön uç ASP.NET MVC, azure'da bir sanal makinede çalışan tooa MongoDB veritabanına bağlayan görev listesi uygulaması oluşturacaksınız.  [MongoDB] [ MongoDB] bir popüler açık kaynak, yüksek performanslı NoSQL veritabanı. Çalıştıran ve hello ASP.NET uygulama geliştirme bilgisayarınızda testi sonra hello uygulama tooApp Service Web Apps karşıya yükleyecek Git kullanarak.
 
 > [!NOTE]
-> Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’te hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin](https://azure.microsoft.com/try/app-service/) sayfasına gidin. Kredi kartı ve taahhüt gerekmez.
+> Azure hesabı için kaydolmadan önce Azure App Service ile başlatılan tooget istiyorsanız, çok Git[App Service'i deneyin](https://azure.microsoft.com/try/app-service/), burada hemen bir kısa süreli başlangıç web uygulaması App Service'te oluşturabilirsiniz. Kredi kartı ve taahhüt gerekmez.
 > 
 > 
 
 ## <a name="background-knowledge"></a>Arka plan bilgisi
-Aşağıdaki bilgisi gerekli değildir ancak bu öğretici için yararlıdır:
+Bilgi Bankası hello aşağıdaki gerekli değildir ancak bu öğretici için yararlıdır:
 
-* C# sürücüsü MongoDB için. MongoDB MongoDB karşı C# uygulamaları geliştirme hakkında daha fazla bilgi için bkz: [CSharp dil Merkezi][MongoC#LangCenter]. 
-* ASP .NET web uygulama çerçevesidir. Tüm adresinden hakkında bilgi alabilirsiniz [ASP.net Web sitesi][ASP.NET].
-* ASP .NET MVC web uygulama çerçevesidir. Tüm adresinden hakkında bilgi alabilirsiniz [ASP.NET MVC Web][MVCWebSite].
+* MongoDB için Hello C# sürücüsü. C# MongoDB karşı uygulamaları geliştirme hakkında daha fazla bilgi için bkz: Merhaba MongoDB [CSharp dil Merkezi][MongoC#LangCenter]. 
+* Merhaba ASP .NET web uygulama çerçevesidir. Tüm hello adresinden hakkında bilgi alabilirsiniz [ASP.net Web sitesi][ASP.NET].
+* Merhaba ASP .NET MVC web uygulama çerçevesidir. Tüm hello adresinden hakkında bilgi alabilirsiniz [ASP.NET MVC Web][MVCWebSite].
 * kullanıyoruz. Bilgi başlayabiliriz [Azure][WindowsAzure].
 
 ## <a name="prerequisites"></a>Ön koşullar
@@ -47,58 +47,58 @@ Aşağıdaki bilgisi gerekli değildir ancak bu öğretici için yararlıdır:
 <a id="virtualmachine"></a> 
 
 ## <a name="create-a-virtual-machine-and-install-mongodb"></a>Bir sanal makine oluşturun ve MongoDB yükleme
-Bu öğretici, Azure'da bir sanal makine oluşturduğunuz varsayar. Sanal makineyi oluşturduktan sonra sanal makinede MongoDB yüklemeniz gerekir:
+Bu öğretici, Azure'da bir sanal makine oluşturduğunuz varsayar. Merhaba sanal makine oluşturduktan sonra tooinstall MongoDB hello sanal makineye gerekir:
 
-* Bir Windows sanal makine oluşturun ve MongoDB yüklemek için bkz: [Azure'da Windows Server çalıştıran bir sanal makinede yüklemek MongoDB][InstallMongoOnWindowsVM].
+* bkz: toocreate Windows sanal makine ve yükleme MongoDB, [Azure'da Windows Server çalıştıran bir sanal makinede yüklemek MongoDB][InstallMongoOnWindowsVM].
 
-Azure'da sanal makine oluşturup MongoDB yüklü sonra uç belirtilen MongoDB için sanal makine ("testlinuxvm.cloudapp.net", örneğin) ve dış bağlantı noktasını DNS adını anımsamak emin olun.  Bu bilgiler daha sonra öğreticide gerekecektir.
+Azure'da hello sanal makine oluşturup MongoDB yüklü sonra emin tooremember hello DNS adı hello sanal makine ("testlinuxvm.cloudapp.net", örneğin) ve hello dış bağlantı noktası hello bitiş noktası içinde belirtilen MongoDB için olması.  Merhaba öğreticide daha sonra bu bilgileri gerekir.
 
 <a id="createapp"></a>
 
-## <a name="create-the-application"></a>Uygulama oluşturma
-Bu bölümde Visual Studio kullanarak "My görev listesi" adlı bir ASP.NET uygulaması oluşturun ve Azure App Service Web Apps için ilk bir dağıtım gerçekleştirin. Uygulamayı yerel olarak çalışır, ancak bunu Azure sanal makinenizde bağlanmak ve oluşturduğunuz MongoDB örneği burada kullanabilirsiniz.
+## <a name="create-hello-application"></a>Merhaba uygulaması oluşturma
+Bu bölümde Visual Studio kullanarak "My görev listesi" adlı bir ASP.NET uygulaması oluşturun ve ilk dağıtım tooAzure App Service Web Apps gerçekleştirin. Merhaba uygulama yerel olarak çalışacak, ancak bu Azure tooyour sanal makineye bağlanmak ve oluşturduğunuz hello MongoDB örneği burada kullanabilirsiniz.
 
 1. Visual Studio'da sırasıyla **yeni proje**.
    
     ![Sayfa yeni bir proje başlatın][StartPageNewProject]
-2. İçinde **yeni proje** penceresinde sol bölmesinde, **Visual C#**ve ardından **Web**. Orta bölmede seçin **ASP.NET Web uygulaması**. Projeniz "MyTaskListApp" alt kısmındaki adlandırın ve ardından **Tamam**.
+2. Merhaba, **yeni proje** penceresinde hello sol bölmesinde, **Visual C#**ve ardından **Web**. Merhaba orta bölmesinde seçin **ASP.NET Web uygulaması**. Merhaba altındaki "MyTaskListApp" projenizi adlandırın ve ardından **Tamam**.
    
     ![Yeni Proje İletişim Kutusu][NewProjectMyTaskListApp]
-3. İçinde **yeni ASP.NET projesi** iletişim kutusunda **MVC**ve ardından **Tamam**.
+3. Merhaba, **yeni ASP.NET projesi** iletişim kutusunda **MVC**ve ardından **Tamam**.
    
     ![MVC şablonunu seçin][VS2013SelectMVCTemplate]
-4. Microsoft Azure'da zaten oturumunuz açık değil, oturum açmak için istenir. Azure'da oturum için istemleri izleyin.
-5. Oturum açtıktan sonra App Service web uygulamanızı yapılandırmaya başlayabilirsiniz. Belirtin **Web uygulaması adı**, **uygulama hizmeti planı**, **kaynak grubu**, ve **bölge**, ardından **oluşturma**.
+4. Microsoft Azure'da zaten imzalanmadığını içinde istendiğinde toosign olacaktır. Azure'da Hello istemleri toosign izleyin.
+5. Oturum açtıktan sonra App Service web uygulamanızı yapılandırmaya başlayabilirsiniz. Merhaba belirtin **Web uygulaması adı**, **uygulama hizmeti planı**, **kaynak grubu**, ve **bölge**, ardından **Oluştur**.
    
     ![](./media/web-sites-dotnet-store-data-mongodb-vm/VSConfigureWebAppSettings.png)
-6. Azure App Service'te de belirtildiği gibi oluşturulması için web uygulaması projesi oluşturma tamamlandıktan sonra bekleyin **Azure App Service etkinliği** penceresi. Ardından **şimdi bu Web uygulaması yayımlama MyTaskListApp**.
+6. Başlangıç projesi oluşturma tamamlandıktan sonra Azure App Service'te hello belirtildiği şekilde oluşturulan hello web uygulama toobe bekleyin **Azure App Service etkinliği** penceresi. Ardından **yayımlama MyTaskListApp toothis Web uygulaması şimdi**.
 7. **Yayımla**’ta tıklayın.
    
     ![](./media/web-sites-dotnet-store-data-mongodb-vm/VSPublishWeb.png)
    
-    Varsayılan ASP.NET uygulamanızı Azure App Service Web Apps için yayımlandığında, tarayıcıda başlatılacak.
+    Varsayılan ASP.NET uygulamanızı yayımlanan tooAzure App Service Web Apps eklendiğinde, hello tarayıcıda başlatılacak.
 
-## <a name="install-the-mongodb-c-driver"></a>MongoDB C# sürücüsünü yükleyin
-MongoDB yerel geliştirme bilgisayarınıza yüklemek için gereken bir sürücüyle C# uygulamaları için istemci tarafı desteği sağlar. C# sürücü NuGet kullanılabilir.
+## <a name="install-hello-mongodb-c-driver"></a>Merhaba MongoDB C# sürücü yükleme
+MongoDB gereksinim duyduğunuz bir sürücüyle C# uygulamaları için istemci tarafı destek sunar, yerel geliştirme bilgisayarınızda tooinstall. Merhaba C# sürücü NuGet kullanılabilir.
 
-MongoDB C# sürücüyü yüklemek için:
+tooinstall hello MongoDB C# sürücüsü:
 
-1. İçinde **Çözüm Gezgini**, sağ **MyTaskListApp** proje ve seçin **yönetmek NuGetPackages**.
+1. İçinde **Çözüm Gezgini**, sağ hello **MyTaskListApp** proje ve seçin **yönetmek NuGetPackages**.
    
     ![NuGet paketlerini yönetme][VS2013ManageNuGetPackages]
-2. İçinde **NuGet paketlerini Yönet** pencerede, sol bölmede, tıklayın **çevrimiçi**. İçinde **arama çevrimiçi** kutusuna sağ tarafta, "mongodb.driver" yazın.  Tıklatın **yükleme** sürücüyü yüklemek için.
+2. Merhaba, **NuGet paketlerini Yönet** penceresinde hello sol bölmede, tıklatın **çevrimiçi**. Merhaba, **arama çevrimiçi** kutusuna sağ Merhaba, "mongodb.driver" yazın.  Tıklatın **yükleme** tooinstall hello sürücü.
    
     ![MongoDB C# sürücü arayın][SearchforMongoDBCSharpDriver]
-3. Tıklatın **kabul ediyorum** 10gen, Inc. lisans koşullarını kabul etmek için.
-4. Tıklatın **Kapat** sürücü yüklendikten sonra.
+3. Tıklatın **kabul ediyorum** tooaccept hello 10gen, Inc. lisans koşulları.
+4. Tıklatın **Kapat** hello sürücü yüklendikten sonra.
     ![MongoDB C# sürücüsünün yüklü][MongoDBCsharpDriverInstalled]
 
-MongoDB C# sürücü artık yüklüdür.  Başvurular **MongoDB.Bson**, **MongoDB.Driver**, ve **MongoDB.Driver.Core** kitaplıkları projeye eklendi.
+Merhaba MongoDB C# sürücü artık yüklüdür.  Başvuruları toohello **MongoDB.Bson**, **MongoDB.Driver**, ve **MongoDB.Driver.Core** kitaplıkları toohello proje eklenmiştir.
 
 ![MongoDB C# sürücü başvuruları][MongoDBCSharpDriverReferences]
 
 ## <a name="add-a-model"></a>Model ekleme
-İçinde **Çözüm Gezgini**, sağ *modelleri* klasör ve **Ekle** yeni bir **sınıfı** ve adlandırın *TaskModel.cs*.  İçinde *TaskModel.cs*, var olan kodu aşağıdaki kodla değiştirin:
+İçinde **Çözüm Gezgini**, sağ hello *modelleri* klasör ve **Ekle** yeni bir **sınıfı** ve adlandırın *TaskModel.cs* .  İçinde *TaskModel.cs*, hello varolan kod koddan hello ile değiştirin:
 
     using System;
     using System.Collections.Generic;
@@ -130,8 +130,8 @@ MongoDB C# sürücü artık yüklüdür.  Başvurular **MongoDB.Bson**, **MongoD
         }
     }
 
-## <a name="add-the-data-access-layer"></a>Veri erişim katmanı ekleme
-İçinde **Çözüm Gezgini**, sağ *MyTaskListApp* proje ve **Ekle** bir **yeni klasör** adlı *DAL*.  Sağ *DAL* klasör ve **Ekle** yeni bir **sınıfı**. Sınıf dosya adı *Dal.cs*.  İçinde *Dal.cs*, var olan kodu aşağıdaki kodla değiştirin:
+## <a name="add-hello-data-access-layer"></a>Merhaba veri erişim katmanı ekleme
+İçinde **Çözüm Gezgini**, sağ hello *MyTaskListApp* proje ve **Ekle** bir **yeni klasör** adlı *DAL*.  Sağ hello *DAL* klasör ve **Ekle** yeni bir **sınıfı**. Ad hello sınıf dosyası *Dal.cs*.  İçinde *Dal.cs*, hello varolan kod koddan hello ile değiştirin:
 
     using System;
     using System.Collections.Generic;
@@ -150,13 +150,13 @@ MongoDB C# sürücü artık yüklüdür.  Başvurular **MongoDB.Bson**, **MongoD
             private MongoServer mongoServer = null;
             private bool disposed = false;
 
-            // To do: update the connection string with the DNS name
+            // toodo: update hello connection string with hello DNS name
             // or IP address of your server. 
             //For example, "mongodb://testlinux.cloudapp.net"
             private string connectionString = "mongodb://mongodbsrv20151211.cloudapp.net";
 
             // This sample uses a database named "Tasks" and a 
-            //collection named "TasksList".  The database and collection 
+            //collection named "TasksList".  hello database and collection 
             //will be automatically created if they don't already exist.
             private string dbName = "Tasks";
             private string collectionName = "TasksList";
@@ -166,7 +166,7 @@ MongoDB C# sürücü artık yüklüdür.  Başvurular **MongoDB.Bson**, **MongoD
             {
             }
 
-            // Gets all Task items from the MongoDB server.        
+            // Gets all Task items from hello MongoDB server.        
             public List<MyTask> GetAllTasks()
             {
                 try
@@ -180,7 +180,7 @@ MongoDB C# sürücü artık yüklüdür.  Başvurular **MongoDB.Bson**, **MongoD
                 }
             }
 
-            // Creates a Task and inserts it into the collection in MongoDB.
+            // Creates a Task and inserts it into hello collection in MongoDB.
             public void CreateTask(MyTask task)
             {
                 var collection = GetTasksCollectionForEdit();
@@ -239,7 +239,7 @@ MongoDB C# sürücü artık yüklüdür.  Başvurular **MongoDB.Bson**, **MongoD
     }
 
 ## <a name="add-a-controller"></a>Denetleyici ekleme
-Açık *Controllers\HomeController.cs* dosyasını **Çözüm Gezgini** ve var olan kodu aşağıdakilerle değiştirin:
+Açık hello *Controllers\HomeController.cs* dosyasını **Çözüm Gezgini** ve hello var olan kodu hello şununla değiştirin:
 
     using System;
     using System.Collections.Generic;
@@ -319,12 +319,12 @@ Açık *Controllers\HomeController.cs* dosyasını **Çözüm Gezgini** ve var o
         }
     }
 
-## <a name="set-up-the-styles"></a>Stilleri ayarlama
-Sayfanın üstündeki başlığını değiştirmek için açık *görünümler/paylaşılan\\_Layout.cshtml* dosyasını **Çözüm Gezgini** ve "Uygulama adı" navbar üstbilgisinde "My görev listesi ile değiştirin. Böyle uygulama"şekilde görünür:
+## <a name="set-up-hello-styles"></a>Hello stilleri ayarlama
+Merhaba sayfanın üst kısmındaki Merhaba, açık hello toochange hello başlık *görünümler/paylaşılan\\_Layout.cshtml* dosyasını **Çözüm Gezgini** ve "Uygulama adı" Merhaba navbar üstbilgisinde "My görev ile değiştirin. Uygulama listesi"böylece şöyle görünür:
 
      @Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
 
-Görev listesi menüsü Ayarla için açık *\Views\Home\Index.cshtml* dosya ve var olan kodu aşağıdaki kodla değiştirin:
+Merhaba hello görev listesi menü yukarı sipariş tooset içinde açmak *\Views\Home\Index.cshtml* dosya ve hello varolan kod koddan hello ile değiştirin:
 
     @model IEnumerable<MyTaskListApp.Models.MyTask>
 
@@ -361,7 +361,7 @@ Görev listesi menüsü Ayarla için açık *\Views\Home\Index.cshtml* dosya ve 
     <div>  @Html.Partial("Create", new MyTaskListApp.Models.MyTask())</div>
 
 
-Yeni bir görev oluşturma olanağı eklemek için sağ tıklatın *görünümler\\*  klasör ve **Ekle** bir **Görünüm**.  Görünüm adı *oluşturma*. Kod aşağıdakiyle değiştirin:
+tooadd hello özelliği toocreate yeni bir görev sağ hello *görünümler\\*  klasör ve **Ekle** bir **Görünüm**.  Ad hello Görünüm *oluşturma*. Merhaba kod hello şununla değiştirin:
 
     @model MyTaskListApp.Models.MyTask
 
@@ -408,42 +408,42 @@ Yeni bir görev oluşturma olanağı eklemek için sağ tıklatın *görünümle
 
 ![Çözüm Gezgini][SolutionExplorerMyTaskListApp]
 
-## <a name="set-the-mongodb-connection-string"></a>MongoDB bağlantı dizesini ayarlayın
-İçinde **Çözüm Gezgini**, açık *DAL/Dal.cs* dosya. Aşağıdaki kod satırını bulun:
+## <a name="set-hello-mongodb-connection-string"></a>Merhaba MongoDB bağlantı dizesini ayarlayın
+İçinde **Çözüm Gezgini**açın hello *DAL/Dal.cs* dosya. Aşağıdaki kod hello bulur:
 
     private string connectionString = "mongodb://<vm-dns-name>";
 
-Değiştir `<vm-dns-name>` oluşturduğunuz MongoDB çalışan sanal makinenin DNS adı ile [bir sanal makine oluşturun ve MongoDB yükleme] [ Create a virtual machine and install MongoDB] Bu öğreticinin adımı.  Sanal makineniz DNS adını bulmak için select Azure Portalı'na Git **sanal makineleri**ve Bul **DNS adı**.
+Değiştir `<vm-dns-name>` hello oluşturduğunuz MongoDB çalışan hello sanal makine hello DNS adı ile [bir sanal makine oluşturun ve MongoDB yükleme] [ Create a virtual machine and install MongoDB] Bu öğreticinin adımı.  sanal makinenizin toofind hello DNS adı Git toohello Azure Portal, select **sanal makineleri**ve bulma **DNS adı**.
 
-Sanal makinenin DNS adı "testlinuxvm.cloudapp.net" ise ve MongoDB 27017 varsayılan bağlantı noktasında dinleme bağlantı dizesi kod satırı ile gibi görünür:
+Merhaba sanal makinenin Hello DNS adı "testlinuxvm.cloudapp.net" ise ve MongoDB 27017 hello varsayılan bağlantı noktasında dinleme hello bağlantı dizesi satır kod gibi görünür:
 
     private string connectionString = "mongodb://testlinuxvm.cloudapp.net";
 
-Sanal makine uç noktası MongoDB için farklı bir dış bağlantı belirtiyorsa, bağlantı dizesindeki bağlantı noktası belirtin yapabilirsiniz:
+Merhaba sanal makine uç noktası MongoDB için farklı bir dış bağlantı belirtiyorsa, kısa hello bağlantı noktası başlangıç bağlantı dizesinde yapabilirsiniz:
 
      private string connectionString = "mongodb://testlinuxvm.cloudapp.net:12345";
 
 MongoDB bağlantı dizeleri hakkında daha fazla bilgi için bkz: [bağlantıları][MongoConnectionStrings].
 
-## <a name="test-the-local-deployment"></a>Yerel dağıtımı test etme
-Geliştirme bilgisayarınızda uygulamanızı çalıştırmak için seçin **hata ayıklamayı Başlat** gelen **hata ayıklama** menüsü veya isabet **F5**. IIS Express başlar ve bir tarayıcı açar ve uygulamanın giriş sayfasını açar.  Sanal makineniz azure'da çalışan MongoDB veritabanına eklenen yeni bir görev ekleyebilirsiniz.
+## <a name="test-hello-local-deployment"></a>Merhaba yerel dağıtımı test etme
+geliştirme bilgisayarınızda uygulamanızı toorun seçin **hata ayıklamayı Başlat** hello gelen **hata ayıklama** menüsü veya isabet **F5**. IIS Express başlar ve bir tarayıcı açar ve hello uygulamanın giriş sayfasını açar.  Sanal makineniz azure'da çalışan toohello MongoDB veritabanı eklenecek yeni bir görev ekleyebilirsiniz.
 
 ![Görev listesi Uygulamam][TaskListAppBlank]
 
-## <a name="publish-to-azure-app-service-web-apps"></a>Azure App Service Web Apps için yayımlama
-Bu bölümde Azure App Service Web Apps için yaptığınız değişiklikleri yayımlar.
+## <a name="publish-tooazure-app-service-web-apps"></a>TooAzure App Service Web Apps yayımlama
+Bu bölümde, değişiklikleri tooAzure App Service Web Apps yayımlar.
 
 1. Çözüm Gezgini'nde sağ **MyTaskListApp** yeniden tıklatıp **Yayımla**.
 2. **Yayımla**’ta tıklayın.
    
-    Web uygulamanızı Azure App Service içinde çalışan ve Azure Virtual Machines'de MongoDB veritabanı erişme görmelisiniz.
+    Web uygulamanızı Azure App Service içinde çalışan ve hello MongoDB veritabanı Azure Virtual Machines'de erişme görmelisiniz.
 
 ## <a name="summary"></a>Özet
-ASP.NET uygulamanızı Azure App Service Web Apps için şimdi başarıyla dağıtmış. Web uygulaması görüntülemek için:
+ASP.NET uygulama tooAzure App Service Web Apps şimdi başarıyla dağıtmış. tooview hello web uygulaması:
 
-1. Azure portalı günlüğüne.
+1. Azure Portal Hello oturum açın.
 2. Tıklatın **Web uygulamaları**. 
-3. Web uygulamanızı seçin **Web Apps** listesi.
+3. Web uygulamanızı hello seçin **Web Apps** listesi.
 
 C# MongoDB karşı uygulamaları geliştirme hakkında daha fazla bilgi için bkz: [CSharp dil Merkezi][MongoC#LangCenter]. 
 
@@ -483,6 +483,6 @@ C# MongoDB karşı uygulamaları geliştirme hakkında daha fazla bilgi için bk
 
 <!-- TOC BOOKMARKS -->
 [Create a virtual machine and install MongoDB]: #virtualmachine
-[Create and run the My Task List ASP.NET application on your development computer]: #createapp
+[Create and run hello My Task List ASP.NET application on your development computer]: #createapp
 [Create an Azure web site]: #createwebsite
-[Deploy the ASP.NET application to the web site using Git]: #deployapp
+[Deploy hello ASP.NET application toohello web site using Git]: #deployapp

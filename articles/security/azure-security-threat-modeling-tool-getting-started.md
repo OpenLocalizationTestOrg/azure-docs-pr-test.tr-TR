@@ -1,6 +1,6 @@
 ---
-title: "-Microsoft tehdit modelleme aracı - Azure Başlarken | Microsoft Docs"
-description: "Bu eylem tehdit modelleme aracı vurgulama daha derin bir genel bakıştır."
+title: "aaaGetting başlatıldı - Microsoft tehdit modelleme aracı - Azure | Microsoft Docs"
+description: "Bu eylemin hello tehdit modelleme aracı vurgulama daha derin bir genel bakıştır."
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 2d940b42108948f4cd36a585f1e79def05fe8fd3
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 75ef139071e8abd0e743aa17b443a6e353f29372
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="getting-started-with-the-threat-modeling-tool"></a>Tehdit modelleme aracı ile çalışmaya başlama
+# <a name="getting-started-with-hello-threat-modeling-tool"></a>Merhaba tehdit modelleme aracı ile çalışmaya başlama
 
-Bulut ve kurumsal güvenlik araçları takım tehdit modelleme aracı Önizleme bu yıl ücretsiz olarak yayımlanan  **[tıklatın indirme](https://aka.ms/tmtpreview)**. Teslim mekanizması değişikliği en son geliştirmeleri ve hata düzeltmeleri müşterilere Bakımı ve kullanımı kolay duruma aracı, her açışlarında itme olanak tanır.
-Bu makalede yaklaşım modelleme Microsoft SDL tehdidin Başlarken sürecinde alır ve aracının güvenlik işleminin omurga olarak harika bir tehdit modeli geliştirmek için nasıl kullanılacağı gösterilmektedir.
+Bu yılın ücretsiz olarak Hello Bulut ve kurumsal güvenlik araçları takım yayımlanan hello tehdit modelleme aracı Önizleme  **[tıklatın indirme](https://aka.ms/tmtpreview)**. teslim mekanizması Hello değişikliği bize kolaylaştırarak toomaintain ve kullanım hello aracı her açışlarında toopush hello en son geliştirmeleri ve hata düzeltmeleri toocustomers sağlar.
+Bu makalede hello süreci yaklaşım modelleme hello Microsoft SDL tehdidin Başlarken alır ve nasıl toouse hello aracı toodevelop harika tehdit güvenlik işleminin omurga olarak modeller gösterir.
 
-Bu makalede, mevcut bir yaklaşım modelleme SDL tehdit bilgilerini üzerinde oluşturur. Hızlı bir gözden geçirme için başvurmak  **[tehdit modelleme Web uygulamaları](https://msdn.microsoft.com/library/ms978516.aspx)**  ve arşivlenen bir sürümünü  **[ortaya çıkarmaya güvenlik açıkları kullanarak STRIDE yaklaşım](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)**  MSDN makalesine 2006'yayımladı.
+Bu makale üzerinde mevcut yaklaşım modelleme hello SDL tehdit bilgilerini oluşturur. Hızlı bir gözden geçirme için çok başvuran**[tehdit modelleme Web uygulamaları](https://msdn.microsoft.com/library/ms978516.aspx)**  ve arşivlenen bir sürümünü  **[ortaya çıkarmaya güvenlik açıkları kullanarak hello STRIDE yaklaşım](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)**  MSDN makalesi, 2006'yayımlandı.
 
-Hızlı bir şekilde özetlemek için bir diyagram oluşturma, tehditleri tanımlamak, bunları Azaltıcı ve her azaltma doğrulama yaklaşım içerir. Bu işlem vurgular bir diyagram şöyledir:
+tooquickly Özetle, diyagram oluşturma, tehditleri tanımlamak, bunları Azaltıcı ve her azaltma doğrulama hello yaklaşım içerir. Bu işlem vurgular bir diyagram şöyledir:
 
 ![SDL işlemi](./media/azure-security-threat-modeling-tool/sdlapproach.png)
 
-## <a name="starting-the-threat-modeling-process"></a>İşlem modelleme tehdit başlatılıyor
+## <a name="starting-hello-threat-modeling-process"></a>Merhaba tehdit modelleme işlemi başlatılıyor
 
-Tehdit modelleme Aracı'nı başlatın, aşağıdaki resimde görüldüğü gibi birkaç şeyi görürsünüz:
+Merhaba tehdit modelleme aracı başlattığında, hello resimde görüldüğü gibi birkaç şeyi görürsünüz:
 
 ![Boş başlangıç sayfası](./media/azure-security-threat-modeling-tool/tmtstart.png)
 
@@ -41,20 +41,20 @@ Tehdit modelleme Aracı'nı başlatın, aşağıdaki resimde görüldüğü gibi
 
 | Bileşen                                   | Ayrıntılar                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Geri bildirim, öneriler ve sorunları düğmesi** | Sizi götürür  **[MSDN Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=sdlprocess)**  her şey SDL için. Diğer kullanıcıların, geçici çözümler ve öneriler birlikte gerçekleştirdiği aracılığıyla okumak için bir fırsat sunar. Aradığınızı hala bulamıyorsanız, e-posta tmtextsupport@microsoft.com yardımcı olması destek ekibimiz için                                                                                                                            |
-| **Bir Model oluşturma**                          | Size, diyagram çizmek boş bir tuvalde açar. Modeliniz için kullanmak istediğiniz şablonun seçtiğinizden emin olun                                                                                                                                                                                                                                                                                                                                                                       |
-| **Yeni modelleri için şablonu**                 | Bir modeli oluşturmadan önce kullanılacak şablonunu seçmelisiniz. Azure özel şablonlar, tehditleri ve bunları azaltmanın yollarını içeren Azure tehdit modeli şablonu bizim ana şablonudur. Genel modellerini SDL TM Bilgi Bankası aşağı açılan menüsünden seçin. Kendi şablonunuzu oluşturun veya tüm kullanıcılar için yeni bir tane göndermek istiyorsunuz? Kullanıma bizim  **[şablonu deposu](https://github.com/Microsoft/threat-modeling-templates)**  daha fazla bilgi için GitHub sayfası                              |
-| **Bir Model açın**                            | <p>Açılır tehdit modelleri önceden kaydedilmiş. En son dosyalarınızı açmanız gerekirse harika son açılan modelleri özelliğidir. Seçimin üzerine geldiğinizde, modelleri açma 2 yolları bulabilirsiniz:</p><p><ul><li>Açık bu bilgisayardan – yerel depolama kullanarak bir dosyayı açma Klasik yolu</li><li>Açık OneDrive üzerinden –, kaydedin ve tüm tehdit modellerini üretkenliği ve işbirliği artırmaya yardımcı olmak için tek bir konumda paylaşmak için OneDrive klasörlerde takımlar kullanabilirsiniz</li></ul></p> |
-| **Başlarken Kılavuzu**                   | Açılır  **[Microsoft tehdit modelleme aracı](./azure-security-threat-modeling-tool.md)**  ana sayfası                                                                                                                                                                                                                                                                                                                                                                                            |
+| **Geri bildirim, öneriler ve sorunları düğmesi** | Alır, hello  **[MSDN Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=sdlprocess)**  her şey SDL için. Diğer kullanıcıların, geçici çözümler ve öneriler birlikte gerçekleştirdiği aracılığıyla bir fırsat tooread sağlar. Aradığınızı hala bulamıyorsanız, e-posta tmtextsupport@microsoft.com bizim destek ekibi toohelp için                                                                                                                            |
+| **Bir Model oluşturma**                          | Boş bir tuval, toodraw için diyagram açılır. Hangi şablonu emin tooselect yapmak için modelinizin toouse istiyorsunuz                                                                                                                                                                                                                                                                                                                                                                       |
+| **Yeni modelleri için şablonu**                 | Bir modeli oluşturmadan önce hangi şablon toouse seçmeniz gerekir. Hello Azure özel şablonlar, tehditleri ve bunları azaltmanın yollarını içeren Azure tehdit modeli şablon bizim ana şablonudur. Genel modellerini hello SDL TM Bilgi Bankası hello açılır menüsünden seçin. Kendi şablonunuzu toocreate istediğiniz veya tüm kullanıcılar için yeni bir tane gönderme? Kullanıma bizim  **[şablonu deposu](https://github.com/Microsoft/threat-modeling-templates)**  GitHub sayfası toolearn daha fazla                              |
+| **Bir Model açın**                            | <p>Açılır tehdit modelleri önceden kaydedilmiş. Merhaba son açılan modelleri en son dosyalarınızı tooopen gerekiyorsa harika özelliğidir. Merhaba seçimin üzerine geldiğinizde, 2 yolları tooopen modelleri bulabilirsiniz:</p><p><ul><li>Açık bu bilgisayardan – yerel depolama kullanarak bir dosyayı açma Klasik yolu</li><li>Açık OneDrive üzerinden – takımlar OneDrive toosave klasörlerde kullanın ve tüm tehdit modellerini bir tek bir konum toohelp artış üretkenliği ve işbirliği paylaşmak için kullanabileceğiniz</li></ul></p> |
+| **Başlarken Kılavuzu**                   | Açılır hello  **[Microsoft tehdit modelleme aracı](./azure-security-threat-modeling-tool.md)**  ana sayfası                                                                                                                                                                                                                                                                                                                                                                                            |
 
 ### <a name="template-section"></a>Şablon bölümü
 
 | Bileşen               | Ayrıntılar                                                                                                                                                          |
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Yeni şablon oluşturun** | Oluşturmanızı boş bir şablon açar. Sıfırdan şablonları oluşturmanın kapsamlı bilgi olmadığı sürece, mevcut olanlardan oluşturmanızı öneririz |
-| **Şablonunu Aç**       | Şablonlar, değişiklikler yapmak var olan açar                                                                                                              |
+| **Yeni şablon oluşturun** | Üzerinde toobuild için boş bir şablon açar. Şablonları sıfırdan oluşturmanın kapsamlı bilgi yoksa var olanları gelen toobuild öneririz |
+| **Şablonunu Aç**       | Şablonlar için toomake değişiklikleri çok mevcut açar                                                                                                             |
 
-Tehdit modelleme araç takımı, aracı işlevselliğini geliştirmek ve denemek için sürekli çalışmaktadır. Birkaç küçük değişiklikler yıl boyunca gerçekleşmesi, ancak yeniden yazdırmaya Kılavuzu'ndaki tüm önemli değişiklikler gerektirir. Genellikle son Duyurular alma emin olmak için bakın.
+Merhaba tehdit modelleme aracı takım tooimprove aracı işlevselliği ve deneyimi sürekli çalışmaktadır. Birkaç küçük değişiklikler hello hello yıl boyunca gerçekleşmesi, ancak yeniden yazdırmaya Başlangıç Kılavuzu'ndaki tüm önemli değişiklikler gerektirir. Tooit başvurmak genellikle tooensure hello son Duyurular alın.
 
 ## <a name="building-a-model"></a>Bir model oluşturma
 
@@ -64,82 +64,82 @@ Bu bölümde, biz izleyin:
 - Attila (program Yöneticisi) ve
 - (Bir tester) olan Ashish
 
-Bunlar ilk kendi tehdit modeli geliştirmek sürecinde adımıdır.
+Bunlar ilk kendi tehdit modeli geliştirmek hello sürecinde adımıdır.
 
-> Attila: Merhaba Cristina, tehdit modeli diyagramı çalışılan ve emin olmak için istedik biz ayrıntıları sağ aldı. Beni Ara onu yardımcı olabilir?
+> Attila: Merhaba Cristina, hello tehdit modeli diyagram üzerinde çalışılan ve toomake emin istedik biz hello ayrıntıları sağ aldı. Beni Ara onu yardımcı olabilir?
 > Cristina: kesinlikle. Bir göz atalım.
-> Attila aracı açılır ve kendi ekran Cristina ile paylaşır.
+> Attila hello aracı açılır ve kendi ekran Cristina ile paylaşır.
 
 ![Temel tehdit modeli](./media/azure-security-threat-modeling-tool/basictmt.png)
 
 > Cristina: Tamam, sonucunun görünüyor, ancak, bana üzerinden yol?
-> Attila: emin! Çözümleme şöyledir:
+> Attila: emin! Merhaba dökümü şöyledir:
 > - Bizim insan kullanıcı dışında bir varlık olarak çizilir — kare
-> - Bizim Web sunucusuna komutları gönderiyorsanız — daire
-> - Web sunucusu (iki paralel satırları) veritabanı danışmanlık
+> - Komutları tooour Web sunucusu gönderiyorsanız — hello daire
+> - Merhaba Web sunucusu (iki paralel satırları) veritabanı danışmanlık
 
-Ne Attila Cristina yalnızca gösterdi DFD, kısaltması olan  **[veri akış diyagramı](https://en.wikipedia.org/wiki/Data_flow_diagram)**. Tehdit modelleme aracı kullanıcıların kırmızı noktalı farklı varlıkları denetiminde nerede göstermek için satırlar tarafından belirtilen güven sınırları belirtmesine izin verir. Örneğin, Active Directory kendi denetimi dışında olacak şekilde BT yöneticilerinin kimlik doğrulama amacıyla bir Active Directory sistemi gerektirir.
+Ne Attila Cristina yalnızca gösterdi DFD, kısaltması olan  **[veri akış diyagramı](https://en.wikipedia.org/wiki/Data_flow_diagram)**. Merhaba tehdit modelleme aracı hello kırmızı noktalı çizgiler, farklı varlıklar denetiminde nerede tooshow belirttiği, kullanıcıların toospecify güven sınırları sağlar. Örneğin, BT yöneticileri Hello Active Directory kendi denetimi dışında olacak şekilde kimlik doğrulama amacıyla bir Active Directory sistemi gerektirir.
 
-> Cristina: benim için en uygun arar. Tehditler hakkında neler?
+> Cristina: sağ toome arar. Merhaba tehditler hakkında neler?
 > Attila: bana, Göster olanak tanır.
 
 ## <a name="analyzing-threats"></a>Tehditler analiz etme
 
-Adlı SDL yaklaşım kullanan simgesi menü seçimi (varsayılan şablona göre oluşturulan tehditleri tehdit modelleme bulunan aracı listesine alınır kendisinin dosyasıyla Büyüteç), analiz görünümünden üzerinde tıklatır sonra  **[ STRIDE (, oynama, bilgi açıklama, hizmet reddi ve ayrıcalıkların kimlik sahtekarlığı)](https://en.wikipedia.org/wiki/STRIDE_(security))**. Yazılım bu 6 kategorileri kullanarak bulunabilir tehditleri tahmin edilebilir bir kümesi altında geldiğini olur.
+Merhaba analiz görünümünü adlı hello SDL yaklaşım kullanan hello simgesi menü seçimi (ki tooa listesi hello varsayılan şablona göre oluşturulan tehditleri hello bulunan tehdit modelleme aracı alınır dosyayla Büyüteç) üzerinde tıklatır sonra  **[ STRIDE (, oynama, bilgi açıklama, hizmet reddi ve ayrıcalıkların kimlik sahtekarlığı)](https://en.wikipedia.org/wiki/STRIDE_(security))**. Merhaba yazılım bu 6 kategorileri kullanarak bulunabilir tehditleri tahmin edilebilir bir kümesi altında geldiğini olur.
 
-Her kapı ve pencere sağlayarak evinizde güvenliğini sağlama kilitleme mekanizması bir alarm sistemi ekleme ya da sonra hırsız birleştirme önce olduğu gibi bu yaklaşımdır.
+Her kapı ve pencere sağlayarak evinizde güvenliğini sağlama kilitleme mekanizması bir alarm sistemi ekleme veya hello hırsız sonra birleştirme önce olduğu gibi bu yaklaşımdır.
 
 ![Temel tehditleri](./media/azure-security-threat-modeling-tool/basicthreats.png)
 
-Listesindeki ilk öğeyi seçerek Attila başlar. Şunlar olur:
+Attila hello hello listesindeki ilk öğeyi seçerek başlar. Şunlar olur:
 
-İlk olarak, iki şablonlar arasındaki etkileşimi geliştirilmiştir
+Merhaba iki şablonlar arasındaki hello etkileşim ilk olarak, Gelişmiş
 
 ![Etkileşim](./media/azure-security-threat-modeling-tool/interaction.png)
 
-İkinci, ek bilgiler tehdit hakkında tehdit Özellikleri penceresinde görüntülenir
+İkinci, ek bilgiler hello tehdit hakkında hello tehdit Özellikleri penceresinde görüntülenir
 
 ![Etkileşim bilgisi](./media/azure-security-threat-modeling-tool/interactioninfo.png)
 
-Oluşturulan tehdit ona olası tasarım açıkları anlamanıza yardımcı olur. Ek açıklama onu tam olarak ne yanı sıra olası yolları bunu azaltmak için yanlış olduğunu söyler sırada STRIDE kategori ona olası saldırı vektörlerinin hakkında bir fikir verir. Düzeltme ayrıntıları notları yazmak veya öncelik kuruluşunun hata çubuğu bağlı olarak derecelendirmeleri değiştirmek için kendisine düzenlenebilir alanları kullanabilirsiniz.
+oluşturulan hello tehdit ona olası tasarım açıkları anlamanıza yardımcı olur. Merhaba STRIDE kategori ona olası saldırı vektörlerinin hakkında bir fikir verir, tam olarak ne sahip yanlış, olası yolları toomitigate yanı sıra, başlangıç sırasında ek açıklama ona söyler. Kendisine hello doğrulama ayrıntıları düzenlenebilir alanların toowrite notları kullanın veya öncelik derecelendirmeleri kuruluşunun hata çubuğu bağlı olarak değiştirin.
 
-Azure şablonları yalnızca sorunun ne olduğunu, ancak ayrıca Azure özgü belgeleri açıklamaları, örnekler ve köprüleri ekleyerek gidermeye yönelik anlamalarına yardımcı olmak için ek ayrıntılar vardır.
+Azure şablonları sahip ek ayrıntılar toohelp kullanıcıların kalmayıp aynı zamanda nasıl sorun nedir anlamasına toofix, açıklamalar, örnekler ve köprüleri tooAzure özgü belgeleri ekleyerek.
 
-Açıklama yapılan ona sahte kullanıcıların önlemek için bir kimlik doğrulama mekanizması ekleme önemini fark üzerinde çalışılacak ilk tehdit ortaya. Birkaç dakika ile Cristina, tartışma içine bunlar erişim denetimi ve rolleri uygulama önemini anladım. Attila bu uygulanan emin olmak için bazı hızlı notlar doldurulur.
+Merhaba açıklama yapılan ona hello önem fark sahte gelen bir kimlik doğrulama mekanizması tooprevent kullanıcı ekleme, hello ilk tehdit toobe ortaya üzerinde çalışılan. Birkaç dakika hello tartışması Cristina ile içine bunlar erişim denetimi ve rolleri uygulama hello önemini anladım. Attila bazı hızlı notları toomake bu uygulanan emin doldurulur.
 
-Bilgilerin açığa çıkmasına altında tehditleri içine Attila oluştu olarak kendisine erişim denetimi planı bazı salt okunur hesapları denetleme ve rapor oluşturma için gerekli gerçekleşmiş. Ki bu yeni bir tehdit olmalıdır, ancak kendisine tehdit uygun şekilde belirtildiği şekilde Azaltıcı aynı olan olup olmadığını hiç merak ettiniz.
-Kendisi ayrıca bilgilerin açığa çıkmasına biraz daha zorlayıcı ve yedekleme bantlarını şifrelemesi, işletim ekibi için bir işi gerek giderek gerçekleşmiş.
+Bilgilerin açığa çıkmasına altında hello tehditleri içine Attila oluştu gibi kendisinin hello erişim denetimi planı bazı salt okunur hesapları denetleme ve rapor oluşturma için gerekli gerçekleşmiş. Ki bu yeni bir tehdit olmalıdır, ancak bunları azaltmanın yollarını olan hello Merhaba, aynı, kendisinin uygun şekilde hello tehdit belirtildiği şekilde olup olmadığını hiç merak ettiniz.
+Kendisi ayrıca bilgilerin açığa çıkmasına biraz daha zorlayıcı ve hello yedekleme bantlarını tooneed şifreleme, hello işletim ekibi için bir işi giderek gerçekleşmiş.
 
-Tehditler tasarım varolan Azaltıcı Etkenler ya da güvenlik nedeniyle geçerli değil durumu açılan listeden garanti "İçin geçerli değil" olarak değiştirilebilir. Diğer üç seçenek vardır: başlamadı – varsayılan seçim, araştırma – gerekiyor tam olarak üzerinde çalıştığı bir kez öğeleri ve Mitigated – takip etmek için kullanılır.
+Uygulanamaz toohello tasarım tooexisting Azaltıcı ya da güvenlik nedeniyle garanti değiştirilebilir çok tehditleri "Değil geçerli" Merhaba durumu açılır. Diğer üç seçenek vardır: – varsayılan seçim, gereken araştırma – başlatılmamış kullanılan toofollow öğeleri ve Mitigated – tam olarak üzerinde çalıştığı sonra.
 
 ## <a name="reports--sharing"></a>Raporlar ve paylaşma
 
-Attila Cristina listesiyle geçer ve önemli notlar, Azaltıcı Etkenler/justifications, öncelik ve durum değişikliklerini ekler sonra he seçer raporlar tam raporu -> arkadaşlarınızla geçtikleri kendisine için iyi bir raporu yazdırır Kaydet Rapor Oluştur ->. uygun güvenlik çalışmasını sağlamak için uygulanır.
+Attila Cristina hello listesiyle geçer ve önemli notlar ekler sonra Azaltıcı Etkenler/justifications, öncelik ve durum değişikliği, raporlar tam raporu -> bir iyi hangi yazdırır bakması aracılığıyla toogo ile rapor, kaydetme Oluştur -> he seçer İş arkadaşlarınızı tooensure hello uygun güvenlik iş uygulanır.
 
 ![Etkileşim bilgisi](./media/azure-security-threat-modeling-tool/report.png)
 
-Bunun yerine dosya paylaşımı Attila istiyorsa, kendisinin kolayca kuruluşunun OneDrive hesabınıza kaydederek bunu yapabilirsiniz. Kendisine yapan sonra kendisi belgeyi bağlantıyı Kopyala ve kendi iş arkadaşlarınızla paylaşın. 
+Bunun yerine Attila tooshare hello dosya isterse, kendisinin kolayca kuruluşunun OneDrive hesabınıza kaydederek bunu yapabilirsiniz. Kendisine yapan sonra kendisinin hello belge bağlantıyı Kopyala ve kendi iş arkadaşlarınızla paylaşın. 
 
 ## <a name="threat-modeling-meetings"></a>Tehdit modelleme toplantılar
 
-Attila OneDrive, Ashish, Sınayıcısı'nı kullanarak kendi iş arkadaşı kendi tehdit modeli gönderildiğinde underwhelmed. Atlanan kolayca tehlikeye girebilir oldukça birkaç önemli köşe durumlarda Attila ve Cristina gibi seemed. Kendi skepticism tehdit modelleri tamamlayan ' dir.
+Attila OneDrive, Ashish, hello tester kullanarak kendi tehdit modeli toohis iş arkadaşı gönderildiğinde underwhelmed. Atlanan kolayca tehlikeye girebilir oldukça birkaç önemli köşe durumlarda Attila ve Cristina gibi seemed. Kendi skepticism tamamlama toothreat modelleri ' dir.
 
-Tehdit modeli Ashish sürdü sonra bu senaryoda, kendisinin iki tehdit modelleme toplantılar için çağrılır: üzerinde işlem eşitlemek ve diyagramları yol için bir toplantı ve tehdit için ikinci bir toplantı gözden geçirin ve oturumu kapatma.
+Merhaba tehdit modeli Ashish sürdü sonra bu senaryoda, kendisinin iki tehdit modelleme toplantılar için çağrılır: hello işlem ve ilerlemesi hello diyagramları ve tehdit gözden geçirme ve oturum kapatma için ikinci bir toplantı aracılığıyla bir toplantı toosynchronize.
 
-İlk toplantıya Ashish herkes işlem modelleme SDL tehdit aracılığıyla taramasını 10 dakika harcanan. Kendisi bu tehdit modeli diyagram çekilen ve ayrıntılı olarak açıklayan başlatıldı. Beş dakika içinde önemli bir bileşen eksik tanımlanmış.
+Hello ilk toplantıya, 10 dakika işlem modelleme hello SDL tehdit aracılığıyla herkesin taramasını Ashish harcanan. Kendisi bu hello tehdit modeli diyagram çekilen ve ayrıntılı olarak açıklayan başlatıldı. Beş dakika içinde önemli bir bileşen eksik tanımlanmış.
 
-Birkaç dakika daha sonra Ashish ve Attila Web sunucusuna nasıl oluşturulmuş bir genişletilmiş tartışma aldı. Devam etmek bir toplantı için ideal yöntem değil, ancak herkes sonunda bunları gelecekte zaman tutarsızlık erken keşfetme yüklemesiyle kabul ediyorum.
+Birkaç dakika daha sonra Ashish ve Attila hello Web sunucusuna nasıl oluşturulmuş bir genişletilmiş tartışma aldı. Toplantı tooproceed için ideal yöntem hello değil, ancak herkes sonunda hello tutarsızlık erken keşfetme hello gelecekte zaman toosave yüklemesiyle kabul ediyorum.
 
-İkinci toplantı takım tehditleri gitti, bunları ele almak için bazı yollar ele alınan ve tehdit model üzerinde imzalı devre dışı. Bunlar, belge kaynak denetimine iade ve geliştirmeye devam etti.
+Hello ikinci toplantı, hello tehditleri gitti hello takım bazı yolları tooaddress bunları ve imzalanmış ele kapalı hello tehdit modeli üzerinde. Bunlar hello belge kaynak denetimine iade ve geliştirmeye devam etti.
 
 ## <a name="thinking-about-assets"></a>Varlıkları hakkında düşünmeye
 
-Modellenen tehdit olan bazı okuyucular, biz varlıkları hakkında bilgileri hiç açıklandı henüz olduğunu fark edebilirsiniz. Biz, birçok yazılım mühendisleri yazılımlarını varlıklar kavramı anlamaları ve hangi varlıkları saldırgan ilginizi çekebilir çok daha iyi anlamak keşfettiniz.
+Modellenen tehdit olan bazı okuyucular, biz varlıkları hakkında bilgileri hiç açıklandı henüz olduğunu fark edebilirsiniz. Biz, birçok yazılım mühendisleri yazılımlarını varlıklar hello kavramı anlamaları ve hangi varlıkları saldırgan ilginizi çekebilir çok daha iyi anlamak keşfettiniz.
 
-Bir ev tehdit modeli için kullanacaksanız, aile, yerine yenisi konulamayacak fotoğraf ya da değerli çizim hakkında düşünerek başlayabilir. Belki de göz önünde bulundurulması kimin kesilebilir ve geçerli bir güvenlik sistemi tarafından başlayabilir. Veya havuza veya ön porch gibi fiziksel özellikleri dikkate alarak başlayabilir. Bunlar, varlıklar, saldırganlar veya yazılım tasarımı düşünmek için benzer. Bu üç yaklaşımlardan birini çalışır.
+Toothreat kullanacaksanız bir ev model, aile, yerine yenisi konulamayacak fotoğraf veya değerli resmi göz önünde bulundurulması tarafından başlayabilir. Belki de göz önünde bulundurulması kimin kesilebilir ve hello geçerli güvenlik sistemi tarafından başlayabilir. Veya hello hello havuzu veya hello ön porch gibi fiziksel özellikleri dikkate alarak başlayabilir. Varlıklar, saldırganlar veya yazılım tasarımı hakkında benzer toothinking bunlar. Bu üç yaklaşımlardan birini çalışır.
 
-İş parçacığı biz Burada sunulan modelleme ne Microsoft geçmişte daha önemli ölçüde daha basit yaklaşımdır. Yazılım tasarım yaklaşımı birçok ekipler için iyi çalışır bulduk. Sizinki içeren umuyoruz.
+Biz Burada sunulan hello yaklaşım toothreat modelleme önemli ölçüde ne Microsoft hello geçmiş yapmıştır daha basittir. Merhaba yazılım tasarım yaklaşımı birçok ekipler için iyi çalışır bulduk. Sizinki içeren umuyoruz.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Sorularınızı, açıklamalar ve sorunları için Gönder tmtextsupport@microsoft.com. **[Karşıdan](https://aka.ms/tmtpreview)**  başlamak için tehdit modelleme aracı.
+Sorularınızı, açıklamalar ve sorunları Gönder tootmtextsupport@microsoft.com. **[Karşıdan](https://aka.ms/tmtpreview)**  hello tehdit modelleme aracı tooget başlatıldı.

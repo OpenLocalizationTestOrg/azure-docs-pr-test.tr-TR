@@ -49,4 +49,4 @@ sql-database-service-tiers.md
 | Maks. eş zamanlı oturum | 30000| 30000| 30000| 30000|
 |||||||
 
-\* Maksimum veri tabanı boyutu, veritabanındaki verilerin maksimum boyutunu tanımlar. 
+\*En büyük veritabanı boyutu toohello hello verileri hello veritabanında en büyük boyutunu ifade eder. 

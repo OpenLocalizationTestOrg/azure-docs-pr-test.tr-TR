@@ -1,5 +1,5 @@
 ---
-title: "Bir Azure SQL veri ambarı (PowerShell) geri | Microsoft Docs"
+title: aaaRestore Azure SQL Data Warehouse (PowerShell) | Microsoft Docs
 description: "Azure SQL Data Warehouse geri yüklemek için PowerShell görevler."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
-ms.openlocfilehash: 6286c0e682bae2d3bf0435a25b8077a53b117b25
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: aa29a315080b1ed477cc6a051ce15a3202630cfa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="restore-an-azure-sql-data-warehouse-powershell"></a>Bir Azure SQL veri ambarı (PowerShell) geri yükleme
 > [!div class="op_single_selector"]
@@ -30,24 +30,24 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Bu makalede PowerShell kullanarak Azure SQL Data Warehouse geri yükleme öğreneceksiniz.
+Bu makalede nasıl toorestore bir Azure SQL Data Warehouse PowerShell kullanarak öğreneceksiniz.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-**DTU kapasitenizi doğrulayın.** Her SQL veri ambarı varsayılan DTU kota olan bir SQL server tarafından (örneğin myserver.database.windows.net) barındırılıyor.  SQL Data Warehouse geri yükleyebilmeniz için önce doğrulayın yeterli kalan DTU kota geri yüklenen veritabanı için SQL server'ınızdaki sahiptir. Gerekli DTU hesaplamak için ya da daha fazla DTU istemek için öğrenmek için bkz: [DTU kota değişiklik isteği][Request a DTU quota change].
+**DTU kapasitenizi doğrulayın.** Her SQL veri ambarı varsayılan DTU kota olan bir SQL server tarafından (örneğin myserver.database.windows.net) barındırılıyor.  SQL Data Warehouse geri yüklemeden önce SQL server'ınızdaki hello veritabanı geri yükleniyor için yeterince kalan DTU kota sahip o hello doğrulayın. toolearn nasıl toocalculate DTU gerekli veya toorequest daha fazla DTU bkz [DTU kota değişiklik isteği][Request a DTU quota change].
 
 ### <a name="install-powershell"></a>PowerShell yükleme
-SQL Data Warehouse ile Azure PowerShell kullanmak için Azure PowerShell 1.0 veya büyük bir sürümü yüklemeniz gerekir.  Çalıştırarak sürümünüzü kontrol edebilirsiniz **Get-Module - listavailable birlikte-adı AzureRM**.  En son sürümünü yüklenebilir [Microsoft Web Platformu yükleyicisi][Microsoft Web Platform Installer].  En son sürümü yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma][How to install and configure Azure PowerShell].
+Sipariş toouse SQL Data Warehouse ile Azure PowerShell, tooinstall Azure PowerShell sürüm 1.0 veya üzeri gerekir.  Çalıştırarak sürümünüzü kontrol edebilirsiniz **Get-Module - listavailable birlikte-adı AzureRM**.  Merhaba en son sürümünü yüklenebilir [Microsoft Web Platformu yükleyicisi][Microsoft Web Platform Installer].  Merhaba en son sürümü yükleme hakkında daha fazla bilgi için bkz: [nasıl tooinstall Azure PowerShell'i ve yapılandırma][How tooinstall and configure Azure PowerShell].
 
 ## <a name="restore-an-active-or-paused-database"></a>Etkin ya da duraklatılmış bir veritabanını geri yükle
-Anlık görüntü kullanılmakta olan bir veritabanını geri yüklemek için [geri yükleme-AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] PowerShell cmdlet'i.
+toorestore bir anlık görüntü veritabanından kullanmak hello [geri yükleme-AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] PowerShell cmdlet'i.
 
 1. Windows PowerShell'i açın.
-2. Azure hesabınıza bağlanın ve hesabınızla ilişkili tüm abonelikleri listeler.
-3. Geri yüklenecek veritabanını içeren aboneliği seçin.
-4. Veritabanını geri yükleme noktaları listesi.
-5. RestorePointCreationDate kullanarak istenen geri yükleme noktası seçin.
-6. Veritabanını geri yüklemek için istenen geri yükleme noktası.
-7. Geri yüklenen veritabanının çevrimiçi olduğunu doğrulayın.
+2. Azure hesabı tooyour bağlanın ve hesabınızla ilişkili tüm hello abonelik listesi.
+3. Merhaba veritabanı toobe geri içeren hello aboneliği seçin.
+4. Liste hello geri yükleme noktaları hello veritabanı için.
+5. Merhaba RestorePointCreationDate kullanarak istenen hello geri yükleme noktası seçin.
+6. Merhaba veritabanı istenen toohello geri yükleme noktası geri yükleyin.
+7. Geri hello veritabanının çevrimiçi olduğunu doğrulayın.
 
 ```Powershell
 
@@ -61,13 +61,13 @@ Login-AzureRmAccount
 Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
-# List the last 10 database restore points
+# List hello last 10 database restore points
 ((Get-AzureRMSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName ($DatabaseName).RestorePointCreationDate)[-10 .. -1]
 
 # Or list all restore points
 Get-AzureRmSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
 
-# Get the specific database to restore
+# Get hello specific database toorestore
 $Database = Get-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
 
 # Pick desired restore point using RestorePointCreationDate
@@ -76,25 +76,25 @@ $PointInTime="<RestorePointCreationDate>"
 # Restore database from a restore point
 $RestoredDatabase = Restore-AzureRmSqlDatabase –FromPointInTimeBackup –PointInTime $PointInTime -ResourceGroupName $Database.ResourceGroupName -ServerName $Database.$ServerName -TargetDatabaseName $NewDatabaseName –ResourceId $Database.ResourceID
 
-# Verify the status of restored database
+# Verify hello status of restored database
 $RestoredDatabase.status
 
 ```
 
 > [!NOTE]
-> Geri yükleme tamamlandıktan sonra izleyerek, kurtarılan veritabanının yapılandırabilirsiniz [kurtarma işleminden sonra veritabanını yapılandırma][Configure your database after recovery].
+> Merhaba geri yükleme tamamlandıktan sonra izleyerek, kurtarılan veritabanının yapılandırabilirsiniz [kurtarma işleminden sonra veritabanını yapılandırma][Configure your database after recovery].
 > 
 > 
 
 ## <a name="restore-a-deleted-database"></a>Silinen veritabanını geri yükleme
-Silinen bir veritabanını geri yüklemek için kullanmak [geri yükleme-AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] cmdlet'i.
+toorestore silinen bir veritabanını kullanın hello [geri yükleme-AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] cmdlet'i.
 
 1. Windows PowerShell'i açın.
-2. Azure hesabınıza bağlanın ve hesabınızla ilişkili tüm abonelikleri listeler.
-3. Geri yüklenecek silinmiş veritabanını içeren aboneliği seçin.
-4. Belirli silinen bu veritabanını alın.
-5. Silinen bir veritabanını geri yükleyin.
-6. Geri yüklenen veritabanının çevrimiçi olduğunu doğrulayın.
+2. Azure hesabı tooyour bağlanın ve hesabınızla ilişkili tüm hello abonelik listesi.
+3. Silinen hello veritabanı toobe geri içeren hello aboneliği seçin.
+4. Merhaba belirli silinmiş veritabanı alın.
+5. Merhaba silinen veritabanını geri yükleyin.
+6. Geri hello veritabanının çevrimiçi olduğunu doğrulayın.
 
 ```Powershell
 $SubscriptionName="<YourSubscriptionName>"
@@ -107,55 +107,55 @@ Login-AzureRmAccount
 Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
-# Get the deleted database to restore
+# Get hello deleted database toorestore
 $DeletedDatabase = Get-AzureRmSqlDeletedDatabaseBackup -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName
 
 # Restore deleted database
 $RestoredDatabase = Restore-AzureRmSqlDatabase –FromDeletedDatabaseBackup –DeletionDate $DeletedDatabase.DeletionDate -ResourceGroupName $DeletedDatabase.ResourceGroupName -ServerName $DeletedDatabase.ServerName -TargetDatabaseName $NewDatabaseName –ResourceId $DeletedDatabase.ResourceID
 
-# Verify the status of restored database
+# Verify hello status of restored database
 $RestoredDatabase.status
 ```
 
 > [!NOTE]
-> Geri yükleme tamamlandıktan sonra izleyerek, kurtarılan veritabanının yapılandırabilirsiniz [kurtarma işleminden sonra veritabanını yapılandırma][Configure your database after recovery].
+> Merhaba geri yükleme tamamlandıktan sonra izleyerek, kurtarılan veritabanının yapılandırabilirsiniz [kurtarma işleminden sonra veritabanını yapılandırma][Configure your database after recovery].
 > 
 > 
 
 ## <a name="restore-from-an-azure-geographical-region"></a>Bir Azure coğrafi bölgesinden geri yükleme
-Bir veritabanını kurtarmak için kullanmak [geri yükleme-AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] cmdlet'i.
+toorecover bir veritabanını kullanın hello [geri yükleme-AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] cmdlet'i.
 
 1. Windows PowerShell'i açın.
-2. Azure hesabınıza bağlanın ve hesabınızla ilişkili tüm abonelikleri listeler.
-3. Geri yüklenecek veritabanını içeren aboneliği seçin.
-4. Kurtarmak istediğiniz veritabanı alın.
-5. Veritabanı için kurtarma isteği oluşturun.
-6. Coğrafi geri veritabanının durumunu doğrulayın.
+2. Azure hesabı tooyour bağlanın ve hesabınızla ilişkili tüm hello abonelik listesi.
+3. Merhaba veritabanı toobe geri içeren hello aboneliği seçin.
+4. İstediğiniz hello veritabanı toorecover alın.
+5. Merhaba kurtarma isteği hello veritabanı oluşturun.
+6. Merhaba coğrafi geri yüklenen veritabanı Hello durumunu doğrulayın.
 
 ```Powershell
 Login-AzureRmAccount
 Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
 
-# Get the database you want to recover
+# Get hello database you want toorecover
 $GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
 
 # Recover database
 $GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID
 
-# Verify that the geo-restored database is online
+# Verify that hello geo-restored database is online
 $GeoRestoredDatabase.status
 ```
 
 > [!NOTE]
-> Geri yükleme tamamlandıktan sonra veritabanını yapılandırmak için bkz: [kurtarma işleminden sonra veritabanını yapılandırma][Configure your database after recovery].
+> Merhaba geri yükleme tamamlandıktan sonra veritabanınızı tooconfigure bkz [kurtarma işleminden sonra veritabanını yapılandırma][Configure your database after recovery].
 > 
 > 
 
-Kaynak veritabanı TDE etkinse kurtarılmış veritabanını TDE etkin olacaktır.
+Merhaba kaynak veritabanı TDE etkinse hello kurtarılan veritabanı TDE etkin olacaktır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure SQL veritabanı sürümlerini iş sürekliliği özellikleri hakkında bilgi edinmek için lütfen okuyun [Azure SQL Database iş sürekliliğine genel bakış][Azure SQL Database business continuity overview].
+Azure SQL veritabanı sürümlerini hello iş sürekliliği özellikleri hakkında toolearn hello okuyun [Azure SQL Database iş sürekliliğine genel bakış][Azure SQL Database business continuity overview].
 
 <!--Image references-->
 
@@ -163,7 +163,7 @@ Azure SQL veritabanı sürümlerini iş sürekliliği özellikleri hakkında bil
 [Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
 [Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md#request-quota-change
 [Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
+[How tooinstall and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Overview]: ./sql-data-warehouse-restore-database-overview.md
 [Portal]: ./sql-data-warehouse-restore-database-portal.md
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md

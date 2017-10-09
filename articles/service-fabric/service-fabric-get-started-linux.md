@@ -1,6 +1,6 @@
 ---
-title: "Linux üzerinde geliştirme ortamınızı ayarlama | Microsoft Belgeleri"
-description: "Linux üzerinde çalışma zamanını ve SDK'yı yükleyip yerel bir geliştirme kümesi oluşturun. Bu kurulumu tamamladıktan sonra uygulama derlemek için hazır hale gelirsiniz."
+title: "Linux üzerinde geliştirme ortamınızı aaaSet | Microsoft Docs"
+description: "Merhaba çalışma zamanı ve SDK'sını yükleyin ve Linux üzerinde yerel bir geliştirme kümesi oluşturun. Bu kurulumu tamamladıktan sonra hazır toobuild uygulamalar olur."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/23/2017
 ms.author: subramar
-ms.openlocfilehash: 58c6bbbb16d7008e6b573cf8dbc8cf62da9789f5
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 9d82c2015f9e2c6fb55f2052c7cdb1e906c5deeb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Linux üzerinde geliştirme ortamınızı hazırlama
 > [!div class="op_single_selector"]
@@ -28,101 +28,101 @@ ms.lasthandoff: 08/29/2017
 >
 >  
 
-Linux geliştirme makinenizde [Azure Service Fabric uygulamaları](service-fabric-application-model.md) dağıtıp çalıştırmak için çalışma zamanını ve ortak SDK'yı yükleyin. Ayrıca isteğe bağlı Java ve .NET Core SDK’larını yükleyebilirsiniz.
+toodeploy çalıştırıp [Azure Service Fabric uygulamaları](service-fabric-application-model.md) hello çalışma zamanı ve ortak SDK Linux geliştirme makinenize yükleyin. Ayrıca isteğe bağlı Java ve .NET Core SDK’larını yükleyebilirsiniz.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Geliştirme için şu işletim sistemi sürümleri desteklenir:
+işletim sistemi sürümleri aşağıdaki hello geliştirme için desteklenir:
 
 * Ubuntu 16.04 (`Xenial Xerus`)
 
 ## <a name="update-your-apt-sources"></a>APT kaynaklarınızı güncelleştirme
-SDK ve ilişkili çalışma zamanı paketini apt-get komut satırı aracıyla yüklemek için, öncelikle Advanced Packaging Tool (APT) kaynaklarınızı güncelleştirmelisiniz.
+tooinstall hello SDK ve hello ilişkili çalışma zamanı paketi üzerinden hello get apt komut satırı aracı, Gelişmiş paketleme Aracı (APT) kaynaklarınızı önce güncelleştirmeniz gerekir.
 
 1. Bir terminal açın.
-2. Service Fabric deponuzu kaynaklar listenize ekleyin.
+2. Merhaba Service Fabric depodaki tooyour kaynakları listeye ekleyin.
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
 
-3. `dotnet` deposunu kaynak listenize ekleyin.
+3. Merhaba eklemek `dotnet` depodaki tooyour kaynakları listesi.
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
     ```
 
-4. Yeni Gnu Privacy Guard (GnuPG, veya GPG) anahtarını APT anahtarlığınıza ekleyin.
+4. Merhaba ekleme yeni Gnu gizlilik Guard (GnuPG veya GPG) tooyour APT keyring anahtar.
 
     ```bash
     sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
     ```
 
-5. Resmi Docker GPG anahtarını APT anahtarlığınıza ekleyin.
+5. Merhaba resmi Docker GPG anahtar tooyour APT keyring ekleyin.
 
     ```bash
     sudo apt-get install curl
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     ```
 
-6. Docker deposunu ayarlayın.
+6. Merhaba Docker deposu ayarlama.
 
     ```bash
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     ```
 
-7. Paket listelerinizi yeni eklenen depolara göre yenileyin.
+7. Paketinizi Yenile eklenen depoları hello üzerinde yeni göre listeler.
 
     ```bash
     sudo apt-get update
     ```
 
-## <a name="install-and-set-up-the-sdk-for-local-cluster-setup"></a>Yerel küme kurulumu için SDK'yı yükleme ve ayarlama
+## <a name="install-and-set-up-hello-sdk-for-local-cluster-setup"></a>Yükleme ve hello SDK yerel Küme kurulumu için ayarlama
 
-Kaynaklarınızı güncelleştirdikten sonra SDK’yı yükleyebilirsiniz. Service Fabric SDK paketini yükleyin, yüklemeyi onaylayın ve lisans sözleşmesini kabul edin.
+Kaynaklarınızın güncelleştirildikten sonra hello SDK yükleyebilirsiniz. Merhaba Service Fabric SDK paketini yükleyin, hello yükleme onaylayın ve toohello Lisans Sözleşmesi'ni kabul etmiş olursunuz.
 
 ```bash
 sudo apt-get install servicefabricsdkcommon
 ```
 
 >   [!TIP]
->   Aşağıdaki komutlar, Service Fabric paketlerine yönelik lisansı kabul etme işlemini otomatik hale getirir:
+>   Merhaba aşağıdaki komutları kabul hello lisans Service Fabric paketler için otomatikleştirin:
 >   ```bash
 >   echo "servicefabric servicefabric/accepted-eula-v1 select true" | sudo debconf-set-selections
 >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | sudo debconf-set-selections
 >   ```
 
 ## <a name="set-up-a-local-cluster"></a>Yerel küme oluşturma
-  Yükleme başarılı olduysa, yerel bir kümeyi başlatabilmeniz gerekir.
+  Merhaba yükleme başarılı olursa, mümkün toostart yerel bir küme olmalıdır.
 
-  1. Küme kurulum betiğini çalıştırın.
+  1. Merhaba Küme kurulumu betiğini çalıştırın.
 
       ```bash
       sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
       ```
 
-  2. Bir web tarayıcısı açın ve [Service Fabric Explorer](http://localhost:19080/Explorer) adresine gidin. Küme başlatıldıysa Service Fabric Explorer panosunu görmeniz gerekir.
+  2. Bir web tarayıcısı açın ve çok Git[Service Fabric Explorer](http://localhost:19080/Explorer). Merhaba küme başlatılmış olup olmadığını hello Service Fabric Explorer Pano görmeniz gerekir.
 
       ![Linux üzerinde Service Fabric Explorer][sfx-linux]
 
-  Bu noktada, önceden oluşturulmuş Service Fabric uygulama paketlerini ve yeni paketleri konuk kapsayıcılar veya konuk yürütülebilir öğelere göre dağıtabilirsiniz. Java veya .NET Core SDK’larını kullanarak yeni hizmetler oluşturmak için aşağıdaki bölümlerde yer alan kurulum adımlarını izleyin.
+  Bu noktada, önceden oluşturulmuş Service Fabric uygulama paketlerini ve yeni paketleri konuk kapsayıcılar veya konuk yürütülebilir öğelere göre dağıtabilirsiniz. Merhaba Java veya .NET Core SDK kullanarak toobuild yeni hizmetler, sonraki bölümlerde verilmiştir hello isteğe bağlı kurulum adımları izleyin.
 
 
   > [!NOTE]
-  > Tek başına kümeler Linux’da desteklenmez. Önizleme yalnızca tek kutu ve Azure Linux çok makineli kümeleri destekler.
+  > Tek başına kümeler Linux’da desteklenmez. Merhaba Önizleme destekler yalnızca bir kutusunu ve Azure Linux çoklu makine kümeleri.
   >
 
-## <a name="set-up-the-service-fabric-cli"></a>Service Fabric CLI’sını ayarlama
+## <a name="set-up-hello-service-fabric-cli"></a>Service Fabric CLI Hello ayarlayın
 
-[Service Fabric CLI](service-fabric-cli.md) kümeler ve uygulamalar da dahil olmak üzere Service Fabric varlıklarıyla etkileşime yönelik komutlar içerir. Python tabanlı olduğundan aşağıdaki komutu kullanmadan önce python ve pip’in yüklü olduğundan emin olun:
+Merhaba [Service Fabric CLI](service-fabric-cli.md) kümeleri ve uygulamalar dahil olmak üzere Service Fabric varlıkları ile etkileşim için komut yok. Python üzerinde dayanır, bu nedenle toohave python ve PIP komutu aşağıdaki hello ile devam etmeden önce yüklü olduğundan emin olun:
 
 ```bash
 pip install sfctl
 ```
 
-## <a name="install-and-set-up-the-generators-for-containers-and-guest-executables"></a>Kapsayıcılar ve konuk yürütülebilir dosyalar için oluşturucuları yükleme ve ayarlama
-Service Fabric, Yeoman şablon oluşturucu kullanarak terminalden Service Fabric uygulamaları oluşturmanıza yardımcı olacak yapı iskelesi araçları sağlar. Lütfen makinenizde çalışan bir Service Fabric yeoman şablon oluşturucu olduğundan emin olmak için aşağıdaki adımları izleyin.
+## <a name="install-and-set-up-hello-generators-for-containers-and-guest-executables"></a>Yükleme ve hello oluşturucuları kapsayıcıları ve Konuk yürütülebilir dosyalar için ayarlama
+Service Fabric, Yeoman şablon oluşturucu kullanarak terminalden Service Fabric uygulamaları oluşturmanıza yardımcı olacak yapı iskelesi araçları sağlar. Lütfen makinenizde çalışmak için hello Service Fabric yeoman şablon oluşturucu sahip tooensure hello adımları izleyin.
 
 1. Makinenize nodejs ve NPM yükleme
 
@@ -135,66 +135,66 @@ Service Fabric, Yeoman şablon oluşturucu kullanarak terminalden Service Fabric
   ```bash
   sudo npm install -g yo
   ```
-3. NPM’den Service Fabric Yeo kapsayıcı oluşturucusunu ve konuk yürütülebilir dosya oluşturucusunu yükleme
+3. Merhaba Service Fabric Yeo kapsayıcı oluşturucu ve Konuk execuatble Oluşturucu NPM yükleme
 
   ```bash
   sudo npm install -g generator-azuresfcontainer  # for Service Fabric container application
   sudo npm install -g generator-azuresfguest      # for Service Fabric guest executable application
   ```
 
-Yukarıdaki oluşturucuları yükledikten sonra, sırasıyla `yo azuresfguest` ve `yo azuresfcontainer` komutlarını çalıştırarak konuk yürütülebilir dosyası ya da kapsayıcı hizmetleriyle uygulama oluşturabilmeniz gerekir.
+Merhaba oluşturucuları yukarıda yükledikten sonra çalıştırarak Konuk çalıştırılabilir veya kapsayıcı Hizmetleri mümkün toocreate uygulamalarla olmalıdır `yo azuresfguest` veya `yo azuresfcontainer` sırasıyla.
 
-## <a name="install-the-necessary-java-artifacts-optional-if-you-want-to-use-the-java-programming-models"></a>Gereken Java yapıtlarını yükleme (Java programlama modellerini kullanmak istiyorsanız, isteğe bağlı)
+## <a name="install-hello-necessary-java-artifacts-optional-if-you-want-toouse-hello-java-programming-models"></a>Merhaba gerekli Java yapıları (isteğe bağlı, modelleri programlama toouse hello Java istiyorsanız) yükleyin
 
-Java kullanarak Service Fabric hizmetleri oluşturmak için, derleme görevlerini çalıştırırken kullanılan Gradle ile birlikte JDK 1.8’in de yüklü olduğundan emin olun. Aşağıdaki kod parçacığı Open JDK 1.8’i ve Gradle’ı birlikte yükler. Service Fabric Java kitaplıkları Maven’dan alınır.
+Java kullanarak toobuild Service Fabric Hizmetleri emin olun JDK derleme görevleri çalıştırmak için kullanılan Gradle ile birlikte yüklenen 1.8. Aşağıdaki kod parçacığında hello açık JDK 1.8 Gradle birlikte yükler. Merhaba Service Fabric Java kitaplıkları Maven alınır.
 
   ```bash
   sudo apt-get install openjdk-8-jdk-headless
   sudo apt-get install gradle
   ```
 
-## <a name="install-the-eclipse-neon-plug-in-optional"></a>Eclipse Neon eklentisini yükleme (isteğe bağlı)
+## <a name="install-hello-eclipse-neon-plug-in-optional"></a>Merhaba Eclipse Neon eklentisini yükleyin (isteğe bağlı)
 
-Service Fabric için Eclipse eklentisini **Java Geliştiricileri için Eclipse IDE** içinden yükleyebilirsiniz. Eclipse kullanarak, Service Fabric Java uygulamalarına ek olarak Service Fabric konuk yürütülebilir uygulamaları ve kapsayıcı uygulamaları oluşturabilirsiniz.
+Hizmet yapıdan için hello içinde hello Eclipse eklenti yükleyebilirsiniz **Java geliştiricileri için Eclipse IDE**. Toplama tooService doku Java uygulamaları Eclipse toocreate Service Fabric Konuk yürütülebilir uygulamalar ve kapsayıcı uygulamaları kullanabilirsiniz.
 
-1. Eclipse’te, en son Eclipse Neon ve en son Buildship sürümünün (1.0.17 veya üstü) yüklü olduğundan emin olun. **Yardım** > **Yükleme Ayrıntıları**’nı seçerek yüklü bileşenlerin sürümlerini denetleyebilirsiniz. [Eclipse Buildship: Gradle için Eclipse eklentileri][buildship-update] bölümünde sağlanan yönergelerden yararlanarak Buildship’i güncelleştirebilirsiniz.
+1. Eclipse'te, en son Eclipse Neon olduğundan ve en son Buildship sürümü hello emin olun (1.0.17 veya sonraki bir sürümü) yüklü. Seçerek yüklü bileşenlerin hello sürümlerini kontrol edebilirsiniz **yardımcı** > **Yükleme ayrıntıları**. Merhaba yönergeleri kullanarak Buildship güncelleştirebilirsiniz [Eclipse Buildship: Eclipse için eklentilerini Gradle][buildship-update].
 
-2. Service Fabric eklentisini yüklemek için **Yardım** > **Yeni Yazılım Yükle**’yi seçin.
+2. tooinstall hello Service Fabric eklentisini seçin **yardımcı** > **yeni yazılımı yükle**.
 
-3. **Birlikte çalışın** kutusuna şunu yazın: **http://dl.microsoft.com/eclipse**.
+3. Merhaba, **çalışmak** kutusuna **http://dl.microsoft.com/eclipse**.
 
 4. **Ekle**'ye tıklayın.
 
-    ![Kullanılabilir Yazılım sayfası][sf-eclipse-plugin]
+    ![Merhaba kullanılabilir yazılım sayfası][sf-eclipse-plugin]
 
-5. **ServiceFabric** eklentisini seçip **İleri**’ye tıklayın.
+5. Select hello **ServiceFabric** eklentisi ve ardından **sonraki**.
 
-6. Yükleme adımlarını tamamlayın ve ardından son kullanıcı lisans sözleşmesini kabul edin.
+6. Merhaba yükleme adımlarını tamamlayın ve hello son kullanıcı lisans sözleşmesini kabul edin.
 
-Service Fabric Eclipse eklentisi zaten yüklüyse, en yeni sürümü kullandığınızdan emin olun. **Yardım** > **Yükleme Ayrıntıları**’nı seçip ardından yüklü eklentiler listesinde Service Fabric araması yaparak kontrol edebilirsiniz. Daha yeni bir sürüm varsa, **Güncelleştir**’i seçin.
+Hello Service Fabric yüklü Eclipse eklenti zaten varsa, hello en son sürümüne sahip olduğunuzdan emin olun. Seçerek kontrol **yardımcı** > **Yükleme ayrıntıları** ve ardından için Service Fabric hello listesinde arama yüklü eklentileri. Daha yeni bir sürüm varsa, **Güncelleştir**’i seçin.
 
 Daha fazla bilgi için bkz. [Eclipse Java uygulama geliştirmesi için Service Fabric eklentisi](service-fabric-get-started-eclipse.md).
 
 
-## <a name="install-the-net-core-sdk-optional-if-you-want-to-use-the-net-core-programming-models"></a>.NET Core SDK’sını yükleme (.NET Core programlama modellerini kullanmak istiyorsanız, isteğe bağlıdır)
-.NET Core SDK’sı, .NET Core ile Service Fabric hizmetleri oluşturmak için gereken kitaplıkları ve şablonları sağlar. .NET Core SDK paketini aşağıdakini çalıştırarak yükleyebilirsiniz:
+## <a name="install-hello-net-core-sdk-optional-if-you-want-toouse-hello-net-core-programming-models"></a>Merhaba .NET Core SDK (isteğe bağlı, toouse hello .NET Core programlama modelleri istiyorsanız) yükleyin
+Merhaba .NET Core SDK hello kitaplıkları ve gerekli toobuild Service Fabric .NET Core hizmetleriyle şablonlar sağlar. Merhaba .NET Core SDK paketini çalışan hello aşağıdaki tarafından yükle-
 
    ```bash
    sudo apt-get install servicefabricsdkcsharp
    ```
 
-## <a name="update-the-sdk-and-runtime"></a>SDK ve çalışma zamanını güncelleştirme
+## <a name="update-hello-sdk-and-runtime"></a>Güncelleştirme hello SDK ve çalışma zamanı
 
-SDK ve çalışma zamanının son sürümüne güncelleştirmek için aşağıdaki komutları çalıştırın. (Tercih etmediğiniz SDK'ların seçimini kaldırın.):
+tooupdate toohello ve en son sürümünü hello SDK çalışma zamanı, hello aşağıdaki komutları çalıştırın (istemediğiniz hello SDK'ları seçimini kaldırın):
 
 ```bash
 sudo apt-get update
 sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp
 ```
-Maven’dan alınan Java SDK'sı ikili dosyalarını güncelleştirmek için ``build.gradle`` dosyasında karşılık gelen ikili sürüm ayrıntılarını en son sürüme işaret edecek şekilde güncelleştirmeniz gerekir. Sürümü tam olarak nerede güncelleştirmeniz gerektiğini öğrenmek için [buradaki](https://github.com/Azure-Samples/service-fabric-java-getting-started) Service Fabric başlangıç örneklerindeki herhangi bir ``build.gradle`` dosyasına bakabilirsiniz.
+tooupdate hello Java SDK'sı ikili Maven gelen tooupdate hello sürüm hello karşılık gelen ikili hello ayrıntılarını ihtiyacınız ``build.gradle`` dosya toopoint toohello en son sürümü. tam olarak tooupdate hello sürüm, ihtiyaç duyacağınız tooknow tooany başvurabilir ``build.gradle`` Service Fabric başlama örnekleri dosyasında [burada](https://github.com/Azure-Samples/service-fabric-java-getting-started).
 
 > [!NOTE]
-> Paketlerin güncelleştirilmesi, yerel geliştirme kümenizin çalışmayı durdurmasına neden olabilir. Yükseltme sonrasında bu sayfadaki yönergeleri uygulayarak yerel kümenizi yeniden başlatın.
+> Merhaba paketleri güncelleştiriliyor çalıştıran, yerel geliştirme küme toostop neden olabilir. Yerel kümenizdeki, bu sayfada hello yönergeleri izleyerek bir yükseltmeden sonra yeniden başlatın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -202,7 +202,7 @@ Maven’dan alınan Java SDK'sı ikili dosyalarını güncelleştirmek için ``b
 * [Linux üzerinde Eclipse için Service Fabric Eklentisi kullanarak ilk Service Fabric Java uygulamanızı oluşturma ve dağıtma](service-fabric-get-started-eclipse.md)
 * [Linux üzerinde ilk CSharp uygulamanızı oluşturma](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [OSX üzerinde geliştirme ortamınızı hazırlama](service-fabric-get-started-mac.md)
-* [Uygulamalarınızı yönetmek için Service Fabric CLI'yı kullanma](service-fabric-application-lifecycle-sfctl.md)
+* [Merhaba Service Fabric CLI toomanage uygulamalarınızı kullanın](service-fabric-application-lifecycle-sfctl.md)
 * [Service Fabric Windows/Linux farkları](service-fabric-linux-windows-differences.md)
 * [Service Fabric CLI kullanmaya başlama](service-fabric-cli.md)
 

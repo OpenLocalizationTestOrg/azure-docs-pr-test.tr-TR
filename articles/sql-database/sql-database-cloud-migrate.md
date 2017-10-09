@@ -1,6 +1,6 @@
 ---
-title: "SQL Server veritabanını Azure SQL Veritabanına geçirme | Microsoft Docs"
-description: "SQL Server veritabanını buluttaki Azure SQL Veritabanına nasıl geçireceğinizi öğrenin. Veritabanı geçişinden önce uyumluluğu test etmek için veritabanı taşıma araçlarını kullanın."
+title: "aaaSQL sunucu veritabanı geçiş tooAzure SQL veritabanı | Microsoft Docs"
+description: "Ne dersiniz SQL Server veritabanı geçiş tooAzure hello bulut SQL veritabanında öğrenin. Veritabanı Geçiş Araçları tootest uyumluluk önceki toodatabase geçişi kullanın."
 keywords: "veritabanı geçişi,sql server veritabanı geçişi,veritabanı taşıma araçları,veritabanı taşıma,sql veritabanı geçişi"
 services: sql-database
 documentationcenter: 
@@ -16,69 +16,69 @@ ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
-ms.openlocfilehash: 90c78007368c2679e1c5afdb9369869adde77f0d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 3a5e879404dd2da1dd5254a6134e3ee1517648db
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>SQL Server veritabanını buluttaki SQL Veritabanına taşıma
-Bu makalede SQL Server 2005 veya sonraki bir veritabanını Azure SQL Veritabanına geçirmeye yönelik iki birincil yöntem hakkında bilgi verilmektedir. İlk yöntem basittir, ancak geçiş sırasında önemli olabilecek bazı kapalı kalma sürelerine neden olabilir. İkinci yöntem daha karmaşık olmasına karşın, geçiş sırasında kapalı kalma süresini önemli ölçüde ortadan kaldırır.
+# <a name="sql-server-database-migration-toosql-database-in-hello-cloud"></a>SQL Server veritabanı geçiş tooSQL hello bulut veritabanında
+Bu makalede, SQL Server 2005 veya üzeri veritabanı tooAzure SQL veritabanı geçiş başlıca iki yöntem hakkında hello öğrenin. Merhaba ilk yöntem basittir ancak bazıları gerektirir hello geçiş sırasında büyük olasılıkla önemli kapalı kalma süresi. Merhaba ikinci yöntem daha karmaşıktır, ancak önemli ölçüde hello geçiş sırasında kapalı kalma süresini ortadan kaldırır.
 
-Kaynak veritabanı Azure SQL veritabanı kullanarak ile uyumlu olduğundan emin olmak gereken her iki durumda da [veri geçiş Yardımcısı (DMA)](https://www.microsoft.com/download/details.aspx?id=53595). SQL Database V12 yaklaşan [özellik eşliği](sql-database-features.md) sunucu düzeyinde ve veritabanları arası işlemleriyle ilgili sorunlar dışında SQL Server ile. [Kısmen desteklenen veya desteklenmeyen işlevleri](sql-database-transact-sql-information.md) kullanan veritabanları ve uygulamalar için SQL Server veritabanının geçirilebilmesi için [bu uyumsuzlukların giderilmesi amacıyla yeniden mühendislik](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues) işlemlerinin yapılması gerekir.
+Her iki durumda da ihtiyacınız tooensure hello kaynak veritabanının hello kullanarak Azure SQL veritabanı ile uyumlu olan [veri geçiş Yardımcısı (DMA)](https://www.microsoft.com/download/details.aspx?id=53595). SQL Database V12 yaklaşan [özellik eşliği](sql-database-features.md) sorunları ilgili tooserver düzeyi ve veritabanları arası işlemleri dışında SQL Server ile. Veritabanları ve kullanan uygulamalar [kısmen desteklenen veya desteklenmeyen işlevler](sql-database-transact-sql-information.md) bazı gereksinim [toofix yeniden mühendislik Bu uyumsuzluklar](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues) hello önce SQL Server veritabanı geçirilebilir.
 
 > [!NOTE]
-> Microsoft Access, Sybase, MySQL Oracle ve DB2 olmak üzere SQL Server harici veritabanlarını Azure SQL Veritabanına geçirmek için bkz. [SQL Server Geçiş Yardımcısı](https://blogs.msdn.microsoft.com/datamigration/2016/12/22/released-sql-server-migration-assistant-ssma-v7-2/).
+> toomigrate bkz: Microsoft Access, Sybase, MySQL Oracle ve DB2 tooAzure SQL veritabanı dahil olmak üzere bir SQL Server veritabanı [SQL Server Geçiş Yardımcısı](https://blogs.msdn.microsoft.com/datamigration/2016/12/22/released-sql-server-migration-assistant-ssma-v7-2/).
 > 
 
-## <a name="method-1-migration-with-downtime-during-the-migration"></a>Yöntem 1: Geçiş sırasında kapalı kalma süresi ile geçiş
+## <a name="method-1-migration-with-downtime-during-hello-migration"></a>Yöntem 1: Geçiş kapalı kalma süresi ile Merhaba geçiş sırasında
 
  Veritabanının kapalı kalması kabul edilebilir bir durumsa veya ileride geçiş yapmak üzere bir üretim veritabanının test geçişini gerçekleştiriyorsanız bu yöntemi kullanın. Bir öğretici için bkz: [bir SQL Server veritabanını geçirme](sql-database-migrate-your-sql-server-database.md).
 
-Aşağıdaki liste, bu yöntem kullanılarak gerçekleştirilen bir SQL Server veritabanı geçişinin genel iş akışını içermektedir.
+Merhaba aşağıdaki listede hello bu yöntemi kullanarak SQL Server veritabanı geçiş için genel iş akışını içerir.
 
   ![VSSSDT geçiş şeması](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
-1. [Veri Geçişi Yardımcısı (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) aracının son sürümünü kullanarak veritabanının uyumluluğunu değerlendirin.
+1. Merhaba veritabanı hello en son sürümünü kullanarak uyumluluk için değerlendirecek [veri geçiş Yardımcısı (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 2. Transact-SQL betikleri halinde tüm gerekli düzeltmeleri hazırlayın.
-3. Geçirilmekte olan kaynak veritabanının işlemsel açıdan tutarlı bir kopyasını oluşturun ve kaynak veritabanında başka bir değişiklik yapılmadığından emin olun (bu tür değişiklikleri geçiş tamamlandıktan sonra el ile de uygulayabilirsiniz). Bir veritabanını yavaşça çevrimdışına geçirmek için kullanabileceğiniz istemci bağlantısını devre dışı bırakmaktan [veritabanı anlık görüntüsü](https://msdn.microsoft.com/library/ms175876.aspx) oluşturmaya kadar birçok yöntem vardır.
-4. Düzeltmeleri veritabanı kopyasına uygulamak için Transact-SQL betiklerini dağıtın.
-5. Veritabanı kopyasını yerel sürücüdeki bir BACPAC dosyasına [aktarın](sql-database-export.md).
-6. Çok sayıda BACPAC içeri aktarma aracından herhangi birini kullanarak (en iyi performans için SQLPackage.exe önerilir), .BACPAC dosyasını yeni bir Azure SQL veritabanı olarak [içeri aktarın](sql-database-import.md).
+3. Merhaba kaynak veritabanı işlemsel olarak tutarlı bir kopyasını geçirilmekte - ve olun toohello kaynak veritabanının daha fazla değişiklik yapılan (veya hello geçiş tamamlandıktan sonra bu değişiklikleri el ile uygulayabilirsiniz). İstemci bağlantısı toocreating devre dışı bırakma bir veritabanından, birçok yöntemleri tooquiesce olan bir [veritabanı anlık görüntüsü](https://msdn.microsoft.com/library/ms175876.aspx).
+4. Merhaba Transact-SQL betikleri tooapply hello düzeltmeleri toohello veritabanı kopyası dağıtın.
+5. [Dışarı aktarma](sql-database-export.md) veritabanı kopyası tooa hello. Bir yerel sürücüde BACPAC dosyası.
+6. [İçeri aktarma](sql-database-import.md) hello. Birkaç BACPAC birini kullanarak yeni bir Azure SQL veritabanı olarak BACPAC dosyasını araçları, aracı en iyi performans için önerilen hello olan SQLPackage.exe ile aktarın.
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Geçiş sırasında veri aktarımı performansını en iyi duruma getirme 
 
-Aşağıdaki liste, içeri aktarma işlemi sırasında en iyi performans için öneriler içerir.
+liste aşağıdaki hello hello içeri aktarma işlemi sırasında en iyi performans için öneriler içerir.
 
-* Aktarım performansını en üst düzeye çıkarmak için bütçenizin izin verdiği en yüksek hizmet düzeyini ve performans katmanını seçin. Geçiş tamamlandıktan sonra paradan tasarruf etmek için ölçeği azaltabilirsiniz. 
-* .BACPAC dosyanız ile hedef veri merkezi arasındaki mesafeyi azaltın.
+* Merhaba yüksek hizmet düzeyi ve performans katmanı bütçenizi toomaximize hello aktarımı performans sağlayan seçin. Toosave para Hello geçiş tamamlandıktan sonra ölçeklendirebilirsiniz. 
+* Merhaba arasındaki uzaklığı en aza indirmek için. BACPAC dosya ve hello hedef veri merkezi.
 * Geçiş sırasında otomatik istatistikleri devre dışı bırakma
 * Tabloları ve dizinleri bölümleme
 * Dizini oluşturulmuş görünümleri bırakma ve tamamlandıktan sonra yeniden oluşturma
-* Nadiren sorgulanan geçmiş verileri başka bir veritabanına kaldırın ve bu geçmiş verileri ayrı bir Azure SQL veritabanına geçirin. Daha sonra bu geçmiş verileri [esnek sorgular](sql-database-elastic-query-overview.md) kullanarak sorgulayabilirsiniz.
+* Nadiren sorgulanan geçmiş verileri tooanother veritabanını kaldırın ve bu geçmiş verileri tooa ayrı Azure SQL veritabanını geçirme. Daha sonra bu geçmiş verileri [esnek sorgular](sql-database-elastic-query-overview.md) kullanarak sorgulayabilirsiniz.
 
-### <a name="optimize-performance-after-the-migration-completes"></a>Geçiş tamamlandıktan sonra performansı en iyi duruma getirme
+### <a name="optimize-performance-after-hello-migration-completes"></a>Merhaba geçiş tamamlandıktan sonra performansı en iyi duruma getirme
 
-Geçiş tamamlandıktan sonra tam tarama ile [istatistikleri güncelleştirin](https://msdn.microsoft.com/library/ms187348.aspx).
+[İstatistikleri güncelleştirme](https://msdn.microsoft.com/library/ms187348.aspx) hello geçiş tamamlandıktan sonra tam tarama ile.
 
 ## <a name="method-2-use-transactional-replication"></a>Yöntem 2: İşlem Çoğaltma Kullanma
 
-Geçiş gerçekleşirken SQL Server veritabanınızı üretimden kaldırmak kabul edilebilir bir durum değilse, geçiş çözümü olarak SQL Server işlem çoğaltmayı kullanabilirsiniz. Bu yöntemi kullanmak için, kaynak veritabanının [işlem çoğaltma gereksinimlerini](https://msdn.microsoft.com/library/mt589530.aspx) karşılaması ve Azure SQL Veritabanı ile uyumlu olması gerekir. AlwaysOn SQL çoğaltma hakkında daha fazla bilgi için bkz: [Always On kullanılabilirlik grupları (SQL Server) için çoğaltma yapılandırma](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
+Merhaba geçiş yapılırken, tooremove, SQL Server veritabanınızın üretimden göze alamıyorsanız, SQL Server işlem çoğaltma geçiş çözümü olarak kullanabilirsiniz. Bu yöntem, hello kaynak veritabanı gerekir toouse karşılayan hello [işlemsel çoğaltma gereksinimlerini](https://msdn.microsoft.com/library/mt589530.aspx) ve Azure SQL veritabanı için uyumlu. AlwaysOn SQL çoğaltma hakkında daha fazla bilgi için bkz: [Always On kullanılabilirlik grupları (SQL Server) için çoğaltma yapılandırma](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
 
-Bu çözümü kullanmak için, Azure SQL Veritabanınızı, geçirmek istediğiniz SQL Server örneğine abone olacak şekilde yapılandırabilirsiniz. Yeni işlemler gerçekleşmeye devam ederken, işlem çoğaltma dağıtıcısı, veritabanındaki eşitlenecek verileri eşitler (yayımcı). 
+toouse Bu çözüm toomigrate istediğiniz bir abone toohello SQL Server örneği olarak Azure SQL veritabanınıza yapılandırın. Merhaba işlemsel çoğaltma dağıtıcı eşitler eşitlenen hello veritabanı toobe (Merhaba yayımcı) verilerden oluşan yeni bir işlem devam ederken. 
 
-İşlem çoğaltma ile verilerinizde veya şemanıza yapılan tüm değişiklikler Azure SQL Veritabanınızda gösterilir. Eşitleme tamamlandıktan sonra geçişe hazır olduğunuzda, uygulamalarınızın bağlantı dizesini Azure SQL Veritabanınıza işaret edecek şekilde değiştirin. İşlem çoğaltma özelliği kaynak veritabanınızda kalan tüm değişiklikleri boşalttığında ve tüm uygulamalarınız Azure DB’yi işaret ettiğinde, işlem çoğaltma özelliğini kaldırabilirsiniz. Azure SQL Veritabanınız artık üretim sisteminizdir.
+İşlemsel tüm değişiklikleri tooyour veri veya şema görünmesini Azure SQL veritabanı'nda. Merhaba eşitleme tamamlandıktan sonra hazır toomigrate olan, uygulamaları toopoint hello bağlantı dizesini değiştirmek bunları tooyour Azure SQL veritabanı. Sol herhangi bir değişiklik işlemsel çoğaltma boşaltır sonra kaynak veritabanını ve tüm uygulamalarınızı tooAzure DB noktası, işlemsel çoğaltma kaldırabilirsiniz. Azure SQL Veritabanınız artık üretim sisteminizdir.
 
  ![SeedCloudTR diyagramı](./media/sql-database-cloud-migrate/SeedCloudTR.png)
 
 > [!TIP]
-> İşlem çoğaltmayı, kaynak veritabanınızın bir alt kümesini geçirmek için de kullanabilirsiniz. Azure SQL Veritabanına çoğalttığınız yayın, çoğaltmakta olduğunuz veritabanındaki bir tablo alt kümesiyle sınırlanabilir. Çoğaltılmakta olan her tablo için verileri bir satır alt kümesi ve/veya sütun alt kümesi ile sınırlayabilirsiniz.
+> İşlemsel çoğaltma toomigrate Kaynak veritabanınıza kümesini de kullanabilirsiniz. Merhaba yayın tooAzure SQL veritabanı çoğaltma sınırlı tooa alt çoğaltılmasını hello veritabanındaki hello tabloların olabilir. Çoğaltılmasını her tablo için hello veri tooa satırların alt kümesini hello ve/veya hello bir sütun alt kümesini sınırlayabilirsiniz.
 >
 
-### <a name="migration-to-sql-database-using-transaction-replication-workflow"></a>İşlem Çoğaltma iş akışı kullanılarak SQL Veritabanına geçiş
+### <a name="migration-toosql-database-using-transaction-replication-workflow"></a>Geçiş tooSQL işlem çoğaltma iş akışını kullanarak veritabanı
 
 > [!IMPORTANT]
-> Microsoft Azure ve SQL Veritabanı güncelleştirmeleriyle aynı özelliklere sahip olması için SQL Server Management Studio’nun en son sürümünü kullanın. SQL Server Management Studio’nun eski sürümleri, SQL Veritabanını abone olarak ayarlayamaz. [SQL Server Management Studio’yu güncelleyin](https://msdn.microsoft.com/library/mt238290.aspx).
+> Merhaba en son sürümünü kullanın SQL Server Management Studio tooremain Azure ve SQL veritabanı güncelleştirmeleri tooMicrosoft ile eşitlenmiş. SQL Server Management Studio’nun eski sürümleri, SQL Veritabanını abone olarak ayarlayamaz. [SQL Server Management Studio’yu güncelleyin](https://msdn.microsoft.com/library/mt238290.aspx).
 > 
 
 1. Dağıtımı Ayarlama
@@ -91,17 +91,17 @@ Bu çözümü kullanmak için, Azure SQL Veritabanınızı, geçirmek istediğin
    -  [SQL Server Management Studio (SSMS) kullanma](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_0)
    -  [Transact-SQL kullanma](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_1)
 
-### <a name="some-tips-and-differences-for-migrating-to-sql-database"></a>SQL veritabanına geçiş için bazı ipuçları ve farklılıklar
+### <a name="some-tips-and-differences-for-migrating-toosql-database"></a>Bazı ipuçları ve geçiş farklar tooSQL veritabanı
 
 1. Yerel dağıtıcı kullanma 
-   - Bu durum sunucuda performans düşüşüne neden olur. 
-   - Performans etkisi kabul edilemez boyuttaysa başka bir sunucu kullanabilirsiniz, ancak bunun yapılması yönetimi daha karmaşık hale getirir.
-2. Bir anlık görüntü klasörü seçerken, seçtiğiniz klasörün çoğaltmak istediğiniz her tabloya ait BCP’yi saklayacak kadar büyük olduğundan emin olun. 
-3. Anlık görüntü oluşturma işlemi tamamlanana kadar ilişkili tabloları kilitler, bu nedenle anlık görüntünüzü uygun şekilde zamanlayın. 
-4. Azure SQL Veritabanında yalnızca iletme abonelikleri desteklenir. Aboneleri yalnızca kaynak veritabanından ekleyebilirsiniz.
+   - Bu, hello sunucuda performans düşüşüne neden olur. 
+   - Merhaba performans etkisi kabul edilebilir değilse, başka bir sunucu kullanabilirsiniz ancak yönetimi ve yönetim karmaşıklığını ekler.
+2. Anlık görüntü klasörü, seçtiğiniz yapma emin hello klasör seçerek büyüklükte toohold BCP her tablonun olduğunda tooreplicate istiyor. 
+3. Anlık görüntü oluşturma kilit işlemi tamamlanana kadar ilişkili tabloları Merhaba, bu nedenle, anlık görüntü zamanlamasının. 
+4. Azure SQL Veritabanında yalnızca iletme abonelikleri desteklenir. Yalnızca hello kaynak veritabanından aboneler ekleyebilirsiniz.
 
 ## <a name="resolving-database-migration-compatibility-issues"></a>Veritabanı geçişi uyumluluk sorunlarını çözme
-Kaynak veritabanındaki SQL Server sürümüne ve geçirdiğiniz veritabanının karmaşıklığına bağlı olarak karşılaşabileceğiniz çok çeşitli uyumluluk sorunları vardır. Eski SQL Server sürümlerinde daha fazla uyumluluk sorunları algılanabilir. Aşağıdaki kaynakları kullanabilir ve ek olarak istediğiniz arama motorunu kullanarak hedefli bir İnternet araması yapabilirsiniz:
+Çok çeşitli, hem de SQL Server sürümü hello hello kaynak veritabanı ve hello karmaşıklığı geçirdiğiniz hello veritabanının bağlı olarak, karşılaşabileceğiniz uyumluluk sorunları vardır. Eski SQL Server sürümlerinde daha fazla uyumluluk sorunları algılanabilir. Kaynakları aşağıdaki hello kullanın, ayrıca, arama motoru seçenekleri kullanarak Internet arama tooa hedeflenen:
 
 * [Azure SQL Veritabanında desteklenmeyen SQL Server veritabanı özellikleri](sql-database-transact-sql-information.md)
 * [SQL Server 2016'da Artık Sağlanmayan Veritabanı Altyapısı İşlevleri](https://msdn.microsoft.com/library/ms144262%28v=sql.130%29)
@@ -110,13 +110,13 @@ Kaynak veritabanındaki SQL Server sürümüne ve geçirdiğiniz veritabanının
 * [SQL Server 2008 R2'de Artık Sağlanmayan Veritabanı Altyapısı İşlevleri](https://msdn.microsoft.com/library/ms144262%28v=sql.105%29)
 * [SQL Server 2005'te Artık Sağlanmayan Veritabanı Altyapısı İşlevleri](https://msdn.microsoft.com/library/ms144262%28v=sql.90%29)
 
-İnternet aramasına ve bu kaynaklara ek olarak [MSDN SQL Server topluluk forumlarını](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) veya [StackOverflow](http://stackoverflow.com/) sitesini de kullanabilirsiniz.
+Ayrıca toosearching Internet hello ve bu kaynakları kullanarak hello [MSDN SQL Server topluluk forumları](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) veya [StackOverflow](http://stackoverflow.com/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Geçiş sırasında tempdb kullanımını izlemek](https://blogs.msdn.microsoft.com/azuresqlemea/2016/12/28/lesson-learned-10-monitoring-tempdb-usage/) için Azure SQL EMEA Mühendisleri blogundaki betiği kullanın.
-* [Geçiş devam ederken veritabanınızın işlem günlüğü alanını izlemek](https://blogs.msdn.microsoft.com/azuresqlemea/2016/10/31/lesson-learned-7-monitoring-the-transaction-log-space-of-my-database/0) için Azure SQL EMEA Mühendisleri blogundaki betiği kullanın.
-* BACPAC dosyalarını kullanarak geçiş hakkında bir SQL Server Müşteri Danışmanlık Ekibi blogu için bkz. [BACPAC Dosyalarını kullanarak SQL Server’dan Azure SQL Veritabanına Geçiş](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
-* Geçişten sonra UTC saati ile çalışma hakkında daha fazla bilgi için bkz. [Yerel saat diliminiz için varsayılan saat dilimini değiştirme](https://blogs.msdn.microsoft.com/azuresqlemea/2016/07/27/lesson-learned-4-modifying-the-default-time-zone-for-your-local-time-zone/).
-* Geçişten sonra veritabanının varsayılan dilini değiştirme hakkında daha fazla bilgi için bkz. [Azure SQL Veritabanının varsayılan dilini değiştirme](https://blogs.msdn.microsoft.com/azuresqlemea/2017/01/13/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database/).
+* Merhaba betiği hello Azure SQL EMEA mühendisleri blogunda çok kullan[geçiş sırasında tempdb kullanımı izlemek](https://blogs.msdn.microsoft.com/azuresqlemea/2016/12/28/lesson-learned-10-monitoring-tempdb-usage/).
+* Merhaba betiği hello Azure SQL EMEA mühendisleri blogunda çok kullan[geçiş yapılırken hello işlem günlüğü alanı veritabanınızın izlemek](https://blogs.msdn.microsoft.com/azuresqlemea/2016/10/31/lesson-learned-7-monitoring-the-transaction-log-space-of-my-database/0).
+* BACPAC dosyalarını kullanarak bir SQL Server Müşteri danışma ekibi blogu geçirme hakkında bkz [SQL BACPAC dosyalarını kullanarak veritabanını SQL Server tooAzure geçiş](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
+* Geçişten sonra UTC saati ile çalışma hakkında daha fazla bilgi için bkz: [için yerel saat dilimini değiştirme hello varsayılan saat dilimini](https://blogs.msdn.microsoft.com/azuresqlemea/2016/07/27/lesson-learned-4-modifying-the-default-time-zone-for-your-local-time-zone/).
+* Geçişten sonra bir veritabanı hello varsayılan dilini değiştirme hakkında daha fazla bilgi için bkz: [nasıl toochange hello Azure SQL veritabanı'nın varsayılan dil](https://blogs.msdn.microsoft.com/azuresqlemea/2017/01/13/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database/).
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Bir uygulama hizmeti ortamı'nda bir uygulama ölçeklendirme"
+title: "aaaHow tooScale bir uygulamada bir uygulama hizmeti ortamı"
 description: "Bir uygulama hizmeti ortamı'nda bir uygulama ölçeklendirme"
 services: app-service
 documentationcenter: 
@@ -14,59 +14,59 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
-ms.openlocfilehash: 240c2486c23b7cd84e2471bf5b2170e08ee1f150
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 08916eac056c46bf8cb6edffbf96285317b32062
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="scaling-apps-in-an-app-service-environment"></a>App Service Ortamında uygulamaları ölçeklendirme
-Azure App Service'te normal şekilde ölçeklendirebilirsiniz üç şey vardır:
+Hello Azure uygulama hizmeti normal şekilde ölçeklendirebilirsiniz üç şey vardır:
 
 * plan fiyatlandırması
 * çalışan boyutu 
 * örnek sayısı.
 
-ASE'de seçmek veya fiyatlandırma planı değiştirmek için gerek yoktur.  Özellikleri bakımından Premium yetenek düzeyi fiyatlandırma zaten var.  
+ASE'de planı fiyatlandırma hiçbir gerek tooselect ya da değişiklik hello yoktur.  Özellikleri bakımından Premium yetenek düzeyi fiyatlandırma zaten var.  
 
-Çalışan boyutları göre ana yönetim için her çalışan havuzunda kullanılacak işlem kaynak boyutu atayabilirsiniz.  P4 işlem kaynakları ile çalışan havuzu 1 olabilir ve çalışan Havuz 2 P1 ile işlem kaynakları, isterseniz anlamına gelir.  Boyutu olması gerekmez.  Belgeyi burada boyutları ve bunların fiyatlandırma ayrıntıları görmek için [Azure App Service fiyatlandırması][AppServicePricing].  Bu, bir uygulama hizmeti olarak ortamında web uygulamaları ve App Service planları için ölçeklendirme seçenekleri bırakır:
+Saygı tooworker boyutlarıyla hello ana Yöneticisi her çalışan havuzu için kullanılan hello işlem kaynak toobe hello boyutunu atayabilirsiniz.  P4 işlem kaynakları ile çalışan havuzu 1 olabilir ve çalışan Havuz 2 P1 ile işlem kaynakları, isterseniz anlamına gelir.  Harici boyutu sırayla toobe gerekmez.  İçin hello boyutları ve bunların fiyatlandırma ayrıntılarla hello belgeyi buraya bakın [Azure App Service fiyatlandırması][AppServicePricing].  Bu, bir uygulama hizmeti ortamı toobe web uygulamaları ve App Service planları için seçeneklerinde ölçeklendirme hello bırakır:
 
 * çalışan havuzu seçimi
 * örnek sayısı
 
-Her iki öğeyi değiştirme App Service planları, ana barındırılan için gösterilen uygun kullanıcı Arabirimi aracılığıyla gerçekleştirilir.  
+Her iki öğeyi değiştirme hello yapılır uygun App Service planları, ana barındırılan için gösterilen UI.  
 
 ![][1]
 
-ASP bulunduğu çalışan havuzunda kullanılabilir işlem kaynakları sayısı ötesinde, ASP ölçeklendirin olamaz.  İşlem kaynaklarını çalışan havuzda varsa bunları eklemek için ana yöneticinize almanız gerekir.  Burada yer alan bilgiler, ana yeniden yapılandırma geçici bilgileri okumak için: [bir uygulama hizmeti ortamını yapılandırma][HowtoConfigureASE].  Zamanlama veya ölçümleri kapasite göre eklemek için ana otomatik ölçeklendirme özelliklerden yararlanmak isteyebilirsiniz.  Yapılandırma hakkında daha fazla bilgi almak için otomatik ölçeklendirme ana ortamı için bkz: [otomatik ölçeklendirme bir uygulama hizmeti ortamı için yapılandırma][ASEAutoscale].
+ASP bulunduğu hello çalışan havuzunda kullanılabilir işlem kaynakları hello sayısı ötesinde, ASP ölçeklendirin olamaz.  İşlem kaynaklarını çalışan havuzda varsa, ana yönetici tooadd tooget gereksinim bunları.  Buraya hello bilgileri, ana yeniden yapılandırma geçici bilgileri okumak için: [nasıl tooConfigure uygulama hizmeti ortamı][HowtoConfigureASE].  Merhaba ana otomatik ölçeklendirme özelliklerini tooadd kapasite zamanlama veya ölçümleri temelinde tootake avantajı da isteyebilirsiniz.  otomatik ölçeklendirme hello ana ortamı kendisi için yapılandırma hakkında daha fazla ayrıntı görmek tooget [nasıl tooconfigure otomatik bir uygulama hizmeti ortamı için ölçeklendirme][ASEAutoscale].
 
-Birden çok uygulama farklı çalışan havuzlarından işlem kaynakları kullanılarak hizmet planları oluşturabilir veya aynı çalışan havuzu kullanabilirsiniz.  (4) kullanan çalışan havuzu 1'de (10) kullanılabilir işlem kaynakları varsa, (6) işlem kaynaklarını kullanan bir uygulama hizmeti planı oluşturmak seçebilirsiniz ve ikinci bir app service planı örneğin işlem kaynaklarını.
+Birden çok uygulama farklı çalışan havuzlarından işlem kaynakları kullanılarak hizmet planları oluşturabilir veya kullanabilirsiniz hello aynı çalışan havuzu.  Örnek çalışan (10) kullanılabilir hesaplama kaynaklarınız varsa Havuz 1, (6) işlem kaynakları kullanılarak toocreate bir uygulama hizmeti planı seçin ve ikinci bir uygulama hizmeti planı (4) işlem kaynaklarını kullanır.
 
-### <a name="scaling-the-number-of-instances"></a>Örnek sayısı ölçeklendirme
-Uygulama hizmeti ortamı'nda ilk web uygulamanızı oluşturduğunuzda ile 1 bir örneğini başlatır.  Ardından çıkışı uygulamanız için ek işlem kaynaklarını sağlamaya ek örnekleri ölçekleme yapabilirsiniz.   
+### <a name="scaling-hello-number-of-instances"></a>Örnek ölçeklendirme hello sayısı
+Uygulama hizmeti ortamı'nda ilk web uygulamanızı oluşturduğunuzda ile 1 bir örneğini başlatır.  Tooadditional örnekleri tooprovide ek genişleme işlem sonra uygulamanız için kaynakları kullanabilirsiniz.   
 
-Ana yeterli kapasitesi varsa, daha sonra bu oldukça basittir.  Uygulama hizmeti ölçeği artırma ve ölçek seçmek istediğiniz siteleri tutan planınız için gidin.  Bu, burada el ile ölçek, ASP ayarlayabilir veya ASP için otomatik ölçeklendirme kurallarını yapılandırma kullanıcı arabirimini açar.  El ile uygulamanız yeterlidir ölçeklendirme için ayarlanmış ***göre Ölçeklendirmeniz*** için ***el ile girdiğim bir örnek sayısı***.  Buradan istenen miktar kaydırıcıyı sürükleyin ya da kaydırıcıyı yanındaki kutuya girin.  
+Ana yeterli kapasitesi varsa, daha sonra bu oldukça basittir.  Tooyour tooscale yedeklemek istediğiniz ve imleyin hello siteleri tutan App Service planı gidin.  Bu hello buradan el ile ASP hello ölçek kümesi veya ASP için otomatik ölçeklendirme kurallarını yapılandırma kullanıcı arabirimini açar.  Uygulamanızı yalnızca ayarlayın toomanually ölçek ***göre Ölçeklendirmeniz*** çok***el ile girdiğim bir örnek sayısı***.  Buradan hello kaydırıcı istenen toohello miktar sürükleyin veya hello kutusunu sonraki toohello kaydırıcı girin.  
 
 ![][2] 
 
-Bunlar her zamanki gibi bir ana bir ASP için otomatik ölçeklendirme kurallarını aynı çalışır.  Seçebileceğiniz ***CPU yüzdesi*** altında ***göre Ölçeklendirmeniz*** ve CPU yüzdesi veya, göre ASP kullanarak daha karmaşık kurallar oluşturabilirsiniz için otomatik ölçeklendirme kuralları oluşturmak ***zamanlama ve performans kuralları ***.  Yapılandırma hakkında daha kapsamlı ayrıntıları görmek için otomatik ölçeklendirme kullanmak Kılavuzu burada [bir uygulama Azure App Service'te ölçeklendirme][AppScale]. 
+Bunlar her zamanki gibi bir ana iş bir ASP hello otomatik ölçeklendirme kurallarını aynı hello.  Seçebileceğiniz ***CPU yüzdesi*** altında ***göre Ölçeklendirmeniz*** ve CPU yüzdesi veya, göre ASP kullanarak daha karmaşık kurallar oluşturabilirsiniz için otomatik ölçeklendirme kuralları oluşturmak ***zamanlama ve performans kuralları ***.  toosee fazla otomatik ölçeklendirme kullanım hello Kılavuzu burada yapılandırma hakkında ayrıntılar tamamlamak [bir uygulama Azure App Service'te ölçeklendirme][AppScale]. 
 
 ### <a name="worker-pool-selection"></a>Çalışan havuzu seçimi
-Daha önce belirtildiği gibi çalışan havuzu seçimi ASP Arabiriminden erişilir.  Ölçek ve çalışan havuzunda seçmek için istediğiniz ASP için dikey penceresini açın.  Tüm uygulama hizmeti ortamı'nda yapılandırılan çalışan havuzlarında görürsünüz.  Yalnızca bir çalışan havuzu varsa listelenen bir havuz yalnızca görürsünüz.  ASP bulunduğu hangi çalışan havuzunu değiştirmek için yalnızca uygulama hizmeti taşımak için planınız istediğiniz çalışan havuzu seçin.  
+Daha önce belirtildiği gibi hello çalışan havuzu seçimi hello ASP UI ' erişilir.  Merhaba tooscale istediğiniz ve çalışan havuzu seçin ASP Hello dikey penceresini açın.  Tüm uygulama hizmeti ortamı'nda yapılandırılan hello çalışan havuzlarında görürsünüz.  Yalnızca bir çalışan havuzu varsa listelenen hello bir havuz yalnızca görürsünüz.  toochange hangi çalışan havuzu ASP, bu, App Service planı toomove istediğiniz hello çalışan havuzunda seçmeniz yeterlidir.  
 
 ![][3]
 
-ASP bir çalışan havuzundan diğerine geçmeden önce ASP için yeterli kapasiteye sahip emin olmak önemlidir.  Çalışan havuzlarında listesinde yalnızca çalışan havuzu adı listelenen ancak, kaç tane çalışanları, çalışan havuzunda kullanılabilir olduğunu görebilirsiniz.  Yeterli örnekleri içeren uygulama hizmeti planınız kullanılabilir olduğundan emin olun.  Daha fazla işlem kaynaklarını taşımak istediğiniz çalışan havuzunda varsa, bunları eklemek için ana yöneticinize alın.  
+Bir çalışan havuzu tooanother ASP taşımadan önce önemli toomake, ASP için yeterli kapasiteye sahip emin olur.  Çalışan havuzlarında listesi Merhaba, yalnızca listelenen hello çalışan havuzu adı ancak, kaç tane çalışanları, çalışan havuzunda kullanılabilir olduğunu görebilirsiniz.  Yeterli örnekleri kullanılabilir toocontain uygulama hizmeti planınız emin olun.  Daha fazla işlem kaynaklarını hello çalışan havuzunda varsa, ana yönetici tooadd almak için toomove istediğiniz bunları.  
 
 > [!NOTE]
-> Bu ASP uygulamalarının bir çalışan havuzundan bir ASP soğuk neden olacak taşıma başlatır.  Bu istekleri uygulamanızı yeni işlem kaynakları üzerinde çalışmaya soğuk olarak yavaş çalışmasına neden olabilir.  Soğuk başlangıç kullanılarak önlenebilir [uygulama yeteneğini sıcak] [ AppWarmup] Azure App Service'te.  Yeni işlem kaynakları üzerinde çalışmaya uygulamaları soğuk olduğunda başlatma işlemi de çağrılan çünkü makalede açıklanan uygulama başlatma modül soğuk başlıyor de çalışır. 
+> ASP hello uygulamalarda, bir çalışan havuzundan bir ASP soğuk neden olacak taşıma başlatır.  Uygulamanızı hello yeni işlem kaynakları üzerinde çalışmaya soğuk olduğundan bu yavaş istekler toorun neden olabilir.  Merhaba cold start hello kullanılarak önlenebilir [uygulama yeteneğini sıcak] [ AppWarmup] Azure App Service'te.  Yeni işlem kaynakları üzerinde çalışmaya uygulamaları soğuk olduğunda hello başlatma işlemi de çağrılan çünkü hello makalesinde açıklanan hello uygulama başlatma modül soğuk başlıyor de çalışır. 
 > 
 > 
 
 ## <a name="getting-started"></a>Başlarken
-Uygulama hizmeti ortamları ile çalışmaya başlamak için bkz: [nasıl için oluşturma bir uygulama hizmeti ortamı][HowtoCreateASE]
+Uygulama hizmeti ortamları ile çalışmaya tooget bakın [nasıl tooCreate bir uygulama hizmeti ortamı][HowtoCreateASE]
 
-Azure App Service platformu hakkında daha fazla bilgi için bkz: [Azure App Service][AzureAppService].
+Hello Azure App Service platformu hakkında daha fazla bilgi için bkz: [Azure App Service][AzureAppService].
 
 <!--Image references-->
 [1]: ./media/app-service-web-scale-a-web-app-in-an-app-service-environment/aseappscale-aspblade.png

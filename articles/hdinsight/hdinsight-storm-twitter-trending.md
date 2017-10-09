@@ -1,6 +1,6 @@
 ---
-title: "Hdınsight üzerinde Apache Storm ile oluşturan eğilim konuları twitter | Microsoft Docs"
-description: "Trident diyez etiketlerini üzerinde temel Twitter'da oluşturan eğilim konuları belirleyen bir Apache Storm topolojisini oluşturmak için nasıl kullanılacağını öğrenin."
+title: "Hdınsight üzerinde Apache Storm ile aaaTwitter oluşturan eğilim konuları | Microsoft Docs"
+description: "Nasıl toouse Trident toocreate Twitter'da oluşturan eğilim konuları belirleyen bir Apache Storm topolojisini diyez etiketlerini hakkında temel bilgi edinin."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,21 +16,21 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/14/2017
 ms.author: larryfr
-ms.openlocfilehash: d588221586f151319436525c5098b0bb2694e5f9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0281b495d10833c63868b36856c96369b139c553
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="determine-twitter-trending-topics-with-apache-storm-on-hdinsight"></a>Hdınsight üzerinde Apache Storm ile twitter oluşturan eğilim konuları belirleme
 
-Trident Twitter'da oluşturan eğilim konuları (karma etiketleri) belirleyen bir Storm topolojisinin oluşturmak için nasıl kullanılacağını öğrenin.
+Nasıl toouse Trident toocreate bir Storm topolojisinin eğilim belirleyen öğrenin Twitter'da konuları (karma etiketleri).
 
-Trident birleşimler, toplamalar, gruplandırma, İşlevler ve filtreleri gibi araçlar sağlayan bir üst düzey bir soyutlamadır. Ayrıca, Trident temelleri durum bilgisi olan, artımlı işleme yapmak için ekler. Bu belgede kullanılan özel spout ve işlev Trident topolojisiyle örnektir. Ayrıca, Trident tarafından sağlanan birkaç yerleşik işlevlerini kullanır.
+Trident birleşimler, toplamalar, gruplandırma, İşlevler ve filtreleri gibi araçlar sağlayan bir üst düzey bir soyutlamadır. Ayrıca, Trident temelleri durum bilgisi olan, artımlı işleme yapmak için ekler. Bu belgede kullanılan hello özel spout ve işlev Trident topolojisiyle örnektir. Ayrıca, Trident tarafından sağlanan birkaç yerleşik işlevlerini kullanır.
 
 ## <a name="requirements"></a>Gereksinimler
 
-* <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Java ve JDK 1,8</a>
+* <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Java ve hello JDK 1,8</a>
 
 * <a href="http://maven.apache.org/what-is-maven.html" target="_blank">Maven</a>
 
@@ -38,23 +38,23 @@ Trident birleşimler, toplamalar, gruplandırma, İşlevler ve filtreleri gibi a
 
 * Bir Twitter Geliştirici hesabı
 
-## <a name="download-the-project"></a>Projenizi indirin
+## <a name="download-hello-project"></a>Merhaba projenizi indirin
 
-Projeyi yerel olarak kopyalamak için aşağıdaki kodu kullanın.
+Kod tooclone hello projesini yerel olarak aşağıdaki hello kullanın.
 
     git clone https://github.com/Blackmist/TwitterTrending
 
-## <a name="understanding-the-topology"></a>Topoloji anlama
+## <a name="understanding-hello-topology"></a>Merhaba topolojisini anlama
 
-Aşağıdaki diyagramda veri bu topoloji nasıl aktığını gösterir:
+Bu topoloji veri akışını, gösterir Hello aşağıdaki Diyagram:
 
 ![topology](./media/hdinsight-storm-twitter-trending/trident.png)
 
 > [!NOTE]
-> Bu diyagramda, topolojiye Basitleştirilmiş görünümüdür. Birden çok örneğini bileşenleri kümedeki düğümler arasında dağıtılır.
+> Bu diyagramda, hello topoloji Basitleştirilmiş görünümüdür. Merhaba bileşenleri birden çok örneğini hello kümedeki hello düğümler arasında dağıtılır.
 
 
-Topoloji uygulayan Trident kod aşağıdaki gibidir:
+Merhaba hello topoloji uygulayan Trident kod aşağıdaki gibidir:
 
     topology.newStream("spout", spout)
         .each(new Fields("tweet"), new HashtagExtractor(), new Fields("hashtag"))
@@ -64,55 +64,55 @@ Topoloji uygulayan Trident kod aşağıdaki gibidir:
         .applyAssembly(new FirstN(10, "count"))
         .each(new Fields("hashtag", "count"), new Debug());
 
-Bu kod, aşağıdaki eylemleri gerçekleştirir:
+Bu kod hello aşağıdaki eylemleri gerçekleştirir:
 
-1. Spout bir akış oluşturur. Spout tweet'leri Twitter'dan alır ve bunları belirli anahtar sözcükler (love, müzik ve bu örnekte kahve) için filtreler.
+1. Merhaba spout bir akış oluşturur. Merhaba spout tweet'leri Twitter'dan alır ve bunları belirli anahtar sözcükler (love, müzik ve bu örnekte kahve) için filtreler.
 
-2. HashtagExtractor, özel bir işlev karma etiketleri her tweet ayıklamak için kullanılır. Karma etiketleri akışa gösterilen.
+2. HashtagExtractor, özel bir işlev her tweet arasında kullanılan tooextract karma etiketler ' dir. Merhaba karma verilmiş toohello akışını etiketleridir.
 
-3. Akış karma etikete göre gruplandırılır ve bir Toplayıcı geçirildi. Bu Toplayıcıya her karma etiketi oluştu kaç kez sayısını oluşturur. Bu veriler bellekte kalıcıdır. Son olarak, yeni bir akış karması etiketi ve sayı içeren yayınlanır.
+3. Merhaba akış karma etikete göre gruplandırılmış ve tooan toplayıcısı geçirildi. Bu Toplayıcıya her karma etiketi oluştu kaç kez sayısını oluşturur. Bu veriler bellekte kalıcıdır. Son olarak, yeni bir akış hello karma etiketi ve hello sayısını içeren yayınlanır.
 
-4. **FirstN** derleme sayısı alana göre yalnızca ilk 10 dönüş değerleri için uygulanır.
+4. Merhaba **FirstN** derlemedir hello sayısı alana göre uygulanan tooreturn hello ilk 10 değerler yalnızca,.
 
 > [!NOTE]
-> Trident ile çalışma hakkında daha fazla bilgi için bkz: [Trident API genel bakış](http://storm.apache.org/releases/current/Trident-API-Overview.html) belge.
+> Merhaba Trident ile çalışma hakkında daha fazla bilgi için bkz: [Trident API genel bakış](http://storm.apache.org/releases/current/Trident-API-Overview.html) belge.
 
-### <a name="the-spout"></a>Spout
+### <a name="hello-spout"></a>Merhaba spout
 
-Spout **TwitterSpout**, kullanan [Twitter4j](http://twitter4j.org/en/) Twitter'dan tweet'leri alınamadı. Bir filtre sözcüklerini oluşturulur __memnuniyet__, **müzik**, ve **kahve**. Filtreyle eşleşen gelen tweet'leri (durum) bağlantılı bir engelleme sırasında depolanır. Son olarak, öğeleri sıra çekilen ve topolojiye yayılan.
+Merhaba spout **TwitterSpout**, kullanan [Twitter4j](http://twitter4j.org/en/) tooretrieve tweet'leri Twitter gelen. Bir filtre hello sözcükleri oluşturulur __memnuniyet__, **müzik**, ve **kahve**. Merhaba filtreyle eşleşen gelen tweet'leri (durum) bağlantılı bir engelleme sırasında depolanır. Son olarak, öğeleri hello sıra alınır ve toohello topoloji yayılan.
 
-### <a name="the-hashtagextractor"></a>HashtagExtractor
+### <a name="hello-hashtagextractor"></a>Merhaba HashtagExtractor
 
-Karma etiketleri ayıklamak için [getHashtagEntities](http://twitter4j.org/javadoc/twitter4j/EntitySupport.html#getHashtagEntities--) tweet içinde bulunan tüm karma etiketleri almak için kullanılır. Bunlar gösterilen sonra akışa.
+tooextract karma etiketleri, [getHashtagEntities](http://twitter4j.org/javadoc/twitter4j/EntitySupport.html#getHashtagEntities--) kullanılan tooretrieve hello tweet içinde bulunan tüm karma etiketleri olan. Bu öğeler sonra verilmiş toohello akış.
 
 ## <a name="configure-twitter"></a>Twitter yapılandırın
 
-Yeni bir Twitter uygulamayı kaydedin ve Twitter'dan okumak için gereken tüketici ve erişim belirteci bilgi edinmek için aşağıdaki adımları kullanın:
+Merhaba tüketici ve erişim belirteci bilgisi gerekli tooread Twitter'dan elde ve adımları tooregister yeni bir Twitter uygulaması aşağıdaki hello kullanın:
 
-1. Git [Twitter uygulamaları](https://apps.twitter.com) tıklatıp **yeni uygulama oluştur** düğmesi. Form doldururken bırakın **geri çağırma URL'si** alanı boş.
+1. Çok Git[Twitter uygulamaları](https://apps.twitter.com) hello tıklatıp **yeni uygulama oluştur** düğmesi. Merhaba formunda doldururken hello bırakın **geri çağırma URL'si** alanı boş.
 
-2. Uygulama oluşturulduğunda tıklayın **anahtarları ve erişim belirteçleri** sekmesi.
+2. Merhaba uygulama oluşturulduğunda hello tıklatın **anahtarları ve erişim belirteçleri** sekmesi.
 
-3. Kopya **tüketici anahtarı** ve **tüketici gizli** bilgi.
+3. Kopya hello **tüketici anahtarı** ve **tüketici gizli** bilgi.
 
-4. Sayfanın alt kısmındaki seçin **my erişim belirteci oluşturma** hiçbir belirteçleri varsa. Belirteçleri oluşturulduktan sonra kopyalama **erişim belirteci** ve **erişim belirteci gizli anahtarı** bilgi.
+4. Merhaba sayfasının Hello altında seçin **my erişim belirteci oluşturma** hiçbir belirteçleri varsa. Merhaba belirteçleri zaman oluşturdunuz, kopyalama hello **erişim belirteci** ve **erişim belirteci gizli anahtarı** bilgi.
 
-5. İçinde **TwitterSpoutTopology** kopyalanması, daha önce açık projeniz **resources/twitter4j.properties** dosya, önceki adımlarda topladığınız bilgileri ekleyin ve ardından dosyayı kaydedin.
+5. Merhaba, **TwitterSpoutTopology** önceden kopyalanan, açık hello proje **resources/twitter4j.properties** dosya hello önceki adımlarda topladığınız hello bilgilerini eklemek ve hello dosyasını kaydedin .
 
-## <a name="build-the-topology"></a>Topoloji oluşturmak
+## <a name="build-hello-topology"></a>Merhaba topolojisini oluşturmak
 
-Projeyi oluşturmak için aşağıdaki kodu kullanın:
+Aşağıdaki kod toobuild hello projesi hello kullan:
 
         cd [directoryname]
         mvn compile
 
-## <a name="test-the-topology"></a>Topoloji test
+## <a name="test-hello-topology"></a>Test hello topolojisi
 
-Topoloji yerel olarak test etmek için aşağıdaki komutu kullanın:
+Komut tootest hello topoloji yerel olarak aşağıdaki hello kullan:
 
     mvn compile exec:java -Dstorm.topology=com.microsoft.example.TwitterTrendingTopology
 
-Topoloji başlatıldıktan sonra karma içeren hata ayıklama bilgileri etiketleri ve topolojisi tarafından verilmiş sayılarını görmeniz gerekir. Çıktı aşağıdakine benzer görünmelidir:
+Merhaba topoloji başladıktan sonra hello karma içeren hata ayıklama bilgileri etiketleri ve hello topolojisi tarafından verilmiş sayılarını görmeniz gerekir. Merhaba çıkış metnini izleyen benzer toohello görünmelidir:
 
     DEBUG: [Quicktellervalentine, 7]
     DEBUG: [GRAMMYs, 7]
@@ -126,9 +126,9 @@ Topoloji başlatıldıktan sonra karma içeren hata ayıklama bilgileri etiketle
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Topoloji yerel olarak test ettiğiniz, topolojisi dağıtmak nasıl keşfetmek: [dağıtma ve Hdınsight üzerinde Apache Storm topolojilerini yönetmek](hdinsight-storm-deploy-monitor-topology.md).
+Merhaba topoloji yerel olarak test ettiğiniz, nasıl toodeploy hello topoloji Bul: [dağıtma ve Hdınsight üzerinde Apache Storm topolojilerini yönetmek](hdinsight-storm-deploy-monitor-topology.md).
 
-Aşağıdaki Storm konulardaki ilgilenen olabilir:
+Aşağıdaki Storm konularda hello ilgilenen olabilir:
 
 * [Maven kullanarak Hdınsight üzerinde Storm için Java topolojisi geliştirme](hdinsight-storm-develop-java-topology.md)
 * [Visual Studio kullanarak Hdınsight üzerinde Storm için C# topolojileri geliştirme](hdinsight-storm-develop-csharp-visual-studio-topology.md)

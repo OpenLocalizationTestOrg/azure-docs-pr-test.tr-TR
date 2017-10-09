@@ -1,24 +1,24 @@
 ## <a name="traffic-manager-profile"></a>Trafik Yöneticisi profili
-Trafik Yöneticisi ve onun alt uç nokta kaynağının Azure ve Azure dışında uç noktaları için DNS yönlendirme etkinleştirin. Bu tür trafik dağıtım yönlendirme ilkesi yöntemler tarafından yönetilir. Trafik Yöneticisi uç noktası durumu izlenmesi de sağlar ve uygun şekilde yolu saptırabilir trafiği bir uç nokta durumunu bağlı. 
+Trafik Yöneticisi ve onun alt uç nokta kaynağının DNS yönlendirme tooendpoints Azure ve Azure dışında etkinleştirin. Bu tür trafik dağıtım yönlendirme ilkesi yöntemler tarafından yönetilir. Trafik Yöneticisi uç noktası durumu toobe izlenen ve uygun şekilde yolu saptırabilir trafiği bir uç nokta hello durumunu temel de sağlar. 
 
 | Özellik | Açıklama |
 | --- | --- |
 | **trafficRoutingMethod** |Olası değerler şunlardır: *performans*, *Weighted*, ve *önceliği* |
-| **dnsConfig** |Profil için FQDN |
+| **dnsConfig** |Hello profili için FQDN |
 | **Protokol** |Olası değerler şunlardır: İzleme Protokolü, *HTTP* ve *HTTPS* |
 | **Bağlantı Noktası** |bağlantı noktası izlemesi |
 | **Path** |izleme yolu |
 | **Uç noktaları** |uç nokta kaynaklar için kapsayıcı |
 
-### <a name="endpoint"></a>Uç nokta
-Bir uç nokta Traffic Manager profilinin bir alt kaynaktır. Kullanıcı trafiğinin dağıtılmış web uç noktası trafik Yöneticisi profili kaynak yapılandırılmış ilkesini temel alarak veya bir hizmet temsil eder. 
+### <a name="endpoint"></a>Uç Nokta
+Bir uç nokta Traffic Manager profilinin bir alt kaynaktır. Web uç noktası toowhich kullanıcı trafiğinin hello trafik Yöneticisi profili kaynak yapılandırılmış hello ilkesine dayanarak dağıtılmış veya bir hizmet temsil eder. 
 
 | Özellik | Açıklama |
 | --- | --- |
-| **Tür** |uç nokta türü, olası değerler *Azure uç noktası*, *dış uç noktası*, ve *iç içe geçmiş uç noktası* |
+| **Tür** |Merhaba türü hello uç noktasını, olası değerler şunlardır: *Azure uç noktası*, *dış uç noktası*, ve *iç içe geçmiş uç noktası* |
 | **uç noktası Targetresourceıd** |bir hizmeti veya web uç noktası genel IP adresi. Bu, bir Azure ya da dış uç noktası olabilir. |
 | **Ağırlık** |uç nokta ağırlığı trafiği yönetiminde kullanılan. |
-| **Öncelik** |bir yük devretme işlemi tanımlamak için kullanılan uç nokta önceliği |
+| **Öncelik** |Merhaba uç noktası, kullanılan toodefine bir yük devretme işlemi önceliği |
 
 Trafik Yöneticisi'nin örnek Json biçiminde: 
 

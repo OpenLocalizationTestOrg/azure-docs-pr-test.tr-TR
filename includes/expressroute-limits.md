@@ -1,5 +1,5 @@
 #### <a name="expressroute-limits"></a>ExpressRoute sınırları
-Abonelik başına ExpressRoute kaynaklarına aşağıdaki sınırları uygulayın.
+sınırları aşağıdaki hello abonelik başına tooExpressRoute kaynaklara uygulanır.
 
 | Kaynak | Varsayılan Sınır |
 | --- | --- |

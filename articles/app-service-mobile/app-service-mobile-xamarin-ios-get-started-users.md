@@ -1,6 +1,6 @@
 ---
-title: "Xamarin iOS mobil uygulamalar için kimlik doğrulaması kullanmaya başlama"
-description: "Xamarin iOS uygulamanızın kimlik sağlayıcıları, AAD, Google, Facebook, Twitter ve Microsoft dahil olmak üzere çeşitli kullanıcıların kimliklerini doğrulamak için Mobile Apps kullanmayı öğrenin."
+title: "Xamarin iOS mobil uygulamalar için kimlik doğrulaması ile aaaGet başlatıldı"
+description: "Bilgi nasıl toouse Mobile Apps tooauthenticate Xamarin iOS uygulamanızı kimlik sağlayıcıları, AAD, Google, Facebook, Twitter ve Microsoft dahil olmak üzere çeşitli kullanıcılarının."
 services: app-service\mobile
 documentationcenter: xamarin
 author: ggailey777
@@ -14,56 +14,56 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: glenga
-ms.openlocfilehash: 454b2df5a9bf8cfba93befea54370957ab044d95
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 6458e9651b03df61c86b88b11953792e04bfa5b2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="add-authentication-to-your-xamarinios-app"></a>Xamarin.iOS uygulamanıza kimlik doğrulaması ekleyin
+# <a name="add-authentication-tooyour-xamarinios-app"></a>Kimlik doğrulama tooyour Xamarin.iOS uygulaması ekleyin
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-Bu konuda bir mobil uygulama hizmeti istemci uygulamanızdan kullanıcıların kimliklerini gösterilmiştir. Bu öğretici kapsamında, kimlik doğrulama App Service tarafından desteklenen bir kimlik sağlayıcısı kullanarak Xamarin.iOS hızlı başlangıç projesi ekleyin. Mobil uygulamanız tarafından yetkili başarılı bir şekilde kimliği doğrulanmış ve sonra kullanıcı kimliği değeri görüntülenir ve kısıtlı tablo veri erişimi olacaktır.
+Bu konu, nasıl gösterir bir mobil uygulama hizmeti, istemci uygulamasından tooauthenticate kullanıcıları. Bu öğreticide, App Service tarafından desteklenen bir kimlik sağlayıcısı kullanarak kimlik doğrulaması toohello Xamarin.iOS hızlı başlangıç projesi ekleyin. Mobil uygulamanız tarafından yetkili başarılı bir şekilde kimliği doğrulanmış ve sonra hello kullanıcı kimliği değeri görüntülenir ve kısıtlı mümkün tooaccess tablo verisi olacaktır.
 
-Öğreticiyi tamamlamak [bir Xamarin.iOS uygulaması oluşturma]. İndirilen hızlı başlangıç sunucu projesi kullanmazsanız, kimlik doğrulaması uzantısı paketini projenize eklemeniz gerekir. Server uzantısı paketleri hakkında daha fazla bilgi için bkz: [.NET arka uç sunucusu SDK ile Azure Mobile Apps için iş](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Merhaba öğretici ilk tamamlamalısınız [bir Xamarin.iOS uygulaması oluşturma]. Kullanmıyorsanız, hızlı başlangıç sunucu projesi hello indirilen, hello kimlik doğrulaması uzantı paketini tooyour projesi eklemeniz gerekir. Server uzantısı paketleri hakkında daha fazla bilgi için bkz: [hello .NET arka uç sunucusu SDK ile Azure Mobile Apps için iş](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ## <a name="register-your-app-for-authentication-and-configure-app-services"></a>Kimlik doğrulaması için uygulamanızı kaydetme ve uygulama hizmetlerini yapılandırma
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="add-your-app-to-the-allowed-external-redirect-urls"></a>Uygulamanız için izin verilen dış yönlendirme URL'leri ekleme
+## <a name="add-your-app-toohello-allowed-external-redirect-urls"></a>Uygulama toohello izin verilen dış yönlendirme URL'lerini ekleme
 
-Uygulamanız için yeni bir URL şemasını tanımlamak güvenli kimlik doğrulaması gerektirir. Bu kimlik doğrulama işlemi tamamlandıktan sonra uygulamanıza geri yönlendirmek bir kimlik doğrulama sistemi sağlar. Bu öğreticide, URL şemasının kullanırız _appname_ boyunca. Ancak, seçtiğiniz herhangi bir URL şeması kullanabilirsiniz. Mobil uygulamanız için benzersiz olmalıdır. Sunucu tarafında yeniden yönlendirmeyi etkinleştirmek için:
+Uygulamanız için yeni bir URL şemasını tanımlamak güvenli kimlik doğrulaması gerektirir. Merhaba kimlik doğrulama işlemi tamamlandıktan sonra bu hello authentication sistem tooredirect geri tooyour uygulamasını sağlar. Bu öğreticide, kullandığımız hello URL şeması _appname_ boyunca. Ancak, seçtiğiniz herhangi bir URL şeması kullanabilirsiniz. Benzersiz tooyour mobil uygulama olmalıdır. Merhaba sunucu tarafı tooenable hello yönlendirme:
 
-1. [Azure portalında] uygulama hizmetinizi seçin.
+1. Hello [Azure portalı]'da, uygulama hizmeti seçin.
 
-2. Tıklatın **kimlik doğrulama / yetkilendirme** menü seçeneği.
+2. Merhaba tıklatın **kimlik doğrulama / yetkilendirme** menü seçeneği.
 
-3. İçinde **yeniden yönlendirme URL'lere izin**, girin `url_scheme_of_your_app://easyauth.callback`.  **Url_scheme_of_your_app** Bu dize, mobil uygulamanız için URL düzenidir.  Bir protokol (harf kullanın ve yalnızca sayı ve bir harf ile başlar) için normal URL belirtimi izlemelisiniz.  Çeşitli yerlerde URL şeması ile mobil uygulama kodunuzu ayarlamak ihtiyaç duyacağınız seçtiğiniz dizeyi Not olmanız gerekir.
+3. Merhaba, **yeniden yönlendirme URL'lere izin**, girin `url_scheme_of_your_app://easyauth.callback`.  Merhaba **url_scheme_of_your_app** bu içinde hello URL şeması mobil uygulamanız için bir dizedir.  Bir protokol (harf kullanın ve yalnızca sayı ve bir harf ile başlar) için normal URL belirtimi izlemelisiniz.  Merhaba çeşitli yerlerde URL şeması ile mobil uygulama kodunuzu tooadjust gerekeceğinden, seçtiğiniz hello dize Not olmanız gerekir.
 
 4. **Tamam** düğmesine tıklayın.
 
 5. **Kaydet** düğmesine tıklayın.
 
-## <a name="restrict-permissions-to-authenticated-users"></a>Kimliği doğrulanmış kullanıcılar için izinleri kısıtla
+## <a name="restrict-permissions-tooauthenticated-users"></a>İzinleri tooauthenticated kullanıcılarını kısıtlayın
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-&nbsp;&nbsp;4. Visual Studio veya Xamarin Studio'da istemci projesi bir cihaz veya öykünücü çalıştırın. Uygulama başlatıldıktan sonra bir durum koduyla işlenmeyen bir özel durum 401 (yetkisiz) tetiklenir doğrulayın. Hata ayıklayıcı konsola hata günlüğe kaydedilir. Bu nedenle Visual Studio'da hata çıktı penceresinde görmeniz gerekir.
+&nbsp;&nbsp;4. Visual Studio veya Xamarin Studio'da hello istemci projesi bir cihaz veya öykünücü çalıştırın. Merhaba uygulama başladıktan sonra durum koduyla işlenmeyen bir özel durum 401 (yetkisiz) tetiklenir doğrulayın. Merhaba, günlüğe kaydedilen toohello konsol hello hata ayıklayıcısının hatasıdır. Bu nedenle Visual Studio'da hello çıktı penceresinde hello hatası görmeniz gerekir.
 
-&nbsp;&nbsp;Uygulama Kimliği doğrulanmamış bir kullanıcı olarak, mobil uygulamanızın arka ucuna erişmeye çünkü bu yetkisiz hatası gerçekleşir. *Todoıtem* tablo artık kimlik doğrulaması gerektirir.
+&nbsp;&nbsp;Merhaba uygulama kimliği doğrulanmamış bir kullanıcı olarak, mobil uygulamanızın arka ucuna tooaccess çalıştığı yetkisiz bu hata gerçekleşir. Merhaba *Todoıtem* tablo artık kimlik doğrulaması gerektirir.
 
-Ardından, istemci uygulaması isteği kaynaklarına mobil uygulama arka ucundan kimliği doğrulanmış bir kullanıcı ile güncelleştirir.
+Ardından, kimliği doğrulanmış bir kullanıcı ile Merhaba istemci uygulaması toorequest hello mobil uygulama arka ucu kaynaklardan güncelleştirir.
 
-## <a name="add-authentication-to-the-app"></a>Kimlik doğrulaması için uygulama ekleme
-Bu bölümde, uygulama veri görüntülenmeden önce bir oturum açma ekranı değiştirecektir. Uygulama başlatıldığında değil, App Service'e bağlanmaz ve herhangi bir veri görüntülenmez. İlk kez sonra kullanıcı oturum açma ekranı görünür yenileme hareketi gerçekleştirir; başarılı oturum açma işleminden sonra Yapılacaklar öğelerini listesi görüntülenir.
+## <a name="add-authentication-toohello-app"></a>Kimlik doğrulama toohello uygulama Ekle
+Bu bölümde, veri görüntülemeden önce hello uygulama toodisplay bir oturum açma ekranı değiştirecektir. Merhaba uygulama başlatıldığında değil tooyour uygulama hizmeti bağlanmaz ve herhangi bir veri görüntülenmez. İlk kez Hello sonra hello oturum açma ekranı görünür hello kullanıcı hello yenileme hareketi gerçekleştirir; başarılı oturum açma işleminden sonra hello Yapılacaklar öğelerini listesi görüntülenir.
 
-1. İstemci proje dosyasını açın **QSTodoService.cs** ve aşağıdakileri ekleyin deyimiyle ve `MobileServiceUser` QSTodoService sınıfına erişimcisi ile:
+1. Merhaba istemci projesinde hello dosyasını açın **QSTodoService.cs** ve hello aşağıdakileri ekleyin deyimiyle ve `MobileServiceUser` erişimci toohello QSTodoService sınıfı ile:
  
         using UIKit;
        
         // Logged in user
         private MobileServiceUser user;
         public MobileServiceUser User { get { return user; } }
-2. Adlı yeni bir yöntem ekleyin **kimlik doğrulama** için **QSTodoService** aşağıdaki tanımıyla:
+2. Adlı yeni bir yöntem ekleyin **kimlik doğrulama** çok**QSTodoService** tanımı aşağıdaki hello ile:
 
         public async Task Authenticate(UIViewController view)
         {
@@ -78,9 +78,9 @@ Bu bölümde, uygulama veri görüntülenmeden önce bir oturum açma ekranı de
             }
         }
 
-    >[AZURE.NOTE] Bir Facebook dışında bir kimlik sağlayıcısı kullanıyorsanız, geçirilen değerini değiştirmek **LoginAsync** yukarıda aşağıdakilerden birine: _MicrosoftAccount_, _Twitter_,  _Google_, veya _WindowsAzureActiveDirectory_.
+    >[AZURE.NOTE] Bir Facebook dışında bir kimlik sağlayıcısı kullanıyorsanız, çok geçirilen hello değeri değiştirmek**LoginAsync** tooone hello aşağıdaki yukarıda: _MicrosoftAccount_, _Twitter_, _Google_, veya _WindowsAzureActiveDirectory_.
 
-3. Açık **QSTodoListViewController.cs**. Yöntem tanımını değiştirme **ViewDidLoad** çağrısı kaldırma **RefreshAsync()** yakınında bitiş:
+3. Açık **QSTodoListViewController.cs**. Merhaba yöntemi tanımını değiştirme **ViewDidLoad** hello çağrısı çok kaldırma**RefreshAsync()** hello sona:
    
         public override async void ViewDidLoad ()
         {
@@ -93,10 +93,10 @@ Bu bölümde, uygulama veri görüntülenmeden önce bir oturum açma ekranı de
                 await RefreshAsync();
             }
    
-            // Comment out the call to RefreshAsync
+            // Comment out hello call tooRefreshAsync
             // await RefreshAsync();
         }
-4. Yöntemi Değiştir **RefreshAsync** , kimlik doğrulaması için **kullanıcı** özelliği null. Yöntem tanımı üstünde aşağıdaki kodu ekleyin:
+4. Merhaba yöntemi Değiştir **RefreshAsync** tooauthenticate hello varsa **kullanıcı** özelliği null. Merhaba yöntemi tanımı hello üstündeki koddan hello ekleyin:
    
         // start of RefreshAsync method
         if (todoService.User == null) {
@@ -107,7 +107,7 @@ Bu bölümde, uygulama veri görüntülenmeden önce bir oturum açma ekranı de
             }
         }
         // rest of RefreshAsync method
-5. Açık **AppDelegate.cs**, aşağıdaki yöntemi ekleyin:
+5. Açık **AppDelegate.cs**, yöntem aşağıdaki hello ekleyin:
 
         public static Func<NSUrl, bool> ResumeWithURL;
 
@@ -115,10 +115,10 @@ Bu bölümde, uygulama veri görüntülenmeden önce bir oturum açma ekranı de
         {
             return ResumeWithURL != null && ResumeWithURL(url);
         }
-6. Açık **Info.plist** dosya, gitmek **URL türleri** içinde **Gelişmiş** bölümü. Şimdi yapılandırmak **tanımlayıcısı** ve **URL şemalarını** URL türü ve tıklatın **URL türü Ekle**. **URL şemalarını** , {url_scheme_of_your_app} aynı olmalıdır.
-7. Visual Studio veya Xamarin Studio'da, Xamarin derleme konaktaki bir cihaz veya öykünücü hedefleme istemci projesi çalıştırma Mac'iniz bağlı. Uygulama veri görüntülendiğini doğrulayın.
+6. Açık **Info.plist** dosya, çok gidin**URL türleri** hello içinde **Gelişmiş** bölümü. Şimdi hello yapılandırmak **tanımlayıcısı** ve hello **URL şemalarını** URL türü ve tıklatın **URL türü Ekle**. **URL şemalarını** {url_scheme_of_your_app} hello aynı olmalıdır.
+7. Visual Studio veya Xamarin Studio'da tooyour Xamarin yapı konağı bir cihaz veya öykünücü hedefleme hello istemci projesi çalıştırma Mac, bağlı. Hiçbir veri bu hello uygulama görüntüler doğrulayın.
    
-    Görüntülenecek oturum açma ekranı neden olacak öğeleri listede aşağı çekerek yenileme hareketi gerçekleştirin. Geçerli kimlik bilgileri başarıyla girdikten sonra uygulama Yapılacaklar öğelerini listesi görüntülenir ve veri güncelleştirmeleri yapabilirsiniz.
+    Merhaba yenileme hareketi hello oturum açma ekranı tooappear neden olacak öğeleri hello listede aşağı çekerek gerçekleştirin. Geçerli kimlik bilgileri başarıyla girdikten sonra hello uygulama Yapılacaklar öğelerini hello listesini görüntüler ve güncelleştirmeler toohello veri yapabilirsiniz.
 
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582

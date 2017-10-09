@@ -15,33 +15,33 @@ ms.devlang: gremlin
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: khdang
-ms.openlocfilehash: 27c4d945e418b130c68cfde845571eb93658101e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0be5c9b12cdba4a428c809d00e1e68785a9ec1ab
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-cosmos-db-perform-graph-analytics-by-using-spark-and-apache-tinkerpop-gremlin"></a>Azure Cosmos DB: Spark ve Apache TinkerPop Gremlin kullanarak grafik analiz gerçekleştirme
 
-[Azure Cosmos DB](introduction.md) Microsoft Genel dağıtılmış, birden çok model veritabanı hizmetidir. Oluşturma ve belge, anahtar/değer ve grafik veritabanları, her biri genel dağıtım ve yatay ölçek özellikleri Azure Cosmos DB en yararlı sorgulayabilirsiniz. Azure Cosmos DB destekleyen kullanın (OLTP) grafik iş yükleri çevrimiçi işlem [Apache TinkerPop Gremlin](graph-introduction.md).
+[Azure Cosmos DB](introduction.md) olan hello Microsoft'un Genel dağıtılmış, birden çok model veritabanı hizmeti. Oluşturma ve belge, anahtar/değer ve grafik veritabanları, her biri hello genel dağıtım ve yatay ölçek özelliklerini Azure Cosmos DB'nin hello çekirdek yararlı sorgulayabilirsiniz. Azure Cosmos DB destekleyen kullanın (OLTP) grafik iş yükleri çevrimiçi işlem [Apache TinkerPop Gremlin](graph-introduction.md).
 
-[Spark](http://spark.apache.org/) üzerinde genel amaçlı çevrimiçi analitik işlem (OLAP) veri işleme odaklanan bir Apache Software Foundation projesidir. Spark Hadoop MapReduce modeline benzer bir karma içinde bellek/disk tabanlı dağıtılmış bilgi işlem modelidir. Apache Spark bulutta kullanarak dağıtabilirsiniz [Azure Hdınsight](https://azure.microsoft.com/services/hdinsight/apache-spark/).
+[Spark](http://spark.apache.org/) üzerinde genel amaçlı çevrimiçi analitik işlem (OLAP) veri işleme odaklanan bir Apache Software Foundation projesidir. Spark benzer toohello Hadoop MapReduce modeli olan bir karma içinde bellek/disk tabanlı dağıtılmış bilgi işlem modelidir. Apache Spark hello bulutta kullanarak dağıtabilirsiniz [Azure Hdınsight](https://azure.microsoft.com/services/hdinsight/apache-spark/).
 
-Azure Cosmos DB ve Spark birleştirerek Gremlin kullandığınızda OLTP ve OLAP iş yüklerinin gerçekleştirebilirsiniz. Bu hızlı başlangıç makale bir Azure Hdınsight Spark kümesinde Azure Cosmos DB karşı Gremlin sorguları çalıştırmak gösterilmiştir.
+Azure Cosmos DB ve Spark birleştirerek Gremlin kullandığınızda OLTP ve OLAP iş yüklerinin gerçekleştirebilirsiniz. Bu hızlı başlangıç makalede toorun Gremlin Azure Cosmos DB karşı bir Azure Hdınsight Spark kümesinde nasıl sorgular gösterilmektedir.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu örneği çalıştırmadan önce aşağıdaki önkoşullara sahip olmanız gerekir:
+Bu örneği çalıştırmadan önce aşağıdaki önkoşullar hello sahip olmanız gerekir:
 * Azure Hdınsight Spark kümesinde 2.0
 * JDK 1.8 + (JDK yoksa çalıştırmak `apt-get install default-jdk`.)
 * Maven (Maven yoksa, çalıştırmak `apt-get install maven`.)
 * Bir Azure aboneliği ([!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)])
 
-Bir Azure Hdınsight Spark kümesi hakkında daha fazla bilgi için bkz: [sağlama Hdınsight kümeleri](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
+Hakkında bilgi için bir Azure Hdınsight Spark kümesi tooset bkz [sağlama Hdınsight kümeleri](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="create-an-azure-cosmos-db-database-account"></a>Bir Azure Cosmos DB veritabanı hesabı oluşturma
 
-İlk olarak, aşağıdakileri yaparak grafik API'si ile bir veritabanı hesabı oluşturun:
+İlk olarak, bir veritabanı hesabı hello grafik API'si ile Merhaba aşağıdakileri yaparak oluşturun:
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -51,11 +51,11 @@ Bir Azure Hdınsight Spark kümesi hakkında daha fazla bilgi için bkz: [sağla
 
 ## <a name="get-apache-tinkerpop"></a>Apache TinkerPop Al
 
-Aşağıdakileri yaparak Apache TinkerPop alın:
+Apache TinkerPop hello aşağıdakileri yaparak alın:
 
-1. Hdınsight küme ana düğümünün uzak `ssh tinkerpop3-cosmosdb-demo-ssh.azurehdinsight.net`.
+1. Uzak toohello ana hello Hdınsight küme düğümünün `ssh tinkerpop3-cosmosdb-demo-ssh.azurehdinsight.net`.
 
-2. TinkerPop3 kaynak kodunu kopyalama, yerel olarak oluşturun ve Maven önbelleğine yükleyin.
+2. Merhaba TinkerPop3 kaynak kodunu kopyalama, yerel olarak oluşturun ve tooMaven önbellek yükleyin.
 
     ```bash
     git clone https://github.com/apache/tinkerpop.git
@@ -63,11 +63,11 @@ Aşağıdakileri yaparak Apache TinkerPop alın:
     mvn clean install
     ```
 
-3. Spark-Gremlin eklentisini yükleme 
+3. Merhaba Spark-Gremlin eklentisini yükleme 
 
-    a. Eklenti yüklemesi üzüm tarafından işlenir. Eklenti indirebilirsiniz şekilde üzüm ve bağımlılıklarını depoları bilgileri doldurun. 
+    a. Merhaba eklenti Hello yüklemesini üzüm tarafından işlenir. Merhaba eklenti ve bağımlılıklarını karşıdan yükleyebileceğiniz şekilde hello depoları bilgi üzüm için doldurun. 
 
-      Konumunda mevcut değilse üzümlü yapılandırma dosyası oluşturma `~/.groovy/grapeConfig.xml`. Aşağıdaki ayarları kullanın:
+      Konumunda mevcut değilse hello üzümlü yapılandırma dosyası oluşturma `~/.groovy/grapeConfig.xml`. Ayarları aşağıdaki hello kullan:
 
     ```xml
     <ivysettings>
@@ -91,7 +91,7 @@ Aşağıdakileri yaparak Apache TinkerPop alın:
 
     b. Gremlin konsolunu başlatın `bin/gremlin.sh`.
         
-    c. Spark-Gremlin eklenti sürümüyle yükleyin önceki adımlarda oluşturduğunuz 3.3.0-SNAPSHOT:
+    c. Merhaba Gremlin eklenti Spark sürümüyle yükleyin hello önceki adımlarda oluşturduğunuz 3.3.0-SNAPSHOT:
 
     ```bash
     $ bin/gremlin.sh
@@ -103,7 +103,7 @@ Aşağıdakileri yaparak Apache TinkerPop alın:
     plugin activated: tinkerpop.utilities
     plugin activated: tinkerpop.tinkergraph
     gremlin> :install org.apache.tinkerpop spark-gremlin 3.3.0-SNAPSHOT
-    ==>loaded: [org.apache.tinkerpop, spark-gremlin, 3.3.0-SNAPSHOT] - restart the console to use [tinkerpop.spark]
+    ==>loaded: [org.apache.tinkerpop, spark-gremlin, 3.3.0-SNAPSHOT] - restart hello console toouse [tinkerpop.spark]
     gremlin> :q
     $ bin/gremlin.sh
 
@@ -117,17 +117,17 @@ Aşağıdakileri yaparak Apache TinkerPop alın:
     ==>tinkerpop.spark activated
     ```
 
-4. Denetleyin olup olmadığını `Hadoop-Gremlin` ile etkinleştirilen `:plugin list`. Devre dışı bırak Spark-Gremlin ile eklenti engelleyebilir çünkü bu eklenti `:plugin unuse tinkerpop.hadoop`.
+4. Toosee olup olmadığını denetleyin `Hadoop-Gremlin` ile etkinleştirilen `:plugin list`. Devre dışı bırak Spark Gremlin hello ile eklenti engel çünkü bu eklenti `:plugin unuse tinkerpop.hadoop`.
 
 ## <a name="prepare-tinkerpop3-dependencies"></a>TinkerPop3 bağımlılıkları hazırlama
 
-Önceki adımda TinkerPop3 yapılandırıldığında, işlem de tüm jar bağımlılıkları Spark ve Hadoop için hedef dizinde çekilen. HDI ile önceden yüklenmiş ve ek bağımlılıklar yalnızca gerektiğinde isteme Kavanoz kullanın.
+Merhaba önceki adımda TinkerPop3 yapılandırıldığında hello işlem de tüm jar bağımlılıkları Spark ve Hadoop için hello hedef dizinde çekilen. HDI ile önceden yüklenmiş ve ek bağımlılıklar yalnızca gerektiğinde isteme hello Kavanoz kullanın.
 
-1. Gremlin konsol hedef dizininde gidin `tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone`. 
+1. Git toohello Gremlin konsol hedef dizininde `tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone`. 
 
-2. Tüm Kavanoz altında taşıma `ext/` için `lib/`: `find ext/ -name '*.jar' -exec mv {} lib/ \;`.
+2. Tüm Kavanoz altında taşıma `ext/` çok`lib/`: `find ext/ -name '*.jar' -exec mv {} lib/ \;`.
 
-3. Tüm jar kitaplıkları altında Kaldır `lib/` aşağıdaki listede olmayan:
+3. Tüm jar kitaplıkları altında Kaldır `lib/` içinde değil hello listesi izliyorsanız:
 
     ```bash
     # TinkerPop3
@@ -174,13 +174,13 @@ Aşağıdakileri yaparak Apache TinkerPop alın:
     xml-apis-1.3.04.jar                        
     ```
 
-## <a name="get-the-azure-cosmos-db-spark-connector"></a>Azure Cosmos DB Spark Bağlayıcısı'nı al
+## <a name="get-hello-azure-cosmos-db-spark-connector"></a>Hello Azure Cosmos DB Spark bağlayıcı Al
 
-1. Azure Cosmos DB Spark bağlayıcı almak `azure-documentdb-spark-0.0.3-SNAPSHOT.jar` ve Cosmos DB Java SDK'sı `azure-documentdb-1.10.0.jar` gelen [Azure Cosmos DB Spark Bağlayıcısı github'da](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark-0.0.3_2.0.2_2.11).
+1. Hello Azure Cosmos DB Spark bağlayıcı almak `azure-documentdb-spark-0.0.3-SNAPSHOT.jar` ve Cosmos DB Java SDK'sı `azure-documentdb-1.10.0.jar` gelen [Azure Cosmos DB Spark Bağlayıcısı github'da](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark-0.0.3_2.0.2_2.11).
 
-2. Alternatif olarak, onu yerel olarak oluşturabilir. Spark Gremlin en son sürümünü 1.6.1 Spark ile oluşturulmuş ve Azure Cosmos DB Spark bağlayıcıda şu anda kullanılan, Spark ile 2.0.2, uyumlu olmadığından son TinkerPop3 kodu derleyin ve Kavanoz el ile yükleyin. Şunları yapın:
+2. Alternatif olarak, onu yerel olarak oluşturabilir. Spark Gremlin en son sürümünü Hello 1.6.1 Spark ile oluşturulmuş ve hello Azure Cosmos DB Spark Bağlayıcısı şu anda kullanılan, Spark ile 2.0.2, uyumlu olmadığından hello son TinkerPop3 kodu derleyin ve hello Kavanoz el ile yükleyin. Aşağıdaki hello:
 
-    a. Azure Cosmos DB Spark Bağlayıcısı'nı kopyalayın.
+    a. Hello Azure Cosmos DB Spark bağlayıcı kopyalayın.
 
     b. (Önceki adımlarda zaten yapılır) TinkerPop3 oluşturun. Tüm TinkerPop 3.3.0-SNAPSHOT Kavanoz yerel olarak yükleyin.
 
@@ -193,9 +193,9 @@ Aşağıdakileri yaparak Apache TinkerPop alın:
     mvn install:install-file -Dfile="tinkergraph-gremlin-3.3.0-SNAPSHOT.jar" -DgroupId=org.apache.tinkerpop -DartifactId=tinkergraph-gremlin -Dversion=3.3.0-SNAPSHOT -Dpackaging=jar`
     ```
 
-    c. Güncelleştirme `tinkerpop.version` `azure-documentdb-spark/pom.xml` için `3.3.0-SNAPSHOT`.
+    c. Güncelleştirme `tinkerpop.version` `azure-documentdb-spark/pom.xml` çok`3.3.0-SNAPSHOT`.
     
-    d. Maven ile oluşturun. Gerekli Kavanoz yerleştirilir `target` ve `target/alternateLocation`.
+    d. Maven ile oluşturun. Merhaba gerekli Kavanoz yerleştirilir `target` ve `target/alternateLocation`.
 
     ```bash
     git clone https://github.com/Azure/azure-cosmosdb-spark.git
@@ -203,7 +203,7 @@ Aşağıdakileri yaparak Apache TinkerPop alın:
     mvn clean package
     ```
 
-3. Yukarıda açıklanan Kavanoz yerel bir dizine kopyalayın ~ / azure-documentdb-spark:
+3. Kopya hello Kavanoz tooa yerel dizininde daha önce bahsedilen ~ / azure-documentdb-spark:
 
     ```bash
     $ azure-documentdb-spark:
@@ -212,22 +212,22 @@ Aşağıdakileri yaparak Apache TinkerPop alın:
     cp target/alternateLocation/azure-documentdb-1.10.0.jar ~/azure-documentdb-spark
     ```
 
-## <a name="distribute-the-dependencies-to-the-spark-worker-nodes"></a>Spark çalışan düğümlerine bağımlılıkları Dağıt 
+## <a name="distribute-hello-dependencies-toohello-spark-worker-nodes"></a>Merhaba bağımlılıkları toohello Spark çalışan düğümleri Dağıt 
 
-1. Grafik verileri dönüştürme TinkerPop3 üzerinde bağımlı olduğundan, tüm Spark çalışan düğümleri için ilgili bağımlılıkları dağıtmanız gerekir.
+1. Grafik verileri Hello dönüşümü TinkerPop3 üzerinde bağımlı olduğundan dağıtmalısınız hello ilgili bağımlılıkları tooall Spark çalışan düğümleri.
 
-2. Yukarıda açıklanan Gremlin bağımlılıkları, CosmosDB Spark bağlayıcı jar ve CosmosDB Java SDK'sı aşağıdakileri yaparak çalışan düğümlerine kopyalayın:
+2. Kopya hello daha önce Gremlin bağımlılıklar, hello CosmosDB Spark bağlayıcı jar ve CosmosDB Java SDK'sı toohello çalışan düğümleri hello aşağıdakileri yaparak bahsedilen:
 
-    a. İçine tüm Kavanoz kopyalama `~/azure-documentdb-spark`.
+    a. Tüm hello Kavanoz içine kopyalamak `~/azure-documentdb-spark`.
 
     ```bash
     $ /home/sshuser/tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone:
     cp lib/* ~/azure-documentdb-spark
     ```
 
-    b. Ambari panosunda içinde bulabileceğiniz tüm Spark çalışan düğümlerinin listesine al `Spark2 Clients` listesinde `Spark2` bölümü.
+    b. Ambari panosunda hello bulabileceğiniz tüm Spark çalışan düğümleri Hello listesini almak `Spark2 Clients` hello listesinde `Spark2` bölümü.
 
-    c. Bu dizine her düğümlerin kopyalayın.
+    c. Bu dizin tooeach hello düğümlerinin kopyalayın.
 
     ```bash
     scp -r ~/azure-documentdb-spark sshuser@wn0-cosmos:/home/sshuser
@@ -235,19 +235,19 @@ Aşağıdakileri yaparak Apache TinkerPop alın:
     ...
     ```
     
-## <a name="set-up-the-environment-variables"></a>Ortam değişkenlerini ayarlama
+## <a name="set-up-hello-environment-variables"></a>Hello ortam değişkenlerini ayarlama
 
-1. Spark kümesi HDP sürümü bulunamıyor. Dizin adı altında olan `/usr/hdp/` (örneğin, 2.5.4.2-7).
+1. Merhaba HDP hello Spark kümesi sürümü bulunamıyor. Merhaba dizin adı altında olan `/usr/hdp/` (örneğin, 2.5.4.2-7).
 
-2. Tüm düğümler için hdp.Version ayarlayın. Ambari panosunda Git **YARN bölüm** > **yapılandırmalar** > **Gelişmiş**, ve ardından aşağıdakileri yapın: 
+2. Tüm düğümler için hdp.Version ayarlayın. Ambari panosunda çok Git**YARN bölüm** > **yapılandırmalar** > **Gelişmiş**ve ardından aşağıdaki hello: 
  
-    a. İçinde `Custom yarn-site`, yeni bir özellik eklemek `hdp.version` ana düğüm HDP sürümünde değerine sahip. 
+    a. İçinde `Custom yarn-site`, yeni bir özellik eklemek `hdp.version` hello ana düğümün hello HDP sürümü hello değerine sahip. 
      
-    b. Yapılandırmaları kaydedin. Göz ardı edebilirsiniz uyarıları vardır. 
+    b. Merhaba yapılandırmaları kaydedin. Göz ardı edebilirsiniz uyarıları vardır. 
      
-    c. Bildirim simgelerini göstermek gibi YARN ve Oozie hizmetlerini yeniden başlatın.
+    c. Merhaba bildirim simgelerini göstermek gibi hello YARN ve Oozie hizmetlerini yeniden başlatın.
 
-3. Ana düğümde aşağıdaki ortam değişkenlerini ayarlama (değerleri uygun şekilde değiştirin):
+3. Ortam değişkenleri hello ana düğümünde (Değiştir hello değerleri uygun şekilde) aşağıdaki kümesi hello:
 
     ```bash
     export HADOOP_GREMLIN_LIBS=/home/sshuser/tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone/ext/spark-gremlin/lib
@@ -256,9 +256,9 @@ Aşağıdakileri yaparak Apache TinkerPop alın:
     export HADOOP_HOME=${HADOOP_HOME:-/usr/hdp/current/hadoop-client}
     ```
 
-## <a name="prepare-the-graph-configuration"></a>Grafik yapılandırmasını hazırla
+## <a name="prepare-hello-graph-configuration"></a>Merhaba grafik yapılandırmasını hazırla
 
-1. Azure Cosmos DB bağlantı parametrelerini ve Spark ayarlarına sahip bir yapılandırma dosyası oluşturun ve bunu adresindeki koyun `tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone/conf/hadoop/gremlin-spark.properties`.
+1. Yapılandırma dosyası ile hello Azure Cosmos DB bağlantı parametrelerini oluşturma ve Spark ayarları ve adresindeki yerleştirin `tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone/conf/hadoop/gremlin-spark.properties`.
 
     ```
     gremlin.graph=org.apache.tinkerpop.gremlin.hadoop.structure.HadoopGraph
@@ -278,7 +278,7 @@ Aşağıdakileri yaparak Apache TinkerPop alın:
     spark.kryo.registrator=org.apache.tinkerpop.gremlin.spark.structure.io.gryo.GryoRegistrator
     gremlin.spark.persistContext=true
 
-    # Classpath for the driver and executors
+    # Classpath for hello driver and executors
     spark.driver.extraClassPath=/usr/hdp/current/spark2-client/jars/*:/home/sshuser/azure-documentdb-spark/*
     spark.executor.extraClassPath=/usr/hdp/current/spark2-client/jars/*:/home/sshuser/azure-documentdb-spark/*
     
@@ -294,9 +294,9 @@ Aşağıdakileri yaparak Apache TinkerPop alın:
     spark.documentdb.preferredRegions=FILLIN
     ```
 
-2. Güncelleştirme `spark.driver.extraClassPath` ve `spark.executor.extraClassPath` önceki adımda, bu durumda dağıtılmış Kavanoz dizininin içerecek şekilde `/home/sshuser/azure-documentdb-spark/*`.
+2. Güncelleştirme hello `spark.driver.extraClassPath` ve `spark.executor.extraClassPath` tooinclude hello hello önceki adımda, bu durumda dağıtılan hello Kavanoz dizininin `/home/sshuser/azure-documentdb-spark/*`.
 
-3. Azure Cosmos DB için aşağıdaki ayrıntıları girin:
+3. Azure Cosmos DB için aşağıdaki ayrıntılara hello sağlar:
 
     ```
     spark.documentdb.Endpoint=https://FILLIN.documents.azure.com:443/
@@ -307,10 +307,10 @@ Aşağıdakileri yaparak Apache TinkerPop alın:
     #spark.documentdb.preferredRegions=West\ US;West\ US\ 2
     ```
    
-## <a name="load-the-tinkerpop-graph-and-save-it-to-azure-cosmos-db"></a>TinkerPop grafik yükleyin ve Azure Cosmos DB kaydedin
-Azure Cosmos Veritabanına, bu örnek bir grafik kalıcı hale getirmek nasıl yapılacağını göstermek üzere kullandığı TinkerPop TinkerPop modern grafik önceden tanımlanmış. Grafik Kryo biçiminde depolanır ve TinkerPop depoya sağlanır.
+## <a name="load-hello-tinkerpop-graph-and-save-it-tooazure-cosmos-db"></a>Merhaba TinkerPop grafik yükleyin ve tooAzure Cosmos DB kaydedin
+toodemonstrate nasıl toopersist Azure Cosmos DB kullanır hello TinkerPop Bu örnek içine bir grafik TinkerPop modern grafik önceden tanımlanmış. Merhaba grafik Kryo biçiminde depolanır ve hello TinkerPop deposunda sağlanır.
 
-1. Gremlin YARN modunda çalıştırdığınız için grafik verileri Hadoop dosya sistemi içinde kullanılabilir olmanız gerekir. Bir dizin oluşturun ve yerel grafik dosyası içine kopyalamak için aşağıdaki komutları kullanın. 
+1. Gremlin YARN modunda çalıştırdığınız için hello grafik verileri hello Hadoop dosya sistemi içinde kullanılabilir olmanız gerekir. Kullanım hello aşağıdaki toomake bir dizin ve dosya Kopyala hello yerel grafik içine komutları. 
 
     ```bash
     $ tinkerpop:
@@ -318,16 +318,16 @@ Azure Cosmos Veritabanına, bu örnek bir grafik kalıcı hale getirmek nasıl y
     hadoop fs -copyFromLocal ~/tinkerpop/data/tinkerpop-modern.kryo /graphData/tinkerpop-modern.kryo
     ```
 
-2. Geçici güncelleştirme `gremlin-spark.properties` kullanmak üzere bir dosya `GryoInputFormat` Grafiği okunamıyor. Ayrıca belirtmek `inputLocation` dizin size, aşağıdaki gibi oluşturun:
+2. Geçici olarak hello güncelleştirme `gremlin-spark.properties` toouse dosya `GryoInputFormat` tooread hello grafik. Ayrıca belirtmek `inputLocation` hello dizini olarak, olduğu gibi hello aşağıdaki oluşturduğunuz:
 
     ```
     gremlin.hadoop.graphReader=org.apache.tinkerpop.gremlin.hadoop.structure.io.gryo.GryoInputFormat
     gremlin.hadoop.inputLocation=/graphData/tinkerpop-modern.kryo
     ```
 
-3. Gremlin konsolunu başlatın ve ardından veri yapılandırılmış Azure Cosmos DB koleksiyona kalıcı hale getirmek için aşağıdaki hesaplama adımları oluşturun:  
+3. Gremlin konsolunu başlatın ve sonra hesaplama adımları toopersist veri yapılandırılmış toohello Azure Cosmos DB toplama aşağıdaki hello oluşturun:  
 
-    a. Grafik oluşturma `graph = GraphFactory.open("conf/hadoop/gremlin-spark.properties")`.
+    a. Merhaba grafik oluşturmak `graph = GraphFactory.open("conf/hadoop/gremlin-spark.properties")`.
 
     b. Yazma için SparkGraphComputer kullanmak `graph.compute(SparkGraphComputer.class).result(GraphComputer.ResultGraph.NEW).persist(GraphComputer.Persist.EDGES).program(TraversalVertexProgram.build().traversal(graph.traversal().withComputer(Computer.compute(SparkGraphComputer.class)),"gremlin-groovy","g.V()").create(graph)).submit().get()`.
 
@@ -346,25 +346,25 @@ Azure Cosmos Veritabanına, bu örnek bir grafik kalıcı hale getirmek nasıl y
     ==>result[hadoopgraph[documentdbinputrdd->documentdboutputrdd],memory[size:1]]
     ```
 
-4. Veri Gezgini'nden verileri Azure Cosmos Veritabanına kalıcı olduğunu doğrulayabilirsiniz.
+4. Veri Gezgini'nden veriler bu hello tooAzure Cosmos DB kalıcı doğrulayabilirsiniz.
 
-## <a name="load-the-graph-from-azure-cosmos-db-and-run-gremlin-queries"></a>Grafik Azure Cosmos DB'den yükleme ve Gremlin sorgular çalıştırın
+## <a name="load-hello-graph-from-azure-cosmos-db-and-run-gremlin-queries"></a>Merhaba grafik Azure Cosmos DB'den yükleme ve Gremlin sorgular çalıştırın
 
-1. Grafik yüklemek için düzenleme `gremlin-spark.properties` ayarlamak için `graphReader` için `DocumentDBInputRDD`:
+1. tooload hello grafiği Düzenle `gremlin-spark.properties` tooset `graphReader` çok`DocumentDBInputRDD`:
 
     ```
     gremlin.hadoop.graphReader=com.microsoft.azure.documentdb.spark.gremlin.DocumentDBInputRDD
     ```
 
-2. Grafik yükleme, verileri çapraz geçiş ve Gremlin sorguları ile aşağıdakileri yaparak çalıştırın:
+2. Yük hello grafik hello veri çapraz geçiş ve Gremlin sorguları ile Merhaba aşağıdakileri yaparak çalıştırın:
 
-    a. Gremlin Konsolu'ndan `bin/gremlin.sh`.
+    a. Merhaba Gremlin konsolunu Başlat `bin/gremlin.sh`.
 
-    b. Grafik yapılandırmayla oluşturmak `graph = GraphFactory.open('conf/hadoop/gremlin-spark.properties')`.
+    b. Merhaba yapılandırmayla Hello grafik oluşturmak `graph = GraphFactory.open('conf/hadoop/gremlin-spark.properties')`.
 
     c. Grafik geçişi ile SparkGraphComputer oluşturma `g = graph.traversal().withComputer(SparkGraphComputer)`.
 
-    d. Aşağıdaki Gremlin grafik sorgular çalıştırın:
+    d. Gremlin grafik sorguları aşağıdaki hello çalıştırın:
 
     ```bash
     gremlin> graph = GraphFactory.open("conf/hadoop/gremlin-spark.properties")
@@ -397,11 +397,11 @@ Azure Cosmos Veritabanına, bu örnek bir grafik kalıcı hale getirmek nasıl y
     ```
 
 > [!NOTE]
-> Daha ayrıntılı günlük kaydı için günlük düzeyde kümesi `conf/log4j-console.properties` daha fazla ayrıntı düzeyi.
+> toosee daha ayrıntılı günlük, kümesinde hello günlük düzeyi `conf/log4j-console.properties` tooa daha fazla ayrıntı düzeyi.
 >
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıç makalede, Azure Cosmos DB ve Spark birleştirerek grafikleri ile çalışmaya nasıl öğrendiniz.
+Bu hızlı başlangıç makalede, Azure Cosmos DB ve Spark birleştirerek toowork ile nasıl grafiklerde öğrendiniz.
 
 > [!div class="nextstepaction"]

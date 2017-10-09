@@ -1,6 +1,6 @@
 ---
-title: "Linux tabanlı Hdınsight'ta Hadoop Oozie iş akışlarını kullanın | Microsoft Docs"
-description: "Linux tabanlı Hdınsight'ta Hadoop Oozie kullanın. Oozie iş akışı tanımlamak ve Oozie işi göndermek öğrenin."
+title: "Linux tabanlı Hdınsight Hadoop Oozie akışlarında aaaUse | Microsoft Docs"
+description: "Linux tabanlı Hdınsight'ta Hadoop Oozie kullanın. Bilgi nasıl toodefine bir Oozie iş akışı ve Oozie işi gönderin."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,27 +16,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: larryfr
-ms.openlocfilehash: e3206078e451aefe02689bfb61ce22a20dd0fa70
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: cb5682837543312621e3424b7a9341b5d2a00bf8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-hdinsight"></a>Oozie Hadoop ile tanımlamak ve Linux tabanlı Hdınsight üzerinde bir iş akışını çalıştırmak için kullanın.
+# <a name="use-oozie-with-hadoop-toodefine-and-run-a-workflow-on-linux-based-hdinsight"></a>Oozie Hadoop toodefine ile kullanın ve Linux tabanlı Hdınsight üzerinde bir iş akışını çalıştırma
 
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
-Hdınsight'ta Hadoop ile Apache Oozie kullanmayı öğrenin. Apache Oozie, Hadoop işlerini yöneten bir iş akışı/koordinasyon sistemidir. Oozie Hadoop yığını ile tümleştirilir ve aşağıdaki işleri destekler:
+Bilgi nasıl toouse hdınsight'ta Hadoop ile Apache Oozie. Apache Oozie, Hadoop işlerini yöneten bir iş akışı/koordinasyon sistemidir. Oozie hello Hadoop yığını ile tümleştirilir ve işleri aşağıdaki hello destekler:
 
 * Apache MapReduce
 * Apache Pig
 * Apache Hive
 * Apache Sqoop
 
-Oozie, Java programları veya kabuk betikleri gibi sisteme özel işleri planlamak için de kullanılabilir
+Oozie de Java programları veya kabuk betikleri gibi belirli tooa sistem kullanılan tooschedule işler olabilir
 
 > [!NOTE]
-> Hdınsight iş akışlarıyla tanımlamak için başka bir Azure Data Factory seçenektir. Azure Data Factory hakkında daha fazla bilgi için bkz: [kullanım Pig ve Hive Data Factory ile][azure-data-factory-pig-hive].
+> Hdınsight iş akışlarıyla tanımlamak için başka bir Azure Data Factory seçenektir. Azure Data Factory hakkında daha fazla toolearn bkz [kullanım Pig ve Hive Data Factory ile][azure-data-factory-pig-hive].
 
 > [!IMPORTANT]
 > Oozie etki alanına katılmış Hdınsight üzerinde etkin değil.
@@ -46,64 +46,64 @@ Oozie, Java programları veya kabuk betikleri gibi sisteme özel işleri planlam
 * **Hdınsight kümesi**: bkz [Linux'ta Hdınsight ile çalışmaya başlama](hdinsight-hadoop-linux-tutorial-get-started.md)
 
   > [!IMPORTANT]
-  > Bu belgede yer alan adımlar Linux kullanan bir Hdınsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+  > Bu belgedeki Hello adımlar Linux kullanan bir Hdınsight kümesi gerektirir. Linux hello yalnızca Hdınsight sürüm 3.4 veya büyük kullanılan işletim sistemini ' dir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="example-workflow"></a>Örnek iş akışı
 
-Bu belgede kullanılan iş akışı iki eylemleri içerir. Hive, Sqoop, MapReduce veya başka bir işlemin çalıştırma gibi görevler için tanımları eylemler şunlardır:
+Bu belgede kullanılan hello iş akışı iki eylemleri içerir. Hive, Sqoop, MapReduce veya başka bir işlemin çalıştırma gibi görevler için tanımları eylemler şunlardır:
 
 ![İş akışı diyagramı][img-workflow-diagram]
 
-1. Hive eylem kayıtları ayıklamak için HiveQL betiğini çalıştırır **hivesampletable** Hdınsight ile dahil. Her veri satırının belirli bir mobil CİHAZDAN ziyaret açıklar. Kayıt biçimi aşağıdakine benzer görünür:
+1. Bir Hive eylem HiveQL betiğini tooextract kayıtları hello çalıştırır **hivesampletable** Hdınsight ile dahil. Her veri satırının belirli bir mobil CİHAZDAN ziyaret açıklar. Merhaba kayıt biçimi metin aşağıdaki benzer toohello görünür:
 
         8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
         23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
         23      19:19:46        en-US   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
 
-    Bu belgede kullanılan Hive betiğini (örneğin, Android veya iPhone) her platform için toplam ziyaret sayar ve yeni bir Hive tablosu için sayıları depolar.
+    Bu belgede kullanılan Hive betiğini Hello hello toplam ziyaretleriniz (örneğin, Android veya iPhone) her platform için sayar ve hello sayıları tooa yeni Hive tablosu depolar.
 
     Hive hakkında daha fazla bilgi için bkz. [HDInsight ile Hive kullanma][hdinsight-use-hive].
 
-2. Sqoop eylem yeni Hive tablosu içeriğini bir Azure SQL veritabanındaki bir tablo dışa aktarır. Sqoop hakkında daha fazla bilgi için bkz: [Hdınsight ile kullanım Hadoop Sqoop][hdinsight-use-sqoop].
+2. Sqoop eylemin hello yeni Hive tablosu tooa tabloda bir Azure SQL veritabanı Merhaba içeriğine dışa aktarır. Sqoop hakkında daha fazla bilgi için bkz: [Hdınsight ile kullanım Hadoop Sqoop][hdinsight-use-sqoop].
 
 > [!NOTE]
-> Hdınsight kümelerinde desteklenen Oozie sürümleri için bkz: [Hdınsight tarafından sağlanan Hadoop küme sürümlerindeki yenilikler][hdinsight-versions].
+> Hdınsight kümelerinde desteklenen Oozie sürümleri için bkz: [hello Hdınsight tarafından sağlanan Hadoop küme sürümlerindeki yenilikler][hdinsight-versions].
 
-## <a name="create-the-working-directory"></a>Çalışma dizini oluşturma
+## <a name="create-hello-working-directory"></a>Merhaba çalışma dizini oluşturulamadı
 
-Oozie aynı dizinde depolanması bir iş için gereken kaynakları bekliyor. Bu örnekte **wasb: / / / öğreticileri/useoozie**. Bu dizin ve bu iş akışı tarafından oluşturulan yeni Hive tablosu tutan veri dizini oluşturmak için aşağıdaki komutu kullanın:
+Oozie iş toobe hello aynı depolanan için gereken kaynakları bekliyor dizin. Bu örnekte **wasb: / / / öğreticileri/useoozie**. Komut toocreate aşağıdaki hello bu dizini ve bu iş akışı tarafından oluşturulan hello yeni Hive tablosu tutan hello veri dizini kullanın:
 
 ```
 hdfs dfs -mkdir -p /tutorials/useoozie/data
 ```
 
 > [!NOTE]
-> `-p` Parametresi oluşturulacak yolunda tüm dizinleri neden olur. **Veri** dizini tarafından kullanılan verileri depolamak için kullanılan **useooziewf.hql** komut dosyası.
+> Merhaba `-p` parametresi hello yolu toobe oluşturulan tüm dizinleri neden olur. Merhaba **veri** dizindir hello tarafından kullanılan kullanılan toohold verileri **useooziewf.hql** komut dosyası.
 
-Ayrıca Oozie, kullanıcı hesabınızın Hive ve Sqoop işleri çalıştırırken bürünebileceğini sağlar aşağıdaki komutu çalıştırın. Değiştir **kullanıcıadı** oturum açma adınız ile:
+Ayrıca Oozie, kullanıcı hesabınızın Hive ve Sqoop işleri çalıştırırken bürünebileceğini sağlar komutu aşağıdaki hello çalıştırın. Değiştir **kullanıcıadı** oturum açma adınız ile:
 
 ```
 sudo adduser USERNAME users
 ```
 
 > [!NOTE]
-> Kullanıcı zaten bir üyesidir hataları yoksayabilirsiniz `users` grubu.
+> Hataları yoksayma hello kullanıcı zaten hello üyesi olan `users` grubu.
 
 ## <a name="add-a-database-driver"></a>Bir veritabanı sürücüsü Ekle
 
-Bu iş akışı SQL veritabanına veri vermek için Sqoop kullandığından, SQL veritabanı ile iletişim için kullanılan JDBC sürücüsü kopyasını sağlamanız gerekir. Çalışma dizini kopyalamak için aşağıdaki komutu kullanın:
+Bu iş akışı Sqoop tooexport veri tooSQL veritabanı kullandığından, tootalk tooSQL veritabanının bir kopyasını hello JDBC sürücüsü kullanılan sağlamanız gerekir. Kullanım hello komut toocopy, toohello çalışma dizini:
 
 ```
 hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 ```
 
-İş akışınızı bir MapReduce uygulaması içeren jar gibi diğer kaynaklar kullandıysanız, bu kaynakları de eklemeniz gerekir.
+İş akışınızı bir MapReduce uygulaması içeren jar gibi diğer kaynaklar kullandıysanız, bu kaynakları da tooadd gerekir.
 
-## <a name="define-the-hive-query"></a>Hive sorgusunu tanımlayın
+## <a name="define-hello-hive-query"></a>Merhaba Hive sorgusunu tanımlama
 
-Bu belgenin sonraki bölümlerinde bir Oozie akışında kullanılan bir sorguyu tanımlayan bir HiveQL betiği oluşturmak için aşağıdaki adımları kullanın.
+Aşağıdaki adımları toocreate bir Oozie iş akışında bu belgenin sonraki bölümlerinde kullanılan bir sorguyu tanımlayan bir HiveQL betiğini hello kullanın.
 
-1. SSH kullanarak kümeye bağlanın. Aşağıdaki komutu kullanarak, bir örnek verilmiştir `ssh` komutu. Değiştir __kullanıcıadı__ SSH kullanıcı kümesi için. Değiştir __CLUSTERNAME__ Hdınsight kümesi adı.
+1. SSH kullanarak toohello kümesine bağlanın. Merhaba aşağıdaki komutu hello kullanarak bir örnektir `ssh` komutu. Değiştir __kullanıcıadı__ hello SSH kullanıcıyla hello küme. Değiştir __CLUSTERNAME__ hello Hdınsight kümesi hello adı.
 
     ```
     ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
@@ -111,13 +111,13 @@ Bu belgenin sonraki bölümlerinde bir Oozie akışında kullanılan bir sorguyu
 
     Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. SSH bağlantısı, bir dosya oluşturmak için aşağıdaki komutu kullanın:
+2. SSH bağlantısı Hello komutu toocreate bir dosya aşağıdaki hello kullanın:
 
     ```
     nano useooziewf.hql
     ```
 
-3. Nano Düzenleyici açar sonra dosyanın içeriğini aşağıdaki sorguyu kullanın:
+3. Merhaba nano düzenleyici açılır olduktan sonra sorgu hello dosyasının Merhaba içeriğine aşağıdaki hello kullanın:
 
     ```hiveql
     DROP TABLE ${hiveTableName};
@@ -126,39 +126,39 @@ Bu belgenin sonraki bölümlerinde bir Oozie akışında kullanılan bir sorguyu
     INSERT OVERWRITE TABLE ${hiveTableName} SELECT deviceplatform, COUNT(*) as count FROM hivesampletable GROUP BY deviceplatform;
     ```
 
-    Komut dosyasında kullanılan iki değişkenleri şunlardır:
+    Merhaba komut dosyasında kullanılan iki değişkenleri şunlardır:
 
-    * **${hiveTableName}**: Oluşturulacak tablonun adını içerir
+    * **${hiveTableName}**: hello tablo toobe oluşturulan hello adını içerir
 
-    * **${hiveDataFolder}**: Tablo için veri dosyalarının depolanacağı konumu içerir
+    * **${hiveDataFolder}**: hello tablo için hello konumu toostore hello veri dosyalarını içerir
 
-    İş akışı tanımı dosyası (Bu öğreticide workflow.xml) bu HiveQL betiğini bu değerleri, çalışma zamanında geçirir.
+    Merhaba iş akışı tanımı dosyası (Bu öğreticide workflow.xml) bu değerleri toothis HiveQL betiğini çalışma zamanında geçirir.
 
-4. Düzenleyiciden çıkmak için Ctrl-X tuşlarına basın. İstendiğinde, seçin **Y** dosyayı kaydetmek için daha sonra kullanmak **Enter** kullanmak için **useooziewf.hql** dosya adı.
+4. tooexit hello Düzenleyici, Ctrl-X tuşlarına basın. İstendiğinde, seçin **Y** toosave hello dosyasını yeniden kullanın **Enter** toouse hello **useooziewf.hql** dosya adı.
 
-5. Kopyalamak için aşağıdaki komutları kullanın **useooziewf.hql** için **wasb:///tutorials/useoozie/useooziewf.hql**:
+5. Kullanım hello aşağıdaki komutları toocopy **useooziewf.hql** çok**wasb:///tutorials/useoozie/useooziewf.hql**:
 
     ```
     hdfs dfs -put useooziewf.hql /tutorials/useoozie/useooziewf.hql
     ```
 
-    Bu komutlar depolamak **useooziewf.hql** HDFS uyumlu depolama biriminde bir dosya kümesi için.
+    Bu komutlar hello depolamak **useooziewf.hql** hello küme için hello HDFS uyumlu depolama dosyası.
 
-## <a name="define-the-workflow"></a>İş akışı tanımlama
+## <a name="define-hello-workflow"></a>Merhaba iş akışı tanımlama
 
-Oozie iş akışı tanımları hPDL (bir XML işlem tanım dili) yazılır. İş akışını tanımlamak için aşağıdaki adımları kullanın:
+Oozie iş akışı tanımları hPDL (bir XML işlem tanım dili) yazılır. Aşağıdaki adımları toodefine hello iş akışı hello kullan:
 
-1. Oluşturun ve yeni bir dosya düzenlemek için şu deyimi kullanın:
+1. Deyimi toocreate aşağıdaki hello kullanın ve yeni dosyasını düzenleyin:
 
     ```
     nano workflow.xml
     ```
 
-2. Nano Düzenleyici açar sonra aşağıdaki XML dosya içeriklerini girin:
+2. Bir kez hello nano Düzenleyici açıldığında, XML hello dosya içeriğini aşağıdaki hello girin:
 
     ```xml
     <workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
-        <start to = "RunHiveScript"/>
+        <start too= "RunHiveScript"/>
         <action name="RunHiveScript">
         <hive xmlns="uri:oozie:hive-action:0.2">
             <job-tracker>${jobTracker}</job-tracker>
@@ -209,55 +209,55 @@ Oozie iş akışı tanımları hPDL (bir XML işlem tanım dili) yazılır. İş
     </workflow-app>
     ```
 
-    İş akışında tanımlanan iki eylem vardır:
+    Merhaba iş akışında tanımlanan iki eylem vardır:
 
-   * **RunHiveScript**: Bu eylem başlangıç eylemdir ve çalışan **useooziewf.hql** Hive betiği
+   * **RunHiveScript**: Bu eylem hello başlangıç eylemdir ve çalışan hello **useooziewf.hql** Hive betiği
 
-   * **RunSqoopExport**: Bu eylem Sqoop kullanarak SQL veritabanına Hive komut dosyasından oluşturulan veri aktarır. Bu eylem yalnızca çalıştırır **RunHiveScript** eylem başarılı olur.
+   * **RunSqoopExport**: Bu eylem hello Hive betiği tooSQL oluşturulmuş hello veri aktarır Sqoop kullanarak veritabanı. Bu eylem yalnızca hello çalıştırır **RunHiveScript** eylem başarılı olur.
 
-     İş akışı gibi birden çok girişi sahip `${jobTracker}`. Bu girişler iş tanımında kullandığınız değerler değiştirilir. İş tanımı, bu belgenin sonraki bölümlerinde oluşturulur.
+     Merhaba iş akışı sahip birden çok girişi gibi `${jobTracker}`. Bu girişler hello iş tanımında kullandığınız değerler değiştirilir. Merhaba iş tanımı, bu belgenin sonraki bölümlerinde oluşturulur.
 
-     Ayrıca unutmayın `<archive>sqljdbc4.jar</arcive>` Sqoop bölümünde girişi. Bu giriş, bu eylem çalıştırıldığında bu arşiv Sqoop için kullanılabilmesi için Oozie bildirir.
+     Ayrıca Not hello `<archive>sqljdbc4.jar</arcive>` hello Sqoop bölüm girişi. Bu eylem çalıştırıldığında bu girişi Oozie toomake Sqoop için kullanılabilir bu arşiv bildirir.
 
-3. CTRL-X, daha sonra kullanmak **Y** ve **Enter** dosyayı kaydetmek için.
+3. CTRL-X, daha sonra kullanmak **Y** ve **Enter** toosave hello dosya.
 
-4. Kopyalamak için aşağıdaki komutu kullanın **workflow.xml** dosya **/tutorials/useoozie/workflow.xml**:
+4. Kullanım hello şu komutu toocopy hello **workflow.xml** çok dosya**/tutorials/useoozie/workflow.xml**:
 
     ```
     hdfs dfs -put workflow.xml /tutorials/useoozie/workflow.xml
     ```
 
-## <a name="create-the-database"></a>Veritabanı oluşturma
+## <a name="create-hello-database"></a>Merhaba veritabanı oluşturma
 
-Bir Azure SQL veritabanı oluşturmak için adımları [bir SQL veritabanı oluşturma](../sql-database/sql-database-get-started.md) belge. Veritabanı oluştururken `oozietest` veritabanı adı. Ayrıca veritabanı sunucusunun adını not edin.
+toocreate bir Azure SQL veritabanı izleyin hello hello adımlarda [bir SQL veritabanı oluşturma](../sql-database/sql-database-get-started.md) belge. Merhaba veritabanı oluştururken `oozietest` hello veritabanı adı. Ayrıca hello hello veritabanı sunucusunun adını not edin.
 
-### <a name="create-the-table"></a>Tablo oluşturma
+### <a name="create-hello-table"></a>Merhaba tablosu oluşturma
 
 > [!NOTE]
-> Bir tablo oluşturmak için SQL veritabanına bağlanmak için birçok yolu vardır. Aşağıdaki adımları kullanın [ücretsiz](http://www.freetds.org/) Hdınsight kümesine ait.
+> Birçok yolu tooconnect tooSQL veritabanı toocreate bir tablo yok. Aşağıdaki adımları kullan hello [ücretsiz](http://www.freetds.org/) hello Hdınsight kümesine ait.
 
 
-1. Ücretsiz Hdınsight kümesine yüklemek için aşağıdaki komutu kullanın:
+1. Komut tooinstall ücretsiz hello Hdınsight kümesinde aşağıdaki hello kullan:
 
     ```
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-2. Ücretsiz bir kez yüklenir, önceden oluşturduğunuz bir SQL veritabanı sunucusuna bağlanmak için aşağıdaki komutu kullanın:
+2. Ücretsiz yüklendikten sonra daha önce oluşturulan komutu tooconnect toohello SQL veritabanı sunucusu aşağıdaki hello kullan:
 
     ```
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -P <sqlPassword> -p 1433 -D oozietest
     ```
 
-    Aşağıdakine benzer bir çıktı alırsınız:
+    Metin aşağıdaki çıktı benzer toohello alırsınız:
 
         locale is "en_US.UTF-8"
         locale charset is "UTF-8"
         using default charset "UTF-8"
-        Default database being set to oozietest
+        Default database being set toooozietest
         1>
 
-3. Konumundaki `1>` isteminde, aşağıdaki satırları girin:
+3. Merhaba, `1>` isteminde, aşağıdaki satırları hello girin:
 
     ```
     CREATE TABLE [dbo].[mobiledata](
@@ -268,35 +268,35 @@ Bir Azure SQL veritabanı oluşturmak için adımları [bir SQL veritabanı olu�
     GO
     ```
 
-    Zaman `GO` deyimi girilir, önceki deyimleri değerlendirilir. Bu ifadeler adlı bir tablo oluşturmak **mobiledata** iş akışı tarafından kullanılır.
+    Ne zaman hello `GO` deyimi girilir, hello önceki deyimleri değerlendirilir. Bu ifadeler adlı bir tablo oluşturmak **mobiledata** hello iş akışı tarafından kullanılır.
 
-    Tablo oluşturulduğunu doğrulamak için aşağıdakileri kullanın:
+    Tablo hello tooverify aşağıdaki kullanım hello oluşturuldu:
 
     ```
     SELECT * FROM information_schema.tables
     GO
     ```
 
-    Aşağıdakine benzer bir çıktı görürsünüz:
+    Metin aşağıdaki çıktı benzer toohello bakın:
 
     ```
     TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
     oozietest       dbo     mobiledata      BASE TABLE
     ```
 
-4. Girin `exit` adresindeki `1>` tsql yardımcı programı'ndan çıkmak komut istemi.
+4. Girin `exit` hello adresindeki `1>` sor tooexit hello tsql yardımcı programı.
 
-## <a name="create-the-job-definition"></a>İş tanımı oluştur
+## <a name="create-hello-job-definition"></a>Merhaba iş tanımı oluştur
 
-İş tanımı workflow.xml nerede bulacağını açıklar. Ayrıca (örneğin, useooziewf.hql.) iş akışı tarafından kullanılan diğer dosyaları nerede bulacağını açıklanır Özellikler iş akışı içinde kullanılan ve dosyalar ilişkili değerleri de tanımlar.
+Merhaba iş tanımı burada toofind hello workflow.xml açıklar. Ayrıca nerede tanımlar toofind (örneğin, useooziewf.hql.) hello iş akışı tarafından kullanılan diğer dosyaları Özellikler hello iş akışı içinde kullanılan ve dosyalar ilişkili ayrıca hello değerleri tanımlar.
 
-1. Varsayılan depolama tam adresini almak için aşağıdaki komutu kullanın. Bu adres yapılandırma dosyasında birazdan kullanılır:
+1. Kullanım hello aşağıdaki tooget hello tam adresini hello varsayılan depolama komutu. Bu adres hello yapılandırma dosyasında birazdan kullanılır:
 
     ```
     sed -n '/<name>fs.default/,/<\/value>/p' /etc/hadoop/conf/core-site.xml
     ```
 
-    Bu komut, bilgileri aşağıdaki XML benzer döndürür:
+    Bu komut, XML aşağıdaki bilgileri benzer toohello döndürür:
 
     ```xml
     <name>fs.defaultFS</name>
@@ -304,29 +304,29 @@ Bir Azure SQL veritabanı oluşturmak için adımları [bir SQL veritabanı olu�
     ```
 
     > [!NOTE]
-    > Hdınsight küme varsayılan depolama alanı olarak Azure Storage kullanıyorsa `<value>` öğenin içeriği ile başlar `wasb://`. Azure Data Lake Store yerine kullanılırsa, ile başlayan `adl://`.
+    > Merhaba Hdınsight küme hello varsayılan depolama alanı olarak Azure Storage kullanıyorsa, hello `<value>` öğenin içeriği ile başlar `wasb://`. Azure Data Lake Store yerine kullanılırsa, ile başlayan `adl://`.
 
-    İçeriğini kaydetme `<value>` şekliyle öğe, sonraki adımlarda kullanılır.
+    Merhaba Hello içeriğini kaydetme `<value>` şekliyle öğe hello sonraki adımda kullanılır.
 
-2. Küme headnode FQDN'sini almak için aşağıdaki komutu kullanın. Bu bilgiler, küme için Jobtracker'a adresi için kullanılır:
+2. Komut tooget hello küme headnode FQDN'si aşağıdaki hello kullanın. Bu bilgiler hello hello küme için Jobtracker'a adresi için kullanılır:
 
     ```
     hostname -f
     ```
 
-    Bu bilgiler aşağıdaki metni benzer döndürür:
+    Bu metin aşağıdaki bilgileri benzer toohello döndürür:
 
     ```hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net```
 
-    Jobtracker'a için kullanılacak tam adresi 8050, Jobtracker'a için kullanılan bağlantı noktası olduğundan `hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8050`.
+    Merhaba tam adresi toouse hello Jobtracker'a için olacak şekilde hello Jobtracker'a hello için kullanılan bağlantı noktası 8050, olan `hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8050`.
 
-3. Oozie iş tanımı yapılandırması oluşturmak için aşağıdakileri kullanın:
+3. Toocreate hello Oozie iş tanımı yapılandırması aşağıdaki hello kullan:
 
     ```
     nano job.xml
     ```
 
-4. Nano düzenleyici açılır olduktan sonra aşağıdaki XML dosyasının içeriği kullanın:
+4. Merhaba nano düzenleyici açılır sonra XML hello hello dosyasının içeriğini aşağıdaki hello kullanın:
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -389,72 +389,72 @@ Bir Azure SQL veritabanı oluşturmak için adımları [bir SQL veritabanı olu�
     </configuration>
     ```
 
-   * Tüm örneklerinin yerine  **wasb://mycontainer@mystorageaccount.blob.core.windows.net**  aldığınız önceki sürümleri için varsayılan depolama değerine sahip.
+   * Tüm örneklerinin yerine  **wasb://mycontainer@mystorageaccount.blob.core.windows.net**  aldığınız önceki sürümleri için varsayılan depolama hello değerine sahip.
 
      > [!WARNING]
-     > Yol ise bir `wasb` yolu, tam yolunu kullanmanız gerekir. Yalnızca kendisine kısaltın değil `wasb:///`.
+     > Merhaba yol ise bir `wasb` yolu hello tam yolunu kullanmanız gerekir. Toojust kısaltın değil `wasb:///`.
 
-   * Değiştir **JOBTRACKERADDRESS** daha önce aldığınız Jobtracker'a/ResourceManager adresine sahip.
-   * Değiştir **adınız** Hdınsight kümesi için oturum açma adınızı ile.
-   * Değiştir **serverName**, **adminLogin**, ve **Admınpassword** Azure SQL veritabanınıza ilişkin bilgiler.
+   * Değiştir **JOBTRACKERADDRESS** hello daha önce aldığınız Jobtracker'a/ResourceManager adresine sahip.
+   * Değiştir **adınız** hello Hdınsight kümesi için oturum açma adınızı ile.
+   * Değiştir **serverName**, **adminLogin**, ve **Admınpassword** Azure SQL veritabanınıza ilişkin hello bilgiler.
 
-     Bu dosyadaki bilgiler çoğunu (örneğin, ${iş}.) workflow.xml veya ooziewf.hql dosyalarında kullanılan değerleri doldurmak için kullanılır
+     Bu dosyadaki hello bilgilerin çoğunu olduğu (örneğin, ${iş}.) hello workflow.xml veya ooziewf.hql dosyalarında kullanılan kullanılan toopopulate hello değerleri
 
      > [!NOTE]
-     > **Oozie.wf.application.path** girdi tanımlar workflow.xml dosya nerede bulacağını bu iş tarafından çalıştırılan iş akışını içerir.
+     > Hello **oozie.wf.application.path** girdi tanımlar where hello iş akışı içeren toofind hello workflow.xml dosyasını bu iş tarafından çalıştı.
 
-5. CTRL-X, daha sonra kullanmak **Y** ve **Enter** dosyayı kaydetmek için.
+5. CTRL-X, daha sonra kullanmak **Y** ve **Enter** toosave hello dosya.
 
-## <a name="submit-and-manage-the-job"></a>Gönderme ve iş yönetimi
+## <a name="submit-and-manage-hello-job"></a>Gönderme ve hello işi yönetme
 
-Aşağıdaki adımlar Oozie komutunu göndermek ve küme Oozie iş akışlarında yönetmek için kullanın. Oozie kullanıcı dostu bir arabirim üzerinden komuttur [Oozie REST API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
+Merhaba aşağıdaki adımları hello Oozie komutu toosubmit kullanın ve Oozie iş akışları hello kümede yönetin. Merhaba Oozie komutu olan kullanıcı dostu bir arabirim hello [Oozie REST API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
 
 > [!IMPORTANT]
-> Oozie komutunu kullanırken, FQDN için Hdınsight headnode kullanmanız gerekir. Bu FQDN yalnızca kümeden erişilebilir veya küme aynı ağdaki diğer makinelerden bir Azure sanal ağda ise.
+> Merhaba Oozie komutunu kullanırken, hello Hdınsight headnode hello FQDN kullanmanız gerekir. Bu FQDN yalnızca hello kümeden erişilebilir olduğunu veya hello küme hello üzerindeki diğer makinelerden bir Azure sanal ağda ise aynı ağ.
 
 
-1. Oozie hizmeti URL'sini almak için aşağıdakileri kullanın:
+1. Tooobtain hello URL toohello Oozie hizmeti aşağıdaki hello kullan:
 
     ```
     sed -n '/<name>oozie.base.url/,/<\/value>/p' /etc/oozie/conf/oozie-site.xml
     ```
 
-    Bu bilgiler aşağıdaki XML benzer döndürür:
+    Bu bilgi benzer toohello XML aşağıdaki döndürür:
 
     ```xml
     <name>oozie.base.url</name>
     <value>http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie</value>
     ```
 
-    `http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie` Bölümüdür Oozie komutu ile kullanılacak URL.
+    Merhaba `http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie` hello URL toouse hello Oozie komutu sahip bölümüdür.
 
-2. Her komut için yazmak zorunda kalmamak için URL için bir ortam değişkeni oluşturmak için aşağıdakileri kullanın:
+2. Tootype aktarıp toocreate bir ortam değişkeni hello URL'sini aşağıdaki kullanım hello her komut için:
 
     ```
     export OOZIE_URL=http://HOSTNAMEt:11000/oozie
     ```
 
-    URL, daha önce aldığınız adla değiştirin.
-3. İşi göndermek için aşağıdakileri kullanın:
+    Merhaba URL hello biri daha önce aldığınız değiştirin.
+3. Toosubmit hello işi aşağıdaki hello kullan:
 
     ```
     oozie job -config job.xml -submit
     ```
 
-    Bu komut iş bilgilerini yükler **job.xml** ve Oozie için gönderir, ancak değil çalıştırın.
+    Bu komut hello iş bilgilerini yükler **job.xml** ve tooOozie, ancak bunu çalışmıyor mu gönderir.
 
-    Komut tamamlandığında, iş kimliği döndürmelidir. Örneğin, `0000005-150622124850154-oozie-oozi-W`. Bu kimliği iş yönetmek için kullanılır.
+    Merhaba komutu tamamlandığında hello işin hello kimliği döndürmelidir. Örneğin, `0000005-150622124850154-oozie-oozi-W`. Kullanılan toomanage hello iş kimliğidir.
 
-4. Aşağıdaki komutu kullanarak iş durumunu görüntüleyin:
+4. Komutu aşağıdaki hello kullanarak hello işi Hello durumunu görüntüleyin:
 
     ```
     oozie job -info <JOBID>
     ```
 
     > [!NOTE]
-    > Değiştir `<JOBID>` önceki adımda döndürülen Kimliğine sahip.
+    > Değiştir `<JOBID>` ile Merhaba hello önceki adımda döndürülen kimliği.
 
-    Bu bilgiler aşağıdaki metni benzer döndürür:
+    Bu metin aşağıdaki bilgileri benzer toohello döndürür:
 
     ```
     Job ID : 0000005-150622124850154-oozie-oozi-W
@@ -473,33 +473,33 @@ Aşağıdaki adımlar Oozie komutunu göndermek ve küme Oozie iş akışlarınd
     ------------------------------------------------------------------------------------------------------------------------------------
     ```
 
-    Bu iş durumuna sahip `PREP`. Bu durum, iş oluşturuldu, ancak başlatılmamış olduğunu gösterir.
+    Bu iş durumuna sahip `PREP`. Bu durum, bu hello iş oluşturuldu, ancak henüz başlatılmamış gösterir.
 
-5. İşlemi başlatmak için aşağıdaki komutu kullanın:
+5. Komut toostart hello işi aşağıdaki hello kullan:
 
     ```
     oozie job -start JOBID
     ```
 
     > [!NOTE]
-    > Değiştir `<JOBID>` döndürülen Kimliğine sahip.
+    > Değiştir `<JOBID>` hello ile döndürülen kimliği daha önce.
 
-    Bu komutun sonraki durumunu denetlemek, çalışır durumda olduğundan ve iş içindeki eylemler için bilgi döndürülür.
+    Bu komutun ardından hello durumunu denetlemek, çalışır durumda olduğundan ve bilgi hello işindeki hello eylemler için döndürülür.
 
-6. Görev başarıyla tamamlandıktan sonra veri oluşturulur ve aşağıdaki komutları kullanarak SQL veritabanı tablosuna dışa aktarılan olduğunu doğrulayabilirsiniz:
+6. Merhaba görev başarıyla tamamlandıktan sonra hello veri oluşturuldu ve toohello SQL veritabanı tablosu hello aşağıdaki komutları kullanarak dışa aktarılan doğrulayabilirsiniz:
 
     ```
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D oozietest
     ```
 
-    Konumundaki `1>` isteminde, aşağıdaki sorguyu girin:
+    Merhaba, `1>` isteminde, sorgu aşağıdaki hello girin:
 
     ```
     SELECT * FROM mobiledata
     GO
     ```
 
-    Döndürülen bilgi aşağıdakine benzer:
+    döndürülen hello bilgi metnini izleyen benzer toohello şöyledir:
 
         deviceplatform  count
         Android 31591
@@ -510,79 +510,79 @@ Aşağıdaki adımlar Oozie komutunu göndermek ve küme Oozie iş akışlarınd
         Windows Phone   1791
         (6 rows affected)
 
-Oozie komutu hakkında daha fazla bilgi için bkz: [Oozie komut satırı aracı](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html).
+Merhaba Oozie komut hakkında daha fazla bilgi için bkz: [Oozie komut satırı aracı](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html).
 
 ## <a name="oozie-rest-api"></a>Oozie REST API'si
 
-Oozie REST API ile Oozie iş kendi araçları oluşturmanıza olanak sağlar. Hdınsight Oozie REST API kullanımı hakkında belirli bilgiler şunlardır:
+Merhaba Oozie REST API toobuild verir Oozie ile iş kendi araçları. Merhaba, Hdınsight hello Oozie REST API kullanımı hakkında belirli bilgiler şunlardır:
 
-* **URI**: REST API erişilebilir gelen küme dışındaki`https://CLUSTERNAME.azurehdinsight.net/oozie`
+* **URI**: REST API erişilebilir dış hello kümeden hello`https://CLUSTERNAME.azurehdinsight.net/oozie`
 
-* **Kimlik doğrulama**: küme HTTP hesabı (Yönetici) ve parolayı kullanarak API kimlik doğrulaması. Örneğin:
+* **Kimlik doğrulama**: toohello API hello küme HTTP hesabı (Yönetici) ve parola kullanarak kimlik doğrulaması. Örneğin:
 
     ```
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
     ```
 
-Oozie REST API kullanarak daha fazla bilgi için bkz: [Oozie Web Hizmetleri API'si](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
+Merhaba Oozie REST API kullanma hakkında daha fazla bilgi için bkz: [Oozie Web Hizmetleri API'si](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
 
 ## <a name="oozie-web-ui"></a>Oozie Web kullanıcı Arabirimi
 
-Oozie Web kullanıcı arabirimini Oozie işlerin durumunu web tabanlı bir görünüme kümede sağlar. Web kullanıcı Arabirimi, aşağıdaki bilgileri görüntülemenizi sağlar:
+Merhaba Oozie Web kullanıcı arabirimini hello Oozie işlerin durumunu web tabanlı bir görünüme hello kümede sağlar. Merhaba web kullanıcı Arabirimi aşağıdaki bilgilerle tooview hello sağlar:
 
 * İş durumu
 * İş tanımı
 * Yapılandırma
-* İşte eylemlerin bir grafik
-* İşi için kayıtlar
+* Merhaba işteki hello eylemlerin bir grafik
+* Merhaba işi için kayıtlar
 
 Ayrıca bir işi içinde eylemler ayrıntılarını görüntüleyebilirsiniz.
 
-Oozie Web kullanıcı arabirimini erişmek için aşağıdaki adımları kullanın:
+tooaccess Oozie Web kullanıcı arabirimini Merhaba, hello aşağıdaki adımları kullanın:
 
-1. Bir Hdınsight kümesine SSH tüneli oluşturma. Bilgi için bkz: [kullanım SSH tünel Hdınsight ile](hdinsight-linux-ambari-ssh-tunnel.md) belge.
+1. SSH tüneli toohello Hdınsight kümesi oluşturun. Bilgi için bkz: Merhaba [kullanım SSH tünel Hdınsight ile](hdinsight-linux-ambari-ssh-tunnel.md) belge.
 
-2. Bir tünel oluşturulduktan sonra Ambari web kullanıcı Arabirimi, web tarayıcınızda açın. Ambari site için bir URI **https://CLUSTERNAME.azurehdinsight.net**. Değiştir **CLUSTERNAME** Linux tabanlı Hdınsight kümenizin adıyla.
+2. Bir tünel oluşturulduktan sonra hello Ambari web kullanıcı Arabirimi, web tarayıcınızda açın. Merhaba URI hello Ambari site için olan **https://CLUSTERNAME.azurehdinsight.net**. Değiştir **CLUSTERNAME** Linux tabanlı Hdınsight kümenize hello adı.
 
-3. Sayfanın sol taraftan seçin **Oozie**, ardından **hızlı bağlantılar**ve son olarak **Oozie Web kullanıcı arabirimini**.
+3. Yan hello sayfasının sol hello seçin **Oozie**, ardından **hızlı bağlantılar**ve son olarak **Oozie Web kullanıcı arabirimini**.
 
-    ![görüntüsü menüler](./media/hdinsight-use-oozie-linux-mac/ooziewebuisteps.png)
+    ![Merhaba menü görüntüsü](./media/hdinsight-use-oozie-linux-mac/ooziewebuisteps.png)
 
-4. Oozie Web kullanıcı Arabirimi iş akışı işleri çalıştırma görüntüleme için varsayılan olarak ayarlanır. Tüm iş akışı işleri görmek için seçin **tüm işleri**.
+4. Merhaba Oozie Web kullanıcı arabirimini Varsayılanları toodisplaying iş akışı işleri çalıştırma. tüm iş akışı işleri toosee seçin **tüm işleri**.
 
     ![Görüntülenen tüm işleri](./media/hdinsight-use-oozie-linux-mac/ooziejobs.png)
 
-5. İş hakkında daha fazla bilgi görüntülemek için bir iş seçin.
+5. Bir iş tooview hello işi hakkında daha fazla bilgi seçin.
 
     ![İş bilgileri](./media/hdinsight-use-oozie-linux-mac/jobinfo.png)
 
-6. İş bilgileri sekmesinden temel iş bilgileri ve iş içindeki ayrı Eylemler görebilirsiniz. En üstte sekmeleri kullanarak iş tanımı, iş yapılandırması, erişim iş günlüğü görüntülemek veya yönlendirilmiş Çevrimsiz grafik (DAG) işin görüntüleyin.
+6. Merhaba iş bilgileri sekmesinden temel iş bilgilerini ve hello ayrı Eylemler hello işindeki görebilirsiniz. Merhaba sekmelerini kullanarak görüntüleyebileceğiniz hello üstünde iş tanımı, iş yapılandırması, erişim hello iş günlüğü hello veya yönlendirilmiş Çevrimsiz grafik (DAG) hello işin görüntüleyin.
 
-   * **İş günlüğü**: seçin **GetLogs** iş için tüm günlükleri almak için düğmesini veya kullanmak **girin arama filtresi** günlükleri filtrelemek için alan
+   * **İş günlüğü**: Select hello **GetLogs** tooget hello işi için tüm günlükleri düğmesine veya hello kullan **girin arama filtresi** alan toofilter günlükleri
 
        ![İş günlüğü](./media/hdinsight-use-oozie-linux-mac/joblog.png)
 
-   * **JobDAG**: DAG olan akışı gerçekleştirilecek veri yolları grafik bir genel bakış
+   * **JobDAG**: Merhaba DAG olan hello akışı gerçekleştirilecek hello veri yolları grafik bir genel bakış
 
        ![İş DAG](./media/hdinsight-use-oozie-linux-mac/jobdag.png)
 
-7. Eylemlerden birini seçerek **iş bilgileri** sekme eylemi için bilgileri getirir. Örneğin, seçin **RunHiveScript** eylem.
+7. Hello hello eylemlerden birini seçerek **iş bilgileri** sekmesini hello eylemi için bilgileri getirir. Örneğin, hello seçin **RunHiveScript** eylem.
 
     ![Eylem bilgileri](./media/hdinsight-use-oozie-linux-mac/action.png)
 
-8. Bir bağlantı gibi eylemin ayrıntılarını görebilirsiniz **Konsolu URL'si**. Bu bağlantı, iş Jobtracker'a bilgilerini görüntülemek için kullanılabilir.
+8. Bir bağlantı toohello gibi hello eylem ayrıntılarını görebilirsiniz **Konsolu URL'si**. Bu bağlantıyı hello işi için kullanılan tooview Jobtracker'a bilgileri olabilir.
 
 ## <a name="scheduling-jobs"></a>İşlerini zamanlama
 
-Düzenleyici, başlangıç, bitiş ve işleri için oluşum sıklığını belirtmenizi sağlar. İş akışı için bir zamanlama tanımlamak için aşağıdaki adımları kullanın:
+Merhaba Düzenleyicisi toospecify işleri için bir başlangıç, bitiş ve geçişi sıklık sağlar. Merhaba iş akışı, aşağıdaki adımları kullanın hello için bir zamanlama toodefine:
 
-1. Adlı bir dosya oluşturmak için aşağıdakileri kullanın **coordinator.xml**:
+1. Toocreate adlı bir dosya aşağıdaki kullanım hello **coordinator.xml**:
 
     ```
     nano coordinator.xml
     ```
 
-    Aşağıdaki XML dosyasının içeriği kullanın:
+    XML hello hello dosyasının içeriğini aşağıdaki hello kullan:
 
     ```xml
     <coordinator-app name="my_coord_app" frequency="${coordFrequency}" start="${coordStart}" end="${coordEnd}" timezone="${coordTimezone}" xmlns="uri:oozie:coordinator:0.4">
@@ -595,33 +595,33 @@ Düzenleyici, başlangıç, bitiş ve işleri için oluşum sıklığını belir
     ```
 
     > [!NOTE]
-    > `${...}` Değişkenleri, çalışma zamanında iş tanımında değerlere göre değiştirilir. Değişkenleri şunlardır:
+    > Merhaba `${...}` değişkenleri, çalışma zamanında hello iş tanımında değerlere göre değiştirilir. Merhaba değişkenleri şunlardır:
     >
-    > * `${coordFrequency}`: Çalışan iş örneklerini arasındaki süre.
-    > ** `${coordStart}`: İş başlangıç zamanı.
-    > * `${coordEnd}`: İş bitiş saati.
-    > * `${coordTimezone}`: Sabit bir saat diliminde (genellikle UTC ile gösterilir) hiçbir gün ışığından yararlanma saatine sahip olan düzenleyici işleri. Bu saat dilimi "Oozie işleme saat dilimi." olarak adlandırılır
-    > * `${wfPath}`: Workflow.xml yolu.
+    > * `${coordFrequency}`: Çalışan hello iş örneklerini arasındaki süre.
+    > ** `${coordStart}`: hello iş başlangıç zamanı.
+    > * `${coordEnd}`: hello iş bitiş saati.
+    > * `${coordTimezone}`: Sabit bir saat diliminde (genellikle UTC ile gösterilir) hiçbir gün ışığından yararlanma saatine sahip olan düzenleyici işleri. Bu saat dilimi hello "Oozie işleme saat dilimi." olarak adlandırılır
+    > * `${wfPath}`: yolu toohello workflow.xml hello.
 
-2. Dosyayı kaydetmek için Ctrl-X, kullanmak **Y**, ve **Enter**.
+2. toosave hello dosya, Ctrl-X, kullanmak **Y**, ve **Enter**.
 
-3. Bu proje için çalışma dizini dosyasını kopyalamak için aşağıdaki komutu kullanın:
+3. Bu iş için komut toocopy hello dosya toohello çalışma dizini aşağıdaki hello kullan:
 
     ```
     hadoop fs -put coordinator.xml /tutorials/useoozie/coordinator.xml
     ```
 
-4. Değiştirmek için aşağıdakileri kullanın **job.xml** dosyası:
+4. Kullanım hello toomodify hello aşağıdaki **job.xml** dosyası:
 
     ```
     nano job.xml
     ```
 
-    Aşağıdaki değişiklikleri yapın:
+    Aşağıdaki değişiklikler hello olun:
 
-   * İş akışı yerine Düzenleyicisi dosyasını çalıştırmak için oozie istemek üzere değiştirme `<name>oozie.wf.application.path</name>` için `<name>oozie.coord.application.path</name>`.
+   * Merhaba iş akışı, değişiklik yerine tooinstruct oozie toorun hello Düzenleyici dosyasında `<name>oozie.wf.application.path</name>` çok`<name>oozie.coord.application.path</name>`.
 
-   * Ayarlamak için `workflowPath` aşağıdaki XML ekleme Düzenleyicisi tarafından kullanılan değişkeni:
+   * tooset hello `workflowPath` hello Düzenleyicisi tarafından kullanılan değişken XML aşağıdaki hello ekleyin:
 
         ```xml
         <property>
@@ -630,9 +630,9 @@ Düzenleyici, başlangıç, bitiş ve işleri için oluşum sıklığını belir
         </property>
         ```
 
-       Değiştir `wasb://mycontainer@mystorageaccount.blob.core.windows` diğer giriş job.xml dosyası kullanılan değeri olan metin.
+       Hello yerine `wasb://mycontainer@mystorageaccount.blob.core.windows` diğer giriş hello job.xml dosyası kullanılan hello değeri olan metin.
 
-   * Başlangıç tanımlamak için aşağıdaki XML bitiş ve düzenleyici sıklığı ekleyin:
+   * toodefine hello başlangıç, bitiş ve sıklığı hello Düzenleyicisi için XML aşağıdaki hello ekleyin:
 
         ```xml
         <property>
@@ -656,89 +656,89 @@ Düzenleyici, başlangıç, bitiş ve işleri için oluşum sıklığını belir
         </property>
         ```
 
-       Bu değerleri 10 May 2017'den itibaren 12 Mayıs 2017 için bitiş zamanı üzerinde 12:00 PM için başlangıç saatini ayarlayın. Bu işi her gün aralığı. Dakika cinsinden sıklığıdır 1440 dakika 24 saat x 60 dakika kadar =. Son olarak, saat dilimi UTC için ayarlanır.
+       Merhaba başlangıç saati too12 bu değerleri ayarlayın: 00 PM 10 May 2017 üzerinde hello bitiş saati tooMay 12, 2017. Bu işi her gün için başlangıç aralığı. Merhaba sıklığıdır dakika içinde bu nedenle 1440 dakika 24 saat x 60 dakika =. Son olarak, hello saat dilimi tooUTC ayarlanır.
 
-5. CTRL-X, daha sonra kullanmak **Y** ve **Enter** dosyayı kaydetmek için.
+5. CTRL-X, daha sonra kullanmak **Y** ve **Enter** toosave hello dosya.
 
-6. İşi çalıştırmak için aşağıdaki komutu kullanın:
+6. toorun hello iş, komutu aşağıdaki kullanım hello:
 
     ```
     oozie job -config job.xml -run
     ```
 
-    Bu komut gönderir ve işini başlatır.
+    Bu komut gönderir ve hello işini başlatır.
 
-7. Oozie Web kullanıcı arabirimini ziyaret edin ve seçin, **Düzenleyicisi işleri** sekmesinde, aşağıdaki görüntüye benzer bilgileri görebilirsiniz:
+7. Merhaba Oozie Web kullanıcı arabirimini ziyaret ederek seçin hello **Düzenleyicisi işleri** sekmesine, görüntü aşağıdaki bilgileri benzer toohello bakın:
 
     ![Düzenleyici işler sekmesi](./media/hdinsight-use-oozie-linux-mac/coordinatorjob.png)
 
-    **Sonraki Materialization** girişi, işin bir sonraki çalıştırmasında içeriyor.
+    Merhaba **sonraki Materialization** giriş İş çalıştırmaları hello bir sonraki başlatılışında hello içerir.
 
-8. Önceki iş akışının benzeyen, web kullanıcı Arabirimi iş girişine seçme bilgileri işinde görüntüler:
+8. Benzer toohello hello proje girişi hello web kullanıcı arabirimini seçerek önceki iş akışı işini hello işinde bilgileri görüntüler:
 
     ![Düzenleyici iş bilgileri](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
 
     > [!NOTE]
-    > Bu görüntü yalnızca başarılı çalıştırır zamanlanmış iş akışı içinde bireysel Eylemler işinin gösterir. İçin bkz, aşağıdakilerden birini seçin **eylem** girişleri.
+    > Bu görüntü yalnızca başarılı çalıştırır hello zamanlanmış iş akışı içinde bireysel Eylemler hello işin gösterir. Merhaba birini seçin, toosee **eylem** girişleri.
 
     ![Eylem bilgileri](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Oozie UI Oozie günlükleri görüntülemenize izin verir. Ayrıca, iş akışı tarafından başlatılan MapReduce görevler için Jobtracker'a günlüklerini bağlantılar içerir. Sorun giderme için desen olmalıdır:
+Merhaba Oozie UI tooview Oozie günlükleri sağlar. Ayrıca, MapReduce görevlerin hello iş akışı tarafından başlatılan bağlantıları tooJobTracker günlükleri içerir. sorun giderme için hello düzeni olmalıdır:
 
-1. İşi Oozie Web Arabiriminde görüntüleyin.
+1. Oozie Web kullanıcı arabirimini hello işi görüntüle.
 
-2. Bir hata veya belirli bir eylemi için hatası ise, olmadığını görmek için bir eylem seçin **hata iletisi** alan hatada daha fazla bilgi sağlar.
+2. Bir hata veya belirli bir eylemi için hatası ise, select hello varsa, eylem toosee hello **hata iletisi** alan hello hatada daha fazla bilgi sağlar.
 
-3. Varsa, eyleminden URL eylemi için (örneğin, Jobtracker'a günlükleri) daha fazla ayrıntı görüntülemek için kullanın.
+3. Varsa, hello eylem tooview hello URL'den hello eylem için daha fazla ayrıntı (örneğin, Jobtracker'a günlükleri) kullanın.
 
-Karşılaşabileceğiniz belirli hataları ve bunların nasıl çözüleceği verilmiştir.
+Merhaba karşılaşabileceğiniz, belirli hataları verilmiştir ve nasıl tooresolve bunları.
 
 ### <a name="ja009-cannot-initialize-cluster"></a>JA009: küme başlatılamıyor
 
-**Belirtiler**: İş durumu değişikliklerini **ASKIYA**. İşe yönelik ayrıntıları göster olarak RunHiveScript durumu **START_MANUAL**. Eylem seçildikten aşağıdaki hata iletisini görüntüler:
+**Belirtiler**: İş durumu değiştiğinde çok hello**ASKIYA**. Merhaba işe yönelik ayrıntıları göster hello RunHiveScript durumu olarak **START_MANUAL**. Merhaba eylem seçildikten hello aşağıdaki hata iletisini görüntüler:
 
     JA009: Cannot initialize Cluster. Please check your configuration for map
 
-**Neden**: kullanılan WASB adresleri **job.xml** dosya depolama kapsayıcısı veya depolama hesabı adı içermiyor. WASB adres biçimini olmalıdır `wasb://containername@storageaccountname.blob.core.windows.net`.
+**Neden**: Merhaba hello kullanılan WASB adresleri **job.xml** dosya hello depolama kapsayıcısı veya depolama hesabı adı içermiyor. Merhaba WASB adres biçimini olmalıdır `wasb://containername@storageaccountname.blob.core.windows.net`.
 
-**Çözümleme**: İş tarafından kullanılan WASB adreslerini değiştirin.
+**Çözümleme**: hello iş tarafından kullanılan hello WASB adreslerini değiştirin.
 
-### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltuser"></a>JA002: Oozie almasına izin verilmiyor &lt;kullanıcı >
+### <a name="ja002-oozie-is-not-allowed-tooimpersonate-ltuser"></a>JA002: Tooimpersonate Oozie izin verilmiyor &lt;kullanıcı >
 
-**Belirtiler**: İş durumu değişikliklerini **ASKIYA**. İşe yönelik ayrıntıları göster olarak RunHiveScript durumu **START_MANUAL**. Eylem seçmek aşağıdaki hata iletisini gösterir:
+**Belirtiler**: İş durumu değiştiğinde çok hello**ASKIYA**. Merhaba işe yönelik ayrıntıları göster hello RunHiveScript durumu olarak **START_MANUAL**. Merhaba eylem seçmek aşağıdaki hata iletisini hello gösterir:
 
-    JA002: User: oozie is not allowed to impersonate <USER>
+    JA002: User: oozie is not allowed tooimpersonate <USER>
 
-**Neden**: Geçerli izin ayarlarını Oozie belirtilen kullanıcı hesabı almasına izin vermez.
+**Neden**: Geçerli izin ayarlarını Oozie izin vermez tooimpersonate hello belirtilen kullanıcı hesabı.
 
-**Çözümleme**: Oozie izin verilir, kullanıcının kimliğine bürünmek için **kullanıcılar** grubu. Kullanım `groups USERNAME` kullanıcı hesabının bir üyesi olduğu grupların görmek için. Kullanıcı bir üyesi değilse **kullanıcılar** grup, kullanıcı grubuna eklemek için aşağıdaki komutu kullanın:
+**Çözümleme**: Oozie hello tooimpersonate kullanıcılar izin **kullanıcılar** grubu. Kullanım hello `groups USERNAME` kullanıcı hesabı hello toosee hello gruplarının bir üyesidir. Merhaba kullanıcı hello üyesi değilse **kullanıcılar** grup, komut tooadd hello kullanıcı toohello grubu aşağıdaki hello kullanın:
 
     sudo adduser USERNAME users
 
 > [!NOTE]
-> Kullanıcı grubuna eklenmiş olan Hdınsight algılamasından önce birkaç dakika sürebilir.
+> Merhaba kullanıcı toohello Grup eklenen Hdınsight algılamasından önce birkaç dakika sürebilir.
 
 ### <a name="launcher-error-sqoop"></a>Başlatıcı hata (Sqoop)
 
-**Belirtiler**: İş durumu değişikliklerini **KILLED**. İşe yönelik ayrıntıları göster olarak RunSqoopExport durumu **hata**. Eylem seçmek aşağıdaki hata iletisini gösterir:
+**Belirtiler**: İş durumu değiştiğinde çok hello**KILLED**. Merhaba işe yönelik ayrıntıları göster hello RunSqoopExport durumu olarak **hata**. Merhaba eylem seçmek aşağıdaki hata iletisini hello gösterir:
 
     Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
 
-**Neden**: Sqoop veritabanına erişmek için gerekli veritabanı sürücüsünü yükleyemiyor.
+**Neden**: Sqoop veritabanıdır oluşturulamıyor tooload hello veritabanı sürücüsü gerekli tooaccess hello.
 
-**Çözümleme**: Sqoop, Oozie işten kullanırken, iş tarafından kullanılan veritabanı sürücüsünü diğer kaynaklarla (örneğin, workflow.xml) içermelidir. Ayrıca veritabanı sürücüyü içeren arşiv başvuru `<sqoop>...</sqoop>` workflow.xml bölümü.
+**Çözümleme**: Sqoop, Oozie işten kullanırken, hello veritabanı sürücüsünü hello ile Merhaba iş tarafından kullanılan diğer kaynakları (örneğin, hello workflow.xml) içermelidir. Ayrıca hello hello veritabanı sürücüsünü içeren hello arşiv başvuru `<sqoop>...</sqoop>` hello workflow.xml bölümü.
 
-Örneğin, bu belgede proje için aşağıdaki adımları kullanırsınız:
+Örneğin, bu belgedeki hello işi için aşağıdaki adımları hello kullanırsınız:
 
-1. Sqljdbc4.1.jar dosyasını /tutorials/useoozie dizinine kopyalayın:
+1. Merhaba sqljdbc4.1.jar dosyası toohello /tutorials/useoozie dizinine kopyalayın:
 
     ```
     hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc41.jar /tutorials/useoozie/sqljdbc41.jar
     ```
 
-2. Yeni bir satıra yukarıdaki aşağıdaki XML eklemek için workflow.xml değiştirmek `</sqoop>`:
+2. Yeni bir satıra yukarıdaki XML aşağıdaki hello workflow.xml tooadd hello değiştirme `</sqoop>`:
 
     ```xml
     <archive>sqljdbc41.jar</archive>
@@ -746,7 +746,7 @@ Karşılaşabileceğiniz belirli hataları ve bunların nasıl çözüleceği ve
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, Oozie iş akışı tanımlama ve Oozie işini çalıştır öğrendiniz. Hdınsight ile çalışma hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
+Bu öğreticide, nasıl öğrenilen toodefine Oozie iş akışı ve nasıl toorun Oozie işi. Hdınsight ile çalışma hakkında daha fazla toolearn makaleler hello bakın:
 
 * [Hdınsight ile zamana dayalı Oozie düzenleyicisi kullanın][hdinsight-oozie-coordinator-time]
 * [Hdınsight'ta Hadoop işleri için verileri karşıya yükleme][hdinsight-upload-data]

@@ -1,16 +1,16 @@
-## <a name="add-function-apps-to-your-portal-favorites"></a>İşlev Uygulamalarını portaldaki sık kullanılanlar listesine ekleme 
+## <a name="add-function-apps-tooyour-portal-favorites"></a>İşlev uygulamalarının tooyour portal sık Ekle 
 
-Şimdiye kadar yapmadıysanız İşlev Uygulamalarını Azure portalındaki sık kullanılanlar listenize ekleyin. Bu sayede işlev uygulamalarınızı daha kolay bulabilirsiniz. Bunu önceden yaptıysanız sonraki bölüme geçin. 
+Zaten yapmadıysanız, işlev uygulamalarının tooyour Sık Kullanılanlar hello Azure portal ekleyin. Bu, daha kolay toofind kolaylaştırır işlevi uygulamalarınızı. Bunu zaten yaptıysanız, toohello sonraki bölüme atlayın. 
 
-1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com/).
 
-2. Sol altta bulunan oka tıklayarak tüm hizmetleri genişletin, **Filtre** alanına `Functions` yazın ve **İşlev Uygulamaları**'nın yanındaki yıldıza tıklayın.  
+2. Tüm hizmetler, türü hello alt sol tooexpand Hello oku tıklatın `Functions` hello içinde **filtre** alan ve hello yıldız sonraki çok ardından**işlev uygulamalarının**.  
  
-    ![Azure portalında işlev uygulaması oluşturma](./media/functions-portal-favorite-function-apps/functions-favorite-function-apps.png)
+    ![Hello Azure portal işlev uygulaması oluşturma](./media/functions-portal-favorite-function-apps/functions-favorite-function-apps.png)
 
-    Bunu yaptığınızda portalın sol tarafındaki menüye İşlevler simgesi eklenir.
+    Bu hello işlevleri simgesi toohello menüsü hello portal hello solundaki ekler.
 
-3. Menüyü kapatın ve İşlevler simgesini görmek için sayfayı aşağı kaydırın. Tüm işlev uygulamalarınızın bir listesini görmek için bu simgeye tıklayın. Bu uygulamadaki işlevlerle çalışmak için işlev uygulamanıza tıklayın. 
+3. Merhaba menüsünü kapatın, sonra toohello alt toosee hello işlevleri simgesi kaydırın. Bu simge toosee tüm işlevi uygulamaların bir listesini tıklatın. Bu uygulamadaki işlevlerle, işlevi uygulama toowork'ı tıklatın. 
  
     ![](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
  

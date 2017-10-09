@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI (az.py) kullanarak IOT Hub oluşturma | Microsoft Docs"
-description: "Platformlar arası Azure CLI 2.0 (az.py) kullanan bir Azure IOT hub oluşturma"
+title: Azure CLI (az.py) kullanarak bir IOT Hub aaaCreate | Microsoft Docs
+description: "Nasıl bir Azure IOT hub'ı kullanarak toocreate hello platformlar arası Azure CLI 2.0 (az.py)."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -14,49 +14,49 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: dobett
-ms.openlocfilehash: 161089159999a4a63a39b059e69a08b7a9297445
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 9c9639235c2ac343e6ceb9578291dafaea26ea24
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-an-iot-hub-using-the-azure-cli-20"></a>Azure CLI 2.0 kullanan IOT hub oluşturma
+# <a name="create-an-iot-hub-using-hello-azure-cli-20"></a>Hello Azure CLI 2.0 kullanarak IOT hub oluşturma
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## <a name="introduction"></a>Giriş
 
-Azure CLI 2.0 (az.py) oluşturmak ve Azure IOT hub'ları programlı olarak yönetmek için kullanabilirsiniz. Bu makalede Azure CLI 2.0 (az.py) IOT hub'ı oluşturmak için nasıl kullanılacağı gösterilmektedir.
+Azure CLI 2.0 (az.py) toocreate kullanın ve Azure IOT hub'ları program aracılığıyla yönetebilirsiniz. Bu makale size nasıl toouse hello Azure CLI 2.0 (az.py) toocreate IOT hub'ı gösterir.
 
-Görevi aşağıdaki CLI sürümlerinden birini kullanarak tamamlayabilirsiniz:
+CLI sürümleri aşağıdaki hello birini kullanarak hello görevi tamamlamak:
 
-* [Azure CLI (azure.js)](iot-hub-create-using-cli-nodejs.md) – Klasik ve kaynak yönetimi dağıtım modelleri için CLI.
-* Azure CLI 2.0 (az.py) - Bu makalede anlatıldığı gibi kaynak yönetimi dağıtım modeli için yeni nesil CLI.
+* [Azure CLI (azure.js)](iot-hub-create-using-cli-nodejs.md) – hello Klasik ve kaynak yönetimi dağıtım modelleri için CLI hello.
+* Azure CLI 2.0 (az.py) - Bu makalede anlatıldığı gibi hello kaynak yönetimi dağıtım modeli için yeni nesil CLI hello.
 
-Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
+toocomplete Bu öğretici, aşağıdaki hello gerekir:
 
 * Etkin bir Azure hesabı. Hesabınız yoksa, yalnızca birkaç dakika içinde [ücretsiz bir hesap][lnk-free-trial] oluşturabilirsiniz.
 * [Azure CLI 2.0][lnk-CLI-install].
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Oturum açma ve Azure hesabınızı ayarlama
 
-Azure hesabınızda oturum açın ve aboneliğinizi seçin.
+Tooyour Azure hesabı oturum ve aboneliğinizi seçin.
 
-1. Komut istemine [oturum açma komut][lnk-login-command]:
+1. Merhaba Hello komut isteminde çalıştırmak [oturum açma komut][lnk-login-command]:
     
     ```azurecli
     az login
     ```
 
-    Kod kullanarak kimlik doğrulaması yapmak için yönergeleri izleyin ve bir web tarayıcısı aracılığıyla Azure hesabınızda oturum açın.
+    Merhaba yönergeleri tooauthenticate Hello kod kullanarak izleyin ve oturum açma tooyour bir web tarayıcısı aracılığıyla Azure hesabı.
 
-2. Birden çok Azure aboneliğiniz varsa, Azure'da oturum açma kimlik bilgilerinizle ilişkilendirilen tüm Azure hesaplar için size erişim verir. Aşağıdaki [Azure hesapları listelemek için komut] [ lnk-az-account-command] kullanmanız için kullanılabilir:
+2. Birden çok Azure aboneliğiniz varsa tooAzure imzalama tooall erişim verir kimlik bilgilerinizle ilişkili Azure hesapları hello. Merhaba aşağıdaki kullanın [komutu toolist hello Azure hesapları] [ lnk-az-account-command] , toouse için kullanılabilir:
     
     ```azurecli
     az account list 
     ```
 
-    IOT hub'ınızı oluşturması için komutları çalıştırmak için kullanmak istediğiniz aboneliği seçmek için aşağıdaki komutu kullanın. Önceki komut çıktısı abonelik adı veya kimliği kullanabilirsiniz:
+    IOT hub'ınızı toocreate toouse toorun hello komutları istediğiniz komut tooselect abonelik aşağıdaki hello kullanın. Merhaba hello önceki komutunun çıktısından hello abonelik adı veya kimliği kullanabilirsiniz:
 
     ```azurecli
     az account set --subscription {your subscription name or id}
@@ -64,20 +64,20 @@ Azure hesabınızda oturum açın ve aboneliğinizi seçin.
 
 ## <a name="create-an-iot-hub"></a>IOT Hub oluşturma
 
-Bir kaynak grubu oluşturun ve IOT hub'ı eklemek için Azure CLI kullanın.
+Hello Azure CLI toocreate bir kaynak grubu ve IOT hub'ı ekleyin.
 
-1. IOT hub'ı oluşturduğunuzda, bir kaynak grubunda oluşturmanız gerekir. Varolan bir kaynak grubunu kullanın veya aşağıdaki komutu çalıştırarak [bir kaynak grubu oluşturmak için komutu][lnk-az-resource-command]:
+1. IOT hub'ı oluşturduğunuzda, bir kaynak grubunda oluşturmanız gerekir. Var olan bir kaynak grubunu kullanabilir veya hello aşağıdaki komutu çalıştırarak [komutu toocreate bir kaynak grubu][lnk-az-resource-command]:
     
     ```azurecli
      az group create --name {your resource group name} --location westus
     ```
 
     > [!TIP]
-    > Önceki örnekte Batı ABD konumunda kaynak grubu oluşturur. Komutunu çalıştırarak kullanılabilir konumların bir listesini görüntüleyebilirsiniz `az account list-locations -o table`.
+    > Merhaba önceki örnek hello Batı ABD konumu hello kaynak grubu oluşturur. Merhaba komutu çalıştırarak kullanılabilir konumların bir listesini görüntüleyebilirsiniz `az account list-locations -o table`.
     >
     >
 
-2. Aşağıdaki komutu çalıştırarak [IOT hub'ı oluşturmak için komutu] [ lnk-az-iot-command] kaynak grubunuzdaki IOT hub'ınız için genel benzersiz bir ad kullanarak:
+2. Merhaba aşağıdaki komutu çalıştırarak [komutu toocreate IOT hub'ı] [ lnk-az-iot-command] kaynak grubunuzdaki IOT hub'ınız için genel benzersiz bir ad kullanarak:
     
     ```azurecli
     az iot hub create --name {your iot hub name} --resource-group {your resource group name} --sku S1
@@ -87,34 +87,34 @@ Bir kaynak grubu oluşturun ve IOT hub'ı eklemek için Azure CLI kullanın.
 
 
 > [!NOTE]
-> Önceki komutu fiyatlandırma katmanı için faturalandırılır S1 bir IOT hub oluşturur. Daha fazla bilgi için bkz: [Azure IOT Hub fiyatlandırma][lnk-iot-pricing].
+> Merhaba önceki komutu fiyatlandırma katmanı için faturalandırılır hello S1 IOT hub'ı oluşturur. Daha fazla bilgi için bkz: [Azure IOT Hub fiyatlandırma][lnk-iot-pricing].
 >
 >
 
 ## <a name="remove-an-iot-hub"></a>IOT hub'ı kaldırma
 
-Azure CLI için kullanabileceğiniz [tek başına bir kaynak silme][lnk-az-resource-command]bir IOT hub'ı veya silme gibi bir kaynak grubu ve tüm IOT hub'ları da dahil olmak üzere tüm kaynaklarını,.
+Hello Azure CLI kullanabileceğine[tek başına bir kaynak silme][lnk-az-resource-command]bir IOT hub'ı veya silme gibi bir kaynak grubu ve tüm IOT hub'ları da dahil olmak üzere tüm kaynaklarını,.
 
-Bir IOT hub'ını silmek için aşağıdaki komutu çalıştırın:
+bir IOT hub toodelete hello aşağıdaki komutu çalıştırın:
 
 ```azurecli
 az iot hub delete --name {your iot hub name} --resource-group {your resource group name}
 ```
 
-Bir kaynak grubu ve tüm kaynaklarını silmek için aşağıdaki komutu çalıştırın:
+bir kaynak grubu ve tüm kaynaklarını, aşağıdaki çalışma hello komutu toodelete:
 
 ```azurecli
 az group delete --name {your resource group name}
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-IOT Hub için geliştirme hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
+IOT hub'ı geliştirme hakkında daha fazla toolearn makaleler hello bakın:
 
 * [IOT Hub Geliştirici Kılavuzu][lnk-devguide]
 
-Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
+toofurther IOT hub'ı hello özelliklerini keşfedin, bakın:
 
-* [IOT hub'ı yönetmek için Azure portalını kullanma][lnk-portal]
+* [Hello Azure portal toomanage IOT hub'ı kullanma][lnk-portal]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/

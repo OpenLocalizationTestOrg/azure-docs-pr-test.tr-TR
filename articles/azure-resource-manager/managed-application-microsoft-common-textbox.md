@@ -1,6 +1,6 @@
 ---
-title: "Azure yönetilen uygulama TextBox UI öğesi | Microsoft Docs"
-description: "Azure yönetilen uygulamalar için Microsoft.Common.TextBox kullanıcı Arabirimi öğesi açıklar"
+title: "aaaAzure yönetilen uygulama TextBox UI öğesi | Microsoft Docs"
+description: "Azure yönetilen uygulamalar için Hello Microsoft.Common.TextBox UI öğesi açıklar"
 services: azure-resource-manager
 documentationcenter: na
 author: tabrezm
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tabrezm;tomfitz
-ms.openlocfilehash: 5a0ac5b811812c8c03f7f63aae12b8699d248ebf
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 11771cd1d689b720384df98b8d1465703068af37
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="microsoftcommontextbox-ui-element"></a>Microsoft.Common.TextBox UI öğesi
-Biçimlendirilmemiş metin düzenlemek için kullanılan bir denetimi. Bu öğe kullandığınız zaman [yönetilen bir Azure uygulama oluşturmaya](managed-application-publishing.md).
+Kullanılan tooedit olabilir bir denetim biçimlendirilmemiş metin. Bu öğe kullandığınız zaman [yönetilen bir Azure uygulama oluşturmaya](managed-application-publishing.md).
 
 ## <a name="ui-sample"></a>Kullanıcı Arabirimi örneği
 ![Microsoft.Common.TextBox](./media/managed-application-elements/microsoft.common.textbox.png)
@@ -36,17 +36,17 @@ Biçimlendirilmemiş metin düzenlemek için kullanılan bir denetimi. Bu öğe 
   "constraints": {
     "required": true,
     "regex": "^[a-z0-9A-Z]{1,30}$",
-    "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+    "validationMessage": "Only alphanumeric characters are allowed, and hello value must be 1-30 characters long."
   },
   "visible": true
 }
 ```
 
 ## <a name="remarks"></a>Açıklamalar
-- Varsa `constraints.required` ayarlanır **doğru**, metin kutusunun başarıyla doğrulamak için bir değer içermesi gerekir. Varsayılan değer **false**.
-- `constraints.regex`JavaScript normal ifade deseni olur. Belirtilmişse, metin kutusunun değerini başarıyla doğrulamak için desen eşleşmesi gerekir. Varsayılan değer **null**.
-- `constraints.validationMessage`metin kutusunun değerini doğrulanamadığında görüntülenecek bir dizedir. Belirtilmezse, metin kutusunun yerleşik doğrulama iletileri kullanılır. Varsayılan değer **null**.
-- İçin bir değer belirtin mümkündür `constraints.regex` zaman `constraints.required` ayarlanır **false**. Bu senaryoda, bir değer başarıyla doğrulamak metin kutusu için gerekli değildir. Belirtilmişse, normal ifade deseni eşleşmesi gerekir.
+- Varsa `constraints.required` çok ayarlanır**doğru**, hello metin kutusuna bir değer toovalidate başarıyla içermesi gerekir. Merhaba varsayılan değer **false**.
+- `constraints.regex`JavaScript normal ifade deseni olur. Belirtilmişse, ardından hello metin kutusunun değerini hello düzeni toovalidate başarıyla eşleşmesi gerekir. Varsayılan değer **null**.
+- `constraints.validationMessage`bir dize toodisplay Hello metin kutusunun değerini doğrulama başarısız olduğunda. Aksi takdirde belirtilen ardından metin kutusunun yerleşik doğrulama iletileri kullanılan hello. Merhaba varsayılan değer **null**.
+- Olası toospecify için bir değer `constraints.regex` zaman `constraints.required` çok ayarlanır**false**. Bu senaryoda, bir değer başarıyla hello metin kutusu toovalidate için gerekli değildir. Belirtilmişse, bu hello normal ifade deseni eşleşmelidir.
 
 ## <a name="sample-output"></a>Örnek çıktı
 
@@ -55,6 +55,6 @@ Biçimlendirilmemiş metin düzenlemek için kullanılan bir denetimi. Bu öğe 
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Yönetilen uygulamaların giriş için bkz: [Azure yönetilen uygulama genel bakış](managed-application-overview.md).
-* UI tanımları oluşturmak için bir giriş için bkz [CreateUiDefinition ile çalışmaya başlama](managed-application-createuidefinition-overview.md).
+* Bir giriş toomanaged uygulamalar için bkz [Azure yönetilen uygulama genel bakış](managed-application-overview.md).
+* Bir giriş toocreating UI tanımları için bkz: [CreateUiDefinition ile çalışmaya başlama](managed-application-createuidefinition-overview.md).
 * Kullanıcı Arabirimi öğeleri ortak özellikleri açıklaması için bkz: [CreateUiDefinition öğeleri](managed-application-createuidefinition-elements.md).

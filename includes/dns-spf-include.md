@@ -1,0 +1,5 @@
+Gönderen İlkesi Framework (SPF) kayıtları için hangi e-posta sunucularına toosend e-posta verilen etki alanı adı adına izin verilen kullanılan toospecifying uygulanır.  Doğru SPF kayıtlarının önemli tooprevent alıcıların e-posta adresiniz 'Önemsiz' olarak işaretleme yapılandırmadır.
+
+Merhaba DNS RFC'leri, bu senaryo yeni bir 'SPF' kayıt türü toosupport başlangıçta kullanıma sunuldu. toosupport eski ad sunucuları, bunlar ayrıca hello hello TXT kayıt türü toospecify SPF kayıtlarının izin verilir.  Bu belirsizlik öncülük tarafından çözümlendi tooconfusion [RFC 7208](http://tools.ietf.org/html/rfc7208#section-3.1).  Başka bir durumları, SPF kayıtlarının yalnızca hello TXT kayıt türü kullanılarak oluşturulması gerektiğini ve bu hello SPF kayıt türü kullanım dışı bırakılmıştır.
+
+**SPF kayıtlarının Azure DNS tarafından desteklenir ve hello TXT kayıt türü kullanılarak oluşturulması gerekir.** Merhaba eski SPF kayıt türü desteklenmiyor. Zaman [bir DNS bölge dosyasını içeri](../articles/dns/dns-import-export.md), hello SPF kayıt türünü kullanarak herhangi bir SPF kayıt dönüştürülür toohello TXT kayıt türü.

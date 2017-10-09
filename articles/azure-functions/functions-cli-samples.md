@@ -1,5 +1,5 @@
 ---
-title: "Azure CLI örnekler - Azure işlevleri | Microsoft Docs"
+title: "aaaAzure CLI örnekler - Azure işlevleri | Microsoft Docs"
 description: "Azure CLI örnekler - Azure işlevleri"
 services: functions
 documentationcenter: functions
@@ -16,15 +16,15 @@ ms.workload: functions
 ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 6830ab9ada50da99871592e2c0911ac9cb8f5797
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 2041e710560a41f230a0ffc20dc89756c6b5c854
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-cli-samples"></a>Azure CLI örnekleri
 
-Aşağıdaki tabloda Azure işlevleri için Azure CLI kullanma betikleri bash bağlantılar içerir.
+Merhaba aşağıdaki tabloda bağlantıları toobash komut dosyalarını hello Azure CLI kullanan Azure işlevler içerir.
 
 | | |
 |-|-|
@@ -33,15 +33,15 @@ Aşağıdaki tabloda Azure işlevleri için Azure CLI kullanma betikleri bash ba
 | [Bir uygulama hizmeti planında işlev uygulaması oluşturma](scripts/functions-cli-create-app-service-plan.md) | Bir işlev uygulaması adanmış bir uygulama hizmeti planında oluşturun. |
 | | |
 |**Tümleştirme**||
-| [Bir işlev uygulaması oluşturma ve bir depolama hesabına bağlanma](scripts/functions-cli-create-function-app-connect-to-storage-account.md) | Bir işlev uygulaması oluşturma ve bir depolama hesabına bağlanın. |
-| [Bir işlev uygulaması oluşturma ve bir Azure Cosmos Veritabanına bağlanın](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | Bir işlev uygulaması oluşturma ve bir Azure Cosmos Veritabanına bağlanın |
+| [Bir işlev uygulaması oluşturma ve tooa depolama hesabı bağlayın](scripts/functions-cli-create-function-app-connect-to-storage-account.md) | Bir işlev uygulaması oluşturma ve tooa depolama hesabı bağlayın. |
+| [Bir işlev uygulaması oluşturma ve tooan Azure Cosmos DB bağlanın](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | Bir işlev uygulaması oluşturma ve tooan Azure Cosmos DB bağlanın |
 | | |
 |**Uygulamayı yapılandırma**||
-| [Eşlemesi bir işlev uygulaması için özel bir etki alanı](scripts/functions-cli-configure-custom-domain.md) | İşlevlerinizi için özel bir etki alanı tanımlayın.  |
-| [Bir işlev uygulaması için bir SSL sertifikası bağlama](scripts/functions-cli-configure-ssl-certificate.md)  |  Özel bir etki alanında işlevleri için SSL sertifikaları karşıya yükleyin. |
+| [Özel etki alanı tooa işlev uygulaması eşleme](scripts/functions-cli-configure-custom-domain.md) | İşlevlerinizi için özel bir etki alanı tanımlayın.  |
+| [Bir SSL sertifikası tooa işlev uygulaması bağlama](scripts/functions-cli-configure-ssl-certificate.md)  |  Özel bir etki alanında işlevleri için SSL sertifikaları karşıya yükleyin. |
 <!--
 
 |**Scale app**||
 
-|**Connect app to resources**||
+|**Connect app tooresources**||
 -->

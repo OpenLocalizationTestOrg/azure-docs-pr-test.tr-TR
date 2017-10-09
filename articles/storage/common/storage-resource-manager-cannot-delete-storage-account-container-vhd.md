@@ -1,5 +1,5 @@
 ---
-title: "Azure depolama hesapları, kapsayıcıları veya VHD'leri sildiğinizde hatalarında sorun giderme | Microsoft Docs"
+title: "Azure depolama hesapları, kapsayıcıları veya VHD'leri sildiğinizde aaaTroubleshoot hataları | Microsoft Docs"
 description: "Azure depolama hesapları, kapsayıcıları veya VHD'leri sildiğinizde hatalarında sorun giderme"
 services: storage
 documentationcenter: 
@@ -15,95 +15,95 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: genli
-ms.openlocfilehash: 11944dd38b1cc30106c0b76a108480c018ca39d4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 33261562a2dd2614b35bc1118924513f8c624d6a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-errors-when-you-delete-azure-storage-accounts-containers-or-vhds"></a>Azure depolama hesapları, kapsayıcıları veya VHD'leri sildiğinizde hatalarında sorun giderme
 
-Bir Azure depolama hesabı, kapsayıcı ya da sanal sabit disk (VHD) silmeye çalıştığınızda, hatalar alabilirsiniz [Azure portal](https://portal.azure.com). Bu makalede Azure Resource Manager dağıtımında sorunu gidermek için sorun giderme kılavuzu verilmiştir.
+Bir Azure depolama hesabı, kapsayıcı ya da sanal sabit disk (VHD) toodelete çalıştığınızda hello hataları alabilirsiniz [Azure portal](https://portal.azure.com). Bu makale bir Azure Resource Manager dağıtım kılavuzu toohelp Çöz hello sorun giderme sağlar.
 
-Bu makalede Azure sorununuzu adresi değil, üzerinde Azure forumları ziyaret [MSDN ve yığın taşması](https://azure.microsoft.com/support/forums/). Bu forumları veya çok sorununuzu nakledebilirsiniz @AzureSupport Twitter'da. Ayrıca, size bir Azure destek isteği seçerek dosya **alma desteği** üzerinde [Azure Destek](https://azure.microsoft.com/support/options/) site.
+Bu makalede Azure sorununuzu adresi değil, ziyaret üzerinde Azure forumları hello [MSDN ve yığın taşması](https://azure.microsoft.com/support/forums/). Bu forumlar sorununuzu nakledebilirsiniz veya too@AzureSupport Twitter'da. Ayrıca, size bir Azure destek isteği seçerek dosya **alma desteği** hello üzerinde [Azure Destek](https://azure.microsoft.com/support/options/) site.
 
 ## <a name="symptoms"></a>Belirtiler
 ### <a name="scenario-1"></a>Senaryo 1
-Resource Manager dağıtım depolama hesabında bir VHD silmeye çalıştığınızda, aşağıdaki hata iletisini alıyorsunuz:
+Toodelete bir Resource Manager dağıtım depolama hesabında bir VHD çalıştığınızda hello aşağıdaki hata iletisini alıyorsunuz:
 
-**BLOB 'vhds/BlobName.vhd' silinemedi. Hata: Yoktur şu anda bir kira blob üzerindeki ve istekte hiçbir kiralama kimliği belirtildi.**
+**Toodelete blob 'vhds/BlobName.vhd' başarısız oldu. Hata: Yoktur şu anda bir kira hello blob üzerindeki ve hiçbir kiralama kimliği hello istekte belirtildi.**
 
-Bir sanal makine (VM), silmeyi denediğiniz VHD üzerinde bir kira olduğundan bu sorun oluşabilir.
+Bir sanal makine (VM) toodelete çalıştığınız VHD hello üzerinde bir kira olduğundan bu sorun oluşabilir.
 
 ### <a name="scenario-2"></a>Senaryo 2
-Resource Manager dağıtım depolama hesabında bir kapsayıcı silmeye çalıştığınızda, aşağıdaki hata iletisini alıyorsunuz:
+Toodelete bir Resource Manager dağıtım depolama hesabında bir kapsayıcı çalıştığınızda hello aşağıdaki hata iletisini alıyorsunuz:
 
-**Depolama kapsayıcısı 'VHD'ler' silinemedi. Hata: Yoktur şu anda bir kira kapsayıcısını ve istekte hiçbir kiralama kimliği belirtildi.**
+**Toodelete depolama kapsayıcısı 'VHD'ler' başarısız oldu. Hata: Yoktur şu anda bir kira hello kapsayıcısını ve hiçbir kiralama kimliği hello istekte belirtildi.**
 
-Kapsayıcı kira durumda kilitli bir VHD olduğundan bu sorun oluşabilir.
+Merhaba kapsayıcı hello kira durumda kilitli bir VHD olduğundan bu sorun oluşabilir.
 
 ### <a name="scenario-3"></a>Senaryo 3
-Resource Manager dağıtım bir depolama hesabını silmeye çalıştığınızda, aşağıdaki hata iletisini alıyorsunuz:
+Toodelete bir Resource Manager dağıtım depolama hesabında çalıştığınızda hello aşağıdaki hata iletisini alıyorsunuz:
 
-**Depolama hesabı 'StorageAccountName' silinemedi. Hata: Depolama hesabına ait yapıtlar kullanımda nedeniyle silinemiyor.**
+**Toodelete depolama hesabı 'StorageAccountName' başarısız oldu. Hata: hello depolama hesabı kullanımda tooits yapıları nedeniyle silinemiyor.**
 
-Depolama hesabı kira durumuna sahip bir VHD içerdiğinden bu sorun oluşabilir.
+Merhaba depolama hesabı hello kira durumda bir VHD içerdiğinden bu sorun oluşabilir.
 
 ## <a name="solution"></a>Çözüm 
-Bu sorunları gidermek için hataya neden olan VHD ve ilişkili VM tanımlamanız gerekir. Ardından, VM (için veri diskleri) VHD'den detach veya VHD (işletim sistemi diskler için) kullanarak VM silin. Bu kira VHD'den kaldırır ve silinmesine izin verir. 
+tooresolve hello ilişkili VM ve bu sorunları hello hello hataya neden olan VHD tanımlamanız gerekir. Ardından, hello VHD Merhaba VM (veri diskleri) gelen detach veya hello hello VHD (işletim sistemi diskler için) kullanarak VM silin. Bu VHD hello hello kira kaldırır ve Silinen toobe sağlar. 
 
-Bunu yapmak için aşağıdaki yöntemlerden birini kullanın:
+toodo Bu, kullanımı bir yöntem aşağıdaki hello:
 
 ### <a name="method-1---use-azure-storage-explorer"></a>Yöntem 1 - kullanım Azure storage Gezgini
 
-### <a name="step-1-identify-the-vhd-that-prevent-deletion-of-the-storage-account"></a>Adım 1 depolama hesabı silinmesini engellemek VHD tanımlayın
+### <a name="step-1-identify-hello-vhd-that-prevent-deletion-of-hello-storage-account"></a>1. adım tanımla hello hello depolama hesabı silinmesini engellemek VHD
 
-1. Depolama hesabı sildiğinizde, ileti iletişim kutusu aşağıdaki gibi alır: 
+1. Merhaba depolama hesabını sildiğinizde, ileti iletişim kutusu hello aşağıdaki gibi alır: 
 
-    ![Depolama hesabını silme iletisi](././media/storage-resource-manager-cannot-delete-storage-account-container-vhd/delete-storage-error.png) 
+    ![Merhaba depolama hesabını silme iletisi](././media/storage-resource-manager-cannot-delete-storage-account-container-vhd/delete-storage-error.png) 
 
-2. Denetleme **Disk URL** depolama belirlemek için hesap ve engelleyen VHD depolama hesabını silme. Aşağıdaki örnekte, dize önce ". blob.core.windows.net" depolama hesabı adı ve "SCCM2012-2015-08-28.vhd" VHD adı.  
+2. Merhaba denetleyin **Disk URL** tooidentify hello depolama hesabı ve hello engelleyen VHD hello depolama hesabı silin. Dize önce aşağıdaki örneğine hello hello ". blob.core.windows.net" Merhaba depolama hesabı adı ve "SCCM2012-2015-08-28.vhd" Merhaba VHD adı.  
 
         https://portalvhds73fmhrw5xkp43.blob.core.windows.net/vhds/SCCM2012-2015-08-28.vhd
 
-### <a name="step-2-delete-the-vhd-by-using-azure-storage-explorer"></a>2. adım, Azure Storage Gezgini kullanarak VHD silme
+### <a name="step-2-delete-hello-vhd-by-using-azure-storage-explorer"></a>2. adım Delete hello VHD Azure Storage Gezgini kullanarak
 
-1. En son sürümünü karşıdan yükleyip [Azure Storage Gezgini](http://storageexplorer.com/). Bu araç, Windows, macOS ve Linux Azure Storage ile kolayca çalışmanızı sağlayan Microsoft bir tek başına uygulamadır.
-2. Azure Depolama Gezgini'ni açın ve seçin ![hesabı simgesi](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/account.png) Sol çubuğunda, Azure ortamınıza seçin ve ardından oturum açın.
+1. İndirme ve yükleme hello en son sürümünü [Azure Storage Gezgini](http://storageexplorer.com/). Bu araç, Windows, macOS ve Linux Azure Storage verilerle tooeasily çalışma sağlayan Microsoft bir tek başına uygulamadır.
+2. Azure Depolama Gezgini'ni açın ve seçin ![hesabı simgesi](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/account.png) Merhaba sol çubuğunda Azure ortamınızı seçin ve ardından oturum açın.
 
-3. Tüm abonelikleri veya silmek istediğiniz depolama hesabını içeren bir abonelik seçin.
+3. Tüm abonelikleri veya toodelete istediğiniz hello depolama hesabını içeren hello abonelik seçin.
 
     ![Abonelik Ekle](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/addsub.png)
 
-4. Biz disk URL'den daha önce edindiğiniz depolama hesabı gidin **Blob kapsayıcıları** > **VHD'ler** ve arama engelleyen VHD için depolama hesabı silin.
-5. VHD bulunursa, denetleme **VM adı** bu VHD kullanarak VM bulmak için sütun.
+4. Biz hello disk URL daha önce hello alınan toohello depolama hesabı Git **Blob kapsayıcıları** > **VHD'ler** ve delete hello depolama hesabı Merhaba engelleyen VHD arayın.
+5. Merhaba VHD bulunursa, hello denetleyin **VM adı** sütun toofind hello bu VHD kullanarak VM.
 
     ![VM denetleyin](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/check-vm.png)
 
-6. Kira VHD'den Azure portalını kullanarak kaldırın. Daha fazla bilgi için bkz: [kira VHD'den kaldırmak](#remove-the-lease-from-the-vhd). 
+6. Merhaba kira Azure portalını kullanarak VHD hello kaldırın. Daha fazla bilgi için bkz: [hello VHD öğesinden Kaldır hello kira](#remove-the-lease-from-the-vhd). 
 
-7. Azure depolama Gezgini'ne gidin, VHD'yi sağ tıklayın ve ardından Sil'i seçin.
+7. Toohello Azure Storage Gezgini gidin, hello VHD sağ tıklayın ve ardından Sil'i seçin.
 
-8. Depolama hesabını silin.
+8. Merhaba depolama hesabı silin.
 
 ### <a name="method-2---use-azure-portal"></a>Yöntem 2 - Azure portalı 
 
-#### <a name="step-1-identify-the-vhd-that-prevent-deletion-of-the-storage-account"></a>1. adım: depolama hesabı silinmesini engellemek VHD tanımlayın
+#### <a name="step-1-identify-hello-vhd-that-prevent-deletion-of-hello-storage-account"></a>1. adım: hello hello depolama hesabı silinmesini engellemek VHD tanımlayın
 
-1. Depolama hesabı sildiğinizde, ileti iletişim kutusu aşağıdaki gibi alır: 
+1. Merhaba depolama hesabını sildiğinizde, ileti iletişim kutusu hello aşağıdaki gibi alır: 
 
-    ![Depolama hesabını silme iletisi](././media/storage-resource-manager-cannot-delete-storage-account-container-vhd/delete-storage-error.png) 
+    ![Merhaba depolama hesabını silme iletisi](././media/storage-resource-manager-cannot-delete-storage-account-container-vhd/delete-storage-error.png) 
 
-2. Denetleme **Disk URL** depolama belirlemek için hesap ve engelleyen VHD depolama hesabını silme. Aşağıdaki örnekte, dize önce ". blob.core.windows.net" depolama hesabı adı ve "SCCM2012-2015-08-28.vhd" VHD adı.  
+2. Merhaba denetleyin **Disk URL** tooidentify hello depolama hesabı ve hello engelleyen VHD hello depolama hesabı silin. Dize önce aşağıdaki örneğine hello hello ". blob.core.windows.net" Merhaba depolama hesabı adı ve "SCCM2012-2015-08-28.vhd" Merhaba VHD adı.  
 
         https://portalvhds73fmhrw5xkp43.blob.core.windows.net/vhds/SCCM2012-2015-08-28.vhd
 
-2. [Azure Portal](https://portal.azure.com) oturum açın.
-3. Hub menüsünde seçin **tüm kaynakları**. Depolama hesabına gidin ve ardından **BLOB'lar** > **VHD'ler**.
+2. İçinde toohello oturum [Azure portal](https://portal.azure.com).
+3. Merhaba Hub menüsünde seçin **tüm kaynakları**. Toohello depolama hesabına gidin ve ardından **BLOB'lar** > **VHD'ler**.
 
-    ![Depolama hesabı ve vurgulanmış "VHD" kapsayıcı portalı ekran görüntüsü](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/opencontainer.png)
+    ![Merhaba depolama hesabı ve vurgulanmış hello "VHD" kapsayıcı hello portalı ekran görüntüsü](./media/storage-resource-manager-cannot-delete-storage-account-container-vhd/opencontainer.png)
 
-4. Biz disk URL'den daha önce edindiğiniz VHD'yi bulun. Ardından, VM kullanan belirlemek VHD. Genellikle, VHD adını kontrol ederek VHD VM tutan belirleyebilirsiniz:
+4. Merhaba, biz hello disk URL'den daha önce elde edilen VHD bulun. Ardından, VM kullanan belirlemek VHD hello. Genellikle, olan VM hello VHD hello VHD adını kontrol ederek belirleyebilirsiniz:
 
 Resource Manager geliştirme modelini VM
 
@@ -115,38 +115,38 @@ VM Klasik geliştirme modeli
    * İşletim sistemi disk genellikle bu adlandırma kuralını izleyin: CloudServiceName-VMName-YYYY-MM-DD-HHMMSS.vhd
    * Veri diskleri genellikle bu adlandırma kuralını izleyin: CloudServiceName-VMName-YYYY-MM-DD-HHMMSS.vhd
 
-#### <a name="step-2-remove-the-lease-from-the-vhd"></a>2. adım: kira VHD'den kaldırın.
+#### <a name="step-2-remove-hello-lease-from-hello-vhd"></a>2. adım: hello kira hello VHD ' kaldırın.
 
-[Kira VHD'den kaldırmak](#remove-the-lease-from-the-vhd)ve ardından depolama hesabını silin.
+[Merhaba kira VHD hello Kaldır](#remove-the-lease-from-the-vhd)ve hello depolama hesabı silin.
 
 ## <a name="what-is-a-lease"></a>Bir kira nedir?
-Bir kira blob'u (örneğin, bir VHD) erişimi denetlemek için kullanılan bir kilit ' dir. Bir blob kiralanmış yalnızca kira sahipleri blob erişebilirsiniz. Bir kira aşağıdaki nedenlerle önemlidir:
+Bir kira kullanılan toocontrol erişim tooa blob (örneğin, bir VHD) olabilecek kilit ' dir. Bir blob kiralanmış olduğunda yalnızca hello kira hello sahipleri hello blob erişebilirsiniz. Bir kira nedenleri aşağıdaki hello için önemlidir:
 
-* Aynı anda blob aynı bölümüne yazmak birden çok sahipleri denerseniz, veri bozulmasını engeller.
-* Blob bir şey etkin olarak da (örneğin, bir VM) kullanıyorsa, silinen engeller.
-* Depolama hesabı bir şey etkin olarak da (örneğin, bir VM) kullanıyorsa, silinen engeller.
+* Birden çok sahipleri toowrite toohello çalışırsanız veri bozulmasını engeller hello blob hello adresindeki aynı bölümünü aynı anda.
+* Merhaba blob bir şey etkin olarak da (örneğin, bir VM) kullanıyorsa, silinen engeller.
+* Merhaba depolama hesabı bir şey etkin olarak da (örneğin, bir VM) kullanıyorsa, silinen engeller.
 
-### <a name="remove-the-lease-from-the-vhd"></a>Kira VHD'den Kaldır
-VHD bir işletim sistemi diski ise, kira kaldırmak için VM silmeniz gerekir:
+### <a name="remove-hello-lease-from-hello-vhd"></a>Merhaba kira VHD hello Kaldır
+Merhaba VHD bir işletim sistemi diski ise, hello VM tooremove hello kira silmeniz gerekir:
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Üzerinde **Hub** menüsünde, select **sanal makineleri**.
-3. VHD bir kirayı tutan VM'yi seçin.
-4. Hiçbir şey etkin olarak sanal makinenin kullandığından emin olun ve sanal makine artık gerekir.
-5. Üstündeki **VM ayrıntıları** dikey penceresinde, select **silmek**ve ardından **Evet** onaylamak için.
-6. VM silinmesi gerekir, ancak VHD korunabilir. Ancak, VHD'yi artık kira üzerinde olmalıdır. Yayımlanacak kira için birkaç dakika sürebilir. Kira serbest olduğunu doğrulamak için Git **tüm kaynakları** > **depolama hesabı adı** > **BLOB'lar**  >   **VHD'ler**. İçinde **Blob özellikleri** bölmesinde **kiralama durum** değeri olmalıdır **kilitli değil**.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
+2. Merhaba üzerinde **Hub** menüsünde, select **sanal makineleri**.
+3. Merhaba VHD hello üzerinde bir kirayı tutan VM seçin.
+4. Hiçbir şey etkin şekilde hello sanal makine ve sanal makine artık hello kullandığından emin olun.
+5. Merhaba hello üstündeki **VM ayrıntıları** dikey penceresinde, select **silmek**ve ardından **Evet** tooconfirm.
+6. Merhaba VM silinmesi gerekir, ancak hello VHD korunabilir. Ancak, hello VHD artık kira üzerinde olmalıdır. Yayımlanan hello kira toobe birkaç dakika sürebilir. kira hello tooverify yayımlanır, çok Git**tüm kaynakları** > **depolama hesabı adı** > **BLOB'lar**  >  **VHD'ler**. Merhaba, **Blob özellikleri** bölmesi, hello **kiralama durum** değeri olmalıdır **kilitli değil**.
 
-VHD bir veri diski varsa, kira kaldırmak için VM VHD'den bağlantısını kesin:
+Merhaba VHD bir veri diski varsa, hello VHD hello VM tooremove hello kira gelen bağlantısını kesin:
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Üzerinde **Hub** menüsünde, select **sanal makineleri**.
-3. VHD bir kirayı tutan VM'yi seçin.
-4. Seçin **diskleri** üzerinde **VM ayrıntıları** dikey.
-5. VHD bir kirayı tutan veri diski seçin. VHD bağlı olduğu belirleyebilirsiniz VHD URL'sini denetleyerek disk.
-6. Hiçbir şey veri diski etkin olarak kullandığını kesin olarak belirleyin.
-7. Tıklatın **ayırma** üzerinde **Disk ayrıntıları** dikey.
-8. Diski artık sanal makineden ayrılmış ve VHD artık kira üzerinde sahip olmalıdır. Yayımlanacak kira için birkaç dakika sürebilir. Kiralamasının serbest bırakıldığını doğrulamak için Git **tüm kaynakları** > **depolama hesabı adı** > **BLOB'lar**  >  **VHD'ler**. İçinde **Blob özellikleri** bölmesinde **kiralama durum** değeri olmalıdır **kilitli değil**.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
+2. Merhaba üzerinde **Hub** menüsünde, select **sanal makineleri**.
+3. Merhaba VHD hello üzerinde bir kirayı tutan VM seçin.
+4. Seçin **diskleri** hello üzerinde **VM ayrıntıları** dikey.
+5. VHD hello üzerinde bir kirayı tutan hello veri diski seçin. VHD bağlı olduğu belirleyebilirsiniz hello VHD hello URL'sini denetleyerek hello disk.
+6. Hiçbir şey hello veri diski etkin olarak kullandığını kesin olarak belirleyin.
+7. Tıklatın **ayırma** hello üzerinde **Disk ayrıntıları** dikey.
+8. Hello disk şimdi VM hello ayrılmış ve hello VHD artık kira üzerinde olmalıdır. Yayımlanan hello kira toobe birkaç dakika sürebilir. kira hello tooverify yayımlanan, çok Git**tüm kaynakları** > **depolama hesabı adı** > **BLOB'lar**  >  **VHD'ler**. Merhaba, **Blob özellikleri** bölmesi, hello **kiralama durum** değeri olmalıdır **kilitli değil**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Bir depolama hesabını silme](storage-create-storage-account.md#delete-a-storage-account)
-* [Microsoft Azure (PowerShell) kilitli kira blob storage'nın nasıl](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)
+* [Toobreak hello kira blob storage'nın Microsoft Azure (PowerShell) nasıl kilitli](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)

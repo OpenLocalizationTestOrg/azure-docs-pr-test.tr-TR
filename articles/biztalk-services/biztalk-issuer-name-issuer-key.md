@@ -1,6 +1,6 @@
 ---
-title: "Verenin adı ve verenin anahtarı BizTalk Services | Microsoft Docs"
-description: "Hizmet veri yolu veya BizTalk Services erişim denetimi (ACS) verenin adı ve verenin anahtarı almak öğrenin. MABS, WABS"
+title: "aaaIssuer adı ve verenin anahtarı BizTalk Services | Microsoft Docs"
+description: "Bilgi tooretrieve verenle nasıl ve verenin anahtarı için hizmet veri yolu veya BizTalk Services erişim denetimi (ACS). MABS, WABS"
 services: biztalk-services
 documentationcenter: 
 author: MandiOhlinger
@@ -14,45 +14,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: b9fd985c23558596408e78eadae00dd0f95c4214
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: cc84c2820724ae3e7fc7c40ddbcd83a169add911
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>BizTalk Services: Verenin Adı ve Verenin Anahtarı
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
-Azure BizTalk Services, hizmet veri yolu verenin adı ve verenin anahtarı ve erişim denetimi verenin adı ve verenin anahtarı kullanır. Bu avantajlar şunlardır:
+Azure BizTalk Services hello hizmet veri yolu verenin adı ve verenin anahtarı ve hello erişim denetimi verenin adı ve verenin anahtarı kullanır. Bu avantajlar şunlardır:
 
 | Görev | Hangi verenin adı ve verenin anahtarı |
 | --- | --- |
 | Uygulamanızı Visual Studio'dan dağıtma |Erişim denetimi verenin adı ve verenin anahtarı |
-| Azure BizTalk Services Portalı'nı yapılandırma |Erişim denetimi verenin adı ve verenin anahtarı |
-| Visual Studio'da BizTalk Bağdaştırıcısı hizmetleriyle LOB geçişler oluşturma |Hizmet veri yolu verenin adı ve verenin anahtarı |
+| Hello Azure BizTalk Services portalı yapılandırma |Erişim denetimi verenin adı ve verenin anahtarı |
+| LOB geçişler hello Visual Studio'da BizTalk Bağdaştırıcısı hizmetleri oluşturma |Hizmet veri yolu verenin adı ve verenin anahtarı |
 
-Bu konu verenin adı ve verenin anahtarı almak için adımlar listelenmektedir. 
+Bu konu, hello adımları tooretrieve hello verenin adı ve verenin anahtarı listeler. 
 
 ## <a name="access-control-issuer-name-and-issuer-key"></a>Erişim denetimi verenin adı ve verenin anahtarı
-Erişim denetimi verenin adı ve verenin anahtarı aşağıdaki tarafından kullanılır:
+Merhaba erişim denetimi verenin adı ve verenin anahtarı hello aşağıdaki tarafından kullanılır:
 
-* Visual Studio'da oluşturulan Azure BizTalk hizmeti uygulamanız: başarıyla Visual Studio'da BizTalk hizmeti uygulamanızı Azure'a dağıtmak için erişim denetimi verenin adı ve verenin anahtarı girin. 
-* Azure BizTalk Services portalı: BizTalk hizmeti oluşturma ve BizTalk Services Portalı'nı açın, erişim denetimi verenin adı ve verenin anahtarı otomatik olarak dağıtımlarınızın aynı erişim denetimi değerleri ile kaydedilir.
+* Visual Studio'da oluşturulan Azure BizTalk hizmeti uygulamanız: toosuccessfully BizTalk hizmeti uygulamanızda Visual Studio tooAzure dağıtmak, hello erişim denetimi verenin adı ve verenin anahtarı girin. 
+* Hello Azure BizTalk Services portalı: BizTalk hizmeti oluşturma ve hello BizTalk Services portalı, erişim denetimi veren adınızı açın ve verenin anahtarı, dağıtımlar için kayıtlı otomatik olarak aynı erişim denetimi değerleri hello.
 
-### <a name="get-the-access-control-issuer-name-and-issuer-key"></a>Erişim denetimi verenin adı ve verenin anahtarı edinin
+### <a name="get-hello-access-control-issuer-name-and-issuer-key"></a>Alma erişim denetimi verenin adı ve verenin anahtarı hello
 
-ACS kimlik doğrulaması için kullanmak ve verenin adı ve verenin anahtarı değerlerini almak için genel adımları içerir:
+kimlik doğrulaması ve get toouse ACS Merhaba verenin adı ve verenin anahtarı değerlerini, hello genel adımları içerir:
 
-1. Yükleme [Azure Powershell cmdlet'lerini](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+1. Merhaba yüklemek [Azure Powershell cmdlet'lerini](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
 2. Azure hesabınızda ekleyin:`Add-AzureAccount`
 3. Abonelik adı döndürün:`get-azuresubscription`
 4. Aboneliğinizi seçin:`select-azuresubscription <name of your subscription>` 
-5. Yeni bir ad alanı oluşturun:`new-azuresbnamespace <name for the service bus> "Location" -CreateACSNamespace $true -NamespaceType Messaging`
+5. Yeni bir ad alanı oluşturun:`new-azuresbnamespace <name for hello service bus> "Location" -CreateACSNamespace $true -NamespaceType Messaging`
 
     Örnek:`new-azuresbnamespace biztalksbnamespace "South Central US" -CreateACSNamespace $true -NamespaceType Messaging`
       
-5. Yeni ACS ad alanı (Bu, birkaç dakika sürebilir) oluşturulduğunda, verenin adı ve verenin anahtarı değerlerini bağlantı dizesinde listelenmiştir: 
+5. Merhaba yeni ACS ad alanı (Bu, birkaç dakika sürebilir) oluşturulduğunda hello verenin adı ve verenin anahtarı değerlerini hello bağlantı dizesinde listelenmiştir: 
 
     ```
     Name                  : biztalksbnamespace
@@ -66,34 +66,34 @@ ACS kimlik doğrulaması için kullanmak ve verenin adı ve verenin anahtarı de
     NamespaceType         : Messaging
     ```
 
-Özetlemek için:  
+toosummarize:  
 Verenin adı SharedSecretIssuer =  
 Verenin anahtarı SharedSecretKey =
 
-Daha açık [yeni AzureSBNamespace](https://msdn.microsoft.com/library/dn495165.aspx) cmdlet'i. 
+Merhaba hakkında daha fazla [yeni AzureSBNamespace](https://msdn.microsoft.com/library/dn495165.aspx) cmdlet'i. 
 
 ## <a name="service-bus-issuer-name-and-issuer-key"></a>Hizmet veri yolu verenin adı ve verenin anahtarı
-Hizmet veri yolu verenin adı ve verenin anahtarı BizTalk Bağdaştırıcısı Hizmetleri tarafından kullanılır. BizTalk Services projenizde Visual Studio, bir şirket içi iş kolu (LOB) sistemine bağlamak için BizTalk Bağdaştırıcısı Hizmetleri kullanın. Bağlanmak için LOB geçişi oluşturmak ve LOB Sistem bilgilerinizi girin. Bunu yaparken hizmet veri yolu verenin adı ve verenin anahtarı da girin.
+Hizmet veri yolu verenin adı ve verenin anahtarı BizTalk Bağdaştırıcısı Hizmetleri tarafından kullanılır. Visual Studio'da, BizTalk Services projenizdeki hello BizTalk Bağdaştırıcısı Hizmetleri tooconnect tooan şirket içi iş kolu (LOB) sistemine kullanın. tooconnect, hello LOB geçiş oluşturun ve LOB Sistem bilgilerinizi girin. Bunu yaparken hello hizmet veri yolu verenin adı ve verenin anahtarı da girin.
 
-### <a name="to-retrieve-the-service-bus-issuer-name-and-issuer-key"></a>Hizmet veri yolu verenin adı ve verenin anahtarı almak için
-1. [Klasik Azure portalında](http://go.microsoft.com/fwlink/p/?LinkID=213885) oturum açın.
-2. Sol gezinti bölmesinde seçin **Service Bus**.
-3. Ad alanınızı seçin. Görev çubuğunda seçin **bağlantı bilgilerini**. Bu görüntüler **varsayılan veren** (verenin adı) ve **varsayılan anahtar** (verenin anahtarı). Değerlerine kopyalanabilir.  
+### <a name="tooretrieve-hello-service-bus-issuer-name-and-issuer-key"></a>tooretrieve hello hizmet veri yolu verenin adı ve verenin anahtarı
+1. İçinde toohello oturum [Klasik Azure portalı](http://go.microsoft.com/fwlink/p/?LinkID=213885).
+2. Merhaba sol gezinti bölmesinde seçin **Service Bus**.
+3. Ad alanınızı seçin. Merhaba görev çubuğunda seçin **bağlantı bilgilerini**. Bu hello görüntüler **varsayılan veren** (verenin adı) ve **varsayılan anahtar** (verenin anahtarı). Değerlerine kopyalanabilir.  
 
-Özetlemek için:  
+toosummarize:  
 Verenin adı varsayılan veren =  
 Verenin anahtarı = varsayılan anahtar
 
 ## <a name="next"></a>Sonraki
 Ek Azure BizTalk Services konuları:
 
-* [Azure BizTalk Services SDK yükleme](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
+* [Hello Azure BizTalk Services SDK'sını yükleme](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
 * [Öğretici: Azure BizTalk Hizmetleri](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
-* [Azure BizTalk Services SDK'sını Kullanmaya Nasıl Başlarım](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [I Başlat'ı kullanarak Azure BizTalk Services SDK'sı nasıl hello](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 * [Azure BizTalk Hizmetleri](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-* [Nasıl yapılır: hizmet kimlikleri yapılandırmak için ACS yönetim hizmeti kullanın](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
+* [Nasıl yapılır: kullanım ACS yönetim hizmeti tooConfigure hizmet kimlikleri](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
 * [BizTalk Services: Geliştirici, temel, standart ve Premium sürümler grafiği](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
 * [BizTalk Services: Klasik portalı kullanarak Azure hazırlama](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 * [BizTalk Services: Durum Grafiğini hazırlama](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>

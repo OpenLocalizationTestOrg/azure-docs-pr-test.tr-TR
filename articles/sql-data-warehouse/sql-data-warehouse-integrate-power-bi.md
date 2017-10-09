@@ -1,5 +1,5 @@
 ---
-title: "Power BI ile SQL veri ambarı kullanın | Microsoft Docs"
+title: Power BI ile SQL Data Warehouse aaaUse | Microsoft Docs
 description: "Power BI çözümleri geliştirmek için Azure SQL Data Warehouse ile kullanma ipuçları."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,45 +15,45 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
-ms.openlocfilehash: 4b7609fc5d6ce7bf0e3bd3ebf6d8f52e93a40a75
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a3a347493d07af6824a561567f05894cfe3c0471
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-power-bi-with-sql-data-warehouse"></a>Power BI ile SQL veri ambarı kullanın
-Olarak Azure SQL veritabanı ile SQL veri ambarı doğrudan bağlantı Power BI analitik yeteneklerini yanında aşağı güçlü mantıksal itme yararlanan olanak tanır.  Veri keşfetmenizde doğrudan bağlantı ile sorgular gerçek zamanlı Azure SQL veri ambarı için geri gönderilir.  Bu, birleştirilmiş ölçekli SQL Data Warehouse, terabayt veri göre dakika cinsinden dinamik raporlar oluşturmak için kullanıcıların sağlar.  Ayrıca, Power BI düğmesi Aç giriş doğrudan Power BI kendi SQL veri ambarı'na Azure diğer bölümlerden bilgilerini toplamadan bağlanmasına olanak sağlar.
+Azure SQL Database'de olduğu gibi kullanıcı tooleverage güçlü mantıksal aşağı itme hello analitik Power BI özelliklerini yanında SQL veri ambarı doğrudan bağlantı sağlar.  Merhaba veri keşfetmenizde doğrudan bağlantı ile sorgular geri tooyour Azure SQL Data Warehouse gerçek zamanlı olarak gönderilir.  Bu, birleştirilmiş SQL Data Warehouse, kullanıcıların sağlar hello ölçeğini ile toocreate dinamik raporlar terabayt veri göre dakika cinsinden.  Ayrıca, Power BI düğmesi açık hello hello giriş kullanıcılara toodirectly Azure diğer bölümlerden bilgilerini toplamadan Power BI tootheir SQL Data Warehouse bağlanın.
 
 Doğrudan bağlantı Lütfen Not kullanırken:
 
-* (Daha fazla Ayrıntılar için aşağıya bakın) bağlanırken tam sunucu adını belirtin
-* Veritabanı için güvenlik duvarı kurallarının "Azure hizmetlerine erişime izin ver" için yapılandırılmış emin olun.
-* Bir sütunun seçilmesi veya bir filtre eklemeden gibi her eylem veri ambarı doğrudan sorgu
-* Döşeme yaklaşık 15 (yenileme zamanlanacak gerekmez) dakikada bir yenilenir.
+* (Daha fazla Ayrıntılar için aşağıya bakın) bağlanırken Hello tam sunucu adını belirtin
+* Merhaba veritabanı yapılandırılması için güvenlik duvarı kuralları çok "erişim tooAzure Hizmetleri izin ver" emin olun.
+* Bir sütunun seçilmesi veya bir filtre eklemeden gibi her eylem hello veri ambarı doğrudan sorgu
+* Döşeme yaklaşık 15 (yenileme zamanlanan toobe gerekmez) dakikada bir yenilenir.
 * Soru- cevap veri kümeleri doğrudan bağlanmak için kullanılabilir değil
 * Şema değişiklikleri otomatik olarak toplanmaz
 * Tüm doğrudan bağlanmak sorguları 2 dakika sonra zaman aşımına uğrar
 
-Deneyimleri geliştirmeye devam ederken bu kısıtlamaları ve notlar değişebilir. Bağlanmak için adımlar aşağıda ayrıntılı olarak açıklanmaktadır.  
+Biz tooimprove hello deneyimleri devam ederken bu kısıtlamaları ve notlar değişebilir. Merhaba adımları tooconnect ayrıntılı aşağıda.  
 
-## <a name="using-the-open-in-power-bi-button"></a>'Power bı'da Aç' düğmesini kullanarak
-SQL veri ambarı ve Power BI arasında taşımak için kolay Power BI düğmesi açıkken yoludur. Bu düğme, sorunsuz bir şekilde yeni pano Power BI'da oluşturmaya başlamak sağlar.  
+## <a name="using-hello-open-in-power-bi-button"></a>Merhaba 'Power bı'da Aç' düğmesini kullanarak
+Power BI düğmesi açık hello ile Merhaba en kolay yolu toomove SQL veri ambarı ve Power BI arasında olur. Bu düğme sağlar tooseamlessly başlamak Power BI'da yeni panolar oluşturma.  
 
-1. Başlamak için Azure Klasik Portalı'nda SQL Data Warehouse örneğiniz gidin.
-2. "Power BI'da aç" düğmesine tıklayın.
-3. Doğrudan oturum açmak yapamıyoruz ya da Power BI hesabınız yoksa, oturum açması gerekir.  
-4. SQL Data Warehouse bağlantı sayfası, önceden doldurulmuş SQL veri ambarı bilgileriyle yönlendirilirsiniz.
-5. Kimlik bilgilerinizi girdikten sonra tam olarak, SQL Data Warehouse bağlanır.
+1. başlatılan tooget hello Klasik Azure Portalı'nda tooyour SQL Data Warehouse örneğine gidin.
+2. Merhaba 'Power bı'da Aç' düğmesini tıklatın.
+3. Biz mümkün toosign değilseniz, size, doğrudan veya Power BI hesabınız yoksa, toosign bileşenini gerekir.  
+4. SQL veri ambarı hello bilgileriyle SQL Data Warehouse bağlantı sayfası toohello önceden doldurulmuş yönlendirilir.
+5. Kimlik bilgilerinizi girdikten sonra tam olarak bağlı tooyour SQL Data Warehouse olacaktır.
 
-## <a name="connecting-through-the-power-bi-portal"></a>Power BI Portalı aracılığıyla bağlanma
-Power BI düğmesi Aç kullanarak ek olarak, kullanıcılar ayrıca kendi SQL Data Warehouse Power BI Portalı aracılığıyla bağlanabilir.
+## <a name="connecting-through-hello-power-bi-portal"></a>Merhaba Power BI Portalı aracılığıyla bağlanma
+Toplama toousing hello içinde Aç Power BI düğmesi, kullanıcıların hello Power BI Portal tootheir SQL Data Warehouse da bağlanabilirsiniz.
 
-1. Alt Gezinti Bölmesi ' Veri Al' tıklayın.
+1. Merhaba Gezinti bölmesinin hello altındaki ' Veri Al' tıklayın.
 2. 'Veritabanlarını' seçin.
-3. Bir kez 'Azure SQL Data Warehouse' veritabanlarını sayfasında, seçin ve 'Bağlan' ı.
-4. Gerekli bağlantı bilgileri girin.  Sunucu adını ve veritabanı adını Azure Portalı'nda bulunabilir.
-5. Power BI, ana sayfasına yönlendirilir ve bağlantınızı 'Veri kümeleri' altında yeni bir giriş yapıldıktan sonra örneğinizi adıyla görüntülenir.  
-6. Tüm tabloları ve görünümleri veritabanınızdaki keşfetmek için yeni veri kümesi üzerinde tıklatabilirsiniz. Bir sütunun seçilmesi bir sorgu, visual dinamik olarak oluşturma geri kaynağına gönderir. Bu görsel, yeni bir raporda kaydedilir ve geri panonuza sabitlenir.
+3. Bir kez 'Azure SQL Data Warehouse' hello veritabanlarını sayfasında, seçin ve 'Bağlan' ı.
+4. Merhaba gerekli bağlantı bilgileri girin.  Sunucu adını ve veritabanı adını hello Azure portalında bulunabilir.
+5. Size, toohello ana sayfa bağlantınızı 'Veri kümeleri' altında yeni bir giriş yapıldıktan sonra ve Power BI örneğinizi hello adıyla görünür yeniden yönlendirilir.  
+6. Merhaba yeni veri kümesi tooexplore tıklayabilirsiniz tüm hello tabloların ve görünümlerin veritabanınızdaki. Bir sütunun seçilmesi, visual dinamik olarak oluşturma bir sorgu geri toohello kaynağı gönderir. Bu görsel yeni bir raporda kaydedilebilir ve geri tooyour Pano sabitlenir.
 
 <!--Image references-->
 

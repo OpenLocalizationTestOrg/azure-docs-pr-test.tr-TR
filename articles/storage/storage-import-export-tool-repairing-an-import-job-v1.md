@@ -1,6 +1,6 @@
 ---
-title: "Bir Azure içeri/dışarı aktarma alma işi - v1 onarma | Microsoft Docs"
-description: "Oluşturulmuş ve Azure içeri/dışarı aktarma hizmeti kullanarak çalışan bir alma işi onarmak öğrenin."
+title: "bir Azure içeri/dışarı aktarma alma işi - v1 aaaRepairing | Microsoft Docs"
+description: "Nasıl toorepair oluşturulmuş ve kullanarak çalışan bir alma işi hello Azure içeri/dışarı aktarma bilgi hizmeti."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,47 +14,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: b374eabcbafa6ffe64c639fb6c89be857ecfc221
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: a9ed81f50cffd8ae6e0cb21b25a04815c2b51ee5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="repairing-an-import-job"></a>Bir içeri aktarma işini onarma
-Microsoft Azure içeri/dışarı aktarma hizmeti, bazı dosyalar veya, bir dosyanın parçalarını Windows Azure Blob hizmeti kopyalamak başarısız olabilir. Hataları görmek için bazı nedenler şunlardır:  
+Microsoft Azure içeri/dışarı aktarma hizmeti Hello toocopy başarısız olabilir bazı dosyaları veya bir dosya toohello Windows Azure Blob hizmeti bölümlerini. Hataları görmek için bazı nedenler şunlardır:  
   
 -   Bozuk dosyaları  
   
 -   Bozuk sürücüler  
   
--   Depolama hesabı anahtarı dosyası aktarılırken değiştirildi.  
+-   Merhaba depolama hesabı anahtarı Hello dosya aktarılırken değiştirildi.  
   
-İşin kopya günlük dosyalarını içeri aktarmaya Microsoft Azure içeri/dışarı aktarma Aracı'nı çalıştırabilir ve içeri aktarma işlemini tamamlamak için Windows Azure depolama hesabınıza aracı eksik dosyaları (veya, bir dosyanın parçalarını) karşıya yükleyecek.  
+İşin kopya günlük dosyalarını hello içeri aktarmaya hello Microsoft Azure içeri/dışarı aktarma aracı çalıştırabilir ve hello Aracı'nın karşıya yükleme hello eksik dosyaları (veya, bir dosyanın parçalarını) tooyour Windows Azure depolama hesabı toocomplete içeri aktarma işi.  
   
 ## <a name="repairimport-parameters"></a>RepairImport parametreleri
 
-Aşağıdaki parametreleri ile belirtilen **RepairImport**: 
+Merhaba aşağıdaki parametreleri ile belirtilebilir **RepairImport**: 
   
 |||  
 |-|-|  
-|**/ r:**< RepairFile\>|**Gerekli.** Onarım ilerleyişini izler ve kesintiye uğramış bir onarım sürdürmek için veren onarım dosyasının yolu. Her bir sürücü bir ve yalnızca bir onarım dosyası olması gerekir. Belirli bir sürücü için onarım başlattığınızda, henüz var olmayan bir onarım dosya yolunda geçer. Kesintiye uğramış bir onarım sürdürmek için varolan bir onarma dosya adına geçirmelisiniz. Onarım dosya hedef sürücüye karşılık gelen her zaman belirtilmesi gerekir.|  
-|**/ LOGDIR:**< LogDirectory\>|**İsteğe bağlı.** Günlük dosyası dizini. Bu dizin için ayrıntılı günlük dosyalarına yazılır. Günlük dizini belirtilmezse, geçerli dizin günlük dizini olarak kullanılır.|  
-|**/ d:**< TargetDirectories\>|**Gerekli.** İçe aktarılan özgün dosyaları içeren bir veya daha çok noktalı virgülle ayrılmış dizinleri. İçeri aktarma sürücü de kullanılabilir, ancak özgün dosyaları alternatif konumlara kullanılabilir, gerekli değildir.|  
-|**/BK:**< BitLockerKey\>|**İsteğe bağlı.** Özgün dosya kullanılabildiği şifrelenmiş sürücünün kilidini açmak için aracın istiyorsanız BitLocker anahtarını belirtmeniz gerekir.|  
-|**/sn:**< StorageAccountName\>|**Gerekli.** İçe aktarma işi için depolama hesabı adı.|  
-|**/SK:**< StorageAccountKey\>|**Gerekli** bir kapsayıcı SAS varsa ve yalnızca belirtilmezse. İçe aktarma işi için depolama hesabı için hesap anahtarı.|  
-|**/csas:**< ContainerSas\>|**Gerekli** depolama hesabı anahtarı belirtilmezse varsa ve yalnızca. İçe aktarma işi ile ilişkili BLOB'ları erişmek için kapsayıcı SAS.|  
-|**/ CopyLogFile:**< DriveCopyLogFile\>|**Gerekli.** Sürücüyü Kopyala günlük dosyası (ya da ayrıntılı günlük veya hata günlüğü) yolu. Dosya Windows Azure içeri/dışarı aktarma hizmeti tarafından oluşturulan ve işle ilişkili blob depolama biriminden indirilebilir. Kopya günlük dosyası başarısız BLOB veya onarılması dosyaları hakkında bilgi içerir.|  
-|**/ PathMapFile:**< DrivePathMapFile\>|**İsteğe bağlı.** Aldığınız aynı işlemde aynı ada sahip birden fazla dosya varsa belirsizlikleri çözümlemek için kullanılan bir metin dosyasının yolu. İlk kez aracı çalıştırdığınızda, bu dosya tüm belirsiz adları ile doldurabilirsiniz. Aracı'nın sonraki çalıştırır belirsizlikleri gidermek için bu dosyayı kullanır.|  
+|**/ r:**< RepairFile\>|**Gerekli.** Hello onarım hello ilerleyişini izler ve tooresume kesintiye uğramış bir onarım veren yolu toohello onarım dosyası. Her bir sürücü bir ve yalnızca bir onarım dosyası olması gerekir. Belirli bir sürücü için onarım başlattığınızda, henüz var olmayan hello yolu tooa onarım dosyasında geçer. tooresume kesintiye uğramış bir onarım, varolan bir onarma dosyasını hello adlarında geçirmelisiniz. Merhaba onarım dosya karşılık gelen toohello hedef sürücüde her zaman belirtilmesi gerekir.|  
+|**/ LOGDIR:**< LogDirectory\>|**İsteğe bağlı.** Merhaba günlük dosyası dizini. Ayrıntılı günlük dosyalarını toothis dizin yazılır. Günlük dizini belirtilirse, hello geçerli dizin hello günlük dizini kullanılır.|  
+|**/ d:**< TargetDirectories\>|**Gerekli.** İçe aktarılan özgün dosyaları içeren bir veya daha çok noktalı virgülle ayrılmış dizinleri hello. Merhaba alma sürücü de kullanılabilir, ancak özgün dosyaları alternatif konumlara kullanılabilir, gerekli değildir.|  
+|**/BK:**< BitLockerKey\>|**İsteğe bağlı.** Merhaba aracı toounlock hello özgün dosyaları kullanılabildiği şifrelenmiş sürücünün istiyorsanız hello BitLocker anahtar belirtmeniz gerekir.|  
+|**/sn:**< StorageAccountName\>|**Gerekli.** Merhaba hello için hello depolama hesabı adını alma işi.|  
+|**/SK:**< StorageAccountKey\>|**Gerekli** bir kapsayıcı SAS varsa ve yalnızca belirtilmezse. Merhaba hesap anahtarı hello depolama hesabı hello için alma işi.|  
+|**/csas:**< ContainerSas\>|**Gerekli** hello depolama hesabı anahtarı belirtilmezse varsa ve yalnızca. Merhaba kapsayıcı SAS hello hello içe aktarma işi ile ilişkili BLOB'ları erişmek için.|  
+|**/ CopyLogFile:**< DriveCopyLogFile\>|**Gerekli.** Yol toohello sürücü kopyalama günlük dosyası (ayrıntılı günlük ya da hata günlüğü). Merhaba dosya hello Windows Azure içeri/dışarı aktarma hizmeti tarafından oluşturulan ve hello işle ilişkili hello blob depolama biriminden indirilebilir. Merhaba kopyalama günlük dosyası başarısız BLOB veya onarıldı toobe dosyaları hakkında bilgi içerir.|  
+|**/ PathMapFile:**< DrivePathMapFile\>|**İsteğe bağlı.** Kullanılabilir yol tooa metin dosyası ile aynı ad içinde almakta hello birden fazla dosya varsa tooresolve belirsizlikleri hello aynı iş. Merhaba ilk saat hello aracı çalıştırın, tüm hello belirsiz adları bu dosyayla doldurabilirsiniz. Hello aracının sonraki çalışır, bu dosya tooresolve hello belirsizlikleri kullanır.|  
   
-## <a name="using-the-repairimport-command"></a>RepairImport komutunu kullanma  
-İçeri aktarma verileri ağ üzerinden veri akış tarafından onarmak için alma kullanarak özgün dosyaları içeren dizinlerini belirt `/d` parametresi. Depolama hesabınızdan yüklediğiniz copy günlük dosyası da belirtmeniz gerekir. İçe aktarma işi kısmi hatalarıyla onarmak için tipik bir komut satırı şuna benzer:  
+## <a name="using-hello-repairimport-command"></a>Merhaba RepairImport komutunu kullanma  
+Merhaba ağ üzerinden hello veri akış tarafından toorepair veri içeri aktar alma kullanarak hello özgün dosyaları içeren hello dizinleri hello belirtmelisiniz `/d` parametresi. Depolama hesabınızdan indirdiğiniz hello kopyalama günlük dosyası da belirtmeniz gerekir. Tipik komut satırı toorepair içe aktarma işi kısmi hatalarıyla şuna benzer:  
   
 ```  
 WAImportExport.exe RepairImport /r:C:\WAImportExport\9WM35C2V.rep /d:C:\Users\bob\Pictures;X:\BobBackup\photos /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C2V.log  
 ```  
   
-Kopya günlük dosyası örneği verilmiştir. Bu durumda, bir alma işi sevk edilen sürücüde dosya 64 K parçası bozulmuş. Belirtilen tek hatası olduğundan iş bloblar geri kalanı başarıyla içeri aktarıldı.  
+Merhaba, bir kopya günlük dosyası örneği aşağıdadır. Bu durumda, bir hello içe aktarma işi için sevk edilen hello sürücüde dosya 64 K parçası bozulmuş. Belirtilen hello yalnızca hatası olduğundan hello rest hello BLOB hello işi başarıyla içeri aktarıldı.  
   
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
@@ -73,39 +73,39 @@ Kopya günlük dosyası örneği verilmiştir. Bu durumda, bir alma işi sevk ed
 </DriveLog>  
 ```
   
-Bu kopyalama günlük Azure içeri/dışarı aktarma aracı geçirildiğinde aracı eksik içeriği ağ üzerinden kopyalayarak bu dosya için alma işlemini bitirmek çalışacaktır. Yukarıdaki örnekte aracı için özgün dosya görünür `\animals\koala.jpg` iki dizin içinde `C:\Users\bob\Pictures` ve `X:\BobBackup\photos`. Varsa dosyayı `C:\Users\bob\Pictures\animals\koala.jpg` yoksa, Azure içeri/dışarı aktarma aracı karşılık gelen blob veri eksik aralığını kopyalayacak `http://bobmediaaccount.blob.core.windows.net/pictures/animals/koala.jpg`.  
+Bu kopyalama günlük toohello Azure içeri/dışarı aktarma aracı geçirildiğinde hello aracı hello ağ üzerinden hello eksik içeriği kopyalayarak bu dosya için toofinish hello alma çalışacaktır. Yukarıdaki Merhaba örneği hello aracı hello özgün dosya için görünür `\animals\koala.jpg` hello iki dizinleri içinde `C:\Users\bob\Pictures` ve `X:\BobBackup\photos`. Merhaba, dosya `C:\Users\bob\Pictures\animals\koala.jpg` yoksa, hello Azure içeri/dışarı aktarma aracı hello eksik veri toohello karşılık gelen blob aralığını kopyalar `http://bobmediaaccount.blob.core.windows.net/pictures/animals/koala.jpg`.  
   
 ## <a name="resolving-conflicts-when-using-repairimport"></a>RepairImport kullanırken çakışmalarını çözme  
-Bazı durumlarda, aracı bulunamıyor veya gerekli dosya aşağıdaki nedenlerden birinden dolayı açmak mümkün olmayabilir: dosya bulunamadı, dosyanın erişilebilir değil, dosya adı belirsiz veya dosyanın içeriği artık doğru değil.  
+Bazı durumlarda, hello aracı mümkün toofind veya açık hello gerekli dosyası hello aşağıdaki nedenlerden biri olabilir: hello dosya bulunamadı, hello dosyası erişilebilir değil, hello dosya adı belirsiz veya hello dosyanın Merhaba içeriğine doğru artık.  
   
-Aracı bulmak çalışıyor belirsiz bir hata oluşabilir `\animals\koala.jpg` ve her ikisi de altında bu ada sahip bir dosya `C:\Users\bob\pictures` ve `X:\BobBackup\photos`. Diğer bir deyişle, her ikisi de `C:\Users\bob\pictures\animals\koala.jpg` ve `X:\BobBackup\photos\animals\koala.jpg` alma işi sürücülerinde mevcut.  
+Merhaba aracı toolocate çalışıyor belirsiz bir hata oluşabilir `\animals\koala.jpg` ve her ikisi de altında bu ada sahip bir dosya `C:\Users\bob\pictures` ve `X:\BobBackup\photos`. Diğer bir deyişle, her ikisi de `C:\Users\bob\pictures\animals\koala.jpg` ve `X:\BobBackup\photos\animals\koala.jpg` hello alma işi sürücülerinde mevcut.  
   
-`/PathMapFile` Seçeneği, bu hataları gidermek ver. Aracı'nı doğru şekilde belirlemek mümkün değildi dosyaların listesini dosyasını adını içeren belirtebilirsiniz. Doldurmak bir örnek komut satırı aşağıdadır `9WM35C2V_pathmap.txt`:  
+Merhaba `/PathMapFile` seçeneği etmenizi sağlar tooresolve bu hatalar. Merhaba aracı hello dosyaların listesini içeren hello dosyasının hello adı kullanamadı belirtebilirsiniz toocorrectly tanımlayın. Merhaba doldurmak bir örnek komut satırı aşağıdadır `9WM35C2V_pathmap.txt`:  
   
 ```
 WAImportExport.exe RepairImport /r:C:\WAImportExport\9WM35C2V.rep /d:C:\Users\bob\Pictures;X:\BobBackup\photos /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C2V.log /PathMapFile:C:\WAImportExport\9WM35C2V_pathmap.txt  
 ```
   
-Araç ardından sorunlu dosya yolları yazacak `9WM35C2V_pathmap.txt`, her satırda bir tane. Örneğin, dosya, komutu çalıştırdıktan sonra aşağıdaki girdileri içerebilir:  
+Merhaba aracı sonra yazacak hello sorunlu dosya yolları çok`9WM35C2V_pathmap.txt`, her satırda bir tane. Örneğin, hello dosyası girdileri hello komutu çalıştırdıktan sonra aşağıdaki hello içerebilir:  
  
 ```
 \animals\koala.jpg  
 \animals\kangaroo.jpg  
 ```
   
- Listedeki her dosya için araç kullanılabildiğinden emin olmak için dosyasını bulun ve açın denemelisiniz. Aracı açıkça bir dosyayı nerede bulacağını bildirir isterseniz, yol haritası değiştirebilir ve bir sekme karakteriyle ayrılmış aynı satırda her dosya yolunu ekleyin:  
+ Merhaba listesindeki her dosya için toolocate denemek ve kullanılabilir toohello araçtır hello dosya tooensure açın. Tootell hello aracı istiyorsanız açıkça toofind bir dosya, değiştirebileceğiniz hello yolu eşleme dosyası ve hello yolu tooeach hello dosyada Ekle sekmesinde karakteriyle ayrılmış aynı satır:  
   
 ```
 \animals\koala.jpg           C:\Users\bob\Pictures\animals\koala.jpg  
 \animals\kangaroo.jpg        X:\BobBackup\photos\animals\kangaroo.jpg  
 ```
   
-Gerekli dosyaları aracı için kullanılabilir hale getirme veya yol haritası güncelleştirme sonra içeri aktarma işlemini tamamlamak için aracını çalıştırabilirsiniz.  
+Yapmayı hello gerekli dosyaları kullanılabilir toohello aracını veya güncelleştirme hello yol haritası sonra hello aracı toocomplete hello içeri aktarma işlemi çalıştırabilirsiniz.  
   
 ## <a name="next-steps"></a>Sonraki adımlar
  
-* [Azure içeri/dışarı aktarma aracı ayarlama](storage-import-export-tool-setup-v1.md)   
+* [Kurulum hello Azure içeri/dışarı aktarma aracı](storage-import-export-tool-setup-v1.md)   
 * [Sabit sürücüleri içeri aktarma işine hazırlama](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
 * [Kopyalama günlük dosyalarıyla iş durumunu gözden geçirme](storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Bir dışarı aktarma işini onarma](storage-import-export-tool-repairing-an-export-job-v1.md)   
-* [Azure İçeri/Dışarı Aktarma Aracı ile ilgili sorunları giderme](storage-import-export-tool-troubleshooting-v1.md)
+* [Sorun giderme hello Azure içeri/dışarı aktarma aracı](storage-import-export-tool-troubleshooting-v1.md)

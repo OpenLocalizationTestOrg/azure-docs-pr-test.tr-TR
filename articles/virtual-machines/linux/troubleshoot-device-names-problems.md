@@ -1,6 +1,6 @@
 ---
-title: "Linux VM aygıt adlarını Azure'da değiştiğinde | Microsoft Docs"
-description: "Nedenini açıklayan aygıtı adları değiştirilir ve bu sorun için çözüm sağlar."
+title: "aaaLinux VM aygıt adlarını Azure'da değiştiğinde | Microsoft Docs"
+description: "Neden aygıt adlarının değiştirilir ve bu sorun için çözüm sağlamak hello açıklanmaktadır."
 services: virtual-machines-linux
 documentationcenter: 
 author: genlin
@@ -14,45 +14,45 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 07/12/2017
 ms.author: genli
-ms.openlocfilehash: 789f4580901a22dc3aaae9599c7205c76f268403
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: 4d3a5853d61edd2c8e8b85ab69e5ed3b3bc00bb8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshooting-linux-vm-device-names-are-changed"></a>Sorunlarını giderme: Linux VM aygıt adlarının değişmesi
 
-Bu makalede, Linux sanal makine (VM) yeniden başlatın veya diskleri yeniden iliştirmeye sonra aygıt adlarının neden değişmesi açıklanmaktadır. Ayrıca bu sorun için çözüm sağlar.
+Linux sanal makine (VM) yeniden başlatın ya da hello diskleri yeniden iliştirmeye sonra aygıt adlarının neden değişmesi Hello makalede açıklanmaktadır. Ayrıca bu sorun için hello çözümü sağlar.
 
 ## <a name="symptom"></a>Belirti
 
-Microsoft Azure Linux VM'ler çalıştırırken aşağıdaki sorunlarla karşılaşabilirsiniz.
+Sorunları Linux VM'ler Microsoft Azure üzerinde çalışırken aşağıdaki hello karşılaşabilirsiniz.
 
-- VM yeniden başlatma sonrasında önyükleme başarısız olur.
+- Merhaba VM yeniden başlatma sonrasında tooboot başarısız olur.
 
-- Veri diskleri ayrılmış ve yeniden, diskler için cihazları adları değiştirilir.
+- Veri diskleri ayrılmış ve yeniden, diskleri için hello aygıtları adları değiştirilir.
 
-- Bir uygulama veya aygıt adı kullanarak bir disk başvuruda bulunan komut dosyası başarısız olur. Disk aygıt adına değiştiğini bulun.
+- Bir uygulama veya aygıt adı kullanarak bir disk başvuruda bulunan komut dosyası başarısız olur. Bu hello bulur hello disk aygıt adı değiştirildi.
 
 ## <a name="cause"></a>Nedeni
 
-Linux yollarında cihaz yeniden başlatmaları arasındaki tutarlı olması garanti edilmez. Aygıt adlarının (harf) büyük ve küçük sayı oluşur.  Linux depolama aygıtı sürücüsü yeni bir cihaz algıladığında, birincil ve ikincil cihaz numaraları kullanılabilir aralıktan atar. Bir cihaz kaldırıldığında, aygıtı sayıları daha sonra yeniden kurtulurlar.
+Linux aygıt yollarında toobe tutarlı yeniden başlatmaları arasındaki garanti edilmez. Aygıt adlarının (harf) büyük ve küçük sayı oluşur.  Yeni bir cihaz Hello Linux depolama aygıtı sürücüsü algıladığında, birincil ve ikincil cihaz numaraları tooit hello kullanılabilir aralığından atar. Bir cihaz kaldırıldığında, hello aygıt daha sonra yeniden boşaltılmış toobe numaralarıdır.
 
-Sorun, Linux SCSI alt sistemi tarafından zamanlanmış tarama aygıt zaman uyumsuz olarak olur nedeniyle oluşur. Son aygıt adlandırma yolu yeniden başlatmaları arasında farklılık gösterebilir. 
+Merhaba Linux hello SCSI alt sistemi tarafından zamanlanmış tarama aygıtı zaman uyumsuz olarak olur hello sorun nedeniyle oluşur. Merhaba son aygıt adlandırma yolu yeniden başlatmaları arasında farklılık gösterebilir. 
 
 ## <a name="solution"></a>Çözüm
 
-Bu sorunu gidermek için kalıcı adlandırma kullanın. Dört yöntem kalıcı adlandırma için - filesystem etiketi, UUID, kimliğe göre ve tarafından yolu vardır. Dosya sistemi etiket ve UUID yöntemleri Azure Linux VM'ler için önerilir. 
+tooresolve bu sorunu kalıcı adlandırma kullanın. Dört yöntemleri toopersistent vardır - filesystem etiketi, UUID, kimliğe göre ve tarafından yolu adlandırma. Merhaba filesystem etiket ve UUID yöntemleri Azure Linux VM'ler için önerilir. 
 
-Çoğu dağıtımları da ya da sağlamak **nofail** veya **nobootwait** fstab seçenekleri. Bu seçenekler, başlangıçta bağlamak disk başarısız olsa bile önyükleme sistemi sağlar. Bu parametreler hakkında daha fazla bilgi için dağıtım ait belgelere bakın. Bir veri diski eklediğinizde bir UUID kullanmak için bir Linux VM yapılandırma hakkında daha fazla bilgi için bkz: [yeni diski Linux VM Bağlan](add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk). 
+Çoğu dağıtımları da ya da hello sağlamak **nofail** veya **nobootwait** fstab seçenekleri. Merhaba disk toomount başlangıçta başarısız olsa bile bu seçenekler sistem tooboot sağlar. Bu parametreler hakkında daha fazla bilgi için Hello dağıtım'ın belgelerine bakın. Bir Linux VM toouse bir veri diski eklediğinizde UUID tooconfigure nasıl gördükleri hakkında daha fazla bilgi için [toohello Linux VM toomount hello yeni disk bağlanmak](add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk). 
 
-Azure Linux Aracısı VM üzerinde yüklü olduğunda Udev kuralları altında sembolik bağlantılar kümesi oluşturmak için kullandığı **/dev/disk/azure**. Udev kurallar uygulamalar tarafından kullanılabilir ve diskleri tanımlamak için komut dosyaları VM, kendi türü ve LUN'a bağlı.
+Hello Azure Linux Aracısı VM üzerinde yüklü olduğunda, sembolik bağlantılar altında bir dizi Udev kuralları tooconstruct kullanan **/dev/disk/azure**. Udev kurallar uygulamalar tarafından kullanılabilir ve komut dosyaları tooidentify diskleri ekli toohello VM, kendi türü ve LUN hello.
 
 ## <a name="more-information"></a>Daha fazla bilgi
 
 ### <a name="identify-disk-luns"></a>Diski LUN'ları tanımlayın
 
-Bir uygulama, tüm dünyada sembolik bağlantılar ve bağlı disklerde bulmak için LUN'ları kullanabilirsiniz. Azure Linux Aracısı'nı şimdi sembolik bağlantılar bir LUN cihazlara aşağıdaki gibi ayarlayın udev kurallarını içerir:
+Bir uygulama LUN toofind tüm bağlı hello diskleri ve oluşturma sembolik bağlantılar kullanabilirsiniz. Hello Azure Linux Aracısı şimdi sembolik bağlantılar bir LUN toohello aygıtlardan aşağıdaki gibi ayarlayın udev kurallarını içerir:
 
     $ tree /dev/disk/azure
 
@@ -70,7 +70,7 @@ Bir uygulama, tüm dünyada sembolik bağlantılar ve bağlı disklerde bulmak i
         └── lun1-part3 -> ../../../sdd3                                    
                                  
 
-LUN bilgileri de lsscsi veya benzer bir aracı gibi kullanarak Linux konuktaki alınabilir.
+LUN bilgileri de hello Linux konuktaki lsscsi veya benzer bir aracı gibi kullanılarak alınabilir.
 
        $ sudo lsscsi
 
@@ -84,7 +84,7 @@ LUN bilgileri de lsscsi veya benzer bir aracı gibi kullanarak Linux konuktaki a
 
       [5:0:0:1] disk Msft Virtual Disk 1.0 /dev/sdd
 
-Bu Konuk LUN bilgileri Azure aboneliği meta verileriyle bölüm verileri depolayan VHD Azure depolama alanında konumunu tanımlamak için kullanılabilir. Örneğin, az CLI kullanın:
+Bu Konuk LUN bilgileri Azure aboneliği meta veri tooidentify hello konumunu hello hello bölüm verileri depolayan VHD ile Azure depolama alanında kullanılabilir. Örneğin, hello az CLI kullanın:
 
     $ az vm show --resource-group testVM --name testVM | jq -r .storageProfile.dataDisks                                        
     [                                                                                                                                                                  
@@ -116,7 +116,7 @@ Bu Konuk LUN bilgileri Azure aboneliği meta verileriyle bölüm verileri depola
 
 ### <a name="discover-filesystem-uuids-by-using-blkid"></a>Dosya sistemi UUID'ler blkid kullanarak Bul
 
-Bir komut dosyası veya uygulama blkid çıktısını ya da bilgi benzer kaynakları okuyabilir ve sembolik bağlantılar oluşturmak **/dev** kullanmak için. Çıktı VM ve için ilişkili oldukları aygıt dosyası bağlı tüm diskleri UUID'ler gösterir:
+Bir komut dosyası veya uygulama blkid hello çıktısını ya da bilgi benzer kaynakları okuyabilir ve sembolik bağlantılar oluşturmak **/dev** kullanmak için. Merhaba çıkış ilişkili toohello VM ve hello aygıt dosya toowhich hello UUID tüm disklerin bağlı gösterir:
 
     $ sudo blkid -s UUID
 
@@ -125,7 +125,7 @@ Bir komut dosyası veya uygulama blkid çıktısını ya da bilgi benzer kaynakl
     /dev/sdb1: UUID="176250df-9c7c-436f-94e4-d13f9bdea744"
     /dev/sdc1: UUID="b0048738-4ecc-4837-9793-49ce296d2692"
 
-Sembolik bağlantılar altında bir dizi waagent udev kuralları oluşturmak **/dev/disk/azure**:
+Merhaba waagent udev kuralları oluşturmak sembolik bağlantılar altında bir dizi **/dev/disk/azure**:
 
 
     $ ls -l /dev/disk/azure
@@ -137,24 +137,24 @@ Sembolik bağlantılar altında bir dizi waagent udev kuralları oluşturmak **/
     lrwxrwxrwx 1 root root 10 Jun  2 23:17 root-part1 -> ../../sda1
 
 
-Uygulama bu bilgileri kullanabilir önyükleme diski cihaz ve kaynak (kısa ömürlü) disk tanımlar. Azure'da, uygulamalar için başvurmalıdır **/dev/disk/azure/root-part1** veya **/dev/disk/azure-resource-part1** bu bölümler bulmak için.
+Merhaba uygulaması, bu bilgiyi kullanabilir hello önyükleme disk aygıtı ve hello kaynak (kısa ömürlü) disk tanımlar. Azure'da, uygulamaları çok başvurmalıdır**/dev/disk/azure/root-part1** veya **/dev/disk/azure-resource-part1** toodiscover bu bölümler.
 
-Ek bölümlere blkid listede yoksa, bir veri diski bulundukları. Uygulamalar bu bölümler UUID'si korumak ve gibi bir yol kullanmak aşağıdaki çalışma zamanında cihaz adını bulmak için:
+Merhaba blkid listeden ek bölümler varsa, bunlar bir veri diski bulunur. Uygulamalar bu bölümler için hello UUID korumak ve çalışma zamanında toodiscover hello aygıt adı altındaki hello gibi bir yol kullanın:
 
     $ ls -l /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692
 
     lrwxrwxrwx 1 root root 10 Jun 19 15:57 /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692 -> ../../sdc1
 
     
-### <a name="get-the-latest-azure-storage-rules"></a>En son Azure depolama kuralları Al
+### <a name="get-hello-latest-azure-storage-rules"></a>Merhaba en son Azure depolama kuralları Al
 
-En son Azure depolama kuralları aşağıdaki komutları çalıştırın:
+Azure depolama kuralları son toohello, aşağıdaki komutları çalıştırın:
 
     # sudo curl -o /etc/udev/rules.d/66-azure-storage.rules https://raw.githubusercontent.com/Azure/WALinuxAgent/master/config/66-azure-storage.rules
     # sudo udevadm trigger --subsystem-match=block
 
 
-Daha fazla bilgi için aşağıdaki makalelere bakın:
+Daha fazla bilgi için aşağıdaki makaleler hello bakın:
 
 - [Ubuntu: UUID kullanma](https://help.ubuntu.com/community/UsingUUID)
 
@@ -162,5 +162,5 @@ Daha fazla bilgi için aşağıdaki makalelere bakın:
 
 - [Linux: UUID'ler için yapabilecekleriniz](https://www.linux.com/news/what-uuids-can-do-you)
 
-- [Udev: Aygıt Yönetimi Modern Linux sistemindeki giriş](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system)
+- [Udev: Giriş tooDevice yönetim içinde Modern Linux sistemi](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system)
 

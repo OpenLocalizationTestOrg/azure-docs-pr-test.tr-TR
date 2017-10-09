@@ -1,6 +1,6 @@
 ---
-title: "Azure altyapı yönergeleri - Linux ağ | Microsoft Docs"
-description: "Azure altyapı Hizmetleri'nde sanal ağı dağıtmak için anahtar tasarım ve uygulama yönergeleri hakkında bilgi edinin."
+title: "Altyapı yönergeleri - Linux ağ aaaAzure | Microsoft Docs"
+description: "Azure altyapı Hizmetleri'nde sanal ağı dağıtmak için hello anahtar tasarım ve uygulama yönergeleri hakkında bilgi edinin."
 documentationcenter: 
 services: virtual-machines-linux
 author: iainfoulds
@@ -16,67 +16,67 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 13e041956c05bec522c83587f8a7f99ac1ceb510
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f3f49b135b1f9bca3fd463e9ff27299fb97908c0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-networking-infrastructure-guidelines-for-linux-vms"></a>Azure altyapı yönergeleri Linux VM'ler için ağ oluşturma
 
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
-Bu makalede, mevcut şirket içi ortamlar arasında Azure içindeki sanal ağ ve bağlantı için gerekli olan planlama adımları anlamaya odaklanır.
+Bu makalede, planlama adımları Azure içindeki sanal ağ ve bağlantı için mevcut şirket içi ortamlar arasında gerekli anlama hello odaklanır.
 
 ## <a name="implementation-guidelines-for-virtual-networks"></a>Sanal ağlar için uygulama rehberi
 Kararları:
 
-* BT iş yükü veya altyapı barındırmak gereken ne tür bir sanal ağ (yalnızca Bulut veya şirket içi)?
-* Şirket içi sanal ağlar için ne kadar adres alanı, şimdi ve gelecekte makul genişletme için alt ağları ve sanal makineleri barındırmak gerekiyor mu?
-* Merkezi Sanal ağları veya her kaynak grubu için tek tek sanal ağlar oluşturmak için yapacaksınız?
+* Ne tür sanal ağı toohost BT iş yükü veya altyapı zorunda (yalnızca Bulut veya şirket içi)?
+* Şirket içi sanal ağlar için ne kadar adres alanı, toohost hello alt ağları ve sanal makineleri şimdi ve makul genişletme hello içinde gelecekteki gerekiyor mu?
+* Siz toocreate giden sanal ağlar merkezi veya her kaynak grubu için tek tek sanal ağlar oluşturmanız misiniz?
 
 Görevler:
 
-* Oluşturulacak sanal ağlar için kullanılan adres alanını tanımlayın.
-* Her alt ağları ve adres alanı kümesini tanımlar.
-* Şirket içi sanal ağlar için sanal ağ içindeki VM'ler ulaşması gereken şirket içi konumları için yerel ağ adres alanları kümesini tanımlar.
-* İş oluşturma sanal ağlar arası ile şirket içi uygun yönlendirme emin olmak için ağ takım yapılandırılır.
-* Adlandırma kuralınızın kullanarak sanal ağ oluşturun.
+* Oluşturulan hello sanal ağlar toobe Hello adres alanı tanımlayın.
+* Alt ağları ve hello adres alanı her Hello kümesi tanımlayın.
+* Şirket içi sanal ağlar için yerel ağ adres alanları VM'ler hello sanal ağ gereksinimi tooreach hello hello şirket içi konumların hello kümesini tanımlar.
+* Şirket içi ağ takım tooensure hello uygun yönlendirme oluştururken yapılandırılmış çalışmak sanal ağlar arası.
+* Adlandırma kuralınızın kullanarak hello sanal ağ oluşturun.
 
 ## <a name="virtual-networks"></a>Sanal ağlar
-Sanal ağlar, sanal makineleri (VM'ler) arasındaki iletişimi desteklemek gereklidir. Fiziksel ağlarda olduğu gibi ile yük dengeleme ve alt ağlar, özel IP adresi, DNS ayarlarını, güvenlik filtresini tanımlayın. Kullanarak bir [VPN ağ geçidi](../../vpn-gateway/vpn-gateway-about-vpngateways.md) veya [hızlı rota devresi](../../expressroute/expressroute-introduction.md), Azure sanal ağı şirket içi ağlarınız bağlanabilir. Daha fazla bilgi edinebilirsiniz [sanal ağlar ve bileşenleri](../../virtual-network/virtual-networks-overview.md).
+Sanal makineler (VM'ler) arasındaki gerekli toosupport iletişim sanal ağlardır. Fiziksel ağlarda olduğu gibi ile yük dengeleme ve alt ağlar, özel IP adresi, DNS ayarlarını, güvenlik filtresini tanımlayın. Kullanarak bir [VPN ağ geçidi](../../vpn-gateway/vpn-gateway-about-vpngateways.md) veya [hızlı rota devresi](../../expressroute/expressroute-introduction.md), Azure sanal ağlar tooyour şirket içi ağlara bağlanın. Daha fazla bilgi edinebilirsiniz [sanal ağlar ve bileşenleri](../../virtual-network/virtual-networks-overview.md).
 
-Kaynak gruplarını kullanarak, sanal ağ bileşenlerinizin nasıl tasarlayacağınızı esneklik bulunur. Sanal makineleri, kendi kaynak grubu dışında sanal ağlara bağlanabilir. Ortak tasarım yaklaşımı ortak ekibi tarafından yönetilebilir, Çekirdek Ağ altyapınızın içeren merkezi kaynak grupları oluşturmak için olacaktır. VM'ler ve uygulamalarını ayrı kaynak gruplarına dağıtılır. Bu yaklaşım, daha geniş sanal ağ kaynaklarını yapılandırma erişimi açmaya gerek kalmadan Vm'leri içeren kaynak grubu için uygulama sahipleri erişim sağlar.
+Kaynak gruplarını kullanarak, sanal ağ bileşenlerinizin nasıl tasarlayacağınızı esneklik bulunur. Sanal makineleri, kendi kaynak grubu dışında toovirtual ağlar bağlanabilir. Ortak tasarım yaklaşımı ortak ekibi tarafından yönetilebilir, Çekirdek Ağ altyapınızın içeren merkezi toocreate kaynak grupları olacaktır. VM'ler ve uygulamalarını tooseparate kaynak grupları dağıtıldı. Bu yaklaşım uygulama sahipleri erişime hello daha geniş sanal ağ kaynaklarına erişim toohello yapılandırması açmadan Vm'leri içeren toohello kaynak grubu.
 
 ## <a name="site-connectivity"></a>Site bağlantısı
 ### <a name="cloud-only-virtual-networks"></a>Yalnızca bulut sanal ağlar
-Şirket içi kullanıcıları ve bilgisayarları bir Azure sanal ağındaki VM'ler için devam eden bağlantısı gerekiyor mu, sanal ağ tasarımınızı düz İleri şöyledir:
+Şirket içi kullanıcıları ve bilgisayarları bir Azure sanal ağında devam eden bağlantı tooVMs gerektirmez, sanal ağ tasarımınızı düz İleri şöyledir:
 
 ![Temel yalnızca bulut sanal ağ diyagramı](./media/infrastructure-networking-guidelines/vnet01.png)
 
 Bu genellikle bir Internet tabanlı bir web sunucusu gibi Internet'e yönelik iş yükleri için yaklaşımdır. SSH veya noktadan siteye VPN bağlantıları kullanarak bu sanal makineleri yönetebilirsiniz.
 
-Şirket içi ağınıza bağlanmayan olduğundan, yalnızca Azure sanal ağlar özel IP adres alanı herhangi bir kısmının kullanabilirsiniz. Adres alanı kullanımı şirket içi aynı özel alanı olabilir.
+Tooyour şirket içi ağ bağlanmayan olduğundan, yalnızca Azure sanal ağlar herhangi bir kısmının hello özel IP adres alanı kullanabilirsiniz. Merhaba adres alanı hello olabilir, aynı özel alan şirket içi kullanın.
 
 ### <a name="cross-premises-virtual-networks"></a>Şirket içi sanal ağlar
-Şirket içi kullanıcıları ve bilgisayarları bir Azure sanal ağındaki VM'ler için devam eden bağlantı gerekiyorsa, bir şirket içi sanal ağ oluşturun. Sanal ağ, bir ExpressRoute veya siteden siteye VPN bağlantısı ile şirket içi ağınıza bağlayın.
+Şirket içi kullanıcıları ve bilgisayarları bir Azure sanal ağında devam eden bağlantı tooVMs gerekiyorsa, bir şirket içi sanal ağ oluşturun. Merhaba sanal ağ tooyour şirket içi ağ ExpressRoute veya siteden siteye VPN bağlantısı ile bağlanır.
 
 ![Şirket içi sanal ağ diyagramı](./media/infrastructure-networking-guidelines/vnet02.png)
 
-Bu yapılandırmada, Azure sanal ağı aslında bir bulut tabanlı ve Şirket ağınızın uzantısıdır.
+Bu yapılandırmada, hello Azure sanal ağı aslında bir bulut tabanlı ve Şirket ağınızın uzantısıdır.
 
-Şirket içi ağınıza bağlanmak için sanal ağlar benzersiz olduğundan, kuruluşunuz tarafından kullanılan adres alanının bir bölümü kullanmalısınız şirketler arası. Ağınızı genişletirsiniz farklı Kurumsal konumların belirli bir IP alt ağı atanan aynı şekilde, Azure başka bir konum haline gelir.
+Bağlandıklarında tooyour şirket içi ağ için şirket içi sanal ağlar benzersiz olduğundan, kuruluşunuz tarafından kullanılan hello adres alanı bir kısmı kullanmanız gerekir. Merhaba aynı şekilde farklı Bu Kurumsal konumların belirli bir IP alt ağı atanır, ağınızı genişletirsiniz Azure başka bir konum haline gelir.
 
-Şirket içi sanal ağdan şirket içi ağınıza paketlerin izin vermek için sanal ağ yerel ağ tanımının bir parçası olarak ilgili şirket içi adres öneklerini kümesi yapılandırmanız gerekir. Sanal ağın adres alanı ve uygun şirket içi konumlara kümesi bağlı olarak, yerel ağ birçok adres öneklerini olabilir.
+tooallow paketleri tootravel şirket içi sanal ağ tooyour şirket içi ağınızdan hello sanal ağ için hello yerel ağ tanımının bir parçası olarak ilgili şirket içi adres öneklerini hello kümesi yapılandırmanız gerekir. Bağlı olarak Hello adres alanı kümesinin hello sanal ağ ve hello ilgili şirket içi konumlara, hello yerel ağda birçok adres öneklerini olabilir.
 
-Bir şirket içi sanal ağa bir yalnızca bulut sanal ağ dönüştürebilirsiniz, ancak büyük olasılıkla yeniden-IP Azure kaynaklarına ve sanal ağ adres alanı gerekir. Bu nedenle, bir sanal ağı bir IP alt ağı atadığınızda, şirket içi ağınıza bağlı olması gerekip gerekmediğini dikkatlice düşünün.
+Bir yalnızca bulut sanal ağ tooa şirket içi sanal ağ dönüştürebilir, ancak büyük olasılıkla toore IP Azure kaynaklarına ve sanal ağ adres alanı gerektirir. Bu nedenle, bir IP alt ağı atadığınızda, sanal ağ toobe bağlı tooyour şirket içi ağ gerekip gerekmediğini dikkatlice düşünün.
 
 ## <a name="subnets"></a>Alt ağlar
-Alt ağlar izin ilgili kaynakları düzenleyin ya da mantıksal olarak (örneğin, aynı uygulamanın ilişkili VM'ler için bir alt ağ), ya da fiziksel olarak (örneğin, her kaynak grubu bir alt ağ). Alt ağ yalıtım teknikleri ek güvenlik için de kullanabilirsiniz.
+Alt ağlar da izin verir, ya da mantıksal olarak ilişkili tooorganize kaynakları (örneğin, toohello VM'ler için bir alt ağ ile ilişkilendirilmiş aynı uygulama), ya da fiziksel olarak (örneğin, her kaynak grubu bir alt ağ). Alt ağ yalıtım teknikleri ek güvenlik için de kullanabilirsiniz.
 
-Şirket içi sanal ağlar için şirket içi kaynakları için kullandığınız aynı kurallarına sahip alt ağlara tasarlamanız gerekir. **Azure her alt ağ için her zaman ilk üç adres alanı IP adreslerini kullanan**. Alt ağ için gereken adresi sayısını belirlemek için artık ihtiyacınız VM'ler sayım tarafından başlatın. Gelecekteki büyümeyi de tahmin etmek ve alt ağ boyutunu belirlemek için aşağıdaki tabloyu kullanın.
+Şirket içi sanal ağlar için hello sahip alt ağlara tasarlamanız gerekir şirket içi kaynakları için kullandığınız aynı kuralları. **Azure kullandığı her alt ağ için hello adres alanının ilk üç IP adreslerini her zaman hello**. toodetermine hello numarası hello alt ağ için gereken adresler artık ihtiyacınız VM hello sayısı sayım tarafından başlar. Gelecekteki büyümeyi de tahmin etmek ve tablo toodetermine hello hello alt ağ boyutunu aşağıdaki hello kullanın.
 
-| Gerekli VM sayısı | Gerekli konak bit sayısı | Alt ağ boyutu |
+| Gerekli VM sayısı | Gerekli konak bit sayısı | Merhaba alt ağ boyutu |
 | --- | --- | --- |
 | 1–3 |3 |/29 |
 | 4–11 |4 |/28 |
@@ -85,22 +85,22 @@ Alt ağlar izin ilgili kaynakları düzenleyin ya da mantıksal olarak (örneği
 | 60–123 |7 |/25 |
 
 > [!NOTE]
-> Normal şirket içi alt ağlar için n konak BITS ile bir alt ağ için ana bilgisayar adresi sayısı üst sınırı 2.<sup> n </sup> – 2. Azure alt ağı için bir alt n konak BITS ile ana bilgisayar adresi sayısı üst sınırı 2'dir<sup> n </sup> – 5 (2 ve 3 Azure her alt ağda kullanan adresler için).
+> Normal şirket içi alt ağlar için başlangıç adresi sayısı üst sınırı konak n konak BITS ile bir alt ağ için 2.<sup> n </sup> – 2. Azure alt ağ için ana bilgisayar adresleri bir alt n konak BITS ile hello sayısı 2 sayısıdır<sup> n </sup> – 5 (2 ve 3 Azure her alt ağda kullanan hello adresler için).
 > 
 > 
 
-Çok küçük bir alt ağ boyutu seçerseniz, yeniden-IP ve alt ağ içindeki VM'ler yeniden dağıtın.
+Çok küçük bir alt ağ boyutu seçerseniz, toore IP ve hello VM'ler hello alt yeniden dağıtın.
 
 ## <a name="network-security-groups"></a>Ağ Güvenlik Grupları
-Ağ güvenlik grupları kullanılarak sanal ağlarınız arasında akan trafik filtreleme kurallarını uygulayabilirsiniz. Bağlantı noktaları, vb. izin verilen gelen ve giden trafik, kaynak ve hedef IP aralıkları, denetleme sanal ağ ortamınızın güvenliğini sağlamak için ayrıntılı filtreleme kuralları oluşturabilirsiniz. Bir sanal ağ içindeki alt ağlara veya doğrudan verilen sanal ağ arabirimi için ağ güvenlik grupları uygulanabilir. Ağ güvenlik grubu, sanal ağlar üzerindeki trafik filtreleme belirli bir düzeyde olması önerilir. Daha fazla bilgi edinebilirsiniz [ağ güvenlik grupları](../../virtual-network/virtual-networks-nsg.md).
+Ağ güvenlik grupları kullanılarak sanal ağlarınız arasında akan filtreleme kuralları toohello trafik uygulayabilirsiniz. Bağlantı noktaları, vb. izin verilen gelen ve giden trafik, kaynak ve hedef IP aralıkları, denetleme, sanal ağ ortamınızın ayrıntılı filtreleme kuralları toosecure oluşturabilirsiniz. Ağ güvenlik grupları, bir sanal ağ veya doğrudan sanal ağ arabirimi verilen tooa içinde uygulanan toosubnets olabilir. Bu ağ güvenlik grubu, sanal ağlar üzerindeki trafik filtreleme belirli bir düzeyde toohave önerilir. Daha fazla bilgi edinebilirsiniz [ağ güvenlik grupları](../../virtual-network/virtual-networks-nsg.md).
 
 ## <a name="additional-network-components"></a>Ek ağ bileşenleri
-Şirket içi fiziksel ağ altyapısına gibi Azure sanal ağı daha fazlasını alt ağları ve IP adresleme içerebilir. Uygulama altyapınızı tasarlarken, bu ek bileşenleri bazıları dahil isteyebilirsiniz:
+Şirket içi fiziksel ağ altyapısına gibi Azure sanal ağı daha fazlasını alt ağları ve IP adresleme içerebilir. Uygulama altyapınızı tasarlarken, tooincorporate isteyebilirsiniz bu ek bileşenleri bazıları:
 
-* [VPN ağ geçitleri](../../vpn-gateway/vpn-gateway-about-vpngateways.md) - Azure sanal ağlar Azure diğer sanal ağlara bağlanmak veya siteden siteye VPN bağlantısı üzerinden şirket içi ağlara bağlanın. Hızlı rota bağlantıları ayrılmış, güvenli bağlantılar için uygulayın. Bu gibi durumlarda, kullanıcıları doğrudan erişim de noktadan siteye VPN bağlantıları ile sağlayabilirsiniz.
+* [VPN ağ geçitleri](../../vpn-gateway/vpn-gateway-about-vpngateways.md) -bağlanmak Azure sanal ağlar tooother Azure sanal ağları veya siteden siteye VPN bağlantısı üzerinden tooon içi ağlara bağlanın. Hızlı rota bağlantıları ayrılmış, güvenli bağlantılar için uygulayın. Bu gibi durumlarda, kullanıcıları doğrudan erişim de noktadan siteye VPN bağlantıları ile sağlayabilirsiniz.
 * [Yük Dengeleyici](../../load-balancer/load-balancer-overview.md) -trafik istediğiniz gibi iç ve dış trafiği için Yük Dengeleme sağlar.
-* [Uygulama ağ geçidi](../../application-gateway/application-gateway-introduction.md) - uygulama katmanında Yük Dengeleme, web uygulamaları için bazı ek avantajları sağlayan yerine Azure yük dengeleyici dağıtımı HTTP.
-* [Trafik Yöneticisi](../../traffic-manager/traffic-manager-overview.md) - DNS tabanlı trafiği doğrudan son kullanıcılara farklı bölgelerdeki Azure veri merkezlerinde dışında uygulamanızı barındırmak sağlayarak en yakın kullanılabilir uygulama uç noktası, dağıtım.
+* [Uygulama ağ geçidi](../../application-gateway/application-gateway-introduction.md) - hello uygulama katmanında Yük Dengeleme, web uygulamaları için bazı ek avantajları sağlayan yerine hello Azure yük dengeleyici dağıtımı HTTP.
+* [Trafik Yöneticisi](../../traffic-manager/traffic-manager-overview.md) - DNS tabanlı uygulamanız farklı bölgelerdeki Azure veri merkezlerinde dışında dağıtım toodirect son kullanıcılar toohello yakın kullanılabilir uygulama uç noktası, izin verme, toohost trafiği.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]

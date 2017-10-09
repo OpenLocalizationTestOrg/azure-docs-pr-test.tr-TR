@@ -1,6 +1,6 @@
 ---
-title: "StorSimple 8000 serisi güncelleştirme 2 sürüm notları | Microsoft Docs"
-description: "StorSimple 8000 serisi güncelleştirme 2 için yeni özellikler, sorunlar ve geçici çözümleri açıklar."
+title: "aaaStorSimple 8000 serisi güncelleştirme 2 sürüm notları | Microsoft Docs"
+description: "Merhaba yeni özellikler, sorunlar ve geçici çözümler için StorSimple 8000 serisi güncelleştirme 2 açıklar."
 services: storsimple
 documentationcenter: NA
 author: SharS
@@ -14,96 +14,96 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/24/2016
 ms.author: v-sharos
-ms.openlocfilehash: 482d076b328722f260593b5a10364c2145c2da13
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 36c75aad900c7b1286a924732967b8ee519a3d4a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="storsimple-8000-series-update-2-release-notes"></a>StorSimple 8000 serisi güncelleştirme 2 sürüm notları
 ## <a name="overview"></a>Genel Bakış
-Aşağıdaki sürüm notları, yeni özellikleri açıklar ve StorSimple 8000 serisi güncelleştirme 2 için kritik açık sorunlar tanımlayın. StorSimple yazılım, sürücü ve disk Bellenim güncelleştirmeleri bu sürümde dahil listesini de içerir. 
+Merhaba aşağıdaki sürüm notları hello yeni özellikleri açıklar ve hello kritik açık sorunlar için StorSimple 8000 serisi güncelleştirme 2 tanımlayın. Ayrıca hello StorSimple yazılım listesi, sürücü ve disk Bellenim güncelleştirmeleri bu sürümde dahil içerirler. 
 
-Güncelleştirme 2 sürüm (GA) veya güncelleştirme 0.1 güncelleştirme 1.2 çalışan herhangi bir StorSimple aygıtı uygulanabilir. Güncelleştirme 2 ile ilişkili aygıt 6.3.9600.17673 sürümüdür.
+Güncelleştirme 2 sürüm (GA) veya güncelleştirme 0.1 güncelleştirme 1.2 çalışan uygulanan tooany StorSimple cihazı olabilir. Güncelleştirme 2 ile ilişkili hello aygıt 6.3.9600.17673 sürümüdür.
 
-Lütfen StorSimple çözümünüzde güncelleştirme dağıtmadan önce sürüm notları'nda yer alan bilgileri gözden geçirin.
+Lütfen StorSimple çözümünüzde hello dağıtmadan önce notları güncelleştirme hello sürümde bulunan hello bilgileri gözden geçirin.
 
 > [!IMPORTANT]
-> * Yaklaşık 4-7 (Windows güncelleştirmeleri dahil) bu güncelleştirmeyi yüklemek için saat sürer. 
+> * Bu güncelleştirme (Merhaba Windows güncelleştirmeleri de dahil olmak üzere) yaklaşık 4-7 saat tooinstall sürer. 
 > * Güncelleştirme 2 yazılım, LSI sürücü ve SSD Bellenim güncelleştirmeleri içerir.
-> * Yeni sürümler için güncelleştirmelerinin göremeyebilirsiniz hemen biz aşamalı güncelleştirmeler yapmak için. Birkaç gün bekleyin ve ardından güncelleştirmeleri taramak üzere yeniden bunlar olarak yakında kullanılabilir hale gelecektir.
+> * Yeni sürümler için güncelleştirmelerinin göremeyebilirsiniz hemen biz aşamalı hello güncelleştirmelerinin olmadığından. Birkaç gün bekleyin ve ardından güncelleştirmeleri taramak üzere yeniden bunlar olarak yakında kullanılabilir hale gelecektir.
 > 
 > 
 
 ## <a name="whats-new-in-update-2"></a>Güncelleştirme 2'deki yenilikler
-Güncelleştirme 2 aşağıdaki yeni özellikleri sunar.
+Güncelleştirme 2 hello aşağıdaki yeni özellikleri sunar.
 
-* **Birimler'yerel olarak sabitlenmiş** – StorSimple 8000 serisi önceki sürümlerde kullanıma dayalı bulut için veri bloklarını katmanlı. Blokları yerel kalmasını sağlamak için hiçbir yolu yoktu. Bir birim oluştururken yerel olarak sabitlenmiş ve birincil veri birimden buluta katmanlı değil gibi güncelleştirme 2'de, bir birim belirleyebilirsiniz. Bulut veri mobility ve olağanüstü durum kurtarma işlemleri için kullanılır böylece buluta yedekleme için hala yerel olarak sabitlenmiş birimlerin anlık görüntüleri kopyalanacak. Ayrıca, birim türünü değiştirebilirsiniz (diğer bir deyişle, dönüştürme katmanlı birimlere yerel olarak sabitlenmiş birimleri ve dönüştürme yerel olarak sabitlenmiş birimler için katmanlı). 
-* **StorSimple sanal cihazı geliştirmeleri** – daha önce StorSimple 8000 serisi sanal cihaz bir olağanüstü durum kurtarma ya da geliştirme ve test çözümü olarak konumlandırıldı. Sanal cihazı (modeli 1100) yalnızca bir model vardı. Güncelleştirme 2 iki sanal aygıt modeli sunar: 
+* **Birimler'yerel olarak sabitlenmiş** – hello StorSimple 8000 serisi önceki sürümlerde kullanıma dayalı katmanlı toohello bulut veri bloklarını olan. Blokları yerel kalmasını hiçbir şekilde tooguarantee vardı. Bir birim oluştururken yerel olarak sabitlenmiş ve birincil veri birimden katmanlı toohello bulut olmaz gibi güncelleştirme 2'de, bir birim belirleyebilirsiniz. Yerel olarak sabitlenmiş birimlerin anlık görüntüleri çıkarılsın hello bulut veri mobility ve olağanüstü durum kurtarma işlemleri için kullanılır böylece toohello bulut yedekleme için kopyalanır. Ayrıca, hello birim türünü değiştirebilirsiniz (diğer bir deyişle, katmanlı birimleri sabitlenmiş toolocally birimi dönüştürmek ve dönüştürme yerel olarak sabitlenmiş birimleri tootiered). 
+* **StorSimple sanal cihazı geliştirmeleri** – hello StorSimple 8000 serisi hello sanal cihaz bir olağanüstü durum kurtarma ya da geliştirme ve test çözümü olarak daha önce konumlandırıldı. Sanal cihazı (modeli 1100) yalnızca bir model vardı. Güncelleştirme 2 iki sanal aygıt modeli sunar: 
   
-  * 8010 (önceden 1100 olarak bilinir) – değişiklik yok; 30 TB kapasitesine sahip ve Azure standard storage kullanır.
+  * 8010 (önceden çağrılan hello 1100) – değişiklik yok; 30 TB kapasitesine sahip ve Azure standard storage kullanır.
   * 8020 – 64 TB'lık bir kapasitesine sahiptir ve iyileştirilmiş performans için Azure Premium storage kullanır.
     
-    Her iki sanal aygıt modelleri (8010/8020) için tek bir VHD yoktur. Sanal cihaz ilk kez başlattığınızda, platform parametreleri algılar ve doğru model sürümü geçerlidir.
-* **Ağ iyileştirmeleri** – güncelleştirme 2 aşağıdaki ağ geliştirmeleri içerir:
+    Her iki sanal aygıt modelleri (8010/8020) için tek bir VHD yoktur. Merhaba sanal cihaz ilk kez başlattığınızda, hello platform parametreleri algılar ve hello doğru model sürümü geçerlidir.
+* **Ağ iyileştirmeleri** – güncelleştirme 2 ağ iyileştirmeleri aşağıdaki hello içerir:
   
-  * Yük devretme, bir NIC başarısız olursa gerçekleştirilmesi birden çok NIC bulut için etkinleştirilebilir.
+  * Yük devretme, bir NIC başarısız olursa gerçekleştirilmesi birden çok NIC hello bulut için etkinleştirilebilir.
   * Bulut için sabit ölçümlerle yönlendirme geliştirmeleri blokları etkin.
   * Bir yük devretme önce başarısız kaynaklarının çevrimiçi yeniden deneyin.
   * Hizmet hataları için yeni uyarıları.
-* **Geliştirmeleri güncelleştirme** – 1.2 güncelleştirmek ve StorSimple 8000 serisi iki kanallar daha önce güncelleştirildi: Windows Update kümeleme, iSCSI ve benzeri ve ikili dosyaları ve bellenim için Microsoft Update için.
-    Tüm güncelleştirme paketlerinin güncelleştirme 2 Microsoft Update kullanılır. Bu düzeltme eki uygulama veya yük devretme işlemlerini yaparken daha az zaman yol. 
-* **Bellenim güncelleştirmeleri** – Bellenim güncelleştirmeleri eklenmiştir:
+* **Geliştirmeleri güncelleştirme** – 1.2 güncelleştirmek ve hello StorSimple 8000 serisi iki kanallar daha önce güncelleştirildi: Windows Update kümeleme, iSCSI ve benzeri ve ikili dosyaları ve bellenim için Microsoft Update için.
+    Tüm güncelleştirme paketlerinin güncelleştirme 2 Microsoft Update kullanılır. Bu, yük devretme işlemlerini yaparken veya düzeltme eki uygulama tooless zaman yol. 
+* **Bellenim güncelleştirmeleri** – hello Bellenim güncelleştirmeleri eklenmiştir:
   
   * LSI: lsi_sas2.sys ürün sürümü 2.00.72.10
   * Yalnızca SSD (HDD güncelleştirme yok): XMGG, XGEG, KZ50, F6C2 ve VR08
-* **Öngörülü Destek** – güncelleştirme 2 aygıttan ek tanılama bilgilerini Microsoft'a sağlar. Sorunlarınız aygıtları operations ekibimiz belirlediğinde, daha iyi aygıttan bilgi toplamak ve sorunları tanılamak donanımlı duyuyoruz. **Güncelleştirme 2 kabul ederek, bize bu öngörülü desteği sağlamak izin**.    
+* **Öngörülü Destek** – güncelleştirme 2 Microsoft toopull ek tanılama bilgilerinin hello aygıttan sağlar. Sorunlarınız aygıtları operations ekibimiz belirlediğinde, biz hello aygıttan daha iyi donanımlı toocollect bilgileri sorunlarını tanılamak ve. **Güncelleştirme 2 kabul ederek, bize tooprovide izin öngörülü Bu destek**.    
 
 ## <a name="issues-fixed-in-update-2"></a>Güncelleştirme 2'de giderilen sorunlar
-Aşağıdaki tablolarda, güncelleştirme 2'de düzeltilen sorunlardan özetini sağlar.    
+Aşağıdaki tablolar hello güncelleştirme 2'de düzeltilen sorunlardan özetini sağlar.    
 
-| Hayır. | Özellik | Sorun | Fiziksel cihaz için geçerlidir | Sanal cihaz için geçerlidir |
+| Hayır. | Özellik | Sorun | Toophysical aygıt uygular | Toovirtual aygıt uygular |
 | --- | --- | --- | --- | --- |
-| 1 |Ağ arabirimleri |Güncelleştirme 1'yükseltme yapıldıktan sonra StorSimple Yöneticisi hizmeti veri2 ve Data3 bağlantı noktaları bir denetleyicisinde başarısız olduğunu bildirdi. Bu sorun düzeltilmiştir. |Evet |Hayır |
-| 2 |Güncellemeler |Güncelleştirme 1'yükseltme yapıldıktan sonra birden çok aygıta Klasik Azure portalındaki sesli alarm uyarılar oluştu. Bu sorun düzeltilmiştir. |Evet |Hayır |
+| 1 |Ağ arabirimleri |Bir yükseltme tooUpdate sonra 1, hello StorSimple Yöneticisi hizmeti hello veri2 ve Data3 bağlantı noktaları bir denetleyicisinde başarısız olduğunu bildirdi. Bu sorun düzeltilmiştir. |Evet |Hayır |
+| 2 |Güncelleştirmeler |Bir yükseltme tooUpdate sonra 1, Klasik Azure portalı birden çok aygıta hello sesli alarm uyarılar oluştu. Bu sorun düzeltilmiştir. |Evet |Hayır |
 | 3 |Openstack kimlik doğrulaması |Openstack bulut hizmeti sağlayıcısı olarak kullanırken, bulut kimlik doğrulama dizesi çok uzun bir hata alabilir. Bu düzeltilmiştir. |Evet |Hayır |
 
 ## <a name="known-issues-in-update-2"></a>Güncelleştirme 2 bilinen sorunlar
-Aşağıdaki tabloda bu sürümdeki bilinen sorunlara özetini sağlar.
+Aşağıdaki tablonun hello bu sürümdeki bilinen sorunlara özetini sağlar.
 
-| Hayır. | Özellik | Sorun | Yorumlar / geçici çözüm | Fiziksel cihaz için geçerlidir | Sanal cihaz için geçerlidir |
+| Hayır. | Özellik | Sorun | Yorumlar / geçici çözüm | Toophysical aygıt uygular | Toovirtual aygıt uygular |
 | --- | --- | --- | --- | --- | --- |
-| 1 |Disk çekirdek |8600 cihaz EBOD muhafazası diskleri çoğunluğu hiçbir disk çekirdek kaynaklanan kesildiyse nadir durumlarda, ardından depolama havuzunun çevrimdışı geçer. Diskleri yeniden bağlanır olsa bile çevrimdışı kalır. |Aygıt yeniden başlatma gerekir. Sorun devam ederse, Microsoft Support sonraki adımlar için temasa geçin. |Evet |Hayır |
-| 2 |Yanlış denetleyici kimliği |Bir denetleyici değiştirme gerçekleştirildiğinde, denetleyici 0 denetleyicisi 1 olarak görünebilirler. Görüntü eş düğümden yüklendiğinde denetleyicisi değiştirme sırasında denetleyici kimliği başlangıçta eş denetleyicinin kimliği olarak gösterebilir Nadir durumlarda, bu davranış bir sistem yeniden başlatıldıktan sonra görülebilir. |Hiçbir kullanıcı eylemi gerekli değildir. Denetleyici bu değişiklik tamamlandıktan sonra bu durum kendisini çözümleyin. |Evet |Hayır |
-| 3 |Depolama hesapları |Depolama hesabını silmek için Depolama Birimi hizmetini kullanarak desteklenmeyen bir senaryodur. Bu kullanıcı verileri alınamıyor bir durum neden. | |Evet |Evet |
-| 4 |Cihaz yük devretme |Farklı bir hedef cihazlara aynı kaynak cihazdaki birim kapsayıcısının birden çok yük devretme desteklenmiyor. Tek bir ölü CİHAZDAN birden çok aygıt yük devretme veri sahipliği kaybetmek birim kapsayıcıları aygıt üzerinden başarısız ilk hale getirir. Bu tür bir yük devretme sonrasında, bu birim kapsayıcıları görünür veya Klasik Azure portalında görüntülediğinizde farklı şekilde davranır. | |Evet |Hayır |
-| 5 |Yükleme |SharePoint yükleme için StorSimple bağdaştırıcısı sırasında aygıt IP başarıyla tamamlamak bir yükleme için sırayla sağlamanız gerekir. | |Evet |Hayır |
-| 6 |Web proxy |Web proxy yapılandırması belirtilen protokol olarak HTTPS varsa, cihazı hizmeti iletişimi etkilenecek ve cihaz çevrimdışı. Destek paketleri aygıtınızda önemli miktarda kaynak tüketen işleminde, aynı zamanda oluşturulur. |Web proxy URL'si belirtilen protokolü olarak HTTP sahip olduğundan emin olun. Daha fazla bilgi için [Cihazınız için web ara sunucusunu yapılandırma](storsimple-configure-web-proxy.md)’ya gidin. |Evet |Hayır |
-| 7 |Web proxy |Yapılandırma ve web proxy bir kayıtlı cihazda etkinleştirirseniz, Cihazınızı etkin denetleyicisinde yeniden başlatmanız gerekir. | |Evet |Hayır |
-| 8 |Yüksek bulut gecikme süresi ve yüksek g/ç iş yükü |StorSimple Cihazınızı çok yüksek bulut gecikme (saniye sırasını) ve yüksek g/ç iş yükü bileşimini karşılaştığında, düzeyi düşürülmüş bir duruma aygıt birimleri gidin ve g/ç "cihaz hazır değil" hatası ile başarısız. |El ile aygıt denetleyicileri yeniden başlatın veya bu durumdan kurtarmak için bir aygıt yük devretme gerçekleştirmek gerekir. |Evet |Hayır |
-| 9 |Azure PowerShell |StorSimple cmdlet'ini kullandığınızda **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object - ilk 1 - bekleme** yeni oluşturabilmesi için ilk nesneyi seçmek için **VolumeContainer** nesnesi, cmdlet tüm nesneleri döndürür. |Cmdlet parantez içine aşağıdaki gibi kaydır: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object - ilk 1 - bekleme** |Evet |Evet |
-| 10 |Geçiş |Geçiş için birden çok birim kapsayıcıları geçirildiğinde ETA son yedekleme için yalnızca ilk birim kapsayıcısı için doğru olur. Ayrıca, ilk birim kapsayıcısı ilk 4 yedeklere geçirildikten sonra paralel geçiş başlar. |Bir kerede bir birim kapsayıcısı geçirmek öneririz. |Evet |Hayır |
-| 11 |Geçiş |Geri yüklendikten sonra yedekleme İlkesi ya da sanal disk grubu birimleri eklenmez. |Yedeklemeler oluşturmak için bir yedekleme İlkesi bu birimleri eklemeniz gerekir. |Evet |Evet |
-| 12 |Geçiş |Geçiş tamamlandıktan sonra 5000/7000 Serisi aygıt geçirilen verileri kapsayıcıları erişmelisiniz değil. |Tam ve kaydedilmiş geçiş tamamlandıktan sonra geçirilen verileri kapsayıcıları silme öneririz. |Evet |Hayır |
-| 13 |Kopya ve DR |Güncelleştirme 1 çalıştıran bir StorSimple cihazı kopyalama veya güncelleştirme 1 yazılımı öncesini çalıştıran bir cihazda olağanüstü durum kurtarma gerçekleştirin. |Hedef aygıt güncelleştirme işlemlerini izin vermek için 1 olarak güncelleştirmeniz gerekir |Evet |Evet |
-| 14 |Geçiş |Birim grupları ile ilişkili birim olduğunda geçiş için yedekleme yapılandırması 5000-7000 Serisi aygıtta başarısız olabilir. |Tüm boş birim gruplarıyla ilişkili birim silin ve yapılandırma yedeklemeyi yeniden deneyin. |Evet |Hayır |
-| 15 |Azure PowerShell cmdlet'leri ve yerel olarak sabitlenmiş birimleri |Azure PowerShell cmdlet'leri aracılığıyla yerel olarak sabitlenmiş bir birim oluşturamazsınız. (Azure PowerShell ile oluşturduğunuz herhangi bir birim katmanlı.) |Her zaman StorSimple Yöneticisi hizmeti yerel olarak sabitlenmiş birimlerin yapılandırmak için kullanın. |Evet |Hayır |
-| 16 |Yerel olarak sabitlenmiş birimleri için kullanılabilir alanı |Yerel olarak sabitlenmiş bir birim silerseniz, yeni birimleri için kullanılabilir alanı hemen güncelleştirilmemiş. StorSimple Yöneticisi hizmeti yerel alanınız yaklaşık olarak saatte güncelleştirir. |Yeni birim oluşturmak denemeden önce bir saat bekleyin. |Evet |Hayır |
-| 17 |Yerel olarak sabitlenmiş birimleri |Geri yükleme işi geçici anlık görüntü yedekleme yedekleme kataloğunda, ancak yalnızca geri yükleme işi süresini gösterir. Ayrıca, bir sanal disk grubu önekiyle gösterir **tmpCollection** üzerinde **yedekleme ilkeleri** geri yükleme işi süresince yalnızca sayfa. |Bu davranış, geri yükleme işi birimleri veya yerel olarak sabitlenmiş ve katmanlı birimlerin bir karışımını yalnızca yerel olarak sabitlenmiş ortaya çıkabilir. Geri yükleme işi yalnızca katmanlı birimleri içeriyorsa, bu davranış gerçekleşmez. Kullanıcı müdahalesi gerekli değildir. |Evet |Hayır |
-| 18 |Yerel olarak sabitlenmiş birimleri |Bir geri yükleme işi iptal edin ve daha sonra geri yükleme işi gösterecektir hemen denetleyici yük devretmesi oluşursa **başarısız** yerine **iptal edildi**. Bir geri yükleme işi başarısız olur ve daha sonra geri yükleme işi gösterecektir hemen denetleyici yük devretmesi oluşursa **iptal edildi** yerine **başarısız**. |Bu davranış, geri yükleme işi birimleri veya yerel olarak sabitlenmiş ve katmanlı birimlerin bir karışımını yalnızca yerel olarak sabitlenmiş ortaya çıkabilir. Geri yükleme işi yalnızca katmanlı birimleri içeriyorsa, bu davranış gerçekleşmez. Kullanıcı müdahalesi gerekli değildir. |Evet |Hayır |
-| 19 |Yerel olarak sabitlenmiş birimleri |Geri yükleme işi iptal etmek veya geri yükleme başarısız olursa ve denetleyici yük devretmesi oluşur ek geri yükleme işi görünür **işleri** sayfası. |Bu davranış, geri yükleme işi birimleri veya yerel olarak sabitlenmiş ve katmanlı birimlerin bir karışımını yalnızca yerel olarak sabitlenmiş ortaya çıkabilir. Geri yükleme işi yalnızca katmanlı birimleri içeriyorsa, bu davranış gerçekleşmez. Kullanıcı müdahalesi gerekli değildir. |Evet |Hayır |
-| 20 |Yerel olarak sabitlenmiş birimleri |Yerel olarak sabitlenmiş bir birim için katmanlı birim (oluşturulan ve güncelleştirme 1.2 ile kopyalanan veya öncesi) dönüştürmek deneyin ve Cihazınızı alana sahip değil veya bir bulut kesinti varsa, clone(s) bozulmuş. |Bu sorun, oluşturulan ve kopyalanan ile güncelleştirme öncesi 2 yazılım olan birimlerle oluşur. Bu, seyrek bir senaryo olmalıdır. | | |
-| 21 |Birim dönüştürme |Bir birim dönüştürme işlemi devam ederken bir birime bağlı ACRs güncelleştirilmiyor (yerel olarak sabitlenmiş katmanlı veya tersi). ACRs güncelleştirme veri bozulmasına neden olabilir. |Gerekirse, birimi dönüştürmeden önce ACRs güncelleştirin ve dönüştürme işlemi devam ederken ACR güncelleştirmeleri başka yapmayın. | | |
+| 1 |Disk çekirdek |Hiçbir disk çekirdek kaynaklanan hello EBOD muhafazası 8600 aygıtının diskleri Hello çoğunluğu bağlantısı kesildiyse nadir durumlarda, ardından hello depolama havuzu çevrimdışı geçer. Merhaba diskleri bağlanırlar olsa bile çevrimdışı kalır. |Tooreboot hello aygıt gerekir. Merhaba sorun devam ederse, Microsoft Support sonraki adımlar için temasa geçin. |Evet |Hayır |
+| 2 |Yanlış denetleyici kimliği |Bir denetleyici değiştirme gerçekleştirildiğinde, denetleyici 0 denetleyicisi 1 olarak görünebilirler. Merhaba görüntü hello eş düğümden yüklendiğinde denetleyicisi değiştirme sırasında hello denetleyici kimliği başlangıçta hello eş denetleyicinin kimliği olarak gösterebilir Nadir durumlarda, bu davranış bir sistem yeniden başlatıldıktan sonra görülebilir. |Hiçbir kullanıcı eylemi gerekli değildir. Merhaba denetleyicisi değiştirme işlemi tamamlandıktan sonra bu durum kendisini çözümleyin. |Evet |Hayır |
+| 3 |Depolama hesapları |Merhaba depolama hizmeti toodelete hello depolama hesabı kullanarak desteklenmeyen bir senaryodur. Bu kullanıcı verileri alınamıyor tooa durum götürür. | |Evet |Evet |
+| 4 |Cihaz yük devretme |Aynı kaynak aygıt toodifferent hedef cihazlar desteklenmiyor hello birim kapsayıcıdan birden çok yük. Yük devretme tek ölü aygıt toomultiple aygıtlardan veri sahipliği kaybetmek hello birim kapsayıcıları ilk aygıt üzerinden başarısız hello üzerinde hale getirir. Bu tür bir yük devretme sonrasında, bu birim kapsayıcıları görünür veya hello Klasik Azure portalında görüntülediğinizde farklı şekilde davranır. | |Evet |Hayır |
+| 5 |Yükleme |SharePoint yükleme için StorSimple bağdaştırıcısı sırasında tooprovide cihaz IP hello yükleme toofinish sırada başarıyla gerekir. | |Evet |Hayır |
+| 6 |Web proxy |Web proxy yapılandırması varsa hello olarak HTTPS protokolü, belirtilen sonra aygıtı hizmeti iletişimi etkilenecek ve hello aygıt çevrimdışı. Destek paketleri aygıtınızda önemli miktarda kaynak tüketen hello işlemde de oluşturulur. |Belirtilen protokol hello gibi Hello web proxy URL'Sİ'ın HTTP olduğundan emin olun. Daha fazla bilgi için çok Git[cihazınız için web Proxy'yi Yapılandır](storsimple-configure-web-proxy.md). |Evet |Hayır |
+| 7 |Web proxy |Yapılandırma ve web proxy bir kayıtlı cihazda etkinleştirirseniz, Cihazınızda toorestart hello etkin denetleyicisine ihtiyacınız vardır. | |Evet |Hayır |
+| 8 |Yüksek bulut gecikme süresi ve yüksek g/ç iş yükü |StorSimple Cihazınızı çok yüksek bulut gecikme (saniye sırasını) ve yüksek g/ç iş yükü bileşimini karşılaştığında, düzeyi düşürülmüş bir duruma hello aygıt birimleri gidin ve hello g/ç "cihaz hazır değil" hatası ile başarısız. |Toomanually yeniden başlatma hello cihaz denetleyicilerinin gerekir veya bir aygıt yük devretme toorecover bu durumdan gerçekleştirin. |Evet |Hayır |
+| 9 |Azure PowerShell |Merhaba StorSimple cmdlet'ini kullandığınızda **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object - ilk 1 - bekleme** tooselect yeni oluşturabilmesi için ilk nesne hello **VolumeContainer** nesne hello cmdlet'i tüm hello nesneleri döndürür. |Merhaba cmdlet parantez içine aşağıdaki gibi kaydır: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object - ilk 1 - bekleme** |Evet |Evet |
+| 10 |Geçiş |Geçiş için birden çok birim kapsayıcıları geçirildiğinde hello ETA son yedekleme için yalnızca hello ilk birim kapsayıcısı için doğru olur. Ayrıca, paralel geçiş Hello hello ilk birim kapsayıcısı ilk 4 yedeklemelerin geçirildikten sonra başlar. |Bir kerede bir birim kapsayıcısı geçirmek öneririz. |Evet |Hayır |
+| 11 |Geçiş |Merhaba geri yüklendikten sonra birimleri toohello yedekleme İlkesi veya hello sanal disk grubu eklenmedi. |Bu birimleri tooa yedekleme ilkesine sipariş toocreate yedeklemeleri tooadd gerekir. |Evet |Evet |
+| 12 |Geçiş |Merhaba geçiş tamamlandıktan sonra hello 5000/7000 Serisi aygıt değil erişmelisiniz hello geçirilen verileri kapsayıcıları. |Merhaba silmenizi öneririz tam ve kaydedilmiş hello geçiş tamamlandıktan sonra veri kapsayıcıları geçişi. |Evet |Hayır |
+| 13 |Kopya ve DR |Güncelleştirme 1 çalıştıran bir StorSimple cihazı kopyalama veya güncelleştirme 1 yazılımı öncesini çalıştıran olağanüstü durum kurtarma tooa cihaz gerçekleştirin. |Bu işlemler tooupdate hello hedef aygıt tooUpdate 1 tooallow gerekir |Evet |Evet |
+| 14 |Geçiş |Birim grupları ile ilişkili birim olduğunda geçiş için yedekleme yapılandırması 5000-7000 Serisi aygıtta başarısız olabilir. |Tüm hello boş birim grupları ile ilişkili birim silin ve hello yapılandırma yedeklemeyi yeniden deneyin. |Evet |Hayır |
+| 15 |Azure PowerShell cmdlet'leri ve yerel olarak sabitlenmiş birimleri |Azure PowerShell cmdlet'leri aracılığıyla yerel olarak sabitlenmiş bir birim oluşturamazsınız. (Azure PowerShell ile oluşturduğunuz herhangi bir birim katmanlı.) |Her zaman hello StorSimple Yöneticisi hizmeti tooconfigure yerel olarak sabitlenmiş birimleri kullanın. |Evet |Hayır |
+| 16 |Yerel olarak sabitlenmiş birimleri için kullanılabilir alanı |Yerel olarak sabitlenmiş bir birim silerseniz, yeni birimleri için kullanılabilir hello alanı hemen güncelleştirilmemiş. Merhaba StorSimple Yöneticisi hizmet güncelleştirmeleri kullanılabilir yerel alanı yaklaşık olarak saatte hello. |Toocreate hello yeni birim denemeden önce bir saat bekleyin. |Evet |Hayır |
+| 17 |Yerel olarak sabitlenmiş birimleri |Geri yükleme işi hello geçici anlık görüntü yedekleme hello yedekleme kataloğu, ancak yalnızca hello geri yükleme işi hello süresi için kullanıma sunar. Ayrıca, bir sanal disk grubu önekiyle gösterir **tmpCollection** hello üzerinde **yedekleme ilkeleri** sayfasında, ancak yalnızca hello süresince hello geri yükleme işi. |Bu davranış, geri yükleme işi birimleri veya yerel olarak sabitlenmiş ve katmanlı birimlerin bir karışımını yalnızca yerel olarak sabitlenmiş ortaya çıkabilir. Merhaba geri yükleme işi yalnızca katmanlı birimleri içeriyorsa, bu davranış gerçekleşmez. Kullanıcı müdahalesi gerekli değildir. |Evet |Hayır |
+| 18 |Yerel olarak sabitlenmiş birimleri |Bir geri yükleme işi iptal edin ve hello geri yükleme işi daha sonra gösterecektir hemen denetleyici yük devretmesi oluşursa **başarısız** yerine **iptal edildi**. Geri yükleme işi başarısız olur ve daha sonra hello geri yükleme işi gösterecektir hemen denetleyici yük devretmesi oluşursa **iptal edildi** yerine **başarısız**. |Bu davranış, geri yükleme işi birimleri veya yerel olarak sabitlenmiş ve katmanlı birimlerin bir karışımını yalnızca yerel olarak sabitlenmiş ortaya çıkabilir. Merhaba geri yükleme işi yalnızca katmanlı birimleri içeriyorsa, bu davranış gerçekleşmez. Kullanıcı müdahalesi gerekli değildir. |Evet |Hayır |
+| 19 |Yerel olarak sabitlenmiş birimleri |Bir geri yükleme işi iptal edin veya geri yükleme başarısız olur ve bir denetleyici yük devretmesi oluşur, ek geri yükleme işi hello üzerinde görünür **işleri** sayfası. |Bu davranış, geri yükleme işi birimleri veya yerel olarak sabitlenmiş ve katmanlı birimlerin bir karışımını yalnızca yerel olarak sabitlenmiş ortaya çıkabilir. Merhaba geri yükleme işi yalnızca katmanlı birimleri içeriyorsa, bu davranış gerçekleşmez. Kullanıcı müdahalesi gerekli değildir. |Evet |Hayır |
+| 20 |Yerel olarak sabitlenmiş birimleri |Tooconvert (oluşturulan ve güncelleştirme 1.2 ile kopyalanan veya öncesi) katmanlı birim çalışırsanız tooa yerel olarak sabitlenmiş birim ve Cihazınızı alana sahip değil veya bir bulut kesinti yoktur ve sonra hello clone(s) bozulmuş. |Bu sorun, oluşturulan ve kopyalanan ile güncelleştirme öncesi 2 yazılım olan birimlerle oluşur. Bu, seyrek bir senaryo olmalıdır. | | |
+| 21 |Birim dönüştürme |Bir birim dönüştürme işlemi devam ederken hello ACRs ekli tooa toplu güncelleştirmeyi (katmanlı toolocally sabitlenmiş veya tersi). Merhaba ACRs güncelleştirme veri bozulmasına neden olabilir. |Gerekirse, hello ACRs önceki toohello birim dönüştürme güncelleştirin ve hello dönüştürme işlemi devam ederken ACR güncelleştirmeleri başka yapmayın. | | |
 
 ## <a name="controller-and-firmware-updates-in-update-2"></a>Güncelleştirme 2 denetleyicisi ve bellenim güncelleştirmeleri
-Bu sürüm, sürücü ve disk bellenim aygıtınızda güncelleştirir.
+Bu sürüm hello sürücü ve hello disk cihazınızın bellenimini güncelleştirir.
 
-* LSI bellenim hakkında daha fazla bilgi için güncelleştirme, Microsoft Bilgi Bankası makalesi 3121900 bakın. 
-* Disk bellenim hakkında daha fazla bilgi için güncelleştirme, Microsoft Bilgi Bankası makalesi 3121899 bakın.
+* Güncelleştirmesi hello LSI bellenim hakkında daha fazla bilgi için Microsoft Bilgi Bankası makalesi 3121900. 
+* Güncelleştirmesi hello disk bellenim hakkında daha fazla bilgi için Microsoft Bilgi Bankası makalesi 3121899.
 
 ## <a name="virtual-device-updates-in-update-2"></a>Güncelleştirme 2'deki sanal aygıt güncelleştirmeleri
-Bu güncelleştirme, sanal cihaz için uygulanamaz. Yeni sanal cihazların oluşturulması gerekir. 
+Bu güncelleştirme uygulanan toohello sanal aygıt olamaz. Yeni sanal cihazların oluşturulan toobe gerekir. 
 
 ## <a name="next-step"></a>Sonraki adım
-Bilgi edinmek için nasıl [güncelleştirme 2'yi yükleme](storsimple-install-update-2.md) , StorSimple Cihazınızda.
+Nasıl çok öğrenin[güncelleştirme 2'yi yükleme](storsimple-install-update-2.md) , StorSimple Cihazınızda.
 

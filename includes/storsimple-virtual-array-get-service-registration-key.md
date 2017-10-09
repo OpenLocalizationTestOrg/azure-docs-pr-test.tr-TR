@@ -1,7 +1,7 @@
-#### <a name="to-get-the-storsimple-service-registration-key"></a>StorSimple hizmet kayıt anahtarını almak için
+#### <a name="tooget-hello-storsimple-service-registration-key"></a>tooget hello StorSimple hizmet kayıt anahtarı
 
-1.  **StorSimple Cihaz Yöneticisi** dikey penceresinde, oluşturduğunuz hizmete tıklayın. Sağ tarafta yeni bir dikey pencere açılır.
+1.  Merhaba üzerinde **StorSimple Aygıt Yöneticisi'ni** dikey penceresinde, oluşturduğunuz hello hizmete tıklayın. Bu, yeni bir dikey toohello sağ açar.
 
-2.  Açılan dikey penceresinde, tıklayın **Yönet &gt;**  **anahtarları**.
+2.  Açılan hello dikey penceresinde tıklayın **Yönet &gt;**  **anahtarları**.
 
-3.  Hizmet kayıt anahtarını kopyalayın ve daha sonra kullanmak üzere kaydetmek için Kopyala simgesine tıklayın.
+3.  Merhaba Kopyala simgesi toocopy hello hizmet kayıt anahtarını tıklatın ve daha sonra kullanmak üzere kaydedin.

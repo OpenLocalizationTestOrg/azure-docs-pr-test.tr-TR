@@ -1,6 +1,6 @@
 ---
-title: "Bulut Hizmetleri rolünü config XPath kopya sayfası | Microsoft Docs"
-description: "Çeşitli XPath ayarları bulut hizmeti rolünü yapılandırma ayarlarını bir ortam değişkeni göstermek için kullanabilirsiniz."
+title: "aaaCloud Hizmetleri rolünü config XPath kopya sayfası | Microsoft Docs"
+description: "Merhaba bulut hizmeti rolünü yapılandırma tooexpose ayarlarında bir ortam değişkeni kullanabileceğiniz çeşitli XPath ayarları hello."
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.openlocfilehash: fd6efac829d3fd9e2840362b8d2ff423add566d9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 27f98f956a1c790c9bb30f9fefe1ab1736b2b150
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>Rol yapılandırma ayarlarını XPath olan bir ortam değişkeni olarak kullanıma sunma
-Bulut hizmeti çalışan ya da web rolü hizmet tanımı dosyası ortam değişkenleri olarak çalışma zamanı yapılandırma değerlerini getirebilir. Aşağıdaki XPath değerleri (hangi API değerlerine karşılık gelen) desteklenir.
+Merhaba bulut hizmeti çalışan veya web rolü Hizmet tanım dosyası, ortam değişkenleri olarak çalışma zamanı yapılandırma değerlerini getirebilir. XPath değerleri aşağıdaki hello (hangi tooAPI değerler karşılık gelir) desteklenir.
 
-Bu XPath değerleri de aracılığıyla kullanılabilir [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) kitaplığı. 
+Bu XPath değerleri de hello kullanılabilir [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) kitaplığı. 
 
 ## <a name="app-running-in-emulator"></a>Öykünücüde çalışan uygulama
-Uygulamayı öykünücüde çalışmadığını gösterir.
+Bu hello uygulama hello öykünücüsünde çalışmadığını gösterir.
 
 | Tür | Örnek |
 | --- | --- |
@@ -34,7 +34,7 @@ Uygulamayı öykünücüde çalışmadığını gösterir.
 | Kod |var x RoleEnvironment.IsEmulated; = |
 
 ## <a name="deployment-id"></a>Dağıtım kimliği
-Örneğin dağıtım kimliği alır.
+Merhaba örneğinin Hello dağıtım kimliği alır.
 
 | Tür | Örnek |
 | --- | --- |
@@ -42,7 +42,7 @@ Uygulamayı öykünücüde çalışmadığını gösterir.
 | Kod |var Deploymentıd = RoleEnvironment.DeploymentId; |
 
 ## <a name="role-id"></a>Rol Kimliği
-Örnek için geçerli rol kimliği alır.
+Merhaba geçerli rol kimliği hello örneği alır.
 
 | Tür | Örnek |
 | --- | --- |
@@ -50,7 +50,7 @@ Uygulamayı öykünücüde çalışmadığını gösterir.
 | Kod |var kimliği = RoleEnvironment.CurrentRoleInstance.Id; |
 
 ## <a name="update-domain"></a>etki alanı güncelleştirme
-Güncelleştirme etki alanı örneği alır.
+Merhaba örneğinin Hello güncelleştirme etki alanı alır.
 
 | Tür | Örnek |
 | --- | --- |
@@ -58,7 +58,7 @@ Güncelleştirme etki alanı örneği alır.
 | Kod |var ud RoleEnvironment.CurrentRoleInstance.UpdateDomain; = |
 
 ## <a name="fault-domain"></a>hata etki alanı
-Hata etki alanı örneği alır.
+Merhaba örneğinin Hello hata etki alanı alır.
 
 | Tür | Örnek |
 | --- | --- |
@@ -66,7 +66,7 @@ Hata etki alanı örneği alır.
 | Kod |var fd RoleEnvironment.CurrentRoleInstance.FaultDomain; = |
 
 ## <a name="role-name"></a>Rol adı
-Bu rol adı örneği alır.
+Merhaba örneklerinin Hello rol adını alır.
 
 | Tür | Örnek |
 | --- | --- |
@@ -74,7 +74,7 @@ Bu rol adı örneği alır.
 | Kod |var rname = RoleEnvironment.CurrentRoleInstance.Role.Name; |
 
 ## <a name="config-setting"></a>Yapılandırma ayarı
-Belirtilen yapılandırma ayarının değeri alır.
+Yapılandırma ayarı tanımlanmış hello hello değeri alır.
 
 | Tür | Örnek |
 | --- | --- |
@@ -82,7 +82,7 @@ Belirtilen yapılandırma ayarının değeri alır.
 | Kod |değişken ayarı RoleEnvironment.GetConfigurationSettingValue("Setting1"); = |
 
 ## <a name="local-storage-path"></a>Yerel depolama alanı yolu
-Örneğin yerel depolama yolunu alır.
+Merhaba örneğin Hello yerel depolama yolunu alır.
 
 | Tür | Örnek |
 | --- | --- |
@@ -90,7 +90,7 @@ Belirtilen yapılandırma ayarının değeri alır.
 | Kod |var localResourcePath RoleEnvironment.GetLocalResource("LocalStore1") =. RootPath; |
 
 ## <a name="local-storage-size"></a>Yerel depolama boyutu
-Örneğin yerel depolama boyutunu alır.
+Merhaba hello hello örneği için yerel depolama alanının boyutunu alır.
 
 | Tür | Örnek |
 | --- | --- |
@@ -98,7 +98,7 @@ Belirtilen yapılandırma ayarının değeri alır.
 | Kod |var localResourceSizeInMB RoleEnvironment.GetLocalResource("LocalStore1") =. MaximumSizeInMegabytes; |
 
 ## <a name="endpoint-protocol"></a>Uç nokta Protokolü
-Örneği için uç nokta Protokolü alır.
+Merhaba örneğe Hello uç nokta protokolünü alır.
 
 | Tür | Örnek |
 | --- | --- |
@@ -106,7 +106,7 @@ Belirtilen yapılandırma ayarının değeri alır.
 | Kod |var KOR RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1 ="]. Protokol; |
 
 ## <a name="endpoint-ip"></a>Uç nokta IP
-Belirtilen uç noktanın IP adresini alır.
+Alır hello uç noktanın IP adresi belirtildi.
 
 | Tür | Örnek |
 | --- | --- |
@@ -114,7 +114,7 @@ Belirtilen uç noktanın IP adresini alır.
 | Kod |var adresi RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1 ="]. IPEndpoint.Address |
 
 ## <a name="endpoint-port"></a>uç nokta bağlantı noktası
-Örneği için uç nokta bağlantı noktası alır.
+Merhaba örneğinin Hello uç nokta bağlantı noktası alır.
 
 | Tür | Örnek |
 | --- | --- |
@@ -122,7 +122,7 @@ Belirtilen uç noktanın IP adresini alır.
 | Kod |bağlantı noktası var RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1 ="]. IPEndpoint.Port; |
 
 ## <a name="example"></a>Örnek
-Bir başlangıç görevi adında bir ortam değişkeni oluşturan çalışan rolü bir örneği burada verilmiştir `TestIsEmulated` kümesine [ @emulated xpath değeri](#app-running-in-emulator). 
+Bir başlangıç görevi adında bir ortam değişkeni oluşturan çalışan rolü bir örneği burada verilmiştir `TestIsEmulated` ayarlamak toohello [ @emulated xpath değeri](#app-running-in-emulator). 
 
 ```xml
 <WorkerRole name="Role1">
@@ -162,7 +162,7 @@ Bir başlangıç görevi adında bir ortam değişkeni oluşturan çalışan rol
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi edinmek [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) dosya.
+Merhaba hakkında daha fazla bilgi [ServiceConfiguration.cscfg](cloud-services-model-and-package.md#serviceconfigurationcscfg) dosya.
 
 Oluşturma bir [ServicePackage.cspkg](cloud-services-model-and-package.md#servicepackagecspkg) paket.
 

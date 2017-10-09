@@ -1,5 +1,5 @@
 ---
-title: "İşlemleri SQL Data Warehouse için en iyi duruma getirme | Microsoft Docs"
+title: "SQL veri ambarı için aaaOptimizing işlemler | Microsoft Docs"
 description: "Azure SQL Data Warehouse'da verimli işlem güncelleştirmeleri yazma en iyi uygulama kılavuzunu"
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,36 +15,36 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-ms.openlocfilehash: f9f19d75a37351b3562ce8c2f3629df14c5437c6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 1a821161711db9460b7e10d3cf7ba498d711448b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="optimizing-transactions-for-sql-data-warehouse"></a>İşlemleri SQL Data Warehouse için en iyi duruma getirme
-Bu makalede, uzun düzeyine riskini en aza indirme sırasında işlem kodunuzu performansını en iyi duruma açıklanmaktadır.
+Bu makalede nasıl toooptimize hello uzun düzeyine riskini en aza indirme sırasında işlem kodunuzu performansını açıklanmaktadır.
 
 ## <a name="transactions-and-logging"></a>İşlemler ve günlüğe kaydetme
-İşlemler, ilişkisel veritabanı altyapısını önemli bileşenidir. SQL veri ambarı işlemleri sırasında veri değişikliği kullanır. Bu işlemler, açık veya örtülü olabilir. Tek `INSERT`, `UPDATE` ve `DELETE` deyimleri örtülü işlemler tüm örnekler verilmiştir. Açık işlemleri açıkça kullanarak bir geliştirici tarafından yazılan `BEGIN TRAN`, `COMMIT TRAN` veya `ROLLBACK TRAN` ve birden çok değişikliği deyimleri tek bir atomik biriminde birlikte bağlanması gerektiğinde tipik olarak kullanılır. 
+İşlemler, ilişkisel veritabanı altyapısını önemli bileşenidir. SQL veri ambarı işlemleri sırasında veri değişikliği kullanır. Bu işlemler, açık veya örtülü olabilir. Tek `INSERT`, `UPDATE` ve `DELETE` deyimleri örtülü işlemler tüm örnekler verilmiştir. Açık işlemleri açıkça kullanarak bir geliştirici tarafından yazılan `BEGIN TRAN`, `COMMIT TRAN` veya `ROLLBACK TRAN` ve birden çok değişikliği deyimleri birlikte tek bir atomik biriminde bağlı toobe gerektiğinde tipik olarak kullanılır. 
 
-Azure SQL Data Warehouse, işlem günlükleri kullanarak veritabanı değişiklikleri kaydeder. Her dağıtım kendi işlem günlüğü vardır. İşlem günlüğü yazma otomatik olarak yapılır. Gerekli yapılandırma yoktur. Ancak, bu işlem yazma garanti adımında, bir ek yük sistemde tanıtır. İşlemsel olarak verimli kodlar yazarak bu etkiyi en aza indirebilirsiniz. İşlemsel olarak verimli kod kapsamlı iki kategoride yer alır.
+Azure SQL Data Warehouse değişiklikleri toohello veritabanı işlem günlüklerinin kullanarak kaydeder. Her dağıtım kendi işlem günlüğü vardır. İşlem günlüğü yazma otomatik olarak yapılır. Gerekli yapılandırma yoktur. Ancak, bu işlem hello yazma garanti adımında, bir ek yük hello sistemde tanıtır. İşlemsel olarak verimli kodlar yazarak bu etkiyi en aza indirebilirsiniz. İşlemsel olarak verimli kod kapsamlı iki kategoride yer alır.
 
 * Mümkün olduğunda en az günlük yapılardan yararlanın
-* Tekil uzun süre çalışan işlemleri önlemek için kapsamlı toplu işlemleri kullanarak verileri işlemek
-* Bir bölüm düzeni büyük değişiklikler belli bir bölüm için değiştirme benimsemeyi
+* Uzun süre çalışan işlemleri kapsamlı toplu tooavoid tekil kullanarak verileri işlemek
+* Bir bölüm düzeni büyük değişiklikler tooa verilen bölüm için değiştirme benimsemeyi
 
 ## <a name="minimal-vs-full-logging"></a>En az tam günlük kaydı karşılaştırması
-Her satır değişiklik izlemek için işlem günlüğü kullanın, tam olarak günlüğe kaydedilmiş işlemlerin en düşük düzeyde günlüğe kaydedilmiş işlemlerin kapsam ayırma ve yalnızca meta veri değişiklikleri takip edin. Bu nedenle, en az günlük kaydı geri alma işlemi bir hata veya açık bir istekte durumunda için gerekli olan bilgiler günlüğü içerir (`ROLLBACK TRAN`). Bilgi işlem günlüğünde daha az izlenen gibi en düşük düzeyde günlüğe kaydedilmiş bir işlemin benzer şekilde boyutlandırılmış tam olarak günlüğe kaydedilmiş bir işlemin daha iyi gerçekleştirir. Ayrıca, daha az yazma işlem günlüğü gitmek için günlük verileri kadar daha az miktarda oluşturulur ve bu nedenle daha fazla g/ç etkilidir.
+Merhaba işlem günlüğü tookeep her satır değişiklik izini kullanacağınız tam olarak günlüğe kaydedilmiş işlemlerin en düşük düzeyde günlüğe kaydedilmiş işlemlerin kapsam ayırma ve yalnızca meta veri değişiklikleri takip edin. Bu nedenle, yalnızca gerekli toorollback hello işlemde hello olay bir hata veya açık bir istekte hello bilgilerini günlüğe kaydetme en az günlük içerir (`ROLLBACK TRAN`). En düşük düzeyde günlüğe kaydedilmiş bir işlemin benzer şekilde boyutlandırılmış tam olarak günlüğe kaydedilmiş bir işlemin daha iyi bilgi hello işlem günlüğünde daha az izlenen olarak gerçekleştirir. Ayrıca, daha az yazma hello işlem günlüğü gitmek için günlük verileri kadar daha az miktarda oluşturulur ve bu nedenle daha fazla g/ç etkilidir.
 
-İşlem güvenliği sınırları yalnızca tam olarak günlüğe kaydedilen işlemleri için geçerlidir.
+Merhaba işlem güvenlik sınırları yalnızca oturum açmış toofully operations uygulayın.
 
 > [!NOTE]
-> En düşük düzeyde günlüğe kaydedilmiş işlemlerin açık işlemlerde yer alabilir. Ayırma yapılarında tüm değişiklikleri izlenen gibi en düşük düzeyde günlüğe kaydedilmiş işlemlerin geri mümkündür. Değişiklik "en düşük düzeyde" kaydedilir anlamak önemlidir beklemediğiniz oturum değil.
+> En düşük düzeyde günlüğe kaydedilmiş işlemlerin açık işlemlerde yer alabilir. İzlenen ayırma yapılarında tüm değişiklikler, olası tooroll geri en düşük düzeyde olur işlemleri günlüğe. "En düşük düzeyde" olarak hello değişikliktir toounderstand oturum önemlidir beklemediğiniz oturum değil.
 > 
 > 
 
 ## <a name="minimally-logged-operations"></a>En düşük düzeyde günlüğe kaydedilmiş işlemlerin
-Aşağıdaki işlemleri en düşük düzeyde günlüğe kaydedilmesini yeteneğine sahiptir:
+Merhaba aşağıdaki işlemleri en düşük düzeyde günlüğe kaydedilmesini yeteneğine sahiptir:
 
 * TABLE AS SELECT OLUŞTURUN ([CTAS][CTAS])
 * EKLE... SEÇİN
@@ -62,12 +62,12 @@ Aşağıdaki işlemleri en düşük düzeyde günlüğe kaydedilmesini yeteneği
 -->
 
 > [!NOTE]
-> İç veri taşıma işlemleri (gibi `BROADCAST` ve `SHUFFLE`) göre hareket güvenlik sınırı etkilenmez.
+> İç veri taşıma işlemleri (gibi `BROADCAST` ve `SHUFFLE`) hello işlem güvenlik sınırı tarafından etkilenmez.
 > 
 > 
 
 ## <a name="minimal-logging-with-bulk-load"></a>Toplu yükleme ile en az günlüğe kaydetme
-`CTAS`ve `INSERT...SELECT` olan hem de toplu yükleme işlemleri. Ancak, hem de hedef tablo tanımı tarafından etkilenir ve yük senaryoya bağlıdır. Toplu işlemi tam olarak veya en düşük düzeyde oturum varsa açıklayan bir tablo aşağıdadır:  
+`CTAS`ve `INSERT...SELECT` olan hem de toplu yükleme işlemleri. Bununla birlikte, her ikisi de hello hedef tablo tanımı tarafından etkilenir ve hello yük senaryoya bağlıdır. Toplu işlemi tam olarak veya en düşük düzeyde oturum varsa açıklayan bir tablo aşağıdadır:  
 
 | Birincil dizin | Yükleme senaryosu | Oturum açma modu |
 | --- | --- | --- |
@@ -78,22 +78,22 @@ Aşağıdaki işlemleri en düşük düzeyde günlüğe kaydedilmesini yeteneği
 | Kümelenmiş Columnstore dizini |Yığın boyutu > hizalı bölüm dağıtım başına 102,400 = |**En az** |
 | Kümelenmiş Columnstore dizini |Toplu iş boyutu < 102,400 hizalı bölüm dağıtım başına |Tam |
 
-Bu, ikincil veya kümelenmemiş dizinler güncelleştirilecek tüm yazma tam olarak günlüğe kaydedilmiş işlemlerin her zaman olacağını dikkate değerdir.
+Bu tooupdate ikincil veya kümelenmemiş dizinleri her zaman tam olarak olacak yazma işlemlerini günlüğe önemlidir.
 
 > [!IMPORTANT]
-> SQL veri ambarı 60 dağıtımları sahiptir. Bu nedenle, tüm satırları eşit olarak dağıtılır ve tek bir bölüm giriş, toplu 6,144,000 satır içermesi gerekir varsayılarak veya en düşük düzeyde bir kümelenmiş Columnstore dizini yazılırken günlüğe kaydedilecek daha büyük. Ardından tablonun bölümlenme şekli ve bölüm sınırları eklenen satır span bile veri dağıtım varsayılarak bölüm sınır başına 6,144,000 satır gerekir. Her bölümde her dağıtım bağımsız olarak dağıtım en düşük düzeyde tutulacak INSERT 102,400 satır eşiği aşması gerekir.
+> SQL veri ambarı 60 dağıtımları sahiptir. Bu nedenle, tüm satırları eşit olarak dağıtılır ve tek bir bölüm giriş, toplu toocontain 6,144,000 satır veya daha büyük toobe en düşük düzeyde gerekir varsayılarak tooa kümelenmiş Columnstore dizini yazılırken günlüğe. Ardından Merhaba tablonun bölümlenme şekli ve bölüm sınırları eklenmekte hello satırları span bile veri dağıtım varsayılarak bölüm sınır başına 6,144,000 satır gerekir. Her bölümde her dağıtım bağımsız olarak en düşük düzeyde hello dağıtım oturum hello INSERT toobe hello 102,400 satır eşiği aşması gerekir.
 > 
 > 
 
-Kümelenmiş bir dizin ile bir boş olmayan tabloya veri yükleme genellikle tam olarak günlüğe kaydedilen ve en düşük düzeyde oturum satır bir karışımını içerebilir. Kümelenmiş bir dizin sayfalarını dengeli ağacının (b-ağacı) ' dir. Sayfa için zaten var. başka bir işlem satırları yazılmakta varsa, bu yazma tam olarak kaydedilir. Sayfa boş ise, ancak daha sonra bu sayfayı yazma en düşük düzeyde günlüğe kaydedilir.
+Kümelenmiş bir dizin ile bir boş olmayan tabloya veri yükleme genellikle tam olarak günlüğe kaydedilen ve en düşük düzeyde oturum satır bir karışımını içerebilir. Kümelenmiş bir dizin sayfalarını dengeli ağacının (b-ağacı) ' dir. Merhaba sayfa tooalready başka bir işlem satırları içeren yazılmakta varsa, bu yazma tam olarak kaydedilir. Merhaba sayfa boşsa, ancak ardından hello yazma toothat sayfa en düşük düzeyde günlüğe kaydedilir.
 
 ## <a name="optimizing-deletes"></a>Siler en iyi duruma getirme
-`DELETE`tam olarak günlüğe kaydedilen bir işlemdir.  Büyük miktarda veri bir tablo veya bir bölümü silmek gerekiyorsa, genellikle daha fazla için mantıklıdır `SELECT` korumak istediğiniz veri en düşük düzeyde günlüğe kaydedilen bir işlem olarak çalıştırabilirsiniz.  Bunu gerçekleştirmek için yeni bir tablo oluşturma [CTAS][CTAS].  Oluşturduktan sonra kullanmak [yeniden adlandırma] [ RENAME] eski tablonuz yeni oluşturulan tabloyla takas etmek.
+`DELETE`tam olarak günlüğe kaydedilen bir işlemdir.  Toodelete büyük miktarda veri bir tablo ya da bir bölüme ihtiyacınız varsa, genellikle daha fazla çok mantıklıdır`SELECT` hello veri en düşük düzeyde günlüğe kaydedilmiş bir işlemin çalıştırılabilir tookeep istiyor.  tooaccomplish Bu, yeni bir tablo ile oluşturmak [CTAS][CTAS].  Oluşturduktan sonra kullanmak [yeniden adlandırma] [ RENAME] tooswap eski tablonuz yeni oluşturulan hello tablosuyla çıkışı.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
 
---Step 01. Create a new table select only the records we want to kep (PromotionKey 2)
+--Step 01. Create a new table select only hello records we want tookep (PromotionKey 2)
 CREATE TABLE [dbo].[FactInternetSales_d]
 WITH
 (    CLUSTERED COLUMNSTORE INDEX
@@ -113,20 +113,20 @@ WHERE    [PromotionKey] = 2
 OPTION (LABEL = 'CTAS : Delete')
 ;
 
---Step 02. Rename the Tables to replace the 
-RENAME OBJECT [dbo].[FactInternetSales]   TO [FactInternetSales_old];
-RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
+--Step 02. Rename hello Tables tooreplace hello 
+RENAME OBJECT [dbo].[FactInternetSales]   too[FactInternetSales_old];
+RENAME OBJECT [dbo].[FactInternetSales_d] too[FactInternetSales];
 ```
 
 ## <a name="optimizing-updates"></a>Güncelleştirmeleri en iyi duruma getirme
-`UPDATE`tam olarak günlüğe kaydedilen bir işlemdir.  Bir bölüm, genellikle en düşük düzeyde günlüğe kaydedilmiş bir işlemin gibi kullanmak için daha etkili olabilir ya da çok sayıda tablodaki satırları güncelleştirmek gereken [CTAS] [ CTAS] Bunu yapmak için.
+`UPDATE`tam olarak günlüğe kaydedilen bir işlemdir.  Çok sayıda tablodaki satırları tooupdate gerekir ya da bir bölüm, genellikle daha verimli toouse gibi en düşük düzeyde günlüğe kaydedilmiş bir işlemin olabilir [CTAS] [ CTAS] toodo şekilde.
 
-Tam bir tablo aşağıdaki örnekte güncelleştirme dönüştürülen bir `CTAS` en az günlük mümkün olmasını sağlayın.
+Hello dönüştürülmüş tooa tam tablosu güncelleştirmesi aşağıdaki örnekte bırakıldı `CTAS` en az günlük mümkün olmasını sağlayın.
 
-Bu durumda retrospectively bir indirim tutarı tablosundaki Satış ekliyoruz:
+Bu durumda retrospectively indirim tutarı toohello satış hello tabloda ekliyoruz:
 
 ```sql
---Step 01. Create a new table containing the "Update". 
+--Step 01. Create a new table containing hello "Update". 
 CREATE TABLE [dbo].[FactInternetSales_u]
 WITH
 (    CLUSTERED INDEX
@@ -171,31 +171,31 @@ FROM    [dbo].[FactInternetSales]
 OPTION (LABEL = 'CTAS : Update')
 ;
 
---Step 02. Rename the tables
-RENAME OBJECT [dbo].[FactInternetSales]   TO [FactInternetSales_old];
-RENAME OBJECT [dbo].[FactInternetSales_u] TO [FactInternetSales];
+--Step 02. Rename hello tables
+RENAME OBJECT [dbo].[FactInternetSales]   too[FactInternetSales_old];
+RENAME OBJECT [dbo].[FactInternetSales_u] too[FactInternetSales];
 
---Step 03. Drop the old table
+--Step 03. Drop hello old table
 DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> Büyük tabloları yeniden oluşturma, SQL veri ambarı iş yükü yönetimi özelliklerini kullanarak yararlı olabilir. Daha fazla ayrıntı iş yükü Yönetim bölümünde Lütfen başvurmak için [eşzamanlılık] [ concurrency] makalesi.
+> Büyük tabloları yeniden oluşturma, SQL veri ambarı iş yükü yönetimi özelliklerini kullanarak yararlı olabilir. Daha fazla ayrıntı Lütfen toohello iş yükü yönetimi hello bölümünde başvurun [eşzamanlılık] [ concurrency] makalesi.
 > 
 > 
 
 ## <a name="optimizing-with-partition-switching"></a>Bölüm geçiş ile en iyi duruma getirme
-Büyük ölçekli değişiklikleri içinde ile karşılaştığı olduğunda bir [tablo bölüm][table partition], sonra da bir bölüm düzeni değiştirme algılama çok yapar. Veri değişikliği önemlidir ve birden çok bölüm yayılan, basitçe bölümlerden yineleme aynı sonucu veren.
+Büyük ölçekli değişiklikleri içinde ile karşılaştığı olduğunda bir [tablo bölüm][table partition], sonra da bir bölüm düzeni değiştirme algılama çok yapar. Merhaba, veri değişikliği önemlidir ve aynı sonucu birden çok bölüm, yalnızca hello bölümler yineleme başarır yayılma hello.
 
-Bir bölüm anahtarı gerçekleştirme adımları aşağıdaki gibidir:
+Merhaba adımları tooperform bir bölüm anahtarı aşağıdaki gibidir:
 
 1. Boş bir bölüm çıkışı oluşturma
-2. 'Güncelleştirme' CTAS gerçekleştirme
-3. Var olan verilerini out tabloya geç
-4. Yeni verileri geçiş
-5. Verileri temizleme
+2. Merhaba 'güncelleştirme' CTAS gerçekleştirme
+3. Hello mevcut veri toohello tablo dışarı giden geçiş
+4. Merhaba yeni verileri geçiş
+5. Merhaba verilerini temizle
 
-Ancak, geçiş yapmak için bölümleri belirlemenize yardımcı olması için öncelikle aşağıdaki gibi bir yardımcı yordamı oluşturmamız gereken. 
+Ancak, toohelp ilk toobuild bir hello gibi bir yardımcı yordam aşağıdaki ihtiyacımız hello bölümleri tooswitch tanımlayın. 
 
 ```sql
 CREATE PROCEDURE dbo.partition_data_get
@@ -241,12 +241,12 @@ OPTION (LABEL = 'dbo.partition_data_get : CTAS : #ptn_data')
 GO
 ```
 
-Bu yordam, kodu yeniden kullanma en üst düzeye çıkarır ve bölüm örnek daha küçük değiştirme tutar.
+Bu yordam, kodu yeniden kullanma en üst düzeye çıkarır ve hello bölüm örnek daha küçük değiştirme tutar.
 
-Aşağıdaki kodu tam bir bölüm yordamı değiştirme elde etmek için yukarıdaki beş adımı gösterir.
+Aşağıdaki Hello kodu hello beş adımı tam bir bölüm yordamı değiştirme tooachieve bahsedilen gösterir.
 
 ```sql
---Create a partitioned aligned empty table to switch out the data 
+--Create a partitioned aligned empty table tooswitch out hello data 
 IF OBJECT_ID('[dbo].[FactInternetSales_out]') IS NOT NULL
 BEGIN
     DROP TABLE [dbo].[FactInternetSales_out]
@@ -268,7 +268,7 @@ WHERE 1=2
 OPTION (LABEL = 'CTAS : Partition Switch IN : UPDATE')
 ;
 
---Create a partitioned aligned table and update the data in the select portion of the CTAS
+--Create a partitioned aligned table and update hello data in hello select portion of hello CTAS
 IF OBJECT_ID('[dbo].[FactInternetSales_in]') IS NOT NULL
 BEGIN
     DROP TABLE [dbo].[FactInternetSales_in]
@@ -315,29 +315,29 @@ WHERE    OrderDateKey BETWEEN 20020101 AND 20021231
 OPTION (LABEL = 'CTAS : Partition Switch IN : UPDATE')
 ;
 
---Use the helper procedure to identify the partitions
---The source table
+--Use hello helper procedure tooidentify hello partitions
+--hello source table
 EXEC dbo.partition_data_get 'dbo','FactInternetSales',20030101
 DECLARE @ptn_nmbr_src INT = (SELECT ptn_nmbr FROM #ptn_data)
 SELECT @ptn_nmbr_src
 
---The "in" table
+--hello "in" table
 EXEC dbo.partition_data_get 'dbo','FactInternetSales_in',20030101
 DECLARE @ptn_nmbr_in INT = (SELECT ptn_nmbr FROM #ptn_data)
 SELECT @ptn_nmbr_in
 
---The "out" table
+--hello "out" table
 EXEC dbo.partition_data_get 'dbo','FactInternetSales_out',20030101
 DECLARE @ptn_nmbr_out INT = (SELECT ptn_nmbr FROM #ptn_data)
 SELECT @ptn_nmbr_out
 
---Switch the partitions over
+--Switch hello partitions over
 DECLARE @SQL NVARCHAR(4000) = '
-ALTER TABLE [dbo].[FactInternetSales]    SWITCH PARTITION '+CAST(@ptn_nmbr_src AS VARCHAR(20))    +' TO [dbo].[FactInternetSales_out] PARTITION '    +CAST(@ptn_nmbr_out AS VARCHAR(20))+';
-ALTER TABLE [dbo].[FactInternetSales_in] SWITCH PARTITION '+CAST(@ptn_nmbr_in AS VARCHAR(20))    +' TO [dbo].[FactInternetSales] PARTITION '        +CAST(@ptn_nmbr_src AS VARCHAR(20))+';'
+ALTER TABLE [dbo].[FactInternetSales]    SWITCH PARTITION '+CAST(@ptn_nmbr_src AS VARCHAR(20))    +' too[dbo].[FactInternetSales_out] PARTITION '    +CAST(@ptn_nmbr_out AS VARCHAR(20))+';
+ALTER TABLE [dbo].[FactInternetSales_in] SWITCH PARTITION '+CAST(@ptn_nmbr_in AS VARCHAR(20))    +' too[dbo].[FactInternetSales] PARTITION '        +CAST(@ptn_nmbr_src AS VARCHAR(20))+';'
 EXEC sp_executesql @SQL
 
---Perform the clean-up
+--Perform hello clean-up
 TRUNCATE TABLE dbo.FactInternetSales_out;
 TRUNCATE TABLE dbo.FactInternetSales_in;
 
@@ -347,9 +347,9 @@ DROP TABLE #ptn_data
 ```
 
 ## <a name="minimize-logging-with-small-batches"></a>Küçük toplu günlüğüyle simge durumuna küçült
-Büyük veri değiştirme işlemleri için bu işlemi öbekleri veya toplu iş birimini kapsam içine bölmek için mantıklı olabilir.
+Büyük veri değiştirme işlemleri için Itanium tabanlı sistemler için anlamlı toodivide hello işlemi tooscope hello birime öbekleri veya toplu iş duruma getirebilir.
 
-Çalışan bir örnek aşağıda verilmiştir. Toplu iş boyutu Önemsiz birkaç teknik vurgulamak için ayarlandı. Gerçekte toplu iş boyutu önemli ölçüde daha büyük olabilir. 
+Çalışan bir örnek aşağıda verilmiştir. Merhaba toplu iş boyutu tooa Önemsiz numara toohighlight hello teknik ayarlandı. Gerçekte hello toplu iş boyutu önemli ölçüde daha büyük olabilir. 
 
 ```sql
 SET NO_COUNT ON;
@@ -408,20 +408,20 @@ END
 ```
 
 ## <a name="pause-and-scaling-guidance"></a>Duraklatma ve ölçeklendirme Kılavuzu
-Azure SQL Data Warehouse, duraklatma, sürdürme ve veri ambarınız isteğe bağlı ölçeği olanak tanır. Duraklattığınızda veya SQL Data Warehouse ölçeklendirebilir yürütülen işlemler hemen sonlandırılır anlamak önemlidir; geri alınması açık işlemler neden oluyor. İş yükünüzün uzun çalışan ve tamamlanmamış veri değişikliği duraklama veya ölçek işlemi öncesinde yayımlanan değilse, bu iş geri gerekecektir. Bu, duraklatmak veya Azure SQL Data Warehouse veritabanınızı ölçeklendirmek için gereken süreyi etkileyebilir. 
+Azure SQL Data Warehouse, duraklatma, sürdürme ve veri ambarınız isteğe bağlı ölçeği olanak tanır. Duraklatmak veya SQL Data Warehouse ölçeklendirebilir yüklediğinizde yürütülen işlemler hemen sonlandırılır önemli toounderstand olur; Tüm açık hareketleri toobe neden geri alındı. İş yükünüzün uzun süre çalışan ve tamamlanmamış veri değişikliği önceki verilen toohello duraklatma veya ölçeklendirme işlemi, sonra da bu iş geri toobe gerekir. Bu toopause hello süresi etkisi veya Azure SQL Data Warehouse veritabanınızın ölçeğini olabilir. 
 
 > [!IMPORTANT]
 > Her ikisi de `UPDATE` ve `DELETE` tam olarak günlüğe kaydedilen işlemleri ve bunlar geri alma/yineleme için işlemleri eşdeğer en düşük düzeyde işlemleri günlüğe daha önemli ölçüde uzun sürebilir. 
 > 
 > 
 
-En iyi senaryo uçuş veri değişikliği işlemlerin duraklatma veya SQL Data Warehouse ölçeklendirme önce tam kurmanızı sağlamaktır. Ancak, bu her zaman pratik olmayabilir. Uzun bir geri alma riskini azaltmak için aşağıdaki seçeneklerden birini göz önünde bulundurun:
+Merhaba en iyi senaryo, uçuş veri değiştirme işlemleri tam önceki toopausing veya ölçeklendirme SQL Data Warehouse toolet bulunur. Ancak, bu her zaman pratik olmayabilir. uzun bir geri alma toomitigate hello riskini seçenekleri aşağıdaki hello birini dikkate alın:
 
 * Uzun süre çalışan işlemleri kullanarak yeniden yazma [CTAS][CTAS]
-* İşlemi parçalara bölmek; Alt satır kümesi üzerinde çalışan
+* Merhaba işlemi parçalara bölmek; bir alt hello satır kümesi üzerinde çalışan
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bkz: [SQL Data Warehouse işlemlerinde] [ Transactions in SQL Data Warehouse] yalıtım düzeylerinde ve işlem sınırları hakkında daha fazla bilgi edinmek için.  Diğer en iyi yöntemler genel bakış için bkz: [SQL veri ambarı en iyi uygulamalar][SQL Data Warehouse Best Practices].
+Bkz: [SQL Data Warehouse işlemlerinde] [ Transactions in SQL Data Warehouse] toolearn yalıtım düzeyleri ve işlem sınırları hakkında daha fazla bilgi.  Diğer en iyi yöntemler genel bakış için bkz: [SQL veri ambarı en iyi uygulamalar][SQL Data Warehouse Best Practices].
 
 <!--Image references-->
 

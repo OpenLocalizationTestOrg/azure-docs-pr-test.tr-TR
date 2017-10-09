@@ -1,6 +1,6 @@
 ---
 title: "Azure AD B2C: Node.js kullanarak bir web API'sinin güvenliğini sağlama | Microsoft Belgeleri"
-description: "B2C kiracısından belirteç kabul eden bir Node.js web API'si oluşturma"
+description: "Toobuild bir Node.js web nasıl API B2C kiracısından belirteç kabul eden"
 services: active-directory-b2c
 documentationcenter: 
 author: dstrockis
@@ -14,96 +14,96 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: xerners
-ms.openlocfilehash: 6480be75c314ede1b786e959a79c0385dd2edea8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 47f5bae025a9ba2f486e36acef36aa37cfb43543
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C: Node.js kullanarak bir web API'sinin güvenliğini sağlama
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
-Azure Active Directory (Azure AD) B2C ile OAuth 2.0 erişim belirteçleri kullanarak web API'si güvenliğini sağlayabilirsiniz. Bu belirteçler, Azure AD B2C kullanan istemci uygulamalarınızın API'ye ilişkin kimlik doğrulaması yapmasına olanak sağlar. Bu makalede kullanıcıların görevleri ekleyip listelemesine imkan tanıyan "yapılacaklar listesi" API’sini oluşturma işlemi gösterilmektedir. Web API’sinin güvenliği Azure AD B2C kullanılarak sağlanır ve yapılacaklar listesini yalnızca kimliği doğrulanmış kullanıcıların yönetmesine izin verilir.
+Azure Active Directory (Azure AD) B2C ile OAuth 2.0 erişim belirteçleri kullanarak web API'si güvenliğini sağlayabilirsiniz. Bu belirteçler Azure AD B2C tooauthenticate toohello API kullanan istemci uygulamalarınızın izin verir. Bu makalede nasıl toocreate bir "Yapılacaklar listesi" API kullanıcılar tooadd ve liste görevleri sağlayan gösterilmektedir. Merhaba web API'sini Azure AD B2C kullanarak güvenli ve kimliği doğrulanmış kullanıcılar toomanage kendi Yapılacaklar listesi yalnızca sağlar.
 
 > [!NOTE]
-> Bu örnek, [iOS B2C örnek uygulamamızı](active-directory-b2c-devquickstarts-ios.md) kullanarak bağlanmak için yazılmıştır. Öncelikle bu kılavuzu gözden geçirin ve ardından örneği takip edin.
+> Bu örnek tooby bağlı toobe kullanılarak yazılmıştır bizim [iOS B2C örnek uygulamamızı](active-directory-b2c-devquickstarts-ios.md). Geçerli gözden geçirme ilk hello ve o örneği takip edin.
 >
 >
 
-**Passport**, Node.js için kimlik doğrulama ara yazılımıdır. Esnek ve modüler özellikteki Passport, Express tabanlı veya Restify web uygulamasına sorunsuz bir şekilde yüklenebilir. Bir dizi kapsamlı strateji; bir kullanıcı adı ve parola, Facebook, Twitter ve daha fazlası ile kimlik doğrulamasını destekler. Azure Active Directory (Azure AD) için bir strateji geliştirdik. Bu modülü yükleyin ve ardından Azure AD `passport-azure-ad` eklentisini ekleyin.
+**Passport**, Node.js için kimlik doğrulama ara yazılımıdır. Esnek ve modüler özellikteki Passport, Express tabanlı veya Restify web uygulamasına sorunsuz bir şekilde yüklenebilir. Bir dizi kapsamlı strateji; bir kullanıcı adı ve parola, Facebook, Twitter ve daha fazlası ile kimlik doğrulamasını destekler. Azure Active Directory (Azure AD) için bir strateji geliştirdik. Bu modülü yükleyin ve ardından hello Azure AD ekleyin `passport-azure-ad` eklentisi.
 
-Bu örneği uygulamanız için gerekenler şunlardır:
+toodo Bu örnek, gerekir:
 
 1. Bir uygulamayı Azure AD'ye kaydedin.
-2. Passport'un `azure-ad-passport` eklentisini kullanmak için uygulamanızı ayarlayın.
-3. "Yapılacaklar listesi" web API'sini çağırmak için bir istemci uygulaması yapılandırın.
+2. Uygulama toouse Passport's ayarlamak `azure-ad-passport` eklentisi.
+3. İstemci uygulama toocall hello "Yapılacaklar listesi" web API'si yapılandırın.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Azure AD B2C dizini alma
 Azure AD B2C'yi kullanabilmek için önce dizin veya kiracı oluşturmanız gerekir.  Dizin; tüm kullanıcılar, uygulamalar, gruplar ve daha fazlası için bir kapsayıcıdır.  Henüz yoksa devam etmeden önce [bir B2C dizini oluşturun](active-directory-b2c-get-started.md).
 
 ## <a name="create-an-application"></a>Uygulama oluşturma
-Daha sonra, B2C dizininizde Azure AD'ye uygulamanız ile güvenli şekilde iletişim kurması için gereken bazı bilgiler sağlayan bir uygulama oluşturmanız gerekir. Bu durumda, tek bir mantıksal uygulama içerdikleri için hem istemci uygulaması hem de web API'si tek bir **Uygulama Kimliği** ile temsil edilir. Bir uygulama oluşturmak için [bu talimatları](active-directory-b2c-app-registration.md) izleyin. Şunları yaptığınızdan emin olun:
+Ardından B2C dizininizde Azure AD toosecurely gereken bazı bilgiler sağlayan bir uygulamanın iletişim toocreate uygulamanızla gerekir. Bu durumda, hem hello istemci uygulaması hem de web API'si tarafından tek bir temsil edilir **uygulama kimliği**, bir mantıksal uygulama içerdikleri için. Uygulama, bir toocreate izleyin [bu yönergeleri](active-directory-b2c-app-registration.md). Şunları yaptığınızdan emin olun:
 
-* Uygulamaya bir **web uygulaması/web api'si** ekleyin
-* **Yanıt URL'si** olarak `http://localhost/TodoListService` adresini girin. Bu URL, bu kod örneği için varsayılan URL'dir.
-* Uygulamanız için bir **Uygulama gizli anahtarı** oluşturun ve bunu kopyalayın. Bu veriler daha sonra gerekli olacaktır. Kullanmadan önce bu değerin [XML kaçışlı](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) olması gerektiğini unutmayın.
-* Uygulamanıza atanan **Uygulama Kimliği**'ni kopyalayın. Bu veriler daha sonra gerekli olacaktır.
+* Dahil bir **web uygulaması/web API** hello uygulamada
+* **Yanıt URL'si** olarak `http://localhost/TodoListService` adresini girin. Bu kod örneği için hello varsayılan URL değil.
+* Uygulamanız için bir **Uygulama gizli anahtarı** oluşturun ve bunu kopyalayın. Bu veriler daha sonra gerekli olacaktır. Bu değer toobe gerektiğini Not [XML kaçışlı](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) kullanmadan önce.
+* Kopya hello **uygulama kimliği** diğer bir deyişle atanan tooyour uygulama. Bu veriler daha sonra gerekli olacaktır.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>İlkelerinizi oluşturma
-Azure AD B2C'de her kullanıcı deneyimi, bir [ilke](active-directory-b2c-reference-policies.md) ile tanımlanır. Bu uygulama iki kimlik deneyimi içerir: kaydolma ve oturum açma. Her tür için [ilke başvurusu makalesinde](active-directory-b2c-reference-policies.md#create-a-sign-up-policy) tanımlanan şekilde bir ilke oluşturmanız gerekir.  Üç ilkenizi oluştururken şunları yaptığınızdan emin olun:
+Azure AD B2C'de her kullanıcı deneyimi, bir [ilke](active-directory-b2c-reference-policies.md) ile tanımlanır. Bu uygulama iki kimlik deneyimi içerir: kaydolma ve oturum açma. Bölümünde açıklandığı gibi her tür bir ilke toocreate gerek [ilke başvurusu makalesinde](active-directory-b2c-reference-policies.md#create-a-sign-up-policy).  Üç ilkenizi oluştururken şunları yaptığınızdan emin olun:
 
-* Kaydolma ilkenizde **Görünen adı** ve diğer kaydolma özniteliklerini seçin.
-* Her ilkede uygulamanın talep ettiği **Görünen ad** ve **Nesne Kimliği** öğelerini seçin.  Diğer talepleri de seçebilirsiniz.
-* Oluşturduktan sonra her bir ilkenin **Adını** kaydedin. `b2c_1_` önekine sahip olmalıdır.  Bu ilke adları daha sonra gerekli olacaktır.
+* Merhaba seçin **görünen adı** ve diğer kaydolma özniteliklerini kaydolma ilkenizde.
+* Merhaba seçin **görünen adı** ve **nesne kimliği** her ilkede uygulamanın talep.  Diğer talepleri de seçebilirsiniz.
+* Merhaba basılı kopya **adı** oluşturduktan sonra her ilkenin. Merhaba önekine sahip olmalıdır `b2c_1_`.  Bu ilke adları daha sonra gerekli olacaktır.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-Üç ilkenizi oluşturduktan sonra uygulamanızı oluşturmaya hazırsınız.
+Üç ilkenizi oluşturduktan sonra hazır toobuild olduğunuz uygulamanızı.
 
-İlkelerin Azure AD B2C'de nasıl çalıştığını öğrenmeye [.NET web uygulaması ile çalışmaya başlama öğreticisi](active-directory-b2c-devquickstarts-web-dotnet.md) ile başlayın.
+toolearn ile Merhaba ilkelerinin Azure AD B2C'de nasıl çalıştığı hakkında başlangıç [.NET web uygulamasıyla çalışmaya başlama Öğreticisi](active-directory-b2c-devquickstarts-web-dotnet.md).
 
-## <a name="download-the-code"></a>Kodu indirme
-Bu öğretici için kod [GitHub'da korunur](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS). İşlemlere devam ederken örneği oluşturmak için [ bir çatı projesini .zip dosyası olarak indirebilirsiniz](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS/archive/skeleton.zip). Ayrıca çatıyı kopyalayabilirsiniz:
+## <a name="download-hello-code"></a>Merhaba kodu indirme
+Bu öğretici için kod Hello [Github'da korunur](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS). toobuild hello örnek olarak, Git, yapabilecekleriniz [çatı projesini .zip dosyası olarak indirebilirsiniz](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS/archive/skeleton.zip). Ayrıca hello çatıyı kopyalayabilirsiniz:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS.git
 ```
 
-Tamamlanan uygulama aynı zamanda [.zip dosyası olarak](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS/archive/complete.zip) veya aynı deponun `complete` dalı üzerinde de kullanılabilir.
+Tamamlanan hello uygulamadır de [.zip dosyası olarak kullanılabilir](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS/archive/complete.zip) veya hello `complete` hello dalı aynı deposu.
 
 ## <a name="download-nodejs-for-your-platform"></a>Platformunuz için Node.js indirme
-Bu örneği başarılı bir şekilde kullanmak için çalışan bir Node.js yüklemesine sahip olmanız gerekir.
+Bu örnek toosuccessfully kullanın, Node.js çalışan yüklemesine gerekir.
 
 [nodejs.org](http://nodejs.org) adresinden Node.js'yi yükleyin.
 
 ## <a name="install-mongodb-for-your-platform"></a>Platformunuz için MongoDB yükleme
-Bu örneği başarılı bir şekilde kullanmak için çalışan bir MongoDB yüklemesine sahip olmanız gerekir. MongoDB, REST API'nizi sunucu örneklerinde kalıcı hale getirmek için kullanılır.
+toosuccessfully kullanın Bu örnek, MongoDB çalışan yüklemesine gerekir. MongoDB toomake kalıcı, REST API'nizi sunucu örneklerinde kullanırız.
 
 [mongodb.org](http://www.mongodb.org) adresinden MongoDB'yi yükleyin.
 
 > [!NOTE]
-> Bu kılavuz, MongoDB için bu yazma sırasında `mongodb://localhost` olan varsayılan yükleme ve sunucu uç noktalarını kullandığınızı varsayar.
+> Bu kılavuz hello varsayılan yükleme ve sunucu uç noktaları olan bu yazma hello zamanında MongoDB kullanmak varsayar `mongodb://localhost`.
 >
 >
 
-## <a name="install-the-restify-modules-in-your-web-api"></a>Restify modüllerini Web API'nize yükleme
-REST API'nizi oluşturmak için Restify kullanılır. Restify, Express'ten türetilen minimal ve esnek bir Node.js uygulama çerçevesidir. Connect üstünde REST API'leri oluşturmaya yönelik bir dizi sağlam özelliğe sahiptir.
+## <a name="install-hello-restify-modules-in-your-web-api"></a>Merhaba Restify modüllerini web API'nize yükleme
+REST API'nizi Restify toobuild kullanırız. Restify, Express'ten türetilen minimal ve esnek bir Node.js uygulama çerçevesidir. Connect üstünde REST API'leri oluşturmaya yönelik bir dizi sağlam özelliğe sahiptir.
 
 ### <a name="install-restify"></a>Restify'ı yükleme
-Komut satırından dizininizi `azuread` olarak değiştirin. `azuread` dizini mevcut değilse oluşturun.
+Merhaba komut satırından dizininizi çok değiştirin`azuread`. Merhaba, `azuread` dizin mevcut değil, oluşturun.
 
 `cd azuread` veya `mkdir azuread;`
 
-Aşağıdaki komutu girin:
+Merhaba aşağıdaki komutu girin:
 
 `npm install restify`
 
 Bu komut Restify'ı yükler.
 
 #### <a name="did-you-get-an-error"></a>Hata mı aldınız?
-Bazı işletim sistemlerinde `npm` öğesini kullandığınızda `Error: EPERM, chmod '/usr/local/bin/..'` hatasını ve hesabı yönetici olarak çalıştırmanızı isteyen bir istek alabilirsiniz. Bu sorun oluşursa `npm` öğesini daha yüksek bir ayrıcalık düzeyinde çalıştırmak için `sudo` komutunu kullanın.
+Bazı işletim sistemlerindeki kullandığınızda, `npm`, hello hata iletisini alabilirsiniz `Error: EPERM, chmod '/usr/local/bin/..'` ve bir istek hello hesabı yönetici olarak çalıştırın. Bu sorun oluşursa, hello kullan `sudo` komutu toorun `npm` daha yüksek bir ayrıcalık düzeyinde.
 
 #### <a name="did-you-get-a-dtrace-error"></a>Bir DTrace hatası mı aldınız?
 Restify'ı yüklediğinizde şöyle bir metin görebilirsiniz:
@@ -127,7 +127,7 @@ npm WARN optional dep failed, continuing dtrace-provider@0.2.8
 
 Restify, DTrace kullanarak REST çağrılarını izlemek için güçlü bir mekanizma sağlar. Ancak çoğu işletim sisteminde DTrace kullanılabilir değildir. Bu hataları güvenle yoksayabilirsiniz.
 
-Komut çıktısı şu metne benzer şekilde görünmelidir:
+Merhaba hello komutunun çıkışını benzer toothis metin görünmelidir:
 
     restify@2.6.1 node_modules/restify
     ├── assert-plus@0.1.4
@@ -151,33 +151,33 @@ Komut çıktısı şu metne benzer şekilde görünmelidir:
     └── bunyan@0.22.0 (mv@0.0.5)
 
 ## <a name="install-passport-in-your-web-api"></a>Passport'u web API'nize yükleme
-Zaten orada değilse komut satırından dizininizi `azuread` olarak değiştirin.
+Merhaba komut satırından dizininizi çok değiştirin`azuread`, zaten yoksa.
 
-Aşağıdaki komutu kullanarak Passport’u yükleyin:
+Passport komutu aşağıdaki hello kullanarak yükleyin:
 
 `npm install passport`
 
-Komut çıktısı şu metne benzer olmalıdır:
+Merhaba hello komutunun çıkışını benzer toothis metin olmalıdır:
 
     passport@0.1.17 node_modules\passport
     ├── pause@0.0.1
     └── pkginfo@0.2.3
 
-## <a name="add-passport-azuread-to-your-web-api"></a>Passport-azuread'i web API'nize ekleme
-Ardından `passport-azuread` öğesini kullanarak Azure AD'yi Passport'a bağlayan bir stratejiler paketi olan OAuth stratejisini ekleyin. REST API'si örneğindeki taşıyıcı belirteçler için bu stratejiyi kullanın.
+## <a name="add-passport-azuread-tooyour-web-api"></a>Passport-azuread'i tooyour web API ekleme
+Ardından, kullanarak hello OAuth stratejisini ekleyin `passport-azuread`, Azure AD'yi Passport'a bağlayan stratejileri dizisi. Merhaba REST API'si örneğindeki taşıyıcı belirteçler için bu stratejiyi kullanın.
 
 > [!NOTE]
-> OAuth2, herhangi bir bilinen belirteç türünün verilebileceği bir altyapı sağlasa da yalnızca belirli belirteç türleri yaygın kullanım elde etmiştir. Uç noktaları korumaya yönelik belirteçler, taşıyıcı belirteçlerdir. Belirteç türleri OAuth2'de en yaygın olarak verilen türlerdir. Birçok uygulama, taşıyıcı belirteçlerin verilen tek belirteç türü olduğunu varsayar.
+> OAuth2, herhangi bir bilinen belirteç türünün verilebileceği bir altyapı sağlasa da yalnızca belirli belirteç türleri yaygın kullanım elde etmiştir. uç noktaları korumaya hello belirteçler, taşıyıcı belirteçlerdir. Bu belirteçler OAuth2 en yaygın olarak verilen hello türleridir. Birçok uygulama, taşıyıcı belirteçlerini hello tek belirteç türü olduğunu varsayar.
 >
 >
 
-Zaten orada değilse komut satırından dizininizi `azuread` olarak değiştirin.
+Merhaba komut satırından dizininizi çok değiştirin`azuread`, zaten yoksa.
 
-Aşağıdaki komutu kullanarak Passport `passport-azure-ad` modülünü yükleyin:
+Merhaba Passport yüklemek `passport-azure-ad` komutu aşağıdaki hello kullanarak Modülü:
 
 `npm install passport-azure-ad`
 
-Komut çıktısı şu metne benzer olmalıdır:
+Merhaba hello komutunun çıkışını benzer toothis metin olmalıdır:
 
 ``
 passport-azure-ad@1.0.0 node_modules/passport-azure-ad
@@ -194,19 +194,19 @@ passport-azure-ad@1.0.0 node_modules/passport-azure-ad
 └── xml2js@0.4.9 (sax@0.6.1, xmlbuilder@2.6.4)
 ``
 
-## <a name="add-mongodb-modules-to-your-web-api"></a>Web API'nize MongoDB modülleri ekleme
+## <a name="add-mongodb-modules-tooyour-web-api"></a>MongoDB modülleri tooyour web API ekleme
 Bu örnekte MongoDB veri deponuz olarak kullanılır. Bunun için modelleri ve şemaları yönetmeye yönelik yaygın kullanılan bir eklenti olan Mongoose’u yükleyin.
 
 * `npm install mongoose`
 
 ## <a name="install-additional-modules"></a>Ek modüller yükleme
-Ardından, kalan gerekli modüllerini yükleyin.
+Ardından, kalan gerekli modüllerini hello yükleyin.
 
-Zaten orada değilse komut satırından dizininizi `azuread` olarak değiştirin:
+Merhaba komut satırından dizininizi çok değiştirin`azuread`, zaten yoksa:
 
 `cd azuread`
 
-Modülleri `node_modules` dizininize yükleyin:
+Merhaba modüllerini yüklemek, `node_modules` dizini:
 
 * `npm install assert-plus`
 * `npm install ejs`
@@ -215,13 +215,13 @@ Modülleri `node_modules` dizininize yükleyin:
 * `npm install bunyan`
 
 ## <a name="create-a-serverjs-file-with-your-dependencies"></a>Bağımlılıklarınız ile bir server.js dosyası oluşturma
-Web API sunucunuz için işlevselliğin büyük bölümü `server.js` dosyası tarafından sağlanır.
+Merhaba `server.js` dosyası, Web API sunucunuz için hello işlevselliği hello çoğunu sağlar.
 
-Zaten orada değilse komut satırından dizininizi `azuread` olarak değiştirin:
+Merhaba komut satırından dizininizi çok değiştirin`azuread`, zaten yoksa:
 
 `cd azuread`
 
-Bir düzenleyicide `server.js` dosyası oluşturun. Aşağıdaki bilgileri ekleyin:
+Bir düzenleyicide `server.js` dosyası oluşturun. Aşağıdaki bilgilerle hello ekleyin:
 
 ```Javascript
 'use strict';
@@ -240,27 +240,27 @@ var passport = require('passport');
 var OIDCBearerStrategy = require('passport-azure-ad').BearerStrategy;
 ```
 
-Dosyayı kaydedin. Buna daha sonra geri döneceksiniz.
+Merhaba dosyasını kaydedin. Tooit daha sonra geri dönün.
 
-## <a name="create-a-configjs-file-to-store-your-azure-ad-settings"></a>Azure AD ayarlarınızı depolamak için bir config.js dosyası oluşturma
-Bu kod dosyası, Azure AD Portal'dan `Passport.js` dosyasına yapılandırma parametrelerini geçirir. Bu yapılandırma değerlerini, kılavuzun ilk bölümünde web API'sini portala eklediğinizde oluşturdunuz. Kodu kopyaladıktan sonra bu parametre değerlerine eklemeniz gerekenler açıklanacaktır.
+## <a name="create-a-configjs-file-toostore-your-azure-ad-settings"></a>Azure AD ayarlarınızı bir config.js dosyası toostore oluşturma
+Bu kod dosyası, Azure AD portalı toohello hello yapılandırma parametrelerini geçirir `Passport.js` dosya. Merhaba ilk hello gözden geçirme bölümünde hello web API toohello portal eklendiğinde bu yapılandırma değerlerini oluşturuldu. Merhaba kodu kopyaladıktan sonra biz hello değerleri bu parametre hangi tooput açıklanmaktadır.
 
-Zaten orada değilse komut satırından dizininizi `azuread` olarak değiştirin:
+Merhaba komut satırından dizininizi çok değiştirin`azuread`, zaten yoksa:
 
 `cd azuread`
 
-Bir düzenleyicide `config.js` dosyası oluşturun. Aşağıdaki bilgileri ekleyin:
+Bir düzenleyicide `config.js` dosyası oluşturun. Aşağıdaki bilgilerle hello ekleyin:
 
 ```Javascript
-// Don't commit this file to your public repos. This config is for first-run
+// Don't commit this file tooyour public repos. This config is for first-run
 exports.creds = {
-clientID: <your client ID for this Web API you created in the portal>
+clientID: <your client ID for this Web API you created in hello portal>
 mongoose_auth_local: 'mongodb://localhost/tasklist', // Your mongo auth uri goes here
-audience: '<your audience URI>', // the Client ID of the application that is calling your API, usually a web API or native client
-identityMetadata: 'https://login.microsoftonline.com/<tenant name>/.well-known/openid-configuration', // Make sure you add the B2C tenant name in the <tenant name> area
+audience: '<your audience URI>', // hello Client ID of hello application that is calling your API, usually a web API or native client
+identityMetadata: 'https://login.microsoftonline.com/<tenant name>/.well-known/openid-configuration', // Make sure you add hello B2C tenant name in hello <tenant name> area
 tenantName:'<tenant name>',
-policyName:'b2c_1_<sign in policy name>' // This is the policy you'll want to validate against in B2C. Usually this is your Sign-in policy (as users sign in to this API)
-passReqToCallback: false // This is a node.js construct that lets you pass the req all the way back to any upstream caller. We turn this off as there is no upstream caller.
+policyName:'b2c_1_<sign in policy name>' // This is hello policy you'll want toovalidate against in B2C. Usually this is your Sign-in policy (as users sign in toothis API)
+passReqToCallback: false // This is a node.js construct that lets you pass hello req all hello way back tooany upstream caller. We turn this off as there is no upstream caller.
 };
 
 ```
@@ -268,40 +268,40 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 [!INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 ### <a name="required-values"></a>Gerekli değerler
-`clientID`: Web API uygulamanızın istemci kimliği.
+`clientID`: Merhaba Web API uygulamanızın istemci kimliği.
 
-`IdentityMetadata`: Burası, `passport-azure-ad` öğesinin kimlik sağlayıcısı için yapılandırma verilerinizi arayacağı yerdir. Ayrıca, JSON web belirteçlerini doğrulamaya yönelik anahtarlar da aranır.
+`IdentityMetadata`: Bu yerdir `passport-azure-ad` hello kimlik sağlayıcısı için yapılandırma verilerinizi arar. Ayrıca, hello anahtarları toovalidate hello JSON web belirteçlerini için arar.
 
-`audience`: Çağıran uygulamanızı tanımlayan portaldan alınan tekdüzen kaynak tanımlayıcısı (URI).
+`audience`: Merhaba, çağıran uygulama tanımlayan hello portalından Tekdüzen Kaynak Tanımlayıcısı (URI).
 
 `tenantName`: Kiracı adınız (örneğin, **contoso.onmicrosoft.com**).
 
-`policyName`: Sunucunuza gelen belirteçleri doğrulamak istediğiniz ilke. Bu ilke, oturum açma için istemci uygulamasında kullandığınız aynı ilke olmalıdır.
+`policyName`: Merhaba tooyour Server'da gelen toovalidate hello belirteçleri istediğiniz ilke. Bu ilke olmalıdır hello hello istemci uygulaması oturum açmak için kullandığınız aynı ilke.
 
 > [!NOTE]
-> Şimdilik, istemci ve sunucu kurulumunda aynı ilkeleri kullanın. Bir kılavuzu zaten tamamlayıp bu ilkeleri oluşturduysanız tekrar yapmanıza gerek yoktur. Kılavuzu tamamladığınız için sitede istemci kılavuzlarına yönelik yeni ilkeler ayarlamanıza gerek yoktur.
+> Şimdilik, kullanım hello aynı istemci ve sunucu kurulumunda arasında ilkeleri. Zaten bir gözden geçirme tamamlandı ve bu ilkeleri oluşturduysanız, bu nedenle yeniden toodo gerekmez. Merhaba Kılavuzu tamamladığınız hello sitede istemci kılavuzlarına yönelik yeni ilkeleri tooset gerek döndürmemelidir.
 >
 >
 
-## <a name="add-configuration-to-your-serverjs-file"></a>Server.js dosyanıza yapılandırma ekleme
-Oluşturduğunuz `config.js` dosyasından değerleri okumak için `.config` dosyasını gerekli bir kaynak olarak uygulamanıza ekleyin ve ardından genel değişkenleri `config.js` belgesindekilere ayarlayın.
+## <a name="add-configuration-tooyour-serverjs-file"></a>Yapılandırma tooyour server.js dosyası ekleme
+Merhaba tooread hello değerleri `config.js` oluşturduğunuz dosya, hello eklemek `.config` dosya uygulamanızda gerekli bir kaynak olarak ve ardından hello hello genel değişkenler toothose `config.js` belge.
 
-Zaten orada değilse komut satırından dizininizi `azuread` olarak değiştirin:
+Merhaba komut satırından dizininizi çok değiştirin`azuread`, zaten yoksa:
 
 `cd azuread`
 
-Bir düzenleyicide `server.js` dosyasını açın. Aşağıdaki bilgileri ekleyin:
+Açık hello `server.js` dosyasına bir düzenleyicide. Aşağıdaki bilgilerle hello ekleyin:
 
 ```Javascript
 var config = require('./config');
 ```
-`server.js` öğesine aşağıdaki kodu içeren yeni bir bölüm ekleyin:
+Yeni bir bölüm çok eklemek`server.js` koddan hello içerir:
 
 ```Javascript
-// We pass these options in to the ODICBearerStrategy.
+// We pass these options in toohello ODICBearerStrategy.
 
 var options = {
-    // The URL of the metadata document for your app. We put the keys for token validation from the URL found in the jwks_uri tag of the in the metadata.
+    // hello URL of hello metadata document for your app. We put hello keys for token validation from hello URL found in hello jwks_uri tag of hello in hello metadata.
     identityMetadata: config.creds.identityMetadata,
     clientID: config.creds.clientID,
     tenantName: config.creds.tenantName,
@@ -313,10 +313,10 @@ var options = {
 };
 ```
 
-Ardından, kullanıcılar için çağıran uygulamalardan alınan bazı yer tutucuları ekleyin.
+Ardından, arama bizim uygulamalardan aldığımız hello kullanıcılar için bazı yer tutucuları ekleyelim.
 
 ```Javascript
-// array to hold logged in users and the current logged in user (owner)
+// array toohold logged in users and hello current logged in user (owner)
 var users = [];
 var owner = null;
 ```
@@ -330,32 +330,32 @@ var log = bunyan.createLogger({
 });
 ```
 
-## <a name="add-the-mongodb-model-and-schema-information-by-using-mongoose"></a>Mongoose kullanarak MongoDB model ve şema bilgilerini ekleme
-Bu üç dosyayı REST API hizmetinde bir araya getirdiğiniz için erken hazırlık faydalı olur.
+## <a name="add-hello-mongodb-model-and-schema-information-by-using-mongoose"></a>Mongoose kullanarak Hello MongoDB model ve şema bilgilerini ekleme
+Bu üç dosyayı REST API hizmetinde araya getirdiğiniz hello erken hazırlık ödeyen devre dışı.
 
-Daha önce de belirtildiği gibi bu kılavuz için görevlerinizi depolamak üzere MongoDB'yi kullanın.
+Bu kılavuz, MongoDB toostore daha önce bahsedildiği gibi görevlerinizin kullanın.
 
-`config.js` dosyasında veritabanınızın **tasklist** öğesini çağırdınız. Bu ad aynı zamanda `mongoose_auth_local` bağlantı URL'si sonuna eklediğiniz öğeydi. Bu veritabanını MongoDB'de önceden oluşturmanız gerekmez. Bu öğe sizin için sunucu uygulamasının ilk kez çalıştırılmasında veritabanını oluşturur.
+Merhaba, `config.js` dosyası, veritabanınızı adlı **tasklist**. Bu ayrıca hello hello sonuna eklediğiniz adlandırılmıştı `mongoose_auth_local` bağlantı URL'si. Bu veritabanında önceden MongoDB toocreate gerekmez. Merhaba veritabanı sizin için hello ilk sunucu uygulamanızı çalıştırılmasında oluşturur.
 
-Sunucuya hangi MongoDB veritabanını kullanacağınızı bildirdikten sonra sunucu görevleriniz için model ve şema oluşturmak amacıyla birkaç ek kod yazmanız gerekir.
+Hangi MongoDB veritabanı toouse hello sunucusuna bildirmek sonra toowrite bazı ek kod toocreate hello model ve şema sunucu görevleriniz için gerekir.
 
-### <a name="expand-the-model"></a>Modeli genişletme
+### <a name="expand-hello-model"></a>Merhaba modeli genişletme
 Bu şema modeli basittir. Gerektiği şekilde genişletebilirsiniz.
 
-`owner`: Göreve atanan kişi. Bu nesne bir **string**.  
+`owner`: Göreve toohello görev atanır. Bu nesne bir **string**.  
 
-`Text`: Görevin kendisi. Bu nesne bir **string**.
+`Text`: hello görevin kendisi. Bu nesne bir **string**.
 
-`date`: Görevin son tarihi. Bu nesne bir **datetime**.
+`date`: Başlangıç tarihi bu hello son bir görevdir. Bu nesne bir **datetime**.
 
-`completed`: Görev tamamlandıysa. Bu nesne bir **Boolean**.
+`completed`: Başlangıç görevi ise tamamlayın. Bu nesne bir **Boolean**.
 
-### <a name="create-the-schema-in-the-code"></a>Kod içinde şema oluşturma
-Zaten orada değilse komut satırından dizininizi `azuread` olarak değiştirin:
+### <a name="create-hello-schema-in-hello-code"></a>Merhaba kodda Hello şema oluşturun
+Merhaba komut satırından dizininizi çok değiştirin`azuread`, zaten yoksa:
 
 `cd azuread`
 
-Bir düzenleyicide `server.js` dosyasını açın. Aşağıdaki bilgileri yapılandırma girdisi altına ekleyin:
+Açık hello `server.js` dosyasına bir düzenleyicide. Hello aşağıdaki bilgilerle hello yapılandırma girdisi altına ekleyin:
 
 ```Javascript
 // MongoDB setup
@@ -363,12 +363,12 @@ Bir düzenleyicide `server.js` dosyasını açın. Aşağıdaki bilgileri yapıl
 var serverPort = process.env.PORT || 3000; // Note we are hosting our API on port 3000
 var serverURI = (process.env.PORT) ? config.creds.mongoose_auth_mongohq : config.creds.mongoose_auth_local;
 
-// Connect to MongoDB
+// Connect tooMongoDB
 global.db = mongoose.connect(serverURI);
 var Schema = mongoose.Schema;
 log.info('MongoDB Schema loaded');
 
-// Here we create a schema to store our tasks and users. Pretty simple schema for now.
+// Here we create a schema toostore our tasks and users. Pretty simple schema for now.
 var TaskSchema = new Schema({
     owner: String,
     Text: String,
@@ -376,17 +376,17 @@ var TaskSchema = new Schema({
     date: Date
 });
 
-// Use the schema to register a model
+// Use hello schema tooregister a model
 mongoose.model('Task', TaskSchema);
 var Task = mongoose.model('Task');
 ```
-Önce şemayı oluşturun, ardından **yollarınızı** tanımlarken kod genelindeki verilerinizi depolamak için kullanacağınız bir model nesnesi oluşturun.
+İlk hello şema oluşturun ve ardından hello genelindeki verilerinizi tanımlarken kod toostore kullanan bir model nesnesi oluşturun, **yollar**.
 
 ## <a name="add-routes-for-your-rest-api-task-server"></a>REST API görev sunucunuz için yollar ekleme
-Çalışacak bir veritabanı modeliniz olduğuna göre REST API sunucunuz için kullanacağınız yolları ekleyin.
+Veritabanı modeli toowork ile sahip olduğunuza göre REST API sunucunuz için kullandığınız hello yolları ekleyin.
 
 ### <a name="about-routes-in-restify"></a>Restify'daki yollar hakkında
-Yollar Restify'da Express yığınını kullandıklarında çalıştıkları gibi çalışır. Yolları, istemci uygulamalarının çağırmasını beklediğiniz URI'yi kullanarak tanımlarsınız.
+Yollar iş Restify'da hello aynı hello Express yığınını kullandıklarında çalıştıkları şekilde. Merhaba hello istemci uygulamaları toocall beklediğiniz URI kullanılarak yolları tanımlayın.
 
 Bir Restify yolu için genel bir desen:
 
@@ -395,22 +395,22 @@ function createObject(req, res, next) {
 // do work on Object
 _object.name = req.params.object; // passed value is in req.params under object
 ///...
-return next(); // keep the server going
+return next(); // keep hello server going
 }
 ....
 server.post('/service/:add/:object', createObject); // calls createObject on routes that match this.
 ```
 
-Restify ve Express, uygulama türlerini tanımlama ve farklı uç noktalar arasında karmaşık yönlendirme yapma gibi çok daha kapsamlı işlevsellik sağlayabilir. Bu öğreticinin amaçları doğrultusunda bu yolları basit tutacağız.
+Restify ve Express, uygulama türlerini tanımlama ve farklı uç noktalar arasında karmaşık yönlendirme yapma gibi çok daha kapsamlı işlevsellik sağlayabilir. Bu öğreticinin Hello amaçları doğrultusunda, biz Bu yolları basit tutun.
 
-#### <a name="add-default-routes-to-your-server"></a>Sunucunuza varsayılan yollar ekleme
-Bundan sonra REST API’miz için temel **oluştur** ve **listele** CRUD yollarını ekleyin. Diğer yollar örneğin `complete` dalında bulunabilir.
+#### <a name="add-default-routes-tooyour-server"></a>Varsayılan yollar tooyour sunucu ekleme
+Şimdi hello temel CRUD yollarını ekleyin **oluşturma** ve **listesi** bizim REST API için. Diğer yollar hello bulunabilir `complete` hello örnek dalı.
 
-Zaten orada değilse komut satırından dizininizi `azuread` olarak değiştirin:
+Merhaba komut satırından dizininizi çok değiştirin`azuread`, zaten yoksa:
 
 `cd azuread`
 
-Bir düzenleyicide `server.js` dosyasını açın. Aşağıdaki bilgileri, yukarıda gerçekleştirdiğiniz veritabanı girişlerinin altına ekleyin:
+Açık hello `server.js` dosyasına bir düzenleyicide. Merhaba veritabanı girişlerinin aşağıdaki bilgilerle hello yukarıdaki Ekle yaptığınız:
 
 ```Javascript
 /**
@@ -422,13 +422,13 @@ Bir düzenleyicide `server.js` dosyasını açın. Aşağıdaki bilgileri, yukar
 
 function createTask(req, res, next) {
 
-    // Resitify currently has a bug which doesn't allow you to set default headers
-    // This headers comply with CORS and allow us to mongodbServer our response to any origin
+    // Resitify currently has a bug which doesn't allow you tooset default headers
+    // This headers comply with CORS and allow us toomongodbServer our response tooany origin
 
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
 
-    // Create a new task model, fill it up and save it to Mongodb
+    // Create a new task model, fill it up and save it tooMongodb
     var _task = new Task();
 
     if (!req.params.Text) {
@@ -445,7 +445,7 @@ function createTask(req, res, next) {
 
     _task.save(function(err) {
         if (err) {
-            req.log.warn(err, 'createTask: unable to save');
+            req.log.warn(err, 'createTask: unable toosave');
             next(err);
         } else {
             res.send(201, _task);
@@ -459,11 +459,11 @@ function createTask(req, res, next) {
 ```
 
 ```Javascript
-/// Simple returns the list of TODOs that were loaded.
+/// Simple returns hello list of TODOs that were loaded.
 
 function listTasks(req, res, next) {
-    // Resitify currently has a bug which doesn't allow you to set default headers
-    // This headers comply with CORS and allow us to mongodbServer our response to any origin
+    // Resitify currently has a bug which doesn't allow you tooset default headers
+    // This headers comply with CORS and allow us toomongodbServer our response tooany origin
 
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -482,7 +482,7 @@ function listTasks(req, res, next) {
         }
 
         if (!data.length) {
-            log.warn(err, "There is no tasks in the database. Add one!");
+            log.warn(err, "There is no tasks in hello database. Add one!");
         }
 
         if (!owner) {
@@ -499,13 +499,13 @@ function listTasks(req, res, next) {
 ```
 
 
-#### <a name="add-error-handling-for-the-routes"></a>Yollar için hata işleme ekleme
-Hata işlemeleri ekleyin; böylece, karşılaştığınız herhangi bir sorunu istemciye anlayabileceği bir şekilde geri iletebilirsiniz.
+#### <a name="add-error-handling-for-hello-routes"></a>Merhaba yollar için hata işleme ekleme
+Anlayabileceği bir şekilde geri toohello istemci karşılaştığınız sorunları iletişim kurabilmesi için bazı hata işleme ekleyin.
 
-Aşağıdaki kodu ekleyin:
+Hello aşağıdaki kodu ekleyin:
 
 ```Javascript
-///--- Errors for communicating something interesting back to the client
+///--- Errors for communicating something interesting back toohello client
 function MissingTaskError() {
 restify.RestError.call(this, {
 statusCode: 409,
@@ -542,9 +542,9 @@ util.inherits(TaskNotFoundError, restify.RestError);
 
 
 ## <a name="create-your-server"></a>Sunucunuzu oluşturma
-Artık veritabanınızı tanımladınız ve yollarınızı yerleştirdiniz. Son olarak yapmanız gereken ise çağrılarınızı yöneten sunucu örneğini eklemektir.
+Artık veritabanınızı tanımladınız ve yollarınızı yerleştirdiniz. Merhaba son, toodo için çağrılarınızı yönetmediğinden tooadd hello sunucu örneği şeydir.
 
-Restify ve Express, bir REST API sunucusu için kapsamlı özelleştirme sağlar ancak burada en temel kurulumu kullanırsınız.
+Restify ve Express REST API sunucunuz için kapsamlı özelleştirme sağlar ancak burada kullandığımız hello en temel kurulumu.
 
 ```Javascript
 
@@ -570,21 +570,21 @@ server.pre(restify.pre.userAgentConnection());
 // Set a per request bunyan logger (with requestid filled in)
 server.use(restify.requestLogger());
 
-// Allow 5 requests/second by IP, and burst to 10
+// Allow 5 requests/second by IP, and burst too10
 server.use(restify.throttle({
     burst: 10,
     rate: 5,
     ip: true,
 }));
 
-// Use the common stuff you probably want
+// Use hello common stuff you probably want
 server.use(restify.acceptParser(server.acceptable));
 server.use(restify.dateParser());
 server.use(restify.queryParser());
 server.use(restify.gzipResponse());
 server.use(restify.bodyParser({
     mapParams: true
-})); // Allows for JSON mapping to REST
+})); // Allows for JSON mapping tooREST
 server.use(restify.authorizationParser()); // Looks for authorization headers
 
 // Let's start using Passport.js
@@ -594,7 +594,7 @@ server.use(passport.session()); // Provides session support
 
 
 ```
-## <a name="add-the-routes-to-the-server-without-authentication"></a>Yolları sunucuya ekleme (kimlik doğrulaması olmadan)
+## <a name="add-hello-routes-toohello-server-without-authentication"></a>Merhaba yollar toohello sunucu (kimlik doğrulaması olmadan) ekleme
 ```Javascript
 server.get('/api/tasks', passport.authenticate('oauth-bearer', {
     session: false
@@ -655,9 +655,9 @@ server.listen(serverPort, function() {
     var consoleMessage = '\n Microsoft Azure Active Directory Tutorial';
     consoleMessage += '\n +++++++++++++++++++++++++++++++++++++++++++++++++++++';
     consoleMessage += '\n %s server is listening at %s';
-    consoleMessage += '\n Open your browser to %s/api/tasks\n';
+    consoleMessage += '\n Open your browser too%s/api/tasks\n';
     consoleMessage += '+++++++++++++++++++++++++++++++++++++++++++++++++++++ \n';
-    consoleMessage += '\n !!! why not try a $curl -isS %s | json to get some ideas? \n';
+    consoleMessage += '\n !!! why not try a $curl -isS %s | json tooget some ideas? \n';
     consoleMessage += '+++++++++++++++++++++++++++++++++++++++++++++++++++++ \n\n';
 
     //log.info(consoleMessage, server.name, server.url, server.url, server.url);
@@ -666,20 +666,20 @@ server.listen(serverPort, function() {
 
 ```
 
-## <a name="add-authentication-to-your-rest-api-server"></a>REST API sunucunuza kimlik doğrulaması ekleme
+## <a name="add-authentication-tooyour-rest-api-server"></a>Kimlik doğrulama tooyour REST API sunucusu ekleme
 Artık çalışan bir REST API sunucunuz olduğuna göre bunu Azure AD için faydalı hale getirebilirsiniz.
 
-Zaten orada değilse komut satırından dizininizi `azuread` olarak değiştirin:
+Merhaba komut satırından dizininizi çok değiştirin`azuread`, zaten yoksa:
 
 `cd azuread`
 
-### <a name="use-the-oidcbearerstrategy-that-is-included-with-passport-azure-ad"></a>passport-azure-ad ile birlikte dahil edilen OIDCBearerStrategy'yi kullanma
+### <a name="use-hello-oidcbearerstrategy-that-is-included-with-passport-azure-ad"></a>Merhaba passport-azure-ad ile dahil edilen Oıdcbearerstrategy'yi kullanma
 > [!TIP]
-> API'leri yazarken her zaman verileri kullanıcının yanılmayacağı belirteçten benzersiz bir öğeye bağlamanız gerekir. Sunucu, Yapılacaklar öğelerini depoladığında bu da "sahip" alanına girilen belirteçteki (token.oid üzerinde çağrılır) kullanıcının **oid** değerini temel alır. Bu değer kendi ToDo öğesine yalnızca bu kullanıcının erişmesini sağlar. "Sahip" API'sinde kullanıma sunma işlemi gerçekleşmediğinden dış kullanıcı kimlik doğrulaması yapılmış olsa bile başkalarının Yapılacaklar öğelerini isteyebilir.
+> Ne zaman hello veri toosomething kullanıcı hello hello belirteçten benzersiz her zaman bağlanması gereken API ' ları yazma taklit edilemez. Merhaba sunucu Yapılacaklar öğelerini depoladığında hello böylece göre mu **OID** hangi hello "sahip" alanına hello kullanıcının hello belirteçteki (token.oid denir). Bu değer kendi ToDo öğesine yalnızca bu kullanıcının erişmesini sağlar. Olmadığından hiçbir Etkilenme hello "sahip" API bir dış kullanıcı kimlikleri doğrulanır olsa bile başkalarının Yapılacaklar öğelerini isteyebilir.
 >
 >
 
-Ardından, `passport-azure-ad` ile birlikte sunulan taşıyıcı stratejisi kullanın.
+Ardından, birlikte hello taşıyıcı stratejisi kullanın `passport-azure-ad`.
 
 ```Javascript
 var findById = function(id, fn) {
@@ -696,8 +696,8 @@ var findById = function(id, fn) {
 
 var oidcStrategy = new OIDCBearerStrategy(options,
     function(token, done) {
-        log.info('verifying the user');
-        log.info(token, 'was the token retreived');
+        log.info('verifying hello user');
+        log.info(token, 'was hello token retreived');
         findById(token.sub, function(err, user) {
             if (err) {
                 return done(err);
@@ -718,21 +718,21 @@ var oidcStrategy = new OIDCBearerStrategy(options,
 passport.use(oidcStrategy);
 ```
 
-Passport tüm stratejileri için aynı deseni kullanır. Bu desene, parametre olarak `token` ve `done` öğelerini barındıran bir `function()` geçirirsiniz. Strateji, tüm işini tamamladıktan sonra size geri gelir. Ardından kullanıcıyı depolayıp belirteci kaydetmeniz gerekir; böylece bunları yeniden istemeniz gerekmez.
+Passport, tüm stratejileri hello aynı desen kullanır. Bu desene, parametre olarak `token` ve `done` öğelerini barındıran bir `function()` geçirirsiniz. tüm işlemlerini tamamladıktan sonra hello stratejisi tooyou gelir. Ardından hello kullanıcı depolamak ve gerekir hello belirteci kaydetmek için yeniden tooask gerekmez.
 
 > [!IMPORTANT]
-> Yukarıdaki kod, kimlik doğrulaması yapan kullanıcıyı sunucunuza yönlendirir. Bu işlem otomatik kayıt olarak bilinir. Üretim sunucularında kullanıcıların öncelikle bir kayıt sürecinden geçmeden API’ye erişmesine izin vermeyin. Bu işlem genellikle Facebook kullanarak kaydolmanıza izin veren, ancak daha sonra sizden bazı ek bilgileri doldurmanızı isteyen tüketici uygulamalarında gördüğünüz desendir. Bu bir komut satırı programı olmasaydı, döndürülen belirteç nesnesinden e-postayı ayıklayabilir ve daha sonra kullanıcıdan ek bilgileri doldurmasını isteyebilirdik. Bu bir örnek olduğundan bilgiler bellek içi veritabanına eklenir.
+> Yukarıdaki Hello kod tooauthenticate tooyour server olur herhangi bir kullanıcı alır. Bu işlem otomatik kayıt olarak bilinir. Üretim sunucularında, bunları bir kayıt sürecinden geçerler gerekmeden tüm kullanıcılara erişim hello API izin vermeyin. Bu genellikle, Facebook kullanarak tooregister izin ver, ancak ardından ek bilgi toofill isteyin tüketici uygulamalarında görürsünüz hello düzeni işlemidir. Bu programın komut satırı programı olmasaydı, biz hello e-posta döndürülen ve ek bilgiler kullanıcıların toofill sorulan hello belirteç nesnesi ayıklanan. Bu bir örnek olduğundan, bunları tooan bellek içi veritabanına ekleriz.
 >
 >
 
-## <a name="run-your-server-application-to-verify-that-it-rejects-you"></a>Sizi reddettiğini doğrulamak için sunucu uygulamanızı çalıştırın
-Artık uç noktalarınızda OAuth2 korumasına sahip olup olmadığınızı görmek için `curl` öğesini kullanabilirsiniz. Döndürülen üst bilgiler doğru yolda olduğunuzu belirtmek için yeterli olmalıdır.
+## <a name="run-your-server-application-tooverify-that-it-rejects-you"></a>Sunucu uygulaması tooverify çalıştırmak, BT'nin sizi reddettiğini
+Kullanabileceğiniz `curl` artık uç noktalarınızda OAuth2 koruması varsa toosee. Merhaba döndürülen üstbilgileri yeterli tootell olmalıdır hello doğru yolda olduğunu.
 
 MongoDB örneğinizin çalıştığından emin olun:
 
     $sudo mongodb
 
-Dizine geçin ve sunucuyu çalıştırın:
+Toohello dizin ve çalışma hello sunucu değiştirin:
 
     $ cd azuread
     $ node server.js
@@ -751,12 +751,12 @@ Date: Tue, 14 Jul 2015 05:45:03 GMT
 Transfer-Encoding: chunked
 ```
 
-401 hatası, aradığınız cevaptır. Bu hata, uç noktayı yetkilendirmek için Passport katmanının yeniden yönlendirme yaptığını belirtir.
+Merhaba yanıt istediğiniz bir 401 hatasıdır. Merhaba Passport katman tooredirect çalışıyor gösterir toohello kimlik doğrulama uç noktası.
 
 ## <a name="you-now-have-a-rest-api-service-that-uses-oauth2"></a>Artık OAuth2 kullanan bir REST API'niz var
-Restify ve OAuth kullanarak bir REST API’si uyguladık! Hizmetinizi geliştirmeye ve bu örnek üzerinde oluşturmaya devam edebilmeniz için artık yeterli kodunuz var. OAuth2 uyumlu bir istemci kullanmadan bu sunucu ile çalışabildiğiniz kadar çalıştınız. Sonraki adım için [B2C ile iOS kullanarak bir web API’sine bağlanma](active-directory-b2c-devquickstarts-ios.md) kılavuzu gibi ek yönergeleri kullanın.
+Restify ve OAuth kullanarak bir REST API’si uyguladık! Böylece hizmetinizi toodevelop devam ve bu örneği temel yapı artık gerekli koda sahip. OAuth2 uyumlu bir istemci kullanmadan bu sunucu ile çalışabildiğiniz kadar çalıştınız. İlave bir kılavuz gibi bir sonraki adımda kullanmak bizim [tooa web API B2C ile iOS kullanarak bağlanmak](active-directory-b2c-devquickstarts-ios.md) gözden geçirme.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Artık şunlar gibi daha ileri seviyeli konulara geçebilirsiniz:
+Gelişmiş toomore konuları gibi geçebilirsiniz:
 
-[B2C ile iOS kullanarak bir web API'sine bağlanma](active-directory-b2c-devquickstarts-ios.md)
+[Tooa web API B2C ile iOS kullanarak bağlanma](active-directory-b2c-devquickstarts-ios.md)

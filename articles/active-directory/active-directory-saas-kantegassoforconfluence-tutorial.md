@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme Confluence Kantega SSO | Microsoft Docs"
-description: "Çoklu oturum açma Kantega SSO Confluence için Azure Active Directory arasındaki yapılandırmayı öğrenin."
+description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile Confluence Kantega SSO arasında."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,117 +13,117 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: ec11decbff4cf2f6c39b40228e349312fd86da00
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: b35eb8757e41e86228a3a9ee10869086cc801c9b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-confluence"></a>Öğretici: Azure Active Directory Tümleştirme Confluence Kantega SSO
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile Kantega SSO Confluence için tümleştirme öğrenin.
+Bu öğreticide, bilgi nasıl toointegrate Kantega SSO için Azure Active Directory (Azure AD) ile Confluence.
 
-Kantega SSO Confluence için Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Kantega SSO Confluence için Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:
 
-- Confluence Kantega SSO erişimi, Azure AD'de kontrol edebilirsiniz
-- Azure AD hesaplarına otomatik olarak Kantega SSO (çoklu oturum açma) Confluence için için açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- Erişim tooKantega SSO Confluence için olan Azure AD'de kontrol edebilirsiniz
+- Kullanıcıların tooautomatically get açan tooKantega SSO (çoklu oturum açma) Confluence için Azure AD hesaplarına sahip etkinleştirebilirsiniz
+- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Azure AD tümleştirme Confluence Kantega SSO ile yapılandırmak için aşağıdaki öğeleri gerekir:
+tooconfigure Confluence Kantega SSO ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:
 
 - Bir Azure AD aboneliği
 - Abonelik Kantega SSO Confluence çoklu oturum açma için etkin
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
 
-1. Galeriden Kantega SSO Confluence için ekleme
+1. Merhaba Galerisi'nden Kantega SSO Confluence için ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-kantega-sso-for-confluence-from-the-gallery"></a>Galeriden Kantega SSO Confluence için ekleme
-Azure AD'ye Confluence Kantega SSO tümleştirmesini yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Confluence Kantega SSO eklemeniz gerekir.
+## <a name="adding-kantega-sso-for-confluence-from-hello-gallery"></a>Merhaba Galerisi'nden Kantega SSO Confluence için ekleme
+Azure AD'ye Confluence Kantega SSO tooconfigure hello tümleştirilmesi, tooadd Kantega SSO hello galeri tooyour listesinden yönetilen SaaS uygulamaları için Confluence gerekir.
 
-**Galeriden Confluence Kantega SSO eklemek için aşağıdaki adımları gerçekleştirin:**
+**tooadd Kantega SSO hello galerisinden Confluence için hello aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **Kantega SSO Confluence için**.
+4. Merhaba arama kutusuna yazın **Kantega SSO Confluence için**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-kantegassoforconfluence-tutorial/tutorial_kantegassoforconfluence_search.png)
 
-5. Sonuçlar panelinde seçin **Kantega SSO Confluence için**ve ardından **Ekle** uygulama eklemek için düğmesi.
+5. Merhaba Sonuçlar panelinde seçin **Kantega SSO Confluence için**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-kantegassoforconfluence-tutorial/tutorial_kantegassoforconfluence_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Confluence Kantega SSO ile test etme.
 
-Tekli çalışmaya oturum için Azure AD ne karşılık gelen Kantega SSO Confluence için bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Kantega SSO Confluence için ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek toowork'ın oturum açma hangi hello karşılık gelen Confluence Kantega SSO tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının ve Confluence Kantega SSO hello ilgili kullanıcı arasında bir bağlantı ilişkisi kurulan toobe gerekir.
 
-Değeri Confluence için Kantega SSO içinde atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
+Merhaba hello değeri Confluence için Kantega SSO içinde atayın **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.
 
-Yapılandırmak ve Azure AD çoklu oturum açma Confluence Kantega SSO sınamak için aşağıdaki yapı taşları tamamlamanız gerekir:
+tooconfigure ve Azure AD çoklu oturum açma Confluence için test Kantega SSO, yapı taşları aşağıdaki toocomplete hello gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Kantega SSO Confluence test kullanıcısı için oluşturma](#creating-a-kantega-sso-for-confluence-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Confluence Kantega SSO sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.
+3. **[Kantega SSO Confluence test kullanıcısı için oluşturma](#creating-a-kantega-sso-for-confluence-test-user)**  -toohave Britta Simon Kantega SSO kullanıcı bağlantılı toohello Azure AD gösterimidir Confluence için karşılık gelen.
+4. **[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
+5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve, Kantega SSO Confluence uygulama için çoklu oturum açmayı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve, Kantega SSO Confluence uygulama için çoklu oturum açmayı yapılandırın.
 
-**Azure AD çoklu oturum açma Kantega SSO Confluence için yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma tooconfigure Confluence, Kantega SSO hello aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **Kantega SSO Confluence için** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Merhaba hello üzerinde Azure portal'ın **Kantega SSO Confluence için** uygulama tümleştirmesi sayfasında, tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-kantegassoforconfluence-tutorial/tutorial_kantegassoforconfluence_samlbase.png)
 
-3. İçinde **IDP** üzerinde modunda başlatılan **Kantega SSO Confluence etki alanı ve URL'ler için** bölümü aşağıdaki adımı gerçekleştirin:
+3. İçinde **IDP** hello modunda başlatılan **Kantega SSO Confluence etki alanı ve URL'ler için** bölümünde adım aşağıdaki hello gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-kantegassoforconfluence-tutorial/tutorial_kantegassoforconfluence_url1.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+    a. Merhaba, **tanımlayıcısı** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+    b. Merhaba, **yanıt URL'si** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
-4. İçinde **SP** başlatılan modu, onay **Göster Gelişmiş URL ayarları** ve aşağıdaki adımı gerçekleştirin:
+4. İçinde **SP** başlatılan modu, onay **Göster Gelişmiş URL ayarları** ve adım aşağıdaki hello gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-kantegassoforconfluence-tutorial/tutorial_kantegassoforconfluence_url2.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+    Merhaba, **oturum açma URL'si** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler, gerçek tanımlayıcı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Öğreticide daha sonra açıklanan Confluence eklentisi yapılandırma sırasında bu değerleri alma.
+    > Bu değerler gerçek değildir. Bu güncelleştirme tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile Merhaba gerçek değerler. Bu değerleri hello öğreticinin ilerleyen bölümlerinde açıklanan Confluence eklentisi hello yapılandırması sırasında alınır.
 
-5. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
+5. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve hello meta veri dosyası, bilgisayarınıza kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-kantegassoforconfluence-tutorial/tutorial_kantegassoforconfluence_certificate.png) 
 
@@ -131,9 +131,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve, 
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-kantegassoforconfluence-tutorial/tutorial_general_400.png)
     
-7. Farklı web tarayıcısı penceresinde oturum açın, **Confluence Yönetici portalı** yönetici olarak.
+7. Farklı web tarayıcısı penceresinde tooyour içinde oturum **Confluence Yönetici portalı** yönetici olarak.
 
-8. Dişlisine üzerine gelin ve tıklatın **eklentileri**.
+8. Dişlisine üzerine gelin ve hello tıklatın **eklentileri**.
     
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon1.png)
 
@@ -141,15 +141,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve, 
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon.png)
 
-10. Arama **Kantega SSO Confluence SAML Kerberos için** tıklatıp **yükleme** yeni SAML eklentisini yüklemek için düğmeyi.
+10. Arama **Kantega SSO Confluence SAML Kerberos için** tıklatıp **yükleme** düğmesini tooinstall hello yeni SAML eklentisini.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon2.png)
 
-11. Eklentisi yüklemeyi başlatır.
+11. Merhaba Eklentisi yüklemeyi başlatır.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon3.png)
 
-12. Yükleme tamamlandıktan sonra. **Kapat**’a tıklayın.
+12. Merhaba yüklemesi tamamlandıktan sonra. **Kapat**’a tıklayın.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon33.png)
 
@@ -157,7 +157,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve, 
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon34.png)
     
-14. Tıklatın **yapılandırma** yeni eklenti yapılandırmak için.
+14. Tıklatın **yapılandırma** tooconfigure hello yeni eklenti.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon35.png)
 
@@ -165,7 +165,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve, 
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon36.png)
     
-16. İçinde **SAML** bölümü. Seçin **Azure Active Directory (Azure AD)** gelen **Ekle kimlik sağlayıcısı** açılır.
+16. Merhaba, **SAML** bölümü. Seçin **Azure Active Directory (Azure AD)** hello gelen **Ekle kimlik sağlayıcısı** açılır.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon4.png)
 
@@ -173,15 +173,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve, 
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon5.png)       
 
-18. Üzerinde **uygulama özellikleri** bölümünde, şu adımları gerçekleştirin: 
+18. Merhaba üzerinde **uygulama özellikleri** bölümünde, şu adımları gerçekleştirin: 
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon6.png)
 
-    a. Kopya **uygulama kimliği URI'si** değer ve olarak kullanmak **tanımlayıcısı, yanıt URL'si ve oturum açma URL'si** üzerinde **Kantega SSO Confluence etki alanı ve URL'ler için** Azure portalı bölümünde.
+    a. Kopya hello **uygulama kimliği URI'si** değer ve olarak kullanmak **tanımlayıcısı, yanıt URL'si ve oturum açma URL'si** hello üzerinde **Kantega SSO Confluence etki alanı ve URL'ler için** Azure portalı bölümünde.
 
     b. **İleri**’ye tıklayın.
 
-19. Üzerinde **meta veri içeri aktarma** bölümünde, şu adımları gerçekleştirin: 
+19. Merhaba üzerinde **meta veri içeri aktarma** bölümünde, şu adımları gerçekleştirin: 
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon7.png)
 
@@ -189,23 +189,23 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve, 
 
     b. **İleri**’ye tıklayın.
 
-20. Üzerinde **adı ve SSO konumunu** bölümünde, şu adımları gerçekleştirin:
+20. Merhaba üzerinde **adı ve SSO konumunu** bölümünde, şu adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon8.png)
     
-    a. Kimlik sağlayıcı adını eklemek **kimlik sağlayıcı adı** textbox (örneğin Azure AD).
+    a. Merhaba kimlik sağlayıcısı adını ekleyin, **kimlik sağlayıcı adı** textbox (örneğin Azure AD).
 
     b. **İleri**’ye tıklayın.
 
-21. İmzalama sertifikası doğrulayın ve tıklatın **sonraki**.
+21. Merhaba imzalama sertifikası doğrulayın ve tıklatın **sonraki**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon9.png)
 
-22. Üzerinde **Confluence kullanıcı hesapları** bölümünde, şu adımları gerçekleştirin:
+22. Merhaba üzerinde **Confluence kullanıcı hesapları** bölümünde, şu adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon10.png)
 
-    a. Seçin **gerekirse Confluence'nın iç dizinde kullanıcılar oluşturma** ve kullanıcılar uygun Grup adını girin (olabilir birden çok yok. virgülle ayrılmış grupları).
+    a. Seçin **gerekirse Confluence'nın iç dizinde kullanıcılar oluşturma** ve kullanıcıların hello grubunun adı uygun hello girin (olabilir birden çok yok. virgülle ayrılmış grupları).
 
     b. **İleri**’ye tıklayın.
 
@@ -213,96 +213,96 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve, 
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon11.png)
 
-24. Üzerinde **için Azure AD etki alanları bilinen** bölümünde, şu adımları gerçekleştirin: 
+24. Merhaba üzerinde **için Azure AD etki alanları bilinen** bölümünde, şu adımları gerçekleştirin: 
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-kantegassoforconfluence-tutorial/addon12.png)
 
-    a. Seçin **etki alanları bilinen** sayfanın sol panelindeki.
+    a. Seçin **etki alanları bilinen** hello sayfasının sol hello panelinden.
 
-    b. Etki alanı adı girin **etki alanları bilinen** metin kutusu.
+    b. Hello etki alanı adı girin **etki alanları bilinen** metin kutusu.
 
     c. **Kaydet** düğmesine tıklayın. 
 
 > [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!  Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına. Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+1. Merhaba, **Azure portal**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-kantegassoforconfluence-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2. Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-kantegassoforconfluence-tutorial/create_aaduser_02.png) 
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
+3. tooopen hello **kullanıcı** iletişim kutusunda, tıklatın **Ekle** hello üstteki hello iletişim.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-kantegassoforconfluence-tutorial/create_aaduser_03.png) 
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+4. Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-kantegassoforconfluence-tutorial/create_aaduser_04.png) 
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
+    a. Merhaba, **adı** metin kutusuna, türü **BrittaSimon**.
 
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
+    b. Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** BrittaSimon biri.
 
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
+    c. Seçin **Göster parola** ve hello hello değerini yazma **parola**.
 
     d. **Oluştur**'a tıklayın.
  
 ### <a name="creating-a-kantega-sso-for-confluence-test-user"></a>Kantega SSO Confluence test kullanıcısı için oluşturma
 
-Azure AD kullanıcıları için Confluence oturum açmak etkinleştirmek için bunların Confluence sağlanmalıdır. Söz konusu olduğunda Kantega SSO Confluence için sağlama bir el ile bir görevdir.
+tooenable Azure AD kullanıcıların toolog tooConfluence bunların Confluence sağlanması gerekir. Confluence Kantega SSO Hello durumda sağlama bir el ile bir görevdir.
 
-**Bir kullanıcı hesabı sağlamak için aşağıdaki adımları gerçekleştirin:**
+**bir kullanıcı hesabı tooprovision hello aşağıdaki adımları gerçekleştirin:**
 
-1. Kantega SSO Confluence şirket site için bir yönetici olarak oturum açın.
+1. Tooyour Kantega SSO Confluence şirket site için de yönetici olarak oturum açın.
 
-2. Dişlisine üzerine gelin ve tıklatın **kullanıcı yönetimi**.
+2. Dişlisine üzerine gelin ve hello tıklatın **kullanıcı yönetimi**.
 
     ![Çalışanı ekleyin](./media/active-directory-saas-kantegassoforconfluence-tutorial/user1.png) 
 
-3. Kullanıcılar bölümü altında tıklatın **Kullanıcı Ekle** sekmesi. Üzerinde **"Bir kullanıcı Ekle"** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+3. Kullanıcılar bölümü altında tıklatın **Kullanıcı Ekle** sekmesi. Merhaba üzerinde **"Bir kullanıcı Ekle"** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:
 
     ![Çalışanı ekleyin](./media/active-directory-saas-kantegassoforconfluence-tutorial/user2.png) 
 
-    a. İçinde **kullanıcıadı** metin kutusu, kullanıcı e-posta türünü ister Brittasimon@contoso.com.
+    a. Merhaba, **kullanıcıadı** metin kutusuna, kullanıcının türü hello e-posta ister Brittasimon@contoso.com.
 
-    b. İçinde **tam adı** metin kutusuna, Britta Simon gibi kullanıcının tam adını yazın.
+    b. Merhaba, **tam adı** metin kutusuna, türü hello kullanıcının tam adını Britta Simon gibi.
 
-    c. İçinde **e-posta** metin kutusuna, kullanıcının e-posta adresi türü ister Brittasimon@contoso.com.
+    c. Merhaba, **e-posta** türü hello kullanıcının e-posta adresi metin kutusuna, ister Brittasimon@contoso.com.
 
-    d. İçinde **parola** metin kutusu, kullanıcı parolasını yazın.
+    d. Merhaba, **parola** metin kutusu, kullanıcı için hello parolayı girin.
 
-    e. Tıklatın **parolayı onayla** parolayı yeniden girin.
+    e. Tıklatın **parolayı onayla** hello parolayı yeniden girin.
     
     f. Tıklatın **Ekle** düğmesi.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
+### <a name="assigning-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atama
 
-Bu bölümde, Britta Confluence Kantega SSO için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
+Bu bölümde, erişim tooKantega Confluence için SSO vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
 
 ![Kullanıcı atama][200] 
 
-**Kantega SSO Confluence için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**tooassign Britta Simon tooKantega Confluence, SSO hello aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Uygulamalar listesinde **Kantega SSO Confluence için**.
+2. Merhaba uygulamalar listesinde **Kantega SSO Confluence için**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-kantegassoforconfluence-tutorial/tutorial_kantegassoforconfluence_app.png) 
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
 
     ![Kullanıcı atama][202] 
 
@@ -310,7 +310,7 @@ Bu bölümde, Britta Confluence Kantega SSO için erişim vererek, Azure çoklu 
 
     ![Kullanıcı atama][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -318,14 +318,14 @@ Bu bölümde, Britta Confluence Kantega SSO için erişim vererek, Azure çoklu 
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, hello erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli Confluence parçasında Kantega SSO tıklattığınızda, otomatik olarak, Kantega SSO Confluence uygulama için açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md). 
+Merhaba Kantega SSO hello erişim paneli Confluence parçasında tıkladığınızda, Confluence uygulaması için otomatik olarak oturum açma Kantega SSO tooyour almanız gerekir.
+Erişim paneli hakkında daha fazla bilgi için bkz: [giriş toohello erişim paneli](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
+* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 

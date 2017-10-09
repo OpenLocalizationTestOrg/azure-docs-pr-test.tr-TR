@@ -1,5 +1,5 @@
 ---
-title: Bir Machine Learning Web hizmeti Excel'den kullanma | Microsoft Docs
+title: bir Machine Learning Web hizmeti Excel'den aaaConsume | Microsoft Docs
 description: Bir Azure Machine Learning Web hizmeti Excel'den kullanma
 services: machine-learning
 documentationcenter: 
@@ -14,60 +14,60 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/13/2017
 ms.author: tedway
-ms.openlocfilehash: 9f1aac04d54221888ee9374317be339400dcf085
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e2e8bbf7ba75b6618a0285539555ce175ec03c1a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="consuming-an-azure-machine-learning-web-service-from-excel"></a>Bir Azure Machine Learning Web Hizmetini Excel’den kullanma
- Azure Machine Learning Studio, web hizmetleri doğrudan kod yazmaya gerek kalmadan Excel çağırmanıza kolaylaştırır.
+ Azure Machine Learning Studio'da herhangi bir kod toowrite Hello gerek olmadan kolayca toocall web hizmetleri doğrudan Excel'den kolaylaştırır.
 
-Excel 2013 (veya üstü) veya Excel Online'da kullandığınız sonra Excel kullanmanızı öneririz [Excel eklentisi](machine-learning-excel-add-in-for-web-services.md).
+Excel 2013 (veya üstü) veya Excel Online'da kullandığınız sonra hello Excel kullanmanızı öneririz [Excel eklentisi](machine-learning-excel-add-in-for-web-services.md).
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## <a name="steps"></a>Adımlar
-Bir web hizmeti yayımlayın. [Bu sayfayı](machine-learning-walkthrough-5-publish-web-service.md) nasıl yapılacağını açıklar. Şu anda Excel çalışma kitabı özelliği yalnızca tek bir çıktı (diğer bir deyişle, tek bir Puanlama etiketi) sahip istek/yanıt Hizmetleri için desteklenir. 
+Bir web hizmeti yayımlayın. [Bu sayfayı](machine-learning-walkthrough-5-publish-web-service.md) açıklar nasıl toodo onu. Şu anda hello Excel çalışma kitabı özelliği yalnızca tek bir çıktı (diğer bir deyişle, tek bir Puanlama etiketi) sahip istek/yanıt Hizmetleri için desteklenir. 
 
-Bir web hizmeti oluşturduktan sonra tıklayın **WEB Hizmetleri** bölümünde Studio'nun sol tarafta ve Excel'den kullanmak için web hizmeti seçin.
+Bir web hizmeti olduktan sonra üzerinde hello tıklatın **WEB Hizmetleri** bölümünde hello studio hello sol tarafta ve ardından hello web hizmeti tooconsume Excel'den seçin.
 
 **Klasik Web hizmeti**
 
-1. Üzerinde **PANO** web hizmeti için bir satır için sekme **istek/yanıt** hizmet. Bu hizmet tek bir çıktı olsaydı görmeniz gerekir **karşıdan Excel çalışma kitabı** o satırdaki bağlantı.
+1. Merhaba üzerinde **PANO** hello web hizmetidir hello için bir satır sekmesi **istek/yanıt** hizmet. Bu hizmet tek bir çıktı olsaydı hello görmelisiniz **karşıdan Excel çalışma kitabı** o satırdaki bağlantı.
    
     ![][1]
 2. Tıklayın **karşıdan Excel çalışma kitabı**.
 
 **Yeni Web hizmeti**
 
-1. Azure Machine Learning Web hizmeti Portalı'nda seçin **Tüket**.
-2. Tüket sayfasında içinde **Web hizmeti tüketim seçenekleri** bölümünde, Excel simgesine tıklayın.
+1. Hello Azure Machine Learning Web hizmeti Portalı'nda seçin **Tüket**.
+2. Merhaba Tüket sayfasında, hello **Web hizmeti tüketim seçenekleri** bölümünde, hello Excel simgesine tıklayın.
 
-**Çalışma kitabı kullanma**
+**Merhaba çalışma kitabı kullanma**
 
-1. Çalışma kitabını açın.
-2. Bir güvenlik uyarısı görüntülenmez; tıklayın **düzenlemeyi etkinleştir** düğmesi.
+1. Açık hello çalışma kitabı.
+2. Bir güvenlik uyarısı görüntülenmez; Merhaba üzerinde tıklatın **düzenlemeyi etkinleştir** düğmesi.
    
     ![][2]
-3. Bir güvenlik uyarısı görüntülenmez. Tıklayın **içeriği etkinleştir** makroları, elektronik tablo üzerinde çalıştırmak için düğmesi.
+3. Bir güvenlik uyarısı görüntülenmez. Tıklatın hello üzerinde **içeriği etkinleştir** düğmesini toorun makroları, elektronik tablo.
    
     ![][3]
-4. Makrolar etkinleştirildikten sonra bir tablo oluşturulur. Mavi olan sütunlarda gerekli giriş RRS web hizmeti olarak veya **parametreleri**. RRS hizmet çıktısını Not **ÖNGÖRÜLEN değerleri** yeşil. Belirli bir satır için tüm sütunları dolduğunda, çalışma kitabını otomatik olarak Puanlama API çağrılarının ve puanlanmış sonuçları görüntüler.
+4. Makrolar etkinleştirildikten sonra bir tablo oluşturulur. Mavi olan sütunlarda gerekli hello giriş olarak RRS web hizmeti veya **parametreleri**. Not hello RR hizmet hello çıktısını **ÖNGÖRÜLEN değerleri** yeşil. Belirli bir satır için tüm sütunları dolduğunda, hello çalışma kitabı otomatik olarak API Puanlama hello çağıran ve sonuçları skoru hello görüntüler.
    
     ![][4]
-5. Birden fazla satır Puanlama amacıyla dolgu ikinci satırın veriler ve tahmin edilen değerler ile oluşturulur. Aynı anda birden çok satır bile yapıştırabilirsiniz.
+5. tooscore birden fazla bir satır, veriler ve hello ile dolgu hello ikinci satır değerleri üretilen tahmin. Aynı anda birden çok satır bile yapıştırabilirsiniz.
 
-Verileri görselleştirin yardımcı olmak için tahmin edilen değerlere sahip (grafikleri, güç harita, koşullu biçimlendirme, vb.) Excel özelliklerinden herhangi birini kullanabilirsiniz.    
+Hello Excel özelliklerinden (grafikleri, güç harita, koşullu biçimlendirme, vs.) herhangi birini tahmin hello ile kullanabileceğiniz değerleri toohelp hello verileri görselleştirin.    
 
 ## <a name="sharing-your-workbook"></a>Çalışma kitabınız paylaşımı
-Makrolar çalışmak API anahtarınıza elektronik tablonun parçası olması gerekir. Bu çalışma kitabını yalnızca varlıklar/güvendiğiniz kişilerle paylaşmalıdır anlamına gelir.
+Merhaba makroları toowork için API anahtarınıza hello elektronik tablonun parçası olması gerekir. Yalnızca varlıklar/güvenilir kişiler ile Merhaba çalışma kitabı paylaşmalıdır anlamına gelir.
 
 ## <a name="automatic-updates"></a>Otomatik güncelleştirmeler
 Bir RRS çağrı bu iki durumlarda yapılmıştır:
 
-1. İlk kez bir satır var içerik tümünde kendi **parametreleri**
-2. Herhangi birini zaman **parametreleri** tümüne sahip olan bir satır değişiklikleri kendi **parametreleri** girildi.
+1. Merhaba ilk kez bir satır var içerik tümünde kendi **parametreleri**
+2. Hello hiçbirini kurduğunda **parametreleri** tümüne sahip olan bir satır değişiklikleri kendi **parametreleri** girildi.
 
 [1]: ./media/machine-learning-consuming-from-excel/excellink.png
 [2]: ./media/machine-learning-consuming-from-excel/enableeditting.png

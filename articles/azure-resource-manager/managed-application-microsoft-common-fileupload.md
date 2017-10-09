@@ -1,6 +1,6 @@
 ---
-title: "Azure yönetilen uygulama dosya yükleme UI öğesi | Microsoft Docs"
-description: "Azure yönetilen uygulamalar için Microsoft.Common.FileUpload kullanıcı Arabirimi öğesi açıklar"
+title: "aaaAzure yönetilen uygulama dosya yükleme UI öğesi | Microsoft Docs"
+description: "Azure yönetilen uygulamalar için Hello Microsoft.Common.FileUpload UI öğesi açıklar"
 services: azure-resource-manager
 documentationcenter: na
 author: tabrezm
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tabrezm;tomfitz
-ms.openlocfilehash: 217e9e63eb7cd198f70cee42b418867df9f1f993
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7af5bec992e3f120afb1bdf56d8b4c19a8e5e834
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Microsoft.Common.FileUpload UI öğesi
-Karşıya yüklemek için bir veya daha fazla belirtmesine imkan tanıyan bir denetimi. Bu öğe kullandığınız zaman [yönetilen bir Azure uygulama oluşturmaya](managed-application-publishing.md).
+Bir veya daha fazla kullanıcı toospecify sağlayan bir denetimi tooupload dosyaları. Bu öğe kullandığınız zaman [yönetilen bir Azure uygulama oluşturmaya](managed-application-publishing.md).
 
 ## <a name="ui-sample"></a>Kullanıcı Arabirimi örneği
 ![Microsoft.Common.FileUpload](./media/managed-application-elements/microsoft.common.fileupload.png)
@@ -47,21 +47,21 @@ Karşıya yüklemek için bir veya daha fazla belirtmesine imkan tanıyan bir de
 ```
 
 ## <a name="remarks"></a>Açıklamalar
-- `constraints.accept`Tarayıcının dosyası iletişim kutusunda gösterilen dosya türlerini belirtir. Bkz: [HTML5 belirtimi](http://www.w3.org/TR/html5/forms.html#attr-input-accept) için izin verilen değerler. Varsayılan değer **null**.
-- Varsa `options.multiple` ayarlanır **doğru**, kullanıcının tarayıcısının dosyası iletişim kutusunda birden fazla dosya seçmesine izin verilen. Varsayılan değer **false**.
-- Bu öğe değerine göre iki modda karşıya yükleme dosyalarını destekler `options.uploadMode`. Varsa **dosya** belirtildi, çıktıyı bir BLOB dosyanın içeriğini içerir. Varsa **url** belirtilmişse dosyanın geçici bir konuma yüklenir ve çıktı blob URL'sini içerir. Geçici BLOB'lar 24 saat sonra temizlenecek. Varsayılan değer **dosya**.
-- Değeri `options.openMode` nasıl dosyayı okuma belirler. Dosya düz metin olması bekleniyor, belirtin **metin**; başka belirtin **ikili**. Varsayılan değer **metin**.
-- Varsa `options.uploadMode` ayarlanır **dosya** ve `options.openMode` ayarlanır **ikili**, base64 ile kodlanmış çıktı.
-- `options.encoding`Dosya okunurken kullanılacak kodlama belirtir. Varsayılan değer **UTF-8**ve kullanılan yalnızca `options.openMode` ayarlanır **metin**.
+- `constraints.accept`Merhaba hello tarayıcının dosyası iletişim kutusunda gösterilen dosya türlerini belirtir. Merhaba bkz [HTML5 belirtimi](http://www.w3.org/TR/html5/forms.html#attr-input-accept) için izin verilen değerler. Merhaba varsayılan değer **null**.
+- Varsa `options.multiple` çok ayarlanır**doğru**, hello tarayıcının dosya iletişim kutusu bir dosyada birden çok tooselect hello kullanıcı izin verilir. Merhaba varsayılan değer **false**.
+- Bu öğe hello değerine göre iki modda karşıya yükleme dosyalarını destekler `options.uploadMode`. Varsa **dosya** belirtilirse, hello çıktı hello bir BLOB hello dosyanın içeriğini içerir. Varsa **url** belirtilmişse hello dosyasıdır karşıya yüklenen tooa geçici konuma ve hello çıktı hello blob hello URL'sini içerir. Geçici BLOB'lar 24 saat sonra temizlenecek. Merhaba varsayılan değer **dosya**.
+- Merhaba değerini `options.openMode` nasıl hello dosyayı okuma belirler. Merhaba beklenen toobe düz metin dosyasıysa belirtin **metin**; başka belirtin **ikili**. Merhaba varsayılan değer **metin**.
+- Varsa `options.uploadMode` çok ayarlanır**dosya** ve `options.openMode` çok ayarlanır**ikili**, hello çıkış base64 ile kodlanmış.
+- `options.encoding`Merhaba kodlama toouse hello dosyası okunurken belirtir. Merhaba varsayılan değer **UTF-8**ve kullanılan yalnızca `options.openMode` çok ayarlanır**metin**.
 
 ## <a name="sample-output"></a>Örnek çıktı
-Options.Multiple false ise ve options.uploadMode dosyadır, çıktı JSON dizesi olarak dosyanın içeriğini içerir:
+Options.Multiple false ise ve options.uploadMode dosyadır, çıktı hello dosyasının Merhaba içeriğine JSON dizesi olarak içerir:
 
 ```json
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 ```
 
-Options.Multiple true ise and'options.uploadMode dosyasıdır ve çıktı dosyaların içeriğini bir JSON dizisi olarak içerir:
+Options.Multiple true ise and'options.uploadMode dosyasıdır ve çıktı hello dosyaları Merhaba içeriğine bir JSON dizisi olarak içerir:
 
 ```json
 [
@@ -87,10 +87,10 @@ Options.Multiple geçerlidir ve url options.uploadMode ise, çıktı bir JSON di
 ]
 ```
 
-Bir CreateUiDefinition test edilirken (Google Chrome gibi) bazı tarayıcılar tarayıcı konsoluna Microsoft.Common.FileUpload öğe tarafından oluşturulan URL'leri keser. Tam URL'leri kopyalamak için tek bağlantılar sağ gerekebilir.
+Bir CreateUiDefinition test edilirken (Google Chrome gibi) bazı tarayıcılar hello tarayıcı konsoluna hello Microsoft.Common.FileUpload öğe tarafından oluşturulan URL'leri keser. Tooright tıklatma tek bağlantılar toocopy hello tam URL'leri gerekebilir.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Yönetilen uygulamaların giriş için bkz: [Azure yönetilen uygulama genel bakış](managed-application-overview.md).
-* UI tanımları oluşturmak için bir giriş için bkz [CreateUiDefinition ile çalışmaya başlama](managed-application-createuidefinition-overview.md).
+* Bir giriş toomanaged uygulamalar için bkz [Azure yönetilen uygulama genel bakış](managed-application-overview.md).
+* Bir giriş toocreating UI tanımları için bkz: [CreateUiDefinition ile çalışmaya başlama](managed-application-createuidefinition-overview.md).
 * Kullanıcı Arabirimi öğeleri ortak özellikleri açıklaması için bkz: [CreateUiDefinition öğeleri](managed-application-createuidefinition-elements.md).

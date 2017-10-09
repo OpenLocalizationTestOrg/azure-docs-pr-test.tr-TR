@@ -1,6 +1,6 @@
 ---
-title: Bir StorSimple biriminin yedekten geri | Microsoft Docs
-description: "StorSimple Yöneticisi hizmet yedekleme kataloğu sayfasında yedekleme kümesinden StorSimple birimini geri için nasıl kullanılacağını açıklar."
+title: aaaRestore yedekten bir StorSimple biriminin | Microsoft Docs
+description: "Nasıl toouse hello StorSimple Yöneticisi hizmeti yedekleme kataloğu sayfa toorestore bir StorSimple biriminin bir yedekleme kümesinden açıklanmaktadır."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,109 +14,109 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/22/2017
 ms.author: alkohli
-ms.openlocfilehash: 99b76e3bc2939c65654cbf606fda6f8a45e0c44b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c2e38765e750749f5764b5cbf2167d3cd5edfe5d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set-update-2"></a>Bir StorSimple biriminin bir yedekleme kümesi (güncelleştirme 2) geri yükleme
 [!INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
 
 ## <a name="overview"></a>Genel Bakış
-**Yedekleme kataloğu** sayfası el ile veya otomatik yedeklemeler durumdayken, oluşturulan tüm yedekleme kümelerini görüntüler. Liste ve yedeklemeleri yönetmeniz, yedekleme kümesinden geri yüklemek veya bir birim kopyalamak için bu sayfayı kullanın.
+Merhaba **yedekleme kataloğu** sayfası el ile veya otomatik yedeklemeler durumdayken, oluşturulan tüm hello yedekleme kümelerini görüntüler. Bu sayfa toolist kullanın ve yedeklemeleri yönetmek, bir yedekleme kümesinden geri yüklemek veya bir birim kopyalama.
 
  ![Yedekleme kataloğu sayfası](./media/storsimple-restore-from-backup-set-u2/restore.png)
 
-Bu öğretici nasıl kullanılacağı açıklanmaktadır **yedekleme kataloğu** Cihazınızı yedekleme kümesinden geri yüklemek için sayfa.
+Bu öğretici açıklar nasıl toouse hello **yedekleme kataloğu** toorestore bir yedekleme kümesi aygıtınızdan sayfa.
 
-Yerel bir birimden veya Bulut yedeklemesini geri yükleyebilirsiniz. Hemen veri arka planda yüklenirken her iki durumda da geri yükleme işlemi birimi çevrimiçi duruma getirir. 
+Yerel bir birimden veya Bulut yedeklemesini geri yükleyebilirsiniz. Her iki durumda da hemen veri hello arka planda yüklenirken hello geri yükleme işlemi hello birimini çevrimiçi getirir. 
 
 ## <a name="before-you-restore"></a>Geri yüklemeden önce
-Bir geri yükleme işlemini başlatmadan önce aşağıdaki uyarılarla bilmeniz gerekir:
+Bir geri yükleme işlemini başlatmadan önce uyarılar aşağıdaki hello bilmeniz gerekir:
 
-* **Birim çevrimdışına** – geri yükleme işlemini başlatmadan önce birim hem konak hem de cihaz çevrimdışı gerçekleştirin. Geri yükleme işlemi, birimi çevrimiçi otomatik olarak cihazda duruma getirir. rağmen ana bilgisayarda el ile cihaz çevrimiçi getirmeniz gerekir. Birim cihazda çevrimiçi olduğunda ana bilgisayarda birimin çevrimiçi kullanıma sunabilirsiniz. (Geri yükleme işlemi tamamlanana kadar bekleyin gerek yok.) Yordamlar için Git [bir birim çevrimdışına](storsimple-manage-volumes-u2.md#take-a-volume-offline).
-* **Birim türü geri yükleme sonrasında** – silinen birimler geri yüklenir anlık görüntüdeki türüne göre. Yerel olarak sabitlenmiş birimleri yerel olarak sabitlenmiş birimleri olarak geri yüklenir ve katmanlı birimleri katmanlı birimler olarak geri yüklenir.
+* **Merhaba birim çevrimdışına** – hem hello konakta hello birim çevrimdışı gerçekleştirin ve hello geri yükleme işlemini başlatmadan önce aygıt hello. Merhaba geri yükleme işlemi, çevrimiçi hello birimi otomatik olarak hello aygıtta duruma getirir. rağmen el ile Merhaba cihaz çevrimiçi hello konakta getirmeniz gerekir. Merhaba birim hello aygıtta çevrimiçi olduğunda hello konakta hello birimini çevrimiçi kullanıma sunabilirsiniz. (Merhaba geri yükleme işlemi tamamlanana kadar toowait gerekmez.) Yordamlar için çok Git[bir birim çevrimdışına](storsimple-manage-volumes-u2.md#take-a-volume-offline).
+* **Birim türü geri yükleme sonrasında** – silinen birimler geri yüklenir hello anlık görüntüdeki hello türüne göre. Yerel olarak sabitlenmiş birimleri yerel olarak sabitlenmiş birimleri olarak geri yüklenir ve katmanlı birimleri katmanlı birimler olarak geri yüklenir.
   
-    Var olan birimler için geçerli kullanım türü biriminin anlık depolanan türü geçersiz kılar. Örneğin, bir birim birim türü katmanlı ve birim türü artık yerel olarak (dönüştürme işlemi nedeniyle) sabitlenmiş alınan anlık görüntü geri, birimin yerel olarak sabitlenmiş bir birim geri yüklenir. Benzer şekilde, var olan yerel olarak sabitlenmiş bir birim genişletilmiş ve daha sonra birim daha küçük olduğunda gerçekleştirilecek daha eski bir anlık görüntüden geri, geri yüklenen toplu geçerli genişletilmiş boyutu korur.
+    Var olan birimler için hello geçerli kullanım türü hello birimin hello anlık depolanan hello türü geçersiz kılar. Örneğin, yerel olarak sabitlenmiş bir birim Hello birim geri sonra hello birim türü katmanlı yükleyen alındığı bir anlık görüntüden bir birime geri yüklerseniz ve birim türü artık yerel olarak olduğunu (tooa dönüştürme işlemi), sabitlenmiş. Var olan yerel olarak sabitlenmiş bir birim genişletilmiş ve daha sonra hello birim daha küçük olduğunda gerçekleştirilecek daha eski bir anlık görüntüden geri, benzer şekilde, hello geri yüklenen toplu hello geçerli genişletilmiş boyutu korur.
   
-    Katmanlı bir birimden yerel olarak sabitlenmiş bir birim için bir birim dönüştürülemiyor veya _tam tersini_ birim geri yüklenirken. Geri yükleme işlemi tamamlandıktan ve daha sonra başka bir türüne birim dönüştürebilirsiniz kadar bekleyin. Bir birim dönüştürme hakkında daha fazla bilgi için Git [birim türünü değiştirme](storsimple-manage-volumes-u2.md#change-the-volume-type). 
-* **Birim boyutu geri yüklenen birimde yansıtılır** – (yerel olarak sabitlenmiş birimlerin tam olarak sağlandıktan nedeniyle), silinmiş olan yerel olarak sabitlenmiş bir birim geri yüklüyorsanız bu önemli bir konudur. Daha önce silinmiş yerel olarak sabitlenmiş bir birim geri yüklemeyi denemeden önce yeterli alan olduğundan emin olun. 
-* **Bu geri yüklenirken bir birim genişletilemiyor** – birimini genişletin girişiminde bulunmadan önce geri yükleme işlemi tamamlanana kadar bekleyin. Bir birim genişletme hakkında daha fazla bilgi için Git [bir birim değiştirmek](storsimple-manage-volumes-u2.md#modify-a-volume).
-* **Yerel bir birime geri yüklediğiniz sırada bir yedekleme gerçekleştirebilirsiniz** – yordamları için şu adrese gidin [yedekleme ilkelerini yönetmek için StorSimple Yöneticisi hizmetini kullanma](storsimple-manage-backup-policies.md).
-* **Bir geri yükleme işlemi iptal** – içindeydi durumuna geri yükleme başlatılan önce birim geri sonra geri yükleme işi iptal ederseniz. Yordamlar için Git [bir işi iptal](storsimple-manage-jobs-u2.md#cancel-a-job).
+    Bir birim bir katmanlı birim yerel olarak sabitlenmiş tooa birimden dönüştürülemiyor veya _tam tersini_ hello birim geri yüklenirken. Merhaba geri yükleme işlemi tamamlandıktan ve daha sonra hello birim tooanother türü dönüştürebilirsiniz kadar bekleyin. Bir birim dönüştürme hakkında daha fazla bilgi için çok Git[değiştirmek hello birim türü](storsimple-manage-volumes-u2.md#change-the-volume-type). 
+* **Merhaba birim boyutu geri hello biriminde yansıtılır** – (yerel olarak sabitlenmiş birimlerin tam olarak sağlandıktan nedeniyle), silinmiş olan yerel olarak sabitlenmiş bir birim geri yüklüyorsanız bu önemli bir konudur. Daha önce silinmiş yerel olarak sabitlenmiş bir birim toorestore denemeden önce yeterli alan olduğundan emin olun. 
+* **Bu geri yüklenirken bir birim genişletilemiyor** – tooexpand hello birim çalışmadan önce hello geri yükleme işlemi tamamlanana kadar bekleyin. Bir birim genişletme hakkında daha fazla bilgi için çok Git[bir birim değiştirmek](storsimple-manage-volumes-u2.md#modify-a-volume).
+* **Yerel bir birime geri yüklediğiniz sırada bir yedekleme gerçekleştirebilirsiniz** – için yordamlar çok gidin[hello StorSimple Yöneticisi hizmet toomanage yedekleme ilkelerini kullanma](storsimple-manage-backup-policies.md).
+* **Bir geri yükleme işlemi iptal** – hello geri yükleme başlatılan önce içindeydi toohello durumunu hello birim geri sonra hello geri yükleme işi iptal ederseniz. Yordamlar için çok Git[bir işi iptal](storsimple-manage-jobs-u2.md#cancel-a-job).
 
 ## <a name="how-does-restore-work"></a>Nasıl iş geri yükleme
-Güncelleştirme 4 veya üstünü çalıştıran cihazlarda heatmap tabanlı geri yükleme uygulanır. Konak ister gibi cihaz erişim verilerini ulaşmak, bu istekleri izlenir ve bir heatmap oluşturulur. Alt istek hızı alt ısı ile öbekleri çevirir ancak yüksek istek hızı veri öbekleri yüksek ısı ile sonuçlanır. İki kez olarak işaretlenmesi için verilerin en az erişmesi gereken _etkin_. Değiştirilen bir dosya da olarak işaretlenmiş _etkin_. Geri yüklemeyi başlatmak sonra veri öngörülü hidrasyonu heatmap göre gerçekleşir. Sürümleri için yalnızca erişimini kullanarak geri yükleme sırasında veri güncelleştirme 4'ten önceki yüklendi. 
+Güncelleştirme 4 veya üstünü çalıştıran cihazlarda heatmap tabanlı geri yükleme uygulanır. Merhaba ana istekleri tooaccess verileri hello aygıt ulaşmak gibi bu istekleri izlenir ve bir heatmap oluşturulur. Alt istek hızı alt ısı ile toochunks çevirir ancak yüksek istek hızı veri öbekleri yüksek ısı ile sonuçlanır. Toobe olarak işaretli hello veri en az iki kez erişmesi gereken _etkin_. Değiştirilen bir dosya da olarak işaretlenmiş _etkin_. Merhaba geri yüklemesini başlatmak sonra veri öngörülü hidrasyonu hello heatmap göre gerçekleşir. Sürümleri için güncelleştirme 4'ten önceki hello veri erişimini kullanarak geri yükleme sırasında indirilen. 
 
-Katmanlı birimlerin ve yerel olarak sabitlenmiş birimleri desteklenmez yalnızca Heatmap tabanlı izleme etkinleştirilir. Heatmap tabanlı geri yükleme de başka bir aygıt için bir birim kopyalama desteklenmez. (Veri zaten yerel olarak kullanılabilir olduğu gibi) bir yerinde geri yükleme ve cihazda yerel bir anlık görüntü geri yüklenmesi birimin var, ardından biz rehydrate değil. Geri yüklendiğinde varsayılan olarak, önceden üzerinde heatmap göre verileri rehydrate rehydration işleri başlatılan. Güncelleştirme 4'te çalışan rehydration işleri sorgulamak, rehydration işini iptal et ve rehydration işinin durumunu almak için Windows PowerShell cmdlet'leri kullanılabilir.
+Katmanlı birimlerin ve yerel olarak sabitlenmiş birimleri desteklenmez yalnızca Heatmap tabanlı izleme etkinleştirilir. Heatmap tabanlı geri yükleme, bir birim tooanother aygıtı kopyalarken de desteklenmez. (Veri zaten yerel olarak kullanılabilir olduğu gibi) bir yerinde geri yükleme ve hello aygıtta geri hello birim toobe için yerel bir anlık görüntü var, ardından biz rehydrate değil. Geri yüklendiğinde varsayılan olarak, önceden hello heatmap üzerinde göre verileri rehydrate hello rehydration işleri başlatılan. Güncelleştirme 4'te Windows PowerShell cmdlet'leri rehydration işleri çalıştırma kullanılan tooquery olması, rehydration işi iptal ve hello hello rehydration işinin durumunu al.
 
-* `Get-HcsRehydrationJob`-Bu cmdlet rehydration işinin durumunu alır. Tek bir birim için bir tek rehydration işi tetiklenir.
-* `Set-HcsRehydrationJob`-Bu cmdlet, duraklatmak, durdurmak, rehydration devam ederken rehydration işi sürdürme olanak sağlar. 
+* `Get-HcsRehydrationJob`-Bu cmdlet hello hello rehydration işinin durumunu alır. Tek bir birim için bir tek rehydration işi tetiklenir.
+* `Set-HcsRehydrationJob`-Bu cmdlet'i toopause sağlar, durdurmak, hello rehydration devam ederken hello rehydration işi devam ettirin. 
 
-Rehydration cmdlet'leri hakkında daha fazla bilgi için Git [StorSimple için Windows PowerShell cmdlet başvurusu](https://technet.microsoft.com/library/dn688168.aspx).
+Rehydration cmdlet'leri hakkında daha fazla bilgi için çok Git[StorSimple için Windows PowerShell cmdlet başvurusu](https://technet.microsoft.com/library/dn688168.aspx).
 
-Otomatik rehdyration ile genellikle yüksek geçici okuma performansı beklenir. Geliştirme gerçek magniutde erişim düzeni, veri dalgalanmasına ve veri türü gibi çeşitli etkenlere bağlıdır. Rehydration işini iptal etmek için PowerShell cmdlet'ini kullanabilirsiniz. Kalıcı olarak rehydration işler gelecekteki tüm geri yüklemeler için devre dışı bırakmak isterseniz, Microsoft Support başvurun.
+Otomatik rehdyration ile genellikle yüksek geçici okuma performansı beklenir. Merhaba gerçek magniutde geliştirme erişim düzeni, veri dalgalanmasına ve veri türü gibi çeşitli etkenlere bağlıdır. toocancel rehydration işi, hello PowerShell cmdlet'ini kullanabilirsiniz. Tüm hello gelecekteki geri yüklemeler için toopermanently devre dışı bırakma rehydration işleri isterseniz, Microsoft Support başvurun.
 
-## <a name="how-to-use-the-backup-catalog"></a>Yedekleme kataloğunu kullanma
-**Yedekleme kataloğu** sayfası, yedekleme daraltmaya yardımcı olacak bir sorgu olarak seçimi sağlar. Aşağıdaki parametreleri temel alınarak alınır yedekleme kümelerini filtreleyebilirsiniz:
+## <a name="how-toouse-hello-backup-catalog"></a>Nasıl toouse hello yedekleme kataloğu
+Merhaba **yedekleme kataloğu** sayfası, yedekleme kümesi seçiminiz toonarrow yardımcı olan bir sorgu sağlar. Şu parametreler hello üzerinde temel alınan hello yedekleme kümelerini filtreleyebilirsiniz:
 
-* **Aygıt** – yedekleme kümesi oluşturulduğu aygıt.
-* **Yedekleme İlkesi** veya **birim** – yedekleme İlkesi veya bu yedekleme kümesiyle ilişkili birim.
-* **Gelen** ve **için** – yedekleme kümesi oluşturduğunuzda tarih ve saat aralığı.
+* **Aygıt** – hello cihaz üzerinde hangi hello yedekleme kümesi oluşturuldu.
+* **Yedekleme İlkesi** veya **birim** – yedekleme İlkesi veya bu yedekleme kümesiyle ilişkili birim hello.
+* **Gelen** ve **için** – hello yedekleme kümesi oluşturduğunuzda hello tarih ve saat aralığı.
 
-Filtrelenmiş yedekleme kümelerini, ardından aşağıdaki özniteliklerini temel alarak tabloda verilmiştir:
+Merhaba filtrelenmiş yedekleme kümelerini sonra öznitelikleri aşağıdaki hello üzerinde temel tabloda verilmiştir:
 
-* **Ad** – yedekleme İlkesi veya yedekleme kümesiyle ilişkili birim adı.
-* **Boyutu** – yedekleme kümesi gerçek boyutu.
-* **Oluşturulan** – yedeklemelerin ne zaman oluşturulduğu tarih ve saat. 
-* **Tür** – yedekleme kümelerini yerel anlık görüntüleri olması veya Bulut anlık görüntüler. Bir yedekleme verilerinizin cihazda yerel olarak depolanan tüm birim yerel bir anlık görüntüdür. Bir bulut anlık görüntüsü bulutta bulunan birim verilerin yedeğini ifade eder. Bulut anlık görüntüleri veri dayanıklılığı için seçilen ancak yerel anlık görüntüleri daha hızlı erişim sağlar.
-* **Tarafından başlatılan** – yedeklemeleri otomatik olarak bir zamanlamaya göre veya sizin tarafınızdan el ile başlatılabilir. (Bir yedekleme İlkesi yedeklemeleri zamanlamak için kullanabilirsiniz. Alternatif olarak, kullanabileceğiniz **yedek alın** etkileşimli bir yedek almak için seçeneği.)
+* **Ad** – hello hello yedekleme İlkesi veya birim hello yedekleme kümesiyle ilişkili ad.
+* **Boyutu** – hello hello yedekleme kümesinin gerçek boyutu.
+* **Oluşturulan** – başlangıç tarihi ve hello yedeklemelerin ne zaman oluşturulduğu saat. 
+* **Tür** – yedekleme kümelerini yerel anlık görüntüleri olması veya Bulut anlık görüntüler. Bir yedekleme verilerinizin hello cihazda yerel olarak depolanan tüm birim yerel bir anlık görüntüdür. Bir bulut anlık görüntüsü toplu veri hello bulutta bulunan toohello yedeğini başvurur. Bulut anlık görüntüleri veri dayanıklılığı için seçilen ancak yerel anlık görüntüleri daha hızlı erişim sağlar.
+* **Tarafından başlatılan** – hello yedeklemeleri otomatik olarak tooa zamanlamaya göre başlatılabilir veya sizin tarafınızdan elle. (Bir yedekleme İlkesi tooschedule yedeklemeleri kullanabilirsiniz. Alternatif olarak, hello kullanabilirsiniz **yedek alın** seçeneği tootake etkileşimli bir yedek.)
 
-## <a name="how-to-restore-your-storsimple-volume-from-a-backup"></a>StorSimple birim bir yedekten geri yükleme
-Kullanabileceğiniz **yedekleme kataloğu** sayfasında StorSimple biriminiz belirli bir yedekten geri yükleyin. Ancak unutmayın, bu bir birime geri birimin yedeğin alındığı duruma geri döner. Yedekleme işlemi sonra eklenen tüm veriler kaybolur.
+## <a name="how-toorestore-your-storsimple-volume-from-a-backup"></a>Nasıl toorestore, StorSimple birim bir yedekten
+Merhaba kullanabilirsiniz **yedekleme kataloğu** toorestore StorSimple biriminiz belirli bir yedekten sayfa. Ancak unutmayın, bu bir birime geri hello yedeğin alındığı zamanki hello birim toohello durumu döner. Merhaba yedekleme işleminden sonra eklenen tüm veriler kaybolur.
 
 > [!WARNING]
-> Bir yedekten geri yükleme, var olan birimler yedekten yerini alır. Bu, yedeğin alındığı sonra yazıldı herhangi bir veri kaybına neden olabilir.
+> Bir yedekten geri yükleme hello var olan birimler hello yedekten yerini alır. Bu hello hello yedeğin alındığı sonra yazıldı herhangi bir veri kaybına neden olabilir.
 > 
 > 
 
-### <a name="to-restore-your-volume"></a>Biriminiz geri yüklemek için
-1. StorSimple Yöneticisi hizmet sayfasında, tıklatın **yedekleme kataloğu** sekmesi.
+### <a name="toorestore-your-volume"></a>toorestore biriminiz
+1. Merhaba Hello StorSimple Yöneticisi hizmet sayfasında, tıklatın **yedekleme kataloğu** sekmesi.
    
     ![Yedekleme kataloğu](./media/storsimple-restore-from-backup-set-u2/restore.png)
 2. Bir yedekleme kümesi aşağıdaki gibi seçin:
    
-   1. Uygun cihazı seçin.
-   2. Aşağı açılan listesinde, seçmek istediğiniz yedekleme için birim veya yedekleme ilkesini seçin.
-   3. Zaman aralığı belirtin.
-   4. Onay simgesine tıklayarak ![onay simgesi](./media/storsimple-restore-from-backup-set-u2/HCS_CheckIcon.png) Bu sorguyu yürütmek için.
+   1. Merhaba uygun cihazı seçin.
+   2. Merhaba aşağı açılan listesinde, tooselect istediğiniz hello yedekleme için hello birim veya yedekleme ilkesini seçin.
+   3. Merhaba zaman aralığı belirtin.
+   4. Merhaba onay simgesine tıklayın ![onay simgesi](./media/storsimple-restore-from-backup-set-u2/HCS_CheckIcon.png) tooexecute bu sorgu.
       
-      Yedekleme seçili birimle ilişkilendirilen veya yedekleme İlkesi yedekleme kümelerini listesinde görüntülenmelidir.
-3. İlişkili birimleri görüntülemek için yedekleme kümesini genişletin. Geri yüklemeden önce bu birimleri ana bilgisayar ve aygıt çevrimdışına alınması gerekir. Birimleri erişimi **birim kapsayıcıları** sayfasında ve adımları izleyin [bir birim çevrimdışına](storsimple-manage-volumes-u2.md#take-a-volume-offline) çevrimdışı duruma getirmek için.
+      Merhaba seçili hello birim veya yedekleme ilkesiyle ilişkili yedeklemeler yedekleme kümelerini hello listesinde görüntülenmelidir.
+3. Merhaba yedekleme kümesi tooview ilişkili hello birimleri genişletin. Geri yüklemeden önce bu birimleri hello ana bilgisayar ve aygıt çevrimdışına alınması gerekir. Erişim hello hello birimlerde **birim kapsayıcıları** sayfasında ve hello adımları izleyin [bir birim çevrimdışına](storsimple-manage-volumes-u2.md#take-a-volume-offline) tootake çevrimdışı.
    
    > [!IMPORTANT]
-   > Çevrimdışı birimler cihazda olabilmesi birimlerde çevrimdışı konak ilk olarak, gerçekleştirdiğinizden emin olun. Konakta birimler çevrimdışı almazsanız, olası veri bozulmasına yol açabilir.
+   > Merhaba aygıtta çevrimdışı hello birimleri olabilmesi hello birimlerde çevrimdışı hello konak ilk olarak, gerçekleştirdiğinizden emin olun. Merhaba konakta çevrimdışı hello birimleri almazsanız, büyük olasılıkla toodata bozulmasına yol açabilir.
    > 
    > 
-4. Geri gidin **yedekleme kataloğu** sekmesinde ve bir yedekleme kümesi seçin.
-5. Tıklatın **geri** sayfanın sonundaki.
-6. Onayınız istenir. Geri yükleme bilgilerini gözden geçirin ve ardından onay onay kutusunu seçin.
+4. Geri toohello gidin **yedekleme kataloğu** sekmesinde ve bir yedekleme kümesi seçin.
+5. Tıklatın **geri** hello sayfanın hello sonundaki.
+6. Onayınız istenir. Gözden geçirme hello bilgileri geri yüklemek ve hello onay onay kutusunu seçin.
    
     ![Onay sayfası](./media/storsimple-restore-from-backup-set-u2/ConfirmRestore.png)
-7. Onay simgesine ![onay simgesi](./media/storsimple-restore-from-backup-set-u2/HCS_CheckIcon.png). Bir geri yükleme işi başlar. İş erişerek görüntüleyebileceğiniz **işleri** sayfası. 
-8. Geri yükleme tamamlandıktan sonra birimlerinizi içeriğini yedekleme birimlerden değiştirilir olduğunu doğrulayabilirsiniz.
+7. Merhaba onay simgesine ![onay simgesi](./media/storsimple-restore-from-backup-set-u2/HCS_CheckIcon.png). Bir geri yükleme işi başlar. Merhaba erişerek hello iş görüntüleyebilirsiniz **işleri** sayfası. 
+8. Merhaba geri yükleme tamamlandıktan sonra birimlerinizi Merhaba içeriğine hello yedekleme birimlerden değiştirilir olduğunu doğrulayabilirsiniz.
 
 ![Video var](./media/storsimple-restore-from-backup-set-u2/Video_icon.png) **Video var**
 
-Nasıl kopya kullanın ve geri yükleme silinmiş dosyaları kurtarmak için StorSimple özellikleri gösteren bir video izlemek için tıklatın [burada](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
+toowatch nasıl hello kopya kullanın ve geri yükleme StorSimple silinmiş toorecover dosyalarında özellikleri gösteren bir video tıklatın [burada](https://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/).
 
-## <a name="if-the-restore-fails"></a>Geri yükleme başarısız olursa
-Geri yükleme işlemi için herhangi bir nedenle başarısız olursa bir uyarı alırsınız. Bu meydana gelirse, yedekleme hala geçerli olduğunu doğrulamak için yedekleme listesini yenileyin. Ardından yedeğinin geçerli olduğundan ve buluttan geri yüklüyorsanız, bağlantı sorunları soruna neden. 
+## <a name="if-hello-restore-fails"></a>Merhaba geri yükleme başarısız olur
+Merhaba herhangi bir nedenden dolayı işlem başarısız geri yüklerseniz, bir uyarı alırsınız. Bu meydana gelirse, yedekleme hello yenileme hello yedekleme listesi tooverify hala geçerlidir. Ardından Hello yedeğinin geçerli olduğundan ve hello buluttan geri yüklüyorsanız, bağlantı sorunları hello soruna neden. 
 
-Geri yükleme işlemini tamamlamak için ana bilgisayarda birimin çevrimdışına alın ve geri yükleme işlemini yeniden deneyin. Geri yükleme işlemi sırasında gerçekleştirilen birim verilerini yapılan tüm değişiklikler kaybolur.
+toocomplete hello geri yükleme işlemi, çevrimdışı hello birim hello ana bilgisayarda gerçekleştirin ve hello geri yükleme işlemi yeniden deneyin. Merhaba geri yükleme işlemi sırasında gerçekleştirilen tüm değişiklikler toohello birim veriler kaybolur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bilgi edinmek için nasıl [yönetmek StorSimple birimlerini](storsimple-manage-volumes-u2.md).
-* Bilgi edinmek için nasıl [StorSimple Cihazınızı yönetmek için StorSimple Yöneticisi hizmetini kullanma](storsimple-manager-service-administration.md).
+* Nasıl çok öğrenin[yönetmek StorSimple birimlerini](storsimple-manage-volumes-u2.md).
+* Nasıl çok öğrenin[kullanım StorSimple Cihazınızı StorSimple Yöneticisi hizmet tooadminister hello](storsimple-manager-service-administration.md).
 

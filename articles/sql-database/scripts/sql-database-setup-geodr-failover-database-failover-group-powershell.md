@@ -1,6 +1,6 @@
 ---
-title: "PowerShell örnek coğrafi çoğaltma yük devretme grubu tek Azure SQL veritabanı | Microsoft Docs"
-description: "Tek bir Azure SQL veritabanı için etkin coğrafi çoğaltma ayarlamak için azure PowerShell örnek betiği"
+title: "aaaPowerShell örnek coğrafi çoğaltma yük devretme grubu tek Azure SQL veritabanı | Microsoft Docs"
+description: "Azure PowerShell örnek betiği tooset etkin coğrafi çoğaltma tek bir Azure SQL veritabanı için ayarlama"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -16,25 +16,25 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.openlocfilehash: 8db8540d9c4caeb53ea8f34d45d9498496d2b8ac
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0ea7afb1125b95370811ef7f80cb9eb7391b2443
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-powershell-to-configure-an-active-geo-replication-failover-group-for-a-single-azure-sql-database"></a>Tek bir Azure SQL veritabanı için bir etkin coğrafi çoğaltma yük devretme grubu yapılandırmak için PowerShell kullanın
+# <a name="use-powershell-tooconfigure-an-active-geo-replication-failover-group-for-a-single-azure-sql-database"></a>PowerShell tooconfigure aktif coğrafi çoğaltma yük devretme grubu için tek bir Azure SQL veritabanına kullanın
 
-Bu PowerShell Betiği örneği tek bir Azure SQL veritabanı için bir etkin coğrafi çoğaltma yük devretme grubu yapılandırır ve Azure SQL veritabanı için bir ikincil çoğaltma üzerinden başarısız.
+Bu PowerShell Betiği örneği tek bir Azure SQL veritabanı için bir etkin coğrafi çoğaltma yük devretme grubu yapılandırır ve tooa hello Azure SQL veritabanı'nın ikincil çoğaltma başarısız olur.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="sample-scripts"></a>Örnek komut dosyaları
 
-[!code-powershell[Ana](../../../powershell_scripts/sql-database/setup-geodr-and-failover-database/setup-geodr-and-failover-database-failover-group.ps1?highlight=19-22 "tek veritabanı için yük devretme grubu ayarlama")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-database/setup-geodr-and-failover-database-failover-group.ps1?highlight=19-22 "Set up failover group for single database")]
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme
 
-Komut dosyası örneği çalıştırdıktan sonra kaynak grubu ve onunla ilişkili tüm kaynakları kaldırmak için aşağıdaki komutu kullanılabilir.
+Merhaba komut dosyası örneği çalıştırdıktan sonra komutu aşağıdaki hello kullanılan tooremove hello kaynak grubu ve onunla ilişkili tüm kaynakları olabilir.
 
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName "myPrimaryResourceGroup"
@@ -43,7 +43,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName "mySecondaryResourceGroup"
 
 ## <a name="script-explanation"></a>Komut dosyası açıklaması
 
-Bu komut dosyasını aşağıdaki komutları kullanır. Komut belirli belgeleri tablo bağlanan her komut.
+Bu komut dosyası komutları aşağıdaki hello kullanır. Her komut hello tablosundaki toocommand belirli belgeleri bağlar.
 
 | Komut | Notlar |
 |---|---|
@@ -53,14 +53,14 @@ Bu komut dosyasını aşağıdaki komutları kullanır. Komut belirli belgeleri 
 | [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) | Veritabanı özellikleri güncelleştirir veya bir veritabanı içine, dışı veya esnek havuzlar arasında taşır. |
 | [AzureRmSqlDatabaseSecondary yeni](/powershell/module/azurerm.sql/new-azurermsqldatabasesecondary)| Var olan bir veritabanı için ikincil bir veritabanı oluşturur ve veri çoğaltma başlatır. |
 | [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)| Bir veya daha fazla veritabanı alır. |
-| [Set-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary)| Yük devretme başlatmak için birincil olarak ikincil bir veritabanı geçer.|
-| [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) | Bir Azure SQL Database ve bir kaynak grubu veya SQL Server arasındaki coğrafi Çoğaltma bağlantılarını alır. |
-| [Remove-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) | Bir SQL veritabanı ve belirtilen ikincil veritabanı arasında veri kopyalama sonlandırır. |
+| [Set-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/set-azurermsqldatabasesecondary)| Bir ikincil veritabanı toobe birincil tooinitiate yük devretme geçer.|
+| [Get-AzureRmSqlDatabaseReplicationLink](/powershell/module/azurerm.sql/get-azurermsqldatabasereplicationlink) | Bir Azure SQL Database ve bir kaynak grubu veya SQL Server arasındaki Hello coğrafi Çoğaltma bağlantılarını alır. |
+| [Remove-AzureRmSqlDatabaseSecondary](/powershell/module/azurerm.sql/remove-azurermsqldatabasesecondary) | Bir SQL veritabanı ve hello belirtilen ikincil veritabanı arasında veri kopyalama sonlandırır. |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Tüm iç içe kaynaklar dahil olmak üzere bir kaynak grubu siler. |
 |||
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure PowerShell hakkında daha fazla bilgi için bkz: [Azure PowerShell belgelerine](/powershell/azure/overview).
+Hello Azure PowerShell hakkında daha fazla bilgi için bkz: [Azure PowerShell belgelerine](/powershell/azure/overview).
 
-Ek SQL veritabanı PowerShell Betiği örnekleri bulunabilir [Azure SQL veritabanı PowerShell komut dosyalarını](../sql-database-powershell-samples.md).
+Ek SQL veritabanı PowerShell Betiği örnekleri hello bulunabilir [Azure SQL veritabanı PowerShell komut dosyalarını](../sql-database-powershell-samples.md).

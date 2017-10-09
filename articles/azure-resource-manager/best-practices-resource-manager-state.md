@@ -1,6 +1,6 @@
 ---
-title: "Azure şablonu arasındaki karmaşık değerleri geçirmek | Microsoft Docs"
-description: "Gösterir karmaşık nesne durumu verileri Azure Resource Manager şablonları ve bağlı şablonları ile paylaşmak için kullanmayı yaklaşımları önerilir."
+title: "Azure şablonları arasındaki aaaPass karmaşık değerleri | Microsoft Docs"
+description: "Gösterir karmaşık nesneler tooshare durumu verilerinin Azure Resource Manager şablonları ile bağlı şablonları kullanma yaklaşım önerilir."
 services: azure-resource-manager
 documentationcenter: 
 author: tfitzmac
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2016
 ms.author: tomfitz
-ms.openlocfilehash: 23cc4321159a87b61c177b11381646af8bd9eb35
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 72df1dee351446cea6ce15269e6db288b1f1db79
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="share-state-to-and-from-azure-resource-manager-templates"></a>Azure Resource Manager şablonları gelen ve giden paylaşım durumu
-Bu konu, yönetme ve şablonlar içindeki durumu paylaşımı için en iyi uygulamaları gösterir. Bu konuda gösterilen değişkenleri ve parametreleri tanımlayabilirsiniz nesnelerin türü örnekleridir rahat Dağıtım gereksinimlerinizi düzenlemek için. Bu örnekler, ortamınız için anlamlı özellik değerlerini kendi nesneleriyle uygulayabilirsiniz.
+# <a name="share-state-tooand-from-azure-resource-manager-templates"></a>Paylaşım durumu tooand Azure Resource Manager şablonları
+Bu konu, yönetme ve şablonlar içindeki durumu paylaşımı için en iyi uygulamaları gösterir. Hello parametreler ve değişkenler bu konuda gösterilen örnekler tanımlayabilirsiniz nesnelerin hello türü tooconveniently Dağıtım gereksinimlerinizi düzenleyin. Bu örnekler, ortamınız için anlamlı özellik değerlerini kendi nesneleriyle uygulayabilirsiniz.
 
-Bu konuda daha büyük bir Teknik İnceleme bir parçasıdır. Tam kağıt okumak için karşıdan [World sınıfı Resource Manager şablonları konuları ve kanıtlanmış yöntemler](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
+Bu konuda daha büyük bir Teknik İnceleme bir parçasıdır. tam kağıt tooread hello karşıdan [World sınıfı Resource Manager şablonları konuları ve kanıtlanmış yöntemler](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World Class ARM Templates - Considerations and Proven Practices.pdf).
 
 ## <a name="provide-standard-configuration-settings"></a>Standart yapılandırma ayarlarını belirtin
-Toplam esneklik ve sayısız Çeşitlemeler sağlayan bir şablon sunmak yerine, genel bir desen bilinen yapılandırmaları seçimi sağlamaktır. Etkin kullanıcılar korumalı alan, küçük, Orta ve büyük gibi standart ısı boyutları seçebilirsiniz. Diğer ısı boyutları community edition veya enterprise edition gibi ürün teklifleri gösterilebilir. Diğer durumlarda, harita azaltmak gibi iş yüküne özgü yapılandırmaları bir teknolojisi – olabilir veya hiç sql.
+Toplam esneklik ve sayısız Çeşitlemeler sağlayan bir şablon sunmak yerine, genel bir desen tooprovide bilinen yapılandırmaları Seçimi ' dir. Etkin kullanıcılar korumalı alan, küçük, Orta ve büyük gibi standart ısı boyutları seçebilirsiniz. Diğer ısı boyutları community edition veya enterprise edition gibi ürün teklifleri gösterilebilir. Diğer durumlarda, harita azaltmak gibi iş yüküne özgü yapılandırmaları bir teknolojisi – olabilir veya hiç sql.
 
-Karmaşık nesneleriyle bazen "özellik paketleri" bilinen veri topluluklarını değişkenleri oluşturmak ve bu verileri kaynak bildirimi şablonunuzda sürücü için kullanabilirsiniz. Bu yaklaşım, müşteri için yapılandırılmış farklı boyutlarda iyi, bilinen yapılandırmaları sağlar. Bilinen yapılandırmaları, şablonun kullanıcıları gerekir, kendi boyutlandırma küme belirlemek, platform kaynak kısıtlamaları faktörü ve sonuçta elde edilen bölümleme depolama hesapları ve diğer kaynakları (nedeniyle, küme boyutu ve kaynak tanımlamak için matematik yapın kısıtlamaları). Daha iyi bir deneyim müşteri için yapmanın yanı sıra birkaç bilinen yapılandırmaları daha kolay desteklemek ve yoğunluğu daha yüksek düzeyde sunmanıza yardımcı olabilir.
+Karmaşık nesneler ile bazen "özellik paketleri" bilinen veri topluluklarını değişkenleri oluşturun ve o veri toodrive hello kaynak bildirimi şablonunuzda kullanın. Bu yaklaşım, müşteri için yapılandırılmış farklı boyutlarda iyi, bilinen yapılandırmaları sağlar. Bilinen yapılandırmaları hello şablon kullanıcılarının gerekir küme boyutlandırma platform kaynak kısıtlamaları kendi faktörünü üzerinde belirlemek ve depolama hesapları ve diğer kaynakların bölümleme matematik tooidentify hello kaynaklanan yapın (toocluster boyutu nedeniyle ve Kaynak sınırlamaları). Ayrıca toomaking hello müşteri için daha iyi bir deneyim, birkaç bilinen yapılandırmaları daha kolay toosupport olan ve yoğunluğu daha yüksek düzeyde sunmanıza yardımcı olabilir.
 
-Aşağıdaki örnek veri koleksiyonları için karmaşık nesneler içeren değişkenleri tanımlayın gösterilmektedir. Koleksiyonları, sanal makine boyutu, ağ ayarları, işletim sistemi ayarlarını ve kullanılabilirlik ayarları için kullanılan değerleri tanımlayın.
+örnekte gösterildiği nasıl aşağıdaki hello veri koleksiyonları için karmaşık nesneler içeren toodefine değişkenleri. Merhaba koleksiyonları, sanal makine boyutu, ağ ayarları, işletim sistemi ayarlarını ve kullanılabilirlik ayarları için kullanılan değerleri tanımlayın.
 
     "variables": {
       "tshirtSize": "[variables(concat('tshirtSize', parameters('tshirtSize')))]",
@@ -109,9 +109,9 @@ Aşağıdaki örnek veri koleksiyonları için karmaşık nesneler içeren deği
       }
     }
 
-Dikkat **tshirtSize** değişkeni, bir parametre aracılığıyla sağlanan ısı boyutu art arda ekler (**küçük**, **orta**, **büyük** ) metne **tshirtSize**. Bu ısı boyut ilişkili karmaşık nesne değişkeni almak için bu değişkeni kullanın.
+Bu hello fark **tshirtSize** değişkeni, bir parametre aracılığıyla sağlanan hello ısı boyutu art arda ekler (**küçük**, **orta**, **büyük**) toohello metin **tshirtSize**. Bu değişken tooretrieve hello ilişkili karmaşık nesne değişkeni bu ısı boyut için kullanın.
 
-Ardından şablonunda daha sonra bu değişkenleri başvuruda bulunabilir. Adlandırılmış değişkenleri ve bunların özelliklerini başvuru olanağı şablon söz dizimi basitleştirir ve bağlamı anlamak daha kolay hale getirir. Aşağıdaki örnek değerleri ayarlamak için daha önce gösterilen nesneleri kullanarak dağıtmak için bir kaynak tanımlar. Örneğin, VM boyutu değeri alarak ayarlanır `variables('tshirtSize').vmSize` disk boyutunu alınır için değer while `variables('tshirtSize').diskSize`. Ek olarak, bağlantılı bir şablon için URI değeri ile ayarlanır `variables('tshirtSize').vmTemplate`.
+Ardından hello şablondaki daha sonra bu değişkenleri başvuruda bulunabilir. Merhaba özelliği tooreference adlı-değişkenleri ve bunların özelliklerini hello şablon söz dizimi basitleştirir ve kolay toounderstand bağlamı kolaylaştırır. Aşağıdaki örneğine hello tooset değerleri daha önce gösterilen hello nesneleri kullanılarak bir kaynak toodeploy tanımlar. Örneğin, hello VM boyutu hello değeri alınırken tarafından ayarlanır `variables('tshirtSize').vmSize` hello disk boyutu alınır için hello değeri while `variables('tshirtSize').diskSize`. Ayrıca, bağlantılı bir şablon için hello değerle ayarlamak için URI hello `variables('tshirtSize').vmTemplate`.
 
     "name": "master-node",
     "type": "Microsoft.Resources/deployments",
@@ -166,23 +166,23 @@ Ardından şablonunda daha sonra bu değişkenleri başvuruda bulunabilir. Adlan
       }
     }
 
-## <a name="pass-state-to-a-template"></a>Bir şablon durumuna geçişi
+## <a name="pass-state-tooa-template"></a>Geçişi durumu tooa şablonu
 Bir şablonu doğrudan dağıtım sırasında sağladığınız parametreler aracılığıyla içine durumu paylaşır.
 
-Aşağıdaki tabloda şablonlarındaki yaygın olarak kullanılan parametreleri listeler.
+şu Tablo listeleri yaygın olarak kullanılan parametreler şablonlarındaki hello.
 
 | Ad | Değer | Açıklama |
 | --- | --- | --- |
-| location |Azure bölgeleri kısıtlanmış listesinden dize |Kaynakları dağıtıldığı konumu. |
-| storageAccountNamePrefix |Dize |VM'in disklerini yerleştirildiği depolama hesabı için benzersiz DNS adı |
-| domainName |Dize |Etki alanı adı biçiminde VM genel olarak erişilebilir jumpbox: **{domainName}. { konum}.cloudapp.com** örneğin: **mydomainname.westus.cloudapp.azure.com** |
-| adminUsername |Dize |Sanal makineleri için kullanıcı adı |
-| Admınpassword |Dize |VM'ler için parola |
-| tshirtSize |Sunulan ısı boyutları kısıtlanmış listesinden dize |Adlandırılmış ölçek birimi boyutu sağlama. Örneğin, "Küçük", "Medium", "Büyük" |
-| virtualNetworkName |Dize |Tüketici kullanmak isterse sanal ağ adı. |
-| enableJumpbox |(Etkin/devre dışı) kısıtlanmış listeden dize |Jumpbox ortamı için etkinleştirilip etkinleştirilmeyeceğini tanımlayan bir parametre. Değerler: "etkin", "disabled" |
+| location |Azure bölgeleri kısıtlanmış listesinden dize |Merhaba kaynakları dağıtıldığı hello konumu. |
+| storageAccountNamePrefix |Dize |Merhaba hello VM'in disklerini yerleştirildiği depolama hesabı için benzersiz DNS adı |
+| domainName |Dize |Merhaba biçiminde hello genel olarak erişilebilir jumpbox VM etki alanı adı: **{domainName}. { konum}.cloudapp.com** örneğin: **mydomainname.westus.cloudapp.azure.com** |
+| adminUsername |Dize |Merhaba VM'ler için kullanıcı adı |
+| Admınpassword |Dize |Merhaba VM'ler için parola |
+| tshirtSize |Sunulan ısı boyutları kısıtlanmış listesinden dize |Ölçek birimi boyutu tooprovision adlı hello. Örneğin, "Küçük", "Medium", "Büyük" |
+| virtualNetworkName |Dize |Tüketici hello hello sanal ağın adını toouse istemektedir. |
+| enableJumpbox |(Etkin/devre dışı) kısıtlanmış listeden dize |Tanımlayan parametresi olup olmadığını tooenable jumpbox hello ortamı için. Değerler: "etkin", "disabled" |
 
-**TshirtSize** önceki bölümünde kullanılan parametre olarak tanımlanır:
+Merhaba **tshirtSize** hello önceki bölümünde kullanılan parametre olarak tanımlanır:
 
     "parameters": {
       "tshirtSize": {
@@ -194,21 +194,21 @@ Aşağıdaki tabloda şablonlarındaki yaygın olarak kullanılan parametreleri 
           "Large"
         ],
         "metadata": {
-          "Description": "T-shirt size of the MongoDB deployment"
+          "Description": "T-shirt size of hello MongoDB deployment"
         }
       }
     }
 
 
-## <a name="pass-state-to-linked-templates"></a>Durum bağlı şablonları geçirin
-Bağlı şablonları bağlanırken genellikle statik bir karışımını kullanın ve değişkenleri oluşturulur.
+## <a name="pass-state-toolinked-templates"></a>Durum toolinked şablonları geçirin
+Toolinked şablonları bağlanırken genellikle statik bir karışımını kullanın ve değişkenleri oluşturulur.
 
 ### <a name="static-variables"></a>Statik değişkenler
-Statik değişkenler genellikle bir şablon kullanılan URL'leri gibi temel değerlerini sağlamak için kullanılır.
+Statik değişkenler genellikle kullanılan tooprovide temel gibi bir şablon kullanılan URL'leri değerlerdir.
 
-Aşağıdaki şablonu alıntı içinde `templateBaseUrl` Github'da şablonu için kök konumunu belirtir. Sonraki satıra yeni bir değişken oluşturur `sharedTemplateUrl` temel URL paylaşılan kaynakları şablonu bilinen adı ile birleştirir. Bu satır, bir karmaşık nesne değişkeni burada temel URL bilinen yapılandırma şablonu konumuna birleştirilmiş ve depolanan bir ısı boyutu depolamak için kullanılan `vmTemplate` özelliği.
+Şablon alıntı aşağıdaki hello içinde `templateBaseUrl` Github'da hello şablon hello kök konumunu belirtir. Merhaba sonraki satıra yeni bir değişken oluşturur `sharedTemplateUrl` hello temel URL hello bilinen hello paylaşılan kaynakları şablonunun adını ile birleştirir. Bu satır, bir karmaşık nesne değişkeni kullanılan toostore ısı boyutu hello temel URL birleştirilmiş toohello olduğu bilinen yapılandırma şablon konumu ve hello depolanan `vmTemplate` özelliği.
 
-Bu yaklaşımın avantajı, şablon konumu değişirse, yalnızca tüm bağlı şablonlarda geçirir tek bir yerde statik değişkeni değiştirmeniz gerektiğini ' dir.
+Bu yaklaşımın avantajı Hello hello şablon konumu değişirse, yalnızca tüm bağlı hello şablonlarda geçirir tek bir yerde toochange hello statik değişken olmanızdır.
 
     "variables": {
       "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
@@ -230,13 +230,13 @@ Bu yaklaşımın avantajı, şablon konumu değişirse, yalnızca tüm bağlı �
     }
 
 ### <a name="generated-variables"></a>Oluşturulan değişkenleri
-Statik değişkenler yanı sıra çeşitli değişkenler dinamik olarak oluşturulur. Bu bölümde bazı oluşturulan değişkenlerin ortak türlerini tanımlar.
+Toplama toostatic değişkenlerde çeşitli değişkenler dinamik olarak oluşturulur. Bu bölümde bazı oluşturulan değişkenlerin hello ortak türlerini tanımlar.
 
 #### <a name="tshirtsize"></a>tshirtSize
-Yukarıdaki örneklerde ile oluşturulan bu değişken hakkında bilgi sahibi.
+Örnekler hello yukarıdaki ile oluşturulan bu değişken hakkında bilgi sahibi.
 
 #### <a name="networksettings"></a>networkSettings
-Bir Kapasite yetenek veya uçtan uca kapsamlı çözüm şablonu, bağlı şablonları bir ağdaki genellikle mevcut kaynakları oluşturun. Bir kolay yaklaşım ağ ayarlarını depolamak ve bunlara bağlı şablonları geçirmek için karmaşık bir nesne kullanmaktır.
+Bir kapasite, özelliği veya uçtan uca kapsamlı çözüm şablonu hello bağlı şablonları mevcut kaynaklar genellikle bir ağda oluşturun. Bir kolay yaklaşım karmaşık nesne toostore ağ ayarlarını toouse olduğu ve bunları toolinked şablonları geçirin.
 
 Ağ Ayarları iletişim kurulurken bir örnek aşağıda görülebilir.
 
@@ -258,7 +258,7 @@ Ağ Ayarları iletişim kurulurken bir örnek aşağıda görülebilir.
     }
 
 #### <a name="availabilitysettings"></a>availabilitySettings
-Bağlantılı şablonlarında oluşturulan kaynakları, genellikle bir kullanılabilirlik kümesine yerleştirilir. Aşağıdaki örnekte, kullanılabilirlik kümesi adı belirtildi ve ayrıca kullanmak için hata etki alanı ve güncelleştirme etki alanı sayısı.
+Bağlantılı şablonlarında oluşturulan kaynakları, genellikle bir kullanılabilirlik kümesine yerleştirilir. Merhaba, aşağıdaki örneğine içinde hello kullanılabilirlik kümesi adı belirtilen ve hata etki alanı da hello ve etki alanı sayısı toouse güncelleştirin.
 
     "availabilitySetSettings": {
       "name": "pgsqlAvailabilitySet",
@@ -266,10 +266,10 @@ Bağlantılı şablonlarında oluşturulan kaynakları, genellikle bir kullanıl
       "udCount": 5
     }
 
-Önek olarak bir ad kullanabilirsiniz birden çok kullanılabilirlik kümesine (örneğin, bir ana düğüm için) ve veri düğümlerini için başka bir gereksinim duyarsanız, birden çok kullanılabilirlik kümesine belirtin veya belirli bir ısı boyutu için bir değişken oluşturmak için daha önce gösterilen modelini izler.
+Önek olarak bir ad kullanabilirsiniz birden çok kullanılabilirlik kümesine (örneğin, bir ana düğüm için) ve veri düğümlerini için başka bir gereksinim duyarsanız, birden çok kullanılabilirlik kümesine belirtin veya belirli bir ısı boyutu için bir değişken oluşturmak için daha önce gösterilen hello modeli izleyin.
 
 #### <a name="storagesettings"></a>storageSettings
-Depolama ayrıntıları genellikle bağlı şablonları ile paylaşılır. Aşağıdaki örnekte bir *storageSettings* nesnesi, depolama hesabı ve kapsayıcı adları hakkında ayrıntılar sağlar.
+Depolama ayrıntıları genellikle bağlı şablonları ile paylaşılır. Aşağıda, hello örnekte bir *storageSettings* nesnesi, depolama hesabı ve kapsayıcı adları hello hakkında ayrıntılar sağlar.
 
     "storageSettings": {
         "vhdStorageAccountName": "[parameters('storageAccountName')]",
@@ -278,9 +278,9 @@ Depolama ayrıntıları genellikle bağlı şablonları ile paylaşılır. Aşa�
     }
 
 #### <a name="ossettings"></a>osSettings
-Bağlantılı şablonları ile işletim sistemi ayarlarını çeşitli düğüm türleri için farklı bilinen yapılandırma türleri arasında geçmesi gerekebilir. Karmaşık bir nesne depolamak ve işletim sistemi bilgilerini paylaşmak için kolay bir yoludur ve dağıtımı için birden çok işletim sistemi seçenekleri desteklemeyi kolaylaştırır.
+Bağlantılı şablonlarıyla bilinen farklı yapılandırma türlerine toopass işletim sistemi ayarlarını toovarious düğümleri türlerini gerekebilir. Karmaşık bir nesne bir kolay bir yolu toostore ve paylaşımı işletim sistemi bilgileri ve ayrıca daha kolay toosupport kılar dağıtımı için birden çok işletim sistemi seçenekleri.
 
-Aşağıdaki örnek, bir nesne için gösterir *osSettings*:
+Merhaba aşağıdaki örnek gösteren bir nesne için *osSettings*:
 
     "osSettings": {
       "imageReference": {
@@ -292,7 +292,7 @@ Aşağıdaki örnek, bir nesne için gösterir *osSettings*:
     }
 
 #### <a name="machinesettings"></a>machineSettings
-Oluşturulan bir değişken *machineSettings* bir VM oluşturmak için çekirdek değişkenleri bir karışımını içeren karmaşık bir nesne. Değişkenleri, yönetici kullanıcı adı ve parola, VM adları ve bir işletim sistemi görüntüsü başvurusu için bir önek içerir.
+Oluşturulan bir değişken *machineSettings* bir VM oluşturmak için çekirdek değişkenleri bir karışımını içeren karmaşık bir nesne. Merhaba değişkenleri yönetici kullanıcı adı ve parola, hello VM adları için bir önek ve bir işletim sistemi görüntüsü başvurusu içerir.
 
     "machineSettings": {
         "adminUsername": "[parameters('adminUsername')]",
@@ -306,17 +306,17 @@ Oluşturulan bir değişken *machineSettings* bir VM oluşturmak için çekirdek
         }
     },
 
-Unutmayın *osImageReference* değerleri alır *osSettings* ana şablonda tanımlanan değişken. Anlamı kolayca değiştirebilirsiniz işletim sistemi için bir VM — tamamen veya bir şablon tüketici tercihine göre.
+Unutmayın *osImageReference* alır hello hello değerlerinden *osSettings* hello ana şablonda tanımlanan değişken. Anlamı kolayca değiştirebilirsiniz hello işletim sistemi için bir VM — tamamen veya bir şablon tüketici hello tercihine göre.
 
 #### <a name="vmscripts"></a>vmScripts
-*VmScripts* nesne indirmek ve dış ve iç başvuruları dahil olmak üzere bir VM örneğinde yürütmek için komut dosyaları hakkında ayrıntılar içerir. Dışında altyapı başvurular içerir.
-İç başvurular yüklü yazılımı yüklüyse ve yapılandırmayı içerir.
+Merhaba *vmScripts* hello betikleri toodownload hakkında ayrıntılar içeren nesne ve dış ve iç başvuruları dahil olmak üzere bir VM örneğinde yürütün. Dışında hello altyapı başvurular içerir.
+Merhaba yüklü yazılımı yüklü ve yapılandırma iç başvurular içerir.
 
-Kullandığınız *scriptsToDownload* VM'ye karşıdan yüklemek için komut dosyaları listelemek için özellik. Bu nesne, aynı zamanda farklı türde eylemler için komut satırı bağımsız değişkenleri başvurular içeriyor. Bu Eylemler, tek tek her düğüm için varsayılan yükleme, tüm düğümler dağıtıldıktan sonra çalıştırılan bir yükleme ve verilen bir şablon için belirli herhangi bir ek betiği yürütülürken içerir.
+Merhaba kullandığınız *scriptsToDownload* özelliği toolist hello toodownload toohello VM komut dosyaları. Bu nesne farklı türde eylemler için başvurular toocommand satırı değişkenlerini de içerir. Bu eylemler hello Varsayılan yüklemede tek tek her düğüm, tüm düğümler dağıtıldıktan sonra çalıştırılan bir yükleme ve şablon verilen belirli tooa olabilecek ek betik yürütme içerir.
 
-Bu, yüksek kullanılabilirlik sağlamak bir arbiter gerektirir MongoDB dağıtmak için kullanılan bir şablondan örneğidir. *ArbiterNodeInstallCommand* eklendi *vmScripts* arbiter yüklemek için.
+Bu, bir şablon toodeploy arbiter toodeliver yüksek kullanılabilirlik gerektiren MongoDB örneğidir. Merhaba *arbiterNodeInstallCommand* çok eklenen*vmScripts* tooinstall hello arbiter.
 
-Uygun değerlerle betik yürütmek için belirli bir metni tanımlamak değişkenleri nerede değişkenleri bölümüdür.
+Merhaba değişkenleri hello belirli metin tooexecute hello komut hello uygun değerlerle tanımlamak hello değişkenleri nerede bölümüdür.
 
     "vmScripts": {
         "scriptsToDownload": [
@@ -330,9 +330,9 @@ Uygun değerlerle betik yürütmek için belirli bir metni tanımlamak değişke
 
 
 ## <a name="return-state-from-a-template"></a>Bir şablondan dönüş durumu
-Yalnızca veri geçirebilirsiniz bir şablona geri çağırma şablon verileri de paylaşabilir. İçinde **çıkarır** bölüm bağlantılı şablonu, kaynak şablonu tarafından kullanılabilecek anahtar/değer çiftleri sağlayabilir.
+Yalnızca, bir şablona veri geçişi, paylaşım veri geri toohello arama şablonu de kullanabilirsiniz. Merhaba, **çıkarır** bölüm bağlantılı şablonu, hello kaynak şablonu tarafından kullanılabilecek anahtar/değer çiftleri sağlayabilir.
 
-Aşağıdaki örnek, bağlantılı bir şablonda oluşturulan özel IP adresi geçirmek gösterilmiştir.
+Merhaba aşağıdaki örnekte nasıl toopass bağlantılı bir şablonda oluşturulan özel IP adresi hello gösterilmektedir.
 
     "outputs": {
         "masterip": {
@@ -341,11 +341,11 @@ Aşağıdaki örnek, bağlantılı bir şablonda oluşturulan özel IP adresi ge
          }
     }
 
-Ana Şablon içerisinde, aşağıdaki sözdizimi ile bu verileri kullanabilirsiniz:
+Merhaba ana şablonda sözdizimi aşağıdaki hello ile bu verileri kullanabilirsiniz:
 
     "[reference('master-node').outputs.masterip.value]"
 
-Bu ifadede çıkışları bölüm veya ana şablon kaynakları bölümünü kullanabilirsiniz. Çalışma zamanı durumunu kullandığından deyim değişkenler bölümünde kullanamazsınız. Bu değer ana şablondan döndürmek için kullanın:
+Bu ifadede hello çıkışları bölüm veya hello kaynakları hello ana şablon bölümünü kullanabilirsiniz. Merhaba ifade hello değişkenler bölümünde kullanamazsınız, çünkü hello çalışma zamanı durumuna dayanır. tooreturn bu değer şablondan hello ana kullanın:
 
     "outputs": {
       "masterIpAddress": {
@@ -353,10 +353,10 @@ Bu ifadede çıkışları bölüm veya ana şablon kaynakları bölümünü kull
         "type": "string"
       }
 
-Bir sanal makine veri diski döndürmek için bağlantılı bir şablon çıktıları bölümünü kullanarak bir örnek için bkz: [bir sanal makine için birden fazla veri diski oluşturma](resource-group-create-multiple.md).
+Bağlantılı şablonu tooreturn veri diski bir sanal makine için bölüm hello kullanma örneği çıkarır için bkz: [bir sanal makine için birden fazla veri diski oluşturma](resource-group-create-multiple.md).
 
 ## <a name="define-authentication-settings-for-virtual-machine"></a>Sanal makine için kimlik doğrulama ayarlarını tanımlayın
-Bir sanal makine için kimlik doğrulama ayarlarını belirtmek için yapılandırma ayarları daha önce gösterilen aynı yöntemi kullanabilirsiniz. Parametre geçirme için kimlik doğrulama türünü oluşturun.
+Merhaba kullanabileceğiniz yapılandırma ayarları toospecify hello kimlik doğrulama ayarları bir sanal makine için daha önce gösterilen aynı düzeni. Parametre geçirme için kimlik doğrulama hello türünü oluşturun.
 
     "parameters": {
       "authenticationType": {
@@ -372,7 +372,7 @@ Bir sanal makine için kimlik doğrulama ayarlarını belirtmek için yapıland�
       }
     }
 
-Farklı kimlik doğrulama türleri için değişkenleri ekleyin ve hangi tür depolamak için bir değişken parametre değeri temel alınarak bu dağıtım için kullanılır.
+Merhaba farklı kimlik doğrulama türleri ve hangi tür hello parametresinin hello değere göre bu dağıtım için kullanılan bir değişken toostore değişkenleri ekleyin.
 
     "variables": {
       "osProfile": "[variables(concat('osProfile', parameters('authenticationType')))]",
@@ -400,7 +400,7 @@ Farklı kimlik doğrulama türleri için değişkenleri ekleyin ve hangi tür de
       }
     }
 
-Sanal makine tanımlarken, ayarladığınız **osProfile** oluşturduğunuz değişkene.
+Merhaba sanal makine tanımlarken hello ayarlamak **osProfile** oluşturduğunuz toohello değişkeni.
 
     {
       "type": "Microsoft.Compute/virtualMachines",
@@ -410,5 +410,5 @@ Sanal makine tanımlarken, ayarladığınız **osProfile** oluşturduğunuz değ
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Şablon bölümleri hakkında bilgi edinmek için [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md)
-* Bir şablonu içinde kullanılabilen işlevlerin görmek için bkz: [Azure Resource Manager şablonu işlevleri](resource-group-template-functions.md)
+* toolearn hello şablon hello bölümlerini hakkında bkz [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md)
+* bir şablonu içinde kullanılabilir toosee hello işlevleri bkz [Azure Resource Manager şablonu işlevleri](resource-group-template-functions.md)

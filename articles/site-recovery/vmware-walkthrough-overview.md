@@ -1,6 +1,6 @@
 ---
-title: "VMware Vm'lerini Azure Site Recovery ile Azure'a çoğaltma | Microsoft Docs"
-description: "Azure'da VMware Vm'lerinde çalışan iş yükleri çoğaltmak için adımlara genel bir bakış sağlar."
+title: Azure Site Recovery ile aaaReplicate VMware Vm'lerini tooAzure | Microsoft Docs
+description: "VMware Vm'leri tooAzure üzerinde çalışan iş yüklerini çoğaltmak için hello adımlara genel bir bakış sağlar"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.openlocfilehash: db6f5f95929503e82a529dba26b56af1edb0767f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7104f67a3635b916048dcb61bca770c89f0c77fc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="replicate-vmware-vms-to-azure-with-site-recovery"></a>VMware sanal makinelerini Site Recovery ile Azure'a çoğaltma
+# <a name="replicate-vmware-vms-tooazure-with-site-recovery"></a>Site Recovery ile VMware Vm'lerini tooAzure Çoğalt
 
-Bu makalede şirket içi VMware sanal makinelerini Azure'a çoğaltma için gereken adımlar genel bir bakış sağlar kullanarak [Azure Site Recovery](site-recovery-overview.md) Azure portalında hizmet.
+Bu makalede hello kullanarak hello adımları gerekli tooreplicate şirket içi VMware sanal makineleri tooAzure, genel bir bakış sağlar [Azure Site Recovery](site-recovery-overview.md) hello Azure portal hizmeti.
 
 
 ![Dağıtım işlemi](./media/vmware-walkthrough-overview/vmware-to-azure-process.png)
@@ -31,82 +31,82 @@ Bu makalede şirket içi VMware sanal makinelerini Azure'a çoğaltma için gere
 
 ## <a name="step-1-review-architecture-and-prerequisites"></a>1. adım: mimarisi ve önkoşulları gözden geçirin
 
-Dağıtıma başlamadan önce senaryo mimarisinin gözden geçirin ve dağıtmak için gereken tüm bileşenleri anladığınızdan emin olun
+Dağıtıma başlamadan önce hello senaryo mimarisinin gözden geçirin ve toodeploy gerek duyduğunuz tüm hello bileşenleri anladığınızdan emin olun
 
-Git [1. adım: mimarisi gözden geçirin](vmware-walkthrough-architecture.md)
+Çok Git[1. adım: gözden hello mimarisi](vmware-walkthrough-architecture.md)
 
 
 ## <a name="step-2-review-prerequisites"></a>2. adım: Gözden geçirme önkoşulları
 
-Önkoşullar her dağıtım bileşen için yerinde olduğundan emin olun:
+Merhaba Önkoşullar her dağıtım bileşen için yerinde olduğundan emin olun:
 
 - **Azure önkoşulları**: bir Microsoft Azure hesabı, Azure ağları ve depolama hesapları gerekir.
 - **Şirket içi Site Recovery bileşenlerini**: şirket içi Site Recovery bileşenlerini çalıştıran bir makineye gerekir.
-- **Şirket içi VMware Önkoşullar**: Site Recovery VMware sunucularını ve Vm'leri erişebilmesi için hesapları ayarlamanız gerekir.
-- **Çoğaltılan VM'ler**: çoğaltmak istediğiniz sanal makineleri gereken Azure gereksinimlerine uymak ve Mobility hizmeti bileşeninin yüklü olması.
+- **Şirket içi VMware Önkoşullar**: Site Recovery VMware sunucularını ve Vm'leri erişebilmesi için hesaplarını tooset gerekir.
+- **Çoğaltılan VM'ler**: tooreplicate gerek toocomply Azure gereksinimleri ile istediğiniz ve hello Mobility hizmeti bileşeninin yüklü olan VM'ler.
 
-Git [2. adım: gözden Önkoşullar ve sınırlamalar](vmware-walkthrough-prerequisites.md)
+Çok Git[2. adım: gözden Önkoşullar ve sınırlamalar](vmware-walkthrough-prerequisites.md)
 
 ## <a name="step-3-plan-capacity"></a>3. adım: Planı kapasite
 
-Tam dağıtımını yaptığınız ihtiyacınız hangi çoğaltma kaynakları şekil gerekir. Birkaç bu yapmanıza yardımcı olmak için kullanılabilen araçlar vardır. 2. adıma geçin. Hızlı kümesi yaptığınız yukarı test ortamı için bu adımı atlayabilirsiniz.
+Tam dağıtımını yaptığınız ihtiyacınız hangi çoğaltma kaynakları çıkışı toofigure gerekir. Birkaç vardır Araçlar kullanılabilir toohelp bunu. TooStep 2 gidin. Tootest hello ortamını ayarlama hızlı yaptığınız varsa bu adımı atlayabilirsiniz.
 
-[3. Adım: Kapasiteyi planlama](vmware-walkthrough-capacity.md)’ya gidin.
+Çok Git[3. adım: kapasite planlama](vmware-walkthrough-capacity.md)
 
 ## <a name="step-4-plan-networking"></a>4. adım: ağ planlama
 
-Bazı ağ yük devretme gerçekleştikten sonra sahip oldukları doğru IP adreslerini Azure Vm'lerinin ağlara bağlandığından emin olmak planlama yapmanız gerekir.
+Yük devretme gerçekleştikten sonra Azure Vm'lerinin bağlı toonetworks olduğunu ve sahip oldukları hello doğru IP adreslerine tooensure planlama bazı ağ toodo gerekir.
 
-Git [4. adım: ağ planı](vmware-walkthrough-network.md)
+Çok Git[4. adım: ağ planı](vmware-walkthrough-network.md)
 
 ##  <a name="step-5-prepare-azure-resources"></a>5. adım: Azure kaynaklarını hazırlama
 
 Başlamadan önce Azure ağları ve depolama ayarlayın. Dağıtım sırasında bunu yapabilirsiniz ancak başlamadan önce bunu öneririz.
 
-Git [5. adım: Azure hazırlama](vmware-walkthrough-prepare-azure.md)
+Çok Git[5. adım: Azure hazırlama](vmware-walkthrough-prepare-azure.md)
 
 
 ## <a name="step-6-prepare-vmware"></a>6. adım: VMware hazırlama
 
-Site Recovery için kullanacağınız hesaplar ayarlamanız gerekir:
+Site Recovery için kullanacağı hesaplarını tooset gerekir:
 
-- Sanal makineleri otomatik olarak algılamak için erişim VMware sanallaştırma sunucuları.
-- Mobilite hizmetinin yüklenmesi için erişim VM'ler. Çoğaltmak istediğiniz her bir VM Mobility Hizmeti Aracısı çoğaltmayı etkinleştirmeden önce yüklü olması gerekir.
+- Erişim VMware sanallaştırma sunucuları tooautomatically VM'ler algıla.
+- Sanal makineleri tooinstall hello Mobility hizmeti erişin. Tooreplicate hello Mobility Hizmeti Aracısı önce yüklü olması gerekir istediğiniz her bir VM çoğaltmayı etkinleştirebilirsiniz.
 
-Git [6. adım: VMware hazırlama](vmware-walkthrough-prepare-vmware.md)
+Çok Git[adım 6: VMware hazırlama](vmware-walkthrough-prepare-vmware.md)
 
 ## <a name="step-7-set-up-a-vault"></a>7. adım: Bir kasa ayarlama
 
-Düzenlemek ve çoğaltmayı yönetmek için bir kurtarma Hizmetleri kasasını ayarlamanız gerekir. Kasasını ayarladığınızda, çoğaltmak istediğiniz ve kendisine çoğaltmak istediğiniz yeri belirtin.
+Çoğaltmayı yönetmek ve bir kurtarma Hizmetleri kasası tooorchestrate yukarı tooset gerekir. Merhaba kasasını ayarladığınızda, istediğinizi belirtin tooreplicate, ve tooreplicate istediğiniz şekilde.
 
-Git [adım 7: bir kasasını oluşturup](vmware-walkthrough-create-vault.md)
+Çok Git[adım 7: bir kasasını oluşturup](vmware-walkthrough-create-vault.md)
 
 ## <a name="step-8-configure-source-and-target-settings"></a>8. adım: kaynak ve hedef ayarlarını yapılandırma
 
-Kaynak ve çoğaltma için kullanılan hedef ayarlayın. Kaynak ayarları ayarı birleşik şirket içi Site Recovery bileşenlerini yüklemek için Kurulum'u çalıştırmayı içerir.
+Merhaba kaynak ve çoğaltma için kullanılan hedef ayarlayın. Kaynak ayarları ayarı birleşik Kurulum tooinstall hello şirket içi Site Recovery bileşenlerini çalıştıran içerir.
 
-Git [adım 8: kaynak ve hedef ayarlama](vmware-walkthrough-source-target.md)
+Çok Git[adım 8: hello kaynak ve hedef ayarlama](vmware-walkthrough-source-target.md)
 
 ## <a name="step-9-set-up-a-replication-policy"></a>9. adım: Bir çoğaltma ilkesi ayarlama
 
-VMware Vm'leri için çoğaltma ayarlarını kasaya belirtmek için bir ilke ayarlayın.
+Merhaba kasasına VMware Vm'leri için bir ilke toospecify çoğaltma ayarlarını belirleme.
 
-Git [adım 9: bir çoğaltma ilkesini ayarlayın](vmware-walkthrough-replication.md)
+Çok Git[adım 9: bir çoğaltma ilkesini ayarlayın](vmware-walkthrough-replication.md)
 
-## <a name="step-10-install-the-mobility-service"></a>10. adım: mobilite hizmeti yükleme
+## <a name="step-10-install-hello-mobility-service"></a>10. adım: hello Mobility hizmetini yükleme
 
-Mobility hizmetinin çoğaltmak istediğiniz her bir VM üzerinde yüklü olmalıdır. Anında iletme ve çekme yükleme hizmetiyle ayarlamak için birkaç yolu vardır.
+Merhaba mobilite hizmetinin yüklenmesi tooreplicate istediğiniz her VM. Birkaç yolu tooset iterek ister çekerek yükleme hello hizmetiyle yukarı vardır.
 
-Git [adım 10: Mobility hizmetini yükleme](vmware-walkthrough-install-mobility.md)
+Çok Git[adım 10: hello Mobility hizmetini yükleme](vmware-walkthrough-install-mobility.md)
 
 ## <a name="step-11-enable-replication"></a>11. adım: Çoğaltma etkinleştirme
 
-Mobility hizmeti bir VM üzerinde çalışmaya başladıktan sonra çoğaltmayı etkinleştirebilirsiniz. Etkinleştirdikten sonra VM başlangıç çoğaltması gerçekleşir.
+Merhaba Mobility hizmeti bir VM üzerinde çalışmaya başladıktan sonra çoğaltmayı etkinleştirebilirsiniz. Etkinleştirdikten sonra ilk çoğaltma işlemi hello VM oluşur.
 
-Git [adım 11: çoğaltmasını etkinleştir](vmware-walkthrough-enable-replication.md)
+Çok Git[adım 11: çoğaltmasını etkinleştir](vmware-walkthrough-enable-replication.md)
 
 ## <a name="step-12-run-a-test-failover"></a>12. adım: yük devretme testi çalıştırma
 
-İlk çoğaltma sonlandırıldıktan ve değişim çoğaltması çalıştıran sonra her şeyin beklendiği gibi çalıştığından emin olmak için yük devretme testi çalıştırabilirsiniz.
+İlk çoğaltma sonlandırıldıktan ve değişim çoğaltması çalıştıran sonra her şeyin beklendiği gibi çalıştığından emin bir test yük devretme toomake çalıştırabilirsiniz.
 
-Git [adım 12: yük devretme testi çalıştırma](vmware-walkthrough-test-failover.md)
+Çok Git[adım 12: yük devretme testi çalıştırma](vmware-walkthrough-test-failover.md)

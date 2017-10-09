@@ -1,6 +1,6 @@
 ---
-title: "Topluluk araçları - Klasik kaynakları taşıma için Azure Resource Manager | Microsoft Docs"
-description: "Bu makalede, Iaas kaynaklarına Klasikten Azure Resource Manager dağıtım modeline geçiş yardımcı olmak için topluluk tarafından sağlanan araçları kataloglar."
+title: "aaaCommunity araçları - taşıma Klasik kaynakları tooAzure Resource Manager | Microsoft Docs"
+description: "Merhaba topluluk toohelp tarafından sağlanan Bu makale kataloglar hello araçları Iaas kaynaklarına Klasik toohello Azure Resource Manager dağıtım modelinden geçirin."
 services: virtual-machines-windows
 documentationcenter: 
 author: singhkays
@@ -15,43 +15,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: d3fc0246088eddeb345bea0ffbd2c5247b218006
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 67d5624a14d12a2d9eb46eb12aef461b706d4589
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="community-tools-to-migrate-iaas-resources-from-classic-to-azure-resource-manager"></a>IaaS kaynaklarını klasik modelden Azure Resource Manager’a geçirmeye yönelik topluluk araçları
-Bu makalede Klasik Iaas kaynaklardan Azure Resource Manager dağıtım modeline geçiş ile yardımcı olmak üzere topluluk tarafından sağlanan araçları kataloglar.
+# <a name="community-tools-toomigrate-iaas-resources-from-classic-tooazure-resource-manager"></a>Topluluk toomigrate Iaas kaynaklardan Klasik tooAzure Kaynak Yöneticisi Araçları
+Klasik toohello Azure Resource Manager dağıtım modeli Iaas kaynaklardan geçişini ile Merhaba topluluk tooassist tarafından sağlanmış olan bu makale kataloglar hello araçları.
 
 > [!NOTE]
-> Bu araçları tarafından Microsoft Support resmi olarak desteklenmez. Bu nedenle Github'da kaynaklanan açık ve düzeltmeleri veya İlave Senaryolar PRs kabul mutluluk çalışıyoruz. Bir sorunu bildirmek için GitHub sorunları özelliğini kullanın.
+> Bu araçları tarafından Microsoft Support resmi olarak desteklenmez. Bu nedenle Github'da kaynaklanan açık ve mutluluk tooaccept PRs düzeltmeler veya ek senaryoları için çalışıyoruz. bir sorun tooreport özelliği GitHub sorunları hello kullanın.
 > 
 > Bu araçların geçiş kapalı kalma süresi Klasik sanal makineniz için neden olur. Desteklenen platform geçiş için arıyorsanız, ziyaret edin 
 > 
->   * [Klasik Iaas kaynaklardan Azure Resource Manager yığınına desteklenen platform geçişi](migration-classic-resource-manager-overview.md)
->   * [Teknik derinlemesine platformunda geçiş Klasik Azure Resource Manager için desteklenen](migration-classic-resource-manager-deep-dive.md)
->   * [Iaas kaynaklarını Klasikten Azure Resource Manager'da Azure PowerShell kullanarak geçirme](migration-classic-resource-manager-ps.md)
+>   * [Klasik tooAzure Kaynak Yöneticisi yığını Iaas kaynaklardan desteklenen platform geçişi](migration-classic-resource-manager-overview.md)
+>   * [Klasik tooAzure Kaynak Yöneticisi geçişini teknik derinlemesine platformunda desteklenir](migration-classic-resource-manager-deep-dive.md)
+>   * [Iaas kaynaklarını Klasik tooAzure Azure PowerShell kullanarak Kaynak Yöneticisi ' geçirme](migration-classic-resource-manager-ps.md)
 > 
 > 
 
 ## <a name="asmmetadataparser"></a>AsmMetadataParser
-Bu, Kurumsal geçişleri için Azure Resource Manager Azure Hizmet Yönetimi'nden bir parçası olarak oluşturulan yardımcı Araçlar koleksiyonudur. Bu araç, geçiş ve sorunları çıkışı Demir geçiş üretim aboneliğinizi çalıştırmadan önce test etmek için kullanılan başka bir aboneliğe altyapınızı çoğaltmanıza olanak sağlar.
+Bu, Azure Hizmet Yönetimi tooAzure Resource Manager enterprise kümesinden bir parçası olarak oluşturulan yardımcı Araçlar koleksiyonudur. Bu araç, tooreplicate sağlar ve üretim aboneliğinizi hello geçiş çalıştırmadan önce sorunları Iron geçiş test etmek için kullanılabilir başka bir aboneliği yapınıza.
 
-[Aracı belgeleri için bağlantı](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
+[Bağlantı toohello aracı belgeleri](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
 
 ## <a name="migaz"></a>migAz
-migAz eksiksiz classic Iaas kaynakların Azure Resource Manager Iaas kaynaklarına geçirmek için ek bir seçenektir. Geçiş aynı abonelik içindeki ya da farklı Aboneliklerde ve abonelik türleri arasında oluşabilir (örn: CSP abonelikler).
+migAz ek seçeneği toomigrate eksiksiz classic Iaas kaynaklar tooAzure Kaynak Yöneticisi Iaas kaynaklar ' dir. Merhaba geçiş hello içinde aynı oluşabilir abonelik ya da farklı Aboneliklerde ve abonelik türleri arasında (örn: CSP abonelikler).
 
-[Aracı belgeleri için bağlantı](https://github.com/Azure/migAz)
+[Bağlantı toohello aracı belgeleri](https://github.com/Azure/migAz)
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-* [Platform desteklenen geçişi Iaas Klasik kaynaklardan Azure Resource Manager'a genel bakış](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Teknik ya ilişkin ayrıntılar platform desteklenen geçiş Klasik'ten Azure Kaynak Yöneticisi](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [IaaS kaynaklarının Klasik’ten Azure Resource Manager’a geçişini planlama](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Iaas kaynaklarına Klasikten Azure Resource Manager geçirmek için PowerShell kullanma](migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Iaas kaynaklarına Klasikten Azure Resource Manager geçirmek için CLI kullanın](../linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Klasik tooAzure Resource Manager Iaas kaynaklardan platform desteklenen geçişini genel bakış](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Teknik ya ilişkin ayrıntılar platform desteklenen geçiş Klasik tooAzure Kaynak Yöneticisi'nden](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Iaas kaynaklardan Klasik tooAzure Kaynak Yöneticisi geçişini planlama](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Klasik tooAzure Resource Manager PowerShell toomigrate Iaas kaynakları kullanın](migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [CLI toomigrate Iaas kaynaklarına Klasik tooAzure Kaynak Yöneticisi'ni kullanın](../linux/migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [En sık karşılaşılan geçiş hatalarını gözden geçirme](migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Gözden geçirme Iaas kaynaklardan Klasik Azure Kaynak Yöneticisi hakkında en sık sorulan sorular](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Gözden geçirme hello en sık Klasik tooAzure Kaynak Yöneticisi geçirme Iaas kaynaklardan hakkında sorular](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL Veri Ambarı'na Bağlanma sqlcmd | Microsoft Belgeleri"
-description: "Bir Azure SQL Veri Ambarı’na bağlanmak ve sorgu göndermek için [sqlcmd][sqlcmd] komut satırı yardımcı programını kullanın."
+title: aaaConnect tooAzure SQL Data Warehouse sqlcmd | Microsoft Docs
+description: "[Sqlcmd] [sqlcmd] komut satırı yardımcı programını tooconnect tooand sorgu Azure SQL Data Warehouse kullanın."
 services: sql-data-warehouse
 documentationcenter: NA
 author: antvgski
@@ -15,13 +15,13 @@ ms.workload: data-services
 ms.custom: connect
 ms.date: 10/31/2016
 ms.author: anvang;barbkess
-ms.openlocfilehash: 5a3fe1046c3417070ba8ff5bd18a0485e2152eff
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0334df7b969da1966ba29c97f835a2dc9e383e29
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>sqlcmd ile SQL Data Warehouse'a bağlanma
+# <a name="connect-toosql-data-warehouse-with-sqlcmd"></a>Sqlcmd ile tooSQL veri ambarına bağlanma
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
@@ -31,43 +31,43 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Bir Azure SQL Veri Ambarı’na bağlanmak ve sorgu göndermek için [sqlcmd][sqlcmd] komut satırı yardımcı programını kullanın.  
+Kullanım [sqlcmd] [ sqlcmd] komut satırı yardımcı programını tooconnect tooand Azure SQL Data Warehouse sorgu.  
 
 ## <a name="1-connect"></a>1. Bağlan
-**Sqlcmd** kullanmaya başlamadan önce komut istemini açın ve [sqlcmd][sqlcmd] öğesinden sonra SQL Veri Ambarı veritabanınızın bağlantı dizesini girin. Bağlantı dizesi için aşağıdaki parametreler gereklidir:
+tooget Başlarken [sqlcmd][sqlcmd], hello komut istemi açın ve girin **sqlcmd** hello bağlantı dizesi SQL Data Warehouse veritabanınız için izlediği. Merhaba bağlantı dizesi şu parametreler hello gerektirir:
 
-* **Server (-S):** `<`Sunucu Adı`>`.database.windows.net biçiminde belirtilmiş sunucu
+* **Sunucu (-S):** sunucusuna hello biçiminde `<`sunucu adı`>`. database.windows.net
 * **Database (-d):** Veritabanı adı.
-* **Tırnak İşaretli Tanımlayıcıları Etkinleştir (-I):** Bir SQL Veri Ambarı örneğine bağlanmak için tırnak işaretli tanımlayıcıların etkinleştirilmesi gerekir.
+* **Quoted Identifiers (-ı):** Quoted tanımlayıcıları etkin tooconnect tooa SQL Data Warehouse örneğine olması gerekir.
 
-SQL Server Kimlik Doğrulamasını kullanmak için kullanıcı adı/parola parametrelerini eklemeniz gerekir:
+SQL Server kimlik doğrulaması toouse, tooadd hello kullanıcı adı/parola parametrelerini gerekir:
 
-* **User (-U):** `<`Kullanıcı`>` biçimindeki sunucu kullanıcısı
-* **Password (-P):** Kullanıcıyla ilişkili parola.
+* **Kullanıcı (-U):** hello biçimindeki sunucu kullanıcısı `<`kullanıcı`>`
+* **Parola (-P):** hello kullanıcıyla ilişkili parola.
 
-Örneğin, bağlantı dizeniz aşağıdaki gibi görünebilir:
+Örneğin, bağlantı dizenizi hello şuna benzeyebilir:
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
-Azure Active Directory Tümleşik kimlik doğrulamasını kullanmak için Azure Active Directory parametrelerini eklemeniz gerekir:
+toouse Azure Active Directory tümleşik kimlik doğrulaması, tooadd hello Azure Active Directory parametreleri gerekir:
 
 * **Azure Active Directory Kimlik Doğrulaması (-G):** Kimlik doğrulaması için Azure Active Directory kullanın
 
-Örneğin, bağlantı dizeniz aşağıdaki gibi görünebilir:
+Örneğin, bağlantı dizenizi hello şuna benzeyebilir:
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 ```
 
 > [!NOTE]
-> Active Directory kullanarak kimlik doğrulaması yapmak için [Azure Active Directory Kimlik Doğrulamasını etkinleştirmeniz](sql-data-warehouse-authentication.md) gerekir.
+> Çok ihtiyacınız[Azure Active Directory kimlik doğrulamasını etkinleştir](sql-data-warehouse-authentication.md) Active Directory'yi kullanarak tooauthenticate.
 > 
 > 
 
 ## <a name="2-query"></a>2. Sorgu
-Bağlantının ardından desteklenen herhangi bir Transact-SQL deyimini örnekte yayımlayabilirsiniz.  Bu örnekte sorgular etkileşimli modda gönderilir.
+Bağlantının ardından desteklenen herhangi Transact-SQL deyimleri hello örneğiyle verebilir.  Bu örnekte sorgular etkileşimli modda gönderilir.
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
@@ -76,7 +76,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@s
 3> QUIT
 ```
 
-Bu sonraki örnekler -Q seçeneği kullanarak veya SQL’i sqlcmd öğesine ekleyerek sorgularınızı toplu iş modunda nasıl çalıştırabileceğinizi gösterir.
+Bu sonraki örnekler hello -Q seçeneğiyle ya da SQL toosqlcmd cmdlet'ine toplu iş modunda sorgularınızı nasıl çalıştırabileceğiniz gösterir.
 
 ```sql
 sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
@@ -87,7 +87,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Sqlcmd’de kullanılabilen seçenekler hakkında daha fazla bilgi için bkz. [sqlcmd belgeleri][sqlcmd].
+Bkz: [sqlcmd belgeleri] [ sqlcmd] sqlcmd içinde kullanılabilir hello seçenekleri ile ilgili ayrıntıları hakkında daha fazla bilgi için.
 
 <!--Image references-->
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure işlevleri HTTP ve Web kancası bağlamaları | Microsoft Docs"
-description: "HTTP ve Web kancası Tetikleyicileri ve bağlamaları Azure işlevlerinde nasıl kullanılacağını anlayın."
+title: "aaaAzure işlevleri HTTP ve Web kancası bağlamaları | Microsoft Docs"
+description: "Toouse HTTP ve Web kancası nasıl tetikler anlamak ve Azure işlevlerinde bağlar."
 services: functions
 documentationcenter: na
 author: mattchenderson
@@ -16,21 +16,21 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: mahender
-ms.openlocfilehash: 71c0d22c4b1824078982b9d1cc76645f947ae603
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: c23b7a1443d492ed78c595e97d1d778a7ab12416
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure işlevleri HTTP ve Web kancası bağlamaları
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Bu makalede, yapılandırma ve HTTP Tetikleyicileri ve bağlamaları Azure işlevlerinde çalışmak açıklanmaktadır.
-Bu konularda sunucusuz API'ları derleme ve Web kancası için yanıt vermek için Azure işlevleri kullanabilirsiniz.
+Bu makale, tooconfigure ve iş HTTP ile nasıl tetikler açıklar ve Azure işlevlerinde bağlar.
+Bu, Azure işlevleri toobuild sunucusuz API'ler ve yanıt toowebhooks kullanabilirsiniz.
 
-Azure işlevleri aşağıdaki bağlamaları sağlar:
-- Bir [HTTP tetikleyicisini](#httptrigger) bir HTTP isteğiyle bir işlevi çağırmak olanak tanır. Bu yanıt için özelleştirilebilir [kancalarını](#hooktrigger).
-- Bir [HTTP bağlama çıktı](#output) isteğine yanıt olanak tanır.
+Azure işlevleri bağlamaları aşağıdaki hello sağlar:
+- Bir [HTTP tetikleyicisini](#httptrigger) bir HTTP isteğiyle bir işlevi çağırmak olanak tanır. Bu özelleştirilmiş toorespond çok olabilir[kancalarını](#hooktrigger).
+- Bir [HTTP bağlama çıktı](#output) toorespond toohello istek sağlar.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -39,14 +39,14 @@ Azure işlevleri aşağıdaki bağlamaları sağlar:
 <a name="httptrigger"></a>
 
 ## <a name="http-trigger"></a>HTTP tetikleyicisi
-HTTP tetikleyicisini işlevinizde bir HTTP isteğine yanıt olarak yürütülür. Belirli bir URL veya HTTP yöntemleri kümesini yanıt verecek şekilde özelleştirebilirsiniz. Bir HTTP tetikleyicisi için Web kancası yanıt verecek şekilde de yapılandırılabilir. 
+Merhaba HTTP tetikleyicisini işlevinizin yanıt tooan HTTP istek yürütülür. Toorespond tooa belirli URL veya HTTP yöntemleri kümesini özelleştirebilirsiniz. Bir HTTP tetikleyicisi yapılandırılmış toorespond toowebhooks de olabilir. 
 
-İşlevler Portalı'nı kullanarak, siz de hemen önceden yapılmış bir şablon kullanarak başlayabiliriz. Seçin **yeni işlev** ve "API & Web Kancalarını" arasından **senaryo** açılır. Şablonlardan birini seçin ve tıklatın **oluşturma**.
+Hello işlevleri portalı kullanıyorsanız, aynı zamanda hemen önceden yapılmış bir şablon kullanarak başlayabiliriz. Seçin **yeni işlev** ve "API & Web Kancalarını" Merhaba **senaryo** açılır. Merhaba şablonlardan birini seçin ve tıklatın **oluşturma**.
 
-Varsayılan olarak, bir HTTP tetikleyicisi bir HTTP 200 Tamam durum kodu ve boş bir gövde ile isteğine yanıt verir. Yanıt değiştirmek için yapılandırma bir [HTTP çıktı bağlama](#output)
+Varsayılan olarak, bir HTTP tetikleyicisi toohello isteği bir HTTP 200 Tamam durum kodu ve boş bir gövde ile yanıt verir. toomodify Merhaba yanıt, yapılandırma bir [HTTP çıktı bağlama](#output)
 
 ### <a name="configuring-an-http-trigger"></a>Bir HTTP tetikleyicisi yapılandırma
-Bir HTTP tetikleyicisi aşağıdakine benzer bir JSON nesnesi de dahil olmak üzere tarafından tanımlanan `bindings` function.json dizisi:
+Bir HTTP tetikleyicisi hello aşağıdaki JSON nesnesi benzer bir toohello de dahil olmak üzere tarafından tanımlanan `bindings` function.json dizisi:
 
 ```json
 {
@@ -58,37 +58,37 @@ Bir HTTP tetikleyicisi aşağıdakine benzer bir JSON nesnesi de dahil olmak üz
     "route": "values/{id}"
 },
 ```
-Bağlama aşağıdaki özellikleri destekler:
+Merhaba bağlama aşağıdaki özelliklere hello destekler:
 
-* **ad** : gerekli - istek veya istek gövdesi için işlevi kod içinde kullanılan değişken adı. Bkz: [bir HTTP tetikleyicisi koddan çalışan](#httptriggerusage).
-* **tür** : gerekli - "httpTrigger" ayarlanması gerekir.
-* **Yön** : gerekli - "için" kümesindeki olması gerekir.
-* _authLevel_ : Bu anahtarları, varsa, işlevin çalıştırılabilmesi için istekte bulunması gerekenleri belirler. Bkz: [anahtarlarla çalışma](#keys) aşağıda. Değerin aşağıdakilerden biri olabilir:
+* **ad** : gerekli - işlev kodu hello istek veya istek gövdesi için kullanılan hello değişken adı. Bkz: [bir HTTP tetikleyicisi koddan çalışan](#httptriggerusage).
+* **tür** : gerekli - çok ayarlanmış olmalıdır "httpTrigger".
+* **Yön** : gerekli - çok "içinde" ayarlanmış olmalıdır.
+* _authLevel_ : Bu hangi anahtarları varsa, toobe sipariş tooinvoke hello işlevinde hello istekte mevcut gereksinim belirler. Bkz: [anahtarlarla çalışma](#keys) aşağıda. Merhaba değer hello aşağıdakilerden biri olabilir:
     * _Anonim_: Hayır API anahtarı gereklidir.
-    * _işlev_: bir işleve özgü API anahtarı gereklidir. Bu, hiçbiri sağlanmazsa varsayılan değerdir.
-    * _Yönetici_ : ana anahtar gereklidir.
-* **yöntemleri** : Bu işlev yanıt için HTTP yöntemleri dizisidir. Belirtilmezse, işlev tüm HTTP yöntemlerine yanıt verir. Bkz: [HTTP uç noktası özelleştirme](#url).
-* **Rota** : Bu rota şablonu tanımlar, kendisine URL'leri isteği denetleme işlevinizin yanıt verir. Varsayılan değer hiçbiri sağlanmazsa `<functionname>`. Bkz: [HTTP uç noktası özelleştirme](#url).
-* **webHookType** : Bu, HTTP tetikleyicisini belirtilen sağlayıcı için bir Web kancası reciever davranacak şekilde yapılandırır. _Yöntemleri_ özelliği, değil Bu seçilirse ayarlanmalıdır. Bkz: [Web kancası için yanıt](#hooktrigger). Değerin aşağıdakilerden biri olabilir:
+    * _işlev_: bir işleve özgü API anahtarı gereklidir. Hiçbiri sağlanmazsa hello varsayılan değer budur.
+    * _Yönetici_ : hello ana anahtar gereklidir.
+* **yöntemleri** : Bu toowhich hello işlevi yanıt hello HTTP yöntemleri dizisidir. Belirtilmezse, hello işlevi tooall HTTP yöntemleri yanıt verir. Bkz: [hello HTTP uç noktası özelleştirme](#url).
+* **Rota** : Bu toowhich denetleme hello rota şablonu tanımlar işlevinizin yanıt URL'leri isteyin. Merhaba hiçbiri sağlanmazsa varsayılan değer: `<functionname>`. Bkz: [hello HTTP uç noktası özelleştirme](#url).
+* **webHookType** : hello HTTP tetikleyicisi tooact bu hello belirtilen sağlayıcı için bir Web kancası reciever olarak yapılandırır. Merhaba _yöntemleri_ özelliği, değil Bu seçilirse ayarlanmalıdır. Bkz: [yanıt toowebhooks](#hooktrigger). Merhaba değer hello aşağıdakilerden biri olabilir:
     * _genericJson_ : belirli bir sağlayıcı için mantığı olmadan bir genel amaçlı Web kancası uç noktası.
-    * _github_ : işlevi için GitHub Web kancası yanıt verir. _AuthLevel_ özelliği, değil Bu seçilirse ayarlanmalıdır.
-    * _kayma_ : işlevi Slack kancalarını yanıt verir. _AuthLevel_ özelliği, değil Bu seçilirse ayarlanmalıdır.
+    * _github_ : hello işlevi tooGitHub kancalarını yanıt verecektir. Merhaba _authLevel_ özelliği, değil Bu seçilirse ayarlanmalıdır.
+    * _kayma_ : hello işlevi tooSlack kancalarını yanıt verecektir. Merhaba _authLevel_ özelliği, değil Bu seçilirse ayarlanmalıdır.
 
 <a name="httptriggerusage"></a>
 ### <a name="working-with-an-http-trigger-from-code"></a>Bir HTTP tetikleyicisi kodu ile çalışma
-C# ve F # işlevleri için giriş aşağıdakilerden biri olması için tetikleyici türünü bildirebilir `HttpRequestMessage` veya özel bir tür. Seçerseniz `HttpRequestMessage`, istek nesnesi tam erişimi alırsınız. İçin özel bir tür (örneğin, bir POCO) işlevleri istek gövdesi nesne özelliklerini doldurmak için JSON olarak ayrıştırılamıyor dener.
+C# ve F # işlevleri için tetikleyici giriş toobe hello türü ya da bildirebilirsiniz `HttpRequestMessage` veya özel bir tür. Seçerseniz `HttpRequestMessage`, tam erişim toohello istek nesnesi alırsınız. İçin özel bir tür (örneğin, bir POCO) işlevleri tooparse hello istek gövdesinde JSON toopopulate hello nesne özellikleri çalışacaktır.
 
-Node.js işlevleri için işlevleri çalışma zamanı yerine request nesnesi istek gövdesinde sağlar.
+Node.js işlevleri için hello işlevleri çalışma zamanı hello istek gövdesi yerine hello istek nesnesi sağlar.
 
 Bkz: [HTTP tetikleyicisi örnekleri](#httptriggersample) örneğin kullanımları.
 
 
 <a name="output"></a>
 ## <a name="http-response-output-binding"></a>HTTP yanıtının çıkış bağlama
-HTTP isteği gönderene yanıt bağlama HTTP çıkış kullanın. Bu bağlamanın bir HTTP tetikleyicisi gerektirir ve tetikleyici istekle ilişkili yanıt özelleştirmenizi sağlar. Bir HTTP bağlaması çıktı bir HTTP tetikleyicisi boş bir gövde ile HTTP 200 Tamam döndürmeyecektir sağlanan olur. 
+Merhaba HTTP çıkış bağlama toorespond toohello HTTP isteği gönderen kullanın. Bu bağlamanın bir HTTP tetikleyicisi gerektirir ve hello tetikleyicinin istekle ilişkili toocustomize hello yanıt verir. Bir HTTP bağlaması çıktı bir HTTP tetikleyicisi boş bir gövde ile HTTP 200 Tamam döndürmeyecektir sağlanan olur. 
 
 ### <a name="configuring-an-http-output-binding"></a>Bir HTTP yapılandırma bağlama çıktı
-HTTP çıkış bağlama aşağıdakine benzer bir JSON nesnesi ekleyerek tanımlanmış `bindings` function.json dizisi:
+Merhaba HTTP çıktı bağlama hello aşağıdaki JSON nesnesi benzer bir toohello dahil ederek tanımlanmış `bindings` function.json dizisi:
 
 ```json
 {
@@ -97,38 +97,38 @@ HTTP çıkış bağlama aşağıdakine benzer bir JSON nesnesi ekleyerek tanıml
     "direction": "out"
 }
 ```
-Bağlama aşağıdaki özellikleri içerir:
+Merhaba bağlama hello aşağıdaki özellikleri içerir:
 
-* **ad** : gerekli - yanıt işlevi kod içinde kullanılan değişken adı. Bkz: [bir HTTP ile çalışma çıktı kodundan bağlama](#outputusage).
-* **tür** : gerekli - "http" olarak ayarlanması gerekir.
-* **Yön** : gerekli - out"için" ayarlanması gerekir.
+* **ad** : hello yanıtı işlevi kod içinde kullanılan değişken adı gerekli - hello. Bkz: [bir HTTP ile çalışma çıktı kodundan bağlama](#outputusage).
+* **tür** : gerekli - çok ayarlanmış olmalıdır "http".
+* **Yön** : gerekli - çok "out" ayarlanmış olmalıdır.
 
 <a name="outputusage"></a>
 ### <a name="working-with-an-http-output-binding-from-code"></a>Bir HTTP ile çalışma kodundan bağlama çıktı
-Http veya Web kancası çağırana yanıt için çıktı parametresi (örneğin, "res") kullanabilirsiniz. Alternatif olarak, standart kullanabilirsiniz `Request.CreateResponse()` (C#) veya `context.res` yanıtınız döndürülecek (Node.JS) deseni. İkinci yöntemi kullanma hakkında daha fazla örnekler için bkz: [HTTP tetikleyicisi örnekleri](#httptriggersample) ve [Web kancası tetikleyici örnekleri](#hooktriggersample).
+Http veya Web kancası hello çıkış parametresi (örneğin, "res") toorespond toohello arayan kullanabilirsiniz. Alternatif olarak, standart kullanabilirsiniz `Request.CreateResponse()` (C#) veya `context.res` (Node.JS) deseni tooreturn yanıt. Nasıl toouse hello ikinci yöntemi ile ilgili örnekler için bkz: [HTTP tetikleyicisi örnekleri](#httptriggersample) ve [Web kancası tetikleyici örnekleri](#hooktriggersample).
 
 
 <a name="hooktrigger"></a>
-## <a name="responding-to-webhooks"></a>Web kancası için yanıt
-Bir HTTP tetikleyicisi ile _webHookType_ özelliği, yanıt verecek şekilde yapılandırılacak [kancalarını](https://en.wikipedia.org/wiki/Webhook). Temel yapılandırma "genericJson" ayarını kullanır. Bu istekleri yalnızca HTTP POST ile ile kısıtlayan `application/json` içerik türü.
+## <a name="responding-toowebhooks"></a>Toowebhooks yanıt
+Bir HTTP tetikleyicisi hello ile _webHookType_ özelliği olacaktır yapılandırılmış toorespond çok[kancalarını](https://en.wikipedia.org/wiki/Webhook). Merhaba temel yapılandırma hello "genericJson" ayarını kullanır. İstekleri tooonly olanlar HTTP POST ve hello kullanarak bu sınırlar `application/json` içerik türü.
 
-Tetikleyici için bir özel Web kancası sağlayıcısı ayrıca uyarlanabilir (örn., [GitHub](https://developer.github.com/webhooks/) ve [Slack'e](https://api.slack.com/outgoing-webhooks)). Bir sağlayıcı belirtilmemişse işlevleri çalışma zamanı sağlayıcının doğrulama mantığını sizin için dikkatli olun.  
+Merhaba tetikleyici ayrıca uyarlanmış tooa belirli Web kancası sağlayıcı olabilir (örneğin, [GitHub](https://developer.github.com/webhooks/) ve [Slack'e](https://api.slack.com/outgoing-webhooks)). Bir sağlayıcı belirtilmemişse hello işlevleri çalışma zamanı hello sağlayıcının doğrulama mantığını sizin için dikkatli olun.  
 
 ### <a name="configuring-github-as-a-webhook-provider"></a>GitHub Web kancası sağlayıcısı olarak yapılandırma
-GitHub Web kancası için yanıt vermek için önce bir HTTP tetikleyicisi ile işlevinizi oluşturma ve ayarlama _webHookType_ "github" özelliğine. Ardından kopyalama kendi [URL](#url) ve [API anahtarı](#keys) GitHub deponun içine **Web kancası eklemek** sayfası. GitHub'ınızın bkz [Web kancası oluşturma](http://go.microsoft.com/fwlink/?LinkID=761099&clcid=0x409) daha fazla bilgi için belgeleri.
+toorespond tooGitHub kancalarını, önce bir HTTP tetikleyicisi ile işlevinizi oluşturun ve ayarlayın hello _webHookType_ özelliği çok "github". Ardından kopyalama kendi [URL](#url) ve [API anahtarı](#keys) GitHub deponun içine **Web kancası eklemek** sayfası. GitHub'ınızın bkz [Web kancası oluşturma](http://go.microsoft.com/fwlink/?LinkID=761099&clcid=0x409) daha fazla bilgi için belgeleri.
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
 
 ### <a name="configuring-slack-as-a-webhook-provider"></a>Bir Web kancası sağlayıcısı olarak kayma yapılandırma
-Slack Web kancası işlevi özel bir anahtar kayma belirtecinden ile yapılandırmanız gerekir, belirtmenize izin verir yerine bir belirteç sizin için oluşturur. Bkz: [anahtarlarla çalışma](#keys).
+Merhaba Slack Web kancası işlevi özel bir anahtar kayma hello belirtecinden ile yapılandırmanız gerekir, belirtmenize izin verir yerine bir belirteç sizin için oluşturur. Bkz: [anahtarlarla çalışma](#keys).
 
 <a name="url"></a>
-## <a name="customizing-the-http-endpoint"></a>HTTP uç noktası özelleştirme
-Bir HTTP tetikleyicisi ya da Web kancası, bir işlev oluşturduğunuzda varsayılan olarak işlevi adreslenebilir biçiminde bir yol şu şekildedir:
+## <a name="customizing-hello-http-endpoint"></a>Merhaba HTTP uç noktası özelleştirme
+Bir HTTP tetikleyicisi ya da Web kancası, bir işlev oluşturduğunuzda varsayılan olarak hello işlevi adreslenebilir hello formunun bir yol şu şekildedir:
 
     http://<yourapp>.azurewebsites.net/api/<funcname> 
 
-İsteğe bağlı kullanarak bu yolun özelleştirebilirsiniz `route` HTTP tetikleyicisini özellikte bağlama girdisini. Örneğin, aşağıdaki *function.json* dosya tanımlayan bir `route` özelliği bir HTTP tetikleyicisi için:
+İsteğe bağlı hello kullanarak bu yolun özelleştirebilirsiniz `route` hello HTTP tetikleyicisi özellikte bağlama girdisini. Aşağıdaki örnek olarak, hello *function.json* dosya tanımlayan bir `route` özelliği bir HTTP tetikleyicisi için:
 
 ```json
     {
@@ -149,11 +149,11 @@ Bir HTTP tetikleyicisi ya da Web kancası, bir işlev oluşturduğunuzda varsay�
     }
 ```
 
-Bu yapılandırma, işlevi artık özgün yol yerine aşağıdaki yol ile adreslenebilir kullanmaktır.
+Bu yapılandırma, hello işlevi artık rota hello özgün yol yerine aşağıdaki hello ile adreslenebilir kullanmaktır.
 
     http://<yourapp>.azurewebsites.net/api/products/electronics/357
 
-Bu adres, "kategorisi" ve "id" iki parametrelerini desteklemek işlev kodu sağlar. Kullanabilirsiniz [Web API rota kısıtlaması](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) , parametrelere sahip. Aşağıdaki C# işlevi kodu her iki parametrelerini kullanır.
+Bu, toosupport iki parametrelerinde hello adresi, "kategorisi" ve "id" Merhaba işlev kodu sağlar. Kullanabilirsiniz [Web API rota kısıtlaması](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) , parametrelere sahip. C# işlev kodu aşağıdaki Merhaba parametrelerinin her ikisini de kullanır.
 
 ```csharp
     public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id, 
@@ -166,7 +166,7 @@ Bu adres, "kategorisi" ve "id" iki parametrelerini desteklemek işlev kodu sağl
     }
 ```
 
-Burada, aynı rota parametrelerini kullanmak için Node.js işlev kodu verilmiştir.
+Aynı yol parametreleri Node.js işlevi kod toouse hello aşağıdadır.
 
 ```javascript
     module.exports = function (context, req) {
@@ -176,13 +176,13 @@ Burada, aynı rota parametrelerini kullanmak için Node.js işlev kodu verilmiş
 
         if (!id) {
             context.res = {
-                // status: 200, /* Defaults to 200 */
+                // status: 200, /* Defaults too200 */
                 body: "All " + category + " items were requested."
             };
         }
         else {
             context.res = {
-                // status: 200, /* Defaults to 200 */
+                // status: 200, /* Defaults too200 */
                 body: category + " item with id = " + id + " was requested."
             };
         }
@@ -191,7 +191,7 @@ Burada, aynı rota parametrelerini kullanmak için Node.js işlev kodu verilmiş
     } 
 ```
 
-Varsayılan olarak, tüm işlevi yollar ile önek *API*. Ayrıca özelleştirme veya önek kullanarak kaldırma `http.routePrefix` özelliğinde, *host.json* dosya. Aşağıdaki örnek kaldırır *API* önekini için boş bir dize kullanarak rota öneki *host.json* dosya.
+Varsayılan olarak, tüm işlevi yollar ile önek *API*. Ayrıca özelleştirme veya hello kullanan hello öneki kaldırın `http.routePrefix` özelliğinde, *host.json* dosya. Merhaba aşağıdaki örnek kaldırır hello *API* hello hello önekini için boş bir dize kullanarak rota öneki *host.json* dosya.
 
 ```json
     {
@@ -201,52 +201,52 @@ Varsayılan olarak, tüm işlevi yollar ile önek *API*. Ayrıca özelleştirme 
     }
 ```
 
-Güncelleştirme hakkında ayrıntılı bilgi için *host.json* bakın, işlevinizi dosyası [işlevi uygulama dosyaları güncelleştirmek nasıl](functions-reference.md#fileupdate). 
+Hakkında ayrıntılı bilgi için tooupdate hello *host.json* bakın, işlevinizi dosyası [nasıl tooupdate işlev uygulama dosyaları](functions-reference.md#fileupdate). 
 
 Diğer özellikler hakkında bilgi için yapılandırabileceğiniz, *host.json* dosya için bkz: [host.json başvuru](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
 
 
 <a name="keys"></a>
 ## <a name="working-with-keys"></a>Anahtarları ile çalışma
-HttpTriggers ek güvenlik için anahtarları yararlanabilirsiniz. Standart HttpTrigger istekte bulunması için anahtar gerektiren bir API anahtarı olarak kullanabilirsiniz. Web kancası bir ne sağlayıcının desteklediği bağlı olarak, çeşitli şekillerde isteklerinde yetkilendirmek için tuşlarını kullanabilirsiniz.
+HttpTriggers ek güvenlik için anahtarları yararlanabilirsiniz. Standart HttpTrigger hello anahtar toobe hello istekte mevcut gerektiren bir API anahtarı olarak kullanabilirsiniz. Web kancası anahtarları tooauthorize isteklerini bir hangi hello sağlayıcının desteklediği bağlı olarak, çeşitli şekillerde kullanabilirsiniz.
 
-Anahtarları azure'da işlevi uygulamanız bir parçası olarak depolanır ve bekleyen şifrelenir. Anahtarlarınızı görüntülemek için yeni bir tane oluşturun veya anahtarları alma yeni değerler, işlevlerinizi portalındaki birine gidin ve "Manage" seçin 
+Anahtarları azure'da işlevi uygulamanız bir parçası olarak depolanır ve bekleyen şifrelenir. tooview, anahtarlarınızı yenilerini oluşturun veya toplama anahtarları toonew değerleri, işlevlerinizi hello portalındaki tooone gidin ve "Manage" seçin 
 
 Anahtarların iki tür vardır:
-- **Ana bilgisayar anahtarları**: Bu anahtarları işlevi uygulamasında tüm işlevleri tarafından paylaşılır. Bir API anahtarı olarak kullanıldığında, bu işlev uygulaması içinde herhangi bir işlev erişime izin verin.
-- **İşlev tuşları**: Bu anahtarları altında bunların tanımlanan yalnızca belirli işlevler için geçerlidir. Bunlar yalnızca, bir API anahtarı olarak kullanıldığında, bu işlev erişime izin ver.
+- **Ana bilgisayar anahtarları**: Bu anahtarları hello işlevi uygulamasında tüm işlevleri tarafından paylaşılır. Bir API anahtarı olarak kullanıldığında, bunlar erişim tooany işlevi hello işlevi uygulama içinde izin verir.
+- **İşlev tuşları**: Bu anahtarların bunlar tanımlanan yalnızca toohello belirli işlevler Uygula. Bunlar yalnızca, bir API anahtarı olarak kullanıldığında, erişim toothat işlevi sağlar.
 
-Her anahtar için başvuru olarak adlandırılır ve işlev ve ana bilgisayar düzeyinde ("varsayılan" adlı) bir varsayılan anahtar yok. **Ana anahtar** varsayılan ana bilgisayar anahtarı "her işlev uygulaması için tanımlanır ve iptal edilemiyor _master" olarak adlandırılmıştır. Çalışma zamanı API yönetim erişim sağlar. Kullanarak `"authLevel": "admin"` bağlamasında JSON isteği sunulması için bu anahtar gerekir; başka bir anahtar bir yetkilendirme hatasına neden olur.
+Her anahtar için başvuru olarak adlandırılır ve hello işlevi ve ana bilgisayar düzeyinde ("varsayılan" adlı) bir varsayılan anahtar yok. Merhaba **ana anahtar** varsayılan ana bilgisayar anahtarı "her işlev uygulaması için tanımlanır ve iptal edilemiyor _master" olarak adlandırılmıştır. Yönetim erişimi toohello çalışma zamanı API'ler sağlar. Kullanarak `"authLevel": "admin"` hello JSON bağlama hello istek üzerine sunulan bu anahtar toobe gerekir; başka bir anahtar bir yetkilendirme hatasına neden olur.
 
 > [!NOTE]
-> Ana anahtar ile yükseltilmiş izinler nedeniyle, bu anahtarı üçüncü taraflarla paylaşma veya gerekir yerel istemci uygulamalarında dağıtın. Yönetici yetki düzeyini seçerken dikkatli olun.
+> Son toohello yükseltilmiş hello ana anahtar ile bu anahtarı üçüncü taraflarla paylaşma veya gerekir yerel istemci uygulamalarında dağıtmak izinler. Hello Yöneticisi yetki düzeyini seçerken dikkatli olun.
 > 
 > 
 
 ### <a name="api-key-authorization"></a>API anahtarı yetkilendirme
-Varsayılan olarak, bir HttpTrigger HTTP isteği bir API anahtarı gerektirir. Bu nedenle, HTTP isteği normalde şöyle görünür:
+Varsayılan olarak, bir HttpTrigger hello HTTP isteği bir API anahtarı gerektirir. Bu nedenle, HTTP isteği normalde şöyle görünür:
 
     https://<yourapp>.azurewebsites.net/api/<function>?code=<ApiKey>
 
-Anahtar adlı bir sorgu dizesi değişkeni dahil edilebilir `code`, yukarıdaki olarak veya içinde eklenebilir bir `x-functions-key` HTTP üstbilgisi. Anahtarın değerini işlevi için tanımlanan herhangi bir işlev tuşu veya tüm ana bilgisayar anahtarı olabilir.
+Merhaba anahtar adlı bir sorgu dizesi değişkeni dahil edilebilir `code`, yukarıdaki olarak veya içinde eklenebilir bir `x-functions-key` HTTP üstbilgisi. Merhaba hello anahtarının değerini hello işlev için tanımlanmış herhangi bir işlev tuşu veya tüm ana bilgisayar anahtarı olabilir.
 
-Anahtarları olmadan isteklere izin vermek veya ana anahtarı değiştirerek kullanılması gerektiğini belirtmek seçebileceğiniz `authLevel` JSON bağlama özelliğinde (bkz [HTTP tetikleyicisini](#httptrigger)).
+Anahtarları olmadan tooallow isteklerin seçin veya bu hello ana anahtar hello değiştirerek kullanılmalıdır belirtin `authLevel` JSON bağlama hello özelliğinde (bkz [HTTP tetikleyicisini](#httptrigger)).
 
 ### <a name="keys-and-webhooks"></a>Anahtarlar ve Web kancaları
-Web kancası yetkilendirme Web kancası reciever bileşeni tarafından HttpTrigger parçası işlenir ve mekanizması Web kancası türüne göre değişir. Her mekanizması yok, ancak bir anahtar kullanır. Varsayılan olarak, "varsayılan" adlı işlevi anahtar kullanılır. Farklı bir anahtarı kullanmak istiyorsanız, aşağıdaki yollardan biriyle istek anahtarı adıyla göndermek için Web kancası sağlayıcısı yapılandırmanız gerekir:
+Web kancası yetkilendirme hello Web kancası reciever bileşeni tarafından yapılır, hello HttpTrigger ve hello mekanizması parçası hello Web kancası türüne göre değişir. Her mekanizması yok, ancak bir anahtar kullanır. Varsayılan olarak, "varsayılan" adlı hello işlevi anahtar kullanılır. Farklı bir anahtar toouse isterseniz tooconfigure hello Web kancası sağlayıcı toosend hello anahtar adı hello istek yolu izleyerek hello birinde ile gerekir:
 
-- **Sorgu dizesi**: anahtar adına Sağlayıcının geçirdiği `clientid` sorgu dizesi parametresi (örneğin, `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`).
-- **İstek üst bilgisi**: anahtar adına Sağlayıcının geçirdiği `x-functions-clientid` üstbilgi.
+- **Sorgu dizesi**: hello sağlayıcısı hello hello anahtar adı geçen `clientid` sorgu dizesi parametresi (örneğin, `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`).
+- **İstek üst bilgisi**: hello sağlayıcısı hello hello anahtar adı geçen `x-functions-clientid` üstbilgi.
 
 > [!NOTE]
-> İşlev tuşları, ana bilgisayar anahtarları önceliklidir. Aynı ada sahip iki anahtar tanımlanmışsa işlevi anahtar kullanılır.
+> İşlev tuşları, ana bilgisayar anahtarları önceliklidir. İki anahtar ile aynı adı, hello hello tanımlanmışsa, işlev tuşu kullanılır.
 > 
 > 
 
 
 <a name="httptriggersample"></a>
 ## <a name="http-trigger-samples"></a>HTTP tetikleyicisi örnekleri
-Aşağıdaki HTTP tetikleyicisini olduğunu varsayalım `bindings` function.json dizisi:
+Merhaba, HTTP tetikleyicisini aşağıdaki hello olduğunu varsayalım `bindings` function.json dizisi:
 
 ```json
 {
@@ -257,7 +257,7 @@ Aşağıdaki HTTP tetikleyicisini olduğunu varsayalım `bindings` function.json
 },
 ```
 
-Arar dile özgü örnek bkz bir `name` parametresi sorgu dizesi veya HTTP istek gövdesi.
+Arar hello dile özgü örnek bkz bir `name` parametresi hello sorgu dizesi veya hello hello HTTP istek gövdesi.
 
 * [C#](#httptriggercsharp)
 * [F#](#httptriggerfsharp)
@@ -282,16 +282,16 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
     // Get request body
     dynamic data = await req.Content.ReadAsAsync<object>();
 
-    // Set name to query string or body data
+    // Set name tooquery string or body data
     name = name ?? data?.name;
 
     return name == null
-        ? req.CreateResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
+        ? req.CreateResponse(HttpStatusCode.BadRequest, "Please pass a name on hello query string or in hello request body")
         : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
 }
 ```
 
-POCO yerine de bağlayabilirsiniz `HttpRequestMessage`. Bu JSON olarak ayrıştırılır, istek gövdesinden hydrated. Benzer şekilde, bir tür bağlama HTTP yanıt çıkışı geçirilebilir ve bu 200 durum koduyla yanıt gövdesi olarak döndürülür.
+Tooa POCO de bağlayabilirsiniz yerine `HttpRequestMessage`. Bu hello isteği, JSON olarak ayrıştırılır hello gövdesi gelen hydrated. Benzer şekilde, bir tür bağlama toohello HTTP yanıt çıktısı geçirilebilir ve bu 200 durum koduyla hello yanıt gövdesi olarak döndürülür.
 ```csharp
 using System.Net;
 using System.Threading.Tasks;
@@ -327,11 +327,11 @@ let Run(req: HttpRequestMessage) =
             try
                 return req.CreateResponse(HttpStatusCode.OK, "Hello " + data?name)
             with e ->
-                return req.CreateErrorResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
+                return req.CreateErrorResponse(HttpStatusCode.BadRequest, "Please pass a name on hello query string or in hello request body")
     } |> Async.StartAsTask
 ```
 
-Gereksinim duyduğunuz bir `project.json` NuGet başvurmak için kullanılan dosya `FSharp.Interop.Dynamic` ve `Dynamitey` derlemeler şuna benzer:
+Gereksinim duyduğunuz bir `project.json` NuGet tooreference hello kullanan bir dosyayı `FSharp.Interop.Dynamic` ve `Dynamitey` derlemeler şuna benzer:
 
 ```json
 {
@@ -346,7 +346,7 @@ Gereksinim duyduğunuz bir `project.json` NuGet başvurmak için kullanılan dos
 }
 ```
 
-Bu NuGet bağımlılıklarınızı getirilemedi kullanacak ve bunları komut dosyanıza başvurur.
+Bu, NuGet toofetch bağımlılıklarınızı kullanacak ve bunları komut dosyanıza başvurur.
 
 <a name="httptriggernodejs"></a>
 ### <a name="http-trigger-sample-in-nodejs"></a>Node.JS HTTP tetikleyicisi örnek
@@ -356,14 +356,14 @@ module.exports = function(context, req) {
 
     if (req.query.name || (req.body && req.body.name)) {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status: 200, /* Defaults too200 */
             body: "Hello " + (req.query.name || req.body.name)
         };
     }
     else {
         context.res = {
             status: 400,
-            body: "Please pass a name on the query string or in the request body"
+            body: "Please pass a name on hello query string or in hello request body"
         };
     }
     context.done();
@@ -374,7 +374,7 @@ module.exports = function(context, req) {
 
 <a name="hooktriggersample"></a>
 ## <a name="webhook-samples"></a>Web kancası örnekleri
-Aşağıdaki Web kancası tetikleyici olduğunu varsayalım `bindings` function.json dizisi:
+Web kancası tetikleyici hello aşağıdaki hello olduğunu varsayalım `bindings` function.json dizisi:
 
 ```json
 {
@@ -385,7 +385,7 @@ Aşağıdaki Web kancası tetikleyici olduğunu varsayalım `bindings` function.
 },
 ```
 
-GitHub sorunu yorum günlükleri dile özgü örneğe bakın.
+GitHub sorunu yorum günlükleri hello dile özgü örneğine bakın.
 
 * [C#](#hooktriggercsharp)
 * [F#](#hooktriggerfsharp)

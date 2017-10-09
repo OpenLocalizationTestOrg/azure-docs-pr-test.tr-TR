@@ -1,5 +1,5 @@
 ---
-title: "Azure Windows VM dağıtımı sorunlarını giderme | Microsoft Docs"
+title: "aaaTroubleshoot Azure Windows VM dağıtımı | Microsoft Docs"
 description: "Azure'da yeni bir Windows sanal makine oluşturduğunuzda, Resource Manager dağıtım sorunlarını giderme"
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: 
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86795ba6eab3505a3d539e4fc4e032bdeecc2e78
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: c27d4f63b67db2d1c9f117f05a2eba9ef130ef37
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Azure'da yeni bir Windows VM oluştururken, dağıtım sorunlarını giderme
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -33,60 +33,60 @@ ms.lasthandoff: 08/18/2017
 Diğer VM Dağıtım sorunlar ve sorular için bkz: [azure'da dağıtma Windows sanal makine sorunlarını giderme](troubleshoot-deploy-vm.md).
 
 ## <a name="collect-activity-logs"></a>Toplama etkinliklerini günlüğe kaydeder
-Sorun giderme başlatmak için sorunu ile ilişkili hata tanımlamak için etkinlik günlüklerini toplayın. Aşağıdaki bağlantıları izleyin işlemi ile ilgili ayrıntılı bilgiler içerir.
+sorun giderme, toostart toplama hello etkinlik hello sorun ilişkili tooidentify hello hata günlüğe kaydeder. Merhaba aşağıdaki bağlantılar hello işlem toofollow ilgili ayrıntılı bilgiler içerir.
 
 [Dağıtım işlemlerini görüntüleme](../../azure-resource-manager/resource-manager-deployment-operations.md)
 
-[Azure kaynaklarınızı yönetmek için etkinlik günlüklerini görüntüle](../../resource-group-audit.md)
+[Etkinlik günlükleri toomanage Azure görüntülemek kaynakları](../../resource-group-audit.md)
 
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
 [!INCLUDE [virtual-machines-windows-troubleshoot-deployment-new-vm-table](../../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-table.md)]
 
-**Y:** genelleştirilmiş, Windows işletim sistemi olan ve bunu karşıya ve/veya genelleştirilmiş ayarıyla yakalanan durumunda hataları olmayacak. Benzer şekilde, işletim sistemi ise Windows özelleştirilmiş ve bunu karşıya ve/veya özel ayarlarla yakalanan ardından hataları olmayacak.
+**Y:** hello işletim sistemi olan genelleştirilmiş, Windows ve bunu karşıya ve/veya hello ayarı genelleştirilmiş yakalanan durumunda hataları olmayacak. Benzer şekilde, Hello işletim sistemi Windows özelleştirilmiş ve bunu karşıya ve/veya ile yakalanan ise hello ayarı, özelleştirilmiş olmayacaktır sonra herhangi bir hata.
 
 **Karşıya yükleme hataları:**
 
-**N<sup>1</sup>:** genelleştirilmiş Windows işletim sistemi ise ve olarak karşıya özelleştirilmiş, OOBE ekranında takılmış VM ile bir sağlama zaman aşımı hatası alırsınız.
+**N<sup>1</sup>:** hello OS genelleştirilmiş Windows olarak karşıya ise özelleştirilmiş, VM takılmış hello OOBE ekranında hello sağlama bir zaman aşımı hatasıyla karşılaşırsınız.
 
-**N<sup>2</sup>:** işletim sistemi Windows özelleştirilmiş ve genelleştirilmiş gibi karşıya varsa, yeni VM özgün bilgisayar adı, kullanıcı adı ve parola ile çalıştığı için OOBE ekranında takılmış VM ile sağlama bir hata alırsınız.
+**N<sup>2</sup>:** hello işletim sistemi Windows özelleştirilmiş ve genelleştirilmiş gibi karşıya ise, VM takılmış hello OOBE ekranında hello yeni VM hello özgün bilgisayarla çalıştığından hello ile sağlama bir hata alırsınız adı, kullanıcı adı ve parolası.
 
 **Çözümleme**
 
-Her iki bu hataları gidermek için [özgün VHD yüklemek için Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx), mevcut şirket içi, işletim sistemi (genelleştirilmiş/özel) olarak aynı ayarı. Genelleştirilmiş gibi karşıya yüklemek için öncelikle, sysprep çalıştırılamıyor unutmayın.
+Her iki bu hataları tooresolve kullanın [Ekle AzureRmVhd tooupload hello özgün VHD](https://msdn.microsoft.com/library/mt603554.aspx), mevcut şirket içi, hello hello OS (genelleştirilmiş/özel) olarak aynı ayarı. Genelleştirilmiş gibi tooupload toorun sysprep ilk unutmayın.
 
 **Hata yakalama:**
 
-**N<sup>3</sup>:** genelleştirilmiş Windows işletim sistemi ise ve olarak yakalanan orijinal VM kullanılabilir olmadığından genelleştirilmiş olarak işaretlenen gibi özelleştirilmiş, sağlama zaman aşımı hatası alırsınız.
+**N<sup>3</sup>:** hello OS genelleştirilmiş Windows olarak yakalanan ise genelleştirilmiş olarak işaretlenen gibi hello özgün VM kullanılabilir olmadığı için özelleştirilmiş, sağlama zaman aşımı hatası alırsınız.
 
-**N<sup>4</sup>:** Windows özelleştirilmiş ve genelleştirilmiş gibi yakalanan işletim sistemi ise, yeni VM özgün bilgisayar adı, kullanıcı adı ve parola ile çalıştığı için sağlama bir hata alırsınız. İşaretlendiğinden Ayrıca, orijinal VM kullanılamaz olarak özelleştirilmiş.
+**N<sup>4</sup>:** hello işletim sistemi Windows özelleştirilmiş ve genelleştirilmiş gibi yakalanan ise, hello yeni VM hello özgün bilgisayar adı, kullanıcı adı ve parola ile çalıştığı için sağlama bir hata alırsınız. İşaretlendiğinden ayrıca hello özgün VM kullanılamaz olarak özelleştirilmiş.
 
 **Çözümleme**
 
-Her iki bu hataları gidermek için geçerli görüntü Portalı'ndan silmek ve [geçerli VHD'leri yeniden yakalar](create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ayarıyla aynı olarak işletim sistemi (genelleştirilmiş/özel) için.
+tooresolve hem bu hataları hello geçerli görüntü hello Portalı'ndan silmek ve [hello yeniden yakalar geçerli VHD'leri](create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ile Merhaba Merhaba OS (genelleştirilmiş/özel) ayarı aynı.
 
 ## <a name="issue-customgallerymarketplace-image-allocation-failure"></a>Sorun: Galeri/özel/Market görüntüsü; ayırma hatası
-Bu hata istenen VM boyutu desteklemiyor veya isteği gerçekleştirmek için kullanılabilir boş alan yok bir kümeye yeni VM isteği sabitlenmiş durumlarda oluşur.
+Bu hata, istenen hello VM boyutu desteklemiyor veya kullanılabilir boş alanı tooaccommodate hello istekte sabitlenmiş tooa küme Hello yeni VM istek olduğunda durumlarda ortaya çıkar.
 
-**1. neden:** küme istenen VM boyutu destekleyemez.
+**1. neden:** hello küme destekleyemez hello istenen VM boyutu.
 
 **Çözüm 1:**
 
-* Daha küçük bir VM boyutu kullanarak isteği yeniden deneyin.
-* İstenen VM boyutu değiştirilemiyorsa:
-  * Kullanılabilirlik kümesindeki tüm sanal makineleri durdurun.
+* Daha küçük bir VM boyutu kullanarak hello isteği yeniden deneyin.
+* Merhaba, hello VM değiştirilemez istenen boyut:
+  * Merhaba kullanılabilirlik kümesindeki tüm hello VM'ler durdurun.
     Tıklatın **kaynak grupları** > *kaynak grubunuz* > **kaynakları** > *kullanılabilirlik kümesi* > **sanal makineleri** > *sanal makineniz* > **durdurmak**.
-  * Tüm sanal makineleri durdurduktan sonra istenen boyutta yeni bir VM oluşturun.
-  * İlk olarak, yeni VM Başlat durdurulmuş VM'lerin her birinde seçin ve tıklatın **Başlat**.
+  * Tüm sanal makineleri Dur hello sonra hello oluşturmak hello yeni VM istenen boyutu.
+  * Başlangıç yeni VM ilk hello ve hello teker tıklayın ve sanal makineleri durdu **Başlat**.
 
-**Neden 2:** küme kaynakları serbest bırakmak yok.
+**Neden 2:** hello küme kaynakları serbest bırakmak sahip değil.
 
 **Çözüm 2:**
 
-* İstek daha sonra yeniden deneyin.
-* Yeni VM'yi farklı bir kullanılabilirlik kümesinin bir parçası olarak
-  * Farklı bir kullanılabilirlik (aynı bölgede) kümesinde yeni bir VM oluşturun.
-  * Yeni VM aynı sanal ağa ekleyin.
+* Merhaba isteği daha sonra yeniden deneyin.
+* Merhaba yeni VM yapabiliyorsanız, farklı bir kullanılabilirlik parçası ayarlanması
+  * Farklı bir kullanılabilirlik kümesinde yeni bir VM oluşturun (Merhaba içinde aynı bölge).
+  * Merhaba yeni VM toohello eklemek aynı sanal ağ.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Durdurulmuş bir Windows VM başlattığınızda veya varolan bir Windows VM Azure ile yeniden boyutlandırın sorunlarıyla karşılaşırsanız bkz [başlatma veya mevcut bir Windows sanal makine azure'da yeniden boyutlandırma ile ilgili sorunları giderme Resource Manager dağıtım sorunlarını](restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

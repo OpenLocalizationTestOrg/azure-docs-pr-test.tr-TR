@@ -1,6 +1,6 @@
 ---
-title: "Azure Otomasyonu DSC ile çalışmaya başlama | Microsoft Docs"
-description: "Açıklama ve en yaygın görevleri de Azure Otomasyonu istenen durum yapılandırması (DSC) örnekleri"
+title: "aaaGetting başlatılan Azure Otomasyonu DSC'ye | Microsoft Docs"
+description: "Açıklama ve hello en yaygın görevleri de Azure Otomasyonu istenen durum yapılandırması (DSC) örnekleri"
 services: automation
 documentationcenter: na
 author: eslesar
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: magoedte;eslesar
-ms.openlocfilehash: 8a10d961ad7c107c68b57c64ee6c88544ff8832b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 82910c96e928b9264c2e1b52a5c98dc47273dcc5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="getting-started-with-azure-automation-dsc"></a>Azure Otomasyonu DSC ile çalışmaya başlama
-Bu konu ile Azure Otomasyonu istenen durum yapılandırması (oluşturma, alma ve yapılandırmaları, onboarding makineleri yönetmek için derleme ve raporları görüntüleme gibi DSC), en yaygın görevlerin nasıl yapılacağını açıklar. Hangi Azure Otomasyonu DSC genel bir bakış için bkz: [Azure Automation DSC genel bakış](automation-dsc-overview.md). DSC belgeler için bkz: [Windows PowerShell istenen durum yapılandırması genel bakış](https://msdn.microsoft.com/PowerShell/dsc/overview).
+Bu konu, nasıl toodo hello ile Azure Otomasyonu istenen durum yapılandırması (oluşturma, alma ve yapılandırmaları, onboarding makineleri çok yönetmek, derleme ve raporları görüntüleme gibi DSC), en yaygın görevleri açıklar. Hangi Azure Otomasyonu DSC genel bir bakış için bkz: [Azure Automation DSC genel bakış](automation-dsc-overview.md). DSC belgeler için bkz: [Windows PowerShell istenen durum yapılandırması genel bakış](https://msdn.microsoft.com/PowerShell/dsc/overview).
 
-Bu konu Azure Otomasyonu DSC kullanarak adım adım yönergeler sağlar. Zaten bu konuda açıklanan adımları izleyerek olmadan ayarlanmış bir örnek ortamı istiyorsanız kullanabileceğiniz [aşağıdaki ARM şablonu](https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup). Bu şablon tamamlanmış bir Azure Otomasyonu DSC ortam, Azure Otomasyonu DSC tarafından yönetilen bir Azure VM dahil olmak üzere ayarlar.
+Bu konu hakkında adım adım kılavuzu toousing Azure Otomasyonu DSC sağlar. Zaten bu konuda açıklanan başlangıç adımları uymadan ayarlanmış bir örnek ortamı istiyorsanız kullanabileceğiniz [hello ARM şablonu](https://github.com/azureautomation/automation-packs/tree/master/102-sample-automation-setup). Bu şablon tamamlanmış bir Azure Otomasyonu DSC ortam, Azure Otomasyonu DSC tarafından yönetilen bir Azure VM dahil olmak üzere ayarlar.
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu konudaki örnekler tamamlamak için aşağıdakiler gereklidir:
+Bu konudaki toocomplete hello örnekleri, hello aşağıdaki gereklidir:
 
-* Bir Azure Otomasyonu hesabı. Bir Azure Automation farklı çalıştır hesabı oluşturma ile ilgili yönergeler için bkz: [Azure farklı çalıştır hesabını](automation-sec-configure-azure-runas-account.md).
-* Bir Azure Kaynak Yöneticisi'ni VM (Klasik değil) Windows Server 2008 R2 çalıştıran veya sonraki bir sürümü. Bir VM oluşturma ile ilgili yönergeler için bkz: [Azure portalında, ilk Windows sanal makine oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+* Azure Otomasyonu hesabı. Bir Azure Otomasyonu Garklı Çalıştır hesabı oluşturma yönergeleri için bkz. [Azure Farklı Çalıştır Hesabı](automation-sec-configure-azure-runas-account.md).
+* Bir Azure Kaynak Yöneticisi'ni VM (Klasik değil) Windows Server 2008 R2 çalıştıran veya sonraki bir sürümü. Bir VM oluşturma ile ilgili yönergeler için bkz: [hello Azure portalında, ilk Windows sanal makine oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 ## <a name="creating-a-dsc-configuration"></a>DSC yapılandırması oluşturma
-Basit bir oluşturacağız [DSC Yapılandırması](https://msdn.microsoft.com/powershell/dsc/configurations) varlığının veya yokluğunun sağlar **Web sunucusu** Windows özelliği (düğümler nasıl atadığınız bağlı olarak IIS).
+Basit bir oluşturacağız [DSC Yapılandırması](https://msdn.microsoft.com/powershell/dsc/configurations) hello varlığının veya yokluğunun hello sağlar **Web sunucusu** Windows özelliği (düğümler nasıl atadığınız bağlı olarak IIS).
 
-1. Windows PowerShell ISE (veya herhangi bir metin düzenleyicisi) başlatın.
-2. Aşağıdaki metni yazın:
+1. Windows PowerShell ISE Hello (veya herhangi bir metin düzenleyicisi) başlatın.
+2. Metin aşağıdaki hello yazın:
    
     ```powershell
     configuration TestConfig
@@ -62,155 +62,155 @@ Basit bir oluşturacağız [DSC Yapılandırması](https://msdn.microsoft.com/po
         }
         }
     ```
-3. Dosyayı Farklı Kaydet `TestConfig.ps1`.
+3. Merhaba dosyası olarak kaydetmeniz `TestConfig.ps1`.
 
-Bu yapılandırma bir kaynak her düğümü blok çağırır [WindowsFeature kaynak](https://msdn.microsoft.com/powershell/dsc/windowsfeatureresource), varlığı veya yokluğuna göre sağlar **Web sunucusu** özelliği.
+Bu yapılandırma bir kaynak her düğümü blok hello çağırır [WindowsFeature kaynak](https://msdn.microsoft.com/powershell/dsc/windowsfeatureresource), hello varlığının veya yokluğunun hello sağlar **Web sunucusu** özelliği.
 
 ## <a name="importing-a-configuration-into-azure-automation"></a>Bir yapılandırma Azure Automation'a içeri aktarma
-Ardından, biz yapılandırmayı Otomasyon dikkate almak.
+Ardından, biz Otomasyon hesabı hello hello yapılandırma aktaracaksınız.
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Hub menüsünde **tüm kaynakları** ve ardından Otomasyon hesabınızın adını.
-3. Üzerinde **Otomasyon hesabı** dikey penceresinde tıklatın **DSC yapılandırmaları**.
-4. Üzerinde **DSC yapılandırmaları** dikey penceresinde tıklatın **bir yapılandırma eklemek**.
-5. Üzerinde **alma Yapılandırması** dikey penceresinde, Gözat ' `TestConfig.ps1` dosyayı bilgisayarınıza.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
+2. Merhaba Hub menüsünde **tüm kaynakları** ve ardından hello Otomasyon hesabınızın adını.
+3. Merhaba üzerinde **Otomasyon hesabı** dikey penceresinde tıklatın **DSC yapılandırmaları**.
+4. Merhaba üzerinde **DSC yapılandırmaları** dikey penceresinde tıklatın **bir yapılandırma eklemek**.
+5. Merhaba üzerinde **alma Yapılandırması** dikey penceresinde, Gözat toohello `TestConfig.ps1` dosyayı bilgisayarınıza.
    
-    ![Ekran görüntüsü ** alma yapılandırma ** dikey penceresi](./media/automation-dsc-getting-started/AddConfig.png)
+    ![Ekran görüntüsü hello ** alma yapılandırma ** dikey penceresi](./media/automation-dsc-getting-started/AddConfig.png)
 6. **Tamam** düğmesine tıklayın.
 
 ## <a name="viewing-a-configuration-in-azure-automation"></a>Azure Otomasyonu'nda bir yapılandırmayı görüntüleme
-Bir yapılandırma içe aktardıktan sonra Azure Portalı'nda görüntüleyebilirsiniz.
+Bir yapılandırma içe aktardıktan sonra hello Azure portal görüntüleyebilirsiniz.
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Hub menüsünde **tüm kaynakları** ve ardından Otomasyon hesabınızın adını.
-3. Üzerinde **Otomasyon hesabı** dikey penceresinde tıklatın **DSC yapılandırmaları**
-4. Üzerinde **DSC yapılandırmaları** dikey penceresinde tıklatın **TestConfig** (Bu önceki yordamda içeri aktardığınız yapılandırma adıdır).
-5. Üzerinde **TestConfig yapılandırma** dikey penceresinde tıklatın **yapılandırma kaynağı görüntüle**.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
+2. Merhaba Hub menüsünde **tüm kaynakları** ve ardından hello Otomasyon hesabınızın adını.
+3. Merhaba üzerinde **Otomasyon hesabı** dikey penceresinde tıklatın **DSC yapılandırmaları**
+4. Merhaba üzerinde **DSC yapılandırmaları** dikey penceresinde tıklatın **TestConfig** (Bu hello aldığınız hello yapılandırma hello önceki yordamda adıdır).
+5. Merhaba üzerinde **TestConfig yapılandırma** dikey penceresinde tıklatın **yapılandırma kaynağı görüntüle**.
    
-    ![TestConfig yapılandırma dikey penceresinin ekran görüntüsü](./media/automation-dsc-getting-started/ViewConfigSource.png)
+    ![Merhaba TestConfig yapılandırma dikey penceresinin ekran görüntüsü](./media/automation-dsc-getting-started/ViewConfigSource.png)
    
-    A **TestConfig yapılandırma kaynağı** dikey penceresi açılır ve yapılandırması için PowerShell kodu görüntüleme.
+    A **TestConfig yapılandırma kaynağı** hello PowerShell kodu hello yapılandırması için görüntüleme dikey penceresi açılır.
 
 ## <a name="compiling-a-configuration-in-azure-automation"></a>Bir Azure Otomasyonu yapılandırmasında derleme
-Bir düğüme istenilen durumu uygulayabilmeniz için önce bu duruma tanımlama DSC yapılandırması bir veya daha fazla düğüm yapılandırmaları (MOF belge) derlenmiş ve gerekir Automation DSC çekme sunucusuna yerleştirilen. Azure Otomasyonu DSC yapılandırmalarında derleme daha ayrıntılı açıklaması için bkz: [Azure Otomasyonu DSC yapılandırmalarında derleme](automation-dsc-compile.md). Derleme yapılandırmaları hakkında daha fazla bilgi için bkz: [DSC yapılandırmaları](https://msdn.microsoft.com/PowerShell/DSC/configurations).
+İstenen durumu tooa düğümü uygulayabilmeniz için önce bu duruma tanımlama DSC yapılandırması bir veya daha fazla düğüm yapılandırmaları (MOF belge) derlenmiş ve gerekir Automation DSC çekme sunucusuna hello üzerinde yerleştirilir. Azure Otomasyonu DSC yapılandırmalarında derleme daha ayrıntılı açıklaması için bkz: [Azure Otomasyonu DSC yapılandırmalarında derleme](automation-dsc-compile.md). Derleme yapılandırmaları hakkında daha fazla bilgi için bkz: [DSC yapılandırmaları](https://msdn.microsoft.com/PowerShell/DSC/configurations).
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Hub menüsünde **tüm kaynakları** ve ardından Otomasyon hesabınızın adını.
-3. Üzerinde **Otomasyon hesabı** dikey penceresinde tıklatın **DSC yapılandırmaları**
-4. Üzerinde **DSC yapılandırmaları** dikey penceresinde tıklatın **TestConfig** (daha önce içe aktarılan yapılandırma adı).
-5. Üzerinde **TestConfig yapılandırma** dikey penceresinde tıklatın **derleme**ve ardından **Evet**. Bu derleme işi başlatır.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
+2. Merhaba Hub menüsünde **tüm kaynakları** ve ardından hello Otomasyon hesabınızın adını.
+3. Merhaba üzerinde **Otomasyon hesabı** dikey penceresinde tıklatın **DSC yapılandırmaları**
+4. Merhaba üzerinde **DSC yapılandırmaları** dikey penceresinde tıklatın **TestConfig** (Merhaba hello adı önceden aktarılmış yapılandırma).
+5. Merhaba üzerinde **TestConfig yapılandırma** dikey penceresinde tıklatın **derleme**ve ardından **Evet**. Bu derleme işi başlatır.
    
-    ![Derleme düğmesi vurgulama TestConfig yapılandırma dikey penceresinin ekran görüntüsü](./media/automation-dsc-getting-started/CompileConfig.png)
+    ![Derleme düğmesi vurgulama hello TestConfig yapılandırma dikey penceresinin ekran görüntüsü](./media/automation-dsc-getting-started/CompileConfig.png)
 
 > [!NOTE]
-> Bir Azure Otomasyonu yapılandırmasında derlerken çekme sunucusuna otomatik olarak tüm oluşturulan düğüm yapılandırması MOF dosyalarından dağıtır.
+> Bir Azure Otomasyonu yapılandırmasında derlerken herhangi oluşturulan düğümü yapılandırma MOF dosyalarından toohello çekme sunucusuna otomatik olarak dağıtır.
 > 
 > 
 
 ## <a name="viewing-a-compilation-job"></a>Derleme işi görüntüleme
-Bir derleme başlattıktan sonra içinde görüntüleyebilirsiniz **derleme işleri** parçasında **yapılandırma** dikey. **Derleme işleri** döşeme şu anda çalışan gösterir, tamamlandı ve işleri başarısız oldu. Bir derleme iş dikey penceresi açtığınızda, herhangi bir hata veya uyarı karşılaştı dahil olmak üzere bu iş hakkındaki bilgileri gösterir, kullanılan yapılandırma ve derleme günlükleri giriş parametreleri.
+Bir derleme başlattıktan sonra hello görüntüleyebilirsiniz **derleme işleri** döşeme hello **yapılandırma** dikey. Merhaba **derleme işleri** döşeme şu anda çalışan gösterir, tamamlandı ve işleri başarısız oldu. Bir derleme iş dikey penceresi açtığınızda, herhangi bir hata veya uyarı karşılaştı dahil olmak üzere bu iş hakkındaki bilgileri gösterir, giriş parametreleri hello yapılandırma ve derleme günlükleri kullanılan.
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Hub menüsünde **tüm kaynakları** ve ardından Otomasyon hesabınızın adını.
-3. Üzerinde **Otomasyon hesabı** dikey penceresinde tıklatın **DSC yapılandırmaları**.
-4. Üzerinde **DSC yapılandırmaları** dikey penceresinde tıklatın **TestConfig** (daha önce içe aktarılan yapılandırma adı).
-5. Üzerinde **derleme işleri** , döşeme **TestConfig yapılandırma** dikey penceresinde, listelenen işleri birini tıklatın. A **derleme işi** derleme işi başlatıldı tarihle etiketli dikey penceresi açılır.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
+2. Merhaba Hub menüsünde **tüm kaynakları** ve ardından hello Otomasyon hesabınızın adını.
+3. Merhaba üzerinde **Otomasyon hesabı** dikey penceresinde tıklatın **DSC yapılandırmaları**.
+4. Merhaba üzerinde **DSC yapılandırmaları** dikey penceresinde tıklatın **TestConfig** (Merhaba hello adı önceden aktarılmış yapılandırma).
+5. Merhaba üzerinde **derleme işleri** hello parçasına **TestConfig yapılandırma** dikey penceresinde, listelenen hello işlerin birini tıklatın. A **derleme işi** dikey penceresi açılır ve derleme işi hello hello tarihle etiketli başlatıldı.
    
-    ![Derleme işi dikey penceresinin ekran görüntüsü](./media/automation-dsc-getting-started/CompilationJob.png)
-6. Herhangi bir kutucuğu tıklayın **derleme işi** dikey penceresini görmek için daha fazla iş hakkında ayrıntılar.
+    ![Merhaba derleme işi dikey penceresinin ekran görüntüsü](./media/automation-dsc-getting-started/CompilationJob.png)
+6. Merhaba herhangi bir kutucuğu tıklayın **derleme işi** dikey toosee daha fazla hello işi hakkında ayrıntılar.
 
 ## <a name="viewing-node-configurations"></a>Düğüm yapılandırmaları görüntüleme
-Derleme işi başarılı şekilde tamamlandığını bir veya daha fazla yeni düğüm yapılandırmaları oluşturur. Düğüm yapılandırması çekme sunucusuna ve çekilen ve bir veya daha fazla düğüm tarafından uygulanan hazır dağıtılan bir MOF belgedir. Otomasyon hesabınızda düğüm yapılandırmaları görüntüleyebileceği **DSC düğüm yapılandırmaları** dikey. Düğüm yapılandırması form ile bir ada sahip *ConfigurationName*. *NodeName*.
+Derleme işi başarılı şekilde tamamlandığını bir veya daha fazla yeni düğüm yapılandırmaları oluşturur. Düğüm yapılandırması dağıtılan toohello çekme sunucu ve çekilen ve bir veya daha fazla düğüm tarafından uygulanan hazır toobe MOF belgedir. Otomasyon hesabınızda hello hello düğüm yapılandırmaları görüntüleyebileceği **DSC düğüm yapılandırmaları** dikey. Düğüm yapılandırması hello form ile bir ada sahip *ConfigurationName*. *NodeName*.
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Hub menüsünde **tüm kaynakları** ve ardından Otomasyon hesabınızın adını.
-3. Üzerinde **Otomasyon hesabı** dikey penceresinde tıklatın **DSC düğüm yapılandırmaları**.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
+2. Merhaba Hub menüsünde **tüm kaynakları** ve ardından hello Otomasyon hesabınızın adını.
+3. Merhaba üzerinde **Otomasyon hesabı** dikey penceresinde tıklatın **DSC düğüm yapılandırmaları**.
    
-    ![DSC düğüm yapılandırmaları dikey penceresinin ekran görüntüsü](./media/automation-dsc-getting-started/NodeConfigs.png)
+    ![Merhaba DSC düğüm yapılandırmaları dikey penceresinin ekran görüntüsü](./media/automation-dsc-getting-started/NodeConfigs.png)
 
 ## <a name="onboarding-an-azure-vm-for-management-with-azure-automation-dsc"></a>Azure Otomasyonu DSC ile bir Azure VM yönetimi için hazırlanma
-Azure Otomasyonu DSC, Azure Vm'leri (Klasik ve Resource Manager), şirket içi sanal makineleri, Linux makineler, AWS VM'ler ve şirket içi fiziksel makineleri yönetmek için kullanabilirsiniz. Bu konuda, biz kapak yerleşik yalnızca Azure Kaynak Yöneticisi Vm'leri nasıl. Ekleme hakkında bilgi için bkz: diğer türleri makine [Azure Otomasyonu DSC tarafından Yönetim için hazırlama makineler](automation-dsc-onboarding.md).
+Azure Otomasyonu DSC toomanage Azure VM'ler (Klasik ve Resource Manager), şirket içi sanal makineleri, Linux makineler, AWS VM'ler ve şirket içi fiziksel makineleri kullanabilirsiniz. Bu konuda, biz kapak nasıl tooonboard yalnızca Azure Kaynak Yöneticisi Vm'leri. Ekleme hakkında bilgi için bkz: diğer türleri makine [Azure Otomasyonu DSC tarafından Yönetim için hazırlama makineler](automation-dsc-onboarding.md).
 
-### <a name="to-onboard-an-azure-resource-manager-vm-for-management-by-azure-automation-dsc"></a>Onboarding için Azure Otomasyonu DSC tarafından Yönetim için bir Azure Kaynak Yöneticisi'ni VM
-1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Hub menüsünde **tüm kaynakları** ve ardından Otomasyon hesabınızın adını.
-3. Üzerinde **Otomasyon hesabı** dikey penceresinde tıklatın **DSC düğümleri**.
-4. İçinde **DSC düğümleri** dikey penceresinde tıklatın **eklemek Azure VM**.
+### <a name="tooonboard-an-azure-resource-manager-vm-for-management-by-azure-automation-dsc"></a>Azure Otomasyonu DSC tarafından Yönetim için bir Azure Kaynak Yöneticisi'ni VM tooonboard
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
+2. Merhaba Hub menüsünde **tüm kaynakları** ve ardından hello Otomasyon hesabınızın adını.
+3. Merhaba üzerinde **Otomasyon hesabı** dikey penceresinde tıklatın **DSC düğümleri**.
+4. Merhaba, **DSC düğümleri** dikey penceresinde tıklatın **eklemek Azure VM**.
    
-    ![Azure VM Ekle düğmesi vurgulama DSC düğümleri dikey penceresinin ekran görüntüsü](./media/automation-dsc-getting-started/OnboardVM.png)
-5. İçinde **eklemek Azure Vm'leri** dikey penceresinde tıklatın **giriş için sanal makine Seç**.
-6. İçinde **seçin VM'ler** dikey penceresinde, istediğiniz yerleşik VM seçin ve tıklatın **Tamam**.
+    ![Hello Azure VM Ekle düğmesi vurgulama hello DSC düğümleri dikey penceresinin ekran görüntüsü](./media/automation-dsc-getting-started/OnboardVM.png)
+5. Merhaba, **eklemek Azure VM'ler** dikey penceresinde'ı tıklatın **seçin sanal makineleri tooonboard**.
+6. Merhaba, **seçin VM'ler** dikey penceresinde, select hello tooonboard istediğiniz ve tıklatın VM **Tamam**.
    
    > [!IMPORTANT]
    > Bu Windows Server 2008 R2 çalıştıran bir Azure Kaynak Yöneticisi'ni VM olmalıdır veya sonraki bir sürümü.
    > 
    > 
-7. İçinde **eklemek Azure Vm'leri** dikey penceresinde tıklatın **kayıt verileri yapılandırma**.
-8. İçinde **kayıt** dikey penceresinde, VM için uygulamak istediğiniz düğüm yapılandırmasının adı girin **düğüm yapılandırma adı** kutusu. Bu Otomasyon hesabında bir düğüm yapılandırmasının adı tam olarak eşleşmelidir. Bu noktada sağlayan bir adı isteğe bağlıdır. Onboarding düğüm sonra atanan düğüm yapılandırmasını değiştirebilirsiniz.
+7. Merhaba, **eklemek Azure VM'ler** dikey penceresinde tıklatın **kayıt verilerini yapılandırmak**.
+8. Merhaba, **kayıt** dikey penceresinde hello adı girin hello içinde tooapply toohello VM istediğiniz hello düğüm yapılandırmasını **düğüm yapılandırma adı** kutusu. Bu Otomasyon hesabı hello düğümlü bir yapılandırmada hello adı tam olarak eşleşmelidir. Bu noktada sağlayan bir adı isteğe bağlıdır. Onboarding hello düğümü sonra atanan hello düğüm yapılandırmasını değiştirebilirsiniz.
    Denetleme **gerekirse düğümü yeniden**ve ardından **Tamam**.
    
-    ![Kayıt dikey penceresinin ekran görüntüsü](./media/automation-dsc-getting-started/RegisterVM.png)
+    ![Merhaba kayıt dikey penceresinin ekran görüntüsü](./media/automation-dsc-getting-started/RegisterVM.png)
    
-    Belirtilen düğüm yapılandırması tarafından belirtilen aralıklarla VM'ye uygulanacak olan **yapılandırma modu sıklığı**, ve VM tarafından belirlenen aralıklarla düğüm yapılandırması için güncelleştirmeleri kontrol eder **yenileme sıklığı**. Bu değerleri nasıl kullanıldığı konusunda daha fazla bilgi için bkz: [yerel Configuration Manager Yapılandırma](https://msdn.microsoft.com/PowerShell/DSC/metaConfig).
-9. İçinde **eklemek Azure Vm'leri** dikey penceresinde tıklatın **oluşturma**.
+    Belirttiğiniz hello düğüm yapılandırması hello tarafından belirtilen aralıklarla uygulanan toohello VM olacaktır **yapılandırma modu sıklığı**, ve hello VM için güncelleştirmeleri toohello düğüm yapılandırması hellotarafındanbelirtilenaralıklarladenetleyecek **Yenileme sıklığı**. Bu değerleri nasıl kullanıldığı konusunda daha fazla bilgi için bkz: [yapılandırma hello yerel Configuration Manager](https://msdn.microsoft.com/PowerShell/DSC/metaConfig).
+9. Merhaba, **eklemek Azure VM'ler** dikey penceresinde tıklatın **oluşturma**.
 
-Azure VM ekleme işlemi başlar. Tamamlandığında, VM görünecek **DSC düğümleri** dikey penceresinde Otomasyon hesabı.
+Azure ekleme hello VM hello işlemi başlar. Bu tamamlandığında hello VM hello görünecek **DSC düğümleri** dikey penceresinde hello Automation hesabı.
 
-## <a name="viewing-the-list-of-dsc-nodes"></a>DSC düğümleri listesini görüntüleme
-Otomasyon hesabınızda Yönetimi edildi kaldırılmış tüm makinelerin listesini görüntüleyebileceğiniz **DSC düğümleri** dikey.
+## <a name="viewing-hello-list-of-dsc-nodes"></a>DSC düğümleri Hello listesini görüntüleme
+Otomasyon hesabınızda hello Yönetimi edildi kaldırılmış tüm makinelerin hello listesini görüntüleyebileceğiniz **DSC düğümleri** dikey.
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Hub menüsünde **tüm kaynakları** ve ardından Otomasyon hesabınızın adını.
-3. Üzerinde **Otomasyon hesabı** dikey penceresinde tıklatın **DSC düğümleri**.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
+2. Merhaba Hub menüsünde **tüm kaynakları** ve ardından hello Otomasyon hesabınızın adını.
+3. Merhaba üzerinde **Otomasyon hesabı** dikey penceresinde tıklatın **DSC düğümleri**.
 
 ## <a name="viewing-reports-for-dsc-nodes"></a>DSC düğüm raporları görüntüleme
-Azure Otomasyonu DSC yönetilen bir düğüm üzerinde tutarlılık denetimi gerçekleştirir her zaman düğüm bir durum raporu çekme sunucusuna geri gönderir. Bu düğüm için dikey penceresinde, bu raporları görüntüleyebilirsiniz.
+Azure Otomasyonu DSC yönetilen bir düğüm üzerinde tutarlılık denetimi gerçekleştirir her zaman hello düğüm durumu rapor geri toohello çekme sunucusuna gönderir. Merhaba dikey penceresinde bu düğüm için bu raporları görüntüleyebilirsiniz.
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Hub menüsünde **tüm kaynakları** ve ardından Otomasyon hesabınızın adını.
-3. Üzerinde **Otomasyon hesabı** dikey penceresinde tıklatın **DSC düğümleri**.
-4. Üzerinde **raporları** kutucuğu, listedeki raporların birini tıklatın.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
+2. Merhaba Hub menüsünde **tüm kaynakları** ve ardından hello Otomasyon hesabınızın adını.
+3. Merhaba üzerinde **Otomasyon hesabı** dikey penceresinde tıklatın **DSC düğümleri**.
+4. Merhaba üzerinde **raporları** döşeme, herhangi bir hello listesinde hello Raporlar'ı tıklatın.
    
-    ![Rapor dikey penceresinin ekran görüntüsü](./media/automation-dsc-getting-started/NodeReport.png)
+    ![Merhaba rapor dikey penceresinin ekran görüntüsü](./media/automation-dsc-getting-started/NodeReport.png)
 
-Dikey penceresinde bir tek tek raporu, karşılık gelen tutarlılık denetimi için aşağıdaki durum bilgileri görebilirsiniz:
+Merhaba dikey penceresinde tek tek bir rapor, durum bilgisi hello karşılık gelen tutarlılık için aşağıdaki hello denetleyin görebilirsiniz:
 
-* Rapor durumu — "Uyumlu", "Başarısız" yapılandırma düğümdür ya da "Uyumlu" bir düğümdür (düğüm olduğunda **applyandmonitor** modu ve makine istenilen durumda değil).
-* Tutarlılık denetimi için başlangıç saati.
-* Tutarlılık denetimi için toplam çalışma zamanı.
-* Tutarlılık denetimi türü.
-* Hata iletisi ve hata kodu da dahil olmak üzere tüm hatalar. 
-* Yapılandırma ve durum (düğüm bu kaynak için istenen durumunda olup) her bir kaynağın kullanılan DSC kaynakları; kaynağı için daha ayrıntılı bilgi almak için her bir kaynağın tıklatabilirsiniz.
-* Adı, IP adresi ve düğümün yapılandırma modu.
+* Merhaba rapor durumu — hello düğümdür "Uyumlu", "Başarısız" Merhaba yapılandırma ya da hello düğümdür "Uyumlu olmayan" (Merhaba düğümü olduğunda **applyandmonitor** modu ve hello makine istenen hello durumda değil).
+* Merhaba tutarlılık denetimi için Hello başlangıç saati.
+* Merhaba toplam çalışma zamanı hello tutarlılığını denetleyin.
+* Tutarlılık Hello türünü kontrol edin.
+* Merhaba hata kodu ve hata iletisi de dahil olmak üzere tüm hatalar. 
+* Merhaba yapılandırması ve hello durumu (Merhaba düğümü bu kaynak için istenen hello durumunda olup) her bir kaynağın kullanılan DSC kaynakları — tıklayabilirsiniz her kaynak tooget daha ayrıntılı bilgi kaynağı için.
+* Merhaba adı, IP adresi ve hello düğümünün yapılandırma modu.
 
-Tıklatarak **görüntülemek ham rapor** düğümü sunucuya gönderdiği gerçek verileri görmek için. Bu verileri kullanma hakkında daha fazla bilgi için bkz: [DSC rapor sunucusu kullanarak](https://msdn.microsoft.com/powershell/dsc/reportserver).
+Tıklatarak **görüntülemek ham rapor** toohello sunucu düğümü hello toosee hello gerçek verileri gönderir. Bu verileri kullanma hakkında daha fazla bilgi için bkz: [DSC rapor sunucusu kullanarak](https://msdn.microsoft.com/powershell/dsc/reportserver).
 
-İlk rapor kullanılabilir olmadan önce bir düğümü edildi sonra biraz zaman alabilir. İlk rapor için 30 dakika sonra yerleşik bir düğüm beklemeniz gerekebilir.
+Merhaba ilk rapor kullanılabilir olmadan önce bir düğümü edildi sonra biraz zaman alabilir. Toowait too30 dakika yukarı hello ilk rapor için sonra yerleşik bir düğüm gerekebilir.
 
-## <a name="reassigning-a-node-to-a-different-node-configuration"></a>Farklı düğüm yapılandırması düğüme yeniden atama
-Başlangıçta atanan olandan farklı bir düğüme yapılandırmasını kullanmak için bir düğüm atayabilirsiniz.
+## <a name="reassigning-a-node-tooa-different-node-configuration"></a>Bir düğüm tooa farklı düğüm yapılandırması yeniden atama
+Bir başlangıçta atanan hello daha farklı düğüm yapılandırması düğüme toouse atayabilirsiniz.
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Hub menüsünde **tüm kaynakları** ve ardından Otomasyon hesabınızın adını.
-3. Üzerinde **Otomasyon hesabı** dikey penceresinde tıklatın **DSC düğümleri**.
-4. Üzerinde **DSC düğümleri** dikey penceresinde atamak istediğiniz düğümün adını tıklatın.
-5. Bu düğüm için dikey penceresinde **Ata düğümü**.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
+2. Merhaba Hub menüsünde **tüm kaynakları** ve ardından hello Otomasyon hesabınızın adını.
+3. Merhaba üzerinde **Otomasyon hesabı** dikey penceresinde tıklatın **DSC düğümleri**.
+4. Merhaba üzerinde **DSC düğümleri** dikey penceresinde hello adına tıklayın hello düğümünün tooreassign istiyor.
+5. Bu düğüm için Hello dikey penceresinde **Ata düğümü**.
    
-    ![Ata düğüm düğmesini vurgulama düğümü dikey penceresinin ekran görüntüsü](./media/automation-dsc-getting-started/AssignNode.png)
-6. Üzerinde **atamak düğüm yapılandırması** dikey penceresinde, düğüm atayın ve ardından istediğiniz düğüm yapılandırması **Tamam**.
+    ![Merhaba atamak düğüm düğmesini vurgulama hello düğümü dikey penceresinin ekran görüntüsü](./media/automation-dsc-getting-started/AssignNode.png)
+6. Merhaba üzerinde **atamak düğüm yapılandırması** dikey penceresinde, tooassign hello düğümü istediğiniz ve ardından select hello düğüm yapılandırması toowhich **Tamam**.
    
-    ![Düğüm yapılandırması atayın dikey penceresinin ekran görüntüsü](./media/automation-dsc-getting-started/AssignNodeConfig.png)
+    ![Merhaba atamak düğüm yapılandırması dikey penceresinin ekran görüntüsü](./media/automation-dsc-getting-started/AssignNodeConfig.png)
 
 ## <a name="unregistering-a-node"></a>Bir düğümün kaydı silinirken
-Azure Otomasyonu DSC tarafından yönetilmek üzere bir düğümü artık istemiyorsanız kaydını kaldırabilirsiniz.
+Azure Otomasyonu DSC tarafından yönetilen bir düğüm toobe artık istemiyorsanız kaydını kaldırabilirsiniz.
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Hub menüsünde **tüm kaynakları** ve ardından Otomasyon hesabınızın adını.
-3. Üzerinde **Otomasyon hesabı** dikey penceresinde tıklatın **DSC düğümleri**.
-4. Üzerinde **DSC düğümleri** dikey penceresinde, kaydını kaldırmak istediğiniz düğümün adını tıklatın.
-5. Bu düğüm için dikey penceresinde **Unregister**.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
+2. Merhaba Hub menüsünde **tüm kaynakları** ve ardından hello Otomasyon hesabınızın adını.
+3. Merhaba üzerinde **Otomasyon hesabı** dikey penceresinde tıklatın **DSC düğümleri**.
+4. Merhaba üzerinde **DSC düğümleri** dikey penceresinde hello adına tıklayın hello düğümünün toounregister istiyor.
+5. Bu düğüm için Hello dikey penceresinde **Unregister**.
    
-    ![Unregister düğmesi vurgulama düğümü dikey penceresinin ekran görüntüsü](./media/automation-dsc-getting-started/UnregisterNode.png)
+    ![Merhaba Unregister düğmesi vurgulama hello düğümü dikey penceresinin ekran görüntüsü](./media/automation-dsc-getting-started/UnregisterNode.png)
 
 ## <a name="related-articles"></a>İlgili makaleler
 * [Azure Otomasyonu DSC genel bakış](automation-dsc-overview.md)

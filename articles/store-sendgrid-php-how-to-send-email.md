@@ -1,6 +1,6 @@
 ---
-title: SendGrid e-posta hizmetine (PHP) kullanma | Microsoft Docs
-description: "Bilgi nasıl Azure üzerinde SendGrid e-posta hizmeti ile e-posta gönderin. PHP ile yazılan kod örnekleri."
+title: aaaHow toouse hello SendGrid e-posta hizmetine (PHP) | Microsoft Docs
+description: "Bilgi nasıl Azure'da hello SendGrid e-posta hizmeti ile e-posta gönderin. PHP ile yazılan kod örnekleri."
 documentationcenter: php
 services: 
 manager: sendgrid
@@ -14,23 +14,23 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
-ms.openlocfilehash: 523b986f66a2e48685e9707903194856f0dcf4a2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0076e56dc185cb8f52e629395e7d2c143cb5cfa9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Php'den SendGrid e-posta hizmetini kullanma
-Bu kılavuz, Azure üzerinde SendGrid e-posta hizmeti ile genel programlama görevleri gerçekleştirmek gösterilmiştir. Örnekler, PHP ile yazılmıştır.
-Kapsamdaki senaryolar dahil **e-posta oluşturma**, **e-posta gönderme**, ve **eklerini ekleme**. SendGrid ve e-posta gönderme hakkında daha fazla bilgi için bkz: [sonraki adımlar](#next-steps) bölümü.
+# <a name="how-toouse-hello-sendgrid-email-service-from-php"></a>Nasıl tooUse hello php'den SendGrid e-posta hizmeti
+Bu kılavuz, nasıl Azure hizmetine genel programlama görevleri hello SendGrid tooperform e-posta gösterir. Merhaba örnekleri PHP ile yazılmıştır.
+Merhaba kapsanan senaryolar dahil **e-posta oluşturma**, **e-posta gönderme**, ve **eklerini ekleme**. SendGrid ve e-posta gönderme hakkında daha fazla bilgi için bkz: Merhaba [sonraki adımlar](#next-steps) bölümü.
 
-## <a name="what-is-the-sendgrid-email-service"></a>SendGrid e-posta hizmeti nedir?
+## <a name="what-is-hello-sendgrid-email-service"></a>Merhaba SendGrid e-posta hizmeti nedir?
 SendGrid olan bir [bulut tabanlı e-posta hizmeti] güvenilir sağlayan [işleme uygun e-posta teslimi], ölçeklenebilirlik ve gerçek zamanlı analiz özel tümleştirme kolaylaştırmak esnek API'leri yanı sıra. Ortak SendGrid kullanım senaryoları şunları içerir:
 
-* Giriş müşterileri için otomatik olarak gönderme
+* Otomatik olarak giriş toocustomers gönderme
 * Aylık e ilanları ve özel teklifler müşteriler göndermek için dağıtım yönetme listeler
 * Engellenen e-posta ve müşteri yanıtlama gibi için gerçek zamanlı ölçümleri toplama
-* Eğilimleri belirlemenize yardımcı olmak için rapor oluşturma
+* Toohelp eğilimleri belirlemek raporları oluşturma
 * Müşteri sorguları iletme
 * Uygulamanızdan e-posta bildirimleri
 
@@ -40,21 +40,21 @@ Daha fazla bilgi için bkz: [https://sendgrid.com][https://sendgrid.com].
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="using-sendgrid-from-your-php-application"></a>SendGrid PHP uygulamanızdan kullanma
-SendGrid Azure PHP uygulamada kullanarak gerektiren hiçbir özel yapılandırma veya kodlama. SendGrid bir hizmet olduğundan, bir şirket içi uygulamasından mümkün olduğunca onu tam olarak aynı şekilde bir bulut uygulamasından erişilebilir.
+SendGrid Azure PHP uygulamada kullanarak gerektiren hiçbir özel yapılandırma veya kodlama. SendGrid bir hizmet olduğundan, tam olarak hello erişilebileceğini aynı şekilde, bir bulut uygulamasından bir şirket içi uygulama olabilir.
 
 ## <a name="how-to-send-an-email"></a>Nasıl yapılır: bir e-posta Gönder
-SMTP ya da SendGrid tarafından sağlanan Web API kullanarak e-posta gönderebilirsiniz.
+SMTP ya da hello SendGrid tarafından sağlanan Web API kullanarak e-posta gönderebilirsiniz.
 
 ### <a name="smtp-api"></a>SMTP API
-SendGrid SMTP API kullanarak e-posta göndermek için kullanmak *Swift kullanılmasının*, PHP uygulamalarından e-postaları göndermek için bileşen tabanlı bir kitaplığı. İndirebilirsiniz *Swift kullanılmasının* kitaplığından [http://swiftmailer.org/download] [ http://swiftmailer.org/download] v5.3.0 (kullanmak [Oluşturucu] Swift yüklemek için Kullanılmasının). E-posta kitaplığı ile gönderme içerir örneklerini oluşturmaya <span class="auto-style2">Swift\_SmtpTransport</span>, <span class="auto-style2">Swift\_kullanılmasının</span>, ve <span class="auto-style2">Swift\_iletisi </span> uygun özelliklerini ayarlama ve çağırma sınıfları <span class="auto-style2">Swift\_Mailer::send</span> yöntemi.
+Merhaba SendGrid SMTP API, kullanım kullanarak toosend e-posta *Swift kullanılmasının*, PHP uygulamalarından e-postaları göndermek için bileşen tabanlı bir kitaplığı. Merhaba indirebilirsiniz *Swift kullanılmasının* kitaplığından [http://swiftmailer.org/download] [ http://swiftmailer.org/download] v5.3.0 (kullanmak [Oluşturucu] tooinstall SWIFT kullanılmasının). Merhaba kitaplığı ile e-posta gönderme içerir örneklerini oluşturmaya <span class="auto-style2">Swift\_SmtpTransport</span>, <span class="auto-style2">Swift\_kullanılmasının</span>, ve <span class="auto-style2">Swift\_iletisi </span> uygun özelliklerini ayarlama ve çağırma sınıfları <span class="auto-style2">Swift\_Mailer::send</span> yöntemi.
 
     <?php
      include_once "vendor/autoload.php";
      /*
-      * Create the body of the message (a plain-text and an HTML version).
+      * Create hello body of hello message (a plain-text and an HTML version).
       * $text is your plain-text email
-      * $html is your html version of the email
-      * If the receiver is able to view html emails then only the html
+      * $html is your html version of hello email
+      * If hello receiver is able tooview html emails then only hello html
       * email will be displayed
       */
      $text = "Hi!\nHow are you?\n";
@@ -67,9 +67,9 @@ SendGrid SMTP API kullanarak e-posta göndermek için kullanmak *Swift kullanıl
            </body>
            </html>";
      // This is your From email address
-     $from = array('someone@example.com' => 'Name To Appear');
+     $from = array('someone@example.com' => 'Name tooAppear');
      // Email recipients
-     $to = array(
+     $too= array(
            'john@contoso.com'=>'Destination 1 Name',
            'anna@contoso.com'=>'Destination 2 Name'
      );
@@ -89,7 +89,7 @@ SendGrid SMTP API kullanarak e-posta göndermek için kullanmak *Swift kullanıl
      // Create a message (subject)
      $message = new Swift_Message($subject);
 
-     // attach the body of the email
+     // attach hello body of hello email
      $message->setFrom($from);
      $message->setBody($html, 'text/html');
      $message->setTo($to);
@@ -99,7 +99,7 @@ SendGrid SMTP API kullanarak e-posta göndermek için kullanmak *Swift kullanıl
      if ($recipients = $swift->send($message, $failures))
      {
          // This will let us know how many users received this message
-         echo 'Message sent out to '.$recipients.' users';
+         echo 'Message sent out too'.$recipients.' users';
      }
      // something went wrong =(
      else
@@ -109,7 +109,7 @@ SendGrid SMTP API kullanarak e-posta göndermek için kullanmak *Swift kullanıl
      }
 
 ### <a name="web-api"></a>Web API
-PHP'ın kullanmak [curl işlevi] [ curl function] SendGrid Web API kullanarak e-posta göndermek için.
+PHP'ın kullanmak [curl işlevi] [ curl function] toosend e-posta kullanarak hello SendGrid Web API.
 
     <?php
 
@@ -132,13 +132,13 @@ PHP'ın kullanmak [curl işlevi] [ curl function] SendGrid Web API kullanarak e-
      // Generate curl request
      $session = curl_init($request);
 
-     // Tell curl to use HTTP POST
+     // Tell curl toouse HTTP POST
      curl_setopt ($session, CURLOPT_POST, true);
 
-     // Tell curl that this is the body of the POST
+     // Tell curl that this is hello body of hello POST
      curl_setopt ($session, CURLOPT_POSTFIELDS, $params);
 
-     // Tell curl not to return headers, but do return the response
+     // Tell curl not tooreturn headers, but do return hello response
      curl_setopt($session, CURLOPT_HEADER, false);
      curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
 
@@ -149,19 +149,19 @@ PHP'ın kullanmak [curl işlevi] [ curl function] SendGrid Web API kullanarak e-
      // print everything out
      print_r($response);
 
-Bunu gerçek anlamda bir RESTful API'si çoğu çağrıları, hem GET ve POST fiiller birbirinin yerine kullanılabilir olduğundan, olmasa da SendGrid'ın Web API'sini bir REST API için çok benzer.
+Bunu gerçek anlamda bir RESTful API'si çoğu çağrıları, hem GET ve POST fiiller birbirinin yerine kullanılabilir olduğundan, olmasa da SendGrid'ın Web API çok benzer tooa REST API'dır.
 
 ## <a name="how-to-add-an-attachment"></a>Nasıl yapılır: bir eki ekleyin
 ### <a name="smtp-api"></a>SMTP API
-SMTP API kullanarak bir ek gönderirken bir ek Swift kullanılmasının içeren bir e-posta göndermek için örnek komut dosyası için kod satırı gerektirir.
+Merhaba SMTP API kullanarak bir ek gönderme Swift kullanılmasının içeren bir e-posta göndermek için kod toohello örnek betik, ek bir satır içerir.
 
     <?php
      include_once "vendor/autoload.php";
      /*
-      * Create the body of the message (a plain-text and an HTML version).
+      * Create hello body of hello message (a plain-text and an HTML version).
       * $text is your plain-text email
-      * $html is your html version of the email
-      * If the reciever is able to view html emails then only the html
+      * $html is your html version of hello email
+      * If hello reciever is able tooview html emails then only hello html
       * email will be displayed
       */
      $text = "Hi!\nHow are you?\n";
@@ -175,10 +175,10 @@ SMTP API kullanarak bir ek gönderirken bir ek Swift kullanılmasının içeren 
           </html>";
 
      // This is your From email address
-     $from = array('someone@example.com' => 'Name To Appear');
+     $from = array('someone@example.com' => 'Name tooAppear');
 
      // Email recipients
-     $to = array(
+     $too= array(
           'john@contoso.com'=>'Destination 1 Name',
           'anna@contoso.com'=>'Destination 2 Name'
      );
@@ -198,7 +198,7 @@ SMTP API kullanarak bir ek gönderirken bir ek Swift kullanılmasının içeren 
      // Create a message (subject)
      $message = new Swift_Message($subject);
 
-     // attach the body of the email
+     // attach hello body of hello email
      $message->setFrom($from);
      $message->setBody($html, 'text/html');
      $message->setTo($to);
@@ -209,7 +209,7 @@ SMTP API kullanarak bir ek gönderirken bir ek Swift kullanılmasının içeren 
      if ($recipients = $swift->send($message, $failures))
      {
           // This will let us know how many users received this message
-          echo 'Message sent out to '.$recipients.' users';
+          echo 'Message sent out too'.$recipients.' users';
      }
      // something went wrong =(
      else
@@ -218,14 +218,14 @@ SMTP API kullanarak bir ek gönderirken bir ek Swift kullanılmasının içeren 
           print_r($failures);
      }
 
-Ek kod satırı ile aşağıdaki gibidir:
+Merhaba ek kod satırı aşağıdaki gibidir:
 
      $message->attach(Swift_Attachment::fromPath("path\to\file")->setFileName('file_name'));
 
-Attach yöntemi çağırır Bu kod satırı <span class="auto-style2">Swift\_ileti</span> nesne ve statik bir yöntem <span class="auto-style2">fromPath</span> üzerinde <span class="auto-style2">Swift\_ek</span> almak ve bir dosyayı iletiye sınıfı.
+Bu satırı kodu çağrıları Merhaba, üzerinde yöntemi ekleme <span class="auto-style2">Swift\_ileti</span> nesne ve statik bir yöntem <span class="auto-style2">fromPath</span> üzerinde <span class="auto-style2">Swift\_ek</span>sınıfı tooget ve bir dosya tooa iletisi ekleyin.
 
 ### <a name="web-api"></a>Web API
-Web API kullanarak bir ek gönderme, Web API kullanarak bir e-posta göndermek için çok benzer. Ancak, aşağıdaki örnekte, bu öğe parametre dizisi içermesi gerektiğini unutmayın:
+Çok benzer toosending Hello Web API kullanarak bir ek göndermeyi kullanarak bir e-posta hello Web API. Ancak, izleyen hello örnekte hello parametre dizisi bu öğe içermesi gerektiğini unutmayın:
 
     'files['.$fileName.']' => '@'.$filePath.'/'.$fileName
 
@@ -245,8 +245,8 @@ Web API kullanarak bir ek gönderme, Web API kullanarak bir e-posta göndermek i
          'api_key' => $pass,
          'to' =>'john@contoso.com',
          'subject' => 'test of file sends',
-         'html' => '<p> the HTML </p>',
-         'text' => 'the plain text',
+         'html' => '<p> hello HTML </p>',
+         'text' => 'hello plain text',
          'from' => 'anna@contoso.com',
          'files['.$fileName.']' => '@'.$filePath.'/'.$fileName
      );
@@ -258,13 +258,13 @@ Web API kullanarak bir ek gönderme, Web API kullanarak bir e-posta göndermek i
      // Generate curl request
      $session = curl_init($request);
 
-     // Tell curl to use HTTP POST
+     // Tell curl toouse HTTP POST
      curl_setopt ($session, CURLOPT_POST, true);
 
-     // Tell curl that this is the body of the POST
+     // Tell curl that this is hello body of hello POST
      curl_setopt ($session, CURLOPT_POSTFIELDS, $params);
 
-     // Tell curl not to return headers, but do return the response
+     // Tell curl not tooreturn headers, but do return hello response
      curl_setopt($session, CURLOPT_HEADER, false);
      curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
 
@@ -275,12 +275,12 @@ Web API kullanarak bir ek gönderme, Web API kullanarak bir e-posta göndermek i
      // print everything out
      print_r($response);
 
-## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>Nasıl yapılır: altbilgi, izleme ve analiz etkinleştirmek için filtreleri kullanın
-SendGrid 'filtre' kullanımı ile ek e-posta işlevselliği sağlar. Bu izleme'ye tıklayın, Google analytics, izleme abonelik ve benzeri etkinleştirme gibi belirli işlevleri etkinleştirmek için e-posta iletisine eklenecek ayarlardır.
+## <a name="how-to-use-filters-tooenable-footers-tracking-and-analytics"></a>Nasıl yapılır: kullanım filtreleri tooEnable altbilgiler, izleme ve analizi
+SendGrid 'filtrelerin' hello kullanımı aracılığıyla ek e-posta işlevselliği sağlar. İzleme'ye tıklayın, Google analytics, izleme, aboneliği etkinleştirme gibi belirli işlevleri etkinleştirmek için tooan e-posta iletisi eklenebilir ayarları bunlar ve benzeri.
 
-Filtreler filtreleri özelliğini kullanarak bir iletiye uygulanabilir. Her filtre filtre özgü ayarları içeren bir karma tarafından belirtilir. Aşağıdaki örnek altbilgi filtresini etkinleştirir ve e-posta iletisi sonuna eklenecek bir kısa mesaj belirtir.
+Filtreler hello filtreleri özelliğini kullanarak uygulanan tooa ileti olabilir. Her filtre filtre özgü ayarları içeren bir karma tarafından belirtilir. Aşağıdaki örnek hello altbilgi filtresini etkinleştirir ve olacak bir kısa mesaj hello e-posta iletisi toohello sonuna eklenen belirtir.
 Bu örnek için kullanacağız [sendgrid php Kitaplığı].
-Kullanım [Oluşturucu] Kitaplığı'nı yüklemek için:
+Kullanım [Oluşturucu] tooinstall kitaplığı:
 
     php composer.phar require sendgrid/sendgrid 2.1.1
 
@@ -293,17 +293,17 @@ Kullanım [Oluşturucu] Kitaplığı'nı yüklemek için:
      include "vendor/autoload.php";
 
      $email = new SendGrid\Email();
-     // The list of addresses this message will be sent to
-     // [This list is used for sending multiple emails using just ONE request to SendGrid]
+     // hello list of addresses this message will be sent to
+     // [This list is used for sending multiple emails using just ONE request tooSendGrid]
      $toList = array('john@contoso.com', 'anna@contoso.com');
 
-     // Specify the names of the recipients
+     // Specify hello names of hello recipients
      $nameList = array('Name 1', 'Name 2');
 
      // Used as an example of variable substitution
      $timeList = array('4 PM', '5 PM');
 
-     // Set all of the above variables
+     // Set all of hello above variables
      $email->setTos($toList);
      $email->addSubstitution('-name-', $nameList);
      $email->addSubstitution('-time-', $timeList);
@@ -312,34 +312,34 @@ Kullanım [Oluşturucu] Kitaplığı'nı yüklemek için:
      $email->addCategory("initial");
 
      // You can optionally setup individual filters here, in this example, we have
-     // enabled the footer filter
+     // enabled hello footer filter
      $email->addFilter('footer', 'enable', 1);
      $email->addFilter('footer', "text/plain", "Thank you for your business");
      $email->addFilter('footer', "text/html", "Thank you for your business");
 
-     // The subject of your email
+     // hello subject of your email
      $subject = 'Example SendGrid Email';
 
      // Where is this message coming from. For example, this message can be from
      // support@yourcompany.com, info@yourcompany.com
      $from = 'someone@example.com';
 
-     // If you do not specify a sender list above, you can specifiy the user here. If
+     // If you do not specify a sender list above, you can specifiy hello user here. If
      // a sender list IS specified above, this email address becomes irrelevant.
-     $to = 'john@contoso.com';
+     $too= 'john@contoso.com';
 
-     # Create the body of the message (a plain-text and an HTML version).
+     # Create hello body of hello message (a plain-text and an HTML version).
      # text is your plain-text email
-     # html is your html version of the email
-     # if the receiver is able to view html emails then only the html
+     # html is your html version of hello email
+     # if hello receiver is able tooview html emails then only hello html
      # email will be displayed
 
      /*
-      * Note the variable substitution here =)
+      * Note hello variable substitution here =)
       */
      $text = "
      Hello -name-,
-     Thank you for your interest in our products. We have set up an appointment to call you at -time- EST to discuss your needs in more detail.
+     Thank you for your interest in our products. We have set up an appointment toocall you at -time- EST toodiscuss your needs in more detail.
      Regards,
      Fred";
 
@@ -349,7 +349,7 @@ Kullanım [Oluşturucu] Kitaplığı'nı yüklemek için:
      <body>
      <p>Hello -name-,<br>
      Thank you for your interest in our products. We have set up an appointment
-     to call you at -time- EST to discuss your needs in more detail.
+     toocall you at -time- EST toodiscuss your needs in more detail.
 
      Regards,
 
@@ -361,7 +361,7 @@ Kullanım [Oluşturucu] Kitaplığı'nı yüklemek için:
      // set subject
      $email->setSubject($subject);
 
-     // attach the body of the email
+     // attach hello body of hello email
      $email->setFrom($from);
      $email->setHtml($html);
      $email->addTo($to);
@@ -380,13 +380,13 @@ Kullanım [Oluşturucu] Kitaplığı'nı yüklemek için:
      print_r($response);
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-SendGrid e-posta hizmeti temel bilgileri öğrendiğinize göre daha fazla bilgi için aşağıdaki bağlantıları izleyin.
+Merhaba SendGrid e-posta hizmeti hello temellerini öğrendiğinize göre daha fazla bu bağlantılar toolearn izleyin.
 
 * SendGrid belgeleri: <https://sendgrid.com/docs>
 * SendGrid PHP kitaplığı: <https://github.com/sendgrid/sendgrid-php>
 * SendGrid özel teklif Azure müşteriler: <https://sendgrid.com/windowsazure.html>
 
-Daha fazla bilgi için Ayrıca bkz. [PHP Geliştirici Merkezi](/develop/php/).
+Daha fazla bilgi için hello Ayrıca bkz. [PHP Geliştirici Merkezi](/develop/php/).
 
 [https://sendgrid.com]: https://sendgrid.com
 [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing

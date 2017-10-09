@@ -1,6 +1,6 @@
 ---
-title: "Verileri karşıya yükleme (REST API - Azure Search) | Microsoft Docs"
-description: "REST API kullanarak Azure Search'te bir dizine nasıl veri yükleneceğini öğrenin."
+title: "aaa \"verileri (REST API - Azure Search) yükleme | Microsoft Docs\""
+description: "REST API kullanarak Azure Search tooupload veri tooan dizini hello nasıl öğrenin."
 services: search
 documentationcenter: 
 author: ashmaka
@@ -15,13 +15,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-ms.openlocfilehash: f22a33ed86fbfc46dfa732239263a49f34c4afee
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 6ba1336012d1f0f6d6d6c933e16aa879afb9b824
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="upload-data-to-azure-search-using-the-rest-api"></a>REST API kullanarak Azure Search'e veri yükleme
+# <a name="upload-data-tooazure-search-using-hello-rest-api"></a>Karşıya veri tooAzure arama'yı kullanarak hello REST API'si
 > [!div class="op_single_selector"]
 >
 > * [Genel Bakış](search-what-is-data-import.md)
@@ -30,43 +30,43 @@ ms.lasthandoff: 08/03/2017
 >
 >
 
-Bu makalede, bir Azure Search dizinine veri aktarmak için [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/)'sinin nasıl kullanılacağı gösterilir.
+Bu makale size nasıl gösterir toouse hello [Azure Search REST API'sini](https://docs.microsoft.com/rest/api/searchservice/) tooimport verileri Azure Search dizini.
 
 Bu kılavuza başlamadan önce bir [Azure Search dizini oluşturmuş](search-what-is-an-index.md) olmanız gerekir.
 
-REST API kullanarak dizininize belgeleri göndermek için dizininizin URL uç noktasına bir HTTP POST isteği gönderirsiniz. HTTP isteğinin gövdesi eklenecek, değiştirilecek veya silinecek belgeleri içeren bir JSON nesnesidir.
+Sipariş toopush belgelerde hello REST API kullanarak dizininizi içine bir HTTP POST isteği tooyour dizinin URL uç gönderirsiniz. Merhaba gövdesi hello HTTP istek gövdesi toobe eklenen, değiştirilen veya silinen hello belgeleri içeren bir JSON nesnesidir.
 
 ## <a name="identify-your-azure-search-services-admin-api-key"></a>Azure Search hizmet yöneticinizin api anahtarını tanımlama
-REST API kullanarak hizmetinize karşı HTTP istekleri gönderirken, *her bir* API isteğinin sağladığınız Search hizmeti için oluşturulmuş api anahtarını içermesi gerekir. İstek başına geçerli bir anahtara sahip olmak, isteği gönderen uygulama ve bunu işleyen hizmet arasında güven oluşturur.
+Merhaba REST API kullanarak hizmetinize karşı HTTP istekleri gönderirken *her* API isteğinin sağladığınız Search Hizmeti hello için oluşturulan hello API-anahtarını içermesi gerekir. Geçerli bir anahtar sahip istek başına temelinde, hello isteği gönderiliyor hello uygulama ve bunu işleyen hello hizmeti arasında güven oluşturur.
 
-1. Hizmetinizin api anahtarlarını bulmak için [Azure portalında](https://portal.azure.com/) oturum açabilirsiniz
-2. Azure Search hizmetinizin dikey penceresine gidin
-3. "Anahtarlar" simgesine tıklayın
+1. toofind hizmetinizin api anahtarlarından, toohello kaydolabilirsiniz [Azure portalı](https://portal.azure.com/)
+2. Tooyour Azure Search hizmet dikey penceresine gidin
+3. Merhaba üzerinde "Anahtarlar" simgesine tıklayın
 
 Hizmetiniz, *yönetici anahtarlarına* ve *sorgu anahtarlarına* sahiptir.
 
-* Birincil ve ikincil *yönetici anahtarlarınız*; hizmeti yönetme, dizinler, dizin oluşturucular ve veri kaynakları ekleme ve silme de dahil olmak üzere her türlü işlem için tüm hakları verir. Birincil anahtarı yeniden oluşturmaya karar verirseniz ikincil anahtarı kullanmaya devam edebilmeniz ve tam tersini yapabilmeniz için iki anahtar vardır.
-* *Sorgu anahtarları*, dizinler ve belgeler için salt okunur erişim verir ve genellikle, arama istekleri gönderen istemci uygulamalarına dağıtılır.
+* Birincil ve ikincil *yönetici anahtarları* tooall operations hello özelliği toomanage hello hizmeti dahil olmak üzere, tam haklar, oluşturun ve dizinler, dizin oluşturucular ve veri kaynaklarını silin. Tooregenerate hello birincil anahtar ve tam tersini karar verirseniz toouse hello ikincil anahtar devam edebilmesi için bu iki anahtar vardır.
+* *Sorgu anahtarları* salt okunur erişim tooindexes ve belgeleri verin ve arama istekleri gönderen genellikle dağıtılmış tooclient uygulamalardır.
 
-Bir dizine veri aktarma amacıyla birincil ya da ikincil yönetici anahtarınızı kullanabilirsiniz.
+Merhaba amacıyla bir dizine veri alma ya da kullanabilirsiniz, birincil veya ikincil yönetici anahtarınızı.
 
-## <a name="decide-which-indexing-action-to-use"></a>Hangi dizin oluşturma eyleminin kullanılacağına karar verme
-REST API kullanırken, Azure Search dizininizin uç nokta URL'sine JSON istek gövdelerine sahip HTTP POST istekleri gönderirsiniz. HTTP istek gövdenizdeki JSON nesnesi, dizininize eklemek, güncelleştirmek veya silmek istediğiniz belgeleri temsil eden JSON nesnelerini içeren "value" adlı tek bir JSON dizisi içerir.
+## <a name="decide-which-indexing-action-toouse"></a>Hangi dizin oluşturma eylemini toouse karar verin
+Merhaba REST API kullanırken, JSON istek gövdesi tooyour Azure Search dizinine ait uç nokta URL'si ile HTTP POST istekleri gönderirsiniz. HTTP isteği gövdesinin Hello JSON nesnesinde, tek bir JSON dizisi içerecek "tooadd tooyour dizin istediğiniz belgeleri temsil eden JSON nesnelerini içeren değer" adlı, güncelleştirme veya silme.
 
-"value" dizisindeki her bir JSON nesnesi, dizine alınacak bir belgeyi temsil eder. Bu nesnelerin her biri belgenin anahtarını içerir ve istenen dizin oluşturma eylemini (karşıya yükleme, birleştirme, silme, vb.) belirtir. Yukarıdaki eylemlerden hangisini seçtiğinize bağlı olarak, her bir belgeye yalnızca belirli alanlar dahil edilmelidir:
+Merhaba "value" dizisindeki her bir JSON nesnesi, dizine bir belge toobe temsil eder. Bu nesnelerin her biri hello belgenin anahtarını içerir ve istenen hello dizin oluşturma eylemini (karşıya yükleme, birleştirme, silme, vb.) belirtir. Seçtiğiniz Eylemler aşağıda hello bağlı olarak, yalnızca belirli alanlar her belge için dahil edilmelidir:
 
 | @search.action | Açıklama | Her bir belge için gerekli alanlar | Notlar |
 | --- | --- | --- | --- |
-| `upload` |Bir `upload` eylemi, belgenin yeni olması durumunda ekleneceği ve var olması durumunda güncelleştirileceği/değiştirileceği bir "upsert" ile benzerlik gösterir. |anahtar ve tanımlamak istediğiniz diğer alanlar |Var olan bir belgeyi güncelleştirirken/değiştirirken istekte belirtilmeyen herhangi bir alan `null` olarak ayarlanır. Bu durum, alan daha önce değersiz olmayan bir değere ayarlanmış olsa dahi gerçekleşir. |
-| `merge` |Var olan belgeyi belirtilen alanlarla güncelleştirir. Belge dizinde mevcut değilse birleştirme işlemi başarısız olur. |anahtar ve tanımlamak istediğiniz diğer alanlar |Birleştirmede belirttiğiniz herhangi bir alan belgede var olan alanın yerini alır. Buna `Collection(Edm.String)` türünde alanlar dahildir. Örneğin, belge `["budget"]` değerine sahip bir `tags` alanını içeriyorsa ve `tags` için `["economy", "pool"]` değeriyle bir birleştirme yürütürseniz `tags` alanının son değeri `["economy", "pool"]` olur. `["budget", "economy", "pool"]` olmayacaktır. |
-| `mergeOrUpload` |Belirtilen anahtara sahip bir belge dizinde zaten mevcutsa bu eylem `merge` gibi davranır. Belge mevcut değilse yeni bir belgeyle `upload` gibi davranır. |anahtar ve tanımlamak istediğiniz diğer alanlar |- |
-| `delete` |Belirtilen belgeyi dizinden kaldırır. |yalnızca anahtar |Anahtar alanı dışında belirttiğiniz tüm alanlar yoksayılır. Bir belgeden tek bir alanı kaldırmak istiyorsanız bunun yerine `merge` kullanıp alanı açık bir şekilde null olarak ayarlamanız yeterlidir. |
+| `upload` |Bir `upload` benzer tooan "upsert" nerede hello belgenin yeni olması durumunda ekleneceği ve olması mevcut durumunda güncelleştirileceği/değiştirileceği bir eylemdir. |anahtar ve toodefine istediğiniz diğer alanlar |Güncelleştirme/var olan bir belgeyi değiştirirken, hello istekte belirtilen olmayan herhangi bir alan kendi alan çok kümesini sahip`null`. Bu durum, hatta hello alan tooa null olmayan değer önceden ayarlandı oluşur. |
+| `merge` |Varolan bir belge ile Merhaba güncelleştirmeleri alanları belirtilmiş. Merhaba belge hello dizininde mevcut değilse hello birleştirme işlemi başarısız olur. |anahtar ve toodefine istediğiniz diğer alanlar |Birleştirmede belirttiğiniz herhangi bir alan varolan bir alana hello hello belgedeki yerini alır. Buna `Collection(Edm.String)` türünde alanlar dahildir. Örneğin, hello belge bir alanı varsa, `tags` değerle `["budget"]` ve değeriyle bir birleştirme yürütme `["economy", "pool"]` için `tags`, hello hello son değerini `tags` alan `["economy", "pool"]`. `["budget", "economy", "pool"]` olmayacaktır. |
+| `mergeOrUpload` |Bu eylem gibi davranır `merge` anahtar zaten verilen hello belgeyle hello dizinde varsa. Merhaba belge mevcut değilse gibi davranır `upload` yeni bir belgeyle. |anahtar ve toodefine istediğiniz diğer alanlar |- |
+| `delete` |Merhaba belirtilen belge hello dizinden kaldırır. |yalnızca anahtar |Merhaba anahtar alanı yoksayılacak dışında belirttiğiniz tüm alanlar. Bir belgeden tek bir alanı tooremove istiyorsanız kullanın `merge` yerine ve basit şekilde hello alan açık olarak ayarlanıp toonull. |
 
 ## <a name="construct-your-http-request-and-request-body"></a>HTTP isteğinizi ve istek gövdenizi oluşturma
-Artık dizin eylemleriniz için gerekli alan değerlerini topladığınıza göre, verilerinizi içeri aktarmak için asıl HTTP isteğini ve JSON istek gövdesini oluşturmaya hazırsınız.
+Dizin eylemleriniz için hello gerekli alan değerlerini topladıktan, hazır tooconstruct hello asıl HTTP isteğini olan ve JSON istek gövdesi tooimport verilerinizi.
 
 #### <a name="request-and-request-headers"></a>İstek ve İstek Üst Bilgileri
-URL'de hizmet adınızın ve dizin adının (bu durumda "hotels") yanı sıra düzgün API sürümünü (bu belgenin yayımlandığı sırada geçerli API sürümü `2016-09-01`) de sağlamanız gerekir. `Content-Type` ve `api-key` istek üst bilgilerini tanımlamanız gerekir. İkincisi için hizmetinizin yönetici anahtarlarından birini kullanın.
+Merhaba URL'de tooprovide, hizmet adı, dizin adı (Bu durumda "hotels") yanı sıra düzgün API sürümünü hello gerekir (Merhaba geçerli API sürümü `2016-09-01` bu belgenin yayımlandığı hello zaman). Toodefine hello gerekir `Content-Type` ve `api-key` istek üstbilgileri. İkinci Hello için hizmetinizin yönetici anahtarlarından birini kullanın.
 
     POST https://[search service].search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01
     Content-Type: application/json
@@ -110,7 +110,7 @@ URL'de hizmet adınızın ve dizin adının (bu durumda "hotels") yanı sıra d�
             "@search.action": "mergeOrUpload",
             "hotelId": "3",
             "baseRate": 129.99,
-            "description": "Close to town hall and the river"
+            "description": "Close tootown hall and hello river"
         },
         {
             "@search.action": "delete",
@@ -122,13 +122,13 @@ URL'de hizmet adınızın ve dizin adının (bu durumda "hotels") yanı sıra d�
 
 Bu durumda arama eylemlerimiz olarak `upload`, `mergeOrUpload` ve `delete` kullanıyoruz.
 
-Bu "hotels" dizini örneğinin, birçok belgeyle önceden doldurulduğunu varsayın. `mergeOrUpload` kullanırken olası tüm belge alanlarını belirtmek zorunda kalmadığımıza ve `delete` kullanırken yalnızca belge anahtarını (`hotelId`) belirttiğimize dikkat edin.
+Bu "hotels" dizini örneğinin, birçok belgeyle önceden doldurulduğunu varsayın. Nasıl biz toospecify tüm hello olası belge alanlarını kullanırken sahip değildi Not `mergeOrUpload` ve yalnızca hello belge anahtarını belirttiğimize (`hotelId`) kullanırken `delete`.
 
-Ayrıca, tek bir dizin oluşturma isteğine yalnızca en fazla 1000 belge (veya 16 MB) dahil edebileceğinizi unutmayın.
+Ayrıca, yalnızca too1000 belgeleri (veya 16 MB) tek bir dizin oluşturma isteğine dahil edebileceğinizi unutmayın.
 
 ## <a name="understand-your-http-response-code"></a>HTTP yanıt kodunuzu anlama
 #### <a name="200"></a>200
-Başarılı bir dizin oluşturma isteği gönderdikten sonra `200 OK` durum koduna sahip bir HTTP yanıtı alırsınız. HTTP yanıtının JSON gövdesi aşağıdaki gibidir:
+Başarılı bir dizin oluşturma isteği gönderdikten sonra `200 OK` durum koduna sahip bir HTTP yanıtı alırsınız. Merhaba hello HTTP yanıtının JSON gövdesi aşağıdaki gibi olur:
 
 ```JSON
 {
@@ -144,7 +144,7 @@ Başarılı bir dizin oluşturma isteği gönderdikten sonra `200 OK` durum kodu
 ```
 
 #### <a name="207"></a>207
-En az bir öğenin dizine alınması başarısız olduğunda `207` durum kodu döndürülür. HTTP yanıtının JSON gövdesi, başarısız belge/belgeler hakkında bilgiler içerir.
+En az bir öğenin dizine alınması başarısız olduğunda `207` durum kodu döndürülür. Merhaba hello HTTP yanıtının JSON gövdesi hello başarısız belgeler hakkındaki bilgileri içerir.
 
 ```JSON
 {
@@ -152,7 +152,7 @@ En az bir öğenin dizine alınması başarısız olduğunda `207` durum kodu d�
         {
             "key": "unique_key_of_document",
             "status": false,
-            "errorMessage": "The search service is too busy to process this document. Please try again later."
+            "errorMessage": "hello search service is too busy tooprocess this document. Please try again later."
         },
         ...
     ]
@@ -160,22 +160,22 @@ En az bir öğenin dizine alınması başarısız olduğunda `207` durum kodu d�
 ```
 
 > [!NOTE]
-> Bu durum genellikle, arama hizmetinizdeki yükün, dizin oluşturma isteklerinin `503` yanıtları döndürmeye başlayacağı bir noktaya eriştiği anlamına gelir. Bu durumda, istemci kodunuzun geri alınmasını ve yeniden denemeden önce beklenmesini kesinlikle öneririz. Böylece kurtulması için sisteme biraz zaman tanınmış ve gelecekteki isteklerin başarılı olma şansı artırılmış olur. İsteklerinizi hızla yeniden denemeniz bu durumu yalnızca uzatır.
+> Bu genellikle hello yük gelir aramanızı hizmet burada dizin oluşturma isteklerinin başlayacak tooreturn bir noktaya eriştiği `503` yanıtlar. Bu durumda, istemci kodunuzun geri alınmasını ve yeniden denemeden önce beklenmesini kesinlikle öneririz. Gelecekteki isteklerin başarılı olma hello şansı artırılmış bazı zaman toorecover hello sistem verir. İsteklerinizi hızla yeniden hello durumu yalnızca uzatır.
 >
 >
 
 #### <a name="429"></a>429
-Dizin başına belge sayısı kotanızı aştığınızda `429` durum kodu döndürülür.
+Durum kodu `429` hello dizin başına belge sayısı kotanızı aştığınızda döndürülür.
 
 #### <a name="503"></a>503
-İstekteki öğelerin hiçbiri başarılı bir şekilde dizine alınamazsa `503` durum kodu döndürülür. Bu hata, sistemin aşırı yüklü olduğu ve isteğinizin şu anda işlenemediği anlamına gelir.
+Durum kodu `503` hello isteği hello öğelerde hiçbiri başarılı bir şekilde dizine alınamazsa döndürülür. Bu hata, ağır yük altında hello sistemidir ve isteğiniz şu anda işlenemiyor anlamına gelir.
 
 > [!NOTE]
-> Bu durumda, istemci kodunuzun geri alınmasını ve yeniden denemeden önce beklenmesini kesinlikle öneririz. Böylece kurtulması için sisteme biraz zaman tanınmış ve gelecekteki isteklerin başarılı olma şansı artırılmış olur. İsteklerinizi hızla yeniden denemeniz bu durumu yalnızca uzatır.
+> Bu durumda, istemci kodunuzun geri alınmasını ve yeniden denemeden önce beklenmesini kesinlikle öneririz. Gelecekteki isteklerin başarılı olma hello şansı artırılmış bazı zaman toorecover hello sistem verir. İsteklerinizi hızla yeniden hello durumu yalnızca uzatır.
 >
 >
 
 Belge eylemleri ve başarı/hata yanıtları hakkında daha fazla bilgi için lütfen bkz. [Belge Ekleme, Güncelleştirme veya Silme](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents). Hata durumunda döndürülebilen diğer HTTP durum kodları hakkında daha fazla bilgi için bkz. [HTTP durum kodları (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Search dizininizi doldurduktan sonra, belgeleri aramak için sorgu göndermeye başlamaya hazır olursunuz. Ayrıntılı bilgi için bkz. [Azure Search Dizininizi Sorgulama](search-query-overview.md).
+Azure Search dizininizi doldurduktan sonra belgeler için sorguları toosearch veren hazır toostart olacaktır. Ayrıntılı bilgi için bkz. [Azure Search Dizininizi Sorgulama](search-query-overview.md).

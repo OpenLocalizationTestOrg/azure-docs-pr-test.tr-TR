@@ -1,6 +1,6 @@
 ---
-title: "Azure IOT Hub cihaz Yönetimi (Java) ile çalışmaya başlama | Microsoft Docs"
-description: "Uzak aygıt yeniden başlatma işlemi başlatmak için Azure IOT Hub cihaz yönetimini kullanma Doğrudan bir yöntem ve Azure IOT hizmeti doğrudan yöntemini çağıran bir hizmet uygulaması uygulamak için Java SDK'sını içeren bir sanal cihaz uygulamasının uygulamak için Azure IOT cihaz SDK'sı Java için kullanın."
+title: "aaaGet başlatılan ile Azure IOT Hub cihaz Yönetimi (Java) | Microsoft Docs"
+description: "Nasıl toouse Azure IOT Hub cihaz Yönetimi tooinitiate uzaktaki bir aygıtı yeniden başlatın. Java tooimplement doğrudan yöntemi ve hello Java tooimplement hello doğrudan yöntemini çağıran bir hizmet uygulaması için Azure IOT hizmeti SDK'sını içeren sanal cihaz uygulaması için hello Azure IOT cihaz SDK'sını kullanın."
 services: iot-hub
 documentationcenter: .java
 author: dominicbetts
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: c75635f366f5ced4bf91792d1a905dd6aab8ed79
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 7aaeda9d4ff7002e5c66adfd61e2dfd5bcea964f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-device-management-java"></a>Aygıt Yönetimi (Java) ile çalışmaya başlama
 
@@ -25,57 +25,57 @@ ms.lasthandoff: 08/18/2017
 
 Bu öğretici şunların nasıl yapıldığını gösterir:
 
-* IOT hub'ı oluşturun ve IOT hub'ınızda bir cihaz kimliği oluşturma için Azure Portalı'nı kullanın.
-* Cihaz yeniden başlatmak için doğrudan bir yöntem uygulayan bir sanal cihaz uygulaması oluşturursunuz. Doğrudan yöntemleri buluttan çağrılır.
-* IOT hub'ınız aracılığıyla sanal cihaz uygulama yeniden başlatma doğrudan yöntemini çağıran bir uygulama oluşturun. Bu uygulama daha sonra yeniden başlatma işlemi tamamlandığında görmek için aygıt bildirilen özelliklerinden izler.
+* IOT hub'ınızda bir cihaz kimliği oluşturma ve Hello Azure portal toocreate IOT hub'ı kullanın.
+* Bir doğrudan yöntemi tooreboot hello aygıtı uygulayan bir sanal cihaz uygulaması oluşturursunuz. Doğrudan yöntemleri hello buluttan çağrılır.
+* IOT hub'ınız aracılığıyla hello sanal cihaz uygulamasında hello yeniden başlatma doğrudan yöntemini çağıran bir uygulama oluşturun. Bu uygulama daha sonra hello yeniden başlatma işlemi tamamlandığında hello aygıt toosee bildirilen özelliklerinden hello izleyiciler.
 
-Bu öğreticinin sonunda iki Java konsol uygulamaları vardır:
+Bu öğreticinin Hello sonunda, iki Java konsol uygulamaları vardır:
 
 **simulated-device**. Bu uygulama:
 
-* Daha önce oluşturulan cihaz kimliğiyle IOT hub'ınıza bağlanır.
+* Tooyour IOT hub'ı daha önce oluşturduğunuz hello cihaz kimliği bağlanır.
 * Yeniden başlatma doğrudan yöntem çağrısı alır.
 * Fiziksel bir yeniden başlatma benzetimini yapar.
-* Bildirilen bir özellik aracılığıyla son yeniden başlatma zamanı raporlar.
+* Merhaba son yeniden başlatmadan bildirilen bir özellik aracılığıyla raporları hello zamanı.
 
 **Tetikleyici yeniden başlatma**. Bu uygulama:
 
-* Sanal cihaz uygulamasının doğrudan bir yöntem çağırır.
-* Sanal aygıt tarafından gönderilen doğrudan yöntem çağrısının yanıtı görüntüler
-* Güncelleştirilmiş görüntüler özellikleri bildirdi.
+* Merhaba sanal cihaz uygulamasının doğrudan bir yöntem çağırır.
+* Merhaba yanıt toohello doğrudan yöntem çağrısı Hello sanal aygıt tarafından gönderilen görüntüler
+* Güncelleştirilmiş görüntüler hello özellikleri bildirdi.
 
 > [!NOTE]
-> Aygıtları ve çözüm arka ucunuz çalıştırmak için uygulamalar oluşturmak için kullanabileceğiniz SDK'ları hakkında daha fazla bilgi için bkz: [Azure IOT SDK'ları][lnk-hub-sdks].
+> Cihazları ve çözüm arka ucunuz toobuild uygulamaları toorun kullanabileceği hello SDK'ları hakkında bilgi için bkz [Azure IOT SDK'ları][lnk-hub-sdks].
 
-Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
+toocomplete Bu öğretici, gerekir:
 
-* Java SE 8. <br/> [Geliştirme ortamınızı hazırlama][lnk-dev-setup], bu öğretici için Java'nın Windows veya Linux'ta nasıl yükleneceğini açıklar.
-* Maven 3.  <br/> [Geliştirme ortamınızı hazırlama][lnk-dev-setup], bu öğretici için [Maven][lnk-maven]'ın Windows veya Linux'ta nasıl yükleneceğini açıklar.
+* Java SE 8. <br/> [Geliştirme ortamınızı hazırlama] [ lnk-dev-setup] açıklar nasıl tooinstall Java Bu öğretici için Windows veya Linux üzerinde.
+* Maven 3.  <br/> [Geliştirme ortamınızı hazırlama] [ lnk-dev-setup] açıklar nasıl tooinstall [Maven] [ lnk-maven] Windows veya Linux üzerinde Bu öğretici için.
 * [Node.js sürümünü 0.10.0 veya üzeri](http://nodejs.org).
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Tetikleyici doğrudan bir yöntem kullanarak cihaz üzerinde Uzaktan yeniden başlatma
+## <a name="trigger-a-remote-reboot-on-hello-device-using-a-direct-method"></a>Tetikleyici doğrudan bir yöntem kullanarak hello cihazda Uzaktan yeniden başlatma
 
 Bu bölümde, bir Java konsol uygulaması, oluşturun:
 
-1. Sanal cihaz uygulamasının yeniden başlatma doğrudan yöntemi çağırır.
-1. Yanıt görüntüler.
-1. Anketler yeniden başlatmanın ne zaman tamamlandığını belirlemek için cihazın gönderilen bildirilen özellikleri.
+1. Merhaba sanal cihaz uygulamasında Hello yeniden başlatma doğrudan yöntemini çağırır.
+1. Merhaba yanıt görüntüler.
+1. Anketler hello hello yeniden başlatma tamamlandıktan sonra hello aygıt toodetermine gönderilen özellikleri bildirdi.
 
-Bu konsol uygulamasını IOT doğrudan yöntemini çağırmak ve bildirilen özellikleri okumak için Hub'ınıza bağlanır.
+Bu konsol uygulamasını tooyour IOT hub'a bağlanan tooinvoke hello doğrudan yöntemi ve okuma hello bildirilen özellikleri.
 
 1. DM-get-started adlı boş bir klasör oluşturun.
 
-1. Dm-get-started klasöründe adlı bir Maven projesi oluşturun **tetikleyici yeniden başlatma** , komut isteminde aşağıdaki komutu kullanarak. Tek ve uzun bir komut gösterir:
+1. Merhaba dm-get-started klasöründe adlı bir Maven projesi oluşturun **tetikleyici yeniden başlatma** komutu, komut isteminde aşağıdaki hello kullanarak. Merhaba aşağıdaki tek ve uzun bir komut gösterir:
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=trigger-reboot -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
-1. Komut isteminizde tetikleyici yeniden başlatma klasöre gidin.
+1. Komut isteminizde toohello tetikleyici yeniden başlatma klasörüne gidin.
 
-1. Bir metin düzenleyicisi kullanarak, tetikleyici yeniden başlatma klasöründeki pom.xml dosyasını açın ve aşağıdaki bağımlılığı eklemek **bağımlılıkları** düğümü. Bu bağımlılık, IOT hub ile iletişim kurmak için uygulamanızda IOT-service-client paketini kullanmanıza olanak sağlar:
+1. Bir metin düzenleyicisi kullanarak hello tetikleyici yeniden başlatma klasöründe hello pom.xml dosyasını açın ve bağımlılık toohello aşağıdaki hello ekleyin **bağımlılıkları** düğümü. Bu bağımlılık, toouse hello IOT hizmeti istemci paketi, uygulama toocommunicate IOT hub'ınızı ile sağlar:
 
     ```xml
     <dependency>
@@ -87,9 +87,9 @@ Bu konsol uygulamasını IOT doğrudan yöntemini çağırmak ve bildirilen öze
     ```
 
     > [!NOTE]
-    > [Maven arama][lnk-maven-service-search] kullanarak en yeni **iot-service-client** sürümünü kontrol edebilirsiniz.
+    > Hello için en son sürümünü denetleyebilir **IOT hizmeti istemcisi** kullanarak [Maven arama][lnk-maven-service-search].
 
-1. Aşağıdakileri ekleyin **yapı** düğümünden sonraki **bağımlılıkları** düğümü. Bu yapılandırma, uygulamanızı oluşturmak için Java 1.8 kullanmak için Maven bildirir:
+1. Merhaba aşağıdakileri ekleyin **yapı** düğümünden hello sonraki **bağımlılıkları** düğümü. Bu yapılandırma, Maven toouse Java 1.8 toobuild hello uygulaması bildirir:
 
     ```xml
     <build>
@@ -107,11 +107,11 @@ Bu konsol uygulamasını IOT doğrudan yöntemini çağırmak ve bildirilen öze
     </build>
     ```
 
-1. pom.xml dosyasını kaydedin ve kapatın.
+1. Merhaba pom.xml dosyasını kaydedip kapatın.
 
-1. Bir metin düzenleyicisi kullanarak trigger-reboot\src\main\java\com\mycompany\app\App.java kaynak dosyasını açın.
+1. Bir metin düzenleyicisi kullanarak hello trigger-reboot\src\main\java\com\mycompany\app\App.java kaynak dosyasını açın.
 
-1. Aşağıdaki **içeri aktarma** deyimlerini dosyaya ekleyin:
+1. Merhaba aşağıdakileri ekleyin **alma** deyimleri toohello dosyası:
 
     ```java
     import com.microsoft.azure.sdk.iot.service.devicetwin.DeviceMethod;
@@ -126,7 +126,7 @@ Bu konsol uygulamasını IOT doğrudan yöntemini çağırmak ve bildirilen öze
     import java.util.concurrent.ExecutorService;
     ```
 
-1. Aşağıdaki sınıf düzeyi değişkenleri **App** sınıfına ekleyin. Değiştir `{youriothubconnectionstring}` , not ettiğiniz, IOT hub bağlantı dizesine sahip *IOT Hub oluşturma* bölümü:
+1. Aşağıdaki sınıf düzeyi değişkenleri toohello hello eklemek **uygulama** sınıfı. Değiştir `{youriothubconnectionstring}` hello ettiğiniz, IOT hub bağlantı dizesine sahip *IOT Hub oluşturma* bölümü:
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -137,7 +137,7 @@ Bu konsol uygulamasını IOT doğrudan yöntemini çağırmak ve bildirilen öze
     private static final Long connectTimeout = TimeUnit.SECONDS.toSeconds(5);
     ```
 
-1. Bildirilen özellikleri cihaz çifti 10 saniyede okuyan bir iş parçacığı uygulamak için aşağıdaki iç içe geçmiş sınıf ekleme **uygulama** sınıfı:
+1. tooimplement hello okuyan bir iş parçacığı özellikleri bildirilen hello cihaz çifti 10 saniyede hello aşağıdakileri ekleyin. iç içe geçmiş sınıf toohello **uygulama** sınıfı:
 
     ```java
     private static class ShowReportedProperties implements Runnable {
@@ -158,7 +158,7 @@ Bu konsol uygulamasını IOT doğrudan yöntemini çağırmak ve bildirilen öze
     }
     ```
 
-1. Sanal cihaz için yeniden başlatma doğrudan yöntemini çağırmak için aşağıdaki kodu ekleyin **ana** yöntemi:
+1. tooinvoke hello yeniden başlatma doğrudan yöntemi hello sanal cihazda ekleme kodu toohello aşağıdaki hello **ana** yöntemi:
 
     ```java
     System.out.println("Starting sample...");
@@ -183,7 +183,7 @@ Bu konsol uygulamasını IOT doğrudan yöntemini çağırmak ve bildirilen öze
     }
     ```
 
-1. Sanal cihaz bildirilen özelliklerinden yoklamak için iş parçacığı başlatmak için aşağıdaki kodu ekleyin **ana** yöntemi:
+1. toostart hello iş parçacığı toopoll Merhaba hello sanal cihaz bildirilen özelliklerinden, kod toohello aşağıdaki hello eklemek **ana** yöntemi:
 
     ```java
     ShowReportedProperties showReportedProperties = new ShowReportedProperties();
@@ -191,32 +191,32 @@ Bu konsol uygulamasını IOT doğrudan yöntemini çağırmak ve bildirilen öze
     executor.execute(showReportedProperties);
     ```
 
-1. Uygulamayı durdurun sağlamak için aşağıdaki kodu ekleyin **ana** yöntemi:
+1. tooenable, toostop hello uygulama kodu toohello aşağıdaki hello eklemek **ana** yöntemi:
 
     ```java
-    System.out.println("Press ENTER to exit.");
+    System.out.println("Press ENTER tooexit.");
     System.in.read();
     executor.shutdownNow();
     System.out.println("Shutting down sample...");
     ```
 
-1. Trigger-reboot\src\main\java\com\mycompany\app\App.java dosyasını kaydedip kapatın.
+1. Merhaba trigger-reboot\src\main\java\com\mycompany\app\App.java dosyasını kaydedip kapatın.
 
-1. Yapı **tetikleyici yeniden başlatma** arka uç uygulama ve olan hataları düzeltin. Komut isteminde, tetikleyici yeniden başlatma klasörüne gidin ve aşağıdaki komutu çalıştırın:
+1. Merhaba yapı **tetikleyici yeniden başlatma** arka uç uygulama ve olan hataları düzeltin. Komut isteminizde toohello tetikleyici yeniden başlatma klasörü ve aşağıdaki komutu çalıştırın hello gidin:
 
     `mvn clean package -DskipTests`
 
 ## <a name="create-a-simulated-device-app"></a>Sanal cihaz uygulaması oluşturma
 
-Bu bölümde, bir cihaza benzetim bir Java konsol uygulaması oluşturun. Yeniden başlatma uygulama dinler yöntem çağrısı IOT hub'ınızı ve hemen o aramayı yanıtlar doğrudan. Uygulama sonra uykuya geçme bildirmek için bildirilen bir özellik kullanmadan önce yeniden başlatma işleminin benzetimini yapmak bir süre için **tetikleyici yeniden başlatma** yeniden başlatma tamamlandıktan arka uç uygulama.
+Bu bölümde, bir cihaza benzetim bir Java konsol uygulaması oluşturun. Merhaba uygulama hello yeniden başlatma doğrudan yöntemi, IOT hub çağrısından dinler ve hemen toothat çağrısı yanıt verir. Merhaba uygulama sonra uykuya geçme bir süre için bildirilen özelliği toonotify hello kullanmadan önce toosimulate hello yeniden başlatma işlemi **tetikleyici yeniden başlatma** yeniden başlatma hello arka uç uygulama tamamlanmıştır.
 
-1. Dm-get-started klasöründe adlı bir Maven projesi oluşturun **simulated-device** , komut isteminde aşağıdaki komutu kullanarak. Tek ve uzun bir komut verilmiştir:
+1. Merhaba dm-get-started klasöründe adlı bir Maven projesi oluşturun **simulated-device** komutu, komut isteminde aşağıdaki hello kullanarak. Merhaba, tek ve uzun bir komut verilmiştir:
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
-1. Komut isteminizde simulated-device klasörüne gidin.
+1. Komut isteminizde toohello simulated-device klasörüne gidin.
 
-1. Bir metin düzenleyicisi kullanarak simulated-device klasöründeki pom.xml dosyasını açın ve aşağıdaki bağımlılığı eklemek **bağımlılıkları** düğümü. Bu bağımlılık, IOT hub ile iletişim kurmak için uygulamanızda IOT-service-client paketini kullanmanıza olanak sağlar:
+1. Bir metin düzenleyicisi kullanarak hello simulated-device klasöründeki hello pom.xml dosyasını açın ve bağımlılık toohello aşağıdaki hello ekleyin **bağımlılıkları** düğümü. Bu bağımlılık, toouse hello IOT hizmeti istemci paketi, uygulama toocommunicate IOT hub'ınızı ile sağlar:
 
     ```xml
     <dependency>
@@ -227,9 +227,9 @@ Bu bölümde, bir cihaza benzetim bir Java konsol uygulaması oluşturun. Yenide
     ```
 
     > [!NOTE]
-    > [Maven arama][lnk-maven-device-search] kullanarak en yeni **iot-device-client** sürümünü kontrol edebilirsiniz.
+    > Hello için en son sürümünü denetleyebilir **IOT cihaz istemci** kullanarak [Maven arama][lnk-maven-device-search].
 
-1. Aşağıdakileri ekleyin **yapı** düğümünden sonraki **bağımlılıkları** düğümü. Bu yapılandırma, uygulamanızı oluşturmak için Java 1.8 kullanmak için Maven bildirir:
+1. Merhaba aşağıdakileri ekleyin **yapı** düğümünden hello sonraki **bağımlılıkları** düğümü. Bu yapılandırma, Maven toouse Java 1.8 toobuild hello uygulaması bildirir:
 
     ```xml
     <build>
@@ -247,11 +247,11 @@ Bu bölümde, bir cihaza benzetim bir Java konsol uygulaması oluşturun. Yenide
     </build>
     ```
 
-1. pom.xml dosyasını kaydedin ve kapatın.
+1. Merhaba pom.xml dosyasını kaydedip kapatın.
 
-1. Bir metin düzenleyicisi kullanarak simulated-device\src\main\java\com\mycompany\app\App.java kaynak dosyasını açın.
+1. Bir metin düzenleyicisi kullanarak hello simulated-device\src\main\java\com\mycompany\app\App.java kaynak dosyasını açın.
 
-1. Aşağıdaki **içeri aktarma** deyimlerini dosyaya ekleyin:
+1. Merhaba aşağıdakileri ekleyin **alma** deyimleri toohello dosyası:
 
     ```java
     import com.microsoft.azure.sdk.iot.device.*;
@@ -265,7 +265,7 @@ Bu bölümde, bir cihaza benzetim bir Java konsol uygulaması oluşturun. Yenide
     import java.util.HashSet;
     ```
 
-1. Aşağıdaki sınıf düzeyi değişkenleri **App** sınıfına ekleyin. Değiştir `{yourdeviceconnectionstring}` , not ettiğiniz aygıt bağlantı dizesiyle *bir cihaz kimliği oluşturma* bölümü:
+1. Aşağıdaki sınıf düzeyi değişkenleri toohello hello eklemek **uygulama** sınıfı. Değiştir `{yourdeviceconnectionstring}` hello ettiğiniz hello cihaz bağlantı dizesiyle *bir cihaz kimliği oluşturma* bölümü:
 
     ```java
     private static final int METHOD_SUCCESS = 200;
@@ -276,31 +276,31 @@ Bu bölümde, bir cihaza benzetim bir Java konsol uygulaması oluşturun. Yenide
     private static DeviceClient client;
     ```
 
-1. Doğrudan yöntem durum olayları için bir geri çağırma işleyici uygulamak için aşağıdaki iç içe geçmiş sınıf ekleme **uygulama** sınıfı:
+1. tooimplement doğrudan yöntem durum olayları için bir geri çağırma işleyici ekleme hello aşağıdaki iç içe geçmiş sınıf toohello **uygulama** sınıfı:
 
     ```java
     protected static class DirectMethodStatusCallback implements IotHubEventCallback
     {
       public void execute(IotHubStatusCode status, Object context)
       {
-        System.out.println("IoT Hub responded to device method operation with status " + status.name());
+        System.out.println("IoT Hub responded toodevice method operation with status " + status.name());
       }
     }
     ```
 
-1. Cihaz çifti durum olayları için bir geri çağırma işleyici uygulamak için aşağıdaki iç içe geçmiş sınıf ekleme **uygulama** sınıfı:
+1. tooimplement cihaz çifti durum olayları için bir geri çağırma işleyici ekleme hello aşağıdaki iç içe geçmiş sınıf toohello **uygulama** sınıfı:
 
     ```java
     protected static class DeviceTwinStatusCallback implements IotHubEventCallback
     {
         public void execute(IotHubStatusCode status, Object context)
         {
-            System.out.println("IoT Hub responded to device twin operation with status " + status.name());
+            System.out.println("IoT Hub responded toodevice twin operation with status " + status.name());
         }
     }
     ```
 
-1. Özellik olayları için bir geri çağırma işleyici uygulamak için aşağıdaki iç içe geçmiş sınıf ekleme **uygulama** sınıfı:
+1. tooimplement özellik olayları için bir geri çağırma işleyici ekleme hello aşağıdaki iç içe geçmiş sınıf toohello **uygulama** sınıfı:
 
     ```java
     protected static class PropertyCallback implements PropertyCallBack<String, String>
@@ -313,7 +313,7 @@ Bu bölümde, bir cihaza benzetim bir Java konsol uygulaması oluşturun. Yenide
     }
     ```
 
-1. Aygıt yeniden başlatma benzetimini yapmak için bir iş parçacığı uygulamak için aşağıdaki iç içe geçmiş sınıf ekleme **uygulama** sınıfı. İş parçacığı beş saniye için uyku moduna geçer ve ardından ayarlar **lastReboot** özelliği bildirdi:
+1. tooimplement iş parçacığı toosimulate hello aygıt yeniden başlatma, ekleme hello aşağıdaki iç içe geçmiş sınıf toohello **uygulama** sınıfı. Merhaba iş parçacığı beş saniye için uyku moduna geçer ve ardından ayarlar hello **lastReboot** özelliği bildirdi:
 
     ```java
     protected static class RebootDeviceThread implements Runnable {
@@ -334,7 +334,7 @@ Bu bölümde, bir cihaza benzetim bir Java konsol uygulaması oluşturun. Yenide
     }
     ```
 
-1. Cihazda doğrudan yöntemi uygulamak için aşağıdaki iç içe geçmiş sınıf ekleme **uygulama** sınıfı. Ne zaman sanal uygulama alan bir çağrı **yeniden** doğrudan yöntemi, bir bildirim çağırana döndürür ve ardından yeniden işlemek için bir iş parçacığı başlatır:
+1. tooimplement hello hello aygıtta doğrudan bir yöntem ekleyin hello aşağıdaki iç içe geçmiş sınıf toohello **uygulama** sınıfı. Ne zaman hello sanal uygulama alan bir çağrı toohello **yeniden** doğrudan yöntemi, bir bildirim toohello çağıran döndürür ve ardından bir iş parçacığı tooprocess hello başlatır yeniden başlatın:
 
     ```java
     protected static class DirectMethodCallback implements com.microsoft.azure.sdk.iot.device.DeviceTwin.DeviceMethodCallback
@@ -366,20 +366,20 @@ Bu bölümde, bir cihaza benzetim bir Java konsol uygulaması oluşturun. Yenide
     }
     ```
 
-1. İmzası değiştirme **ana** aşağıdaki özel durumlar oluşturma yöntemi:
+1. Merhaba Hello imzası değiştirme **ana** yöntemi toothrow hello aşağıdaki özel durumlar:
 
     ```java
     public static void main(String[] args) throws IOException, URISyntaxException
     ```
 
-1. Örneği oluşturmak için bir **DeviceClient**, aşağıdaki kodu ekleyin **ana** yöntemi:
+1. tooinstantiate bir **DeviceClient**, kod toohello aşağıdaki hello eklemek **ana** yöntemi:
 
     ```java
     System.out.println("Starting device client sample...");
     client = new DeviceClient(connString, protocol);
     ```
 
-1. Doğrudan yöntem çağrıları için dinleme başlatmak için aşağıdaki kodu ekleyin **ana** yöntemi:
+1. doğrudan yöntem çağrıları için dinleme toostart ekleme kodu toohello aşağıdaki hello **ana** yöntemi:
 
     ```java
     try
@@ -387,7 +387,7 @@ Bu bölümde, bir cihaza benzetim bir Java konsol uygulaması oluşturun. Yenide
       client.open();
       client.subscribeToDeviceMethod(new DirectMethodCallback(), null, new DirectMethodStatusCallback(), null);
       client.startDeviceTwin(new DeviceTwinStatusCallback(), null, new PropertyCallback(), null);
-      System.out.println("Subscribed to direct methods and polling for reported properties. Waiting...");
+      System.out.println("Subscribed toodirect methods and polling for reported properties. Waiting...");
     }
     catch (Exception e)
     {
@@ -397,10 +397,10 @@ Bu bölümde, bir cihaza benzetim bir Java konsol uygulaması oluşturun. Yenide
     }
     ```
 
-1. Aygıt benzeticisi kapatmak için aşağıdaki kodu ekleyin **ana** yöntemi:
+1. Merhaba aygıt benzeticisi aşağı tooshut ekleme kodu toohello aşağıdaki hello **ana** yöntemi:
 
     ```java
-    System.out.println("Press any key to exit...");
+    System.out.println("Press any key tooexit...");
     Scanner scanner = new Scanner(System.in);
     scanner.nextLine();
     scanner.close();
@@ -408,31 +408,31 @@ Bu bölümde, bir cihaza benzetim bir Java konsol uygulaması oluşturun. Yenide
     System.out.println("Shutting down...");
     ```
 
-1. Simulated-device\src\main\java\com\mycompany\app\App.java dosyasını kaydedip kapatın.
+1. Merhaba simulated-device\src\main\java\com\mycompany\app\App.java dosyasını kaydedip kapatın.
 
-1. Yapı **simulated-device** arka uç uygulama ve olan hataları düzeltin. Komut isteminde, simulated-device klasörüne gidin ve aşağıdaki komutu çalıştırın:
+1. Merhaba yapı **simulated-device** arka uç uygulama ve olan hataları düzeltin. Komut isteminizde toohello simulated-device klasörüne ve aşağıdaki komutu çalıştırın hello gidin:
 
     `mvn clean package -DskipTests`
 
-## <a name="run-the-apps"></a>Uygulamaları çalıştırma
+## <a name="run-hello-apps"></a>Merhaba uygulamaları çalıştırma
 
-Şimdi uygulamaları çalıştırmaya hazırsınız.
+Hazır toorun hello uygulamaları sunulmuştur.
 
-1. Simulated-device klasöründeki bir komut isteminde IOT hub'ınızı gelen yeniden başlatma yöntemi çağrıları dinleme yapmaya başlamak için aşağıdaki komutu çalıştırın:
-
-    `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
-
-    ![Dinlemek için Java IOT hub'ı sanal cihaz uygulamasının yeniden doğrudan yöntem çağrıları][1]
-
-1. Tetikleyici yeniden başlatma klasöründeki bir komut isteminde IOT hub'ından sanal cihazınız üzerinde yeniden başlatma yöntemini çağırmak için aşağıdaki komutu çalıştırın:
+1. Merhaba simulated-device klasöründeki komut isteminde IOT hub'ınızı gelen yeniden başlatma yöntemi çağrıları için dinleme komutu toobegin aşağıdaki hello çalıştırın:
 
     `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
 
-    ![Yeniden başlatma doğrudan yöntemini çağırmak için Java IOT Hub hizmeti uygulaması][2]
+    ![Java IOT Hub'ın benzetimli cihaz uygulama toolisten için yeniden başlatma doğrudan yöntem çağrıları][1]
 
-1. Sanal cihaz yeniden başlatma doğrudan yöntem çağrısı yanıt verir:
+1. Merhaba tetikleyici yeniden başlatma klasöründeki bir komut isteminde komutu toocall hello yeniden başlatma yöntemini sanal Cihazınızı IOT hub'ından aşağıdaki hello çalıştırın:
 
-    ![Java IOT hub'ı sanal cihaz uygulamasının doğrudan yöntem çağrısı yanıt verir.][3]
+    `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
+
+    ![Java IOT Hub hizmeti uygulama toocall hello yeniden doğrudan yöntemi][2]
+
+1. Merhaba sanal cihaz toohello yeniden başlatma doğrudan yöntem çağrısı yanıt verir:
+
+    ![Java IOT hub'ı sanal cihaz uygulamasının toohello doğrudan yöntem çağrısı yanıt verir.][3]
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
 

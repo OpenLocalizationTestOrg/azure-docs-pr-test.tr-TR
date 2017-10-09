@@ -1,6 +1,6 @@
 ---
-title: "Azure AD Java komut satırı Başlarken | Microsoft Docs"
-description: "Bir API erişmek için kullanıcı oturum açtığında bir Java komut satırı uygulaması oluşturma."
+title: "aaaAzure AD Java komut satırı Başlarken | Microsoft Docs"
+description: "Nasıl toobuild bir Java tooaccess bir API kullanıcılar oturum açtığında satırı uygulaması komutu."
 services: active-directory
 documentationcenter: java
 author: navyasric
@@ -15,51 +15,51 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 91e4a7b2ac454465d5cce4948a4d5f0b542d2b55
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9ba1d1e794928a39ca1f091bd0e6eba57ce3d6aa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="using-java-command-line-app-to-access-an-api-with-azure-ad"></a>Azure AD ile bir API erişmek için Java komut satırı uygulaması kullanma
+# <a name="using-java-command-line-app-tooaccess-an-api-with-azure-ad"></a>Azure AD ile Java komut satırı uygulaması tooAccess bir API kullanma
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Azure AD Basit ve kolay web uygulamanızın Kimlik Yönetimi, dış kaynak sağlamak tek sağlama oturum açma ve oturum kapatma yalnızca birkaç satır kod kolaylaştırır.  Java web uygulamaları, bunu topluluk odaklı ADAL4J Microsoft'un uygulaması kullanarak gerçekleştirebilirsiniz.
+Azure AD Basit ve kolay toooutsource sağlar, web uygulamanızın Kimlik Yönetimi, tek oturum açma ve oturum kapatma yalnızca birkaç satır kod sağlama.  Java web uygulamaları, bunu topluluk odaklı ADAL4J hello Microsoft'un uygulaması kullanarak gerçekleştirebilirsiniz.
 
   ADAL4J için burada kullanacağız:
 
-* Kullanıcı uygulamayı Azure AD kimlik sağlayıcısı olarak kullanarak oturum açın.
-* Kullanıcı hakkındaki bazı bilgileri görüntüler.
-* Uygulama dışında kullanıcı oturum açabilir.
+* Merhaba kullanıcı hello kimlik sağlayıcısı Azure AD kullanarak hello uygulamada oturum açın.
+* Merhaba kullanıcı hakkındaki bazı bilgileri görüntüler.
+* Oturum, kullanıcı hello uygulama dışında hello.
 
-Bunu yapmak için ihtiyacınız vardır:
+Toodo Bu sipariş, şunları yapmanız gerekir:
 
 1. Bir uygulamayı Azure AD ile kaydetme
-2. ADAL4J kitaplığı kullanmak için uygulamanızı ayarlayın.
-3. Azure AD ile oturum açma ve oturum kapatma isteklerini yürütmek için ADAL4J kitaplığını kullanın.
-4. Kullanıcı hakkında veri çıkışı yazdırın.
+2. Uygulama toouse hello ADAL4J kitaplığınızın ayarlayın.
+3. Merhaba ADAL4J kitaplığı tooissue oturum açma ve oturum kapatma isteklerini tooAzure AD kullanın.
+4. Merhaba kullanıcı hakkında veri çıkışı yazdırın.
 
-Başlamak için [uygulama çatıyı indirmeniz](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/skeleton.zip) veya [tamamlanan örnek indirme](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect\\/archive/complete.zip).  Ayrıca, uygulamanızın kaydedileceği Azure AD kiracısı gerekir.  Zaten yoksa, [edinebileceğinizi öğrenin](active-directory-howto-tenant.md).
+başlatıldı, tooget [hello uygulama çatıyı indirmeniz](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/skeleton.zip) veya [tamamlandı hello örnek indirme](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect\\/archive/complete.zip).  Ayrıca, hangi tooregister Azure AD kiracısında uygulamanız gerekir.  Zaten yoksa, [öğrenin nasıl tooget bir](active-directory-howto-tenant.md).
 
 ## <a name="1--register-an-application-with-azure-ad"></a>1.  Bir uygulamayı Azure AD ile kaydetme
-Kullanıcıların kimliğini doğrulamak uygulamanızı etkinleştirmek için önce yeni bir uygulama kiracınızda kaydetmeniz gerekir.
+tooenable, uygulama tooauthenticate kullanıcılarınızın kiracınızda ilk tooregister yeni bir uygulama gerekir.
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Üst çubuğunda hesabınızda altında tıklatıp **Directory** listesinde, Active Directory Kiracı uygulamanızı kaydetmek için istediğiniz yeri seçin.
-3. Tıklayın **daha Hizmetleri** sol taraftaki gezinti içinde ve **Azure Active Directory**.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
+2. Hesabınızda ve hello altında Hello üst çubuğunda tıklatın **Directory** listesinde, burada istediğiniz tooregister uygulamanızı hello Active Directory Kiracı seçin.
+3. Tıklayın **daha Hizmetleri** sol taraftaki gezinti hello ve seçin **Azure Active Directory**.
 4. Tıklayın **uygulama kayıtlar** ve **Ekle**.
-5. Komut istemlerini izleyin ve yeni bir **Web uygulaması ve/veya Webapı**.
-  * **Adı** uygulamayı son kullanıcılar uygulamanıza anlatmaktadır
-  * **Oturum açma URL'si** , uygulamanızın temel URL.  Çatıyı ait varsayılan `http://localhost:8080/adal4jsample/`.
-6. Kayıt tamamladıktan sonra AAD uygulamanızı benzersiz bir uygulama kimliği atar.  Bu değer gerekir sonraki bölümlerde, bu nedenle uygulama sekmesinden kopyalayın.
-7. Gelen **ayarları** -> **özellikleri** sayfasında uygulamanız için uygulama kimliği URI'si güncelleştirin. **Uygulama kimliği URI'si** uygulamanız için benzersiz bir tanımlayıcıdır.  Kuralı kullanmaktır `https://<tenant-domain>/<app-name>`, örneğin `http://localhost:8080/adal4jsample/`.
+5. Merhaba komut istemlerini izleyin ve yeni bir **Web uygulaması ve/veya Webapı**.
+  * Merhaba **adı** Merhaba uygulama, uygulama tooend kullanıcılarınızın anlatmaktadır
+  * Merhaba **oturum açma URL'si** , uygulamanızın hello temel URL'dir.  Merhaba çatıyı'nın varsayılan `http://localhost:8080/adal4jsample/`.
+6. Kayıt tamamladıktan sonra AAD uygulamanızı benzersiz bir uygulama kimliği atar.  Bu değer gerekir hello sonraki bölümlerde, bu nedenle hello uygulama sekmesinden kopyalayın.
+7. Merhaba gelen **ayarları** -> **özellikleri** sayfasında uygulamanız için uygulama kimliği URI'si hello güncelleştirin. Merhaba **uygulama kimliği URI'si** uygulamanız için benzersiz bir tanımlayıcıdır.  Merhaba kuraldır toouse `https://<tenant-domain>/<app-name>`, örneğin `http://localhost:8080/adal4jsample/`.
 
-Portalında, uygulamanız için bir kez oluşturun. bir **anahtar** gelen **ayarları** sayfasında uygulamanız için ve aşağı kopyalayın.  Kısa süre sonra ihtiyacınız olacaktır.
+Merhaba portalında uygulamanız için bir kez oluşturun. bir **anahtar** hello gelen **ayarları** sayfasında uygulamanız için ve aşağı kopyalayın.  Kısa süre sonra ihtiyacınız olacaktır.
 
-## <a name="2-set-up-your-app-to-use-adal4j-library-and-prerequisites-using-maven"></a>2. ADAL4J kitaplığı ve Maven kullanarak önkoşulları kullanmak için uygulamanızı ayarlayın
-Burada, Openıd Connect kimlik doğrulama protokolünü kullanmak üzere ADAL4J yapılandıracağız.  ADAL4J oturum açma ve oturum kapatma isteklerini yürütmek, kullanıcının oturumunu yönetmek ve başka şeyler arasında kullanıcı hakkında bilgi almak için kullanılır.
+## <a name="2-set-up-your-app-toouse-adal4j-library-and-prerequisites-using-maven"></a>2. Uygulama toouse ADAL4J kitaplığı ve Maven kullanarak önkoşulları ayarlama
+Burada, biz ADAL4J toouse hello Openıd Connect kimlik doğrulama protokolünü yapılandıracaksınız.  ADAL4J kullanılan tooissue oturum açma ve oturum kapatma isteklerini olması, hello kullanıcının oturumunu yönetmek ve başka şeyler arasında hello kullanıcı hakkında bilgi alın.
 
-* Proje kök dizininde açma/oluşturma `pom.xml` ve bulun `// TODO: provide dependencies for Maven` ve şununla değiştirin:
+* Merhaba kök dizininde projenizin, açma/oluşturma `pom.xml` ve hello bulun `// TODO: provide dependencies for Maven` ve hello şununla değiştirin:
 
 ```Java
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -181,10 +181,10 @@ Burada, Openıd Connect kimlik doğrulama protokolünü kullanmak üzere ADAL4J 
 
 
 
-## <a name="3-create-the-java-publicclient-file"></a>3. Java PublicClient dosyası oluşturma
-Yukarıda belirtildiği gibi biz grafik API'si oturum açmış olan kullanıcının ilişkin veri almak için kullanır. Bunun için bize kolay olması biz temsil etmek için bir dosya oluşturmalısınız bir **dizin nesnesi** ve temsil etmek için tek bir dosyayı **kullanıcı** böylece Java OO desenini kullanılabilir.
+## <a name="3-create-hello-java-publicclient-file"></a>3. Merhaba Java PublicClient dosyası oluşturma
+Yukarıda belirtildiği gibi biz hello kullanıcı olarak oturum açmış hello ilgili grafik API'si tooget verileri kullanacak. Bu toobe bize kolay için hem bir dosya toorepresent oluşturuyoruz bir **dizin nesnesi** ve tek tek dosya toorepresent hello **kullanıcı** böylece hello Java OO desenini kullanılabilir.
 
-* Adlı bir dosya oluşturun `DirectoryObject.java` hangi (düşündüğünüz diğer grafik yapmak için sorgu bunu daha sonra kullanmak boş) DirectoryObject hakkındaki temel verileri depolamak için kullanacağız. Kes/bu aşağıdan Yapıştır:
+* Adlı bir dosya oluşturun `DirectoryObject.java` hangi toostore (düşündüğünüz ücretsiz toouse bu daha sonra diğer grafik yapmak için sorgu) DirectoryObject hakkındaki temel verileri kullanacağız. Kes/bu aşağıdan Yapıştır:
 
 ```Java
 import java.io.BufferedReader;
@@ -248,24 +248,24 @@ public class PublicClient {
 ```
 
 
-## <a name="compile-and-run-the-sample"></a>Derleme ve örnek çalıştırma
-Kök dizinine değiştirme geri çıkışı ve put birlikte kullanma örneği oluşturmak için aşağıdaki komutu çalıştırın `maven`. Bu kullanacağı `pom.xml` bağımlılıkları için yazdığınız dosya.
+## <a name="compile-and-run-hello-sample"></a>Derleme ve hello örnek çalıştırma
+Değiştirme geri tooyour kök dizini ve put birlikte kullanarak komut toobuild hello örnek aşağıdaki hello çalıştırın `maven`. Bu hello kullanacağı `pom.xml` bağımlılıkları için yazdığınız dosya.
 
 `$ mvn package`
 
-Şimdi olmalıdır bir `adal4jsample.war` dosyasını, `/targets` dizin. Tomcat kapsayıcısında dağıtan ve URL'yi ziyaret edin 
+Şimdi olmalıdır bir `adal4jsample.war` dosyasını, `/targets` dizin. Tomcat kapsayıcısında dağıtan ve hello URL'yi ziyaret olabilir 
 
 `http://localhost:8080/adal4jsample/`
 
 > [!NOTE]
-> En son Tomcat sunucularıyla WAR dağıtmak çok kolaydır. Yalnızca gidin `http://localhost:8080/manager/` ve karşıya yükleme üzerinde yönergeleri izleyin, '' adal4jsample.war' dosyası. İçinde autodeploy sizin için doğru bitiş noktası ile.
+> Bu çok kolay toodeploy WAR hello son Tomcat sunucularıyla olur. Yalnızca çok gidin`http://localhost:8080/manager/` ve karşıya yükleme üzerinde hello yönergeleri izleyin, '' adal4jsample.war' dosyası. İçinde autodeploy sizin için hello doğru uç noktası.
 > 
 > 
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Tebrikler! Artık OAuth 2.0 kullanan Web API'leri çağırmak ve kullanıcı hakkındaki temel bilgileri elde çalışan kullanıcıların, güvenli kimlik doğrulama yeteneği olan Java uygulama vardır.  Henüz yapmadıysanız, bazı kullanıcılar ile Kiracı doldurmak için zaman sunulmuştur.
+Tebrikler! Artık çalışan bir hello özelliği tooauthenticate kullanıcılara Java uygulaması sahip, güvenli bir şekilde OAuth 2.0 kullanan Web API'leri çağırmak ve hello kullanıcı hakkındaki temel bilgileri alın.  Henüz yapmadıysanız, başlangıç saati toopopulate kiracınız bazı kullanıcılar ile sunulmuştur.
 
-(Yapılandırma değerleriniz olmadan) tamamlanan örnek, başvuru için [burada bir .zip sağlanan](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip), veya Github'dan kopyalayabilirsiniz:
+Başvuru için hello tamamlandı (yapılandırma değerleriniz olmadan) örnek [burada bir .zip sağlanan](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect/archive/complete.zip), veya Github'dan kopyalayabilirsiniz:
 
 ```git clone --branch complete https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect.git```
 

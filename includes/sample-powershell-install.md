@@ -1,0 +1,1 @@
+Gerekirse, hello bulunan hello yönergeleri kullanarak hello Azure PowerShell modülünü yüklemek [Azure PowerShell Kılavuzu](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)ve ardından çalıştırın `Login-AzureRmAccount` toocreate Azure ile bir bağlantı. Ayrıca, toohave adlı bir SSH ortak anahtarı gerekir `id_rsa.pub` kullanıcı profilinizin hello .ssh dizininde.

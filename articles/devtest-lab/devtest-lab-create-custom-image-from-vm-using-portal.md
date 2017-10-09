@@ -1,6 +1,6 @@
 ---
-title: "Bir sanal makineden Azure DevTest Labs özel görüntü oluşturma | Microsoft Docs"
-description: "Azure DevTest Labs Azure portalını kullanarak sağlanan bir VM'den içinde özel bir görüntü oluşturmayı öğrenin"
+title: "Azure DevTest Labs özel görüntüyü bir VM'den aaaCreate | Microsoft Docs"
+description: "Nasıl toocreate sağlanan bir VM kullanarak Azure DevTest Labs özel bir görüntü hello Azure portal öğrenin"
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: tarcher
-ms.openlocfilehash: 9d2dcf7164985508d691e8a0c123efaf3b8aa19a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7dccb79d3db4aae676c7bd2f6b800301210491e2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Bir sanal makineden özel bir görüntü oluşturun
 
@@ -26,29 +26,29 @@ ms.lasthandoff: 07/11/2017
 
 ## <a name="step-by-step-instructions"></a>Adım adım yönergeler
 
-Sağlanan bir sanal makineden özel bir görüntü oluşturun ve daha sonra aynı VM'ler oluşturmak için özel görüntü kullanın. Aşağıdaki adımlar, bir VM'den özel bir görüntü oluşturmak nasıl çalışılacağını:
+Sağlanan bir sanal makineden özel bir görüntü oluşturun ve daha sonra bu özel görüntü toocreate kullanın aynı VM'ler. Aşağıdaki adımları hello nasıl toocreate özel bir görüntü bir VM'den gösterilmiştir:
 
-1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
+1. İçinde toohello oturum [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. **More services**’i (Daha fazla hizmet’i) seçip ardından listeden **DevTest Labs**’i seçin.
+1. Seçin **daha fazla hizmet**ve ardından **DevTest Labs** hello listeden.
 
-1. İstenen Laboratuvar labs listesinden seçin.  
+1. Merhaba istenen Laboratuvar labs Hello listeden seçin.  
 
-1. Laboratuvar 's dikey penceresinde, seçin **My sanal makineleri**.
+1. Merhaba Laboratuvar'ın dikey penceresinde, seçin **My sanal makineleri**.
  
-1. Üzerinde **My sanal makineleri** dikey penceresinde istediğiniz özel görüntü oluşturmak VM seçin.
+1. Merhaba üzerinde **My sanal makineleri** dikey penceresinde, toocreate hello özel görüntü istediğiniz select hello VM.
 
-1. VM'ın dikey penceresinde, seçin **oluşturma özel görüntü (VHD)**.
+1. Merhaba VM'in dikey penceresinde, seçin **oluşturma özel görüntü (VHD)**.
 
     ![Özel görüntü menü öğesi oluşturma](./media/devtest-lab-create-template/create-custom-image.png)
 
-1. Üzerinde **oluşturma görüntü** dikey penceresinde, bir ad ve özel görüntünüzü açıklamasını girin. Bir VM oluşturduğunuzda, bu bilgileri tabanları listesinde görüntülenir.
+1. Merhaba üzerinde **oluşturma görüntü** dikey penceresinde, bir ad ve özel görüntünüzü açıklamasını girin. Bir VM oluşturduğunuzda, bu bilgileri hello tabanları listesinde görüntülenir.
 
     ![Özel görüntü dikey penceresi oluşturma](./media/devtest-lab-create-template/create-custom-image-blade.png)
 
-1. Sysprep VM üzerinde çalışan olup olmadığını seçin. Sysprep VM çalıştırılmadı, sysprep bu özel görüntüsünü bir VM oluşturulduğunda çalıştırmak isteyip istemediğinizi belirtin.
+1. Sysprep hello VM üzerinde çalıştırıldığı olup olmadığını seçin. Merhaba sysprep hello VM üzerinde çalıştırılmadı, sysprep bu özel görüntüsünü bir VM oluşturulduğunda çalıştırmak isteyip istemediğinizi belirtin.
 
-1. Seçin **Tamam** özel görüntü oluşturmak için bitirdikten sonra.
+1. Seçin **Tamam** ne zaman sona toocreate hello özel görüntü.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -59,4 +59,4 @@ Sağlanan bir sanal makineden özel bir görüntü oluşturun ve daha sonra ayn�
 
 ##<a name="next-steps"></a>Sonraki adımlar
 
-- [Laboratuvarınızı için bir VM ekleme](./devtest-lab-add-vm-with-artifacts.md)
+- [VM tooyour Laboratuvar ekleme](./devtest-lab-add-vm-with-artifacts.md)

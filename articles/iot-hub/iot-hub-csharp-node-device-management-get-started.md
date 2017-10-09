@@ -1,6 +1,6 @@
 ---
-title: "Azure IOT Hub cihaz Yönetimi (.NET/düğümü) ile çalışmaya başlama | Microsoft Docs"
-description: "Uzak aygıt yeniden başlatma işlemi başlatmak için Azure IOT Hub cihaz yönetimini kullanma Doğrudan bir yöntem ve Azure IOT hizmeti SDK'sını doğrudan yöntemini çağıran bir hizmet uygulaması uygulamak .NET için içeren bir sanal cihaz uygulamasının uygulamak için Azure IOT cihaz SDK'sı Node.js için kullanın."
+title: "aaaGet başlatılan ile Azure IOT Hub cihaz Yönetimi (.NET/düğümü) | Microsoft Docs"
+description: "Nasıl toouse Azure IOT Hub cihaz Yönetimi tooinitiate uzaktaki bir aygıtı yeniden başlatın. Node.js tooimplement doğrudan yöntemi ve hello .NET tooimplement hello doğrudan yöntemini çağıran bir hizmet uygulaması için Azure IOT hizmeti SDK'sını içeren sanal cihaz uygulaması için hello Azure IOT cihaz SDK'sını kullanın."
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/17/2016
 ms.author: juanpere
-ms.openlocfilehash: d97fc5493570985f94c23032c870628d6a089dcd
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: ea6d50dfac1c222d7836e3bf5503c6c9b8c89dfa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-device-management-netnode"></a>Aygıt Yönetimi (.NET/düğümü) ile çalışmaya başlama
 
@@ -26,43 +26,43 @@ ms.lasthandoff: 08/18/2017
 
 Bu öğretici şunların nasıl yapıldığını gösterir:
 
-* IOT hub'ı oluşturun ve IOT hub'ınızda bir cihaz kimliği oluşturma için Azure Portalı'nı kullanın.
-* Bu cihazı yeniden başlatır doğrudan bir yöntem içeren bir sanal cihaz uygulaması oluşturursunuz. Doğrudan yöntemleri buluttan çağrılır.
-* IOT hub'ınız aracılığıyla sanal cihaz uygulama yeniden başlatma doğrudan yöntemini çağıran bir .NET konsol uygulaması oluşturun.
+* IOT hub'ınızda bir cihaz kimliği oluşturma ve Hello Azure portal toocreate IOT hub'ı kullanın.
+* Bu cihazı yeniden başlatır doğrudan bir yöntem içeren bir sanal cihaz uygulaması oluşturursunuz. Doğrudan yöntemleri hello buluttan çağrılır.
+* IOT hub'ınız aracılığıyla hello sanal cihaz uygulamasında hello yeniden başlatma doğrudan yöntemini çağıran bir .NET konsol uygulaması oluşturun.
 
-Bu öğreticinin sonunda bir Node.js konsol cihaz uygulaması ve bir .NET (C#) konsol arka uç uygulaması sahiptir:
+Bu öğretici Hello sonunda bir Node.js konsol cihaz uygulaması ve bir .NET (C#) konsol arka uç uygulaması sahiptir:
 
-**dmpatterns_getstarted_device.js**, daha önce oluşturulan cihaz kimliğiyle IOT hub'ınızı bağlayan bir yeniden başlatma doğrudan yöntemi alır fiziksel yeniden başlatma taklit eder ve son yeniden başlatma zamanı raporlar.
+**dmpatterns_getstarted_device.js**, daha önce oluşturduğunuz hello cihaz kimliğiyle IOT hub'ı tooyour bağlayan bir yeniden başlatma doğrudan yöntemi alır fiziksel yeniden başlatma taklit eder ve hello son yeniden başlatma için başlangıç zamanı raporlar.
 
-**TriggerReboot**, yanıt görüntüler, sanal cihaz uygulamada, doğrudan bir yöntemi çağırır ve görüntüler güncelleştirilmiş rapor özellikleri.
+**TriggerReboot**, doğrudan bir yöntem hello sanal cihaz uygulamada, çağıran hello yanıt görüntüler ve güncelleştirilmiş görüntüler hello rapor özellikleri.
 
-Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
+toocomplete Bu öğretici, aşağıdaki hello gerekir:
 
 * Visual Studio 2015 veya Visual Studio 2017.
-* Node.js sürümünü 0.12.x sürümü veya sonraki bir sürümü <br/>  [Geliştirme ortamınızı hazırlama] [ lnk-dev-setup] Node.js Bu öğretici için Windows veya Linux'ta nasıl yükleneceğini açıklar.
+* Node.js sürümünü 0.12.x sürümü veya sonraki bir sürümü <br/>  [Geliştirme ortamınızı hazırlama] [ lnk-dev-setup] açıklar nasıl tooinstall Node.js Bu öğretici için Windows veya Linux üzerinde.
 * Etkin bir Azure hesabı. (Hesabınız yoksa, yalnızca birkaç dakika içinde [ücretsiz bir hesap][lnk-free-trial] oluşturabilirsiniz.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Tetikleyici doğrudan bir yöntem kullanarak cihaz üzerinde Uzaktan yeniden başlatma
-Bu bölümde, doğrudan bir yöntem kullanarak bir cihazda Uzaktan yeniden başlatma başlatır (C# kullanarak) bir .NET konsol uygulaması oluşturun. Uygulama cihaz çifti sorguları bu aygıtın son yeniden başlatma zamanını bulmak için kullanır.
+## <a name="trigger-a-remote-reboot-on-hello-device-using-a-direct-method"></a>Tetikleyici doğrudan bir yöntem kullanarak hello cihazda Uzaktan yeniden başlatma
+Bu bölümde, doğrudan bir yöntem kullanarak bir cihazda Uzaktan yeniden başlatma başlatır (C# kullanarak) bir .NET konsol uygulaması oluşturun. Merhaba uygulaması bu cihaz için cihaz çifti sorguları toodiscover hello son yeniden başlatma zamanı kullanır.
 
-1. Visual Studio’da **Konsol Uygulaması (.NET Framework)** proje şablonunu kullanarak yeni bir çözüme bir Visual C# Windows Klasik Masaüstü projesi ekleyin. .NET Framework sürümünün 4.5.1 veya sonraki bir sürüm olduğundan emin olun. Proje adı **TriggerReboot**.
+1. Visual Studio'da hello kullanarak bir Visual C# Windows Klasik Masaüstü projesi tooa yeni çözüm Ekle **konsol uygulaması (.NET Framework)** proje şablonu. Merhaba .NET Framework sürümünün 4.5.1 olduğundan emin olun veya sonraki bir sürümü. Ad hello proje **TriggerReboot**.
 
     ![Yeni Visual C# Windows Klasik Masaüstü projesi][img-createapp]
 
-2. Çözüm Gezgini'nde sağ **TriggerReboot** proje ve ardından **NuGet paketlerini Yönet**.
-3. **NuGet Paket Yöneticisi** penceresinde **Gözat**'ı seçin, **microsoft.azure.devices**'ı aratın, **Microsoft.Azure.Devices** paketini yüklemek için **Yükle**'yi seçin ve kullanım koşullarını kabul edin. Bu yordam ile [Azure IoT hizmet SDK'sı][lnk-nuget-service-sdk] NuGet paketi ve bağımlılıkları indirilir, yüklenir ve bu pakete bir başvuru eklenir.
+2. Çözüm Gezgini'nde hello sağ **TriggerReboot** proje ve ardından **NuGet paketlerini Yönet**.
+3. Merhaba, **NuGet Paket Yöneticisi** penceresinde, seçin **Gözat**, arama **microsoft.azure.devices**seçin **yükleme** tooinstall Merhaba **Microsoft.Azure.Devices** paketini ve hello kullanım koşullarını kabul edin. Bu yordam indirir, yükler ve başvuru toohello ekler [Azure IOT hizmeti SDK'sını] [ lnk-nuget-service-sdk] NuGet paketi ve bağımlılıklarını.
 
     ![NuGet Paket Yöneticisi penceresi][img-servicenuget]
-4. Aşağıdaki `using` deyimlerini **Program.cs** dosyasının üst kısmına ekleyin:
+4. Merhaba aşağıdakileri ekleyin `using` deyimleri hello hello üstündeki **Program.cs** dosyası:
    
         using Microsoft.Azure.Devices;
         using Microsoft.Azure.Devices.Shared;
         
-5. **Program** sınıfına aşağıdaki alanları ekleyin. Yer tutucu değerini önceki bölümde ile hedef aygıt oluşturulan hub'ın IOT Hub bağlantı dizesiyle değiştirin.
+5. Aşağıdaki alanları toohello hello eklemek **Program** sınıfı. Merhaba hello önceki bölümde ve hello hedef aygıt oluşturduğunuz hello hub'ın IOT Hub bağlantı dizesine sahip Hello yer tutucu değerini değiştirin.
    
         static RegistryManager registryManager;
         static string connString = "{iot hub connection string}";
@@ -70,7 +70,7 @@ Bu bölümde, doğrudan bir yöntem kullanarak bir cihazda Uzaktan yeniden başl
         static JobClient jobClient;
         static string targetDevice = "{deviceIdForTargetDevice}";
         
-6. Aşağıdaki yöntemi ekleyin **Program** sınıfı.  Bu kod yeniden başlatılan cihaz için cihaz çifti alır ve bildirilen özellikleri çıkarır.
+6. Yöntem toohello aşağıdaki hello eklemek **Program** sınıfı.  Bu kod alır hello cihaz çifti hello cihaz ve çıkışları hello yeniden başlatıldığı için özellikler bildirdi.
    
         public static async Task QueryTwinRebootReported()
         {
@@ -78,7 +78,7 @@ Bu bölümde, doğrudan bir yöntem kullanarak bir cihazda Uzaktan yeniden başl
             Console.WriteLine(twin.Properties.Reported.ToJson());
         }
         
-7. Aşağıdaki yöntemi ekleyin **Program** sınıfı.  Bu kod, doğrudan bir yöntem kullanarak cihazı önyüklemede başlatır.
+7. Yöntem toohello aşağıdaki hello eklemek **Program** sınıfı.  Bu kod, doğrudan bir yöntem kullanarak hello aygıtta hello yeniden başlatır.
 
         public static async Task StartReboot()
         {
@@ -91,35 +91,35 @@ Bu bölümde, doğrudan bir yöntem kullanarak bir cihazda Uzaktan yeniden başl
             Console.WriteLine("Invoked firmware update on device.");
         }
 
-7. Son olarak, **Main** yöntemine aşağıdaki satırları ekleyin:
+7. Son olarak, aşağıdaki satırları toohello hello eklemek **ana** yöntemi:
    
         registryManager = RegistryManager.CreateFromConnectionString(connString);
         StartReboot().Wait();
         QueryTwinRebootReported().Wait();
-        Console.WriteLine("Press ENTER to exit.");
+        Console.WriteLine("Press ENTER tooexit.");
         Console.ReadLine();
         
-8. Çözümü oluşturun.
+8. Merhaba çözümü oluşturun.
 
 ## <a name="create-a-simulated-device-app"></a>Sanal cihaz uygulaması oluşturma
 Bu bölümde şunları yapacaksınız:
 
-* Bulut tarafından çağrılan doğrudan bir yönteme yanıt veren bir Node.js konsol uygulaması oluşturma
+* Merhaba bulut tarafından adlı tooa doğrudan yöntemi yanıt bir Node.js konsol uygulaması oluşturma
 * Tetikleyici sanal cihaz yeniden başlatma
-* Aygıtları ve bunların en son ne zaman yeniden tanımlamak için cihaz çifti sorgular etkinleştirmek için bildirilen özelliklerini kullanın
+* Özellikler tooenable cihaz çifti sorguları tooidentify aygıtlar ve bunların en son ne zaman yeniden kullanım hello bildirdi
 
-1. Adlı yeni bir boş klasör oluşturun **manageddevice**.  Komut isteminizde aşağıdaki komutu kullanarak **manageddevice** klasöründe bir package.json dosyası oluşturun.  Tüm varsayılanları kabul edin:
+1. Adlı yeni bir boş klasör oluşturun **manageddevice**.  Merhaba, **manageddevice** klasörü, komut, komut isteminde aşağıdaki hello kullanarak bir package.json dosyası oluşturun.  Tüm hello Varsayılanları kabul edin:
    
     ```
     npm init
     ```
-2. Komut isteminizde **manageddevice** klasörü yüklemek için aşağıdaki komutu çalıştırın, **azure IOT cihaz** cihaz SDK'sı paketinin ve **azure-IOT-cihaz-mqtt** paketi:
+2. Merhaba, komut isteminde **manageddevice** klasörüne, komut tooinstall hello aşağıdaki hello **azure IOT cihaz** cihaz SDK'sı paketinin ve **azure-IOT-cihaz-mqtt**paketi:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. Bir metin düzenleyicisi kullanarak yeni bir oluşturma **dmpatterns_getstarted_device.js** dosyasını **manageddevice** klasör.
-4. Aşağıdaki 'İste' deyimleri başlangıcında eklemek **dmpatterns_getstarted_device.js** dosyası:
+3. Bir metin düzenleyicisi kullanarak yeni bir oluşturma **dmpatterns_getstarted_device.js** hello dosyasında **manageddevice** klasör.
+4. Merhaba aşağıdaki 'İste' hello hello başlangıç deyimleri ekleme **dmpatterns_getstarted_device.js** dosyası:
    
     ```
     'use strict';
@@ -127,27 +127,27 @@ Bu bölümde şunları yapacaksınız:
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Bir **connectionString** değişkeni ekleyin ve bir **İstemci** örneği oluşturmak için bunu kullanın.  Bağlantı dizesi, cihaz bağlantı dizesi ile değiştirin.  
+5. Ekleme bir **connectionString** değişken ve toocreate kullanan bir **istemci** örneği.  Merhaba bağlantı dizesi, cihaz bağlantı dizesi ile değiştirin.  
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
-6. Cihazda doğrudan yöntemi uygulamak için aşağıdaki işlevi ekleyin
+6. Merhaba aygıtta işlevi tooimplement hello doğrudan yöntemi aşağıdaki hello ekleme
    
     ```
     var onReboot = function(request, response) {
    
-        // Respond the cloud app for the direct method
+        // Respond hello cloud app for hello direct method
         response.send(200, 'Reboot started', function(err) {
             if (!err) {
                 console.error('An error occured when sending a method response:\n' + err.toString());
             } else {
-                console.log('Response to method \'' + request.methodName + '\' sent successfully.');
+                console.log('Response toomethod \'' + request.methodName + '\' sent successfully.');
             }
         });
    
-        // Report the reboot before the physical restart
+        // Report hello reboot before hello physical restart
         var date = new Date();
         var patch = {
             iothubDM : {
@@ -174,7 +174,7 @@ Bu bölümde şunları yapacaksınız:
         console.log('Rebooting!');
     };
     ```
-7. IOT hub'ınıza bağlantıyı açın ve doğrudan yöntemi dinleyicisini başlatmak için aşağıdaki kodu ekleyin:
+7. Merhaba aşağıdaki tooopen hello bağlantı tooyour IOT hub'ı kod ve hello doğrudan yöntemi dinleyicisini başlatmak ekleyin:
    
     ```
     client.open(function(err) {
@@ -186,23 +186,23 @@ Bu bölümde şunları yapacaksınız:
         }
     });
     ```
-8. Kaydet ve Kapat **dmpatterns_getstarted_device.js** dosya.
+8. Kaydet ve Kapat hello **dmpatterns_getstarted_device.js** dosya.
    
 > [!NOTE]
-> Sade ve basit bir anlatım gözetildiği için bu öğretici herhangi bir yeniden deneme ilkesi uygulamaz. [Geçici Hata İşleme][lnk-transient-faults] adlı MSDN makalesinde önerildiği üzere, üretim kodunda yeniden deneme ilkelerini (üstel geri alma gibi) uygulamanız gerekir.
+> tookeep şeyler basit, Bu öğretici herhangi bir yeniden deneme ilkesi uygulamaz. Üretim kodunda yeniden deneme ilkelerini (üstel geri alma), önerilen hello MSDN makalesinde uygulamalıdır [geçici hata işleme][lnk-transient-faults].
 
 
-## <a name="run-the-apps"></a>Uygulamaları çalıştırma
-Şimdi uygulamaları çalıştırmaya hazırsınız.
+## <a name="run-hello-apps"></a>Merhaba uygulamaları çalıştırma
+Hazır toorun hello uygulamaları sunulmuştur.
 
-1. Komut isteminde **manageddevice** klasörü, yeniden başlatma doğrudan yöntemi için dinleme başlamak için aşağıdaki komutu çalıştırın.
+1. Merhaba hello komut isteminde **manageddevice** klasöründe şunu hello yeniden başlatma doğrudan yöntemi için dinleme komutu toobegin aşağıdaki hello çalıştırın.
    
     ```
     node dmpatterns_getstarted_device.js
     ```
-2. C# konsol uygulaması çalıştırmak **TriggerReboot**. Sağ **TriggerReboot** proje, select **hata ayıklama**ve ardından **başlangıç yeni örnek**.
+2. Çalışma hello C# konsol uygulaması **TriggerReboot**. Sağ hello **TriggerReboot** proje, select **hata ayıklama**ve ardından **başlangıç yeni örnek**.
 
-3. Konsolunda doğrudan yöntemi aygıt yanıta bakın.
+3. Merhaba aygıt yanıt toohello doğrudan yöntemi hello konsolunda bakın.
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
 
@@ -216,7 +216,7 @@ Bu bölümde şunları yapacaksınız:
 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [Azure portal]: https://portal.azure.com/
-[Using resource groups to manage your Azure resources]: ../azure-portal/resource-group-portal.md
+[Using resource groups toomanage your Azure resources]: ../azure-portal/resource-group-portal.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
 
 [lnk-devtwin]: iot-hub-devguide-device-twins.md

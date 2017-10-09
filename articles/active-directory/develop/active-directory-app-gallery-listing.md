@@ -1,6 +1,6 @@
 ---
-title: "Uygulamanız Azure Active Directory Uygulama galerisinde listeleme"
-description: "Çoklu oturum açma Azure Active Directory Galerisi'nde destekleyen bir uygulama listelemek nasıl | Microsoft Azure"
+title: "aaaListing hello Azure Active Directory Uygulama galerisinde uygulamanızı"
+description: "Nasıl toolist çoklu oturum açma içinde destekleyen bir uygulama hello Azure Active Directory galeri | Microsoft Azure"
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
@@ -15,27 +15,27 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: cf25772bd9d92b59401aa5da76e6bbd5fa5ee3e5
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 09ccd3b4645a180059b9a9d502e39f1b8933c988
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="listing-your-application-in-the-azure-active-directory-application-gallery"></a>Uygulamanız Azure Active Directory Uygulama galerisinde listeleme
-Çoklu oturum açma Azure Active Directory ile destekleyen bir uygulama listelemek için [Azure AD galeri](https://azure.microsoft.com/marketplace/active-directory/all/), uygulamanın önce aşağıdaki tümleştirme modlarından birini uygulamanız gerekir:
+# <a name="listing-your-application-in-hello-azure-active-directory-application-gallery"></a>Hello Azure Active Directory Uygulama galerisinde uygulamanızı listeleme
+Çoklu oturum açma Azure Active Directory ile hello destekleyen bir uygulama toolist [Azure AD galeri](https://azure.microsoft.com/marketplace/active-directory/all/), hello uygulamanın ilk tümleştirme modları aşağıdaki Merhaba, tooimplement gerekir:
 
-* **Openıd Connect** -Openıd Connect kimlik doğrulaması ve Azure AD API yapılandırmasını onayı için kullanarak Azure AD ile doğrudan tümleştirme. Uygulamanızı SAML desteklemez ve yalnızca bir tümleştirme başlıyorsanız, ardından öneri modu budur.
-* **SAML** – üçüncü taraf kimlik sağlayıcıları SAML protokolü kullanarak yapılandırma yeteneğini uygulamanız zaten sahip.
+* **Openıd Connect** - Openıd Connect kimlik doğrulamasını kullanan Azure AD ile tümleştirme doğrudan ve yapılandırması için Azure AD onay API hello. Uygulamanızı SAML desteklemez ve yalnızca bir tümleştirme başlıyorsanız, ardından hello öneri modu budur.
+* **SAML** – hello özelliği tooconfigure üçüncü taraf kimlik sağlayıcıları hello SAML protokolü kullanarak uygulamanızı zaten sahiptir.
 
 Her iki modda listeleme gereksinimleri aşağıda verilmiştir.
 
 ## <a name="openid-connect-integration"></a>Openıd Connect tümleştirme
-Uygulamanızı aşağıdaki Azure AD ile tümleştirmek için [Geliştirici yönergeleri](active-directory-authentication-scenarios.md). Ardından aşağıdaki sorular tamamlamak ve göndermek waadpartners@microsoft.com.
+toointegrate aşağıdaki hello Azure AD ile uygulamanızı [Geliştirici yönergeleri](active-directory-authentication-scenarios.md). Daha sonra tamamlamak aşağıdaki hello sorular ve göndermek toowaadpartners@microsoft.com.
 
-* Uygulamanızla Azure AD ekibi tarafından tümleştirme test etmek için kullanılan bir test Kiracı ya da hesabı için kimlik bilgilerini sağlayın.  
-* Azure AD ekibi nasıl oturum açabilir ve kullanarak uygulamanızı örneğini Azure ad connect üzerinde yönergelerinizi [Azure AD onay framework](active-directory-integrating-applications.md#overview-of-the-consent-framework). 
-* Çoklu oturum açma ile uygulamanızı test etmek Azure AD ekibi için gerekli tüm ek yönergeler sağlar. 
-* Aşağıdaki bilgileri sağlayın:
+* Uygulamanızla Azure AD team tootest hello tümleştirmesi hello tarafından kullanılan bir test Kiracı ya da hesabı için kimlik bilgilerini sağlayın.  
+* Nasıl hello Azure AD team oturum açabilir ve Azure AD tooyour uygulaması hello kullanarak bir örneğine bağlanmak üzerinde yönergelerinizi [Azure AD onay framework](active-directory-integrating-applications.md#overview-of-the-consent-framework). 
+* Azure AD Hello için gerekli tüm ek yönergeler tootest çoklu oturum açma uygulamanız ile ekip sağlar. 
+* Merhaba aşağıdaki bilgileri sağlayın:
 
 > Şirket adı:
 > 
@@ -49,11 +49,11 @@ Uygulamanızı aşağıdaki Azure AD ile tümleştirmek için [Geliştirici yön
 > 
 > Uygulamanın teknik destek Web sitesi veya kişi bilgileri:
 > 
-> Uygulama Ayrıntıları https://portal.azure.com gösterildiği gibi uygulamanın uygulama Kimliğini:
+> Https://portal.azure.com hello uygulama ayrıntıları gösterildiği gibi hello uygulamanın uygulama Kimliğini:
 > 
-> Uygulama kaydolma müşteriler için kaydolun nereye URL'si ve/ya da uygulama satın alın:
+> Ya da uygulama kayıt müşteriler için toosign nereye URL hello uygulama satın alın:
 > 
-> Uygulamanızın (kullanılabilir kategoriler için bkz. Azure Active Directory Marketi) altında listelenecek en çok üç kategorileri seçin:
+> (Hello Azure Active Directory Marketi kullanılabilir kategorilerini görmek için) altında listelenen, uygulama toobe toothree kategorileri seçin:
 > 
 > Uygulama küçük simgesi (PNG dosyası, 45px, düz bir arka plan rengi tarafından 45px) ekleyin:
 > 
@@ -64,12 +64,12 @@ Uygulamanızı aşağıdaki Azure AD ile tümleştirmek için [Geliştirici yön
 > 
 
 ## <a name="saml-integration"></a>SAML tümleştirme
-SAML 2.0 destekleyen herhangi bir uygulama kullanarak doğrudan bir Azure AD kiracısı ile tümleştirilebilir [özel bir uygulama eklemek için bu yönergeleri](../active-directory-saas-custom-apps.md). Uygulama tümleştirmesi Azure AD ile çalışıp çalışmadığını test ettikten sonra aşağıdaki bilgileri göndermek < mailto:waadpartners@microsoft.com >.
+SAML 2.0 destekleyen herhangi bir uygulama kullanarak doğrudan bir Azure AD kiracısı ile tümleştirilebilir [bu yönergeleri tooadd özel bir uygulama](../active-directory-saas-custom-apps.md). Uygulama tümleştirmesi Azure AD ile çalışıp çalışmadığını test ettikten sonra aşağıdaki bilgilerle çok hello Gönder<mailto:waadpartners@microsoft.com>.
 
-* Uygulamanızla Azure AD ekibi tarafından tümleştirme test etmek için kullanılan bir test Kiracı ya da hesabı için kimlik bilgilerini sağlayın.  
-* SAML oturum açma URL'si, veren URL'si (varlık kimliği) ve yanıt URL'si (onaylama tüketici hizmeti) değerleri, uygulamanız için açıklandığı gibi sağlamak [burada](../active-directory-saas-custom-apps.md). SAML meta veri dosyasının bir parçası olarak bu değer genellikle sağlarsanız, sonra Lütfen, de gönderebilirsiniz.
-* Azure AD kimlik sağlayıcısı SAML 2.0 kullanarak uygulamanızdaki yapılandırma kısa bir açıklamasını sağlar. Uygulamanızı yapılandırma Azure AD kimlik sağlayıcısı Self Servis Yönetim Portalı üzerinden destekliyorsa, sonra lütfen yukarıda verilen kimlik bilgileri bu ayarlamanıza olanak içerir emin olun.
-* Aşağıdaki bilgileri sağlayın:
+* Uygulamanızla Azure AD team tootest hello tümleştirmesi hello tarafından kullanılan bir test Kiracı ya da hesabı için kimlik bilgilerini sağlayın.  
+* SAML oturum açma URL'si, veren URL'si (varlık kimliği) hello ve yanıt URL'si (onaylama tüketici hizmeti), uygulamanız için değerleri açıklandığı gibi sağlamak [burada](../active-directory-saas-custom-apps.md). SAML meta veri dosyasının bir parçası olarak bu değer genellikle sağlarsanız, sonra Lütfen, de gönderebilirsiniz.
+* Nasıl kısa bir açıklama sağlayın tooconfigure Azure AD kimlik sağlayıcısı SAML 2.0 kullanarak uygulamanızdaki. Uygulamanızı yapılandırma Azure AD kimlik sağlayıcısı Self Servis Yönetim Portalı üzerinden destekliyorsa, sonra lütfen yukarıda verilen hello kimlik hello özelliği tooset buna yukarı dahil emin olun.
+* Merhaba aşağıdaki bilgileri sağlayın:
 
 > Şirket adı:
 > 
@@ -83,9 +83,9 @@ SAML 2.0 destekleyen herhangi bir uygulama kullanarak doğrudan bir Azure AD kir
 > 
 > Uygulamanın teknik destek Web sitesi veya kişi bilgileri:
 > 
-> Uygulama kaydolma müşteriler için kaydolun nereye URL'si ve/ya da uygulama satın alın:
+> Ya da uygulama kayıt müşteriler için toosign nereye URL hello uygulama satın alın:
 > 
-> Altında listelenen uygulamanız için en çok üç kategorileri seçin (kullanılabilir kategorilerini görmek için [Azure Active Directory Marketi](https://azure.microsoft.com/marketplace/active-directory/))):
+> Altında listelenen, uygulama toobe toothree kategorileri seçin (Merhaba kullanılabilir kategorilerini görmek için [Azure Active Directory Marketi](https://azure.microsoft.com/marketplace/active-directory/))):
 > 
 > Uygulama küçük simgesi (PNG dosyası, 45px, düz bir arka plan rengi tarafından 45px) ekleyin:
 > 

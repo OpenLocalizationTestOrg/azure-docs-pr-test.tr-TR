@@ -1,14 +1,14 @@
-Eski VPN ağ geçidi SKU'ları şunlardır:
+Merhaba eski (eski) VPN ağ geçidi SKU'ları şunlardır:
 
 * Temel
 * Standart
 * HighPerformance
 
-VPN Gateway, UltraPerformance ağ geçidi SKU’sunu kullanmaz. UltraPerformance SKU’su hakkında bilgi edinmek için [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md) belgelerine bakın.
+VPN ağ geçidi hello UltraPerformance ağ geçidi SKU'su kullanmaz. Merhaba hello UltraPerformance SKU hakkında daha fazla bilgi için bkz [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md) belgeleri.
 
-Eski SKU'lar ile çalışırken aşağıdakileri göz önünde bulundurun:
+İle çalışırken, eski SKU'ları Merhaba, hello aşağıdakileri göz önünde bulundurun:
 
-* PolicyBased VPN türünü kullanmak istiyorsanız Temel SKU'yu kullanmanız gerekir. PolicyBased VPN'ler (daha önce Statik Yönlendirme olarak biliniyordu), diğer SKU’larda desteklenmez.
-* BGP, Temel SKU’da desteklenmez.
-* ExpressRoute-VPN Gateway ağ geçidi bir arada var olabilen yapılandırmaları, temel SKU'da desteklenmez.
-* Etkin-etkin S2S VPN Gateway bağlantıları, yalnızca HighPerformance değerine sahip SKU'larda yapılandırılabilir.
+* Toouse PolicyBased VPN türüne istiyorsanız hello temel SKU kullanmanız gerekir. PolicyBased VPN'ler (daha önce Statik Yönlendirme olarak biliniyordu), diğer SKU’larda desteklenmez.
+* BGP hello temel SKU üzerinde desteklenmiyor.
+* ExpressRoute VPN ağ geçidi bir arada yapılandırmaları hello temel SKU üzerinde desteklenmiyor.
+* Etkin-etkin S2S VPN Gateway bağlantıları yalnızca hello HighPerformance SKU üzerinde yapılandırılabilir.

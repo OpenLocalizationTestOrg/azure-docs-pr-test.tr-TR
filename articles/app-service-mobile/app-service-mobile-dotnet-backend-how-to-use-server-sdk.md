@@ -1,6 +1,6 @@
 ---
-title: "Mobil uygulamalar için .NET arka uç sunucusu SDK ile çalışmaya nasıl | Microsoft Docs"
-description: "Azure App Service Mobile Apps için .NET arka uç sunucusu SDK ile çalışmayı öğrenin."
+title: "Merhaba .NET arka uç sunucusu için Mobile Apps SDK'sı ile aaaHow toowork | Microsoft Docs"
+description: "Nasıl toowork ile Merhaba .NET arka uç sunucusu SDK Azure App Service Mobile Apps için öğrenin."
 keywords: "uygulama hizmeti, azure uygulama hizmeti, mobil uygulama, mobil hizmet, Ölçek, ölçeklenebilir, uygulama dağıtımı, azure uygulama dağıtımı"
 services: app-service\mobile
 documentationcenter: 
@@ -15,61 +15,61 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: 657fea16e47c15efd262c86d6a150a721476134a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 2946c5ba4424565ac764e2ce5597bf42362fcedf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Azure Mobile Apps için .NET arka uç sunucu SDK’sı ile çalışma
+# <a name="work-with-hello-net-backend-server-sdk-for-azure-mobile-apps"></a>Azure Mobile Apps için Hello .NET arka uç sunucusu SDK ile çalışma
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
 
-Bu konuda anahtar Azure App Service Mobile Apps senaryolarda .NET arka uç sunucusu SDK kullanmayı gösterir. Azure Mobile Apps SDK'sı, ASP.NET uygulamanız mobil istemcilerden çalışmanıza yardımcı olur.
+Bu konu nasıl toouse hello anahtar Azure App Service Mobile Apps senaryolarda .NET arka uç sunucusu SDK gösterir. Hello Azure Mobile Apps SDK'sı, ASP.NET uygulamanız mobil istemcilerden çalışmanıza yardımcı olur.
 
 > [!TIP]
-> [.NET server için Azure Mobile Apps SDK] [ 2] github'da açık bir kaynaktır. Depo tüm sunucu SDK birim test paketi ve bazı örnek projeler de dahil olmak üzere tüm kaynak kodunu içerir.
+> Merhaba [.NET server için Azure Mobile Apps SDK] [ 2] github'da açık bir kaynaktır. Merhaba depo hello tüm sunucu SDK birim test paketi ve bazı örnek projeler de dahil olmak üzere tüm kaynak kodunu içerir.
 >
 >
 
 ## <a name="reference-documentation"></a>Başvuru belgeleri
-SDK sunucusu için başvuru belgeleri burada bulunur: [Azure Mobile Apps .NET başvurusu][1].
+Merhaba sunucusu SDK Hello başvuru belgelerine bulunduğu burada: [Azure Mobile Apps .NET başvurusu][1].
 
 ## <a name="create-app"></a>Nasıl yapılır: bir .NET Mobil uygulama arka ucu oluşturma
-Yeni bir proje başlıyorsanız, kullanarak bir uygulama hizmeti uygulaması oluşturabilir [Azure portalı] veya Visual Studio. Uygulama hizmeti uygulamayı yerel olarak çalıştırın veya bulut tabanlı uygulama hizmeti mobil uygulamanıza proje yayımlayın.
+Yeni bir proje başlıyorsanız, her iki hello kullanarak bir uygulama hizmeti uygulaması oluşturabilir [Azure portalı] veya Visual Studio. Merhaba App Service uygulama yerel olarak çalıştırmak veya hello proje tooyour bulut tabanlı uygulama hizmeti mobil uygulama yayımlayın.
 
-Varolan bir projeye mobil özelliklerini ekliyorsanız, bkz: [indirin ve SDK'sını başlatma](#install-sdk) bölümü.
+Mobil özelliklerini tooan mevcut proje ekliyorsanız, hello bkz [indirin ve hello SDK başlatma](#install-sdk) bölümü.
 
-### <a name="create-a-net-backend-using-the-azure-portal"></a>Azure Portalı'nı kullanarak bir .NET arka ucu oluşturma
-Bir uygulama hizmeti mobil arka uç oluşturmak için aşağıdakilerden birini izleyin [hızlı başlangıç Öğreticisi] [ 3] veya şu adımları izleyin:
+### <a name="create-a-net-backend-using-hello-azure-portal"></a>Hello Azure portal kullanarak bir .NET arka ucu oluşturma
+bir uygulama hizmeti mobil arka uç toocreate, ya da izleyin hello [hızlı başlangıç Öğreticisi] [ 3] veya şu adımları izleyin:
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
-Geri *başlama* dikey altında **tablo API Oluştur**, seçin **C#** olarak, **arka uç dilinizi**. Tıklatın **karşıdan**sıkıştırılmış proje dosyalarını yerel bilgisayarınıza ayıklayın ve Visual Studio çözümü açın.
+Merhaba edilene *başlama* dikey altında **tablo API Oluştur**, seçin **C#** olarak, **arka uç dilinizi**. Tıklatın **karşıdan**sıkıştırılmış proje dosyalarını tooyour yerel bilgisayar ayıklayın ve hello çözümü Visual Studio'da açın.
 
 ### <a name="create-a-net-backend-using-visual-studio-2013-and-visual-studio-2015"></a>Visual Studio 2013 ve Visual Studio 2015 kullanarak bir .NET arka ucu oluşturma
-Yükleme [.NET için Azure SDK] [ 4] (sürüm 2.9.0 veya sonrası) Visual Studio'da bir Azure Mobile Apps projesi oluşturmak için. SDK'yı yükledikten sonra aşağıdaki adımları kullanarak bir ASP.NET uygulaması oluşturun:
+Merhaba yüklemek [.NET için Azure SDK] [ 4] (sürüm 2.9.0 veya sonrası) toocreate Visual Studio'da bir Azure Mobile Apps projesi. Merhaba SDK yükledikten sonra aşağıdaki adımları hello kullanarak bir ASP.NET uygulamasını oluşturun:
 
-1. Açık **yeni proje** iletişim (gelen *dosya* > **yeni** > **proje...** ).
+1. Açık hello **yeni proje** iletişim (gelen *dosya* > **yeni** > **proje...** ).
 2. Genişletme **şablonları** > **Visual C#**seçip **Web**.
 3. Seçin **ASP.NET Web uygulaması**.
-4. Proje adı girin. Daha sonra, **Tamam**'a tıklayın.
-5. Altında *ASP.NET 4.5.2 şablonları*seçin **Azure mobil uygulaması**. Denetleme **bulutta Barındır** mobil arka uç bu proje yayımlamak bulutta oluşturmak için.
+4. Merhaba proje adı girin. Daha sonra, **Tamam**'a tıklayın.
+5. Altında *ASP.NET 4.5.2 şablonları*seçin **Azure mobil uygulaması**. Denetleyin **hello buluttaki konağa** toocreate hello içinde mobil arka uç bulut toowhich bu proje yayımlayabilirsiniz.
 6. **Tamam** düğmesine tıklayın.
 
-## <a name="install-sdk"></a>Nasıl yapılır: indirme ve SDK'sını başlatma
-SDK kullanılabilir [NuGet.org]. Bu paket için SDK'sını kullanmaya başlamak için gerekli temel işlevselliğini içerir. SDK'yı başlatmak için üzerinde eylemler gerçekleştirmek gerekir **HttpConfiguration** nesnesi.
+## <a name="install-sdk"></a>Nasıl yapılır: karşıdan yükle ve hello SDK başlatma
+Merhaba SDK kullanılabilir [NuGet.org]. Bu paket hello SDK kullanmaya hello gerekli temel işlevselliği tooget içerir. tooinitialize SDK Merhaba, hello tooperform eylemleri gereksinim **HttpConfiguration** nesnesi.
 
-### <a name="install-the-sdk"></a>SDK yükle
-SDK yüklemek için sunucu projesi Visual Studio'da seçin sağ tıklayın **NuGet paketlerini Yönet**, arama [Microsoft.Azure.Mobile.Server] paketini ve ardından **yükleme**.
+### <a name="install-hello-sdk"></a>Merhaba SDK yükleme
+tooinstall hello SDK, Visual Studio'da hello sunucu projesi sağ tıklatın seçin **NuGet paketlerini Yönet**, hello Ara [Microsoft.Azure.Mobile.Server] paketini ve ardından  **Yükleme**.
 
-### <a name="server-project-setup"></a>Sunucu projesi başlatma
-Bir .NET arka uç sunucu projesi benzer diğer ASP.NET projeleri için OWIN başlangıç sınıfı dahil ederek başlatıldı. NuGet paketi başvurulan olun `Microsoft.Owin.Host.SystemWeb`. Visual Studio'da bu sınıf eklemek için sunucu projenize sağ tıklayın ve seçin **Ekle** >
-**yeni öğe**, ardından **Web** > **genel** > **OWIN başlangıç sınıfı**.  Bir sınıf aşağıdaki öznitelik oluşturulur:
+### <a name="server-project-setup"></a>Merhaba sunucu projesi başlatma
+OWIN başlangıç sınıfı dahil ederek başlatılmış benzer tooother ASP.NET projeleri, .NET arka uç sunucu projesi var. Merhaba NuGet paketi başvurulan olun `Microsoft.Owin.Host.SystemWeb`. tooadd Visual Studio'da bu sınıf sağ tıklayın, sunucu projesi ve select **Ekle** >
+**yeni öğe**, ardından **Web**  >  ** Genel** > **OWIN başlangıç sınıfı**.  Bir sınıf özniteliği aşağıdaki hello ile oluşturulur:
 
     [assembly: OwinStartup(typeof(YourServiceName.YourStartupClassName))]
 
-İçinde `Configuration()` yöntemi, OWIN başlangıç sınıfı, kullanım, bir **HttpConfiguration** Azure Mobile Apps ortamını yapılandırma nesnesi.
-Aşağıdaki örnek, hiçbir ek özellikler içeren sunucu projesi başlatır:
+Merhaba, `Configuration()` yöntemi, OWIN başlangıç sınıfı, kullanım, bir **HttpConfiguration** nesne tooconfigure hello Azure Mobile Apps ortamı.
+Aşağıdaki örnek hello hello sunucu projesi hiçbir ek özellikler içeren başlatır:
 
     // in OWIN startup class
     public void Configuration(IAppBuilder app)
@@ -83,60 +83,60 @@ Aşağıdaki örnek, hiçbir ek özellikler içeren sunucu projesi başlatır:
         app.UseWebApi(config);
     }
 
-Tek tek özellikleri etkinleştirmek için genişletme yöntemleri üzerinde çağırmalısınız **MobileAppConfiguration** nesne çağırmadan önce **ApplyTo**. Örneğin, aşağıdaki kod özniteliğine sahip tüm API denetleyicilerinin varsayılan yolların ekler `[MobileAppController]` başlatma sırasında:
+tooenable tek tek özellikleri, üzerinde hello genişletme yöntemlerini çağırmalıdır **MobileAppConfiguration** nesne çağırmadan önce **ApplyTo**. Örneğin, kod aşağıdaki hello hello varsayılan yolları hello özniteliğine sahip tooall API denetleyicilerinin ekler `[MobileAppController]` başlatma sırasında:
 
     new MobileAppConfiguration()
         .MapApiControllers()
         .ApplyTo(config);
 
-Azure portal aramalardan server Hızlı Başlangıç **UseDefaultConfiguration()**. Aşağıdaki Kurulum bu eşdeğerdir:
+Merhaba server hızlı başlangıçtan hello Azure portal çağrıları **UseDefaultConfiguration()**. Kurulum aşağıdaki bu eşdeğer toohello:
 
         new MobileAppConfiguration()
-            .AddMobileAppHomeController()             // from the Home package
+            .AddMobileAppHomeController()             // from hello Home package
             .MapApiControllers()
-            .AddTables(                               // from the Tables package
+            .AddTables(                               // from hello Tables package
                 new MobileAppTableConfiguration()
                     .MapTableControllers()
-                    .AddEntityFramework()             // from the Entity package
+                    .AddEntityFramework()             // from hello Entity package
                 )
-            .AddPushNotifications()                   // from the Notifications package
-            .MapLegacyCrossDomainController()         // from the CrossDomain package
+            .AddPushNotifications()                   // from hello Notifications package
+            .MapLegacyCrossDomainController()         // from hello CrossDomain package
             .ApplyTo(config);
 
-Kullanılan genişletme yöntemleri şunlardır:
+kullanılan hello uzantı yöntemleri şunlardır:
 
-* `AddMobileAppHomeController()`Varsayılan Azure Mobile Apps giriş sayfası sağlar.
-* `MapApiControllers()`Webapı denetleyicileri ile donatılmış özel API yetenekleri sağlar `[MobileAppController]` özniteliği.
-* `AddTables()`bir eşlenmesini sağlar `/tables` tablo denetleyicilerine uç noktaları.
-* `AddTablesWithEntityFramework()`bir kısaltılmış eşlemesi için olan `/tables` Entity Framework kullanarak uç noktaları alarak denetleyicileri.
+* `AddMobileAppHomeController()`Merhaba varsayılan Azure Mobile Apps giriş sayfası sağlar.
+* `MapApiControllers()`Merhaba ile donatılmış Webapı denetleyicileri için özel API olanakları sağlayan `[MobileAppController]` özniteliği.
+* `AddTables()`Merhaba eşlenmesini sağlar `/tables` uç noktaları tootable denetleyicileri.
+* `AddTablesWithEntityFramework()`bir kısaltılmış eşleme hello için olan `/tables` Entity Framework kullanarak uç noktaları alarak denetleyicileri.
 * `AddPushNotifications()`Bildirim hub'ları için cihazları kaydetme, basit bir yöntem sağlar.
 * `MapLegacyCrossDomainController()`Standart CORS üstbilgilerini yerel geliştirme için sağlar.
 
 ### <a name="sdk-extensions"></a>SDK uzantıları
-Aşağıdaki NuGet tabanlı uzantısı paketleri, uygulamanız tarafından kullanılabilen çeşitli mobil özellikleri sağlar. Kullanarak başlatma sırasında uzantılarını etkinleştirme **MobileAppConfiguration** nesnesi.
+NuGet tabanlı uzantı paketleri aşağıdaki hello uygulamanız tarafından kullanılan çeşitli mobil özellikleri sağlar. Hello kullanarak başlatma sırasında uzantılarını etkinleştirme **MobileAppConfiguration** nesnesi.
 
-* [Microsoft.Azure.Mobile.Server.Quickstart] temel Mobile Apps Kurulumu destekler. Çağırarak yapılandırmaya eklenmiş **UseDefaultConfiguration** başlatma sırasında genişletme yöntemi. Bu uzantı uzantıları aşağıdaki içerir: bildirimleri, kimlik doğrulama, varlık, tablolar, etki alanları arası ve giriş paketleri. Bu paket, Azure portalında kullanılabilir Mobile Apps Quickstart tarafından kullanılır.
-* [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) varsayılan uygulayan *bu mobil uygulamayı çalışır durumda olduğundan sayfa* bir web sitesi kök. Yapılandırmaya çağırarak eklemek **AddMobileAppHomeController** genişletme yöntemi.
-* [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) verilerle çalışmak için sınıflar içerir ve veri ardışık kümeleri yukarı. Yapılandırmaya çağırarak eklemek **AddTables** genişletme yöntemi.
-* [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) SQL veritabanındaki verilere erişmek Entity Framework sağlar. Yapılandırmaya çağırarak eklemek **AddTablesWithEntityFramework** genişletme yöntemi.
-* [Microsoft.Azure.Mobile.Server.Authentication] kimlik doğrulaması sağlar ve ayarlar yukarı belirteçleri doğrulamak için kullanılan OWIN ara yazılımı. Yapılandırmaya çağırarak eklemek **AddAppServiceAuthentication** ve **Iappbuilder**. **UseAppServiceAuthentication** genişletme yöntemleri.
-* [Microsoft.Azure.Mobile.Server.Notifications] anında iletme bildirimleri ve anında iletme kayıt uç noktasını tanımlar sağlar. Yapılandırmaya çağırarak eklemek **AddPushNotifications** genişletme yöntemi.
-* [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) verilerini mobil uygulamanızdan eski tarayıcılar için hizmet veren bir denetleyiciyi oluşturur. Yapılandırmaya çağırarak eklemek **MapLegacyCrossDomainController** genişletme yöntemi.
-* [Microsoft.Azure.Mobile.Server.Login] özel kimlik doğrulama senaryoları sırasında kullanılan bir statik yöntem AppServiceLoginHandler.CreateToken() yöntemi sağlar.
+* [Microsoft.Azure.Mobile.Server.Quickstart] destekler hello temel Mobile Apps kurulumu. Arama hello tarafından eklenen toohello yapılandırma **UseDefaultConfiguration** başlatma sırasında genişletme yöntemi. Bu uzantı uzantıları aşağıdaki içerir: bildirimleri, kimlik doğrulama, varlık, tablolar, etki alanları arası ve giriş paketleri. Bu paket, hello Mobile Apps hızlı başlangıç hello Azure portalı üzerinde kullanılabilir tarafından kullanılır.
+* [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) uygulayan hello varsayılan *bu mobil uygulamayı çalışır durumda olduğundan sayfa* hello web sitesinin kök. Çağırarak toohello yapılandırması eklemek **AddMobileAppHomeController** genişletme yöntemi.
+* [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) veriler ve ayarlar yukarı hello veri ardışık ile çalışmaya yönelik sınıflar içerir. Toohello yapılandırması tarafından arama hello eklemek **AddTables** genişletme yöntemi.
+* [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) hello Entity Framework tooaccess verileri hello SQL veritabanı sağlar. Toohello yapılandırması tarafından arama hello eklemek **AddTablesWithEntityFramework** genişletme yöntemi.
+* [Microsoft.Azure.Mobile.Server.Authentication] etkinleştirir kimlik doğrulama ve ayarlar yukarı hello OWIN ara yazılımı toovalidate belirteçleri kullanılır. Toohello yapılandırması tarafından arama hello eklemek **AddAppServiceAuthentication** ve **Iappbuilder**. **UseAppServiceAuthentication** genişletme yöntemleri.
+* [Microsoft.Azure.Mobile.Server.Notifications] anında iletme bildirimleri ve anında iletme kayıt uç noktasını tanımlar sağlar. Toohello yapılandırması tarafından arama hello eklemek **AddPushNotifications** genişletme yöntemi.
+* [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) veri toolegacy mobil uygulamanızın web tarayıcılarından hizmet veren bir denetleyiciyi oluşturur. Çağırarak toohello yapılandırması eklemek **MapLegacyCrossDomainController** genişletme yöntemi.
+* [Microsoft.Azure.Mobile.Server.Login] özel kimlik doğrulama senaryoları sırasında kullanılan bir statik yöntem hello AppServiceLoginHandler.CreateToken() yöntemi sağlar.
 
-## <a name="publish-server-project"></a>Nasıl yapılır: Sunucu projesi yayımlama
-Bu bölümde, .NET arka uç projeniz Visual Studio'dan yayımlamak nasıl gösterir. Arka uç projeniz Git kullanarak da dağıtabilir veya diğer yöntemlerden herhangi birini ele [Azure uygulama hizmeti dağıtım belgeleri](../app-service-web/web-sites-deploy.md).
+## <a name="publish-server-project"></a>Nasıl yapılır: yayımlama hello sunucu projesi
+Bu bölümde, nasıl toopublish .NET arka ucu proje Visual Studio'dan gösterir. Arka uç projeniz Git kullanarak da dağıtabilir veya herhangi bir hello hello kapsamdaki diğer yöntemleri [Azure uygulama hizmeti dağıtım belgeleri](../app-service-web/web-sites-deploy.md).
 
-1. Visual Studio'da NuGet paketlerini geri yüklemek için projeyi yeniden oluşturun.
-2. Çözüm Gezgini'nde projeye sağ tıklayın, **Yayımla**. İlk yayımladığınızda, yayımlama profili tanımlamanız gerekir. Önceden tanımlı bir profili varsa, seçin ve tıklatın **Yayımla**.
-3. Yayımlama hedefi seçmek için sorulursa tıklatın **Microsoft Azure App Service** > **sonraki**, sonra (gerekirse) ile Azure kimlik bilgilerinizle oturum açın.
+1. Visual Studio'da hello proje toorestore NuGet paketlerini yeniden oluşturun.
+2. Çözüm Gezgini'nde, sağ hello proje tıklatın **Yayımla**. Merhaba, yayımladığınız ilk kez, toodefine bir yayımlama profili gerekir. Önceden tanımlı bir profili varsa, seçin ve tıklatın **Yayımla**.
+3. Tooselect yayımlama hedefi sorulursa tıklatın **Microsoft Azure App Service** > **sonraki**, sonra (gerekirse) ile Azure kimlik bilgilerinizle oturum açın.
    Visual Studio indirmeleri ve güvenli bir şekilde depolar, doğrudan Azure ayarlarını yayımlayın.
 
     ![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-1.png)
 4. Seçin, **abonelik**seçin **kaynak türü** gelen **Görünüm**, genişletin **mobil uygulama**ve mobil uygulama arka tıklayın ve ardından **Tamam**.
 
     ![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-2.png)
-5. Yayımlama profili bilgilerini doğrulayın ve tıklatın **Yayımla**.
+5. Merhaba doğrulayın profil bilgilerini yayımlamak ve tıklatın **Yayımla**.
 
     ![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-3.png)
 
@@ -145,10 +145,10 @@ Bu bölümde, .NET arka uç projeniz Visual Studio'dan yayımlamak nasıl göste
     ![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-success.png)
 
 ## <a name="define-table-controller"></a>Nasıl yapılır: bir tablo denetleyicisi tanımlayın
-Mobil istemcilerin bir SQL tablosuna kullanıma sunmak için bir tablo denetleyicisi tanımlayın.  Bir tablo denetleyicisi yapılandırma üç adımı gerektirir:
+Bir tablo denetleyicisi tooexpose SQL tablosu toomobile istemcileri tanımlayın.  Bir tablo denetleyicisi yapılandırma üç adımı gerektirir:
 
 1. Bir veri aktarım nesnesini (DTO) sınıf oluşturun.
-2. Bir tablo başvurusu mobil DbContext sınıfında yapılandırın.
+2. Bir tablo başvurusu hello mobil DbContext sınıfı yapılandırın.
 3. Bir tablo denetleyicisi oluşturun.
 
 Bir veri aktarım nesnesini (DTO) öğesinden devralınan bir düz C# nesnesidir `EntityData`.  Örneğin:
@@ -159,7 +159,7 @@ Bir veri aktarım nesnesini (DTO) öğesinden devralınan bir düz C# nesnesidir
         public bool Complete {get; set;}
     }
 
-DTO tablo SQL veritabanı içinde tanımlamak için kullanılır.  Veritabanı girişi oluşturmak için Ekle bir `DbSet<>` kullanmakta olduğunuz DbContext özelliğine.  Azure Mobile Apps için varsayılan proje şablonu DbContext adlı `Models\MobileServiceContext.cs`:
+Merhaba DTO hello SQL veritabanı içinde kullanılan toodefine hello tablosu değil.  toocreate hello veritabanı girişi, ekleme bir `DbSet<>` hello kullanmakta olduğunuz DbContext özelliğine.  Merhaba varsayılan proje şablonu Azure mobil uygulamalar için hello DbContext çağrılır `Models\MobileServiceContext.cs`:
 
     public class MobileServiceContext : DbContext
     {
@@ -180,73 +180,73 @@ DTO tablo SQL veritabanı içinde tanımlamak için kullanılır.  Veritabanı g
         }
     }
 
-Azure SDK'sı yüklü varsa, artık bir şablon tablo denetleyicisi aşağıdaki gibi oluşturabilirsiniz:
+Azure SDK'sı yüklü hello varsa, aşağıdaki gibi bir şablon tablo denetleyicisi artık oluşturabilirsiniz:
 
-1. Denetleyicileri klasörü sağ tıklatın ve seçin **Ekle** > **denetleyicisi...** .
-2. Seçin **Azure Mobile Apps tablo denetleyicisi** seçeneğini ve ardından **Ekle**.
-3. İçinde **denetleyici Ekle** iletişim:
-   * İçinde **Model sınıfı** açılan listesinde, yeni DTO seçin.
-   * İçinde **DbContext** açılan listesinde, mobil hizmet DbContext sınıfı seçin.
-   * Denetleyici adı sizin için oluşturulur.
+1. Merhaba denetleyicileri klasörü sağ tıklatın ve seçin **Ekle** > **denetleyicisi...** .
+2. Select hello **Azure Mobile Apps tablo denetleyicisi** seçeneğini ve ardından **Ekle**.
+3. Merhaba, **denetleyici Ekle** iletişim:
+   * Merhaba, **Model sınıfı** açılan listesinde, yeni DTO seçin.
+   * Merhaba, **DbContext** açılan listesinde, select hello mobil hizmet DbContext sınıfı.
+   * Merhaba Denetleyici adı sizin için oluşturulur.
 4. **Ekle**'ye tıklayın.
 
-Basit bir örneğin hızlı başlangıç sunucu projesi içeren **TodoItemController**.
+Hello hızlı başlangıç sunucu projesi içeren basit bir örneğin **TodoItemController**.
 
-### <a name="adjust-pagesize"></a>Nasıl yapılır: Tablo disk belleği boyutunu ayarlama
-Varsayılan olarak, Azure Mobile Apps istek başına 50 kayıt döndürür.  Disk belleği, istemci kendi kullanıcı Arabirimi iş parçacığı veya çok uzun bir süre için sunucunun yukarı iyi bir kullanıcı deneyimi sağlayarak tie değil, sağlar. Tablo disk belleği boyutunu değiştirmek için "izin verilen sorgu boyutu" sunucu tarafı artırmak ve istemci tarafı sayfa boyutu sunucu tarafı "sorgu boyutu izin verilen" olarak ayarlandı kullanarak `EnableQuery` özniteliği:
+### <a name="adjust-pagesize"></a>Nasıl yapılır: hello tablo disk belleği boyutunu ayarlama
+Varsayılan olarak, Azure Mobile Apps istek başına 50 kayıt döndürür.  Disk belleği hello istemci kendi kullanıcı Arabirimi iş parçacığı veya hello sunucusu çok uzun bir süre için iyi bir kullanıcı deneyimi sağlayarak tie değil sağlar. toochange hello tablo disk belleği boyutu artışı hello sunucu tarafı "izin verilen sorgu boyutu" ve hello istemci-tarafı sayfa boyutu hello sunucu tarafı "izin verilen sorgu boyutu" Merhaba kullanarak ayarlanır `EnableQuery` özniteliği:
 
     [EnableQuery(PageSize = 500)]
 
-PageSize aynı olduğundan emin olun veya istemci tarafından istenilen boyuttan büyük.  Belirli istemci istemci sayfa boyutunu değiştirme hakkında ayrıntılar için nasıl yapılır belgelerine bakın.
+Merhaba PageSize hello aynı ya da hello istemci tarafından istenilen hello boyutundan büyük olduğundan emin olun.  Merhaba istemci sayfa boyutunu değiştirme hakkında ayrıntılar için toohello belirli istemci nasıl yapılır belgelerine başvurun.
 
 ## <a name="how-to-define-a-custom-api-controller"></a>Nasıl yapılır: özel bir API denetleyicisi tanımlayın
-Özel API denetleyicisi bir uç nokta göstererek, mobil uygulamanızın arka ucuna en temel işlevsellik sağlar. [MobileAppController] özniteliği kullanılarak mobile özgü API denetleyicisi kaydedebilirsiniz. `MobileAppController` Özniteliği rota kaydeder, Mobile Apps JSON seri hale getirici ayarlar ve açar [istemci sürüm denetimi](app-service-mobile-client-and-server-versioning.md).
+Merhaba özel API denetleyicisi hello en temel işlevleri tooyour mobil uygulama arka uç nokta göstererek sağlar. Merhaba [MobileAppController] özniteliği kullanılarak mobile özgü API denetleyicisi kaydedebilirsiniz. Merhaba `MobileAppController` özniteliği hello rota kaydeder, hello Mobile Apps JSON serileştirici ayarlar ve açar [istemci sürüm denetimi](app-service-mobile-client-and-server-versioning.md).
 
-1. Visual Studio'da denetleyicileri klasörüne sağ tıklayın ve ardından **Ekle** > **denetleyicisi**seçin **Web API 2 denetleyicisi&mdash;boş** tıklatıp **Ekle**.
+1. Visual Studio'da hello denetleyicileri klasörü sağ tıklatın, ardından **Ekle** > **denetleyicisi**seçin **Web API 2 denetleyicisi&mdash;boş** ve tıklatın **Ekle**.
 2. Tedarik bir **Denetleyici adı**, gibi `CustomController`, tıklatıp **Ekle**.
-3. Yeni denetleyici sınıf dosyasında, aşağıdaki ekleme deyimini kullanarak:
+3. Merhaba yeni denetleyici sınıfı dosyasında hello aşağıdakileri ekleyin deyimi kullanarak:
 
         using Microsoft.Azure.Mobile.Server.Config;
-4. Uygulama **[MobileAppController]** özniteliği aşağıdaki örnekte olduğu gibi API denetleyicisi sınıfı tanımı:
+4. Merhaba uygulamak **[MobileAppController]** özniteliği aşağıdaki örneğine hello olduğu gibi toohello API denetleyicisi sınıfı tanımı:
 
         [MobileAppController]
         public class CustomController : ApiController
         {
               //...
         }
-5. App_Start/Startup.MobileApp.cs dosyasında bir çağrı ekleyin **MapApiControllers** genişletme yöntemi, aşağıdaki örnekteki gibi:
+5. Çağrı toohello App_Start/Startup.MobileApp.cs dosyasında ekleyin **MapApiControllers** uzantısı yönteminizdeki aşağıdaki örneğine hello:
 
         new MobileAppConfiguration()
             .MapApiControllers()
             .ApplyTo(config);
 
-Aynı zamanda `UseDefaultConfiguration()` genişletme yöntemi yerine `MapApiControllers()`. Sahip olmadığı herhangi bir denetleyicisi **MobileAppControllerAttribute** uygulanan hala istemcileri tarafından erişilebilen, ancak bunu doğru şekilde herhangi bir mobil uygulama istemci SDK kullanan istemciler tarafından tüketilmeyen.
+Merhaba de kullanabilirsiniz `UseDefaultConfiguration()` genişletme yöntemi yerine `MapApiControllers()`. Sahip olmadığı herhangi bir denetleyicisi **MobileAppControllerAttribute** uygulanan hala istemcileri tarafından erişilebilen, ancak bunu doğru şekilde herhangi bir mobil uygulama istemci SDK kullanan istemciler tarafından tüketilmeyen.
 
 ## <a name="how-to-work-with-authentication"></a>Nasıl yapılır: kimlik doğrulaması ile çalışma
-Azure Mobile Apps kullanan App Service kimlik doğrulama / yetkilendirme, mobil arka uç güvenli hale getirmek için.  Bu bölümde aşağıdaki kimlik doğrulama ile ilgili görevlerin .NET arka uç sunucu projenizi nasıl gerçekleştirileceğini gösterir:
+Azure Mobile Apps kullanan App Service kimlik doğrulama / yetkilendirme toosecure mobil arka.  Bu bölümde, nasıl gösterilir .NET arka uç sunucu projenizi kimlik doğrulaması ile ilgili görevleri aşağıdaki tooperform hello:
 
-* [Nasıl yapılır: bir sunucu projesi için kimlik doğrulaması ekleme](#add-auth)
+* [Nasıl yapılır: kimlik doğrulaması tooa sunucu projesi ekleme](#add-auth)
 * [Nasıl yapılır: uygulamanız için özel kimlik doğrulamasını kullan](#custom-auth)
 * [Nasıl yapılır: alma kimliği doğrulanmış kullanıcı bilgileri](#user-info)
 * [Nasıl yapılır: yetkili kullanıcıların veri erişimini kısıtlamak](#authorize)
 
-### <a name="add-auth"></a>Nasıl yapılır: bir sunucu projesi için kimlik doğrulaması ekleme
-Kimlik doğrulama sunucu projenizi genişleterek ekleyebileceğiniz **MobileAppConfiguration** nesne ve OWIN ara yazılımı yapılandırma. Yüklediğinizde [Microsoft.Azure.Mobile.Server.Quickstart] paket ve çağrısı **UseDefaultConfiguration** genişletme yöntemi, 3. adıma atlayabilirsiniz.
+### <a name="add-auth"></a>Nasıl yapılır: kimlik doğrulaması tooa sunucu projesi ekleme
+Kimlik doğrulama tooyour sunucu projesi hello genişleterek ekleyebileceğiniz **MobileAppConfiguration** nesne ve OWIN ara yazılımı yapılandırma. Merhaba yüklediğinizde [Microsoft.Azure.Mobile.Server.Quickstart] paket ve çağrı hello **UseDefaultConfiguration** genişletme yöntemi, toostep 3 atlayabilirsiniz.
 
-1. Visual Studio'da yükleme [Microsoft.Azure.Mobile.Server.Authentication] paket.
-2. Haline proje dosyasında başında aşağıdaki kod satırını ekleyin **yapılandırma** yöntemi:
+1. Visual Studio'da hello yüklemek [Microsoft.Azure.Mobile.Server.Authentication] paket.
+2. Aşağıdaki kod hello hello başında hello Hello haline proje dosyasında eklemek **yapılandırma** yöntemi:
 
         app.UseAppServiceAuthentication(config);
 
-    Bu OWIN ara yazılım bileşeni ilişkili uygulama hizmeti ağ geçidi tarafından yayınlanan belirteçleri doğrular.
-3. Ekleme `[Authorize]` özniteliği herhangi bir denetleyici veya kimlik doğrulama gerektiren yöntemi.
+    Bu OWIN ara yazılım bileşeni ilişkili hello uygulama hizmeti gateway tarafından yayınlanan belirteçleri doğrular.
+3. Merhaba eklemek `[Authorize]` özniteliği tooany denetleyicisi veya kimlik doğrulama gerektiren yöntemi.
 
-Mobile Apps arka istemcilerin kimliğini doğrulamak nasıl hakkında bilgi edinmek için [uygulamanıza kimlik doğrulaması ekleme](app-service-mobile-ios-get-started-users.md).
+toolearn konusunda tooauthenticate istemcileri tooyour Mobile Apps arka bkz [Ekle kimlik doğrulama tooyour uygulama](app-service-mobile-ios-get-started-users.md).
 
 ### <a name="custom-auth"></a>Nasıl yapılır: uygulamanız için özel kimlik doğrulamasını kullan
-App Service kimlik doğrulama/yetkilendirme sağlayıcılardan biri kullanmak istemiyorsanız, kendi oturum açma sistem uygulayabilirsiniz. Yükleme [Microsoft.Azure.Mobile.Server.Login] ile kimlik doğrulama belirteci oluşturma yardımcı olmak üzere paket.  Kullanıcı kimlik bilgilerini doğrulamak için kendi kodunuzu girin. Örneğin, güvenlik ve karma parolaları bir veritabanında karşı denetleyebilirsiniz. Aşağıdaki örnekte `isValidAssertion()` yöntemi (başka bir yerde tanımlanır) için bu denetimleri sorumlu.
+Toouse hello App Service kimlik doğrulama/yetkilendirme sağlayıcılardan biri istemiyorsanız, kendi oturum açma sistem uygulayabilirsiniz. Merhaba yüklemek [Microsoft.Azure.Mobile.Server.Login] tooassist kimlik doğrulama belirteci oluşturma ile paket.  Kullanıcı kimlik bilgilerini doğrulamak için kendi kodunuzu girin. Örneğin, güvenlik ve karma parolaları bir veritabanında karşı denetleyebilirsiniz. Merhaba aşağıdaki örnekte, hello `isValidAssertion()` yöntemi (başka bir yerde tanımlanır) için bu denetimleri sorumlu.
 
-Özel kimlik doğrulama bir ApiController oluşturma ve gösterme sunulan `register` ve `login` eylemler. İstemci, kullanıcıdan bilgi toplamak için özel bir kullanıcı Arabirimi kullanmanız gerekir.  Bilgi, standart HTTP POST çağrısıyla API sonra gönderilir. Onaylama işlemi sunucuyu doğrular sonra bir belirteç kullanarak verilen `AppServiceLoginHandler.CreateToken()` yöntemi.  ApiController **vermemelisiniz** kullanmak `[MobileAppController]` özniteliği.
+bir ApiController oluşturma ve gösterme Hello özel kimlik doğrulama açığa `register` ve `login` eylemler. Merhaba istemci hello kullanıcıdan özel kullanıcı Arabirimi toocollect hello bilgilerini kullanmanız gerekir.  Standart bir HTTP POST ile birlikte gönderilen toohello API çağrısı sonra hello bilgilerdir. Merhaba onaylama Hello sunucuyu doğrular sonra bir belirteç hello kullanarak verilen `AppServiceLoginHandler.CreateToken()` yöntemi.  Merhaba ApiController **vermemelisiniz** hello kullan `[MobileAppController]` özniteliği.
 
 Örnek `login` eylem:
 
@@ -271,7 +271,7 @@ App Service kimlik doğrulama/yetkilendirme sağlayıcılardan biri kullanmak is
             }
         }
 
-Önceki örnekte LoginResult ve LoginResultUser gerekli özellikleri gösterme seri hale getirilebilir nesneleridir. İstemci oturum açma yanıt biçiminde JSON nesneler olarak döndürülecek bekler:
+Örnek önceki hello LoginResult ve LoginResultUser gerekli özellikleri gösterme seri hale getirilebilir nesneleridir. Merhaba istemci oturum açma yanıtları toobe hello form JSON nesneler olarak döndürülen bekler:
 
         {
             "authenticationToken": "<token>",
@@ -280,87 +280,87 @@ App Service kimlik doğrulama/yetkilendirme sağlayıcılardan biri kullanmak is
             }
         }
 
-`AppServiceLoginHandler.CreateToken()` Yöntemi içeren bir *İzleyici* ve bir *veren* parametresi. Bu parametrelerin her ikisini de HTTPS şeması kullanarak URL'ye, uygulamanızın kök ayarlanır. Benzer şekilde ayarlamalısınız *secretKey* uygulamanızı değerini anahtar imzalama kullanıcının olması. Anahtarları Naneli ve kullanıcıları taklit etmek için kullanılabilir olarak bir istemci imzalama anahtarı dağıtmayın. App Service içinde başvurarak barındırılan sırada imzalama anahtarı edinebilirsiniz *Web sitesi\_AUTH\_imzalama\_anahtar* ortam değişkeni. Yerel hata ayıklama bağlamda gerekirse'ndaki yönergeleri izleyin [yerel kimlik doğrulaması ile hata ayıklama](#local-debug) anahtarı almak ve bir uygulama ayarı olarak depolamak için bölüm.
+Merhaba `AppServiceLoginHandler.CreateToken()` yöntemi içeren bir *İzleyici* ve bir *veren* parametresi. Bu parametrelerin her ikisini de toohello URL'sini hello HTTPS şeması kullanarak, uygulamanızın kök ayarlanır. Benzer şekilde ayarlamalısınız *secretKey* toobe hello değeri, uygulamanızın imzalama anahtarı. Bir istemci anahtarı olarak kullanılan toomint anahtarlarının olması ve kullanıcıların kimliğine imzalama hello dağıtmayın. Merhaba başvurarak App Service içinde barındırılan tutarak imzalama hello edinebilirsiniz *Web sitesi\_AUTH\_imzalama\_anahtar* ortam değişkeni. Yerel hata ayıklama bağlamda gerekirse hello hello yönergeleri izleyin [yerel kimlik doğrulaması ile hata ayıklama](#local-debug) bölümünde tooretrieve hello anahtarı ve bir uygulama ayarı olarak depolar.
 
-Verilen belirteç, ayrıca diğer talepleri ve sona erme tarihi içerebilir.  Verilen belirteç en azından bir konu içermelidir (**alt**) talep.
+verilen hello belirteci ayrıca diğer talepleri ve sona erme tarihi içerebilir.  En düşük düzeyde, verilen hello belirteci bir konu içermelidir (**alt**) talep.
 
-Standart istemci destekleyebilir `loginAsync()` tarafından kimlik doğrulaması rota aşırı yükleme yöntemi.  İstemci çağırırsa `client.loginAsync('custom');` oturum açmak için yönlendirme olmalı `/.auth/login/custom`.  Özel kimlik doğrulama kullanarak denetleyici için rota ayarlayabilirsiniz `MapHttpRoute()`:
+Merhaba standart istemci destekleyebilir `loginAsync()` hello kimlik doğrulaması rota aşırı yüklemesi tarafından yöntemi.  Merhaba istemci çağırırsa `client.loginAsync('custom');` toolog içinde rota olmalıdır `/.auth/login/custom`.  Merhaba denetleyicisi özel kimlik doğrulama kullanarak hello yol ayarlayabilirsiniz `MapHttpRoute()`:
 
     config.Routes.MapHttpRoute("custom", ".auth/login/custom", new { controller = "CustomAuth" });
 
 > [!TIP]
-> Kullanarak `loginAsync()` yaklaşım sağlar sonraki her çağrı için hizmet kimlik doğrulama belirteci eklenir.
+> Hello kullanarak `loginAsync()` yaklaşım sağlar hello kimlik doğrulama belirtecini bağlı tooevery sonraki çağrı toohello hizmet.
 >
 >
 
 ### <a name="user-info"></a>Nasıl yapılır: alma kimliği doğrulanmış kullanıcı bilgileri
-App Service tarafından bir kullanıcı kimlik doğrulaması yapıldığında .NET arka uç kodunuzun atanan kullanıcı Kimliğini ve diğer bilgilere erişebilirsiniz. Kullanıcı bilgilerini arka yetkilendirme kararları kullanılabilir. Aşağıdaki kod, bir istekle ilişkili kullanıcı kimliği alır:
+Bir kullanıcı tarafından uygulama hizmeti doğrulandığında, kullanıcı kimliği ve diğer bilgileri .NET arka uç kodunuzun atanan hello erişebilir. Merhaba kullanıcı bilgilerini hello arka yetkilendirme kararları kullanılabilir. Merhaba aşağıdaki kod bir istekle ilişkili hello kullanıcı Kimliğini alır:
 
-    // Get the SID of the current user.
+    // Get hello SID of hello current user.
     var claimsPrincipal = this.User as ClaimsPrincipal;
     string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-SID, sağlayıcıya özgü kullanıcı ID'den türetilmiş ve verilen kullanıcı ve oturum açma sağlayıcısı için statiktir.  SID için geçersiz kimlik doğrulama belirteçleri null şeklindedir.
+Merhaba SID hello sağlayıcıya özgü kullanıcı ID'den türetilmiş ve verilen kullanıcı ve oturum açma sağlayıcısı için statiktir.  Merhaba SID için geçersiz kimlik doğrulama belirteçleri null şeklindedir.
 
-Uygulama Hizmeti ayrıca oturum açma sağlayıcınızdan belirli talep istemenize olanak tanır. Her bir kimlik sağlayıcısı kimlik sağlayıcısı SDK kullanarak daha fazla bilgi sağlayabilir.  Örneğin, Facebook grafik API'si arkadaş bilgilerini kullanabilirsiniz.  Azure portalında sağlayıcısı dikey penceresinde istenen taleplerin belirtebilirsiniz. Bazı talep kimlik sağlayıcısı ile ek yapılandırma gerektirir.
+Uygulama Hizmeti ayrıca oturum açma sağlayıcınızdan belirli talep istemenize olanak tanır. Her bir kimlik sağlayıcısı kimlik sağlayıcısı SDK kullanarak daha fazla bilgi sağlayabilir.  Örneğin, arkadaş bilgilerini hello Facebook grafik API'sini kullanabilirsiniz.  İstenen taleplerin hello sağlayıcısı dikey penceresinde hello Azure portal belirtebilirsiniz. Bazı talep hello kimlik sağlayıcısı ile ek yapılandırma gerektirir.
 
-Aşağıdaki kod çağrıları **GetAppServiceIdentityAsync** erişim dahil oturum açma kimlik bilgileri belirteci almak için genişletme yöntemi gerekli Facebook grafik API'si istekler yapmak:
+Merhaba aşağıdaki kod çağrıları hello **GetAppServiceIdentityAsync** hello erişim belirteci gerekli toomake hello Facebook grafik API'si istekler dahil uzantısı yöntemi tooget hello oturum açma kimlik bilgileri:
 
-    // Get the credentials for the logged-in user.
+    // Get hello credentials for hello logged-in user.
     var credentials =
         await this.User
         .GetAppServiceIdentityAsync<FacebookCredentials>(this.Request);
 
     if (credentials.Provider == "Facebook")
     {
-        // Create a query string with the Facebook access token.
+        // Create a query string with hello Facebook access token.
         var fbRequestUrl = "https://graph.facebook.com/me/feed?access_token="
             + credentials.AccessToken;
 
         // Create an HttpClient request.
         var client = new System.Net.Http.HttpClient();
 
-        // Request the current user info from Facebook.
+        // Request hello current user info from Facebook.
         var resp = await client.GetAsync(fbRequestUrl);
         resp.EnsureSuccessStatusCode();
 
-        // Do something here with the Facebook user information.
+        // Do something here with hello Facebook user information.
         var fbInfo = await resp.Content.ReadAsStringAsync();
     }
 
-Kullanarak bir ekleme deyimi için `System.Security.Principal` sağlamak için **GetAppServiceIdentityAsync** genişletme yöntemi.
+Kullanarak bir ekleme deyimi için `System.Security.Principal` tooprovide hello **GetAppServiceIdentityAsync** genişletme yöntemi.
 
 ### <a name="authorize"></a>Nasıl yapılır: yetkili kullanıcıların veri erişimini kısıtlamak
-Önceki bölümde biz kimliği doğrulanmış bir kullanıcı kullanıcı Kimliğini almak nasıl oluşturulacağını gösterir. Veri ve bu değere göre diğer kaynaklara erişimi kısıtlayabilirsiniz. Örneğin, bir kullanıcı kimliği sütunu tablolarına ekleme ve kullanıcı Kimliğine göre sorgu sonuçlarını filtreleme döndürülen verilerin yalnızca yetkili kullanıcılara sınırlamak için bir basit yoludur. Yalnızca SID Todoıtem tablosu üzerinde UserID sütunundaki değeri eşleştiğinde aşağıdaki kod veri satırlarını döndürür:
+Merhaba önceki bölümde nasıl tooretrieve hello kimliği doğrulanmış bir kullanıcı kullanıcı Kimliğini gösterdi. Erişim toodata ve diğer kaynaklar bu değere göre kısıtlayabilirsiniz. Örneğin, bir kullanıcı kimliği sütunu tootables ekleme ve hello sorgu sonuçları hello kullanıcı Kimliğine göre filtreleme verileri yalnızca tooauthorized kullanıcılar döndürülen basit yol toolimit olur. yalnızca hello SID hello Todoıtem tablosu üzerinde hello UserID sütunundaki değeri eşleştiğinde hello aşağıdaki kod veri satırlarını döndürür:
 
-    // Get the SID of the current user.
+    // Get hello SID of hello current user.
     var claimsPrincipal = this.User as ClaimsPrincipal;
     string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-    // Only return data rows that belong to the current user.
+    // Only return data rows that belong toohello current user.
     return Query().Where(t => t.UserId == sid);
 
-`Query()` Yöntemi döndürür bir `IQueryable` filtreleme işlemek için LINQ tarafından yönetilebilir.
+Merhaba `Query()` yöntemi döndürür bir `IQueryable` , yönetilebilir toohandle LINQ filtreleyerek.
 
-## <a name="how-to-add-push-notifications-to-a-server-project"></a>Nasıl yapılır: anında iletme eklemek sunucu projesi bildirimleri
-Genişleterek sunucu projenizi anında iletme bildirimleri ekleme **MobileAppConfiguration** nesne ve bildirim hub'ları istemci oluşturma.
+## <a name="how-to-add-push-notifications-tooa-server-project"></a>Nasıl yapılır: anında iletme bildirimleri tooa sunucu projesi ekleme
+Merhaba genişleterek anında iletme bildirimleri tooyour sunucu projesi eklemek **MobileAppConfiguration** nesne ve bildirim hub'ları istemci oluşturma.
 
-1. Visual Studio'da sunucu projesi sağ tıklatın ve **NuGet paketlerini Yönet**, arama `Microsoft.Azure.Mobile.Server.Notifications`, ardından **yükleme**.
-2. Yüklemek için bu adımı yineleyin `Microsoft.Azure.NotificationHubs` bildirim hub'ları istemci kitaplığı içeren paket.
-3. App_Start/Startup.MobileApp.cs içinde ve bir çağrı ekleyin **AddPushNotifications()** genişletme yöntemi başlatma sırasında:
+1. Visual Studio'da hello sunucu projesi sağ tıklatın ve **NuGet paketlerini Yönet**, arama `Microsoft.Azure.Mobile.Server.Notifications`, ardından **yükleme**.
+2. Bu adım tooinstall hello yineleyin `Microsoft.Azure.NotificationHubs` hello bildirim hub'ları istemci kitaplığı içeren paket.
+3. App_Start/Startup.MobileApp.cs içinde arama toohello ekleyin **AddPushNotifications()** genişletme yöntemi başlatma sırasında:
 
         new MobileAppConfiguration()
             // other features...
             .AddPushNotifications()
             .ApplyTo(config);
-4. Bildirim hub'ları istemci oluşturur aşağıdaki kodu ekleyin:
+4. Bildirim hub'ları istemci oluşturur koddan hello ekleyin:
 
-        // Get the settings for the server project.
+        // Get hello settings for hello server project.
         HttpConfiguration config = this.Configuration;
         MobileAppSettingsDictionary settings =
             config.GetMobileAppSettingsProvider().GetMobileAppSettings();
 
-        // Get the Notification Hubs credentials for the Mobile App.
+        // Get hello Notification Hubs credentials for hello Mobile App.
         string notificationHubName = settings.NotificationHubName;
         string notificationHubConnection = settings
             .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
@@ -369,15 +369,15 @@ Genişleterek sunucu projenizi anında iletme bildirimleri ekleme **MobileAppCon
         NotificationHubClient hub = NotificationHubClient
             .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-Kayıtlı cihazlara anında iletme bildirimleri göndermek için Notification Hubs istemci artık kullanabilirsiniz. Daha fazla bilgi için bkz: [uygulamanıza anında iletme bildirimleri ekleme](app-service-mobile-ios-get-started-push.md). Notification Hubs hakkında daha fazla bilgi için bkz: [Notification Hubs'a genel bakış](../notification-hubs/notification-hubs-push-notification-overview.md).
+Merhaba bildirim hub'ları istemci toosend anında iletme bildirimleri tooregistered cihazlar artık kullanabilirsiniz. Daha fazla bilgi için bkz: [Ekle anında iletme bildirimleri tooyour uygulama](app-service-mobile-ios-get-started-push.md). Bildirim hub'ları hakkında daha fazla toolearn bkz [Notification Hubs'a genel bakış](../notification-hubs/notification-hubs-push-notification-overview.md).
 
 ## <a name="tags"></a>Nasıl yapılır: etkinleştir hedeflenen etiketleri kullanarak anında iletme
-Bildirim hub'ları etiketleri kullanarak belirli kayıtlar için hedeflenen bildirimleri göndermenize olanak sağlar. Birkaç etiket otomatik olarak oluşturulur:
+Bildirim hub'ları etiketleri kullanarak toospecific kayıtlar hedeflenen bildirimleri göndermenize olanak sağlar. Birkaç etiket otomatik olarak oluşturulur:
 
-* Belirli bir aygıt yükleme kimliği tanımlar.
-* Belirli bir kullanıcı kimliği doğrulanmış SID tabanlı kullanıcı kimliği tanımlar.
+* belirli bir aygıt Hello yükleme kimliği tanımlar.
+* Merhaba kullanıcı kimliği temel kimlik doğrulaması hello üzerinde SID belirli bir kullanıcı tanımlar.
 
-Kimliği erişilebilir gelen yükleme **InstallationID** özelliği **MobileServiceClient**.  Aşağıdaki örnek, bildirim hub'ları belirli bir yüklemede bir etiket eklemek için bir yükleme kimliği kullanmayı gösterir:
+Merhaba hello kimliği erişilebilir yükleme **InstallationID** hello özellikte **MobileServiceClient**.  Hello aşağıdaki örnekte bir yükleme kimliği tooadd nasıl kullanılacağını etiket tooa belirli yükleme bildirim hub'ları gösterir:
 
     hub.PatchInstallation("my-installation-id", new[]
     {
@@ -389,27 +389,27 @@ Kimliği erişilebilir gelen yükleme **InstallationID** özelliği **MobileServ
         }
     });
 
-Anında iletme bildirimi kaydı sırasında istemci tarafından sağlanan herhangi bir etiket arka ucu tarafından yükleme oluştururken göz ardı edilir. Etiketler yüklemesine eklemek bir istemci etkinleştirmek için önceki desenini kullanarak etiketleri ekler özel bir API oluşturmanız gerekir.
+Anında iletme bildirimi kaydı sırasında Hello istemci tarafından sağlanan herhangi bir etiket hello arka ucu tarafından hello yükleme oluştururken göz ardı edilir. toohello yükleme tooenable istemci tooadd etiketleri, düzeni önceki hello kullanarak etiketleri ekler özel bir API oluşturmanız gerekir.
 
-Bkz: [istemci eklenen anında iletme bildirimi etiketleri] [ 5] App Service Mobile Apps tamamlanmış hızlı başlangıç örnek bir örnek.
+Bkz: [istemci eklenen anında iletme bildirimi etiketleri] [ 5] hello App Service Mobile Apps tamamlanmış hızlı başlangıç örnek bir örnek.
 
-## <a name="push-user"></a>Nasıl yapılır: kimliği doğrulanmış bir kullanıcı için anında iletme bildirimleri gönderme
-Kimliği doğrulanmış bir kullanıcı için anında iletme bildirimleri kaydolduğunda, bir kullanıcı kimliği etiketi kayıt için otomatik olarak eklenir. Bu etiket kullanarak, söz konusu kişi tarafından kaydedilen tüm cihazlara anında iletme bildirimleri gönderebilirsiniz. Aşağıdaki kod, isteği yapan kullanıcı SID'si alır ve bu kişi için her aygıt kaydı için bir şablon anında iletme bildirimi gönderir:
+## <a name="push-user"></a>Nasıl yapılır: gönderme anında iletme bildirimleri tooan kimliği doğrulanmış kullanıcı
+Kimliği doğrulanmış bir kullanıcı için anında iletme bildirimleri kaydolduğunda, bir kullanıcı kimliği etiketi toohello kayıt otomatik olarak eklenir. Bu etiketi kullanarak anında iletme bildirimleri tooall cihazlar söz konusu kişi tarafından kayıtlı gönderebilirsiniz. Merhaba aşağıdaki kod hello isteği yapan kullanıcı SID'si alır ve bu kişi için bir şablon anında iletme bildirimi tooevery aygıt kaydı gönderir:
 
-    // Get the current user SID and create a tag for the current user.
+    // Get hello current user SID and create a tag for hello current user.
     var claimsPrincipal = this.User as ClaimsPrincipal;
     string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
     string userTag = "_UserId:" + sid;
 
-    // Build a dictionary for the template with the item message text.
+    // Build a dictionary for hello template with hello item message text.
     var notification = new Dictionary<string, string> { { "message", item.Text } };
 
-    // Send a template notification to the user ID.
+    // Send a template notification toohello user ID.
     await hub.SendTemplateNotificationAsync(notification, userTag);
 
-Kimliği doğrulanmış bir istemci anında iletme bildirimleri için kaydolurken kayıt denemeden önce kimlik doğrulamasının tam olduğundan emin olun. Daha fazla bilgi için bkz: [kullanıcılara anında iletme] [ 6] .NET arka ucu App Service Mobile Apps tamamlanmış hızlı başlangıç örnek.
+Kimliği doğrulanmış bir istemci anında iletme bildirimleri için kaydolurken kayıt denemeden önce kimlik doğrulamasının tam olduğundan emin olun. Daha fazla bilgi için bkz: [anında toousers] [ 6] hello App Service Mobile Apps tamamlanmış hızlı başlangıç örnek .NET arka ucu için.
 
-## <a name="how-to-debug-and-troubleshoot-the-net-server-sdk"></a>Nasıl yapılır: hata ayıklama ve .NET sunucusu SDK'sı sorun giderme
+## <a name="how-to-debug-and-troubleshoot-hello-net-server-sdk"></a>Nasıl yapılır: hata ayıklama ve sorun giderme hello .NET sunucusu SDK
 Azure uygulama hizmeti birkaç hata ayıklama ve sorun giderme teknikleri ASP.NET uygulamaları için sağlar:
 
 * [Bir Azure uygulama hizmeti izleme](../app-service-web/web-sites-monitor.md)
@@ -417,27 +417,27 @@ Azure uygulama hizmeti birkaç hata ayıklama ve sorun giderme teknikleri ASP.NE
 * [Visual Studio'da bir Azure uygulama hizmeti sorunlarını giderme](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md)
 
 ### <a name="logging"></a>Günlüğe kaydetme
-Uygulama hizmeti tanılama günlükleri için standart ASP.NET izleme yazma kullanarak yazabilirsiniz. Günlüklere yazılır önce mobil uygulama arka ucunuzu tanılama etkinleştirmeniz gerekir.
+Merhaba standart ASP.NET izleme yazma kullanarak hizmet tanılama günlükleri tooApp yazabilirsiniz. Toohello günlükleri yazmadan önce mobil uygulama arka ucunuzu tanılama etkinleştirmeniz gerekir.
 
-Tanılamayı etkinleştirin ve günlüklere yazılır için:
+tooenable tanılama ve yazma toohello günlükleri:
 
-1. Adımları [tanılama etkinleştirme](../app-service-web/web-sites-enable-diagnostic-log.md#enablediag).
-2. Aşağıdaki kod dosyanızda deyimiyle:
+1. Merhaba adımları [nasıl tooenable tanılama](../app-service-web/web-sites-enable-diagnostic-log.md#enablediag).
+2. Merhaba aşağıdakileri ekleyin, kod dosyanızda deyimiyle:
 
         using System.Web.Http.Tracing;
-3. .NET arka ucundan için tanılama günlükleri, aşağıdaki gibi yazmak için bir izleme yazıcısı oluşturun:
+3. İzleme yazıcısı toowrite hello .NET arka uç toohello tanılama günlükleri, aşağıdaki gibi oluşturun:
 
         ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
         traceWriter.Info("Hello, World");
-4. Sunucu projenizi yeniden yayımlamanız ve günlük ile kod yolu yürütmek için mobil uygulama arka ucu erişebilirsiniz.
-5. Karşıdan yükle ve günlükleri açıklandığı gibi değerlendirme [nasıl yapılır: günlükleri indirmek](../app-service-web/web-sites-enable-diagnostic-log.md#download).
+4. Sunucu projenizi yeniden yayımlamanız ve hello mobil uygulama arka uç tooexecute hello kod yolu hello günlük ile erişim.
+5. Karşıdan yükle ve açıklandığı gibi hello günlükleri, değerlendirme [nasıl yapılır: indirme günlükleri](../app-service-web/web-sites-enable-diagnostic-log.md#download).
 
 ### <a name="local-debug"></a>Yerel kimlik doğrulaması ile hata ayıklama
-Uygulamanızı yerel olarak değişikliklerini buluta yayımlamadan önce test etmek için çalıştırabilirsiniz. Çoğu Azure Mobile Apps arka uçlarını için basın *F5* while Visual Studio'da. Ancak, kimlik doğrulaması kullanılırken ek bazı noktalar vardır.
+Uygulamanızı çalıştırabilirsiniz tootest yerel olarak değiştirir toohello bulut yayımlamadan önce. Çoğu Azure Mobile Apps arka uçlarını için basın *F5* while Visual Studio'da. Ancak, kimlik doğrulaması kullanılırken ek bazı noktalar vardır.
 
-Bir bulut tabanlı mobil uygulama ile App Service kimlik doğrulama/yapılandırılmış yetkilendirme olmalıdır ve istemci alternatif oturum açma ana bilgisayar belirtilen bulut uç noktası olmalıdır. İstemci platformunuz için gerekli adımlarla belgelerine bakın.
+Bir bulut tabanlı mobil uygulama ile App Service kimlik doğrulama/yapılandırılmış yetkilendirme olmalıdır ve istemci hello alternatif oturum açma konağı olarak belirtilen hello bulut uç noktası olmalıdır. İstemci platformunuzu gerekli hello belirli adımlar için Hello belgelerine bakın.
 
-Mobil arka sahip olduğundan emin olun [Microsoft.Azure.Mobile.Server.Authentication] yüklü. Ardından, sonra aşağıdaki uygulamanızın OWIN başlangıç sınıfı ekleyin `MobileAppConfiguration` uygulandıktan, `HttpConfiguration`:
+Mobil arka sahip olduğundan emin olun [Microsoft.Azure.Mobile.Server.Authentication] yüklü. Ardından, sonra hello aşağıdaki uygulamanızın OWIN başlangıç sınıfı ekleyin `MobileAppConfiguration` uygulanan tooyour bırakıldı `HttpConfiguration`:
 
         app.UseAppServiceAuthentication(new AppServiceAuthenticationOptions()
         {
@@ -447,15 +447,15 @@ Mobil arka sahip olduğundan emin olun [Microsoft.Azure.Mobile.Server.Authentica
             TokenHandler = config.GetAppServiceTokenHandler()
         });
 
-Önceki örnekte, yapılandırmanız *authAudience* ve *authIssuer* uygulama Web.config içinde dosya ayarları için her HTTPS şeması kullanarak, uygulamanızın kök URL'si olmalıdır. Benzer şekilde ayarlamalısınız *authSigningKey* uygulamanızı değerini anahtar imzalama kullanıcının olması.
-İmzalama anahtarı edinmek için:
+Örnek önceki hello hello yapılandırmalısınız *authAudience* ve *authIssuer* olması hello HTTPS kullanarak, uygulamanızın kök URL'si tooeach dosya Web.config içindeki uygulama ayarları düzeni. Benzer şekilde ayarlamalısınız *authSigningKey* toobe hello değeri, uygulamanızın imzalama anahtarı.
+tooobtain hello imzalama anahtarı:
 
-1. Uygulamanızda gidin [Azure portalı]
+1. Merhaba içinde tooyour uygulamasına gidin [Azure portalı]
 2. Tıklatın **Araçları**, **Kudu**, **Git**.
-3. Kudu Yönetim sitesini'ı tıklatın **ortam**.
-4. Değeri Bul *Web sitesi\_AUTH\_imzalama\_anahtar*.
+3. Merhaba Kudu Yönetim sitesini'ı tıklatın **ortam**.
+4. Merhaba değeri Bul *Web sitesi\_AUTH\_imzalama\_anahtar*.
 
-İmzalama anahtarı kullanmak *authSigningKey* , yerel uygulama yapılandırma parametresi.  Mobil arka istemci bulut tabanlı uç noktasından belirteç alan yerel olarak çalıştırırken belirteçleri doğrulamak için şimdi bulunur.
+İmzalama anahtarı hello için kullanım hello *authSigningKey* , yerel uygulama yapılandırma parametresi.  Mobil arka hangi hello istemci hello belirteci hello bulut tabanlı uç noktasından alacağı yerel olarak çalıştırırken donanımlı toovalidate belirteçleri sunulmuştur.
 
 [1]: https://msdn.microsoft.com/library/azure/dn961176.aspx
 [2]: https://github.com/Azure/azure-mobile-apps-net-server

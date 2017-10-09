@@ -1,1 +1,1 @@
-Bu konu başlığında, başlangıç noktası olarak [Azure portalında ilk işlevinizi oluşturma](../articles/azure-functions/functions-create-first-azure-function.md) bölümünde oluşturulan kaynaklar kullanılmaktadır. Daha önce yapmadıysanız işlev uygulamanızı oluşturmak için lütfen şu adımları uygulayın.
+Bu konu içinde oluşturulan başlangıç noktası hello kaynaklarını kullanan [hello Azure portal ' ilk işlevinizi oluşturma](../articles/azure-functions/functions-create-first-azure-function.md). Lütfen önceden yapmadıysanız, bu adımları şimdi toocreate işlevi uygulamanızı tamamlayın.

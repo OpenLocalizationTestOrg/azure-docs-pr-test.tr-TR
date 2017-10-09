@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: charwen
-ms.openlocfilehash: 195a38fa45f1c514a93980e777fb0d8238aa3f3f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6f37d4d9cba546b5416ab99040f5ef6dae273380
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell-classic"></a>Bir sanal ağ geçidi (Klasik) PowerShell kullanarak ExpressRoute için yapılandırma
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Bu makalede eklemek, yeniden boyutlandırma ve önceden var olan bir VNet için bir sanal ağ (VNet) ağ geçidini kaldırmak için adımlarda size yol gösterecek. Adımlardır kullanılarak oluşturulan özellikle sanal ağlar için bu yapılandırma için **Klasik dağıtım modeli** ve, bir expressroute bağlantı yapılandırmasında kullanılabilir. 
+Bu makale size yol gösterir hello adımları tooadd aracılığıyla yeniden boyutlandırma ve önceden var olan bir VNet için bir sanal ağ (VNet) ağ geçidi kaldırın. Merhaba bu yapılandırma için hello kullanılarak oluşturulan özellikle sanal ağlar için adımlardır **Klasik dağıtım modeli** ve, bir expressroute bağlantı yapılandırmasında kullanılabilir. 
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -38,10 +38,10 @@ Bu makalede eklemek, yeniden boyutlandırma ve önceden var olan bir VNet için 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-beginning"></a>Başlamadan önce
-Bu yapılandırma için gerekli Azure PowerShell cmdlet'lerini yüklü olduğunu doğrulayın (1.0.2 veya üzeri). Cmdlet'leri yüklemediyseniz yapılandırma adımlarına başlamadan önce bunu yapmanız gerekir. Azure PowerShell'i yükleme hakkında daha fazla bilgi için bkz: [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview).
+Bu yapılandırma için gerekli hello Azure PowerShell cmdlet'lerini yüklü olduğunu doğrulayın (1.0.2 veya üzeri). Merhaba cmdlet'leri yüklemediyseniz toodo gerekir hello yapılandırma adımlarına başlamadan önce bunu. Azure PowerShell'i yükleme hakkında daha fazla bilgi için bkz: [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azure/overview).
 
 [!INCLUDE [expressroute-gateway-classic-ps](../../includes/expressroute-gateway-classic-ps-include.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-VNet ağ geçidini oluşturduktan sonra bir expressroute bağlantı hattı ağınıza bağlayabilirsiniz. Bkz: [bir expressroute bağlantı hattı için bir sanal ağ bağlantı](expressroute-howto-linkvnet-classic.md).
+Merhaba VNet ağ geçidini oluşturduktan sonra VNet tooan expressroute bağlantı hattı bağlayabilirsiniz. Bkz: [sanal ağ tooan expressroute bağlantı hattı bağlantı](expressroute-howto-linkvnet-classic.md).
 

@@ -1,26 +1,26 @@
-## <a name="install-the-prerequisites"></a>Yükleme önkoşulları
+## <a name="install-hello-prerequisites"></a>Merhaba Önkoşulları Yükleme
 
-1. Yükleme [Visual Studio 2015 veya 2017](https://www.visualstudio.com). Lisans gereksinimlerini karşılıyorsa, ücretsiz Community sürümü kullanabilirsiniz. Visual C++ ve NuGet Paket Yöneticisi eklediğinizden emin olun.
+1. Yükleme [Visual Studio 2015 veya 2017](https://www.visualstudio.com). Merhaba kullanabilirsiniz hello lisans gereksinimlerini karşılıyorsa Community Edition boş. Visual C++ emin tooinclude ve NuGet Paket Yöneticisi olmalıdır.
 
-1. Yükleme [git](http://www.git-scm.com) ve git.exe komut satırından çalıştırabilir emin olun.
+1. Yükleme [git](http://www.git-scm.com) ve git.exe hello komut satırından çalıştırabilir emin olun.
 
-1. Yükleme [CMake](https://cmake.org/download/) ve cmake.exe komut satırından çalıştırabilir emin olun. CMake sürüm 3.7.2 veya üzeri önerilir. **.Msi** yükleyicisi, Windows'da kolay seçeneği bulunur. En az CMake yolu Ekle yükleyici istediğinde geçerli kullanıcı.
+1. Yükleme [CMake](https://cmake.org/download/) ve cmake.exe hello komut satırından çalıştırabilir emin olun. CMake sürüm 3.7.2 veya üzeri önerilir. Merhaba **.msi** yükleyicisi, Windows hello kolay seçeneği bulunur. CMake toohello eklemek için yol hello yükleyici istediğinde geçerli kullanıcının en az hello.
 
-1. Yükleme [Python 2.7](https://www.python.org/downloads/release/python-27). Python için eklemenize emin olun, `PATH` ortam değişkeninde **Denetim Masası -> Sistem -> Gelişmiş Sistem Ayarları -> ortam değişkenleri**.
+1. Yükleme [Python 2.7](https://www.python.org/downloads/release/python-27). Python tooyour eklediğinizden emin olun `PATH` ortam değişkeninde **Denetim Masası -> Sistem -> Gelişmiş Sistem Ayarları -> ortam değişkenleri**.
 
-1. Bir komut isteminde yerel makinenize Azure IOT kenar GitHub deposuna kopyalamak için aşağıdaki komutu çalıştırın:
+1. Bir komut isteminde, aşağıdaki komut tooclone hello Azure IOT kenar GitHub depo tooyour yerel makine hello çalıştırın:
 
     ```cmd
     git clone https://github.com/Azure/iot-edge.git
     ```
 
-## <a name="how-to-build-the-sample"></a>Örnek oluşturma
+## <a name="how-toobuild-hello-sample"></a>Nasıl toobuild hello örnek
 
-Artık IOT kenar çalışma zamanı ve örnekleri yerel makinenizde oluşturabilirsiniz:
+Artık hello IOT kenar çalışma zamanı ve örnekleri yerel makinenizde oluşturabilirsiniz:
 
 1. Açık bir **VS 2015 için geliştirici komut istemi** veya **VS 2017 için geliştirici komut istemi** komut istemi.
 
-1. **iot-edge** deposunun yerel kopyasındaki kök klasöre gidin.
+1. Merhaba yerel kopyasını toohello kök klasörüne gidin **IOT kenar** deposu.
 
 1. Yapı betiği aşağıdaki gibi çalıştırın:
 
@@ -28,7 +28,7 @@ Artık IOT kenar çalışma zamanı ve örnekleri yerel makinenizde oluşturabil
     tools\build.cmd --disable-native-remote-modules
     ```
 
-Bu komut dosyasını bir Visual Studio çözümü dosyası oluşturur ve çözüm oluşturur. Visual Studio çözümünde bulabilirsiniz **yapı** yerel kopyasını klasöründe **IOT kenar** deposu. İstiyorsanız derleme ve birim testleri çalıştırma, ekleme `--run-unittests` parametresi. Derleme ve uçtan uca testler, eklemek istiyorsanız, `--run-e2e-tests`.
+Bu komut dosyasını bir Visual Studio çözümü dosyası oluşturur ve hello çözüm oluşturur. Hello hello Visual Studio çözüm bulabilirsiniz **yapı** hello yerel kopyasını klasöründe **IOT kenar** deposu. Toobuild istiyorsanız ve hello birim testleri çalıştırma hello eklemek `--run-unittests` parametresi. Toobuild istiyorsanız ve hello son tooend testler hello eklemek `--run-e2e-tests`.
 
 > [!NOTE]
-> Her çalıştırdığınızda **build.cmd** komut dosyası, onu siler ve sonra yeniden oluşturur **yapı** klasörü kök klasöründe yerel kopyasının **IOT kenar** deposu.
+> Merhaba her çalıştırdığınızda **build.cmd** komut dosyası, siler ve sonra da hello yeniden oluşturur **yapı** hello yerel kopyasını hello kök klasöründe klasöründe **IOT kenar** deposu.

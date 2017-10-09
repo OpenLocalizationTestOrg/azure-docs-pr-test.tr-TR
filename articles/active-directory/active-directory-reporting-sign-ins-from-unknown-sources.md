@@ -1,6 +1,6 @@
 ---
-title: "Bilinmeyen kaynaklardan gerçekleştirilen oturum açma işlemleri"
-description: "Açan başarıyla dizininize anonim bir proxy sunucudan IP adresi kullanıcıları gösteren bir rapor."
+title: "aaaSign bilinmeyen kaynaklardan bileşenleri"
+description: "Başarıyla anonim Ara sunucu tooyour dizininden içinde IP adresi açmış kullanıcıları gösteren bir rapor."
 services: active-directory
 documentationcenter: 
 author: SSalahAhmed
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/04/2016
 ms.author: saah;kenhoff
-ms.openlocfilehash: 90006121e4b3392f6e3ecffb4a56aca330feb02f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b9d16274c0f8d21fc3bdf1ad8b564532d3b02be2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sign-ins-from-unknown-sources"></a>Bilinmeyen kaynaklardan gerçekleştirilen oturum açma işlemleri
-Bu rapor açan başarıyla Microsoft tarafından bir anonim Ara sunucu IP adresi (örneğin, Tor IP adresi) tanınan bir IP adresi bir istemcinin atanmış durumdayken dizininize kullanıcıları gösterir. Bu proxy'leri genellikle kendi bilgisayarın IP adresi gizlemek istediğiniz ve kötü amaçlı için kullanılan kullanıcılar tarafından kullanılır.
+Bu rapor, Microsoft tarafından bir anonim Ara sunucu IP adresi (örneğin, Tor IP adresi) tanınan bir IP adresi bir istemcinin atanmış durumdayken tooyour dizininde başarıyla açmış kullanıcılar gösterir. Bu proxy'leri genellikle olan toohide istediğiniz kullanıcılar tarafından kendi bilgisayarın IP adresi kullanılır ve kötü amaçlı için kullanılabilir.
 
-Bu rapor sonuçlarını kullanıcı başarıyla dizininize bu adresi ve proxy'nin IP adresi oturum sayısı gösterilir.
+Bu rapor sonuçlarını tooyour dizininden bu adresi ve hello proxy'nin IP adresi hello sayısı bir kullanıcı başarıyla oturum gösterir.
 
 ![Bilinmeyen kaynaklardan gerçekleştirilen oturum açma işlemleri](./media/active-directory-reporting-sign-ins-from-unknown-sources/signInsFromUnknownSources.PNG)
 

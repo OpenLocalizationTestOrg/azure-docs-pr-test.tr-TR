@@ -1,6 +1,6 @@
 ---
-title: "Azure remoteapp'te Azure Active Directory kiracısını değiştirme | Microsoft Docs"
-description: "Azure RemoteApp ile ilişkili Azure Active Directory kiracısını değiştirme öğrenin"
+title: "Azure remoteapp'te aaaChange hello Azure Active Directory Kiracı | Microsoft Docs"
+description: "Nasıl toochange hello Azure Active Directory kiracısı Azure RemoteApp ile ilgili bilgi edinin"
 services: remoteapp
 documentationcenter: 
 author: msmbaldwin
@@ -13,39 +13,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: mbaldwin
-ms.openlocfilehash: 7c6c4ded8a11d8399968b2c32aff055d7f3ae5f8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d0928b099b7fcfb3ab16077e295d7aaf519c3653
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="change-the-azure-active-directory-tenant-in-azure-remoteapp"></a>Azure remoteapp'te Azure Active Directory kiracısını değiştirme
+# <a name="change-hello-azure-active-directory-tenant-in-azure-remoteapp"></a>Azure remoteapp'te Hello Azure Active Directory kiracısını değiştirme
 > [!IMPORTANT]
-> Azure RemoteApp 31 Ağustos 2017’de kullanımdan kaldırılacaktır. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
+> Azure RemoteApp 31 Ağustos 2017’de kullanımdan kaldırılacaktır. Okuma hello [duyuru](https://go.microsoft.com/fwlink/?linkid=821148) Ayrıntılar için.
 > 
 > 
 
-Azure RemoteApp kullanıcı erişimine izin vermek için Azure Active Directory (Azure AD) kullanır. Azure Remoteapp'te kullanabileceğiniz yalnızca Azure AD kiracısı Azure aboneliği ile ilişkili adrestir. İlişkili abonelik görüntüleyebilirsiniz **ayarları** portalında sayfası. Bakmak **Directory** sütunu **abonelikleri** sekmesi.
+Azure RemoteApp Azure Active Directory (Azure AD) tooallow kullanıcı erişimi kullanır. Azure Remoteapp'te kullanabileceğiniz hello yalnızca Azure AD Kiracı hello bir hello Azure aboneliği ile ilişkili ' dir. İlişkili hello abonelik üzerinde hello görüntüleyebilirsiniz **ayarları** hello portalında sayfası. Ara hello **Directory** hello sütunu **abonelikleri** sekmesi.
 
 > [!NOTE]
-> Bu değişiklik başarılı olması, var olan tüm Azure RemoteApp koleksiyonları Azure Active Directory kiracısı önce tüm kullanıcıların kaldırın. Bunu yapmak için Azure Portalı'na gidin, Git **Azure RemoteApp** sekmesinde ve her bir Azure RemoteApp koleksiyonu açın. Git **kullanıcılar** sekmesinde ve geçerli Azure Active Directory kiracınıza ait olan kullanıcıların kaldırın. Tüm mevcut Azure RemoteApp koleksiyonları için yineleyin. Bunu yapmazsanız, oluşturmak veya koleksiyonlar düzeltme eki mümkün olmaz.
+> Bu değişiklik toosucceed için tüm Azure RemoteApp koleksiyonları hello var olan Azure Active Directory kiracısı önce tüm kullanıcıların kaldırın. toodo Bu, Git toohello Azure Portal, Git toohello **Azure RemoteApp** sekmesinde ve her bir Azure RemoteApp koleksiyonu açın. Toohello Git **kullanıcılar** sekmesinde ve tooyour geçerli Azure Active Directory Kiracı ait olan kullanıcıların kaldırın. Tüm mevcut Azure RemoteApp koleksiyonları için yineleyin. Bunu yapmazsanız, mümkün toocreate ya da düzeltme eki koleksiyonları olmaz.
 > 
 > 
 
-Farklı bir kiracı kullanmak istiyorsanız, aboneliğinizi ilişkilendirmesini değiştirmek için aşağıdaki adımları kullanın:
+Toouse farklı bir kiracıya istiyorsanız, bu adımları toochange hello ilişkilendirme aboneliğinizle kullanın:
 
-1. Portalda, Azure AD kullanıcısı için erişim Azure RemoteApp koleksiyonları için verdiniz kaldırın. (Yukarıdaki adımları için Not bunu nasıl bakın.)
-2. Bir Microsoft hesabı (eski adıyla Live ID) Hizmet Yöneticisi olarak ayarlayın. (Hizmet Yöneticisi zaten olup olmadığını bilmiyorsanız? Tıklayarak öğrenebilirsiniz **ayarlar -> Yöneticiler**.) Şimdi, işte, nasıl değiştirin:
+1. Tüm Azure AD kullanıcıların toowhich Hello Portalı'nda kaldırmak tooAzure RemoteApp koleksiyonları erişim verilir. (Hakkında adımlar için yukarıdaki hello nota bakın toodo bu.)
+2. Bir Microsoft hesabı (eski adıyla Live ID) hello Hizmet Yöneticisi olarak ayarlayın. (Hello Hizmet Yöneticisi zaten olup olmadığını bilmiyorsanız? Tıklayarak öğrenebilirsiniz **ayarlar -> Yöneticiler**.) Şimdi, işte, nasıl değiştirin:
    
-   1. Sağ üst köşesinde kullanıcı tıklayın ve ardından **faturamı görüntüle**.
-   2. Abonelik'ı tıklatın. Ardından, yeni sayfasında aşağı kaydırın ve tıklatın **Düzenle abonelik ayrıntıları** sağ. (Bu varsa sağ Orta alt tür bulmanıza yardımcı olur.)
-   3. Hizmet Yöneticisi olmalıdır kullanıcının Microsoft hesabını girin
-3. Şimdi portal dışında oturum ve ardından önceki adımda belirtilen Microsoft hesabıyla oturum açın.
+   1. Merhaba sağ üst köşesindeki Hello kullanıcı tıklayın ve ardından **faturamı görüntüle**.
+   2. Merhaba aboneliğe tıklayın. Ardından, hello yeni sayfasında aşağı kaydırın ve tıklatın **abonelik bilgilerini Düzenle** hello doğru olarak. (Merhaba sağ Bu, bir orta alt tür bulmanıza yardımcı olur.)
+   3. Hello Hizmet Yöneticisi olmalıdır hello kullanıcının Microsoft hesabını Hello yazın
+3. Artık dışında hello portalında oturum ve ardından geri hello hello önceki adımda belirtilen Microsoft hesabı oturum açın.
 4. ' I tıklatın **yeni App -> hizmetler -> Active Directory dizin -> özel -> oluşturmak**.
-5. Altında **Directory**, seçin **var olan dizini kullan**. Şimdi portal dışında oturum, bu nedenle seçin olmasını yapacağız **şimdi oturumunuz için hazır ben**.
-6. Oturum Portalı'na eklemek istediğiniz dizinin genel Yöneticisi olarak yedekleyin. (Genel yönetici zaten doğru değilse, sonra bir turu olacaktır oturum açın ve sonra oturumu kapatın.)
-7. Oturum açtığınızda aboneliğinizde var olan AD kiracınıza kullanmak isteyip istemediğinizi istenir. Tıklatın **devam**ve ardından **şimdi oturumu**.
-8. Yeniden yeniden oturum açın ve geri dönüp **ayarlar -> abonelikler**. Aboneliğinizi seçin ve ardından **dizini Düzenle**. Kullanmak istediğiniz Azure AD kiracısı seçin.
+5. Altında **Directory**, seçin **var olan dizini kullan**. Yapacağız toohave toosign hello şimdi portal dışında böylece seçtiğiniz **şimdi oturumu kapattınız hazır toobe ben**.
+6. Merhaba tekrar oturum tooadd istediğiniz hello dizininin genel yönetici olarak portal. (Genel yönetici zaten doğru değilse, sonra bir turu olacaktır oturum açın ve sonra oturumu kapatın.)
+7. Aboneliğinizde var olan AD kiracınız toouse istiyorsanız, oturum açtığınızda istenir. Tıklatın **devam**ve ardından **şimdi oturumu**.
+8. Yeniden yeniden oturum açın ve dön çok**ayarlar -> abonelikler**. Aboneliğinizi seçin ve ardından **dizini Düzenle**. Hello Azure AD Kiracı toouse istediğinizi seçin.
 
-Şimdi kullanım yeni Azure AD Kiracı Azure aboneliği erişimi denetlemek ve Azure RemoteApp kullanıcı erişimi yapılandırmak için kullanabilirsiniz.
+Artık Azure Remoteapp'te hello yeni Azure AD Kiracı toocontrol erişim toohello Azure aboneliği ve tooconfigure kullanıcı erişimini kullanabilirsiniz.
 

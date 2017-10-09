@@ -1,10 +1,10 @@
-1. Adlı projeye yeni bir sınıf oluşturun `ToDoBroadcastReceiver`.
-2. Aşağıdaki using deyimlerini ekleyin **ToDoBroadcastReceiver** sınıfı:
+1. Yeni bir sınıf olarak adlandırılan hello projesinde oluşturmak `ToDoBroadcastReceiver`.
+2. Merhaba aşağıdaki using deyimlerini çok**ToDoBroadcastReceiver** sınıfı:
    
         using Gcm.Client;
         using Microsoft.WindowsAzure.MobileServices;
         using Newtonsoft.Json.Linq;
-3. Arasına aşağıdaki izin isteklerini ekleyin **kullanarak** deyimleri ve **ad alanı** bildirimi:
+3. Merhaba arasında izin istekleri aşağıdaki hello eklemek **kullanarak** deyimleri ve hello **ad alanı** bildirimi:
    
         [assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
         [assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
@@ -14,7 +14,7 @@
         [assembly: UsesPermission(Name = "android.permission.GET_ACCOUNTS")]
         [assembly: UsesPermission(Name = "android.permission.INTERNET")]
         [assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
-4. Varolan **ToDoBroadcastReceiver** sınıf tanımının aşağıdaki:
+4. Merhaba varolan **ToDoBroadcastReceiver** sınıf tanımının hello aşağıdaki ile:
    
         [BroadcastReceiver(Permission = Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
         [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, 
@@ -25,14 +25,14 @@
         Categories = new string[] { "@PACKAGE_NAME@" })]
         public class ToDoBroadcastReceiver : GcmBroadcastReceiverBase<PushHandlerService>
         {
-            // Set the Google app ID.
+            // Set hello Google app ID.
             public static string[] senderIDs = new string[] { "<PROJECT_NUMBER>" };
         }
    
-    Yukarıdaki kodu değiştirmeniz gerekir  *`<PROJECT_NUMBER>`*  uygulamanızı Google developer Portal'daki sağladığında Google tarafından atanan proje numarası ile. 
-5. ToDoBroadcastReceiver.cs proje dosyasında tanımlar aşağıdaki kodu ekleyin **PushHandlerService** sınıfı:
+    Yukarıdaki kod Hello değiştirmeniz gerekir  *`<PROJECT_NUMBER>`*  hello Google developer Portal'daki uygulamanıza sağladığında Google tarafından atanan hello proje numarası ile. 
+5. Merhaba ToDoBroadcastReceiver.cs proje dosyasında hello tanımlayan kodu aşağıdaki hello eklemek **PushHandlerService** sınıfı:
    
-        // The ServiceAttribute must be applied to the class.
+        // hello ServiceAttribute must be applied toohello class.
         [Service] 
         public class PushHandlerService : GcmServiceBase
         {
@@ -41,26 +41,26 @@
             public PushHandlerService() : base(ToDoBroadcastReceiver.senderIDs) { }
         }
    
-    Bu sınıfın türetildiği Not **GcmServiceBase** ve **hizmet** özniteliği bu sınıfa uygulanması gerekir.
+    Bu sınıfın türetildiği Not **GcmServiceBase** ve o hello **hizmet** özniteliği olmalıdır uygulanan toothis sınıfı.
    
    > [!NOTE]
-   > **GcmServiceBase** uygulayan sınıf **OnRegistered()**, **OnUnRegistered()**, **OnMessage()** ve  **OnError()** yöntemleri. Bu yöntemleri geçersiz kılmanız gerekir **PushHandlerService** sınıfı.
+   > Merhaba **GcmServiceBase** sınıfı uygulayan hello **OnRegistered()**, **OnUnRegistered()**, **OnMessage()** ve  **OnError()** yöntemleri. Merhaba bu yöntemleri geçersiz kılmanız gerekir **PushHandlerService** sınıfı.
    > 
    > 
-6. Aşağıdaki kodu ekleyin **PushHandlerService** geçersiz kılmaları sınıf **OnRegistered** olay işleyicisi. 
+6. Aşağıdaki kodu toohello hello eklemek **PushHandlerService** hello geçersiz kılmaları sınıf **OnRegistered** olay işleyicisi. 
    
         protected override void OnRegistered(Context context, string registrationId)
         {
-            System.Diagnostics.Debug.WriteLine("The device has been registered with GCM.", "Success!");
+            System.Diagnostics.Debug.WriteLine("hello device has been registered with GCM.", "Success!");
    
-            // Get the MobileServiceClient from the current activity instance.
+            // Get hello MobileServiceClient from hello current activity instance.
             MobileServiceClient client = ToDoActivity.CurrentActivity.CurrentClient;
             var push = client.GetPush();
    
             // Define a message body for GCM.
             const string templateBodyGCM = "{\"data\":{\"message\":\"$(messageParam)\"}}";
    
-            // Define the template registration as JSON.
+            // Define hello template registration as JSON.
             JObject templates = new JObject();
             templates["genericMessage"] = new JObject
             {
@@ -69,11 +69,11 @@
    
             try
             {
-                // Make sure we run the registration on the same thread as the activity, 
-                // to avoid threading errors.
+                // Make sure we run hello registration on hello same thread as hello activity, 
+                // tooavoid threading errors.
                 ToDoActivity.CurrentActivity.RunOnUiThread(
    
-                    // Register the template with Notification Hubs.
+                    // Register hello template with Notification Hubs.
                     async () => await push.RegisterAsync(registrationId, templates));
    
                 System.Diagnostics.Debug.WriteLine(
@@ -86,29 +86,29 @@
             }
         }
    
-    Bu yöntem, anında iletme bildirimleri için Azure ile kaydetmek için döndürülen GCM kayıt Kimliğini kullanır. Oluşturulduktan sonra etiketleri yalnızca kayıt için eklenebilir. Daha fazla bilgi için bkz: [nasıl yapılır: anında iletme etiketleri etkinleştirmek için bir aygıt yükleme etiketler ekleme](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
-7. Geçersiz kılma **Onmessageoptions** yönteminde **PushHandlerService** aşağıdaki kod ile:
+    Bu yöntem, Itanium tabanlı sistemler için GCM kayıt kimliği tooregister Azure ile anında iletme bildirimleri için döndürülen hello kullanır. Oluşturulduktan sonra etiketleri yalnızca toohello kayıt eklenebilir. Daha fazla bilgi için bkz: [nasıl yapılır: eklemek tooa cihaz yükleme tooenable itme--etiketler etiketler](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
+7. Merhaba geçersiz kılma **Onmessageoptions** yönteminde **PushHandlerService** koddan hello ile:
    
        protected override void OnMessage(Context context, Intent intent)
        {          
            string message = string.Empty;
    
-           // Extract the push notification message from the intent.
+           // Extract hello push notification message from hello intent.
            if (intent.Extras.ContainsKey("message"))
            {
                message = intent.Extras.Get("message").ToString();
                var title = "New item added:";
    
-               // Create a notification manager to send the notification.
+               // Create a notification manager toosend hello notification.
                var notificationManager = 
                    GetSystemService(Context.NotificationService) as NotificationManager;
    
-               // Create a new intent to show the notification in the UI. 
+               // Create a new intent tooshow hello notification in hello UI. 
                PendingIntent contentIntent = 
                    PendingIntent.GetActivity(context, 0, 
                    new Intent(this, typeof(ToDoActivity)), 0);              
    
-               // Create the notification using the builder.
+               // Create hello notification using hello builder.
                var builder = new Notification.Builder(context);
                builder.SetAutoCancel(true);
                builder.SetContentTitle(title);
@@ -117,12 +117,12 @@
                builder.SetContentIntent(contentIntent);
                var notification = builder.Build();
    
-               // Display the notification in the Notifications Area.
+               // Display hello notification in hello Notifications Area.
                notificationManager.Notify(1, notification);
    
            }
        }
-8. Geçersiz kılma **OnUnRegistered()** ve **OnError()** aşağıdaki kodla yöntemleri.
+8. Merhaba geçersiz kılma **OnUnRegistered()** ve **OnError()** koddan hello yöntemleriyle.
    
        protected override void OnUnRegistered(Context context, string registrationId)
        {
@@ -132,6 +132,6 @@
        protected override void OnError(Context context, string errorId)
        {
            System.Diagnostics.Debug.WriteLine(
-               string.Format("Error occurred in the notification: {0}.", errorId));
+               string.Format("Error occurred in hello notification: {0}.", errorId));
        }
 

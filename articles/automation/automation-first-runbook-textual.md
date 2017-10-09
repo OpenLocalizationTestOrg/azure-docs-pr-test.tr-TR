@@ -1,6 +1,6 @@
 ---
-title: "Azure Automation’da ilk PowerShell İş Akışı runbook uygulamam | Microsoft Belgeleri"
-description: "PowerShell İş Akışı kullanarak basit bir runbook oluşturma, test etme ve yayımlama adımlarını anlatan öğretici."
+title: "Azure automation'da ilk PowerShell iş akışı runbook aaaMy | Microsoft Docs"
+description: "Test ve PowerShell iş akışı kullanarak basit bir runbook yayımlama hello oluşturma adımlarını anlatan öğretici."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 739f7c0fe0cca03d80fa8b4bdadbf93b5da72a73
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b5a34d363ef4865878f3f68119833367b5280f83
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>İlk PowerShell İş Akışı runbook uygulamam
 
@@ -30,37 +30,37 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Bu öğretici, Azure Automation’da bir [PowerShell İş Akışı runbook](automation-runbook-types.md#powershell-workflow-runbooks) oluşturulmasını adım adım göstermektedir. Runbook işi durumunun nasıl izleneceğini açıklarken test edip yayımlayacağımız basit bir runbook ile başlayacağız. Ardından, bir Azure sanal makinesini başlatmayı içeren bir örnekle, bu runbook’u gerçekten Azure kaynaklarını yönetmek üzere değiştireceğiz. Son olarak, runbook parametreleri ekleyerek runbook’u daha sağlam hale getireceğiz.
+Bu öğreticide, hello oluşturulmasını açıklanmaktadır bir [PowerShell iş akışı runbook'u](automation-runbook-types.md#powershell-workflow-runbooks) Azure Automation. Test ve nasıl tootrack hello hello runbook işinin durumunu açıklayan sırasında yayımlama basit bir runbook ile başlatın. Biz hello runbook değiştirebilir sonra tooactually yönetmek Azure kaynaklarını, bu durumda bir Azure sanal makinesi başlatılıyor. Son olarak runbook parametreleri ekleyerek runbook'u daha sağlam hello olun.
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
+toocomplete Bu öğreticiyi izleyerek hello gerekir:
 
 * Azure aboneliği. Henüz bir aboneliğiniz yoksa [MSDN abone avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ya da <a href="/pricing/free-account/" target="_blank">[ücretsiz hesap için kaydolabilirsiniz](https://azure.microsoft.com/free/).
-* Runbook’u tutacak ve Azure kaynaklarında kimlik doğrulamasını yapacak bir [Automation hesabı](automation-sec-configure-azure-runas-account.md).  Bu hesabın sanal makineyi başlatma ve durdurma izni olmalıdır.
+* [Otomasyon hesabı](automation-sec-configure-azure-runas-account.md) toohold runbook hello ve tooAzure kaynakları kimlik doğrulaması.  Bu hesap, izin toostart sahip ve hello sanal makineyi durdurun.
 * Azure sanal makinesi. Bu makineyi durdurup başlatacağımız için makinenin üretime yönelik bir VM olmaması gerekir.
 
 ## <a name="step-1---create-new-runbook"></a>1. Adım - Yeni runbook oluşturma
-Çıktı olarak *Hello World* metnini veren basit bir runbook oluşturacağız.
+Merhaba metnini veren basit bir runbook oluşturarak başlayacağız *Hello World*.
 
-1. Azure portalında, Otomasyon hesabınızı açın.  
-   Automation hesabı sayfası size bu hesaptaki kaynakların hızlı bir görünümünü sağlar. Birkaç varlığınız zaten olmalıdır. Bunların çoğu, yeni bir Automation hesabına otomatik olarak dahil edilen modüllerdir. Burada ayrıca [önkoşullarda](#prerequisites) belirtilen Kimlik Bilgileri varlığınız da bulunmalıdır.
-2. Runbook'ların listesini açmak için **Runbook'lar** kutucuğuna tıklayın.<br><br> ![Runbook denetimi](media/automation-first-runbook-textual/runbooks-control-tiles.png)
-3. **Runbook ekle** düğmesine ve ardından **Yeni bir runbook oluştur**’a tıklayarak yeni bir runbook oluşturun.
-4. Runbook’a *MyFirstRunbook-Workflow* adını verin.
-5. Bu örneğimizde, biz [PowerShell İş Akışı runbook’u](automation-runbook-types.md#powershell-workflow-runbooks) oluşturacağız, bu nedenle **Runbook türü** için **PowerShell İş Akışı**’nı seçin.<br><br> ![Yeni runbook](media/automation-first-runbook-textual/new-runbook-properties.png)
-6. Runbook’u oluşturmak için **Oluştur**’a tıklayın ve metin düzenleyicisini açın.
+1. Hello Azure portal, Automation hesabınızı açın.  
+   Merhaba Automation hesabı sayfası, bu hesapta hello kaynakların hızlı bir görünümünü sağlar. Birkaç varlığınız zaten olmalıdır. Bunların çoğu, yeni bir Otomasyon hesabı içinde otomatik olarak dahil edilen hello modüllerdir. Hello belirtiliyor hello kimlik bilgisi varlığı de olmalıdır [Önkoşullar](#prerequisites).
+2. Tıklatın hello üzerinde **Runbook'lar** döşeme tooopen hello listesini.<br><br> ![Runbook denetimi](media/automation-first-runbook-textual/runbooks-control-tiles.png)
+3. Merhaba üzerinde tıklatarak yeni bir runbook oluşturmak **runbook Ekle** düğmesine ve ardından **yeni bir runbook oluşturmak**.
+4. Merhaba runbook hello adlandırın *MyFirstRunbook-Workflow*.
+5. Bu durumda, toocreate yapacağız bir [PowerShell iş akışı runbook'u](automation-runbook-types.md#powershell-workflow-runbooks) şekilde select **Powershell iş akışı** için **Runbook türü**.<br><br> ![Yeni runbook](media/automation-first-runbook-textual/new-runbook-properties.png)
+6. Tıklatın **oluşturma** toocreate hello runbook ve açık hello metin düzenleyicisini.
 
-## <a name="step-2---add-code-to-the-runbook"></a>2. Adım - Runbook'a kod ekleme
-Kodu doğrudan runbook’a yazabilir veya Kitaplık denetiminde cmdlet’leri, runbook’ları ve varlıkları seçebilir ve ilgili parametrelerle bunların runbook’a eklenmesini sağlayabilirsiniz. Bu kılavuzda doğrudan runbook'a yazacağız.
+## <a name="step-2---add-code-toohello-runbook"></a>2. adım - kod toohello runbook Ekle
+Doğrudan hello runbook'a kodu olabilir veya bunları toohello runbook ilgili parametrelerle ekledikten ve kitaplığı denetimi hello cmdlet'leri, runbook'ları ve varlıkları seçebilir. Bu kılavuz için sizi doğrudan hello runbook'a yazmanız gerekir.
 
-1. Runbook uygulamamız şu anda, yalnızca gerekli *iş akışı* anahtar sözcüğü, runbook uygulamamızın adın ve tüm iş akışını içerecek parantezleri içerir durumda boştur.
+1. Yalnızca gerekli hello ile runbook uygulamamız şu anda boş *iş akışı* anahtar sözcüğü, bizim runbook ve hello tüm iş akışını içerecek hello küme ayraçları hello adı.
 
    ```
    Workflow MyFirstRunbook-Workflow
    {
    }
    ```
-2. Ayraçlar arasına *Write-Output "Hello World."* yazın.
+2. Ayraçlar arasına *Write-Output "Hello World."* Hello yazın.
 
    ```
    Workflow MyFirstRunbook-Workflow
@@ -68,55 +68,55 @@ Kodu doğrudan runbook’a yazabilir veya Kitaplık denetiminde cmdlet’leri, r
    Write-Output "Hello World"
    }
    ```
-3. **Kaydet**’e tıklayarak runbook’u kaydedin.<br><br> ![Runbook’u kaydetme](media/automation-first-runbook-textual/automation-runbook-edit-controls-save.png)
+3. Tıklayarak Hello runbook'u kaydetmek **kaydetmek**.<br><br> ![Runbook’u kaydetme](media/automation-first-runbook-textual/automation-runbook-edit-controls-save.png)
 
-## <a name="step-3---test-the-runbook"></a>3. Adım - Runbook'u test etme
-Runbook’u üretimde kullanılabilir hale getirmek üzere yayımlamadan önce düzgün çalıştığından emin olmak için test etmek istiyoruz. Bir runbook'u test ettiğinizde, bunun **Taslak** sürümünü çalıştırır ve çıktısını etkileşimli olarak görüntülersiniz.
+## <a name="step-3---test-hello-runbook"></a>3. adım - hello runbook sınaması
+Biz hello runbook toomake yayımlamadan önce onu üretimde kullanılabilir tootest istiyoruz, toomake düzgün çalıştığından emin. Bir runbook'u test ettiğinizde, bunun **Taslak** sürümünü çalıştırır ve çıktısını etkileşimli olarak görüntülersiniz.
 
-1. Test bölmesini açmak için **Test bölmesi**’ne tıklayın.<br><br> ![Test bölmesi](media/automation-first-runbook-textual/automation-runbook-edit-controls-test.png)
-2. Testi başlatmak için **Başlat**’a tıklayın. Etkinleştirilen tek seçenek bu olmalıdır.
+1. Tıklatın **Test bölmesi** tooopen hello Test bölmesi.<br><br> ![Test bölmesi](media/automation-first-runbook-textual/automation-runbook-edit-controls-test.png)
+2. Tıklatın **Başlat** toostart hello test. Bu, yalnızca etkin hello seçeneği olmalıdır.
 3. Bir [runbook işi](automation-runbook-execution.md) oluşturulur ve durumu görüntülenir.  
-   İş durumu, bulutta bir runbook çalışanının kullanılabilir hale gelmesinin beklendiğini gösteren şekilde *Sırada* olarak başlar. Ardından, bir çalışan işi talep ettiğinde *Başlatılıyor* olarak ve runbook gerçekten çalışmaya başladığında *Çalışıyor* olarak değiştirilir.  
-4. Runbook işi tamamlandığında çıktısı görüntülenir. Örneğimizde, *Hello World* metnini görmeliyiz.<br><br> ![Hello World](media/automation-first-runbook-textual/test-output-hello-world.png)
-5. Tuvale geri dönmek için Test bölmesini kapatın.
+   Merhaba iş durumu olarak başlayacak *sıraya alınan* bir runbook worker'hello bulut toocome için bekleyen belirten. Ardından, çok taşınır*başlangıç* bir çalışan hello işi talep ettiğinde ve ardından *çalıştıran* hello runbook gerçekten çalışmaya başladığında.  
+4. Merhaba runbook işi tamamlandığında çıktısı görüntülenir. Örneğimizde, *Hello World* metnini görmeliyiz.<br><br> ![Hello World](media/automation-first-runbook-textual/test-output-hello-world.png)
+5. Merhaba Test bölmesi tooreturn toohello tuvale kapatın.
 
-## <a name="step-4---publish-and-start-the-runbook"></a>4. Adım - Runbook’u yayımlama ve başlatma
-Yeni oluşturduğumuz runbook hala Taslak modunda. Runbook’un üretimde çalıştırılabilmesi için önce yayımlanması gerekir. Bir runbook yayımladığınızda, Taslak sürümü mevcut Yayımlanmış sürümün üzerine yazarsınız. Örneğimizde, runbook’u henüz oluşturduğumuzdan, Yayımlanmış sürümümüz yok.
+## <a name="step-4---publish-and-start-hello-runbook"></a>4. adım - yayımlama ve hello runbook başlatın
+Yeni oluşturduğumuz hello runbook hala taslak modunda değil. Toopublish ihtiyacımız, biz üretimde çalıştırılabilmesi için önce. Bir runbook yayımladığınızda, hello Taslak sürümü hello mevcut yayımlanmış sürümün üzerine. Merhaba runbook oluşturduğumuz çünkü Örneğimizde, yayımlanan sürümü biz henüz yok.
 
-1. Runbook’u yayımlamak için **Yayımla**’ya tıklayın ve sorulduğunda **Evet**’e tıklayın.<br><br> ![Yayımlama](media/automation-first-runbook-textual/automation-runbook-edit-controls-publish.png)
-2. Şimdi runbook'u **Runbook'lar** bölmesinde görüntülemek için sola kaydırırsanız, **Yazma Durumu** olarak **Yayımlandı** gösterilir.
-3. **MyFirstRunbook-Workflow** için bölmeyi görüntülemek üzere geri sağa kaydırın.  
-   Üst kısımdaki seçenekler runbook’u başlatmamıza, gelecekte bir zamanda başlatmak üzere zamanlamamıza ya da bir HTTP çağrısıyla başlatılabilmesi için [web kancası](automation-webhooks.md) oluşturmamıza olanak tanır.
-4. Yalnızca runbook'u başlatmak istiyoruz, bu nedenle **Başlat**’a ve ardından sorulduğunda **Evet**’e tıklayın.<br><br> ![Runbook’u başlatma](media/automation-first-runbook-textual/automation-runbook-controls-start.png)
-5. Yeni oluşturduğumuz runbook için bir iş bölmesi açıldı. Bu bölme kapatılabilir, ancak bu kez işin ilerleme durumunu izleyebilmek için açık bırakacağız.
-6. İş durumu **İş Özeti**’nde gösterilir ve runbook’u test ettiğimizde gördüğümüz durumların aynısıdır.<br><br> ![İş Özeti](media/automation-first-runbook-textual/job-pane-status-blade-jobsummary.png)
-7. Runbook durumu olarak *Tamamlandı* gösterilince **Çıktı**’ya tıklayın. Çıktı bölmesi açılır ve *Hello World* metnimizi görebiliriz.<br><br> ![İş Özeti](media/automation-first-runbook-textual/job-pane-status-blade-outputtile.png)  
-8. Çıktı bölmesini kapatın.
-9. Runbook işine ait Akışlar bölmesini açmak için **Tüm Günlükler**’e tıklayın. Çıktı akışında yalnızca *Hello World* metnini görmeliyiz, ancak bu bölmede, runbook bunlara yazıyorsa Ayrıntılı ve Hata gibi runbook işine yönelik diğer akışlar da gösterilebilir.<br><br> ![İş Özeti](media/automation-first-runbook-textual/job-pane-status-blade-alllogstile.png)
-10. MyFirstRunbook bölmesine dönmek için Akışlar bölmesini ve İş bölmesini kapatın.
-11. Bu runbook’a ait İşler bölmesini açmak için **İşler**’e tıklayın. Bu bölmede, bu runbook tarafından oluşturulan tüm işler listelenir. İşi yalnızca bir kez çalıştırdığımız için sadece bir işin listelendiğini görmeliyiz.<br><br> ![İşler](media/automation-first-runbook-textual/runbook-control-job-tile.png)
-12. Runbook’u başlattığımızda, görüntülediğimiz iş bölmesini açmak için bu işe tıklayabilirsiniz. Böylece zaman içinde geri dönerek, belirli bir runbook için oluşturulan herhangi bir işin ayrıntılarını görüntüleyebilirsiniz.
+1. Tıklatın **Yayımla** toopublish hello runbook ardından **Evet** istendiğinde.<br><br> ![Yayımlama](media/automation-first-runbook-textual/automation-runbook-edit-controls-publish.png)
+2. Sol tooview hello hello runbook'ta kaydırırsanız **Runbook'lar** bölmesinde şimdi gösterilir bir **yazma durumu** , **yayımlanan**.
+3. Kaydırma geri toohello sağ tooview hello bölmesini için **MyFirstRunbook-Workflow**.  
+   Merhaba seçenekleri hello üstte bize toostart hello runbook izin, gelecekteki hello bazı zamanında toostart zamanlama veya oluşturma bir [Web kancası](automation-webhooks.md) başlatılmış olması için bir HTTP çağrısı aracılığıyla.
+4. Yalnızca toostart hello runbook istiyoruz böylece tıklatın **Başlat** ve ardından **Evet** istendiğinde.<br><br> ![Runbook’u başlatma](media/automation-first-runbook-textual/automation-runbook-controls-start.png)
+5. Yeni oluşturduğumuz hello runbook işi için bir iş bölmesi açıldı. Biz bu bölme kapatılabilir, ancak biz hello işin ilerleme durumunu izleyebilmek için bu durumda, açık bırakacağız.
+6. Merhaba iş durumu gösterilir **iş özeti** ve eşleşmeleri hello zaman hello runbook test gördüğümüz durumların.<br><br> ![İş Özeti](media/automation-first-runbook-textual/job-pane-status-blade-jobsummary.png)
+7. Runbook durumu gösterir'bir kez hello *tamamlandı*, tıklatın **çıkış**. Merhaba çıktı bölmesi açılır ve görebiliriz bizim *Hello World*.<br><br> ![İş Özeti](media/automation-first-runbook-textual/job-pane-status-blade-outputtile.png)  
+8. Kapat hello çıkış bölmesi.
+9. Tıklatın **tüm günlükleri** tooopen hello akışlar bölmesini hello runbook işi için. Yalnızca görmeliyiz *Hello World* hello çıkış akışı, ancak bu ayrıntılı ve hata gibi runbook işine yönelik diğer akışlar hello runbook toothem yazıyorsa gösterebilir.<br><br> ![İş Özeti](media/automation-first-runbook-textual/job-pane-status-blade-alllogstile.png)
+10. Merhaba akışlar bölmesini ve hello iş tooreturn toohello MyFirstRunbook bölmesini kapatın.
+11. Tıklatın **işleri** tooopen hello işleri bölmesinde bu runbook için. Bu, tüm bu runbook tarafından oluşturulan hello işlerini listeler. Yalnızca bir işin yalnızca hello iş kez karşılaştık beri listelendiğini görmeliyiz.<br><br> ![İşler](media/automation-first-runbook-textual/runbook-control-job-tile.png)
+12. Bu iş tooopen hello aynı tıklatabilirsiniz biz hello runbook'u başlattığımızda, görüntülediğimiz iş bölmesini. Bu, toogo geri belirli bir runbook için oluşturulan herhangi bir işi zaman ve görünüm hello ayrıntılarını sağlar.
 
-## <a name="step-5---add-authentication-to-manage-azure-resources"></a>5. Adım- Azure kaynaklarını yönetmek için kimlik doğrulaması ekleme
-Runbook uygulamamızı test ettik ve yayımladık, ancak şu ana kadar faydalı bir şey yapmadı. Bu runbook’un Azure kaynaklarını yönetmesini istiyoruz. Runbook‘un bunu gerçekleştirebilmesi için [önkoşullar](#prerequisites) bölümünde bahsedilen kimlik bilgilerini kullanarak kimlik doğrulaması yapması gerekir. Bunun için **Add-AzureRmAccount** cmdlet'ini kullanıyoruz.
+## <a name="step-5---add-authentication-toomanage-azure-resources"></a>5. adım - kimlik doğrulama toomanage ekleme Azure kaynakları
+Runbook uygulamamızı test ettik ve yayımladık, ancak şu ana kadar faydalı bir şey yapmadı. Azure kaynaklarını yönetmek toohave istiyoruz. Biz kimlik doğrulaması ancak hello kimlik bilgilerini kullanarak tooin hello başvurulan olduğunu mümkün toodo olmayacaktır [Önkoşullar](#prerequisites). Merhaba ile bunu **Add-AzureRMAccount** cmdlet'i.
 
-1. MyFirstRunbook İş Akışı bölmesinde **Düzenle**’ye tıklayarak metin düzenleyicisini açın.<br><br> ![Runbook’u düzenleme](media/automation-first-runbook-textual/automation-runbook-controls-edit.png)
-2. **Write-Output** satırı artık gerekli değil, bu nedenle silebilirsiniz.
-3. İmleci ayraçlar arasında boş bir satıra getirin.
-4. Automation Farklı Çalıştır hesabınızla kimlik doğrulamasını işleyecek aşağıdaki kodu yazın veya kopyalayıp yapıştırın:
+1. Tıklayarak metin düzenleyicisini açın hello **Düzenle** hello MyFirstRunbook-Workflow bölmesi.<br><br> ![Runbook’u düzenleme](media/automation-first-runbook-textual/automation-runbook-controls-edit.png)
+2. Merhaba gerekmez **Write-Output** satırı artık, bu nedenle bir tane silin.
+3. Merhaba ayraçlar arasında boş bir satıra Hello imleç Konumlandır.
+4. Yazın veya kopyalayıp Automation farklı çalıştır hesabınız ile Merhaba kimlik doğrulamasını işleyecek kod aşağıdaki hello yapıştırın:
 
    ```
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    ```
-5. Runbook’u test edebilmemiz için **Test bölmesine** tıklayın.
-6. Testi başlatmak için **Başlat**’a tıklayın. Tamamlandığında, hesabınızdaki temel bilgileri görüntüleyen bir aşağıdakine benzer bir çıktı almalısınız. Böylece kimlik bilgisinin geçerli olduğunu doğrulanmış olur.<br><br> ![Kimlik Doğrulaması](media/automation-first-runbook-textual/runbook-auth-output.png)
+5. Tıklatın **Test bölmesi** böylece hello runbook test edebilirsiniz.
+6. Tıklatın **Başlat** toostart hello test. Tamamlandığında, aşağıdaki, hesabınızdaki temel bilgileri görüntüleyen benzer toohello çıkış almanız gerekir. Bu, o hello kimlik bilgisi geçerli olduğunu doğrular.<br><br> ![Kimlik Doğrulaması](media/automation-first-runbook-textual/runbook-auth-output.png)
 
-## <a name="step-6---add-code-to-start-a-virtual-machine"></a>6. Adım - Sanal makineyi başlatmak için kod ekleme
-Runbook uygulamamız Azure aboneliğimiz için kimlik doğrulaması yaptığına göre, kaynakları yönetebiliriz. Sanal makineyi başlatmak için bir komut ekleyeceğiz. Azure aboneliğinizdeki herhangi bir sanal makineyi seçebilirsiniz, şimdilik bu adı runbook’a kod olarak ekleyeceğiz.
+## <a name="step-6---add-code-toostart-a-virtual-machine"></a>6. adım - kod toostart bir sanal makine ekleme
+Runbook uygulamamız tooour Azure aboneliği kimlik doğrulaması, kaynakları yönetebiliriz. Şu komutu toostart bir sanal makine ekleyin. Azure aboneliğinizde herhangi bir sanal makine seçin ve şu an için biz hello runbook'ta adı cmdlet'e kod olacaktır.
 
-1. *Add-AzureRmAccount* ’un ardından, başlatılacak sanal makinenin adını ve Kaynak Grubu adını girip *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* yazın.  
+1. Sonra *Add-AzureRmAccount*, türü *Start-AzureRmVM-Name 'VMName' - ResourceGroupName 'NameofResourceGroup'* hello adını ve kaynak grubu adını hello sanal makine toostart sağlama.  
 
    ```
    workflow MyFirstRunbook-Workflow
@@ -126,13 +126,13 @@ Runbook uygulamamız Azure aboneliğimiz için kimlik doğrulaması yaptığına
    Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
    }
    ```
-2. Runbook'u kaydedin ve ardından **Test bölmesi**’ne tıklayın böylece test edebiliriz.
-3. Testi başlatmak için **Başlat**’a tıklayın. Tamamlandığında, sanal makinenin başlatıldığını kontrol edin.
+2. Merhaba runbook'u kaydedin ve ardından **Test bölmesi** böylece test edebiliriz.
+3. Tıklatın **Başlat** toostart hello test. Tamamlandığında, sanal makine hello onay başlatıldı.
 
-## <a name="step-7---add-an-input-parameter-to-the-runbook"></a>7. Adım - Runbook'a girdi parametresi ekleme
-Runbook uygulamamız şu anda, runbook’a kod olarak eklediğimiz sanal makineyi başlatır, ancak runbook başlatılırken sanal makineyi belirtebilseydik daha kullanışlı olurdu. Şimdi bu işlevi sağlamak için runbook’a girdi parametreleri ekleyeceğiz.
+## <a name="step-7---add-an-input-parameter-toohello-runbook"></a>7. adım - bir giriş parametresi toohello runbook Ekle
+Runbook uygulamamız şu anda başlar hello sanal makineyi sabit kodlanmış hello runbook'taki ancak hello runbook başlatıldığında hello sanal makine belirtirseniz, daha kullanışlı olurdu. Giriş parametreleri toohello runbook tooprovide şimdi bu işlevselliği ekleyeceksiniz.
 
-1. Runbook’a *VMName* ve *ResourceGroupName* parametrelerini ekleyin ve bu değişkenleri aşağıdaki örnekteki gibi **Start-AzureRmVM** cmdlet’i ile kullanın.
+1. Parametrelerini ekleyin *VMName* ve *ResourceGroupName* toohello runbook ve bu değişkenleri ile Merhaba **Start-AzureRmVM** hello örnekte olduğu gibi cmdlet.
 
    ```
    workflow MyFirstRunbook-Workflow
@@ -146,15 +146,15 @@ Runbook uygulamamız şu anda, runbook’a kod olarak eklediğimiz sanal makiney
    Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
    }
    ```
-2. Runbook'u kaydedin ve Test bölmesini açın. Şimdi testte kullanılacak olan iki girdi değişkeni için değerleri sağlayabileceğinizi unutmayın.
-3. Test bölmesini kapatın.
-4. Runbook’un yeni sürümünü yayımlamak için **Yayımla**’ya tıklayın.
-5. Önceki adımda başlattığınız sanal makineyi durdurun.
-6. Runbook'u başlatmak için **Başlat**’a tıklayın. Başlatacağınız sanal makinenin **VMName** ve **ResourceGroupName** bilgilerini yazın.<br><br> ![Runbook’u başlatma](media/automation-first-runbook-textual/automation-pass-params.png)<br>  
-7. Runbook tamamlandığında, sanal makinenin başladığından emin olun.  
+2. Merhaba runbook'u kaydedin ve hello Test bölmesini açın. Artık değerleri Merhaba hello testte kullanılacak olan iki girdi değişkeni sağlayabileceğinizi unutmayın.
+3. Kapat hello Test bölmesi.
+4. Tıklatın **Yayımla** toopublish hello yeni sürümünü hello runbook.
+5. Merhaba önceki adımda başlattığınız Hello sanal makineyi durdurun.
+6. Tıklatın **Başlat** toostart hello runbook. Merhaba türü **VMName** ve **ResourceGroupName** hello sanal makine toostart oluşturacağız.<br><br> ![Runbook’u başlatma](media/automation-first-runbook-textual/automation-pass-params.png)<br>  
+7. Merhaba runbook tamamlandığında, sanal makine hello onay başlatıldı.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Grafik runbook'ları kullanmaya başlamak için bkz. [İlk grafik runbook uygulamam](automation-first-runbook-graphical.md)
-* PowerShell runbook'ları kullanmaya başlamak için bkz. [İlk PowerShell runbook uygulamam](automation-first-runbook-textual-powershell.md)
-* Runbook türleri, avantajları ve sınırlamaları hakkında daha fazla bilgi için, bkz. [Azure Automation runbook türleri](automation-runbook-types.md)
+* Grafik runbook'ları ile çalışmaya tooget bakın [ilk grafik runbook Uygulamam](automation-first-runbook-graphical.md)
+* PowerShell runbook'ları ile çalışmaya tooget bakın [ilk PowerShell runbook'um](automation-first-runbook-textual-powershell.md)
+* runbook türleri, avantajları ve sınırlamaları, hakkında daha fazla toolearn bakın [Azure Automation runbook türleri](automation-runbook-types.md)
 * PowerShell betik desteği özelliği hakkında daha fazla bilgi için bkz. [Azure Automation’da Yerel PowerShell betik desteği](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)

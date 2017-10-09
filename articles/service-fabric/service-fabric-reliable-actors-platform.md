@@ -1,6 +1,6 @@
 ---
-title: "Service Fabric üzerinde Reliable Actors | Microsoft Docs"
-description: "Reliable Actors Reliable Services üzerinde katmanlanmış ve Service Fabric platformundan özellikleriyle nasıl açıklanmaktadır."
+title: "aaaReliable üzerinde Service Fabric aktör | Microsoft Docs"
+description: "Reliable Actors Reliable Services üzerinde katmanlanmış ve hello Service Fabric platformundan hello özellikleriyle nasıl açıklanmaktadır."
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,39 +14,39 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
 ms.author: vturecek
-ms.openlocfilehash: 0a12da52b6e74c721cd25f89e7cde3c07153a396
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ecffb54139f1171c7839b77fed0be60950881198
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Reliable Actors hizmeti tarafından Service Fabric platformunun kullanımı
-Bu makalede, Azure Service Fabric platformda Reliable Actors nasıl çalıştığı açıklanmaktadır. Durum bilgisi olan güvenilir bir hizmet uygulaması içinde barındırılan bir çerçeve çalıştırmanız reliable Actors adlı *aktör hizmeti*. Aktör hizmeti yaşam döngüsü ve ileti gönderme, aktörleri yönetmek gerekli tüm bileşenleri içerir:
+# <a name="how-reliable-actors-use-hello-service-fabric-platform"></a>Reliable Actors hello Service Fabric platformundan kullanma
+Bu makalede, Reliable Actors hello Azure Service Fabric platformda nasıl çalıştığı açıklanmıştır. Güvenilir aktörler Çalıştır hello olarak adlandırılan bir durum bilgisi olan güvenilir hizmet uygulaması içinde barındırılan bir çerçeve *aktör hizmeti*. Merhaba aktör hizmeti tüm hello bileşenleri gerekli toomanage hello yaşam döngüsü ve ileti, aktörleri göndermeyi içerir:
 
-* Aktör çalışma zamanı yaşam döngüsü, atık toplama yönetir ve tek iş parçacıklı erişimini zorunlu kılar.
-* Aktör hizmeti remoting dinleyicisi aktörler için uzaktan erişim çağrılarını kabul eder ve bunları uygun aktör örneğine yönlendirmek için bir dağıtıcı gönderir.
-* Aktör durumu sağlayıcısı (örneğin, güvenilir koleksiyonları durumu sağlayıcısı) durum sağlayıcılarının sarmalar ve aktör durum yönetimi için bir bağdaştırıcı sağlar.
+* Merhaba aktör çalışma zamanı yaşam döngüsü, atık toplama yönetir ve tek iş parçacıklı erişimini zorunlu kılar.
+* Aktör hizmeti remoting dinleyicisi uzaktan erişim çağrıları tooactors kabul eder ve bunları tooa dağıtıcısı tooroute toohello uygun aktör örneği gönderir.
+* Merhaba aktör durumu sağlayıcısı (gibi hello güvenilir koleksiyonları durumu sağlayıcısı) durumu sağlayıcıları sarmalar ve aktör durum yönetimi için bir bağdaştırıcı sağlar.
 
-Bu bileşenlerin birlikte güvenilir aktör framework oluştururlar.
+Bu bileşenleri birlikte form hello güvenilir aktör çerçevesi.
 
 ## <a name="service-layering"></a>Hizmet katmanlarını
-Aktör hizmeti güvenilir bir hizmet olduğundan tüm [uygulama modeli](service-fabric-application-model.md), yaşam döngüsü, [paketleme](service-fabric-package-apps.md), [dağıtım](service-fabric-deploy-remove-applications.md), yükseltme ve ölçeklendirme Reliable Services kavramlarını aktör Hizmetleri aynı şekilde geçerlidir. 
+Merhaba aktör hizmeti kendisini güvenilir bir hizmet olduğundan, tüm hello [uygulama modeli](service-fabric-application-model.md), yaşam döngüsü, [paketleme](service-fabric-package-apps.md), [dağıtım](service-fabric-deploy-remove-applications.md), yükseltme ve kavramlarını ölçeklendirme Güvenilir hizmetler uygulamak hello aynı şekilde tooactor Hizmetleri. 
 
 ![Aktör hizmeti katmanlama][1]
 
-Önceki diyagramda Service Fabric uygulama çerçeveleri ve kullanıcı kodu arasındaki ilişkiyi gösterir. Mavi öğeleri Reliable Services uygulama çerçevesi temsil eder, turuncu güvenilir aktör framework ve yeşil kullanıcı kodu temsil eder.
+Merhaba önceki diyagramda hello hello Service Fabric uygulama çerçeveleri ve kullanıcı kodu arasındaki ilişkiyi gösterir. Mavi öğeleri hello Reliable Services uygulama çerçevesi temsil eder, turuncu hello güvenilir aktör framework ve yeşil kullanıcı kodu temsil eder.
 
-Güvenilir Hizmetleri'nde hizmetinizi devralır `StatefulService` sınıfı. Bu sınıf kendisini türetilmiş, `StatefulServiceBase` (veya `StatelessService` durum bilgisi olmayan hizmetler için). Reliable Actors içinde aktör hizmeti kullanın. Aktör hizmeti farklı bir uygulamasıdır `StatefulServiceBase` , aktörler çalıştırdığı aktör deseni uygulayan sınıf. Aktör hizmeti uygulaması yalnızca olduğundan `StatefulServiceBase`, türetilen kendi hizmet yazabilirsiniz `ActorService` ve hizmet düzeyi özellikleri devralırken yaptığınız şekilde uygulamak `StatefulService`, gibi:
+Güvenilir Hizmetleri'nde hizmetinizi hello devralır `StatefulService` sınıfı. Bu sınıf kendisini türetilmiş, `StatefulServiceBase` (veya `StatelessService` durum bilgisi olmayan hizmetler için). Reliable Actors içinde hello aktör hizmeti kullanın. Merhaba aktör hizmetidir hello farklı bir uygulama `StatefulServiceBase` , aktörler çalıştırdığı bu Implements hello aktör düzeni sınıfı. Merhaba aktör hizmeti kendisi yalnızca uygulaması olduğundan `StatefulServiceBase`, türetilen kendi hizmet yazabilirsiniz `ActorService` ve uygulama servis düzeyi özellikleri aynı hello devralırken yaptığınız şekilde `StatefulService`, gibi:
 
 * Hizmet yedekleme ve geri yükleme.
 * İşlevselliği tüm aktörler, örneğin, bir devre kesici paylaşılan.
-* Aktör hizmeti ve tek tek her aktör uzak yordam çağrıları.
+* Uzak yordam çağrıları hello aktör hizmetin kendisi ve tek tek her aktör.
 
 > [!NOTE]
 > Durum bilgisi olan hizmetler Java/Linux şu anda desteklenmemektedir.
 
-### <a name="using-the-actor-service"></a>Aktör hizmeti kullanma
-Aktör örnekleri bunlar çalıştırdığınız aktör hizmetine erişimi vardır. Aktör hizmeti aracılığıyla aktör örnekleri program aracılığıyla hizmet bağlamı elde edebilirsiniz. Hizmet bağlamı, bölüm kimliği, hizmet adı, uygulama adı ve diğer Service Fabric platforma özgü bilgileri vardır:
+### <a name="using-hello-actor-service"></a>Merhaba aktör hizmeti kullanma
+Aktör örnekleri bunlar çalıştırdığınız erişim toohello aktör hizmeti vardır. Merhaba aktör hizmeti aracılığıyla aktör örnekleri program aracılığıyla hello Hizmet bağlamı elde edebilirsiniz. Merhaba Hizmet bağlamı hello bölüm kimliği, hizmet adı, uygulama adı ve diğer Service Fabric platforma özgü bilgileri vardır:
 
 ```csharp
 Task MyActorMethod()
@@ -68,7 +68,7 @@ CompletableFuture<?> MyActorMethod()
 ```
 
 
-Service Fabric çalışma zamanında bir hizmet türü ile tüm güvenilir hizmetler gibi aktör hizmeti kayıtlı olması gerekir. Aktör hizmeti aktör örneklerinizi çalıştırmak aktör türünüz aktör hizmeti ile kaydedilmelidir. `ActorRuntime` Kayıt yöntemi, bu iş aktörleri gerçekleştirir. En basit durumda, yalnızca aktör türünüz kaydedebilirsiniz ve varsayılan ayarlarla aktör hizmeti örtük olarak kullanılacak:
+Bir hizmet türünün hello Service Fabric çalışma zamanında ile tüm güvenilir hizmetler gibi hello aktör hizmeti kayıtlı olması gerekir. Aktör örneklerinizi toorun Hello aktör hizmeti için aktör türünüz ayrıca hello aktör hizmetiyle kaydedilmesi gerekir. Merhaba `ActorRuntime` kayıt yöntemi, bu iş aktörleri gerçekleştirir. Merhaba en basit durumda, yalnızca aktör türünüz kaydedebilirsiniz ve varsayılan ayarlarla hello aktör hizmeti örtük olarak kullanılacak:
 
 ```csharp
 static class Program
@@ -82,7 +82,7 @@ static class Program
 }
 ```
 
-Alternatif olarak, kayıt yöntemi tarafından sağlanan bir lambda aktör hizmeti kendiniz oluşturmak için kullanabilirsiniz. Aktör hizmeti yapılandırmak ve burada kurucusu aracılığıyla, aktör bağımlılıkları ekleyemezsiniz aktör örneklerinizi açıkça oluşturun:
+Alternatif olarak, kendiniz hello kayıt yöntemi tooconstruct hello aktör hizmeti tarafından sağlanan bir lambda kullanabilirsiniz. Merhaba aktör hizmetini yapılandırın ve açıkça bağımlılıkları tooyour aktör kurucusu aracılığıyla burada Ekle aktör örneklerinizi oluşturun:
 
 ```csharp
 static class Program
@@ -113,10 +113,10 @@ static class Program
 ```
 
 ### <a name="actor-service-methods"></a>Aktör hizmeti yöntemleri
-Aktör hizmeti uygulayan `IActorService` (C#) veya `ActorService` (Java) sırayla uygulayan `IService` (C#) veya `Service` (Java). Bu uzaktan yordam çağrısı hizmeti yöntemleri sağlayan Reliable Services remoting tarafından kullanılan arabirimidir. Hizmet remoting uzaktan çağrılabilir hizmet düzeyi yöntemleri içerir.
+Aktör hizmeti uygulayan hello `IActorService` (C#) veya `ActorService` (Java) sırayla uygulayan `IService` (C#) veya `Service` (Java). Bu uzaktan yordam çağrısı hizmeti yöntemleri sağlayan Reliable Services remoting tarafından kullanılan hello arabirimidir. Hizmet remoting uzaktan çağrılabilir hizmet düzeyi yöntemleri içerir.
 
 #### <a name="enumerating-actors"></a>Aktör numaralandırma
-Aktör hizmeti meta veri hizmeti barındırma aktörler hakkında numaralandırılamadı bir istemcinin sağlar. Aktör hizmeti bölümlenmiş bir durum bilgisi olan hizmet olduğundan, numaralandırma bölüm başına gerçekleştirilir. Her bölüm birçok aktörler içerebileceğinden sabit disk belleğine alınmış sonuçlar kümesi olarak döndürülür. Tüm sayfaları oku kadar üzerinden sayfaları döngüye. Aşağıdaki örnekte bir aktör hizmeti bir bölümünü tüm etkin aktörler listesini oluşturulacağını gösterir:
+Merhaba aktör hizmeti bir istemcinin hello hizmetini barındıran hello aktörler hakkında tooenumerate meta veriler sağlar. Merhaba aktör hizmeti bölümlenmiş bir durum bilgisi olan hizmet olduğundan, numaralandırma bölüm başına gerçekleştirilir. Her bölüm birçok aktörler içerebileceğinden hello sabit disk belleğine alınmış sonuçlar kümesi olarak döndürülür. tüm sayfaları oku kadar üzerinden hello sayfaları döngüye. örnekte gösterildiği nasıl aşağıdaki hello toocreate aktör hizmetinin bir bölümdeki tüm etkin aktörler listesi:
 
 ```csharp
 IActorService actorServiceProxy = ActorServiceProxy.Create(
@@ -160,7 +160,7 @@ while (continuationToken != null);
 ```
 
 #### <a name="deleting-actors"></a>Aktör silme
-Aktör hizmeti aktörler silmek için bir işlevi de sağlar:
+Merhaba aktör hizmeti aktörler silmek için bir işlevi de sağlar:
 
 ```csharp
 ActorId actorToDelete = new ActorId(id);
@@ -179,10 +179,10 @@ ActorService myActorServiceProxy = ActorServiceProxy.create(
 myActorServiceProxy.deleteActorAsync(actorToDelete);
 ```
 
-Aktörlerin ve durumlarına silme hakkında daha fazla bilgi için bkz: [aktör yaşam döngüsü belgelerine](service-fabric-reliable-actors-lifecycle.md).
+Merhaba aktörler ve durumlarına silme hakkında daha fazla bilgi için bkz: [aktör yaşam döngüsü belgelerine](service-fabric-reliable-actors-lifecycle.md).
 
 ### <a name="custom-actor-service"></a>Özel aktör hizmeti
-Aktör kayıt lambda kullanarak türetilen kendi özel aktör hizmeti kaydedebilirsiniz `ActorService` (C#) ve `FabricActorService` (Java). Bu özel aktör hizmeti, kendi hizmet düzeyi işlevselliği devralan bir hizmet sınıfı yazarak uygulayabileceğiniz `ActorService` (C#) veya `FabricActorService` (Java). Bir özel aktör hizmeti tüm aktör çalışma zamanı işlevsellik devralır `ActorService` (C#) veya `FabricActorService` (Java) ve kendi hizmet yöntemleri uygulamak için kullanılabilir.
+Merhaba aktör kayıt lambda kullanarak türetilen kendi özel aktör hizmeti kaydedebilirsiniz `ActorService` (C#) ve `FabricActorService` (Java). Bu özel aktör hizmeti, kendi hizmet düzeyi işlevselliği devralan bir hizmet sınıfı yazarak uygulayabileceğiniz `ActorService` (C#) veya `FabricActorService` (Java). Bir özel aktör hizmeti tüm hello aktör çalışma zamanı işlevsellik devralır `ActorService` (C#) veya `FabricActorService` (Java) ve kullanılan tooimplement kendi hizmet yöntemleri olabilir.
 
 ```csharp
 class MyActorService : ActorService
@@ -230,7 +230,7 @@ public class Program
 ```
 
 #### <a name="implementing-actor-backup-and-restore"></a>Uygulama aktör yedekleme ve geri yükleme
- Aşağıdaki örnekte, özel aktör hizmeti zaten mevcut remoting dinleyicisi yararlanarak aktör verileri yedeklemek için bir yöntem sunar. `ActorService`:
+ Aşağıdaki örneğine hello hello özel aktör hizmetini yöntemi tooback aktör verileri hello remoting dinleyici zaten mevcut yararlanarak gösteren `ActorService`:
 
 ```csharp
 public interface IMyActorService : IService
@@ -253,7 +253,7 @@ class MyActorService : ActorService, IMyActorService
     {
         try
         {
-           // store the contents of backupInfo.Directory
+           // store hello contents of backupInfo.Directory
            return true;
         }
         finally
@@ -285,7 +285,7 @@ class MyActorServiceImpl extends ActorService implements MyActorService
     {
         try
         {
-           // store the contents of backupInfo.Directory
+           // store hello contents of backupInfo.Directory
            return true;
         }
         finally
@@ -307,7 +307,7 @@ class MyActorServiceImpl extends ActorService implements MyActorService
 ```
 
 
-Bu örnekte, `IMyActorService` uygulayan bir remoting sözleşme `IService` (C#) ve `Service` (Java) ve ardından tarafından uygulanan `MyActorService`. Üzerinde bu remoting sözleşme yöntemleri ekleyerek `IMyActorService` şimdi de remoting proxy aracılığıyla oluşturarak istemciye kullanılabilir `ActorServiceProxy`:
+Bu örnekte, `IMyActorService` uygulayan bir remoting sözleşme `IService` (C#) ve `Service` (Java) ve ardından tarafından uygulanan `MyActorService`. Üzerinde bu remoting sözleşme yöntemleri ekleyerek `IMyActorService` de kullanılabilir tooa istemci remoting proxy aracılığıyla oluşturarak sunulmuştur `ActorServiceProxy`:
 
 ```csharp
 IMyActorService myActorServiceProxy = ActorServiceProxy.Create<IMyActorService>(
@@ -323,31 +323,31 @@ myActorServiceProxy.backupActorsAsync();
 ```
 
 ## <a name="application-model"></a>Uygulama modeli
-Uygulama modeli aynı olacak şekilde aktör Reliable Services hizmetleridir. Ancak, aktör framework derleme araçları uygulama modeli dosyaların bazıları sizin için oluşturur.
+Merhaba uygulama modeli olan hello şekilde aynı aktör Reliable Services hizmetleridir. Ancak, hello aktör framework derleme araçları hello uygulama modeli dosyaların bazıları sizin için oluşturur.
 
 ### <a name="service-manifest"></a>Hizmet bildirimi
-Aktör framework derleme araçları aktör hizmetinizin ServiceManifest.xml dosyasının içeriği otomatik olarak oluşturur. Bu dosya içerir:
+Merhaba aktör framework derleme araçları aktör hizmetinizin ServiceManifest.xml dosyasının Merhaba içeriğine otomatik olarak oluşturur. Bu dosya içerir:
 
-* Aktör hizmeti türü. Tür adı aktör'ın Proje adına göre oluşturulur. Aktör Kalıcılık öznitelikte bağlı olarak, HasPersistedState bayrağı da buna uygun olarak ayarlanır.
+* Aktör hizmeti türü. Merhaba türü adı aktör'ın Proje adına göre oluşturulur. Merhaba Kalıcılık özniteliği, aktör bağlı olarak, hello HasPersistedState bayrağı da buna uygun olarak ayarlanır.
 * Kod paketi.
 * Yapılandırma paketi.
 * Kaynaklar ve uç noktaları.
 
 ### <a name="application-manifest"></a>Uygulama bildirimi
-Aktör framework derleme araçları varsayılan hizmet tanımı aktör hizmetiniz için otomatik olarak oluşturun. Derleme araçları varsayılan hizmet özelliklerini doldurun:
+Merhaba aktör framework derleme araçları varsayılan hizmet tanımı aktör hizmetiniz için otomatik olarak oluşturun. Merhaba derleme araçları hello varsayılan hizmet özelliklerini doldurun:
 
-* Çoğaltma kümesi sayısı, aktör Kalıcılık özniteliği tarafından belirlenir. Aktör Kalıcılık öznitelikte her değiştiğinde çoğaltma kümesi sayısı varsayılan hizmet tanımında buna uygun olarak sıfırlanır.
-* Bölüm düzeni ve aralığı Tekdüzen Int64 tam Int64 anahtar aralığıyla ayarlanır.
+* Çoğaltma kümesi sayısı, aktör hello Kalıcılık özniteliği tarafından belirlenir. Her zaman hello Kalıcılık özniteliği, aktör değiştirildiğinde, hello çoğaltma kümesi sayısı hello varsayılan hizmet tanımında buna uygun olarak sıfırlanır.
+* Bölüm düzeni ve aralığı tooUniform Int64 hello tam Int64 anahtar aralığı ile ayarlanır.
 
 ## <a name="service-fabric-partition-concepts-for-actors"></a>Aktörler için Service Fabric bölümü kavramlar
 Aktör Hizmetleri bölümlenmiş durum bilgisi olan hizmetleridir. Aktör hizmeti her bölüm aktörler kümesini içerir. Hizmet bölümlerini Service Fabric birden çok düğümler üzerinden otomatik olarak dağıtılır. Aktör örnekleri sonuç olarak dağıtılır.
 
 ![Bölümleme aktör ve dağıtım][5]
 
-Güvenilir hizmetler farklı bir bölüm düzeni ve bölüm anahtarı aralıkları ile oluşturulabilir. Aktör hizmeti aktörler bölümlere eşlemek için tam Int64 anahtar aralığıyla Int64 bölümleme düzenini kullanır.
+Güvenilir hizmetler farklı bir bölüm düzeni ve bölüm anahtarı aralıkları ile oluşturulabilir. Merhaba aktör hizmeti hello tam Int64 anahtar aralığı toomap aktörler toopartitions ile Merhaba Int64 bölümleme düzenini kullanır.
 
 ### <a name="actor-id"></a>Aktör kimliği
-Hizmetinde oluşturulan her aktör tarafından temsil edilen ilişkili benzersiz bir Kimliğe sahip `ActorId` sınıfı. `ActorId`rastgele kimlikleri oluşturarak service bölümler aktörler Tekdüzen dağıtım için kullanılabilecek bir donuk kimliği değeridir:
+Merhaba hizmetinde oluşturulan her aktör hello tarafından temsil edilen ilişkili benzersiz bir Kimliğe sahip `ActorId` sınıfı. `ActorId`rastgele kimlikleri oluşturarak hello hizmeti bölümleri arasında Tekdüzen aktörler dağıtım için kullanılabilecek bir donuk kimliği değeridir:
 
 ```csharp
 ActorProxy.Create<IMyActor>(ActorId.CreateRandom());
@@ -357,7 +357,7 @@ ActorProxyBase.create<MyActor>(MyActor.class, ActorId.newId());
 ```
 
 
-Her `ActorId` bir Int64 karma haline getirilir. Aktör hizmeti bir Int64 bölümleme düzeni tam Int64 anahtar aralığıyla kullanmalısınız nedeni budur. Ancak, özel kimlik değerleri için kullanılabilecek bir `ActorID`GUID/UUID, dizeleri ve Int64s dahil olmak üzere.
+Her `ActorId` karma tooan Int64 değil. Merhaba aktör hizmeti bir Int64 bölümleme düzeni hello tam Int64 anahtar aralığı ile kullanmanız gerekir nedeni budur. Ancak, özel kimlik değerleri için kullanılabilecek bir `ActorID`GUID/UUID, dizeleri ve Int64s dahil olmak üzere.
 
 ```csharp
 ActorProxy.Create<IMyActor>(new ActorId(Guid.NewGuid()));
@@ -370,7 +370,7 @@ ActorProxyBase.create(MyActor.class, new ActorId("myActorId"));
 ActorProxyBase.create(MyActor.class, new ActorId(1234));
 ```
 
-GUID/UUID ve dizeleri kullanırken, değerlerin bir Int64 karma hale getirilir. Ancak, ne zaman, açıkça sağlayan bir Int64 bir `ActorId`, Int64 daha fazla karma olmadan doğrudan bir bölüm eşler. Aktör yerleştirilir hangi bölümünü denetlemek için bu tekniği kullanabilirsiniz.
+GUID/UUID ve dizeleri kullanırken hello karma tooan Int64 değerlerdir. Ancak, ne zaman, açıkça sağlayan bir Int64 tooan `ActorId`, hello Int64 eşleme doğrudan tooa bölüm daha fazla karma olmadan. Bölüm hello aktörler yerleştirildiği Bu teknik toocontrol kullanabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Aktör durum yönetimi](service-fabric-reliable-actors-state-management.md)

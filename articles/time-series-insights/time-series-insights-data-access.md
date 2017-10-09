@@ -1,6 +1,6 @@
 ---
-title: "Azure Zaman Serisi Görüşleri’nde veri erişimi ilkeleri | Microsoft Docs"
-description: "Bu öğreticide, Zaman Serisi Görüşleri’nde veri erişimi ilkelerini yönetmeyi öğreneceksiniz"
+title: "Azure zaman serisi Öngörüler aaaData erişim ilkelerinde | Microsoft Docs"
+description: "Bu öğreticide, toomanage veri erişimi ilkelerini zaman serisi bilgiler öğrenin"
 keywords: 
 services: time-series-insights
 documentationcenter: 
@@ -15,61 +15,61 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/01/2017
 ms.author: omravi
-ms.openlocfilehash: e975c6d8f217bc73948c0c046204b16b1a742bc7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f286d26c8c5c851c523e9384760dc4b10711fa3f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Azure Portal’ı kullanarak Zaman Serisi Görüşleri ortamına veri erişimi verme
+# <a name="grant-data-access-tooa-time-series-insights-environment-using-azure-portal"></a>Azure portalı kullanarak veri erişim tooa zaman serisi Öngörüler ortamı verin
 
 Zaman Serisi Görüşleri ortamlarının birbirinden bağımsız türde iki erişim ilkesi vardır:
 
 * Yönetim erişimi ilkeleri
 * Veri erişimi ilkeleri
 
-Her iki ilke de Azure Active Directory asıl adlarına (kullanıcılar ve uygulamalar) belirli bir ortam üzerinde çeşitli izinler verir. Asıl adların (kullanıcılar ve uygulamalar), ortamı içeren abonelikle ilişkilendirilmiş Active Directory (veya “Azure kiracısı”) içinde yer almaları gerekir.
+Her iki ilke de Azure Active Directory asıl adlarına (kullanıcılar ve uygulamalar) belirli bir ortam üzerinde çeşitli izinler verir. Merhaba ilkelerini (kullanıcılar ve uygulamalar) toohello etkin ait olmalıdır hello ortamı içeren hello abonelikle ilişkili dizin (veya "Azure Kiracı").
 
-Yönetim erişimi ilkeleri, ortamı, olay kaynaklarını, başvuru veri kümelerini oluşturma ve
-*   Silme, veri erişimi ilkelerini yönetme gibi ortamın yapılandırmasıyla ilgili izinler
-*   verir.
+Yönetim erişim ilkeleri hello ortamının izinleri ilgili toohello yapılandırması gibi verin
+*   Oluşturma ve silme hello ortamının olay kaynakları başvuru veri kümelerini ve
+*   Merhaba veri erişimi ilkelerini yönetimi.
 
-Veri erişimi ilkeleri, veri sorguları gönderme, ortamdaki başvuru verilerini işleme, ortamla ilişkilendirilmiş kaydedilen sorguları ve perspektifleri paylaşma izinleri verir.
+Veri erişimi ilkelerini tooissue veri sorguları, izinleri hello ortamında başvuru verileri işlemek ve kaydedilmiş sorguları hello ortamı Perspektifler paylaşın.
 
-İki ilke türü de ortamın yönetimine erişim ile ortam içindeki verilere erişim arasında net bir ayrım yapmaya olanak tanır. Örneğin, ortamın sahibinin/oluşturucusunun veri erişiminden kaldırıldığı bir ortam kurmak mümkündür. Bunun yanı sıra, ortamdaki verileri okumasına izin verilen kullanıcılar ve hizmetlere, ortamın yapılandırması üzerinde erişim verilmeyebilir.
+iki tür ilkeleri Hello hello ortamının erişim toohello yönetimi ve erişimi toohello verileri hello ortamı içindeki arasında açıkça birbirinden izin verir. Örneğin, Hello sahibi/creator hello ortamının hello veri erişimden kaldırılır, olası toosetup bir ortam olur. Kullanıcılar ve tooread veri hello ortamından izin verilen hizmetler yanı sıra hello ortamının hiçbir erişim toohello yapılandırması verilebilir.
 
 ## <a name="grant-data-access"></a>Veri erişim izni verme
-Aşağıdaki adımlar, bir kullanıcı asıl adına veri erişimi verme işlemini gösterir:
+Merhaba aşağıdaki adımları toogrant veri için bir kullanıcı asıl nasıl erişim göster:
 
-1.  [Azure Portal](https://portal.azure.com) oturum açın.
-2.  Azure Portal'ın sol tarafındaki menüde "Tüm kaynaklar"a tıklayın.
+1.  İçinde toohello oturum [Azure portal](https://portal.azure.com).
+2.  "Tüm kaynaklar" Merhaba menü hello sol tarafındaki hello Azure portal'ı tıklatın.
 3.  Zaman Serisi Görüşleri ortamınızı seçin.
 
-  ![Zaman Serisi Görüşleri kaynağını yönetme - ortam](media/data-access/getstarted-grant-data-access1.png)
+  ![Merhaba zaman serisi Öngörüler kaynak - yönetmek ortamı](media/data-access/getstarted-grant-data-access1.png)
 
 4.  “Veri Düzlemi Erişimi” öğesini seçin, “Ekle” düğmesine tıklayın
 
-  ![Zaman Serisi Görüşleri kaynağını yönetme - ekleme](media/data-access/getstarted-grant-data-access2.png)
+  ![Merhaba zaman serisi Öngörüler kaynak yönetme - ekleme](media/data-access/getstarted-grant-data-access2.png)
 
 5.  "Kullanıcı seç" öğesine tıklayın.
-6.  Kullanıcıyı e-postaya göre arayın ve seçin.
+6.  Arama ve hello e-posta ile kullanıcı seçin.
 7.  “Kullanıcı Seç” dikey penceresinde “Seç” düğmesine tıklayın.
 
-  ![Zaman Serisi Görüşleri kaynağını yönetme - kullanıcı seçme](media/data-access/getstarted-grant-data-access3.png)
+  ![Merhaba zaman serisi Öngörüler kaynak - kullanıcı yönetme](media/data-access/getstarted-grant-data-access3.png)
 
 8.  “Rol seç” öğesine tıklayın.
-9.  Kullanıcıya başvuru verilerini değiştirme ve kaydedilmiş sorgularla perspektifleri ortamdaki diğer kullanıcılarla paylaşma izni vermek istiyorsanız, “Katılımcı” öğesini seçin. Aksi takdirde, kullanıcının ortamdaki verileri sorgulamasına ve kişisel (paylaşılmayan) sorguları ortama kaydetmesine izin vermek için “Okuyucu” öğesini seçin.
-10. “Rol Seç” dikey penceresinde “Tamam” düğmesine tıklayın.
+9.  Perspektif ve kaydedilmiş sorguları hello ortamının diğer kullanıcılarla paylaşmak ve tooallow kullanıcı toochange başvuru verileri isterseniz "Katılımcı" seçin. Aksi takdirde hello ortamında "Okuyucu" tooallow kullanıcı sorgu verileri seçin ve kişisel (paylaşılmayan) sorguları hello ortamında kaydedin.
+10. "Tamam" hello "Rolü Seç" dikey penceresinde'ı tıklatın.
 
-  ![Zaman Serisi Görüşleri kaynağını yönetme - rol seçme](media/data-access/getstarted-grant-data-access4.png)
+  ![Merhaba zaman serisi Öngörüler kaynak - select rolünü yönetme](media/data-access/getstarted-grant-data-access4.png)
 
-11. “Kullanıcı Rolü Seç” dikey penceresinde “Tamam” düğmesine tıklayın.
+11. "Tamam" hello "Kullanıcı rolü Seç" dikey penceresinde'ı tıklatın.
 12. Şunu görmeniz gerekir:
 
-  ![Zaman Serisi Görüşleri kaynağını yönetme - sonuçlar](media/data-access/getstarted-grant-data-access5.png)
+  ![Merhaba zaman serisi Öngörüler kaynak - sonuçlarını yönetme](media/data-access/getstarted-grant-data-access5.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Olay kaynağı oluşturma](time-series-insights-add-event-source.md)
-* Olay kaynağına [olayları gönderme](time-series-insights-send-events.md)
+* [Olayları göndermek](time-series-insights-send-events.md) toohello olay kaynağı
 * [Zaman Serisi Görüşleri Portalı](https://insights.timeseries.azure.com)’nda ortamınızı görüntüleme

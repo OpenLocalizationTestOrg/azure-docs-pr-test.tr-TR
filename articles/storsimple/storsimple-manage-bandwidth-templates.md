@@ -1,6 +1,6 @@
 ---
-title: "StorSimple bant genişliği şablonlarınızı yönetme | Microsoft Docs"
-description: "Bant genişliği kullanımını denetlemenize izin StorSimple bant genişliği şablonları yönetmek açıklar."
+title: "aaaManage StorSimple bant genişliği şablonlarınızı | Microsoft Docs"
+description: "Açıklar nasıl toocontrol bant genişliği kullanılmasına izin ver toomanage StorSimple bant genişliği şablonları."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,146 +14,146 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2016
 ms.author: alkohli
-ms.openlocfilehash: df3ae8bf775370432b3648459a7c942afe69fb17
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3f767e985667121e977106e7a1f8e5a3ad25f022
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-the-storsimple-manager-service-to-manage-storsimple-bandwidth-templates"></a>StorSimple bant genişliği şablonları yönetmek için StorSimple Yöneticisi hizmetini kullanma
+# <a name="use-hello-storsimple-manager-service-toomanage-storsimple-bandwidth-templates"></a>Merhaba StorSimple Yöneticisi hizmet toomanage StorSimple bant genişliği şablonları kullanın.
 ## <a name="overview"></a>Genel Bakış
-Bant genişliği şablonları StorSimple cihaz verileri bulut katmanı için birden çok gün saat zamanlama arasında ağ bant genişliği kullanımını yapılandırmanıza olanak tanır.
+Bant genişliği şablonları birden çok gün saat zamanlamaları tootier hello verilerden hello StorSimple cihaz toohello bulut üzerinden tooconfigure ağ bant genişliği kullanımı sağlar.
 
 Bant genişliği zamanlamaları azaltma ile şunları yapabilirsiniz:
 
-* İş yükü ağ kullanımları bağlı olarak özelleştirilmiş bant genişliği zamanlamaları belirtin.
-* Yönetim merkezileştirmek ve zamanlamaları birçok cihaz arasında kolay ve sorunsuz bir şekilde yeniden kullanabilirsiniz.
+* Özelleştirilmiş bant genişliği zamanlamaları hello iş yükü ağ kullanımları bağlı olarak belirtin.
+* Yönetim merkezileştirmek ve hello zamanlamaları birçok cihaz arasında kolay ve sorunsuz bir şekilde yeniden kullanabilirsiniz.
 
 > [!NOTE]
 > Bu özellik yalnızca StorSimple fiziksel cihazlar için ve sanal cihaz için kullanılabilir.
 > 
 > 
 
-Tüm bant genişliği şablonları hizmetiniz için bir tablo biçiminde görüntülenir ve aşağıdaki bilgileri içerir:
+Tüm hello bant genişliği şablonları hizmetiniz için tablo biçiminde görüntülenir ve aşağıdaki bilgilerle hello içerir:
 
-* **Ad** – oluşturulduğunda atanan bant genişliği şablonu için benzersiz bir ad.
-* **Zamanlama** – verilen bant genişliği şablonundaki zamanlamaları sayısı.
-* **Tarafından kullanılan** – bant genişliği şablonları kullanarak birimlerin sayısı.
+* **Ad** – oluşturulduğunda atanan benzersiz bir ad toohello bant genişliği şablonu.
+* **Zamanlama** – hello verilen bant genişliği şablonundaki zamanlamaları sayısı.
+* **Tarafından kullanılan** – hello hello bant genişliği şablonları kullanarak birimlerin sayısı.
 
-StorSimple Yöneticisi hizmetini kullanma **yapılandırma** bant genişliği şablonları yönetmek için Azure Klasik portalında sayfası.
+Merhaba StorSimple Yöneticisi hizmetini kullanma **yapılandırma** hello Azure Klasik portalı toomanage bant genişliği şablonları sayfasında.
 
-Bant genişliği şablonlarını yapılandırmanıza yardımcı olacak ek bilgiler de bulabilirsiniz:
+Ek bilgi toohelp bant genişliği şablonları yapılandırmak da bulabilirsiniz içinde:
 
 * Bant genişliği şablonları hakkında sorular ve yanıtlar
 * Bant genişliği şablonları için en iyi yöntemler
 
 ## <a name="add-a-bandwidth-template"></a>Bant genişliği şablonu ekleyin
-Yeni bir bant genişliği şablonu oluşturmak için aşağıdaki adımları gerçekleştirin.
+Aşağıdaki adımları toocreate yeni bant genişliği şablonu hello gerçekleştirin.
 
-#### <a name="to-add-a-bandwidth-template"></a>Bant genişliği şablonu eklemek için
-1. StorSimple Yöneticisi hizmetine **yapılandırma** sayfasında, **Ekle/Düzenle bant genişliği şablonu**.
-2. İçinde **Ekle/Düzenle bant genişliği şablonu** iletişim kutusunda:
+#### <a name="tooadd-a-bandwidth-template"></a>tooadd bant genişliği şablonu
+1. Merhaba StorSimple Yöneticisi hizmeti üzerinde **yapılandırma** sayfasında, **Ekle/Düzenle bant genişliği şablonu**.
+2. Merhaba, **Ekle/Düzenle bant genişliği şablonu** iletişim kutusunda:
    
-   1. Gelen **şablonu** aşağı açılan listesinden, **Yeni Oluştur** yeni bant genişliği şablonu eklemek için.
+   1. Merhaba gelen **şablonu** aşağı açılan listesinden, **Yeni Oluştur** tooadd yeni bant genişliği şablonu.
    2. Bant genişliği şablonu için benzersiz bir ad belirtin.
-3. Tanımlayan bir **bant genişliği zamanlama**. Bir zamanlama oluşturmak için:
+3. Tanımlayan bir **bant genişliği zamanlama**. bir zamanlama toocreate:
    
-   1. Aşağı açılan listeden için yapılandırılmış zamanlamayı haftanın günleri seçin. Birden çok gün listesinde karşılık gelen gün önce bulunan onay kutularını işaretleyerek seçebilirsiniz.
-   2. Seçin **tüm gün** zamanlama tüm gün için zorunlu kılındığında seçeneği. Bu seçenek işaretlendiğinde, artık belirleyebileceğiniz bir **başlangıç saati** veya bir **bitiş zamanı**. Zamanlama 12: 00'da 11:59:00 için çalışır.
-   3. Aşağı açılan listesinden bir **başlangıç saati**. Bu zamanlamanın başlayacağı durumunda olur.
-   4. Aşağı açılan listesinden bir **bitiş zamanı**. Bu zamanlamayı durdurur durumunda olur.
+   1. Merhaba hafta hello zamanlaması hello gün için yapılandırılmıştır Hello aşağı açılan listeden seçin. Merhaba listesinde hello ilgili gün önce bulunan hello onay kutularını işaretleyerek birden fazla gün seçebilirsiniz.
+   2. Select hello **tüm gün** hello zamanlama hello tüm gün için zorunlu kılındığında seçeneği. Bu seçenek işaretlendiğinde, artık belirleyebileceğiniz bir **başlangıç saati** veya bir **bitiş zamanı**. Merhaba zamanlamaya çalışır 12: 00'da too11: 59 PM.
+   3. Merhaba aşağı açılan listesinden bir **başlangıç saati**. Merhaba zamanlama başlar, bu olur.
+   4. Merhaba aşağı açılan listesinden bir **bitiş zamanı**. Merhaba zamanlama durdurur durumdur.
       
       > [!NOTE]
-      > Çakışan zamanlamaları izin verilmiyor. Başlangıç ve bitiş zamanlarını çakışan bir zamanlamada neden olur, bunu belirten bir hata iletisi görürsünüz.
+      > Çakışan zamanlamaları izin verilmiyor. Merhaba başlangıç ve bitiş zamanlarını çakışan bir zamanlamada neden olacak bir hata iletisi toothat efekti görürsünüz.
       > 
       > 
-   5. Belirtin **bant genişliği Hızı**. Megabit / saniye (Mbps) StorSimple Cihazınızı (karşıya ve karşıdan yüklemeleri) bulut ilgili işlemler tarafından kullanılan bant genişliği budur. 1 ve bu alan için 1000 arasında bir sayı girin.
-   6. Onay simgesine ![onay simgesi](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). Hizmet üzerinde bant genişliği şablonları listesi, oluşturduğunuz şablon eklenecek **yapılandırma** sayfası.
+   5. Merhaba belirtin **bant genişliği Hızı**. Merhaba bant genişliği megabit / saniye (Mbps) StorSimple Cihazınızı hello bulut (karşıya ve karşıdan yüklemeleri) ilgili işlemler tarafından kullanılan budur. 1 ve bu alan için 1000 arasında bir sayı girin.
+   6. Merhaba onay simgesine ![onay simgesi](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). oluşturduğunuz hello şablon eklenecek toohello bant genişliği şablonları listesi hello hizmette **yapılandırma** sayfası.
       
       ![Yeni bant genişliği şablonu oluştur](./media/storsimple-manage-bandwidth-templates/HCS_CreateNewBT1.png)
-4. Tıklatın **kaydetmek** sayfa ve ardından ekranın alt kısmındaki **Evet** onaylamanız istendiğinde. Bu, yaptığınız yapılandırma değişikliklerini kaydeder.
+4. Tıklatın **kaydetmek** hello sayfa ve ardından hello altındaki **Evet** onaylamanız istendiğinde. Bu, yaptığınız hello yapılandırma değişiklikleri kaydeder.
 
 ## <a name="edit-a-bandwidth-template"></a>Bant genişliği Şablonu Düzenle
-Bant genişliği şablonu düzenlemek için aşağıdaki adımları gerçekleştirin.
+Aşağıdaki adımları tooedit bant genişliği şablonu hello gerçekleştirin.
 
-### <a name="to-edit-a-bandwidth-template"></a>Bant genişliği şablonu düzenlemek için
+### <a name="tooedit-a-bandwidth-template"></a>tooedit bant genişliği şablonu
 1. Tıklatın **Ekle/Düzenle bant genişliği şablonu**.
-2. İçinde **Ekle/Düzenle bant genişliği şablonu** iletişim kutusunda:
+2. Merhaba, **Ekle/Düzenle bant genişliği şablonu** iletişim kutusunda:
    
-   1. Gelen **şablonu** aşağı açılan listesinde, değiştirmek istediğiniz var olan bir bant genişliği şablonu seçin.
-   2. Değişikliklerinizi tamamlayın. (Var olan ayarları değiştirebilirsiniz.)
-   3. Onay simgesine tıklayarak ![Onay simgesi](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). Bant genişliği şablonları listesi değiştirilmiş şablonunda hizmet Yapılandır sayfasında görürsünüz.
-3. Değişikliklerinizi kaydetmek için tıklatın **kaydetmek** sayfanın sonundaki. Tıklatın **Evet** onaylamanız istendiğinde.
+   1. Merhaba gelen **şablonu** aşağı açılan listesinde, var olan bir bant genişliği seçin toomodify istediğiniz şablonu.
+   2. Değişikliklerinizi tamamlayın. (Merhaba var olan ayarları değiştirebilirsiniz.)
+   3. Merhaba onay simgesine tıklayın ![Onay simgesi](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). Bant genişliği şablonları listesi hello değiştirilmiş şablonunda hello hello hizmeti yapılandırma sayfasında görürsünüz.
+3. yaptığınız değişiklikleri toosave tıklatın **kaydetmek** hello sayfanın hello sonundaki. Tıklatın **Evet** onaylamanız istendiğinde.
 
 > [!NOTE]
-> Düzenlenen zamanlama değiştirdiğiniz bant genişliği şablonu mevcut bir zamanlamayı ile çakışırsa, değişikliklerinizi kaydetmeye izin verilecek değil.
+> Değişikliklerinizi hello düzenlenen zamanlama bir var olan çakışırsa, değiştirme hello bant genişliği şablonu zamanlama toosave izin verilmez.
 > 
 > 
 
 ## <a name="delete-a-bandwidth-template"></a>Bant genişliği Şablonu Sil
-Bant genişliği şablonu silmek için aşağıdaki adımları gerçekleştirin.
+Aşağıdaki adımları toodelete bant genişliği şablonu hello gerçekleştirin.
 
-#### <a name="to-delete-a-bandwidth-template"></a>Bant genişliği şablonu silmek için
-1. Hizmetiniz için bant genişliği şablonları Tablo listesinde, silmek istediğiniz şablonu seçin. Sil simgesini (**x**) seçili şablon aşırı sağında görünür. Tıklatın **x** şablonunu silmek için simge.
-2. Onayınız istenir. Tıklatın **Tamam** devam etmek için.
+#### <a name="toodelete-a-bandwidth-template"></a>toodelete bant genişliği şablonu
+1. Merhaba tablo hello bant genişliği şablonları listesinde hizmetiniz için toodelete istediğiniz hello şablonu seçin. Sil simgesini (**x**) toohello aşırı hello Seçili şablon sağında görünür. Merhaba tıklatın **x** simgesi toodelete hello şablonu.
+2. Onayınız istenir. Tıklatın **Tamam** tooproceed.
 
-Şablon tüm birimlerin tarafından kullanılıyorsa, silmeden verilmez. Şablon kullanımda olduğunu belirten bir hata iletisi görürsünüz. Şablona yapılan tüm başvuruları kaldırılması gerektiğini bildiren bir hata iletisi iletişim kutusu görünür.
+Tüm birimlerin kullanımında Hello şablonu ise, toodelete izin verilmez. Merhaba şablon kullanımda belirten bir hata iletisi görürsünüz. Tüm hello başvuruları toohello şablonu kaldırılması gerektiğini bildiren bir hata iletisi iletişim kutusu görünür.
 
-Şablona yapılan tüm başvuruları erişerek silebilirsiniz **birim kapsayıcıları** sayfa ve böylece başka bir şablon kullanın veya bir özel veya sınırsız bant genişliği ayarı kullanın, bu şablonu kullanan birim kapsayıcıları değiştirme. Tüm başvuruları kaldırıldıktan sonra şablonu silebilirsiniz.
+Merhaba erişerek tüm hello başvuruları toohello şablonunu silebilirsiniz **birim kapsayıcıları** sayfasında ve böylece başka bir şablon kullanın veya bir özel veya sınırsız bant genişliği kullanın, bu şablonu kullanan hello birim kapsayıcıları değiştirme ayar. Tüm hello başvuruları kaldırıldıktan sonra hello şablonunu silebilirsiniz.
 
 ## <a name="use-a-default-bandwidth-template"></a>Varsayılan bant genişliği şablonu kullanın
-Varsayılan bant genişliği şablonu sağlanır ve birim kapsayıcıları tarafından bulut erişirken bant genişliği denetimleri zorlamak için varsayılan olarak kullanılır. Varsayılan şablonu, aynı zamanda kullanıcılar kendi şablonlarını oluşturmak için hazır bir başvuru olarak görev yapar. Bu varsayılan şablon ayrıntılarını şunlardır:
+Varsayılan bant genişliği şablonu sağlanır ve birim kapsayıcıları tarafından hello bulut erişirken varsayılan tooenforce bant genişliği denetimleri tarafından kullanılır. Hello varsayılan şablonu, ayrıca kullanıcılar kendi şablonlarını oluşturmak için hazır bir başvuru olarak görev yapar. Bu varsayılan şablon Hello ayrıntılarını şunlardır:
 
 * **Ad** – sınırsız gece ve hafta sonları
-* **Zamanlama** – Pazartesi'den tek bir zamanlama Cuma 8: 00 ve 17: 00 saatleri aygıt saat arasındaki 1 MB/sn bant genişliği oranını uygular. Bant genişliği için sınırsız hafta geri kalanı için ayarlanır.
+* **Zamanlama** – 8: 00 ve 17: 00 saatleri aygıt saat arasındaki 1 MB/sn bant genişliği oranını geçerlidir Pazartesi tooFriday tek bir zamanlamadan. Merhaba bant genişliği tooUnlimited hello hafta hello kalanı için ayarlanır.
 
-Varsayılan şablonu düzenlenebilir. Bu şablon (düzenlenen sürümleri de dahil olmak üzere) kullanımını izlenir.
+Merhaba varsayılan şablonu düzenlenebilir. (düzenlenen sürümleri de dahil olmak üzere) bu şablonu Hello kullanımı izlenir.
 
 ## <a name="create-an-all-day-bandwidth-template-that-starts-at-a-specified-time"></a>Belirli bir zamanda başlatır süren bir bant genişliği şablonu oluştur
-Belirli bir zamanda başlatır ve tüm gün çalışan bir zamanlama oluşturmak için bu yordamı izleyin. Örnekte, zamanlama içinde sabah 09: 00'dan başlar ve 09: 00 kadar sonraki sabah çalışır. Belirli bir zamanlama için başlangıç ve bitiş zamanları her ikisi de aynı 24 saatlik zaman çizelgesine göre bulunmalıdır ve birden fazla gün yayılamaz dikkate almak önemlidir. Birden çok gün yayılan bant genişliği şablonları ayarlamak gerekiyorsa, birden çok zamanlama (örnekte gösterildiği gibi) kullanmanız gerekir.
+Bu yordam toocreate belirli bir zamanda başlatır ve tüm gün çalışan bir zamanlama izleyin. Merhaba örnekte hello zamanlama hello sabah içinde 09: 00'dan başlar ve sonraki sabah 09: 00 hello kadar çalıştırır. Başlangıç hello önemli toonote olduğundan ve bitiş zamanları belirli bir zamanlama için her ikisini de aynı 24 saatlik zamanlama ve birden fazla gün yayılamaz hello üzerinde yer almalıdır. Birden çok gün span bant genişliği şablonlarını tooset ihtiyacınız varsa, (Merhaba örnekte gösterildiği gibi) birden çok zamanlama toouse gerekir.
 
-#### <a name="to-create-an-all-day-bandwidth-template"></a>Günlük bir bant genişliği şablonu oluşturmak için
-1. Sabah, 09: 00'dan başlar ve kadar gece yarısı çalışan bir zamanlama oluşturun.
-2. Başka bir zamanlama ekleyin. 09: 00 sabah içinde kadar gece çalıştırmak için ikinci zamanlamayı yapılandırın.
-3. Bant genişliği şablonu kaydedin.
+#### <a name="toocreate-an-all-day-bandwidth-template"></a>toocreate süren bir bant genişliği şablonu
+1. Merhaba sabah içinde 09: 00'dan başlar ve kadar gece yarısı çalışan bir zamanlama oluşturun.
+2. Başka bir zamanlama ekleyin. 09: 00 hello sabah içinde kadar Hello ikinci zamanlama toorun gece yarısına yapılandırın.
+3. Merhaba bant genişliği şablonu kaydedin.
 
-Bileşik zamanlama sonra bir zamanda başlatmak ve günlük çalıştırın.
+Merhaba bileşik zamanlama sonra bir zamanda başlatmak ve günlük çalıştırın.
 
 ## <a name="questions-and-answers-about-bandwidth-templates"></a>Bant genişliği şablonları hakkında sorular ve yanıtlar
-**Q**. Between zamanlama bant genişliği denetimleri için ne olur? (Bir zamanlama sona erdi ve başka bir henüz başlatılmadı.)
+**Q**. Between hello zamanlama toobandwidth denetimleri ne olur? (Bir zamanlama sona erdi ve başka bir henüz başlatılmadı.)
 
-**A**. Böyle durumlarda, bant genişliği denetimleri işe. Bu cihaz verileri buluta katmanlama zaman sınırsız bant genişliği olarak kullanabileceğiniz anlamına gelir.
+**A**. Böyle durumlarda, bant genişliği denetimleri işe. Bu, hello aygıt sınırsız bant genişliği veri toohello bulut katmanlandırma olduğunda kullanabileceğiniz anlamına gelir.
 
 **Q**. Bant genişliği şablonları çevrimdışı cihazında değişiklik yapabilirsiniz?
 
-**A**. Karşılık gelen cihaz çevrimdışı ise birimleri kapsayıcılarında bant genişliği şablonları değiştirmek mümkün olmaz.
+**A**. Merhaba karşılık gelen cihaz çevrimdışı ise mümkün toomodify bant genişliği şablonları birimleri kapsayıcılarında olmaz.
 
-**Q**. İlişkili birimler çevrimdışı olduğunda bir birim kapsayıcısı ile ilişkili bir bant genişliği şablonu düzenleyebilirsiniz.
+**Q**. İlişkili hello birimlerinin çevrimdışı olduğunda bir birim kapsayıcısı ile ilişkili bir bant genişliği şablonu düzenleyebilirsiniz.
 
-**A**. Birimleri çevrimdışı bir birim kapsayıcısı ile ilişkili bir bant genişliği şablonu değiştirebilirsiniz. Birimlerinin çevrimdışı olduğunda, hiçbir veri CİHAZDAN buluta katmanlı olduğunu unutmayın.
+**A**. Birimleri çevrimdışı bir birim kapsayıcısı ile ilişkili bir bant genişliği şablonu değiştirebilirsiniz. Hiçbir veri birimlerinin çevrimdışı olduğunda hello aygıt toohello buluttan katmanlı olduğunu unutmayın.
 
 **Q**. Varsayılan bir şablon silebilirsiniz?
 
-**A**. Varsayılan bir şablon silebilirsiniz rağmen Bunu yapmak için iyi bir fikir değil. Düzenlenen sürümleri de dahil olmak üzere varsayılan bir şablon kullanımı izlenir. İzleme verilerini analiz edilir ve süresi boyunca varsayılan şablonu geliştirmek için kullanılır.
+**A**. Varsayılan bir şablon silebilirsiniz rağmen iyi bir fikir toodo şekilde değil. düzenlenen sürümleri de dahil olmak üzere varsayılan bir şablon Hello kullanımı izlenir. izleme verilerini hello analiz edilir ve zaman hello süresince kullanılan tooimprove hello varsayılan şablonudur.
 
-**Q**. Bant genişliği şablonlarınızı değiştirilmesi gereken nasıl belirlediğiniz?
+**Q**. Bant genişliği şablonlarınızı değiştiren toobe gerektiğini nasıl belirlediğiniz?
 
-**A**. Ağ yavaşlayabilir veya bir gün içinde birden çok kez boğma görmesini başlattığınızda bant genişliği şablonları değiştirmenize gerek işaretlerini biridir. Bu durumda, depolama ve kullanım ağ g/ç performans ve ağ üretilen grafikleri bakarak izleyin.
+**A**. Merhaba başlattığınızda işaretlerini toomodify hello bant genişliği şablonlar ihtiyacınız olan biri hello ağ görmesini yavaşlaması veya bir gün içinde birden çok kez boğma. Bu durumda, hello depolama ve kullanım ağ hello g/ç performans ve ağ üretilen grafikleri bakarak izleyin.
 
-Ağ verimliliği verilerden günün saati ve ağ sorununu oluştuğu birim kapsayıcıları tanımlayın. Verileri buluta katmanlı olduğunda bu ortaya çıkarsa (g/ç performans bulut cihaz için tüm birim kapsayıcıları için bu bilgileri Al), sonra da, birim kapsayıcıları ile ilişkili bant genişliği şablonları değiştirmeniz gerekir.
+Merhaba ağ verimliliği verilerden başlangıç saati belirleyin ve hangi hello ağ sorununu oluşur birim kapsayıcıları hello. Veri Katmanlı toohello bulut yüklenirken bu ortaya çıkarsa (aygıt toocloud için g/ç performans tüm birim kapsayıcıları için bu bilgileri almak,), birim kapsayıcıları ile ilişkili toomodify hello bant genişliği şablonları gerekir.
 
-Değiştirilen şablonlar kullanımda olan sonra önemli gecikme için tekrar izlemesi gerekir. Bunlar hala yoksa, bant genişliği şablonlarınızı yeniden ziyaret etmeniz gerekir.
+Merhaba değiştiren sonra şablonları kullanılıyor, toomonitor hello ağ için önemli gecikmeleri yeniden gerekir. Ardından bu hala yoksa, bant genişliği şablonlarınızı toorevisit gerekir.
 
-**Q**. Bu çakışma zamanlar cihazımı üzerinde birden çok birim kapsayıcıları varsa ne olur, ancak farklı sınırlar her birine uygulanan?
+**Q**. Bu çakışma zamanlar cihazımı üzerinde birden çok birim kapsayıcıları varsa ne olur ancak tooeach farklı sınırlar uygulanır?
 
-**A**. 3 birim kapsayıcıları aygıtla olduğunu varsayalım. Bu kapsayıcılar ile tamamen ilişkilendirilmiş zamanlamaları çakışıyor. Her Bu kapsayıcıları için kullanılan bant genişliği 5, 10 ve 15 Mbps sırasıyla kısıtlamalardır. G/ç Bu kapsayıcılar tümünde aynı anda yaşanan, en az 3 bant genişliği sınırlarının uygulanabilir: Bu durumda, bu g/ç istekleri giden olarak 5 MB/sn aynı sıraya paylaşın.
+**A**. 3 birim kapsayıcıları aygıtla olduğunu varsayalım. Merhaba tamamen Bu kapsayıcılar ile ilişkilendirilmiş zamanlamaları çakışıyor. Her bu kapsayıcıların kullanılan hello bant genişliği 5, 10 ve 15 Mbps sırasıyla kısıtlamalardır. Ne zaman g/ç oluşan tüm bu kapsayıcıların aynı zamanda, hello minimum hello 3 bant genişliği sınırlarının uygulanabilir hello adresindeki: Bu durumda, bu g/ç istekleri paylaşımına giden olarak 5 MB/sn aynı sıra hello.
 
 ## <a name="best-practices-for-bandwidth-templates"></a>Bant genişliği şablonları için en iyi yöntemler
 StorSimple cihazınız için bu en iyi uygulamaları izleyin:
 
-* Bant genişliği şablonları değişken ağ verimliliği aygıt tarafından günün farklı zamanlarda azaltmayı etkinleştirmek için Cihazınızı yapılandırın. Yedekleme zamanlamaları ile kullanıldığında bu bant genişliği şablonları, yoğun olmayan saatlerde ek ağ bant genişliği bulut işlemleri için etkili bir şekilde yararlanabilirsiniz.
-* Dağıtım ve gerekli kurtarma süresi hedefi (RTO) boyutuna göre belirli bir dağıtım için gereken gerçek bant hesaplayın.
+* Bant genişliği şablonları, aygıt tooenable değişken hello ağ verimliliği hello aygıt tarafından hello günün farklı zamanlarda azaltma üzerinde yapılandırın. Yedekleme zamanlamaları ile kullanıldığında bu bant genişliği şablonları, yoğun olmayan saatlerde ek ağ bant genişliği bulut işlemleri için etkili bir şekilde yararlanabilirsiniz.
+* Hello boyutuna hello dağıtım ve hello gerekli kurtarma süresi hedefi (RTO) göre belirli bir dağıtım için gereken gerçek bant hello hesaplayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi edinmek [StorSimple Cihazınızı yönetmek için StorSimple Yöneticisi hizmetini kullanma](storsimple-manager-service-administration.md).
+Daha fazla bilgi edinmek [kullanarak, StorSimple Cihazınızı StorSimple Yöneticisi hizmet tooadminister hello](storsimple-manager-service-administration.md).
 

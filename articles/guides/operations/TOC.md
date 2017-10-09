@@ -6,12 +6,12 @@
 ## [Önemli kavramlar](azure-operations-guide.md#azure-key-concepts)
 ### [Microsoft Azure portalına genel bakış](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) 
 ### [Azure kaynaklarını portal üzerinden yönetme](https://docs.microsoft.com/azure/azure-portal/resource-group-portal)
-### [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-azurerm-ps)
-### [Azure CLI'yı yükleme](/cli/azure/install-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azure/install-azurerm-ps)
+### [Hello Azure CLI yükleme](/cli/azure/install-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure REST SDK Başvurusu](https://docs.microsoft.com/rest/api/index)
 
 ## [Abonelikler](azure-operations-guide.md#azure-subscriptions)
-### [Azure faturanızı ve günlük kullanım verilerinizi indirme](../../billing/billing-download-azure-invoice-daily-usage-date.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Azure faturalama toodownload nasıl fatura ve günlük kullanım verileri](../../billing/billing-download-azure-invoice-daily-usage-date.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Kaynak kullanımınızla ilgili ayrıntılı bilgi edinme](../../billing/billing-usage-rate-card-overview.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Çevrimiçi fiyatlandırma hesaplayıcı](http://azure.microsoft.com/pricing/calculator)
 ### [Fatura uyarılarını ayarlama](../../billing/billing-set-up-alerts.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
@@ -19,12 +19,12 @@
 ## [Azure Resource Manager](azure-operations-guide.md#azure-resource-manager)
 
 ### [Azure Resource Manager şablonları yazma](../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-###[Şablonları Azure portalını kullanarak dağıtma](../../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+###[Hello Azure portal kullanarak şablonlarını dağıtma](../../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ###[Şablonları Azure PowerShell kullanarak dağıtma](../../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-###[Şablonları Azure CLI kullanarak dağıtma](../../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+###[Hello Azure CLI kullanarak şablonlarını dağıtma](../../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Güvenlik (RBAC)](azure-operations-guide.md#security-of-azure-resource)
-###[Kaynakları yönetmek için rol atamalarını kullanma](../../active-directory/role-based-access-control-configure.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+###[Rol atamaları toomanage kaynakları kullanın](../../active-directory/role-based-access-control-configure.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Sanal makineler](azure-operations-guide.md#azure-virtual-machines)
 ### [Windows için VM boyutları](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
@@ -32,8 +32,8 @@
 
 
 ### Hızlıca bir Windows VM oluşturma
-#### [Azure CLI kullanma](../../virtual-machines/windows/quick-create-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Portalı kullanma](../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Hello Azure CLI kullanma](../../virtual-machines/windows/quick-create-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Merhaba portal kullanma](../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [PowerShell’i kullanma](../../virtual-machines/windows/quick-create-powershell.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### Windows için sanal makine öğreticileri
 #### [VM oluşturma/yönetme](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
@@ -50,8 +50,8 @@
 #### [Team Services CI/CD](../../virtual-machines/windows/tutorial-vsts-iis-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ### Hızlıca bir Linux VM oluşturma
-#### [Azure CLI kullanma](../../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Portalı kullanma](../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Hello Azure CLI kullanma](../../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Merhaba portal kullanma](../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [PowerShell’i kullanma](../../virtual-machines/linux/quick-create-powershell.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### Linux için sanal makine öğreticileri
 #### [VM oluşturma/yönetme](../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
@@ -68,19 +68,19 @@
 #### [Jenkins CI/CD](../../virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ### [Azure’da IP adresleri](../../virtual-network/virtual-network-ip-addresses-overview-arm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Azure portal kullanarak Azure’daki bir VM için bağlantı noktası açma](../../virtual-machines/windows/nsg-quickstart-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Açılan bağlantı noktaları tooa hello Azure portal kullanarak azure'da VM](../../virtual-machines/windows/nsg-quickstart-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Depolama](azure-operations-guide.md#azure-storage)
 
 ### [Azure Blob Depolama](../../storage/blobs/storage-blob-storage-tiers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [.NET kullanarak Azure Blob Depolama ile çalışmaya başlama](../../storage/blobs/storage-dotnet-how-to-use-blobs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Windows'da Azure Dosya Depolama ile çalışmaya başlama](../../storage/files/storage-how-to-use-files-windows.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
-### [Azure Dosya depolamayı Linux ile kullanma](../../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Nasıl toouse Linux Azure File storage](../../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Tablo Depolama ile çalışmaya başlama](../../cosmos-db/table-storage-how-to-use-dotnet.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Kuyruk Depolama ile çalışmaya başlama](../../storage/queues/storage-dotnet-how-to-use-queues.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Depolama hesabı oluşturma](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
 ### [Azure Depolama ile Azure PowerShell’i kullanma](../../storage/common/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Azure Depolama ile Azure CLI kullanma.](../../storage/common/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Hello Azure CLI Azure Storage ile kullanma.](../../storage/common/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Depolama İstemci Araçları](../../storage/common/storage-explorers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Depolama hizmeti REST API başvurusu](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)
 ### [Paylaşılan erişim imzalarını kullanma](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
@@ -88,13 +88,13 @@
 
 
 ## [Sanal ağlar](azure-operations-guide.md#azure-virtual-network)
-### [Azure portalını kullanarak bir sanal ağ oluşturma](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Hello Azure portal kullanarak bir sanal ağ oluşturma](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [PowerShell’i kullanarak bir sanal ağ oluşturma](../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Azure CLI’ı kullanarak bir sanal ağ oluşturma](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Hello Azure CLI kullanarak bir sanal ağ oluşturma](../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Ağ güvenlik grupları ile ağ trafiğini filtreleme](../../virtual-network/virtual-networks-nsg.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### Sanal ağ öğreticileri
 #### [VM'ler için yük dengeleme](../../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Bilgisayarı sanal ağa bağlama](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Bir bilgisayar tooa sanal ağa bağlanma](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Sonraki adımlar](azure-operations-guide.md#next-steps)
 # Kaynaklar

@@ -1,5 +1,5 @@
 ---
-title: "Azure yönetilen disklere AWS ve diğer platformlar geçirme | Microsoft Docs"
+title: "AWS ve diğer platformlar tooManaged aaaMigrate diskler Azure'da | Microsoft Docs"
 description: "AWS veya diğer sanallaştırma platformları gibi diğer bulut gelen karşıya VHD'lerin azure'da VM'ler oluşturun ve Azure yönetilen diskleri yararlanabilir."
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,60 +16,60 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 685c35dbd4265ca6852de6db2e5a30fc2a611d7c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 66c3912397ab905aafb3910e13ac711befb8f502
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Azure yönetilen disklere Amazon Web Hizmetleri (AWS) ve diğer platformlar geçirme
+# <a name="migrate-from-amazon-web-services-aws-and-other-platforms-toomanaged-disks-in-azure"></a>Amazon Web Hizmetleri (AWS) ve diğer platformlar Azure tooManaged diskleri geçirme
 
-Yönetilen diskleri yararlanmak VM'ler oluşturmak için Azure AWS veya şirket içi Sanallaştırma Çözümleri VHD dosyalarının karşıya yükleyebilirsiniz. Azure yönetilen diskleri, depolama hesaplarını Azure Iaas VM'ler için yönetme ihtiyacını ortadan kaldırır. Yalnızca boyutunu ve türünü (Premium veya standart) belirtmek zorunda duyduğunuz disk ve Azure oluşturur ve disk yönettiğiniz. 
+AWS veya şirket içi Sanallaştırma Çözümleri tooAzure toocreate yönetilen diskleri yararlanmak VM'ler VHD dosyaları karşıya yükleyebilirsiniz. Azure yönetilen diskleri Azure Iaas VM'ler için toomanaging depolama hesaplarının hello gereksinimini ortadan kaldırır. Hello türü (Premium veya standart) ve duyduğunuz disk boyutunu belirtin tooonly varsa ve Azure oluşturur ve hello disk yönettiğiniz. 
 
 Genelleştirilmiş ve özelleştirilmiş VHD'leri karşıya yükleyebilirsiniz. 
 - **VHD genelleştirilmiş** -, sahip tüm kişisel hesap bilgilerinizi Sysprep kullanarak kaldırıldı. 
-- **VHD özelleştirilmiş** -kullanıcı hesapları, uygulamaları ve diğer özgün VM Durum verilerini korur. 
+- **VHD özelleştirilmiş** -hello kullanıcı hesapları, uygulamaları ve diğer özgün VM Durum verilerini korur. 
 
 > [!IMPORTANT]
-> Herhangi bir VHD'yi Azure'a karşıya yüklemeden önce uygulamanız gereken [Windows VHD veya VHDX Azure'a karşıya yüklemek için hazırlama](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> Tüm VHD tooAzure karşıya yüklemeden önce uygulamanız gereken [Windows VHD veya VHDX tooupload tooAzure hazırlama](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 >
 >
 
 
 | Senaryo                                                                                                                         | Belgeler                                                                                                                       |
 |----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Azure yönetilen disklere geçirilmesini ister var olan bir AWS EC2 örneklerini sahip                                     | [Bir VM'yi Amazon Web Hizmetleri'ndeki (AWS) Azure'a taşıyın.](aws-to-azure.md)                           |
-| Bir VM'den ve kullanmayı bir görüntü olarak birden fazla Azure VM'yi oluşturmak için istediğiniz diğer sanallaştırma platformu vardır. | [Genelleştirilmiş bir VHD yüklemek ve yeni sanal makineleri oluşturmak için kullanın](upload-generalized-managed.md) |
-| Azure'da yeniden oluşturmak istediğiniz benzersiz şekilde özelleştirilmiş bir VM var.                                                      | [Özel bir VHD Azure'a yükleyin ve yeni bir VM oluşturun](create-vm-specialized.md)         |
+| Toomigrate tooAzure yönetilen diskleri ister var olan bir AWS EC2 örneğe sahip                                     | [Amazon Web Hizmetleri (AWS) tooAzure bir VM'yi taşıma](aws-to-azure.md)                           |
+| Bir sanal makineden ve bir görüntü toocreate olarak toouse toouse istediğiniz diğer sanallaştırma platformu sahip birden fazla Azure VM'yi. | [Genelleştirilmiş bir VHD yüklemek ve Azure'da toocreate yeni VM'ler kullanın](upload-generalized-managed.md) |
+| Azure'da toorecreate istediğiniz benzersiz şekilde özelleştirilmiş bir VM var.                                                      | [Özel bir VHD tooAzure karşıya yükleyin ve yeni bir VM oluşturun](create-vm-specialized.md)         |
 
 
 ## <a name="overview-of-managed-disks"></a>Yönetilen diskleri genel bakış
 
-Azure yönetilen diskleri depolama hesaplarını yönetmek için gereksinimini ortadan kaldırarak VM yönetimini basitleştirir. Diskleri bir kullanılabilirlik kümesindeki VM'lerin daha iyi güvenilirlik avantajı da yönetilen. Bu, farklı sanal makineleri bir kullanılabilirlik kümesindeki disklerinin yeterince yalıtılmış tek hata noktası oluşmasını önlemek için birbirinden olmasını sağlar. Bir kullanılabilirlik tek depolama ölçek birimi hataları nedeniyle donanım neden ve yazılım hataları etkisini sınırlayan kümesinde içinde farklı depolama ölçek birimlerinin (damgaları ') farklı VM'ler diskleri otomatik olarak yerleştirir. Gereksinimlerinize bağlı olarak, iki tür depolama seçenekleri arasında seçim yapabilirsiniz: 
+Azure yönetilen diskleri hello gerek toomanage depolama hesapları kaldırarak VM yönetimini basitleştirir. Diskleri bir kullanılabilirlik kümesindeki VM'lerin daha iyi güvenilirlik avantajı da yönetilen. Bu, farklı sanal makineleri bir kullanılabilirlik kümesindeki hello disklerin her diğer tooavoid tek noktasından hatalar yeterince yalıtılmış olmasını sağlar. Otomatik olarak kümesindeki bir kullanılabilirlik tek depolama ölçek birimi hataları toohardware ve yazılım hatalarına neden hello etkisini sınırlayan farklı depolama ölçek birimlerinin (damgaları ') içindeki farklı VM'ler diskleri yerleştirir. Gereksinimlerinize bağlı olarak, iki tür depolama seçenekleri arasında seçim yapabilirsiniz: 
  
-- [Premium yönetilen diskleri](../../storage/common/storage-premium-storage.md) olan düz durumu sürücüsü (SSD) dayalı highperformance, g/Ç kullanımı yoğun iş yükleri çalıştıran sanal makineler için düşük gecikmeli disk desteği sunar, depolama depolama medyası. Premium yönetilen disklere geçirerek hızını avantajlarından ve bu disklerin performansını alabilir.  
+- [Premium yönetilen diskleri](../../storage/common/storage-premium-storage.md) olan düz durumu sürücüsü (SSD) dayalı highperformance, g/Ç kullanımı yoğun iş yükleri çalıştıran sanal makineler için düşük gecikmeli disk desteği sunar, depolama depolama medyası. Merhaba hızı avantajlarından ve bu disklerin geçirme tooPremium yönetilen diskleri tarafından performansını alabilir.  
 
-- [Standart yönetilen disk](../../storage/common/storage-standard-storage.md) geliştirme ve Test ve performans değişkenlik için daha az hassas diğer sık erişim iş yükleri için en uygun ve Sabit Disk sürücüsü (HDD) dayalı depolama medya kullanın.  
+- [Standart yönetilen disk](../../storage/common/storage-standard-storage.md) geliştirme ve Test ve daha az hassas tooperformance değişkenlik olan diğer sık erişim iş yükleri için en uygun ve Sabit Disk sürücüsü (HDD) dayalı depolama medya kullanın.  
 
-## <a name="plan-for-the-migration-to-managed-disks"></a>Yönetilen disklere geçişi için planlama
+## <a name="plan-for-hello-migration-toomanaged-disks"></a>Plan hello geçiş için tooManaged diskleri
 
-Bu bölümde, VM ve disk türlerinde en iyi kararı yardımcı olur.
+Bu bölümde, VM ve disk türleri hakkında toomake hello en iyi karar yardımcı olur.
 
 
 ### <a name="location"></a>Konum
 
-Azure yönetilen diskleri kullanılabildiği bir konum seçin. Premium yönetilen disklere geçiriyorsanız, ayrıca Premium depolama burada geçiş yapmayı planlıyorsanız bölgede kullanılabilir olduğundan emin olun. Bkz: [bölgeye göre Azure Hizmetleri](https://azure.microsoft.com/regions/#services) kullanılabilir konumları hakkında güncel bilgi.
+Azure yönetilen diskleri kullanılabildiği bir konum seçin. TooPremium yönetilen diskleri geçiriyorsanız, ayrıca Premium depolama burada toomigrate için planlama hello bölgede kullanılabilir olduğundan emin olun. Bkz: [bölgeye göre Azure Hizmetleri](https://azure.microsoft.com/regions/#services) kullanılabilir konumları hakkında güncel bilgi.
 
 ### <a name="vm-sizes"></a>VM boyutları
 
-Premium yönetilen disklere geçiriyorsanız, Premium depolama yeteneğine sahip bir boyut kullanılabilir VM bulunduğu bölgede VM boyutu güncelleştirmeniz gerekir. Premium depolama özelliğine sahip VM boyutları gözden geçirin. Azure VM boyutu belirtimleri listelenen [sanal makineler için Boyutlar](sizes.md).
-Premium Storage ile birlikte çalışmak ve İş yükünüzün uygun en uygun VM boyutunu seçin sanal makineleri performans özelliklerini gözden geçirin. Yeterli bant genişliği kullanılabilir disk trafiği sürücü için de kendi VM'nizi bulunduğundan emin olun.
+TooPremium yönetilen diskleri geçiriyorsanız, VM bulunduğu hello bölgede tooupdate hello hello VM tooPremium depolama özellikli boyutu kullanılabilir boyutuna sahip. Premium depolama özellikli hello VM boyutları gözden geçirin. Hello Azure VM boyutu belirtimleri içinde listelenen [sanal makineler için Boyutlar](sizes.md).
+Premium Storage ile birlikte çalışmak ve işleminizi iş yükü en çok uyan hello en uygun VM boyutunu seçin sanal makineleri Hello performans özellikleri gözden geçirin. Yeterli bant genişliği kullanılabilir VM toodrive hello disk trafiğinde bulunduğundan emin olun.
 
 ### <a name="disk-sizes"></a>Disk boyutları
 
 **Premium yönetilen diskleri**
 
-VM ile kullanılan Premium yönetilen diskleri üç tür vardır ve her belirli IOPS ve üretilen iş sahip sınırlar. Kapasite, performans, ölçeklenebilirlik açısından, uygulamanızın gereksinimlerine göre VM için Premium disk türü seçerken bu sınırları göz önünde bulundurun ve en yüksek yükler.
+VM ile kullanılan Premium yönetilen diskleri üç tür vardır ve her belirli IOPS ve üretilen iş sahip sınırlar. Bu sınırlar yoğun yükler ve kapasite, performans, ölçeklenebilirlik açısından, uygulamanızın hello gereksinimlerine hello Premium disk türü, VM için temel seçerken göz önünde bulundurun.
 
 | Premium diskler türü  | P10               | P20               | P30               |
 |---------------------|-------------------|-------------------|-------------------|
@@ -79,7 +79,7 @@ VM ile kullanılan Premium yönetilen diskleri üç tür vardır ve her belirli 
 
 **Standart yönetilen disk**
 
-VM ile kullanılabilecek standart yönetilen disk beş türü vardır. Bunların her biri farklı kapasiteye sahip ancak aynı IOPS ve üretilen iş sınırı vardır. Uygulamanızı kapasite gereksinimlerine göre standart yönetilen disk türünü seçin.
+VM ile kullanılabilecek standart yönetilen disk beş türü vardır. Bunların her biri farklı kapasiteye sahip ancak aynı IOPS ve üretilen iş sınırı vardır. Standart yönetilen disk uygulamanızın hello kapasite gereksinimlerine göre Hello türünü seçin.
 
 | Standart Disk Türü  | S4               | S6               | S10              | S20              | S30              |
 |---------------------|------------------|------------------|------------------|------------------|------------------|
@@ -91,13 +91,13 @@ VM ile kullanılabilecek standart yönetilen disk beş türü vardır. Bunların
 
 **Premium yönetilen diskleri**
 
-Varsayılan olarak, ilke önbelleğe alma disktir *salt okunur* tüm Premium veri diskleri için ve *okuma-yazma* için Premium işletim sistemi diski VM'ye eklenmiş. Bu yapılandırma ayarının uygulamanızın IOs için en iyi performans elde etmek için önerilir. (SQL Server günlük dosyaları gibi) ağır yazma ya da salt yazılır veri diskleri için daha iyi uygulama performansı elde etmek için disk önbelleğe almayı devre dışı bırakın.
+Varsayılan olarak, ilke önbelleğe alma disktir *salt okunur* tüm Premium diskleri hello için ve *okuma-yazma* hello Premium işletim sistemi diski için toohello VM bağlı. Bu yapılandırma ayarının tooachieve hello en iyi performans için uygulamanızın IOs önerilir. (SQL Server günlük dosyaları gibi) ağır yazma ya da salt yazılır veri diskleri için daha iyi uygulama performansı elde etmek için disk önbelleğe almayı devre dışı bırakın.
 
 ### <a name="pricing"></a>Fiyatlandırma
 
-Gözden geçirme [yönetilen diskler için fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Premium diskler yönetilen fiyatlandırma Premium yönetilmeyen diskleri olarak aynıdır. Ancak standart yönetilen disk için fiyatlandırma standart yönetilmeyen disklerden farklı.
+Gözden geçirme hello [yönetilen diskler için fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Premium diskler yönetilen fiyatlandırma hello Premium yönetilmeyen diskleri aynıdır. Ancak standart yönetilen disk için fiyatlandırma standart yönetilmeyen disklerden farklı.
 
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-- Herhangi bir VHD'yi Azure'a karşıya yüklemeden önce uygulamanız gereken [Windows VHD veya VHDX Azure'a karşıya yüklemek için hazırlama](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- Tüm VHD tooAzure karşıya yüklemeden önce uygulamanız gereken [Windows VHD veya VHDX tooupload tooAzure hazırlama](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

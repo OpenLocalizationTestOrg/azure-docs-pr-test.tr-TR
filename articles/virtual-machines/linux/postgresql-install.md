@@ -1,6 +1,6 @@
 ---
-title: "Bir Linux VM üzerinde PostgreSQL ayarlama | Microsoft Docs"
-description: "Yükleme ve PostgreSQL azure'da bir Linux sanal makine yapılandırma hakkında bilgi edinin"
+title: "bir Linux VM üzerinde PostgreSQL yukarı aaaSet | Microsoft Docs"
+description: "Bilgi nasıl tooinstall ve azure'da bir Linux sanal makinede PostgreSQL yapılandırın"
 services: virtual-machines-linux
 documentationcenter: 
 author: SuperScottz
@@ -15,33 +15,33 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: mingzhan
-ms.openlocfilehash: 0bccdc1cfdbda06b57da8cd662373ef137768672
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 40209647924dffce11500705eb2d9f41c14df6ab
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Azure’da PostgreSQL yükleme ve yapılandırma
-PostgreSQL Oracle ve DB2 için benzer bir Gelişmiş açık kaynak veritabanı yok. Tam ACID uyumluluk, güvenilir işlem işleme ve çoklu sürüm eşzamanlılık denetimi gibi Kurumsal kullanıma hazır özellikler içerir. Ayrıca, ANSI SQL ve SQL/MED (Oracle, MySQL, MongoDB ve diğer birçok için yabancı veri sarmalayıcıları dahil) gibi standartlara destekler. Desteğiyle üzerinde 12 yordam diller, GIN ve GiST dizinleri, uzamsal veri desteği ve birden çok NoSQL benzeri özellikleri JSON veya anahtar-değer tabanlı uygulamalar için yüksek oranda genişletilebilir.
+PostgreSQL bir Gelişmiş açık kaynak veritabanı benzer tooOracle ve DB2 ' dir. Tam ACID uyumluluk, güvenilir işlem işleme ve çoklu sürüm eşzamanlılık denetimi gibi Kurumsal kullanıma hazır özellikler içerir. Ayrıca, ANSI SQL ve SQL/MED (Oracle, MySQL, MongoDB ve diğer birçok için yabancı veri sarmalayıcıları dahil) gibi standartlara destekler. Desteğiyle üzerinde 12 yordam diller, GIN ve GiST dizinleri, uzamsal veri desteği ve birden çok NoSQL benzeri özellikleri JSON veya anahtar-değer tabanlı uygulamalar için yüksek oranda genişletilebilir.
 
-Bu makalede, yüklemek ve bir Azure Linux çalıştıran sanal makine üzerinde PostgreSQL yapılandırmak öğreneceksiniz.
+Bu makalede, öğreneceksiniz nasıl tooinstall ve bir Azure Linux çalıştıran sanal makine üzerinde PostgreSQL yapılandırın.
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="install-postgresql"></a>PostgreSQL yükleyin
 > [!NOTE]
-> Bu öğreticiyi tamamlamak için Linux çalıştıran bir Azure sanal makinesi zaten olmalıdır. Oluşturma ve devam etmeden önce bir Linux VM ayarlamak için bkz: [Azure Linux VM'de Öğreticisi](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Bu öğretici sipariş toocomplete Linux çalıştıran bir Azure sanal makinesi zaten olmalıdır. bkz: toocreate ve devam etmeden önce bir Linux VM ayarlama [Azure Linux VM'de Öğreticisi](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 
-Bu durumda, bağlantı noktası 1999 PostgreSQL bağlantı noktası olarak kullanın.  
+Bu durumda, bağlantı noktası 1999 hello PostgreSQL bağlantı noktası kullanın.  
 
-PuTTY üzerinden oluşturulan VM Linux bağlayın. Bir Azure Linux VM kullanmakta olduğunuz ilk kez kullanıyorsanız bkz [nasıl kullanmak ile SSH Linux Azure üzerinde](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) bir Linux VM bağlanmak için PuTTY kullanın öğrenmek için.
+Toohello Linux PuTTY üzerinden oluşturulan VM bağlayın. Bu hello Azure Linux VM'de kullanmakta olduğunuz ilk kez kullanıyorsanız, bkz: [nasıl tooUse Linux Azure üzerinde SSH](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) nasıl toouse PuTTY toolearn tooconnect tooa Linux VM.
 
-1. (Yönetici) köküne geçmek için aşağıdaki komutu çalıştırın:
+1. Komut tooswitch toohello kök (Yönetici) aşağıdaki hello çalıştırın:
    
         # sudo su -
-2. Bazı dağıtımları PostgreSQL yüklemeden önce yüklemelisiniz bağımlılıkları vardır. Bu listede, distro denetlemek ve uygun komutu çalıştırın:
+2. Bazı dağıtımları PostgreSQL yüklemeden önce yüklemelisiniz bağımlılıkları vardır. Bu listede, distro denetleyin ve hello uygun komutu çalıştırın:
    
    * Red Hat temel Linux:
      
@@ -52,34 +52,34 @@ PuTTY üzerinden oluşturulan VM Linux bağlayın. Bir Azure Linux VM kullanmakt
    * SUSE Linux:
      
            # zypper install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
-3. Kök dizinine PostgreSQL yükleyin ve paketin sıkıştırmasını açın:
+3. Merhaba kök dizinine PostgreSQL indirin ve hello paketin sıkıştırmasını açın:
    
         # wget https://ftp.postgresql.org/pub/source/v9.3.5/postgresql-9.3.5.tar.bz2 -P /root/
    
         # tar jxvf  postgresql-9.3.5.tar.bz2
    
-    Yukarıdaki örnek verilebilir. Daha ayrıntılı indirme adresi bulabilirsiniz [dizin/pub programlarının/kaynak /](https://ftp.postgresql.org/pub/source/).
-4. Yapı başlatmak için şu komutları çalıştırın:
+    Yukarıdaki Hello bir örnektir. Merhaba bulabilirsiniz daha ayrıntılı hello adresi karşıdan [dizin/pub programlarının/kaynak /](https://ftp.postgresql.org/pub/source/).
+4. toostart hello derleme, bu komutları çalıştırın:
    
         # cd postgresql-9.3.5
    
         # ./configure --prefix=/opt/postgresql-9.3.5
-5. Her şeyi içeren belgeleri (HTML ve ADAM sayfaları) ve ek modülleri (contrib) dahil olmak üzere oluşturulabilir oluşturmak istiyorsanız bunun yerine aşağıdaki komutu çalıştırın:
+5. Merhaba belgeleri (HTML ve ADAM sayfaları) ve ek modülleri (contrib) dahil olmak üzere oluşturulabilir her şeyi toobuild istiyorsanız komutu yerine aşağıdaki hello çalıştırın:
    
         # gmake install-world
    
-    Aşağıdaki onay iletisini almanız gerekir:
+    Onay iletisi aşağıdaki hello almanız gerekir:
    
-        PostgreSQL, contrib, and documentation successfully made. Ready to install.
+        PostgreSQL, contrib, and documentation successfully made. Ready tooinstall.
 
 ## <a name="configure-postgresql"></a>PostgreSQL yapılandırın
-1. (İsteğe bağlı) Sürüm numarasını içermeyecek şekilde PostgreSQL başvuru kısaltmak için sembolik bağlantı oluşturun:
+1. (İsteğe bağlı) Sembolik bağlantıyı tooshorten hello PostgreSQL başvuru oluşturmak toonot hello sürüm numarasını içerir:
    
         # ln -s /opt/pgsql9.3.5 /opt/pgsql
-2. Veritabanı için bir dizin oluşturun:
+2. Merhaba veritabanı için bir dizin oluşturun:
    
         # mkdir -p /opt/pgsql_data
-3. Kök olmayan kullanıcı oluşturun ve o kullanıcının profilini değiştirin. Ardından, bu yeni bir kullanıcıya geçiş (adlı *postgres* örneğimizde):
+3. Kök olmayan kullanıcı oluşturun ve o kullanıcının profilini değiştirin. Ardından, yeni kullanıcı toothis geçiş (adlı *postgres* örneğimizde):
    
         # useradd postgres
    
@@ -88,10 +88,10 @@ PuTTY üzerinden oluşturulan VM Linux bağlayın. Bir Azure Linux VM kullanmakt
         # su - postgres
    
    > [!NOTE]
-   > Güvenlik nedenleriyle, PostgreSQL kök olmayan kullanıcı başlatmak, başlatma veya veritabanı kapatmak için kullanır.
+   > Güvenlik nedenleriyle, kök olmayan kullanıcı tooinitialize PostgreSQL kullanır, başlatma veya hello veritabanı kapatın.
    > 
    > 
-4. Düzen *bash_profile* aşağıdaki komutları girerek dosya. Bu satırlar sonuna eklenecek *bash_profile* dosyası:
+4. Merhaba Düzenle *bash_profile* hello aşağıdaki komutları girerek dosya. Bu satırlar hello toohello sonuna eklenecek *bash_profile* dosyası:
    
         cat >> ~/.bash_profile <<EOF
         export PGPORT=1999
@@ -105,37 +105,37 @@ PuTTY üzerinden oluşturulan VM Linux bağlayın. Bir Azure Linux VM kullanmakt
         alias rm='rm -i'
         alias ll='ls -lh'
         EOF
-5. Yürütme *bash_profile* dosyası:
+5. Merhaba yürütme *bash_profile* dosyası:
    
         $ source .bash_profile
-6. Aşağıdaki komutu kullanarak yüklemenizi doğrulama:
+6. Komutu aşağıdaki hello kullanarak yüklemenizi doğrulama:
    
         $ which psql
    
-    Yükleme başarılı olursa, aşağıdaki yanıt görürsünüz:
+    Yükleme başarılı olursa, yanıt aşağıdaki hello görürsünüz:
    
         /opt/pgsql/bin/psql
-7. Ayrıca, PostgreSQL sürüm kontrol edebilirsiniz:
+7. Merhaba PostgreSQL sürümü de denetleyebilirsiniz:
    
         $ psql -V
-8. Veritabanını başlatılamadı:
+8. Merhaba veritabanını başlatılamadı:
    
         $ initdb -D $PGDATA -E UTF8 --locale=C -U postgres -W
    
-    Aşağıdaki çıkış almanız gerekir:
+    Çıktı aşağıdaki hello almanız gerekir:
 
 ![Görüntü](./media/postgresql-install/no1.png)
 
 ## <a name="set-up-postgresql"></a>PostgreSQL ayarlayın
 <!--    [postgres@ test ~]$ exit -->
 
-Aşağıdaki komutları çalıştırın:
+Merhaba aşağıdaki komutları çalıştırın:
 
     # cd /root/postgresql-9.3.5/contrib/start-scripts
 
     # cp linux /etc/init.d/postgresql
 
-/Etc/init.d/postgresql dosyasındaki iki değişkenleri değiştirin. Öneki PostgreSQL yükleme konumunu ayarlayın: **/opt/pgsql**. PGDATA PostgreSQL veri depolama yoluna ayarlayın: **/opt/pgsql_data**.
+Merhaba /etc/init.d/postgresql dosyasında iki değişkenleri değiştirin. Merhaba önekini PostgreSQL toohello yükleme konumunu ayarlayın: **/opt/pgsql**. PGDATA PostgreSQL toohello veri depolama alanı yolu ayarlayın: **/opt/pgsql_data**.
 
     # sed -i '32s#usr/local#opt#' /etc/init.d/postgresql
 
@@ -143,7 +143,7 @@ Aşağıdaki komutları çalıştırın:
 
 ![Görüntü](./media/postgresql-install/no2.png)
 
-Yürütülebilir yapabilmek için dosyayı değiştirin:
+Değiştirme hello dosya toomake da çalıştırılabilir:
 
     # chmod +x /etc/init.d/postgresql
 
@@ -151,16 +151,16 @@ PostgreSQL başlatın:
 
     # /etc/init.d/postgresql start
 
-PostgreSQL uç noktası üzerinde olup olmadığını kontrol edin:
+PostgreSQL Hello uç noktasını üzerinde olup olmadığını kontrol edin:
 
     # netstat -tunlp|grep 1999
 
-Şu çıktı görmeniz gerekir:
+Çıktı aşağıdaki hello görmeniz gerekir:
 
 ![Görüntü](./media/postgresql-install/no3.png)
 
-## <a name="connect-to-the-postgres-database"></a>Postgres veritabanına bağlan
-Postgres kullanıcıya bir kez daha anahtarı:
+## <a name="connect-toohello-postgres-database"></a>Toohello Postgres veritabanına bağlanın
+Bir kez daha toohello postgres kullanıcı anahtarı:
 
     # su - postgres
 
@@ -168,33 +168,33 @@ Postgres veritabanı oluşturun:
 
     $ createdb events
 
-Olayları veritabanına bağlan:
+Yeni oluşturduğunuz toohello olayları veritabanına bağlanın:
 
     $ psql -d events
 
 ## <a name="create-and-delete-a-postgres-table"></a>Oluşturun ve Postgres tablo silme
-Veritabanına bağlı, tablo içinde oluşturabilirsiniz.
+Toohello veritabanına bağlı, tablo içinde oluşturabilirsiniz.
 
-Örneğin, aşağıdaki komutu kullanarak yeni bir örnek Postgres tablo oluşturun:
+Örneğin, komutu aşağıdaki hello kullanarak yeni bir örnek Postgres tablo oluşturun:
 
     CREATE TABLE potluck (name VARCHAR(20),    food VARCHAR(30),    confirmed CHAR(1), signup_date DATE);
 
-Aşağıdaki sütun adları ve kısıtlamaları ile dört sütunlu bir tablo şimdi ayarlamış olduğunuz:
+Şimdi hello ile dört sütunlu bir tablo ayarlamış olduğunuz sütun adları ve sınırlamaları aşağıdaki:
 
-1. "Name" sütun altında 20 karakter uzunluğunda olacak şekilde VARCHAR komutu tarafından sınırlıdır.
-2. "Yemek" sütun herkes getirecek yemek öğesi belirtir. VARCHAR altında 30 karakter olması için bu metni sınırlar.
-3. "Onaylanan" sütun, kişinin için Yemeğini Getir Partisi RSVP'd olup olmadığını kaydeder. Kabul edilebilir değerler "Y" ve "N" dir.
-4. Bunlar olayı için kaydolurken "tarih" sütun gösterir. Tarih yyyy-aa-gg yazılması Postgres gerektirir
+1. Merhaba VARCHAR komutu toobe tarafından altında 20 "ad" sütun bunlarla sınırlı hello karakter uzunluğunda.
+2. Merhaba "yemek" sütun herkes getirecek hello yemek öğesi belirtir. Bu metin toobe 30 karakter altında VARCHAR sınırlar.
+3. "hello kişi toohello Yemeğini Getir Partisi RSVP'd olup olmadığını hello sütun kayıtları onayladı". "Y" ve "N" Merhaba kabul edilebilir değerler şunlardır.
+4. Bunlar hello olayı için kaydolurken tarih"hello" sütun gösterir. Tarih yyyy-aa-gg yazılması Postgres gerektirir
 
-Tablonuz başarıyla oluşturulduysa aşağıdakilere bakın:
+Tablonuz başarıyla oluşturulduysa hello şunları görmeniz gerekir:
 
 ![Görüntü](./media/postgresql-install/no4.png)
 
-Aşağıdaki komutu kullanarak, tablo yapısı de denetleyebilirsiniz:
+Ayrıca komut aşağıdaki hello kullanarak hello tablo yapısı kontrol edebilirsiniz:
 
 ![Görüntü](./media/postgresql-install/no5.png)
 
-### <a name="add-data-to-a-table"></a>Bir tabloya veri ekleme
+### <a name="add-data-tooa-table"></a>Veri tooa tablo ekleme
 İlk olarak, bilgileri bir satıra Ekle:
 
     INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('John', 'Casserole', 'Y', '2012-04-11');
@@ -203,7 +203,7 @@ Bu çıktı görmeniz gerekir:
 
 ![Görüntü](./media/postgresql-install/no6.png)
 
-Birkaç daha fazla kişinin tabloya ekleyebilirsiniz. İşte birkaç seçenek veya kendi oluşturabilirsiniz:
+Birkaç daha fazla kişi toohello tablo de ekleyebilirsiniz. İşte birkaç seçenek veya kendi oluşturabilirsiniz:
 
     INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('Sandy', 'Key Lime Tarts', 'N', '2012-04-14');
 
@@ -212,29 +212,29 @@ Birkaç daha fazla kişinin tabloya ekleyebilirsiniz. İşte birkaç seçenek ve
     INSERT INTO potluck (name, food, confirmed, signup_date) VALUES('Tina', 'Salad', 'Y', '2012-04-18');
 
 ### <a name="show-tables"></a>Tabloları Göster
-Bir tablo göstermek için aşağıdaki komutu kullanın:
+Komut tooshow tablo aşağıdaki hello kullan:
 
     select * from potluck;
 
-Çıktısı şöyledir:
+Merhaba çıktısı şöyledir:
 
 ![Görüntü](./media/postgresql-install/no7.png)
 
 ### <a name="delete-data-in-a-table"></a>Bir tablodaki verileri silme
-Bir tablodaki verileri silmek için aşağıdaki komutu kullanın:
+Aşağıdaki tablodaki komut toodelete verileri hello kullan:
 
     delete from potluck where name=’John’;
 
-"John" satırdaki tüm bilgileri siler. Çıktısı şöyledir:
+Merhaba "John" satır tüm hello bilgileri siler. Merhaba çıktısı şöyledir:
 
 ![Görüntü](./media/postgresql-install/no8.png)
 
 ### <a name="update-data-in-a-table"></a>Bir tablodaki verileri güncelleştirme
-Bir tablodaki verileri güncelleştirmek için aşağıdaki komutu kullanın. Biz "Y" için "N" den kendi RSVP değiştirecek şekilde aynen katılan olmadığını, bu biri için Sandy onayladığından:
+Aşağıdaki tablodaki komut tooupdate verileri hello kullanın. "N" den kendi RSVP çok değiştirmek şekilde bu biri için aynen katılan olmadığını, Sandy onayladığından "Y":
 
      UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
 
 
 ## <a name="get-more-information-about-postgresql"></a>PostgreSQL hakkında daha fazla bilgi alın
-Bir Azure Linux VM'de PostgreSQL yüklemesini tamamladığınıza göre Azure'da kullanarak keyfini çıkarabilirsiniz. PostgreSQL hakkında daha fazla bilgi için [PostgreSQL Web sitesi](http://www.postgresql.org/).
+Merhaba yüklemesini PostgreSQL Azure Linux VM'de tamamladığınıza göre Azure'da kullanarak keyfini çıkarabilirsiniz. toolearn PostgreSQL, hakkında daha fazla ziyaret hello [PostgreSQL Web sitesi](http://www.postgresql.org/).
 

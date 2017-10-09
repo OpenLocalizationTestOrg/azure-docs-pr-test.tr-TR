@@ -1,6 +1,6 @@
 ---
-title: "Azure BLOB'ları, Azure dosyaları ya da Azure veri diski kullanmaya karar verme"
-description: "Hangi teknolojinin kullanılacağını karar depolamak ve yardımcı olmak için Azure verilerine erişmek için farklı yollar öğrenin."
+title: "toouse Azure BLOB'olduğunda aaaDeciding, Azure dosyaları ya da Azure veri diski"
+description: "Hangi teknoloji toouse karar hello farklı şekillerde toostore ve erişim verilerinizi Azure toohelp öğrenin."
 services: storage
 documentationcenter: 
 author: robinsh
@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: robinsh
-ms.openlocfilehash: e282a8a7bec1cb6e48110e7c9859a3a19ab8a11e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6109affe41e98ed459616a4f91064ded0c74428d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-data-disks"></a>Azure BLOB'ları, Azure dosyaları ya da Azure veri diski kullanmaya karar verme
+# <a name="deciding-when-toouse-azure-blobs-azure-files-or-azure-data-disks"></a>Toouse Azure BLOB'olduğunda karar verme, Azure dosyaları ya da Azure veri diski
 
-Microsoft Azure bulut verilerinize erişmek ve depolamak için Azure storage'da çeşitli özellikler sağlar. Bu makalede Azure dosyaları, Blobları ve veri diskleri kapsar ve bu özellikler arasında seçmenize yardımcı olmak için tasarlanmıştır.
+Microsoft Azure, verilerinizi hello bulutta erişmek ve depolamak için Azure storage'da çeşitli özellikler sağlar. Bu makalede, Azure dosyaları, Blobları ve veri diskleri kapsar ve bu özellikler arasında seçtiğiniz tasarlanmış toohelp olduğu.
 
 ## <a name="scenarios"></a>Senaryolar
 
-Aşağıdaki tabloda, dosyaları, Blobları ve veri diskleri karşılaştırır ve örnek senaryolar her biri için uygun gösterir.
+Aşağıdaki tablonun hello dosyaları, Blobları ve veri diskleri karşılaştırır ve örnek senaryolar her biri için uygun gösterir.
 
-| Özellik | Açıklama | Kullanılması gereken durumlar |
+| Özellik | Açıklama | Zaman toouse |
 |--------------|-------------|-------------|
-| **Azure dosyaları** | İstemci kitaplıkları, bir SMB arabirim sağlar ve bir [REST arabirimi](/rest/api/storageservices/file-service-rest-api) her yerden erişim sağlayan depolanan dosyalar için. | "Kaldırın ve shift" istediğiniz bir uygulama zaten ve Azure'da çalışan diğer uygulamalar arasında veri paylaşımı için yerel dosya sistemi API'lerini kullanan bulut.<br/><br/>Geliştirme ve hata ayıklama birçok sanal makinelerden erişilmesi gereken araçları depolamak istediğiniz. |
-| **Azure BLOB'ları** | İstemci kitaplıkları sağlar ve bir [REST arabirimi](/rest/api/storageservices/blob-service-rest-api) depolanabilir ve blok blobları, büyük bir ölçekte erişilen yapılandırılmamış veriler sağlar. | Akış desteklemek üzere uygulama ve rastgele erişim senaryoları istiyor.<br/><br/>Uygulama verileri her yerden erişim kullanabilmek ister. |
-| **Azure veri diski** | İstemci kitaplıkları sağlar ve bir [REST arabirimi](/rest/api/compute/virtualmachines/virtualmachines-create-or-update) kalıcı olarak depolanır ve bir bağlı sanal sabit diskten erişilen veri sağlar. | Kaldırın ve okuma ve kalıcı diske veri yazmak için yerel dosya sistemi API'lerini kullanan uygulamalar shift istiyor.<br/><br/>Disk bağlı olduğu sanal makine dışında erişilebilmesi için gerekli olmayan veri depolamak istediğiniz. |
+| **Azure dosyaları** | İstemci kitaplıkları, bir SMB arabirim sağlar ve bir [REST arabirimi](/rest/api/storageservices/file-service-rest-api) toostored dosyaları, her yerden erişim sağlar. | Çok "kaldırın ve shift" istediğiniz zaten hello yerel dosya sistemi API'leri tooshare verilerini ve Azure'da çalışan diğer uygulamalar arasındaki kullanan bir uygulama toohello bulut.<br/><br/>Toostore geliştirme ve hata ayıklama birçok sanal makinelerden erişilen toobe gereken araçları istiyor. |
+| **Azure BLOB'ları** | İstemci kitaplıkları sağlar ve bir [REST arabirimi](/rest/api/storageservices/blob-service-rest-api) yapılandırılmamış verileri sağlayan çok saklanabilir ve blok blobları, büyük bir ölçekte erişilebilir. | Uygulama toosupport akış ve rastgele erişim senaryoları istiyor.<br/><br/>Toobe mümkün tooaccess uygulama verilerini yerden istiyor. |
+| **Azure veri diski** | İstemci kitaplıkları sağlar ve bir [REST arabirimi](/rest/api/compute/virtualmachines/virtualmachines-create-or-update) kalıcı olarak depolanır ve bir bağlı sanal sabit diskten erişilen veri toobe sağlar. | Yerel dosya sistemi API'leri tooread kullanın ve veri toopersistent diskleri yazma uygulamaları kaydırma ve toolift istiyorsunuz.<br/><br/>Dış hello sanal makine toowhich hello diskten erişilen gerekli toobe değil toostore veri bağlantılı istiyor. |
 
 ## <a name="comparison-files-and-blobs"></a>Karşılaştırma: Dosyaları ve BLOB'ları
 
-Aşağıdaki tabloda Azure dosyaları Azure BLOB'ları ile karşılaştırır.  
+Aşağıdaki tablonun hello Azure dosyaları Azure BLOB'ları ile karşılaştırır.  
   
 ||||  
 |-|-|-|  
@@ -47,35 +47,35 @@ Aşağıdaki tabloda Azure dosyaları Azure BLOB'ları ile karşılaştırır.
 |Uç Noktalar|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |Dizinler|Düz ad alanı|Doğru dizin nesneleri|  
 |Adları büyük/küçük harfe duyarlılık|Büyük küçük harfe duyarlı|Servis talebi küçük harflere duyarlı değildir, ancak servis talebi koruma|  
-|Kapasite|En fazla 500 TB kapsayıcıları|5 TB dosya paylaşımları|  
-|Aktarım hızı|Blok blobu başına en fazla 60 MB/sn|Paylaşım başına en fazla 60 MB/sn|  
-|Nesne boyutu|En fazla 200 GB/blok blobu|1 TB/dosya kadar|  
+|Kapasite|Too500 TB kapsayıcıları|5 TB dosya paylaşımları|  
+|Aktarım hızı|Too60 MB/sn blok blobu başına|Too60 MB/sn paylaşım başına|  
+|Nesne boyutu|Too200 GB/blok blobu|Too1TB/dosyasını yedekleyin|  
 |Faturalanan kapasite|Yazılan bayt dayalı|Dosya boyutuna göre|  
 |İstemci kitaplıkları|Birden çok dil|Birden çok dil|  
   
 ## <a name="comparison-files-and-data-disks"></a>Karşılaştırma: Dosyaları ve veri diskleri
 
-Azure dosyaları Azure veri diski tamamlar. Bir veri diski aynı anda yalnızca bir Azure sanal makineye bağlanabilir. Veri diskleri sayfa bloblar olarak Azure Storage'da depolanan sabit biçimli VHD'lerin ve sanal makine tarafından dayanıklı verileri depolamak için kullanılır. Azure dosyaları dosya paylaşımları yerel disk (yerel dosya sistemi API'lerini kullanarak) erişildiği gibi aynı şekilde erişilebilir ve çok sayıda sanal makine genelinde paylaşılabilir.  
+Azure dosyaları Azure veri diski tamamlar. Bir veri diski yalnızca aynı anda ekli tooone Azure sanal makine olabilir. Veri diskleri sayfa bloblar olarak Azure Storage'da depolanan sabit biçimli VHD'lerin ve hello sanal makine toostore dayanıklı veri tarafından kullanılır. Azure dosyaları dosya paylaşımları erişilebilir hello yerel disk (yerel dosya sistemi API'lerini kullanarak) yolu erişildiği gibi aynı hello ve çok sayıda sanal makine genelinde paylaşılabilir.  
  
-Aşağıdaki tabloda Azure dosyaları Azure veri diski ile karşılaştırır.  
+Aşağıdaki tablonun hello Azure dosyaları Azure veri diski ile karşılaştırır.  
  
 ||||  
 |-|-|-|  
 |**Özniteliği**|**Azure veri diski**|**Azure dosyaları**|  
-|Kapsam|Tek bir sanal makine için özel|Birden çok sanal makine arasında paylaşılan erişim|  
+|Kapsam|Özel tooa tek bir sanal makine|Birden çok sanal makine arasında paylaşılan erişim|  
 |Anlık görüntüler ve kopyalama|Evet|Hayır|  
-|Yapılandırma|Sanal makine başlangıçta bağlı|Sanal makine başlatıldıktan sonra bağlı|  
+|Yapılandırma|Merhaba sanal makine başlangıçta bağlı|Merhaba sanal makine başlatıldıktan sonra bağlı|  
 |Kimlik Doğrulaması|Yerleşik|NET kullanmak üzere ayarlanmış|  
 |Temizleme|Otomatik|El ile|  
-|REST kullanarak erişimi|VHD içindeki dosyaları erişilemiyor|Bir paylaşımda depolanan dosyalara erişilebilir|  
+|REST kullanarak erişimi|Merhaba VHD içindeki dosyaları erişilemiyor|Bir paylaşımda depolanan dosyalara erişilebilir|  
 |En büyük boyutu|1 TB disk|5 TB dosya paylaşımı ve 1 TB Dosya paylaşımındaki|  
 |En fazla 8KB IOPS|500 IOPS|1000 IOPS|  
-|Aktarım hızı|Disk başına en fazla 60 MB/sn|Dosya Paylaşımı başına en fazla 60 MB/sn|  
+|Aktarım hızı|Too60 MB/sn Disk başına|Too60 MB/sn her dosya paylaşımına|  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Nasıl depolandığını ve erişilen hakkında kararları verirken ayrıca maliyetleri söz konusu düşünmeniz gerekir. Daha fazla bilgi için bkz: [Azure Storage fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/).
+Nasıl depolandığını ve erişilen hakkında kararları verirken de hello maliyetleri söz konusu dikkate almalısınız. Daha fazla bilgi için bkz: [Azure Storage fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/).
   
-SMB özelliklerinden bazıları bulut için geçerli değildir. Daha fazla bilgi için bkz: [Azure dosya hizmeti tarafından desteklenmeyen özellikleri](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
+SMB özelliklerinden bazıları geçerli toohello bulut olup olmadığı. Daha fazla bilgi için bkz: [hello Azure dosya hizmeti tarafından desteklenmeyen özellikleri](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
   
-Veri diskleri hakkında daha fazla bilgi için bkz: [diskleri ve görüntüleri yönetme](storage-about-disks-and-vhds-linux.md) ve [bir Windows sanal makineye bir veri diski Ekle nasıl](../virtual-machines/windows/classic/attach-disk.md).
+Veri diskleri hakkında daha fazla bilgi için bkz: [diskleri ve görüntüleri yönetme](storage-about-disks-and-vhds-linux.md) ve [nasıl tooAttach veri diski tooa Windows sanal makine](../virtual-machines/windows/classic/attach-disk.md).

@@ -1,17 +1,17 @@
-Azure portalını kullanarak Resource Manager dağıtımında bir VNet oluşturmak için aşağıdaki adımları izleyin. Bu adımları öğretici olarak uyguluyorsanız [örnek değerleri](#values) kullanın. Bu adımları öğretici olarak uygulamıyorsanız değerleri kendi değerlerinizle değiştirmeyi unutmayın. Sanal ağlarla çalışma hakkında daha fazla bilgi için bkz. [Virtual Network’e Genel Bakış](../articles/virtual-network/virtual-networks-overview.md).
+toocreate hello Resource Manager dağıtım modelinde'hello Azure portalını kullanarak VNet hello adımları izleyin. Kullanım hello [örnek değerler](#values) bir öğretici bu adımları kullanıyorsanız. Bu adımları bir öğretici yaptığınızı değil, emin tooreplace hello değerleri kendi değerlerinizle olması. Sanal ağlarla çalışma hakkında daha fazla bilgi için bkz: Merhaba [Virtual Network'e genel bakış](../articles/virtual-network/virtual-networks-overview.md).
 
-1. Bir tarayıcıdan [Azure portalına](http://portal.azure.com) gidin ve Azure hesabınızla oturum açın.
-2. **Yeni**’ye tıklayın. **Markette ara** alanına 'Sanal Ağ' yazın. Döndürülen listeden **Sanal Ağ**’ı bulun ve tıklayarak **Sanal Ağ** dikey penceresini açın.
-3. Virtual Network dikey penceresinin altı yakınlarında, **Bir dağıtım modeli seçin** listesinden **Resource Manager**’ı seçip **Oluştur**’a tıklayın. Bu işlem "Sanal ağ geçidi oluştur" dikey penceresini açar.
+1. Tarayıcıdan toohello gidin [Azure portal](http://portal.azure.com) ve Azure hesabınızla oturum açın.
+2. **Yeni**’ye tıklayın. Merhaba, **arama hello Market** alanında, 'Sanal ağ' yazın. Bulun **sanal ağ** döndürülen hello listelemek ve tooopen hello'ı tıklatın **sanal ağ** dikey.
+3. Merhaba alt kısmındaki hello sanal ağ dikey hello penceresinden **dağıtım modeli seçin** listesinde, seçin **Resource Manager**ve ardından **oluşturma**. Bu hello 'Sanal ağ oluştur' dikey pencere açılır.
 
     ![Sanal ağ oluşturma dikey penceresi](./media/vpn-gateway-basic-vnet-s2s-rm-portal-include/createvnet.png "Create virtual network blade")
-4. **Sanal ağ oluştur** dikey penceresinde sanal ağ ayarlarını yapılandırın. Alanları doldururken, alana girilen karakterler geçerliyse kırmızı ünlem işareti yeşil onay işaretine dönüşür.
+4. Merhaba üzerinde **sanal ağ oluştur** dikey penceresinde hello VNet ayarlarını yapılandırın. Merhaba alanları doldurun, hello alanına girilen hello karakterler geçerli olduğunda hello kırmızı bir ünlem işareti yeşil bir onay işareti haline gelir.
 
-  - **Ad**: Sanal ağınızın adını girin. Bu örnekte TestVNet1 kullandık.
-  - **Adres alanı**: Adres alanını girin. Eklenecek birden fazla adres alanınız varsa birinci adres alanınızı ekleyin. Sanal ağı oluşturduktan sonra başka adres alanları ekleyebilirsiniz. Belirttiğiniz adres alanının, şirket içi konumunuzdaki adres alanıyla çakışmadığından emin olun.
-  - **Alt ağ adı**: İlk alt ağ adını ve alt ağ adres aralığını ekleyin. Bu VNet'i oluşturduktan sonra ağ geçidi alt ağı ve başka alt ağlar ekleyebilirsiniz. 
-  - **Abonelik**: Listelenen aboneliğin doğru olduğunu onaylayın. Açılan listeyi kullanarak abonelikleri değiştirebilirsiniz.
-  - **Kaynak grubu**: Var olan bir kaynak grubunu seçin ya da yeni kaynak grubunuz için bir ad yazarak yeni bir tane oluşturun. Yeni bir grup oluşturuyorsanız, planlanan yapılandırma değerlerinize göre kaynak grubunu adlandırın. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a Genel Bakış](../articles/azure-resource-manager/resource-group-overview.md#resource-groups) sayfasını ziyaret edin.
-  - **Konum**: Sanal ağınızın konumunu seçin. Konum bu sanal ağa dağıttığınız kaynakların nerede olacağını belirler.
+  - **Ad**: hello sanal ağınız için bir ad girin. Bu örnekte TestVNet1 kullandık.
+  - **Adres alanı**: hello adres alanı girin. Birden çok adres alanları tooadd varsa, ilk adres alanınızı ekleyin. Merhaba VNet oluşturduktan sonra ek adres alanları daha sonra ekleyebilirsiniz. Şirket içi konumunuz hello adres alanı çakışmadığından belirtin, hello adres alanı emin olun.
+  - **Alt ağ adı**: hello ilk alt ağ adı ve alt ağ adres aralığı Ekle. Bu VNet oluşturduktan sonra ek alt ağlar ve hello ağ geçidi alt ağı daha sonra ekleyebilirsiniz. 
+  - **Abonelik**: hello abonelik listelenen doğru olanı hello olduğunu doğrulayın. Merhaba açılan kullanarak abonelikleri değiştirebilirsiniz.
+  - **Kaynak grubu**: Var olan bir kaynak grubunu seçin ya da yeni kaynak grubunuz için bir ad yazarak yeni bir tane oluşturun. Yeni bir grup oluşturuyorsanız, tooyour göre adı hello kaynak grubu yapılandırma değerlerini planlanan. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a Genel Bakış](../articles/azure-resource-manager/resource-group-overview.md#resource-groups)’ı ziyaret edin.
+  - **Konum**: sanal ağınızı hello konumu seçin. Merhaba kaynakları toothis VNet dağıtmadan bulunacağı Hello konumunu belirler.
 
-5. Sanal ağınızı panoda kolay bulmak istiyorsanız **Panoya sabitle**’yi seçin ve ardından **Oluştur**’a tıklayın. **Oluştur**’a tıkladıktan sonra panonuzda sanal ağınızın ilerleme durumunu yansıtacak bir kutucuk göreceksiniz. Sanal ağ oluşturulurken kutucuk değişir.
+5. Seçin **PIN toodashboard** toobe mümkün toofind ağınızı hello Panoda kolayca isterseniz ve ardından **oluşturma**. ' I tıklattıktan sonra **oluşturma**, Panonuzda hello Vnet'inizin ilerleme durumunu yansıtacak bir kutucuk görürsünüz. VNet Hello döşeme değişiklikleri hello olarak oluşturuldu.

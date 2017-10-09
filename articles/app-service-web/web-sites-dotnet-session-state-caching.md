@@ -1,6 +1,6 @@
 ---
-title: "Azure App Service’teki Azure Redis Cache ile oturum durumu"
-description: "ASP.NET oturum durumu önbelleğe alma işlemini desteklemek için Azure Önbellek Hizmeti’ni nasıl kullanacağınızı öğrenin."
+title: "Azure App Service'teki Azure Redis önbelleği ile aaaSession durumu"
+description: "Toouse nasıl hello Azure önbellek hizmeti toosupport ASP.NET oturum durumu önbelleğe alma hakkında bilgi edinin."
 services: app-service\web
 documentationcenter: .net
 author: Rick-Anderson
@@ -14,36 +14,36 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 06/27/2016
 ms.author: riande
-ms.openlocfilehash: 64fa909daf92b2b1f0cf4c7b334edba807fe7228
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f689b6754ea072aa195f822ab6482f4bf2748375
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="session-state-with-azure-redis-cache-in-azure-app-service"></a>Azure App Service’teki Azure Redis Cache ile oturum durumu
-Bu konuda, oturum durumu için Azure Redis Cache Hizmetini nasıl kullanacağınız açıklanmaktadır.
+Bu konuda nasıl toouse hello Azure Redis önbelleği hizmeti oturum durumu için açıklanmaktadır.
 
-ASP.NET web uygulamanız oturum durumu kullanıyorsa, bir dış oturum durumu sağlayıcısı (Redis Cache Hizmeti veya SQL Server oturum durumu sağlayıcısı) yapılandırmanız gerekir. Oturum durumu kullanıyor, ancak dış sağlayıcı kullanmıyorsanız; web uygulamanızın tek bir örneği ile sınırlı kalırsınız. Redis Cache Hizmeti etkinleştirmesi en hızlı ve en kolay hizmettir.
+ASP.NET web uygulamanız oturum durumu kullanıyorsa, tooconfigure bir dış oturum durumu sağlayıcısı (Merhaba Redis önbelleği hizmeti veya SQL Server oturum durumu sağlayıcısı) gerekir. Oturum durumu kullanıyor ancak dış sağlayıcı kullanmayın, web uygulamanızın sınırlı tooone örneği olacaktır. Merhaba Redis önbelleği hizmeti hello hızlı ve kolay tooenable ' dir.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a id="createcache"></a>Önbelleği oluşturma
-Önbelleği oluşturmak için [şu yönergeleri](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-cache) uygulayın.
+## <a id="createcache"></a>Merhaba önbelleği oluşturma
+İzleyin [şu yönergeleri](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-cache) toocreate hello önbelleği.
 
-## <a id="configureproject"></a>Web uygulamanıza RedisSessionStateProvider NuGet paketi ekleme
-NuGet `RedisSessionStateProvider` paketini yükleyin.  Paket yöneticisi konsolundan (**Araçlar** > **NuGet Paketi Yöneticisi** > **Paket Yöneticisi Konsolu**) yüklemek için aşağıdaki komutu kullanın:
+## <a id="configureproject"></a>Merhaba RedisSessionStateProvider NuGet paketi tooyour web uygulaması Ekle
+Merhaba NuGet yükleme `RedisSessionStateProvider` paket.  Kullanım hello şu komutu tooinstall hello Paket Yöneticisi Konsolu'ndan (**Araçları** > **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**):
 
   `PM> Install-Package Microsoft.Web.RedisSessionStateProvider`
 
-**Araçlar** > **NuGet Paketi Yöneticisi** > **Çözüm için NugGet Paketlerini Yönet** konumuna gidin ve `RedisSessionStateProvider` araması yapın.
+gelen tooinstall **Araçları** > **NuGet Paket Yöneticisi** > **çözüm için NugGet paketlerini Yönet**, arama `RedisSessionStateProvider`.
 
-Daha fazla bilgi için bkz. [NuGet RedisSessionStateProvider sayfası](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/) ve [Önbellek istemcisini yapılandırma](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#NuGet).
+Daha fazla bilgi için bkz: Merhaba [NuGet RedisSessionStateProvider sayfası](http://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider/) ve [yapılandırma hello önbellek istemcisi](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#NuGet).
 
-## <a id="configurewebconfig"></a>Web.Config Dosyasını Değiştirme
-NuGet paketi derleme başvuruları için yapmanın yanı sıra, *web.config* dosyasında saplama girdileri ekler. 
+## <a id="configurewebconfig"></a>Merhaba Web.Config dosyasını değiştirme
+Ayrıca önbelleği için toomaking bütünleştirilmiş koduna başvuruyor, hello NuGet paketi hello saplama girdileri ekler *web.config* dosya. 
 
-1. *web.config* dosyasını açın ve **sessionState** öğesini bulun.
-2. `host`, `accessKey`, `port` için değerleri girin (SSL bağlantı noktası 6380 olmalıdır) `SSL` değerini `true` olarak ayarlayın. Bu değerleri, önbellek örneğinizin [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) dikey penceresinden alabilirsiniz. Daha fazla bilgi için bkz. [Önbelleğe bağlanma](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache). SSL olmayan bağlantı noktasının yeni önbellekler için varsayılan olarak devre dışı bırakıldığını unutmayın. SSL olmayan bağlantı noktasını etkinleştirme hakkında daha fazla bilgi için [Azure Redis Cache’te bir önbellek yapılandırma](https://msdn.microsoft.com/library/azure/dn793612.aspx) konusundaki [Erişim Bağlantı Noktaları](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) bölümüne bakın. Aşağıdaki biçimlendirmede değişiklikler gösterilir *web.config* dosya, özellikle *bağlantı noktası*, *konak*, accessKey *, ve *ssl* .
+1. Açık hello *web.config* ve hello hello bulur **sessionState** öğesi.
+2. Merhaba değerlerini girin `host`, `accessKey`, `port` (Merhaba SSL bağlantı noktası 6380 olmalıdır) ve `SSL` çok`true`. Bu değerleri hello elde edilebilir [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715) dikey penceresinde, önbellek örneğinizin. Daha fazla bilgi için bkz: [toohello Önbelleği'ne bağlama](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache). Merhaba SSL olmayan bağlantı noktasının yeni önbellekler için varsayılan olarak devre dışı olduğunu unutmayın. Merhaba hello SSL olmayan bağlantı noktası etkinleştirme hakkında daha fazla bilgi için bkz: [erişim bağlantı noktaları](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) hello bölümünde [Azure Redis Önbelleği'nde bir önbellek yapılandırma](https://msdn.microsoft.com/library/azure/dn793612.aspx) konu. Merhaba aşağıdaki biçimlendirmeyi gösterir hello değişiklikleri toohello *web.config* dosya, özellikle hello değişiklikleri çok*bağlantı noktası*, *konak*, accessKey *, ve *ssl*.
    
           <system.web>;
             <customErrors mode="Off" />;
@@ -73,32 +73,32 @@ NuGet paketi derleme başvuruları için yapmanın yanı sıra, *web.config* dos
             </sessionState>;
           </system.web>;
 
-## <a id="usesessionobject"></a>Kodlarda Oturum Nesnesi Kullanma
-Son adım, ASP.NET kodunuzda Oturum nesnesi kullanmaya başlamaktır. **Session.Add** yöntemini kullanarak nesneleri oturum durumuna ekleyin. Bu yöntem, öğeleri oturum durumu önbelleğine depolamak için anahtar-değer çiftlerini kullanır.
+## <a id="usesessionobject"></a>Merhaba oturum nesnesi kullanma
+Merhaba son adım, ASP.NET kodunuzda hello oturum nesnesi kullanarak toobegin ' dir. Hello kullanarak nesneleri toosession durumu eklemek **Session.Add** yöntemi. Bu yöntem, anahtar-değer çiftleri toostore öğeleri hello oturum durumu önbelleğine kullanır.
 
     string strValue = "yourvalue";
     Session.Add("yourkey", strValue);
 
-Aşağıdaki kod, oturum durumundan bu değeri alır.
+koddan hello oturum durumundan bu değeri alır.
 
     object objValue = Session["yourkey"];
     if (objValue != null)
        strValue = (string)objValue;    
 
-Web uygulamanızdaki nesneleri önbelleğe almak için Redis Cache’i de kullanabilirsiniz. Daha fazla bilgi için bkz. [15 dakikada Azure Redis Cache ile MVC film uygulaması](https://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/).
-ASP.NET oturum durumu kullanma hakkında daha fazla ayrıntı için bkz. [ASP.NET Oturum Durumuna Genel Bakış][ASP.NET Session State Overview].
+Web uygulamanızda hello Redis önbelleği toocache nesneler de kullanabilirsiniz. Daha fazla bilgi için bkz. [15 dakikada Azure Redis Cache ile MVC film uygulaması](https://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/).
+Nasıl hakkında daha fazla ayrıntı için toouse ASP.NET oturum durumu, bkz: [ASP.NET oturum durumuna genel bakış][ASP.NET Session State Overview].
 
 > [!NOTE]
-> Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’te hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin](https://azure.microsoft.com/try/app-service/) sayfasına gidin. Kredi kartı ve taahhüt gerekmez.
+> Azure hesabı için kaydolmadan önce Azure App Service ile başlatılan tooget istiyorsanız, çok Git[App Service'i deneyin](https://azure.microsoft.com/try/app-service/), burada hemen bir kısa süreli başlangıç web uygulaması App Service'te oluşturabilirsiniz. Kredi kartı ve taahhüt gerekmez.
 > 
 > 
 
 ## <a name="whats-changed"></a>Yapılan değişiklikler
-* Web Sitelerinden App Service’e kadar değiştirme kılavuzu için bkz. [Azure App Service ve Mevcut Azure Hizmetlerine Etkileri](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Web siteleri tooApp hizmet değişikliği Kılavuzu toohello için bkz: [Azure App Service ve mevcut Azure hizmetlerine etkileri](http://go.microsoft.com/fwlink/?LinkId=529714)
   
   *Gönderen [Rick Anderson](https://twitter.com/RickAndMSFT)*
 
-[installed the latest]: http://www.windowsazure.com/downloads/?sdk=net  
+[installed hello latest]: http://www.windowsazure.com/downloads/?sdk=net  
 [ASP.NET Session State Overview]: http://msdn.microsoft.com/library/ms178581.aspx
 
 [NewIcon]: ./media/web-sites-dotnet-session-state-caching/CacheScreenshot_NewButton.png

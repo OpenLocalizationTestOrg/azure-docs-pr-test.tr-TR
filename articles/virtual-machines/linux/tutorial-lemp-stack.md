@@ -1,6 +1,6 @@
 ---
-title: "Azure'da bir Linux sanal makinede LEMP dağıtma | Microsoft Docs"
-description: "Öğretici - yükleme azure'da bir Linux VM LEMP yığında"
+title: azure'da bir Linux sanal makinede aaaDeploy LEMP | Microsoft Docs
+description: "Öğretici - yükleme hello LEMP azure'da bir Linux VM yığında"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: dlepow
@@ -15,38 +15,38 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: danlep
-ms.openlocfilehash: 653af144eb12cacf955f96a5442efd73add38e88
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: d8f9d84c5e9c0df4e9e985c10fe10f63a2f88214
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="install-a-lemp-web-server-on-an-azure-vm"></a>Azure VM temelinde bir LEMP web sunucusunu yükleme
-Bu makalede nasıl NGINX web sunucusu, MySQL ve azure'da bir Ubuntu VM üzerinde PHP (LEMP yığını) dağıtılacağı anlatılmaktadır. LEMP yığın popüler bir alternatif olan [AMPUL yığın](tutorial-lamp-stack.md), hangi Azure ile de yükleyebilirsiniz. Eylem LEMP Server'da görmek için isteğe bağlı olarak yükleyebilir ve bir WordPress sitesi yapılandırın. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
+Bu makalede toodeploy bir NGINX nasıl web sunucusu, MySQL ve azure'da bir Ubuntu VM üzerinde PHP (Merhaba LEMP yığını) aracılığıyla anlatılmaktadır. Merhaba LEMP yığını olan popüler bir alternatif toohello [AMPUL yığın](tutorial-lamp-stack.md), hangi Azure ile de yükleyebilirsiniz. toosee hello LEMP sunucu eyleminde, isteğe bağlı olarak yükleyebilir ve bir WordPress sitesi yapılandırın. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Bir Ubuntu VM (' L' LEMP yığınında) oluşturma
+> * Bir Ubuntu VM (Merhaba 'L' hello LEMP yığınında) oluşturma
 > * Web trafiği için 80 numaralı bağlantı noktasını açın
 > * NGINX, MySQL ve PHP yükleme
 > * Yükleme ve yapılandırmasını doğrulayın
-> * WordPress LEMP sunucusuna yükleyin
+> * WordPress hello LEMP sunucusuna yükleyin
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Yüklemek ve CLI yerel olarak kullanmak seçerseniz, Bu öğretici, Azure CLI Sürüm 2.0.4 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Tooinstall seçin ve hello CLI yerel olarak kullanırsanız, Bu öğretici hello Azure CLI Sürüm 2.0.4 çalıştırmasını gerektirir veya sonraki bir sürümü. Çalıştırma `az --version` toofind hello sürümü. Tooinstall veya yükseltme gerekirse bkz [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [virtual-machines-linux-tutorial-stack-intro.md](../../../includes/virtual-machines-linux-tutorial-stack-intro.md)]
 
 ## <a name="install-nginx-mysql-and-php"></a>NGINX, MySQL ve PHP yükleme
 
-Ubuntu paket kaynaklarını güncelleştirmek ve NGINX, MySQL ve PHP yüklemek için aşağıdaki komutu çalıştırın. 
+Aşağıdaki komut tooupdate Ubuntu paket kaynaklar hello çalıştırın ve NGINX, MySQL ve PHP yükleyin. 
 
 ```bash
 sudo apt update && sudo apt install nginx mysql-server php-mysql php php-fpm
 ```
 
-Paketler ve diğer bağımlılıklar yüklemeniz istenir. İstendiğinde, MySQL için bir kök parola ayarlayın ve ardından devam etmek için Enter. Kalan istemleri izleyin. Bu işlem, PHP, MySQL ile kullanmak için gerekli en düşük gerekli PHP uzantıları yükler. 
+İstendiğinde tooinstall hello paketler ve diğer bağımlılıklar var. İstendiğinde, MySQL, ardından [Enter] toocontinue için bir kök parola ayarlayın. Merhaba kalan istemleri izleyin. Bu işlem hello minimum gerekli PHP uzantıları gerekli toouse PHP MySQL ile yükler. 
 
 ![MySQL kök parola sayfası][1]
 
@@ -55,49 +55,49 @@ Paketler ve diğer bağımlılıklar yüklemeniz istenir. İstendiğinde, MySQL 
 
 ### <a name="nginx"></a>NGINX
 
-Aşağıdaki komutu NGINX sürümüyle denetleyin:
+Onay hello sürümüyle NGINX komutu aşağıdaki hello:
 ```bash
 nginx -v
 ```
 
-Yüklü NGINX ve bağlantı noktası 80 VM'nize açık ile web sunucusu artık Internet üzerinden erişilebilir. NGINX Hoş Geldiniz sayfasını görüntülemek için bir web tarayıcısı açın ve VM ortak IP adresini girin. SSH VM için kullanılan ortak IP adresini kullan:
+NGINX ile tooyour VM yüklü ve bağlantı noktası 80'i açın, hello web sunucusu artık erişilebilir hello Internet. tooview hello NGINX Hoş Geldiniz sayfasında, bir web tarayıcısı açın ve hello VM hello ortak IP adresini girin. Merhaba tooSSH toohello VM kullanılan ortak IP adresini kullan:
 
 ![NGINX varsayılan sayfa][3]
 
 
 ### <a name="mysql"></a>MySQL
 
-MySQL sürümü aşağıdaki komutla denetleyin (büyük harf Not `V` parametresi):
+Komutu aşağıdaki hello ile MySQL Hello sürümünü denetleme (Not hello sermaye `V` parametresi):
 
 ```bash
 msql -V
 ```
 
-MySQL yükleme güvenliğinin sağlanmasına yardımcı olmak için aşağıdaki betiği çalıştıran öneririz:
+Komut dosyası toohelp güvenli hello MySQL yüklenmesinden hello çalıştıran öneririz:
 
 ```bash
 mysql_secure_installation
 ```
 
-MySQL kök parolanızı girin ve ortamınız için güvenlik ayarlarını yapılandırın.
+MySQL kök parolanızı girin ve ortamınız için hello güvenlik ayarlarını yapılandırın.
 
-Bir MySQL veritabanı oluşturmak istiyorsanız, kullanıcı ekleme ya da yapılandırma ayarlarını, MySQL oturum açma değiştirin:
+Toocreate bir MySQL veritabanı istiyorsanız, kullanıcı ekleme ya da yapılandırma ayarlarını, oturum açma tooMySQL değiştirin:
 
 ```bash
 mysql -u root -p
 ```
 
-İşiniz bittiğinde, mysql istemi yazarak çıkmak `\q`.
+İşiniz bittiğinde, yazarak hello mysql isteminden çıkın `\q`.
 
 ### <a name="php"></a>PHP
 
-PHP sürümünü aşağıdaki komutla denetleyin:
+Onay hello sürümüyle PHP komut aşağıdaki hello:
 
 ```bash
 php -v
 ```
 
-PHP Fastcgı işlem yöneticisi (PHP-FPM) kullanmak için NGINX yapılandırın. Özgün NGINX server blok yapılandırma dosyasını yedekleyin ve tercih ettiğiniz bir düzenleyicide özgün dosyayı düzenlemek için aşağıdaki komutları çalıştırın:
+NGINX toouse hello PHP Fastcgı işlem yöneticisi (PHP-FPM) yapılandırın. Tooback hello özgün NGINX sunucusu yapılandırma dosyası engelleme ve tercih ettiğiniz bir düzenleyicide hello özgün dosya düzenleme komutları aşağıdaki hello çalıştırın:
 
 ```bash
 sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default_backup
@@ -105,7 +105,7 @@ sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default_ba
 sudo sensible-editor /etc/nginx/sites-available/default
 ```
 
-Düzenleyicide Değiştir `/etc/nginx/sites-available/default` aşağıdaki. Açıklamaları ayarları hakkında ayrıntılı açıklamalar için bkz. VM için genel IP adresi yerine *yourPublicIPAddress*ve geri kalan ayarları bırakın. Ardından dosyayı kaydedin.
+Merhaba Düzenleyicisi'nde hello Değiştir `/etc/nginx/sites-available/default` hello aşağıdaki ile. Açıklama hello ayarlarının Merhaba açıklamalarına bakın. Merhaba, VM için genel IP adresi yerine *yourPublicIPAddress*ve ayarları kalan hello bırakın. Ardından hello dosyayı kaydedin.
 
 ```
 server {
@@ -130,19 +130,19 @@ server {
 }
 ```
 
-Sözdizimi hataları NGINX yapılandırmasını kontrol edin:
+Merhaba NGINX yapılandırma sözdizimi hataları kontrol edin:
 
 ```bash
 sudo nginx -t
 ```
 
-Sözdizimi doğru ise, NGINX aşağıdaki komutla yeniden başlatın:
+Merhaba sözdiziminin doğru olup olmadığını NGINX komutu aşağıdaki hello ile yeniden başlatın:
 
 ```bash
 sudo service nginx restart
 ```
 
-Daha fazla test etmek isterseniz, bir tarayıcıda görüntülemek üzere hızlı bir PHP bilgileri sayfası oluşturun. Aşağıdaki komut, PHP bilgileri sayfası oluşturur:
+Daha fazla tootest istiyorsanız, hızlı bir PHP bilgi sayfası tooview bir tarayıcıda oluşturun. komutu aşağıdaki hello hello PHP bilgileri sayfası oluşturur:
 
 ```bash
 sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
@@ -150,7 +150,7 @@ sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
 
 
 
-Şimdi, oluşturduğunuz PHP bilgileri sayfasını kontrol edebilirsiniz. Bir tarayıcı açın ve gidin `http://yourPublicIPAddress/info.php`. VM ortak IP adresini değiştirin. Bu görüntüsüne benzer görünmelidir.
+Şimdi, oluşturduğunuz hello PHP bilgileri sayfasını kontrol edebilirsiniz. Bir tarayıcı açın ve çok`http://yourPublicIPAddress/info.php`. VM Hello genel IP adresini değiştirin. Benzer toothis görüntü görünmelidir.
 
 ![PHP bilgileri sayfası][2]
 
@@ -159,16 +159,16 @@ sudo sh -c 'echo "<?php phpinfo(); ?>" > /var/www/html/info.php'
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, Azure LEMP Server'da dağıtıldı. Size nasıl öğrenilen için:
+Bu öğreticide, Azure LEMP Server'da dağıtıldı. Şunları öğrendiniz:
 
 > [!div class="checklist"]
 > * Bir Ubuntu VM oluşturma
 > * Web trafiği için 80 numaralı bağlantı noktasını açın
 > * NGINX, MySQL ve PHP yükleme
 > * Yükleme ve yapılandırmasını doğrulayın
-> * WordPress LEMP yığında yükleme
+> * Merhaba LEMP yığında WordPress yükleme
 
-SSL sertifikaları web sunucularıyla güvenli öğrenmek için sonraki öğretici ilerleyin.
+Toohello sonraki öğretici toolearn nasıl ilerlemek SSL sertifikaları web sunucularıyla toosecure.
 
 > [!div class="nextstepaction"]
 > [SSL ile güvenli web sunucusu](tutorial-secure-web-server.md)

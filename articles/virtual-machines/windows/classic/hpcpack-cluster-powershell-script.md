@@ -1,6 +1,6 @@
 ---
-title: "Windows HPC Kümesi dağıtmak için PowerShell komut dosyası | Microsoft Docs"
-description: "Azure sanal makinelerde Windows HPC Pack 2012 R2 küme dağıtmak için bir PowerShell betiğini çalıştırın"
+title: "aaaPowerShell betik toodeploy Windows HPC Kümesi | Microsoft Docs"
+description: "PowerShell komut dosyası toodeploy bir Windows HPC Pack 2012 R2 küme Azure sanal makinelerinde çalıştırın."
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
@@ -15,26 +15,26 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: 85b125ab19671b61d2541af6378c95feb88bf952
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 10ce1e9bc4e98954b955549bd72aaaf6106c69fa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-windows-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Yüksek performanslı bilgi işlem (HPC) küme Windows HPC Pack Iaas dağıtım komut dosyası ile oluşturma
-HPC Pack Iaas dağıtımı Azure sanal makinelerde Windows iş yükleri için tam bir HPC Pack 2012 R2 küme dağıtmak için PowerShell betiğini çalıştırın. Küme Windows Server ve Microsoft HPC Pack çalıştıran bir Active Directory katılmış baş düğümü içerir ve ek Windows işlem kaynaklarını, belirtin. Azure Linux iş yükleri için bir HPC paketi küme dağıtmak istiyorsanız, bkz: [Linux HPC Kümesi ile HPC Pack Iaas dağıtım komut dosyası oluşturma](../../linux/classic/hpcpack-cluster-powershell-script.md). Bir Azure Resource Manager şablonu, bir HPC paketi küme dağıtmak için de kullanabilirsiniz. Örnekler için bkz: [bir HPC Kümesi oluşturmayı](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) ve [bir özel işlem düğümü görüntüsüyle HPC kümesi oluşturma](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/).
+# <a name="create-a-windows-high-performance-computing-hpc-cluster-with-hello-hpc-pack-iaas-deployment-script"></a>Yüksek performanslı bilgi işlem (HPC) Windows Küme ile Merhaba HPC Pack Iaas dağıtım komut dosyası oluşturma
+Merhaba HPC Pack Iaas dağıtım PowerShell komut dosyası toodeploy tam bir HPC Pack 2012 R2 küme iş yükleri için Azure sanal makinelerinde çalıştırın. Windows Server ve Microsoft HPC Pack çalıştıran bir Active Directory katılmış baş düğümüne Hello küme oluşur ve ek Windows işlem kaynaklarını belirttiğiniz. Linux iş yükleri için toodeploy Azure HPC Pack kümede istiyorsanız, bkz: [hello HPC Pack Iaas dağıtım betiği ile Linux HPC küme oluşturma](../../linux/classic/hpcpack-cluster-powershell-script.md). Azure Resource Manager şablonu toodeploy bir HPC paketi küme de kullanabilirsiniz. Örnekler için bkz: [bir HPC Kümesi oluşturmayı](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/) ve [bir özel işlem düğümü görüntüsüyle HPC kümesi oluşturma](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/).
 
 > [!IMPORTANT] 
-> Bu makalede açıklanan PowerShell Betiği Azure'da Klasik dağıtım modeli kullanarak bir Microsoft HPC Pack 2012 R2 kümesi oluşturur. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir.
-> Ayrıca, bu makalede açıklanan betik HPC Pack 2016 desteklemez.
+> Bu makalede açıklanan PowerShell betiğini Hello Azure'da hello Klasik dağıtım modeli kullanarak Microsoft HPC Pack 2012 R2 küme oluşturur. Microsoft, en yeni dağıtımların hello Resource Manager modelini kullanmasını önerir.
+> Ayrıca, bu makalede açıklanan hello betik HPC Pack 2016 desteklemez.
 
 [!INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 
 ## <a name="example-configuration-files"></a>Örnek yapılandırma dosyaları
-Aşağıdaki örneklerde, abonelik kimliği için kendi değerlerinizi veya adını ve hesap ve hizmet adlarını yerleştirin.
+Hello aşağıdaki örneklerde, kendi değerlerini, abonelik kimliği veya adı ve hello hesabı ve hizmet adlarını değiştirin.
 
 ### <a name="example-1"></a>Örnek 1
-Aşağıdaki yapılandırma dosyası bir baş düğüm yerel veritabanlarıyla bir HPC Pack kümeye dağıtır ve beş işlem düğümleri Windows Server 2012 R2 işletim sistemini çalıştıran. Tüm bulut hizmetlerine doğrudan Batı ABD konumunda oluşturulur. Baş düğüm etki alanı ormanı etki alanı denetleyicisi olarak işlev görür.
+Merhaba aşağıdaki yapılandırma dosyası bir baş düğüm yerel veritabanlarıyla ve beş işlem düğümlerini hello Windows Server 2012 R2 işletim sistemi çalıştıran bir HPC Pack kümeye dağıtır. Tüm hello bulut Hizmetleri doğrudan hello Batı ABD konumunda oluşturulur. Merhaba baş düğüm hello etki alanı ormanı etki alanı denetleyicisi olarak işlev görür.
 
 ```Xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -71,8 +71,8 @@ Aşağıdaki yapılandırma dosyası bir baş düğüm yerel veritabanlarıyla b
 ```
 
 ### <a name="example-2"></a>Örnek 2
-Aşağıdaki yapılandırma dosyası var olan bir etki alanı ormanı HPC Pack kümede dağıtır. Küme yerel veritabanlarıyla 1 baş düğüm vardır ve işlem düğümleri uygulanan Bgınfo VM uzantısı ile 12.
-Windows güncelleştirmeleri otomatik yüklemesini etki alanı ormanındaki tüm sanal makineleri devre dışı bırakılmıştır. Tüm bulut hizmetlerine doğrudan Doğu Asya konumda oluşturulur. İşlem düğümlerine oluşturulduğunu üç bulut Hizmetleri ve üç depolama hesabı: *MyHPCCN 0001* için *MyHPCCN 0005* içinde *MyHPCCNService01* ve *mycnstorage01*; *MyHPCCN-0006* için *MyHPCCN0010* içinde *MyHPCCNService02* ve *mycnstorage02*; ve *MyHPCCN 0011* için *MyHPCCN 0012* içinde *MyHPCCNService03* ve *mycnstorage03*). İşlem düğümleri, bir işlem düğümünden yakalanan bir görüntüden varolan özel oluşturulur. Otomatik büyüme ve küçültme hizmeti varsayılan olarak etkin büyür ve küçültme aralıkları.
+Aşağıdaki yapılandırma dosyasına hello var olan bir etki alanı ormanı HPC Pack kümede dağıtır. Merhaba küme yerel veritabanlarıyla 1 baş düğüm vardır ve 12 işlem düğümleri hello uygulanan Bgınfo VM uzantısı ile.
+Windows güncelleştirmeleri otomatik yüklemesini tüm hello hello etki alanı ormanda VM'ler devre dışı bırakılmıştır. Tüm hello bulut hizmetlerine doğrudan Doğu Asya konumda oluşturulur. Merhaba işlem düğümleri üç bulut Hizmetleri ve üç depolama hesabı oluşturulur: *MyHPCCN 0001* çok*MyHPCCN 0005* içinde *MyHPCCNService01* ve  *mycnstorage01*; *MyHPCCN-0006* çok*MyHPCCN0010* içinde *MyHPCCNService02* ve *mycnstorage02*; ve  *MyHPCCN-0011* çok*MyHPCCN 0012* içinde *MyHPCCNService03* ve *mycnstorage03*). Merhaba işlem düğümleri, bir işlem düğümünden yakalanan bir görüntüden varolan özel oluşturulur. Merhaba otomatik büyüme ve küçültme hizmeti varsayılan olarak etkin büyür ve küçültme aralıkları.
 
 ```Xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -135,7 +135,7 @@ Windows güncelleştirmeleri otomatik yüklemesini etki alanı ormanındaki tüm
 ```
 
 ### <a name="example-3"></a>Örnek 3
-Aşağıdaki yapılandırma dosyası var olan bir etki alanı ormanı HPC Pack kümede dağıtır. Küme bir baş düğüm, 500 GB veri diski olan bir veritabanı sunucusu, iki Aracısı düğümleri Windows Server 2012 R2 işletim sistemini çalıştıran ve Windows Server 2012 R2 işletim sistemi çalıştıran beş işlem düğümleri içerir. Bulut hizmeti, MyHPCCNService benzeşim grubunda oluşturuldu *MyIBAffinityGroup*, ve diğer bulut hizmetlerine benzeşim grubunda oluşturulan *MyAffinityGroup*. HPC web portalı ve HPC iş Scheduler REST API baş düğümünde etkinleştirilir.
+Aşağıdaki yapılandırma dosyasına hello var olan bir etki alanı ormanı HPC Pack kümede dağıtır. Merhaba küme baş düğüm, 500 GB veri diski, bir veritabanı sunucusuyla hello Windows Server 2012 R2 işletim sistemi ve hello Windows Server 2012 R2 işletim sistemi çalıştıran beş işlem düğümleri çalışan iki Aracısı düğümleri içerir. Merhaba MyHPCCNService hello benzeşim grubunda oluşturulan bulut hizmeti *MyIBAffinityGroup*, ve hello diğer bulut hizmetlerine hello benzeşim grubunda oluşturulan *MyAffinityGroup*. Merhaba HPC iş Scheduler REST API ve HPC web portalı hello baş düğümünde etkinleştirilir.
 
 ```Xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -190,7 +190,7 @@ Aşağıdaki yapılandırma dosyası var olan bir etki alanı ormanı HPC Pack k
 
 
 ### <a name="example-4"></a>Örnek 4
-Aşağıdaki yapılandırma dosyası var olan bir etki alanı ormanı HPC Pack kümede dağıtır. Yerel veritabanlarıyla iki baş düğüm kümesi olduğundan, iki Azure düğümü şablonları oluşturulur ve üç boyut Orta Azure düğümleri için Azure düğüm şablonu oluşturulur *AzureTemplate1*. Baş düğüm yapılandırıldıktan sonra bir komut dosyası baş düğüm üzerinde çalışır.
+Aşağıdaki yapılandırma dosyasına hello var olan bir etki alanı ormanı HPC Pack kümede dağıtır. Merhaba küme olan iki baş düğüm yerel veritabanları ile iki Azure düğümü şablonları oluşturulur ve üç boyut Orta Azure düğümleri için Azure düğüm şablonu oluşturulur *AzureTemplate1*. Merhaba baş düğüm yapılandırıldıktan sonra bir komut dosyası hello baş düğüm üzerinde çalışır.
 
 ```Xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -257,19 +257,19 @@ Aşağıdaki yapılandırma dosyası var olan bir etki alanı ormanı HPC Pack k
 ```
 
 ## <a name="troubleshooting"></a>Sorun giderme
-* **"Sanal ağ yok" hatası** -eşzamanlı olarak bir abonelik altında Azure birden çok kümeler dağıtmak için betik çalıştırırsanız, bir veya daha fazla dağıtım hatasıyla başarısız olabilir "VNet *VNet\_adı* yok".
-  Bu hata oluşursa, komut dosyası başarısız dağıtım için yeniden çalıştırın.
-* **Azure sanal ağdan Internet erişirken sorun** - dağıtım komut dosyası kullanarak yeni bir etki alanı denetleyicisi ile bir küme oluşturma veya etki alanı denetleyicisine bir üstbilgi düğüm VM'ine el ile yükseltmek, Internet'e sanal makinelerini bağlamak sorunlarla karşılaşabilirsiniz. Bu sorun bir iletici DNS sunucusu etki alanı denetleyicisinde otomatik olarak yapılandırılır ve bu iletici DNS sunucusu düzgün sorunu çözmezse ortaya çıkabilir.
+* **"Sanal ağ yok" hatası** -hello betik toodeploy birden fazla küme Azure içinde eşzamanlı olarak bir abonelik altında çalıştırırsanız, bir veya daha fazla dağıtım hello hatasıyla başarısız olabilir "VNet *VNet\_adı* değil Mevcut".
+  Bu hata oluşursa hello betiği başarısız hello dağıtım için yeniden çalıştırın.
+* **Hello Azure sanal ağı ' hello Internet sorun erişme** - hello dağıtım komut dosyası kullanarak yeni bir etki alanı denetleyicisi ile bir küme oluşturun veya el ile bir baş düğüm VM toodomain denetleyicisini yükseltip, sorunlarla karşılaşabilirsiniz Merhaba VM'ler toohello Internet bağlanılıyor. Bu sorun bir iletici DNS sunucusu hello etki alanı denetleyicisi üzerinde otomatik olarak yapılandırılır ve bu iletici DNS sunucusu düzgün sorunu çözmezse ortaya çıkabilir.
   
-    Etki alanı denetleyicisi ve kaldırın veya iletici yapılandırma ayarı oturumunu bu soruna geçici bir çözüm veya geçerli iletici DNS sunucusunu yapılandırmak için. Bu ayar Sunucu Yöneticisi'ni yapılandırmak için **Araçları** >
-    **DNS** DNS Yöneticisi'ni açın ve ardından **İleticiler**.
-* **RDMA ağ yoğun Vm'lerden erişirken sorun** - Windows Server işlem eklemek veya Aracısı düğümü bir RDMA özellikli kullanarak VM'ler boyut A8 veya A9 gibi bu VM'lerin RDMA uygulama ağ bağlantısı sorunlarla karşılaşabilirsiniz. Bu sorun bir kümeye VM'ler eklendiğinde HpcVmDrivers uzantısı düzgün yüklenmemiş varsa nedenidir. Örneğin, uzantı yükleme durumda takılmış olabilir.
+    Bu soruna geçici bir çözüm toowork toohello etki alanı denetleyicisi ve her iki Kaldır hello ileticisi yapılandırma ayarı oturum veya geçerli iletici DNS sunucusunu yapılandırın. Bu ayar, Sunucu Yöneticisi'ni tıklatın tooconfigure **Araçları** >
+    **DNS** tooopen DNS Yöneticisi'ni çift tıklayın ve ardından **İleticiler**.
+* **RDMA ağ yoğun Vm'lerden erişirken sorun** - Windows Server işlem eklemek veya Aracısı düğümü bir RDMA özellikli kullanarak VM'ler boyut A8 veya A9 gibi bu sanal makineleri toohello RDMA uygulama ağ bağlantısı sorunları karşılaşabilirsiniz. Bu sorun bir toohello küme hello VM'ler eklendiğinde hello HpcVmDrivers uzantısı düzgün yüklenmemiş varsa nedenidir. Örneğin, uzantı durumu yükleme hello takılmış olabilir.
   
-    Bu sorunu geçici olarak çözmek için önce sanal makineleri uzantı durumunu denetleyin. Uzantısı düzgün yüklü değilse, HPC küme düğümleri kaldırmayı deneyin ve ardından düğümler yeniden ekleyin. Örneğin, işlem düğümü VM'ler baş düğümünde Ekle HpcIaaSNode.ps1 komut dosyası çalıştırarak ekleyebilirsiniz.
+    toowork hello VM'ler hello uzantısında ilk onay hello durumunu bu soruna geçici bir çözüm. Merhaba uzantısı düzgün yüklenmemiş, hello düğümleri hello HPC kümesinden kaldırmayı deneyin ve hello düğümleri tekrar ekleyin. Örneğin, işlem düğümü VM'ler hello baş düğümünde hello Ekle HpcIaaSNode.ps1 komut dosyası çalıştırarak ekleyebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Küme üzerinde bir test iş yükü çalıştırmayı deneyin. Bir örnek için bkz: HPC paketi [Başlangıç Kılavuzu](https://technet.microsoft.com/library/jj884144).
-* Küme dağıtımı komut dosyası ve bir HPC iş yükü çalıştırmak bir öğretici için bkz: [Excel ve SOA iş yüklerini çalıştırmak için Azure HPC Pack kümede kullanmaya başlama](../../virtual-machines-windows-excel-cluster-hpcpack.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Başlatabilir, durdurabilir, eklemek için HPC paketi araçları deneyin ve işlem düğümlerini, oluşturduğunuz bir kümeden kaldırın. Bkz: [bir HPC Pack Yönet işlem düğümleri küme Azure'da](hpcpack-cluster-node-manage.md).
-* Yerel bilgisayardan kümeye iş göndermek için ayarladığınız için bkz: [bir HPC Pack gönderme HPC işlerini bir şirket içi bilgisayardan küme Azure'da](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Bir test iş yükü hello kümede çalıştırmayı deneyin. HPC Pack Merhaba bir örnek için bkz: [Başlangıç Kılavuzu](https://technet.microsoft.com/library/jj884144).
+* Eğitmen tooscript hello Küme dağıtımı ve HPC iş yükünü çalıştırmak için bkz: [Azure toorun Excel ve SOA iş yükleri bir HPC paketi küme kullanmaya başlama](../../virtual-machines-windows-excel-cluster-hpcpack.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* HPC paketi araçları toostart deneyin, durdurmak, ekleyin ve oluşturduğunuz kümeden işlem düğümleri kaldırma. Bkz: [bir HPC Pack Yönet işlem düğümleri küme Azure'da](hpcpack-cluster-node-manage.md).
+* toosubmit işleri toohello yerel bir bilgisayardan kümesi tooget bkz [bir şirket içi bilgisayar tooan HPC Pack işlerden gönderme HPC küme Azure'da](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

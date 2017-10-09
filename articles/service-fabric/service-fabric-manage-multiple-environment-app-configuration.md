@@ -1,6 +1,6 @@
 ---
-title: "Service Fabric birden çok ortamlarında yönetme | Microsoft Docs"
-description: "Service Fabric uygulamaları bir makine boyutu makineler binlerce aralık kümeleri üzerinde çalıştırılabilir. Bazı durumlarda, uygulamanız bu çeşitli ortamlar için farklı yapılandırma isteyeceksiniz. Bu makalede, ortam başına farklı uygulama parametrelerini tanımlamak alınmaktadır."
+title: "aaaManage birden çok ortamlarda Service Fabric | Microsoft Docs"
+description: "Service Fabric uygulamaları bir makine toothousands makinelerin boyutu aralık kümeleri üzerinde çalıştırılabilir. Bazı durumlarda, uygulamanız bu çeşitli ortamlar için farklı tooconfigure isteyeceksiniz. Bu makalede yer almaktadır nasıl ortamı başına toodefine farklı uygulama parametreleri."
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: mikkelhegn
-ms.openlocfilehash: 9317b3f0b7984e795c4205360ed58e2c4f3fbcb1
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 2b3327e0e1a3bbd35a50835e720619f308b1b501
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-application-parameters-for-multiple-environments"></a>Birden çok ortamlar için uygulama parametreleri yönetme
-Bir binlerce makineler için herhangi bir yerde kullanarak Azure Service Fabric kümeleri oluşturabilirsiniz. Uygulama ikili dosyaları değişiklik yapmadan bu paylaşılabilen çok sayıda ortamlar arasında çalıştırılabilir olsa da, genellikle uygulama için dağıtımı makineler sayısına bağlı olarak farklı şekilde, yapılandırmak istediğiniz.
+Herhangi bir yerden bir toomany makinelerin binlerce kullanarak Azure Service Fabric kümeleri oluşturabilirsiniz. Uygulama ikili dosyaları değişiklik yapmadan bu paylaşılabilen çok sayıda ortamlar arasında çalıştırılabilir olsa da, genellikle tooconfigure Merhaba uygulaması farklı makineler için dağıtıyorsunuz hello sayısı bağlı olarak istediğiniz.
 
-Basit bir örnek olarak göz önünde bulundurun `InstanceCount` durumsuz bir hizmet için. Azure uygulamalarını çalıştırırken genellikle "-1" özel değeri için bu parametreyi ayarlayın istersiniz. Bu yapılandırma, hizmetiniz her düğümde Küme (veya bir yerleştirme kısıtlaması ayarlarsanız düğüm türü kümedeki her düğüm) çalıştığını sağlar. Ancak, birden çok işlem tek bir makinede aynı uç noktasında dinleme olamaz beri bu yapılandırma bir tek makineli küme için uygun değil. Bunun yerine, genellikle ayarladığınız `InstanceCount` "1".
+Basit bir örnek olarak göz önünde bulundurun `InstanceCount` durumsuz bir hizmet için. Azure uygulamalarını çalıştırırken bu parametre toohello özel "-1 değeri" genellikle tooset istersiniz. Bu yapılandırma, hizmetiniz hello küme (veya bir yerleştirme kısıtlaması ayarlarsanız hello düğüm türü kümedeki her düğüm) kümedeki her düğüm üzerinde çalıştığını sağlar. Birden çok işlem aynı hello üzerinde dinleme olamaz bu yana ancak, bu yapılandırma bir tek makineli küme için uygun değil tek bir makinede uç noktası. Bunun yerine, genellikle ayarladığınız `InstanceCount` çok "1".
 
 ## <a name="specifying-environment-specific-parameters"></a>Ortama özgü parametrelerini belirtme
-Bu yapılandırma sorunun çözümü, parametreli varsayılan Hizmetleri ve belirli bir ortam için bu parametre değerlerini doldurun uygulama parametreleri dosyalarını kümesidir. Varsayılan hizmet ve uygulama parametreleri uygulama ve hizmet bildirimleri yapılandırılır. Şema tanımı ServiceManifest.xml ve ApplicationManifest.xml dosyaları için Service Fabric SDK'sı ile yüklenir ve araçların *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+Merhaba çözüm toothis yapılandırma sorunu parametreli varsayılan Hizmetleri ve belirli bir ortam için bu parametre değerlerini doldurun uygulama parametreleri dosyalarını kümesidir. Varsayılan hizmet ve uygulama parametreleri hello uygulamada yapılandırılır ve bildirimleri hizmet. Merhaba hello ServiceManifest.xml ve ApplicationManifest.xml dosyaları için şema tanımı hello Service Fabric SDK ile yüklenir ve çok Araçları*C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 ### <a name="default-services"></a>Varsayılan Hizmetleri
-Service Fabric uygulamaları hizmet örnekleri koleksiyonu yapılır. Boş bir uygulama oluşturun ve tüm hizmet örnekleri dinamik olarak oluşturmak mümkün olsa da, uygulamaların çoğu uygulama örneği oluşturulduğunda, her zaman oluşturulması gereken Çekirdek Hizmetleri kümesine sahiptir. Bunlar, "varsayılan Hizmetleri" adlandırılır. Uygulama bildiriminde köşeli parantez içine dahil ortamı başına yapılandırması yer tutucular ile belirtilir:
+Service Fabric uygulamaları hizmet örnekleri koleksiyonu yapılır. Toocreate için boş bir uygulama mümkündür ve tüm hizmet örnekleri dinamik olarak oluşturmak olsa da, çoğu uygulamayı hello uygulama örneği oluşturulduğunda, her zaman oluşturulması gereken Çekirdek Hizmetleri kümesine sahiptir. Başvurulan tooas "varsayılan Hizmetleri" bunlar. Köşeli parantez içine dahil ortamı başına yapılandırması yer tutucular ile Merhaba uygulama bildiriminde belirtilir:
 
 ```xml
   <DefaultServices>
@@ -49,7 +49,7 @@ Service Fabric uygulamaları hizmet örnekleri koleksiyonu yapılır. Boş bir u
   </DefaultServices>
 ```
 
-Her adlandırılmış parametreleri uygulama bildirimi parametreleri öğe içinde tanımlanmış olması gerekir:
+Her adlandırılmış parametreleri hello hello uygulama bildiriminin hello parametreleri öğesi içinde tanımlanmış olması gerekir:
 
 ```xml
     <Parameters>
@@ -59,24 +59,24 @@ Her adlandırılmış parametreleri uygulama bildirimi parametreleri öğe için
     </Parameters>
 ```
 
-DefaultValue özniteliği belirli bir ortam için daha özel parametre olmaması durumunda kullanılacak değeri belirtir.
+Daha fazla özel parametre hello olmaması durumunda belirli bir ortam için kullanılan hello değeri toobe Hello DefaultValue özniteliği belirtir.
 
 > [!NOTE]
-> Tüm hizmet örneği parametreleri ortamı başına yapılandırması için uygun değildir. Yukarıdaki örnekte, hizmetin bölümleme düzeni LowKey ve HighKey değerlerini bölüm aralığı ortam veri etki alanının işlev olduğundan tüm hizmet örnekleri için açık olarak tanımlanır.
+> Tüm hizmet örneği parametreleri ortamı başına yapılandırması için uygun değildir. Merhaba yukarıdaki örnekte, LowKey hello ve hello bölüm aralığı işlevi hello veri etki alanının değil hello ortamı olduğundan hello hizmetin bölümleme düzeni HighKey değerlerini açıkça hizmetin tüm örneklerine ait hello için tanımlanır.
 > 
 > 
 
 ### <a name="per-environment-service-configuration-settings"></a>Ortam başına hizmet yapılandırma ayarları
-[Service Fabric uygulama modeli](service-fabric-application-model.md) çalışma zamanında okunabilir özel anahtar-değer çiftleri içeren yapılandırma paketleri eklenecek hizmetleri sağlar. Bu ayarları değerlerini de ortamı tarafından belirterek Ayrıştırılan bir `ConfigOverride` uygulama bildiriminde.
+Merhaba [Service Fabric uygulama modeli](service-fabric-application-model.md) Hizmetleri çalışma zamanında okunabilir özel anahtar-değer çiftleri içeren tooinclude yapılandırma paketlerini etkinleştirir. Bu ayarların Hello değerleri ayrıca Ayrıştırılan ortamı tarafından belirterek bir `ConfigOverride` hello uygulama bildiriminde.
 
-Config\Settings.xml dosyasında aşağıdaki ayar olduğunu varsayalım `Stateful1` hizmeti:
+Ayar hello için hello Config\Settings.xml dosyasında aşağıdaki hello olduğunu varsayalım `Stateful1` hizmeti:
 
 ```xml
   <Section Name="MyConfigSection">
      <Parameter Name="MaxQueueSize" Value="25" />
   </Section>
 ```
-Bu değer belirli bir uygulama/ortamı çifti için geçersiz kılmak için oluşturma bir `ConfigOverride` içeri aktardığınızda uygulama bildiriminde hizmet bildirimi.
+Bu değer için bir özel uygulama/ortamı çifti toooverride oluşturmak bir `ConfigOverride` hello hizmet bildirimi hello uygulama bildiriminde aktardığınızda.
 
 ```xml
   <ConfigOverrides>
@@ -89,16 +89,16 @@ Bu değer belirli bir uygulama/ortamı çifti için geçersiz kılmak için olu�
      </ConfigOverride>
   </ConfigOverrides>
 ```
-Bu parametre yukarıda gösterildiği gibi ortamı tarafından sonra yapılandırılabilir. Bu uygulama bildirimi Parametreler bölümünde bildirme ve ortama özgü değerleri uygulama parametresi dosyalarında belirterek yapabilirsiniz.
+Bu parametre yukarıda gösterildiği gibi ortamı tarafından sonra yapılandırılabilir. Bunu hello Parametreler bölümünde hello uygulama bildiriminin bildirme ve ortama özgü değerleri hello uygulama parametresi dosyalarında belirterek yapabilirsiniz.
 
 > [!NOTE]
-> Hizmet yapılandırma ayarları söz konusu olduğunda, burada bir anahtarın değerini ayarlanabilir üç yerde vardır: hizmeti yapılandırma paketi, uygulama bildirimi ve uygulama parametre dosyası. Service Fabric her zaman uygulama parametre dosyasından seçin (belirtilmişse) ilk sonra uygulama bildirimi ve son olarak yapılandırma paketi.
+> Hizmet yapılandırma ayarlarını Hello durumda olduğu bir anahtarın değerini hello ayarlanabilir üç yerde vardır: hello hizmeti yapılandırma paketi, hello uygulama bildirimi ve hello uygulama parametre dosyası. Service Fabric her zaman hello uygulama parametre dosyasından ilk (belirtilmişse) seçin, sonra uygulama bildirimi hello ve son olarak yapılandırma paketi hello.
 > 
 > 
 
 ### <a name="setting-and-using-environment-variables"></a>Ayarlama ve ortam değişkenlerini kullanma 
-Belirtin ve ServiceManifest.xml dosyasında ortam değişkenlerini ayarlama ve daha sonra bu örneği başına temelinde ApplicationManifest.xml dosyasında geçersiz.
-Aşağıdaki örnek, iki ortam değişkenleri, bir değer kümesiyle gösterir ve diğer geçersiz kılınır. Bu yapılandırma geçersiz kılma işlemleri için kullanılan aynı şekilde ortam değişkenlerinin değerlerini ayarlamak için uygulama parametreleri kullanabilirsiniz.
+Belirtin ve hello ServiceManifest.xml dosyasında ortam değişkenlerini ayarlama ve daha sonra bu örneği başına temelinde hello ApplicationManifest.xml dosyasında geçersiz.
+bir değerle ayarlayın ve hello diğer geçersiz kılınır Hello örnekte iki ortam değişkenleri gösterir. Tooset ortam değişkenleri değerleri hello aynı şekilde, bu yapılandırma geçersiz kılma işlemleri için kullanılan uygulama parametrelerini kullanabilirsiniz.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -127,7 +127,7 @@ Aşağıdaki örnek, iki ortam değişkenleri, bir değer kümesiyle gösterir v
   <DataPackage Name="MyData" Version="DataVersion1" />
 </ServiceManifest>
 ```
-Ortam değişkenleri ApplicationManifest.xml geçersiz kılmak için ServiceManifest ile kod paketinde başvuru `EnvironmentOverrides` öğesi.
+Merhaba ApplicationManifest.xml, başvuru hello kod hello ServiceManifest hello ile paketinde toooverride hello ortam değişkenleri `EnvironmentOverrides` öğesi.
 
 ```xml
   <ServiceManifestImport>
@@ -137,14 +137,14 @@ Ortam değişkenleri ApplicationManifest.xml geçersiz kılmak için ServiceMani
     </EnvironmentOverrides>
   </ServiceManifestImport>
  ``` 
- Adlı hizmet örneği oluşturulduktan sonra ortam değişkenleri koddan erişebilirsiniz. Örneğin C# ile şunları yapabilirsiniz
+ Merhaba adlı hizmet örneği oluşturulduktan sonra koddan hello ortam değişkenlerine erişebilir. Örneğin, C# yapabileceğiniz hello aşağıdaki
 
 ```csharp
     string EnvVariable = Environment.GetEnvironmentVariable("MyEnvVariable");
 ```
 
 ### <a name="service-fabric-environment-variables"></a>Service Fabric ortam değişkenleri
-Service Fabric kümesi her hizmet örneği için ortam değişkenleri içindeki oluşturdu. Ortam değişkenlerinin tam listesi aşağıdadır, burada Listedekilerin kalın hizmetinizde, diğer Service Fabric çalışma zamanı tarafından kullanılan kullanacağınız olanlar. 
+Service Fabric kümesi her hizmet örneği için ortam değişkenleri içindeki oluşturdu. Merhaba ortam değişkenlerinin tam listesi olduğu aşağıda hello olanları kalın olan, hizmetiniz, kullanacağınız olanları hello burada hello diğer olan Service Fabric çalışma zamanı tarafından kullanılır. 
 
 * Fabric_ApplicationHostId
 * Fabric_ApplicationHostType
@@ -166,7 +166,7 @@ Service Fabric kümesi her hizmet örneği için ortam değişkenleri içindeki 
 * Fabric_ServicePackageVersionInstance
 * FabricPackageFileName
 
-Kod belows Service Fabric ortam değişkenleri listesinde gösterilmiştir
+Merhaba kod belows nasıl toolist hello Service Fabric ortam değişkenleri gösterir
  ```csharp
     foreach (DictionaryEntry de in Environment.GetEnvironmentVariables())
     {
@@ -176,7 +176,7 @@ Kod belows Service Fabric ortam değişkenleri listesinde gösterilmiştir
         }
     }
 ```
-Adlı bir uygulama türü için ortam değişkenleri örnekleri aşağıda verilmiştir `GuestExe.Application` hizmet türü ile adlı `FrontEndService` yerel geliştirme makinenizde çalıştırdığınızda.
+Merhaba adlı bir uygulama türü için ortam değişkenleri örnekleri verilmiştir `GuestExe.Application` hizmet türü ile adlı `FrontEndService` yerel geliştirme makinenizde çalıştırdığınızda.
 
 * **Fabric_ApplicationName fabric:/GuestExe.Application =**
 * **Fabric_CodePackageName kodu =**
@@ -185,7 +185,7 @@ Adlı bir uygulama türü için ortam değişkenleri örnekleri aşağıda veril
 * **Fabric_NodeName _Node_2 =**
 
 ### <a name="application-parameter-files"></a>Uygulama parametre dosyaları
-Service Fabric uygulaması projesi bir veya daha fazla uygulama parametreleri dosyalarını içerebilir. Bunların her birini, uygulama bildiriminde tanımlanan parametreler için özel değerler tanımlar:
+Merhaba Service Fabric uygulaması projesi bir veya daha fazla uygulama parametreleri dosyalarını içerebilir. Bunların her birini hello belirli değerleri hello uygulama bildiriminde tanımlanan hello parametreleri tanımlar:
 
 ```xml
     <!-- ApplicationParameters\Local.xml -->
@@ -202,25 +202,25 @@ Varsayılan olarak, yeni bir uygulama Local.1Node.xml, Local.5Node.xml ve Cloud.
 
 ![Çözüm Gezgini'nde uygulama parametre dosyaları][app-parameters-solution-explorer]
 
-Bir parametre dosyası oluşturmak için yalnızca kopyalayıp mevcut bir yapıştırın ve yeni bir ad verin.
+toocreate bir parametre dosyası yalnızca kopyalayın ve mevcut bir yapıştırın ve yeni bir ad verin.
 
 ## <a name="identifying-environment-specific-parameters-during-deployment"></a>Dağıtım sırasında ortama özgü parametreleri tanımlama
-Dağıtım sırasında uygulamanızla uygulamak için uygun parametre dosyası seçmeniz gerekir. Visual Studio'da yayımlama iletişim kutusunu veya PowerShell aracılığıyla bunu yapabilirsiniz.
+Dağıtım sırasında uygulamanızla toochoose hello uygun parametre dosyası tooapply gerekir. Visual Studio'da hello Yayımla iletişim kutusu veya PowerShell aracılığıyla bunu yapabilirsiniz.
 
 ### <a name="deploy-from-visual-studio"></a>Visual Studio'dan dağıtma
-Visual Studio'da uygulamanız yayımladığınızda kullanılabilir parametre dosyalar listesinden seçebilirsiniz.
+Visual Studio'da uygulamanız yayımladığınızda hello kullanılabilir parametre dosyalar listesinden seçebilirsiniz.
 
-![Yayımla iletişim kutusunda bir parametre dosyası seçin][publishdialog]
+![Merhaba Yayımla iletişim kutusunda bir parametre dosyası seçin][publishdialog]
 
 ### <a name="deploy-from-powershell"></a>Powershell'den dağıtma
-`Deploy-FabricApplication.ps1` Uygulama projesi şablona dahil PowerShell betiğini bir yayımlama profili bir parametre olarak kabul eder ve PublishProfile uygulama parametreler dosyası için bir başvuru içeriyor.
+Merhaba `Deploy-FabricApplication.ps1` hello uygulama projesi şablona dahil edilen PowerShell betiğini bir yayımlama profili bir parametre olarak kabul eder ve hello PublishProfile bir başvuru toohello uygulama parametreler dosyası içerir.
 
   ```PowerShell
     ./Deploy-FabricApplication -ApplicationPackagePath <app_package_path> -PublishProfileFile <publishprofile_path>
   ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu konuda açıklanan kavramları bazıları hakkında daha fazla bilgi için bkz: [Service Fabric teknik genel bakış](service-fabric-technical-overview.md). Visual Studio'da kullanılabilir olan diğer uygulama yönetim özellikleri hakkında daha fazla bilgi için bkz: [Visual Studio'da, Service Fabric uygulamaları yönetmek](service-fabric-manage-application-in-visual-studio.md).
+Bu konuda, açıklanan hello temel kavramlar bazıları hakkında daha fazla toolearn hello bkz [Service Fabric teknik genel bakış](service-fabric-technical-overview.md). Visual Studio'da kullanılabilir olan diğer uygulama yönetim özellikleri hakkında daha fazla bilgi için bkz: [Visual Studio'da, Service Fabric uygulamaları yönetmek](service-fabric-manage-application-in-visual-studio.md).
 
 <!-- Image references -->
 

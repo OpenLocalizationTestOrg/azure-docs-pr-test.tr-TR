@@ -1,4 +1,4 @@
-Azure Backup hizmetinde iki tür kasa bulunur: Backup kasası ve Kurtarma Hizmetleri kasası. Backup kasası ilk önce gelmiştir. Ardından genişletilmiş Resource Manager dağıtımlarını desteklemek üzere Kurtarma Hizmetleri kasası kullanıma sunulmuştur. Microsoft, özellikle bir Klasik dağıtıma gereksinim duymadıkça Resource Manager dağıtımlarının kullanılmasını önerir.
+Hello Azure Backup hizmeti kasalarını - hello yedekleme kasası ve hello kurtarma Hizmetleri kasası iki tür vardır. Merhaba yedekleme kasası ilk geldi. Ardından Kurtarma Hizmetleri kasası hello toosupport genişletilmiş hello Resource Manager dağıtımları geldi. Microsoft, özellikle bir Klasik dağıtıma gereksinim duymadıkça Resource Manager dağıtımlarının kullanılmasını önerir.
 
 | **Dağıtım** | **Portal** | **Kasa** |
 | --- | --- | --- |
@@ -6,7 +6,7 @@ Azure Backup hizmetinde iki tür kasa bulunur: Backup kasası ve Kurtarma Hizmet
 | Resource Manager |[Azure](https://portal.azure.com) |Kurtarma Hizmetleri |
 
 > [!NOTE]
-> Yedekleme kasaları, Resource Manager ile dağıtılan çözümleri koruyamaz. Ancak, klasik olarak dağıtılan sunucuları ve sanal makineleri korumak için bir Kurtarma Hizmetleri kasası kullanabilirsiniz.  
+> Yedekleme kasaları, Resource Manager ile dağıtılan çözümleri koruyamaz. Ancak, bir kurtarma Hizmetleri kullanabilirsiniz kasa tooprotect classically dağıtılan sunucularını ve Vm'leri.  
 > 
 > 
 

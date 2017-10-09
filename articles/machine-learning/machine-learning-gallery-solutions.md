@@ -1,6 +1,6 @@
 ---
-title: "Cortana Intelligence Galerisi çözümleri | Microsoft Docs"
-description: "Cortana Intelligence Galerisi'nde çözümlerinde bulur."
+title: "aaaCortana Intelligence Galerisi çözümleri | Microsoft Docs"
+description: "Çözümleri hello Cortana Intelligence Galerisi bulur."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,38 +14,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 8e180db2ab5fbabf5238b18b1d2866b746eb9994
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2cb6b0892c2eba873fa7e685288dc3b12d1dc981
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="discover-solutions-in-the-cortana-intelligence-gallery"></a>Cortana Intelligence Galerisi'nde çözümlerinde Bul
+# <a name="discover-solutions-in-hello-cortana-intelligence-gallery"></a>Merhaba Cortana Intelligence Galerisi'nde Çözüm Bul
 [!INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="solutions"></a>Çözümler
-A  **[çözüm](https://gallery.cortanaintelligence.com/solutions)**  hızlı bir şekilde önceden yapılandırılmış çözümler, başvuru mimarisi ve tasarım desenleri Cortana Intelligence çözümleri oluşturmak üzere başkalarından galeride sağlar.
-Bunları kendi dahil yönergeleri veya özel bir iş ortağı ile yapın.  
+A  **[çözüm](https://gallery.cortanaintelligence.com/solutions)**  hello Galerisi önceden yapılandırılmış çözümler başkalarından tooquickly derleme Cortana Intelligence çözümleri sağlar, başvuru mimarisi ve tasarım desenleri.
+Bunları kendi dahil hello yönergeleri veya özel bir iş ortağı yapın.  
 
 ## <a name="discover"></a>Keşif
-  Galerideki çözümleri göz atmak için açık [galeri](http://gallery.cortanaintelligence.com) tıklatıp **çözümleri** galeri giriş sayfasının üst.
+  hello Galerisi, açık hello çözümlerinde toobrowse [galeri](http://gallery.cortanaintelligence.com) tıklatıp **çözümleri** hello galeri giriş sayfasının hello üstünde.
 
-  **[Çözümleri](https://gallery.cortanaintelligence.com/solutions)**  sayfa en son eklenen çözümlerinin listesini görüntüler.
-Tıklatın **tümünü görmek** tüm çözümleri görüntülemek için.
-Bu sayfadan galerisinde tüm çözümleri göz atabilirsiniz. Ayrıca, sol üst girme arama terimleri ve sayfa filtre ölçütü seçerek arayabilirsiniz.
+  **[Çözümleri](https://gallery.cortanaintelligence.com/solutions)**  çözümleri eklenen en son hello listesi sayfası görüntülenir.
+Tıklatın **tümünü görmek** tooview tüm çözümler.
+Bu sayfadan hello galeri tüm çözümlerinde göz atabilirsiniz. Filtre ölçütü hello sayfasının hello soldaki seçerek de arayabilir ve girme arama koşulların en üst hello.
 
- Kendi ayrıntı sayfası açın ve daha fazla bilgi okumak için herhangi bir çözümü'ı tıklatın. Bu sayfada açıklama, geri bildirim sağlamak veya açıklamalar bölümüne aracılığıyla sorular sorun. Bunu arkadaş ya da LinkedIn veya Twitter paylaşım özelliklerini kullanarak iş arkadaşlarınızı bile paylaşabilirsiniz. Ayrıca bağlantı çözümü sayfasını görüntülemek için diğer kullanıcıları davet e-posta gönderebilirsiniz.
+ Tüm çözüm tooopen kendi ayrıntı sayfası tıklatın ve daha fazla bilgi okuyun. Bu sayfada açıklama, geri bildirim sağlamak veya hello Açıklamalar bölümüne aracılığıyla sorular sorun. Bunu bile arkadaşlarınızla paylaşabilirsiniz ya da LinkedIn veya Twitter özelliklerini hello kullanarak iş arkadaşlarınızla paylaşabilirsiniz. Ayrıca bağlantı toothe çözüm tooinvite diğer kullanıcılar tooview hello sayfasında e-posta gönderebilirsiniz.
 
 ![Bu öğe arkadaşlarınızla paylaşın](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
 ![Kendi açıklamaları ekleme](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="deploy"></a>Dağıtma
-Bir çözüm kullanmak istiyorsanız, **dağıtma**. Yapılandırmak ve çalışma alanınızdaki çözümü dağıtmak için sunulan adımları izleyin.
+Toouse bir çözüm istiyorsanız, **dağıtma**. Tooconfigure sunulan hello adımları izleyin ve hello çalışma alanınızdaki çözümü dağıtın.
 
 ![Bir galeri çözümü dağıtma](media/machine-learning-gallery-solutions/deploy-solution.png)
 
-**[BANA GALERİSİNE ELE >>](http://gallery.cortanaintelligence.com)**
+**[ELE BANA toohello Galerisi >>](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 

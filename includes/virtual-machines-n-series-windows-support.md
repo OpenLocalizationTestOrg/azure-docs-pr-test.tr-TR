@@ -15,5 +15,5 @@
 | Windows Server 2012 R2 | [376.84](http://us.download.nvidia.com/Windows/Quadro_Certified/376.84/376.84-tesla-desktop-winserver2008-2012r2-64bit-international-whql.exe) (.exe) |
 
 > [!NOTE]
-> Tesla sürücüsü indirme bağlantıları, bu içeriğin yayımlandığı tarih için günceldir. En son sürücüler için [NVIDIA](http://www.nvidia.com/) web sitesini ziyaret edin.
+> Tesla sürücüsü indirme bağlantıları, bu içeriğin yayımlandığı tarih için günceldir. Merhaba en son sürücülere hello ziyaret [NVIDIA](http://www.nvidia.com/) Web sitesi.
 >

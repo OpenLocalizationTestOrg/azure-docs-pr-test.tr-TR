@@ -1,5 +1,5 @@
 ---
-title: "Sanal makine uzantıları ile uygulama dağıtımı otomatikleştirme | Microsoft Docs"
+title: "aaaAutomating sanal makine uzantıları ile uygulama dağıtımı | Microsoft Docs"
 description: "Azure sanal makinesi DotNet çekirdek Öğreticisi"
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -16,22 +16,22 @@ ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2996eef71b39c6240fac5484854f72d3e657d0f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 6d52537fbd4e935f19d3864def11484f519f8598
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="application-deployment-with-azure-resource-manager-templates-for-windows-vms"></a>Windows VM'ler için Azure Resource Manager şablonları ile uygulama dağıtımı
 
-Tüm Azure infrastructural gereksinimleri belirledikten ve bir dağıtım şablonuna çevrilen sonra gerçek uygulama dağıtımı ele alınması gerekir. Uygulama dağıtımı burada gerçek uygulama ikili dosyaların Azure kaynaklarını üzerine yüklenmesi için başvuruyor. Müzik deposu örnek, .net Core ve IIS gereken yüklenmeli ve her sanal makine üzerinde yapılandırılmış. Müzik deposu ikili dosyasının sanal makineye yüklenmesi gerekmez ve müzik deposu veritabanı önceden oluşturulmuş.
+Tüm Azure infrastructural gereksinimleri belirledikten ve bir dağıtım şablonuna çevrilen sonra hello gerçek uygulama dağıtımı ele toobe gerekir. Uygulama dağıtımı burada tooinstalling hello gerçek uygulama ikililerini Azure kaynaklarını üzerine başvuruyor. Merhaba müzik deposu örnek, .net için çekirdek ve IIS yüklü ve her sanal makinede yapılandırılan toobe gerekir. Merhaba müzik deposu ikili dosyaları hello sanal makineye yüklenmesi yüklü toobe gerekir ve hello müzik deposu veritabanı önceden oluşturulmuş.
 
-Bu belge, uygulama dağıtımı ve yapılandırması Azure sanal makineler için sanal makine uzantıları nasıl otomatikleştirebilirsiniz ayrıntıları. Tüm bağımlılıkları ve benzersiz yapılandırmaları vurgulanır. En iyi deneyim için Azure aboneliği ve Azure Resource Manager şablonu ile birlikte çalışma çözümü örneği önceden dağıtın. Tam veri şablonunun burada – bulunabilir [müzik deposu dağıtım Windows](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
+Bu belge, sanal makine uzantıları uygulama dağıtımı ve yapılandırması tooAzure sanal makineleri nasıl otomatikleştirebilirsiniz ayrıntıları. Tüm bağımlılıkları ve benzersiz yapılandırmaları vurgulanır. Merhaba en iyi deneyim için önceden hello çözüm tooyour Azure aboneliği ve hello Azure Resource Manager şablonu ile birlikte çalışma örneği dağıtın. Merhaba tam şablon burada – bulunabilir [müzik deposu dağıtım Windows](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
 
 ## <a name="configuration-script"></a>Yapılandırma komut dosyası
-Sanal makine uzantıları yapılandırma Otomasyon sağlamak için sanal makinelere karşı yürütme özelleştirilmiş programlardır. Uzantıları, virüsten koruma, günlük yapılandırmasını ve Docker yapılandırması gibi birçok belirli amaçlar için kullanılabilir. Özel betik uzantısı, bir sanal makine herhangi komut dosyasını çalıştırmak için kullanılabilir. Müzik deposu örneği ile Windows sanal makineleri yapılandırmak ve müzik mağaza uygulamasını yüklemek için özel betik uzantısı kadar değil.
+Sanal makine, sanal makineleri tooprovide yapılandırma Otomasyon karşı yürütme özel programları uzantılarıdır. Uzantıları, virüsten koruma, günlük yapılandırmasını ve Docker yapılandırması gibi birçok belirli amaçlar için kullanılabilir. Merhaba özel betik uzantısı herhangi bir sanal makine komut dosyası kullanılan toorun olabilir. Merhaba müzik deposu örnekle bu toohello özel betik uzantısı tooconfigure hello Windows sanal makineleri ve hello müzik deposu uygulamayı yükleyin.
 
-Sanal makine uzantıları bir Azure Resource Manager şablonu nasıl bildirilir ayrıntılı önce çalıştırılan komut dosyasını inceleyin. Bu komut dosyası müzik mağaza uygulamasını barındırmak için Windows sanal makine yapılandırır. Çalıştırdığınızda, betik tüm yazılım, müzik deposu uygulama kaynak denetiminden yükleyin ve veritabanını hazırlama yükler. 
+Sanal makine uzantıları bir Azure Resource Manager şablonu nasıl bildirilir ayrıntılı önce çalıştırılır hello komut dosyasını inceleyin. Bu komut dosyası hello Windows sanal makine toohost hello müzik deposu uygulama yapılandırır. Çalıştırdığınızda, tüm gerekli yazılım hello betik yükler kaynak denetiminden hello müzik deposu uygulamayı yükleyip hello veritabanı hazırlayın. 
 
 > Bu örnek tanıtım amacıyla kullanılır.
 
@@ -84,11 +84,11 @@ New-Website -Name "MusicStore" -Port 80 -PhysicalPath C:\music\ -ApplicationPool
 ```
 
 ## <a name="vm-script-extension"></a>VM betik uzantısı
-VM uzantıları bir sanal makine uzantısı kaynak Azure Resource Manager şablonunda ekleyerek derleme zamanında çalıştırılabilir. Uzantı, Visual Studio kaynak Ekleme Sihirbazı'nı ya da geçerli JSON şablonuna ekleyerek eklenebilir. Betik uzantısı kaynak sanal makine kaynağı içinde iç içe yerleştirilmiş; Bu aşağıdaki örnekte görülebilir.
+VM uzantıları bir sanal makine hello Azure Resource Manager şablonunda hello uzantısı kaynak ekleyerek derleme zamanında çalıştırılabilir. Merhaba uzantısı hello Visual Studio kaynak Ekleme Sihirbazı'nı ya da geçerli JSON hello şablonuna ekleyerek eklenebilir. Merhaba betik uzantısı kaynak sanal makine kaynağı hello içinde iç içe yerleştirilmiş; Bu örnekte aşağıdaki hello görülebilir.
 
-Resource Manager şablonu – içindeki JSON örnek görmek için bu bağlantıyı izleyin [VM betik uzantısı](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L339). 
+Bu bağlantıyı toosee hello JSON örnek hello Resource Manager şablonu içinde– izleyin [VM betik uzantısı](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L339). 
 
-Fark aşağıda JSON betiği Github'da depolanır. Bu komut dosyası ayrıca Azure Blob Depolama alanında depolanabilir. Ayrıca, Azure Resource Manager şablonları şablonu parametrelerinin değerlerini komut dosyası yürütme için parametre olarak kullanılabilir olduğunu oluşturulması için komut dosyası yürütme dizesi izin verin. Bu durumda veri şablonları dağıtırken sağlanır ve bu değerler, daha sonra komut dosyasını yürütürken kullanılabilir.
+Merhaba aşağıdaki betik hello JSON Github'da depolanan dikkat edin. Bu komut dosyası ayrıca Azure Blob Depolama alanında depolanabilir. Ayrıca, Azure Resource Manager şablonları hello komut dosyası yürütme dize toobe şablonu parametrelerinin değerlerini komut dosyası yürütme için parametre olarak kullanılabilir olacağı şekilde oluşturulan izin verin. Bu durumda veri hello şablonları dağıtırken sağlanır ve bu değerler, daha sonra hello komut dosyası yürütülürken kullanılabilir.
 
 ```json
 {
@@ -120,11 +120,11 @@ Fark aşağıda JSON betiği Github'da depolanır. Bu komut dosyası ayrıca Azu
 }
 ```
 
-Yukarıda belirtildiği gibi ayrıca Azure Blob depolama alanına özel komut dosyalarınızı depolamak mümkündür. Komut dosyası kaynakları blob storage'da depolamak için iki seçenek vardır; kapsayıcı/komut dosyası ya da ortak yapın ve aynı olarak yukarıdaki yaklaşımını izleyin veya Ayrıca storageAccountName ve storageAccountKey CustomScriptExtension kaynak tanımı belirtmesini gerektiren özel blob depolamada tutulabilir.
+Yukarıda belirtildiği gibi Azure Blob depolama alanına özel komut dosyaları olası toostore de olabilir. Blob depolama alanına hello komut dosyası kaynakları depolamak için iki seçenek vardır; kapsayıcı/komut dosyası ortak hello ve aynı yukarıdaki yaklaşımını hello izleyin olun ya da aynı zamanda tooprovide hello storageAccountName ve storageAccountKey toohello CustomScriptExtension kaynak tanımı gerektiren özel blob depolama alanına tutulabilir.
 
-Aşağıdaki örnekte biz bir adım daha fazla gitti. Depolama hesabı adı ve anahtar dağıtımı sırasında bir parametre veya değişken sağlamak mümkün olsa da, Resource Manager şablonları sağlamak `listKeys` depolama hesabı anahtarı programlı olarak alabilir ve şablona IT işlevi Dağıtım zamanında.
+Merhaba aşağıdaki örnekte biz bir adım daha fazla gitti. Bu olası tooprovide hello depolama hesabı adı ve anahtar bir parametre veya değişken dağıtımı sırasında olsa da, Resource Manager şablonları hello sağlamak `listKeys` hello depolama hesabı edinebilirsiniz işlevi program aracılığıyla anahtarı ve toohello Ekle Dağıtım zamanında şablonu sizin için.
 
-CustomScriptExtension kaynak tanımı aşağıdaki örnekte, özel bir komut dosyası zaten adlı bir Azure depolama hesabı yüklendi `mystorageaccount9999` olarak adlandırılan, başka bir kaynak grubunda var `mysa999rgname`. Biz bu kaynak içeren bir şablonu dağıttığınızda `listKeys` işlevi program aracılığıyla depolama hesabı için depolama hesabı anahtarı edinir `mystorageaccount9999` kaynak grubunda `mysa999rgname` ve şablona bize içinde ekler.
+Azure depolama hesabı CustomScriptExtension kaynak tanımı aşağıdaki bizim özel bir komut dosyası karşıya yüklenen tooan zaten hello örnekte adlı `mystorageaccount9999` olarak adlandırılan, başka bir kaynak grubunda var `mysa999rgname`. Biz bu kaynak içeren bir şablonu dağıttığınızda, hello `listKeys` işlevi program aracılığıyla hello depolama hesabının hello depolama hesabı anahtarı edinir `mystorageaccount9999` hello kaynak grubu içinde `mysa999rgname` ve bize toohello şablonunda ekler.
 
 ```json
 {
@@ -158,9 +158,9 @@ CustomScriptExtension kaynak tanımı aşağıdaki örnekte, özel bir komut dos
 }
 ```
 
-Bu yaklaşımın ana avantajı, şablon veya dağıtım parametrelerinizi depolama hesabı anahtar durumunda değiştirmek için gerektirmediğinden emin olur.
+Bu yaklaşımın Hello ana avantajı, toochange şablonunuzu gerektirmez veya depolama hesabı anahtarı değiştirerek dağıtım parametrelerini hello olayı içinde hello değil.
 
-Özel betik uzantısı kullanma hakkında daha fazla bilgi için bkz: [özel betik uzantılarının Resource Manager şablonları ile](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Merhaba özel betik uzantısı kullanma hakkında daha fazla bilgi için bkz: [özel betik uzantılarının Resource Manager şablonları ile](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="next-step"></a>Sonraki adım
 <hr>

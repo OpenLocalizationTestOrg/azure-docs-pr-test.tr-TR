@@ -1,6 +1,6 @@
 ---
-title: "Hdınsight üzerinde Apache Storm ile araç algılayıcı verilerini işlemek | Microsoft Docs"
-description: "Event Hubs Hdınsight üzerinde Apache Storm kullanan araç algılayıcı verilerini işlemek öğrenin. Model verileri Azure Cosmos DB'den ekleyin ve depolama birimine çıkış depolamak."
+title: "Hdınsight üzerinde Apache Storm ile aaaProcess araç algılayıcı verilerini | Microsoft Docs"
+description: "Bilgi nasıl tooprocess araç algılayıcı verileri olay hub'ın Hdınsight üzerinde Apache Storm kullanma. Model verileri Azure Cosmos DB'den ekleyin ve çıktı toostorage depolar."
 services: hdinsight,documentdb,notification-hubs
 documentationcenter: 
 author: Blackmist
@@ -15,49 +15,49 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/03/2017
 ms.author: larryfr
-ms.openlocfilehash: 8e8ebc724e1c70e8fcd56312adef5da2342373ea
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8f7b1dbb9072e095ea32160bb731bedd071288af
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="process-vehicle-sensor-data-from-azure-event-hubs-using-apache-storm-on-hdinsight"></a>Hdınsight üzerinde Apache Storm kullanan Azure Event Hubs araç algılayıcı verilerini işlemek
 
-Hdınsight üzerinde Apache Storm kullanan Azure Event Hubs araç algılayıcı verilerini işlemek öğrenin. Bu örnek, Azure Event Hubs'tan gelen algılayıcı verilerini okur, verileri Azure Cosmos DB içinde depolanan verileri başvurarak aşağıdakilere zenginleştirir. Verileri Hadoop dosya sistemi (HDFS) kullanarak Azure depolama alanına depolanır.
+Bilgi nasıl Hdınsight üzerinde Apache Storm kullanan Azure Event Hubs tooprocess araç algılayıcı verilerini. Bu örnek, Azure Event Hubs'tan gelen algılayıcı verilerini okur, Azure Cosmos DB içinde depolanan verileri başvurarak hello veri aşağıdakilere zenginleştirir. Merhaba veri hello Hadoop dosya sistemi (HDFS) kullanarak Azure depolama alanına depolanır.
 
-![Hdınsight ve nesnelerin interneti (IOT) mimarisi diyagramı](./media/hdinsight-storm-iot-eventhub-documentdb/iot.png)
+![Hdınsight ve hello nesnelerin interneti (IOT) mimarisi diyagramı](./media/hdinsight-storm-iot-eventhub-documentdb/iot.png)
 
 ## <a name="overview"></a>Genel Bakış
 
-Algılayıcılar için Araçlar ekleme, geçmiş verileri eğilimler temelinde donanım sorunları tahmin etmek sağlar. Ayrıca, kullanım deseni analize dayalı gelecek sürümlerinde geliştirmeleri yapmanızı sağlar. MapReduce işleme oluşabilmesi için öncelikle hızlı ve verimli şekilde verileri tüm araçlar Hadoop yüklemek. olması gerekir. Ayrıca, gerçek zamanlı Kritik hata yolları (altyapısı sıcaklık, Frenler, vb.) için analizi yapmak isteyebilirsiniz.
+Algılayıcılar toovehicles ekleme geçmiş verileri eğilimler temelinde toopredict donanım sorunları sağlar. Ayrıca, toomake geliştirmeleri kullanım deseni analize dayalı toofuture sürümleri sağlar. Mümkün tooquickly olması ve MapReduce işleme oluşabilmesi için öncelikle hello verileri Hadoop tüm araçlar verimli bir şekilde yükleyin. Ayrıca, gerçek zamanlı olarak kritik hata yolları (altyapısı sıcaklık, Frenler, vb.) toodo analize isteyebilir.
 
-Azure Event Hubs büyük algılayıcılar tarafından oluşturulan veri hacmi işlemek için yerleşik olarak bulunur. Apache Storm, yüklemek ve HDFS depolamadan önce verileri işlemek için kullanılabilir.
+Azure Event Hubs toohandle hello yoğun algılayıcılar tarafından üretilen verilerin hacmi yerleşik olarak bulunur. Apache Storm kullanılan tooload ve işlem hello verileri HDFS depolamadan önce olabilir.
 
 ## <a name="solution"></a>Çözüm
 
-Telemetri verileri altyapısı sıcaklık, ortam sıcaklık ve araç hızı algılayıcılar tarafından kaydedilir. Verileri Event hubs'a otomobilin araç kimlik numarası (Toplamıdır) ve zaman damgası ile birlikte gönderilir. Buradan Apache Storm Hdınsight kümesi üzerinde çalışan Storm topolojisini veri okur, işler ve HDFS depolar.
+Telemetri verileri altyapısı sıcaklık, ortam sıcaklık ve araç hızı algılayıcılar tarafından kaydedilir. Veri tooEvent hub hello otomobilin araç kimlik numarası (Toplamıdır) ve zaman damgası ile birlikte gönderilir. Buradan, Apache Storm Hdınsight kümesi üzerinde çalışan Storm topolojisini hello verileri okur, işler ve HDFS depolar.
 
-İşleme sırasında Toplamıdır modelle Cosmos DB'den almak için kullanılır. Depolandığı önce bu verileri veri akışına eklenir.
+İşleme sırasında kullanılan tooretrieve modelle Cosmos DB'den hello Toplamıdır var. Bu verilerin depolandığı önce toohello veri akışı eklenir.
 
-Storm topolojisinde kullanılan bileşenleri şunlardır:
+Merhaba Storm topolojisini kullanılan hello bileşenleri şunlardır:
 
 * **EventHubSpout** -Azure Event Hubs'tan gelen verileri okur
-* **TypeConversionBolt** -JSON dizesi olay hub'larından aşağıdaki algılayıcı verilerini içeren bir tanımlama grubu dönüştürür:
+* **TypeConversionBolt** -hello algılayıcı verilerini aşağıdaki hello içeren bir tanımlama grubu Event hubs'dan JSON dizeye dönüştürür:
     * Altyapısı sıcaklık
     * Ortam sıcaklık
     * Hız
     * TOPLAMIDIR
     * zaman damgası
-* **DataReferencBolt** -Cosmos Toplamıdır kullanarak DB'den araç modelini arar
-* **WasbStoreBolt** -HDFS (Azure Storage) veri depolar
+* **DataReferencBolt** -Cosmos hello Toplamıdır kullanarak DB'den hello araç modelini arar
+* **WasbStoreBolt** -depoları hello veri tooHDFS (Azure depolama)
 
-Aşağıdaki resimde bir diyagram bu çözümün şöyledir:
+Görüntü aşağıdaki hello Bu çözüm diyagramı şöyledir:
 
 ![Storm topolojisi](./media/hdinsight-storm-iot-eventhub-documentdb/iottopology.png)
 
 ## <a name="implementation"></a>Uygulama
 
-Tam, otomatik çözüm olarak bu senaryoda kullanılabilir parçası [Hdınsight Storm örnekler](https://github.com/hdinsight/hdinsight-storm-examples) github'daki. Bu örneği kullanmak için adımları [IoTExample Benioku. MD](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md).
+Tam, otomatik çözüm bu senaryo için hello bir parçası olarak [Hdınsight Storm örnekler](https://github.com/hdinsight/hdinsight-storm-examples) github'daki. toouse Bu örnekte, hello adımları hello içinde [IoTExample Benioku. MD](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md).
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

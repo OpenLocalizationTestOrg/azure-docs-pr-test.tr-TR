@@ -1,5 +1,5 @@
 ---
-title: "Azure Service Fabric Linux Java uygulamanızda Jenkins aracılığıyla sürekli derleme ve tümleştirme | Microsoft Docs"
+title: "aaaContinuous derleme ve Jenkins kullanarak Azure Service Fabric Linux Java uygulamanız için tümleştirme | Microsoft Docs"
 description: "Azure Service Fabric Linux Java uygulamanızda Jenkins aracılığıyla sürekli derleme ve tümleştirme"
 services: service-fabric
 documentationcenter: java
@@ -14,75 +14,75 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
 ms.author: saysa
-ms.openlocfilehash: d9372407540d903acca5b1639a2d9ceb0bf3c571
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 15da2cb8c759233219369ea889550da93748129f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-jenkins-to-build-and-deploy-your-linux-java-application"></a>Jenkins kullanarak Linux java uygulamanızı derleme ve dağıtma
-Jenkins, uygulamanızın sürekli tümleştirme ve dağıtımı için yaygın olarak kullanılan bir araçtır. Jenkins kullanarak Azure Service Fabric uygulamanızı derleme ve dağıtma işlemi aşağıda açıklanmaktadır.
+# <a name="use-jenkins-toobuild-and-deploy-your-linux-java-application"></a>Jenkins toobuild kullanmak ve Linux Java uygulamanızı dağıtın
+Jenkins, uygulamanızın sürekli tümleştirme ve dağıtımı için yaygın olarak kullanılan bir araçtır. İşte nasıl toobuild Jenkins kullanarak Azure Service Fabric uygulamanızı dağıtabilirsiniz.
 
 ## <a name="general-prerequisites"></a>Genel önkoşullar
-- Git’i yerel olarak yükleyin. İşletim sisteminize uygun Git sürümünü, [Git indirme sayfasından](https://git-scm.com/downloads) yükleyebilirsiniz. Yeni bir Git kullanıcısıysanız, daha fazla bilgi almak için [Git belgelerine](https://git-scm.com/docs) bakın.
-- Service Fabric için kullanışlı Jenkins eklentisini edinin. Eklentiyi [Service Fabric indirmeleri](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi) sayfasından indirebilirsiniz.
+- Git’i yerel olarak yükleyin. Merhaba uygun Git sürümünden yükleyebilir [hello Git indirmeler sayfası](https://git-scm.com/downloads), işletim sistemine göre. Yeni tooGit varsa, hello hakkında daha fazla bilgi [Git belgelerine](https://git-scm.com/docs).
+- Merhaba Service Fabric Jenkins eklenti sahip elinizin altında. Eklentiyi [Service Fabric indirmeleri](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi) sayfasından indirebilirsiniz.
 
 ## <a name="set-up-jenkins-inside-a-service-fabric-cluster"></a>Jenkins’i bir Service Fabric kümesi içinde ayarlama
 
-Jenkins’i bir Service Fabric kümesinin içinde veya dışında ayarlayabilirsiniz. Aşağıdaki bölümlerde, bir küme içinde kapsayıcı örneğinin durumunu kaydetmek için Azure storage hesabı kullanırken nasıl ayarlanacağını gösterir.
+Jenkins’i bir Service Fabric kümesinin içinde veya dışında ayarlayabilirsiniz. Merhaba aşağıdaki bölümler Göster nasıl tooset bunun bir Azure depolama kullanırken bir küme içindeki hesap hello kapsayıcı örneğinin toosave hello durumu.
 
 ### <a name="prerequisites"></a>Ön koşullar
-1. Bir Service Fabric Linux kümesini hazır bulundurun. Azure portalından oluşturulmuş bir Service Fabric kümesinde Docker zaten yüklüdür. Kümeyi yerel olarak çalıştırıyorsanız, ``docker info`` komutunu kullanarak Docker’ın yüklü olup olmadığını denetleyin. Yüklü değilse, aşağıdaki komutları kullanarak yükleyin:
+1. Bir Service Fabric Linux kümesini hazır bulundurun. Azure portal Hello önceden oluşturulmuş bir Service Fabric kümesi yüklü Docker sahiptir. Merhaba küme yerel olarak çalıştırıyorsanız, Docker hello komutunu kullanarak yüklü olup olmadığını denetle ``docker info``. Yüklenmemişse, uygun şekilde kullanarak yüklemek hello komutlar:
 
   ```sh
   sudo apt-get install wget
   wget -qO- https://get.docker.io/ | sh
   ```
-2. Aşağıdaki adımları kullanarak, Service Fabric kapsayıcı uygulamasının kümeye dağıtılmasını sağlayın:
+2. Merhaba aşağıdaki adımları kullanarak Hello kümede dağıtılan hello Service Fabric kapsayıcı uygulama vardır:
 
   ```sh
 git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
 cd service-fabric-java-getting-started/Services/JenkinsDocker/
 ```
 
-3. Azure depolama dosya Jenkins kapsayıcı örneğinin durumunu kalıcı hale getirmek istediğiniz paylaşımı, Bağlan seçeneği ayrıntılarını gerekir. Aynı Microsoft Azure portalını kullanıyorsanız, lütfen adımları - bir Azure depolama hesabı deyin oluşturma ``sfjenkinsstorage1``. Oluşturma bir **dosya paylaşımı** bu depolama hesabı altında söyleyin ``sfjenkins``. Tıklayın **Bağlan** Not ve dosya paylaşımı için değerleri altında görüntüler **Linux bağlanma**, deyin bu gibi aşağıdaki gibi - görünür
+3. Merhaba gereksinim toopersist hello hello Jenkins kapsayıcı örneğinin durumunu istediğiniz hello Azure depolama dosya paylaşımı, seçeneği ayrıntılarını bağlanın. Merhaba hello Microsoft Azure portalını kullanıyorsanız, aynı, lütfen hello adımları - bir Azure depolama hesabı deyin oluşturma ``sfjenkinsstorage1``. Oluşturma bir **dosya paylaşımı** bu depolama hesabı altında söyleyin ``sfjenkins``. Tıklayın **Bağlan** isteğe bağlı olarak hello dosya paylaşımı ve Not hello görüntüler altındaki değerler için **Linux bağlanma**, deyin bu gibi aşağıdaki gibi - görünür
 ```sh
 sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
 ```
 
-4. Yer tutucu değerlerini güncelleştirmek ```setupentrypoint.sh``` karşılık gelen azure depolama ayrıntılarla komut dosyası.
+4. Merhaba Hello yer tutucu değerlerini güncelleştirmek ```setupentrypoint.sh``` karşılık gelen azure depolama ayrıntılarla komut dosyası.
 ```sh
 vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
 ```
-Değiştir ``[REMOTE_FILE_SHARE_LOCATION]`` değerle ``//sfjenkinsstorage1.file.core.windows.net/sfjenkins`` 3 yukarıdaki noktası Bağlan çıktısından.
-Değiştir ``[FILE_SHARE_CONNECT_OPTIONS_STRING]`` değerle ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` noktasından Yukarıdaki 3.
+Değiştir ``[REMOTE_FILE_SHARE_LOCATION]`` hello değerle ``//sfjenkinsstorage1.file.core.windows.net/sfjenkins`` noktası Yukarıdaki 3 hello hello çıktısından bağlanın.
+Değiştir ``[FILE_SHARE_CONNECT_OPTIONS_STRING]`` hello değerle ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` noktasından Yukarıdaki 3.
 
-5. Kümeye bağlanın ve kapsayıcı uygulamayı yükleyin.
+5. Toohello kümesine bağlanın ve hello kapsayıcısı uygulamasına yükleyin.
 ```azurecli
 sfctl cluster select --endpoint http://PublicIPorFQDN:19080   # cluster connect command
 bash Scripts/install.sh
 ```
-Bu işlem, kümeye bir Jenkins kapsayıcısı yükler ve küme, Service Fabric Explorer kullanılarak izlenebilir.
+Bu hello kümede Jenkins kapsayıcı yükler ve hello Service Fabric Explorer kullanarak izlenebilir.
 
 ### <a name="steps"></a>Adımlar
-1. Tarayıcınızdan ``http://PublicIPorFQDN:8081`` sayfasına gidin. Bu işlem, oturum açmak için gereken ilk yönetici parolasının yolunu sağlar. Jenkins’i yönetici kullanıcı olarak kullanmaya devam edebilirsiniz. Ya da ilk yönetici hesabıyla oturum açtıktan sonra kullanıcı oluşturabilir ve değiştirebilirsiniz.
+1. Tarayıcınızdan çok Git``http://PublicIPorFQDN:8081``. Merhaba ilk yönetici parolası gerekli toosign hello yolunu sağlar. Bir yönetici kullanıcı olarak toouse Jenkins devam edebilirsiniz. Veya oluşturup hello ilk yönetici hesabıyla oturum sonra hello kullanıcı değiştirin.
 
    > [!NOTE]
-   > Kümeyi oluştururken uygulamanın uç nokta bağlantı noktası olarak 8081 bağlantı noktasının belirtildiğinden emin olun.
+   > Merhaba küme oluştururken hello 8081 bağlantı noktası hello uygulama bitiş bağlantı noktası olarak belirtildiğinden emin olun.
    >
 
-2. ``docker ps -a`` kullanarak kapsayıcı örneğinin kimliğini alın.
-3. Kapsayıcıda Güvenli Kabuk (SSH) oturumunu açın ve Jenkins portalında gösterilen yolu yapıştırın. Örneğin, portalda `PATH_TO_INITIAL_ADMIN_PASSWORD` yolu gösteriliyorsa aşağıdaki komutu çalıştırın:
+2. Merhaba kapsayıcı örnek kimliği kullanarak alma ``docker ps -a``.
+3. Güvenli Kabuk (SSH) oturum açma toohello kapsayıcı ve hello Jenkins portalında gösterilen hello yolu yapıştırın. Örneğin, isteğe bağlı olarak hello Portalı'nda hello yolunu gösterir `PATH_TO_INITIAL_ADMIN_PASSWORD`, hello aşağıdaki komutu çalıştırın:
 
   ```sh
   docker exec -t -i [first-four-digits-of-container-ID] /bin/bash   # This takes you inside Docker shell
   cat PATH_TO_INITIAL_ADMIN_PASSWORD
   ```
 
-4. [Yeni bir SSH anahtarı oluşturma ve SSH aracısına ekleme](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) bölümünde anlatılan adımları kullanarak, GitHub’ı Jenkins ile çalışacak şekilde ayarlayın.
-    * GitHub’dan sağlanan yönergeleri kullanarak SSH anahtarını oluşturun ve depoyu barındıran GitHub hesabına SSH anahtarını ekleyin.
-    * Önceki bağlantıda belirtilen komutları Jenkins Docker kabuğunda (ana bilgisayarınızda değil) çalıştırın.
-    * Ana bilgisayarınızdan Jenkins kabuğunda oturum açmak için aşağıdaki komutu kullanın:
+4. Belirtilen hello adımları kullanarak GitHub toowork Jenkins ile ayarlamak [yeni bir SSH anahtarı oluşturma ve toohello SSH aracı ekleyerek](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
+    * GitHub toogenerate hello SSH anahtarı ve tooadd hello SSH anahtar toohello deponuz barındıran GitHub hesabı tarafından sağlanan hello yönergeleri kullanın.
+    * Merhaba hello Jenkins Docker Kabuğu (ve ana bilgisayarınız üzerinde değil) bağlantı önceki bölümünde belirtildiği hello komutları çalıştırın.
+    * toosign toohello ana bilgisayar, komutu aşağıdaki kullanım hello Jenkins kabuğundan içinde:
 
   ```sh
   docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
@@ -90,82 +90,82 @@ Bu işlem, kümeye bir Jenkins kapsayıcısı yükler ve küme, Service Fabric E
 
 ## <a name="set-up-jenkins-outside-a-service-fabric-cluster"></a>Jenkins’i Service Fabric kümesi dışında ayarlama
 
-Jenkins’i bir Service Fabric kümesinin içinde veya dışında ayarlayabilirsiniz. Aşağıdaki bölümlerde, kümenin dışında nasıl ayarlandığı gösterilmektedir.
+Jenkins’i bir Service Fabric kümesinin içinde veya dışında ayarlayabilirsiniz. bölümler Göster nasıl aşağıdaki hello tooset bunun bir küme dışında.
 
 ### <a name="prerequisites"></a>Ön koşullar
-Docker’ın yüklü olması gerekir. Terminalden Docker yüklemek için aşağıdaki komutlar kullanılabilir:
+Toohave yüklü Docker gerekir. Aşağıdaki komutları hello hello terminal gelen kullanılan tooinstall Docker olabilir:
 
   ```sh
   sudo apt-get install wget
   wget -qO- https://get.docker.io/ | sh
   ```
 
-Şimdi terminalde ``docker info`` çalıştırdığınızda, çıktıda Docker hizmetinin çalıştığını göreceksiniz.
+Şimdi çalıştırdığınızda ``docker info`` hello terminal, o Merhaba hizmeti çalışırken Docker hello çıktı görmeniz gerekir.
 
 ### <a name="steps"></a>Adımlar
-  1. Service Fabric Jenkins kapsayıcı görüntüsünü çekin: ``docker pull raunakpandya/jenkins:v1``
-  2. Kapsayıcı görüntüsünü çalıştırın:``docker run -itd -p 8080:8080 raunakpandya/jenkins:v1``
-  3. Kapsayıcı görüntüsü örneğinin kimliğini alın. ``docker ps –a`` komutuyla tüm Docker kapsayıcılarını listeleyebilirsiniz
-  4. Aşağıdaki adımları kullanarak Jenkins portalında oturum açın:
+  1. Merhaba Service Fabric Jenkins kapsayıcı görüntü çekme:``docker pull raunakpandya/jenkins:v1``
+  2. Merhaba kapsayıcı görüntüsü çalıştırın:``docker run -itd -p 8080:8080 raunakpandya/jenkins:v1``
+  3. Merhaba kapsayıcı görüntü örneğinin Hello kimliği alın. Tüm hello Docker kapsayıcıları hello komutuyla listesi``docker ps –a``
+  4. İçinde toohello hello aşağıdaki adımları kullanarak Jenkins portalında oturum:
 
     * ```sh
     docker exec [first-four-digits-of-container-ID] cat /var/jenkins_home/secrets/initialAdminPassword
     ```
     Kapsayıcı kimliği 2d24a73b5964 ise, 2d24 kullanın.
-    * ``http://<HOST-IP>:8080`` olan bu parola, portaldan Jenkins panosunda oturum açmak için gereklidir
-    * İlk defa oturum açtıktan sonra, kendi kullanıcı hesabınızı oluşturabilir ve bunu gelecekteki amaçlar için kullanabilirsiniz veya yönetici hesabını kullanmaya devam edebilirsiniz. Bir kullanıcı oluşturduktan sonra, bu kullanıcıyla devam etmeniz gerekir.
-  5. [Yeni bir SSH anahtarı oluşturma ve SSH aracısına ekleme](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/) bölümünde anlatılan adımları kullanarak, GitHub’ı Jenkins ile çalışacak şekilde ayarlayın.
-        * GitHub’dan sağlanan yönergeleri kullanarak SSH anahtarını oluşturun ve depoyu barındıran GitHub hesabına SSH anahtarını ekleyin.
-        * Önceki bağlantıda belirtilen komutları Jenkins Docker kabuğunda (ana bilgisayarınızda değil) çalıştırın.
-      * Ana bilgisayarınızdan Jenkins kabuğunda oturum açmak için aşağıdaki komutları kullanın:
+    * Bu parola toohello Jenkins panosunda olduğu Portalı'ndan imzalamak için gereklidir``http://<HOST-IP>:8080``
+    * Merhaba ilk kez oturum açtıktan sonra kendi kullanıcı hesabı oluşturun ve gelecekteki amaçları için kullanmak veya toouse hello yönetici hesabı devam edebilirsiniz. Bir kullanıcı oluşturduktan sonra ile toocontinue gerekir.
+  5. Belirtilen hello adımları kullanarak GitHub toowork Jenkins ile ayarlamak [yeni bir SSH anahtarı oluşturma ve toohello SSH aracı ekleyerek](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
+        * GitHub toogenerate hello SSH anahtarı ve tooadd hello SSH anahtar toohello hello deposu barındıran GitHub hesabı tarafından sağlanan hello yönergeleri kullanın.
+        * Merhaba hello Jenkins Docker Kabuğu (ve ana bilgisayarınız üzerinde değil) bağlantı önceki bölümünde belirtildiği hello komutları çalıştırın.
+      * toosign toohello ana bilgisayarınız, aşağıdaki komutları kullanın hello Jenkins kabuğundan içinde:
 
       ```sh
       docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
       ```
 
-Jenkins kapsayıcı görüntüsünün barındırıldığı küme veya makinede genel kullanıma yönelik bir IP bulunduğundan emin olun. Bunun olması, Jenkins örneğinin GitHub'dan bildirimler almasını sağlar.
+Bu hello küme veya Jenkins kapsayıcı görüntü barındırılan hello genel kullanıma yönelik IP sahip olduğu makine emin olun. Merhaba Jenkins örneği tooreceive bildirimleri github'dan sağlar.
 
-## <a name="install-the-service-fabric-jenkins-plug-in-from-the-portal"></a>Portaldan Service Fabric Jenkins eklentisini yükleme
+## <a name="install-hello-service-fabric-jenkins-plug-in-from-hello-portal"></a>Merhaba portalından Hello Service Fabric Jenkins eklentisini yükleme
 
-1. Şuraya gidin: ``http://PublicIPorFQDN:8081``
-2. Jenkins panosundan **Jenkins’i Yönet** > **Eklentileri Yönet** > **Gelişmiş**’i seçin.
-Burada, bir eklentiyi karşıya yükleyebilirsiniz. **Dosya seç** seçeneğini belirleyin, ardından önkoşullar altında indirmiş olduğunuz **serviceFabric.hpi** dosyasını seçin. **Karşıya Yükle**’yi seçtiğinizde Jenkins, eklentiyi otomatik olarak yükler. Yeniden başlatma isteniyorsa izin verin.
+1. Çok gidin``http://PublicIPorFQDN:8081``
+2. Merhaba Jenkins panodan seçin **yönetmek Jenkins** > **eklentileri yönetme** > **Gelişmiş**.
+Burada, bir eklentiyi karşıya yükleyebilirsiniz. Seçin **dosya**ve ardından hello **serviceFabric.hpi** altında Önkoşullar indirilen dosya. Seçtiğinizde, **karşıya**, Jenkins hello eklenti otomatik olarak yükler. Yeniden başlatma isteniyorsa izin verin.
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Bir Jenkins işi oluşturma ve yapılandırma
 
 1. Panodan **yeni öğe** oluşturun.
 2. Bir öğe adını girin (örneğin, **MyJob**). **Serbest stil proje**’yi seçip **Tamam**’a tıklayın.
-3. İş sayfasına gidip **Yapılandır** öğesine tıklayın.
+3. Merhaba iş sayfasına gidin ve'ı tıklatın **yapılandırma**.
 
-   a. Genel bölümündeki **GitHub projesi** altında, GitHub projenizin URL'sini belirtin. Bu URL, Jenkins sürekli tümleştirme, sürekli dağıtım (CI/CD) akışı ile tümleştirmek istediğiniz Service Fabric Java uygulamasını barındırır (örneğin, ``https://github.com/sayantancs/SFJenkins``).
+   a. Merhaba genel bölümdeki altında **GitHub proje**, GitHub proje URL'sini belirtin. Sürekli dağıtım (CI/CD) toointegrate hello Jenkins sürekli tümleştirme ile istediğiniz bu URL konakları hello hizmet doku Java uygulaması akış (örneğin, ``https://github.com/sayantancs/SFJenkins``).
 
-   b. **Kaynak Kodu Yönetimi** bölümünde **Git**’i seçin. Jenkins CI/CD akışıyla tümleştirmek istediğiniz Service Fabric Java uygulamasını barındıran deponun URL'sini belirtin (örneğin, ``https://github.com/sayantancs/SFJenkins.git``). Ayrıca, burada hangi dalın derleneceğini belirtebilirsiniz (örneğin, **/master**).
-4. *GitHub*’ınızı (depoyu barındıran) Jenkins ile konuşabilecek şekilde yapılandırın. Aşağıdaki adımları kullanın:
+   b. Merhaba altında **kaynak kodu Yönetimi** bölümünde, select **Git**. Merhaba Jenkins CI/CD akış ile toointegrate istediğiniz hello Service Fabric Java uygulamasını barındıran hello depo URL'si belirtin (örneğin, ``https://github.com/sayantancs/SFJenkins.git``). Ayrıca, burada hangi şube toobuild belirtebilirsiniz (örneğin, **/ana**).
+4. Yapılandırma, *GitHub* (hangi barındırma hello depo) mümkün tootalk tooJenkins olmasını sağlayın. Merhaba aşağıdaki adımları kullanın:
 
-   a. GitHub depo sayfanıza gidin. **Ayarlar** > **Tümleştirmeler ve Hizmetler** öğesine gidin.
+   a. Tooyour GitHub depo sayfasına gidin. Çok Git**ayarları** > **tümleştirmeler ve Hizmetleri**.
 
-   b. **Hizmet Ekle**’yi seçin, **Jenkins** yazın ve **Jenkins-GitHub eklentisi**’ni seçin.
+   b. Seçin **Hizmet Ekle**, türü **Jenkins**ve select hello **Jenkins GitHub eklentisi**.
 
    c. Jenkins web kancası URL'nizi girin (varsayılan olarak, ``http://<PublicIPorFQDN>:8081/github-webhook/`` olmalıdır). **Hizmet ekle/güncelleştir** öğesine tıklayın.
 
-   d. Jenkins örneğinize bir test olayı gönderilir. GitHub’da web kancasının yanında yeşil renkli bir onay işareti görürsünüz ve projeniz derlenir.
+   d. Bir test olayı tooyour Jenkins örneği gönderilir. Github'da hello Web kancası tarafından yeşil bir onay işareti görürsünüz ve projenizi oluşturacaksınız.
 
-   e. **Derleme Tetikleyicileri** bölümünde, istediğiniz derleme seçeneğini belirleyin. Bu örnekte, depoda bazı itmeler gerçekleştiğinde derleme tetiklemeyi istersiniz. Bu nedenle **GITScm yoklaması için GitHub kanca tetikleyicisi**’ni seçin. (Daha önce bu seçenek **GitHub’a bir değişiklik uygulandığında derle** olarak adlandırılıyordu.)
+   e. Merhaba altında **yapı tetikleyicileri** bölümünde, hangi oluşturmak istediğiniz seçeneği seçin. Bu örnekte, bazı itme toohello depo olur her tootrigger bir yapı istediğiniz. Bu nedenle **GITScm yoklaması için GitHub kanca tetikleyicisi**’ni seçin. (Bu seçenek daha önce çağrıldı **bir değişiklik tooGitHub gönderildiğinde yapı**.)
 
-   f. **Derleme bölümü** altında, **Derleme adımı ekle** açılır listesinden **Gradle Betiğini Çağır** seçeneğini belirleyin. Açılan pencere öğesinde, uygulamanız için **Kök derleme betiği** yolunu belirtin. Belirtilen yoldan build.gradle’ı alır ve buna göre çalışır. ``MyActor`` adlı bir proje oluşturursanız (Eclipse eklentisini veya Yeoman oluşturucuyu kullanarak), kök derleme betiği ``${WORKSPACE}/MyActor`` içermelidir. Bunun nasıl göründüğüne ilişkin bir örnek için aşağıdaki ekran görüntüsüne bakın:
+   f. Merhaba altında **yapı bölüm**, hello açılan gelen **Ekle derleme adımı**, hello seçeneğini belirleyin **çağırma Gradle betik**. Gelen hello pencere öğesinde hello yolu çok belirtin**kök yapı betik** uygulamanız için. Belirtilen hello yolundan build.gradle seçer ve uygun şekilde çalışır. Adlı bir proje oluşturduğunuzda ``MyActor`` (Merhaba Eclipse eklenti veya Yeoman oluşturucusunu kullanarak), hello kök derleme betiğindeki içermelidir ``${WORKSPACE}/MyActor``. Bunun nasıl göründüğünü bir örnek için ekran görüntüsü aşağıdaki hello bakın:
 
     ![Service Fabric Jenkins Derleme eylemi][build-step]
 
-   g. **Derleme Sonrası Eylemler** açılır listesinden **Service Fabric Projesini Dağıt**’ı seçin. Burada, Jenkins tarafından derlenen Service Fabric uygulamasının dağıtılacağı kümenin ayrıntılarını sağlamanız gerekir. Uygulamayı dağıtmak için kullanılan ek uygulama ayrıntıları da sağlayabilirsiniz. Bunun nasıl göründüğüne ilişkin bir örnek için aşağıdaki ekran görüntüsüne bakın:
+   g. Merhaba gelen **oluşturma sonrası eylemleri** açılan listesinde, select **dağıtmak Service Fabric proje**. Burada, burada hello Jenkins Service Fabric uygulaması derlenmiş ayrıntıları dağıtılabilecek tooprovide küme gerekir. Ek uygulama ayrıntıları toodeploy hello uygulama kullanılan de sağlayabilirsiniz. Bunun nasıl göründüğünü bir örnek için ekran görüntüsü aşağıdaki hello bakın:
 
     ![Service Fabric Jenkins Derleme eylemi][post-build-step]
 
    > [!NOTE]
-   > Burada küme, Jenkins kapsayıcı görüntüsünü dağıtmak için Service Fabric kullandığınız durumda Jenkins kapsayıcı uygulamasını barındıran kümeyle aynı olabilir.
+   > Service Fabric toodeploy hello Jenkins kapsayıcı görüntü kullandığınız durumda burada hello küme hello bir barındırma hello Jenkins kapsayıcı uygulaması aynı olabilir.
    >
 
 ## <a name="next-steps"></a>Sonraki adımlar
-GitHub ve Jenkins yapılandırılmıştır. https://github.com/sayantancs/SFJenkins depo örneğinde, ``MyActor`` projenizde bazı örnek değişiklikler yapmayı düşünün. Değişikliklerinizi uzak ``master`` dalına (veya birlikte çalışmak üzere yapılandırdığınız herhangi bir dala) gönderin. Bunun yapılması, yapılandırmış olduğunuz ``MyJob`` Jenkins işini tetikler. Bu işlem GitHub’dan değişiklikleri getirir, derler ve derleme sonrası eylemlerde belirttiğiniz küme uç noktasına uygulamayı dağıtır.  
+GitHub ve Jenkins yapılandırılmıştır. Bazı örnek değişiklik yapmayı düşünün, ``MyActor`` hello deposu örnek projesinde https://github.com/sayantancs/SFJenkins. Değişiklikleri tooa uzak anında ``master`` şube (veya toowork ile yapılandırılmış herhangi bir dal). Bu hello Jenkins iş tetikler ``MyJob``, yapılandırdığınız. Github'dan hello değişiklikleri getirir, bunları oluşturur ve oluşturma sonrası eylemleri belirtilen hello uygulama toohello küme uç noktası dağıtır.  
 
   <!-- Images -->
   [build-step]: ./media/service-fabric-cicd-your-linux-java-application-with-jenkins/build-step.png

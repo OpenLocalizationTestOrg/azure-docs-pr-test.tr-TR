@@ -1,6 +1,6 @@
 ---
-title: "Apache Sqoop Hadoop - Azure Hdınsight ile | Microsoft Docs"
-description: "Apache Sqoop hdınsight'ta Hadoop ve bir Azure SQL veritabanı arasında almak ve vermek için nasıl kullanılacağını öğrenin."
+title: "aaaApache Hadoop - Azure Hdınsight ile Sqoop | Microsoft Docs"
+description: "Bilgi nasıl toouse Apache Sqoop tooimport ve hdınsight'ta Hadoop ile bir Azure SQL veritabanı arasında dışarı aktarma."
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
@@ -17,24 +17,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: larryfr
-ms.openlocfilehash: 35dcbb91e6af1480685c9fd5b829c54277c1c605
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: b256285659bbcf18ff05e220ccdf51c21eb8fbf7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-apache-sqoop-to-import-and-export-data-between-hadoop-on-hdinsight-and-sql-database"></a>İçeri ve dışarı aktarma hdınsight'ta Hadoop ile SQL veritabanı arasında veri için Apache Sqoop'u kullanın
+# <a name="use-apache-sqoop-tooimport-and-export-data-between-hadoop-on-hdinsight-and-sql-database"></a>Apache Sqoop tooimport kullanın ve hdınsight'ta Hadoop ile SQL veritabanı arasında veri dışarı aktarma
 
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
-Apache Sqoop Azure hdınsight'ta Hadoop kümesi ve Azure SQL Database veya Microsoft SQL Server veritabanı arasında almak ve vermek için nasıl kullanılacağını öğrenin. Bu adımlarda belge kullanımı `sqoop` Hadoop kümesi headnode doğrudan komutu. SSH baş düğümüne bağlanmak ve bu belgede komutları çalıştırmak için kullanın.
+Azure Hdınsight ve Azure SQL Database veya Microsoft SQL Server veritabanı nasıl toouse Apache Sqoop tooimport ve dışarı aktarma arasında bir Hadoop küme öğrenin. Merhaba adımları bu belgenin kullanımı hello `sqoop` hello Hadoop kümesi hello headnode doğrudan komutu. SSH tooconnect toohello baş düğüm kullanın ve bu belgede hello komutları çalıştırın.
 
 > [!IMPORTANT]
-> Bu belgede yer alan adımlar, yalnızca Linux kullanmak Hdınsight kümeleri ile çalışır. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Merhaba bu belgedeki adımlar yalnızca Linux kullanmak Hdınsight kümeleri ile çalışır. Linux hello yalnızca Hdınsight sürüm 3.4 veya büyük kullanılan işletim sistemini ' dir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="install-freetds"></a>Ücretsiz yükleyin
 
-1. SSH Hdınsight kümesine bağlanın. Örneğin, aşağıdaki komutu adlı bir küme için birincil headnode bağlayan `mycluster`:
+1. SSH tooconnect toohello Hdınsight kümesi kullanın. Örneğin, komutu aşağıdaki hello toohello birincil headnode adlı bir kümeye bağlanır `mycluster`:
 
     ```bash
     ssh CLUSTERNAME-ssh.azurehdinsight.net
@@ -42,32 +42,32 @@ Apache Sqoop Azure hdınsight'ta Hadoop kümesi ve Azure SQL Database veya Micro
 
     Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Ücretsiz yüklemek için aşağıdaki komutu kullanın:
+2. Aşağıdaki komut tooinstall ücretsiz hello kullan:
 
     ```bash
     sudo apt --assume-yes install freetds-dev freetds-bin
     ```
 
-    Ücretsiz birkaç adımda SQL veritabanına bağlanmak için kullanılır.
+    Ücretsiz çeşitli adımları tooconnect tooSQL veritabanı kullanılır.
 
-## <a name="create-the-table-in-sql-database"></a>SQL veritabanı tablosu oluşturma
+## <a name="create-hello-table-in-sql-database"></a>SQL veritabanı'nda Hello tablosu oluşturma
 
 > [!IMPORTANT]
-> Hdınsight kümesi kullanıyorsanız ve SQL veritabanı oluşturuldu [küme ve SQL veritabanı oluşturma](hdinsight-use-sqoop.md), bu bölümdeki adımları atlayın. Veritabanı ve tablo adımlarda bir parçası olarak oluşturulan [küme ve SQL veritabanı oluşturma](hdinsight-use-sqoop.md) belge.
+> Merhaba Hdınsight kümesi kullanıyorsanız ve SQL veritabanı oluşturuldu [küme ve SQL veritabanı oluşturma](hdinsight-use-sqoop.md), bu bölümdeki hello adımları atlayın. Merhaba parçası hello adımları gibi hello veritabanı ve tablo oluşturulan [küme ve SQL veritabanı oluşturma](hdinsight-use-sqoop.md) belge.
 
-1. SSH oturumundan SQL veritabanı sunucusuna bağlanmak için aşağıdaki komutu kullanın.
+1. Merhaba SSH oturumundan komutu tooconnect toohello SQL veritabanı sunucusu aşağıdaki hello kullanın.
 
         TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D sqooptest
 
-    Aşağıdakine benzer bir çıktı alırsınız:
+    Metin aşağıdaki çıktı benzer toohello alırsınız:
 
         locale is "en_US.UTF-8"
         locale charset is "UTF-8"
         using default charset "UTF-8"
-        Default database being set to sqooptest
+        Default database being set toosqooptest
         1>
 
-2. Konumundaki `1>` isteminde, aşağıdaki sorguyu girin:
+2. Merhaba, `1>` isteminde, sorgu aşağıdaki hello girin:
 
     ```sql
     CREATE TABLE [dbo].[mobiledata](
@@ -87,51 +87,51 @@ Apache Sqoop Azure hdınsight'ta Hadoop kümesi ve Azure SQL Database veya Micro
     GO
     ```
 
-    Zaman `GO` deyimi girilir, önceki deyimleri değerlendirilir. İlk olarak, **mobiledata** tablosu oluşturulur ve kümelenmiş bir dizin (SQL veritabanı tarafından gereklidir.) kendisine eklenir
+    Ne zaman hello `GO` deyimi girilir, hello önceki deyimleri değerlendirilir. İlk olarak, hello **mobiledata** tablosu oluşturulur ve kümelenmiş bir dizin (SQL veritabanı tarafından gereklidir.) tooit eklenir
 
-    Tablo oluşturulduğunu doğrulamak için aşağıdaki sorguyu kullanın:
+    Tablo hello sorgu tooverify aşağıdaki kullanım hello oluşturuldu:
 
     ```sql
     SELECT * FROM information_schema.tables
     GO
     ```
 
-    Aşağıdakine benzer bir çıktı görürsünüz:
+    Metin aşağıdaki çıktı benzer toohello bakın:
 
         TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
         sqooptest       dbo     mobiledata      BASE TABLE
 
-3. Girin `exit` adresindeki `1>` tsql yardımcı programı'ndan çıkmak komut istemi.
+3. Girin `exit` hello adresindeki `1>` sor tooexit hello tsql yardımcı programı.
 
 ## <a name="sqoop-export"></a>Sqoop dışarı aktarma
 
-1. Kümeye SSH bağlantısı Sqoop SQL veritabanınız görebildiğini doğrulamak için aşağıdaki komutu kullanın:
+1. Merhaba SSH bağlantı toohello kümeden Sqoop SQL veritabanınız görebilirsiniz komutu tooverify aşağıdaki hello kullan:
 
     ```bash
     sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> -P
     ```
-    İstendiğinde, SQL veritabanı oturum açma için parola girin.
+    İstendiğinde, hello parola hello SQL veritabanı oturum açma için girin.
 
-    Bu komut veritabanları dahil olmak üzere, bir listesini döndürür **sqooptest** daha önce oluşturduğunuz veritabanı.
+    Bu komut hello dahil olmak üzere veritabanlarının listesini döndürür **sqooptest** daha önce oluşturduğunuz veritabanı.
 
-2. Verileri dışarı aktarmak için **hivesampletable** için **mobiledata** tablo, aşağıdaki komutu kullanın:
+2. tooexport verileri **hivesampletable** toohello **mobiledata** tablo, hello aşağıdaki komutu kullanın:
 
     ```bash
     sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> -P --table 'mobiledata' --export-dir 'wasb:///hive/warehouse/hivesampletable' --fields-terminated-by '\t' -m 1
     ```
 
-    Bu komut bağlanmak için Sqoop bildirir **sqooptest** veritabanı. Sqoop sonra verileri dışa aktarır **wasb: / / / hive/ambarı/hivesampletable** için **mobiledata** tablo.
+    Bu komut Sqoop tooconnect toohello bildirir **sqooptest** veritabanı. Sqoop sonra verileri dışa aktarır **wasb: / / / hive/ambarı/hivesampletable** toohello **mobiledata** tablo.
 
     > [!IMPORTANT]
-    > Kullanım `wasb:///` kümeniz için varsayılan depolama bir Azure depolama hesabı ise. Kullanım `adl:///` bir Azure Data Lake Store ise.
+    > Kullanım `wasb:///` hello varsayılan depolama kümeniz için bir Azure depolama hesabı ise. Kullanım `adl:///` bir Azure Data Lake Store ise.
 
-3. Komut tamamlandığında, TSQL kullanılarak veritabanına bağlanmak için aşağıdaki komutu kullanın:
+3. Merhaba komut tamamlandıktan sonra komut tooconnect toohello veritabanı TSQL kullanarak aşağıdaki hello kullanın:
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P -p 1433 -D sqooptest
     ```
 
-    Bağlantı kurulduktan sonra verileri dışarı aktarılan doğrulamak için aşağıdaki ifadeleri kullanın **mobiledata** tablosu:
+    Bağlandıktan sonra dışarı aktarılan toohello veri hello deyimleri tooverify aşağıdaki kullanım hello edildi **mobiledata** tablosu:
 
     ```sql
     SET ROWCOUNT 50;
@@ -139,19 +139,19 @@ Apache Sqoop Azure hdınsight'ta Hadoop kümesi ve Azure SQL Database veya Micro
     GO
     ```
 
-    Tablosunda veri listesini görmelisiniz. Tür `exit` tsql yardımcı programı'ndan çıkmak için.
+    Merhaba tablodaki verileri listesini görmelisiniz. Tür `exit` tooexit hello tsql yardımcı programı.
 
 ## <a name="sqoop-import"></a>Sqoop alma
 
-1. Verileri içe aktarmak için aşağıdaki komutu kullanın **mobiledata** SQL veritabanında çok tablo **wasb: / / / öğreticileri/usesqoop/importeddata** hdınsight'ta dizin:
+1. Kullanım hello şu komutu hello tooimport verileri **mobiledata** SQL veritabanındaki toohello tablosu **wasb: / / / öğreticileri/usesqoop/importeddata** hdınsight'ta dizin:
 
     ```bash
     sqoop import --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
     ```
 
-    Veri alanları bir sekme karakteriyle ayrılır ve satırları yeni satır karakteri tarafından sonlandırılır.
+    Merhaba veri Hello alanları bir sekme karakteriyle ayrılır ve hello satırları yeni satır karakteri tarafından sonlandırılır.
 
-2. Alma işlemi tamamlandıktan sonra yeni bir dizinde liste veri çıkışı için aşağıdaki komutu kullanın:
+2. Merhaba içeri aktarma tamamlandıktan sonra komut toolist hello dizininde bulunan verileri hello yeni çıkışı aşağıdaki hello kullanın:
 
     ```bash
     hdfs dfs -text /tutorials/usesqoop/importeddata/part-m-00000
@@ -159,21 +159,21 @@ Apache Sqoop Azure hdınsight'ta Hadoop kümesi ve Azure SQL Database veya Micro
 
 ## <a name="using-sql-server"></a>SQL Server kullanma
 
-Sqoop, veri merkezinizdeki veya Azure üzerinde barındırılan bir sanal makinede SQL Server'dan veri vermek ve almak için de kullanabilirsiniz. SQL Database ve SQL Server kullanımı arasındaki farklılıklar şunlardır:
+Ayrıca, Sqoop tooimport kullanmak ve verileri, veri merkezinizdeki veya Azure üzerinde barındırılan bir sanal makinede SQL Server'dan dışarı aktarma. SQL Database ve SQL Server kullanarak arasında hello farklılıklar şunlardır:
 
-* Hdınsight ve SQL Server aynı Azure sanal ağ üzerinde olmalıdır.
+* Hdınsight ve SQL Server gerekir olması üzerinde hello aynı Azure sanal ağı.
 
-    Bir örnek için bkz: [şirket içi ağınıza bağlanmak Hdınsight](./connect-on-premises-network.md) belge.
+    Merhaba bir örnek için bkz: [bağlanmak Hdınsight tooyour şirket içi ağ](./connect-on-premises-network.md) belge.
 
-    Hdınsight Azure sanal ağı ile kullanma hakkında daha fazla bilgi için bkz: [genişletmek Hdınsight Azure sanal ağ ile](hdinsight-extend-hadoop-virtual-network.md) belge. Azure sanal ağ ile ilgili daha fazla bilgi için bkz: [Virtual Network'e genel bakış](../virtual-network/virtual-networks-overview.md) belge.
+    Merhaba Hdınsight bir Azure sanal ağı ile kullanma hakkında daha fazla bilgi için bkz: [genişletmek Hdınsight Azure sanal ağ ile](hdinsight-extend-hadoop-virtual-network.md) belge. Azure sanal ağ ile ilgili daha fazla bilgi için bkz: Merhaba [Virtual Network'e genel bakış](../virtual-network/virtual-networks-overview.md) belge.
 
-* SQL Server, SQL kimlik doğrulaması izin verecek şekilde yapılandırılmalıdır. Daha fazla bilgi için bkz: [bir kimlik doğrulama modu seçme](https://msdn.microsoft.com/ms144284.aspx) belge.
+* SQL Server yapılandırılmış tooallow SQL kimlik doğrulaması olması gerekir. Daha fazla bilgi için bkz: Merhaba [bir kimlik doğrulama modu seçme](https://msdn.microsoft.com/ms144284.aspx) belge.
 
-* SQL Server'ın uzak bağlantıları kabul edecek şekilde yapılandırmanız gerekebilir. Daha fazla bilgi için bkz: [SQL Server veritabanı altyapısına bağlanma ile ilgili sorunları giderme](http://social.technet.microsoft.com/wiki/contents/articles/2102.how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx) belge.
+* Tooconfigure SQL Server tooaccept uzak bağlantıları olabilir. Daha fazla bilgi için bkz: Merhaba [nasıl tootroubleshoot bağlanan toohello SQL Server veritabanı altyapısı](http://social.technet.microsoft.com/wiki/contents/articles/2102.how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx) belge.
 
-* Oluşturma **sqooptest** gibi bir yardımcı programını kullanarak SQL Server veritabanında **SQL Server Management Studio** veya **tsql**. Azure CLI kullanarak için adımlar, yalnızca Azure SQL veritabanı için geçerlidir.
+* Merhaba oluşturma **sqooptest** gibi bir yardımcı programını kullanarak SQL Server veritabanında **SQL Server Management Studio** veya **tsql**. hello Azure CLI kullanma hello adımlar, yalnızca Azure SQL veritabanı için geçerlidir.
 
-    Oluşturmak için aşağıdaki Transact-SQL deyimi kullanın **mobiledata** tablosu:
+    Transact-SQL deyimleri toocreate hello aşağıdaki kullanım hello **mobiledata** tablosu:
 
     ```sql
     CREATE TABLE [dbo].[mobiledata](
@@ -190,7 +190,7 @@ Sqoop, veri merkezinizdeki veya Azure üzerinde barındırılan bir sanal makine
     [sessionpagevieworder] [bigint])
     ```
 
-* SQL Server'a Hdınsight'ta bağlanırken, SQL Server'ın IP adresi kullanmak zorunda kalabilirsiniz. Örneğin:
+* SQL Server toohello Hdınsight'ta bağlanırken hello SQL Server toouse başlangıç IP adresi olabilir. Örneğin:
 
     ```bash
     sqoop import --connect 'jdbc:sqlserver://10.0.1.1:1433;database=sqooptest' --username <adminLogin> --password <adminPassword> --table 'mobiledata' --target-dir 'wasb:///tutorials/usesqoop/importeddata' --fields-terminated-by '\t' --lines-terminated-by '\n' -m 1
@@ -198,17 +198,17 @@ Sqoop, veri merkezinizdeki veya Azure üzerinde barındırılan bir sanal makine
 
 ## <a name="limitations"></a>Sınırlamalar
 
-* Toplu export - ile Linux tabanlı Hdınsight, Microsoft SQL Server veya Azure SQL veritabanı için verileri dışa aktarmak için kullanılan Sqoop bağlayıcı toplu eklemeler şu anda desteklemiyor.
+* Toplu export - ile Linux tabanlı Hdınsight, hello Sqoop kullanılan bağlayıcı tooexport veri tooMicrosoft SQL Server ya da Azure SQL veritabanı toplu eklemeler şu anda desteklemiyor.
 
-* -Kullanırken, Linux tabanlı Hdınsight ile toplu işleme `-batch` eklemeleri gerçekleştirirken geçiş, Sqoop yapar INSERT işlemlerine toplu işleme yerine birden çok ekler.
+* -Hello kullanırken, Linux tabanlı Hdınsight ile toplu işleme `-batch` eklemeleri gerçekleştirirken geçiş, Sqoop yapar hello INSERT işlemlerine toplu işleme yerine birden çok ekler.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Şimdi Sqoop kullanma öğrendiniz. Daha fazla bilgi için bkz:
+Öğrendiğiniz artık nasıl toouse Sqoop. toolearn daha bakın:
 
 * [Hdınsight ile Oozie kullanma][hdinsight-use-oozie]: Oozie iş akışında kullanmak Sqoop eylem.
-* [Hdınsight kullanarak uçuş gecikme verileri analiz][hdinsight-analyze-flight-data]: uçuş çözümlemek için kullanmak Hive gecikme veri ve bir Azure SQL veritabanına veri vermek için Sqoop kullanın.
-* [Verileri Hdınsight'a yükleme][hdinsight-upload-data]: Hdınsight/Azure Blob depolama alanına veri yüklemek için diğer yöntemler bulun.
+* [Hdınsight kullanarak uçuş gecikme verileri analiz][hdinsight-analyze-flight-data]: kullanmak Hive tooanalyze uçuş gecikme veri ve Sqoop tooexport veri tooan Azure SQL veritabanını kullanın.
+* [Veri tooHDInsight karşıya][hdinsight-upload-data]: veri tooHDInsight/Azure Blob Depolama yüklemek için diğer yöntemler bulun.
 
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md

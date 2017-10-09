@@ -1,6 +1,6 @@
 ---
-title: "Azure Event Hubs tanılama günlüklerini | Microsoft Docs"
-description: "Azure event hubs için tanılama günlükleri ayarlanacağını öğrenin."
+title: "aaaAzure olay hub'ları tanılama günlüklerini | Microsoft Docs"
+description: "Bilgi nasıl tooset Azure event hubs için tanılama günlükleri ayarlama."
 keywords: 
 documentationcenter: 
 services: event-hubs
@@ -15,26 +15,26 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/27/2017
 ms.author: sethm;babanisa
-ms.openlocfilehash: 09bc62f4918635419d74ef3ae400a41d4ce58b5a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d2054e2e444e715e5077fe2608fe1e009e6c1d84
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="event-hubs-diagnostic-logs"></a>Olay hub'ları tanılama günlükleri
 
 Azure Event Hubs için iki tür günlükleri görüntüleyebilirsiniz:
-* **[Etkinlik günlükleri](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Bu günlükleri bir iş üzerinde gerçekleştirilen işlemler hakkında bilgi vardır. Günlükleri her zaman etkindir.
-* **[Tanılama günlüklerini](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. Bir işin gerçekleşen daha zengin bir görünüm her şeyin için tanılama günlükleri yapılandırabilirsiniz. Tanılama güncelleştirmeleri ve iş çalışırken oluşan etkinlikler dahil olmak üzere iş silinene kadar işin oluşturulduğu zamandan itibaren kapak etkinlikleri günlüğe kaydeder.
+* **[Etkinlik günlükleri](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Bu günlükleri bir iş üzerinde gerçekleştirilen işlemler hakkında bilgi vardır. Merhaba günlükleri her zaman etkindir.
+* **[Tanılama günlüklerini](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. Bir işin gerçekleşen daha zengin bir görünüm her şeyin için tanılama günlükleri yapılandırabilirsiniz. Tanılama güncelleştirmeleri ve hello iş çalışırken oluşan etkinlikler dahil olmak üzere hello iş silinene kadar hello iş oluşturulur hello zamandan kapak etkinlikleri günlüğe kaydeder.
 
 ## <a name="turn-on-diagnostic-logs"></a>Tanılama günlüklerini Aç
-Tanılama günlükleri, varsayılan olarak devre dışıdır. Tanılama günlüklerini etkinleştirmek için:
+Tanılama günlükleri, varsayılan olarak devre dışıdır. tooenable tanılama günlükleri:
 
-1.  İçinde [Azure portal](https://portal.azure.com)altında **izleme + Yönetim**, tıklatın **tanılama günlükleri**.
+1.  Merhaba, [Azure portal](https://portal.azure.com)altında **izleme + Yönetim**, tıklatın **tanılama günlükleri**.
 
-    ![Tanılama günlüklerini dikey gezinme](./media/event-hubs-diagnostic-logs/image1.png)
+    ![Dikey gezinti toodiagnostic günlükleri](./media/event-hubs-diagnostic-logs/image1.png)
 
-2.  İzlemek istediğiniz kaynak'ı tıklatın.
+2.  Toomonitor istediğiniz hello kaynak'ı tıklatın.
 
 3.  Tıklatın **tanılamayı açın**.
 
@@ -42,32 +42,32 @@ Tanılama günlükleri, varsayılan olarak devre dışıdır. Tanılama günlük
 
 4.  İçin **durum**, tıklatın **üzerinde**.
 
-    ![Tanılama günlüklerini durumunu değiştir](./media/event-hubs-diagnostic-logs/image3.png)
+    ![Tanılama günlüklerini hello durumunu değiştir](./media/event-hubs-diagnostic-logs/image3.png)
 
-5.  İstediğiniz arşiv hedef ayarlanmış; Örneğin, bir depolama hesabı, bir olay hub'ı veya Azure günlük analizi.
+5.  İstediğiniz kümesi hello arşiv hedef; Örneğin, bir depolama hesabı, bir olay hub'ı veya Azure günlük analizi.
 
-6.  Yeni tanılama ayarları kaydedin.
+6.  Merhaba yeni tanılama ayarları kaydedin.
 
-Yeni ayarları yaklaşık 10 dakika içinde etkinleşir. Bundan sonra günlükler yapılandırılmış arşivleme hedef görünür **tanılama günlükleri** dikey.
+Yeni ayarları yaklaşık 10 dakika içinde etkinleşir. Bundan sonra günlükler hello üzerinde yapılandırılmış hello arşivleme hedef görünür **tanılama günlükleri** dikey.
 
-Tanılama yapılandırma hakkında daha fazla bilgi için bkz: [Azure tanılama günlükleri'ne genel bakış](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+Merhaba tanılama yapılandırma hakkında daha fazla bilgi için bkz: [Azure tanılama günlükleri'ne genel bakış](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
 
 ## <a name="diagnostic-logs-categories"></a>Tanılama günlüklerini kategorileri
 Olay hub'ları iki kategorileri için tanılama günlükleri yakalar:
 
-* **ArchiveLogs**: olay hub'ları arşivler için özellikle ilgili günlükleri, hataları arşive ilgili günlükleri.
-* **OperationalLogs**: hakkında bilgi olay hub'ları işlemleri sırasında özellikle olmuyor işlem türü, olay hub'ı oluşturma, kullanılan kaynakları ve işlem durumu da dahil olmak üzere.
+* **ArchiveLogs**: günlükleri ilgili tooEvent hub arşivler özellikle, ilgili tooarchive hataları günlüğe kaydeder.
+* **OperationalLogs**: olay hub'ları işlemleri sırasında özellikle neler hakkında bilgi hello işlem türü, olay hub'ı oluşturma, kullanılan, kaynakları dahil ve hello hello işlem durumu.
 
 ## <a name="diagnostic-logs-schema"></a>Tanılama günlüklerini şeması
-Tüm günlükler JavaScript nesne gösterimi (JSON) biçiminde depolanır. Her giriş aşağıdaki bölümlerde açıklanan biçimini kullanan alanlarına sahiptir.
+Tüm günlükler JavaScript nesne gösterimi (JSON) biçiminde depolanır. Her giriş hello aşağıdaki bölümlerde açıklanan hello biçimini kullanan alanlarına sahiptir.
 
 ### <a name="archive-logs-schema"></a>Arşiv günlükleri şeması
 
-Arşiv günlük JSON dizeler aşağıdaki tabloda listelenen öğeleri şunları içerir:
+Arşiv günlük JSON dizeler, aşağıdaki tablonun hello listelenen öğeleri şunları içerir:
 
 Ad | Açıklama
 ------- | -------
-Görevadı | Başarısız görevi açıklaması.
+Görevadı | Başarısız hello görev açıklaması.
 Etkinlik Kimliği | İzleme için kullanılan iç kimliği.
 İzleme kodu | İzleme için kullanılan iç kimliği.
 resourceId | Azure Resource Manager kaynak kimliği
@@ -80,7 +80,7 @@ durationInSeconds | Hatanın süresi.
 İleti | Hata iletisi.
 category | ArchiveLogs
 
-Aşağıdaki kod, bir arşiv günlüğü JSON dizesi örneğidir:
+Merhaba aşağıdaki kod, bir arşiv günlüğü JSON dizesi örneğidir:
 
 ```json
 {
@@ -94,18 +94,18 @@ Aşağıdaki kod, bir arşiv günlüğü JSON dizesi örneğidir:
      "startTime": "9/22/2016 5:11:21 AM",
      "failures": 3,
      "durationInSeconds": 360,
-     "message": "Microsoft.WindowsAzure.Storage.StorageException: The remote server returned an error: (404) Not Found. ---> System.Net.WebException: The remote server returned an error: (404) Not Found.\r\n   at Microsoft.WindowsAzure.Storage.Shared.Protocol.HttpResponseParsers.ProcessExpectedStatusCodeNoException[T](HttpStatusCode expectedStatusCode, HttpStatusCode actualStatusCode, T retVal, StorageCommandBase`1 cmd, Exception ex)\r\n   at Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob.<PutBlockImpl>b__3e(RESTCommand`1 cmd, HttpWebResponse resp, Exception ex, OperationContext ctx)\r\n   at Microsoft.WindowsAzure.Storage.Core.Executor.Executor.EndGetResponse[T](IAsyncResult getResponseResult)\r\n   --- End of inner exception stack trace ---\r\n   at Microsoft.WindowsAzure.Storage.Core.Util.StorageAsyncResult`1.End()\r\n   at Microsoft.WindowsAzure.Storage.Core.Util.AsyncExtensions.<>c__DisplayClass4.<CreateCallbackVoid>b__3(IAsyncResult ar)\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.",
+     "message": "Microsoft.WindowsAzure.Storage.StorageException: hello remote server returned an error: (404) Not Found. ---> System.Net.WebException: hello remote server returned an error: (404) Not Found.\r\n   at Microsoft.WindowsAzure.Storage.Shared.Protocol.HttpResponseParsers.ProcessExpectedStatusCodeNoException[T](HttpStatusCode expectedStatusCode, HttpStatusCode actualStatusCode, T retVal, StorageCommandBase`1 cmd, Exception ex)\r\n   at Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob.<PutBlockImpl>b__3e(RESTCommand`1 cmd, HttpWebResponse resp, Exception ex, OperationContext ctx)\r\n   at Microsoft.WindowsAzure.Storage.Core.Executor.Executor.EndGetResponse[T](IAsyncResult getResponseResult)\r\n   --- End of inner exception stack trace ---\r\n   at Microsoft.WindowsAzure.Storage.Core.Util.StorageAsyncResult`1.End()\r\n   at Microsoft.WindowsAzure.Storage.Core.Util.AsyncExtensions.<>c__DisplayClass4.<CreateCallbackVoid>b__3(IAsyncResult ar)\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.",
      "category": "ArchiveLogs"
 }
 ```
 
 ### <a name="operational-logs-schema"></a>İşlem günlükleri şeması
 
-İşlem günlüğü JSON dizeler aşağıdaki tabloda listelenen öğeleri şunları içerir:
+İşlem günlüğü JSON dizeler, aşağıdaki tablonun hello listelenen öğeleri şunları içerir:
 
 Ad | Açıklama
 ------- | -------
-Etkinlik Kimliği | Amaç izlemek için kullanılan iç kodu.
+Etkinlik Kimliği | İç kimlik tootrack amacı kullanılır.
 EventName | İşlem adı.  
 resourceId | Azure Resource Manager kaynak kimliği
 SubscriptionId | Abonelik kimliği
@@ -115,7 +115,7 @@ Durum | İşlem durumu.
 Çağıran | İşlemi (Azure portalı veya yönetim istemcisi) çağırıcı.
 category | OperationalLogs
 
-Aşağıdaki kod, bir işlem günlüğü JSON dizesi örneğidir:
+Merhaba aşağıdaki kod, bir işlem günlüğü JSON dizesi örneğidir:
 
 ```json
 Example:
@@ -133,6 +133,6 @@ Example:
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Olay hub'ları giriş](event-hubs-what-is-event-hubs.md)
+* [Giriş tooEvent hub'lar](event-hubs-what-is-event-hubs.md)
 * [Event Hubs API’sine genel bakış](event-hubs-api-overview.md)
 * [Event Hubs kullanmaya başlayın](event-hubs-csharp-ephcs-getstarted.md)

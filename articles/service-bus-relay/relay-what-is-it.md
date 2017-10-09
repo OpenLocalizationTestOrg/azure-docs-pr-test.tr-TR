@@ -1,5 +1,5 @@
 ---
-title: "Azure Geçiş nedir ve neden kullanılır? - Genel bakış | Microsoft Docs"
+title: "aaaWhat Azure geçiş ve neden genel bakış kullanın | Microsoft Docs"
 description: "Azure Geçiş’e Genel Bakış"
 services: service-bus-relay
 documentationcenter: .net
@@ -14,28 +14,28 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 08/23/2017
 ms.author: sethm
-ms.openlocfilehash: 77ee85db0bcc701514a1a98da9405a79d658d49d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 4cfd77048210a435c446b908b7896737cad0edbf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="what-is-azure-relay"></a>Azure Geçiş nedir?
 
-Azure Geçiş hizmeti, güvenlik duvarı bağlantısını açmanıza veya kurumsal ağ altyapısına müdahale eden değişiklikler yapmanıza gerek kalmadan kurumsal işletme ağında bulunan hizmetleri genel bulutta kullanıma sunmanıza olanak sağlayarak karma uygulamaları kolaylaştırır. Geçiş, birçok çeşitli aktarım protokolünü ve web hizmeti standartlarını destekler.
+Hello Azure hizmeti, toosecurely etkinleştirerek uygulamaları kurumsal bir ağ toohello genel bulut içinde bir güvenlik duvarı bağlantı tooopen zorunda kalmadan hizmetlere kullanıma sunmak veya müdahale gerektiren karma kolaylaştıran geçiş tooa değiştirir Kurumsal ağ altyapısına. Geçiş, birçok çeşitli aktarım protokolünü ve web hizmeti standartlarını destekler.
 
-Geçiş hizmeti, geleneksel tek yönlü trafiği, istek/yanıt trafiğini ve eşler arası trafiği destekler. Ayrıca, artırılmış uçtan uca verimliliğe yönelik çift yönlü yuva iletişimi ile yayımla ve abone ol senaryolarına olanak sağlamak için internet kapsamında olay dağıtımını destekler. 
+Merhaba geçiş hizmeti, geleneksel tek yönlü, istek/yanıt ve eşler arası trafik destekler. Ayrıca artırılmış uçtan uca verimliliğe için internet kapsamında tooenable yayımlama abone ol senaryolarına ve çift yönlü yuva iletişimi olay dağıtımını destekler. 
 
-Geçişli veri aktarımı deseninde bir şirket içi hizmet, giden bağlantı noktası aracılığıyla geçiş hizmetine bağlanır ve belirli bir randevu adresine bağlanan iletişim için çift yönlü yuva oluşturur. Ardından istemci, randevu adresini hedef alan geçiş hizmetine trafik göndererek şirket içi hizmet ile iletişim kurabilir. Geçiş hizmeti daha sonra her bir istemciye ayrılmış çift yönlü bir yuva aracılığıyla verileri şirket içi hizmete "geçirir". İstemcinin, şirket içi hizmete doğrudan bağlantısının olmasına veya hizmetin nerede bulunduğunu bilmesine gerek yoktur. Ayrıca, şirket içi hizmet için güvenlik duvarında gelen bağlantı noktalarının açık olması gerekmez.
+Geçişli hello veri aktarımı düzeninde bir şirket içi hizmet toohello geçiş Hizmeti giden bir bağlantı noktası üzerinden bağlanır ve tooa belirli randevu adresine bağlanan iletişim için çift yönlü yuva oluşturur. Merhaba istemci trafiğini toohello geçiş hizmeti hello randevu adresini hedef göndererek hello şirket içi hizmetiyle sonra iletişim kurabilir. Merhaba geçiş hizmeti sonra "veri toohello şirket içi hizmeti çift yönlü yuva ayrılmış tooeach istemci üzerinden geçirir". Merhaba istemci doğrudan bağlantı toohello şirket içi hizmet gerekmez, nerede bulunduğunu hello ve hello şirket içi hizmet gelen bağlantı noktalarının gerek yoktur gerekli tooknow değil hello Güvenlik Duvarı'nda Aç.
 
-Geçiş tarafından sağlanan önemli özellik öğeleri, TCP gibi azaltma, uç nokta bulma, bağlantı durumu ve kaplanmış uç nokta güvenliği ile ağ sınırları arasında çift yönlü, ara belleksiz iletişimdir. Geçiş özellikleri, VPN gibi ağ düzeyinde tümleştirme teknolojilerinden farklıdır; geçiş tek bir makinedeki tek bir uygulama uç noktasını kapsayabilirken, VPN teknolojisi ağ ortamını değiştirmeye bağlı olduğundan çok daha kapsayıcıdır.
+Geçiş tarafından sağlanan hello anahtar özelliği öğeleri TCP benzeri azaltma, uç nokta bulma, bağlantı durumunun ağ sınırları boyunca çift yönlü, arabellekten çıkarılan iletişimi olan ve uç nokta güvenliğinin yayılan. Merhaba geçiş yetenekleri VPN gibi ağ düzeyinde tümleştirme teknolojileri farklılık, VPN teknolojisi hello ağ ortamı değiştirilmesine alacağından daha kullanışsız olsa da bu geçiş kapsamlı tooa tek bir uygulama uç noktası tek bir makinede olabilir .
 
 Azure Geçiş iki özelliğe sahiptir:
 
-1. [Karma Bağlantılar](#hybrid-connections) - Çok platformlu senaryoları etkinleştiren açık standart web yuvalarını kullanır.
-2. [WCF Geçişleri](#wcf-relays) - Windows Communication Foundation’ı (WCF) kullanarak uzak yordam çağrılarını etkinleştirir. WCF Geçişi, birçok müşterinin WCF programlama modelleriyle kullanmakta olduğu eski geçiş teklifidir.
+1. [Karma bağlantılar](#hybrid-connections) - kullanır hello açık standart web yuvalarını birden çok platform senaryoları etkinleştirme.
+2. [WCF geçişler](#wcf-relays) -kullanan Windows Communication Foundation (WCF) tooenable uzaktan yordam çağrısı. WCF geçiş hello eski geçiş birçok müşteri modellerini programlama kendi WCF ile kullandığınız sunumu ' dir.
 
-Hem Karma Bağlantılar hem de WCF Geçişleri bir kurumsal kuruluş ağı içinde bulunan varlıklara güvenli bağlantı olanağı sağlar. Hangisinin diğerine tercih edileceği, aşağıdaki tabloda açıklandığı gibi özel gereksinimlerinize bağlıdır:
+Karma bağlantılar ve WCF geçişler bir kurumsal ağ içindeki mevcut güvenli bağlantı tooassets etkinleştirin. Aşağıdaki tablonun hello açıklandığı gibi hello diğer üzerinde kullanımını belirli gereksinimlerinize bağlı olarak bağlıdır:
 
 |  | WCF Geçişi | Karma Bağlantılar |
 | --- |:---:|:---:|
@@ -48,20 +48,20 @@ Hem Karma Bağlantılar hem de WCF Geçişleri bir kurumsal kuruluş ağı için
 
 ## <a name="hybrid-connections"></a>Karma Bağlantılar
 
-[Azure Geçiş Karma Bağlantılar](relay-hybrid-connections-protocol.md) özelliği, yaygın olarak kullanılan web tarayıcılarındaki WebSocket API’yi açıkça içeren temel bir WebSocket özelliğine sahip tüm platform ve dillerde uygulanabilen mevcut Geçiş özelliklerinin güvenli, açık yordam kullanılarak evrim geçirmiş bir halidir. Karma Bağlantılar HTTP ve WebSocket’ları temel alır.
+Merhaba [Azure geçişi karma bağlantılar](relay-hybrid-connections-protocol.md) yetenektir herhangi bir platformda ve temel WebSocket özelliğine sahip herhangi bir dil uygulanabilir geçiş özellikleri varolan hello güvenli, açık protokolü bir evrimi hangi açıkça hello WebSocket API ortak web tarayıcısında içerir. Karma Bağlantılar HTTP ve WebSocket’ları temel alır.
 
 ### <a name="service-history"></a>Hizmet geçmişi
 
-Karma Bağlantılar, Azure Service Bus WCF Geçişi üzerinde oluşturulan eski ve benzer ada sahip "BizTalk Services" özelliğini tamamlar. Yeni Karma Bağlantılar özelliği mevcut WCF Geçişi özelliğini tamamlar ve bu iki hizmet özelliği Azure Geçişi hizmetinde birlikte yer alır. Ortak bir ağ geçidine sahip bu iki özellik, diğer açılardan farklı olan uygulamalardır.
+Karma bağlantılar benzer şekilde, Azure hizmet veri yolu WCF geçiş hello üzerinde oluşturulmuş "BizTalk Services" özelliği adlı hello eski yerini alır. Merhaba yeni karma bağlantılar özelliği hello var olan WCF geçiş özelliğini tamamlar ve bu iki hizmet özellikleri yana birimi hello Azure geçiş Hizmeti'nde mevcut. Ortak bir ağ geçidine sahip bu iki özellik, diğer açılardan farklı olan uygulamalardır.
 
 ## <a name="wcf-relays"></a>WCF Geçişleri
 
-WCF Geçişi tam .NET Framework (NETFX) ve WCF için çalışır. Geçiş hizmeti ile şirket içi hizmetiniz arasındaki bağlantıyı bir WCF "geçiş" bağlamaları paketi kullanarak başlatırsınız. Arka planda ise geçiş bağlamaları, bulutta Service Bus ile tümleşen WCF kanalı bileşenlerini oluşturmak üzere tasarlanan yeni aktarım bağlama öğeleriyle eşleşir.
+Merhaba WCF geçiş works hello tam .NET Framework (NETFX) ve WCF için. Şirket içi hizmet WCF "geçiş" bağlamalarının bir paketini kullanarak geçiş hizmeti hello arasında hello bağlantı başlatır. Merhaba arka planda hello geçiş bağlamaları hello bulutta Service Bus ile tümleşen toonew aktarım bağlama öğeleri tasarlanmış toocreate WCF kanalı bileşenlerini eşleşir.
 
 ## <a name="architecture-processing-of-incoming-relay-requests"></a>Mimari: Gelen geçiş isteklerinin işlenmesi
-Bir istemci [Azure Geçişi](/azure/service-bus-relay/) hizmetine istek gönderdiğinde Azure yük dengeleyici bu isteği ağ geçidi düğümlerinden herhangi birine yönlendirir. İstek, bir dinleme isteğiyse ağ geçidi düğümü yeni bir geçiş oluşturur. İstek, belirli bir geçiş için bağlantı isteğiyse ağ geçidi düğümü, geçişe sahip olan ağ geçidi düğümüne bağlantı isteğini iletir. Geçişe sahip ağ geçidi dinleyen istemciye bir randevu isteği göndererek dinleyiciden bağlantı isteğini alan ağ geçidi düğümüne geçici bir kanal kurmasını ister.
+Bir istemci isteği toohello gönderdiğinde [Azure geçiş](/azure/service-bus-relay/) hizmeti, hello Azure yük dengeleyici, hello ağ geçidi düğümleri tooany yönlendirir. Merhaba istek dinleme isteğiyse hello ağ geçidi düğümü yeni bir geçiş oluşturur. Merhaba istek bağlantı isteği tooa belirli bir geçiş ise hello ağ geçidi düğümü hello geçişe sahip hello bağlantı isteği toohello ağ geçidi düğümüne iletir. Merhaba geçişe sahip hello ağ geçidi düğümü hello bağlantı isteğini alan bir geçici kanal toohello ağ geçidi düğümü hello dinleyici toocreate soran bir randevu isteği toohello dinleyen istemciye gönderir.
 
-Geçiş bağlantısı kurulduğunda istemciler, randevu için kullanılan ağ geçidi düğümü aracılığıyla iletileri değiştirebilir.
+Merhaba geçiş bağlantısı kurulduğunda hello istemcileri hello randevu için kullanılan hello ağ geçidi düğümü aracılığıyla iletileri değiştirebilir.
 
 ![Gelen WCF Geçiş İsteklerinin işlenmesi](./media/relay-what-is-it/ic690645.png)
 

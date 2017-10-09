@@ -1,5 +1,5 @@
 ---
-title: "(kullanım dışı) Normal dağıtım Web hizmeti Suite - Azure | Microsoft Docs"
+title: "AAA(deprecated) Normal dağıtım Web hizmeti Suite - Azure | Microsoft Docs"
 description: "(kullanım dışı) Normal dağıtım Web hizmet paketi"
 services: machine-learning
 documentationcenter: 
@@ -16,69 +16,69 @@ ms.date: 01/06/2017
 ms.author: ireiter
 ROBOTS: NOINDEX
 redirect_url: https://gallery.cortanaintelligence.com/
-redirect_document_id: TRUE
-ms.openlocfilehash: 79d1621330ad56b0c62ca46cfac424c2306e371f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+redirect_document_id: True
+ms.openlocfilehash: 8bdb5afd9fee88587f548d7c5299480f64289bbe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deprecated-normal-distribution-suite"></a>(kullanım dışı) Normal dağıtım paketi
 
 > [!NOTE]
-> Microsoft DataMarket kullanımdan kaldırıldı ve bu API kullanım dışı bırakıldı. 
+> Merhaba Microsoft DataMarket kullanımdan kaldırıldı ve bu API kullanım dışı bırakıldı. 
 > 
-> Çok sayıda kullanışlı örnek denemeleri ve API'leri bulabilirsiniz [Cortana Intelligence Galerisi](http://gallery.cortanaintelligence.com). Galeri hakkında daha fazla bilgi için bkz: [paylaşımı ve Cortana Intelligence Galerisi kaynakları bulmak](machine-learning-gallery-how-to-use-contribute-publish.md).
+> Çok sayıda kullanışlı örnek denemeleri ve API hello bulabilirsiniz [Cortana Intelligence Galerisi](http://gallery.cortanaintelligence.com). Merhaba galeri hakkında daha fazla bilgi için bkz: [paylaşımı ve hello Cortana Intelligence Galerisi kaynakları bulmak](machine-learning-gallery-how-to-use-contribute-publish.md).
 
-Normal dağıtım paketi örnek web hizmetleri kümesidir ([Oluşturucu](https://datamarket.azure.com/dataset/aml_labs/ndg7), [Quantile hesaplayıcı](https://datamarket.azure.com/dataset/aml_labs/ndq5), [olasılık hesaplayıcı](https://datamarket.azure.com/dataset/aml_labs/ndp5)) oluşturmak ve normal dağıtım işleme Yardım. Hizmet verilen olasılık gelen quantiles hesaplama ve verilen quantile gelen olasılık hesaplama herhangi bir uzunlukta, normal dağıtım dizisini oluşturma sağlar. Hizmetlerinin her biri farklı çıkışları seçili hizmetini temel alan yayar (Açıklama aşağıya bakın). Normal dağıtım paketi R işlevleri qnorm rnorm ve pnorm, hangi R istatistikleri paketindeki temel alır.
+Merhaba Normal dağıtım paketi örnek web hizmetleri kümesidir ([Oluşturucu](https://datamarket.azure.com/dataset/aml_labs/ndg7), [Quantile hesaplayıcı](https://datamarket.azure.com/dataset/aml_labs/ndq5), [olasılık hesaplayıcı](https://datamarket.azure.com/dataset/aml_labs/ndp5)) oluşturma ve işleme Yardım Normal dağıtımları. normal dağıtım sırası quantiles verilen olasılık gelen hesaplama ve verilen quantile gelen olasılık hesaplama herhangi uzunluğu oluşturma Hello hizmetler sağlar. Merhaba hizmetlerinin her biri farklı çıkışları seçili hello hizmetini temel alan yayar (Açıklama aşağıya bakın). Merhaba Normal dağıtım paketi hello R işlevleri qnorm rnorm ve pnorm, hangi R istatistikleri paketindeki temel alır.
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-> Bu web hizmeti tarafından kullanıcılara – potansiyel olarak mobil uygulama, bir Web sitesi aracılığıyla ya da bile yerel bir bilgisayarda, örneğin tüketilmesi. Ancak web hizmetinin amacı, ayrıca Azure Machine Learning web hizmetleri R kodu üstünde oluşturmak için nasıl kullanılabileceği bir örnek olarak hizmet verecek. Yalnızca birkaç satırlık bir R kodu ve Azure Machine Learning Studio içinde bir düğmeye tıklama ile bir deneme R kodu ile oluşturulan ve bir web hizmeti olarak yayımlanan. Web hizmeti için Azure Marketi yayımlanan ve kullanıcılar ve aygıtlar için herhangi bir altyapı Kurulumu yazarı tarafından oluşturulan web hizmeti ile dünya genelindeki tüketilen.  
+> Bu web hizmeti tarafından kullanıcılara – potansiyel olarak mobil uygulama, bir Web sitesi aracılığıyla ya da bile yerel bir bilgisayarda, örneğin tüketilmesi. Ancak hello amacı hello web hizmeti, ayrıca Azure Machine Learning kullanılan toocreate web hizmetleri R kodu en üstünde nasıl olabilir bir örnek olarak tooserve. Yalnızca birkaç satırlık bir R kodu ve Azure Machine Learning Studio içinde bir düğmeye tıklama ile bir deneme R kodu ile oluşturulan ve bir web hizmeti olarak yayımlanan. Merhaba web hizmeti sonra yayımlanan toohello Azure Marketi olabilir ve kullanıcılar ve aygıtlar için herhangi bir altyapı Kurulumu hello web hizmeti hello yazarı tarafından ile Merhaba dünya genelindeki tüketilen.  
 > 
 > 
 
 ## <a name="consumption-of-web-service"></a>Web hizmetinin tüketim
-Normal dağıtım paketi, aşağıdaki 3 Hizmetleri içerir.
+Merhaba Normal dağıtım paketi 3 Hizmetleri aşağıdaki hello içerir.
 
 ### <a name="normal-distribution-quantile-calculator"></a>Normal dağıtım Quantile hesaplayıcısı
-Bu hizmet normal dağıtım 4 bağımsız değişkenlerini kabul eder ve ilişkili quantile hesaplar.
+Bu hizmet normal dağıtım 4 bağımsız değişkenlerini kabul eder ve ilişkili hello quantile hesaplar.
 
-Giriş bağımsız değişkenleri şunlardır:
+Merhaba giriş bağımsız değişkenleri şunlardır:
 
 * p - normal dağıtım olayla tek bir olasılık. 
-* Ortalama - normal dağıtım ortalaması.
-* SD - normal dağıtım standart sapması. 
-* Yan - dağıtım alt tarafında m ve U dağıtım üst tarafındaki için.
+* Ortalama - hello normal dağıtım ortalaması.
+* SD - hello normal dağıtım standart sapması. 
+* Yan - hello alt tarafı hello dağıtım için m ve U hello dağıtım hello üst tarafı için.
 
-Hizmet verilen olasılık ile ilişkili hesaplanan quantile çıkışıdır.
+Merhaba hello hizmet olasılık verilen hello ile ilişkili hesaplanan hello quantile çıkışıdır.
 
 ### <a name="normal-distribution-probability-calculator"></a>Normal dağıtım olasılık hesaplayıcısı
-Bu hizmet normal dağıtım 4 bağımsız değişkenlerini kabul eder ve ilişkili olasılık hesaplar.
+Bu hizmet normal dağıtım 4 bağımsız değişkenlerini kabul eder ve ilişkili hello olasılık hesaplar.
 
-Giriş bağımsız değişkenleri şunlardır:
+Merhaba giriş bağımsız değişkenleri şunlardır:
 
 * q bir olayın normal dağıtım ile tek quantile. 
-* Ortalama - normal dağıtım ortalaması.
-* SD - normal dağıtım standart sapması. 
-* Yan - dağıtım alt tarafında m ve U dağıtım üst tarafındaki için.
+* Ortalama - hello normal dağıtım ortalaması.
+* SD - hello normal dağıtım standart sapması. 
+* Yan - hello alt tarafı hello dağıtım için m ve U hello dağıtım hello üst tarafı için.
 
-Hizmet çıktısını verilen quantile ile ilişkili hesaplanan olasılıktır.
+Merhaba çıktı hello hizmetinin quantile verilen hello ile ilişkili hesaplanan hello olasılıktır.
 
 ### <a name="normal-distribution-generator"></a>Normal dağıtım Oluşturucusu
-Bu hizmet normal dağıtım 3 bağımsız değişkenlerini kabul eder ve normal olarak dağıtılmış numaraları rastgele bir dizi oluşturur. Şu bağımsız değişkenleri için isteği içinde sağlanmasını:
+Bu hizmet normal dağıtım 3 bağımsız değişkenlerini kabul eder ve normal olarak dağıtılmış numaraları rastgele bir dizi oluşturur. Merhaba şu bağımsız değişkenleri tooit hello istek içinde sağlanmış olmalıdır:
 
-* n - gözlemleri sayısı. 
-* Ortalama - normal dağıtım ortalaması.
-* SD - normal dağıtım standart sapması. 
+* n - hello gözlemleri sayısı. 
+* Ortalama - hello normal dağıtım ortalaması.
+* SD - hello normal dağıtım standart sapması. 
 
-Hizmet çıktısı, ortalama ve sd bağımsız değişkenler üzerinde temel normal dağıtım uzunluğu n dizisidir.
+Merhaba çıktı hello hizmetinin hello ortalama ve sd bağımsız değişkenler üzerinde temel normal dağıtım uzunluğu n dizisidir.
 
-> Bu hizmet Azure Marketi üzerinde barındırılan bir OData hizmeti aynıdır; Bu POST veya GET yöntemleri ile çağrılabilir. 
+> Bu hizmet Azure Marketi hello üzerinde barındırılan bir OData hizmeti aynıdır; Bu POST veya GET yöntemleri ile çağrılabilir. 
 > 
 > 
 
-Otomatik bir şekilde hizmetinde tüketen birkaç yolu vardır (örneğin uygulamalardır burada: [Oluşturucu](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionGenerator.aspx), [olasılık hesaplayıcı](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionProbabilityCalculator.aspx), [Quantile hesaplayıcı](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionQuantileCalculator.aspx)).
+Otomatik bir şekilde hello hizmetinde tüketen birkaç yolu vardır (örneğin uygulamalardır burada: [Oluşturucu](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionGenerator.aspx), [olasılık hesaplayıcı](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionProbabilityCalculator.aspx), [Quantile hesaplayıcı](http://microsoftazuremachinelearning.azurewebsites.net/NormalDistributionQuantileCalculator.aspx)).
 
 ### <a name="starting-c-code-for-web-service-consumption"></a>Web hizmet tüketimi için C# kodunu başlatılıyor:
 ### <a name="normal-distribution-quantile-calculator"></a>Normal dağıtım Quantile hesaplayıcısı
@@ -177,7 +177,7 @@ Otomatik bir şekilde hizmetinde tüketen birkaç yolu vardır (örneğin uygula
 > 
 > 
 
-Bir ekran görüntüsünü her denemenin içinde modülü için web hizmeti ve örnek kod oluşturulan deneme aşağıdadır.
+Bir ekran görüntüsünü her hello deneyin içinde hello modüllerin hello web hizmeti ve örnek kod oluşturulan hello deneme aşağıdadır.
 
 ### <a name="normal-distribution-quantile-calculator"></a>Normal dağıtım Quantile hesaplayıcısı
 Deneme akışı:
@@ -186,9 +186,9 @@ Deneme akışı:
 
     #Data schema with example data (replaced with data from web service)
     data.set=data.frame(p=0.1,mean=0,sd=1,side='L');
-    maml.mapOutputPort("data.set"); #send data to output port
+    maml.mapOutputPort("data.set"); #send data toooutput port
 
-    # Map 1-based optional input ports to variables
+    # Map 1-based optional input ports toovariables
     dataset1 <- maml.mapInputPort(1) # class: data.frame
 
     param = dataset1
@@ -211,7 +211,7 @@ Deneme akışı:
 
     output = as.data.frame(q)
 
-    # Select data.frame to be sent to the output Dataset port
+    # Select data.frame toobe sent toohello output Dataset port
     maml.mapOutputPort("output");
 
 ### <a name="normal-distribution-probability-calculator"></a>Normal dağıtım olasılık hesaplayıcısı
@@ -221,9 +221,9 @@ Deneme akışı:
 
      #Data schema with example data (replaced with data from web service)
     data.set=data.frame(q=-1,mean=0,sd=1,side='L');
-    maml.mapOutputPort("data.set"); #send data to output port
+    maml.mapOutputPort("data.set"); #send data toooutput port
 
-    # Map 1-based optional input ports to variables
+    # Map 1-based optional input ports toovariables
     dataset1 <- maml.mapInputPort(1) # class: data.frame
 
     param = dataset1
@@ -241,7 +241,7 @@ Deneme akışı:
 
     output = as.data.frame(prob)
 
-    # Select data.frame to be sent to the output Dataset port
+    # Select data.frame toobe sent toohello output Dataset port
     maml.mapOutputPort("output");
 
 ### <a name="normal-distribution-generator"></a>Normal dağıtım Oluşturucusu
@@ -251,9 +251,9 @@ Deneme akışı:
 
     #Data schema with example data (replaced with data from web service)
     data.set=data.frame(n=50,mean=0,sd=1);
-    maml.mapOutputPort("data.set"); #send data to output port
+    maml.mapOutputPort("data.set"); #send data toooutput port
 
-    # Map 1-based optional input ports to variables
+    # Map 1-based optional input ports toovariables
     dataset1 <- maml.mapInputPort(1) # class: data.frame
 
     param = dataset1
@@ -261,14 +261,14 @@ Deneme akışı:
 
     output = as.data.frame(t(dist))
 
-    # Select data.frame to be sent to the output Dataset port
+    # Select data.frame toobe sent toohello output Dataset port
     maml.mapOutputPort("output");
 
 ## <a name="limitations"></a>Sınırlamalar
-Bu, normal dağıtım çevreleyen çok basit örnek verilmiştir. Yukarıdaki örnek koddan görüldüğü gibi küçük hata yakalama uygulanır.
+Bunlar hello normal dağıtım çevreleyen çok basit örnektir. Yukarıdaki Hello örnek koddan görüldüğü gibi küçük hata yakalama uygulanır.
 
 ## <a name="faq"></a>SSS
-Web hizmeti veya Azure Marketi'nde yayımlama tüketimi hakkında sık sorulan sorular için bkz: [burada](machine-learning-marketplace-faq.md).
+Merhaba web hizmetinin veya yayımlama toohello Azure Marketi tüketimi hakkında sık sorulan sorular için bkz: [burada](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-normal-distribution/normal-img1.png
 [2]: ./media/machine-learning-r-csharp-normal-distribution/normal-img2.png

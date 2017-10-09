@@ -1,5 +1,5 @@
 ---
-title: "Azure tanılama sorunlarını giderme | Microsoft Docs"
+title: "aaaTroubleshooting Azure tanılama | Microsoft Docs"
 description: "Azure Virtual Machines, Service Fabric veya Bulut Hizmetleri Azure tanılama kullanırken sorunlarını giderin."
 services: monitoring-and-diagnostics
 documentationcenter: .net
@@ -14,24 +14,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: robb
-ms.openlocfilehash: a0cb529836b14df71e83616f4f625a002c535b7b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: daaf9fa4c40982eb9ba04030d7e8ea1ad9fe085b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure tanılama sorunlarını giderme
-Sorun giderme bilgileri için Azure Tanılama'yı kullanarak ilgili. Azure Tanılama hakkında daha fazla bilgi için bkz: [Azure tanılama genel bakış](azure-diagnostics.md).
+Sorun giderme bilgileri ilgili toousing Azure tanılama. Azure Tanılama hakkında daha fazla bilgi için bkz: [Azure tanılama genel bakış](azure-diagnostics.md).
 
 ## <a name="logical-components"></a>Mantıksal bileşenleri
-**Tanılama eklentisi Başlatıcısı (DiagnosticsPluginLauncher.exe)**: Azure tanılama uzantısını başlatır. Giriş gören işlem gelin.
+**Tanılama eklentisi Başlatıcısı (DiagnosticsPluginLauncher.exe)**: hello Azure tanılama uzantısını başlatır. Noktası işleminin hello girdi olarak görevi görür.
 
-**Tanılama Eklentisi (DiagnosticsPlugin.exe)**: Yukarıdaki başlatıcısı tarafından başlatılır İzleme Aracısı yapılandırır, başlatılır ve yaşam süresi yönetir ana işlem. 
+**Tanılama Eklentisi (DiagnosticsPlugin.exe)**: Yukarıdaki hello başlatıcısı tarafından başlatılır ve hello İzleme Aracısı yapılandırır, başlatılır ve yaşam süresi yöneten ana işlem. 
 
-**İzleme aracısını (MonAgent\*.exe işlemler)**: toplu iş; yani, izleme, koleksiyon ve tanılama veri aktarımını bu işlemleri yapın.  
+**İzleme aracısını (MonAgent\*.exe işlemler)**: Bu işlemleri toplu hello iş hello; yani, izleme, koleksiyon ve aktarımını tanılama verilerini hello.  
 
 ## <a name="logartifact-paths"></a>Günlük/yapı yolları
-Burada, bazı önemli günlükleri ve yapıları yolları bulunmaktadır. Bu belgenin geri kalanında başvuran tutun:
+Merhaba yolları toosome önemli günlükleri ve yapıları aşağıda verilmiştir. Biz toothese hello belgenin hello kalan boyunca başvuran tutun:
 ### <a name="cloud-services"></a>Cloud Services
 | Yapı | Yol |
 | --- | --- |
@@ -56,11 +56,11 @@ Burada, bazı önemli günlükleri ve yapıları yolları bulunmaktadır. Bu bel
 | **MonAgentHost günlük dosyası** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion > \WAD0107\Configuration\MonAgentHost. < seq_num > .log |
 
 ## <a name="metric-data-doesnt-show-in-azure-portal"></a>Azure portalında ölçüm verileri göstermiyor
-Azure tanılama Azure Portalı'nda görüntülenen ölçüm verileri bir dizi sağlar. Bu verileri portalında görmesini sorunları varsa, onay tanılama depolama hesabı -> WADMetrics\* karşılık gelen ölçüm kayıt olup olmadığını görmek için tablo. Burada, tablonun PartitionKey sanal makine veya sanal makine ölçek kümesi kaynak Kimliğini, ve RowKey ölçüm adı yani performans sayacı adı.
+Azure tanılama Azure Portalı'nda görüntülenen ölçüm verileri bir dizi sağlar. Bu verileri portalında görmesini sorunları varsa, onay hello tanılama depolama hesabı -> WADMetrics\* hello karşılık gelen ölçüm kayıtlar varsa toosee tablo. Burada, hello Merhaba tablonun PartitionKey hello kaynak Kimliğini sanal makine veya sanal makine ölçek kümesini ve hello RowKey hello ölçüm adı yani performans sayacı adı.
 
-Kaynak Kimliği yanlış ise, onay tanılama yapılandırması -> ölçümleri ResourceId kaynak kimliği doğru olarak ayarlanmış olup olmadığını görmek için ->.
+Merhaba kaynak kimliği yanlış ise, onay tanılama yapılandırması -> ölçümleri hello kaynak kimliği doğru olarak ayarlanmış olsa ResourceId toosee ->.
 
-Belirli ölçüm için hiçbir veri varsa, onay tanılama yapılandırması PerformanceCounter ölçüm (performans sayacı) dahil olup olmadığını görmek için ->. Varsayılan olarak aşağıdaki sayaçları etkinleştiririz.
+Merhaba belirli ölçüm için hiçbir veri varsa, onay tanılama yapılandırması -> PerformanceCounter toosee hello ölçüm (performans sayacı) dahil edilmesi durumunda. Varsayılan olarak sayaçları aşağıdaki hello etkinleştiririz.
 - \Processor(_Total)\% Processor Time
 - \Memory\Available Bytes
 - \ASP.NET uygulamaları (__toplam__) \Requests/Sec
@@ -80,60 +80,60 @@ Belirli ölçüm için hiçbir veri varsa, onay tanılama yapılandırması Perf
 - \LogicalDisk (D:) \Disk Yazma Bayt/sn
 - \LogicalDisk (D:) \Disk Okuma Bayt/sn
 
-Yapılandırma doğru olarak ayarlanmış, ancak yine de ölçüm verilerinin göremiyorsanız, daha fazla araştırma için aşağıdaki yönergeleri izleyin.
+Merhaba yapılandırma doğru olarak ayarlanmış, ancak yine de hello ölçüm verileri göremiyorsanız, hello daha fazla araştırma için aşağıda hello yönergeleri izleyin.
 
 
 ## <a name="azure-diagnostics-is-not-starting"></a>Azure tanılama başlatılıyor değil
-Bakmak **DiagnosticsPluginLauncher.log** ve **DiagnosticsPlugin.log** neden tanılama başlatılamadı hakkında bilgi için günlük dosyalarının konumu dosyalarından sağlanan üstünde. 
+Bakmak **DiagnosticsPluginLauncher.log** ve **DiagnosticsPlugin.log** hello hello konumunu dosyalarından günlük dosyaları yukarıdaki neden hakkında bilgi için tanılama toostart başarısız sağlanan. 
 
-Bu günlükler gösteriyorsa `Monitoring Agent not reporting success after launch`, MonAgentHost.exe başlatma bir hata oluştu anlamına gelir. Konum günlüklerine için için belirtilen bir konuma `MonAgentHost log file` yukarıdaki bölümde.
+Bu günlükler gösteriyorsa `Monitoring Agent not reporting success after launch`, MonAgentHost.exe başlatma bir hata oluştu anlamına gelir. Konum hello günlüklerine için başlangıç konumu için belirtilen `MonAgentHost log file` yukarıdaki hello bölümünde.
 
-Günlük dosyaları son satırının çıkış kodu içerir.  
+Merhaba günlük dosyalarını son satırının Hello hello çıkış kodu içerir.  
 
 ```
 DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] DiagnosticPlugin exited with code 0
 ```
-Görürseniz bir **negatif** çıkış kodu, başvurmak [çıkış kodu tablosu](#azure-diagnostics-plugin-exit-codes) içinde [başvurular](#references).
+Görürseniz bir **negatif** çıkış kodu, toohello başvuran [çıkış kodu tablosu](#azure-diagnostics-plugin-exit-codes) hello içinde [başvurular](#references).
 
-## <a name="diagnostics-data-is-not-logged-to-azure-storage"></a>Tanılama verilerini günlüğe Azure Storage olduğu
-Hiçbir veri gösteren veya yalnızca bazı verileri değil gösteren belirleyin.
+## <a name="diagnostics-data-is-not-logged-tooazure-storage"></a>Tanılama verilerini günlüğe tooAzure depolama olduğu
+Hiçbir veri gösteren veya yalnızca bazı hello verileri değil gösteren belirleyin.
 
 ### <a name="diagnostics-infrastructure-logs"></a>Tanılama altyapı günlükleri
-Tanılama altyapı günlükleri, burada içine çalıştıran herhangi bir hata azure tanılama günlükleri ' dir. Etkinleştirdiğinizden emin olun ([nasıl yapılır?](#how-to-check-diagnostics-extension-configuration)) yapılandırmanızda tanılama altyapı günlükleri, yakalama ve hızlı bir şekilde görünmesini ilgili hataları arayın `DiagnosticInfrastructureLogsTable` yapılandırılan depolama hesabınızdaki tablo.
+Tanılama altyapı günlükleri, burada içine çalıştıran herhangi bir hata azure tanılama günlükleri ' dir. Etkinleştirdiğinizden emin olun ([nasıl yapılır?](#how-to-check-diagnostics-extension-configuration)) yapılandırmanızda tanılama altyapı günlükleri, yakalama ve hızlı bir şekilde hello görünmesini ilgili hataları arayın `DiagnosticInfrastructureLogsTable` yapılandırılan depolama hesabınızdaki tablo.
 
 ### <a name="no-data-is-showing-up"></a>Hiçbir veri gösterme
-Olay tamamen eksik veri yanlış en yaygın nedenlerini depolama hesabı bilgilerini tanımlanır.
+Merhaba en yaygın tamamen eksik olay verileri hatalı tanımlanmış bir depolama hesabı bilgilerini nedenidir.
 
 Çözüm: Tanılama yapılandırmanızı düzeltin ve tanılama yeniden yükleyin.
 
-Depolama hesabı ise, doğru yapılandırıldığını, Uzak Masaüstü emin olun ve makine içine DiagnosticsPlugin.exe ve MonAgentCore.exe çalışır. Bunlar çalışmıyorsa izleyin [Azure tanılama başlamıyor](#azure-diagnostics-is-not-starting). İşlem çalıştırıyorsa atlamak [yerel olarak yakalanan veri](#is-data-getting-captured-locally) ve bu kılavuzda buradan izleyin.
+Merhaba depolama hesabı ise, doğru yapılandırıldığını, Uzak Masaüstü hello makine ve yapma emin DiagnosticsPlugin.exe ve MonAgentCore.exe çalışır. Bunlar çalışmıyorsa izleyin [Azure tanılama başlamıyor](#azure-diagnostics-is-not-starting). Merhaba işlemler çalıştırıyorsanız, çok bağlantı[yerel olarak yakalanan veri](#is-data-getting-captured-locally) ve bu kılavuzda buradan izleyin.
 
-### <a name="part-of-the-data-is-missing"></a>Verilerin bir kısmını eksik
-Bazı veriler alıyorsanız, ancak diğer değil. Bu veri koleksiyonu anlamına gelir / aktarım ardışık doğru olarak ayarlanmış. Sorunun ne olduğunu aşağı daraltmak için alt bölümleri burada izleyin:
+### <a name="part-of-hello-data-is-missing"></a>Merhaba verilerin bölümü eksik
+Bazı veriler alıyorsanız, ancak diğer değil. Bu hello veri toplama anlamına gelir / aktarım ardışık doğru olarak ayarlanmış. Merhaba alt bölümleri izleyin hangi hello sorunu aşağı toonarrow şöyledir:
 #### <a name="is-collection-configured"></a>Koleksiyon yapılandırılır: 
-Tanılama yapılandırması, belirli bir veri türü için toplanacak bildirir bölümü içerir. [Yapılandırmanızı gözden](#how-to-check-diagnostics-extension-configuration) değil aradığınız değil yapılandırdığınız koleksiyonu için veri emin olmak için.
-#### <a name="is-the-host-generating-data"></a>Ana bilgisayar veri oluşturuluyor:
-- **Performans sayaçları**: perfmon açın ve sayaç denetleyin.
-- **İzleme günlükleri**: Uzak Masaüstü VM başlatın ve bir olmalıdır uygulamanın yapılandırma dosyasına ekleyin.  Metin dinleyicisi Kur http://msdn.microsoft.com/library/sk36c28t.aspx bakın.  Emin olun `<trace>` öğeye sahip `<trace autoflush="true">`.<br />
+Tanılama yapılandırması toplanan verileri toobe belirli bir tür için bildirir hello bölümü içerir. [Yapılandırmanızı gözden](#how-to-check-diagnostics-extension-configuration) toomake, değil görmek için verileri, emin yapılandırılmamış koleksiyonu için.
+#### <a name="is-hello-host-generating-data"></a>Merhaba ana bilgisayar veri oluşturuluyor:
+- **Performans sayaçları**: perfmon açın ve hello sayacını denetleyin.
+- **İzleme günlükleri**: Uzak Masaüstü uygulamasına VM hello ve olmalıdır toohello uygulamanın yapılandırma dosyasını ekleyin.  Merhaba metin dinleyicisi yukarı http://msdn.microsoft.com/library/sk36c28t.aspx tooset bakın.  Merhaba emin olun `<trace>` öğeye sahip `<trace autoflush="true">`.<br />
 Oluşturulan izleme günlükleri görmüyorsanız izleyin [daha hakkında günlükleri izleme eksik](#more-about-trace-logs-missing).
-- **ETW izlemeleri**: Uzak Masaüstü VM ve yükleme PerfView başlatın.  Çalışma Dosya -> PerfView içinde kullanıcı komutu -> dinleme etwprovder1, etwprovider2 vb..  Dinleme komutu büyük/küçük harfe duyarlıdır ve ETW sağlayıcılar virgülle ayrılmış listesi arasında boşluk olamaz unutmayın.  Çalıştırmak komutu başarısız olursa ne çalıştırmak için yapılmaya çalışıldı ve sonucu neydi görmek için Perfview aracı sağ alt 'Günlük' düğmesini tıklatabilirsiniz.  Giriş varsayarak, yeni bir pencere yukarı ve ETW izlemeleri görmesini başlayacak birkaç saniye sonra pop doğrudur.
-- **Olay günlükleri**: Uzak Masaüstü VM başlatın. Açık `Event Viewer` ve olayları mevcut emin olun.
+- **ETW izlemeleri**: hello VM içine, Uzak Masaüstü'nü ve yükleme PerfView.  Çalışma Dosya -> PerfView içinde kullanıcı komutu -> dinleme etwprovder1, etwprovider2 vb..  Merhaba dinleme komutu büyük/küçük harfe duyarlıdır ve hello virgülle ayrılmış listesini ETW sağlayıcılar arasında boşluk olamaz unutmayın.  Toorun Hello komutu başarısız olursa hello-sağ alt denenen toorun ve hangi hello sonuç neydi hello Perfview aracı toosee hello 'Günlük' düğmesini tıklatabilirsiniz.  Merhaba giriş yeni bir pencere yukarı ve birkaç saniye sonra pop doğru olduğunu varsayarak ETW izlemeleri görmesini başlar.
+- **Olay günlükleri**: Uzak Masaüstü hello VM başlatın. Açık `Event Viewer` ve hello olayları mevcut emin olun.
 #### <a name="is-data-getting-captured-locally"></a>Verileri yerel olarak yakalanan:
-Sonraki verileri yerel olarak yakalanır emin olun.
-Verileri yerel olarak depolanan `*.tsf` dosyalar [Tanılama verileri için yerel deposu](#log-artifacts-path). Farklı türde günlüklerini toplanan farklı `.tsf` dosyaları. Azure depolama alanında Tablo adları için benzer adlardır. Örneğin `Performance Counters` içinde toplanan alma `PerformanceCountersTable.tsf`, olay günlüklerini toplanan `WindowsEventLogsTable.tsf`. Konusundaki yönergeleri kullanın [yerel günlük ayıklama](#local-log-extraction) bölümü yerel koleksiyon dosyaları açmak ve bunları diskte toplanan gördüğünüzden emin olun.
+Sonraki hello verileri yerel olarak yakalanır emin olun.
+Merhaba veri depolanan yerel olarak `*.tsf` dosyalar [hello yerel depolama için tanılama veri](#log-artifacts-path). Farklı türde günlüklerini toplanan farklı `.tsf` dosyaları. Merhaba benzer toohello tablo adları azure depolama alanında adlardır. Örneğin `Performance Counters` içinde toplanan alma `PerformanceCountersTable.tsf`, olay günlüklerini toplanan `WindowsEventLogsTable.tsf`. Merhaba yönergeleri kullanın [yerel günlük ayıklama](#local-log-extraction) bölümünde tooopen hello yerel koleksiyon dosyaları ve bunları diskte toplanan gördüğünüzden emin olun.
 
-Yerel olarak toplanan günlüklerini görmüyorum ve ana bilgisayar veri oluşturuyor zaten doğruladıktan büyük olasılıkla bir yapılandırma sorunu varsa. Yapılandırmanıza uygun bölüm için dikkatle gözden geçirin. Ayrıca MonitoringAgent için oluşturulan yapılandırmasını gözden geçirmek [MaConfig.xml](#log-artifacts-path) ve olduğunu denetleyin ilgili günlük kaynağını açıklayan bazı bölüm ve azure tanılama yapılandırması arasında çevirisini kaybolmamasını ve İzleme Aracısı yapılandırması.
+Yerel olarak toplanan günlüklerine bakın yoksa ve zaten hello ana verileri oluşturma, yapılandırma sorunu büyük olasılıkla sahip doğrulandı. Yapılandırmanızı hello uygun bölüm için dikkatle gözden geçirin. Ayrıca MonitoringAgent için oluşturulan hello yapılandırmasını gözden geçirmek [MaConfig.xml](#log-artifacts-path) ve hello ilgili günlük kaynak ve bunu azure tanılama yapılandırması arasında çevirisini kaybolmamasını açıklayan bazı bölümü olduğundan emin olun ve İzleme Aracısı yapılandırması.
 #### <a name="is-data-getting-transferred"></a>Veri aktarılır:
-Verileri yerel olarak yakalanır ancak onu hala depolama hesabınızdaki göremiyorsanız doğruladıysanız: 
-- Öncelikle, doğru depolama hesabı sağladığınız ve, anahtarları etc.for belirtilen depolama hesabı toplu olmayan emin olun. Bulut Hizmetleri için bazen kimliğinizi kişiler güncelleştirmemeniz bkz kendi `useDevelopmentStorage=true`.
-- Depolama hesabının doğru olduğundan sağladıysanız. Genel depolama uç noktaları ulaşması bileşenleri izin verme bazı ağ kısıtlamaları sahip olmadığından emin olun. Bunu yapmanın bir yolu makinede Uzak Masaüstü ve bir şey için aynı depolama hesabındaki kendiniz yazmak deneyin.
-- Son olarak, deneyin ve hangi hata izleme aracısı tarafından rapor bakın. İzleme Aracısı günlüklerinin Yazar `maeventtable.tsf` bulunan [Tanılama verileri için yerel deposu](#log-artifacts-path). ' Ndaki yönergeleri izleyin [yerel günlük ayıklama](#local-log-extraction) bu dosyayı açın ve deneyin ve olup olmadığını anlamasına bölüm `errors` yerel dosyaları okumak veya depolama alanına yazmak için hatalarını gösteren.
+Merhaba verileri yerel olarak yakalanır ancak onu hala depolama hesabınızdaki göremiyorsanız doğruladıysanız: 
+- Öncelikle, doğru depolama hesabı sağladığınız ve, depolama hesabı verilen anahtarları etc.for hello alındı olmayan emin olun. Bulut Hizmetleri için bazen kimliğinizi kişiler güncelleştirmemeniz bkz kendi `useDevelopmentStorage=true`.
+- Depolama hesabının doğru olduğundan sağladıysanız. Merhaba bileşenleri tooreach genel depolama uç noktaları izin verme bazı ağ kısıtlamaları sahip olmadığından emin olun. Merhaba tooremote Desktop'a olan tek yönlü toodo makine ve toowrite bir şey toohello deneyin aynı depolama hesabı kendiniz.
+- Son olarak, deneyin ve hangi hata izleme aracısı tarafından rapor bakın. İzleme Aracısı günlüklerinin Yazar `maeventtable.tsf` bulunan [hello yerel depolama için tanılama veri](#log-artifacts-path). ' Ndaki yönergeleri izleyin [yerel günlük ayıklama](#local-log-extraction) tooopen bu dosyayı bölümünde deneyin ve olup olmadığını anlamasına `errors` hataları tooread yerel dosyaları belirten veya toostorage yazma.
 
 ### <a name="capturing--archiving-logs"></a>Yakalama / günlükleri arşivleme
-Yukarıdaki adımları oluştu ancak ne yanlış ve destek hakkında düşünmeye tahmin edebileceği değil. Bunlar isteyebilir ilk şey, makinenizden günlükleri toplamaktır. Bu kendiniz yaparak zamandan tasarruf edebilirsiniz. Çalıştırma `CollectGuestLogs.exe` adresindeki yardımcı programı [günlük toplama yardımcı programının yolu](#log-artifacts-path) ve tüm ilgili azure günlüklerini zip dosyasıyla aynı klasöre oluşturur.
+Yukarıdaki adımları hello aracılığıyla oluştu ancak ne yanlış ve destek hakkında düşünmeye tahmin edebileceği değil. Merhaba ilk şey, isteyebilir makinenizden toocollect günlükleri ' dir. Bu kendiniz yaparak zamandan tasarruf edebilirsiniz. Merhaba çalıştırmak `CollectGuestLogs.exe` adresindeki yardımcı programı [günlük toplama yardımcı programının yolu](#log-artifacts-path) ve tüm ilgili azure günlüklerini zip dosyasıyla hello oluşturur aynı klasöre.
 
 ## <a name="diagnostics-data-tables-not-found"></a>Tanılama veri tabloları bulunamadı
-ETW olayları tutan Azure depolama tablolarda, aşağıdaki kodu kullanarak adlandırılır:
+ETW olayları tutan Azure depolama Hello tablolarda koddan hello kullanarak adlandırılır:
 
 ```C#
         if (String.IsNullOrEmpty(eventDestination)) {
@@ -195,69 +195,69 @@ ETW olayları tutan Azure depolama tablolarda, aşağıdaki kodu kullanarak adla
 
 ## <a name="references"></a>Başvurular
 
-### <a name="how-to-check-diagnostics-extension-configuration"></a>Tanılama uzantı yapılandırmasını denetleme
-Uzantı yapılandırmanızı http://resources.azure.com için gitmek için denetlemek için en kolay yolu gidin sanal makine veya Bulut hizmeti, Azure tanılama uzantısını (IaaSDiagnostics / PaaDiagnostics) şüphe duyuluyor.
+### <a name="how-toocheck-diagnostics-extension-configuration"></a>Nasıl toocheck tanılama uzantı yapılandırmasını
+en kolay yolu toocheck hello uzantısı yapılandırmanızı toonavigate toohttp://resources.azure.com, toohello hangi hello Azure tanılama uzantısını üzerinde sanal makine veya Bulut hizmeti gidin (IaaSDiagnostics / PaaDiagnostics) şüphe duyuluyor.
 
-Alternatif olarak, makine ve Azure tanılama yapılandırma dosyası bakmak, Uzak Masaüstü'nü uygun bölümünde açıklanan [burada](#log-artifacts-path).
+Alternatif olarak, Uzak Masaüstü hello makine ve hello Azure tanılama yapılandırma dosyası bakma açıklanan hello uygun bölümünde [burada](#log-artifacts-path).
 
-İçin büyük/küçük harf ya da aramada **Microsoft.Azure.Diagnostics** ardından **xmlCfg** veya **WadCfg** alan. 
+İçin büyük/küçük harf ya da aramada **Microsoft.Azure.Diagnostics** hello ardından **xmlCfg** veya **WadCfg** alan. 
 
-WadCfg alan varsa, sanal makineleri durumunda, bu yapılandırma JSON'de anlamına gelir. XmlCfg alan varsa, bu yapılandırma XML'dir ve Base64 ile kodlanmış anlamına gelir. Yapmanız [çözülmesi](http://www.bing.com/search?q=base64+decoder) altyapınıza yüklendi XML görmek için.
+Merhaba WadCfg alan varsa, sanal makineleri durumunda bunu hello config JSON'de anlamına gelir. Merhaba xmlCfg alan varsa, hello config XML'dir ve Base64 ile kodlanmış anlamına gelir. Çok ihtiyacınız[çözülmesi](http://www.bing.com/search?q=base64+decoder) toosee hello tanılama tarafından yüklenen XML.
 
-Disk, yapılandırmasından çekme bulut hizmeti rolü için verileri base64 ile kodlanmış gerekir böylece ise [çözülmesi](http://www.bing.com/search?q=base64+decoder) altyapınıza yüklendi XML görmek için.
+Disk, hello yapılandırmasından çekme bulut hizmeti rolü için hello verileri base64 ile kodlanmış çok gerekir böylece ise[çözülmesi](http://www.bing.com/search?q=base64+decoder) toosee hello tanılama tarafından yüklenen XML.
 
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Azure tanılama eklentisi çıkış kodları
-Eklentisi aşağıdaki çıkış kodlarını döndürür:
+Merhaba eklentisi çıkış kodları aşağıdaki hello döndürür:
 
 | Çıkış kodu | Açıklama |
 | --- | --- |
 | 0 |Başarılı. |
 | -1 |Genel hata. |
-| -2 |Rcf dosyası yüklenemiyor.<p>Konuk Aracısı eklentisi Başlatıcısı'nı el ile yanlış, VM çağrılırsa, bu dahili bir hata yalnızca gerçekleşmelidir. |
-| -3 |Tanılama yapılandırma dosyası yüklenemiyor.<p><p>Çözüm: nedeni, şema doğrulaması geçirme olmayan bir yapılandırma dosyası. Çözüm, şemasıyla uyumlu bir yapılandırma dosyası sağlamaktır. |
-| -4 |Tanılama İzleme Aracısı başka bir örneği zaten yerel kaynak dizini kullanıyor.<p><p>Çözüm: için farklı bir değer belirtin **LocalResourceDirectory**. |
-| -6 |Konuk Aracısı eklentisi Başlatıcısı geçersiz bir komut satırıyla tanılama başlatma girişiminde bulunuldu.<p><p>Konuk Aracısı eklentisi Başlatıcısı'nı el ile yanlış, VM çağrılırsa, bu dahili bir hata yalnızca gerçekleşmelidir. |
-| -10 |Tanılama eklentisi işlenmeyen bir özel durum ile çıkıldı. |
-| -11 |Konuk Aracısı işlemi başlatma ve İzleme Aracısı'nı izleme sorumlu oluşturamadı.<p><p>Çözüm: yeterli sistem kaynaklarının yeni işlemleri başlatmak kullanılabilir olduğundan emin olun.<p> |
-| -101 |Tanılama eklentisi çağrılırken geçersiz bağımsız değişkenler.<p><p>Konuk Aracısı eklentisi Başlatıcısı'nı el ile yanlış, VM çağrılırsa, bu dahili bir hata yalnızca gerçekleşmelidir. |
-| -102 |Eklentisi olarak kendisi başlatamadı işlemidir.<p><p>Çözüm: yeterli sistem kaynaklarının yeni işlemleri başlatmak kullanılabilir olduğundan emin olun. |
-| -103 |Eklentisi olarak kendisi başlatamadı işlemidir. Özellikle Günlükçü nesnesini oluşturamadı.<p><p>Çözüm: yeterli sistem kaynaklarının yeni işlemleri başlatmak kullanılabilir olduğundan emin olun. |
-| -104 |Konuk aracısı tarafından sağlanan rcf dosyası yüklenemiyor.<p><p>Konuk Aracısı eklentisi Başlatıcısı'nı el ile yanlış, VM çağrılırsa, bu dahili bir hata yalnızca gerçekleşmelidir. |
-| -105 |Tanılama eklentisi tanılama yapılandırma dosyası açılamıyor.<p><p>Tanılama eklentisini el ile yanlış, VM çağrılırsa, bu dahili bir hata yalnızca gerçekleşmelidir. |
-| -106 |Tanılama yapılandırma dosyası okunamıyor.<p><p>Çözüm: nedeni, şema doğrulaması geçirme olmayan bir yapılandırma dosyası. Bu nedenle uyumlu bir yapılandırma dosyası şeması ile sağlamak için çözümüdür. Bkz: [tanılama uzantı yapılandırmasını denetleme](#how-to-check-diagnostics-extension-configuration). |
-| -107 |İzleme Aracısı kaynak directory geçişine geçersiz.<p><p>İzleme Aracısı'nı el ile yanlış, VM çağrılırsa, bu dahili bir hata yalnızca gerçekleşmelidir.</p> |
-| -108 |İzleme Aracısı yapılandırma dosyasına tanılama yapılandırma dosyası dönüştürülemiyor.<p><p>Tanılama eklentisini el ile geçersiz bir yapılandırma dosyası ile çağrılırsa, bu dahili bir hata yalnızca gerçekleşmelidir. |
-| -110 |Genel tanılama yapılandırma hatası.<p><p>Tanılama eklentisini el ile geçersiz bir yapılandırma dosyası ile çağrılırsa, bu dahili bir hata yalnızca gerçekleşmelidir. |
-| -111 |İzleme Aracısı başlatılamadı.<p><p>Çözüm: yeterli sistem kaynaklarının kullanılabilir olduğundan emin olun. |
+| -2 |%S tooload hello rcf dosyası.<p>Merhaba Konuk Aracısı eklentisi Başlatıcısı el ile yanlış bir şekilde hello VM üzerinde çağrılırsa, bu dahili bir hata yalnızca gerçekleşmelidir. |
+| -3 |Merhaba tanılama yapılandırma dosyası yüklenemiyor.<p><p>Çözüm: nedeni, şema doğrulaması geçirme olmayan bir yapılandırma dosyası. Merhaba, tooprovide hello şeması ile uyumlu bir yapılandırma dosyası çözümüdür. |
+| -4 |İzleme Aracısı tanılama hello başka bir örneği zaten hello yerel kaynak dizini kullanıyor.<p><p>Çözüm: için farklı bir değer belirtin **LocalResourceDirectory**. |
+| -6 |Geçersiz komut satırı ile toolaunch tanılama Hello Konuk Aracısı eklentisi Başlatıcısı çalıştı.<p><p>Merhaba Konuk Aracısı eklentisi Başlatıcısı el ile yanlış bir şekilde hello VM üzerinde çağrılırsa, bu dahili bir hata yalnızca gerçekleşmelidir. |
+| -10 |Merhaba tanılama eklentisi işlenmeyen bir özel durum ile çıkıldı. |
+| -11 |Merhaba Konuk Aracısı yüklenemiyor toocreate hello işlem başlatma ve İzleme Aracısı hello izleme sorumlu.<p><p>Çözüm: yeterli sistem kaynaklarının kullanılabilir toolaunch yeni işlemler olduğunu doğrulayın.<p> |
+| -101 |Merhaba tanılama eklentisi çağrılırken geçersiz bağımsız değişkenler.<p><p>Merhaba Konuk Aracısı eklentisi Başlatıcısı el ile yanlış bir şekilde hello VM üzerinde çağrılırsa, bu dahili bir hata yalnızca gerçekleşmelidir. |
+| -102 |Merhaba Eklenti yüklenemiyor tooinitialize kendisini bir işlemdir.<p><p>Çözüm: yeterli sistem kaynaklarının kullanılabilir toolaunch yeni işlemler olduğunu doğrulayın. |
+| -103 |Merhaba Eklenti yüklenemiyor tooinitialize kendisini bir işlemdir. Özellikle oluşturulamıyor toocreate hello Günlükçü nesne değil.<p><p>Çözüm: yeterli sistem kaynaklarının kullanılabilir toolaunch yeni işlemler olduğunu doğrulayın. |
+| -104 |Merhaba Konuk aracısı tarafından sağlanan oluşturulamıyor tooload hello rcf dosyası.<p><p>Merhaba Konuk Aracısı eklentisi Başlatıcısı el ile yanlış bir şekilde hello VM üzerinde çağrılırsa, bu dahili bir hata yalnızca gerçekleşmelidir. |
+| -105 |Merhaba tanılama eklentisi hello tanılama yapılandırma dosyası açılamıyor.<p><p>Hello tanılama eklentisini el ile yanlış bir şekilde hello VM üzerinde çağrılırsa, bu dahili bir hata yalnızca gerçekleşmelidir. |
+| -106 |Merhaba tanılama yapılandırma dosyası okunamıyor.<p><p>Çözüm: nedeni, şema doğrulaması geçirme olmayan bir yapılandırma dosyası. Bu nedenle tooprovide hello şeması ile uyumlu bir yapılandırma dosyası hello çözümüdür. Bkz: [nasıl toocheck tanılama uzantı yapılandırmasını](#how-to-check-diagnostics-extension-configuration). |
+| -107 |İzleme Aracısı hello kaynak dizin geçişi toohello geçersiz.<p><p>İzleme Aracısı hello el ile yanlış bir şekilde hello VM üzerinde çağrılırsa, bu dahili bir hata yalnızca gerçekleşmelidir.</p> |
+| -108 |%S tooconvert hello tanılama yapılandırma dosyasına hello Aracısı Yapılandırma dosyası izleme.<p><p>Merhaba tanılama eklentisini el ile geçersiz bir yapılandırma dosyası ile çağrılırsa, bu dahili bir hata yalnızca gerçekleşmelidir. |
+| -110 |Genel tanılama yapılandırma hatası.<p><p>Merhaba tanılama eklentisini el ile geçersiz bir yapılandırma dosyası ile çağrılırsa, bu dahili bir hata yalnızca gerçekleşmelidir. |
+| -111 |%S toostart hello İzleme Aracısı.<p><p>Çözüm: yeterli sistem kaynaklarının kullanılabilir olduğundan emin olun. |
 | -112 |Genel hata |
 
 ### <a name="local-log-extraction"></a>Yerel günlük ayıklama
-İzleme Aracısı günlükleri ve yapı olarak toplayan `.tsf` dosyaları. `.tsf`Dosya okunabilir değildir ancak içine dönüştürebilirsiniz bir `.csv` gibi: 
+İzleme Aracısı hello toplar günlükleri ve yapı olarak `.tsf` dosyaları. `.tsf`Dosya okunabilir değildir ancak içine dönüştürebilirsiniz bir `.csv` gibi: 
 
 ```
 <Azure diagnostics extension package>\Monitor\x64\table2csv.exe <relevantLogFile>.tsf
 ```
-Yeni bir dosya olarak adlandırılan `<relevantLogFile>.csv` ilgili olarak aynı yol içinde oluşturulacak `.tsf` dosya.
+Yeni bir dosya olarak adlandırılan `<relevantLogFile>.csv` hello aynı oluşturulacak hello karşılık gelen olarak yolu `.tsf` dosya.
 
-**Not**: Bu yardımcı programı ana tsf dosyasını (örn., PerformanceCountersTable.tsf) karşı çalıştırmak yeterlidir. Eşlik eden dosyaları (örn., PerformanceCountersTables_\*\*001.tsf, PerformanceCountersTables_\*\*002. tsf vb.) otomatik olarak işlenir.
+**Not**: toorun bu yardımcı program hello ana tsf dosyası (örn., PerformanceCountersTable.tsf) karşı yeterlidir. dosyaları eşlik hello (örn., PerformanceCountersTables_\*\*001.tsf, PerformanceCountersTables_\*\*002. tsf vb.) otomatik olarak işlenir.
 
 ### <a name="more-about-trace-logs-missing"></a>Eksik izleme günlükleri hakkında daha fazla bilgi
 
-**Not:** yalnızca Iaas VM üzerinde çalışan bir uygulama üzerinde DiagnosticsMonitorTraceListener yapılandırmadıysanız bu çoğunlukla bulut Hizmetleri için geçerlidir. 
+**Not:** yalnızca Iaas VM üzerinde çalışan bir uygulama üzerinde hello DiagnosticsMonitorTraceListener yapılandırmadıysanız bu çoğunlukla toocloud Hizmetleri için geçerlidir. 
 
-- DiagnosticMonitorTraceListener web.config veya app.config yapılandırıldığından emin olun.  Bu bulut hizmeti projelerinde varsayılan olarak yapılandırılır, ancak bazı müşteriler tarafından tanılama değil toplanacak izleme deyimleri neden olur, çıkışı açıklama. 
-- Günlükleri çalıştırın veya OnStart yönteminden yazılmaz DiagnosticMonitorTraceListener App.config dosyasının içinde olduğundan emin olun.  Varsayılan olarak, web.config dosyasında olmakla birlikte, yalnızca içinde w3wp.exe çalışan kodu uygular; Bu nedenle WaIISHost.exe içinde çalışan izlemelerini yakalama App.Config'de gerekir.
-- Diagnostics.Debug.WriteXXX yerine Diagnostics.Trace.TraceXXX kullandığınızdan emin olun.  Hata ayıklama bildirimlerini kaldırılacak yayın derlemeden.
-- (Reflector, ildasm veya doğrulamak için ILSpy kullanın) Diagnostics.Trace satırları gerçekte derlenmiş kod olduğundan emin olun.  İzleme koşullu derleme simgenin kullanmadığınız sürece Diagnostics.Trace komutları derlenmiş ikili dosyadan kaldırılır.  MSBuild Projesi derlemek için kullanılıyorsa, ardından bu içine çalıştırmak için yaygın görülen bir sorundur.
+- DiagnosticMonitorTraceListener hello web.config veya app.config yapılandırıldığından emin hello olun.  Bu bulut hizmeti projelerinde varsayılan olarak yapılandırılır, ancak bazı müşteriler, açıklama hello izleme deyimleri toonot neden olacak çıkış tanılama tarafından toplanan. 
+- Günlükleri hello çalıştırın veya OnStart yönteminden yazılmaz DiagnosticMonitorTraceListener hello App.config dosyasının içinde olduğundan emin hello olun.  Merhaba web.config dosyasında varsayılandır tarafından ancak, yalnızca içinde w3wp.exe çalışan toocode uygulanır; Bu nedenle WaIISHost.exe içinde çalışan app.config toocapture izlemeleri de gerekir.
+- Diagnostics.Debug.WriteXXX yerine Diagnostics.Trace.TraceXXX kullandığınızdan emin olun.  Merhaba hata ayıklama bildirimlerini kaldırılacak yayın derlemeden.
+- Merhaba Diagnostics.Trace satırları (Reflector, ildasm veya ILSpy tooverify kullanın) gerçekte hello derlenmiş kod olduğundan emin olun.  Merhaba izleme koşullu derleme simgesi kullanmadığınız sürece Diagnostics.Trace komutları derlenmiş hello ikiliden kaldırılır.  MSBuild toobuild hello projesi kullanarak, bu yaygın bir sorun toorun içine olur.
 
 ## <a name="known-issues-and-mitigations"></a>Bilinen sorunlar ve bunları azaltmanın yollarını
 Bilinen Azaltıcı Etkenler ile ilgili bilinen sorunların listesi aşağıdadır:
 
 **1. .NET 4.5 bağımlılık:**
 
-WAD, .NET 4.5 framework veya üzeri bir çalışma zamanı bağımlılık vardır. Bu yazma zamanında tüm resmi azure sanal makine temel görüntülerinin yanı sıra bulut Hizmetleri için sağlanan tüm makineler .NET 4.5 veya üzerinde yüklü. Hala .NET 4.5 olmayan bir makinede veya yukarıdaki WAD çalıştırmayı deneyin olduğu bir durumda güden ancak mümkün. Bu, makinenize bir eski görüntü veya anlık görüntü dışına oluşturmak ortaya çıkar; veya kendi özel disk getirin.
+WAD, .NET 4.5 framework veya üzeri bir çalışma zamanı bağımlılık vardır. Bu yazma hello zaman tüm resmi azure sanal makine temel görüntülerinin yanı sıra bulut Hizmetleri için sağlanan tüm makineler .NET 4.5 veya üzerinde yüklü. Ancak hala olası tooland toorun WAD .NET 4.5 olmayan bir makine veya üzeri deneyin burada bir durumda değil. Bu, makinenize bir eski görüntü veya anlık görüntü dışına oluşturmak ortaya çıkar; veya kendi özel disk getirin.
 
-Bu genellikle bir çıkış kodu olarak bildirimleri **255** DiagnosticsPluginLauncher.exe çalışırken. İşlenmeyen özel durum nedeniyle başarısız olur: 
+Bu genellikle bir çıkış kodu olarak bildirimleri **255** DiagnosticsPluginLauncher.exe çalışırken. Toohello işlenmeyen özel durum başarısız olur: 
 ```
 System.IO.FileLoadException: Could not load file or assembly 'System.Threading.Tasks, Version=1.5.11.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies
 ```
@@ -266,8 +266,8 @@ System.IO.FileLoadException: Could not load file or assembly 'System.Threading.T
 
 **2. Performans sayaçları verileri kullanılabilir depolama ancak portalında gösterilmiyor**
 
-Sanal makineler portal deneyimi, varsayılan olarak belirli performans sayaçlarını gösterir. Depolama alanında kullanılabilir olduğundan bunları görmüyorum ve biliyorsanız veri oluşturulan. Denetleme:
-- Depolama verileri İngilizce sayaç adı varsa. Sayaç adları İngilizce değilse, portal ölçüm grafik tanıması mümkün olmaz.
-- Joker karakterler kullanıyorsanız (\*), performans sayacı adlarını portal yapılandırılmış ve toplanan sayaç ilişkilendirmek mümkün olmaz.
+Sanal makineler portal deneyimi, varsayılan olarak belirli performans sayaçlarını gösterir. Bunları görmüyorsanız ve depolama alanında kullanılabilir olduğundan hello veri oluşturulan bilmek istiyorsanız. Denetleme:
+- Depolama alanında Hello veriler İngilizce sayaç adı varsa. Merhaba sayaç adları İngilizce değilse, portal ölçüm grafik mümkün toorecognize olmaz.
+- Joker karakterler kullanıyorsanız (\*), performans sayacı adlarını yapılandırılmış ve sayaç toplanan mümkün toocorrelate hello hello portal olmaz.
 
-**Azaltma**: makinenin dil İngilizce'ye sistem hesapları için değiştirin. Denetim Masası -> bölge Yönetim -> kopyalama ayarlar -> -> özel dil sistem hesabına uygulanmamış böylece "Hoş Geldiniz ekranı ve sistem hesapları" seçeneğinin işaretini kaldırın. Ayrıca, portal birincil tüketim deneyiminizi olmasını istiyorsanız joker karakterler kullanmayın emin olun.
+**Azaltma**: hello makinenin dil tooEnglish sistem hesapları için değiştirin. Denetim Masası -> bölge Yönetim -> kopyalama ayarlar -> -> merhaba özel dil olmaması "Hoş Geldiniz ekranı ve sistem hesapları" seçeneğinin işaretini kaldırın uygulanan toosystem hesabı. Ayrıca birincil tüketim deneyiminizi portal toobe istiyorsanız joker karakterler kullanmayın emin olun.

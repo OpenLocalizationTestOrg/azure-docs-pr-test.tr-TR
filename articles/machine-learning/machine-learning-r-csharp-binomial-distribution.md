@@ -1,5 +1,5 @@
 ---
-title: "(kullanım dışı) Terimli dağıtım paketi - Azure | Microsoft Docs"
+title: "AAA(deprecated) terimli dağıtım paketi - Azure | Microsoft Docs"
 description: "(kullanım dışı) Terimli dağıtım paketi"
 services: machine-learning
 documentationcenter: 
@@ -16,67 +16,67 @@ ms.date: 01/06/2017
 ms.author: ireiter
 ROBOTS: NOINDEX
 redirect_url: https://gallery.cortanaintelligence.com/
-redirect_document_id: TRUE
-ms.openlocfilehash: 6f0a6d06e7401c8360a92a707a0552f41ff3657c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+redirect_document_id: True
+ms.openlocfilehash: 6f94436cd19abeb518d179f340c8d4f43fcf4520
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deprecated-binomial-distribution-suite"></a>(kullanım dışı) Terimli dağıtım paketi
 
 > [!NOTE]
-> Microsoft DataMarket kullanımdan kaldırıldı ve bu API kullanım dışı bırakıldı. 
+> Merhaba Microsoft DataMarket kullanımdan kaldırıldı ve bu API kullanım dışı bırakıldı. 
 > 
-> Çok sayıda kullanışlı örnek denemeleri ve API'leri bulabilirsiniz [Cortana Intelligence Galerisi](http://gallery.cortanaintelligence.com). Galeri hakkında daha fazla bilgi için bkz: [paylaşımı ve Cortana Intelligence Galerisi kaynakları bulmak](machine-learning-gallery-how-to-use-contribute-publish.md).
+> Çok sayıda kullanışlı örnek denemeleri ve API hello bulabilirsiniz [Cortana Intelligence Galerisi](http://gallery.cortanaintelligence.com). Merhaba galeri hakkında daha fazla bilgi için bkz: [paylaşımı ve hello Cortana Intelligence Galerisi kaynakları bulmak](machine-learning-gallery-how-to-use-contribute-publish.md).
 
-Örnek web hizmetleri kümesi terimli dağıtım paketidir ([terimli Oluşturucu](https://datamarket.azure.com/dataset/aml_labs/bdg5), [olasılık hesaplayıcı](https://datamarket.azure.com/dataset/aml_labs/bdp4), [Quantile hesaplayıcı](https://datamarket.azure.com/dataset/aml_labs/bdq5)) Yardım oluşturmak ve terimli dağıtımları postalarla. Quantiles hesaplama herhangi bir uzunlukta terimli dağıtım dizisini oluşturma hizmetleri izin dışında verilen quantile olasılık ve hesaplama olasılık verilen. Hizmetlerinin her biri farklı çıkışları seçili hizmetini temel alan yayar (Açıklama aşağıya bakın). R işlevleri qbinom rbinom ve pbinom, R istatistikleri paketinde bulunan terimli Dağıtım paketine bağlıdır. 
+Merhaba terimli dağıtım paketi örnek web hizmetleri kümesidir ([terimli Oluşturucu](https://datamarket.azure.com/dataset/aml_labs/bdg5), [olasılık hesaplayıcı](https://datamarket.azure.com/dataset/aml_labs/bdp4), [Quantile hesaplayıcı](https://datamarket.azure.com/dataset/aml_labs/bdq5)) Yardım oluşturmak ve terimli dağıtımları postalarla. Merhaba Hizmetleri quantiles hesaplama herhangi bir uzunlukta terimli dağıtım dizisini oluşturma izin dışında verilen quantile olasılık ve hesaplama olasılık verilen. Merhaba hizmetlerinin her biri farklı çıkışları seçili hello hizmetini temel alan yayar (Açıklama aşağıya bakın). Merhaba terimli dağıtım paketi hello R işlevleri qbinom rbinom ve pbinom, hangi hello R istatistikleri paketine dahil edilen temel alır. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-> Bu web hizmetleri kullanıcılar tarafından – olası bir Web sitesi aracılığıyla ya da bile yerel bir bilgisayarda, bir mobil uygulama aracılığıyla, doğrudan Market'te örneğin kullanılabilecek. Ancak web hizmetinin amacı, ayrıca Azure Machine Learning web hizmetleri R kodu üstünde oluşturmak için nasıl kullanılabileceği bir örnek olarak hizmet verecek. Yalnızca birkaç satırlık bir R kodu ve Azure Machine Learning Studio içinde bir düğmeye tıklama ile bir deneme R kodu ile oluşturulan ve bir web hizmeti olarak yayımlanan. Web hizmeti daha sonra Azure Marketi yayımlanan ve dünya genelindeki kullanıcılar ve cihazlar tarafından tüketilen – web hizmeti yazarı tarafından hiçbir altyapı Kurulumu gereklidir.
+> Bu web hizmetleri kullanıcılar tarafından – potansiyel olarak doğrudan bir Web sitesi aracılığıyla ya da bile yerel bir bilgisayarda, bir mobil uygulama üzerinden hello Market üzerinde örneğin kullanılabilecek. Ancak hello amacı hello web hizmeti, ayrıca Azure Machine Learning kullanılan toocreate web hizmetleri R kodu en üstünde nasıl olabilir bir örnek olarak tooserve. Yalnızca birkaç satırlık bir R kodu ve Azure Machine Learning Studio içinde bir düğmeye tıklama ile bir deneme R kodu ile oluşturulan ve bir web hizmeti olarak yayımlanan. Merhaba web hizmeti sonra yayımlanan toohello Azure Marketi olabilir ve Merhaba dünya genelindeki – kullanıcılar ve cihazlar tarafından tüketilen hello web hizmeti hello yazarı tarafından hiçbir altyapı Kurulumu gerekmez.
 > 
 > 
 
 ## <a name="consumption-of-web-service"></a>Web hizmetinin tüketim
-Terimli dağıtım paketi, aşağıdaki 3 Hizmetleri içerir.
+Merhaba terimli dağıtım paketi 3 Hizmetleri aşağıdaki hello içerir.
 
 ### <a name="binomial-distribution-quantile-calculator"></a>Terimli dağıtım Quantile hesaplayıcısı
-Bu hizmet normal dağıtım 4 bağımsız değişkenlerini kabul eder ve ilişkili quantile hesaplar.
-Giriş bağımsız değişkenleri şunlardır:
+Bu hizmet normal dağıtım 4 bağımsız değişkenlerini kabul eder ve ilişkili hello quantile hesaplar.
+Merhaba giriş bağımsız değişkenleri şunlardır:
 
 * p - birden çok deneme olasılığını tek bir araya getirilir.  
-* boyutu - deneme sayısı.
-* olasılık - bir deneme başarı olasılığı.
-* Yan - M dağıtımın, dağıtım üst tarafındaki U alt tarafı için. 
+* boyutu - hello deneme sayısı.
+* olasılık - başarı bir deneme hello olasılık.
+* Yan - M hello dağıtımının hello dağıtım üst tarafındaki hello U hello alt tarafı için. 
 
-Hizmet verilen olasılık ile ilişkili hesaplanan quantile çıkışıdır.
+Merhaba hello hizmet olasılık verilen hello ile ilişkili hesaplanan hello quantile çıkışıdır.
 
 ### <a name="binomial-distribution-probability-calculator"></a>Terimli dağıtım olasılık hesaplayıcısı
-Bu hizmet terimli dağıtım 4 bağımsız değişkenlerini kabul eder ve ilişkili olasılık hesaplar.
-Giriş bağımsız değişkenleri şunlardır:
+Bu hizmet terimli dağıtım 4 bağımsız değişkenlerini kabul eder ve ilişkili hello olasılık hesaplar.
+Merhaba giriş bağımsız değişkenleri şunlardır:
 
 * q bir olayın terimli dağılımı ile tek quantile. 
-* boyutu - deneme sayısı.
-* olasılık - bir deneme başarı olasılığı.
-* yan - M dağıtımın, dağıtım veya başarıları tek bir dizi eşittir E üst tarafındaki U alt tarafı için.
+* boyutu - hello deneme sayısı.
+* olasılık - başarı bir deneme hello olasılık.
+* yan - M hello dağıtım, U hello üst tarafı hello dağıtım için ya da eşit tooa tek sayısı eşiğidir E hello alt tarafı için.
 
-Hizmet çıktısını verilen quantile ile ilişkili hesaplanan olasılıktır.
+Merhaba çıktı hello hizmetinin quantile verilen hello ile ilişkili hesaplanan hello olasılıktır.
 
 ### <a name="binomial-distribution-generator"></a>Terimli dağıtım Oluşturucusu
-Bu hizmet terimli dağıtım 3 bağımsız değişkenlerini kabul eder ve rastgele bir dizi binomially dağıtılmış sayı oluşturur. Şu bağımsız değişkenleri için isteği içinde sağlanmasını:
+Bu hizmet terimli dağıtım 3 bağımsız değişkenlerini kabul eder ve rastgele bir dizi binomially dağıtılmış sayı oluşturur. Merhaba şu bağımsız değişkenleri tooit hello istek içinde sağlanmış olmalıdır:
 
 * n - gözlemleri sayısı. 
 * boyutu - deneme sayısı.
 * olasılık - başarı olasılığı.
 
-Hizmet çıktısını uzunluğu n terimli boyutu ve olasılık bağımsız değişkenler üzerinde tabanlı bir dağıtım ile dizisidir.
+Merhaba çıktı hello hizmetinin uzunluğu n terimli hello boyutu ve olasılık bağımsız değişkenler üzerinde tabanlı bir dağıtım ile dizisidir.
 
-> Bu hizmet Azure Marketi üzerinde barındırılan bir OData hizmeti aynıdır; Bu POST veya GET yöntemleri ile çağrılabilir. 
+> Bu hizmet Azure Marketi hello üzerinde barındırılan bir OData hizmeti aynıdır; Bu POST veya GET yöntemleri ile çağrılabilir. 
 > 
 > 
 
-Otomatik bir şekilde hizmetinde tüketen birkaç yolu vardır (örneğin uygulamalardır burada: [Oluşturucu](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionGenerator.aspx), [olasılık hesaplayıcı](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionProbabilityCalculator.aspx), [Quantile hesaplayıcı](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionQuantileCalculator)). 
+Otomatik bir şekilde hello hizmetinde tüketen birkaç yolu vardır (örneğin uygulamalardır burada: [Oluşturucu](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionGenerator.aspx), [olasılık hesaplayıcı](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionProbabilityCalculator.aspx), [Quantile hesaplayıcı](http://microsoftazuremachinelearning.azurewebsites.net/BinomialDistributionQuantileCalculator)). 
 
 ### <a name="starting-c-code-for-web-service-consumption"></a>Web hizmet tüketimi için C# kodunu başlatılıyor:
 ### <a name="binomial-distribution-quantile-calculator"></a>Terimli dağıtım Quantile hesaplayıcısı
@@ -174,7 +174,7 @@ Otomatik bir şekilde hizmetinde tüketen birkaç yolu vardır (örneğin uygula
 
 
 ## <a name="creation-of-web-service"></a>Web hizmeti oluşturma
-> Bu web hizmeti, Azure Machine Learning kullanılarak oluşturuldu. Denemeler oluşturma tanıtım videoları yanı sıra, ücretsiz deneme için ve [web hizmetleri yayımlama](machine-learning-publish-a-machine-learning-web-service.md), lütfen bkz [azure.com/ml](http://azure.com/ml). Bir ekran görüntüsünü her denemenin içinde modülü için web hizmeti ve örnek kod oluşturulan deneme aşağıdadır.
+> Bu web hizmeti, Azure Machine Learning kullanılarak oluşturuldu. Denemeler oluşturma tanıtım videoları yanı sıra, ücretsiz deneme için ve [web hizmetleri yayımlama](machine-learning-publish-a-machine-learning-web-service.md), lütfen bkz [azure.com/ml](http://azure.com/ml). Bir ekran görüntüsünü her hello deneyin içinde hello modüllerin hello web hizmeti ve örnek kod oluşturulan hello deneme aşağıdadır.
 > 
 > 
 
@@ -184,7 +184,7 @@ Otomatik bir şekilde hizmetinde tüketen birkaç yolu vardır (örneğin uygula
 #### <a name="module-1"></a>Modül 1:
     #data schema with example data (replaced with data from web service)
     data.set=data.frame(p=0.1,size=10,prob=.5,side='L');
-    maml.mapOutputPort("data.set"); #send data to output port
+    maml.mapOutputPort("data.set"); #send data toooutput port
 #### <a name="module-2"></a>Modül 2:
     dataset1 <- maml.mapInputPort(1) # class: data.frame
     param = dataset1
@@ -220,7 +220,7 @@ Otomatik bir şekilde hizmetinde tüketen birkaç yolu vardır (örneğin uygula
 
     output = as.data.frame(quantile)
 
-    # Select data.frame to be sent to the output Dataset port
+    # Select data.frame toobe sent toohello output Dataset port
     maml.mapOutputPort("output");
 
 
@@ -230,7 +230,7 @@ Otomatik bir şekilde hizmetinde tüketen birkaç yolu vardır (örneğin uygula
 #### <a name="module-1"></a>Modül 1:
     #data schema with example data (replaced with data from web service)
     data.set=data.frame(q=5,size=10,prob=.5,side='L');
-    maml.mapOutputPort("data.set"); #send data to output port
+    maml.mapOutputPort("data.set"); #send data toooutput port
 
 
 #### <a name="module-2"></a>Modül 2:
@@ -256,7 +256,7 @@ Otomatik bir şekilde hizmetinde tüketen birkaç yolu vardır (örneğin uygula
 
     output = as.data.frame(prob)
 
-    # Select data.frame to be sent to the output Dataset port
+    # Select data.frame toobe sent toohello output Dataset port
     maml.mapOutputPort("output");
 
 ### <a name="binomial-distribution-generator"></a>Terimli dağıtım Oluşturucusu
@@ -265,7 +265,7 @@ Otomatik bir şekilde hizmetinde tüketen birkaç yolu vardır (örneğin uygula
 #### <a name="module-1"></a>Modül 1:
     #data schema with example data (replaced with data from web service)
     data.set=data.frame(n=50,size=10,p=.5);
-    maml.mapOutputPort("data.set"); #send data to output port
+    maml.mapOutputPort("data.set"); #send data toooutput port
 
 #### <a name="module-2"></a>Modül 2:
     dataset1 <- maml.mapInputPort(1) # class: data.frame
@@ -274,14 +274,14 @@ Otomatik bir şekilde hizmetinde tüketen birkaç yolu vardır (örneğin uygula
 
     output = as.data.frame(t(dist))
 
-    # Select data.frame to be sent to the output Dataset port
+    # Select data.frame toobe sent toohello output Dataset port
     maml.mapOutputPort("output");
 
 ## <a name="limitations"></a>Sınırlamalar
-Bunlar terimli dağıtım çevreleyen çok basit örnektir. Yukarıdaki örnek koddan görüldüğü gibi küçük hata yakalama uygulanır.
+Bunlar hello terimli dağıtım çevreleyen çok basit örnektir. Yukarıdaki Hello örnek koddan görüldüğü gibi küçük hata yakalama uygulanır.
 
 ## <a name="faq"></a>SSS
-Web hizmeti veya Azure Marketi'nde yayımlama tüketimi hakkında sık sorulan sorular için bkz: [burada](machine-learning-marketplace-faq.md).
+Merhaba web hizmetinin veya yayımlama toohello Azure Marketi tüketimi hakkında sık sorulan sorular için bkz: [burada](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-binomial-distribution/binomial_1.png
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure VM'ler için mevcut bir kullanılabilirlik ekleme desteklenebilirlik ayarlama | Microsoft Docs"
-description: "Azure VM'ler var olan bir kullanılabilirlik kümesine ekleme desteklenebilirlik."
+title: "Azure VM'ler tooan varolan kullanılabilirlik kümesi ekleme aaaSupportability | Microsoft Docs"
+description: "Azure VM'ler tooan varolan kullanılabilirlik kümesi ekleme desteklenebilirlik."
 services: virtual-machines-linux
 documentationcenter: 
 author: Deland-Han
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/15/2017
 ms.author: delhan
-ms.openlocfilehash: 3ce9b8a79108cb9e57df14bcb3354cc637193233
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: dc2bd86b916f1d1a0a0d4c9e870df829434c96b8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>Azure VM'ler var olan bir kullanılabilirlik kümesine ekleme desteklenebilirlik
+# <a name="supportability-of-adding-azure-vms-tooan-existing-availability-set"></a>Azure VM'ler tooan varolan kullanılabilirlik kümesi ekleme desteklenebilirlik
 
-Yeni sanal makineler (VM'ler) eklediğiniz zaman sınırlamaları var olan bir kullanılabilirlik kümesine bazen karşılaşabilirsiniz. Aşağıdaki grafikte aynı kullanılabilirlik kümesinde karıştırabilirsiniz hangi VM dizisi ayrıntılarını verir.
+Yeni sanal makineleri (VM'ler) tooan varolan kullanılabilirlik kümesi eklediğinizde sınırlamaları bazen karşılaşabilirsiniz. Merhaba aşağıdaki ayrıntıları karıştırabilir miyim hangi VM dizisi aynı kullanılabilirlik kümesinde hello grafik.
 
-VM'ler farklı türlerini karma olarak desteklenebilirlik matris şöyledir:
+Merhaba desteklenebilirlik matris toomix farklı türlerde VM'ler şöyledir:
 
 Seri & kullanılabilirlik kümesi|İkinci VM|A|Av2|D|Dv2|Dv3|
 |---|---|---|---|---|---|---|
@@ -35,4 +35,4 @@ Seri & kullanılabilirlik kümesi|İkinci VM|A|Av2|D|Dv2|Dv3|
 |Dv2||TAMAM|TAMAM|TAMAM|TAMAM|TAMAM|
 |Dv3||TAMAM|TAMAM|TAMAM|TAMAM|TAMAM|
 
-Diğer tüm serisi aynı kullanılabilirlik belirli donanım gerektirdiğinden kümesi içinde bulunamadı.
+Diğer tüm serisi hello belirli donanım gerektirdiğinden aynı kullanılabilirlik kümesi bulunamadı.

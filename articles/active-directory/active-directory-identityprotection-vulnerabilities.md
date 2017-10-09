@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory kimlik koruması tarafından algılanan güvenlik açığı | Microsoft Docs"
-description: "Azure Active Directory kimlik koruması tarafından algılanan güvenlik açığı genel bakış."
+title: "Azure Active Directory kimlik koruması tarafından algılanan aaaVulnerabilities | Microsoft Docs"
+description: "Azure Active Directory kimlik koruması tarafından algılanan hello güvenlik açıkları genel bakış."
 services: active-directory
 keywords: "Azure active directory kimlik koruması, cloud app discovery'yi, uygulamalar, güvenlik, risk, risk düzeyi, güvenlik açığı, güvenlik ilkesi yönetme"
 documentationcenter: 
@@ -15,26 +15,26 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 364873ff54099a6123e40b12e819d1745751f285
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 5e1cb401f8b566a180eb46e3420a090bcfc66767
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Azure Active Directory kimlik koruması tarafından algılanan güvenlik açığı
-Güvenlik açıkları zayıf bir saldırgan tarafından yararlanılabilir ortamınızda giderilmiştir. Kuruluşunuzun güvenlik tutumunu artırmak için bu güvenlik açıklarına ve bunları yararlanmasını saldırganların önlemeye öneririz.
+Güvenlik açıkları zayıf bir saldırgan tarafından yararlanılabilir ortamınızda giderilmiştir. Bu güvenlik açıkları tooimprove hello güvenlik yaklaşımı, kuruluşunuzun adres ve bunları yararlanmasını saldırganların önlemeye öneririz.
 
 
 ![Güvenlik Açıkları](./media/active-directory-identityprotection-vulnerabilities/101.png "güvenlik açıkları")
 
 
 
-Aşağıdaki bölümler kimlik koruması tarafından bildirilen güvenlik açıkları genel bir bakış sağlar.
+Merhaba aşağıdaki bölümlerde kimlik koruması tarafından bildirilen hello güvenlik açıkları genel bir bakış sağlar.
 
 ## <a name="multi-factor-authentication-registration-not-configured"></a>Çok faktörlü kimlik doğrulaması kayıt yapılandırılmadı
-Bu güvenlik açığından, kuruluşunuzda Azure multi-Factor Authentication dağıtımı denetlemenize yardımcı olur. 
+Bu güvenlik açığından yardımcı olacak denetim kuruluşunuzda Azure çok faktörlü kimlik doğrulamasının hello dağıtımı. 
 
-Azure çok faktörlü kimlik doğrulaması ikinci bir kullanıcı kimlik doğrulaması için güvenlik katmanı sağlar. Bu basit bir oturum açma işlemi için kullanıcı talebine buluştururken veri ve uygulamalara erişimi korunmasına yardımcı. Kolay doğrulama seçeneklerini çeşitli aracılığıyla güçlü kimlik doğrulaması sunar — telefon araması, SMS mesajı veya mobil uygulama bildirimi veya doğrulama kodu ve 3. taraf OATH belirteçleri.
+Azure çok faktörlü kimlik doğrulaması güvenlik toouser kimlik doğrulamasının ikinci bir katmanı sağlar. Bu koruma erişim toodata ve uygulamaları basit bir oturum açma işlemi için kullanıcı talebine buluştururken yardımcı olur. Kolay doğrulama seçeneklerini çeşitli aracılığıyla güçlü kimlik doğrulaması sunar — telefon araması, SMS mesajı veya mobil uygulama bildirimi veya doğrulama kodu ve 3. taraf OATH belirteçleri.
 
 Azure multi-Factor Authentication kullanıcı oturum açma işlemleri için gerekli öneririz. Çok faktörlü kimlik doğrulaması risk bağlı olarak koşullu erişim ilkelerindeki kimlik koruması kullanılabilir önemli bir rol oynar.
 
@@ -43,18 +43,18 @@ Daha fazla ayrıntı için bkz: [Azure multi-Factor Authentication nedir?](../mu
 ## <a name="unmanaged-cloud-apps"></a>Yönetilmeyen bulut uygulamaları
 Bu güvenlik açığından kuruluşunuzdaki yönetilmeyen bulut uygulamaları tanımlamasına yardımcı olur.
 
-Modern kuruluşlarda, BT departmanları genellikle kuruluşlarındaki kullanıcılar işlerini yapmak için kullandığınız tüm bulut uygulamaları farkında değildir. Yöneticileri Kurumsal verileri, olası veri sıkıntılarına ve diğer güvenlik risklerine yetkisiz erişimi endişeniz neden olurdu görmek kolaydır. 
+Modern kuruluşlarda, BT departmanları genellikle kullanıcılar kuruluşlarındaki işlerine toodo kullanmakta olduğunuz tüm hello bulut uygulamaları farkında değildir. Yöneticiler yetkisiz erişim toocorporate verileri, olası veri sıkıntılarına ve diğer güvenlik risklerine endişeniz neden olurdu kolay toosee olur. 
 
-Kuruluşunuzun Cloud App Discovery yönetilmeyen bulut uygulamaları bulmak ve Azure Active Directory'yi kullanarak bu uygulamaları yönetmek için dağıtmanızı öneririz.
+Kuruluşunuz Azure Active Directory'yi kullanarak bu uygulamaları Cloud App Discovery toodiscover yönetilmeyen bulut uygulamaları ve toomanage dağıtmanızı öneririz.
 
 Daha fazla ayrıntı için bkz: [Cloud App Discovery ile yönetilmeyen bulut uygulamaları bulma](active-directory-cloudappdiscovery-whatis.md).
 
 ## <a name="security-alerts-from-privileged-identity-management"></a>Privileged Identity Management güvenlik uyarıları
 Bu güvenlik açığından bulmak ve uyarılar, kuruluşunuzda ayrıcalıklı kimlikleri hakkında çözümlemenize yardımcı olur.  
 
-Ayrıcalıklı işlemleri gerçekleştirmek kullanıcıları etkinleştirmek için Azure AD'de kullanıcıları geçici veya kalıcı ayrıcalıklı erişim vermek kuruluş gerekir Azure veya Office 365 kaynakları veya diğer SaaS uygulamaları. Her bu ayrıcalıklı kullanıcılar, kuruluşunuzun saldırı yüzeyini artırır. Bu güvenlik açığından gereksiz ayrıcalıklı erişimi kullanıcıları tanımlamak ve azaltın veya bunlar teşkil riski ortadan kaldırmak için uygun eylemi gerçekleştirin yardımcı olur. 
+tooenable kullanıcılar toocarry genişletme ayrıcalıklı işlemleri kuruluşların gerekir geçici veya kalıcı ayrıcalıklı erişim Azure AD'de toogrant kullanıcılar Azure veya Office 365 kaynakları veya diğer SaaS uygulamaları. Bunların her biri, kullanıcıların artar hello saldırı yüzeyini, kuruluşunuzun ayrıcalıklı. Bu güvenlik açığından gereksiz ayrıcalıklı erişimi kullanıcıları tanımlamak ve tooreduce uygun eylemi gerçekleştirin ve bunlar teşkil hello riski ortadan kaldırmanıza yardımcı olur. 
 
-Kuruluşunuz, denetimi yönetmek için Azure AD Privileged Identity Management kullanır ve Office 365 veya Microsoft Intune gibi diğer Microsoft online services yanı sıra kimlikleri ve bunların Azure ad'deki kaynaklara erişimi İzleyici ayrıcalıklı öneririz.
+Kuruluşunuzun Azure AD Privileged Identity Management toomanage, Denetim ve ayrıcalıklı izleme kimlikleri ve bunların erişim tooresources Azure AD'de yanı sıra Office 365 veya Microsoft Intune gibi diğer Microsoft online services kullandığı öneririz.
 
 Daha fazla ayrıntı için bkz: [Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
 

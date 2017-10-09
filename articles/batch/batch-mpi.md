@@ -1,6 +1,6 @@
 ---
-title: "Azure Batch MPI uygulamaları - çalıştırmak için çok örnekli görevleri kullanma | Microsoft Docs"
-description: "Çok örnekli görev türü kullanarak Azure Batch'de ileti geçirme arabirimi (MPI) uygulamaları çalıştırma hakkında bilgi edinin."
+title: "aaaUse çok örnekli görevler toorun MPI uygulamaları - Azure Batch | Microsoft Docs"
+description: "Azure Batch hello çok örnekli görev kullanarak tooexecute ileti geçirme arabirimi (MPI) uygulamalarını nasıl yazın öğrenin."
 services: batch
 documentationcenter: .net
 author: tamram
@@ -14,43 +14,43 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: 5/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 77d12d6d48b22dfb3e7f09f273dffc11401bb15f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b0e3295a6aeb76267c26d5504bcff59de3dc5e22
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Batch'de ileti geçirme arabirimi (MPI) uygulamalarını çalıştırmak için çok örnekli görevleri kullanma
+# <a name="use-multi-instance-tasks-toorun-message-passing-interface-mpi-applications-in-batch"></a>Çok örnekli görevler toorun ileti geçirme arabirimi (MPI) uygulamalarını toplu işlemde kullanın
 
-Çok örnekli görevler, bir Azure Batch görev birden çok işlem düğümlerinde aynı anda çalışmasına olanak tanır. Bu görevler, ileti geçirme arabirimi (MPI) uygulamalarını toplu gibi senaryoları yüksek performans sağlar. Bu makalede, kullanarak çok örnekli görevleri çalıştırma hakkında bilgi edinin [Batch .NET] [ api_net] kitaplığı.
+Çok örnekli görevler toorun bir Azure Batch görev birden çok işlem düğümünde eşzamanlı olarak sağlar. Bu görevler, ileti geçirme arabirimi (MPI) uygulamalarını toplu gibi senaryoları yüksek performans sağlar. Bu makalede, nasıl tooexecute çok örnekli görevleri kullanma hello öğrenin [Batch .NET] [ api_net] kitaplığı.
 
 > [!NOTE]
-> Batch .NET, MS-MPI, bu makaledeki örneklerde odaklanmanıza ve Windows işlem düğümleri olsa da, burada açıklanan çok örnekli görev kavramlar, diğer platformlar ve teknolojiler (Python ve Linux düğümleri, örneğin üzerinde Intel MPI) için geçerlidir.
+> Batch .NET, MS-MPI, bu makaledeki örneklerde Hello odaklanmanıza ve Windows işlem düğümleri olsa da, burada tartışılan hello çok örnekli görev kavramları geçerli tooother platformlar ve teknolojiler (Python ve Linux düğümleri, örneğin üzerinde Intel MPI) ' dir.
 >
 >
 
 ## <a name="multi-instance-task-overview"></a>Çok örnekli görev genel bakış
-Toplu işlemde her normalde bir görevdir tek işlem düğümü üzerinde--yürütülen bir iş birden çok görevler gönderebilir ve toplu işlem hizmetinin her görev bir düğümde yürütülmek zamanlar. Ancak, bir görevin yapılandırma tarafından **çok örnekli ayarları**, bunun yerine bir birincil görev ve sonra birden çok düğümde yürütülen çeşitli görevleri oluşturmak üzere toplu söyleyin.
+Toplu işlemde her normalde bir görevdir tek işlem düğümü üzerinde--yürütülen birden çok görevleri tooa işi göndermek ve hello Batch hizmetinin her görev bir düğümde yürütülmek zamanlar. Bir görevin yapılandırarak ancak **çok örnekli ayarları**, toplu söyleyin tooinstead bir birincil görev ve ardından birden çok düğümde yürütülen çeşitli görevleri oluşturun.
 
 ![Çok örnekli görev genel bakış][1]
 
-Bir iş çok örnekli ayarlarla bir görev gönderdiğinizde, toplu iş çok örnekli görevleri benzersiz çeşitli adımları gerçekleştirir:
+Çok örnekli ayarları tooa iş görevle gönderdiğinizde, toplu çeşitli adımları benzersiz toomulti örnekli görevleri gerçekleştirir:
 
-1. Batch hizmeti bir oluşturur **birincil** ve birkaç **görevleri** çok örnekli ayarlara göre. Görevler (tüm alt birincil) toplam sayısı sayısıyla eşleştiğini **örnekleri** (işlem düğümleri) çok örnekli ayarlarında belirtin.
-2. Toplu işlem düğümleri olarak birini atar **ana**ve ana yürütmek için birincil görev zamanlar. Çok örnekli görev, bir alt düğüm başına ayrılan işlem düğümleri geri kalanı yürütmek için alt görevler zamanlar.
-3. Birincil ve tüm alt görevler herhangi indirme **ortak kaynak dosyaları** çok örnekli ayarlarında belirtin.
-4. Sonra ortak kaynak dosyaları yüklenmiş, birincil ve alt görevleri yürütme **koordinasyon komutu** çok örnekli ayarlarında belirtin. Düzenleme komutu genellikle görev yürütmek için düğümleri hazırlamak için kullanılır. Bu arka plan Hizmetleri başlatma içerebilir (gibi [Microsoft MPI][msmpi_msdn]'s `smpd.exe`) ve düğümlerin düğümler arası iletileri işlemek hazır olduğunu doğrulama.
-5. Birincil görevi yürütür **uygulama komutu** ana düğüm üzerinde *sonra* koordinasyon komutu başarıyla birincil ve tüm alt görevler tarafından tamamlandı. Uygulama komutu çok örnekli görev komut satırı ve yalnızca birincil görev tarafından yürütülen. İçinde bir [MS MPI][msmpi_msdn]-tabanlı çözümün, burada kullanarak MPI özellikli uygulamanızı yürütme budur `mpiexec.exe`.
+1. Merhaba Batch hizmeti bir oluşturur **birincil** ve birkaç **görevleri** hello çok örnekli ayarlarınızı temel alan. Görevler (tüm alt birincil) toplam sayısı Hello eşleşen hello sayısı **örnekleri** (işlem düğümleri) hello çok örnekli ayarlarında belirtin.
+2. Toplu atayan hello birini işlem düğümleri hello **ana**, ve zamanlamaları hello hello yöneticisinde birincil görev tooexecute. Merhaba görevleri tooexecute hello işlem düğümleri ayrılmış toohello çok örnekli görev, bir alt düğüm başına hello kalanı üzerinde zamanlar.
+3. Merhaba birincil ve tüm alt görevler yükleme **ortak kaynak dosyaları** hello çok örnekli ayarlarında belirtin.
+4. Merhaba ortak kaynak dosyaları indirdikten sonra hello birincil ve alt görevler hello yürütme **koordinasyon komutu** hello çok örnekli ayarlarında belirtin. Başlangıç görevi Yürütülüyor için genellikle kullanılan tooprepare düğümleri Hello koordinasyon komuttur. Bu arka plan Hizmetleri başlatma içerebilir (gibi [Microsoft MPI][msmpi_msdn]'s `smpd.exe`) ve hello düğümlerin hazır tooprocess düğümler arası iletiler olduğunu doğrulama.
+5. Merhaba birincil görevi yürütür hello **uygulama komutu** hello ana düğüm üzerinde *sonra* hello koordinasyon komutu tamamlanmış başarıyla hello birincil ve tüm alt görevler tarafından. Merhaba uygulama komutu hello çok örnekli görev kendisini hello komut satırı ve yalnızca hello birincil görev tarafından yürütülen. İçinde bir [MS MPI][msmpi_msdn]-tabanlı çözümün, burada kullanarak MPI özellikli uygulamanızı yürütme budur `mpiexec.exe`.
 
 > [!NOTE]
-> İşlevsel olarak ayrı olsa da, "çok örnekli görev" gibi benzersiz görev türü değil [StartTask] [ net_starttask] veya [JobPreparationTask][net_jobprep]. Çok örnekli görev yalnızca standart bir Batch görevinde olduğu ([CloudTask] [ net_task] Batch .NET içinde), çok örnekli ayarları yapılandırılır. Bu makalede, biz bu başvurmak **çok örnekli görev**.
+> Merhaba "çok örnekli görev" hello gibi bir benzersiz görev türü değil işlevsel olarak ayrı olsa da, [StartTask] [ net_starttask] veya [JobPreparationTask] [ net_jobprep]. Merhaba çok örnekli görev yalnızca standart bir Batch görevinde olduğu ([CloudTask] [ net_task] Batch .NET içinde), çok örnekli ayarları yapılandırılır. Bu makalede, biz toothis hello olarak başvuran **çok örnekli görev**.
 >
 >
 
 ## <a name="requirements-for-multi-instance-tasks"></a>Çok örnekli görevler için gereksinimleri
-Çok örnekli görevleri gerektiren bir havuzla **etkin düğümler arası iletişim**ile **eşzamanlı görev yürütme devre dışı**. Eşzamanlı görev yürütme devre dışı bırakmak için ayarlanmış [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool#Microsoft_Azure_Batch_CloudPool_MaxTasksPerComputeNode) özelliği 1.
+Çok örnekli görevleri gerektiren bir havuzla **etkin düğümler arası iletişim**ile **eşzamanlı görev yürütme devre dışı**. toodisable eşzamanlı Görev Yürütme, kümesi hello [CloudPool.MaxTasksPerComputeNode](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool#Microsoft_Azure_Batch_CloudPool_MaxTasksPerComputeNode) özelliği too1.
 
-Bu kod parçacığını bir havuz Batch .NET kitaplığını kullanarak çok örnekli görevleri için oluşturulacağını gösterir.
+Bu kod parçacığını nasıl hello Batch .NET kitaplığını kullanarak toocreate bir havuz için çok örnekli görevler gösterir.
 
 ```csharp
 CloudPool myCloudPool =
@@ -67,18 +67,18 @@ myCloudPool.MaxTasksPerComputeNode = 1;
 ```
 
 > [!NOTE]
-> Düğümler arası iletişim devre dışı veya ile bir havuzda çok örnekli görev çalıştırmayı denerseniz bir *maxTasksPerNode* 1'den büyük değer, görev hiçbir zaman zamanlanmış--süresiz olarak "etkin" durumda kalır. 
+> Çok örnekli görev bir havuzdaki düğümler arası iletişim ile devre dışı toorun çalışırsanız veya ile bir *maxTasksPerNode* 1'den büyük değer, hiçbir zaman hello görev zamanlandığı--süresiz olarak hello "etkin" durumda kalır. 
 >
 > Çok örnekli görevler yalnızca 14 Aralık 2015 tarihinden sonra oluşturulan havuzlarında düğümlerinde yürütebilir.
 >
 >
 
-### <a name="use-a-starttask-to-install-mpi"></a>MPI yüklemek için StartTask kullanın
-Çok örnekli görev MPI uygulamaları çalıştırmak için önce havuzundaki işlem düğümlerinde MPI uygulaması (MS-MPI veya örneğin Intel MPI) yüklemeniz gerekir. Bu kullanmak için iyi bir zamandır bir [StartTask][net_starttask], her bir düğümün bir havuzuna katılır veya yeniden yürütür. Bu kod parçacığını MS MPI kurulum paketi olarak belirten bir StartTask oluşturur bir [kaynak dosyası][net_resourcefile]. Başlangıç görevinin komut satırı kaynak dosyası düğüme İndirildikten sonra yürütülür. Bu durumda, komut satırı katılımsız yükleme MS MPI işlemi gerçekleştirir.
+### <a name="use-a-starttask-tooinstall-mpi"></a>StartTask tooinstall MPI kullanın
+çok örnekli görev MPI uygulamalarla toorun, ilk tooinstall hello hello havuzundaki işlem düğümlerinde MPI uygulaması (MS-MPI veya örneğin Intel MPI) gerekir. İyi zaman toouse budur bir [StartTask][net_starttask], her bir düğümün bir havuzuna katılır veya yeniden yürütür. Bu kod parçacığını hello MS MPI kurulum paketi olarak belirten bir StartTask oluşturur bir [kaynak dosyası][net_resourcefile]. Merhaba başlangıç görevinin komut satırı Hello kaynak dosyası indirilen toohello düğümdür sonra yürütülür. Bu durumda, hello komut satırı katılımsız yükleme MS MPI işlemi gerçekleştirir.
 
 ```csharp
-// Create a StartTask for the pool which we use for installing MS-MPI on
-// the nodes as they join the pool (or when they are restarted).
+// Create a StartTask for hello pool which we use for installing MS-MPI on
+// hello nodes as they join hello pool (or when they are restarted).
 StartTask startTask = new StartTask
 {
     CommandLine = "cmd /c MSMpiSetup.exe -unattend -force",
@@ -88,15 +88,15 @@ StartTask startTask = new StartTask
 };
 myCloudPool.StartTask = startTask;
 
-// Commit the fully configured pool to the Batch service to actually create
-// the pool and its compute nodes.
+// Commit hello fully configured pool toohello Batch service tooactually create
+// hello pool and its compute nodes.
 await myCloudPool.CommitAsync();
 ```
 
 ### <a name="remote-direct-memory-access-rdma"></a>Doğrudan uzak bellek erişimi (RDMA)
-Seçeneğini belirlediğinizde bir [RDMA özellikli boyutu](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) , Batch havuzundaki işlem düğümleri için A9 gibi MPI uygulamanızı Azure'nın yüksek performans, düşük gecikme süreli doğrudan uzak bellek erişimi (RDMA) ağ avantajından yararlanabilirsiniz.
+Seçeneğini belirlediğinizde bir [RDMA özellikli boyutu](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) A9 hello için bilgi işlem gibi toplu havuzunuzdaki düğümler, MPI uygulamanızı Azure'nın yüksek performans, düşük gecikme süreli doğrudan uzak bellek erişimi (RDMA) ağ avantajından yararlanabilirsiniz.
 
-Aşağıdaki makalelerde "RDMA özellikli" belirtilen boyutlarını arayın:
+"RDMA özellikli" makaleleri aşağıdaki hello belirtilen hello boyutlarını arayın:
 
 * **CloudServiceConfiguration** havuzları
 
@@ -107,22 +107,22 @@ Aşağıdaki makalelerde "RDMA özellikli" belirtilen boyutlarını arayın:
   * [Azure sanal makineler için Boyutlar](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
 
 > [!NOTE]
-> RDMA yararlanmak [Linux işlem düğümlerini](batch-linux-nodes.md), kullanmalısınız **Intel MPI** düğümler üzerinde. Havuzu bölümünü CloudServiceConfiguration ve VirtualMachineConfiguration havuzları hakkında daha fazla bilgi için bkz: [Batch özelliklerine genel bakış](batch-api-basics.md).
+> RDMA üzerinde tootake avantajlarından [Linux işlem düğümlerini](batch-linux-nodes.md), kullanmalısınız **Intel MPI** hello düğümlerde. CloudServiceConfiguration ve VirtualMachineConfiguration havuzları hakkında daha fazla bilgi için bkz: hello havuzu bölümünü hello [Batch özelliklerine genel bakış](batch-api-basics.md).
 >
 >
 
 ## <a name="create-a-multi-instance-task-with-batch-net"></a>Çok örnekli görev Batch .NET ile oluşturma
-Biz MPI paket yükleme ve havuzu gereksinimlerini ele, çok örnekli görev oluşturalım. Bu parçacığında, bir standart oluşturuyoruz [CloudTask][net_task], ardından yapılandırma kendi [MultiInstanceSettings] [ net_multiinstance_prop] özelliği. Daha önce belirtildiği gibi çok örnekli görev farklı görev türü, ancak çok örnekli ayarlarla yapılandırılan standart bir Batch görevinde değil.
+Biz hello havuzu gereksinimleri ve MPI paket yükleme kapsamında, hello çok örnekli görev oluşturalım. Bu parçacığında, bir standart oluşturuyoruz [CloudTask][net_task], ardından yapılandırma kendi [MultiInstanceSettings] [ net_multiinstance_prop] özelliği. Daha önce belirtildiği gibi hello çok örnekli görev farklı görev türü, ancak çok örnekli ayarlarla yapılandırılan standart bir Batch görevinde değil.
 
 ```csharp
-// Create the multi-instance task. Its command line is the "application command"
-// and will be executed *only* by the primary, and only after the primary and
-// subtasks execute the CoordinationCommandLine.
+// Create hello multi-instance task. Its command line is hello "application command"
+// and will be executed *only* by hello primary, and only after hello primary and
+// subtasks execute hello CoordinationCommandLine.
 CloudTask myMultiInstanceTask = new CloudTask(id: "mymultiinstancetask",
     commandline: "cmd /c mpiexec.exe -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIApplication.exe");
 
-// Configure the task's MultiInstanceSettings. The CoordinationCommandLine will be executed by
-// the primary and all subtasks.
+// Configure hello task's MultiInstanceSettings. hello CoordinationCommandLine will be executed by
+// hello primary and all subtasks.
 myMultiInstanceTask.MultiInstanceSettings =
     new MultiInstanceSettings(numberOfNodes) {
     CoordinationCommandLine = @"cmd /c start cmd /c ""%MSMPI_BIN%\smpd.exe"" -d",
@@ -132,15 +132,15 @@ myMultiInstanceTask.MultiInstanceSettings =
     }
 };
 
-// Submit the task to the job. Batch will take care of splitting it into subtasks and
-// scheduling them for execution on the nodes.
+// Submit hello task toohello job. Batch will take care of splitting it into subtasks and
+// scheduling them for execution on hello nodes.
 await myBatchClient.JobOperations.AddTaskAsync("mybatchjob", myMultiInstanceTask);
 ```
 
 ## <a name="primary-task-and-subtasks"></a>Birincil görevi ve alt görevler
-Bir görev için çok örnekli ayarları oluşturduğunuzda, görev yürütmek üzere olduğunuz işlem düğümü sayısını belirtin. Bir iş görevi gönderdiğinizde, Batch hizmeti bir oluşturur **birincil** görev ve yeterli **görevleri** belirttiğiniz düğüm sayısını birlikte eşleşmesi.
+Bir görev için çok örnekli ayarları hello oluşturduğunuzda, hello tooexecute hello görev işlem düğümü sayısını belirtin. Merhaba görev tooa işi gönderdiğinizde, hello Batch hizmeti bir oluşturur **birincil** görev ve yeterli **görevleri** hello belirttiğiniz düğüm sayısını birlikte eşleşmesi.
 
-Bu görevler için 0 aralığında bir tamsayı kimliği atanır *numberOfInstances* - 1. Kimliği 0 olan görev birincil bir görevdir ve diğer tüm kimliklerini görevleridir. Örneğin, bir görev için aşağıdaki çok örnekli ayarları oluşturursanız, birincil görev 0 bir kimliğe sahip ve alt görevler kimlikleri 1 ile 9 arasında olması gerekir.
+Bu görevleri 0 hello aralığında bir tamsayı kimliği çok atanan*numberOfInstances* - 1. Merhaba görev kimliği 0 ile Merhaba birincil görevdir ve diğer tüm kimliklerini görevleridir. Örneğin, bir görev için çok örnekli ayarları aşağıdaki hello oluşturursanız, hello birincil görev 0 bir kimliğe sahip ve hello görevleri kimlikleri 1 ile 9 arasında olması gerekir.
 
 ```csharp
 int numberOfNodes = 10;
@@ -148,37 +148,37 @@ myMultiInstanceTask.MultiInstanceSettings = new MultiInstanceSettings(numberOfNo
 ```
 
 ### <a name="master-node"></a>Ana düğüm
-Çok örnekli görev gönderdiğinizde, Batch hizmeti işlem düğümlerinden biri olarak "Yönetici" düğümü atar ve ana düğümde yürütmek için birincil görev zamanlar. Alt görevler için çok örnekli görev ayrılan düğümler kalanı yürütmek üzere zamanlanır.
+Çok örnekli görev gönderdiğinizde, hello Batch hizmeti hello birini işlem düğümleri olarak hello "Yönetici" düğümü atar ve zamanlamaları hello ana düğüm üzerinde birincil görev tooexecute hello. Merhaba, zamanlanmış tooexecute toohello çok örnekli görev ayrılan hello düğümleri hello kalanı üzerinde görevleridir.
 
 ## <a name="coordination-command"></a>Düzenleme komutu
-**Koordinasyon komutu** birincil tarafından yürütülen ve alt görevlerin.
+Merhaba **koordinasyon komutu** hello birincil ve alt görevler tarafından yürütülür.
 
-Düzenleme komutu çağırma engelleme--toplu düzenleme komutu için tüm görevleri başarıyla verdi kadar uygulama komutu yürütülmez. Düzenleme komutu bu nedenle tüm gerekli arka plan hizmetleri başlatmak, kullanıma hazır olduğunu doğrulayın ve sonra çıkın. Örneğin, bu düzenleme komut 7 düğümde SMPD hizmeti başlatılır MS MPI sürümünü kullanan bir çözüm için çıkar:
+hello koordinasyon komutunun Hello çağırma engelleme--hello koordinasyon komutu için tüm görevleri başarıyla verdi kadar toplu hello uygulama komutu yürütülmez. Merhaba düzenleme komutu bu nedenle tüm gerekli arka plan hizmetleri başlatmak, kullanıma hazır olduğunu doğrulayın ve ardından çıkın. Örneğin, bu düzenleme komut MS-MPI sürüm 7 kullanarak bir çözüm için hello düğümde hello SMPD hizmetini başlatır ve ardından çıkar:
 
 ```
 cmd /c start cmd /c ""%MSMPI_BIN%\smpd.exe"" -d
 ```
 
-Kullanımına dikkat edin `start` bu koordinasyon komutu. Bu gereklidir çünkü `smpd.exe` uygulama hemen yürütme sonrasında döndürmez. Kullanmadan [Başlat] [ cmd_start] komutu, bu düzenleme komut değil döndürür ve bu nedenle uygulama komutu çalışmasını engeller.
+Not hello `start` bu koordinasyon komutu. Bu gereklidir çünkü hello `smpd.exe` uygulama hemen yürütme sonrasında döndürmez. Merhaba hello kullanmadan [Başlat] [ cmd_start] komutu, bu düzenleme komut değil döndürür ve bu nedenle hello uygulama komutu çalışmasını engeller.
 
 ## <a name="application-command"></a>Uygulama komutu
-Düzenleme komutu yürütülürken birincil görev ve tüm görevleri tamamladıktan sonra çok örnekli görevin komut satırı birincil görev tarafından yürütülen *yalnızca*. Bu diyoruz **uygulama komutu** koordinasyon komuttan ayırt etmek için.
+Merhaba koordinasyon komutu yürütülürken Hello birincil görev ve tüm görevleri tamamladıktan sonra hello çok örnekli görevin komut satırı hello birincil görev tarafından yürütülen *yalnızca*. Bu Merhaba diyoruz **uygulama komutu** toodistinguish hello koordinasyon komutu ondan.
 
-MS-MPI uygulamaları için uygulama MPI etkin uygulamanızla yürütmek için komutunu `mpiexec.exe`. Örneğin, MS-MPI sürüm 7 kullanarak bir çözüm için bir uygulama komutu şöyledir:
+MS-MPI uygulamaları için kullanım hello uygulama komutu tooexecute MPI etkin uygulamanızla `mpiexec.exe`. Örneğin, MS-MPI sürüm 7 kullanarak bir çözüm için bir uygulama komutu şöyledir:
 
 ```
 cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIApplication.exe
 ```
 
 > [!NOTE]
-> Çünkü MS-MPI's `mpiexec.exe` kullanan `CCP_NODES` değişken varsayılan olarak (bkz [ortam değişkenleri](#environment-variables)), yukarıdaki örnek uygulama komut satırı dışlar.
+> Çünkü MS-MPI's `mpiexec.exe` kullanır hello `CCP_NODES` değişken varsayılan olarak (bkz [ortam değişkenleri](#environment-variables)) hello örnek uygulama komut satırı yukarıdaki dışlar.
 >
 >
 
 ## <a name="environment-variables"></a>Ortam değişkenleri
-Toplu oluşturur birkaç [ortam değişkenleri] [ msdn_env_var] çok örnekli görevler için çok örnekli görev ayrılan işlem düğümlerinde özgüdür. Komut dosyaları ve bunların yürütme programları gibi düzenleme ve uygulama komut satırları bu ortam değişkenleri başvuruda bulunabilir.
+Toplu iş oluşturur birkaç [ortam değişkenleri] [ msdn_env_var] işlem hello belirli toomulti örneği görevlerini düğümleri ayrılan tooa çok örnekli görev. Düzenleme ve uygulama komut satırları, komut dosyaları ve bunların yürütme programları hello gibi bu ortam değişkenleri başvuruda bulunabilir.
 
-Aşağıdaki ortam değişkenleri çok örnekli görevler tarafından kullanılmak üzere Batch hizmeti tarafından oluşturulur:
+Merhaba aşağıdaki ortam değişkenleri tarafından hello Batch hizmetini kullanmak için çok örnekli görevler tarafından oluşturulur:
 
 * `CCP_NODES`
 * `AZ_BATCH_NODE_LIST`
@@ -187,56 +187,56 @@ Aşağıdaki ortam değişkenleri çok örnekli görevler tarafından kullanılm
 * `AZ_BATCH_TASK_SHARED_DIR`
 * `AZ_BATCH_IS_CURRENT_NODE_MASTER`
 
-Düğüm ortam değişkenleri, görünürlük ve içeriği de dahil olmak üzere bunlar üzerinde tam Ayrıntılar ve diğer toplu işlem için bkz: [işlem düğümü ortam değişkenleri][msdn_env_var].
+Bunlar üzerinde tam Ayrıntılar ve hello için görünürlük ve içeriği de dahil olmak üzere diğer toplu işlem düğüm ortam değişkenleri bkz [işlem düğümü ortam değişkenleri][msdn_env_var].
 
 > [!TIP]
-> Toplu Linux MPI kod örneği, bu ortam değişkenleri çeşitli nasıl kullanılabileceğini örneği içerir. [Koordinasyon cmd] [ coord_cmd_example] Bash betiğini indirir ortak uygulama ve giriş dosyaları Azure Storage'dan, ana düğüm ağ dosya sistemi (NFS) paylaşımında etkinleştirir ve NFS istemcisi olarak çok örnekli görev ayrılan diğer düğümlere yapılandırır.
+> Hello toplu Linux MPI kod örneği, bu ortam değişkenleri çeşitli nasıl kullanılabileceğini örneği içerir. Merhaba [koordinasyon cmd] [ coord_cmd_example] komut dosyası Azure depolama biriminden ortak uygulama ve giriş dosyalarını indirir, hello ana düğüm ağ dosya sistemi (NFS) paylaşımında etkinleştirir ve yapılandırır Bash hello diğer düğümler toohello çok örnekli görev NFS istemcileri olarak ayrılmış.
 >
 >
 
 ## <a name="resource-files"></a>Kaynak dosyaları
-Kaynak dosyaları için çok örnekli görevler dikkate alınması gereken iki kümesi vardır: **ortak kaynak dosyaları** , *tüm* görevleri indirin (hem birincil hem de ve alt görevler) ve **kaynak dosyaları** çok örnekli görev için kendisini, belirtilen *yalnızca birincil* görev yüklemeleri.
+Çok örnekli görevler için kaynak dosyaları tooconsider iki kümesi vardır: **ortak kaynak dosyaları** , *tüm* görevleri indirin (hem birincil hem de ve alt görevler) ve hello **kaynakdosyaları** hello çok örnekli görev için kendisini, belirtilen *yalnızca birincil hello* görev yüklemeleri.
 
-Bir veya daha fazla belirtebilirsiniz **ortak kaynak dosyaları** bir görev için çok örnekli ayarlarında. Bu ortak kaynak dosyaları karşıdan yüklenir [Azure Storage](../storage/common/storage-introduction.md) her düğümün içine **görev paylaşılan dizine** birincil ve tüm alt görevler. Kullanarak uygulama ve düzenleme komut satırlarından görev paylaşılan dizine erişebilir `AZ_BATCH_TASK_SHARED_DIR` ortam değişkeni. `AZ_BATCH_TASK_SHARED_DIR` Yolu için çok örnekli görev ayrılan her düğümde aynı, böylece bir tek koordinasyon komutu birincil ve tüm alt görevler arasında paylaşabilirsiniz. Toplu "bir uzaktan erişim fikir dizininde paylaşmaz", ancak bağlama kullanın ya da ortam değişkenleri ipucu önceki bölümünde belirtildiği gibi noktası paylaşın.
+Bir veya daha fazla belirtebilirsiniz **ortak kaynak dosyaları** hello çok örnekli ayarlarında bir görev. Bu ortak kaynak dosyaları karşıdan yüklenir [Azure Storage](../storage/common/storage-introduction.md) her düğümün içine **görev paylaşılan dizine** hello birincil ve tüm alt görevler. Hello kullanarak uygulama ve düzenleme komut satırlarından hello görev paylaşılan dizine erişebilir `AZ_BATCH_TASK_SHARED_DIR` ortam değişkeni. Merhaba `AZ_BATCH_TASK_SHARED_DIR` yolu her düğüm ayrılmış toohello çok örnekli görev aynıdır, böylece bir tek koordinasyon komutu hello birincil ve tüm alt görevler arasında paylaşabilirsiniz. Toplu "Merhaba dizininde bir uzaktan erişim fikir paylaşmaz", ancak bağlama kullanın ya da ortam değişkenleri hello ucunu önceki bölümünde belirtildiği gibi noktası paylaşın.
 
-Çok örnekli görev için belirttiğiniz kaynak dosyaları, görevin çalışma dizinine yüklenir `AZ_BATCH_TASK_WORKING_DIR`, varsayılan olarak. , Sık kullanılan kaynak dosyaları aksine belirtildiği gibi yalnızca birincil görev çok örnekli görev kendisi için belirtilen kaynak dosyaları indirir.
+Merhaba çok örnekli görev kendisi için indirilen toohello görevin çalışma dizini, belirttiğiniz kaynak dosyaları `AZ_BATCH_TASK_WORKING_DIR`, varsayılan olarak. Buna karşılık, belirtildiği gibi toocommon kaynak dosyaları, yalnızca hello birincil görev hello çok örnekli görev için kendisini belirtilen kaynak dosyaları indirir.
 
 > [!IMPORTANT]
-> Her zaman ortam değişkenlerini kullanma `AZ_BATCH_TASK_SHARED_DIR` ve `AZ_BATCH_TASK_WORKING_DIR` bu dizinleri, komut satırında başvurmak için. Yollarını el ile oluşturmak çalışmayın.
+> Her zaman hello ortam değişkenlerini kullanma `AZ_BATCH_TASK_SHARED_DIR` ve `AZ_BATCH_TASK_WORKING_DIR` toorefer toothese komut satırları dizinlerde. Tooconstruct hello yollarını el ile çalışmayın.
 >
 >
 
 ## <a name="task-lifetime"></a>Görev yaşam süresi
-Birincil görev ömrü tüm çok örnekli görev ömrü denetler. Birincil çıktığında tüm görevleri sonlandırılır. Birincil çıkış kodu, görevin çıkış kodu ve bu nedenle başarı veya başarısızlık görev yeniden deneme amaçlı belirlemek için kullanılır.
+Merhaba birincil görev denetimleri hello hello tüm çok örnekli görev ömrü ömrü Hello. Merhaba birincil çıktığında tüm hello görevleri sonlandırılır. Merhaba birincil Hello çıkış kodu hello görevinin hello çıkış kodu ve bu nedenle kullanılan toodetermine hello başarısını veya başarısızlığını hello görev yeniden deneme amaçlı.
 
-Herhangi bir alt görevler başarısız olursa, sıfır olmayan dönüş koduyla çıkma Örneğin, tüm çok örnekli görev başarısız olur. Çok örnekli görev sonra sona erdi ve, yeniden deneme sınırına kadar denenecek.
+Hello alt görevlerin başarısız sıfır dönüş koduyla çıkılıyor gibi hello tüm çok örnekli görev başarısız olur. Hello çok örnekli görev sonra sona erdi ve, denenen tooits yeniden deneme sınırı.
 
-Çok örnekli Görev sildiğinizde, birincil ve tüm alt görevler de Batch hizmeti tarafından silinir. Tüm dizinleri eklemeli ve dosyalarına yalnızca standart bir görev için bilgi işlem düğümleri silinir.
+Çok örnekli Görev sildiğinizde, birincil hello ve tüm alt görevleri de hello Batch hizmeti tarafından silinir. Tüm dizinleri eklemeli ve dosyalarına yalnızca standart bir görev için hello işlem düğümleri silinir.
 
-[TaskConstraints] [ net_taskconstraints] için çok örnekli görev gibi [MaxTaskRetryCount][net_taskconstraint_maxretry], [MaxWallClockTime][net_taskconstraint_maxwallclock], ve [RetentionTime] [ net_taskconstraint_retention] bunlar için standart bir görev ve birincil ve tüm alt görevleri uygulamak gibi özelliklerini dikkate alınır. Ancak, değiştirirseniz [RetentionTime] [ net_taskconstraint_retention] özelliği bu değişiklik iş için çok örnekli görev ekledikten sonra yalnızca birincil göreve uygulanır. Tüm alt görevlerin özgün kullanmaya devam [RetentionTime][net_taskconstraint_retention].
+[TaskConstraints] [ net_taskconstraints] hello gibi bir çok örnekli görev için [MaxTaskRetryCount][net_taskconstraint_maxretry], [MaxWallClockTime] [ net_taskconstraint_maxwallclock], ve [RetentionTime] [ net_taskconstraint_retention] bunlar için standart bir görev ve toohello uygulamak gibi özelliklerini dikkate alınır birincil ve tüm alt görevler. Ancak, hello değiştirirseniz [RetentionTime] [ net_taskconstraint_retention] hello çok örnekli görev toohello işi, bu değişikliği ekledikten sonra özelliktir uygulanan yalnızca toohello birincil görev. Tüm hello görevleri toouse hello özgün devam [RetentionTime][net_taskconstraint_retention].
 
-Yeni görev çok örnekli görev parçası ise, bir işlem düğümün son kullanılan görevler listesi alt görev kimliği yansıtır.
+Merhaba son görevi çok örnekli görev parçası ise bir işlem düğümün son kullanılan görevler listesi alt hello kimliğini yansıtır.
 
 ## <a name="obtain-information-about-subtasks"></a>Alt görevler hakkında bilgi edinin
-Batch .NET kitaplığını kullanarak görevleri hakkında bilgi edinmek için arama [CloudTask.ListSubtasks] [ net_task_listsubtasks] yöntemi. Bu yöntem, tüm alt görevler hakkında bilgi ve görevler yürütülen işlem düğümü hakkında bilgi döndürür. Bu bilgilerden, her alt ait kök dizini, havuz kimliğini, geçerli durumu, çıkış kodu ve daha fazla belirleyebilirsiniz. Bu bilgi ile birlikte kullanabileceğiniz [PoolOperations.GetNodeFile] [ poolops_getnodefile] alt görevi'nin dosyaları elde etmek için yöntemi. Bu yöntem (kimliği 0) birincil görev için bilgi döndürmüyor unutmayın.
+Merhaba Batch .NET kitaplığını, çağrı hello kullanarak görevleri tooobtain bilgi [CloudTask.ListSubtasks] [ net_task_listsubtasks] yöntemi. Bu yöntem, tüm görevler bilgileri döndürür ve hello hakkında bilgi işlem hello görevleri yürütülen düğümü. Bu bilgilerden, her alt ait kök dizini, hello havuzu kimliği, geçerli durumu, çıkış kodu ve daha fazla belirleyebilirsiniz. Bu bilgiler hello ile birlikte kullanabileceğiniz [PoolOperations.GetNodeFile] [ poolops_getnodefile] yöntemi tooobtain hello alt 's dosyaları. Bu yöntem hello birincil görev (kimliği 0) için bilgi döndürmüyor unutmayın.
 
 > [!NOTE]
-> Aksi belirtilmediği sürece, Batch .NET yöntemleri, çalışan çok örneğinde [CloudTask] [ net_task] kendisini uygulamak *yalnızca* birincil görev. Örneğin, size çağırdığınızda [CloudTask.ListNodeFiles] [ net_task_listnodefiles] çok örnekli görev yöntemi, yalnızca birincil görev dosyaları döndürülür.
+> Aksi belirtilmediği sürece, birden çok örneği üzerinde çalışacağı Batch .NET yöntemleri hello [CloudTask] [ net_task] kendisini uygulamak *yalnızca* toohello birincil görev. Örneğin, hello çağırdığınızda [CloudTask.ListNodeFiles] [ net_task_listnodefiles] çok örnekli görev yöntemi, yalnızca hello birincil görev dosyaları döndürülür.
 >
 >
 
-Aşağıdaki kod parçacığını gibi alt bilgi elde üzerinde yürütülen düğümlerden dosya içeriklerini isteği gösterilmektedir.
+Merhaba aşağıdaki kod parçacığını nasıl tooobtain bilgi alt görev yanı sıra dosya içerikleri üzerinde yürütülen hello düğümlerden isteği gösterir.
 
 ```csharp
-// Obtain the job and the multi-instance task from the Batch service
+// Obtain hello job and hello multi-instance task from hello Batch service
 CloudJob boundJob = batchClient.JobOperations.GetJob("mybatchjob");
 CloudTask myMultiInstanceTask = boundJob.GetTask("mymultiinstancetask");
 
-// Now obtain the list of subtasks for the task
+// Now obtain hello list of subtasks for hello task
 IPagedEnumerable<SubtaskInformation> subtasks = myMultiInstanceTask.ListSubtasks();
 
-// Asynchronously iterate over the subtasks and print their stdout and stderr
-// output if the subtask has completed
+// Asynchronously iterate over hello subtasks and print their stdout and stderr
+// output if hello subtask has completed
 await subtasks.ForEachAsync(async (subtask) =>
 {
     Console.WriteLine("subtask: {0}", subtask.Id);
@@ -265,39 +265,39 @@ await subtasks.ForEachAsync(async (subtask) =>
 ```
 
 ## <a name="code-sample"></a>Kod örneği
-[MultiInstanceTasks] [ github_mpi] kodu örneği github'daki çok örnekli görev çalıştırmak için nasıl kullanılacağını gösteren bir [MS MPI] [ msmpi_msdn] uygulama batch işlem düğümlerinde. Adımları [hazırlık](#preparation) ve [yürütme](#execution) örneği çalıştırmak için.
+Merhaba [MultiInstanceTasks] [ github_mpi] kodu örneği github'daki gösteren nasıl toouse çok örnekli görev toorun bir [MS MPI] [ msmpi_msdn] Toplu işlem düğümlerinde uygulama. Merhaba adımları [hazırlık](#preparation) ve [yürütme](#execution) toorun hello örnek.
 
 ### <a name="preparation"></a>Hazırlama
-1. İlk iki adımları [derlemek ve basit bir MS-MPI program çalıştırmak nasıl][msmpi_howto]. Aşağıdaki adımı prerequesites karşılar.
-2. Derleme bir *sürüm* sürümü [MPIHelloWorld] [ helloworld_proj] örnek MPI programı. Bu işlem düğümlerinde çok örnekli görev tarafından çalıştırılacak programıdır.
-3. İçeren bir zip dosyası oluşturma `MPIHelloWorld.exe` (hangi, 2. adım yerleşik) ve `MSMpiSetup.exe` (hangi indirdiğiniz 1. adım). Sonraki adımda bir uygulama paketi olarak bu zip dosyasını yükleyeceksiniz.
-4. Kullanım [Azure portal] [ portal] toplu oluşturmak için [uygulama](batch-application-packages.md) "MPIHelloWorld" olarak adlandırılan ve önceki adımda oluşturduğunuz uygulama paketi "1.0" sürümü olarak zip dosyası belirtin. Bkz: [karşıya yükleyin ve uygulamalarını yönetin](batch-application-packages.md#upload-and-manage-applications) daha fazla bilgi için.
+1. Merhaba ilk iki adımları [nasıl toocompile ve basit bir MS-MPI program Çalıştır][msmpi_howto]. Bu, aşağıdaki hello hello prerequesites adım karşılar.
+2. Derleme bir *sürüm* hello sürümü [MPIHelloWorld] [ helloworld_proj] örnek MPI programı. Bu işlem düğümlerinde hello çok örnekli görev tarafından çalıştırılacak hello programıdır.
+3. İçeren bir zip dosyası oluşturma `MPIHelloWorld.exe` (hangi, 2. adım yerleşik) ve `MSMpiSetup.exe` (hangi indirdiğiniz 1. adım). Bir uygulama paketi hello sonraki adım olarak bu zip dosyasını yükleyeceksiniz.
+4. Kullanım hello [Azure portal] [ portal] toocreate toplu [uygulama](batch-application-packages.md) "MPIHelloWorld" olarak adlandırılan ve hello önceki adımda oluşturduğunuz sürümü olarak "1.0" Merhaba zip dosyası belirtin Merhaba uygulama paketi. Bkz: [karşıya yükleyin ve uygulamalarını yönetin](batch-application-packages.md#upload-and-manage-applications) daha fazla bilgi için.
 
 > [!TIP]
-> Derleme bir *sürüm* sürümü `MPIHelloWorld.exe` böylece ek bağımlılıkları içerecek şekilde yoksa (örneğin, `msvcp140d.dll` veya `vcruntime140d.dll`) uygulama paketi.
+> Derleme bir *sürüm* sürümü `MPIHelloWorld.exe` böylece ek bağımlılıkları tooinclude yoksa (örneğin, `msvcp140d.dll` veya `vcruntime140d.dll`) uygulama paketi.
 >
 >
 
 ### <a name="execution"></a>Yürütme
-1. Karşıdan [azure-batch-samples] [ github_samples_zip] github'dan.
-2. MultiInstanceTasks açmak **çözüm** Visual Studio 2015'te ya da daha yeni. `MultiInstanceTasks.sln` Çözüm dosyasını bulunur:
+1. Merhaba karşıdan [azure-batch-samples] [ github_samples_zip] github'dan.
+2. Açık hello MultiInstanceTasks **çözüm** Visual Studio 2015'te ya da daha yeni. Merhaba `MultiInstanceTasks.sln` çözüm dosyasını bulunur:
 
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
-3. Batch ve Storage hesabı kimlik bilgilerinizi girin `AccountSettings.settings` içinde **öğesini kullanıma alın** projesi.
-4. **Derleme ve çalıştırma** MultiInstanceTasks çözüm MPI yürütmek için örnek bir Batch havuzundaki işlem düğümlerinde uygulama.
-5. *İsteğe bağlı*: kullanım [Azure portal] [ portal] veya [Batch Gezgini] [ batch_explorer] incelemek için örnek havuz, iş ve görev ("MultiInstanceSamplePool", "MultiInstanceSampleJob", "MultiInstanceSampleTask"), önce silmek kaynakları.
+3. Batch ve Storage hesabı kimlik bilgilerinizi girin `AccountSettings.settings` hello içinde **öğesini kullanıma alın** projesi.
+4. **Derleme ve çalıştırma** Merhaba MultiInstanceTasks çözüm tooexecute hello MPI örnek uygulaması üzerinde işlem düğümlerini Batch havuzunda.
+5. *İsteğe bağlı*: kullanım hello [Azure portal] [ portal] veya hello [Batch Gezgini] [ batch_explorer] tooexamine hello örnek havuz, iş, ve görevi ("MultiInstanceSamplePool", "MultiInstanceSampleJob", "MultiInstanceSampleTask"), önce hello kaynakları silin.
 
 > [!TIP]
 > İndirebilirsiniz [Visual Studio Community] [ visual_studio] ücretsiz Visual Studio yoksa.
 >
 >
 
-Çıktı `MultiInstanceTasks.exe` aşağıdakine benzer:
+Çıktı `MultiInstanceTasks.exe` benzer toohello aşağıda verilmiştir:
 
 ```
 Creating pool [MultiInstanceSamplePool]...
 Creating job [MultiInstanceSampleJob]...
-Adding task [MultiInstanceSampleTask] to job [MultiInstanceSampleJob]...
+Adding task [MultiInstanceSampleTask] toojob [MultiInstanceSampleJob]...
 Awaiting task completion, timeout in 00:30:00...
 
 Main task [MultiInstanceSampleTask] is in state [Completed] and ran on compute node [tvm-1219235766_1-20161017t162002z]:
@@ -307,7 +307,7 @@ Rank 1 received string "Hello world" from Rank 0
 
 ---- stderr.txt ----
 
-Main task completed, waiting 00:00:10 for subtasks to complete...
+Main task completed, waiting 00:00:10 for subtasks toocomplete...
 
 ---- Subtask information ----
 subtask: 1
@@ -324,12 +324,12 @@ subtask: 2
 Delete job? [yes] no: yes
 Delete pool? [yes] no: yes
 
-Sample complete, hit ENTER to exit...
+Sample complete, hit ENTER tooexit...
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Microsoft HPC & Azure Batch ekip blogu anlatılmaktadır [MPI desteklemek için Azure batch Linux][blog_mpi_linux]ve kullanma hakkında bilgi içerir [OpenFOAM] [ openfoam] toplu ile. Python kodu örnekleri bulabilirsiniz [OpenFOAM örneği github'daki][github_mpi].
-* Bilgi nasıl [Linux işlem düğümleri havuzları oluşturma](batch-linux-nodes.md) Azure Batch MPI çözümlerinizi kullanmak için.
+* Merhaba Microsoft HPC & Azure Batch ekip blogu anlatılmaktadır [MPI desteklemek için Azure batch Linux][blog_mpi_linux]ve kullanma hakkında bilgi içerir [OpenFOAM] [ openfoam] toplu ile. Merhaba Python kod örnekleri bulabilirsiniz [OpenFOAM örneği github'daki][github_mpi].
+* Nasıl çok öğrenin[Linux işlem düğümleri havuzları oluşturma](batch-linux-nodes.md) Azure Batch MPI çözümlerinizi kullanmak için.
 
 [helloworld_proj]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/MultiInstanceTasks/MPIHelloWorld
 

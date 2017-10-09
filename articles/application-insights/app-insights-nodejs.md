@@ -1,5 +1,5 @@
 ---
-title: Node.js hizmetlerini Azure Application Insights ile izleme | Microsoft Docs
+title: Azure Application Insights ile aaaMonitor Node.js Hizmetleri | Microsoft Docs
 description: "Application Insights ile Node.js hizmetlerindeki performansı izleyin ve sorunları tanılayın."
 services: application-insights
 documentationcenter: nodejs
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/01/2017
 ms.author: bwren
-ms.openlocfilehash: ee65207e546c7050cc7bf35c36624fc49ad9eec4
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 0a7e66990cd4d3a2fcaf3fa779adb336c861f8ce
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Application Insights ile Node.js hizmetlerinizi ve uygulamalarınızı izleme
 
-[Azure Application Insights](app-insights-overview.md), [performans ve diğer sorunları keşfetmeye ve hızlıca tanılamaya](app-insights-detect-triage-diagnose.md) yardımcı olmak üzere, arka uç hizmetlerinizi ve bileşenlerinizi dağıtmanızdan sonra izler. Veri merkeziniz, Azure VM’leri, Web Apps ve hatta diğer genel bulutlar dahil herhangi bir yerde barındırılan Node.js hizmetleri için kullanın.
+[Azure Application Insights](app-insights-overview.md) toohelp dağıttıktan sonra arka uç Hizmetleri ve bileşenleri izler, [bulmak ve hızlı bir şekilde performans ve diğer sorunları tanılamak](app-insights-detect-triage-diagnose.md). Veri merkeziniz, Azure VM’leri, Web Apps ve hatta diğer genel bulutlar dahil herhangi bir yerde barındırılan Node.js hizmetleri için kullanın.
 
-İzleme verilerinizi almak, depolamak ve araştırmak için kodunuza aracı ekleme ve Azure’da karşılık gelen Application Insights kaynağını ayarlamaya yönelik aşağıdaki yönergeleri izleyin. Aracı daha fazla analiz ve araştırma için verileri bu kaynağa gönderir.
+tooreceive, depolayıp, izleme verilerinizi keşfedin, yönergeleri tooinclude kodunuzda bir aracı aşağıdaki hello izleyin ve azure'da karşılık gelen bir Application Insights kaynağı ayarlayın. Merhaba aracı veri toothat kaynak daha detaylı analiz ve araştırması için gönderir.
 
-Node.js aracısı gelen ve giden HTTP isteklerini, birçok sistem ölçümünü ve özel durumları otomatik olarak izleyebilir. Sürüm 0.20 sonrası sürümlerde, `mongodb`, `mysql` ve `redis` gibi bazı yaygın üçüncü taraf paketlerini de izleyebilir. Gelen bir HTTP isteği ile ilgili tüm olaylar, daha hızlı sorun giderme için birbiriyle ilişkilendirilir.
+Merhaba Node.js Aracısı, gelen ve giden HTTP isteklerini, birkaç sistem ölçümleri ve özel durumları otomatik olarak izleyebilirsiniz. Sürüm 0.20 sonrası sürümlerde, `mongodb`, `mysql` ve `redis` gibi bazı yaygın üçüncü taraf paketlerini de izleyebilir. Tüm olayları tooan gelen HTTP istek bağıntılı daha hızlı sorun giderme için ilgili.
 
-Daha sonra açıklanacak olan aracı API’si ile el ile izleyerek, uygulama ve sisteminizin daha fazla yönünü izleyebilirsiniz.
+Uygulamanızı daha fazla yönlerini izleyebilirsiniz ve bunları el ile düzenleme tarafından sistem kullanarak hello Aracısı API'si aşağıda açıklanmıştır.
 
 ![Örnek performans izleme grafikleri](./media/app-insights-nodejs/10-perf.png)
 
@@ -37,33 +37,33 @@ Daha sonra açıklanacak olan aracı API’si ile el ile izleyerek, uygulama ve 
 
 ### <a name="resource"></a> App Insights kaynağı oluşturma
 
-**Başlamadan önce**, bir Azure aboneliğine sahip olduğunuzdan emin olun veya [ücretsiz olarak yeni bir tane edinin][azure-free-offer]. Kuruluşunuzun bir Azure aboneliğini zaten varsa, yöneticiniz [bu yönergeleri][add-aad-user] izleyerek sizi aboneliğe ekleyebilir.
+**Başlamadan önce**, bir Azure aboneliğine sahip olduğunuzdan emin olun veya [ücretsiz olarak yeni bir tane edinin][azure-free-offer]. Kuruluşunuzun zaten bir Azure aboneliğiniz varsa, bir yönetici izleyebilirsiniz [bu yönergeleri] [ add-aad-user] tooadd, tooit.
 
 [azure-free-offer]: https://azure.microsoft.com/en-us/free/
 [add-aad-user]: https://docs.microsoft.com/en-us/azure/active-directory/active-directory-users-create-azure-portal
 
-Şimdi [Azure portalında][portal] oturum açın ve aşağıda gösterilen şekilde bir Application Insights kaynağı oluşturun - "Yeni" > "Geliştirici araçları" > "Application Insights" öğesine tıklayın. Kaynak; telemetri verilerini, bu veriler için depolamayı, kayıtlı rapor ve panoları, kural ve uyarı yapılandırmasını almak ve diğer işlemlere yönelik bir uç nokta içerir.
+Şimdi toohello oturum [Azure portal] [ portal] ve hello aşağıda gösterildiği gibi bir Application Insights kaynağı oluşturma - "Yeni"'a tıklayın > "Geliştirici Araçları" > "Application Insights". Merhaba kaynak telemetri verileri, raporlar ve panolar, kural ve uyarı yapılandırma ve daha fazla kaydedilen bu veriler için depolama alanı almak için bir uç nokta içerir.
 
 ![App Insights kaynağı oluşturma](./media/app-insights-nodejs/03-new_appinsights_resource.png)
 
-Kaynak oluşturma sayfasındaki uygulama türü açılır listesinden "Node.js Uygulaması" öğesini seçin. Uygulama türü, sizin için oluşturulan varsayılan pano ve rapor kümesini belirler. Ancak endişelenmeyin, herhangi bir Application Insights kaynağı herhangi bir dil ve platformdan veri toplayabilir.
+Merhaba kaynak oluşturma sayfasında "Node.js uygulaması" Merhaba uygulama türü açılan listeden seçin. Merhaba uygulama türü hello varsayılan panolar ve raporlar için oluşturduğunuz belirler. Ancak endişelenmeyin, herhangi bir Application Insights kaynağı herhangi bir dil ve platformdan veri toplayabilir.
 
 ![Yeni App Insights kaynağı formu](./media/app-insights-nodejs/04-create_appinsights_resource.png)
 
-### <a name="agent"></a> Node.js aracısını ayarlama
+### <a name="agent"></a>Merhaba Node.js aracısını ayarlama
 
-Şimdi aracıyı veri toplayabilmesi için uygulamanıza eklemeniz gerekiyor.
-İlk olarak, aşağıda gösterildiği gibi kaynağınızın İzleme Anahtarını (bundan böyle `ikey`‘iniz olarak ifade edilecektir) portaldan kopyalayın. App Insights sistemi, verileri Azure kaynağınıza eşlemek için bu anahtarı kullanır; bu nedenle, bu anahtarı aracının kullanabilmesi için bir ortam değişkeninde ya da kodunuzda belirtmeniz gerekir.  
+Bu verileri toplamak için zaman tooinclude hello aracı, uygulamanızda sunulmuştur.
+Başlat, kaynağın izleme anahtarını kopyalayarak (Bundan sonra tooas başvurulan, `ikey`) aşağıda gösterildiği gibi hello portalından. Merhaba App Insights sistem toospecify gerekir böylece bu anahtar toomap veri tooyour Azure kaynak kullanır, bir ortam değişkeni veya kodunuz hello Aracısı toouse için.  
 
 ![İzleme anahtarını kopyalama](./media/app-insights-nodejs/05-appinsights_ikey_portal.png)
 
-Ardından, Node.js aracı kitaplığını package.json aracılığıyla uygulamanızın bağımlılıklarına ekleyin. Uygulamanızın kök klasöründen şunu çalıştırın:
+Ardından, package.json aracılığıyla hello Node.js Aracısı kitaplığı tooyour uygulamanın bağımlılıkları ekleyin. Merhaba kök klasörden, uygulamanızın, çalıştırın:
 
 ```bash
 npm install applicationinsights --save
 ```
 
-Şimdi kitaplığı kodunuza açıkça yüklemeniz gerekir. Aracı diğer birçok kitaplığa izleme eklediği için, aracıyı diğer `require` deyimlerinden de önce olmak üzere mümkün olduğunca erken yüklemeniz gerekir. Başlamak için ilk .js dosyanızın üstüne şunu ekleyin:
+Şimdi, kodunuzda tooexplicitly yük hello kitaplığı gerekir. Merhaba Aracısı Araçları diğer birçok kitaplıkları içine yerleştirir olduğundan, hatta diğer önce olabildiğince erken yükleyeceğini `require` deyimleri. tooget başlatıldı, ilk .js dosyanızı hello üstüne ekleyin:
 
 ```javascript
 const appInsights = require("applicationinsights");
@@ -71,46 +71,46 @@ appInsights.setup("<instrumentation_key>");
 appInsights.start();
 ```
 
-`setup` yöntemi, izleme anahtarını (ve bu nedenle Azure kaynağını) izlenen tüm öğeler için varsayılan olarak kullanılacak şekilde yapılandırır. Telemetri verilerini toplayıp göndermeye başlamak için yapılandırma tamamlandıktan sonra `start` öğesini çağırın.
+Merhaba `setup` yöntemi yapılandırır hello izleme anahtarını (ve bu nedenle Azure kaynak) toobe varsayılan olarak tüm izlenen öğeler için kullanılabilir. Çağrı `start` yapılandırma tamamlanmış toobegin toplamak ve telemetri verileri göndermeye sonra.
 
-Ayrıca `setup()` veya `getClient()` konumuna el ile geçirmek yerine APPINSIGHTS\_INSTRUMENTATIONKEY ortam değişkeni aracılığıyla bir ikey sağlayabilirsiniz. Bu uygulama, ikey’leri yürütülen kaynak kodunun dışında tutmanıza ve farklı ortamlar için farklı ikey’ler belirtmenize olanak tanır.
+Ayrıca bir ikey hello ortam değişkeni APPINSİGHTS'dan aracılığıyla sağlayabilir\_çok el ile geçirme yerine INSTRUMENTATIONKEY `setup()` veya `getClient()`. Bu yöntem kaydedilmiş kaynak kodu dışında ikeys ve farklı ortamlar için farklı ikeys toospecify tutmanıza olanak tanır.
 
 Ek yapılandırma seçenekleri aşağıda belirtilmiştir.
 
-İzleme anahtarını boş olmayan bir dizeye ayarlayarak, aracıyı telemetri göndermeden deneyebilirsiniz.
+Merhaba Aracısı hello araçları anahtar tooany boş dize ayarlayarak telemetri verilerini göndermeden deneyebilirsiniz.
 
 ### <a name="monitor"></a> Uygulamanızı izleme
 
-Aracı, Node.js çalışma zamanı ve bazı yaygın üçüncü taraf modülleriyle ilgili telemetriyi otomatik olarak toplar. Şimdi uygulamanızı kullanarak bu verilerin bazılarını oluşturun.
+Hello Aracısı hello Node.js çalışma zamanı hakkında telemetriyi ve ortak bazı üçüncü taraf modüllerin otomatik olarak toplar. Uygulamayı şimdi toogenerate kullanın Bu verilerin bazıları.
 
-Ardından, [Azure portalında][portal] daha önce oluşturduğunuz Application Insights kaynağına göz atın ve aşağıdaki görüntüde gösterildiği gibi Genel Bakış zaman çizelgesinde ilk birkaç veri noktanızı arayın. Daha fazla ayrıntı için grafiklere tıklayın.
+Ardından hello [Azure portal] [ portal] daha önce oluşturduğunuz toohello Application Insights kaynağı göz atın ve birkaç veri noktası için ilk, görüntü aşağıdaki hello olduğu gibi hello genel bakış zaman çizelgesi bakın. Daha fazla ayrıntı için hello grafikler aracılığıyla'ı tıklatın.
 
 ![İlk veri noktaları](./media/app-insights-nodejs/12-first-perf.png)
 
-Aşağıdaki görüntüde gösterildiği gibi, uygulamanız için bulunan topolojiyi görüntülemek için Uygulama eşlemesi düğmesine tıklayın. Daha fazla bilgi için eşlemedeki bileşenlere tıklayın.
+Merhaba uygulama harita düğmesini tooview hello topolojisi görüntüsü aşağıdaki hello olduğu gibi uygulamanız için bulunan'ı tıklatın. Daha fazla ayrıntı için hello eşlemesindeki bileşenleri üzerinden'ı tıklatın.
 
 ![Basit uygulama eşlemesi](./media/app-insights-nodejs/06-appinsights_appmap.png)
 
-Uygulamanız hakkında daha fazla bilgi almak ve sorunları gidermek için "Araştır" bölümü altında mevcut olan diğer görünümleri kullanın.
+Uygulamanız hakkında daha fazla bilgi ve diğer görünümlere hello "Araştır" bölümü altında kullanılabilir hello kullanarak sorunlarını giderebilirsiniz.
 
 ![Araştır bölümü](./media/app-insights-nodejs/07-appinsights_investigate_blades.png)
 
 #### <a name="no-data"></a>Veri yok mu?
 
-Aracı gönderilecek verileri toplu hale getirdiği için, öğelerin portalde gösterilmesi biraz gecikebilir. Verileri kaynağınızda görmüyorsanız, aşağıdaki düzeltmelerden bazılarını deneyin:
+Merhaba aracısı veri gönderimi için toplu işlemleri nedeniyle hello Portalı'nda görüntülenen öğelerin önce bir gecikme olabilir. Görmüyorsanız, veri kaynağınızın düzeltmeleri aşağıdaki hello bazılarını deneyin:
 
-* Uygulamayı biraz daha kullanın; daha fazla telemetri oluşturmak için daha fazla eylem gerçekleştirin.
-* Portal kaynak görünümünde **Yenile**’ye tıklayın. Grafikler kendilerini düzenli aralıklarla otomatik olarak yeniler, ancak yenileme işlemi bunu hemen gerçekleşmeye zorlar.
+* Merhaba uygulaması bazı daha kullanın; Daha fazla Eylemler toogenerate daha fazla telemetri alın.
+* Tıklatın **yenileme** hello portal kaynak görünümünde. Grafikler otomatik olarak kendilerini düzenli olarak yeniler, ancak bu toohappen yenilemeyi hemen zorlar.
 * [Gerekli giden bağlantı noktalarının](app-insights-ip-addresses.md) açık olduğunu doğrulayın.
-* [Ara](app-insights-diagnostic-search.md) kutucuğunu açın ve olayları tek tek arayın.
-* [SSS][] sayfasını inceleyin.
+* Açık hello [arama](app-insights-diagnostic-search.md) parçasında ve tek tek olaylarını arayın.
+* Merhaba denetleyin [SSS][].
 
 
 ## <a name="agent-configuration"></a>Aracı Yapılandırması
 
-Aracının yapılandırma yöntemleri ve varsayılan değerleri aşağıda verilmiştir.
+Merhaba aracısının yapılandırma yöntemleri ve varsayılan değerlerine aşağıda verilmiştir.
 
-Bir hizmetteki olayları tam olarak ilişkilendirmek için `.setAutoDependencyCorrelation(true)` ayarını yaptığınızdan emin olun. Bunun yapılması, aracının Node.js içindeki zaman uyumsuz geri çağırmalar arasında içeriği izlemesine olanak tanır.
+bir hizmette toofully correlate olayları olarak emin tooset `.setAutoDependencyCorrelation(true)`. Bu hello Aracısı tootrack bağlamı Node.js içinde zaman uyumsuz geri aramalar arasında sağlar.
 
 ```javascript
 const appInsights = require("applicationinsights");
@@ -127,9 +127,9 @@ appInsights.setup("<instrumentation_key>")
 
 <!-- TODO: Fully document agent API. -->
 
-.NET aracı API’si [burada](app-insights-api-custom-events-metrics.md) eksiksiz olarak açıklanmıştır.
+Merhaba .NET Aracısı API tam olarak açıklanan [burada](app-insights-api-custom-events-metrics.md).
 
-Application Insights Node.js istemcisini kullanarak herhangi bir istek, olay, ölçüm veya özel durumu izleyebilirsiniz. Aşağıdaki örnek, kullanılabilir API'lerden bazılarını göstermektedir.
+İstek, olay, ölçüm veya hello uygulama Öngörüler Node.js istemcisini kullanarak özel durum izleyebilirsiniz. Merhaba aşağıdaki örnek bazılarını hello göstermektedir kullanılabilir API'ler.
 
 ```javascript
 let appInsights = require("applicationinsights");
@@ -143,7 +143,7 @@ client.trackTrace("trace message");
 
 let http = require("http");
 http.createServer( (req, res) => {
-  client.trackRequest(req, res); // Place at the beginning of your request handler
+  client.trackRequest(req, res); // Place at hello beginning of your request handler
 });
 ```
 
@@ -162,7 +162,7 @@ success = true;
 client.trackDependency("dependency name", "command name", duration, success);
 ```
 
-### <a name="add-a-custom-property-to-all-events"></a>Tüm olaylara özel bir özellik ekleme
+### <a name="add-a-custom-property-tooall-events"></a>Bir özel özellik tooall olaylar ekleme
 
 ```javascript
 appInsights.client.commonProperties = {
@@ -194,7 +194,7 @@ server.on("listening", () => {
 
 ## <a name="more-resources"></a>Diğer kaynaklar
 
-* [Portalda telemetrinizi izleme](app-insights-dashboards.md)
+* [Merhaba portalında telemetrinizi izleme](app-insights-dashboards.md)
 * [Telemetriniz üzerinden Analiz sorguları yazma](app-insights-analytics-tour.md)
 
 <!--references-->

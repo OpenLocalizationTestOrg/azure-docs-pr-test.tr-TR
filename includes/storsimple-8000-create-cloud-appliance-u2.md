@@ -1,27 +1,27 @@
-#### <a name="to-create-a-cloud-appliance"></a>Bulut gereci oluşturmak için
+#### <a name="toocreate-a-cloud-appliance"></a>toocreate bulut uygulaması
 
-1. Azure portalında **StorSimple Cihaz Yöneticisi** hizmetine gidin.
-2. **Cihazlar** dikey penceresine gidin. Hizmet özeti dikey penceresindeki komut çubuğundan **Bulut gereci oluştur**’a tıklayın.
+1. Toohello Hello Azure portal, Git **StorSimple Aygıt Yöneticisi'ni** hizmet.
+2. Toohello Git **aygıtları** dikey. Merhaba hizmet Özet dikey penceresinde Hello komut çubuğu'ndan tıklatın **oluşturma bulut uygulaması**.
     ![StorSimple bulut gereci oluşturma](./media/storsimple-8000-create-cloud-appliance-u2/sca-create1.png)
-3. **Bulut gereci oluşturma** dikey penceresinde aşağıdaki ayrıntıları belirtin.
+3. Merhaba, **oluşturma bulut uygulaması** dikey penceresinde, aşağıdaki ayrıntılara hello belirtin.
    
     ![StorSimple bulut gereci oluşturma](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2m.png)
    
    1. **Ad**: Bulut gereciniz için benzersiz bir ad.
-   2. **Model**: Bulut gerecinin modelini seçin. 8010 cihazlar 30 TB Standart Depolama sunarken 8020 cihazlar 64 TB Premium Depolama sunar. Öğe düzeyinde alma senaryolarını yedeklerden dağıtmak için 8010’u belirtin. Yüksek performanslı, düşük gecikme süreli iş yükleri dağıtmak veya olağanüstü durum kurtarmaya yönelik ikincil bir cihaz olarak kullanmak için 8020’yi seçin.
-   3. **Sürüm**: Bulut gerecinin sürümünü seçin. Sürüm, bulut uygulaması oluşturmak için kullanılan sanal disk görüntüsünün sürümüne karşılık gelir. Hangi fiziksel cihazın yükünü devredebileceğiniz veya verilerini kopyalayabileceğiniz bulut gerecinin sürümüne bağlı olduğundan, bulut gerecinin uygun bir sürümünü oluşturmanız önemlidir.
-   4. **Sanal Ağ**: Bu bulut gereciyle kullanmak istediğiniz bir sanal ağ belirtin. Premium Storage kullanılıyorsa, Premium Storage hesabıyla desteklenen bir sanal ağ seçmelisiniz. Desteklenmeyen sanal ağlar açılan listede gri olur. Desteklenmeyen bir sanal ağı seçerseniz bir uyarı alırsınız.
-   5. **Alt Ağ**: Seçili sanal ağa bağlı olarak, açılan listede ilişkili alt ağlar görüntülenir. Bulut gerecinize bir alt ağ atayın.
-   6. **Depolama hesabı**: Sağlama sırasında bulut gerecinin görüntüsünü barındıracak bir depolama hesabı seçin. Bu depolama hesabı bulut gereci ve sanal ağla aynı bölgede olmalıdır. Fiziksel cihaz veya bulut gereci tarafından veri depolama için kullanılmamalıdır. Varsayılan olarak, bu amaca yönelik olarak yeni bir depolama hesabı oluşturulur. Ancak, bu kullanım için uygun bir depolama hesabınızın zaten olduğunu biliyorsanız, bunu listeden seçebilirsiniz. Premium bulut gereci oluşturuluyorsa, açılan listede yalnızca Premium Depolama hesapları görüntülenir.
+   2. **Model** -hello bulut uygulaması hello modelini seçin. 8010 cihazlar 30 TB Standart Depolama sunarken 8020 cihazlar 64 TB Premium Depolama sunar. 8010 toodeploy öğe düzeyinde alma senaryolarını yedeklerden belirtin. 8020 toodeploy yüksek performans, düşük gecikme iş yükleri, seçin veya olağanüstü durum kurtarma için ikincil cihaz olarak kullanın.
+   3. **Sürüm** -hello bulut uygulaması hello sürümünü seçin. Merhaba sürüm kullanılan toocreate hello bulut uygulaması hello sanal disk görüntüsü toohello sürümüne karşılık gelir. Hello hello bulut sürümü hangi fiziksel Gereci belirler yük devri veya kopyası cihaza olmasından hello bulut uygulaması uygun bir sürümünü oluşturmanız önemlidir.
+   4. **Sanal ağ** – bu bulut uygulaması ile toouse istediğiniz bir sanal ağ belirtin. Premium Storage kullanıyorsanız, Premium depolama hesabı hello ile desteklenen bir sanal ağ seçmelisiniz. Desteklenmeyen hello sanal ağlar hello açılan listede gri görünür. Desteklenmeyen bir sanal ağı seçerseniz bir uyarı alırsınız.
+   5. **Alt ağ** -hello sanal ağı seçili temel alarak, hello açılır listeden ilişkili hello alt ağları görüntüler. Bir alt ağ tooyour bulut uygulaması atayın.
+   6. **Depolama hesabı** – sağlama sırasında hello bulut uygulaması bir depolama hesabı toohold hello yansımasını seçin. Bu depolama hesabını hello olmalıdır hello bulut uygulaması ve sanal ağ ile aynı bölgeye. Bu veri depolama için hello fiziksel veya hello bulut uygulaması tarafından kullanılmamalıdır. Varsayılan olarak, bu amaca yönelik olarak yeni bir depolama hesabı oluşturulur. Ancak, bu kullanım için uygun bir depolama hesabı zaten olduğunu biliyorsanız, bunu hello listesinden seçebilirsiniz. Premium bulut uygulaması oluşturuyorsanız, hello açılır listeden Premium Storage hesapları yalnızca görüntüler.
       
       > [!NOTE]
-      > Bulut gereci yalnızca Azure Storage hesaplarıyla çalışabilir.
+      > Merhaba bulut uygulaması yalnızca hello Azure storage hesaplarıyla çalışabilir.
     
-   7. Bulut gerecinde depolanan verilerin bir Microsoft veri merkezinde barındırıldığını anladığınızı belirtmek için onay kutusunu seçin.
+   7. Merhaba bulut uygulaması üzerinde depolanan hello verilerin Microsoft Veri merkezinde barındırılır anlamak hello onay kutusunu tooindicate seçin.
        * Yalnızca bir fiziksel cihaz kullandığınızda, şifreleme anahtarınızın cihazınızla tutulur; Bu nedenle, Microsoft şifresini çözemez.
 
-       * Bulut gereci kullandığınızda, hem şifreleme anahtarı, hem de şifre çözme anahtarı Microsoft Azure’da depolanır. Daha fazla bilgi edinmek için bkz. [bulut gereci kullanımıyla ilgili güvenlik konuları](../articles/storsimple/storsimple-security.md#storsimple-virtual-device-security).
-   8. Bulut gerecini sağlamak için **Oluştur**’a tıklayın. Cihazın hazır olması yaklaşık 30 dakika sürebilir. Bulut gereci başarıyla oluşturulduğunda size bildirilir. Cihazlar dikey penceresine gittiğinizde, cihaz listesi bulut gerecini görüntüleyecek şekilde güncelleştirilir. Gerecin durumu **Kuruluma hazır** olur.
+       * Bulut uygulaması kullandığınızda hello şifreleme anahtarını ve hello şifre çözme anahtarı Microsoft Azure'da depolanır. Daha fazla bilgi edinmek için bkz. [bulut gereci kullanımıyla ilgili güvenlik konuları](../articles/storsimple/storsimple-security.md#storsimple-virtual-device-security).
+   8. Tıklatın **oluşturma** tooprovision hello bulut uygulaması. Merhaba aygıt sağlanan yaklaşık 30 dakika toobe sürebilir. Merhaba bulut uygulaması başarıyla oluşturulduğunda size bildirilir. TooDevices dikey penceresine gidin ve toodisplay hello bulut uygulaması cihazların Merhaba listesini yeniler. Merhaba Gereci Hello durumudur **yukarı tooset hazır**.
       
-      ![StorSimple Cloud Appliance kuruluma hazır](./media/storsimple-8000-create-cloud-appliance-u2/sca-create3.png)
+      ![StorSimple bulut uygulaması hazır tooset ayarlama](./media/storsimple-8000-create-cloud-appliance-u2/sca-create3.png)
 

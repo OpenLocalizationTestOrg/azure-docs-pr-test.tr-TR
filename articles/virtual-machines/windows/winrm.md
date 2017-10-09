@@ -1,6 +1,6 @@
 ---
-title: "Bir Azure VM için WinRM erişimini Ayarla | Microsoft Docs"
-description: "Resource Manager dağıtım modelinde oluşturulmuş bir Azure sanal makinesi ile kullanım için WinRM erişim ayarlayın."
+title: "bir Azure VM için WinRM erişimi aaaSet | Microsoft Docs"
+description: "Merhaba Resource Manager dağıtım modelinde oluşturulmuş bir Azure sanal makinesi ile kullanım için WinRM erişim ayarlayın."
 services: virtual-machines-windows
 documentationcenter: 
 author: singhkays
@@ -15,32 +15,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: 2d6533462400bc1d93d0d3b0227769784e2658a9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 23d1d3a3065cbd8e4036be085c6d835cae36caae
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Sanal makineler Azure Kaynak Yöneticisi'nde için WinRM erişimi ayarlama
 ## <a name="winrm-in-azure-service-management-vs-azure-resource-manager"></a>Azure Resource Manager Azure Hizmet Yönetimi vs'de WinRM
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-rm-include.md)]
 
-* Bir Azure Kaynak Yöneticisi'nin için lütfen bu bkz [makale](../../azure-resource-manager/resource-group-overview.md)
+* Hello Azure Resource Manager genel bakış için lütfen bu bakın [makale](../../azure-resource-manager/resource-group-overview.md)
 * Azure Hizmet Yönetimi ve Azure Resource Manager arasındaki farklar için lütfen bu bakın [makale](../../resource-manager-deployment-model.md)
 
-İki yığınları arasında WinRM yapılandırması ayarlanması anahtar sertifika VM nasıl yüklendiğini farktır. Sertifikalar, anahtar kasası kaynak sağlayıcısı tarafından yönetilen kaynaklar olarak Azure Kaynak Yöneticisi yığınında modellenir. Bu nedenle, kullanıcı kendi sertifikayı sağlayın ve bu bir anahtar Kasası'na VM ile kullanmadan önce karşıya yüklemesi gerekiyor.
+Merhaba hello iki yığınları arasında WinRM yapılandırması ayarlanması anahtar hello sertifika hello VM üzerinde nasıl yüklendiğini farktır. Merhaba sertifikalar, anahtar kasası kaynak sağlayıcısı hello tarafından yönetilen kaynaklar olarak Hello Azure Kaynak Yöneticisi yığınında modellenir. Bu nedenle, hello kullanıcı kendi sertifikanın tooprovide gerekir ve bir VM kullanmadan önce tooa anahtar kasası yükleyin.
 
-WinRM bağlantısına sahip bir VM'yi ayarlamak için atmanız gereken adımlar şunlardır
+Bir VM WinRM bağlantı kurma tootake tooset ihtiyacınız hello adımlar şunlardır
 
 1. Anahtar kasası oluşturma
 2. Otomatik olarak imzalanan sertifika oluşturma
-3. Anahtar Kasası'na otomatik olarak imzalanan sertifikanızın karşıya yükle
-4. Otomatik olarak imzalanan sertifikanızın anahtar kasasında URL'sini alma
+3. Otomatik olarak imzalanan sertifika tooKey kasası karşıya yükle
+4. Otomatik olarak imzalanan sertifikanızın hello anahtar kasası Hello URL'sini alma
 5. Bir VM oluşturulurken otomatik olarak imzalanan sertifikalar URL'nizi başvurusu
 
 ## <a name="step-1-create-a-key-vault"></a>1. adım: bir anahtar kasası oluşturma
-Kullanabileceğiniz anahtar kasası oluşturmak için komutu aşağıdaki
+Komut toocreate hello anahtar kasası altındaki hello kullanabilirsiniz
 
 ```
 New-AzureRmKeyVault -VaultName "<vault-name>" -ResourceGroupName "<rg-name>" -Location "<vault-location>" -EnabledForDeployment -EnabledForTemplateDeployment
@@ -56,16 +56,16 @@ $thumbprint = (New-SelfSignedCertificate -DnsName $certificateName -CertStoreLoc
 
 $cert = (Get-ChildItem -Path cert:\CurrentUser\My\$thumbprint)
 
-$password = Read-Host -Prompt "Please enter the certificate password." -AsSecureString
+$password = Read-Host -Prompt "Please enter hello certificate password." -AsSecureString
 
 Export-PfxCertificate -Cert $cert -FilePath ".\$certificateName.pfx" -Password $password
 ```
 
-## <a name="step-3-upload-your-self-signed-certificate-to-the-key-vault"></a>3. adım: anahtar Kasası'na otomatik olarak imzalanan sertifikanızın karşıya yükle
-1. adımda oluşturduğunuz anahtar kasası için sertifika karşıya önce onu dönüştürülen Microsoft.Compute kaynak sağlayıcısındaki anlayabileceği bir biçime gerekir. Aşağıdaki PowerShell komut dosyası, bunu izin verir
+## <a name="step-3-upload-your-self-signed-certificate-toohello-key-vault"></a>3. adım: karşıya yükleme, otomatik olarak imzalanan sertifika toohello anahtar kasası
+1. adımda oluşturduğunuz Hello sertifika toohello anahtar kasası karşıya önce biçiminde hello Microsoft.Compute kaynak sağlayıcısı anlayabileceği tooconverted gerekir. Bunu Hello PowerShell Betiği aşağıdaki izin verir
 
 ```
-$fileName = "<Path to the .pfx file>"
+$fileName = "<Path toohello .pfx file>"
 $fileContentBytes = Get-Content $fileName -Encoding Byte
 $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
 
@@ -84,39 +84,39 @@ $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText –Force
 Set-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValue $secret
 ```
 
-## <a name="step-4-get-the-url-for-your-self-signed-certificate-in-the-key-vault"></a>4. adım: otomatik olarak imzalanan sertifikanızın anahtar kasasında URL'sini alma
-Microsoft.Compute kaynak sağlayıcısındaki VM sağlarken gizli anahtar kasası içinde bir URL gerekir. Bu, gizli anahtarı indirin ve eşdeğer sertifika VM oluşturmak Microsoft.Compute kaynak sağlayıcısındaki sağlar.
+## <a name="step-4-get-hello-url-for-your-self-signed-certificate-in-hello-key-vault"></a>4. adım: hello URL'sini otomatik olarak imzalanan sertifikanızın hello anahtar kasası alma
+Merhaba Microsoft.Compute kaynak sağlayıcısındaki bir URL toohello gizlilik hello anahtar kasası içinde hello VM sağlarken gerekir. Bu hello Microsoft.Compute kaynak sağlayıcısı toodownload hello gizliliği sağlar ve hello VM üzerinde hello eşdeğer sertifika oluşturun.
 
 > [!NOTE]
-> Gizli URL'sini sürümü de içermesi gerekir. Bir örnek URL'si https://contosovault.vault.azure.net:443/gizli/contososecret/01h9db0df2cd4300a20ence585a6s7ve gibi görünüyor
+> Merhaba gizli Hello URL'sini de tooinclude hello sürüm olması gerekir. Bir örnek URL'si https://contosovault.vault.azure.net:443/gizli/contososecret/01h9db0df2cd4300a20ence585a6s7ve gibi görünüyor
 > 
 > 
 
 #### <a name="templates"></a>Şablonlar
-Şablon kullanarak URL bağlantısını alma kodu aşağıda
+Kod aşağıda hello kullanarak hello şablonunda hello bağlantı toohello URL alabilirsiniz
 
     "certificateUrl": "[reference(resourceId(resourceGroup().name, 'Microsoft.KeyVault/vaults/secrets', '<vault-name>', '<secret-name>'), '2015-06-01').secretUriWithVersion]"
 
 #### <a name="powershell"></a>PowerShell
-Bu URL'yi kullanarak elde edebilirsiniz PowerShell komutunu aşağıda
+Merhaba aşağıdaki PowerShell komutunu kullanarak bu URL'yi elde edebilirsiniz
 
     $secretURL = (Get-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>").Id
 
 ## <a name="step-5-reference-your-self-signed-certificates-url-while-creating-a-vm"></a>5. adım: bir VM oluşturulurken otomatik olarak imzalanan sertifikalar URL'nizi başvuru
 #### <a name="azure-resource-manager-templates"></a>Azure Resource Manager şablonları
-VM şablonları aracılığıyla oluşturulurken, sertifika gizli bölümü ve aşağıdaki şekilde winRM bölümünde başvurulan:
+VM şablonları aracılığıyla oluşturulurken hello sertifika hello gizli bölümü ve aşağıdaki şekilde hello winRM bölümünde başvurulan:
 
     "osProfile": {
           ...
           "secrets": [
             {
               "sourceVault": {
-                "id": "<resource id of the Key Vault containing the secret>"
+                "id": "<resource id of hello Key Vault containing hello secret>"
               },
               "vaultCertificates": [
                 {
-                  "certificateUrl": "<URL for the certificate you got in Step 4>",
-                  "certificateStore": "<Name of the certificate store on the VM>"
+                  "certificateUrl": "<URL for hello certificate you got in Step 4>",
+                  "certificateStore": "<Name of hello certificate store on hello VM>"
                 }
               ]
             }
@@ -130,7 +130,7 @@ VM şablonları aracılığıyla oluşturulurken, sertifika gizli bölümü ve a
                 },
                 {
                   "protocol": "https",
-                  "certificateUrl": "<URL for the certificate you got in Step 4>"
+                  "certificateUrl": "<URL for hello certificate you got in Step 4>"
                 }
               ]
             },
@@ -138,7 +138,7 @@ VM şablonları aracılığıyla oluşturulurken, sertifika gizli bölümü ve a
           }
         },
 
-Yukarıdaki için bir örnek şablon burada bulunabilir [201-vm-winrm-keyvault-windows](https://azure.microsoft.com/documentation/templates/201-vm-winrm-keyvault-windows)
+Yukarıdaki hello için bir örnek şablon burada bulunabilir [201-vm-winrm-keyvault-windows](https://azure.microsoft.com/documentation/templates/201-vm-winrm-keyvault-windows)
 
 Bu şablon için kaynak kodunu bulunabilir [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows)
 
@@ -151,16 +151,16 @@ Bu şablon için kaynak kodunu bulunabilir [GitHub](https://github.com/Azure/azu
     $CertificateStore = "My"
     $vm = Add-AzureRmVMSecret -VM $vm -SourceVaultId $sourceVaultId -CertificateStore $CertificateStore -CertificateUrl $secretURL
 
-## <a name="step-6-connecting-to-the-vm"></a>6. adım: VM'ye bağlanma
-Emin olmak için gerekir VM bağlanmadan önce makinenizde WinRM uzaktan yönetim için yapılandırılmış. Yönetici olarak PowerShell'i başlatın ve yürütme emin olmak için komut, ayarlamış.
+## <a name="step-6-connecting-toohello-vm"></a>6. adım: toohello VM bağlanma
+Toohello VM bağlanmadan önce makinenizde WinRM uzaktan yönetim için yapılandırıldığından emin toomake gerekir. Yönetici olarak PowerShell'i başlatın ve komutu toomake ayarladığınızdan emin aşağıda hello yürütün.
 
     Enable-PSRemoting -Force
 
 > [!NOTE]
-> Yukarıdaki işe yaramazsa WinRM hizmetinin çalıştığından emin olmak gerekebilir. Bu kullanarak yapabilirsiniz`Get-Service WinRM`
+> Yukarıdaki hello çalışmazsa hello WinRM hizmetinin çalıştığından emin toomake gerekebilir. Bu kullanarak yapabilirsiniz`Get-Service WinRM`
 > 
 > 
 
-Kurulum tamamlandığında, VM kullanmaya bağlanabilir komutu aşağıda
+Merhaba Kurulum tamamlandığında, toohello VM bağlanabilir komutu aşağıda hello kullanma
 
     Enter-PSSession -ConnectionUri https://<public-ip-dns-of-the-vm>:5986 -Credential $cred -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck) -Authentication Negotiate

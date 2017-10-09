@@ -1,6 +1,6 @@
 ---
-title: "Çoklu oturum açma Yönetimi Azure Active Directory'de Kurumsal uygulamaları için | Microsoft Docs"
-description: "Azure Active Directory'yi kullanarak kurumsal uygulamalar için çoklu oturum açma üzerinde yönetmeyi öğrenin"
+title: "oturum açma aaaSingle Yönetim'hello Azure Active Directory kurumsal uygulamalar için | Microsoft Docs"
+description: "Azure Active Directory kullanarak kurumsal uygulamaları için toomanage çoklu oturum açma nasıl hello öğrenin"
 services: active-directory
 documentationcenter: 
 author: asmalser
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
-ms.openlocfilehash: c975428550690254ba989935fe5110c5903e7102
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: b0a8e622ab10517b7b69f786406b6e9b9f2e7eaa
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>Kurumsal uygulamaları için çoklu oturum açmayı yönetme
 > [!div class="op_single_selector"]
@@ -26,72 +26,72 @@ ms.lasthandoff: 08/03/2017
 > * [Klasik Azure Portalı](active-directory-sso-integrate-saas-apps.md)
 > 
 
-Bu makalede nasıl kullanılacağını açıklar [Azure portal](https://portal.azure.com) kurumsal uygulamalar için çoklu oturum açma ayarları yönetmek için. Kurumsal uygulamalar dağıtılan ve kuruluşunuzda kullanılan uygulamalardır. Bu makale özellikle alanından eklenen uygulamalar için geçerlidir [Azure Active Directory Uygulama galerisinde](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
+Bu makalede nasıl toouse hello [Azure portal](https://portal.azure.com) kurumsal uygulamalar için toomanage çoklu oturum açma ayarları. Kurumsal uygulamalar dağıtılan ve kuruluşunuzda kullanılan uygulamalardır. Bu makale özellikle hello eklenen tooapps geçerlidir [Azure Active Directory Uygulama galerisinde](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). 
 
-## <a name="finding-your-apps-in-the-portal"></a>Portalda uygulamalarınızı bulma
-Çoklu oturum açma için ayarlanan tüm kurumsal uygulamaları görüntülenebilir ve Azure portalında yönetilebilir. Uygulamaları bulunabilir **daha Hizmetleri** &gt; **kurumsal uygulamalar** portalı bölümü. 
+## <a name="finding-your-apps-in-hello-portal"></a>Uygulamalarınızı hello Portalı'nda bulma
+Çoklu oturum açma için ayarlanan tüm kurumsal uygulamaları görüntülenebilir ve hello Azure portal yönetilebilir. Merhaba uygulamaları hello bulunabilir **daha Hizmetleri** &gt; **kurumsal uygulamalar** hello portalı bölümü. 
 
 ![Kurumsal uygulamalar dikey penceresi][1]
 
-Seçin **tüm uygulamaları** yapılandırılmış tüm uygulamaların bir listesini görüntülemek için. Bir uygulamayı seçerek burada bu uygulama için raporlar görüntülenebilir ve çeşitli ayarları yönetilebilmesi için bu uygulama için kaynak dikey yükler.
+Seçin **tüm uygulamaları** tooview yapılandırılmış tüm uygulamaların listesi. Bir uygulamayı seçerek hello kaynak dikey burada bu uygulama için raporlar görüntülenebilir ve çeşitli ayarları yönetilebilmesi için bu uygulama için yükler.
 
-Çoklu oturum açma ayarları yönetmek için seçin **çoklu oturum açma**.
+toomanage çoklu oturum açma ayarları, seçin **çoklu oturum açma**.
 
 ![Uygulama kaynağı dikey][2]
 
 ## <a name="single-sign-on-modes"></a>Çoklu oturum açma modları
-**Çoklu oturum açma** dikey ile başlayıp bir **modu** yapılandırılması çoklu oturum açma modu sağlar menüsü. Mevcut seçenekler şunlardır:
+Merhaba **çoklu oturum açma** dikey başlıyorsa bir **modu** yapılandırılmış hello tek oturum açma modu toobe sağlayan menüsü. Merhaba mevcut Seçenekler şunlardır:
 
-* **SAML tabanlı oturum açma** -bu seçenek Azure SAML 2.0 protokolü kullanılarak Active Directory'ye uygulama tam Federasyon çoklu oturum açma destekliyorsa kullanılabilir.
+* **SAML tabanlı oturum açma** -bu seçenek Azure hello SAML 2.0 protokolü kullanılarak Active Directory'ye Merhaba uygulaması tam Federasyon çoklu oturum açma destekliyorsa kullanılabilir.
 * **Parola tabanlı oturum açma** -bu seçenek Azure AD parola form bu uygulama için doldurma destekliyorsa kullanılabilir.
-* **Bağlantılı oturum** -"Varolan çoklu oturum açma" eski adıyla, bu seçenek, kullanıcının Azure AD erişim paneli veya Office 365 uygulama Başlatıcı bu uygulama ile bir bağlantı yerleştirmek Yöneticiler sağlar.
+* **Bağlantılı oturum** -"Varolan çoklu oturum açma" eski adıyla, bu seçenek, Yöneticiler'i sağlar, kullanıcının Azure AD erişim paneli veya Office 365 uygulama Başlatıcı bağlantı toothis uygulamada tooplace.
 
 Bu modları hakkında daha fazla bilgi için bkz: [nasıl çoklu oturum açmayı Azure Active Directory iş](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ## <a name="saml-based-sign-on"></a>SAML tabanlı oturum açma
-**SAML tabanlı oturum açma** seçeneği, dört bölümlerde bölünmüş bir dikey pencere görüntüler:
+Merhaba **SAML tabanlı oturum açma** seçeneği, dört bölümlerde bölünmüş bir dikey pencere görüntüler:
 
 ### <a name="domains-and-urls"></a>Etki alanları ve URL'ler
-Uygulama etki alanı ve URL'ler ile ilgili tüm ayrıntıları Azure AD dizininiz için burada eklenen budur. Tüm isteğe bağlı girdilerin işaretleyerek görüntülenebilir ancak tek oturum açma iş uygulama yapmak için gerekli tüm girişleri doğrudan ekranda görüntülenen **Göster Gelişmiş URL ayarları** onay kutusu. Desteklenen girişleri tam listesini içerir:
+Merhaba uygulamanın etki alanı ve URL'ler ile ilgili tüm ayrıntıları tooyour Azure AD dizini burada eklenen budur. Tüm isteğe bağlı girişleri hello seçerek görüntülenebilir ancak toomake tek oturum açma iş uygulama doğrudan Merhaba ekranında görüntülenen tüm girişleri gerekli **Göster Gelişmiş URL ayarları** onay kutusu. desteklenen girişleri Hello tam listesini içerir:
 
-* **Oturum üzerinde URL'si** – burada bu uygulamaya oturum açmak için kullanıcıya geçer. Uygulama, bir kullanıcı bu URL'ye gider zaman ile ardından hizmeti sağlayıcısı tarafından başlatılan çoklu oturum gerçekleştirmek için yapılandırılmışsa, hizmet sağlayıcısı kimlik doğrulaması ve kullanıcı oturum açmak için Azure ad gerekli yeniden yönlendirme yapar. Bu alan doldurulursa, Azure AD Office 365 ve Azure AD erişim paneli uygulamayı başlatmak için bu URL'yi kullanır. Bu alan atlanmış sonra Azure AD kimlik sağlayıcısı yerine gerçekleştirir-Azure AD erişim paneli, Office 365 veya Azure AD uygulaması ne zaman başlatılır üzerinde başlatılan oturum çoklu oturum açma URL'si.
-* **Tanımlayıcı** -bu URI benzersiz şekilde tanımlar uygulaması hangi tek oturum açma yapılandırılan için. Bu geri uygulamaya SAML belirteci İzleyici parametresi olarak Azure AD gönderdiği değerdir ve uygulama doğrulamak beklenir. Bu değer, uygulama tarafından sağlanan herhangi bir SAML meta veri varlık kimliği olarak görünür.
-* **Yanıt URL'si** -burada SAML belirteci almak uygulama bekler yanıt URL'dir. Bu aynı zamanda onaylama işlemi tüketici Hizmeti'ni (ACS) URL'si olarak adlandırılır. Bunlar girdikten sonra sonraki ekrana devam etmek için İleri'yi tıklatın. Bu ekran Azure AD'den SAML belirteci kabul etmek üzere etkinleştirmek için uygulama taraftaki yapılandırılması gerekenler hakkında bilgi sağlar.
-* **Geçiş durumunu** -geçiş durumunu uygulamaya kimlik doğrulaması tamamlandıktan sonra kullanıcı yeniden yönlendirileceği bildirmek yardımcı olabilecek bir isteğe bağlı bir parametredir. Bazı uygulamalar bu alan farklı kullanır ancak genellikle uygulama geçerli bir URL değerdir (uygulamanın çoklu oturum açma Ayrıntılar için belgelere bakın). Geçiş durumunu ayarlama özelliği, yeni Azure portalına benzersiz olan yeni bir özelliktir.
+* **Oturum üzerinde URL'si** – toosign bileşenini toothis uygulama hello kullanıcı gider burada. Bir kullanıcı toothis URL gittiğinde hello hizmet sağlayıcısı gerekli hello Merhaba uygulaması yapılandırılmış tooperform hizmet sağlayıcısı tarafından başlatılan tek oturum açma, ise yeniden yönlendirme tooAzure AD tooauthenticate ve oturum kullanıcı hello. Bu alan doldurulursa, Azure AD bu URL toolaunch hello uygulamadan Office 365 ve Azure AD erişim paneli hello kullanır. Bu alan atlanmış sonra Azure AD kimlik sağlayıcısı yerine gerçekleştirir-zaman hello uygulama hello Azure AD erişim paneli, Office 365 veya Azure AD hello tek başlatıldıktan üzerinde başlatılan oturum oturum açma URL'si.
+* **Tanımlayıcı** -bu URI benzersizce Merhaba uygulaması hangi tek oturum açma yapılandırılan için. Bu Azure AD hello SAML belirteci İzleyici parametresinin hello gibi geri tooapplication gönderir ve hello uygulamasıdır beklenen toovalidate hello değerdir. Bu değer, hello uygulama tarafından sağlanan herhangi bir SAML meta veri hello varlık kimliği olarak görünür.
+* **Yanıt URL'si** -hello yanıt URL'si olan burada hello uygulama tooreceive hello SAML belirteci bekler. Bu da başvurulan tooas hello onaylama tüketici Hizmeti'ni (ACS) URL'dir. Bunlar girdikten sonra sonraki tooproceed toohello sonraki ekran'ı tıklatın. Bu ekran hangi gereksinimlerini toobe tooaccept Azure AD'den bir SAML belirtecine yapılandırdığınız hello uygulama yan tooenable üzerinde hakkında bilgi sağlar.
+* **Geçiş durumunu** -hello geçiş durumunda, burada kimlik doğrulama tamamlandıktan sonra kullanıcı tooredirect hello hello uygulamaya bildirmek yardımcı olabilecek isteğe bağlı bir parametre. Bazı uygulamalar bu alan farklı kullanır ancak genellikle hello hello uygulama, geçerli bir URL değerdir (Merhaba uygulamanın çoklu oturum açma Ayrıntılar için belgelere bakın). Merhaba özelliği tooset hello geçiş durumunu benzersiz toohello yeni Azure portalına olan yeni bir özelliktir.
 
 ### <a name="user-attributes"></a>Kullanıcı öznitelikleri
-Burada admins görüntüleyebilir ve Azure AD uygulama için her verir SAML belirteci zaman kullanıcılar oturum gönderilir öznitelikleri düzenlemenize budur.
+Burada admins görüntüleyebilir ve Azure AD kullanıcılar her toohello uygulama sorunlarını hello SAML belirtecinde gönderilen Düzenle hello öznitelikleri oturum budur.
 
-Desteklenen yalnızca düzenlenebilir özniteliği **kullanıcı tanımlayıcısı** özniteliği. Bu özniteliğin değeri uygulamadaki her bir kullanıcı olarak tanıtan Azure ad alanıdır. Uygulama "e-posta adresi" kullanıcı adı ve benzersiz tanımlayıcı kullanarak dağıtılmışsa, örneğin, ardından değeri "user.mail" alanına Azure AD'de ayarlanır.
+yalnızca desteklenen düzenlenebilir özniteliği hello hello **kullanıcı tanımlayıcısı** özniteliği. Bu özniteliğin değeri Hello hello hello uygulamadaki her bir kullanıcı olarak tanıtan Azure ad alanıdır. Merhaba uygulama hello "e-posta adresi" Merhaba kullanıcı adı ve benzersiz tanımlayıcı kullanarak dağıtılmışsa, örneğin, ardından hello değeri toohello "user.mail" alan Azure AD içinde ayarlanabilir.
 
 ### <a name="saml-signing-certificate"></a>SAML imzalama sertifikası
-Bu bölümde Azure AD her zaman kullanıcının kimliğini doğrular uygulamaya verilen SAML belirteçleri imzalamak için kullanılan sertifika ayrıntılarını gösterir. Denetlenecek, geçerli sertifikanın özelliklerini sona erme tarihi dahil olmak üzere sağlar.
+Bu bölümde Azure AD toohello uygulama her zaman hello kullanıcının kimliğini doğrular verilen toosign hello SAML belirteçlerini kullanır hello sertifika hello ayrıntılarını gösterir. Merhaba sona erme tarihi gibi Denetlenmekte, hello geçerli sertifika toobe hello özelliklerini sağlar.
 
 ### <a name="application-configuration"></a>Uygulama yapılandırması
-Son bölümü, belgelerine ve/veya Azure Active Directory kimlik sağlayıcısı olarak kullanmak için uygulamanın kendisinin yapılandırmak için gerekli denetimleri sağlar.
+Merhaba son bölümü hello belgelerine ve/veya denetimleri gerekli tooconfigure hello uygulama kendisini toouse Azure Active Directory kimlik sağlayıcısı olarak sağlar.
 
-**Uygulama Yapılandır** uçarak çıkış menü uygulamayı yapılandırmak için yeni kısa, katıştırılmış yönergeler sağlar. Yeni Azure portalına benzersiz bir başka yeni özellik budur.
+Merhaba **uygulama Yapılandır** uçarak çıkış menü hello uygulama yapılandırmak için yeni kısa, katıştırılmış yönergeler sağlar. Başka bir yeni özellik benzersiz toohello yeni Azure portalına budur.
 
 > [!NOTE]
-> Salesforce.com uygulama embedded belgeler tam bir örnek için bkz. Ek uygulamalar için belge sürekli olarak ekleniyor.
+> Merhaba Salesforce.com uygulama embedded belgeler tam bir örnek için bkz. Ek uygulamalar için belge sürekli olarak ekleniyor.
 > 
 > 
 
 ![Katıştırılmış belgeleri][3]
 
 ## <a name="password-based-sign-on"></a>Parola tabanlı oturum açma
-Uygulama için destekleniyorsa, parola tabanlı SSO modu ve seçerek **kaydetmek** anında parola tabanlı SSO yapmak için yapılandırır. Parola tabanlı SSO dağıtma hakkında daha fazla bilgi için bkz: [nasıl çoklu oturum açmayı Azure Active Directory iş](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
+Merhaba uygulaması için destekleniyorsa, seçerek hello parola tabanlı SSO modu ve seçerek **kaydetmek** anında toodo yapılandırır parola tabanlı SSO. Parola tabanlı SSO dağıtma hakkında daha fazla bilgi için bkz: [nasıl çoklu oturum açmayı Azure Active Directory iş](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ![Parola tabanlı oturum açma][4]
 
 ## <a name="linked-sign-on"></a>Bağlantılı oturum açma
-Uygulama için destekleniyorsa, bağlantılı SSO modu seçme Azure AD erişim paneli veya Office 365 kullanıcılar bu uygulamayı üzerinde tıklattığında yönlendirileceği istediğiniz URL'yi girmenizi sağlar. Bağlantılı SSO (eski adıyla "mevcut SSO") hakkında daha fazla bilgi için bkz: [nasıl çoklu oturum açmayı Azure Active Directory iş](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
+Bağlantılı hello SSO modu seçme Hello uygulama için destekleniyorsa, bu uygulamasını hello Azure AD erişim paneli veya Office 365 tooredirect toowhen kullanıcılar'ı tıklatın, istediğiniz tooenter hello URL da sağlar. Bağlantılı SSO (eski adıyla "mevcut SSO") hakkında daha fazla bilgi için bkz: [nasıl çoklu oturum açmayı Azure Active Directory iş](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ![Bağlantılı oturum açma][5]
 
 ##<a name="feedback"></a>Geri Bildirim
 
-Geliştirilmiş kullanarak gibi umuyoruz Azure AD deneyimi. Gelen geri bildirim unutmayın! Geri bildirim ve fikir geliştirme için post **Yönetici portalı** bölümünü bizim [geri bildirim Forumunda](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Biz, her gün harika yeni hizmetler oluşturma hakkında heyecan ve şekil, kılavuzlar kullanabilir ve sonraki geliştirmemiz ne tanımlayın.
+Hello kullanarak gibi Azure AD deneyimi geliştirilmiş umuyoruz. Gelen hello geribildirim unutmayın! Geri bildirim ve fikir geliştirme için hello sonrası **Yönetici portalı** bölümünü bizim [geri bildirim Forumunda](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Biz, her gün harika yeni hizmetler oluşturma hakkında heyecan ve kılavuz tooshape kullanabilir ve sonraki geliştirmemiz ne tanımlayın.
 
 [1]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-blade.PNG
 [2]: ./media/active-directory-enterprise-apps-manage-sso/enterprise-apps-sso-blade.PNG

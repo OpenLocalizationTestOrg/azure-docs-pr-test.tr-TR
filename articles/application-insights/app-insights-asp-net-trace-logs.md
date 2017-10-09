@@ -1,5 +1,5 @@
 ---
-title: ".NET izleme günlükleri Application ınsights'ta keşfedin"
+title: "Application Insights'ta aaaExplore .NET izleme günlükleri"
 description: "İzleme, NLog veya Log4Net ile oluşturulan günlükleri arayın."
 services: application-insights
 documentationcenter: .net
@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/3/2017
 ms.author: bwren
-ms.openlocfilehash: 68e03bf10167ecde675d62782de7063aea9e81d9
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 6bfcd9e5751c3656236d7eb2fc09321740171a70
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>.NET izleme günlükleri Application ınsights'ta keşfedin
-NLog, log4Net veya System.Diagnostics.Trace, ASP.NET uygulamanızda Tanılama izleme için kullanıyorsanız günlüklerinizi gönderilmesini sağlayabilirsiniz [Azure Application Insights][start], burada keşfedin aramak ve bunları. Günlüklerinizi, böylece her kullanıcı isteği hizmeti ile ilişkilendirilmiş izlemeleri belirlemek ve diğer olayları ve özel durum raporları ile ilişkilendirmek, uygulamadan gelen telemetri ile birleştirilir.
+NLog, log4Net veya System.Diagnostics.Trace, ASP.NET uygulamanızda Tanılama izleme için kullanırsanız, çok gönderilen günlüklerinizi olabilir[Azure Application Insights][start], burada keşfedin aramak ve bunları. Günlüklerinizi hello ile diğer birleştirilecek tanımlayabilirsiniz böylece, uygulamadan gelen telemetri hello her kullanıcı isteği hizmeti ile ilişkilendirilmiş izlemeleri ve diğer olayları ve özel durum raporları ile ilişkilendirilmesi.
 
 > [!NOTE]
-> Günlük yakalama modülü gerekiyor mu? 3. taraf günlükçüleri için yararlı bir bağdaştırıcı olduğundan, ancak NLog kullanmıyorsanız, log4Net veya System.Diagnostics.Trace, göz önünde bulundurun yalnızca arama [uygulama Öngörüler TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace) doğrudan.
+> Merhaba günlük yakalama modülü gerekiyor mu? 3. taraf günlükçüleri için yararlı bir bağdaştırıcı olduğundan, ancak NLog kullanmıyorsanız, log4Net veya System.Diagnostics.Trace, göz önünde bulundurun yalnızca arama [uygulama Öngörüler TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace) doğrudan.
 >
 >
 
 ## <a name="install-logging-on-your-app"></a>Uygulamanıza oturum yükleyin
 Seçilen günlük framework projenize yükleyin. Bu app.config veya web.config bir girişe neden.
 
-System.Diagnostics.Trace kullanıyorsanız, web.config dosyasına bir giriş eklemeniz gerekir:
+System.Diagnostics.Trace kullanıyorsanız, tooadd bir giriş tooweb.config gerekir:
 
 ```XML
 
@@ -47,28 +47,28 @@ System.Diagnostics.Trace kullanıyorsanız, web.config dosyasına bir giriş ekl
      </system.diagnostics>
    </configuration>
 ```
-## <a name="configure-application-insights-to-collect-logs"></a>Application Insights'ın günlükleri toplamak için yapılandırma
-**[Application Insights projenize eklemek](app-insights-asp-net.md)**  bunu, henüz yapmadıysanız. Günlük Toplayıcı dahil etmek için bir seçenek görürsünüz.
+## <a name="configure-application-insights-toocollect-logs"></a>Application Insights toocollect günlüklerini yapılandırma
+**[Application Insights tooyour projesi eklemek](app-insights-asp-net.md)**  bunu, henüz yapmadıysanız. Bir seçenek tooinclude hello günlük Toplayıcı görürsünüz.
 
-Veya **yapılandırma Application Insights** Çözüm Gezgini'nde projenize sağ tarafından. Seçeneğini **izleme koleksiyonu yapılandırma**.
+Veya **yapılandırma Application Insights** Çözüm Gezgini'nde projenize sağ tarafından. Çok olarak Hello seçeneğini**izleme koleksiyonu yapılandırma**.
 
 *Application Insights menüsü veya günlük Toplayıcı seçeneği yok?* Deneyin [sorun giderme](#troubleshooting).
 
 ## <a name="manual-installation"></a>El ile yükleme
-Proje türü (örneğin Windows Masaüstü projesi) Application Insights yükleyici tarafından desteklenmiyor, bu yöntemi kullanın.
+Proje türü hello Application Insights Yükleyici (örneğin Windows Masaüstü projesi) tarafından desteklenmiyor, bu yöntemi kullanın.
 
-1. Log4Net veya NLog kullanmayı planlıyorsanız, projenize yükleyin.
+1. Toouse log4Net veya NLog düşünüyorsanız, projenize yükleyin.
 2. Çözüm Gezgini'nde, projenize sağ tıklayın ve seçin **NuGet paketlerini Yönet**.
 3. "Application Insights" araması yapın
-4. Uygun paket - aşağıdakilerden birini seçin:
+4. Merhaba uygun paket - aşağıdakilerden birini seçin:
 
-   * Microsoft.ApplicationInsights.TraceListener (System.Diagnostics.Trace çağrıları yakalamak için)
-   * Microsoft.ApplicationInsights.EventSourceListener (EventSource olaylarını yakalamak için)
-   * Microsoft.ApplicationInsights.EtwListener (ETW olaylarını yakalamak için)
+   * Microsoft.ApplicationInsights.TraceListener (toocapture System.Diagnostics.Trace çağrı)
+   * Microsoft.ApplicationInsights.EventSourceListener (toocapture EventSource olaylarını)
+   * Microsoft.ApplicationInsights.EtwListener (toocapture ETW olayları)
    * Microsoft.ApplicationInsights.NLogTarget
    * Microsoft.ApplicationInsights.Log4NetAppender
 
-NuGet paketi gerekli derlemeleri yükler ve ayrıca web.config veya app.config değiştirir.
+Merhaba NuGet paketi hello gerekli derlemeleri yükler ve ayrıca web.config veya app.config değiştirir.
 
 ## <a name="insert-diagnostic-log-calls"></a>Tanılama günlük çağrıları Ekle
 System.Diagnostics.Trace kullanırsanız, tipik bir çağrı olacaktır:
@@ -80,7 +80,7 @@ Log4net veya NLog isterseniz:
     logger.Warn("Slow response - database01");
 
 ## <a name="using-eventsource-events"></a>EventSource olaylarını kullanma
-Yapılandırabileceğiniz [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) Application Insights izlemeleri olarak gönderilmesini olaylar. İlk olarak, yükleme `Microsoft.ApplicationInsights.EventSourceListener` NuGet paketi. Daha sonra Düzenle `TelemetryModules` bölümünü [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md) dosya.
+Yapılandırabileceğiniz [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) olayları gönderilen toobe tooApplication Öngörüler izlemeleri olarak. İlk olarak, hello yükleyin `Microsoft.ApplicationInsights.EventSourceListener` NuGet paketi. Daha sonra Düzenle `TelemetryModules` hello bölümünü [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md) dosya.
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -90,13 +90,13 @@ Yapılandırabileceğiniz [System.Diagnostics.Tracing.EventSource](https://msdn.
     </Add>
 ```
 
-Her bir kaynağı için şu parametreleri ayarlayabilirsiniz:
- * `Name`Toplanacak EventSource adını belirtir.
- * `Level`Toplanacak günlüğe kaydetme düzeyini belirtir. Aşağıdakilerden biri olabilir `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
- * `Keywords`(İsteğe bağlı) kullanmak için anahtar sözcükler birleşimleri tamsayı değerini belirtir.
+Her bir kaynağı için şu parametreler hello ayarlayabilirsiniz:
+ * `Name`Merhaba EventSource toocollect Hello adını belirtir.
+ * `Level`günlüğe kaydetme düzeyi toocollect hello belirtir. Aşağıdakilerden biri olabilir `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
+ * `Keywords`(İsteğe bağlı) anahtar sözcükleri birleşimleri toouse hello tamsayı değerini belirtir.
 
 ## <a name="using-diagnosticsource-events"></a>DiagnosticSource olaylarını kullanma
-Yapılandırabileceğiniz [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) Application Insights izlemeleri olarak gönderilmesini olaylar. İlk olarak, yükleme [ `Microsoft.ApplicationInsights.DiagnosticSourceListener` ](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) NuGet paketi. Daha sonra Düzenle `TelemetryModules` bölümünü [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md) dosya.
+Yapılandırabileceğiniz [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) olayları gönderilen toobe tooApplication Öngörüler izlemeleri olarak. İlk olarak, hello yükleyin [ `Microsoft.ApplicationInsights.DiagnosticSourceListener` ](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) NuGet paketi. Merhaba Düzenle `TelemetryModules` hello bölümünü [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md) dosya.
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.DiagnsoticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
@@ -106,13 +106,13 @@ Yapılandırabileceğiniz [System.Diagnostics.DiagnosticSource](https://github.c
     </Add>
 ```
 
-İzlemek istediğiniz her DiagnosticSource için olan bir giriş eklemek `Name` özniteliği, DiagnosticSource adına ayarlayın.
+Tootrace, istediğiniz her DiagnosticSource için hello olan bir giriş eklemek `Name` özniteliği, DiagnosticSource toohello adını ayarlayın.
 
 ## <a name="using-etw-events"></a>ETW olayları kullanma
-Application Insights izlemeleri olarak gönderilmesini ETW olayları yapılandırabilirsiniz. İlk olarak, yükleme `Microsoft.ApplicationInsights.EtwCollector` NuGet paketi. Daha sonra Düzenle `TelemetryModules` bölümünü [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md) dosya.
+ETW olayları toobe tooApplication Öngörüler izlemeleri gönderilen yapılandırabilirsiniz. İlk olarak, hello yükleyin `Microsoft.ApplicationInsights.EtwCollector` NuGet paketi. Daha sonra Düzenle `TelemetryModules` hello bölümünü [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md) dosya.
 
 > [!NOTE] 
-> SDK barındırma işlemi, "Performans günlüğü kullanıcıları" veya yöneticileri üyesi olan bir kimlik altında çalışıyorsa, ETW olayları yalnızca toplanabilir.
+> Merhaba işlem barındırma hello SDK'sı, "Performans günlüğü kullanıcıları" veya yöneticileri üyesi olan bir kimlik altında çalışıyorsa, ETW olayları yalnızca toplanabilir.
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EtwCollector.EtwCollectorTelemetryModule, Microsoft.ApplicationInsights.EtwCollector">
@@ -122,35 +122,35 @@ Application Insights izlemeleri olarak gönderilmesini ETW olayları yapılandı
     </Add>
 ```
 
-Her bir kaynağı için şu parametreleri ayarlayabilirsiniz:
- * `ProviderName`Toplanacak ETW sağlayıcı adıdır.
- * `ProviderGuid`Toplama ETW sağlayıcı GUID belirtir yerine kullanılabilir `ProviderName`.
- * `Level`Toplanacak günlüğe kaydetme düzeyi ayarlar. Aşağıdakilerden biri olabilir `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
- * `Keywords`(İsteğe bağlı) kullanmak için anahtar sözcüğü birleşimleri tamsayı değerini ayarlar.
+Her bir kaynağı için şu parametreler hello ayarlayabilirsiniz:
+ * `ProviderName`Merhaba ETW sağlayıcı toocollect Hello adıdır.
+ * `ProviderGuid`Merhaba hello ETW sağlayıcı toocollect GUİD'si belirtir yerine kullanılabilir `ProviderName`.
+ * `Level`günlüğe kaydetme düzeyi toocollect hello ayarlar. Aşağıdakilerden biri olabilir `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
+ * `Keywords`(İsteğe bağlı) kümeleri anahtar sözcüğü birleşimleri toouse tamsayı değerini hello.
 
-## <a name="using-the-trace-api-directly"></a>Kullanarak doğrudan API izleme
-Application Insights izleme API doğrudan çağırabilir. Günlüğe kaydetme bağdaştırıcıları bu API'yi kullanın.
+## <a name="using-hello-trace-api-directly"></a>Merhaba izleme API kullanarak doğrudan
+Merhaba Application Insights izleme API doğrudan çağırabilir. Merhaba günlük bağdaştırıcıları bu API'yi kullanın.
 
 Örneğin:
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow response - database01");
 
-TrackTrace avantajı, iletide oldukça uzun veri koyabilirsiniz ' dir. Örneğin, gönderme verisi kodlayın.
+TrackTrace avantajı hello iletisinde oldukça uzun veri koyabilirsiniz ' dir. Örneğin, gönderme verisi kodlayın.
 
-Ayrıca, bir önem düzeyi iletinize ekleyebilirsiniz. Ve diğer telemetri gibi filtre veya arama izlemeleri farklı kümeleri için yardımcı olmak için kullanabileceğiniz özellik değerlerini ekleyebilirsiniz. Örneğin:
+Ayrıca, bir önem düzeyi tooyour ileti ekleyebilirsiniz. Ve diğer telemetri gibi toohelp filtre veya arama izlemeleri farklı kümeleri için kullanabileceğiniz özellik değerlerini ekleyebilirsiniz. Örneğin:
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",
                    SeverityLevel.Warning,
                    new Dictionary<string,string> { {"database", db.ID} });
 
-Bu, içinde sağlayacağı [arama][diagnostic], belirli bir veritabanı ile ilgili belirli bir önemde tüm iletileri kolayca filtrelemek için.
+Bu, içinde sağlayacağı [arama][diagnostic], tooeasily filtre tooa belirli veritabanı ile ilgili belirli bir önemde tüm hello iletilerinin çıkışı.
 
 ## <a name="explore-your-logs"></a>Günlüklerinizi keşfedin
 Uygulamanızı, ya da hata ayıklama modunda çalıştırmak veya dinamik dağıtın.
 
-Uygulamanızın genel bakış dikey penceresinde de [Application Insights portalındaki][portal], seçin [arama][diagnostic].
+Uygulamanızın genel bakış dikey penceresinde de [hello Application Insights portalındaki][portal], seçin [arama][diagnostic].
 
 ![Application Insights'ta arama seçin](./media/app-insights-asp-net-trace-logs/020-diagnostic-search.png)
 
@@ -160,11 +160,11 @@ Uygulamanızın genel bakış dikey penceresinde de [Application Insights portal
 
 * Günlük izlemelerini veya belirli özelliklere sahip öğeleri Filtrele
 * Belirli bir öğeyi ayrıntılı inceleyin.
-* Aynı kullanıcı istekle ilgili diğer telemetriyi Bul (diğer bir deyişle, aynı Operationıd ile)
-* Bu sayfa yapılandırmasını sık kullanılan olarak Kaydet
+* Toohello ilgili diğer telemetriyi Bul aynı kullanıcı isteği (diğer bir deyişle, ile aynı hello Operationıd)
+* Bu sayfanın Hello yapılandırma sık kullanılan olarak Kaydet
 
 > [!NOTE]
-> **Örnekleme.** Uygulamanız çok miktarda veri gönderiyorsa ve ASP.NET sürüm 2.0.0-beta3 veya daha sonraki uygulamalar için Application Insights SDK kullanıyorsanız, uyarlamalı örnekleme özelliği telemetrenizin yalnızca yüzdesini çalıştırır ve gönderir. [Örnekleme hakkında daha fazla bilgi edinin.](app-insights-sampling.md)
+> **Örnekleme.** Uygulamanız çok miktarda veri gönderir ve hello Application Insights SDK'sı ASP.NET sürüm 2.0.0-beta3 veya üzeri kullanıyorsanız, hello Uyarlamalı örnekleme özelliği çalışır ve yalnızca telemetrinizi yüzdesi gönderin. [Örnekleme hakkında daha fazla bilgi edinin.](app-insights-sampling.md)
 >
 >
 
@@ -175,30 +175,30 @@ Uygulamanızın genel bakış dikey penceresinde de [Application Insights portal
 
 ## <a name="troubleshooting"></a>Sorun giderme
 ### <a name="how-do-i-do-this-for-java"></a>Bunu nasıl yapabilirim Java için?
-Kullanım [Java günlük bağdaştırıcıları](app-insights-java-trace-logs.md).
+Kullanım hello [Java günlük bağdaştırıcıları](app-insights-java-trace-logs.md).
 
-### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>Proje bağlam menüsünde Application Insights seçeneği yoktur
-* Application Insights araçları bu geliştirme makinede yüklü denetleyin. Visual Studio menü Araçlar, uzantılar ve güncelleştirmeler, için Application Insights araçları arayın. Yüklü sekmesinde değilse, çevrimiçi sekmesini açın ve yükleyin.
+### <a name="theres-no-application-insights-option-on-hello-project-context-menu"></a>Merhaba proje bağlam menüsünde Application Insights seçeneği yoktur
+* Application Insights araçları bu geliştirme makinede yüklü denetleyin. Visual Studio menü Araçlar, uzantılar ve güncelleştirmeler, için Application Insights araçları arayın. Merhaba yüklü sekmesinde değilse, çevrimiçi hello sekmesini açın ve yükleyin.
 * Bu proje Application Insights araçları tarafından desteklenmeyen bir türde olabilir. Kullanım [el ile yükleme](#manual-installation).
 
-### <a name="no-log-adapter-option-in-the-configuration-tool"></a>Hiçbir yapılandırma aracı günlük bağdaştırıcısı seçeneğinde
-* Günlüğe kaydetme framework yüklemeniz gerekir.
+### <a name="no-log-adapter-option-in-hello-configuration-tool"></a>Merhaba Yapılandırma aracında günlük bağdaştırıcısı seçeneği
+* Tooinstall hello günlük önce gerekir.
 * System.Diagnostics.Trace kullanıyorsanız, emin [içinde yapılandırılmış `web.config` ](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx).
-* Application Insights'ın en son sürümünü var mı? Visual Studio'da **Araçları** menüsünde seçin **Uzantılar ve güncelleştirmeler**, açarak **güncelleştirmeleri** sekmesi. Geliştirici analiz araçları vardır, güncelleştirmek için'yı tıklatın.
+* Application Insights en son sürümünü hello var mı? Visual Studio'da **Araçları** menüsünde seçin **Uzantılar ve güncelleştirmeler**ve açık hello **güncelleştirmeleri** sekmesi. Geliştirici analiz araçları vardır, tooupdate'yı tıklatın.
 
 ### <a name="emptykey"></a>"İzleme anahtarını boş olamaz" hata alıyorum
-Application Insights yüklemeden günlük bağdaştırıcısı Nuget paketi yüklü gibi görünüyor.
+Application Insights yüklemeden bağdaştırıcısı Nuget paketi günlüğü hello yüklü gibi görünüyor.
 
-Çözüm Gezgini'nde sağ `ApplicationInsights.config` ve **güncelleştirme Application Insights**. Azure'da oturum açmanız başvurulmasını bir iletişim kutusu elde edersiniz ve ya da bir Application Insights kaynağı oluşturun veya var olan bir yeniden kullanın. Bu sorununu çözer.
+Çözüm Gezgini'nde sağ `ApplicationInsights.config` ve **güncelleştirme Application Insights**. Toosign, başvurulmasını bir iletişim kutusu içinde tooAzure elde edersiniz ve ya da bir Application Insights kaynağı oluşturun veya var olan bir yeniden kullanın. Bu sorununu çözer.
 
-### <a name="i-can-see-traces-in-diagnostic-search-but-not-the-other-events"></a>Tanılama arama, ancak olmayan diğer olayları izlemelerini görmek için
-Bu, bazen tüm olayları ve istek ardışık düzenine ulaşması biraz zaman alabilir.
+### <a name="i-can-see-traces-in-diagnostic-search-but-not-hello-other-events"></a>I tanılama arama içindeki görebilir, ancak diğer olayları hello değil
+Bu, bazen hello ardışık düzeninden tüm hello olayları ve istekleri tooget için biraz zaman alabilir.
 
 ### <a name="limits"></a>Ne kadar veri tutulur?
-Pek çok etken korunur veri miktarını etkileyebilir. Bkz: [sınırları](app-insights-api-custom-events-metrics.md#limits) daha fazla bilgi için müşteri olay ölçümleri sayfasının bölümünde. 
+Pek çok etken hello korunur veri miktarını etkileyebilir. Merhaba bkz [sınırları](app-insights-api-custom-events-metrics.md#limits) sayfasının bölümünde hello müşteri olay ölçümleri daha fazla bilgi için. 
 
-### <a name="im-not-seeing-some-of-the-log-entries-that-i-expect"></a>Bazı t beklediğiniz günlük girdileri görüyorum değil
-Uygulamanız çok miktarda veri gönderiyorsa ve ASP.NET sürüm 2.0.0-beta3 veya daha sonraki uygulamalar için Application Insights SDK kullanıyorsanız, uyarlamalı örnekleme özelliği telemetrenizin yalnızca yüzdesini çalıştırır ve gönderir. [Örnekleme hakkında daha fazla bilgi edinin.](app-insights-sampling.md)
+### <a name="im-not-seeing-some-of-hello-log-entries-that-i-expect"></a>Bazı t beklediğiniz hello günlük girdileri görüyorum değil
+Uygulamanız çok miktarda veri gönderir ve hello Application Insights SDK'sı ASP.NET sürüm 2.0.0-beta3 veya üzeri kullanıyorsanız, hello Uyarlamalı örnekleme özelliği çalışır ve yalnızca telemetrinizi yüzdesi gönderin. [Örnekleme hakkında daha fazla bilgi edinin.](app-insights-sampling.md)
 
 ## <a name="add"></a>Sonraki adımlar
 * [Kullanılabilirlik ve yanıt hızını testleri ayarlama][availability]

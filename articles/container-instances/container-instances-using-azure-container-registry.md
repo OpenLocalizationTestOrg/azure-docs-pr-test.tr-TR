@@ -1,6 +1,6 @@
 ---
-title: "Azure kapsayıcı kayıt defterinden Azure kapsayıcı örnekleri dağıtma | Azure belgeleri"
-description: "Azure kapsayıcı kayıt defterinden Azure kapsayıcı örnekleri dağıtma"
+title: "hello Azure kapsayıcı kayıt defteri gelen aaaDeploy tooAzure kapsayıcı örnekleri | Azure belgeleri"
+description: "Hello Azure kapsayıcı kayıt defteri tooAzure kapsayıcı örneklerinden dağıtma"
 services: container-instances
 documentationcenter: 
 author: seanmck
@@ -17,29 +17,29 @@ ms.workload: na
 ms.date: 08/02/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: aa1c4ea379c10dff246e2f924a345f9fa444aa64
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 2667f91db8ed92a9ccc9ba722a2b1f5c5ea93886
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-to-azure-container-instances-from-the-azure-container-registry"></a>Azure kapsayıcı kayıt defterinden Azure kapsayıcı örnekleri dağıtma
+# <a name="deploy-tooazure-container-instances-from-hello-azure-container-registry"></a>Hello Azure kapsayıcı kayıt defteri tooAzure kapsayıcı örneklerinden dağıtma
 
-Azure kapsayıcı kayıt defteri Docker kapsayıcısı görüntüleri için bir Azure tabanlı, özel kayıt defteri ' dir. Bu makalede, Azure kapsayıcı örneklerine Azure kapsayıcı kayıt defterinde depolanan kapsayıcı yansımalarını dağıtmak alınmaktadır.
+Hello Azure kapsayıcı kayıt defteri Docker kapsayıcısı görüntüleri için bir Azure tabanlı, özel kayıt defteri ' dir. Bu makalede nasıl toodeploy kapsayıcı görüntüleri hello Azure kapsayıcı kayıt defteri tooAzure kapsayıcı örnekleri depolanan yer almaktadır.
 
-## <a name="using-the-azure-cli"></a>Azure CLI kullanma
+## <a name="using-hello-azure-cli"></a>Hello Azure CLI kullanma
 
-Azure CLI oluşturmak ve Azure kapsayıcı örnekleri kapsayıcılarında yönetmek için komutlar içerir. Özel bir görüntüde belirtirseniz `create` komutu, kapsayıcı kayıt defteri ile kimlik doğrulaması için gerekli görüntü kayıt defteri parola da belirtebilirsiniz.
+Hello Azure CLI oluşturmak ve Azure kapsayıcı örnekleri kapsayıcılarında yönetmek için komutlar içerir. Özel bir görüntü hello belirtirseniz, `create` komut ayrıca belirtebilirsiniz hello görüntü kayıt defteri parola gerekli tooauthenticate hello kapsayıcı kayıt defteri ile.
 
 ```azurecli-interactive
 az container create --name myprivatecontainer --image mycontainerregistry.azurecr.io/mycontainerimage:v1 --registry-password myRegistryPassword --resource-group myresourcegroup
 ```
 
-`create` Komutu de destekler belirtme `registry-login-server` ve `registry-username`. Ancak, Azure kapsayıcı kayıt için oturum açma sunucusu her zaman olduğu *registryname*. azurecr.io ve varsayılan kullanıcı adı *registryname*, bu değerler görüntü adı yoksa algılanır açıkça sağlanır.
+Merhaba `create` de destekler hello belirterek komutu `registry-login-server` ve `registry-username`. Ancak, hello oturum açma hello Azure kapsayıcı kayıt defteri için her zaman sunucusudur *registryname*. azurecr.io ve hello varsayılan kullanıcı adı *registryname*, bu değerler, hello resim adından algılanır açıkça sağlanmadı.
 
 ## <a name="using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak
 
-Ekleyerek bir Azure Resource Manager şablonu Azure kapsayıcı kaydınız özelliklerini belirtebilirsiniz `imageRegistryCredentials` kapsayıcısı Grup tanımında özelliği:
+Merhaba ekleyerek bir Azure Resource Manager şablonu Azure kapsayıcı kaydınız hello özelliklerini belirtebilirsiniz `imageRegistryCredentials` hello kapsayıcısı Grup tanımında özelliği:
 
 ```json
 "imageRegistryCredentials": [
@@ -51,35 +51,35 @@ Ekleyerek bir Azure Resource Manager şablonu Azure kapsayıcı kaydınız özel
 ]
 ```
 
-Doğrudan şablonunda kapsayıcı kayıt defteri parolanızı depolamak önlemek için onu bir gizli olarak saklamanızı öneririz [Azure anahtar kasası](../key-vault/key-vault-manage-with-cli2.md) ve şablonu kullanarak referans [Azure arasında yerel tümleştirme Resource Manager ve anahtar kasası](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+kapsayıcı kayıt defteri parolanızı doğrudan hello şablonunda depolama tooavoid bunu bir gizli olarak saklamanızı öneririz [Azure anahtar kasası](../key-vault/key-vault-manage-with-cli2.md) ve hello kullanılarak hello şablonunda başvuru [arasında yerel tümleştirme Azure Resource Manager ve anahtar kasası hello](../azure-resource-manager/resource-manager-keyvault-parameter.md).
 
-## <a name="using-the-azure-portal"></a>Azure portalını kullanma
+## <a name="using-hello-azure-portal"></a>Hello Azure portalını kullanma
 
-Azure kapsayıcı kayıt defteri kapsayıcı görüntülerinde bulunduruyorsanız, Azure kapsayıcı örnekleri Azure portalını kullanarak bir kapsayıcı kolayca oluşturabilirsiniz.
+Hello Azure kapsayıcı kayıt defteri kapsayıcı görüntülerinde bulunduruyorsanız, Azure kapsayıcı örnekleri hello Azure portal kullanarak bir kapsayıcı kolayca oluşturabilirsiniz.
 
-1. Azure portalında kapsayıcı kayıt defterine gidin.
+1. Hello Azure portal, tooyour kapsayıcı kayıt defteri gidin.
 
 2. Depoları seçin.
 
-    ![Azure portalında Azure kapsayıcı kayıt defteri menüsü][acr-menu]
+    ![Hello Azure kapsayıcı kayıt defteri menüsünde hello Azure portalı][acr-menu]
 
-3. Dağıtım yapmak istediğiniz depo seçin.
+3. Gelen toodeploy istediğiniz hello depo seçin.
 
-4. Dağıtmak istediğiniz kapsayıcı görüntü etiketi sağ tıklayın.
+4. Merhaba etiketi sağ hello kapsayıcı görüntü için toodeploy istiyor.
 
     ![Kapsayıcı Azure kapsayıcı örnekleri ile başlatmak için bağlam menüsü][acr-runinstance-contextmenu]
 
-5. Kapsayıcı için bir ad ve kaynak grubu için bir ad girin. İsterseniz, varsayılan değerleri de değiştirebilirsiniz.
+5. Merhaba kapsayıcı için bir ad ve hello kaynak grubu için bir ad girin. İsterseniz, ayrıca hello varsayılan değerleri değiştirebilirsiniz.
 
     ![Azure kapsayıcı örnekleri için menü oluşturma][acr-create-deeplink]
 
-6. Dağıtım tamamlandıktan sonra kapsayıcı grubu için IP adresini ve diğer özellikleri bulmak için bildirimler bölmesinden gidebilirsiniz.
+6. Merhaba dağıtım işlemi tamamlandıktan sonra IP adresini ve diğer özellikleri toohello kapsayıcı hello bildirimleri bölmesinde toofind grubundan gidebilirsiniz.
 
     ![Azure kapsayıcı örnekleri kapsayıcı grubu için ayrıntıları görüntüle][aci-detailsview]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Kapsayıcılar oluşturmak, bunları özel kapsayıcı kayıt defterine gönderme ve Azure kapsayıcı örnekleri tarafından dağıtmak öğrenin [öğreticiyi tamamlamak](container-instances-tutorial-prepare-app.md).
+Nasıl toobuild kapsayıcıları, bunları tooa özel kapsayıcı kayıt defteri gönderme ve tooAzure kapsayıcı örnekleri tarafından dağıtmadan öğrenin [hello öğreticiyi tamamlamak](container-instances-tutorial-prepare-app.md).
 
 <!-- IMAGES -->
 [acr-menu]: ./media/container-instances-using-azure-container-registry/acr-menu.png

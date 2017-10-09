@@ -1,6 +1,6 @@
 ---
-title: "6. adım: Machine Learning Web hizmetine erişim | Microsoft Docs"
-description: "6. adımını geliştirme Tahmine dayalı bir çözüm izlenecek yol: etkin bir Azure Machine Learning Web hizmetine erişim."
+title: "6. adım: Hello Machine Learning Web hizmetine erişim | Microsoft Docs"
+description: "6. adımını hello geliştirmek Tahmine dayalı bir çözüm izlenecek yol: etkin bir Azure Machine Learning Web hizmetine erişim."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,38 +14,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-ms.openlocfilehash: d309f6c4749a80c81859b693a2bd5927e8fe0e54
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 211de0294092c6a6b5e6eb608d5d3b88107674c6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="walkthrough-step-6-access-the-azure-machine-learning-web-service"></a>Kılavuz Adımı 6: Azure Machine Learning web hizmetine erişim
+# <a name="walkthrough-step-6-access-hello-azure-machine-learning-web-service"></a>Gözden geçirme adım 6: hello Azure Machine Learning web hizmetine erişim
 
-Bu izlenecek yol son adımdır [Azure Machine learning'de Tahmine dayalı analiz çözümü geliştirme](machine-learning-walkthrough-develop-predictive-solution.md)
+Merhaba kılavuzun hello son adım budur [Azure Machine learning'de Tahmine dayalı analiz çözümü geliştirme](machine-learning-walkthrough-develop-predictive-solution.md)
 
 1. [Bir Machine Learning çalışma alanı oluşturma](machine-learning-walkthrough-1-create-ml-workspace.md)
 2. [Mevcut verileri yükleme](machine-learning-walkthrough-2-upload-data.md)
 3. [Yeni bir deneme oluşturma](machine-learning-walkthrough-3-create-new-experiment.md)
-4. [Modelleri eğitme ve değerlendirme](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-5. [Web hizmetini dağıtma](machine-learning-walkthrough-5-publish-web-service.md)
-6. **Web hizmetine erişim**
+4. [Eğitmek ve hello modelleri değerlendir](machine-learning-walkthrough-4-train-and-evaluate-models.md)
+5. [Merhaba Web hizmetini dağıtma](machine-learning-walkthrough-5-publish-web-service.md)
+6. **Merhaba Web hizmetine erişim**
 
 - - -
-Bu kılavuzda önceki adımda bizim kredi riskini tahmin modelini kullanan bir web hizmeti dağıttığımız. Artık kullanıcıların veri göndermek ve sonuçları almak kullanabilirsiniz. 
+Bu kılavuzda hello önceki adımda bizim kredi riskini tahmin modelini kullanan bir web hizmeti dağıttığımız. Artık kullanıcılar mümkün toosend veri tooit ve sonuçları alırsınız. 
 
-Web hizmetini alabilen ve dönüş verileri iki yoldan biriyle REST API'lerini kullanarak bir Azure web hizmetidir:  
+Merhaba Web hizmetini alabilen ve iki yoldan biriyle REST API'lerini kullanarak verileri döndürmek bir Azure web hizmetidir:  
 
-* **İstek/yanıt** - kullanıcı, bir HTTP protokolünü kullanarak hizmete kredi veri bir veya daha fazla satırı gönderir ve hizmeti bir veya daha fazla sonuç kümeleri yanıt verir.
-* **Toplu yürütme** - kullanıcı depolar veya daha fazla satır kredi Azure blob ve blob konumu hizmetine gönderir. Hizmet giriş blob veri tüm satırları puanlar, başka bir blob'a sonuçları depolar ve bu kapsayıcı URL'sini döndürür.  
+* **İstek/yanıt** - hello kullanıcı bir gönderir veya kredi veri toohello daha fazla satır hizmeti bir HTTP protokolünü kullanarak ve hello sonuçlarının bir veya daha fazla kümeleriyle hizmet yanıt verir.
+* **Toplu yürütme** - hello kullanıcı depolayan bir veya daha fazla satır kredi Azure blob ve hello blob konumu toohello hizmetine gönderir. Giriş blob tüm satır hello hello hizmet puanları Merhaba, bu kapsayıcı URL'sini hello başka bir blob'a sonuçlanır ve döndürür depolarını hello.  
 
-Klasik web hizmetine erişmek için hızlı ve kolay yolunu [Azure ML istek-yanıt hizmeti Web uygulaması](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/) veya [Azure ML toplu iş yürütme hizmeti Web uygulaması şablonu](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/).
+Klasik web hizmeti hello olan hızlı ve kolay bir yol tooaccess hello [Azure ML istek-yanıt hizmeti Web uygulaması](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/) veya [Azure ML toplu iş yürütme hizmeti Web uygulaması şablonu](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/).
 
-Bu web uygulaması şablonlar web hizmetinizin giriş verilerini ve ne döndürülecek bilir bir özel web uygulaması oluşturabilirsiniz. Yapmanız gereken tek şey web hizmeti ve veri erişim sağlar ve geri kalan şablon yapar.
+Bu web uygulaması şablonlar web hizmetinizin giriş verilerini ve ne döndürülecek bilir bir özel web uygulaması oluşturabilirsiniz. Tek toodo ihtiyacınız olan erişim tooyour web hizmeti ve verileri sağlar ve hello şablon rest hello.
 
-Web uygulama şablonları kullanma hakkında daha fazla bilgi için bkz: [bir Azure Machine Learning Web hizmeti bir web uygulaması şablonu kullanmak](machine-learning-consume-web-service-with-web-app-template.md).
+Merhaba web uygulama şablonları kullanma hakkında daha fazla bilgi için bkz: [bir Azure Machine Learning Web hizmeti bir web uygulaması şablonu kullanmak](machine-learning-consume-web-service-with-web-app-template.md).
 
-Ayrıca sizin için R, C# ve Python programlama dili sağlanan Başlatıcı kodu kullanarak web hizmetine erişmek için özel bir uygulama geliştirebilirsiniz.
+R, C# ve Python programlama dilleri, için sağlanan starter kod kullanarak bir özel uygulama tooaccess hello web hizmeti de geliştirebilirsiniz.
 
-Tam ayrıntıları bulabilirsiniz [bir Azure Machine Learning Web hizmeti kullanmak nasıl](machine-learning-consume-web-services.md).
+Tam ayrıntıları bulabilirsiniz [nasıl tooconsume bir Azure Machine Learning Web hizmeti](machine-learning-consume-web-services.md).
 

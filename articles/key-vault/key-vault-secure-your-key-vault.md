@@ -1,6 +1,6 @@
 ---
-title: "Anahtar kasanızın güvenliğini sağlama | Microsoft Belgeleri"
-description: "Kasaları ve anahtarlar ile parolaları yönetmek için anahtar kasasına yönelik erişim izinlerini yönetin. Anahtar kasasına yönelik kimlik doğrulama ve yetkilendirme modeli ve anahtar kasanızın güvenliğini sağlama"
+title: "anahtarınızı aaaSecure kasa | Microsoft Docs"
+description: "Kasaları ve anahtarlar ile parolaları yönetmek için anahtar kasasına yönelik erişim izinlerini yönetin. Anahtar kasası ve nasıl toosecure anahtarınızı kasa için kimlik doğrulama ve yetkilendirme modeli"
 services: key-vault
 documentationcenter: 
 author: amitbapat
@@ -14,155 +14,155 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: b81791f0bce7e6f57782dfe7bc5fb5fc21369e7d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 84f5fc18142a1ad89babbd11f4f65eca105afc32
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="secure-your-key-vault"></a>Anahtar kasanızın güvenliğini sağlama
-Azure Anahtar Kasası, bulut uygulamalarınıza ait şifreleme anahtarlarını ve parolaları (sertifikalar, bağlantı dizeleri, parolalar gibi) koruyan bir bulut hizmetidir. Bu veriler hassas ve iş için önemli olduğundan, anahtar kasalarınıza erişimi yalnızca yetkili uygulamaların ve kullanıcıların erişebileceği şekilde güvenli hale getirmek istersiniz. Bu makalede anahtar kasası erişim modeline genel bakış sunulmakta, kimlik doğrulaması ve yetkilendirme açıklanmakta ve bulut uygulamalarınız için anahtar kasasına erişimin güvenliğini sağlama işlemi bir örnekle anlatılmaktadır.
+Azure Anahtar Kasası, bulut uygulamalarınıza ait şifreleme anahtarlarını ve parolaları (sertifikalar, bağlantı dizeleri, parolalar gibi) koruyan bir bulut hizmetidir. Bu veri duyarlı ve kritik iş olduğundan, böylece uygulamalar yalnızca yetkili toosecure erişim tooyour anahtar kasalarını istediğiniz ve anahtar kasası erişebilir. Bu makalede anahtar kasası erişim modeline genel bakış sağlar, kimlik doğrulama ve yetkilendirme açıklar ve nasıl toosecure erişim tookey kasa örneği ile bulut uygulamalarınız için açıklar.
 
 ## <a name="overview"></a>Genel Bakış
-Bir anahtar kasasına erişim, iki ayrı arabirim ile denetlenir: yönetim düzlemi ve veri düzlemi. Her iki düzlem için de bir çağıranın (kullanıcı ya da uygulama) anahtar kasasına erişim elde edebilmesi için uygun kimlik doğrulaması ve yetkilendirme gereklidir. Kimlik doğrulama işlemi çağıranın kimliğini, yetkilendirme işlemi ise çağıranın hangi işlemleri yapmaya izinli olduğunu belirler.
+Erişim tooa anahtar kasası, iki ayrı arabirimleri aracılığıyla denetlenir: Yönetim düzlemi ve veri düzlemi. Her iki düzlemleri için uygun kimlik doğrulama ve yetkilendirme gereklidir (bir kullanıcı ya da uygulama) çağıran erişim tookey kasası sağlayabilmek için önce. Yetkilendirme hangi işlemleri hello arayan tooperform izin belirlerken kimlik doğrulaması hello arayanın hello kimliği oluşturur.
 
 Kimlik doğrulaması için yönetim düzlemi ve veri düzleminde Azure Active Directory kullanılır. Yetkilendirme için yönetim düzleminde rol tabanlı erişim denetimi (RBAC), veri düzleminde ise anahtar kasası erişim ilkesi kullanılır.
 
-Ele alınan konulara kısa bir genel bakış aşağıda verilmiştir:
+Kapsanan hello konular kısa bir genel bakış şöyledir:
 
-[Azure Active Directory kullanarak kimlik doğrulaması](#authentication-using-azure-active-directory) - Bu bölümde bir çağıranın anahtar kasasına yönetim düzlemi ve veri düzlemi üzerinden erişmek için Azure Active Directory ile kimlik doğrulaması yapma işlemi açıklanmaktadır. 
+[Azure Active Directory'yi kullanarak kimlik doğrulaması](#authentication-using-azure-active-directory) -Bu bölümde çağıran ile Azure Active Directory tooaccess bir anahtar kasası yönetim düzlemi ve veri düzlemi aracılığıyla nasıl gerçekleştireceğini açıklar. 
 
-[Yönetim düzlemi ve veri düzlemi](#management-plane-and-data-plane) - Yönetim düzlemi ve veri düzlemi, anahtar kasanıza erişmek için kullanılan iki erişim düzlemidir. Her erişim düzlemi belirli işlemleri destekler. Bu bölümde erişim uç noktaları, desteklenen işlemler ve her bir düzlem tarafından kullanılan erişim denetimi açıklanmaktadır. 
+[Yönetim düzlemi ve veri düzlemi](#management-plane-and-data-plane) - Yönetim düzlemi ve veri düzlemi, anahtar kasanıza erişmek için kullanılan iki erişim düzlemidir. Her erişim düzlemi belirli işlemleri destekler. Bu bölümde hello erişim uç noktalar açıklanmaktadır, işlemleri desteklenen ve denetim yöntemi her düzlem tarafından kullanılan erişim. 
 
-[Yönetim düzlemi erişim denetimi](#management-plane-access-control) - Bu bölümde rol tabanlı erişim denetimi kullanılarak yönetim düzlemi işlemlerine erişim izni verme konusu ele alınacaktır.
+[Yönetim düzlemi erişim denetimi](#management-plane-access-control) - biz Ara rol tabanlı erişim denetimi kullanarak toomanagement düzlemi işlemleri erişimine bu bölümdeki.
 
-[Veri düzlemi erişim denetimi](#data-plane-access-control) - Bu bölümde veri düzlemi erişimini denetlemek için anahtar kasası erişim ilkesini kullanma işlemi açıklanmaktadır.
+[Veri düzlemi erişim denetimi](#data-plane-access-control) -toouse anahtar kasası erişim ilkesi toocontrol veri erişimi nasıl düzlemine Bu bölümde açıklanmaktadır.
 
-[Örnek](#example) - Bu örnekte üç farklı ekibin (güvenlik ekibi, geliştiriciler/operatörler ve denetçiler) Azure’da bir uygulama geliştirmek, yönetmek ve izlemek üzere belirli görevleri gerçekleştirmesine olanak tanımak amacıyla anahtar kasanıza yönelik erişim denetiminin nasıl ayarlanacağı açıklanmaktadır.
+[Örnek](#example) -Bu örnek nasıl toosetup erişim denetimi, anahtar kasası tooallow üç farklı ekipler için (güvenlik ekibi, geliştiricilerin/işleçler ve denetçiler) açıklar tooperform belirli görevleri toodevelop, yönetme ve azure'da bir uygulamayı izleme .
 
 ## <a name="authentication-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak kimlik doğrulama
-Bir Azure aboneliğinde yeni bir anahtar kasası oluşturduğunuzda, kasa bu aboneliğin Azure Active Directory kiracısı ile otomatik olarak ilişkilendirilir. Tüm çağıranların (kullanıcılar ve uygulamalar) bu anahtar kasasına erişmek için bu kiracıya kaydedilmesi gerekir. Bir uygulama veya kullanıcının anahtar kasasına erişebilmesi için Azure Active Directory kimlik doğrulaması yapması gerekir. Bu durum hem yönetim düzlemi hem de veri düzlemi erişimi için geçerlidir. Her iki durumda da bir uygulama, anahtar kasasına iki şekilde erişebilir:
+Bir Azure aboneliği bir anahtar kasası oluşturduğunuzda, hello aboneliğinin Azure Active Directory Kiracı ile otomatik olarak ilişkilendirilir. (Kullanıcılar ve uygulamalar) tüm arayanlar olmalıdır bu Kiracı tooaccess bu anahtar kasasında kayıtlı. Bir uygulama veya bir kullanıcı Azure Active Directory tooaccess anahtar kasası ile kimlik doğrulaması gerekir. Bu tooboth yönetim düzlemi ve veri düzlemi geçerlidir erişim. Her iki durumda da bir uygulama, anahtar kasasına iki şekilde erişebilir:
 
-* **kullanıcı+uygulama erişimi** - bu seçenek genellikle oturum açmış bir kullanıcı adına anahtar kasasına erişen uygulamalar için geçerlidir. Azure PowerShell ve Azure Portalı bu tür erişimin örneğidir. Kullanıcılara iki yolla erişim verilebilir: bir yolu, anahtar kasasına herhangi bir uygulamadan erişebilmeleri için kullanıcılara erişim verilmesi, diğer yolu ise kullanıcıya yalnızca belirli bir uygulamayı kullandıklarında (birleşik kimlik olarak adlandırılır) anahtar kasası erişimi verilmesidir. 
-* **yalnızca uygulama erişimi** - daemon hizmetleri, arka plan işleri, vb. çalıştıran uygulamalar içindir. Uygulamanın kimliğine anahtar kasası erişimi verilir.
+* **kullanıcı+uygulama erişimi** - bu seçenek genellikle oturum açmış bir kullanıcı adına anahtar kasasına erişen uygulamalar için geçerlidir. Azure PowerShell ve Azure Portalı bu tür erişimin örneğidir. Toogrant erişim toousers iki yolu vardır: herhangi bir uygulamadan anahtar kasası erişebilmeleri toogrant erişim toousers tek yönlü ve hello başka bir yolla toogrant bir kullanıcı erişimi tookey kasası yalnızca belirli bir uygulama (başvurulan tooas bileşik kimlik) kullandığınızda. 
+* **yalnızca uygulama erişim** - arka plan programı hizmetlerini çalıştırmak, vs. hello uygulamanın kimlik verilir arka plan işleri toohello erişim uygulamaları anahtar kasası için.
 
-Her iki uygulama türünde de, [desteklenen kimlik doğrulama yöntemlerinden](../active-directory/active-directory-authentication-scenarios.md) biri kullanılarak uygulamanın Azure Active Directory kimlik doğrulaması yapılır ve uygulama bir belirteç alır. Kullanılan kimlik doğrulama yöntemi, uygulama türüne bağlıdır. Uygulama bundan sonra bu belirteci kullanıcı ve anahtar kasasına REST API isteği gönderir. Yönetim düzlemi erişiminde istekler Azure Resource Manager uç noktasından yönlendirilir. Veri düzlemine erişirken uygulamalar bir anahtar kasası uç noktasıyla doğrudan konuşur. [Kimlik doğrulama akışının tamamı](../active-directory/active-directory-protocols-oauth-code.md) hakkında daha fazla bilgi edinin. 
+Her iki tür uygulamalarda Merhaba uygulaması Azure hello birini kullanarak Active Directory'e ile kimlik doğrulaması [desteklenen kimlik doğrulama yöntemlerini](../active-directory/active-directory-authentication-scenarios.md) ve bir belirteç alır. Kullanılan kimlik doğrulama yöntemi hello uygulama türüne bağlıdır. Ardından Merhaba uygulaması bu belirtecini kullanır ve REST API'si isteği tookey kasası gönderir. Yönetim düzlemi erişim hello durumunda istekleri Azure Resource Manager uç noktası aracılığıyla yönlendirilir. Veri düzlemi erişirken hello uygulamaları ettiği doğrudan tooa anahtar kasası uç noktası. Merhaba hakkında daha fazla ayrıntı görmek [tüm kimlik doğrulama akışı](../active-directory/active-directory-protocols-oauth-code.md). 
 
-Uygulamanın belirteç istediği kaynak adı, uygulamanın yönetim düzlemine veya veri düzlemine erişmesine bağlı olarak değişir. Bu nedenle kaynak adı, Azure ortamına bağlı olarak sonraki bir bölümde bulunan tablodaki yönetim düzlemi veya veri düzlemi uç noktasıdır.
+kendisi için bir belirteç hello uygulama isteklerini hello kaynak adı Merhaba uygulaması Yönetim düzeyi veya veri düzlemi erişme bağlı olarak farklı değildir. Bu nedenle hello kaynak adı hello Azure ortamı bağlı olarak daha sonraki bir bölüme hello tabloda açıklandığı ya da Yönetim düzlemi veya veri düzlemi uç noktadır.
 
-Hem yönetim hem de veri düzleminde kimlik doğrulaması için tek bir mekanizmaya sahip olunması kendi avantajlarına sahiptir:
+Kimlik doğrulama tooboth için tek bir mekanizma sahip yönetimi ve veri düzlemi kendi faydası vardır:
 
-* Kuruluşlar, kuruluş içindeki tüm anahtar kasalarına erişimi merkezi olarak denetleyebilir
-* Bir kullanıcı ayrılırsa, kuruluştaki tüm anahtar kasalarına erişimini kaybeder
-* Kuruluşlar Azure Active Directory’deki seçenekleri kullanarak kimlik doğrulamasını özelleştirebilir (örneğin, daha fazla güvenlik için çok faktörlü kimlik doğrulamasını etkinleştirme)
+* Kuruluşlar merkezi olarak erişim tooall anahtar kasalarını kuruluşlarındaki kontrol edebilirsiniz
+* Bir kullanıcı ayrılsa bunlar hemen tooall anahtar kasalarını hello kuruluşunuzdaki erişimi kaybetmek
+* Kuruluşlar hello seçenekleri Azure Active Directory'de (örneğin, etkinleştirme çok faktörlü kimlik doğrulaması ek güvenlik için) üzerinden kimlik doğrulaması özelleştirebilirsiniz
 
 ## <a name="management-plane-and-data-plane"></a>Yönetim düzlemi ve veri düzlemi
-Azure Anahtar Kasası, Azure Resource Manager dağıtım modeli üzerinden kullanılabilen bir Azure hizmetidir. Bir anahtar kasası oluşturduğunuzda, içinde anahtar, parola ve sertifika gibi diğer nesneleri oluşturabileceğiniz sanal bir kapsayıcı elde edersiniz. Sonra belirli işlemleri gerçekleştirmek üzere yönetim düzlemi ve veri düzlemini kullanarak anahtar kasanıza erişirsiniz. Yönetim düzlemi arabirimi; anahtar kasası özniteliklerini oluşturma,i silme, güncelleştirme ve veri düzlemi için erişim ilkelerini ayarlama gibi işlemlerle anahtar kasanızı yönetmek için kullanılır. Veri düzlemi arabirimi, anahtar kasanıza depolanmış anahtar, parola ve sertifikaları eklemek, silmek, değiştirmek ve kullanmak için kullanılır.
+Azure Anahtar Kasası, Azure Resource Manager dağıtım modeli üzerinden kullanılabilen bir Azure hizmetidir. Bir anahtar kasası oluşturduğunuzda, içinde anahtar, parola ve sertifika gibi diğer nesneleri oluşturabileceğiniz sanal bir kapsayıcı elde edersiniz. Daha sonra Yönetim düzlemi ve veri düzlemi tooperform belirli işlemlerini kullanarak, anahtar kasanızı erişin. Yönetim düzlemi anahtarınızı kasa oluşturma, silme, anahtar kasası özniteliklerini güncelleştirmeyi ve veri düzlemi için erişim ilkeleri ayarlamak gibi kendisini kullanılan toomanage arabirimidir. Veri düzlemi arabirimidir kullanılan tooadd, silme, değiştirebilirsiniz ve hello anahtarları, gizli anahtarları ve anahtar kasasında depolanan sertifikalar kullanabilirsiniz.
 
-Yönetim düzlemi ve veri düzlemi arabirimlerine farklı uç noktalardan erişilir (tabloya bakın). Tablodaki ikinci sütun, farklı Azure ortamlarında bu uç noktaların DNS adlarını açıklamaktadır. Üçüncü sütunda, her erişim düzleminde gerçekleştirebileceğiniz işlemler açıklanır. Her erişim düzlemi kendi erişim denetimi mekanizmasına sahiptir: yönetim düzlemi için erişim denetimi Azure Resource Manager Rol Tabanlı Access Control (RBAC) kullanılarak ayarlanırken veri düzlemi erişim denetimi, anahtar kasası erişim ilkesi kullanılarak ayarlanır.
+Merhaba yönetim düzlemi ve veri düzlemi arabirimleri (tabloya bakın) farklı uç noktaları erişilir. Merhaba tabloda Hello ikinci sütun Bu uç noktalar farklı Azure ortamlarda hello DNS adlarını açıklar. Merhaba üçüncü sütun her erişim düzlemi gerçekleştirebileceğiniz hello işlemler açıklanmaktadır. Her erişim düzlemi kendi erişim denetimi mekanizmasına sahiptir: yönetim düzlemi için erişim denetimi Azure Resource Manager Rol Tabanlı Access Control (RBAC) kullanılarak ayarlanırken veri düzlemi erişim denetimi, anahtar kasası erişim ilkesi kullanılarak ayarlanır.
 
 | Erişim düzlemi | Erişim uç noktaları | İşlemler | Erişim denetimi mekanizması |
 | --- | --- | --- | --- |
 | Yönetim düzlemi |**Genel:**<br> management.azure.com:443<br><br> **Azure Çin:**<br> management.chinacloudapi.cn:443<br><br> **Azure ABD:**<br> management.usgovcloudapi.net:443<br><br> **Azure Almanya:**<br> management.microsoftazure.de:443 |Anahtar kasası oluşturma/okuma/güncelleştirme/silme <br> Anahtar kasası için erişim ilkelerini ayarlama<br>Anahtar kasası etiketlerini ayarlama |Azure Resource Manager Rol Tabanlı Access Control (RBAC) |
 | Veri düzlemi |**Genel:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure Çin:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure ABD:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Almanya:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |Anahtarlar için: Şifre Çöz, Şifrele, UnwrapKey, WrapKey, Doğrula, İmzala, Al, Listele, Güncelleştir, Oluştur, İçeri Aktar, Sil, Yedekle, Geri Yükle<br><br> Parolalar için: Al, Listele, Ayarla, Sil |Anahtar kasası erişim ilkesi |
 
-Yönetim düzlemi ve veri düzlemi erişim denetimleri birbirinden bağımsız olarak çalışır. Örneğin, bir uygulamaya anahtar kasasındaki anahtarları kullanmak üzere erişim vermek istiyorsanız, yalnızca anahtar kasası erişim ilkelerini kullanarak veri düzlemi erişim izinleri vermeniz gerekir ve bu uygulama için bir yönetim düzlemi erişimi gerekli değildir. Buna karşılık, bir kullanıcının kasa özelliklerini ve etiketlerini okuyabilmesini, ancak anahtar, parola veya sertifikalara erişmemesini istiyorsanız, RBAC kullanarak bu kullanıcıya 'okuma' erişimi verebilirsiniz ve veri düzlemine erişim gerekmez.
+Merhaba yönetim düzlemi ve veri düzlemi erişim denetimleri bağımsız olarak çalışır. Örneğin, bir uygulama erişim toouse anahtarları bir anahtar Kasası'toogrant istiyorsanız anahtar kasası erişim ilkelerini kullanarak toogrant veri düzlemi erişim izinlerini yeterlidir ve yönetim düzlemi erişim yok, bu uygulama için gereklidir. Ve buna karşılık, bir kullanıcı toobe mümkün istiyorsanız tooread özellikleri ve etiketleri kasa, ancak herhangi bir erişim tookeys, gizli veya sertifika yüklü değil, bu kullanıcı verebilirsiniz, 'read' erişim RBAC ve hiçbir erişim toodata düzlemi kullanarak gereklidir.
 
 ## <a name="management-plane-access-control"></a>Yönetim düzlemi erişim denetimi
-Yönetim düzlemi, anahtar kasasını etkileyen işlemlerden oluşur. Örneğin, bir anahtar kasası oluşturabilir veya silebilirsiniz. Bir abonelikteki kasaların listesini alabilirsiniz. Anahtar kasası özelliklerini alabilir (SKU, etiketler gibi) ve kasadaki anahtarlara ve parolalara erişebilen kullanıcıları ve uygulamaları denetleyen anahtar kasası erişim ilkelerini ayarlayabilirsiniz. Yönetim düzlemi erişim denetimi, RBAC kullanır. Önceki bölümde yer alan tabloda, yönetim düzlemi üzerinden gerçekleştirilebilecek anahtar kasası işlemlerinin tam listesini görebilirsiniz. 
+Merhaba Yönetim düzeyi, anahtar kasası hello kendisini etkileyen işlemden oluşur. Örneğin, bir anahtar kasası oluşturabilir veya silebilirsiniz. Bir abonelikteki kasaların listesini alabilirsiniz. Anahtar kasası özellikleri (örneğin, SKU, etiketleri) alabilir ve anahtar kasası hello kullanıcıları ve anahtarları ve gizli anahtarları hello anahtar kasasında erişebileceği uygulamaları Denetim erişim ilkeleri ayarlayabilirsiniz. Yönetim düzlemi erişim denetimi, RBAC kullanır. Önceki bölümde içinde hello tablosundaki Yönetim düzeyi aracılığıyla gerçekleştirilebilir anahtar kasası işlemleri Hello tam listesine bakın. 
 
 ### <a name="role-based-access-control-rbac"></a>Rol Tabanlı Access Control (RBAC)
-Her Azure aboneliği bir Azure Active Directory’ye sahiptir. Bu dizindeki kullanıcılara, gruplara ve uygulamalara, Azure aboneliğinde Azure Resource Manager dağıtım modelini kullanan kaynakları yönetmek üzere erişim verilebilir. Bu erişim denetimi türü, Rol Tabanlı Access Control (RBAC) olarak adlandırılır. Bu erişimi yönetmek için [Azure portalı](https://portal.azure.com/), [Azure CLI araçları](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) veya [Azure Resource Manager REST API'lerini](https://msdn.microsoft.com/library/azure/dn906885.aspx) kullanabilirsiniz.
+Her Azure aboneliği bir Azure Active Directory’ye sahiptir. Kullanıcılar, gruplar ve uygulamalar bu dizinden erişim toomanage hello Azure Resource Manager dağıtım modeli kullanmanız hello Azure aboneliği kaynaklarında verilebilir. Bu erişim denetimi başvurulan tooas rol tabanlı erişim denetimi (RBAC) türüdür. toomanage bu erişimi, hello kullanabilirsiniz [Azure portal](https://portal.azure.com/), hello [Azure CLI araçlarını](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs), veya hello [Azure Resource Manager REST API'leri](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
-Azure Resource Manager modeliyle, bir kaynak grubunda anahtar kasanızı oluşturur ve Azure Active Directory’yi kullanarak bu anahtar kasasının yönetim düzlemine erişimi denetlersiniz. Örneğin, kullanıcılara veya bir gruba, belirli bir kaynak grubunun içindeki anahtar kasalarını yönetme olanağı verebilirsiniz.
+Hello Azure Resource Manager modeli ile Azure Active Directory kullanarak bir kaynak grubu ve Denetim erişim toohello Yönetim düzeyi bu anahtar kasasının içinde anahtar kasanızı oluşturun. Örneğin, kullanıcı veya grup bir özelliği toomanage anahtar kasalarını belirli bir kaynak grubunda verebilirsiniz.
 
-Belirli bir kapsamdaki kullanıcılara, gruplara ve uygulamalara uygun RBAC rollerini atayarak erişim verebilirsiniz. Örneğin, bir kullanıcıya anahtar kasalarını yönetmesi için erişim vermek amacıyla, belirli bir kapsamda bu kullanıcıya önceden tanımlı bir 'anahtar kasasına Katkıda Bulunan' rolü atarsınız. Bu örnekteki kapsam bir abonelik, bir kaynak grubu veya yalnızca belirli bir anahtar kasası olabilir. Abonelik düzeyinde atanmış bir rol, bu abonelikteki tüm kaynak grupları ve kaynaklar için geçerlidir. Kaynak grubu düzeyinde atanmış bir rol, ilgili kaynak grubundaki tüm kaynaklar için geçerli olur. Belirli bir kaynağa atanmış bir rol, yalnızca ilgili kaynak için geçerli olur. Önceden tanımlı birkaç rol vardır (bkz. [RBAC: Yerleşik roller](../active-directory/role-based-access-built-in-roles.md)) ve önceden tanımlı roller ihtiyaçlarınıza uygun değilse kendi rollerinizi de tanımlayabilirsiniz.
+Uygun RBAC rolü atama tarafından erişim toousers, gruplar ve uygulamalar belirli bir kapsamda verebilirsiniz. Örneğin, toogrant erişim tooa kullanıcı toomanage anahtar kasalarını toothis kullanıcı belirli bir kapsamda bir önceden tanımlanmış role 'anahtar kasası katkıda bulunan' atamanız gerekir. Merhaba kapsamı, bir abonelik, bir kaynak grubu ya da yalnızca belirli bir anahtar kasası bu durumda olacaktır. Abonelik düzeyinde atanan bir rol tooall kaynak grupları ve bu abonelik içindeki kaynaklara uygulanır. Kaynak grubu düzeyinde atanan bir rol tooall kaynakların kaynak grubunda geçerlidir. Belirli bir kaynak için atanmış bir rolü yalnızca toothat kaynak geçerlidir. Birçok önceden tanımlanmış roller vardır (bkz [RBAC: yerleşik roller](../active-directory/role-based-access-built-in-roles.md)), ve hello rolleri önceden tanımlanmış durumunda değil sığacak gereksinimlerinizi kendi rolleri de tanımlayabilirsiniz.
 
 > [!IMPORTANT]
-> Bir kullanıcı bir anahtar kasası yönetim düzleminde Katkıda Bulunan izinlerine (RBAC) sahipse, veri düzlemine erişimi denetleyen anahtar kasası erişim ilkesini ayarlayarak, kendisine veri düzlemine erişim verebilir. Bu nedenle, anahtar kasalarınıza, anahtarlarınıza, parolalarınıza ve sertifikalarınıza erişip bunları yönetebilen kullanıcıların yalnızca yetkili kişiler olduğundan emin olmak amacıyla anahtar kasalarınıza 'Katkıda Bulunan' erişimine kimlerin sahip olduğunun sıkı denetlenmesi önerilir.
+> Bir kullanıcıya katkıda bulunan izinleri (RBAC) tooa anahtar kasası Yönetim düzeyi varsa, bunları kendisini erişim toodata düzlemi erişim toodata düzlemi denetimleri anahtar kasası erişim ilkesi ayarlayarak verebileceği unutmayın. Bu nedenle, 'erişim tooyour anahtar kasalarını tooensure yalnızca yetkili kişiler erişmek ve anahtar kasalarını, anahtarları, gizli ve sertifikaları yönetmek katkıda bulunan' olan tootightly denetim önerilir.
 > 
 > 
 
 ## <a name="data-plane-access-control"></a>Veri düzlemi erişim denetimi
-Anahtar kasası veri düzlemi, bir anahtar kasasındaki anahtarlar, parolalar ve sertifikalar gibi nesneleri etkileyen işlemlerden oluşur.  Buna anahtar oluşturma, içeri aktarma, güncelleştirme, listeleme, yedekleme ve geri yükleme gibi anahtar işlemleri, anahtar etiketlerini ve diğer özniteliklerini imzalama, doğrulama, şifreleme, şifresini çözme, sarmalama, sarmalamadan çıkarma ve ayarlama gibi şifreleme işlemleri dahildir. Benzer şekilde, parolalar için alma, ayarlama, listeleme ve silme işlemleri dahildir.
+Sertifikalar, parolaları ve anahtarlar gibi bir anahtar kasası hello nesneleri etkileyen işlemler Hello anahtar kasası veri düzlemi oluşur.  Buna anahtar oluşturma, içeri aktarma, güncelleştirme, listeleme, yedekleme ve geri yükleme gibi anahtar işlemleri, anahtar etiketlerini ve diğer özniteliklerini imzalama, doğrulama, şifreleme, şifresini çözme, sarmalama, sarmalamadan çıkarma ve ayarlama gibi şifreleme işlemleri dahildir. Benzer şekilde, parolalar için alma, ayarlama, listeleme ve silme işlemleri dahildir.
 
-Veri düzlemi erişimi, bir anahtar kasasına ilişkin erişim ilkeleri ayarlanarak verilir. Bir kullanıcı, grup veya uygulamanın bir anahtar kasasına ait erişim ilkelerini ayarlayabilmesi için, ilgili anahtar kasasının yönetim düzleminde Katkıda Bulunan izinlerine (RBAC) sahip olması gerekir. Bir kullanıcı, grup veya uygulamaya, bir anahtar kasasındaki anahtarlar veya parolalar için belirli işlemleri gerçekleştirmek üzere erişim verilebilir. Key Vault, bir anahtar kasası için en fazla 16 adet erişim ilkesi girişi destekler. Bir Azure Active Directory güvenlik grubu oluşturun ve bir anahtar kasasındaki birkaç kullanıcıya veri düzlemi erişimi vermek amacıyla ilgili gruba kullanıcılar ekleyin.
+Veri düzlemi erişimi, bir anahtar kasasına ilişkin erişim ilkeleri ayarlanarak verilir. Bir kullanıcı, Grup veya uygulama Yönetim düzeyi, anahtar kasası için bir anahtar kasası toobe mümkün tooset erişim ilkeleri için (RBAC) katkıda bulunan izinleri olmalıdır. Bir kullanıcı, Grup veya uygulama için bir anahtar veya gizli bir anahtar kasasına erişim tooperform belirli işlemler verilebilir. Bir anahtar kasası için too16 erişim ilkesi girişleri anahtar kasası desteği. Bir Azure Active Directory güvenlik grubu oluşturun ve kullanıcıların toothat Grup toogrant veri düzlemi erişim tooseveral kullanıcılar tooa anahtar kasası ekleyin.
 
 ### <a name="key-vault-access-policies"></a>Key Vault Erişim İlkeleri
-Key Vault erişim ilkeleri, anahtarlara, parolalara ve sertifikalara ayrı ayrı izinler verir. Örneğin, bir kullanıcıya parolalar için herhangi bir izin vermeden yalnızca anahtarlar için erişim verebilirsiniz. Ancak, anahtar, parola veya sertifikalara erişim izni kasa düzeyinde verilir. Diğer bir deyişle, anahtar kasası erişim ilkesi nesne düzeyinde izinleri desteklemez. Bir anahtar kasasının erişim ilkelerini ayarlamak için [Azure portalı](https://portal.azure.com/), [Azure CLI araçları](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) veya [anahtar kasası Yönetim REST API’lerini](https://msdn.microsoft.com/library/azure/mt620024.aspx) kullanabilirsiniz.
+Anahtar kasası erişim ilkelerini izinleri tookeys, parolaları ve sertifikaları ayrı olarak verin. Örneğin, bir kullanıcı erişimi tooonly anahtarları, ancak gizli izin verebilirsiniz. Ancak, izinleri tooaccess anahtar veya gizli veya sertifika hello kasası düzeyindedir. Diğer bir deyişle, anahtar kasası erişim ilkesi nesne düzeyinde izinleri desteklemez. Kullanabileceğiniz [Azure portal](https://portal.azure.com/), hello [Azure CLI araçlarını](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs), veya hello [anahtar kasası Yönetimi REST API'lerine](https://msdn.microsoft.com/library/azure/mt620024.aspx) tooset erişim ilkeleri bir anahtar kasası için.
 
 > [!IMPORTANT]
-> Anahtar kasası erişim ilkelerinin kasa düzeyinde geçerli olduğunu unutmayın. Örneğin, bir kullanıcıya anahtar oluşturma ve silme izni verildiğinde kullanıcı bu işlemleri ilgili anahtar kasasındaki tüm anahtarlar üzerinde gerçekleştirebilir.
+> Anahtar kasası erişim ilkelerini hello kasası düzeyinde geçerli olduğunu unutmayın. Örneğin, kullanıcı izni toocreate ve delete tuşlarına verildiğinde aynen bu anahtar kasasında tüm anahtarları üzerinde bu işlemler gerçekleştirebilirsiniz.
 > 
 > 
 
 ## <a name="example"></a>Örnek
-SSL için sertifika, verileri depolamak için Azure depolama ve imzalama işlemleri için RSA 2048 bit anahtarı kullanan bir uygulama geliştirdiğinizi varsayalım. Bu uygulamanın bir VM (veya VM Ölçek Kümesi) içinde çalıştığını kabul edelim. Tüm uygulama parolalarını depolamak için bir anahtar kasa kullanabilir ve anahtar kasasını kullanarak, uygulamanın Azure Active Directory kimlik doğrulaması için kullandığı önyükleme sertifikasını depolayabilirsiniz.
+SSL için sertifika, verileri depolamak için Azure depolama ve imzalama işlemleri için RSA 2048 bit anahtarı kullanan bir uygulama geliştirdiğinizi varsayalım. Bu uygulamanın bir VM (veya VM Ölçek Kümesi) içinde çalıştığını kabul edelim. Tüm uygulama parolaları ve Azure Active Directory ile Merhaba uygulama tooauthenticate tarafından kullanılan kullanım anahtar kasası toostore hello önyükleme sertifikası hello bir anahtar kasası toostore kullanabilirsiniz.
 
-Bu nedenle, bir anahtar kasasına depolanacak tüm anahtar ve parolaların özeti aşağıda verilmiştir.
+Bu nedenle, bir anahtar kasasında depolanan tüm hello anahtarları ve gizli anahtarları toobe özetini İşte.
 
 * **SSL Sertifikası** - SSL için kullanılır
-* **Depolama Anahtarı** - Depolama hesabına erişmek için kullanılır
+* **Depolama anahtarı** -tooget erişim tooStorage hesabı
 * **RSA 2048 bit anahtarı** - imzalama işlemleri için kullanılır
-* **Önyükleme sertifikası** - Azure Active Directory kimlik doğrulaması yapmak, depolama anahtarını getirmek üzere anahtar kasasına erişim elde etmek ve imzalama için RSA anahtarını kullanmak üzere kullanılır.
+* **Önyükleme sertifika** -kullanılan tooauthenticate tooAzure Active Directory, tooget erişim tookey kasa toofetch hello depolama anahtarı ve hello RSA anahtarı kullan imzalamak için.
 
-Şimdi de bu uygulamayı yöneten, dağıtan ve denetleyen kişilerle tanışalım. Bu örnekte üç rol kullanılacaktır.
+Şimdi yönetme, dağıtma ve bu uygulama denetimi hello kişiler şirketinizdeki karşılamak. Bu örnekte üç rol kullanılacaktır.
 
-* **Güvenlik ekibi** - Bunlar genellikle 'CSO (Güvenlik Müdürü) ofisi' veya eşdeğerindeki bir bölümde, SSL sertifikaları, imzalama için kullanılan RSA anahtarları, veritabanlarına ait bağlantı dizeleri ve depolama hesabı anahtarlarının doğru korunmasından sorumlu BT personelidir.
-* **Geliştiriciler/operatörler** - Bunlar bu uygulamayı geliştirip Azure’da dağıtan kişilerdir. Genellikle, güvenlik ekibinin parçası değildir ve bu nedenle SSL sertifikaları ve RSA anahtarları gibi hassas verilerin erişimine sahip olmaması gerekir, ancak dağıttıkları uygulama bu erişime sahip olmalıdır.
-* **Denetçiler** - Bunlar genellikle geliştiricilerden ve genel BT personelinden ayrı tutulan farklı bir kullanıcı grubudur. Sorumlulukları arasında sertifika, anahtar, vb. doğru kullanımını ve bakımını incelemek ve veri güvenliği standartlarına uygunluğu sağlamak bulunur. 
+* **Güvenlik ekibine** - bunlar genellikle hello 'office' hello CSO (baş güvenlik yetkilisi), BT personelinden olup veya eşdeğeri, sorumlu gizli dizilerin uygun yerleriniz gibi hello SSL sertifikaları, bağlantı dizeleri için imzalama için kullanılan RSA anahtarları veritabanları, depolama hesabı anahtarları.
+* **Geliştiriciler/işleçleri** -bu uygulama geliştirme ve Azure'da dağıtmak hello terimleri bunlar. Genellikle, bunlar hello güvenlik ekibi, bir parçası değildir ve bu nedenle bunlar erişim tooany benzeri gizli verilerin SSL sertifikalarını, RSA anahtarları olmaması gereken ancak bunlar dağıtmak hello uygulama erişim toothose olması gerekir.
+* **Denetçiler** -bu genellikle farklı hello geliştiricileri ve genel BT personeli yalıtılmış kişiler kümesidir. Sorumluluğu tooreview düzgün kullanımını ve sertifikalar, anahtarları, vb. Bakım ve veri güvenliği standartları ile uyum sağlamak. 
 
-Bu uygulamanın kapsamı dışında olup burada bahsedilecek bir rol daha mevcuttur: abonelik (veya kaynak grubu) yöneticisi. Abonelik yöneticisi, güvenlik ekibi için ilk erişim izinlerini ayarlar. Burada, abonelik yöneticisinin bu uygulama için gerekli olan tüm kaynakların bulunduğu bir kaynak grubu için güvenlik ekibine erişim verdiği kabul edilmektedir.
+Bu uygulama, ancak belirtilen ilgili burada toobe dış hello kapsamı olan ve hello abonelik (veya kaynak grubu) olacak bir daha fazla role yönetici. Abonelik Yöneticisi hello güvenlik ekibine ilk erişim izinlerini ayarlar. Burada bu hello Abonelik Yöneticisi erişim toohello güvenlik takım tooa kaynak grubunun tüm bu uygulama reside için gerekli kaynakları hello verildi varsayalım.
 
-Her bir rolün bu uygulama bağlamında gerçekleştirdiği işlemler aşağıda verilmiştir.
+Artık her rol hello bu uygulama bağlamında gerçekleştirir hangi eylemleri görelim.
 
 * **Güvenlik ekibi**
   * Anahtar kasaları oluşturma
   * Anahtar kasası günlüğünü açma
   * Anahtar/parola ekleme
   * Olağanüstü durum kurtarma için anahtarların yedeğini oluşturma
-  * Kullanıcılara ve uygulamalara belirli işlemleri gerçekleştirmesi için izinler veren anahtar kasası erişim ilkesini ayarlama
+  * Anahtar kasası erişim ilkesi toogrant izinleri toousers ve uygulamaları tooperform belirli ayarlama işlemleri
   * Anahtarları/parolaları düzenli aralıklarla alma
 * **Geliştiriciler/operatörler**
-  * Güvenlik ekibinden önyükleme ve SSL sertifikalarının (parmak izleri), depolama anahtarının (güvenlik URI’si) ve imzalama anahtarının (Anahtar URI’si) başvurularını alma
+  * Başvuruları toobootstrap ve SSL sertifikaları (parmak izleri), depolama anahtarı (gizli URI) ve imzalama anahtarı (anahtar URI) Güvenlik ekibinden alın
   * Anahtarlara ve parolalara programlı olarak erişen uygulamayı geliştirme ve dağıtma
 * **Denetçiler**
-  * Uygun anahtar/parola kullanımını ve veri güvenliği standartlarına uyumu onaylamak üzere kullanım günlüklerini gözden geçirme
+  * Kullanım günlükleri tooconfirm düzgün anahtarı/parola kullanımını ve veri güvenliği standartları ile uyum gözden geçirin
 
-Her bir rolün (ve uygulamanın) atanmış görevleri gerçekleştirmesi için gereken anahtar kasası erişim izinlerinin ne olduğu aşağıda açıklanmaktadır. 
+Şimdi ne erişim izinleri tookey kasası her rol (ve hello uygulama) tarafından gerekli görelim tooperform kendilerine atanan görevleri. 
 
 | Kullanıcı Rolü | Yönetim düzlemi izinleri | Veri düzlemi izinleri |
 | --- | --- | --- |
 | Güvenlik Ekibi |anahtar kasasına Katkıda Bulunan |Anahtarlar: yedekleme, oluşturma, silme, alma, içeri aktarma, listeleme, geri yükleme <br> Parolalar: tümü |
-| Geliştiriciler/Operatörler |dağıttıkları VM’lerin parolaları anahtar kasasından getirebilmesi anahtar kasası dağıtma izni |None |
+| Geliştiriciler/Operatörler |anahtar kasası dağıtmadan izni bunlar dağıtmak hello VM'ler gizli hello anahtar Kasası'nı getirebilirsiniz |None |
 | Denetçiler |None |Anahtarlar: listeleme<br>Parolalar: listeleme |
 | Uygulama |None |Anahtarlar: imzalama<br>Parolalar: imzalama |
 
 > [!NOTE]
-> Denetçilerin etiketler, etkinleştirme ve sona erme tarihleri gibi günlüklerde verilmeyen anahtar ve parola özniteliklerini inceleyebilmesi için anahtar ve parolalara yönelik listeleme izni gereklidir.
+> Denetçiler anahtarları ve etiketler gibi hello günlüklerde gösterilen değil gizli anahtarları için öznitelikler inceleyebilirsiniz şekilde anahtarları ve gizli anahtarları için izin listesinde etkinleştirme ve sona erme tarihleri.
 > 
 > 
 
-Anahtar kasası iznine ek olarak üç rolün tamamı da diğer kaynaklara erişebilmelidir. Örneğin, VM’leri (veya Web Apps, vb.) dağıtabilmek için Geliştiriciler/Operatörler aynı zamanda bu kaynak türlerine 'Katkıda Bulunan' erişimine sahip olmalıdır. Denetçiler, anahtar kasası günlüklerinin depolandığı depolama hesabına okuma erişimine sahip olmalıdır.
+İzni tookey kasası yanı sıra, tüm üç rolleri de tooother kaynaklarına erişim. Örneğin, toobe mümkün toodeploy VM'ler (veya Web Apps vs.) Geliştiriciler/işleçleri 'Katılımcısı' erişim toothose kaynak türleri de gerekir. Denetçiler hello anahtar kasası günlükleri depolandığı okuma erişimi toohello depolama hesabınızın olması gerekir.
 
-Bu makalenin odak noktası anahtar kasanıza erişimin güvenliğinin sağlanması olduğundan, yalnızca bu konuyla ilgili kısımları açıklayacak ve sertifika dağıtımı, anahtar ve parolalara programlı erişim, vb. ayrıntıları atlayacağız. Bu ayrıntıları başka bölümlerde zaten ele alınmaktadır. Anahtar kasasına depolanmış sertifikaların VM’lere dağıtılması bir [blog gönderisinde](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/) ele alınmıştır ve önyükleme sertifikası kullanarak anahtar kasası erişimi elde etmek üzere Azure AD kimlik doğrulaması yapma işlemini gösteren bir [örnek kod](https://www.microsoft.com/download/details.aspx?id=45343) mevcuttur.
+Bu makalenin Hello odak erişim tooyour anahtar kasası getirilmesidir olduğundan, biz yalnızca toothis konu ilgili hello ilgili bölümleri göstermek ve sertifikaları dağıtmak, anahtarları ve gizli anahtarları program aracılığıyla vb. erişimi ile ilgili Ayrıntıları atla. Bu ayrıntıları başka bölümlerde zaten ele alınmaktadır. Anahtar kasası tooVMs depolanan sertifikalarını dağıtma kapsanan olarak bir [blog gönderisi](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/)ve [örnek koduna](https://www.microsoft.com/download/details.aspx?id=45343) kullanılabilir, nasıl toouse önyükleme sertifika tooauthenticate tooAzure AD tooget gösterir erişim tookey kasası.
 
-Erişim izinlerinin büyük bölümü Azure portalı kullanılarak verilebilir, ancak istediğiniz sonucu elde etmek üzere ayrıntılı izinler vermek için Azure PowerShell (veya Azure CLI) kullanmanız gerekir. 
+Azure portalını kullanarak hello erişim izinleri çoğunu verilebilir, ancak sonuç toogrant ayrıntılı izinler toouse Azure PowerShell (veya Azure CLI) tooachieve hello gerekebilir istenen. 
 
-Aşağıdaki PowerShell kod parçacıkları şu varsayımlara sahiptir:
+PowerShell parçacıkları aşağıdaki hello varsayın:
 
-* Azure Active Directory yöneticisi Contoso Güvenlik Ekibi, Contoso Uygulama Devops, Contoso Uygulama Denetçileri adlı üç rolü temsil eden güvenlik grupları oluşturmuştur. Yönetici ayrıca ait oldukları gruplara kullanıcılar eklemiştir.
-* **ContosoAppRG** tüm kaynakların bulunduğu kaynak grubudur. **contosologstorage**, günlüklerin depolandığı yerdir. 
-* **ContosoKeyVault** anahtar kasası ve **contosologstorage** anahtar kasası günlükleri için kullanılan depolama hesabı aynı Azure konumunda olmalıdır
+* Hello Azure Active Directory Yöneticisi hello üç rolleri, yani Contoso güvenlik ekibi, Contoso uygulaması Devops, Contoso uygulaması denetçiler temsil eden güvenlik gruplarını oluşturdu. Hello Yöneticisi ait oldukları toohello gruplara da ekledi.
+* **ContosoAppRG** hello kaynak tüm hello kaynakların bulunduğu grubudur. **contosologstorage** hello günlüklerinin depolandığı değil. 
+* Anahtar kasası **ContosoKeyVault** ve anahtar kasası günlükleri için kullanılan depolama hesabı **contosologstorage** hello olmalıdır aynı Azure konumu
 
-İlk olarak, abonelik yöneticisi güvenlik ekibine 'anahtar kasasına Katkıda Bulunan' ve 'Kullanıcı Erişimi Yöneticisi' rollerini atar. Bunun yapılması, güvenlik ekibinin diğer kaynaklara erişmesine ve diğer kaynaklara erişim ile ContosoAppRG kaynak grubundaki anahtar kasalarını yönetmesine olanak tanır.
+İlk hello Abonelik Yöneticisi, 'anahtar kasası katkıda bulunan' ve ' kullanıcı erişimi Yöneticisi ' rolleri toohello güvenlik ekibine atar. Bu hello güvenlik takım toomanage tooother kaynaklara erişmesine izin verir ve hello kaynak grubunda ContosoAppRG anahtar kasalarını yönetme.
 
 ```
 New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "key vault Contributor" -ResourceGroupName ContosoAppRG
 New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "User Access Administrator" -ResourceGroupName ContosoAppRG
 ```
 
-Aşağıdaki komut dosyasında güvenlik ekibinin anahtar kasası oluşturması, günlük oluşturması ve diğer rol ve uygulamalara ilişkin erişim izinlerini ayarlaması gösterilmektedir. 
+Merhaba aşağıdaki betik nasıl hello güvenlik ekibine bir anahtar kasası oluşturabilir, günlüğü kurulumu ve diğer rolleri ve hello uygulama için erişim izinlerini ayarlayın gösterilmektedir. 
 
 ```
 # Create key vault and enable logging
@@ -185,61 +185,61 @@ $devopsrole.AssignableScopes = @("/subscriptions/<SUBSCRIPTION-GUID>")
 $devopsrole.Actions.Add("Microsoft.KeyVault/vaults/deploy/action")
 New-AzureRmRoleDefinition -Role $devopsrole
 
-# Assign this newly defined role to Dev ops security group
+# Assign this newly defined role tooDev ops security group
 New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Devops')[0].Id -RoleDefinitionName "Contoso App Devops" -ResourceGroupName ContosoAppRG
 
 # Data plane permissions for Auditors
 Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Auditors')[0].Id -PermissionsToKeys list -PermissionsToSecrets list
 ```
 
-Tanımlanan özel rol yalnızca ContosoAppRG kaynak grubunun oluşturulduğu aboneliğe atanabilir. Diğer aboneliklerdeki diğer projeler için de aynı özel roller kullanılacaksa, kapsamına daha fazla abonelik eklenebilir.
+Merhaba özel rol tanımlı, yalnızca atanabilir toohello abonelik hello ContosoAppRG kaynak grubunun oluşturulduğu. Merhaba aynı özel roller diğer projeler diğer abonelikler için kullanılacaksa, buna ait kapsam eklenen daha fazla abonelik olabilir.
 
-Geliştiriciler/operatörler için "dağıtma/işlem" iznine yönelik özel rol ataması, kaynak grubu kapsamında yapılır. Bu şekilde yalnızca 'ContosoAppRG' kaynak grubunda oluşturulan VM’ler parolaları (SSL sertifikası ve önyükleme sertifikası) alır. Dev/ops ekibinin bir üyesi tarafından diğer kaynak grubunda oluşturulan VM’ler, parola URI’lerini bilseler bile bu parolaları alamaz.
+Merhaba özel rol ataması hello geliştiriciler/işleçleri hello "dağıtmak/eylem" izni için kapsamlı toohello kaynak grubudur. Bu şekilde yalnızca hello VM'ler 'ContosoAppRG' hello gizli (SSL sertifikası ve önyükleme cert) alacak hello kaynak grubunda oluşturuldu. Farklı bir kaynak grubunda dev/ops ekibinin bir üyesi oluşturur herhangi bir VM hello gizli URI'ler biliyorsa bile mümkün tooget bu Sırları olmaz.
 
-Bu örnekte basit bir senaryo gösterilmektedir. Gerçek yaşam senaryoları daha karmaşık olabilir ve gereksinimlerinize göre izinleri anahtar kasanıza uyarlamanız gerekebilir. Örneğin, bu örnekte güvenlik ekibinin uygulamalarında başvurmaları gereken anahtar ve parola başvurularını (URI’ler ve parmak izleri) sağladığı varsayılmaktadır. Bu nedenle, geliştiricilere/operatörlere herhangi bir veri düzlemi erişimi vermez. Ayrıca, bu örnekte anahtar kasanızın güvenliğini sağlama konusuna odaklanılmıştır. [VM’leriniz](https://azure.microsoft.com/services/virtual-machines/security/), [depolama hesaplarınız](../storage/common/storage-security-guide.md) ve diğer Azure kaynaklarının güvenliğini sağlamak için de benzer önem verilmelidir.
+Bu örnekte basit bir senaryo gösterilmektedir. Gerçek Hayatta senaryoları daha karmaşık olabilir ve tooadjust izinleri tooyour anahtar kasası gereksinimlerinize göre gerekebilir. Örneğin, Bizim örneğimizde, bu güvenlik ekibi, geliştiricilerin/işleçleri takım gerek tooreference kendi uygulamalarında hello anahtarı ve gizli başvurular (URI'ler ve parmak izleri) sağlayacak varsayıyoruz. Bu nedenle, bunlar herhangi bir veri düzlemi erişim toogrant geliştiriciler/işleçleri gerekmez. Ayrıca, bu örnekte anahtar kasanızın güvenliğini sağlama konusuna odaklanılmıştır. Benzer göz önünde bulundurarak toosecure verilen [Vm'leriniz](https://azure.microsoft.com/services/virtual-machines/security/), [depolama hesapları](../storage/common/storage-security-guide.md) ve diğer Azure kaynaklarına çok.
 
 > [!NOTE]
-> Not: Bu örnekte, üretim sırasında anahtar kasası erişiminin nasıl kilitleneceği gösterilmektedir. Geliştiriciler uygulamayı geliştirdikleri kasalar, VM’ler ve depolama hesabını yönetmek için tam izinlerinin olduğu aboneliklere veya kaynak grubuna sahip olmalıdır.
+> Not: Bu örnekte, üretim sırasında anahtar kasası erişiminin nasıl kilitleneceği gösterilmektedir. Merhaba geliştiricilerin kendi abonelik veya kaynak grubu, tam izinleri toomanage kendi kasa, sanal makineleri ve depolama hesabı nerede bunlar hello uygulama geliştirmek sahip oldukları olması gerekir.
 > 
 > 
 
 ## <a name="resources"></a>Kaynaklar
 * [Azure Active Directory Rol Tabanlı Erişim Denetimi](../active-directory/role-based-access-control-configure.md)
   
-  Bu makalede Azure Active Directory Rol Tabanlı Access Control ve nasıl çalıştığı açıklanmaktadır.
+  Bu makalede hello açıklanmaktadır Azure Active Directory rol tabanlı erişim denetimi ve nasıl çalışır.
 * [RBAC: Yerleşik Roller](../active-directory/role-based-access-built-in-roles.md)
   
-  Bu makalede RBAC’de kullanılabilen tüm yerleşik roller ayrıntılı olarak açıklanmaktadır.
+  Bu makale ayrıntıları tüm kullanılabilir RBAC yerleşik rolleri hello.
 * [Resource Manager dağıtımını ve klasik dağıtımı anlama](../azure-resource-manager/resource-manager-deployment-model.md)
   
-  Bu makalede Resource Manager dağıtımı ve klasik dağıtım modelleri açıklanmakta ve Resource Manager ile kaynak gruplarını kullanmanın avantajları anlatılmaktadır
+  Bu makalede hello Resource Manager dağıtımını ve klasik dağıtım modellerine açıklanmakta ve hello Resource Manager ve kaynak grupları kullanmanın yararları hello açıklanmaktadır
 * [Rol Tabanlı Erişim Denetimini Azure PowerShell ile Yönetme](../active-directory/role-based-access-control-manage-access-powershell.md)
   
-  Bu makalede rol tabanlı erişim denetiminin Azure PowerShell ile nasıl denetleneceği açıklanmaktadır
-* [Rol Tabanlı Erişim Denetimini REST API’si ile Yönetme](../active-directory/role-based-access-control-manage-access-rest.md)
+  Bu makalede, nasıl toomanage rol tabanlı erişim denetimini Azure PowerShell ile açıklanmaktadır.
+* [Rol tabanlı erişim denetimini hello REST API ile yönetme](../active-directory/role-based-access-control-manage-access-rest.md)
   
-  Bu makalede RBAC yönetimi için REST API’sinin nasıl kullanılacağı gösterilmektedir.
+  Bu makalede nasıl toouse hello REST API toomanage RBAC gösterilmektedir.
 * [Ignite’tan Microsoft Azure için Rol Tabanlı Erişim Denetimi](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
   
-  Bu bağlantı 2015 MS Ignite konferansının 9. Kanalındaki videoya aittir. Bu oturumda, Azure’daki erişim yönetimi ve raporlama özellikleri konuşulmakta ve Azure Active Directory'yi kullanarak Azure aboneliklerine erişimin güvenliğini sağlama konusundaki en iyi uygulamalar keşfedilmektedir.
-* [OAuth 2.0 ve Azure Active Directory kullanarak web uygulamalarına erişim yetkisi verme](../active-directory/active-directory-protocols-oauth-code.md)
+  Bağlantı tooa hello 2015 MS Ignite Konferanstan Channel 9 video budur. Bu oturumda, bunlar hakkında konuşun erişim yönetimi ve Azure raporlama özellikleri ve tooAzure abonelikleri Azure Active Directory'yi kullanarak erişimi güvenli hale getirme geçici en iyi yöntemler keşfedin.
+* [OAuth 2.0 ile Azure Active Directory kullanarak erişim tooweb uygulamaları yetkilendirmek](../active-directory/active-directory-protocols-oauth-code.md)
   
   Bu makalede Azure Active Directory ile kimlik doğrulaması için tam OAuth 2.0 akışı açıklanmaktadır.
 * [anahtar kasası Yönetim REST API’leri](https://msdn.microsoft.com/library/azure/mt620024.aspx)
   
-  Bu belge, anahtar kasası erişim ilkesinin ayarlanması dahil olmak üzere anahtar kasanızı programlı olarak yönetmeye yönelik REST API’leri başvurusudur.
+  Bu belge, anahtar kasası erişim ilkesi ayarı dahil olmak üzere, anahtarınızı programlı olarak kasa hello REST API'leri toomanage hello başvurudur.
 * [anahtar kasası REST API’leri](https://msdn.microsoft.com/library/azure/dn903609.aspx)
   
-  Anahtar kasası REST API başvuru belgelerinin bağlantısı.
+  Bağlantı tookey kasası REST API başvuru belgeleri.
 * [Anahtar erişim denetimi](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_KeyAccessControl)
   
-  Gizli anahtar erişim denetimi başvuru belgelerinin bağlantısı.
+  Bağlantı tooSecret erişim denetimi başvuru belgeleri.
 * [Gizli anahtar erişim denetimi](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
   
-  Anahtar erişim denetimi başvuru belgelerinin bağlantısı.
+  Bağlantı tooKey erişim denetimi başvuru belgeleri.
 * PowerShell kullanarak anahtar kasası erişimini [ayarlama](https://msdn.microsoft.com/library/mt603625.aspx) ve [kaldırma](https://msdn.microsoft.com/library/mt619427.aspx)
   
-  Anahtar kasası erişim ilkesini yönetmeye yönelik PowerShell cmdlet’lerinin başvuru belgesi bağlantıları.
+  PowerShell cmdlet'leri toomanage anahtar kasası erişim ilkesi için bağlantılar tooreference belgeleri.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 Bir yöneticiye yönelik başlama öğreticisi için bkz. [Azure anahtar kasası ile çalışmaya başlama](key-vault-get-started.md).
@@ -248,5 +248,5 @@ Anahtar Kasası'na yönelik kullanım günlüğü hakkında daha fazla bilgi iç
 
 Azure anahtar kasası ile anahtarları ve gizli anahtarları kullanma hakkında daha fazla bilgi için bkz. [Anahtarlar ve Gizli Anahtarlar Hakkında](https://msdn.microsoft.com/library/azure/dn903623.aspx).
 
-Anahtar kasası ile ilgili sorularınız varsa bkz. [Azure Anahtar Kasası Forumları](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
+Anahtar kasası hakkında sorularınız varsa, hello ziyaret [Azure anahtar kasası forumları](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
 

@@ -1,6 +1,6 @@
 ---
-title: "Service Fabric ve Linux dağıtma kapsayıcılarında | Microsoft Docs"
-description: "Service Fabric ve Linux kapsayıcıları kullanımını mikro hizmet uygulamalarını dağıtmak için. Bu makalede kapsayıcıları için Service Fabric sağlayan özellikleri ve bir küme içinde Linux kapsayıcı görüntü dağıtma"
+title: "aaaService doku ve Linux kapsayıcıları dağıtma | Microsoft Docs"
+description: "Service Fabric ve hello Linux kapsayıcıları toodeploy mikro hizmet uygulamaları kullanın. Bu makalede kapsayıcıları ve nasıl toodeploy Linux kapsayıcı görüntü bir kümede Service Fabric sağlar hello özellikleri"
 services: service-fabric
 documentationcenter: .net
 author: msfussell
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/29/2017
 ms.author: msfussell
-ms.openlocfilehash: 9dcec753e5f999a1bac07276373c0c25f89ec58d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e28f99a145b0594d871b0ec0566233a7ad235ce8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-a-linux-container-to-service-fabric"></a>Service Fabric Linux kapsayıcı dağıtma
+# <a name="deploy-a-linux-container-tooservice-fabric"></a>Linux kapsayıcı tooService doku dağıtma
 > [!div class="op_single_selector"]
 > * [Windows kapsayıcı dağıtma](service-fabric-deploy-container.md)
 > * [Linux kapsayıcı dağıtma](service-fabric-deploy-container-linux.md)
@@ -31,57 +31,57 @@ Bu makalede Linux'ta Docker kapsayıcılarında kapsayıcılı hizmetleri oluşt
 
 Service Fabric oluşan kapsayıcılı, mikro uygulamaları oluşturmaya yardımcı birkaç kapsayıcı özellikleri vardır. Bu hizmetler kapsayıcılı Hizmetleri olarak adlandırılır.
 
-Yetenekler içerir;
+Merhaba yeteneklere;
 
 * Kapsayıcı görüntü dağıtımı ve etkinleştirme
 * Kaynak İdaresi
 * Depo kimlik doğrulaması
-* Kapsayıcı bağlantı noktası ana bilgisayar bağlantı noktası eşleme
+* Kapsayıcı bağlantı noktası toohost bağlantı noktası eşleme
 * Kapsayıcıya bulma ve iletişim
-* Yapılandırma ve ortam değişkenlerini ayarlama özelliği
+* Özelliği tooconfigure ve ortam değişkenlerini ayarlama
 
 ## <a name="packaging-a-docker-container-with-yeoman"></a>Docker kapsayıcısı ile yeoman paketleme
-Linux üzerinde bir kapsayıcı paketleme, yeoman şablon kullanılacağını seçebilirsiniz veya [uygulama paketini el ile oluşturmak](#manually).
+Linux üzerinde bir kapsayıcı paketleme, ya da toouse yeoman şablonu seçebilirsiniz veya [hello uygulama paketini el ile oluşturmak](#manually).
 
-Service Fabric uygulaması her uygulamanın işlevselliğini aktarma konusunda belirli bir rol ile bir veya daha fazla kapsayıcıları içerebilir. Linux için Service Fabric SDK’sı uygulamanızı oluşturmayı ve kapsayıcı görüntüsü eklemeyi kolaylaştıran bir [Yeoman](http://yeoman.io/) oluşturucu içerir. Şimdi Yeoman kullanarak *SimpleContainerApp* adlı tek bir Docker kapsayıcısı olan bir uygulama oluşturalım. Daha fazla hizmet daha sonra oluşturulan düzenleyerek dosyaları bildirim ekleyebilirsiniz.
+Service Fabric uygulaması her hello uygulamanın işlevselliğini aktarma konusunda belirli bir rol ile bir veya daha fazla kapsayıcıları içerebilir. Merhaba Linux için Service Fabric SDK içerir bir [Yeoman](http://yeoman.io/) kolay toocreate kolaylaştırır Oluşturucu uygulamanız ve kapsayıcı görüntü ekleyin. Yeoman tek bir Docker kapsayıcısı uygulamayla adlı toocreate kullanalım *SimpleContainerApp*. Oluşturulan hello bildirim dosyalarını düzenleyerek daha fazla hizmet daha sonra ekleyebilirsiniz.
 
 ## <a name="install-docker-on-your-development-box"></a>Docker geliştirme kutunuzun yükleyin
 
-Linux geliştirme kutusundaki docker yüklemek için aşağıdaki komutları çalıştırın (OSX üzerinde vagrant görüntüsü kullanıyorsanız, docker zaten yüklü):
+Çalışma hello aşağıdaki komutları Linux geliştirme kutunuzda tooinstall docker (OSX üzerinde hello vagrant görüntüsü kullanıyorsanız, docker zaten yüklü):
 
 ```bash
     sudo apt-get install wget
     wget -qO- https://get.docker.io/ | sh
 ```
 
-## <a name="create-the-application"></a>Uygulama oluşturma
+## <a name="create-hello-application"></a>Merhaba uygulaması oluşturma
 1. Bir terminal penceresinde `yo azuresfcontainer` yazın.
 2. Örneğin, mycontainerap uygulamanızın - adı
-3. DockerHub depodaki kapsayıcı görüntüden için URL'sini sağlayın. Görüntü parametresi [repo] biçimini alır / [görüntü adı]
-4. Görüntüyü yeniden başlatma işleminden sonra çalışan kapsayıcı tutar kapsayıcı içinde çalıştırılacak komutları virgülle ayrılmış bir dizi giriş komutları açıkça belirtmek gerekiyor bir iş yükü giriş tanımlanmış noktası yoksa.
+3. Merhaba kapsayıcı DockerHub depodaki görüntüden için Hello URL'sini belirtin. Merhaba resim parametresi alır hello formu [repo] / [görüntü adı]
+4. Merhaba görüntü bir iş yükü giriş tanımlanmış noktası yok sonra tooexplicitly ihtiyacınız başlatma işleminden sonra çalışan hello kapsayıcı tutar hello kapsayıcı içindeki komutları toorun virgülle ayrılmış bir dizi giriş komutları belirtin.
 
 ![Kapsayıcılar için Service Fabric Yeoman oluşturucusu][sf-yeoman]
 
-## <a name="deploy-the-application"></a>Uygulamayı dağıtma
+## <a name="deploy-hello-application"></a>Merhaba uygulaması dağıtma
 
 ### <a name="using-xplat-cli"></a>XPlat CLI aracını kullanma
-Uygulama oluşturulduktan sonra Azure CLI kullanarak yerel kümeye dağıtabilirsiniz.
+Merhaba uygulama oluşturulduktan sonra toohello yerel küme hello Azure CLI kullanarak dağıtabilirsiniz.
 
-1. Yerel Service Fabric kümesine bağlanın.
+1. Toohello yerel Service Fabric kümesi bağlayın.
 
     ```bash
     azure servicefabric cluster connect
     ```
 
-2. Uygulama paketini kümenin görüntü deposuna kopyalamak, uygulama türünü kaydetmek ve uygulamanın bir örneğini oluşturmak için şablonda verilen yükleme betiğini kullanın.
+2. Kullanım hello hello şablonu toocopy Merhaba uygulaması toohello kümenin görüntü deposu paketini, hello uygulama türünü kaydetme ve hello uygulama örneğini oluşturmak sağlanan komut dosyası yükleyin.
 
     ```bash
     ./install.sh
     ```
 
-3. Bir tarayıcı açın ve http://localhost:19080/Explorer adresindeki Service Fabric Explorer’a gidin (Vagrant’ı Mac OS X üzerinde kullanıyorsanız localhost ifadesini sanal makinenin özel IP’si ile değiştirin).
-4. Uygulamalar düğümünü genişletin ve şu anda uygulamanızın türü için bir giriş ve bu türün ilk örneği için başka bir giriş olduğuna dikkat edin.
-5. Uygulama örneğini silin ve uygulama türü kaydını kaldırma için şablonda belirtilen kaldırma komut dosyası kullanın.
+3. Bir tarayıcı açın ve http://localhost: 19080/Explorer (Merhaba Vagrant Mac OS X kullanıyorsanız VM hello özel IP ile değiştir localhost) konumunda tooService Fabric Gezgini'ne gidin.
+4. Merhaba uygulamaları düğümünü genişletin ve şimdi uygulama türü için bir giriş ve hello bu türünün ilk örneği için başka bir yoktur.
+5. Merhaba kaldırma komut dosyası kullan hello şablon toodelete hello uygulama örneği içinde sağlanan ve hello uygulama türü kaydını silin.
 
     ```bash
     ./uninstall.sh
@@ -89,31 +89,31 @@ Uygulama oluşturulduktan sonra Azure CLI kullanarak yerel kümeye dağıtabilir
 
 ### <a name="using-azure-cli-20"></a>Azure CLI 2.0 aracını kullanma
 
-Başvuru belge yönetme hakkında bkz bir [Azure CLI 2.0 kullanan uygulama yaşam döngüsü](service-fabric-application-lifecycle-azure-cli-2-0.md).
+Merhaba başvuru belge yönetme hakkında bkz bir [uygulama yaşam döngüsü kullanmayı hello Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md).
 
-Örnek bir uygulama için [checkout Service Fabric kapsayıcı kodu Github'da örnekleri](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
+Örnek bir uygulama için [checkout hello Service Fabric kapsayıcı kodu Github'da örnekleri](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
 
-## <a name="adding-more-services-to-an-existing-application"></a>Mevcut bir uygulamaya daha fazla hizmet ekleme
+## <a name="adding-more-services-tooan-existing-application"></a>Daha fazla Hizmetleri tooan varolan uygulama ekleme
 
-Başka bir kapsayıcı hizmeti zaten kullanılarak oluşturulmuş bir uygulama eklemek için `yo`, aşağıdaki adımları gerçekleştirin:
+tooadd başka bir kapsayıcı hizmet zaten kullanılarak oluşturulan tooan uygulaması `yo`, hello aşağıdaki adımları gerçekleştirin:
 
-1. Dizini mevcut uygulamanın kök dizinine değiştirin.  Örneğin Yeoman tarafından oluşturulan uygulama `MyApplication` ise `cd ~/YeomanSamples/MyApplication` olacaktır.
+1. Merhaba var olan uygulamanın toohello kök dizini değiştirin.  Örneğin, `cd ~/YeomanSamples/MyApplication`, `MyApplication` Yeoman tarafından oluşturulan hello uygulamasıdır.
 2. `yo azuresfcontainer:AddService` öğesini çalıştırın
 
 <a id="manually"></a>
 
 ## <a name="manually-package-and-deploy-a-container-image"></a>El ile paketini ve kapsayıcı görüntüsünü Dağıt
-El ile kapsayıcılı hizmet paketleme işlemi aşağıdaki adımları dayanır:
+el ile kapsayıcılı hizmet paketleme hello işlemi aşağıdaki adımları hello üzerinde dayanır:
 
-1. Kapsayıcılar deponuza yayımlayın.
-2. Paket dizin yapısını oluşturun.
-3. Hizmet bildirim dosyasını düzenleyin.
-4. Uygulama bildirim dosyasının düzenleyin.
+1. Merhaba kapsayıcılara tooyour depo yayımlayın.
+2. Merhaba paket dizin yapısını oluşturun.
+3. Merhaba hizmet bildirim dosyasını düzenleyin.
+4. Merhaba uygulama bildirim dosyasının düzenleyin.
 
 ## <a name="deploy-and-activate-a-container-image"></a>Dağıtma ve kapsayıcı görüntü etkinleştirin
-Service Fabric içinde [uygulama modeli](service-fabric-application-model.md), hangi birden çok çoğaltmaları hizmete bir uygulama konağı bir kapsayıcıyı temsil eder. Dağıtma ve bir kapsayıcı etkinleştirmek için kapsayıcı görüntüsüne adını put bir `ContainerHost` hizmet bildiriminde öğesi.
+Merhaba Service Fabric içinde [uygulama modeli](service-fabric-application-model.md), hangi birden çok çoğaltmaları hizmete bir uygulama konağı bir kapsayıcıyı temsil eder. toodeploy ve etkinleştirme kapsayıcı, put hello adını hello kapsayıcı görüntüsüne bir `ContainerHost` hello hizmet bildirimi öğesinde.
 
-Hizmet bildiriminde eklemek bir `ContainerHost` giriş noktası için. Ardından `ImageName` kapsayıcı depo ve görüntü adı olmalıdır. Aşağıdaki kısmi bildirimi adlı kapsayıcıyı dağıtmak nasıl bir örneği gösterir `myimage:v1` adlı bir depodan `myrepo`:
+Merhaba hizmet bildiriminde eklemek bir `ContainerHost` hello giriş noktası için. Ardından kümesi hello `ImageName` toobe hello adını hello kapsayıcı depo ve görüntü. Merhaba aşağıdaki kısmi bildirimi gösterir nasıl toodeploy hello kapsayıcı olarak adlandırılan bir örnek `myimage:v1` adlı bir depodan `myrepo`:
 
 ```xml
     <CodePackage Name="Code" Version="1.0">
@@ -126,13 +126,13 @@ Hizmet bildiriminde eklemek bir `ContainerHost` giriş noktası için. Ardından
     </CodePackage>
 ```
 
-İsteğe bağlı belirterek giriş komutları sağlayabilir `Commands` öğe kapsayıcısı içindeki çalıştırılacak komutları virgülle ayrılmış bir dizi.
+İsteğe bağlı hello belirterek giriş komutları sağlayabilir `Commands` hello kapsayıcı içindeki komutları toorun virgülle ayrılmış bir dizi öğesi.
 
 > [!NOTE]
-> Görüntünün bir iş yükü giriş tanımlanmış noktası yok sonra içindeki giriş komutları açıkça belirtmek zorunda `Commands` başlatma işleminden sonra çalışan kapsayıcı tutar kapsayıcı içinde çalıştırılacak komutları virgülle ayrılmış bir dizi öğesi.
+> Merhaba görüntü bir iş yükü giriş tanımlanmış noktası yok sonra tooexplicitly ihtiyacınız içindeki giriş komutları belirtin `Commands` hello kapsayıcı çalıştırdıktan sonra devam edilecek hello kapsayıcı içindeki komutları toorun virgülle ayrılmış bir dizi öğesi Başlangıç.
 
 ## <a name="understand-resource-governance"></a>Kaynak İdaresi anlama
-Kaynak İdaresi kapsayıcı konakta kullanabilirsiniz kaynakları kısıtlayan kapsayıcısının bir yetenektir. `ResourceGovernancePolicy`, Bir hizmet kod paketi için kaynak sınırları bildirmek için hangi uygulama bildiriminde belirtilen kullanılır. Aşağıdaki kaynaklar için kaynak sınırlarını ayarlayabilirsiniz:
+Kaynak İdaresi kapsayıcı hello hello kaynakları kısıtlayan hello kapsayıcı yeteneğini hello konakta kullanabilirsiniz ' dir. Merhaba `ResourceGovernancePolicy`, kendisi hello uygulama bildiriminde belirtilen bir hizmeti kod paketi için kullanılan toodeclare kaynak sınırları olduğu. Kaynak sınırları kaynakları aşağıdaki Merhaba ayarlanabilir:
 
 * Bellek
 * MemorySwap
@@ -156,7 +156,7 @@ Kaynak İdaresi kapsayıcı konakta kullanabilirsiniz kaynakları kısıtlayan k
 ```
 
 ## <a name="authenticate-a-repository"></a>Bir depo kimlik doğrulaması
-Bir kapsayıcı indirmek için kapsayıcı deponuza oturum açma kimlik bilgilerini sağlamanız gerekebilir. Uygulama bildiriminde belirtilen oturum açma kimlik bilgileri, oturum açma bilgileri veya kapsayıcı görüntünün görüntü deposundan karşıdan yüklemek için SSH anahtarı belirtmek için kullanılır. Adlı bir hesap aşağıdaki örnekte *TestUser* düz metin parolayı birlikte (*değil* önerilen):
+bir kapsayıcı toodownload tooprovide oturum açma kimlik bilgileri toohello kapsayıcı deposu olabilir. Merhaba uygulama bildiriminde belirtilen hello oturum açma kimlik bilgileri, kullanılan toospecify hello oturum açma bilgileri veya hello kapsayıcı görüntü hello görüntü deposundan karşıdan yüklemek için SSH anahtarı, ' dir. Merhaba aşağıdaki örnekte gösterilir adlı bir hesap *TestUser* hello parola düz metin birlikte (*değil* önerilen):
 
 ```xml
     <ServiceManifestImport>
@@ -169,11 +169,11 @@ Bir kapsayıcı indirmek için kapsayıcı deponuza oturum açma kimlik bilgiler
     </ServiceManifestImport>
 ```
 
-Makineye dağıtılan bir sertifika kullanarak parolayı şifrelemek öneririz.
+Toohello makine dağıtmış olan bir sertifikayı kullanarak hello parolayı şifrelemek öneririz.
 
-Adlı bir hesap aşağıdaki örnekte *TestUser*, adı verilen bir sertifikayı kullanarak parolayı nerede şifrelenmiş *MyCert*. Kullanabileceğiniz `Invoke-ServiceFabricEncryptText` gizli şifreli metin parolası oluşturmak için PowerShell komutu. Daha fazla bilgi için bkz: [Service Fabric uygulamaları parolalarında yönetme](service-fabric-application-secret-management.md).
+Merhaba aşağıdaki örnekte gösterilir adlı bir hesap *TestUser*, burada hello parola adı verilen bir sertifika kullanılarak şifrelenmiş *MyCert*. Merhaba kullanabilirsiniz `Invoke-ServiceFabricEncryptText` PowerShell komut toocreate hello gizli şifreli metin hello parolası. Daha fazla bilgi için hello makalesine bakın [Service Fabric uygulamaları parolalarında yönetme](service-fabric-application-secret-management.md).
 
-Parola şifresini çözmek için kullanılan sertifikanın özel anahtarı yerel makinede bir bant dışı yöntem dağıtılması gerekir. (Azure'da, Azure Resource Manager bu yöntem budur.) Ardından, Service Fabric makineye hizmet paketini dağıtırken, gizli şifresini çözebilir. Gizli hesap adı ile birlikte kullanarak, bu kapsayıcı deposuyla sonra doğrulayabilir.
+Merhaba toodecrypt hello parola kullandı hello sertifikasının özel anahtarı yerel makinede bir bant dışı yöntem dağıtılan toohello olması gerekir. (Azure'da, Azure Resource Manager bu yöntem budur.) Ardından, Service Fabric hello hizmet paketi toohello makine dağıtırken hello gizli şifresini çözebilir. Merhaba gizli hello hesap adı ile birlikte kullanarak, onu hello kapsayıcı deposuyla sonra doğrulayabilir.
 
 ```xml
     <ServiceManifestImport>
@@ -187,7 +187,7 @@ Parola şifresini çözmek için kullanılan sertifikanın özel anahtarı yerel
 ```
 
 ## <a name="configure-container-port-to-host-port-mapping"></a>Kapsayıcı bağlantı noktası ana bilgisayar bağlantı noktası eşleme yapılandırın
-Belirterek kapsayıcı ile iletişim kurmak için kullanılan bir ana bilgisayar bağlantı noktası yapılandırabilirsiniz bir `PortBinding` uygulama bildiriminde. Hizmet bağlantı noktası ana bilgisayardaki kapsayıcıya içinde dinleme yaptığı bağlantı bağlantı noktası bağlamasına eşler.
+Belirterek hello kapsayıcı ile bir ana bilgisayar kullanılan bağlantı noktası toocommunicate yapılandırabilirsiniz bir `PortBinding` hello uygulama bildiriminde. Merhaba kapsayıcı tooa bağlantı hello konaktaki içinde dinleyen bir Hello bağlantı noktası bağlama eşlemeleri hello bağlantı noktası toowhich hello hizmet.
 
 ```xml
     <ServiceManifestImport>
@@ -201,9 +201,9 @@ Belirterek kapsayıcı ile iletişim kurmak için kullanılan bir ana bilgisayar
 ```
 
 ## <a name="configure-container-to-container-discovery-and-communication"></a>Kapsayıcıya bulma ve iletişim yapılandırın
-Kullanarak `PortBinding` İlkesi, bir kapsayıcı bağlantı noktasına eşlenebilir bir `Endpoint` hizmet bildiriminde. Uç nokta `Endpoint1` sabit bir bağlantı noktası (örneğin, bağlantı noktası 80) belirtebilirsiniz. Kümenin uygulama bağlantı noktası aralığından rastgele bir bağlantı noktası sizin için bu durumda seçilen bağlantı noktası yok hiç da belirtebilir.
+Hello kullanarak `PortBinding` İlkesi, bir kapsayıcı bağlantı noktası tooan eşleyebilirsiniz `Endpoint` hello hizmet bildiriminde. uç nokta hello `Endpoint1` sabit bir bağlantı noktası (örneğin, bağlantı noktası 80) belirtebilirsiniz. Rastgele bir bağlantı noktası hello kümenin uygulama bağlantı noktası aralığından sizin için bu durumda seçilen bağlantı noktası yok hiç da belirtebilir.
 
-Bir uç nokta belirtirseniz, kullanarak `Endpoint` Konuk kapsayıcı, Service Fabric hizmet bildirimi etiketinde adlandırma hizmeti bu bitiş noktası otomatik olarak yayımlayabilirsiniz. Kümede çalışan diğer hizmetler, böylece çözümlemek için REST sorgularını kullanarak bu kapsayıcı bulabilir.
+Bir uç nokta belirtirseniz, hello kullanarak `Endpoint` hello hizmet bildirimi Konuk kapsayıcı, Service Fabric etiketinde otomatik olarak bu uç nokta toohello adlandırma hizmeti yayımlama. Merhaba kümede çalışan diğer hizmetler, böylece çözümlemek için hello REST sorgularını kullanarak bu kapsayıcı bulabilir.
 
 ```xml
     <ServiceManifestImport>
@@ -216,12 +216,12 @@ Bir uç nokta belirtirseniz, kullanarak `Endpoint` Konuk kapsayıcı, Service Fa
     </ServiceManifestImport>
 ```
 
-Adlandırma Hizmeti ile kaydetme tarafından kolayca kod-kapsayıcıya iletişiminde kapsayıcı içinde kullanarak yapabileceğiniz [ters proxy](service-fabric-reverseproxy.md). İletişim ters proxy http dinleme bağlantı noktası ve ortam değişkenleri olarak iletişim kurması için istediğiniz hizmetleri adını sağlayarak gerçekleştirilir. Daha fazla bilgi için sonraki bölüme bakın.
+Merhaba Naming service ile kaydederek kolayca hello kod-kapsayıcıya iletişiminde, kapsayıcı içinde hello kullanarak yapabileceğiniz [ters proxy](service-fabric-reverseproxy.md). İletişim hello ters proxy http dinleme bağlantı noktası ve ortam değişkenleri olarak toocommunicate ile istediğiniz hello Hizmetleri hello adını sağlayarak gerçekleştirilir. Daha fazla bilgi için hello sonraki bölüme bakın.
 
 ## <a name="configure-and-set-environment-variables"></a>Ortam değişkenlerini yapılandırma ve ayarlama
-Ortam değişkenleri hizmet bildiriminde hem işlemler/Konuk yürütülebilir dosyaları dağıtılan Hizmetleri veya kapsayıcılarında dağıtılan Hizmetleri için her kod paketi için belirtilebilir. Bu ortam değişkeni değerlerini özellikle uygulama bildiriminde geçersiz veya uygulama parametreleri olarak dağıtım sırasında belirtilen.
+Ortam değişkenleri, her kod paketi bildiriminde hello hizmet, hem kapsayıcılarında dağıtılan Hizmetleri ya da işlemler/Konuk yürütülebilir dosyaları dağıtılan Hizmetleri için belirtilebilir. Bu ortam değişkeni değerlerini özellikle hello uygulama bildiriminde geçersiz veya uygulama parametreleri olarak dağıtım sırasında belirtilen.
 
-Aşağıdaki hizmet bildirimi XML kod parçacığı, kod paketi için ortam değişkenlerinin nasıl belirtileceğini gösteren bir örnektir:
+Merhaba aşağıdaki hizmet bildirim XML parçacığını gösterir nasıl bir örneği için bir kod paketi toospecify ortam değişkenleri:
 
 ```xml
     <ServiceManifest Name="FrontendServicePackage" Version="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -244,7 +244,7 @@ Aşağıdaki hizmet bildirimi XML kod parçacığı, kod paketi için ortam değ
     </ServiceManifest>
 ```
 
-Bu ortam değişkenleri uygulama bildirim düzeyinde geçersiz kılınabilir:
+Bu ortam değişkenleri hello uygulama bildirim düzeyinde geçersiz kılınabilir:
 
 ```xml
     <ServiceManifestImport>
@@ -256,7 +256,7 @@ Bu ortam değişkenleri uygulama bildirim düzeyinde geçersiz kılınabilir:
     </ServiceManifestImport>
 ```
 
-Önceki örnekte, biz açık bir değer için belirtilen `HttpGateway` ortam değişkeni (19000), değeri ayarlarız sırada `BackendServiceName` parametresi ile `[BackendSvc]` uygulama parametresi. Bu ayarları için değer belirtmenizi sağlayan `BackendServiceName`değer uygulamayı dağıttıktan sonra bildiriminde sabit bir değere sahip değil.
+Merhaba önceki örnekte, biz hello için açık bir değer belirtilen `HttpGateway` ortam değişkeni (Merhaba değeri ayarlarız sırada 19000) `BackendServiceName` hello parametresi `[BackendSvc]` uygulama parametresi. Bu ayarlar için toospecify hello değer etkinleştirmek `BackendServiceName`değer hello uygulamayı dağıttıktan sonra hello bildiriminde sabit bir değere sahip değil.
 
 ## <a name="complete-examples-for-application-and-service-manifest"></a>Uygulama ve hizmet bildirimi için örnekler tamamlayın
 
@@ -286,7 +286,7 @@ Bir örnek uygulama bildirimi aşağıdaki gibidir:
     </ApplicationManifest>
 ```
 
-Bir örnek hizmet bildirimi (önceki uygulama bildiriminde belirtilen) aşağıdaki gibidir:
+Bir örnek hizmet bildirimi (uygulama bildirimi önceki hello belirtilen) aşağıdaki gibidir:
 
 ```xml
     <ServiceManifest Name="FrontendServicePackage" Version="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -317,10 +317,10 @@ Bir örnek hizmet bildirimi (önceki uygulama bildiriminde belirtilen) aşağıd
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Kapsayıcılı hizmetini dağıttıysanız, kendi ömrü okuyarak yönetmeyi öğrenin [Service Fabric uygulama yaşam döngüsü](service-fabric-application-lifecycle.md).
+Kapsayıcılı hizmetini dağıttıysanız, bilgi nasıl toomanage okuyarak kendi ömrü [Service Fabric uygulama yaşam döngüsü](service-fabric-application-lifecycle.md).
 
 * [Service Fabric ve kapsayıcıları genel bakış](service-fabric-containers-overview.md)
-* [Azure CLI kullanarak Service Fabric kümeleriyle etkileşim kurma](service-fabric-azure-cli.md)
+* [Hello Azure CLI kullanarak Service Fabric kümeleri ile etkileşim kurma](service-fabric-azure-cli.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-deploy-container-linux/sf-container-yeoman1.png

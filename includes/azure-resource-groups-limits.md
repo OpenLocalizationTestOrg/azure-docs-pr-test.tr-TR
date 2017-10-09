@@ -22,4 +22,4 @@
 | Şablon boyutu |1 MB |1 MB |
 | Parametre dosya boyutu |64 KB |64 KB |
 
-İç içe geçmiş bir şablon kullanarak bazı şablonu sınırı aşabilir. Daha fazla bilgi için bkz: [Azure kaynaklarını dağıtırken bağlı şablonları kullanma](../articles/azure-resource-manager/resource-group-linked-templates.md). Parametreler, değişkenleri veya çıkışları sayısını azaltmak için değerlerden bir nesnede birleştirebilirsiniz. Daha fazla bilgi için bkz: [nesneleri parametreleri olarak](../articles/azure-resource-manager/resource-manager-objects-as-parameters.md).
+İç içe geçmiş bir şablon kullanarak bazı şablonu sınırı aşabilir. Daha fazla bilgi için bkz: [Azure kaynaklarını dağıtırken bağlı şablonları kullanma](../articles/azure-resource-manager/resource-group-linked-templates.md). tooreduce hello numarası parametreleri, değişkenleri veya çıkışları, değerlerden bir nesnesinde birleştirebilirsiniz. Daha fazla bilgi için bkz: [nesneleri parametreleri olarak](../articles/azure-resource-manager/resource-manager-objects-as-parameters.md).

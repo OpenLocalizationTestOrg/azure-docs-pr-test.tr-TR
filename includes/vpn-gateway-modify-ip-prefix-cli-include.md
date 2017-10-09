@@ -1,18 +1,18 @@
-### <a name="noconnection"></a>Yerel ağ geçidinin IP adresi ön eklerini değiştirmek için - ağ geçidi bağlantısı yok
+### <a name="noconnection"></a>toomodify yerel ağ geçidi IP adresi öneklerini - ağ geçidi bağlantısı yok
 
-Ağ geçidi bağlantınız yoksa ve IP adresi önekleri eklemek veya kaldırmak istiyorsanız, yerel ağ geçidini oluşturmak için kullandığınız [az network local-gateway create](https://docs.microsoft.com/cli/azure/network/local-gateway#create) komutunu kullanın. VPN cihazının ağ geçidi IP adresini güncelleştirmek için de bu komutu kullanabilirsiniz. Geçerli ayarların üzerine yazmak için yerel ağ geçidinizin mevcut adını kullanın. Farklı bir ad kullanırsanız mevcut olanın üzerine yazmak yerine yeni bir yerel ağ geçidi oluşturursunuz.
+Bir ağ geçidi bağlantısı yoktur ve tooadd istediğiniz ya da IP adresi öneklerini kaldırmak, hello kullanın aynı toocreate hello yerel ağ geçidi, kullandığınız komut [az ağ yerel-ağ geçidi oluşturmak](https://docs.microsoft.com/cli/azure/network/local-gateway#create). Bu komut tooupdate hello ağ geçidi IP adresi hello VPN cihazı için de kullanabilirsiniz. toooverwrite hello geçerli ayarları, yerel ağ geçidinizin hello var olan adını kullanın. Farklı bir ad kullanırsanız, yeni bir yerel ağ geçidi oluşturma, üzerine yerine var olan bir hello.
 
-Her değişiklik yaptığınızda, yalnızca değiştirmek istediğiniz ön ekler değil ön ek listesinin tamamı belirtilmelidir. Yalnızca kalmasını istediğiniz ön ekleri belirtin. Bu durumda, söz konusu ön ekler 10.0.0.0/24 ve 20.0.0.0/24’tür.
+Bir değişiklik, hello öneklerini tam listesini yaptığınız her zaman belirtilmesi gerekir, yalnızca hello toochange istediğiniz ekler. Yalnızca hello öneklerini tookeep istediğinizi belirtin. Bu durumda, söz konusu ön ekler 10.0.0.0/24 ve 20.0.0.0/24’tür.
 
 ```azurecli
 az network local-gateway create --gateway-ip-address 23.99.221.164 --name Site2 --connection-name TestRG1 --local-address-prefixes 10.0.0.0/24 20.0.0.0/24
 ```
 
-### <a name="withconnection"></a>Yerel ağ geçidinin IP adresi ön eklerini değiştirmek için - ağ geçidi bağlantısı var
+### <a name="withconnection"></a>ağ geçidi bağlantısı varolan toomodify yerel ağ geçidi IP adresi öneklerini-
 
-Bir ağ geçidi bağlantınız varsa ve IP adresi önekleri eklemek veya kaldırmak istiyorsanız önekleri [az network local-gateway update](https://docs.microsoft.com/cli/azure/network/local-gateway#update) komutunu kullanarak güncelleştirebilirsiniz. Bunun sonucunda, VPN bağlantınızda kesinti oluşur. IP adresi öneklerini değiştirirken, VPN ağ geçidini silmeniz gerekmez.
+Bir ağ geçidi bağlantısına sahip ve tooadd istediğiniz veya IP adresi öneklerini kaldırırsanız, kullanarak hello öneklerini güncelleştirebilirsiniz [az ağ yerel ağ geçidi güncelleştirmesi](https://docs.microsoft.com/cli/azure/network/local-gateway#update). Bunun sonucunda, VPN bağlantınızda kesinti oluşur. Başlangıç IP adresi değiştirme önekleri, toodelete hello VPN ağ geçidi gerekmez.
 
-Her değişiklik yaptığınızda, yalnızca değiştirmek istediğiniz ön ekler değil ön ek listesinin tamamı belirtilmelidir. Bu örnekte, 10.0.0.0/24 ve 20.0.0.0/24 zaten mevcuttur. 30.0.0.0/24 ve 40.0.0.0/24 öneklerini ekliyor ve güncelleştirirken 4 öneki de belirtiyoruz.
+Bir değişiklik, hello öneklerini tam listesini yaptığınız her zaman belirtilmesi gerekir, yalnızca hello toochange istediğiniz ekler. Bu örnekte, 10.0.0.0/24 ve 20.0.0.0/24 zaten mevcuttur. Biz hello öneklerini 30.0.0.0/24 ve 40.0.0.0/24 ekleyin ve güncelleştirirken tüm 4 hello öneklerini belirtin.
 
 ```azurecli
 az network local-gateway update --local-address-prefixes 10.0.0.0/24 20.0.0.0/24 30.0.0.0/24 40.0.0.0/24 --name VNet1toSite2 --connection-name TestRG1

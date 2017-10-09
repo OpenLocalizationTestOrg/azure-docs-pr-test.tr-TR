@@ -1,5 +1,5 @@
 ---
-title: "Azure Event Hubs kimlik doğrulaması ve güvenlik modeline genel bakış | Microsoft Docs"
+title: "Azure Event Hubs kimlik doğrulaması ve güvenlik modeli aaaOverview | Microsoft Docs"
 description: "Olay hub'ları kimlik doğrulaması ve güvenlik modeline genel bakış."
 services: event-hubs
 documentationcenter: na
@@ -14,35 +14,35 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: sethm;clemensv
-ms.openlocfilehash: 5abdbf70d4fdb2c7feb0f3537ecc0f2abf0775a0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e57ccda33e5ee20e635487cf91d9e8af594d3bd7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>Olay hub'ları kimlik doğrulaması ve güvenlik modeline genel bakış
-Azure Event Hubs güvenlik modeli, aşağıdaki gereksinimleri karşıladığından:
+Hello Azure Event Hubs güvenlik modeli gereksinimlerine hello uyuyor:
 
-* Geçerli kimlik bilgileri sunmak yalnızca istemcileri verileri olay hub'ına gönderebilirsiniz.
+* Geçerli kimlik bilgileri sunmak yalnızca istemciler tooan event hub'ı veri gönderebilir.
 * Bir istemci, başka bir istemci taklit edilemez.
-* Standart dışı bir istemci, bir olay hub'ına veri gönderme engellenebilir.
+* Standart dışı bir istemci tooan event hub'ı veri göndermesini engellenebilir.
 
 ## <a name="client-authentication"></a>İstemci kimlik doğrulaması
-Olay hub'ları güvenlik modeli bir bileşimine dayalı [paylaşılan erişim imzası (SAS)](../service-bus-messaging/service-bus-sas.md) belirteçleri ve *olay yayımcıları*. Sanal bir uç noktası bir event hub için bir olay yayımcısı tanımlar. Yayımcı, yalnızca bir olay hub'ına iletileri göndermek için kullanılabilir. Bir yayımcıdan iletileri almak mümkün değildir.
+Merhaba olay hub'ları güvenlik modelini bir birleşimini temel [paylaşılan erişim imzası (SAS)](../service-bus-messaging/service-bus-sas.md) belirteçleri ve *olay yayımcıları*. Sanal bir uç noktası bir event hub için bir olay yayımcısı tanımlar. Merhaba yayımcı yalnızca kullanılan toosend iletileri tooan olay hub'ı olabilir. Bu olası tooreceive iletileri bir yayımcıdan değil.
 
-Genellikle, istemci başına bir yayımcı bir olay hub'ı kullanır. Herhangi bir olay hub'ı yayımcılar gönderilen tüm iletileri sıraya alınan bu olay hub'ın içinde edilir. Yayımcılar ayrıntılı erişim denetimi ve azaltma etkinleştirin.
+Genellikle, istemci başına bir yayımcı bir olay hub'ı kullanır. Bir olay hub'ının hello yayımcılar tooany gönderilen tüm iletiler sıraya alınan bu olay hub'ın içinde ' dir. Yayımcılar ayrıntılı erişim denetimi ve azaltma etkinleştirin.
 
-Her olay hub'ları istemci istemciye karşıya bir benzersiz belirteci atanır. Her benzersiz belirteç erişimi için farklı bir benzersiz yayımcı verir şekilde belirteçleri oluşturulur. Bir belirteç sahip bir istemci, yalnızca bir yayımcı, ancak herhangi bir yayımcı gönderebilirsiniz. Birden çok istemci aynı belirteci paylaşıyorsanız, bunların her biri bir yayımcı paylaşır.
+Her olay hub'ları istemci karşıya yüklenen toohello istemci benzersiz bir belirteç atanır. her benzersiz belirteç erişim tooa farklı benzersiz yayımcı verir şekilde hello belirteçleri oluşturulur. Bir belirteç sahip bir istemci, yalnızca tooone publisher, ancak herhangi bir yayımcı gönderebilirsiniz. Aynı belirteci ve sonra bunların her biri birden çok istemcileri paylaşımı Merhaba, bir yayımcı paylaşır.
 
-Önerilmemesine rağmen bir olay hub'ına doğrudan erişim belirteçleri ile cihazları Donatı mümkündür. Bu belirteç tutan herhangi bir aygıt, doğrudan bu olay hub'ına iletileri gönderebilir. Böyle bir cihazı azaltma tabi olmayacaktır. Ayrıca, cihaz, olay hub'ına göndermesinin kara listede olamaz.
+Önerilmemesine rağmen tooan event hub'ı doğrudan erişim vermek belirteçleri ile olası tooequip cihazları var. Bu belirteç tutan herhangi bir aygıt, doğrudan bu olay hub'ına iletileri gönderebilir. Böyle bir cihazı konu toothrottling olmaz. Ayrıca, hello aygıt toothat olay hub'ı göndermesinin kara listede olamaz.
 
-Tüm belirteçlerin bir SAS anahtarla imzalanmıştır. Genellikle, tüm belirteçleri aynı anahtarla imzalanmıştır. İstemciler anahtarın farkında değildir; Bu, diğer istemcilerin belirteçleri üretim önler.
+Tüm belirteçlerin bir SAS anahtarla imzalanmıştır. Genellikle, tüm belirteçleri hello ile imzalanmış aynı anahtarı. İstemcileri hello anahtarı farkında değildir; Bu, diğer istemcilerin belirteçleri üretim önler.
 
-### <a name="create-the-sas-key"></a>SAS anahtarı oluşturma
+### <a name="create-hello-sas-key"></a>Merhaba SAS anahtarı oluşturma
 
-Bir olay hub'ları ad alanı oluştururken, hizmet adında bir 256 bit SAS anahtarı oluşturur **RootManageSharedAccessKey**. Bu anahtar verir göndermek, dinleme ve ad alanı hakkı yönetin. Ek anahtarlar da oluşturabilirsiniz. Belirli bir olay hub'ına verir izinleri göndermek bir anahtar oluşturmak önerilir. Bu konunun geri kalanı için bu anahtar adlı görünür duruma varsayılır **EventHubSendKey**.
+Bir olay hub'ları ad alanı oluştururken, hello hizmeti adlı 256 bit SAS anahtarı üretir **RootManageSharedAccessKey**. Bu anahtar verir göndermek, dinleme ve hakları toohello ad alanı yönetin. Ek anahtarlar da oluşturabilirsiniz. Verir izinleri toohello belirli olay hub'ı Gönder bir anahtar oluşturmak önerilir. Bu konuda Hello kalanı için bu anahtar adlı görünür duruma varsayılır **EventHubSendKey**.
 
-Aşağıdaki örnek, olay hub'ı oluştururken yalnızca gönderme bir anahtar oluşturur:
+Aşağıdaki örnek hello hello olay hub'ı oluştururken yalnızca gönderme bir anahtar oluşturur:
 
 ```csharp
 // Create namespace manager.
@@ -53,7 +53,7 @@ Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, string.
 TokenProvider td = TokenProvider.CreateSharedAccessSignatureTokenProvider(namespaceManageKeyName, namespaceManageKey);
 NamespaceManager nm = new NamespaceManager(namespaceUri, namespaceManageTokenProvider);
 
-// Create event hub with a SAS rule that enables sending to that event hub
+// Create event hub with a SAS rule that enables sending toothat event hub
 EventHubDescription ed = new EventHubDescription("MY_EVENT_HUB") { PartitionCount = 32 };
 string eventHubSendKeyName = "EventHubSendKey";
 string eventHubSendKey = SharedAccessAuthorizationRule.GenerateRandomKey();
@@ -64,46 +64,46 @@ nm.CreateEventHub(ed);
 
 ### <a name="generate-tokens"></a>Belirteçleri oluşturmak
 
-SAS anahtarını kullanarak belirteçleri üretebilir. İstemci başına yalnızca bir belirteç üretmek gerekir. Belirteçleri, ardından aşağıdaki yöntemi kullanarak üretilebilir. Tüm belirteçleri kullanarak oluşturulan **EventHubSendKey** anahtarı. Her belirteç benzersiz bir URI atanır.
+Merhaba SAS anahtarı kullanarak belirteçleri üretebilir. İstemci başına yalnızca bir belirteç üretmek gerekir. Ardından belirteçleri yöntemi aşağıdaki hello kullanarak da üretilmesi. Tüm belirteçleri hello kullanarak oluşturulan **EventHubSendKey** anahtarı. Her belirteç benzersiz bir URI atanır.
 
 ```csharp
 public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
 ```
 
-Bu yöntem çağrılırken URI olarak belirtilmelidir: `//<NAMESPACE>.servicebus.windows.net/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`. Tüm belirteçleri için URI dışında aynı `PUBLISHER_NAME`, olacağı için her belirteci farklı. İdeal olarak, `PUBLISHER_NAME` belirtecini alır istemci Kimliğini temsil eder.
+Bu yöntem çağrılırken hello URI olarak belirtilmelidir: `//<NAMESPACE>.servicebus.windows.net/<EVENT_HUB_NAME>/publishers/<PUBLISHER_NAME>`. Tüm belirteçleri için hello URI hello özel durumla aynıdır `PUBLISHER_NAME`, olacağı için her belirteci farklı. İdeal olarak, `PUBLISHER_NAME` temsil hello belirtecini alır hello istemcinin kimliği.
 
-Bu yöntem, şu yapıda bir belirteç oluşturur:
+Bu yöntem, yapı izlenerek hello ile bir belirteç oluşturur:
 
 ```csharp
 SharedAccessSignature sr={URI}&sig={HMAC_SHA256_SIGNATURE}&se={EXPIRATION_TIME}&skn={KEY_NAME}
 ```
 
-Belirteç süre sonu zamanı, 1 Ocak 1970'ten gelen saniye cinsinden belirtilir. Belirtecin bir örnek verilmiştir:
+Merhaba belirteci süre sonu 1 Ocak 1970'ten gelen saniye cinsinden belirtilir. Merhaba, bir belirteç örneği aşağıdadır:
 
 ```csharp
 SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFmBHG77A%3d&se=1403130337&skn=RootManageSharedAccessKey
 ```
 
-Genellikle, belirteçleri benzer veya istemci Sysprep'in aşıyor bir kullanım ömrü vardır. İstemci yeni bir belirteç elde yeteneği varsa, daha kısa bir ömre sahip belirteçler kullanılabilir.
+Genellikle, hello belirteçleri hello istemci hello Sysprep'in aşıyor ya da benzer bir kullanım ömrü vardır. Merhaba istemci yeni bir belirteç hello yetenek tooobtain varsa, daha kısa bir ömre sahip belirteçler kullanılabilir.
 
 ### <a name="sending-data"></a>Verileri gönderme
-Belirteçleri oluşturduktan sonra her bir istemci kendi benzersiz belirteciyle sağlanır.
+Merhaba belirteçleri oluşturduktan sonra her bir istemci kendi benzersiz belirteciyle sağlanır.
 
-İstemci bir event hub'ına veri gönderdiğinde, kendi gönderme isteği belirteci ile etiketler. Bir saldırgan, gizli dinleme ve belirteç çalınmasını engellemek için olay hub'ı ile istemci arasındaki iletişimi şifrelenmiş bir kanal üzerinden gerçekleşmelidir.
+Merhaba istemcisi bir event hub'ına veri gönderdiğinde, kendi gönderme isteği hello belirteci ile etiketler. bir saldırganın çalmak hello belirteci, hello istemci hello olay hub'ı arasında hello iletişimi ve gizli dinleme tooprevent şifrelenmiş bir kanal üzerinden bulunması gerekir.
 
 ### <a name="blacklisting-clients"></a>İstemcileri kara liste
-Bir saldırgan tarafından bir belirteç çalınırsa, saldırgan, belirteç çalınırsa istemcinin kimliğine bürünebilir. Farklı bir yayımcı kullanan yeni bir belirteç alıncaya kadar bir istemci kara liste istemci kullanılamaz işler.
+Bir saldırgan tarafından bir belirteç çalınırsa, hello saldırgan, belirteç çalınırsa hello istemcinin kimliğine bürünebilir. Farklı bir yayımcı kullanan yeni bir belirteç alıncaya kadar bir istemci kara liste istemci kullanılamaz işler.
 
 ## <a name="authentication-of-back-end-applications"></a>Arka uç uygulamalarının kimlik doğrulaması
 
-Olay hub'ları istemciler tarafından oluşturulan verileri kullanan arka uç uygulama kimliğini doğrulamak için Event Hubs için Service Bus konuları kullanılan model benzer bir güvenlik modeli kullanır. Bir olay hub'ları tüketici grubu, Service Bus konu başlığına bir abonelik eşdeğerdir. Tüketici grubu oluşturma isteği tarafından bir belirteç verir ayrıcalıkları olay hub'ı ya da olay hub'ı ait olduğu ad alanını yönetmek bulunuyorsa, istemci bir tüketici grubu oluşturabilirsiniz. Bir istemci bu tüketici grubu, olay hub'ı veya olay hub'ı ait olduğu ad alanını alma hakları veren bir belirteç tarafından alma isteği bulunuyorsa, verileri bir tüketici grubundan kullanmak izin verilmez.
+Event Hubs olay hub'ları istemciler tarafından oluşturulan hello verileri kullanmak tooauthenticate arka uç uygulama Service Bus konuları kullanılan benzer toohello modeli bir güvenlik modeli kullanır. Bir olay hub'ları tüketici eşdeğer tooa abonelik tooa Service Bus konu grubudur. Merhaba istek toocreate hello tüketici grubu hello olay hub'ına yönelik ayrıcalıklar verir yönetmek veya hello olay hub'ı hello ad alanı toowhich ait bir belirteç tarafından bulunuyorsa, istemci bir tüketici grubu oluşturabilirsiniz. Bir istemci hello istek alırsanız bir belirteç tarafından bir tüketici grubundan tooconsume veri eşlik bu tüketici grubunda hakları verir Al, hello olay hub'ı veya hello ad alanı toowhich hello olay hub'ı ait izin verilir.
 
-Hizmet veri yolu geçerli sürümü tek tek abonelikler için SAS kuralları desteklemez. Aynı olay hub'ları tüketici grupları için geçerlidir. SAS desteği için her iki özellik gelecekte eklenir.
+Merhaba geçerli sürümü, hizmet veri yolu SAS kuralları için bireysel abonelikleri desteklemez. Merhaba aynı olay hub'ları tüketici grupları için geçerlidir. Merhaba gelecekteki içinde her iki özellik için SAS destek eklenecektir.
 
-Tek tek tüketici grupları için SAS kimlik doğrulaması olmaması durumunda tüm tüketici grupları bir ortak anahtar ile güvenli hale getirmek için SAS tuşlarını kullanabilirsiniz. Bu yaklaşım, herhangi bir event hub tüketici grupları verileri kullanmak üzere bir uygulama sağlar.
+Tek tek tüketici grupları için SAS kimlik doğrulamasının Hello olmaması durumunda, bir ortak anahtar ile tüm tüketici grupları SAS anahtarları toosecure kullanabilirsiniz. Bu yaklaşım, bir uygulama tooconsume verilerden herhangi bir event hub'hello tüketici grupları sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Event Hubs hakkında daha fazla bilgi için aşağıdaki konuları ziyaret edin:
+Event Hubs hakkında daha fazla toolearn aşağıdaki konularda hello ziyaret edin:
 
 * [Event Hubs’a genel bakış]
 * [Paylaşılan erişim imzaları genel bakış]

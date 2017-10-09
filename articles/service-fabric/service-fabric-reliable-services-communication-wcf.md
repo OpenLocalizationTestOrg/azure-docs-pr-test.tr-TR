@@ -1,6 +1,6 @@
 ---
-title: "Güvenilir hizmetler WCF iletişim yığını | Microsoft Docs"
-description: "Service Fabric yerleşik WCF iletişimi yığınında güvenilir hizmetler için İstemci-hizmet WCF iletişimi sağlar."
+title: "aaaReliable Hizmetleri WCF iletişim yığını | Microsoft Docs"
+description: "Merhaba yerleşik WCF iletişim yığını Service Fabric güvenilir hizmetler için İstemci-hizmet WCF iletişimi sağlar."
 services: service-fabric
 documentationcenter: .net
 author: BharatNarasimman
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/07/2017
 ms.author: bharatn
-ms.openlocfilehash: 7037620ebdc26a9f18531064bf45d058f5060e39
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 7feebef4d46a6ae66d05129f47f9b5911e82aec9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="wcf-based-communication-stack-for-reliable-services"></a>Güvenilir hizmetler için WCF tabanlı iletişim yığını
-Güvenilir hizmetler altyapısına hizmet yazarların kendi hizmet için kullanmak istedikleri iletişim yığını seçin izin verir. Kendi seçtikleri iletişim yığınındaki ekleyebilirsiniz **ICommunicationListener** döndürülen [CreateServiceReplicaListeners veya CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) yöntemleri. Çerçeve WCF tabanlı iletişim kullanmak istediğiniz hizmet yazarlar için Windows Communication Foundation (WCF) tabanlı iletişim yığını uygulaması sağlar.
+Merhaba güvenilir framework sağlar Services hizmet yazarlar toochoose hello iletişim yığını toouse için kendi hizmet istiyor. Merhaba iletişimi yığınında hello aracılığıyla kendi seçtikleri ekleyebilirsiniz **ICommunicationListener** hello döndürülen [CreateServiceReplicaListeners veya CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) yöntemleri. Merhaba framework hello iletişimi yığınının hello Windows Communication Foundation (WCF) üzerinde toouse WCF tabanlı iletişim isteyen hizmeti yazarlar için temel bir uygulama sağlar.
 
 ## <a name="wcf-communication-listener"></a>WCF iletişimi dinleyicisi
-WCF özel uyarlamasını **ICommunicationListener** tarafından sağlanan **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener** sınıfı.
+Merhaba WCF özgü uyarlamasını **ICommunicationListener** hello tarafından sağlanan **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener** sınıfı.
 
 Bir hizmet sözleşmesini türü deyin sahibiz ekleyin`ICalculator`
 
@@ -37,7 +37,7 @@ public interface ICalculator
 }
 ```
 
-Aşağıdaki şekilde hizmetinde bir WCF iletişimi dinleyici oluşturabiliriz.
+Aşağıdaki şekilde hello hizmet hello WCF iletişimi dinleyici oluşturabiliriz.
 
 ```csharp
 
@@ -48,13 +48,13 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
             wcfServiceObject:this,
             serviceContext:context,
             //
-            // The name of the endpoint configured in the ServiceManifest under the Endpoints section
-            // that identifies the endpoint that the WCF ServiceHost should listen on.
+            // hello name of hello endpoint configured in hello ServiceManifest under hello Endpoints section
+            // that identifies hello endpoint that hello WCF ServiceHost should listen on.
             //
             endpointResourceName: "WcfServiceEndpoint",
 
             //
-            // Populate the binding information that you want the service to use.
+            // Populate hello binding information that you want hello service toouse.
             //
             listenerBinding: WcfUtility.CreateTcpListenerBinding()
         )
@@ -63,8 +63,8 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 ```
 
-## <a name="writing-clients-for-the-wcf-communication-stack"></a>İstemciler için WCF iletişim yığını yazma
-WCF kullanarak Hizmetleri ile iletişim kurmak için istemcileri yazmak için bir çerçeve sağlar **WcfClientCommunicationFactory**, WCF özgü uyarlamasını olduğu [ClientCommunicationFactoryBase](service-fabric-reliable-services-communication.md).
+## <a name="writing-clients-for-hello-wcf-communication-stack"></a>İstemciler hello WCF iletişim yığını için yazma
+WCF, hello framework kullanarak hizmetleriyle toocommunicate sağlar istemcileri yazma **WcfClientCommunicationFactory**, hello WCF özgü uyarlamasını olduğu [ClientCommunicationFactoryBase](service-fabric-reliable-services-communication.md).
 
 ```csharp
 
@@ -76,7 +76,7 @@ public WcfCommunicationClientFactory(
     object callback = null);
 ```
 
-WCF iletişim kanalını erişilebilen **WcfCommunicationClient** tarafından oluşturulan **WcfCommunicationClientFactory**.
+Merhaba WCF iletişim kanalını hello erişilebilir **WcfCommunicationClient** hello tarafından oluşturulan **WcfCommunicationClientFactory**.
 
 ```csharp
 
@@ -90,7 +90,7 @@ public class WcfCommunicationClient : ServicePartitionClient<WcfCommunicationCli
 
 ```
 
-İstemci kodu kullanabileceğiniz **WcfCommunicationClientFactory** ile birlikte **WcfCommunicationClient** hangi uygulayan **ServicePartitionClient** hizmet uç noktası belirlemek ve hizmeti ile iletişim için.
+İstemci kodu hello kullanabileceğiniz **WcfCommunicationClientFactory** hello birlikte **WcfCommunicationClient** hangi uygulayan **ServicePartitionClient** toodetermine Hizmet uç noktası hello ve hello hizmetiyle iletişim.
 
 ```csharp
 // Create binding
@@ -102,7 +102,7 @@ var wcfClientFactory = new WcfCommunicationClientFactory<ICalculator>
     (clientBinding: binding, servicePartitionResolver: partitionResolver);
 
 //
-// Create a client for communicating with the ICalculator service that has been created with the
+// Create a client for communicating with hello ICalculator service that has been created with the
 // Singleton partition scheme.
 //
 var calculatorServiceCommunicationClient =  new WcfCommunicationClient(
@@ -111,14 +111,14 @@ var calculatorServiceCommunicationClient =  new WcfCommunicationClient(
                 ServicePartitionKey.Singleton);
 
 //
-// Call the service to perform the operation.
+// Call hello service tooperform hello operation.
 //
 var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
                 client => client.Channel.Add(2, 3)).Result;
 
 ```
 > [!NOTE]
-> ServicePartitionResolver varsayılan istemci hizmeti olarak aynı kümedeki çalıştığını varsayar. Diğer bir deyişle Aksi halde, bir ServicePartitionResolver nesnesi oluşturur ve küme bağlantı uç noktalardan geçirin.
+> Merhaba varsayılan ServicePartitionResolver hello istemci aynı küme hello hizmet olarak çalışıyor varsayar. Diğer bir deyişle değil hello durumlarda bir ServicePartitionResolver nesnesi oluşturma ve hello küme bağlantı uç geçirin.
 > 
 > 
 

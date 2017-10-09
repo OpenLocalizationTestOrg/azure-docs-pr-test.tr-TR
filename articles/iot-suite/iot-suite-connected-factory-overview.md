@@ -1,6 +1,6 @@
 ---
-title: "Azure IoT Paketi bağlı fabrikaya genel bakış | Microsoft Docs"
-description: "Azure IoT Paketi önceden yapılandırılmış bağlı fabrika çözümü açıklaması."
+title: "IOT paketi aaaAzure bağlı Fabrika genel bakış | Microsoft Docs"
+description: "Hello Azure IOT paketi açıklamasını Fabrika önceden yapılandırılmış çözüm bağlı."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,263 +15,263 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2017
 ms.author: dobett
-ms.openlocfilehash: d502c8e2e2715899279f6ebcf7ed89c19a1bb9a6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 929b5ed41ef7d82c9b4480d02aa3f0db38931919
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>Önceden yapılandırılmış bağlı fabrika çözümlerini kullanmaya başlama
+# <a name="get-started-with-hello-connected-factory-preconfigured-solution"></a>Bağlı hello Fabrika önceden yapılandırılmış çözümü ile çalışmaya başlama
 
-Azure IoT Paketi [önceden yapılandırılmış çözümleri][lnk-preconfigured-solutions], ortak IoT iş senaryolarını uygulayan uçtan uca çözümler sunmak için birden çok Azure IoT hizmetini birleştirir. Önceden yapılandırılmış *bağlı fabrika* çözümü endüstriyel cihazlarınıza bağlanır ve cihazları izler. Çözümü kullanarak cihazlarınızdan yapılan veri akışını analiz edebilir, operasyonel verimliliği ve karlılığı artırabilirsiniz.
+Azure IOT paketi [önceden yapılandırılmış çözümleri] [ lnk-preconfigured-solutions] ortak IOT iş senaryolarını uygulayan birden çok Azure IOT Hizmetleri toodeliver uçtan uca çözümler birleştirin. Merhaba *bağlı Fabrika* önceden yapılandırılmış çözüm endüstriyel aygıtlarınızı tooand izleyiciler bağlanır. Merhaba çözüm tooanalyze hello akış cihazlarınız ve toodrive işletimsel verimliliğini ve Karlılık verilerini kullanabilirsiniz.
 
-Bu öğretici, önceden yapılandırılmış bağlı fabrika çözümünün nasıl hazırlanacağını gösterir. Ayrıca, önceden yapılandırılmış çözümün temel özelliklerinde rehberlik sağlar. Bu özelliklerin birçoğuna önceden yapılandırılmış çözümün bir parçası olarak dağıtılan çözüm *panosundan* erişebilirsiniz:
+Bu öğretici, tooprovision hello Fabrika nasıl bağlanacağını gösterir. önceden yapılandırılmış çözümü. Bu ayrıca, hello aracılığıyla hello önceden yapılandırılmış çözümün temel özellikleri açıklanmaktadır. Bu özelliklerin çoğunu hello çözümden erişebilirsiniz *Pano* hello önceden yapılandırılmış çözümün bir parçası dağıtır:
 
 ![önceden yapılandırılmış bağlı fabrika çözümü panosu][img-cf-home]
 
-Bu öğreticiyi tamamlamak için etkin bir Azure aboneliğinizin olması gerekir.
+toocomplete Bu öğreticide, bir etkin Azure aboneliği gerekir.
 
 > [!NOTE]
 > Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü][lnk_free_trial].
 > 
 > 
 
-## <a name="provision-the-solution"></a>Çözüm sağlama
+## <a name="provision-hello-solution"></a>Sağlama hello çözümü
 
-1. Azure hesabı kimlik bilgilerinizi kullanarak azureiotsuite.com adresinde oturum açın ve çözüm oluşturmak için “**+**” seçeneğine tıklayın.
-2. **Bağlı fabrika** kutucuğunda **Seç**’e tıklayın.
+1. Azure hesabı kimlik bilgilerinizi kullanarak tooazureiotsuite.com üzerinde oturum öğesini tıklatıp "**+**" toocreate bir çözüm.
+2. Tıklatın **seçin** hello üzerinde **bağlı Fabrika** döşeme.
 3. Önceden yapılandırılmış bağlı fabrika çözümünüz için bir **Çözüm adı** girin.
-4. Çözümü hazırlarken kullanmak istediğiniz **Abonelik** ve **Bölge** seçimini yapın.
-5. Hazırlama işlemini başlatmak için **Çözümü Oluştur**'a tıklayın. Bu işlemin çalışması genellikle birkaç dakika sürer.
+4. Select hello **abonelik** ve **bölge** toouse tooprovision hello çözüm istiyorsunuz.
+5. Tıklatın **çözümü Oluştur** toobegin hello sağlama işlemi. Bu işlem genellikle birkaç dakika toorun alır.
 
-### <a name="while-you-wait-for-the-provisioning-process-to-complete"></a>Hazırlama işleminin tamamlanmasını beklerken
+### <a name="while-you-wait-for-hello-provisioning-process-toocomplete"></a>İşlem toocomplete sağlama hello için beklerken
 
-1. Çözümünüzün **Hazırlama** durumuna sahip olan kutucuğuna tıklayın.
-2. Azure hizmetleri Azure aboneliğinize dağıtılırken **Hazırlama durumlarına** dikkat edin.
-3. Hazırlama tamamlandığında durum **Hazır** olarak değişir.
-4. Kutucuğa tıkladığınızda sağ bölmede çözümünüzün ayrıntılarını görürsünüz.
+1. Çözümünüzle birlikte Hello kutucuğa tıklayın **sağlama** durumu.
+2. Bildirim hello **hazırlama durumlarına** gibi Azure Hizmetleri Azure aboneliğinize dağıtılır.
+3. Hazırlama tamamlandığında durum değişikliklerini çok hello**hazır**.
+4. Merhaba döşeme toosee hello hello sağ bölmede çözümünüzün ayrıntılarını'ı tıklatın.
 
 > [!NOTE]
-> Önceden yapılandırılmış çözümün dağıtımında sorunlarla karşılaşırsanız bkz. [Azureiotsuite.com sitesindeki izinler][lnk-permissions] ve [Connected factory SSS](iot-suite-faq-cf.md). Sorunlar devam ederse [portalda][lnk-portal] bir hizmet bileti oluşturun.
+> Merhaba önceden yapılandırılmış çözümü dağıtma sorunlarla karşılaşırsanız, gözden [hello azureiotsuite.com sitesindeki izinler] [ lnk-permissions] ve hello [bağlı Fabrika SSS](iot-suite-faq-cf.md). Merhaba sorunları devam ederse, bir hizmet bileti hello üzerinde oluşturma [portal][lnk-portal].
 
-Görmeyi beklediğiniz ancak çözümünüz için listelenmemiş ayrıntılar mı var? [User Voice](https://feedback.azure.com/forums/321918-azure-iot)'da bize özellik önerileri verin.
+Çözümünüz için listelenmeyen toosee beklediğiniz ayrıntılar bulunur? [User Voice](https://feedback.azure.com/forums/321918-azure-iot)'da bize özellik önerileri verin.
 
 ## <a name="scenario-overview"></a>Senaryoya genel bakış
 
-Önceden yapılandırılmış bağlı fabrika çözümünü dağıttığınızda, genel bir endüstriyel senaryoyu adım adım görmenize olanak sağlayan kaynaklar ile önceden doldurulur. Bu senaryoda, çözüme bağlı çeşitli fabrikalar genel donanım verimliliğini (OEE) ve ana performans göstergelerini (KPI) hesaplamak için gereken veri değerlerini raporlar. Aşağıdaki bölümlerde şunları nasıl yapacağınız açıklanır:
+Bağlı hello dağıttığınızda Fabrika önceden yapılandırılmış çözüm, bu ortak endüstriyel senaryosu aracılığıyla toostep kaynak ile önceden doldurulmaz. Bu senaryoda, birkaç oluşturucuları bağlı hello veri değerleri gerekli toocompute toohello çözüm raporu genel donanım verimliliği (OEE) ve ana performans göstergelerini (KPI'lar). Merhaba aşağıdaki bölümlerde, nasıl göstermek için:
 
 * Fabrikayı, üretim hatlarını, istasyon OEE ve KPI değerlerini izleme
-* Azure Zaman Serisi Görüşlerini kullanarak bu cihazlardan oluşturulan telemetri verilerini analiz etme
-* Sorunları gidermek için uyarılara göre işlem yapma
+* Azure zaman serisi Öngörüler kullanarak bu cihazlardan oluşturulan hello telemetri verilerini çözümleme
+* Uyarıları toofix sorunları hareket
 
-Bu senaryonun temel bir özelliği, çözüm panosu kullanılarak tüm bu eylemlerin uzaktan gerçekleştirilebiliyor olmasıdır. Cihazlara fiziksel erişiminizin olması gerekmez.
+Bir anahtar, bu senaryo bu eylemleri uzaktan hello çözüm panodan için gerçekleştirebilir özelliğidir. Fiziksel erişim toohello aygıtları gerekmez.
 
-## <a name="view-the-solution-dashboard"></a>Çözüm panosunu görüntüleme
+## <a name="view-hello-solution-dashboard"></a>Görünüm hello çözüm Panosu
 
-Çözüm panosu, dağıtılan çözümü yönetmenizi sağlar. Bu, genel fabrika yapılandırmasının hiyerarşik gösterimidir. Örneğin, OEE ve KPI’leri görüntüleyebilir, telemetri için yeni düğümler yayımlayabilir ve uyarıları eyleme dönüştürebilirsiniz.
+Merhaba çözüm Panosu toomanage dağıtılan hello çözümü sağlar. Bu, genel fabrika yapılandırmasının hiyerarşik gösterimidir. Örneğin, OEE ve KPI’leri görüntüleyebilir, telemetri için yeni düğümler yayımlayabilir ve uyarıları eyleme dönüştürebilirsiniz.
 
-1. Sağlama tamamlandığında ve önceden yapılandırılmış çözümünüzün kutucuğu **Hazır**’ı gösterdiğinde, bağlı fabrika çözümü portalınızı yeni bir sekmede açmak için **Başlat**’ı seçin.
+1. Ne zaman hello Sağlama tamamlandıktan ve önceden yapılandırılmış çözümünüzün kutucuğu hello gösterir **hazır**, seçin **başlatma** tooopen bağlı Fabrika çözümü portalınızı yeni bir sekmede.
 
-    ![Önceden yapılandırılmış çözümü başlatma][img-launch-solution]
+    ![Merhaba önceden yapılandırılmış çözüm başlatma][img-launch-solution]
 
-1. Varsayılan olarak, çözüm portalı *panoyu* gösterir. Portalın diğer alanlarına gitmek için sayfanın sol tarafındaki menüyü kullanın.
+1. Varsayılan olarak, hello çözüm portalı hello gösterir *Pano*. toonavigate tooother alanları hello portalının hello sol taraftaki hello sayfasının hello menüsünü kullanın.
 
     ![Önceden yapılandırılmış bağlı fabrika çözümü panosu][cf-img-menu]
 
-Pano aşağıdaki bilgileri gösterir:
+Başlangıç Panosu aşağıdaki bilgilerle hello görüntüler:
 
-* Çözümdeki durumu, konumu ve geçerli üretim yapılandırmasını gösteren bir **fabrika listesi** paneli. Çözümü ilk kez çalıştırdığınızda, bir dizi sanal cihaz bulunur. Üretim hattı benzetimi, üretim hattı başına benzetimi yapılan görevleri gerçekleştiren ve verileri paylaşan üç gerçek OPC UA sunucusundan oluşur. OPC UA hakkında daha fazla bilgi için bkz. [Connected factory SSS](iot-suite-faq-cf.md).
-* Çözüme bağlı olan her cihazın konumunu görüntüleyen bir **harita**. Çözüm, bilgileri haritaya çizmek için Bing Haritalar API’sini kullanabilir. Aboneliğiniz Bing Haritalar Kurumsal API’si için etkinleştirildiyse, bu özellik otomatik olarak kullanılır. Etkinleştirilmediyse, haritayı nasıl dinamik hale getireceğinizi öğrenmek için [SSS][lnk-faq] bölümüne bakın.
+* A **Fabrika listesi** hello durumu, konum ve üretim yapılandırmasına hello çözümde gösterir paneli. Merhaba çözümü ilk kez çalıştırdığınızda, çok sayıda sanal cihaz vardır. Merhaba üretim hattı benzetimi sanal görevlerini gerçekleştiren, veri paylaşımı üç gerçek OPC UA sunucularının üretim hattı başına oluşur. Merhaba OPC UA hakkında daha fazla bilgi için bkz: [bağlı Fabrika SSS](iot-suite-faq-cf.md).
+* A **harita** her cihazın görüntüler hello konumu toohello çözüm bağlı. Merhaba çözüm hello haritada hello Bing Haritalar API'si tooplot bilgileri kullanabilirsiniz. Aboneliğiniz Bing Haritalar Kurumsal API’si için etkinleştirildiyse, bu özellik otomatik olarak kullanılır. Değilse, hello bkz [SSS] [ lnk-faq] toolearn nasıl toomake hello harita dinamik.
 * Telemetri veya OEE/KPI değeri belirli bir eşiği aştığında oluşturulan uyarıların gösterildiği **Uyarılar** paneli.
-* Kuruluşun tamamı için veya görüntülediğiniz fabrika/üretim hattı/istasyon için OEE değerlerinin gösterildiği **Genel Donanım Verimliliği** paneli. Bu değer, kurumsal düzeyi bulmak için istasyon görünümünden toplanır. OEE şekli ve bu şekli oluşturan öğeler daha fazla analiz edilebilir.
-* Kuruluşun tamamında veya görüntülediğiniz fabrika/üretim hattı/istasyonda üretilen birimlerin ve kullanılan enerjinin görüntülendiği **Ana Performans Göstergeleri** paneli. Bu değerler, kurumsal düzeyi bulmak için istasyon görünümünden toplanır.
+* Bir **genel donanım verimliliği** hello tüm kuruluş veya hello Fabrika/üretim hello OEE değerleri satır /, istasyon gösterir görüntüleme paneli. Bu değer hello istasyon görünüm toohello Kurumsal düzeyden toplanır. Merhaba OEE şekil ve bağlı öğeleri daha fazla analiz.
+* **Ana performans göstergelerini** üretilen birim ve hello tüm kuruluş veya hello Fabrika/üretim hattı tarafından kullanılan enerji hello sayısını görüntüler /, istasyon paneli görüntülemekte olduğunuz. Bu değerleri istasyon görünüm toohello kuruluş düzeyinde toplanır.
 
 ## <a name="view-factories"></a>Fabrikaları görüntüleme
 
-*Fabrikalar* paneli çözümdeki tüm fabrikaların coğrafi konumunu, durumlarını ve geçerli üretim yapılandırmasını gösterir. Konum listesinden, çözüm hiyerarşisindeki diğer düzeylere gidebilirsiniz. Listedeki satırlar, söz konusu konumdaki üretim hatlarının ayrıntılarına bağlanan birer köprüdür. Böylelikle, üretim hattının detaylarına ve istasyon düzeyi görünümüne gitmek mümkün olur. Ayrıca listeye filtre uygulayabilirsiniz.
+Merhaba *oluşturucuları* panel hello çözüm, durum ve üretim yapılandırmasına tüm hello factory'leri coğrafi konumunu hello gösterir. Merhaba konumları listeden hello çözüm hiyerarşideki diğer düzeyleri toohello gidebilirsiniz. Merhaba satırları hello listesinde hello Üretim satırları bu konumda ayrıntılarını bağlantı köprüleri edilir. Bundan sonra olası toodrill hello üretim satırı ayrıntıları ve toohello istasyon seviye görünümü aşağı olur. Ayrıca, bir filtre toohello listesi uygulayabilirsiniz.
 
 ![Önceden yapılandırılmış bağlı fabrika çözümü fabrikaları][cf-img-factories] 
 
-1. **Fabrika paneli**’nde bu çözümün fabrika listesi gösterilir.
+1. Merhaba **Fabrika paneli** hello Bu çözüm için Fabrika listesini gösterir.
 
-2. Fabrika listesi başlangıçta hazırlama işlemi tarafından oluşturulan altı fabrika gösterir. Çözüme başka sanal ve fiziksel cihazlar ekleyebilirsiniz.
+2. Merhaba Fabrika liste başlangıçta altı oluşturucuları hello sağlama işlemi tarafından oluşturulan gösterir. Ek sanal ve fiziksel cihaz toohello çözüm ekleyebilirsiniz.
 
-3. Fabrikanın ayrıntılarını görüntülemek için fabrika listesindeki satıra tıklayın.
+3. bir Fabrika tooview hello ayrıntılarını hello Fabrika listesindeki hello satır'ı tıklatın.
 
-4. Üretim hattının ayrıntılarını görüntülemek için listedeki satıra tıklayın.
+4. bir üretim satırının tooview hello Ayrıntılar hello listesindeki hello satır'ı tıklatın.
 
-5. Üretim hattında bir istasyonun yayımlanmış OPC UA düğümlerini görüntülemek için listedeki satıra tıklayın.
+5. istasyonu hello üretim satırındaki OPC UA düğümlerinin tooview hello yayımlanan, hello listesinde hello satıra tıklayın.
 
-6. İstasyondaki belirli bir düğümün ayrıntılarını görüntülemek için listedeki satıra tıklayın. Bu eylem, Zaman Serisi Görüşleri görselleriyle bağlam panelini başlatır. Zaman Serisi Görüşleri gezgin ortamında daha fazla analiz yapmak için bu grafiklere tıklayın.
+6. Merhaba istasyon, belirli bir düğümde tooview Ayrıntılar hello listesindeki hello satır'ı tıklatın. Bu eylemin hello bağlam panel zaman serisi Öngörüler görselleştirmeleri ile başlatır. Bu grafik toodo çözümlemeler hello zaman serisi Öngörüler explorer ortamında'ı tıklatın.
 
 ## <a name="view-map"></a>Haritayı görüntüleme
 
-Aboneliğinizin Bing Haritalar API’sine erişimi varsa, *Fabrikalar* haritasında size çözümdeki tüm fabrikaların coğrafi konumu ve durumu gösterilir. Konumun detaylarına gitmek için haritada görüntülenen konumlara tıklayın.
+Aboneliğinizi erişim toohello Bing Haritalar API'si varsa, hello *oluşturucuları* eşlemesini gösterir, hello coğrafi konumu ve tüm hello oluşturucuları durumunu hello çözümde. Merhaba konum ayrıntıları içine toodrill hello haritada görüntülenmelerini hello konumları'ı tıklatın.
 
 ![Önceden yapılandırılmış bağlı fabrika çözümü haritası][cf-img-map]
 
 ## <a name="view-alerts"></a>Uyarıları görüntüleme
 
-**Uyarı** panelinde, raporlanan bir değerin veya hesaplanan OEE/KPI değerinin yapılandırılmış eşiği aşmasından dolayı üretilen uyarılar gösterilir. Bu panelde, istasyon düzeyi görünümünden genel görünüme kadar her hiyerarşi düzeyindeki uyarılar görüntülenir. Uyarılar, uyarının açıklamasını, tarihini, saatini, konumunu ve tekrarlanma sayısını içerir. Zaman Serisi Görüşleri verilerini kullanarak uyarıya neden olan fikirlerle ilgili görüş sahibi olabilirsiniz. Zaman Serisi Görüşleri’nin verileri, uygun olduğunda uyarılarda görselleştirilir. Yöneticiyseniz, uyarılar üzerinde şu varsayılan eylemleri gerçekleştirebilirsiniz:
+Merhaba **uyarı** paneli gösterir, son oluşturulan uyarıların tooa bildirilen değer veya yapılandırılmış eşiğini aşan bir hesaplanmış OEE/KPI değeri. Bu panoyu hello hiyerarşiden başlangıç istasyon düzey görünümü toohello genel görünümü her düzeyinde uyarıları görüntüler. Merhaba uyarıları hello uyarı, tarih, saat, konum ve yineleme sayısı açıklamasını içerir. Merhaba zaman serisi istatistik verilerine kullanarak hello uyarıya neden toohello veri öngörü elde edebilirsiniz. Merhaba zaman serisi içindeki veri görselleştirilen Insights uyarıları uygunsa hello. Bir yöneticiyseniz, gibi hello Uyarılardaki varsayılan eylemleri gerçekleştirebilirsiniz:
 
-* Uyarıyı kapatma.
-* Uyarıyı kabul etme.
+* Kapat hello uyarı.
+* Merhaba uyarı kabul ediyorsunuz.
 
-İsteğe bağlı olarak, daha karmaşık eylemler de gerçekleştirebilirsiniz. Örneğin, Montajın Basınç OPC UA Düğümü için şunları yapabilirsiniz:
+İsteğe bağlı olarak, daha karmaşık eylemler de gerçekleştirebilirsiniz. Örneğin, Merhaba baskısı OPC UA hello derleme düğümünün, olabilir:
 
 * Destek bilgilerini yeni bir tarayıcı penceresinde bir web sayfasında gösterme.
-* Cihazda OPC UA metodunu çağırarak uyarıya neden olan sorunu giderme.
-* Varsayılan eylemlerin kullanılabilirliğini engelleme.
+* Merhaba hello uyarı hello aygıtta bir OPC UA yöntemini çağırarak en aza.
+* Merhaba varsayılan eylemleri Hello kullanılabilirliğini engelleyin.
 
     ![Önceden yapılandırılmış bağlı fabrika çözümü uyarıları][cf-img-alerts]
 
 > [!NOTE]
-> Bu uyarılar, önceden yapılandırılmış çözümdeki yapılandırma dosyasında belirtilen kurallar tarafından oluşturulur. Bu kurallar, OEE veya KPI rakamları veya OPC UA Düğüm değerleri yapılandırılmış eşiği aştığında uyarılar oluşturur.
+> Bu uyarılar hello önceden yapılandırılmış çözümde yapılandırma dosyasında belirtilen kurallar tarafından oluşturulan. Merhaba OEE veya KPI rakamları veya OPC UA düğüm değerlerini kendi yapılandırılan eşiği aşıldığında bu kurallar uyarılar oluşturabilir.
 
-1. **Uyarılar panosunda**, bu çözümde oluşturulan uyarılar gösterilir.
+1. Merhaba **uyarıları paneli** hello bu çözümde oluşturulan uyarıları gösterir.
 
-2. Uyarıların ayrıntılarını görüntülemek için, uyarılar panelinde uyarıya tıklayın.
+2. tooview hello bir uyarının ayrıntılarını hello uyarıları panelinde hello uyarıyı tıklatın.
 
-3. Uyarı verilerinde daha fazla analiz yapmak için, uyarı panelindeki grafiğe tıklayarak Zaman Serisi Görüşleri gezgin ortamını açın.
+3. toofurther hello uyarı verileri çözümlemek, hello grafik ortamında hello uyarı paneli tooopen hello zaman serisi Öngörüler explorer'ı tıklatın.
 
-4. Uyarıya çözmek için, uyarı panelinde çeşitli eylemler sağlanır. Kendinize uygun seçeneği seçin ve eylemi yürütme komut düğmesine tıklayın.
+4. Uyarı tooaddress Merhaba, çeşitli eylemler hello uyarı panelinde kullanılabilir. Merhaba sizin için uygun seçeneği seçin ve hello tıklatın eylem komut düğmesi yürütün.
 
 ## <a name="view-overall-equipment-efficiency"></a>Genel donanım verimliliğini görüntüleme
 
-OEE, üretimle ilgili önemli operasyonel parametreleri kullanarak üretim sürecinin verimliliğini derecelendirir. OEE, kullanılabilirlik oranı, performans oranı ve kalite oranının çarpılmasıyla hesaplanan standart bir endüstri ölçümüdür: OEE = kullanılabilirlik x performans x kalite.
+OEE oranları anahtar bir üretim ile ilgili işletimsel parametrelerini kullanarak hello üretim işlem verimliliğini hello. OEE olan standart ölçü hesaplanan hello kullanılabilirlik oranı, performans oranı ve kalite oranı çarparak sektör: OEE kullanılabilirlik performans x kalitesi x =.
 
 ![Önceden yapılandırılmış bağlı fabrika çözümü OEE][cf-img-oee]
 
-1. Hiyerarşideki herhangi bir düzeyin OEE ölçümünü görüntülemek için, ihtiyacınız olan görünüme gidin. Söz konusu görünümün OEE’si panelde OEE yüzdesini oluşturan öğelerden her biriyle birlikte görüntülenir.
+1. tooview OEE hello hiyerarşideki herhangi bir düzeye için ihtiyaç duyduğunuz toohello belirli görünüm gidin. Merhaba OEE bu görünümün hello paneli OEE yüzdesi hello yapmak hello öğelerin her biri ile birlikte görüntüler.
 
-2. Hiyerarşi verilerinin herhangi bir düzeyinde OEE’de daha fazla analiz yapmak için, OEE, kullanılabilirlik, performans veya kalite yüzdesine tıklayın. Son bir saatin, son 24 saatin ve son 7 günün verilerinin gösterildiği, Zaman Serisi Görüşleri ile desteklenen görselleştirmelerle bir bağlam paneli görüntülenir.
+2. toofurther Merhaba OEE hello hiyerarşi verilerinde herhangi bir düzeye çözümlemek, hello OEE, kullanılabilirlik, performans veya kalite yüzdesi'ı tıklatın. Bir bağlam paneli zaman serisi Insights ile Merhaba son bir saat, son 24 saat ve son 7 gün verileri gösterir güç beslemeli görselleştirmeleri görüntülenir.
 
     ![Önceden yapılandırılmış bağlı fabrika çözümü TSI görselleştirmesi][cf-img-tsi-visualization]
 
-3. Uyarı verilerini daha fazla analiz etmek için, uyarı panelindeki grafiğe tıklayın. Bu eylem Zaman Serisi Görüşleri düzenleyici ortamını açar.
+3. toofurther hello uyarı verileri çözümlemek, hello uyarı panelinde hello grafiğe tıklayın. Bu eylemin hello zaman serisi Öngörüler explorer ortamı açılır.
 
     ![Önceden yapılandırılmış bağlı fabrika çözümü TSI gezgini][cf-img-tsi-explorer]
 
 ## <a name="view-key-performance-indicators"></a>Önemli Performans Göstergelerini görüntüleme
 
-Çözüm iki önemli performans göstergesi (*saat başına birim sayısı* ve *kWh cinsinden kullanılan enerji*) sağlar.
+Merhaba çözümdür iki ana performans göstergelerini *saat başına birim* ve *KW/saat içinde kullanılan enerji*.
 
 ![Önceden yapılandırılmış bağlı fabrika çözümü KPI][cf-img-kpi]
 
-1. Hiyerarşideki herhangi bir düzeyin saat başına birim sayısını veya kullanılan enerji miktarını görüntülemek için, ihtiyacınız olan görünüme gidin. Saat başına birim sayısı ve kullanılan enerji miktarı panelde görüntülenir.
+1. saat veya hello hiyerarşideki herhangi bir düzeye için kullanılan enerji başına tooview birim toohello belirli görünüm ihtiyaç duyduğunuz gidin. saat ve enerji başına Hello birim hello Masası'nda görünen kullanılır.
 
-2. Hiyerarşinin herhangi bir düzeyinde saat başına birim sayısını ve kullanılan enerji miktarını daha ayrıntılı analiz etmek için **Önemli Performans Göstergeleri** panelindeki ölçere tıklayın. Son bir saatin, son 24 saatin ve son 7 günün verilerini görebilmenizi sağlayan Zaman Serisi Görüşleri ile desteklenen görselleştirmelerle bir bağlam paneli görüntülenir.
+2. saat veya daha fazla hello hiyerarşideki herhangi bir düzeye için kullanılan enerji başına tooanalyze birim tıklatın hello hello ölçerde **anahtar performans göstergelerini** paneli. Zaman serisi gücü Öngörüler görselleştirmelerle hello son bir saat hello son 24 saat ve son 7 gün tooview verilerden etkinleştirme bağlamı paneli görüntülenir.
 
 ## <a name="scenario-review"></a>Senaryo gözden geçirme
 
-Bu senaryoda, panoda fabrikalarınızın OEE ve KPI değerlerini izlediniz. Ardından, anormallikleri saptayabilmek için OEE ve KPI’lerin telemetri verilerinde daha fazla detaya gitmenize yardımcı olacak daha fazla bilgi sağlamak üzere Zaman Serisi Görüşleri’ni kullandınız. Ayrıca, fabrikalarınızdaki sorunları görüntülemek üzere uyarı panosundan yararlandınız ve uyarının sorununu çözmek için size sağlanan eylemleri kullandınız.
+Bu senaryoda, oluşturucuları OEE ve KPI'leri değerler hello panosunda izlenen. Ardından anormallikleri algılama ile OEE ve KPI'leri toohelp için zaman serisi Öngörüler tooprovide daha fazla bilgi toohelp ayrıntıya daha fazla hello telemetri verileri kullanılır. Ayrıca hello uyarı paneli tooview sorunları, oluşturucuları ile kullanılan ve hello eylemleri kullanılabilir tooyou tooresolve hello uyarı kullanılır.
 
 ## <a name="other-features"></a>Diğer özellikler
 
-Aşağıdaki bölümlerde, bağlı fabrika çözümünün önceki senaryoda bahsedilmeyen bazı ek özellikleri açıklanmaktadır.
+Aşağıdaki bölümlerde hello hello önceki senaryoda açıklanan olmayan bazı ek bağlı hello Fabrika çözüm özelliklerini açıklar.
 
 ## <a name="apply-filters"></a>Filtreleri uygulama
 
-1. Fabrika konumları panelinde veya uyarılar panelinde kullanılabilir filtrelerin listesini görüntülemek için **köşeli çift ayraca** tıklayın.
+1. Merhaba tıklatın **Köşeli Çift Ayraca** toodisplay hello Fabrika konumları paneli veya hello uyarıları panelinde kullanılabilir filtrelerin listesi.
 
-2. Sizin için filtreler paneli görüntülenir. 
+2. Merhaba Filtreler paneli sizin için görüntülenir. 
 
     ![Önceden yapılandırılmış bağlı fabrika çözümü filtreleri][cf-img-alert-filter]
 
-3. Gerek duyduğunuz filtreyi seçin. Filtre alanlarına serbest metin yazmak mümkündür.
+3. İhtiyaç duyduğunuz hello filtre seçin. Olası tootype serbest metin hello filtre alanlara da sağlar.
 
-4. Ardından filtre sizin için uygulanır. Panoda, fabrikalar ve uyarılar tablolarının içinde görüntülenen bir huni aracılığıyla filtrenin durumu da gösterilir.
+4. Merhaba filtre ardından sizin için uygulanır. Merhaba filtre durumu hello factory'leri görüntüler ve tabloları uyarıları bir huni aracılığıyla hello panosunda da gösterilmektedir.
 
     ![Önceden yapılandırılmış bağlı fabrika çözümü filtreleri][cf-img-alert-filter-funnel]
 
     > [!NOTE]
-    > Etkin bir filtre görüntülenen OEE ve KPI değerlerini etkilemez; yalnızca liste içeriğini filtreler.
+    > Etkin bir filtreyi görüntülenen hello OEE ve KPI değerleri etkilemez yalnızca hello listesi içeriğine filtre uygular.
 
-5. Filtreyi temizlemek için huniye tıklayın ve filtre bağlam panelinde filtreye tıklayın. Fabrikalar ve uyarılar tablolarında **Tümü** metni görüntülenir.
+5. tooclear bir filtre hello Huni tıklayın ve filtre hello filtre bağlamı panelinde'yi tıklatın. Merhaba metin **tüm** hello factory'leri görüntülenir ve tabloları uyarır.
 
 ## <a name="browse-an-opc-ua-server"></a>OPC UA sunucusuna göz atma
 
-Önceden yapılandırılmış çözümü dağıttığınızda, çözüm tarayıcısı üzerinden göz atabileceğiniz sanal OPC UA sunucularını otomatik olarak hazırlarsınız. Bu sunucular, *sanal OPC UA sunucularıdır*. Sanal sunucular herhangi bir gerçek ve fiziksel sunucuya dağıtmaya gerek kalmadan önceden yapılandırılmış çözümü denemenizi kolaylaştırır. Çözüme gerçek bir OPC UA sunucusu bağlamak istemiyorsanız [OPC UA cihazınızı önceden yapılandırılmış bağlı fabrika çözümüne bağlama][lnk-connect-cf] öğreticisine bakın.
+Hello önceden yapılandırılmış çözümü dağıttığınızda, hello çözüm tarayıcı yoluyla göz atabilirsiniz benzetimli OPC UA sunucuları otomatik olarak sağlayın. Bu sunucular, *sanal OPC UA sunucularıdır*. Sanal sunucuları sizin için tooexperiment Merhaba, gerek toodeploy gerçek, fiziksel sunucuları olmadan hello önceden yapılandırılmış Çözümle kolaylaştırır. Merhaba tooconnect gerçek OPC UA sunucu toohello çözüm istiyorsanız bkz [OPC UA cihaz bağlı toohello Fabrika önceden yapılandırılmış çözümünüz bağlanmak] [ lnk-connect-cf] Öğreticisi.
 
-1. Pano gezinti çubuğunda **fabrika simgesine** tıklayın.
+1. Merhaba tıklatın **Fabrika simgesi** hello Panosu gezinti çubuğunda.
 
     ![Önceden yapılandırılmış bağlı fabrika çözümü sunucu tarayıcısı][cf-img-server-browser]
 
-2. Önceden yapılandırılmış listedeki sunuculardan birini seçin. Bu listede, önceden yapılandırılmış çözümde sizin için dağıtılan sunucular gösterilir.
+2. Merhaba sunuculardan biri hello önceden yapılandırılmış listeden seçin. Bu liste, sizin için önceden yapılandırılmış hello çözümde dağıtılan hello sunucularını gösterir.
 
     ![Önceden yapılandırılmış bağlı fabrika çözümü sunucu seçimi][cf-img-server-choice]
 
-3. **Bağlan**’a tıklayın; güvenlik iletişim kutusu görüntülenir. Benzetim için, **Devam Et**’e tıklamak güvenlidir
+3. **Bağlan**’a tıklayın; güvenlik iletişim kutusu görüntülenir. İsteğe bağlı olarak Hello benzetimi için güvenli tooclick olan **devam et**
 
-4. Sunucu ağacındaki düğümlerden herhangi birini genişletmek için düğüme tıklayın. Yayımlama telemetrisi olan düğümlerin yanında bir onay işareti vardır.
+4. tooexpand herhangi bir hello sunucu ağacında hello düğüme tıklayın. Yayımlama telemetrisi olan düğümlerin yanında bir onay işareti vardır.
 
     ![Önceden yapılandırılmış bağlı fabrika çözümü sunucu ağacı][cf-img-server-tree]
 
-5. Düğümü okumak, yazmak, yayımlamak veya çağırmak için bir öğeye sağ tıklayın. Kullanabileceğiniz eylemler, izinlerinize ve düğümün özniteliklerine bağlıdır. Okuma seçeneği belirli bir düğümün değerini gösteren içerik panelini görüntüler. Yazma seçeneği yeni değer girebileceğiniz bir bağlam paneli görüntüler. Çağırma seçeneği çağrı için parametreleri girebileceğiniz bir düğüm görüntüler.
+5. Bir öğe tooread sağ tıklatın, yazma, yayımlama veya bu düğüm çağırın. Merhaba eylemleri kullanılabilir tooyou, izinleri ve hello düğümü hello özniteliklerini bağlıdır. Merhaba seçeneği toodisplays hello belirli düğüm hello değerini gösteren bir bağlam panel okuyun. Yeni bir değer girebileceğiniz bir bağlam panel Hello yazma seçeneği görüntüler. Merhaba çağrısı seçeneği hello çağrısı için başlangıç parametreleri girebilecekleri bir düğüm görüntüler.
 
 ## <a name="publish-a-node"></a>Düğümü yayımlama
 
-*Sanal OPC UA sunucusuna* göz attığınızda, yeni düğümleri yayımlamayı da seçebilirsiniz. Çözümde bu düğümlerden gelen telemetriyi analiz edebilirsiniz. Bu *sanal OPC UA sunucuları* gerçek ve fiziksel cihaza dağıtmaya gerek olmadan önceden yapılandırılmış çözümü denemenizi kolaylaştırır.
+Göz atarken bir *benzetimli OPC UA sunucu*, yeni düğümler toopublish de seçebilirsiniz. Bu düğümden hello çözüm de hello telemetri analiz edebilirsiniz. Bunlar *benzetimli OPC UA sunucuları* gerçek, fiziksel cihazları dağıtmadan hello önceden yapılandırılmış çözümü ile kolay tooexperiment kolaylaştırır.
 
-1. OPC UA sunucusu tarayıcı ağacında yayımlamak istediğiniz düğüme göz atın.
+1. Merhaba toopublish istediğiniz OPC UA sunucu tarayıcı ağaç düğümünde tooa göz atın.
 
-2. Düğüme sağ tıklayın.
+2. Merhaba düğümünü sağ tıklatın.
 
 3. **Yayımla**’yı seçin.
 
     ![Bağlı fabrika yayımlama düğümü][cf-img-publish-node]
 
-4. Yayımlama işleminin başarılı olduğunu bildiren bir bağlam paneli görüntülenir. Düğüm, istasyon düzeyi görünümünde yanında bir onay işaretiyle gösterilir.
+4. Merhaba yayımlama söyleyen bir bağlam paneli görünür başarılı oldu. Merhaba düğümü hello istasyon düzeyi görünümünde yanında bir onay işareti görünür.
 
     ![Önceden yapılandırılmış bağlı fabrika çözümü yayımlama başarısı][cf-img-publish-success]
 
 ## <a name="command-and-control"></a>Komut ve denetim
 
-Bağlı fabrika, endüstri cihazlarınızı doğrudan buluttan kumanda etmenize ve denetlemenize olanak tanır. Cihaz tarafından oluşturulan uyarıları yanıtlamak için bu özelliği kullanabilirsiniz. Örneğin, buluttan cihaza bir komut gönderebilirsiniz. Kullanılabilir komutları, OPC UA sunucuları tarayıcı ağacındaki **StationCommands** düğümünde bulabilirsiniz. Bu senaryoda, Münih’teki üretim hattının montaj istasyonundaki basınç tahliye vanasını açıyorsunuz. Kumanda etme ve denetleme işlevselliğini kullanmak için, önceden yapılandırılmış çözüm dağıtımında **Yönetici** rolünde olmanız gerekir.
+Merhaba bağlı Fabrika komut ve endüstri aygıtlarınızı hello bulut doğrudan denetim sağlar. Bu özellik toorespond tooalerts hello aygıt tarafından üretilen kullanabilirsiniz. Örneğin, bir komut toohello aygıt hello buluttan gönderebilir. Kullanılabilir komutlar hello hello bulabilirsiniz **StationCommands** hello OPC UA sunucuları tarayıcı ağaç düğümü. Bu senaryoda, bir baskısı yayın Vana Münih bir üretim satırının hello derleme istasyondaki açın. toouse hello komut ve denetim işlevleri, hello olmalıdır **yönetici** rolü hello için önceden yapılandırılmış Çözüm dağıtımı.
 
-1. OPC UA sunucusu tarayıcı düğümünde **StationCommands** düğümüne göz atın.
+1. Toohello Gözat **StationCommands** hello OPC UA sunucu tarayıcı ağaç düğümü.
 
-2. Kullanmak istediğiniz komutu seçin.
+2. Kullanmak istediğiniz hello komutu seçin.
 
-3. Düğüme sağ tıklayın.
+3. Merhaba düğümünü sağ tıklatın.
 
 4. **Çağır**’ı seçin.
 
     ![Önceden yapılandırılmış bağlı fabrika çözümü çağır komutu][cf-img-call-command]
 
-5. Çağırmak üzere olduğunuz yöntem ve uygulanabilecek parametre ayrıntıları hakkında bilgi veren bir bağlam paneli açılır.
+5. Bir bağlam panel hangi yöntemi bildiren hakkında toocall olan ve herhangi bir parametre ayrıntıyı uygulanabilir olduğunda görünür.
 
 6. **Çağır**’ı seçin.
 
     ![Önceden yapılandırılmış bağlı fabrika çözümü çağrı bağlamı][cf-img-call-context]
 
-7. Bağlam paneli, yöntem çağrısının başarılı olduğunu bildirecek şekilde güncelleştirilir. Çağrı sonucu güncelleştirilen basınç düğümünün değerini okuyarak çağrının başarılı olduğunu doğrulayabilirsiniz.
+7. yöntem çağrısının Merhaba, başarılı bir şekilde güncelleştirilmiş tooinform Hello bağlam panosudur. Merhaba çağrı sonucunda güncelleştirilmiş hello baskısı düğümü hello değeri okuyarak başarılı hello çağrısı doğrulayabilirsiniz.
 
     ![Önceden yapılandırılmış bağlı fabrika çözümü çağrı başarısı][cf-img-call-success]
 
 
-## <a name="behind-the-scenes"></a>Arka planda
+## <a name="behind-hello-scenes"></a>Merhaba arka planda
 
-Önceden yapılandırılmış bir çözümü dağıttığınızda, dağıtım işlemi seçtiğiniz Azure aboneliğinde birden çok kaynak oluşturur. Bu kaynakları Azure [portalında][lnk-portal] görüntüleyebilirsiniz. Dağıtım işlemi, önceden yapılandırılmış çözümünüz için seçtiğiniz adı temel alan bir ada sahip bir **kaynak grubu** oluşturur:
+Önceden yapılandırılmış çözümü dağıttığınızda, hello dağıtım işlemi hello Seçtiğiniz Azure aboneliği birden çok kaynak oluşturur. Bu kaynaklar hello Azure görüntüleyebilirsiniz [portal][lnk-portal]. Merhaba dağıtım işlemi oluşturur bir **kaynak grubu** önceden yapılandırılmış çözümünüz için seçtiğiniz hello adına dayalı bir ada sahip:
 
-![Azure portalında önceden yapılandırılmış çözüm][img-cf-portal]
+![Önceden yapılandırılmış çözümde hello Azure portalı][img-cf-portal]
 
-Her bir kaynağın ayarlarını, kaynak grubundaki kaynaklar listesinde seçerek görüntüleyebilirsiniz.
+Her bir kaynağın hello ayarları hello hello kaynak grubundaki kaynaklar listesinde seçerek görüntüleyebilirsiniz.
 
-Önceden yapılandırılmış çözüm için kaynak kodunu da görüntüleyebilirsiniz. Önceden yapılandırılmış bağlı fabrika çözümünün kaynak kodu [azure-iot-connected-factory][lnk-cfgithub] GitHub deposundadır:
+Merhaba hello önceden yapılandırılmış çözüm için kaynak kodunu da görüntüleyebilirsiniz. Merhaba bağlı Fabrika önceden yapılandırılmış çözümün kaynak kodunu olduğu hello [azure-IOT-bağlı-Fabrika] [ lnk-cfgithub] GitHub deposunu:
 
-İşiniz bittiğinde önceden yapılandırılmış çözümü [azureiotsuite.com][lnk-azureiotsuite] sitesindeki Azure aboneliğinizden silebilirsiniz. Bu site, önceden yapılandırılmış çözümü oluşturduğunuzda sağlanan tüm kaynakları kolayca silmenize imkan tanır.
+İşiniz bittiğinde, Azure aboneliğinizin hello üzerinde hello önceden yapılandırılmış çözüm silebilirsiniz [azureiotsuite.com] [ lnk-azureiotsuite] site. Bu sitenin tüm hello önceden yapılandırılmış çözümü oluşturduğunuzda sağlanan kaynakları hello tooeasily Sil sağlar.
 
 > [!NOTE]
-> Önceden yapılandırılmış çözümle ilgili her şeyi sildiğinizden emin olmak için bu öğeleri [azureiotsuite.com][lnk-azureiotsuite] sitesinde silin. Portalda kaynak grubunu silmeyin.
+> her şeyi silin tooensure toohello önceden yapılandırılmış çözümle ilgili, üzerinde hello silme [azureiotsuite.com] [ lnk-azureiotsuite] site. Merhaba portal Hello kaynak grubunda silmeyin.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Çalışan bir önceden yapılandırılmış çözüm dağıttığınıza göre aşağıdaki makaleleri okuyarak IoT Paketi ile çalışmaya başlayabilirsiniz:
+Çalışan bir önceden çözüm dağıttıktan sonra aşağıdaki makaleler hello okuyarak IOT paketi ile Başlarken devam edebilirsiniz:
 
 * [Önceden yapılandırılmış bağlı fabrika çözümü yönergeleri][lnk-rm-walkthrough]
-* [Cihazınızı önceden yapılandırılmış Bağlı fabrika çözümüne bağlama][lnk-connect-cf]
-* [azureiotsuite.com sitesindeki izinler][lnk-permissions]
+* [Cihaz toohello bağlı Fabrika önceden yapılandırılmış çözümünüz Bağlan][lnk-connect-cf]
+* [Merhaba azureiotsuite.com sitesindeki izinler][lnk-permissions]
 
 [img-cf-home]:media/iot-suite-connected-factory-overview/cf-dashboard.png
 [img-launch-solution]: media/iot-suite-connected-factory-overview/launch-cf.png

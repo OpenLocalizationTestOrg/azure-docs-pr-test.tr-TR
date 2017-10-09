@@ -1,6 +1,6 @@
 ---
-title: "Azure hdınsight'ta Apache Spark machine learning uygulamaları derleme | Microsoft Docs"
-description: "Apache Spark machine learning uygulama oluşturmak adım adım yönergeler Jupyter Not Defteri kullanarak Spark Hdınsight kümeleri"
+title: "Azure Hdınsight uygulamaları öğrenme aaaBuild Apache Spark machine | Microsoft Docs"
+description: "Adım adım yönergeler Jupyter Not Defteri kullanarak nasıl uygulama Hdınsight Spark üzerinde öğrenme toobuild Apache Spark makine kümeleri"
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -16,41 +16,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: nitinme
-ms.openlocfilehash: 158ade4612104020e0231794e7123ea5cad6c459
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 332bd89876f7ebf178f7573d6018d064edfe9a8f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="build-apache-spark-machine-learning-applications-on-azure-hdinsight"></a>Azure hdınsight'ta Apache Spark machine learning uygulamaları derleme
 
-Hdınsight'ta Spark kümesi kullanarak uygulama öğrenme bir Apache Spark makine oluşturmayı öğrenin. Bu makalede kullanılabilir Jupyter not defteri ile küme oluşturmak ve bu uygulamayı test için nasıl kullanılacağı gösterilmektedir. Uygulama, varsayılan olarak tüm kümelerde kullanılabilir örnek HVAC.csv verileri kullanır.
+Nasıl toobuild bir Spark kullanarak Apache Spark machine learning uygulama küme Hdınsight'ta öğrenin. Bu makalede nasıl toouse Jupyter not defteri ile Merhaba küme toobuild kullanılabilir hello ve bu uygulamayı test gösterilmektedir. Merhaba uygulaması varsayılan olarak tüm kümelerde kullanılabilir hello örnek HVAC.csv verileri kullanır.
 
 **Ön koşullar:**
 
-Aşağıdakilere sahip olmanız gerekir:
+Merhaba şunlara sahip olmanız gerekir:
 
 * Hdınsight'ta bir Apache Spark kümesi. Yönergeler için bkz: [Azure Hdınsight'ta Apache Spark oluşturmak kümeleri](hdinsight-apache-spark-jupyter-spark-sql.md). 
 
-## <a name="data"></a>Veri kümesi anlama
-Uygulama oluşturmaya başlamadan önce bize, biz uygulama gerçekleştiririz analiz türünü verileri yapı ve verilerin yapısını anlayın. 
+## <a name="data"></a>Merhaba veri kümesi anlama
+Bize hello uygulaması oluşturmaya başlamadan önce biz Merhaba uygulaması gerçekleştiririz analiz hello tür hello verileri yapı ve hello verilerin hello yapısını anlayın. 
 
-Bu makaledeki örnek kullanırız **HVAC.csv** Hdınsight kümesi ile ilişkili Azure depolama hesabı kullanılabilir veri dosyası. Depolama hesabında dosya altındadır **\HdiSamples\HdiSamples\SensorSampleData\hvac**. Karşıdan yükle ve verilerin bir anlık görüntüsünü almak için CSV dosyasını açın.  
+Bu makalede, kullandığımız hello örnek **HVAC.csv** hello hello Hdınsight kümesi ile ilişkili Azure depolama hesabı kullanılabilir veri dosyası. Merhaba dosya altındadır Hello depolama hesabında **\HdiSamples\HdiSamples\SensorSampleData\hvac**. İndirip hello CSV dosyası tooget hello verilerin bir anlık görüntüsünü açın.  
 
 ![Spark machine learning örnek için kullanılan verilerin anlık görüntüsünü](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Spark machine learning örnek için kullanılan verilerin anlık görüntüsünü")
 
-Verileri hedef sıcaklık ve gerçek HVAC sistemleri yüklü olan bir bina sıcaklığını gösterir. Varsayalım **sistem** sütun sistem Kimliğini temsil eder ve **SystemAge** sütun HVAC sistem yapı yerinde açıldı yıl sayısını temsil eder.
+Merhaba verileri hello hedef sıcaklık ve hello gerçek HVAC sistemleri yüklü olan bir bina sıcaklığını gösterir. Merhaba varsayalım **sistem** sütunu temsil eder hello sistem Kimliğini ve hello **SystemAge** sütun hello hello HVAC sistem hello yapı yerinde açıldı yıl sayısını temsil eder.
 
-Bir yapı sistem Kimliğini ve sistem yaş verilen hedef sıcaklık hotter veya colder tabanlı olup olmayacağını tahmin etmek için bu verileri kullanırız.
+Bir yapı sistem Kimliğini ve sistem yaş verilen hello hedef sıcaklık üzerinde hotter veya colder tabanlı gerektirmeyeceğini bu verileri toopredict kullanırız.
 
 ## <a name="app"></a>Spark Mllib'i kullanarak Spark machine learning uygulaması yazma
-Bu uygulamada bir belge sınıflandırması yapmak için Spark ML işlem hattı kullanın. Ardışık düzeninde biz sözcüklere belgeyi bölme, bir sayısal özellik vektör sözcükleri dönüştürme ve son olarak özellik vektörlerinin ve etiketleri kullanarak bir tahmin modeli yapı. Uygulama oluşturmak için aşağıdaki adımları gerçekleştirin.
+Bu uygulamada Spark ML ardışık düzen tooperform bir belge sınıflandırma kullanırız. Merhaba ardışık düzeninde biz sözcüklere hello belgeyi bölme, bir sayısal özellik vektör hello sözcükleri dönüştürme ve son olarak hello özelliği vektörlerinin ve etiketleri kullanarak bir tahmin modeli yapı. Aşağıdaki adımları toocreate Merhaba uygulaması hello gerçekleştirin.
 
-1. [Azure Portal](https://portal.azure.com/)’daki başlangıç panosunda Spark kümenizin kutucuğuna tıklayın (başlangıç panosuna sabitlediyseniz). Ayrıca **Browse All (Tümüne Gözat)** > **HDInsight Clusters (HDInsight Kümeleri)** altından kümenize gidebilirsiniz.   
-2. Spark kümesi dikey penceresinden **Küme Panosu**’na ve ardından **Jupyter Notebook**’a tıklayın. İstenirse, küme için yönetici kimlik bilgilerini girin.
+1. Merhaba gelen [Azure Portal](https://portal.azure.com/), (, onu toohello Sabitle) hello Panosu'ndan hello kutucuğuna Spark kümenizin tıklayın. Tooyour küme altında da gidebilirsiniz **tümüne Gözat** > **Hdınsight kümeleri**.   
+2. Merhaba Spark kümesi dikey penceresinden tıklatın **küme Panosu**ve ardından **Jupyter not defteri**. İstenirse, hello küme için hello yönetici kimlik bilgilerini girin.
    
    > [!NOTE]
-   > Aşağıdaki URL’yi tarayıcınızda açarak da Jupyter Notebook’a ulaşabilirsiniz. **CLUSTERNAME** değerini kümenizin adıyla değiştirin:
+   > Kümenizin açma hello tarayıcınızda URL aşağıdaki tarafından hello Jupyter Not Defteri de ulaşabilir. Değiştir **CLUSTERNAME** kümenizi hello adı:
    > 
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    > 
@@ -58,10 +58,10 @@ Bu uygulamada bir belge sınıflandırması yapmak için Spark ML işlem hattı 
 3. Yeni bir not defteri oluşturun. **Yeni** ve ardından **PySpark** seçeneğine tıklayın.
    
     ![Spark machine learning örneğin Jupyter not defteri oluşturma](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/spark-machine-learning-create-notebook.png "Spark machine learning örneğin Jupyter not defteri oluşturma")
-4. Yeni bir not defteri oluşturulur ve Untitled.pynb adı ile açılır. Üstteki not defteri adına tıklayın ve kolay bir ad girin.
+4. Yeni bir not defteri oluşturulur ve Untitled.pynb hello adı ile. Merhaba üstünde Hello dizüstü bilgisayar adına tıklayın ve kolay bir ad girin.
    
     ![Spark machine learning örnek için bir not defteri ad](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/spark-machine-learning-notebook-name.png "Spark machine learning örneğin Not defteri adını belirtin")
-5. PySpark çekirdeği kullanarak bir not defteri oluşturduğunuz için açıkça bir bağlam oluşturmanız gerekmez. Birinci kod hücresini çalıştırdığınızda Spark ve Hive bağlamları sizin için otomatik olarak oluşturulur. Bu senaryo için gereken türleri içeri aktararak işleme başlayabilirsiniz. Boş bir hücreye aşağıdaki kod parçacığını yapıştırın ve sonra basın **SHIFT + ENTER**. 
+5. Merhaba PySpark çekirdeği kullanarak bir not defteri oluşturduğunuz için siz toocreate bir bağlam açıkça gerekmez. Merhaba birinci kod hücresini çalıştırdığınızda Spark ve Hive bağlamları hello otomatik olarak sizin için oluşturulur. Bu senaryo için gerekli olan hello türleri içeri aktararak işleme başlayabilirsiniz. Boş bir hücre parçacığında aşağıdaki hello yapıştırın ve tuşuna basın **SHIFT + ENTER**. 
    
         from pyspark.ml import Pipeline
         from pyspark.ml.classification import LogisticRegression
@@ -75,13 +75,13 @@ Bu uygulamada bir belge sınıflandırması yapmak için Spark ML işlem hattı 
         from pyspark.mllib.classification import LogisticRegressionWithSGD
         from pyspark.mllib.regression import LabeledPoint
         from numpy import array
-6. Şimdi (hvac.csv) veri yükleme, bunu ayrıştırabilir ve bunu modeli eğitmek için kullanmanız gerekir. Bu, gerçek bina sıcaklığını hedef sıcaklık büyük olup olmadığını denetler bir işlev tanımlayın. Gerçek sıcaklık büyükse, yapı değeri tarafından belirtilen hareketli, **1.0**. Gerçek sıcaklık küçük yapı değeri tarafından belirtilen soğuk, ise, **0,0**. 
+6. Şimdi hello verileri (hvac.csv) yüklemek, bunu ayrıştırabilir ve gerekir tootrain hello modeli kullanır. Bunun için hello gerçek hello bina sıcaklığını hello hedef sıcaklık büyük olup olmadığını denetler bir işlev tanımlayın. Merhaba gerçek sıcaklık büyük hello yapı hello değeri tarafından belirtilen hareketli, ise, **1.0**. Merhaba gerçek sıcaklık küçük hello yapı hello değeri tarafından belirtilen soğuk, ise, **0,0**. 
    
-    Aşağıdaki kod parçacığını yapıştırın bir boş bir hücre ve tuşuna **SHIFT + ENTER**.
+    Boş bir hücre ve tuşuna parçacığında aşağıdaki Yapıştır hello **SHIFT + ENTER**.
 
-        # List the structure of data for better understanding. Because the data will be
-        # loaded as an array, this structure makes it easy to understand what each element
-        # in the array corresponds to
+        # List hello structure of data for better understanding. Because hello data will be
+        # loaded as an array, this structure makes it easy toounderstand what each element
+        # in hello array corresponds to
 
         # 0 Date
         # 1 Time
@@ -93,7 +93,7 @@ Bu uygulamada bir belge sınıflandırması yapmak için Spark ML işlem hattı 
 
         LabeledDocument = Row("BuildingID", "SystemInfo", "label")
 
-        # Define a function that parses the raw CSV file and returns an object of type LabeledDocument
+        # Define a function that parses hello raw CSV file and returns an object of type LabeledDocument
 
         def parseDocument(line):
             values = [str(x) for x in line.split(',')]
@@ -106,29 +106,29 @@ Bu uygulamada bir belge sınıflandırması yapmak için Spark ML işlem hattı 
 
             return LabeledDocument((values[6]), textValue, hot)
 
-        # Load the raw HVAC.csv file, parse it using the function
+        # Load hello raw HVAC.csv file, parse it using hello function
         data = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
         documents = data.filter(lambda s: "Date" not in s).map(parseDocument)
         training = documents.toDF()
 
 
-1. Üç aşamadan oluşur Spark machine learning ardışık düzenini yapılandırın: belirteç Oluşturucu, hashingTF ve lr. İşlem hattı nedir ve bakın nasıl çalıştığı hakkında daha fazla bilgi için <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Spark machine learning ardışık</a>.
+1. Üç aşamadan oluşur hello Spark machine learning ardışık düzenini yapılandırın: belirteç Oluşturucu, hashingTF ve lr. İşlem hattı nedir ve bakın nasıl çalıştığı hakkında daha fazla bilgi için <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Spark machine learning ardışık</a>.
    
-    Aşağıdaki kod parçacığını yapıştırın bir boş bir hücre ve tuşuna **SHIFT + ENTER**.
+    Boş bir hücre ve tuşuna parçacığında aşağıdaki Yapıştır hello **SHIFT + ENTER**.
    
         tokenizer = Tokenizer(inputCol="SystemInfo", outputCol="words")
         hashingTF = HashingTF(inputCol=tokenizer.getOutputCol(), outputCol="features")
         lr = LogisticRegression(maxIter=10, regParam=0.01)
         pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
-2. Ardışık Düzen eğitim belgeye uygun. Aşağıdaki kod parçacığını yapıştırın bir boş bir hücre ve tuşuna **SHIFT + ENTER**.
+2. Uygun hello ardışık düzen toohello eğitim belgesi. Boş bir hücre ve tuşuna parçacığında aşağıdaki Yapıştır hello **SHIFT + ENTER**.
    
         model = pipeline.fit(training)
-3. Denetim noktası eğitim belgeye uygulamayla ilerleme durumunuzu doğrulayın. Aşağıdaki kod parçacığını yapıştırın bir boş bir hücre ve tuşuna **SHIFT + ENTER**.
+3. Merhaba eğitim belge toocheckpoint hello uygulamayla ilerleme durumunuzu doğrulayın. Boş bir hücre ve tuşuna parçacığında aşağıdaki Yapıştır hello **SHIFT + ENTER**.
    
         training.show()
    
-    Bu, aşağıdakine benzer bir çıktı vermeniz gerekir:
+    Bu hello çıkış benzer toohello aşağıdaki vermeniz gerekir:
    
         +----------+----------+-----+
         |BuildingID|SystemInfo|label|
@@ -155,15 +155,15 @@ Bu uygulamada bir belge sınıflandırması yapmak için Spark ML işlem hattı 
         |         7|      17 5|  0.0|
         +----------+----------+-----+
 
-    Geri dönün ve çıktı ham CSV dosyası karşı doğrulayın. Örneğin, CSV dosyasının ilk satırı bu verileri vardır:
+    Geri dönün ve hello çıktı hello ham CSV dosyası karşı doğrulayın. Örneğin, bu veri hello ilk satır hello CSV dosyası sahiptir:
 
     ![Çıkış Spark machine learning örnek için anlık görüntü verileri](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png "Spark machine learning örnek için çıktı veri anlık görüntüsü")
 
-    Nasıl gerçek sıcaklık yapı soğuk öneren hedef sıcaklık değerinden olduğuna dikkat edin. Bu nedenle çıktı, eğitim değeri **etiket** ilk sırada **0,0**, yapı başka bir deyişle, etkin değil.
+    Merhaba yapı öneren hello hedef sıcaklık soğuk küçüktür hello gerçek sıcaklık nasıl olduğuna dikkat edin. Bu nedenle hello eğitim çıktısında değeri hello **etiket** hello ilk satırıdır **0,0**, yani hello yapı etkin değil.
 
-1. Bir veri kümesi ve eğitilen modele karşı çalıştırmak için hazırlayın. Bunu yapmak için kimliğinizi bir sistem Kimliğini ve sistem yaş geçip geçmeyeceğini (olarak gösterilen **SystemInfo** eğitim çıkışı), ve model oluşturma, sistem Kimliğini ve sistem geçerlilik süresi ile hotter olup tahmin etmek (1.0 tarafından gösterilen) veya daha soğuk (belirtilmiştir 0,0).
+1. Veri kümesi toorun hello eğitilen model karşı hazırlayın. toodo bu nedenle, biz bir sistem Kimliğini ve sistem yaş geçip geçmeyeceğini (olarak gösterilen **SystemInfo** hello eğitim çıkışı), ve hello modeli tahmin olup hello hotter (gösterilir tarafından 1.0) Bu sistem Kimliğini ve sistem geçerlilik süresi ile oluşturduğunuz veya için ( 0,0 tarafından gösterilen).
    
-   Aşağıdaki kod parçacığını yapıştırın bir boş bir hücre ve tuşuna **SHIFT + ENTER**.
+   Boş bir hücre ve tuşuna parçacığında aşağıdaki Yapıştır hello **SHIFT + ENTER**.
    
        # SystemInfo here is a combination of system ID followed by system age
        Document = Row("id", "SystemInfo")
@@ -174,14 +174,14 @@ Bu uygulamada bir belge sınıflandırması yapmak için Spark ML işlem hattı 
                      (5L, "17 10"),
                      (6L, "7 22")]) \
            .map(lambda x: Document(*x)).toDF() 
-2. Son olarak, test verileri üzerindeki tahminlerde. Aşağıdaki kod parçacığını yapıştırın bir boş bir hücre ve tuşuna **SHIFT + ENTER**.
+2. Son olarak, hello test verileri üzerindeki tahminlerde. Boş bir hücre ve tuşuna parçacığında aşağıdaki Yapıştır hello **SHIFT + ENTER**.
    
         # Make predictions on test documents and print columns of interest
         prediction = model.transform(test)
         selected = prediction.select("SystemInfo", "prediction", "probability")
         for row in selected.collect():
             print row
-3. Aşağıdakine benzer bir çıktı görmeniz gerekir:
+3. Bir çıkış benzer toohello aşağıdaki görmeniz gerekir:
    
        Row(SystemInfo=u'20 25', prediction=1.0, probability=DenseVector([0.4999, 0.5001]))
        Row(SystemInfo=u'4 15', prediction=0.0, probability=DenseVector([0.5016, 0.4984]))
@@ -190,18 +190,18 @@ Bu uygulamada bir belge sınıflandırması yapmak için Spark ML işlem hattı 
        Row(SystemInfo=u'17 10', prediction=1.0, probability=DenseVector([0.4925, 0.5075]))
        Row(SystemInfo=u'7 22', prediction=0.0, probability=DenseVector([0.5015, 0.4985]))
    
-   Tahmin ilk satırdan kimliği 20 ve 25 yıllık sistem geçerlilik süresi ile bir HVAC sistemi için yapı etkin olacağını görebilirsiniz (**tahmin = 1.0**). DenseVector (0.49999) ilk değeri 0,0 tahmin karşılık gelir ve ikinci değer (0.5001) 1.0 tahmin karşılık gelir. Çıktıda ikinci değer yalnızca fazladır daha yüksek olmasına rağmen modelini gösteren **tahmin = 1.0**.
-4. Uygulamayı çalıştırmayı tamamladıktan sonra kaynakları serbest bırakmak için not defterini kapatmanız gerekir. Bunu yapmak için not defterindeki **Dosya** menüsünde **Kapat ve Durdur**’a tıklayın. Bunun yapılması not defterini kapatır.
+   İlk satırdaki Hello hello tahmin içinde kimliği 20 ve 25 yıllık sistem geçerlilik süresi ile bir HVAC sistemi için hello yapı etkin olacağını görebilirsiniz (**tahmin = 1.0**). Merhaba ilk değer DenseVector (0.49999) için toohello tahmin 0,0 karşılık gelir ve hello ikinci değer (0.5001) toohello tahmin 1.0 karşılık gelir. Merhaba çıktısında hello ikinci değer yalnızca fazladır daha yüksek olmasına rağmen hello modelini gösteren **tahmin = 1.0**.
+4. Merhaba uygulaması çalıştıran bitirdikten sonra kapatma hello not defteri toorelease hello kaynakları gerekir. toodo çok hello **dosya** hello dizüstü menüsünde **Kapat ve Durdur**. Bu işlem kapatma ve Kapat hello dizüstü.
 
 ## <a name="anaconda"></a>Anaconda scikit kullanın-Spark machine learning için kitaplık öğrenin
-Hdınsight'ta Apache Spark kümeleri Anaconda kitaplıkları içerir. Bu da içerir **scikit-öğrenin** machine learning için kitaplık. Kitaplık Ayrıca örnek uygulamalardan doğrudan Jupyter not defteri oluşturmak için kullanabileceğiniz çeşitli veri kümelerini içerir. Scikit kullanma ile ilgili örnekler-kitaplık bilgi [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
+Hdınsight'ta Apache Spark kümeleri Anaconda kitaplıkları içerir. Bu da hello içerir **scikit-öğrenin** machine learning için kitaplık. Merhaba kitaplığı toobuild örnek uygulamalardan doğrudan Jupyter not defteri kullanabileceğiniz çeşitli veri kümeleri de içerir. Scikit kullanma örnekleri hello için-kitaplık bilgi [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
 
 ## <a name="seealso"></a>Ayrıca bkz.
 * [Genel Bakış: Azure HDInsight’ta Apache Spark](hdinsight-apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Senaryolar
 * [BI ile Spark: BI araçlarıyla HDInsight’ta Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](hdinsight-apache-spark-use-bi-tools.md)
-* [Machine Learning ile Spark: Yemek inceleme sonuçlarını tahmin etmek için HDInsight’ta Spark kullanma](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Machine Learning ile Spark: Spark Hdınsight toopredict yemek İnceleme sonuçlarını içinde kullanma](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark Akış: Gerçek zamanlı akış uygulamaları oluşturmak için HDInsight’ta Spark kullanma](hdinsight-apache-spark-eventhub-streaming.md)
 * [HDInsight’ta Spark kullanarak Web sitesi günlüğü çözümlemesi](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
@@ -210,15 +210,15 @@ Hdınsight'ta Apache Spark kümeleri Anaconda kitaplıkları içerir. Bu da içe
 * [Livy kullanarak Spark kümesinde işleri uzaktan çalıştırma](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Araçlar ve uzantılar
-* [Spark Scala uygulamaları oluşturmak ve göndermek amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisi kullanma](hdinsight-apache-spark-intellij-tool-plugin.md)
-* [Spark uygulamalarında uzaktan hata ayıklamak amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisi kullanma](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Intellij Idea toocreate için Hdınsight araçları eklentisi kullanma ve Spark Scala uygulamaları gönderin](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [Uzaktan Intellij Idea toodebug Spark uygulamaları için Hdınsight araçları eklentisi kullanma](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [HDInsight’ta Spark kümesi ile Zeppelin not defterlerini kullanma](hdinsight-apache-spark-zeppelin-notebook.md)
 * [HDInsight için Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Jupyter not defterleri ile dış paketleri kullanma](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
-* [Jupyter’i bilgisayarınıza yükleme ve bir HDInsight Spark kümesine bağlanma](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+* [Jupyter bilgisayarınıza yüklemek ve tooan Hdınsight Spark kümesi bağlanın](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>Kaynakları yönetme
-* [Azure HDInsight’ta Apache Spark kümesi kaynaklarını yönetme](hdinsight-apache-spark-resource-manager.md)
+* [Hello Azure hdınsight'ta Apache Spark küme kaynaklarını yönetme](hdinsight-apache-spark-resource-manager.md)
 * [HDInsight’ta bir Apache Spark kümesinde çalışan işleri izleme ve hata ayıklama](hdinsight-apache-spark-job-debugging.md)
 
 [hdinsight-versions]: hdinsight-component-versioning.md

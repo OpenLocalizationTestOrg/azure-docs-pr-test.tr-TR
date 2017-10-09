@@ -1,6 +1,6 @@
 ---
 title: "Sipi test dosyası | Microsoft Docs"
-description: "Test dosyası ReadyForTest bağımlılıkları denetle"
+description: "Dosya toocheck ReadyForTest bağımlılıkları test"
 services: active-directory-b2c
 documentationcenter: 
 author: Sipi
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: Sipi
-ms.openlocfilehash: 871d58818dcbaee5f7a5f07c19e2297ec6459a6f
-ms.sourcegitcommit: b0af2a2cf44101a1b1ff41bd2ad795eaef29612a
+ms.openlocfilehash: afd3dc94dfb30926b316256fb06a768a391004f5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="sipi-test-file"></a>Sipi test dosyası
 
-Bu Hızlı Başlangıç, bir Microsoft Azure Active Directory (Azure AD) B2C Kiracısında bir uygulamayı birkaç dakika içinde kaydetmenize yardımcı olur. İşiniz bittiğinde, uygulamanız Azure B2C Kiracısında kullanım için kaydedilir.
+Bu Hızlı Başlangıç, bir Microsoft Azure Active Directory (Azure AD) B2C Kiracısında bir uygulamayı birkaç dakika içinde kaydetmenize yardımcı olur. İşiniz bittiğinde, uygulamanızı hello Azure B2C Kiracı kullanmak için kayıtlı.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Tüketicinin kaydolmasını ve oturum açmasını kabul eden bir uygulama oluşturmak için öncelikle uygulamayı Azure Active Directory B2C kiracısına kaydetmeniz gerekir. [Azure AD B2C kiracısı oluşturma](active-directory-b2c-get-started.md) makalesinde ana hatlarıyla belirtilen adımları izleyerek kendi kiracınızı edinin.
+toobuild tüketicinin kaydolmasını ve oturum açma kabul eden bir uygulama, ilk Azure Active Directory B2C kiracısı ile tooregister Merhaba uygulaması gerekir. Kendi Kiracı özetlenen hello adımları kullanarak alma [bir Azure AD B2C kiracısı oluşturma](active-directory-b2c-get-started.md).
 
-Azure portalında Azure AD B2C dikey penceresinden oluşturulan uygulamaların aynı konumdan yönetilmesi gerekir. B2C uygulamalarını PowerShell veya başka bir portal kullanarak düzenlerseniz bu uygulamalar desteklenmez duruma gelir ve Azure AD B2C ile çalışmaz. [Hatalı uygulamalar](#faulted-apps) bölümünden ayrıntılara bakabilirsiniz. 
+Hello hello Azure AD B2C dikey penceresinde hello Azure portalında oluşturulan uygulamaları yönetilen aynı konumu. PowerShell veya başka bir portal kullanarak hello B2C uygulamaları düzenlerseniz, desteklenmeyen haline gelir ve Azure AD B2C ile çalışmaz. Merhaba ayrıntıları görmek [hatalı uygulamaları](#faulted-apps) bölümü. 
 
-## <a name="navigate-to-b2c-settings"></a>B2C ayarlarına gidin
+## <a name="navigate-toob2c-settings"></a>TooB2C ayarları gidin
 
-[Azure portalında](https://portal.azure.com/) B2C kiracısının Genel Yöneticisi olarak oturum açın. 
+İçinde toohello oturum [Azure portal](https://portal.azure.com/) hello B2C kiracısının genel Yöneticisi hello gibi. 
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-Sonraki adımları kaydettirmekte olduğunuz uygulama türüne göre seçin:
+Sonraki adımlar kaydettirmekte olduğunuz hello uygulama türüne göre seçin:

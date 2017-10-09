@@ -1,6 +1,6 @@
 ---
-title: "Azure uygulama ağ geçidi - Azure portalı SSL boşaltma - yapılandırma | Microsoft Docs"
-description: "Bu sayfa, portal kullanarak SSL ile bir uygulama ağ geçidi oluşturma yönergelerini boşaltma sağlar."
+title: "aaaConfigure SSL boşaltma - Azure uygulama ağ geçidi - Azure portalı | Microsoft Docs"
+description: "Bu sayfa bir uygulama ağ geçidi ile SSL boşaltma hello portalını kullanarak yönergeleri toocreate sağlar"
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: gwallace
-ms.openlocfilehash: f61be0cc4c9274c9914f7c468ce48a2a3d0a4f4a
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: e87ac0bbe10ac45e307c18802741c7bc31764a20
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-portal"></a>Portalı kullanarak SSL yük boşaltımı için bir uygulama ağ geçidi yapılandırma
+# <a name="configure-an-application-gateway-for-ssl-offload-by-using-hello-portal"></a>Merhaba portalını kullanarak SSL yük boşaltımı için bir uygulama ağ geçidi yapılandırma
 
 > [!div class="op_single_selector"]
 > * [Azure portal](application-gateway-ssl-portal.md)
@@ -28,67 +28,67 @@ ms.lasthandoff: 08/18/2017
 > * [Azure Klasik PowerShell](application-gateway-ssl.md)
 > * [Azure CLI 2.0](application-gateway-ssl-cli.md)
 
-Azure Application Gateway, web grubunda maliyetli SSL şifre çözme görevlerinin oluşmasından kaçınmak için Güvenli Yuva Katmanı (SSL) oturumunu sonlandırmak amacıyla yapılandırılabilir. SSL yük boşaltımı ön uç sunucusunun kurulumunu ve web uygulamasının yönetimini de basitleştirir.
+Azure uygulama ağ geçidi yapılandırılmış tooterminate hello Güvenli Yuva Katmanı (SSL) hello ağ geçidi tooavoid maliyetli SSL şifre çözme görevleri toohappen hello web grubu adresindeki oturumunda olabilir. SSL boşaltma ayrıca hello ön uç sunucusunun kurulumunu ve hello web uygulamasının yönetimini basitleştirir.
 
 ## <a name="scenario"></a>Senaryo
 
-Aşağıdaki senaryoda nasıl yapılandıracağınız SSL boşaltma üzerinde var olan bir uygulama ağ geçidi gider. Senaryo adımları zaten izlediğinizden varsayar [bir uygulama ağ geçidi oluşturma](application-gateway-create-gateway-portal.md).
+Senaryo aşağıdaki hello nasıl yapılandıracağınız SSL boşaltma üzerinde var olan bir uygulama ağ geçidi gider. Merhaba senaryo, zaten hello adımları çok izlediğinizden varsayar[bir uygulama ağ geçidi oluşturma](application-gateway-create-gateway-portal.md).
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bir uygulama ağ geçidi ile SSL yük boşaltmayı yapılandırmak için bir sertifika gereklidir. Bu sertifika uygulama ağ geçidinde yüklü ve SSL gönderilen trafiğin şifresi ve şifrelemek için kullanılır. Sertifika kişisel bilgi değişimi (pfx) biçiminde olması gerekir. Bu dosya biçimi, uygulama ağ geçidi tarafından şifreleme ve şifre çözme trafik gerçekleştirmek için gereken özel anahtar verilebilsin sağlar.
+tooconfigure SSL yük boşaltımı bir uygulama ağ geçidi ile bir sertifika gereklidir. Bu sertifika tooencrypt kullanılan hello uygulama ağ geçidinde yüklenir ve SSL gönderilen hello trafiğin şifresi. Merhaba sertifika toobe kişisel bilgi değişimi (pfx) biçiminde olmalıdır. Bu dosya biçimi, hangi hello uygulama ağ geçidi tooperform hello şifreleme ve şifre çözme trafik tarafından gerekli anahtar toobe dışarı Merhaba özel sağlar.
 
 ## <a name="add-an-https-listener"></a>Bir HTTPS dinleyicisi ekleme
 
-Kendi yapılandırmasına bağlı olarak trafik HTTPS dinleyicisi arar ve yardımcı olur, arka uç havuzları trafiği yönlendirmek.
+Merhaba HTTPS dinleyicisi kendi yapılandırmasını temel alarak trafiği arar ve rota hello trafiği toohello arka uç havuzları yardımcı olur.
 
 ### <a name="step-1"></a>1. Adım
 
-Azure Portalı'na gidin ve var olan bir uygulama ağ geçidi seçin
+Toohello Azure portalına gidin ve var olan bir uygulama ağ geçidi seçin
 
 ### <a name="step-2"></a>2. Adım
 
-Dinleyicileri tıklayın ve bir dinleyici eklemek için Ekle düğmesini tıklatın.
+Dinleyicileri ve hello Ekle düğmesi tooadd dinleyici tıklayın.
 
 ![Uygulama ağ geçidi'ne genel bakış dikey][1]
 
 ### <a name="step-3"></a>3. Adım
 
-.Pfx sertifika tamamlandıktan sonra Tamam'ı tıklatın gerekli bilgileri karşıya yükleme ve dinleyici için doldurun.
+Merhaba dinleyici için gereken bilgileri hello ve karşıya yükleme hello .pfx sertifika, tamamlandığında, Tamam'ı tıklatın doldurun.
 
-**Ad** -bu değer dinleyicisi kolay adıdır.
+**Ad** -bu değer hello dinleyicisi kolay adıdır.
 
-**Ön uç IP yapılandırmasını** -dinleyici için kullanılan ön uç IP yapılandırması bu değerdir.
+**Ön uç IP yapılandırmasını** -hello dinleyici için kullanılan hello ön uç IP yapılandırması bu değerdir.
 
-**Ön uç bağlantı noktası (ad/bağlantı noktası)** - bağlantı noktası için bir kolay ad uygulama ağ geçidi ön ucunda gerçek bağlantı noktası kullanılır ve.
+**Ön uç bağlantı noktası (ad/bağlantı noktası)** -hello ön ucunda hello uygulama ağ geçidi ve kullanılan hello gerçek bağlantı noktası kullanılan başlangıç bağlantı noktası için bir kolay ad.
 
-**Protokol** -https veya http ön uç için kullanılıp kullanılmadığını belirlemek için bir anahtar.
+**Protokol** -hello ön uç için https veya http kullanılıyorsa bir anahtar toodetermine.
 
 **Sertifika (ad/parola)** - varsa SSL boşaltma kullanılır, bu ayar için bir .pfx sertifika gereklidir ve bir kolay ad ve parola gereklidir.
 
 ![Dinleyici dikey ekleme][2]
 
-## <a name="create-a-rule-and-associate-it-to-the-listener"></a>Bir kural oluşturmak ve dinleyiciye ilişkilendirme
+## <a name="create-a-rule-and-associate-it-toohello-listener"></a>Bir kural oluşturmak ve toohello dinleyicisi ilişkilendirme
 
-Dinleyici şimdi oluşturuldu. Dinleyici trafiği işlemek için bir kural oluşturmak için zaman yapılır. Kuralları trafiği birden çok oturum tanımlama bilgisi temelli benzeşimi kullanılıp kullanılmadığını dahil olmak üzere, yapılandırma ayarlarını, protokol, bağlantı noktası ve sistem durumu araştırmalarının göre arka uç havuzları nasıl yönlendirildiğini tanımlayın.
+Merhaba dinleyicisi şimdi oluşturuldu. Zaman toocreate hello dinleyicisi kural toohandle hello trafiğinden olur. Kuralları nasıl trafiği birden çok oturum tanımlama bilgisi temelli benzeşimi kullanılıp kullanılmadığını dahil olmak üzere, yapılandırma ayarlarını, protokol, bağlantı noktası ve sistem durumu araştırmalarının göre yönlendirilmiş toohello arka uç havuzları tanımlayın.
 
 ### <a name="step-1"></a>1. Adım
 
-Tıklatın **kuralları** uygulama ağ geçidi ve ardından Ekle'yi tıklatın.
+Merhaba tıklatın **kuralları** hello uygulama ağ geçidi ve ardından Ekle'yi tıklatın.
 
 ![Uygulama ağ geçidi kuralları dikey][3]
 
 ### <a name="step-2"></a>2. Adım
 
-Üzerinde **Ekle temel kural** dikey penceresinde, kural için bir kolay ad yazın ve önceki adımda oluşturduğunuz dinleyicisi seçin. Http ayarlama ve uygun arka uç havuzu seçin ve tıklatın **Tamam**
+Merhaba üzerinde **Ekle temel kural** dikey penceresinde hello hello kuralı için kolay ad yazın ve hello önceki adımda oluşturduğunuz hello dinleyicisi seçin. Hello uygun arka uç havuzu ve http ayarını seçin ve tıklatın **Tamam**
 
 ![HTTPS Ayarları penceresi][4]
 
-Ayarları artık uygulama ağ geçidi için kaydedilir. Kaydetme işlemi portal veya PowerShell aracılığıyla görüntülemek kullanılabilir önce bu ayarları biraz zaman alabilir. Uygulama ağ geçidi kaydedildikten sonra şifreleme ve şifre çözme trafiği işler. Uygulama ağ geçidi ve arka uç web sunucuları arasındaki tüm trafik http üzerinden ele alınacaktır. Tüm iletişim https üzerinden başlattıysanız istemciye şifrelenmiş istemciye döndürülür.
+Hello ayarları şimdi toohello uygulama ağ geçidi kaydedildi. Merhaba portal veya PowerShell aracılığıyla kullanılabilir tooview önce hello Kaydet işlemi bu ayarlar için biraz zaman alabilir. Bir kez kaydedilmiş hello uygulama ağ geçidi hello şifreleme ve şifre çözme trafiği işler. Merhaba uygulama ağ geçidi ile Merhaba arka uç web sunucuları arasındaki tüm trafik http üzerinden ele alınacaktır. HTTPS üzerinden başlattıysanız tüm iletişimi geri toohello istemci şifrelenmiş toohello istemci döndürülür.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure uygulama ağ geçidi ile bir özel durum araştırması yapılandırma konusunda bilgi edinmek için [bir özel durum araştırması oluşturmak](application-gateway-create-gateway-portal.md).
+Azure uygulama ağ geçidi ile tooconfigure özel durumu araştırma nasıl toolearn bkz [bir özel durum araştırması oluşturmak](application-gateway-create-gateway-portal.md).
 
 [1]: ./media/application-gateway-ssl-portal/figure1.png
 [2]: ./media/application-gateway-ssl-portal/figure2.png

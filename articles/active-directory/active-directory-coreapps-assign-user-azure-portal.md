@@ -1,6 +1,6 @@
 ---
-title: "Bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup atamak | Microsoft Docs"
-description: "Bir kullanıcı veya grup için Azure Active Directory'de atamak için bir kuruluş uygulama seçme"
+title: "Azure Active Directory'de bir kullanıcı veya grup tooan kuruluş uygulama aaaAssign | Microsoft Docs"
+description: "Nasıl tooselect Kurumsal uygulama tooassign Azure Active Directory'de bir kullanıcı veya grup tooit"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -14,36 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: curtand
-ms.openlocfilehash: ee784704ada9238b5cd048f99aaa4cb192ec7d57
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 86c11f19892b9c947a5331677c17759178ed2806
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup atayın
-Kurumsal uygulamalarınızda Azure Active Directory (Azure AD) bir kullanıcıya veya gruba atamak kolaydır. Kuruluş uygulama yönetmek için uygun izinlere sahip olmalıdır ve dizin için genel yönetici olmanız gerekir.
+# <a name="assign-a-user-or-group-tooan-enterprise-app-in-azure-active-directory"></a>Azure Active Directory'de bir kullanıcı veya grup tooan kuruluş uygulama atama
+Kolay tooassign bir kullanıcı veya grup tooyour kurumsal uygulamalar Azure Active Directory'de (Azure AD) değil. Merhaba uygun izinleri toomanage hello kuruluş uygulama olmalıdır ve başlangıç dizini için genel yönetici olmanız gerekir.
 
-## <a name="how-do-i-assign-user-access-to-an-enterprise-app"></a>Bir kurumsal uygulama için nasıl kullanıcı erişimi atamak?
-1. Oturum [Azure portal](https://portal.azure.com) dizini için genel yönetici olan bir hesapla.
-2. Seçin **daha fazla hizmet**, Azure Active Directory metin kutusuna girin ve ardından **Enter**.
-3. Üzerinde **Azure Active Directory - *directoryname***  (diğer bir deyişle, Azure AD dikey yönettiğiniz dizin için), dikey penceresinde seçin **kurumsal uygulamalar**.
+## <a name="how-do-i-assign-user-access-tooan-enterprise-app"></a>Kullanıcı erişim tooan kuruluş uygulama nasıl atayabilirim?
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com) hello dizin için genel yönetici olan bir hesapla.
+2. Seçin **daha fazla hizmet**, Azure Active Directory hello metin kutusuna girin ve ardından **Enter**.
+3. Merhaba üzerinde **Azure Active Directory - *directoryname***  dikey penceresinde (diğer bir deyişle, hello Azure AD dikey penceresinde hello dizin yönettiğiniz için) seçin **kurumsal uygulamalar**.
 
     ![Açılış Kurumsal uygulamaları](./media/active-directory-coreapps-assign-user-azure-portal/open-enterprise-apps.png)
-4. Üzerinde **kurumsal uygulamalar** dikey penceresinde, select **tüm uygulamaları**. Yönetebileceğiniz uygulamaların bir listesini görürsünüz.
-5. Üzerinde **kurumsal uygulamalar - tüm uygulamaları** dikey penceresinde, bir uygulama seçin.
-6. Üzerinde ***appname*** dikey penceresinde (diğer bir deyişle, dikey penceresinde seçili uygulamasının başlık adı ile) seçin **kullanıcıları ve grupları**.
+4. Merhaba üzerinde **kurumsal uygulamalar** dikey penceresinde, select **tüm uygulamaları**. Yönetebileceğiniz hello uygulamaların bir listesini görürsünüz.
+5. Merhaba üzerinde **kurumsal uygulamalar - tüm uygulamaları** dikey penceresinde, bir uygulama seçin.
+6. Merhaba üzerinde ***appname*** dikey penceresinde (diğer bir deyişle, hello dikey penceresinde hello adıyla hello başlığında hello seçilen uygulama) seçin **kullanıcıları ve grupları**.
 
-    ![Tüm uygulamalar komutu seçme](./media/active-directory-coreapps-assign-user-azure-portal/select-app-users.png)
-7. Üzerinde ***appname*** **-kullanıcı ve grup atama** dikey penceresinde, select **Ekle** komutu.
-8. Üzerinde **eklemek atama** dikey penceresinde, select **kullanıcılar ve gruplar**.
+    ![Merhaba tüm uygulamaları komutu seçme](./media/active-directory-coreapps-assign-user-azure-portal/select-app-users.png)
+7. Merhaba üzerinde ***appname*** **-kullanıcı ve grup atama** dikey penceresinde, select hello **Ekle** komutu.
+8. Merhaba üzerinde **eklemek atama** dikey penceresinde, select **kullanıcılar ve gruplar**.
 
-    ![Bir kullanıcı veya grup için uygulama atama](./media/active-directory-coreapps-assign-user-azure-portal/assign-users.png)
-9. Üzerinde **kullanıcılar ve gruplar** dikey penceresinde, listeden bir veya daha fazla kullanıcı veya grup seçin ve ardından **seçin** dikey pencerenin altındaki düğmesini.
-10. Üzerinde **eklemek atama** dikey penceresinde, select **rol**. Ardından **rolü Seç** dikey penceresinde, seçilen kullanıcılarla veya gruplarla uygulayın ve ardından için rolü seçin **Tamam** dikey pencerenin altındaki düğmesini.
-11. Üzerinde **eklemek atama** dikey penceresinde, select **atamak** dikey pencerenin altındaki düğmesini. Atanan kullanıcılar veya gruplar bu kurumsal uygulama için seçili rol tarafından tanımlanan izinlerine sahip olacaktır.
+    ![Bir kullanıcı veya grup toohello uygulama atama](./media/active-directory-coreapps-assign-user-azure-portal/assign-users.png)
+9. Merhaba üzerinde **kullanıcılar ve gruplar** dikey penceresinde, select bir veya daha fazla bölümünden kullanıcıları veya grupları hello listelemek ve hello seçin **seçin** hello dikey penceresinde hello sonundaki düğmesi.
+10. Merhaba üzerinde **eklemek atama** dikey penceresinde, select **rol**. Ardından hello üzerinde **rolü Seç** dikey penceresinde, bir rol tooapply toohello Seçili kullanıcıları veya grupları ve ardından select hello **Tamam** hello dikey penceresinde hello sonundaki düğmesi.
+11. Merhaba üzerinde **eklemek atama** dikey penceresinde, select hello **atamak** hello dikey penceresinde hello sonundaki düğmesi. Kullanıcıların Hello atanan veya grupları hello seçilen rol için bu kuruluş uygulama tarafından tanımlanan hello izinlerine sahip olacaktır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Tüm my gruplarının bakın](active-directory-groups-view-azure-portal.md)
 * [Bir kullanıcı veya grup ataması Kurumsal uygulamadan Kaldır](active-directory-coreapps-remove-assignment-azure-portal.md)
 * [Kullanıcı oturum açma işlemleri bir kurumsal uygulama için devre dışı bırak](active-directory-coreapps-disable-app-azure-portal.md)
-* [Adını veya bir kuruluş uygulama logosunu değiştirme](active-directory-coreapps-change-app-logo-user-azure-portal.md)
+* [Merhaba adını veya bir kuruluş uygulama logosunu değiştirme](active-directory-coreapps-change-app-logo-user-azure-portal.md)

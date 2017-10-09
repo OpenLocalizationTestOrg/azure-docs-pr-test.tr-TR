@@ -1,75 +1,57 @@
 ---
-title: "Azure Analysis Services öğreticisi 7. ders: Ana Performans Göstergeleri Oluşturma | Microsoft Docs"
-description: "Azure Analysis Services öğretici projesinde Ana Performans Göstergelerinin nasıl oluşturulacağını açıklar."
-services: analysis-services
-documentationcenter: 
-author: minewiskan
-manager: erikre
-editor: 
-tags: 
-ms.assetid: 
-ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 05/26/2017
-ms.author: owend
-ms.openlocfilehash: d78808421dd5acd907aa9e9000bb3b770a42c061
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+Başlık: aaa "Azure Analysis Services öğretici Ders 7: anahtar performans göstergelerini oluşturun | Microsoft Docs"Açıklama: öğretici Azure Analysis Services projesi toocreate anahtar performans göstergelerinin nasıl hello açıklar. Hizmetleri: analysis services documentationcenter: '' Yazar: minewiskan Yöneticisi: erikre Düzenleyicisi: '' etiketler: ''
+
+MS.assetid: ms.service: analysis services ms.devlang: NA ms.topic: get-makalesi ms.tgt_pltfrm: NA ms.workload: na ms.date: 26/05/2017 ms.author: owend
 ---
 # <a name="lesson-7-create-key-performance-indicators"></a>7. Ders: Ana Performans Göstergeleri oluşturma
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-Bu derste Ana Performans Göstergeleri (KPI) oluşturursunuz. KPI’lar bir *Temel* ölçü ile tanımlanmış bir değerin performansını, yine bir ölçü ya da mutlak değerle tanımlanmış bir *Hedef* değere göre ölçmek için kullanılır. Raporlama istemci uygulamalarında KPI’lar, iş uzmanlarına iş başarısı özetini anlamanın veya eğilimleri belirlemenin hızlı ve kolay bir yöntemini sunabilir. Daha fazla bilgi için bkz. [KPI’lar](https://docs.microsoft.com/sql/analysis-services/tabular-models/kpis-ssas-tabular)
+Bu derste Ana Performans Göstergeleri (KPI) oluşturursunuz. KPI'ları tarafından tanımlanan bir değer kullanılan toogauge performansını olan bir *temel* ölçüsü karşı bir *hedef* ayrıca bir ölçü veya mutlak bir değer tarafından tanımlanan bir değer. İstemci uygulamaları raporlamada KPI'leri iş uzmanları hızlı ve kolay bir yol toounderstand iş başarı veya tooidentify eğilimlerini özetini sağlar. toolearn daha, fazla [KPI'ları](https://docs.microsoft.com/sql/analysis-services/tabular-models/kpis-ssas-tabular)
   
-Bu dersin tahmini tamamlanma süresi: **15 dakika**  
+Bu ders zaman toocomplete tahmini: **15 dakika**  
   
 ## <a name="prerequisites"></a>Ön koşullar  
-Bu konu, sırayla tamamlanması gereken bir tablo modelleme öğreticisinin bir parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [6. Ders: Ölçü oluşturma](../tutorials/aas-lesson-6-create-measures.md).   
+Bu konu, sırayla tamamlanması gereken bir tablo modelleme öğreticisinin bir parçasıdır. Bu ders Hello görevleri gerçekleştirmeden önce hello önceki Ders tamamlandı: [Ders 6: ölçüleri oluşturma](../tutorials/aas-lesson-6-create-measures.md).   
   
 ## <a name="create-key-performance-indicators"></a>Ana Performans Göstergeleri oluşturma  
   
-#### <a name="to-create-an-internetcurrentquartersalesperformance-kpi"></a>InternetCurrentQuarterSalesPerformance KPI’si oluşturmak için  
+#### <a name="toocreate-an-internetcurrentquartersalesperformance-kpi"></a>toocreate InternetCurrentQuarterSalesPerformance KPI  
   
-1.  Model tasarımcısında **FactInternetSales** tablosuna tıklayın.  
+1.  Merhaba modeli Tasarımcısı'nda hello tıklayın **Factınternetsales** tablo.  
   
-2.  Ölçü kılavuzunda boş bir hücreye tıklayın.  
+2.  Merhaba ölçü kılavuzunda, boş bir hücreyi tıklatın.  
   
-3.  Tablonun üzerindeki formül çubuğuna aşağıdaki formülü yazın: 
+3.  Merhaba tablonun yukarısındaki hello formül çubuğundaki formülü aşağıdaki hello yazın: 
  
     ```  
     InternetCurrentQuarterSalesPerformance :=DIVIDE([InternetCurrentQuarterSales]/[InternetPreviousQuarterSalesProportionToQTD],BLANK())  
     ```
 
-    Bu ölçü, KPI için temel ölçü olarak görev yapar.  
+    Bu ölçü hello KPI için hello temel ölçü olarak görev yapar.  
   
 4.  **InternetCurrentQuarterSalesPerformance** > **KPI Oluştur**’a sağ tıklayın.   
   
-5.  Ana Performans Göstergesi (KPI) iletişim kutusundaki **Hedef** alanında **Mutlak Değer**’i seçin ve ardından **1.1** yazın.  
+5.  Merhaba ana performans göstergesi (KPI) iletişim kutusunda, **hedef** seçin **mutlak değeri**ve ardından **1.1**.  
   
-7.  Sol (alt) kaydırıcı alanına **1** yazın ve sonra sağ (üst) kaydırıcı alanına **1.07** yazın.  
+7.  Merhaba sol (düşük) kaydırıcı alanına yazın **1**ve ardından hello sağa (yüksek) kaydırıcı alanında, yazın **1.07**.  
   
-8.  **Simge Stili Seçin** bölümünde baklava (kırmızı), üçgen (sarı), yuvarlak (yeşil) simge türünü seçin.
+8.  İçinde **simgesi stil seçin**, hello baklava (kırmızı), üçgen (sarı) seçin, yuvarlak (yeşil) simge türü.
   
     ![aas-lesson7-kpi](../tutorials/media/aas-lesson7-kpi.png)
     
     > [!TIP]  
-    > Kullanılabilir simge stillerinin altındaki genişletilebilir **Açıklamalar** etiketine dikkat edin. İstemci uygulamalarında daha iyi tanımlanabilmesi için çeşitli KPI öğelerine ilişkin açıklamaları kullanın.  
+    > Bildirim hello Genişletilebilir **açıklamaları** hello kullanılabilir simgesi stilleri altına etiketi. Merhaba açıklamalarını kullan çeşitli KPI öğeleri toomake bunları istemci uygulamalarında daha tanımlanabilir.  
   
-9. KPI’yı tamamlamak için **Tamam**’a tıklayın.  
+9. Tıklatın **Tamam** toocomplete hello KPI.  
   
-    Ölçü kılavuzunda **InternetCurrentQuarterSalesPerformance** ölçüsünün yanındaki simgeye dikkat edin. Bu simge, bu ölçünün bir KPI’ya ait Temel değer olarak görev yaptığını gösterir.  
+    Merhaba ölçü kılavuzunda hello simgesi sonraki toohello fark **InternetCurrentQuarterSalesPerformance** ölçü. Bu simge, bu ölçünün bir KPI’ya ait Temel değer olarak görev yaptığını gösterir.  
   
-#### <a name="to-create-an-internetcurrentquartermarginperformance-kpi"></a>InternetCurrentQuarterMarginPerformance KPI’si oluşturmak için  
+#### <a name="toocreate-an-internetcurrentquartermarginperformance-kpi"></a>toocreate InternetCurrentQuarterMarginPerformance KPI  
   
-1.  **FactInternetSales** tablosunun ölçü kılavuzunda boş bir hücreye tıklayın.  
+1.  Hello için hello ölçü kılavuzunda **Factınternetsales** tablo, boş bir hücreyi tıklatın.  
   
-2.  Tablonun üzerindeki formül çubuğuna aşağıdaki formülü yazın:  
+2.  Merhaba tablonun yukarısındaki hello formül çubuğundaki formülü aşağıdaki hello yazın:  
 
     ```
     InternetCurrentQuarterMarginPerformance :=IF([InternetPreviousQuarterMarginProportionToQTD]<>0,([InternetCurrentQuarterMargin]-[InternetPreviousQuarterMarginProportionToQTD])/[InternetPreviousQuarterMarginProportionToQTD],BLANK())  
@@ -77,11 +59,11 @@ Bu konu, sırayla tamamlanması gereken bir tablo modelleme öğreticisinin bir 
  
 3.  **InternetCurrentQuarterMarginPerformance** > **KPI Oluştur**’a sağ tıklayın.  
   
-4.  Ana Performans Göstergesi (KPI) iletişim kutusundaki **Hedef** alanında **Mutlak Değer**’i seçin ve ardından **1.25** yazın.   
+4.  Merhaba ana performans göstergesi (KPI) iletişim kutusunda, **hedef** seçin **mutlak değeri**ve ardından **1,25**.   
   
-5.  Sol (alt) kaydırıcı alanında **0.8** görünene kadar ve sağ (üst) kaydırıcı alanında **1.03** görünene kadar kaydırın.  
+5.  Merhaba alan görüntüler kadar hello sol (düşük) kaydırıcı alanında, slayt **0,8**, ve ardından slayt hello sağ (yüksek) kaydırıcı alan hello alan görüntüler kadar **1,03 koyun**.  
   
-6.  **Simge Stili Seçin** bölümünde baklava (kırmızı), üçgen (sarı), yuvarlak (yeşil) simge türünü seçip **Tamam**’a tıklayın.  
+6.  İçinde **simgesi stil seçin**hello elmas (kırmızı), üçgen (sarı), daire (yeşil) simge türü seçin ve ardından **Tamam**.  
   
 ## <a name="whats-next"></a>Sırada ne var?
 [8. Ders: Perspektif oluşturma](../tutorials/aas-lesson-8-create-perspectives.md).

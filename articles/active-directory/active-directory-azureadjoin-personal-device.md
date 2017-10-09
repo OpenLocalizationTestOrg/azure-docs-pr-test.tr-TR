@@ -1,6 +1,6 @@
 ---
-title: "Kişisel bir cihazı kuruluşunuza katma | Microsoft Docs"
-description: "Kullanıcıların kişisel Windows 10 cihazlarını şirket ağlarına nasıl kaydedebilirsiniz açıklanmakta ve bir BYOD senaryosu için dağıtım adımları sağlar."
+title: "aaaJoin bir kişisel cihaz tooyour kuruluş | Microsoft Docs"
+description: "Kullanıcıların kişisel Windows 10 cihazları tootheir şirket ağlarına nasıl kaydedebilirsiniz açıklanmakta ve bir BYOD senaryosu için dağıtım adımları sağlar."
 services: active-directory
 documentationcenter: 
 author: femila
@@ -15,29 +15,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: markvi
-ms.openlocfilehash: 9418365ea18b065551448742b21c8b17a1749fc8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 979e2461dd9ad0438aa402a0a3223cc84c4c625c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="join-a-personal-device-to-your-organization"></a>Kişisel bir cihazı kuruluşunuza katma
-## <a name="to-join-a-windows-10-device-to-your-organization"></a>Windows 10 cihaz kuruluşunuza katma
-1. Gelen **Başlat** menüsünde, select **ayarları**.
+# <a name="join-a-personal-device-tooyour-organization"></a>Kişisel cihaz tooyour kuruluş katılma
+## <a name="toojoin-a-windows-10-device-tooyour-organization"></a>toojoin Windows 10 cihaz tooyour kuruluş
+1. Merhaba gelen **Başlat** menüsünde, select **ayarları**.
 2. Seçin **hesapları**ve ardından **hesabınızı**.
 3. Tıklatın **eklemek iş veya Okul hesabı**ve ardından kuruluş hesabınızı yazın.
-4. Kuruluşunuzun oturum açma sayfasında, kullanıcı adınızı ve parolanızı girin ve ardından **Tamam**.
+4. Merhaba oturum açma sayfasında, kuruluşunuz için kullanıcı adınızı ve parolanızı girin ve ardından **Tamam**.
 5. Çok faktörlü kimlik doğrulaması sınaması için istenir. (Bu sorunu, bir BT yöneticisi tarafından yapılandırılabilir.)
-6. Azure Active Directory (Azure AD) cihaz mobil cihaz Yönetimi kaydı gerekli olup olmadığını denetler.
-7. Windows Azure AD'de kuruluşunuzun dizininde cihazı kaydeder ve uygun durumlarda mobil cihaz Yönetimi'nde kaydeder.
-8. Yönetilen bir kullanıcı varsa, Windows, masaüstüne otomatik oturum açma alır.
-9. Bir Federasyon kullanıcısı varsa, bir Windows ekrana oturum açma kimlik bilgilerinizi girmeniz için alınır.
+6. Azure Active Directory (Azure AD) hello cihaz mobil cihaz Yönetimi kaydı gerekli olup olmadığını denetler.
+7. Windows hello aygıt hello kuruluşunuzun dizininde Azure AD'de kaydeder ve uygun durumlarda mobil cihaz Yönetimi'nde kaydeder.
+8. Yönetilen bir kullanıcı varsa, Windows hello otomatik oturum açma aracılığıyla toohello masaüstüne alır.
+9. Bir Federasyon kullanıcısı varsa, siz olacaksınız kimlik bilgilerinizi tooa Windows oturum açma ekranı tooenter gerçekleştirilecek.
 
 ## <a name="additional-information"></a>Ek bilgiler
-* [Kurumlar için Windows 10: Cihazları iş için kullanmanın yolları](active-directory-azureadjoin-windows10-devices-overview.md)
-* [Azure Active Directory Join ile bulut işlevlerini Windows 10 cihazlarına genişletme](active-directory-azureadjoin-user-upgrade.md)
+* [Merhaba kuruluş için Windows 10: yolları toouse cihazlar iş için](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Bulut özellikleri tooWindows 10 cihazların Azure Active Directory katılım aracılığıyla genişletme](active-directory-azureadjoin-user-upgrade.md)
 * [Microsoft Passport aracılığıyla parolası olmayan kimlikleri doğrulama](active-directory-azureadjoin-passport.md)
 * [Azure AD Katılımı kullanım senaryoları hakkında bilgi edinin](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [Windows 10 deneyiminden faydalanmak için etki alanına katılan cihazları Azure AD'ye bağlama](active-directory-azureadjoin-devices-group-policy.md)
+* [Etki alanına katılmış aygıtlar tooAzure Windows 10 deneyimleri için AD Bağlan](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD'ye Katılım ayarlama](active-directory-azureadjoin-setup.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Azure IOT Hub sorgu dili anlama | Microsoft Docs
-description: "Geliştirici Kılavuzu - IOT hub'dan cihaz çiftlerini ve işleri hakkında bilgi almak için kullanılan SQL benzeri IOT hub'ı sorgu dili açıklaması."
+title: aaaUnderstand hello Azure IOT Hub sorgu dili | Microsoft Docs
+description: "Geliştirici Kılavuzu - hello SQL benzeri IOT hub'ı sorgu dili açıklaması cihaz çiftlerini ve IOT hub'ınızı işlerden hakkında tooretrieve bilgi kullanılır."
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/17
 ms.author: elioda
-ms.openlocfilehash: a7650104eda58923558892f6f0f6666d16dbce28
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 01a7c8ffdf44c6c27b834739d02c8fef1dd3d3fd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="reference---iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Başvuru - cihaz çiftlerini, işler ve ileti yönlendirme için IOT hub'ı sorgulama dili
 
-IOT hub'ı sağlayan bilgi almak için güçlü bir SQL benzeri dili ile ilgili [cihaz çiftlerini] [ lnk-twins] ve [işleri][lnk-jobs], ve [ileti yönlendirme][lnk-devguide-messaging-routes]. Bu makalede sunar:
+IOT hub'ı güçlü SQL benzeri bir dil tooretrieve bilgilerini sağlamaktadır ilgili [cihaz çiftlerini] [ lnk-twins] ve [işleri][lnk-jobs]ve [ileti yönlendirme][lnk-devguide-messaging-routes]. Bu makalede sunar:
 
-* Önemli özellikleri giriş IOT hub'ı sorgu dili ve
-* Dil ayrıntılı açıklaması.
+* Bir giriş toohello ana özelliklerini hello IOT hub'ı sorgu dili ve
+* Merhaba hello dil açıklaması ayrıntılı.
 
 ## <a name="get-started-with-device-twin-queries"></a>Cihaz çifti sorguları ile çalışmaya başlama
-[Cihaz çiftlerini] [ lnk-twins] etiketleri ve özellikleri rastgele JSON nesnelerini içerebilir. IOT Hub, tüm cihaz çifti bilgilerini içeren tek bir JSON belgesi olarak sorgu cihaz çiftlerini sağlar.
-Örneğin, IOT hub cihaz çiftlerini aşağıdaki yapısını olduğunu varsayın:
+[Cihaz çiftlerini] [ lnk-twins] etiketleri ve özellikleri rastgele JSON nesnelerini içerebilir. IOT Hub, tooquery cihaz çiftlerini tüm cihaz çifti bilgilerini içeren tek bir JSON belgesi olarak sağlar.
+Örneğin, IOT hub cihaz çiftlerini yapı izlenerek hello olduğunu varsayın:
 
 ```json
 {
@@ -70,8 +70,8 @@ IOT hub'ı sağlayan bilgi almak için güçlü bir SQL benzeri dili ile ilgili 
 }
 ```
 
-IOT Hub cihaz çiftlerini adlı bir belge koleksiyonu olarak kullanıma sunar **aygıtları**.
-Bu nedenle aşağıdaki sorgu tüm cihaz çiftlerini kümesini alır:
+IOT hub'ı sunan hello cihaz çiftlerini adlı bir belge koleksiyonu olarak **aygıtları**.
+Bu nedenle sorgu aşağıdaki hello hello tüm cihaz çiftlerini kümesini alır:
 
 ```sql
 SELECT * FROM devices
@@ -80,14 +80,14 @@ SELECT * FROM devices
 > [!NOTE]
 > [Azure IOT SDK'ları] [ lnk-hub-sdks] büyük sonuçlarının disk belleği destekler.
 
-IOT Hub cihaz çiftlerini rasgele koşullarla filtreleme almanıza olanak tanır. Örneğin,
+IOT Hub ile rastgele koşullar filtreleme tooretrieve cihaz çiftlerini sağlar. Örneğin,
 
 ```sql
 SELECT * FROM devices
 WHERE tags.location.region = 'US'
 ```
 
-ile cihaz çiftlerini alır **location.region** etiketi kümesine **ABD**.
+alır hello cihaz çiftlerini ile Merhaba **location.region** etiketi ayarlayın çok**ABD**.
 Boole işleçleri ve aritmetik karşılaştırmaları de, örneğin desteklenir
 
 ```sql
@@ -96,21 +96,21 @@ WHERE tags.location.region = 'US'
     AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
 ```
 
-telemetri dakikada daha az sıklıkta göndermek için yapılandırılan ABD bulunan tüm cihaz çiftlerini alır. Bir kolaylık da dizi sabitleri ile kullanmak mümkündür **IN** ve **NBU** (içinde değil) işleçler. Örneğin,
+Merhaba BİZE yapılandırılmış toosend telemetri değerinden genellikle dakikada bulunan tüm cihaz çiftlerini alır. Kolaylık, aynı zamanda hello ile olası toouse dizi sabitleri olup **IN** ve **NBU** (içinde değil) işleçler. Örneğin,
 
 ```sql
 SELECT * FROM devices
 WHERE properties.reported.connectivity IN ['wired', 'wifi']
 ```
 
-WiFi bildirilen veya bağlantı kablolu tüm cihaz çiftlerini alır. Genellikle, belirli bir özellik içeren tüm cihaz çiftlerini tanımlamak gereklidir. IOT hub'ı destekleyen işlevi `is_defined()` bu amaç için. Örneğin,
+WiFi bildirilen veya bağlantı kablolu tüm cihaz çiftlerini alır. Bu genellikle gerekli tooidentify belirli bir özellik içeren tüm cihaz çiftlerini değil. IOT hub'ı destekleyen hello işlevi `is_defined()` bu amaç için. Örneğin,
 
 ```SQL
 SELECT * FROM devices
 WHERE is_defined(properties.reported.connectivity)
 ```
 
-tanımladığınız tüm cihaz çiftlerini alınan `connectivity` özelliği bildirdi. Başvurmak [WHERE yan tümcesi] [ lnk-query-where] filtreleme yetenekleri tam başvuru için bölüm.
+Merhaba tanımlamak tüm cihaz çiftlerini alınan `connectivity` özelliği bildirdi. Toohello başvuran [WHERE yan tümcesi] [ lnk-query-where] filtreleme özellikleri hello hello tam başvuru için bölüm.
 
 Gruplandırma ve toplamalar da desteklenir. Örneğin,
 
@@ -121,7 +121,7 @@ FROM devices
 GROUP BY properties.reported.telemetryConfig.status
 ```
 
-cihaz sayısı her telemetri yapılandırma durumunu döndürür.
+Merhaba cihaz Hello sayısı her telemetri yapılandırma durumunu döndürür.
 
 ```json
 [
@@ -140,10 +140,10 @@ cihaz sayısı her telemetri yapılandırma durumunu döndürür.
 ]
 ```
 
-Önceki örnekte olduğu üç aygıt başarılı bir yapılandırma bildirilen, iki hala yapılandırmayı uygulama ve bir hata bildirdi bir durum gösterilir.
+Merhaba önceki örnekte burada üç aygıt başarılı bir yapılandırma bildirilen, iki hala hello yapılandırmayı uygulama ve bir hata bildirdi bir durum gösterilir.
 
 ### <a name="c-example"></a>C# örnek
-Sorgu işlevi tarafından sunulan [C# hizmeti SDK'sını] [ lnk-hub-sdks] içinde **RegistryManager** sınıfı.
+Merhaba sorgu işlevi hello tarafından sunulan [C# hizmeti SDK'sını] [ lnk-hub-sdks] hello içinde **RegistryManager** sınıfı.
 Burada, basit bir sorgu örneği verilmiştir:
 
 ```csharp
@@ -158,20 +158,20 @@ while (query.HasMoreResults)
 }
 ```
 
-Not nasıl **sorgu** nesne örneği içeren bir sayfa boyutunu (en fazla 1000) ve sonra birden çok sayfa çağırarak alınabilir **GetNextAsTwinAsync** yöntemleri birden çok kez.
-Sorgu nesnesi birden çok sunan Not **sonraki\***bağlı olarak cihaz çiftine veya iş nesneleri veya düz JSON gibi sorgu tarafından tahminleri kullanırken kullanılması gereken seri durumdan çıkarma seçeneği.
+Not nasıl hello **sorgu** nesne örneği içeren bir sayfa boyutuna (yukarı too1000) ve ardından birden çok sayfa arama hello tarafından alınabilecek **GetNextAsTwinAsync** yöntemleri birden çok kez.
+Bu hello sorgu nesneyi kullanıma sunan birden çok Not **sonraki\***, cihaz çifti ya da iş nesneleri gibi hello sorgu gerektirdiği hello seri durumdan çıkarma seçeneği veya tahminleri kullanılırken düz JSON toobe bağlı olarak.
 
 ### <a name="nodejs-example"></a>Node.js örneği
-Sorgu işlevi tarafından sunulan [Node.js için Azure IOT hizmeti SDK'sını] [ lnk-hub-sdks] içinde **kayıt defteri** nesnesi.
+Merhaba sorgu işlevi hello tarafından sunulan [Node.js için Azure IOT hizmeti SDK'sını] [ lnk-hub-sdks] hello içinde **kayıt defteri** nesnesi.
 Burada, basit bir sorgu örneği verilmiştir:
 
 ```nodejs
 var query = registry.createQuery('SELECT * FROM devices', 100);
 var onResults = function(err, results) {
     if (err) {
-        console.error('Failed to fetch the results: ' + err.message);
+        console.error('Failed toofetch hello results: ' + err.message);
     } else {
-        // Do something with the results
+        // Do something with hello results
         results.forEach(function(twin) {
             console.log(twin.deviceId);
         });
@@ -184,17 +184,17 @@ var onResults = function(err, results) {
 query.nextAsTwin(onResults);
 ```
 
-Not nasıl **sorgu** nesne örneği içeren bir sayfa boyutunu (en fazla 1000) ve sonra birden çok sayfa çağırarak alınabilir **nextAsTwin** yöntemleri birden çok kez.
-Sorgu nesnesi birden çok sunan Not **sonraki\***bağlı olarak cihaz çiftine veya iş nesneleri veya düz JSON gibi sorgu tarafından tahminleri kullanırken kullanılması gereken seri durumdan çıkarma seçeneği.
+Not nasıl hello **sorgu** nesne örneği içeren bir sayfa boyutuna (yukarı too1000) ve ardından birden çok sayfa arama hello tarafından alınabilecek **nextAsTwin** yöntemleri birden çok kez.
+Bu hello sorgu nesneyi kullanıma sunan birden çok Not **sonraki\***, cihaz çifti ya da iş nesneleri gibi hello sorgu gerektirdiği hello seri durumdan çıkarma seçeneği veya tahminleri kullanılırken düz JSON toobe bağlı olarak.
 
 ### <a name="limitations"></a>Sınırlamalar
 > [!IMPORTANT]
-> Sorgu sonuçları en son değerleri göre gecikme birkaç dakika içinde cihaz çiftlerini olabilir. Tek tek cihaz çiftlerini kimliğine göre sorgulama, her zaman, her zaman en son değerleri içerir ve daha yüksek azaltma sınırları almak cihaz çifti API kullanılması tercih edilir.
+> Sorgu sonuçları gecikme saygı toohello en son değerleri ile birkaç dakika içinde cihaz çiftlerini olabilir. Tek tek cihaz çiftlerini kimliğine göre sorgulama, her zaman tercih toouse hello varsa, her zaman hello en son değerleri içerir ve daha yüksek azaltma sınırları cihaz çifti API alın.
 
 Şu anda karşılaştırmaları yalnızca ilkel türler arasında (hiçbir nesne), örneğin desteklenir `... WHERE properties.desired.config = properties.reported.config` yalnızca bu özellikleri ilkel değerler varsa desteklenir.
 
 ## <a name="get-started-with-jobs-queries"></a>İşlerini sorguları ile çalışmaya başlama
-[İşlerini] [ lnk-jobs] aygıtların kümeleri üzerinde işlemlerini yürütmek için bir yol sağlar. Her cihaz çifti bilgilerin onu olduğu adlı bir koleksiyon bölümünde işlerin içeren **işleri**.
+[İşlerini] [ lnk-jobs] şekilde tooexecute aygıtları kümesi üzerinde işlemler sağlar. Her cihaz çifti onu olduğu adlı bir koleksiyon bölümünde hello işleri hello bilgileri içeren **işleri**.
 Mantıksal olarak
 
 ```json
@@ -226,23 +226,23 @@ Mantıksal olarak
 }
 ```
 
-Bu koleksiyon şu anda olarak sorgulanabilir **devices.jobs** IOT hub'ı sorgu dili.
+Bu koleksiyon şu anda olarak sorgulanabilir **devices.jobs** hello IOT hub'ı sorgu dili içinde.
 
 > [!IMPORTANT]
-> İşlerini özelliği şu anda hiçbir zaman cihaz çiftlerini (diğer bir deyişle, 'aygıtlardan' içeren sorgular) sorgulanırken döndürülür. Yalnızca doğrudan sorgu kullanarak erişilebilir `FROM devices.jobs`.
+> Şu anda hello işleri özelliği, hiçbir zaman cihaz çiftlerini (diğer bir deyişle, 'aygıtlardan' içeren sorgular) sorgulanırken döndürülür. Yalnızca doğrudan sorgu kullanarak erişilebilir `FROM devices.jobs`.
 >
 >
 
-Örneğin, tek bir cihazı etkileyen tüm işleri (Geçmiş ve zamanlanmış) almak için aşağıdaki sorguyu kullanabilirsiniz:
+Örneğin, tooget tek bir cihazı etkileyen tüm işleri (Geçmiş ve zamanlanmış), sorgu aşağıdaki hello kullanabilirsiniz:
 
 ```sql
 SELECT * FROM devices.jobs
 WHERE devices.jobs.deviceId = 'myDeviceId'
 ```
 
-Bu sorgu, cihaza özel durumu (ve büyük olasılıkla doğrudan yöntemi yanıtı) döndürülen her bir iş nasıl sağladığını unutmayın.
-Tüm nesne özelliklerinde rastgele Boolean koşullara ile filtrelemek mümkündür **devices.jobs** koleksiyonu.
-Örneğin, aşağıdaki sorguyu:
+Bu sorgu hello cihaza özel durumu (ve büyük olasılıkla hello doğrudan yöntemi yanıtı) döndürülen her bir iş nasıl sağladığını unutmayın.
+Aynı zamanda tüm nesne özellikleri hello içinde rastgele Boolean koşullarla olası toofilter olan **devices.jobs** koleksiyonu.
+Örneğin, sorgu hello:
 
 ```sql
 SELECT * FROM devices.jobs
@@ -254,7 +254,7 @@ WHERE devices.jobs.deviceId = 'myDeviceId'
 
 Tüm tamamlanan alır cihaz çifti güncelleştirme işleri aygıtın **myDeviceId** Eylül 2016 sonra oluşturulmuş.
 
-Tek bir işin cihaz başına sonuçlar almak mümkündür.
+Ayrıca olası tooretrieve hello aygıt başına sonuçlarını tek bir işi yerdir.
 
 ```sql
 SELECT * FROM devices.jobs
@@ -265,18 +265,18 @@ WHERE devices.jobs.jobId = 'myJobId'
 Üzerinde şu anda sorgular **devices.jobs** desteklemez:
 
 * Projeksiyonlar, bu nedenle yalnızca `SELECT *` mümkündür.
-* Proje Özellikleri (önceki bölüme bakın) ek olarak cihaz çiftine başvurmak koşulları.
+* Toplama toojob özellikleri (önceki bölümde hello bakın) toohello cihaz çiftine başvuran koşulları.
 * Count, avg, grupla gibi toplamalar gerçekleştiriliyor.
 
 ## <a name="get-started-with-device-to-cloud-message-routes-query-expressions"></a>Cihaz bulut ileti yollar sorgu ifadeleri ile çalışmaya başlama
 
-Kullanarak [cihaz bulut yolları][lnk-devguide-messaging-routes], IOT Hub'ın tek bir ileti karşı değerlendirilen ifadeleri göre farklı uç noktalar için cihaz bulut iletilerini gönderilmesi için yapılandırabilirsiniz.
+Kullanarak [cihaz bulut yolları][lnk-devguide-messaging-routes], IOT Hub'ın toodispatch cihaz-bulut iletileri karşı tek bir ileti hesaplanan ifadeleri göre toodifferent uç noktalarını yapılandırabilirsiniz.
 
-Rota [koşulu] [ lnk-query-expressions] twin ve iş sorguları koşullarında olarak aynı IOT hub'ı sorgu dilini kullanır. Rota koşullar ileti üstbilgilerini ve gövde üzerinde değerlendirilir. Yönlendirme sorgu ifadesi yalnızca ileti gövdesi, yalnızca ileti üstbilgilerini gerektirebilir veya her ikisi de üstbilgileri iletisi ve ileti gövdesi. IOT hub'ı iletileri yönlendirmek için üstbilgiler ve ileti gövdesi için belirli bir şema varsayar ve aşağıdaki bölümlerde IOT Hub'ın düzgün bir şekilde yönlendirmek gereklidir:
+Merhaba rota [koşulu] [ lnk-query-expressions] hello aynı IOT hub'ı sorgu dili twin ve iş sorguları koşullarında olarak kullanır. Yol koşulları hello ileti üstbilgilerini ve gövde değerlendirilir. Yönlendirme sorgu ifadesi yalnızca hello ileti gövdesi, yalnızca ileti üstbilgilerini gerektirebilir veya her ikisi de üstbilgileri iletisi ve ileti gövdesi. IOT hub'ı hello üstbilgiler ve ileti gövdesini sipariş tooroute iletileri için belirli bir şema olduğu varsayılır ve IOT hub'ı tooproperly rotası için gerekli olan bölümleri aşağıdaki hello açıklanmaktadır:
 
 ### <a name="routing-on-message-headers"></a>İleti üstbilgilerinde yönlendirme
 
-IOT Hub aşağıdaki JSON gösterimi ileti yönlendirme iletisi üstbilgilerinin varsayılır:
+IOT hub'ı ileti yönlendirme için ileti üstbilgilerini JSON gösterimi aşağıdaki hello varsayılır:
 
 ```json
 {
@@ -298,41 +298,41 @@ IOT Hub aşağıdaki JSON gösterimi ileti yönlendirme iletisi üstbilgilerinin
 }
 ```
 
-İleti sistemi özelliklerini öneki ile `'$'` simgesi.
-Kullanıcı özellikleri her zaman kendi adıyla erişilir. Bir kullanıcı özellik adı bir sistem özelliği ile çakıştığı için ortaya çıkarsa (gibi `$to`), kullanıcı özelliği ile alınan `$to` ifade.
-Köşeli ayraçlar kullanarak sistem özelliği her zaman erişebilirsiniz `{}`: ifade örneği için kullanabileceğiniz `{$to}` sistem özelliğine erişmek için `to`. Köşeli parantez içindeki özellik adları, her zaman karşılık gelen sistem özelliği alır.
+İleti sistemi özellikleri ile Merhaba önekli `'$'` simgesi.
+Kullanıcı özellikleri her zaman kendi adıyla erişilir. Bir kullanıcı özellik adı bir sistem özelliğiyle toocoincide ortaya çıkarsa (gibi `$to`), hello kullanıcı özelliği ile Merhaba alınan `$to` ifade.
+Köşeli ayraçlar kullanan hello sistem özellik her zaman erişebilirsiniz `{}`: hello ifade örneği için kullanabileceğiniz `{$to}` tooaccess hello sistem özelliği `to`. Köşeli parantez içindeki özellik adları daima hello karşılık gelen sistem özelliği alır.
 
 Özellik adları büyük küçük harfe duyarlı olduğunu unutmayın.
 
 > [!NOTE]
-> Tüm ileti özellikleri dizelerdir. Bölümünde açıklandığı gibi sistem özelliklerini [Geliştirici Kılavuzu][lnk-devguide-messaging-format], şu anda sorgularında kullanılabilir değildir.
+> Tüm ileti özellikleri dizelerdir. Hello açıklandığı gibi sistem özelliklerini [Geliştirici Kılavuzu][lnk-devguide-messaging-format], şu anda kullanılabilir toouse sorgularda değildir.
 >
 
-Örneğin, kullanırsanız, bir `messageType` özelliği, tüm telemetri bir uç nokta ve başka bir uç nokta için tüm uyarılar yönlendirmek isteyebilirsiniz. Telemetri yönlendirmek için aşağıdaki ifade yazabilirsiniz:
+Örneğin, kullanırsanız, bir `messageType` özelliği, tüm telemetri tooone endpoint ve tüm uyarıları tooanother uç tooroute isteyebilirsiniz. İfade tooroute hello telemetri aşağıdaki hello yazabilirsiniz:
 
 ```sql
 messageType = 'telemetry'
 ```
 
-Ve uyarı iletileri yönlendirmek için aşağıdaki ifade:
+Ve ifade tooroute hello uyarı iletileri hello aşağıdaki:
 
 ```sql
 messageType = 'alert'
 ```
 
-Boole ifadeleri ve işlevleri de desteklenir. Bu özellik, örneğin önem düzeyi arasında ayrım sağlar:
+Boole ifadeleri ve işlevleri de desteklenir. Bu özellik, toodistinguish önem düzeyi arasında örneğin sağlar:
 
 ```sql
 messageType = 'alerts' AND as_number(severity) <= 2
 ```
 
-Başvurmak [ifade ve koşullar] [ lnk-query-expressions] desteklenen işleçler ve işlevlerin tam listesi için bölümü.
+Toohello başvuran [ifade ve koşullar] [ lnk-query-expressions] bölümünü hello tam listesi için desteklenen işleçleri ve işlevleri.
 
 ### <a name="routing-on-message-bodies"></a>İleti gövdeleri yönlendirme
 
-IOT Hub, ileti gövdesinde dayalı yalnızca yönlendirebilirsiniz ileti gövdesi doğru ise, içeriği biçimlendirilmiş JSON UTF-8, UTF-16 veya UTF-32 kodlanmış. İletiye içerik türü ayarlamalısınız `application/json` ve IOT Hub'ı gövde içeriğine göre ileti yönlendirmek izin vermek için ileti üstbilgilerinde desteklenen UTF Kodlamalar birine içerik kodlaması. Üstbilgileri birini belirtilmezse, IOT hub'ı karşı ileti gövdesi içeren herhangi bir sorgu ifade değerlendirmek çalışmaz. İletinizi bir JSON ileti değilse veya ileti içerik türü ve içerik kodlamasını belirtmiyorsa hala ileti yönlendirme iletisi başlıklarını temel ileti yönlendirmek için kullanabilirsiniz.
+IOT Hub, ileti gövdesinde dayalı yalnızca yönlendirebilirsiniz hello ileti gövdesi doğru ise, içeriği biçimlendirilmiş JSON UTF-8, UTF-16 veya UTF-32 kodlanmış. Merhaba iletisinin hello içerik türü çok ayarlamalısınız`application/json` ve hello içerik kodlama tooone Merhaba, IOT hub'ı tooroute selamlama iletisine hello gövde içeriğine göre hello ileti üstbilgilerini tooallow UTF Kodlamalar desteklenir. Merhaba üstbilgileri birini belirtilmezse, IOT hub'ı hello gövde selamlama iletisine karşı içeren herhangi bir sorgu ifade tooevaluate denemez. İleti bir JSON ileti değilse veya selamlama iletisine hello içerik türü ve içerik kodlamasını belirtmiyorsa, ileti tooroute selamlama iletisine hello ileti üstbilgilerinde tabanlı yönlendirme hala kullanabilir.
 
-Kullanabileceğiniz `$body` ileti yönlendirmek için sorgu ifadesinde. Sorgu ifadesinde basit gövde başvurusu, gövde dizi başvuru ya da birden fazla gövde başvuru kullanabilirsiniz. Sorgu ifadesi ayrıca gövde başvuru iletisi başlığı başvurusu ile birleştirebilirsiniz. Örneğin, tüm geçerli sorgu ifadeleri şunlardır:
+Kullanabileceğiniz `$body` hello sorgu ifadesi tooroute Başlangıç iletisi. Basit gövde başvurusu, gövde dizi başvuru ya da birden fazla gövde başvuru hello sorgu ifadesinde kullanabilirsiniz. Sorgu ifadesi ayrıca gövde başvuru iletisi başlığı başvurusu ile birleştirebilirsiniz. Örneğin, tüm geçerli sorgu ifadeleri hello şunlardır:
 
 ```sql
 $body.message.Weather.Location.State = 'WA'
@@ -343,7 +343,7 @@ $body.Weather.Temperature = 50 AND Status = 'Active'
 ```
 
 ## <a name="basics-of-an-iot-hub-query"></a>IOT Hub sorgusuyla temelleri
-Her IOT hub'ı sorgu seçme ve FROM yan tümcesi ve isteğe bağlı WHERE ve GROUP BY yan tümceleri oluşur. Her sorgu JSON belgeleri, örneğin cihaz çiftlerini topluluğu üzerinde çalıştırılır. FROM yan tümcesi üzerinde yinelendiğinde için belge koleksiyonunu gösterir (**aygıtları** veya **devices.jobs**). Ardından, WHERE yan tümcesinde filtre uygulanır. Toplamalar ile bu adım olarak gruplandırılır GROUP BY yan tümcesinde ve her grup için belirtilen bir satır oluşturulan SELECT yan tümcesi belirtilmiş.
+Her IOT hub'ı sorgu seçme ve FROM yan tümcesi ve isteğe bağlı WHERE ve GROUP BY yan tümceleri oluşur. Her sorgu JSON belgeleri, örneğin cihaz çiftlerini topluluğu üzerinde çalıştırılır. Merhaba FROM yan tümcesi üzerinde yinelendiğinde hello belge koleksiyonu toobe gösterir (**aygıtları** veya **devices.jobs**). Ardından, burada yan tümcesi uygulanır hello filtrede hello. Toplamalar ile bu adımı hello sonuçlarını GROUP BY yan tümcesi içinde belirtilen hello gruplandırılır ve her grup için bir satır oluşturulur hello SELECT yan tümcesinde belirtilen.
 
 ```sql
 SELECT <select_list>
@@ -353,18 +353,18 @@ FROM <from_specification>
 ```
 
 ## <a name="from-clause"></a>FROM yan tümcesi
-**< From_specification > gelen** yan tümcesi, yalnızca iki değer varsayabilirsiniz: **AYGITLARDAN**, cihaz çiftlerini sorgulamak veya **devices.jobs gelen**, işin cihaz başına sorgulamak için ayrıntıları.
+Merhaba **< from_specification > gelen** yan tümcesi, yalnızca iki değer varsayabilirsiniz: **AYGITLARDAN**, tooquery cihaz çiftlerini veya **devices.jobs gelen**, tooquery işi cihaz başına Ayrıntıları.
 
 ## <a name="where-clause"></a>WHERE yan tümcesi
-**Burada < filter_condition >** yan tümcesi isteğe bağlıdır. JSON FROM koleksiyonunda belgeleri bir veya daha fazla sonucunu bir parçası olarak dahil edilecek koşullarını gerekir belirtir. Herhangi bir JSON belge sonucu dahil edilecek "true" belirtilen koşulları değerlendirmeniz gerekir.
+Merhaba **burada < filter_condition >** yan tümcesi isteğe bağlıdır. Merhaba JSON belgelerini hello FROM koleksiyonundaki hello sonuç bir parçası olarak dahil edilen toobe getirmelidir bir veya daha fazla koşulları belirtir. Herhangi bir JSON belge değerlendirilmelidir hello belirtilen koşullar çok "true" Merhaba sonucunda içerilen toobe.
 
-İzin verilen koşullar bölümünde açıklanan [ifadeleri ve koşullar][lnk-query-expressions].
+Merhaba izin koşulları bölümünde açıklanan [ifadeleri ve koşullar][lnk-query-expressions].
 
 ## <a name="select-clause"></a>SELECT yan tümcesi
-SELECT yan tümcesi (**seçin < select_list >**) zorunludur ve değerleri sorgudan alınan belirtir. Yeni JSON nesnelerini oluşturmak için kullanılacak JSON değerleri belirtir.
-Her kaynak koleksiyonu filtrelenmiş (ve isteğe bağlı olarak gruplandırılmış) alt öğe için yansıtma aşaması SELECT yan tümcesinde belirtilen değerlerle oluşturulan yeni bir JSON nesnesi oluşturur.
+Merhaba SELECT yan tümcesi (**seçin < select_list >**) zorunludur ve hangi değerlerin hello sorgudan alınan belirtir. Merhaba JSON değerleri toobe toogenerate yeni JSON nesnelerinin kullanılan belirtir.
+Her öğe için filtrelenmiş (ve isteğe bağlı olarak gruplandırılmış) alt hello FROM koleksiyonunun Merhaba, hello projeksiyon aşaması hello SELECT yan tümcesinde belirtilen hello değerlerle oluşturulan yeni bir JSON nesnesi oluşturur.
 
-SELECT yan tümcesi dilbilgisi aşağıdadır:
+Merhaba SELECT yan tümcesi hello dilbilgisi aşağıdadır:
 
 ```
 SELECT [TOP <max number>] <projection list>
@@ -386,12 +386,12 @@ SELECT [TOP <max number>] <projection list>
     | max(<projection_element>)
 ```
 
-Burada **attribute_name** FROM koleksiyonundaki JSON belgesinin herhangi bir özelliğe başvuruyor. SELECT yan tümceleri bazı örnekler bulunabilir [cihaz çifti sorguları ile çalışmaya başlama] [ lnk-query-getstarted] bölümü.
+Burada **attribute_name** tooany özelliği hello JSON belgesinin hello FROM koleksiyonundaki başvurur. SELECT yan tümceleri bazı örnekleri hello bulunabilir [cihaz çifti sorguları ile çalışmaya başlama] [ lnk-query-getstarted] bölümü.
 
 Şu anda, seçim yan tümceleri farklı **seçin \***  cihaz çiftlerini toplama sorgularında yalnızca desteklenir.
 
 ## <a name="group-by-clause"></a>GROUP BY yan tümcesi
-**GROUP BY < group_specification >** yan tümcesi WHERE yan tümcesinde ve SELECT belirtilen projeksiyon önce belirtilen filtre sonra yürütülen isteğe bağlı bir adım olan. Bir özniteliğin değerine bağlı olarak belgelerin gruplandırır. Bu gruplar, SELECT yan tümcesinde belirtilen toplanmış değerlerini oluşturmak için kullanılır.
+Merhaba **GROUP BY < group_specification >** yan tümcesi hello filtre hello WHERE yan tümcesinde belirtilen sonra çalıştırılabilir ve hello belirtilen hello projeksiyon önce seçin isteğe bağlı bir adım olan. Belgeleri bir özniteliğin hello değere göre gruplandırır. Bu gruplar, hello SELECT yan tümcesinde belirtilen toplanan kullanılan toogenerate değerlerdir.
 
 GROUP BY kullanarak bir sorgu örneğidir:
 
@@ -402,7 +402,7 @@ FROM devices
 GROUP BY properties.reported.telemetryConfig.status
 ```
 
-GROUP BY resmi sözdizimi şöyledir:
+Merhaba resmi için GROUP BY söz dizimi:
 
 ```
 GROUP BY <group_by_element>
@@ -411,19 +411,19 @@ GROUP BY <group_by_element>
     | < group_by_element > '.' attribute_name
 ```
 
-Burada **attribute_name** FROM koleksiyonundaki JSON belgesinin herhangi bir özelliğe başvuruyor.
+Burada **attribute_name** tooany özelliği hello JSON belgesinin hello FROM koleksiyonundaki başvurur.
 
-Şu anda, GROUP BY yan tümcesi, yalnızca cihaz çiftlerini sorgulanırken desteklenir.
+Şu anda hello GROUP BY yan tümcesi, yalnızca cihaz çiftlerini sorgulanırken desteklenir.
 
 ## <a name="expressions-and-conditions"></a>İfadeler ve koşullar
 Yüksek bir düzeyde bir *ifade*:
 
-* (Örneğin, Boolean, sayı, dize, dizi veya nesne), JSON türünün bir örneği için değerlendirir ve
-* Cihaz JSON belgesi ve yerleşik işleçler ve işlevleri kullanarak sabitleri gelen veri düzenleme tarafından tanımlanır.
+* Bir JSON türü (örneğin, Boolean, sayı, dize, dizi veya nesne), tooan örneği değerlendirir ve
+* Merhaba aygıt JSON belgesi ve yerleşik işleçler ve işlevleri kullanarak sabitleri gelen veri düzenleme tarafından tanımlanır.
 
-*Koşullar* bir Boole değeri değerlendirmek ifadeler. Boole değeri'den farklı herhangi sabiti **true** olarak kabul **false** (dahil olmak üzere **null**, **tanımsız**, herhangi bir nesne veya dizi örneği, herhangi bir dize ve açıkça Boolean **false**).
+*Koşullar* tooa Boolean değerlendirmek ifadeler. Boolean farklı herhangi sabiti **true** olarak kabul **false** (dahil olmak üzere **null**, **tanımsız**, tüm nesne veya dizi örneği Tüm dize ve açıkça hello Boolean **false**).
 
-İfadeler sözdizimi aşağıdaki gibidir:
+ifadeler Hello sözdizimi şöyledir:
 
 ```
 <expression> ::=
@@ -455,15 +455,15 @@ Burada:
 
 | Simgesi | Tanım |
 | --- | --- |
-| attribute_name | JSON belgesinde herhangi bir özelliği **FROM** koleksiyonu. |
-| binary_operator | Listelenen herhangi bir ikili işleç [işleçleri](#operators) bölümü. |
-| işlev_adı| Listelenen herhangi bir işlev [işlevleri](#functions) bölümü. |
+| attribute_name | Merhaba hello JSON belgesinde herhangi bir özelliği **FROM** koleksiyonu. |
+| binary_operator | Herhangi bir ikili işleç listelenen hello [işleçleri](#operators) bölümü. |
+| işlev_adı| Herhangi bir işlev listelenen hello [işlevleri](#functions) bölümü. |
 | decimal_literal |Bir kayan noktalı ondalık gösterimde. |
-| hexadecimal_literal |'0 x onaltılık basamak dizesiyle ve ardından' dize olarak ifade edilen bir sayı. |
+| hexadecimal_literal |Bir sayı '0 x onaltılık basamak dizesiyle ve ardından' hello dizesiyle ifade. |
 | string_literal |Dize değişmez değerleri, sıfır veya daha fazla Unicode karakter dizisi veya kaçış sıraları tarafından temsil edilen Unicode dizelerdir. Dize değişmez değerleri tek tırnak içine alınmış (kesme işareti: ') veya çift tırnak (tırnak işareti: "). Çıkışları izin: `\'`, `\"`, `\\`, `\uXXXX` 4 onaltılık basamak tarafından tanımlanan Unicode karakterler. |
 
 ### <a name="operators"></a>İşleçler
-Aşağıdaki işleçleri desteklenir:
+işleçler aşağıdaki hello desteklenir:
 
 | Ailesi | İşleçler |
 | --- | --- |
@@ -472,55 +472,55 @@ Aşağıdaki işleçleri desteklenir:
 | Karşılaştırma |=, !=, <, >, <=, >=, <> |
 
 ### <a name="functions"></a>İşlevler
-Çiftlerini ve desteklenen tek işleri sorgulanırken işlevi şu şekildedir:
+Yalnızca desteklenen çiftlerini ve işleri hello sorgulanırken işlevi şu şekildedir:
 
 | İşlevi | Açıklama |
 | -------- | ----------- |
-| IS_DEFINED(Property) | Özellik değeri atanmış olan gösteren bir Boole değeri döndürür (de dahil olmak üzere `null`). |
+| IS_DEFINED(Property) | Başlangıç özellik değeri atanmış olan gösteren bir Boole değeri döndürür (de dahil olmak üzere `null`). |
 
-Yollar koşullarında aşağıdaki matematik işlevleri desteklenir:
-
-| İşlevi | Açıklama |
-| -------- | ----------- |
-| Abs(x) | Belirtilen sayısal ifade (pozitif) mutlak değerini döndürür. |
-| EXP(x) | Belirtilen sayısal ifade üstel değeri döndürür (e ^ x). |
-| Power(x,y) | Belirtilen güç belirtilen ifadenin değerini döndürür (x ^ y).|
-| SQUARE(x) | Kare belirtilen sayısal değeri döndürür. |
-| CEILING(x) | Büyüktür veya eşittir, belirtilen sayısal ifadenin en küçük tamsayı değeri döndürür. |
-| FLOOR(x) | Belirtilen sayısal ifade küçük veya eşit en büyük tamsayıyı döndürür. |
-| SIGN(x) | Artı (+ 1), sıfır (0) veya belirtilen sayısal ifadenin eksi (-1) işareti döndürür.|
-| Sqrt(x) | Kare belirtilen sayısal değeri döndürür. |
-
-Yollar koşullarda, aşağıdaki tür denetleme ve atama işlevleri desteklenir:
+Yollar koşullarında matematik işlevleri aşağıdaki hello desteklenir:
 
 | İşlevi | Açıklama |
 | -------- | ----------- |
-| AS_NUMBER | Giriş dizesini sayıya dönüştürür. `noop`Giriş bir sayı ise; `Undefined` dize bir sayıyı temsil etmiyor durumunda.|
-| IS_ARRAY | Belirtilen ifade türü bir dizi olup olmadığını gösteren bir Boole değeri döndürür. |
-| IS_BOOL | Belirtilen ifade türü bir Boole değeri olup olmadığını gösteren bir Boole değeri döndürür. |
-| IS_DEFINED | Özellik değeri atanmış olan gösteren bir Boole değeri döndürür. |
-| IS_NULL | Belirtilen ifade türü null olup olmadığını gösteren bir Boole değeri döndürür. |
-| IS_NUMBER | Belirtilen ifade türü bir sayı olup olmadığını gösteren bir Boole değeri döndürür. |
-| IS_OBJECT | Belirtilen ifade türü bir JSON nesnesi olup olmadığını gösteren bir Boole değeri döndürür. |
-| IS_PRIMITIVE | Belirtilen ifade türü bir basit tür olup olmadığını gösteren bir Boole değeri döndürür (dize, Boolean, sayısal veya `null`). |
-| IS_STRING | Belirtilen ifade türü bir dize olup olmadığını gösteren bir Boole değeri döndürür. |
+| Abs(x) | Sayısal ifade döndürür hello mutlak (pozitif) değerini hello belirtildi. |
+| EXP(x) | Merhaba, hello üstel değer döndüren belirtilen sayısal ifade (e ^ x). |
+| Power(x,y) | Döndürür hello belirtilen başlangıç değeri ifadesi toohello belirtilen güç (x ^ y).|
+| SQUARE(x) | Merhaba kare döndürür hello sayısal değer belirtildi. |
+| CEILING(x) | En küçük tamsayı değeri büyük hello veya belirtilen sayısal ifade hello eşit verir. |
+| FLOOR(x) | Daha az Hello en büyük tamsayıyı döndürür veya bu değere eşit toohello sayısal ifade belirtildi. |
+| SIGN(x) | Artı (+ 1), sıfır (0), döndürür hello veya sayısal ifade hello eksi (-1) belirtisi belirtildi.|
+| Sqrt(x) | Merhaba kare döndürür hello sayısal değer belirtildi. |
 
-Yollar koşullarında aşağıdaki dize işlevleri desteklenir:
+Yollar koşullarında denetleme ve işlevleri atama türü aşağıdaki hello desteklenir:
 
 | İşlevi | Açıklama |
 | -------- | ----------- |
-| CONCAT(x,...) | İki veya daha fazla dize değerlerini birleştirme sonucu olan bir dize döndürür. |
-| LENGTH(x) | Belirtilen dize ifadesinin karakterlerin sayısını döndürür.|
-| Lower(x) | Büyük harf karakter verileri küçük harfe dönüştürmek sonra bir dize ifadesi döndürür. |
-| Upper(x) | Küçük harf karakter verileri büyük harfe dönüştürme sonra bir dize ifadesi döndürür. |
-| SUBSTRING (dize, başlangıç [, uzunluk]) | Belirtilen karakter sıfır tabanlı konumdan başlayarak bir dize ifadesi bölümünü döndürür ve belirtilen uzunlukta veya dize sonu devam eder. |
-| INDEX_OF (dize, parça) | İkinci ilk örneğinin başlangıç konumunu döndürür dizesi ifade ilk belirtilen dize ifadesi veya -1 içinde dizesi bulunamadı.|
-| STARTS_WITH (x, y) | Döndüren bir Boolean belirten ilk ifade dize olup olmadığını ve ikinci başlatır. |
-| ENDS_WITH (x, y) | Döndürür Boolean belirten bir ilk ifade dize olup olmadığını ve ikinci sona erer. |
-| CONTAINS(x,y) | Döndüren bir Boolean belirten ikinci ilk ifade dize olup olmadığını içerir. |
+| AS_NUMBER | Merhaba giriş dizesi tooa sayıyı dönüştürür. `noop`Giriş bir sayı ise; `Undefined` dize bir sayıyı temsil etmiyor durumunda.|
+| IS_ARRAY | Bir dizidir hello Hello türü ifade belirttiyseniz gösteren bir Boole değeri döndürür. |
+| IS_BOOL | Merhaba Hello türü ifade belirttiyseniz gösteren bir Boole değeri olan bir Boole değeri döndürür. |
+| IS_DEFINED | Başlangıç özellik değeri atanmış olan gösteren bir Boole değeri döndürür. |
+| IS_NULL | Merhaba Hello türü ifade belirttiyseniz gösteren bir Boole değeri null döndürür. |
+| IS_NUMBER | Bir sayıdır hello Hello türü ifade belirttiyseniz gösteren bir Boole değeri döndürür. |
+| IS_OBJECT | Merhaba Hello türü ifade belirttiyseniz gösteren bir Boole değeri olan bir JSON nesnesi döndürür. |
+| IS_PRIMITIVE | Merhaba Hello türü ifade ilkel belirtilirse, gösteren bir Boole değeri döndürür (dize, Boolean, sayısal veya `null`). |
+| IS_STRING | Merhaba Hello türü ifade belirttiyseniz gösteren bir Boole değeri bir dize verir. |
+
+Yollar koşullarında dize işlevleri aşağıdaki hello desteklenir:
+
+| İşlevi | Açıklama |
+| -------- | ----------- |
+| CONCAT(x,...) | İki veya daha fazla dize değerlerini birleştirme hello sonucu olan bir dize döndürür. |
+| LENGTH(x) | Dize ifadesi belirtilen döndürür hello hello karakter sayısı.|
+| Lower(x) | Büyük harf karakter veri toolowercase dönüştürmeden sonra bir dize ifadesi döndürür. |
+| Upper(x) | Küçük harf karakter veri toouppercase dönüştürmeden sonra bir dize ifadesi döndürür. |
+| SUBSTRING (dize, başlangıç [, uzunluk]) | Merhaba başlayan bir dize ifadesi döndürür parçası karakter sıfır tabanlı konumu belirtilen ve uzunluk veya hello dize toohello sonu toohello belirtilen devam eder. |
+| INDEX_OF (dize, parça) | Merhaba dize bulunmazsa hello ikinci dize ifadesi hello ilk belirtilen dize ifadesi veya -1 içinde hello ilk oluşum konumunu başlangıç hello döndürür.|
+| STARTS_WITH (x, y) | Merhaba ilk dize ifadesi ile Merhaba ikinci başlayıp başlamadığını gösteren bir Boole değeri döndürür. |
+| ENDS_WITH (x, y) | Merhaba ilk dize ifadesi ile Merhaba ikinci bitip olup olmadığını gösteren bir Boole değeri döndürür. |
+| CONTAINS(x,y) | Merhaba ilk dize ifadesi hello ikinci içerip içermediğini gösteren bir Boole değeri döndürür. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Sorguları kullanarak uygulamalarınızı yürütün öğrenin [Azure IOT SDK'ları][lnk-hub-sdks].
+Tooexecute kullanarak uygulamalarınızı nasıl sorgular öğrenin [Azure IOT SDK'ları][lnk-hub-sdks].
 
 [lnk-query-where]: iot-hub-devguide-query-language.md#where-clause
 [lnk-query-expressions]: iot-hub-devguide-query-language.md#expressions-and-conditions

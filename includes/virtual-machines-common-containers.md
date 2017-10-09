@@ -1,119 +1,119 @@
-Azure bulut çözümlerinin altyapısını, yazılım dağıtımlarının çevik olarak paketlenmesine ve kaynakların fiziksel donanımlara göre daha iyi birleştirilmesine imkan tanıyan sanal makineler (fiziksel bilgisayar donanımı öykünmesi) oluşturur. [Docker](https://www.docker.com) kapsayıcıları ve docker ekosistemi sayesinde dağıtılmış yazılımları geliştirme, teslim etme ve yönetme olanaklarınız önemli ölçüde arttı. Bir kapsayıcıdaki uygulama kodu, konak sanal makineden ve aynı sanal makinedeki diğer kapsayıcılardan yalıtılır. Bu yalıtım sayesinde daha fazla geliştirme ve dağıtım çevikliğine sahip olursunuz.
+Azure bulut çözümlerinin altyapısını, yazılım dağıtımlarının çevik olarak paketlenmesine ve kaynakların fiziksel donanımlara göre daha iyi birleştirilmesine imkan tanıyan sanal makineler (fiziksel bilgisayar donanımı öykünmesi) oluşturur. [Docker](https://www.docker.com) kapsayıcıları ve hello docker ekosistemi geliştirme sevk ve dağıtılmış yazılım yönetme önemli ölçüde genişletilmiş hello yolları vardır. Bir kapsayıcı uygulama kodunda VM hello ana bilgisayardan yalıtılmış ve diğer kapsayıcılarında aynı VM hello. Bu yalıtım sayesinde daha fazla geliştirme ve dağıtım çevikliğine sahip olursunuz.
 
-Azure aşağıdaki Docker değerlerini sunar:
+Azure Docker değerleri aşağıdaki hello sunar:
 
-* İçinde bulunduğunuz duruma uygun Docker konakları oluşturmak için [birçok](../articles/virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) [farklı](../articles/virtual-machines/linux/dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) yol
-* [Azure Container Service](https://azure.microsoft.com/documentation/services/container-service/), **marathon** ve **swarm** gibi düzenleyicileri kullanarak kapsayıcı konaklarından oluşan kümeler oluşturur.
-* Karmaşık dağıtılmış uygulamaların dağıtımını ve güncelleştirilmesini basitleştirmek için [Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md) ve [kaynak grubu şablonları](../articles/resource-group-authoring-templates.md)
+* [Birçok](../articles/virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) [farklı](../articles/virtual-machines/linux/dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) yolları toocreate Docker durumunuza kapsayıcıları toosuit barındırır
+* Merhaba [Azure kapsayıcı hizmeti](https://azure.microsoft.com/documentation/services/container-service/) orchestrators gibi kullanarak kapsayıcı konak kümeleri oluşturur **marathon** ve **swarm**.
+* [Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md) ve [kaynak grubu şablonları](../articles/resource-group-authoring-templates.md) dağıtma ve karmaşık dağıtılmış uygulamalarda güncelleştirme toosimplify
 * Hem özel hem de açık kaynaklı bir çok farklı yapılandırma yönetim aracı ile tümleştirme
 
-Üstelik, Azure’da program aracılığıyla sanal makineler ve Linux kapsayıcıları oluşturabileceğinizden, sanal makine ve kapsayıcı *düzenleme* araçlarını kullanarak Sanal Makine (VM) grupları oluşturabilir ve hem Linux kapsayıcıları hem de artık [Windows Kapsayıcıları](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview) içinde uygulama dağıtabilirsiniz.
+Ve sanal makineleri ve Linux program aracılığıyla oluşturma kapsayıcıları Azure üzerinde de VM ve kapsayıcı kullanabilirsiniz *orchestration* araçları sanal makineleri (VM'ler) ve hem de Linux toodeploy uygulamalarında toocreate grupları kapsayıcılar ve şimdi [Windows kapsayıcıları](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview).
 
-Bu makale yalnızca bu kavramlara yönelik üst düzey bir açıklama yapmakla kalmaz ve Azure’da kapsayıcı ve küme kullanımıyla ilgili daha fazla bilgi, öğreticiler ve ürünler için birçok bağlantı içerir. Bunların hepsini biliyorsanız ve yalnızca bağlantıları görmek istiyorsanız [kapsayıcılarla çalışmaya yönelik araçlar](#tools-for-working-with-azure-vms-and-containers) bölümüne gidin.
+Bu kavramlar yüksek bir düzeyde değil yalnızca bu makalede ele, ürünleri Azure toocontainer ve küme kullanımı ile ilgili ve bilgilerin bağlantıları toomore, öğreticiler, ton de içerir. Tüm bu bilmeniz ve yalnızca hello bağlantılar istiyorsanız burada adresindeki olup olmadıklarını [ile kapsayıcıları çalışma araçları](#tools-for-working-with-azure-vms-and-containers).
 
-## <a name="the-difference-between-virtual-machines-and-containers"></a>Sanal makineler ile kapsayıcılar arasındaki fark
-Sanal makineler, bir [hiper yönetici](http://en.wikipedia.org/wiki/Hypervisor) tarafından sağlanan yalıtılmış bir donanım sanallaştırma ortamı içinde çalışır. Azure’da, [Sanal Makineler](https://azure.microsoft.com/services/virtual-machines/) hizmeti tüm bu işlemleri sizin yerinize halleder: Sizin yapmanız gereken, işletim sistemini seçmek ve özel VM görüntüsü yapılandırarak (veya bir özel VM görüntüsünü karşıya yükleyerek) Sanal Makineleri oluşturmaktır. Sanal Makineler zaman içinde kabul görmüş, “çok badireler atlatmış” bir teknolojidir ve içerdikleri işletim sistemi ve uygulamaları yönetmeye yönelik birçok araç vardır.  Bir VM’deki uygulamalar konak işletim sisteminden gizlenir. Bir VM üzerindeki uygulama veya kullanıcı açısından bakıldığında, VM bağımsız bir fiziksel bilgisayar olarak görünür.
+## <a name="hello-difference-between-virtual-machines-and-containers"></a>sanal makineler ve kapsayıcılar arasındaki Hello fark
+Sanal makineler, bir [hiper yönetici](http://en.wikipedia.org/wiki/Hypervisor) tarafından sağlanan yalıtılmış bir donanım sanallaştırma ortamı içinde çalışır. Azure'da hello [sanal makineleri](https://azure.microsoft.com/services/virtual-machines/) hizmet tanıtıcıları tüm bu sizin için: hello işletim sistemi seçme ve yapılandırma sanal makineler oluşturma &mdash;veya özel bir VM görüntüsü yükleyerek. Sanal makineler olduğunda time-tested, "var olma Savaşının sıkı" teknolojisi ve birçok aracı kullanılabilir toomanage hello işletim sistemi ve uygulamaları içerir.  Bir VM uygulamalarında hello konak işletim sistemi gizlenir. Merhaba açısından bir uygulama ya da kullanıcının bir VM'de, hello VM toobe otonom bir fiziksel bilgisayar görünür.
 
-[Linux kapsayıcıları](http://en.wikipedia.org/wiki/LXC) ve docker araçları kullanılarak oluşturulan ve barındırılan kapsayıcılar, yalıtım sağlamak için bir hiper yönetici kullanmaz. Kapsayıcılar ile, kapsayıcı konağı Linux çekirdeğinin işlem ve dosya sistemi yalıtma özelliklerini kullanarak bunları kapsayıcı, uygulamaları, bazı çekirdek özellikleri ve kendi yalıtılmış dosya sisteminin kullanımına sunar. Bir kapsayıcı içinde çalışmakta olan uygulama açısından bakıldığında, kapsayıcı benzersiz bir işletim sistemi örneği olarak görünür. Kapsanan bir uygulama, kapsayıcısı dışındaki işlemleri veya diğer kaynakları göremez.
+[Linux kapsayıcıları](http://en.wikipedia.org/wiki/LXC) ve bu oluşturulur ve docker araçlarını kullanarak barındırılan kullanmaz hiper yönetici tooprovide yalıtım. İle kapsayıcıları, hello kapsayıcı ana işlem dosya sistemi yalıtım hello Linux çekirdek tooexpose toohello kapsayıcı özelliklerini, kendi uygulamaları, belirli çekirdek özellikleri ve kendi yalıtılmış dosya sistemi kullanır. Merhaba açısından bakıldığında, bir kapsayıcı içinde çalışan bir uygulamanın, hello kapsayıcı toobe benzersiz bir işletim sistemi örneği görüntülenir. Kapsanan bir uygulama, kapsayıcısı dışındaki işlemleri veya diğer kaynakları göremez.
 
-Bir Docker kapsayıcısında, bir VM’dekinden çok daha az kaynak kullanılır. Docker kapsayıcıları, Docker konağının çekirdeğini paylaşmayan bir uygulama yalıtım ve yürütme modeli kullanır. Kapsayıcı tüm işletim sistemini içermediği için daha düşük bir disk kullanım alanına sahiptir. Bir VM’ye göre başlangıç süresi ve gerekli disk alanı çok daha düşüktür.
-Windows Kapsayıcıları, Windows’da çalışan uygulamalar için Linux kapsayıcılarıyla aynı avantajları sunar. Windows Kapsayıcıları Docker görüntü biçimini ve Docker API’yi destekler, ancak PowerShell kullanılarak da yönetilebilir. Windows Kapsayıcılarıyla iki kapsayıcı çalışma zamanı kullanılabilir: Windows Server Kapsayıcıları ve Hyper-V Kapsayıcıları. Hyper-V Kapsayıcıları, her kapsayıcıyı maksimum düzeyde iyileştirilmiş bir sanal makinede barındırarak fazladan bir yalıtım katmanı sağlar. Windows Kapsayıcıları hakkında daha fazla bilgi edinmek için bkz. [Windows Kapsayıcıları hakkında](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview). Azure’da Windows Kapsayıcılarını kullanmaya başlamak için [Azure Container Service kümesi dağıtmayı](../articles/container-service/dcos-swarm/container-service-deployment.md) öğrenin.
+Bir Docker kapsayıcısında, bir VM’dekinden çok daha az kaynak kullanılır. Docker kapsayıcıları, hello çekirdek hello Docker konağının paylaşmaz bir uygulama yalıtımı ve yürütme modeli kullanın. Merhaba kapsayıcı sahip dahil değildir gibi daha düşük disk ayak izini tüm işletim sistemi hello. Bir VM’ye göre başlangıç süresi ve gerekli disk alanı çok daha düşüktür.
+Windows kapsayıcılar hello Windows üzerinde çalışan uygulamalar için Linux kapsayıcı olarak aynı avantajları sağlar. Merhaba Docker resim biçimi ve Docker API Windows kapsayıcıları destekler, ancak bunlar ayrıca PowerShell kullanılarak yönetilebilir. Windows Kapsayıcılarıyla iki kapsayıcı çalışma zamanı kullanılabilir: Windows Server Kapsayıcıları ve Hyper-V Kapsayıcıları. Hyper-V Kapsayıcıları, her kapsayıcıyı maksimum düzeyde iyileştirilmiş bir sanal makinede barındırarak fazladan bir yalıtım katmanı sağlar. Windows kapsayıcıları hakkında daha fazla toolearn [hakkında Windows kapsayıcıları](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview). Windows Azure, kapsayıcılarında kullanmaya tooget öğrenin nasıl çok[Azure kapsayıcı hizmeti kümesini dağıtma](../articles/container-service/dcos-swarm/container-service-deployment.md).
 
 ## <a name="what-are-containers-good-for"></a>Kapsayıcılar hangi alanlarda kullanıma uygundur?
 
 Kapsayıcılar şu iyileştirmeleri yapabilir:
 
-* Hızlı uygulama kodu geliştirilip yaygın olarak paylaşılabilir
-* Bir uygulamanın test edildiği hız ve güvenirlik
-* Bir uygulamanın dağıtıldığı hız ve güvenirlik
+* Merhaba hızı uygulama kodu geliştirilen ve yaygın olarak paylaşılan
+* Merhaba hızı ve bir uygulamayı test edilebilir güven
+* Merhaba hızı ve bir uygulama dağıtılabilir güven
 
-Kapsayıcılar, bir kapsayıcı konağı (işletim sistemi) ile Azure üzerinde, yani bir Azure Sanal Makinesinde yürütülür. Kapsayıcılar konusunda çoktan tatmin olmuş olsanız bile kapsayıcıları barındıran bir sanal makine altyapısına olan ihtiyacınız ortadan kalkmaz; ancak bu konudaki avantajınız, kapsayıcıların sanal makine ayrımı yapmamasıdır (tabii ki kapsayıcının yürütme ortamı olarak Linux mu yoksa Windows mu istediği gibi ayrıntılar önemlidir).
+Kapsayıcılar, bir kapsayıcı konağı (işletim sistemi) ile Azure üzerinde, yani bir Azure Sanal Makinesinde yürütülür. (Olup hello kapsayıcı bir Linux veya Windows istediği rağmen Merhaba kapsayıcılara fikrini zaten memnuniyet Merhaba kapsayıcılara barındırma VM altyapısını tooneed hala oluşturacağız ancak kapsayıcıları değil verdiğiniz hello yararlar şunlardır olsa bile VM çalıştırdıkları Yürütme Ortamı örneğin önemli olacaktır).
 
 
 ## <a name="what-are-containers-good-for"></a>Kapsayıcılar hangi alanlarda kullanıma uygundur?
-Kapsayıcılar birçok şey için uygun olsa da&mdash;[Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) ve [Azure Service Fabric](../articles/service-fabric/service-fabric-overview.md)&mdash; için de geçerli olduğu gibi tek hizmetli, mikro hizmet odaklı dağıtılmış uygulamalar oluşturulmasını teşvik ederler. Bu modelde, uygulama tasarımı büyük ve daha sıkı şekilde bağlı bileşenler yerine daha küçük, birleştirilebilen parçaları temel alır.
+Pek çok için harika, ancak bunlar teşvik&mdash;gibi [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) ve [Azure Service Fabric](../articles/service-fabric/service-fabric-overview.md)&mdash;hello tek hizmet, mikro hizmet odaklı oluşturma dağıtılmış uygulamalar, uygulama, daha fazla küçük, birleştirilebilir bölümleri yerine daha büyük ve daha güçlü bağlı bileşenleri tasarım temel alır.
 
 Bu durum, özellikle de dilediğiniz zaman ve yerde sanal makine kiralayabileceğiniz Azure gibi genel bulut ortamları için geçerlidir. Yalnızca yalıtım, hızlı dağıtım ve düzenleme araçlarına sahip olmakla kalmaz, daha verimli uygulama altyapısı kararları alabilirsiniz.
 
-Örneğin, yüksek oranda kullanılabilir ve dağıtılmış bir uygulama için büyük boyutlu 9 Azure sanal makinesinden bir dağıtımınız var diyelim. Bu uygulamanın bileşenleri kapsayıcılarda dağıtılabilirse yalnızca 4 sanal makine kullanmanın yanı sıra yedeklilik ve yük dengeleme için uygulama bileşenlerinizi 20 kapsayıcıda dağıtma olanağına sahip olabilirsiniz.
+Örneğin, yüksek oranda kullanılabilir ve dağıtılmış bir uygulama için büyük boyutlu 9 Azure sanal makinesinden bir dağıtımınız var diyelim. Bu uygulamanın Hello bileşenleri kapsayıcılarında dağıtılabilir kullanıyorsanız mümkün toouse yalnızca 4 VM'ler olması ve uygulama bileşenlerinizin artıklık ve Yük Dengeleme için 20 kapsayıcılar içinde dağıtabilirsiniz.
 
-Doğal olarak bu yalnızca bir örnek, ancak senaryonuzda bunu yapabiliyorsanız daha fazla Azure sanal makinesi yerine daha fazla kapsayıcı ile ani kullanım artışlarına uyum sağlayabilir ve geriye kalan toplam CPU yükünü öncekine oranla çok daha verimli bir şekilde kullanabilirsiniz.
+Yalnızca bir örnek doğal olarak, ancak bunu senaryonuzda yapabilirsiniz, daha fazla Azure VM'ler yerine, daha fazla kapsayıcı ile toousage ani ayarlayın ve genel CPU yükünü daha önce çok daha verimli bir şekilde kalan hello kullanın.
 
-Ayrıca, mikro hizmet yaklaşımına uygun olmayan birçok senaryo olduğundan, mikro hizmetlerin ve kapsayıcıların işinize yarayıp yaramayacağını en iyi siz bilirsiniz.
+Ayrıca, kendilerini tooa mikro yaklaşım ödünç değil birçok senaryo vardır; mikro ve kapsayıcıları yardımcı olacak olup olmadığını en iyi bilirsiniz.
 
 ### <a name="container-benefits-for-developers"></a>Geliştiriciler için kapsayıcı avantajları
-Genel olarak kapsayıcı teknolojisinin bir ilerleme olduğunu görmek kolay olsa da ayrıntılarda daha özel avantajların saklı olduğu gözden kaçmamalıdır. Docker kapsayıcıları örneğini ele alalım. Bu konu başlığında Docker’ı ayrıntılı olarak ele almayacağız (Docker’ın hikayesini merak ediyorsanız [Docker nedir?”](https://www.docker.com/whatisdocker/) makalesini okuyun veya [vikipedi](http://wikipedia.org/wiki/Docker_%28software%29)’ye bakın), ancak Docker ve sunduğu ekosistem, hem geliştiriciler hem de BT uzmanları için büyük avantajlar sağlıyor.
+Genel olarak, bir adım ileri kapsayıcı teknolojidir, ancak daha belirli avantajları da vardır kolay toosee değil. Docker kapsayıcıları hello örneği atalım. Bu konuda iç Docker şimdi daha yakından inceleyin değil (okuma [Docker nedir?](https://www.docker.com/whatisdocker/) bu hikaye için veya [wikipedia](http://wikipedia.org/wiki/Docker_%28software%29)), ancak Docker ve kendi ekosistemi inanılmaz tooboth geliştiriciler yararlar ve BT uzmanları.
 
-Docker kapsayıcıları her şeyden önce Linux ve Windows kapsayıcılarını kullanmayı kolaylaştırdığından, geliştiriciler Docker kapsayıcılarına çok çabuk ısınıyor:
+Yukarıdaki tüm Linux ve Windows kapsayıcıları kullanmayı kolaylaştırır çünkü geliştiriciler tooDocker kapsayıcıları hızla alın:
 
-* Dağıtılması kolay olan sabit bir görüntü oluşturmak için basit, artımlı komutları kullanabiliyor ve bir docker dosyası kullanarak bu görüntülerin derlenmesini otomatikleştirebiliyorlar
-* Bu görüntüleri basit, [git](https://git-scm.com/) tarzı gönderme ve çekme komutlarıyla [genel](https://registry.hub.docker.com/) veya [özel docker kayıt defterleriyle](../articles/virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) kolayca paylaşabiliyorlar
+* Basit, artımlı komutları toocreate kolay toodeploy olduğu sabit bir görüntü kullanabilirsiniz ve bir dockerfile kullanarak bu görüntüleri oluşturma otomatik hale getirebilirsiniz
+* Bu görüntüleri kolayca basit kullanarak paylaşabilirsiniz [git](https://git-scm.com/)-stil itme ve komutlar çok çekme[ortak](https://registry.hub.docker.com/) veya [özel docker kayıt defterleri](../articles/virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * Bilgisayarlar yerine yalıtılmış uygulama bileşenlerini göz önünde bulundurabiliyorlar
 * Docker kapsayıcılarını ve farklı temel görüntüleri anlayan çok sayıda aracı kullanabiliyorlar
 
 ### <a name="container-benefits-for-operations-and-it-professionals"></a>İşlemler ve BT uzmanları için kapsayıcı avantajları
-BT ve işlemlerden sorumlu profesyoneller, kapsayıcılar ile sanal makinelerin birleşiminden avantaj sağlıyor.
+BT ve işlemleri uzmanları Merhaba kapsayıcılara ve bileşiminden sanal makineler de yararlanabilir.
 
 * Kapsanan hizmetler sanal makine konak yürütme ortamından yalıtılır
 * Kapsanan kod doğrulanabilir şekilde özdeştir
 * Kapsanan hizmetler başlatılabilir, durdurulabilir ve geliştirme, test ve üretim ortamları arasında hızla taşınabilir
 
-Bunun gibi özellikler (dahası da var), kaynakları (saf işleme gücü dahil) yalnızca ticari olarak ayakta kalması değil müşteri memnuniyetini artırması ve erişim ağını genişletmesi gereken görevlere uydurma görevini üstlenen profesyonel bilgi teknolojisi kurumlarının yer aldığı köklü işletmeleri heyecanlandırıyor. Küçük işletmeler, ISV’ler ve yeni işletmeler için de tam olarak aynı gereksinim vardır, ancak farklı şekilde açıklanabilir.
+Bunlar gibi özellikler&mdash;ve daha fazla&mdash;kurulan işletmeler, profesyonel bilgi teknolojisi kuruluşlar hello iş sığdırma kaynakların olduğu toplayan&mdash;saf işleme gücünü dahil olmak üzere&mdash; toohello görevleri gerekli toonot yalnızca iş Kal ancak müşteri memnuniyetini artırmak ve onlara. Küçük işletmeler, ISV ve başlatmalar sahip tam olarak hello aynı gereksinimi, ancak bunlar tanımlamak, farklı.
 
 ## <a name="what-are-virtual-machines-good-for"></a>Sanal makineler hangi kullanım alanları için uygundur?
-Sanal makineler, bulut bilgi işlemin omurgasını oluşturur ve bu durum değişmez. Sanal makineler daha yavaş başlatılıyor, daha büyük bir disk alanı gerektiriyor ve mikro hizmet mimarisiyle doğrudan eşleşmiyor olsa da önemli avantajlar sağlar:
+Sanal makineler hello omurga bulut bilgi işlem sağlayın ve bu değiştirmez. Sanal makineler daha yavaş başlatmak, daha büyük bir disk ayak izini varsa ve doğrudan tooa mikro mimarisi eşlemediğinden, bunlar çok önemli avantajlara sahiptir:
 
 1. Varsayılan olarak konak bilgisayar için çok daha dayanıklı varsayılan güvenlik korumalarına sahiptir
 2. Önde gelen tüm işletim sistemlerini ve uygulama yapılandırmalarını destekler
 3. Komut ve denetim için uzun süredir geliştirilmekte olan bir araç ekosistemleri var
-4. Konak kapsayıcılarına yürütme ortamı sağlar
+4. Merhaba yürütme ortamı toohost kapsayıcıları sağlarlar
 
-Kapsanmış uygulamalar da yapacakları çağrılara bağlı olarak belirli bir işletim sistemi ve CPU türü gerektirdiğinden, son madde önemlidir. Sanal makineler dağıtmak istediğiniz uygulamaları içerdiğinden, kapsayıcıları sanal makinelere yüklediğinizi ve kapsayıcıların sanal makinelerin ya da işletim sistemlerinin yerini almaya yönelik olmadığını unutmamanız önemlidir.
+belirli bir işletim sistemine ve CPU türü içerdiği uygulama hala gerektirdiğinden, hello son öğeyi önemlidir Merhaba uygulaması yapacak hello çağrıları bağlı olarak. Bu önemli tooremember toodeploy istediğiniz hello uygulamalarını içerdiklerinden kapsayıcıları Vm'lerinde yükleme olur; kapsayıcıları VM'ler veya işletim sistemleri için değişiklik değildir.
 
 ## <a name="high-level-feature-comparison-of-vms-and-containers"></a>Sanal makineler ile kapsayıcıların üst düzey özellik karşılaştırması
-Aşağıdaki tabloda, sanal makinelerle Linux kapsayıcıları arasında (pek ek çalışma yapılmadığında) bulunan özellik farkları çok yüksek bir düzeyde açıklanmıştır. Kendi uygulama gereksinimlerinize bağlı olarak bazı özelliklerin ilginizi daha çok veya daha az çekebileceğini ve tüm yazılımlarda olduğu gibi ek çalışma yapmanın özellikle de güvenlik alanında daha fazla özellik desteği sağladığını unutmayın.
+Merhaba aşağıdaki tabloda bir çok yüksek açıklanmaktadır özelliği düzeyi hello tür farkları&mdash;çok fazla iş olmadan&mdash;kapsayıcıları Linux VM'ler arasında mevcut. Kendi uygulama olabilir fazla veya az tercih bağlı olarak bazı özellikler gerekir ve tüm yazılımıyla gibi ek iş sağlar güvenlik hello alanında özellikle özellik desteği artan unutmayın.
 
 | Özellik | VM'ler | Kapsayıcılar |
 |:--- | --- | --- |
-| "Varsayılan" güvenlik desteği |büyük ölçüde |daha düşük bir ölçüde |
+| "Varsayılan" güvenlik desteği |tooa büyük ölçüde |tooa biraz daha düşük derece |
 | Diskte bellek gerekir |Tam işletim sistemi ve uygulamalar |Yalnızca uygulama gereksinimleri |
-| Başlatma için harcanan süre |Önemli Ölçüde Daha Uzun: İşletim sisteminin başlatılması ve uygulamanın yüklenmesi |Önemli ölçüde daha kısa: Çekirdek zaten çalışır durumda olduğundan yalnızca uygulamanın başlatılması gerekir |
+| Toostart harcanan süre |Önemli Ölçüde Daha Uzun: İşletim sisteminin başlatılması ve uygulamanın yüklenmesi |Önemli ölçüde daha kısa: çekirdek zaten çalıştığından uygulamaları toostart yalnızca |
 | Taşınabilirlik |Uygun Hazırlıkla Taşınabilir |Görüntü biçimi içinde taşınabilir; genellikle daha küçüktür |
 | Görüntü Otomasyonu |İşletim sistemine ve uygulamalara bağlı olarak büyük oranda değişiklik gösterir |[Docker kayıt defteri](https://registry.hub.docker.com/); diğerleri |
 
 ## <a name="creating-and-managing-groups-of-vms-and-containers"></a>Sanal makine ve kapsayıcı gruplarının oluşturulması ve yönetilmesi
 Bu noktada bir mimar, geliştirici ya da BT işlemleri uzmanı "Bunların HEPSİNİ otomatikleştirebilirim; bu GERÇEKTEN Hizmet Olarak Veri Merkezi!" diye düşünüyor olabilir.
 
-Haklısınız, öyle kullanılabilir. Ayrıca, muhtemelen çoğunu zaten kullandığınız, hem Azure sanal makine gruplarını yönetebilen hem de betik (çoğunlukla [Windows için CustomScriptingExtension](https://msdn.microsoft.com/library/azure/dn781373.aspx) veya [Linux için CustomScriptingExtension](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/) ile) kullanarak özel kod ekleyebilen birçok sistem var. Azure dağıtımlarınızı PowerShell ya da Azure CLI betiklerini kullanarak otomatikleştirebilirsiniz (bunu daha önce yapmış da olabilirsiniz).
+Doğru, bu olabilir ve ya da Azure Vm'lerde gruplarını yönetebilir ve komut dosyaları, genellikle ile hello kullanarak özel kod ekleme birçok nedeni zaten kullanıyorsanız, sistemleri, herhangi bir sayıda vardır [CustomScriptingExtension for Windows](https://msdn.microsoft.com/library/azure/dn781373.aspx) veya Merhaba [CustomScriptingExtension Linux için](https://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/). Azure dağıtımlarınızı PowerShell ya da Azure CLI betiklerini kullanarak otomatikleştirebilirsiniz (bunu daha önce yapmış da olabilirsiniz).
 
-Daha sonra, bu özellikler genellikle uygun ölçekte sanal makine oluşturma işlemlerinin ve bunlara yönelik yapılandırmanın otomatikleştirilmesi için [Puppet](https://puppetlabs.com/) ve [Chef](https://www.chef.io/) gibi araçlara geçirilir. (Aşağıda [bu araçları Azure ile kullanma](#tools-for-working-with-containers) konusunda birkaç bağlantı verilmiştir.)
+Bu yetenekler sıklıkla olmayan sonra geçirilen tootools ister [Puppet](https://puppetlabs.com/) ve [Chef](https://www.chef.io/) tooautomate hello oluşturulmasını ve ölçekte VM'ler için yapılandırma. (İşte bazı bağlantılar çok[Azure ile bu araçları kullanarak](#tools-for-working-with-containers).)
 
 ### <a name="azure-resource-group-templates"></a>Azure kaynak grubu şablonları
-Daha yakın bir tarihte Azure tarafından [Azure kaynak yönetimi](../articles/resource-manager-deployment-model.md) REST API’si ve bunu daha kolay kullanabilmenizi sağlayan güncelleştirilmiş PowerShell ve Azure CLI araçları yayınlandı. Azure kaynak yönetimi API’sini içeren [Azure Resource Manager şablonlarını](../articles/resource-group-authoring-templates.md) aşağıdakilerle kullanarak bütün bir uygulama topolojisini dağıtabilir, değiştirebilir ve yeniden dağıtabilirsiniz:
+Azure hello daha yakın zamanda yayımlanan [Azure kaynak yönetimi](../articles/resource-manager-deployment-model.md) REST API ve güncelleştirilmiş PowerShell ve Azure CLI araçlarını toouse bunu kolayca. Dağıt, değiştirme veya kullanarak tüm uygulama topolojiler dağıtmanız [Azure Resource Manager şablonları](../articles/resource-group-authoring-templates.md) hello Azure kaynak yönetimi API kullanarak:
 
-* [şablonları kullanan Azure portalı](https://github.com/Azure/azure-quickstart-templates)&mdash;ipucu: "DeployToAzure" düğmesini kullanın
-* [Azure CLI](../articles/virtual-machines/linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* Merhaba [şablonları kullanarak Azure portalında](https://github.com/Azure/azure-quickstart-templates)&mdash;ipucu, hello "DeployToAzure" düğmesini kullanın
+* Merhaba [Azure CLI](../articles/virtual-machines/linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="deployment-and-management-of-entire-groups-of-azure-vms-and-containers"></a>Azure sanal makine ve kapsayıcı gruplarının bütünlüklü olarak dağıtımı ve yönetimi
-Sanal makine gruplarını bütünlüklü olarak dağıtabilen ve bunlara otomatikleştirilebilen bir grup olarak Docker’ı (veya diğer Linux kapsayıcı konak sistemleri) yükleyebilen çeşitli popüler sistemler mevcuttur. Doğrudan bağlantılar için aşağıdaki [kapsayıcılar ve araçlar](#containers-and-vm-technologies) bölümüne bakın. Bu işlemleri daha geniş veya daha dar kapsamlı olarak gerçekleştirebilen çeşitli sistemler mevcuttur ve bu listede hepsine yer verilmemiştir. Bunlar, becerilerinize ve senaryolarınıza bağlı olarak sizin için kullanışlı olabilir veya olmayabilir.
+Sanal makine gruplarını bütünlüklü olarak dağıtabilen ve bunlara otomatikleştirilebilen bir grup olarak Docker’ı (veya diğer Linux kapsayıcı konak sistemleri) yükleyebilen çeşitli popüler sistemler mevcuttur. Merhaba doğrudan bağlantılar için bkz: [kapsayıcıları ve araçları](#containers-and-vm-technologies) bölümü, aşağıda. Bu tooa küçük veya büyük ölçüde yapmak birkaç sistemleri vardır ve bu liste geniş kapsamlı değildir. Bunlar, becerilerinize ve senaryolarınıza bağlı olarak sizin için kullanışlı olabilir veya olmayabilir.
 
-Docker kendi sanal makine oluşturma araçları ([docker-machine](../articles/virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) kümesine ve yük dengeleyen bir docker kapsayıcı kümesi yönetim aracına ([swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) sahiptir. Ayrıca, [Azure Docker Sanal Makine Uzantısı](https://github.com/Azure/azure-docker-extension/blob/master/README.md), birden çok kapsayıcıya yapılandırılmış uygulama kapsayıcıları dağıtabilen [`docker-compose`](https://docs.docker.com/compose/) için varsayılan olarak destek sağlar.
+Docker kendi sanal makine oluşturma araçları ([docker-machine](../articles/virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) kümesine ve yük dengeleyen bir docker kapsayıcı kümesi yönetim aracına ([swarm](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) sahiptir. Ayrıca, hello [Azure Docker VM uzantısı](https://github.com/Azure/azure-docker-extension/blob/master/README.md) varsayılan desteği ile birlikte [ `docker-compose` ](https://docs.docker.com/compose/), uygulama kapsayıcıları arasında birden çok kapsayıcı yapılandırılmış hangi dağıtabilirsiniz.
 
-Ayrıca, [Mesosphere tarafından sunulan Data Center Operating System (DCOS)](http://docs.mesosphere.com) ürününü deneyebilirsiniz. DCOS, veri merkezinizi tek bir hizmet olarak görmenize imkan tanıyan açık kaynaklı [mesos](http://mesos.apache.org/) "dağıtılmış sistemler çekirdeği"ni temel alır. DCOS’de [Spark](http://spark.apache.org/) ve [Kafka](http://kafka.apache.org/) (ve diğerleri) gibi çeşitli önemli sistemler ve [Marathon](https://mesosphere.github.io/marathon/) (kapsayıcı denetleme sistemi) ve [Chronos](https://mesos.github.io/chronos/) (dağıtılmış zamanlayıcı) gibi yerleşik hizmetlere yönelik yerleşik paketler vardır. Mesos sistemi Twitter, AirBnb ve diğer web ölçeğindeki işletmelerden alınan derslerden türetilmiştir. Düzenleme altyapısı olarak **swarm**’ı da kullanabilirsiniz.
+Ayrıca, [Mesosphere tarafından sunulan Data Center Operating System (DCOS)](http://docs.mesosphere.com) ürününü deneyebilirsiniz. DCOS hello açık kaynak üzerinde temel [mesos](http://mesos.apache.org/) "merkeziniz adreslenebilir bir hizmet olarak, tootreat sağlayan dağıtılmış sistemlerin çekirdek". DCOS’de [Spark](http://spark.apache.org/) ve [Kafka](http://kafka.apache.org/) (ve diğerleri) gibi çeşitli önemli sistemler ve [Marathon](https://mesosphere.github.io/marathon/) (kapsayıcı denetleme sistemi) ve [Chronos](https://mesos.github.io/chronos/) (dağıtılmış zamanlayıcı) gibi yerleşik hizmetlere yönelik yerleşik paketler vardır. Mesos sistemi Twitter, AirBnb ve diğer web ölçeğindeki işletmelerden alınan derslerden türetilmiştir. Aynı zamanda **swarm** hello düzenleme altyapısı olarak.
 
-Ayrıca, Google’dan alınan derslerden türetilen, sanal makine ve kapsayıcı grubu yönetimi için açık kaynaklı bir sistem olan [kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) de kullanılabilir. [Ağ desteği sağlamak için kubernetes’i weave ile kullanma](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave) olanağınız bile vardır.
+Ayrıca, Google’dan alınan derslerden türetilen, sanal makine ve kapsayıcı grubu yönetimi için açık kaynaklı bir sistem olan [kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) de kullanılabilir. Hatta kullanabilirsiniz [ile kubernetes weave tooprovide ağ desteği](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave).
 
-[Deis](http://deis.io/overview/), uygulamalarınızı kendi sunucularınızda dağıtmayı ve yönetmeyi kolaylaştıran açık kaynaklı bir "Hizmet Olarak Platform" (PaaS) çözümüdür. Docker ve CoreOS’u temel alan Deis, Heroku’dan ilham alan bir iş akışıyla hafif bir PaaS sunar.
+[Deis](http://deis.io/overview/) açık bir "Hizmet olarak Platform-a-kolay toodeploy kolaylaştıran" (PaaS) kaynak ve kendi sunucularınızda uygulamalarını yönetme. Docker ve CoreOS tooprovide Heroku neden olacak bir iş akışı ile basit bir PaaS bağlı derlemeleri deis.
 
 Kapladığı alan, Docker desteği ve kendine ait [rkt](https://github.com/coreos/rkt) adlı kapsayıcı sistemiyle iyileştirilmiş bir Linux dağıtımı olan [CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html), [fleet](https://coreos.com/fleet/docs/latest/) adlı bir kapsayıcı grubu yönetim aracına da sahiptir.
 
 Bir başka popüler Linux dağıtımı olan Ubuntu Docker’ı çok iyi desteklemekle birlikte [Linux (LXC stili) kümelerini](https://help.ubuntu.com/lts/serverguide/lxc.html) de destekler.
 
 ## <a name="tools-for-working-with-azure-vms-and-containers"></a>Azure sanal makineleri ve kapsayıcıları ile çalışmaya yönelik araçlar
-Kapsayıcılarla ve Azure sanal makineleriyle çalışılırken çeşitli araçlar kullanılır. Bu bölümde kapsayıcılar, gruplar ve daha genel olarak bunlarla birlikte kullanılan yapılandırma ve düzenleme araçları ile ilgili en kullanışlı veya önemli kavramların ve araçların yalnızca bazıları listelenmiştir.
+Kapsayıcılarla ve Azure sanal makineleriyle çalışılırken çeşitli araçlar kullanılır. Bu bölümde hello en kullanışlı veya önemli kavramlar ve kapsayıcılar, gruplar ve hello büyük yapılandırma araçları ve bunlarla kullanılan düzenleme araçları yalnızca bazılarını bir listesini sağlar.
 
 > [!NOTE]
-> Bu alan baş döndürücü bir hızda değiştiğinden, bu konuyu ve konudaki bağlantıları güncel tutmak için elimizden geleni yapmamıza rağmen bunu başaramayabiliriz. Bilgilerinizin güncel kalması için ilginizi çeken konularda mutlaka araştırma yapın!
+> Bu alan son hızla değişen ve bu konu ve onun bağlantılar toodate bizim en iyi tookeep gerçekleştiririz olsa da, iyi mümkün olmayan bir görev olabilir. Toodate yukarı ilginç konuları tookeep üzerinde arama emin olun!
 >
 >
 
@@ -145,13 +145,13 @@ Microsoft Azure’da Docker:
 
 * [Azure’da Linux için Docker Sanal Makine Uzantısı](../articles/virtual-machines/linux/dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure Docker Sanal Makine Uzantısı Kullanıcı Kılavuzu](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
-* [Docker Sanal Makine Uzantısını Azure Komut Satırı Arabirimi (Azure CLI) ile kullanma](../articles/virtual-machines/linux/classic/cli-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Docker Sanal Makine Uzantısını Azure portalından kullanma](../articles/virtual-machines/linux/classic/portal-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Azure’da docker-machine kullanma](../articles/virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Azure’da swarm ile docker'ı kullanma](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Merhaba Docker VM uzantısı hello Azure komut satırı arabirimi (Azure CLI) gelen kullanma](../articles/virtual-machines/linux/classic/cli-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Merhaba Docker VM uzantısı hello Azure Portalı'ndan kullanma](../articles/virtual-machines/linux/classic/portal-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+* [Nasıl toouse docker-Azure makinede](../articles/virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Nasıl toouse docker swarm azure'da ile](../articles/virtual-machines/virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure’da Docker ve Compose Kullanmaya Başlama](../articles/virtual-machines/linux/docker-compose-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Azure kaynak grubu şablonu kullanarak Azure’da hızlıca Docker konağı oluşturma](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
-* [Kapsanan uygulamalar için yerleşik `compose`](https://github.com/Azure/azure-docker-extension#11-public-configuration-keys) desteği
+* [Bir Azure kaynak grubu şablonu toocreate Docker ana bilgisayar üzerinde Azure hızlı bir şekilde kullanma](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
+* [Merhaba için yerleşik destek `compose` ](https://github.com/Azure/azure-docker-extension#11-public-configuration-keys) içerdikleri uygulamalar için
 * [Azure’da Docker özel kayıt defteri uygulama](../articles/virtual-machines/virtual-machines-linux-docker-registry-in-blob-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 Linux dağıtımları ve Azure örnekleri:
@@ -163,7 +163,7 @@ Yapılandırma, küme yönetimi ve kapsayıcı düzenleme:
 * [CoreOS üzerinde Fleet](https://coreos.com/fleet/docs/latest/)
 * Deis
 
-  * [CoreOS ve Weave ile otomatikleştirilmiş Kubernetes küme dağıtımı konusunda bilmeniz gereken her şey](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)
+  * [CoreOS ve dokuya Kılavuzu tooautomated Kubernetes Küme dağıtımı tamamlandı](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)
   * [Kubernetes Visualizer](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/)
 * [Mesos](http://mesos.apache.org/)
 
@@ -176,10 +176,10 @@ Yapılandırma, küme yönetimi ve kapsayıcı düzenleme:
   * [Üçüncü Taraf: Azure için Hudson Depolama Eklentisi](https://github.com/hudson3-plugins/windows-azure-storage-plugin)
 * [Azure Otomasyonu](https://azure.microsoft.com/services/automation/)
 
-  * [Video: Azure Otomasyonunu Linux Sanal Makineleri ile Kullanma](http://channel9.msdn.com/Shows/Azure-Friday/Azure-Automation-104-managing-Linux-and-creating-Modules-with-Joe-Levy)
+  * [Video: Nasıl tooUse Linux VM'ler ile Azure Otomasyonu](http://channel9.msdn.com/Shows/Azure-Friday/Azure-Automation-104-managing-Linux-and-creating-Modules-with-Joe-Levy)
 * Linux için PowerShell DSC
 
-  * [Blog: Linux için Powershell DSC gerçekleştirme](http://blogs.technet.com/b/privatecloud/archive/2014/05/19/powershell-dsc-for-linux-step-by-step.aspx)
+  * [Blog: Nasıl toodo Linux için Powershell DSC](http://blogs.technet.com/b/privatecloud/archive/2014/05/19/powershell-dsc-for-linux-step-by-step.aspx)
   * [GitHub: Docker İstemcisi DSC](https://github.com/anweiss/DockerClientDSC)
 
 ## <a name="next-steps"></a>Sonraki adımlar

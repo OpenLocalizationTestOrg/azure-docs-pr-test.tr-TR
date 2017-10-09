@@ -1,6 +1,6 @@
 ---
-title: "Azure portalını kullanarak hdınsight'ta Hadoop kümelerini yönetme | Microsoft Docs"
-description: "Oluşturma ve Azure portalını kullanarak Hdınsight kümelerini yönetme hakkında bilgi edinin."
+title: "Azure portalını kullanarak Hdınsight'ta aaaManage Hadoop kümeleri | Microsoft Docs"
+description: "Bilgi nasıl toocreate ve hello Azure portal kullanarak Hdınsight kümelerini yönetme."
 services: hdinsight
 documentationcenter: 
 author: mumian
@@ -16,225 +16,225 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: jgao
-ms.openlocfilehash: c9cb631aef71f72457c3517d02566a56919f82bc
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: c242d43d4ccea7cf1e7be19c3f3d7ed3c4f50918
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure portalını kullanarak hdınsight'ta Hadoop kümelerini yönetme
+# <a name="manage-hadoop-clusters-in-hdinsight-by-using-hello-azure-portal"></a>Hello Azure portal kullanarak hdınsight'ta Hadoop kümelerini yönetme
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Kullanarak [Azure portal][azure-portal], Azure hdınsight'ta Hadoop kümelerini yönetebilirsiniz. Diğer araçları kullanarak hdınsight'ta Hadoop kümelerini yönetme hakkında bilgi için sekme seçicisini kullanın.
+Hello kullanarak [Azure portal][azure-portal], Azure hdınsight'ta Hadoop kümelerini yönetebilirsiniz. Diğer araçları kullanarak hdınsight'ta Hadoop kümelerini yönetme hakkında bilgi için Hello sekme seçicisini kullanın.
 
 **Önkoşullar**
 
-Bu makaleye başlamadan önce aşağıdaki öğeleri sahip olmanız gerekir:
+Bu makalede başlamadan önce aşağıdaki öğelerindeki hello sahip olmanız gerekir:
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-## <a name="open-the-portal"></a>Portalını açın
-1. Oturum [https://portal.azure.com](https://portal.azure.com).
-2. Portal açtıktan sonra şunları yapabilirsiniz:
+## <a name="open-hello-portal"></a>Açık hello portalı
+1. Çok oturum[https://portal.azure.com](https://portal.azure.com).
+2. Merhaba portal açtıktan sonra şunları yapabilirsiniz:
 
-   * Tıklatın **yeni** sol menüden yeni bir küme oluşturmak için:
+   * Tıklatın **yeni** hello soldaki menüden toocreate yeni bir küme gelen:
 
        ![Yeni Hdınsight küme düğmesi](./media/hdinsight-administer-use-portal-linux/azure-portal-new-button.png)
-   * Tıklatın **Hdınsight kümeleri** var olan kümeleri listelemek için sol menüden
+   * Tıklatın **Hdınsight kümeleri** hello soldaki menüden toolist hello var olan kümeleri
 
        ![Azure portal Hdınsight küme düğmesi](./media/hdinsight-administer-use-portal-linux/azure-portal-hdinsight-button.png)
 
-       ' I tıklatın, Hdınsight kümesi görmüyorsanız, **daha fazla hizmet** listesi ve ardından altındaki **Hdınsight kümeleri** altında **Intelligence + analiz** bölümü.
+       ' I tıklatın, Hdınsight kümesi görmüyorsanız, **daha fazla hizmet** üzerinde hello hello listesinin altında ve ardından **Hdınsight kümeleri** hello altında **Intelligence + analiz** bölüm.
 
 
 ## <a name="create-clusters"></a>Küme oluşturma
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Hdınsight geniş Hadoop bileşenleri ile çalışır. Doğrulandı ve desteklenen bileşenlerin listesi için bkz: [hangi sürümüdür Azure Hdınsight'ta hadoop](hdinsight-component-versioning.md). Genel küme oluşturma için bilgi [Hdınsight'ta oluşturmak Hadoop kümeleri](hdinsight-hadoop-provision-linux-clusters.md).
+Hdınsight geniş Hadoop bileşenleri ile çalışır. Doğrulandı ve desteklenen hello bileşenler Hello listesi için bkz [hangi sürümüdür Azure Hdınsight'ta hadoop](hdinsight-component-versioning.md). Merhaba genel küme oluşturma için bilgi [Hdınsight'ta oluşturmak Hadoop kümeleri](hdinsight-hadoop-provision-linux-clusters.md).
 
 ### <a name="access-control-requirements"></a>Erişim denetimi gereksinimleri
 
-Bir Hdınsight kümesi oluştururken, bir Azure aboneliği belirtmeniz gerekir. Bu küme, yeni bir Azure kaynak grubu veya varolan bir kaynak grubu içinde oluşturulabilir. Hdınsight kümeleri oluşturmak için izinlerinizi doğrulamak için aşağıdaki adımları kullanın:
+Bir Hdınsight kümesi oluştururken, bir Azure aboneliği belirtmeniz gerekir. Bu küme, yeni bir Azure kaynak grubu veya varolan bir kaynak grubu içinde oluşturulabilir. Hdınsight kümeleri oluşturmak için izinlerinizi adımları tooverify aşağıdaki hello kullanabilirsiniz:
 
-- Var olan bir kaynak grubunu kullanmak için.
+- toouse varolan bir kaynak grubu.
 
-    1. [Azure Portal](https://portal.azure.com) oturum açın.
-    2. Tıklatın **kaynak grupları** kaynak gruplarını listelemek için sol menüden.
-    3. Hdınsight kümesi oluşturmak için kullanmak istediğiniz kaynak grubunu tıklatın.
-    4. Tıklatın **erişim denetimi (IAM)**, doğrulayın sizin (veya ait olduğunuz bir grubu) en az katkıda bulunan kaynak grubu erişimi.
+    1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
+    2. Tıklatın **kaynak grupları** hello soldaki menüden toolist hello kaynak gruplarından.
+    3. Hdınsight kümesi oluşturmak için toouse istediğiniz hello kaynak grubunu tıklatın.
+    4. Tıklatın **erişim denetimi (IAM)**, doğrulayın sizin (veya ait olduğunuz bir grubu) sahip en az, katkıda bulunan erişim toohello kaynak grubu hello.
 
-- Yeni bir kaynak grubu oluşturmak için
+- toocreate yeni bir kaynak grubu
 
-    1. [Azure Portal](https://portal.azure.com) oturum açın.
-    2. Tıklatın **abonelik** sol menüden. Sarı bir anahtar simgesi vardır. Aboneliklerin listesini göreceksiniz.
-    3. Kümeleri oluşturmak için kullandığınız aboneliğe tıklayın. 
-    4. Tıklatın **izinlerimi**.  Bunu gösterir, [rol](../active-directory/role-based-access-control-what-is.md#built-in-roles) abonelikte. En az gereksinim duyduğunuz Hdınsight kümesi oluşturmak için katkıda bulunan erişim.
+    1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
+    2. Tıklatın **abonelik** hello sol menüden. Sarı bir anahtar simgesi vardır. Aboneliklerin listesini göreceksiniz.
+    3. Toocreate kümeleri kullandığınız hello aboneliğe tıklayın. 
+    4. Tıklatın **izinlerimi**.  Bunu gösterir, [rol](../active-directory/role-based-access-control-what-is.md#built-in-roles) hello abonelikte. En az gereksinim duyduğunuz katkıda bulunan erişim toocreate Hdınsight kümesi.
 
-NoRegisteredProviderFound hatası veya MissingSubscriptionRegistration hatası alırsanız, bkz: [ortak Azure dağıtım hataları Azure Resource Manager ile ilgili sorunları giderme](../azure-resource-manager/resource-manager-common-deployment-errors.md).
+Merhaba NoRegisteredProviderFound hatası veya hello MissingSubscriptionRegistration hatası alırsanız, bkz: [ortak Azure dağıtım hataları Azure Resource Manager ile ilgili sorunları giderme](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 
 ## <a name="list-and-show-clusters"></a>Liste ve kümeleri Göster
-1. Oturum [https://portal.azure.com](https://portal.azure.com).
-2. Tıklatın **Hdınsight kümeleri** var olan kümeleri listelemek için sol menüden.
-3. Küme adına tıklayın. Küme listesi uzunsa, sayfanın üst kısmında filtresini kullanabilirsiniz.
-4. Genel bakış sayfasında görmek için listeden bir kümeden tıklatın:
+1. Çok oturum[https://portal.azure.com](https://portal.azure.com).
+2. Tıklatın **Hdınsight kümeleri** hello soldaki menüden toolist hello var olan kümeleri.
+3. Merhaba küme adına tıklayın. Merhaba küme listesi uzunsa hello sayfa hello üstündeki filtresini kullanabilirsiniz.
+4. Merhaba liste toosee hello genel bakış sayfasında bir kümeden tıklatın:
 
     ![Azure portal Hdınsight küme temelleri](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png)
 
-    * **Pano**: Ambari Web Linux tabanlı kümeler için olan küme panosu açılır.
-    * **Güvenli Kabuk**: Güvenli Kabuk (SSH) bağlantısı kullanarak kümeye bağlanmak için yönergeleri gösterir.
-    * **Küme ölçeklendirme**: Bu küme için alt düğüm sayısını değiştirmenize izin verir.
-    * **Silme**: kümeyi siler.
+    * **Pano**: Linux tabanlı kümeler için Ambari Web olduğu açılır hello küme Panosu.
+    * **Güvenli Kabuk**: gösterir hello yönergeleri tooconnect toohello küme güvenli Kabuk (SSH) bağlantısı kullanarak.
+    * **Küme ölçeklendirme**: Bu küme için toochange hello çalışan düğümü sayısını sağlar.
+    * **Silme**: hello küme siler.
     * **Etkinlik günlükleri**: Göster ve sorgu etkinlik günlükleri.
-    * **Erişim denetimi (IAM)**: rol atamalarını kullanın.  Bkz: [Azure aboneliği kaynaklarınıza erişimi yönetmek için rol atamalarını kullanın](../active-directory/role-based-access-control-configure.md).
-    * **Etiketler**: Bulut hizmetlerinizi, özel bir sınıflandırma tanımlamak için anahtar/değer çiftlerinin ayarlamanıza olanak tanır. Örneğin, adlı bir anahtar oluşturabilir **proje**ve ardından belirli bir projeyle ilişkili tüm hizmetler için ortak bir değer kullanın.
+    * **Erişim denetimi (IAM)**: rol atamalarını kullanın.  Bkz: [rol atamalarını toomanage erişim tooyour Azure abonelik kaynaklarını kullanmak](../active-directory/role-based-access-control-configure.md).
+    * **Etiketler**: Bulut hizmetlerinizi, özel bir sınıflandırma, tooset anahtar/değer çiftleri toodefine sağlar. Örneğin, adlı bir anahtar oluşturabilir **proje**ve ardından belirli bir projeyle ilişkili tüm hizmetler için ortak bir değer kullanın.
     * **Sorunları tanılamak ve**: sorun giderme bilgileri görüntüler.
-    * **Kilitler**: değiştirilmiş veya silinmiş olan küme önlemek için kilit ekleyin.
-    * **Otomasyon betiğini**: görüntü ve küme için Azure Resource Manager şablonunu dışarı aktarma. Şu anda, yalnızca bağımlı Azure depolama hesabı dışarı aktarabilirsiniz. Bkz: [oluşturma Linux tabanlı Hadoop kümeleri Azure Resource Manager şablonları kullanarak Hdınsight'ta](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+    * **Kilitler**: kilit tooprevent hello küme olan değiştirilmiş veya silinmiş ekleyin.
+    * **Otomasyon betiğini**: hello kümesi için görüntüleme ve dışarı aktarma hello Azure Resource Manager şablonu. Şu anda yalnızca hello bağımlı Azure depolama hesabı dışarı aktarabilirsiniz. Bkz: [oluşturma Linux tabanlı Hadoop kümeleri Azure Resource Manager şablonları kullanarak Hdınsight'ta](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
     * **Hızlı Başlangıç**: yardımcı olacak bilgileri görüntüler, Hdınsight kullanarak başlayın.
     * **Hdınsight Araçları**: Hdınsight için Yardım bilgileri ilgili araçlar.
-    * **Oturum açma küme**: küme oturum açma bilgileri görüntüler.
-    * **Abonelik çekirdek kullanım**: aboneliğiniz için kullanılan ve kullanılabilir çekirdekler görüntüler.
-    * **Küme ölçeklendirme**: artırma ve azaltma küme çalışan düğüm sayısı. Bkz:[ölçek kümeleri](hdinsight-administer-use-management-portal.md#scale-clusters).
-    * **Güvenli Kabuk**: Güvenli Kabuk (SSH) bağlantısı kullanarak kümeye bağlanmak için yönergeleri gösterir. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
-    * **Hdınsight iş ortağı**: geçerli Hdınsight iş ortağı Ekle/Kaldır.
-    * **Dış meta deponuz**: Hive ve Oozie meta deponuz görüntüleyin. Meta depolar, yalnızca küme oluşturma işlemi sırasında yapılandırılabilir. Bkz: [Hive/Oozie meta depo kullanmak](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
-    * **Betik eylemleri**: çalıştırmak Bash betikleri küme üzerinde. Bkz: [özelleştirme Linux tabanlı Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md).
+    * **Oturum açma küme**: hello küme oturum açma bilgileri görüntüler.
+    * **Abonelik çekirdek kullanım**: görüntü hello aboneliğiniz için kullanılan ve kullanılabilir çekirdekler.
+    * **Küme ölçeklendirme**: artırma ve azaltma hello küme çalışan düğüm sayısı. Bkz:[ölçek kümeleri](hdinsight-administer-use-management-portal.md#scale-clusters).
+    * **Güvenli Kabuk**: gösterir hello yönergeleri tooconnect toohello küme güvenli Kabuk (SSH) bağlantısı kullanarak. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
+    * **Hdınsight iş ortağı**: Merhaba geçerli Hdınsight iş ortağını ekleyin/kaldırın.
+    * **Dış meta deponuz**: hello Hive ve Oozie meta deponuz görüntüleyin. Merhaba meta deponuz yalnızca hello küme oluşturma işlemi sırasında yapılandırılabilir. Bkz: [Hive/Oozie meta depo kullanmak](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
+    * **Betik eylemleri**: çalıştırmak Bash betikleri hello kümede. Bkz: [özelleştirme Linux tabanlı Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md).
     * **Uygulamaları**: Ekle/Kaldır Hdınsight uygulamaları.  Bkz: [özel Hdınsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md).
-    * **Özellikleri**: küme özelliklerini görüntüleyin.
-    * **Depolama hesapları**: depolama hesaplarını ve anahtarlarını görüntülemek. Depolama hesapları küme oluşturma işlemi sırasında yapılandırılır.
+    * **Özellikleri**: hello küme özelliklerini görüntüleyin.
+    * **Depolama hesapları**: hello depolama hesapları ve hello anahtarları görüntüleyin. Merhaba depolama hesapları hello küme oluşturma işlemi sırasında yapılandırılır.
     * **Küme AAD kimlik**:
-    * **Yeni destek isteği**: Microsoft desteği ile bir destek bileti oluşturmanızı sağlar.
+    * **Yeni destek isteği**: toocreate Microsoft desteği ile bir destek bileti sağlar.
     
 6. Tıklatın **özellikleri**:
 
-    Özellikler şunlardır:
+    Merhaba özellikleri şunlardır:
 
    * **Ana bilgisayar adı**: küme adı.
-   * **Küme URL**. Ambari web arabirimi için URL.
+   * **Küme URL**. Merhaba Ambari web arabirimi Hello URL'si.
    * **Durum**: dahil, kabul iptal ClusterStorageProvisioned, AzureVMConfiguration, çalıştığından, silme, hatası, HDInsightConfiguration, işletimsel, silinen, süresi sona erdi, DeleteQueued, DeleteTimedout, DeleteError, PatchQueued, CertRolloverQueued, ResizeQueued, ClusterCustomization
-   * **Bölge**: Azure konumu. Desteklenen Azure konumlar listesi için bkz: **bölge** açılan liste kutusunu [Hdınsight fiyatlandırma](https://azure.microsoft.com/pricing/details/hdinsight/).
+   * **Bölge**: Azure konumu. Merhaba desteklenen Azure konumu listesi için bkz **bölge** açılan liste kutusunu [Hdınsight fiyatlandırma](https://azure.microsoft.com/pricing/details/hdinsight/).
    * **Oluşturulma tarihi**.
    * **İşletim sistemi**: ya da **Windows** veya **Linux**.
    * **Tür**: Hadoop, HBase, Storm, Spark.
    * **Sürüm**. Bkz: [Hdınsight sürümleri](hdinsight-component-versioning.md)
    * **Abonelik**: Abonelik adı.
-   * **Varsayılan veri kaynağı**: varsayılan küme dosya sistemi.
+   * **Varsayılan veri kaynağı**: Merhaba varsayılan küme dosya sistemi.
    * **Çalışan düğüm boyutu**.
    * **Baş düğüm boyutu**.
 
 ## <a name="delete-clusters"></a>Küme silme
-Küme silme varsayılan depolama hesabı ya da bağlı tüm depolama hesaplarını silmez. Küme aynı depolama hesapları ve aynı meta deponuz kullanarak yeniden oluşturabilirsiniz. Kümeyi yeniden oluşturduğunuzda, yeni varsayılan Blob kapsayıcısını kullanılması önerilir.
+Küme silme hello varsayılan depolama hesabı ya da bağlı tüm depolama hesaplarını silmez. Merhaba küme kullanarak yeniden oluşturabileceğiniz hello aynı depolama hesapları ve hello aynı meta depolar. Bu yeniden hello Küme oluşturduğunuzda, yeni varsayılan Blob kapsayıcısını toouse önerilir.
 
-1. Oturum [Portal][azure-portal].
-2. Tıklatın **Hdınsight kümeleri** sol menüden. Görmüyorsanız, **Hdınsight kümeleri**, tıklatın **daha fazla hizmet** ilk.
-3. Silmek istediğiniz kümesine tıklayın.
-4. Tıklatın **silmek** üstteki menüden ve yönergeleri izleyin.
+1. İçinde toohello oturum [Portal][azure-portal].
+2. Tıklatın **Hdınsight kümeleri** hello sol menüden. Görmüyorsanız, **Hdınsight kümeleri**, tıklatın **daha fazla hizmet** ilk.
+3. Toodelete istediğiniz hello kümesine tıklayın.
+4. Tıklatın **silmek** hello üst menüsünden ve hello yönergeleri izleyin.
 
 Ayrıca bkz. [Duraklat/kümeleri kapatma](#pauseshut-down-clusters).
 
 ## <a name="add-additional-storage-accounts"></a>Başka depolama hesapları ekleme
 
-Bir küme oluşturulduktan sonra ek Azure Storage ve Azure Data Lake Store hesapları ekleyebilirsiniz. Daha fazla bilgi için bkz. [HDInsight’a başka depolama hesapları ekleme](./hdinsight-hadoop-add-storage.md).
+Bir küme oluşturulduktan sonra ek Azure Storage ve Azure Data Lake Store hesapları ekleyebilirsiniz. Daha fazla bilgi için bkz: [ek depolama hesapları tooHDInsight eklemek](./hdinsight-hadoop-add-storage.md).
 
 ## <a name="scale-clusters"></a>Kümeleri ölçeklendirme
-Özellik ölçeklendirme küme kümeye yeniden oluşturmak zorunda kalmadan Azure Hdınsight'ta çalıştıran bir küme tarafından kullanılan çalışan düğümü sayısını değiştirmenize izin verir.
+özellik ölçeklendirme hello küme toochange hello Azure Hdınsight'ta toore gerek kalmadan çalışan bir küme tarafından kullanılan çalışan düğüm sayısı sağlar-hello kümesi oluşturun.
 
 > [!NOTE]
-> Yalnızca, Hdınsight sürüm 3.1.3 ile kümeleri veya üzeri desteklenir. Kümenizin sürümünü emin değilseniz, Özellikler sayfasını kontrol edebilirsiniz.  Bkz: [listesi ve Göster kümeleri](#list-and-show-clusters).
+> Yalnızca, Hdınsight sürüm 3.1.3 ile kümeleri veya üzeri desteklenir. Kümenizin hello sürümü değilseniz hello özellikler sayfasını kontrol edebilirsiniz.  Bkz: [listesi ve Göster kümeleri](#list-and-show-clusters).
 >
 >
 
-Her tür Hdınsight tarafından desteklenen küme için veri düğüm sayısını değiştirme etkisi:
+hello etkisini, her tür Hdınsight tarafından desteklenen küme için veri düğümünün hello numarasını değiştirmek için:
 
 * Hadoop
 
-    Sorunsuz bir şekilde tüm bekleyen veya çalışan işler etkilemeden çalıştıran bir Hadoop kümesinde çalışan düğümü sayısını da artırabilirsiniz. İşlemi devam ederken yeni işleri da gönderilebilir. Kümenin her zaman işlevsel bir durumda bırakılır böylece bir ölçeklendirme işlemi hatalar düzgün bir şekilde ele alınır.
+    Sorunsuz bir şekilde hello tüm bekleyen veya çalışan işler etkilemeden çalıştıran bir Hadoop kümesinde çalışan düğümü sayısını da artırabilirsiniz. Merhaba işlemi devam ederken yeni işleri da gönderilebilir. Böylece Hello küme her zaman işlevsel bir durumda bırakılır bir ölçeklendirme işlemi hatalar düzgün bir şekilde ele alınır.
 
-    Bir Hadoop kümesine veri düğüm sayısını azaltarak ölçeklendirilir, bazı kümedeki hizmetleri yeniden başlatılır. Bu davranış tüm çalışan ve işleri bekleyen ölçeklendirme işlemi tamamlandığında başarısız olmasına neden olur. İşlemi tamamlandıktan sonra ancak, sunmaları olabilir.
+    Bir Hadoop kümesine veri düğümlerini hello sayısını azaltarak ölçeklendirilir, bazı hello kümedeki hello hizmetleri yeniden başlatılır. Bu davranış, tüm çalışan ve işleri toofail hello tamamlanma işlemi ölçeklendirme Merhaba, bekleyen neden olur. Hello işlemi tamamlandıktan sonra ancak, hello sunmaları olabilir.
 * HBase
 
-    Sorunsuz bir şekilde ekleyebilir veya çalışırken, HBase kümesi düğümleri kaldırın. Bölgesel sunucular otomatik olarak ölçeklendirme işlemi tamamladıktan birkaç dakika içinde dengeli. Ancak, küme headnode için oturum açma ve bir komut istemi penceresinden aşağıdaki komutları çalıştırarak el ile de bölgesel sunucular dengeleyebilirsiniz:
+    Sorunsuz bir şekilde ekleme veya düğümleri tooyour HBase kümesi çalışırken kaldırın. Bölgesel sunucuları işlemi ölçeklendirme hello tamamladıktan birkaç dakika içinde otomatik olarak dengeli. Ancak, küme ve komutlar bir komut istemi penceresinden aşağıdaki çalışan hello toohello headnode oturum açarak hello bölgesel sunucular el ile de dengeleyebilirsiniz:
 
         >pushd %HBASE_HOME%\bin
         >hbase shell
         >balancer
 
-    HBase kabuğunu kullanma hakkında daha fazla bilgi için bkz:]
+    Merhaba HBase Kabuğu'nu kullanarak daha fazla bilgi için bkz:]
 * Storm
 
-    Sorunsuz bir şekilde ekleyebilir veya çalışırken Storm kümeniz veri düğümleri kaldırın. Ancak ölçeklendirme işlemi başarıyla tamamlandıktan sonra topoloji yeniden dengelemeniz gerekir.
+    Sorunsuz bir şekilde ekleyebilir veya çalışırken veri düğümleri tooyour Storm kümesi kaldırabilirsiniz. Ancak hello ölçekleme işlemi başarıyla tamamlandıktan sonra toorebalance hello topoloji gerekir.
 
     İki yolla yeniden dengelenmesi gerçekleştirilebilir:
 
   * Storm web kullanıcı Arabirimi
   * Komut satırı arabirimi (CLI) aracı
 
-    Başvurmak [Apache Storm belgelerine](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) daha fazla ayrıntı için.
+    Toohello başvuran [Apache Storm belgelerine](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) daha fazla ayrıntı için.
 
-    Hdınsight kümesinde Storm web kullanıcı Arabirimi kullanılabilir:
+    Merhaba Storm web kullanıcı Arabirimi hello Hdınsight kümesinde kullanılabilir:
 
     ![Hdınsight Storm ölçek yeniden dengeleyin](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster-storm-rebalance.png)
 
-    Storm topolojisini yeniden dengelemeniz CLI komutunu kullanma örneği şöyledir:
+    Örneği nasıl toouse hello CLI komutu toorebalance hello Storm topolojisini:
 
-        ## Reconfigure the topology "mytopology" to use 5 worker processes,
-        ## the spout "blue-spout" to use 3 executors, and
-        ## the bolt "yellow-bolt" to use 10 executors
+        ## Reconfigure hello topology "mytopology" toouse 5 worker processes,
+        ## hello spout "blue-spout" toouse 3 executors, and
+        ## hello bolt "yellow-bolt" toouse 10 executors
         $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
-**Küme ölçeklendirme**
+**tooscale kümeleri**
 
-1. Oturum [Portal][azure-portal].
-2. Tıklatın **Hdınsight kümeleri** sol menüden.
-3. Ölçeklendirmek istediğiniz kümesine tıklayın.
+1. İçinde toohello oturum [Portal][azure-portal].
+2. Tıklatın **Hdınsight kümeleri** hello sol menüden.
+3. Tooscale istediğiniz hello kümesine tıklayın.
 3. Tıklatın **ölçeklendirme kümesi**.
-4. Girin **sayı, alt düğümleri**. Küme düğümleri sayısı Azure abonelikleri arasında değişiklik gösterir. Sınırını artırmak için fatura desteğine başvurabilirsiniz.  Maliyet bilgileri düğüm sayısını yapmış olduğunuz değişiklikleri yansıtır.
+4. Girin **sayı, alt düğümleri**. Merhaba küme düğümleri sayısı hello Azure abonelikleri arasında değişiklik gösterir. Faturalama desteği tooincrease hello sınırı başvurabilirsiniz.  Merhaba maliyet bilgileri toohello düğüm sayısını yapmış olduğunuz hello değişiklikleri yansıtır.
 
     ![Hdınsight, hadoop, hbase, storm, spark, Ölçek](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster.png)
 
 ## <a name="pauseshut-down-clusters"></a>Kümeleri Duraklat/kapatma
 
-Hadoop işlerinin çoğu yalnızca zaman zaman çalıştırmak toplu işleri ' dir. Çoğu Hadoop kümeleri için küme işleme için kullanılmayan süreyi büyük nokta vardır. HDInsight ile, verileriniz Azure Storage’da depolanır, böylece kullanılmadığında bir kümeyi güvenle silebilirsiniz.
-Ayrıca, kullanılmıyorken dahi HDInsight kümesi için sizden ücret kesilir. Küme ücretleri depolama ücretlerinin birkaç katı olduğundan, kullanılmadığında kümelerin silinmesi mantıklı olandır.
+Hadoop işlerinin çoğu yalnızca zaman zaman çalıştırmak toplu işleri ' dir. Çoğu Hadoop kümeleri için büyük nokta vardır süresini bu hello küme işleme için kullanılmayan. HDInsight ile, verileriniz Azure Storage’da depolanır, böylece kullanılmadığında bir kümeyi güvenle silebilirsiniz.
+Ayrıca, kullanılmıyorken dahi HDInsight kümesi için sizden ücret kesilir. Merhaba ücretleri hello küme için hello ücretleri depolama birkaç katı olduğundan, bunlar kullanımda olmadığında ekonomik toodelete kümeleri mantıklıdır.
 
-İşlem programı birçok yolu vardır:
+Merhaba işlem programı birçok yolu vardır:
 
 * Kullanıcı Azure Data Factory. Bkz: [oluşturma isteğe bağlı Linux tabanlı Hadoop kümeleri Azure Data Factory kullanarak Hdınsight'ta](hdinsight-hadoop-create-linux-clusters-adf.md) isteğe bağlı Hdınsight oluşturmak için bağlantılı Hizmetleri.
 * Azure PowerShell kullanın.  Bkz: [uçuş gecikme verilerini çözümleme](hdinsight-analyze-flight-delay-data.md).
 * Azure CLI kullanın. Bkz: [Azure CLI kullanarak Hdınsight kümelerini yönetme](hdinsight-administer-use-command-line.md).
 * Hdınsight .NET SDK'yı kullanın. Bkz: [gönderme Hadoop işlerini](hdinsight-submit-hadoop-jobs-programmatically.md).
 
-Fiyatlandırma bilgileri için bkz: [Hdınsight fiyatlandırma](https://azure.microsoft.com/pricing/details/hdinsight/). Portaldan bir kümeyi silmek için bkz: [küme silme](#delete-clusters)
+Fiyatlandırma bilgileri hello için bkz: [Hdınsight fiyatlandırma](https://azure.microsoft.com/pricing/details/hdinsight/). toodelete hello Portal, bir kümeden bkz [küme silme](#delete-clusters)
 
 
 ## <a name="upgrade-clusters"></a>Küme yükseltme
 
-Bkz: [daha yeni bir sürüme yükseltme Hdınsight kümesi](./hdinsight-upgrade-cluster.md).
+Bkz: [yükseltme Hdınsight küme tooa daha yeni sürümü](./hdinsight-upgrade-cluster.md).
 
 ## <a name="change-passwords"></a>Parolaları değiştirme
-Hdınsight kümesi, iki kullanıcı hesapları olabilir. Hdınsight küme kullanıcı hesabı (paketini HTTP kullanıcı hesabı) ve SSH kullanıcı hesabı oluşturma işlemi sırasında oluşturulur. Küme kullanıcı hesabı kullanıcı adı ve parola ve SSH kullanıcı hesabını değiştirmek için betik eylemleri değiştirmek için Ambari web kullanıcı Arabirimi kullanabilirsiniz
+Hdınsight kümesi, iki kullanıcı hesapları olabilir. Hdınsight küme kullanıcı hesabı (paketini hello HTTP kullanıcı hesabı) ve hello SSH kullanıcı hesabı hello oluşturma işlemi sırasında oluşturulur. Merhaba Ambari web kullanıcı Arabirimi toochange hello küme kullanıcı hesabı kullanıcı adı ve parola ve betik eylemleri toochange hello SSH kullanıcı hesabı kullanabilirsiniz
 
-### <a name="change-the-cluster-user-password"></a>Küme kullanıcı parolasını değiştirme
-Küme kullanıcı parolasını değiştirmek için Ambari Web kullanıcı arabirimini kullanın. Ambarı'na oturum açmak için mevcut küme kullanıcı adı ve parola kullanmanız gerekir.
+### <a name="change-hello-cluster-user-password"></a>Merhaba küme kullanıcı parolasını değiştirme
+Merhaba Ambari Web kullanıcı arabirimini toochange hello küme kullanıcı parolası kullanabilirsiniz. toolog tooAmbari içinde hello var olan küme kullanıcı adı ve parola kullanmanız gerekir.
 
 > [!NOTE]
-> Küme kullanıcı (Yönetici) parolasını değiştirme eylemler başarısız bu kümeye karşı çalışan betik neden olabilir. Kalıcı betik eylemleri, hedef alt düğümleri varsa, bu komut dosyaları küme düğümlerine operations yeniden boyutlandırma eklediğinizde başarısız olabilir. Betik eylemleri hakkında daha fazla bilgi için bkz: [özelleştirme Hdınsight kümeleri betik eylemleri kullanılarak](hdinsight-hadoop-customize-cluster-linux.md).
+> Merhaba küme kullanıcı (Yönetici) parolası değiştiriliyor Eylemler bu küme toofail karşı çalışan betik neden olabilir. Çalışan düğümü hedef kalıcı betik eylemleri varsa, yeniden boyutlandırma işlemleri aracılığıyla düğümleri toohello kümesi eklediğinizde, bu komut dosyaları başarısız olabilir. Betik eylemleri hakkında daha fazla bilgi için bkz: [özelleştirme Hdınsight kümeleri betik eylemleri kullanılarak](hdinsight-hadoop-customize-cluster-linux.md).
 >
 >
 
-1. Ambari Web Hdınsight küme kullanıcı kimlik bilgilerini kullanarak kullanıcı Arabirimi için oturum açın. Varsayılan kullanıcı adı **admin** şeklindedir. URL **https://&lt;Hdınsight küme adı > azurehdinsight.net**.
-2. Tıklatın **yönetici** üstteki menüden "Ambarı Yönet"'a tıklayın.
-3. Sol menüden **kullanıcılar**.
+1. Toohello Ambari Web kullanıcı arabirimini kullanarak oturum Hdınsight küme kullanıcı kimlik bilgilerini hello. Merhaba varsayılan kullanıcı adı **yönetici**. URL hello **https://&lt;Hdınsight küme adı > azurehdinsight.net**.
+2. Tıklatın **yönetici** hello üst menüden "Ambarı Yönet"'a tıklayın.
+3. Merhaba sol menüden **kullanıcılar**.
 4. Tıklatın **yönetici**.
 5. Tıklatın **Parola Değiştir**.
 
-Ambari sonra kümedeki tüm düğümlerde parolasını değiştirir.
+Ambari, ardından hello kümedeki tüm düğümlerde hello parolasını değiştirir.
 
-### <a name="change-the-ssh-user-password"></a>SSH kullanıcı parolasını değiştirme
-1. Bir metin düzenleyicisi kullanarak, aşağıdaki metni adlı bir dosya Kaydet **changepassword.sh**.
+### <a name="change-hello-ssh-user-password"></a>Merhaba SSH kullanıcı parolasını değiştirme
+1. Bir metin düzenleyicisi kullanarak metin adlı bir dosya aşağıdaki hello Kaydet **changepassword.sh**.
 
    > [!IMPORTANT]
-   > Satır bitiş olarak LF kullanan bir Düzenleyicisi'ni kullanmanız gerekir. Düzenleyici CRLF kullanıyorsa, komut çalışmaz.
+   > Merhaba satır bitiş olarak LF kullanan bir Düzenleyicisi'ni kullanmanız gerekir. Merhaba Düzenleyicisi CRLF kullanıyorsa, hello komut çalışmaz.
    >
    >
 
@@ -243,23 +243,23 @@ Ambari sonra kümedeki tüm düğümlerde parolasını değiştirir.
         PASS=$2
 
         usermod --password $(echo $PASS | openssl passwd -1 -stdin) $USER
-2. Bir HTTP veya HTTPS adresi kullanarak Hdınsight'ta erişilebilen bir depolama konumuna dosyası yükleyin. Örneğin, ortak bir dosyanın gibi OneDrive veya Azure Blob Depolama depolayın. Bu URI sonraki adımda gerektiğinde URI (HTTP veya HTTPS adresi) dosyasına kaydedin.
-3. Azure portalından tıklatın **Hdınsight kümeleri**.
+2. Bir HTTP veya HTTPS adresi kullanarak Hdınsight'ta erişilebilir hello dosya tooa depolama konumu karşıya yükleyin. Örneğin, ortak bir dosyanın gibi OneDrive veya Azure Blob Depolama depolayın. Bu URI hello sonraki adımda gerektiğinde Merhaba URI (HTTP veya HTTPS adresi) toohello dosyayı kaydedin.
+3. Hello ifadesini Azure portal'ı tıklatın **Hdınsight kümeleri**.
 4. Hdınsight kümesine tıklayın.
 4. Tıklatın **betik eylemleri**.
-4. Gelen **betik eylemleri** dikey penceresinde, select **gönderme yeni**. Zaman **betik eylemi Gönder** dikey penceresi görünür, aşağıdaki bilgileri girin:
+4. Merhaba gelen **betik eylemleri** dikey penceresinde, select **gönderme yeni**. Ne zaman hello **betik eylemi Gönder** dikey penceresi görünür, aşağıdaki bilgilerle hello girin:
 
    | Alan | Değer |
    | --- | --- |
    | Ad |SSH parolasını değiştirme |
-   | Bash betik URI |Changepassword.sh dosyasına URI |
+   | Bash betik URI |Merhaba URI toohello changepassword.sh dosyası |
    | Düğümler (Head, çalışan, Nimbus, yönetici, Zookeeper, vb.) |✓ listelenen tüm düğüm türleri |
-   | Parametreler |SSH kullanıcı adı ve yeni parolayı girin. Kullanıcı adı ve parola arasında bir boşluk olması gerekir. |
+   | Parametreler |Merhaba SSH kullanıcı adı ve ardından hello yeni parolayı girin. Merhaba kullanıcı adı ve parola hello arasında bir boşluk olması gerekir. |
    | Bu betik eylemini Sürdür... |Bu alan işaretli bırakın. |
-5. Seçin **oluşturma** komut dosyasını uygulamak için. Komut dosyası tamamlandıktan sonra yeni bir parola ile SSH kullanarak kümeye bağlanabilir.
+5. Seçin **oluşturma** tooapply hello komut dosyası. Hello betik tamamlandıktan sonra SSH hello yeni parolayla kullanarak mümkün tooconnect toohello kümelerdir.
 
 ## <a name="grantrevoke-access"></a>GRANT/revoke erişim
-Hdınsight kümeleri (Bu hizmetlerin tümü için RESTful uç noktaları vardır) aşağıdaki HTTP web hizmetleri vardır:
+Hdınsight kümeleri HTTP web Hizmetleri (Bu hizmetlerin tümü için RESTful uç noktaları vardır) aşağıdaki hello vardır:
 
 * ODBC
 * JDBC
@@ -267,69 +267,69 @@ Hdınsight kümeleri (Bu hizmetlerin tümü için RESTful uç noktaları vardır
 * Oozie
 * Templeton
 
-Varsayılan olarak, bu hizmetleri için erişim verilir. Revoke/kullanarak erişim ver [Azure CLI](hdinsight-administer-use-command-line.md#enabledisable-http-access-for-a-cluster) ve [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access).
+Varsayılan olarak, bu hizmetleri için erişim verilir. İptal etme/hello kullanarak erişimini grant [Azure CLI](hdinsight-administer-use-command-line.md#enabledisable-http-access-for-a-cluster) ve [Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access).
 
-## <a name="find-the-subscription-id"></a>Abonelik kimliği bulunamadı
+## <a name="find-hello-subscription-id"></a>Merhaba abonelik kimliği bulunamadı
 
-**Azure aboneliğiniz kimliklerini bulmak için**
+**toofind, Azure aboneliğinizin kimlikleri**
 
-1. Oturum [Portal][azure-portal].
+1. İçinde toohello oturum [Portal][azure-portal].
 2. Tıklatın **abonelikleri**. Her abonelik bir ada ve bir kimliğe sahip
 
-Her küme bir Azure aboneliğine bağlıdır. Kimliği kümede gösterilen abonelik **temel** döşeme. Bkz: [listesi ve Göster kümeleri](#list-and-show-clusters).
+Her küme bağlı tooan Azure aboneliği ' dir. Merhaba abonelik kimliği hello kümede gösterilen **temel** döşeme. Bkz: [listesi ve Göster kümeleri](#list-and-show-clusters).
 
-## <a name="find-the-resource-group"></a>Kaynak Grup bulunamıyor
-Azure Kaynak Yöneticisi modunda her Hdınsight kümesi içeren bir Azure Resource Manager grubu oluşturulur. Bir kümeye ait olduğu kaynak yöneticisi grubu görünür:
+## <a name="find-hello-resource-group"></a>Merhaba kaynak grup bulunamıyor
+Hello Azure Kaynak Yöneticisi modunda her Hdınsight kümesi içeren bir Azure Resource Manager grubu oluşturulur. bir küme içinde tooappears ait hello Resource Manager Grup:
 
-* Küme listesi olan bir **kaynak grubu** sütun.
+* Merhaba küme listesi olan bir **kaynak grubu** sütun.
 * Küme **temel** döşeme.  
 
 Bkz: [listesi ve Göster kümeleri](#list-and-show-clusters).
 
-## <a name="find-the-default-storage-account"></a>Varsayılan depolama hesabı bulunamadı
-Her Hdınsight kümesinde bir varsayılan depolama hesabı vardır. Varsayılan depolama hesabı ve kendi anahtarları bir küme için görünür altında **depolama hesapları**. Bkz: [listesi ve Göster kümeleri](#list-and-show-clusters).
+## <a name="find-hello-default-storage-account"></a>Merhaba varsayılan depolama hesabı bulunamadı
+Her Hdınsight kümesinde bir varsayılan depolama hesabı vardır. Merhaba varsayılan depolama hesabı ve alt anahtarları altında bir küme görünür **depolama hesapları**. Bkz: [listesi ve Göster kümeleri](#list-and-show-clusters).
 
 ## <a name="run-hive-queries"></a>Hive sorguları çalıştırma
-Doğrudan Azure Portalı'ndan Hive işi çalıştırılamıyor. ancak Ambari Web kullanıcı arabirimini Hive görünümde kullanabilirsiniz.
+Doğrudan hello Azure Portalı ' Hive işi çalıştırılamıyor. ancak hello Ambari Web kullanıcı arabirimini Hive görünümü kullanabilirsiniz.
 
-**Ambari Hive görünümünü kullanarak Hive sorguları çalıştırmak için**
+**Ambari Hive görünümünü kullanarak toorun Hive sorguları**
 
-1. Ambari Web Hdınsight küme kullanıcı kimlik bilgilerini kullanarak kullanıcı Arabirimi için oturum açın. Varsayılan kullanıcı adı **admin** şeklindedir. URL **https://&lt;Hdınsight küme adı > azurehdinsight.net**.
-2. Aşağıdaki ekran görüntüsünde gösterildiği gibi Hive görünümü açın:  
+1. Toohello Ambari Web kullanıcı arabirimini kullanarak oturum Hdınsight küme kullanıcı kimlik bilgilerini hello. Merhaba varsayılan kullanıcı adı **yönetici**. URL hello **https://&lt;Hdınsight küme adı > azurehdinsight.net**.
+2. Hive görünümü hello ekran aşağıdaki gösterildiği gibi açın:  
 
     ![Hdınsight hive görünümü](./media/hdinsight-administer-use-portal-linux/hdinsight-hive-view.png)
-3. Tıklatın **sorgu** üstteki menüden.
+3. Tıklatın **sorgu** hello üst menüsünde.
 4. Bir Hive sorgusu girin **sorgu Düzenleyicisi'ni**ve ardından **yürütme**.
 
 ## <a name="monitor-jobs"></a>İşleri izleme
-Bkz: [Hdınsight kümelerini yönetme Ambari Web kullanıcı arabirimini kullanarak](hdinsight-hadoop-manage-ambari.md#monitoring).
+Bkz: [Hdınsight kümelerini yönetme hello Ambari Web kullanıcı arabirimini kullanarak](hdinsight-hadoop-manage-ambari.md#monitoring).
 
 ## <a name="browse-files"></a>Gözatma dosyaları
-Azure Portalı'nı kullanarak, varsayılan kapsayıcı içeriğini göz atabilirsiniz.
+Hello Azure portal kullanarak hello varsayılan kapsayıcı Merhaba içeriğine göz atabilirsiniz.
 
-1. Oturum [https://portal.azure.com](https://portal.azure.com).
-2. Tıklatın **Hdınsight kümeleri** var olan kümeleri listelemek için sol menüden.
-3. Küme adına tıklayın. Küme listesi uzunsa, sayfanın üst kısmında filtresini kullanabilirsiniz.
-4. Tıklatın **depolama hesapları** küme sol menüden.
+1. Çok oturum[https://portal.azure.com](https://portal.azure.com).
+2. Tıklatın **Hdınsight kümeleri** hello soldaki menüden toolist hello var olan kümeleri.
+3. Merhaba küme adına tıklayın. Merhaba küme listesi uzunsa hello sayfa hello üstündeki filtresini kullanabilirsiniz.
+4. Tıklatın **depolama hesapları** hello küme sol menüden.
 5. Bir depolama hesabı'nı tıklatın.
-7. Tıklatın **BLOB'lar** döşeme.
-8. Varsayılan kapsayıcı adına tıklayın.
+7. Merhaba tıklatın **BLOB'lar** döşeme.
+8. Merhaba varsayılan kapsayıcı adına tıklayın.
 
 ## <a name="monitor-cluster-usage"></a>Küme kullanımını izleme
-**Kullanım** Hdınsight küme dikey bölümde aboneliğinize Hdınsight ile kullanmak için kullanılabilir çekirdek sayısı gibi bu küme ve bu küme içindeki düğümler için nasıl ayrılacağını ayrılan çekirdek sayısı hakkında bilgileri görüntüler. Bkz: [listesi ve Göster kümeleri](#list-and-show-clusters).
+Merhaba **kullanım** hello Hdınsight kümesi dikey bölümünü hello toothis küme ve bulundukları nasıl ayrılan çekirdek sayısı yanı sıra, Hdınsight ile kullanmak için çekirdek kullanılabilir tooyour abonelik hello sayısı hakkında bilgileri görüntüler Bu küme içindeki hello düğümler için ayrılmış. Bkz: [listesi ve Göster kümeleri](#list-and-show-clusters).
 
 > [!IMPORTANT]
-> Hdınsight küme tarafından sağlanan hizmetlerin izlemek için Ambari Web veya Ambari REST API kullanmanız gerekir. Ambari kullanarak daha fazla bilgi için bkz: [Ambari kullanarak Hdınsight kümelerini yönetme](hdinsight-hadoop-manage-ambari.md)
+> toomonitor hello Hizmetleri Hdınsight kümesi hello tarafından sağlanan, Ambari REST API hello veya Ambari Web kullanmanız gerekir. Ambari kullanarak daha fazla bilgi için bkz: [Ambari kullanarak Hdınsight kümelerini yönetme](hdinsight-hadoop-manage-ambari.md)
 >
 >
 
-## <a name="connect-to-a-cluster"></a>Bir kümeye bağlanın
+## <a name="connect-tooa-cluster"></a>Tooa kümesine bağlanın
 
 * [HDInsight ile Hive kullanma](hdinsight-hadoop-use-hive-ambari-view.md)
 * [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede, bazı temel daki Hizmetler'i işlevleri öğrendiniz. Daha fazla bilgi için aşağıdaki makalelere bakın:
+Bu makalede, bazı temel daki Hizmetler'i işlevleri öğrendiniz. toolearn daha makaleler hello bakın:
 
 * [Hdınsight Azure PowerShell kullanarak yönetme](hdinsight-administer-use-powershell.md)
 * [Hdınsight Azure CLI kullanarak yönetme](hdinsight-administer-use-command-line.md)

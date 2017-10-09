@@ -1,6 +1,6 @@
 ---
-title: "Bulut M0: yumuşatma M0 WiFi Azure IOT Hub'ına bağlanmak | Microsoft Docs"
-description: "Ayarlama ve Bu öğreticide Azure bulut platformuna veri göndermek için Azure IOT Hub Adafruit yumuşatma M0 WiFi bağlanmak öğrenin."
+title: "M0 toocloud: yumuşatma M0 WiFi tooAzure IOT hub'ı bağlanma | Microsoft Docs"
+description: "Bilgi nasıl tooset yukarı ve Bu öğreticide Adafruit yumuşatma M0 WiFi tooAzure IOT hub'ı toosend veri toohello Azure bulut platformu bağlanın."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -15,49 +15,49 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/16/2017
 ms.author: xshi
-ms.openlocfilehash: 0dcf6b46a4c6c743c713d24ce7844e801b278dcf
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 6aabeb961a50ba5d3934f77eb1ccda4af1bf64c8
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-adafruit-feather-m0-wifi-to-azure-iot-hub-in-the-cloud"></a>Bulutta Azure IOT Hub'ına Adafruit yumuşatma M0 WiFi Bağlan
+# <a name="connect-adafruit-feather-m0-wifi-tooazure-iot-hub-in-hello-cloud"></a>Adafruit yumuşatma M0 WiFi tooAzure IOT Hub'hello bulutta Bağlan
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
 ![BME280, yumuşatma M0 WiFi ve IOT hub'ı arasında bir bağlantı](media/iot-hub-adafruit-feather-m0-wifi-get-started/1_connection-m0-feather-m0-iot-hub.png)
 
-Bu öğreticide, Arduino panonuzu ile çalışmanın temelleri öğrenerek başlayın. Daha sonra sorunsuzca aygıtlarınızı buluta kullanarak bağlanmasına nasıl öğrenin [Azure IOT Hub](iot-hub-what-is-iot-hub.md).
+Bu öğreticide, Arduino panonuzu ile çalışmanın hello temelleri öğrenerek başlayın. Daha sonra nasıl tooseamlessly bağlanacağını aygıtları toohello bulutunuzu kullanarak öğrenin [Azure IOT Hub](iot-hub-what-is-iot-hub.md).
 
 ## <a name="what-you-do"></a>Neler
 
-Adafruit yumuşatma M0 WiFi oluşturduğunuz bir IOT hub'ına bağlanın. Sonra M0 BME280 sıcaklık ve nem veri toplamak üzere WiFi üzerinde bir örnek uygulamayı çalıştırın. Son olarak, IOT hub'ınıza algılayıcı verileri gönderin.
+Oluşturduğunuz Adafruit yumuşatma M0 WiFi tooan IOT hub bağlayın. Daha sonra örnek bir uygulama BME280 sıcaklık ve nem M0 WiFi toocollect hello verileri çalıştırın. Son olarak, hello algılayıcı verileri tooyour IOT hub'ı gönderin.
 
 
 ## <a name="what-you-learn"></a>Öğrenecekleriniz
 
-* IOT hub'ı oluşturma ve yumuşatma M0 WiFi için bir cihaz kaydetme
-* Algılayıcı ve bilgisayarınızla yumuşatma M0 WiFi bağlanma
-* Yumuşatma M0 WiFi üzerinde bir örnek uygulamayı çalıştırarak algılayıcı verilerini toplamak nasıl
-* IOT hub'ınıza algılayıcı verileri gönderme
+* Nasıl toocreate IOT hub'ı ve yumuşatma M0 WiFi için bir cihaz kaydetme
+* Nasıl tooconnect yumuşatma M0 WiFi hello algılayıcı ve bilgisayarınız
+* Nasıl yumuşatma M0 WiFi üzerinde bir örnek uygulamayı çalıştırarak toocollect algılayıcı verileri
+* Nasıl toosend hello algılayıcı verileri tooyour IOT hub'ı
 
 ## <a name="what-you-need"></a>Ne gerekiyor
 
-![Öğretici için gerekli bölümleri](media/iot-hub-adafruit-feather-m0-wifi-get-started/2_parts-needed-for-the-tutorial.png)
+![Merhaba öğretici için gerekli bölümleri](media/iot-hub-adafruit-feather-m0-wifi-get-started/2_parts-needed-for-the-tutorial.png)
 
-Bu işlemi tamamlamak için aşağıdaki bölümleri yumuşatma M0 WiFi Starter Seti'nden gerekir:
+toocomplete bu işlemi yumuşatma M0 WiFi Starter Seti'nden bölümleri aşağıdaki hello gerekir:
 
-* Yumuşatma M0 WiFi Panosu
-* Mikro USB tipi A USB kablosu
+* Merhaba yumuşatma M0 WiFi Panosu
+* Mikro USB tooType bir USB kablosu
 
-Ayrıca, geliştirme ortamınız için aşağıdakiler gerekir:
+Ayrıca geliştirme ortamınız için öğeleri izleyen hello gerekir:
 
 * Etkin bir Azure aboneliği. Bir Azure hesabınız yoksa [ücretsiz Azure deneme hesabı oluşturma](https://azure.microsoft.com/free/) yalnızca birkaç dakika içinde.
 * Mac veya Windows veya Ubuntu çalıştıran bir bilgisayar.
-* Kablosuz ağ yumuşatma M0 WiFi bağlanmak için.
-* Yapılandırma Aracı indirmek için Internet bağlantısı.
-* [Arduino IDE](https://www.arduino.cc/en/main/software) sürüm 1.6.8 veya sonraki bir sürümü. Önceki sürümleri Azure IOT Hub kitaplığı ile çalışmaz.
+* Kablosuz ağ yumuşatma M0 WiFi tooconnect için.
+* Bir Internet bağlantısı toodownload hello yapılandırma aracı.
+* [Arduino IDE](https://www.arduino.cc/en/main/software) sürüm 1.6.8 veya sonraki bir sürümü. Önceki sürümlerde hello Azure IOT Hub kitaplığı ile çalışmaz.
 
-Algılayıcı yoksa, aşağıdaki öğeler isteğe bağlıdır. Ayrıca sanal algılayıcı verilerini kullanma seçeneğiniz vardır:
+Algılayıcı yoksa, aşağıdaki öğelerindeki hello isteğe bağlıdır. Benzetimli algılayıcı verilerini kullanarak hello seçeneğiniz de vardır:
 
 * BME280 sıcaklık ve nem algılayıcı
 * Bir breadboard
@@ -65,17 +65,17 @@ Algılayıcı yoksa, aşağıdaki öğeler isteğe bağlıdır. Ayrıca sanal al
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
-## <a name="connect-feather-m0-wifi-with-the-sensor-and-your-computer"></a>Algılayıcı ve bilgisayarınızla yumuşatma M0 WiFi Bağlan
-Bu bölümde, algılayıcılar panonuz için bağlayın. Daha sonra Cihazınızı başka kullanmak için bilgisayarınıza takın.
+## <a name="connect-feather-m0-wifi-with-hello-sensor-and-your-computer"></a>Merhaba algılayıcı ve bilgisayarınızla yumuşatma M0 WiFi Bağlan
+Bu bölümde, hello algılayıcılar tooyour Panosu bağlayın. Ardından aygıt tooyour bilgisayarınızdaki başka kullanmak için takın.
 
-### <a name="connect-a-dht22-temperature-and-humidity-sensor-to-feather-m0-wifi"></a>Yumuşatma M0 WiFi DHT22 sıcaklık ve nem algılayıcı Bağlan
+### <a name="connect-a-dht22-temperature-and-humidity-sensor-toofeather-m0-wifi"></a>Bir DHT22 sıcaklık ve nem algılayıcı tooFeather M0 WiFi Bağlan
 
-Bağlantıyı kurmak için breadboard ve anahtar kablolarını kullanır. Algılayıcı yoksa, benzetimli algılayıcı verilerini yerine kullandığından bu bölümü atlayabilirsiniz.
+Merhaba breadboard ve anahtar kablolarını toomake hello bağlantısı kullanın. Algılayıcı yoksa, benzetimli algılayıcı verilerini yerine kullandığından bu bölümü atlayabilirsiniz.
 
 ![Bağlantı Başvurusu](media/iot-hub-adafruit-feather-m0-wifi-get-started/3_connections_on_breadboard.png)
 
 
-Algılayıcı PIN'ler için aşağıdaki kablolama kullanın:
+Algılayıcı PIN'ler için kablolama aşağıdaki hello kullan:
 
 
 | Başlangıç (algılayıcı)           | Bitiş (kartı)            | Kablo rengi   |
@@ -95,88 +95,88 @@ Daha fazla bilgi için bkz: [Adafruit BME280 nem + Barometric baskısı sıcakl�
 
 ![Yumuşatma Huzzah ile DHT22 Bağlan](media/iot-hub-adafruit-feather-m0-wifi-get-started/4_connect-bme280-feather-m0-wifi.png)
 
-### <a name="connect-feather-m0-wifi-to-your-computer"></a>Yumuşatma M0 WiFi bilgisayarınıza bağlayın
+### <a name="connect-feather-m0-wifi-tooyour-computer"></a>Yumuşatma M0 WiFi tooyour bilgisayara bağlanma
 
-Gösterildiği gibi bilgisayarınıza yumuşatma M0 WiFi bağlanmak için mikro USB tipi A USB kablosu kullanın:
+Merhaba mikro USB tooType bir USB kablosu tooconnect yumuşatma M0 WiFi tooyour bilgisayar, gösterildiği gibi kullanın:
 
-![Yumuşatma Huzzah bilgisayarınıza bağlayın](media/iot-hub-adafruit-feather-m0-wifi-get-started/5_connect-feather-m0-wifi-computer.png)
+![Yumuşatma Huzzah tooyour bilgisayara bağlanma](media/iot-hub-adafruit-feather-m0-wifi-get-started/5_connect-feather-m0-wifi-computer.png)
 
 ### <a name="add-serial-port-permissions-ubuntu-only"></a>Seri bağlantı noktası izinleri (yalnızca Ubuntu) ekleyin
 
-Ubuntu kullanırsanız, USB bağlantı noktası, yumuşatma M0 WiFi üzerinde çalışması için izinlere sahip olduğunuzdan emin olun. Seri bağlantı noktası izinleri eklemek için aşağıdaki adımları izleyin:
+Ubuntu kullanırsanız, hello izinleri toooperate hello USB bağlantı noktası, yumuşatma M0 WiFi üzerinde olduğundan emin olun. tooadd seri bağlantı noktası izinleri, aşağıdaki adımları uygulayın:
 
 
-1. Bir terminal aşağıdaki komutları çalıştırın:
+1. Bir terminal hello aşağıdaki komutları çalıştırın:
 
    ```bash
    ls -l /dev/ttyUSB*
    ls -l /dev/ttyACM*
    ```
 
-   Aşağıdaki çıktıları birini alın:
+   Çıktı aşağıdaki hello birini alın:
 
    * crw-rw---1 kök uucp xxxxxxxx
    * crw-rw---1 kök araması xxxxxxxx
 
-   Çıktıda dikkat `uucp` veya `dialout` USB bağlantı noktasına Grup sahibi adıdır.
+   Merhaba çıktısında dikkat `uucp` veya `dialout` hello Grup sahibi hello USB bağlantı noktasına adıdır.
 
-2. Gruba kullanıcı eklemek için aşağıdaki komutu çalıştırın:
+2. komutu aşağıdaki hello çalıştırmak tooadd hello kullanıcı toohello grubunun:
 
    ```bash
    sudo usermod -a -G <group-owner-name> <username>
    ```
 
-   Önceki adımda aldığınız Grup sahibi adı `<group-owner-name>`. Ubuntu kullanıcı adınız `<username>`.
+   Merhaba önceki adımda aldığınız hello Grup sahibi adı `<group-owner-name>`. Ubuntu kullanıcı adınız `<username>`.
 
-3. Değişiklik görünür, Ubuntu dışında oturum açın ve yeniden oturum açın.
+3. Merhaba değişiklik tooappear dışında Ubuntu oturum ve yeniden oturum açın.
 
-## <a name="collect-sensor-data-and-send-it-to-your-iot-hub"></a>Algılayıcı verilerini toplamak ve IOT hub'ınıza gönderin
+## <a name="collect-sensor-data-and-send-it-tooyour-iot-hub"></a>Algılayıcı verilerini toplamak ve tooyour IOT hub'ı gönderin
 
-Bu bölümde, dağıtın ve yumuşatma M0 WiFi üzerinde bir örnek uygulamayı çalıştırın. Örnek uygulama LED blink yumuşatma M0 WiFi üzerinde yapar. Ardından, IOT hub'ınıza BME280 algılayıcı toplanan sıcaklık ve nem verileri gönderir.
+Bu bölümde, dağıtın ve yumuşatma M0 WiFi üzerinde bir örnek uygulamayı çalıştırın. Merhaba örnek uygulaması yumuşatma M0 WiFi ışığı yanıp hello yapar. Ardından hello sıcaklık gönderir ve nem veri hello BME280 algılayıcı tooyour IOT hub'ı toplanmadı.
 
-### <a name="get-the-sample-application-from-github-and-prepare-the-arduino-ide"></a>Örnek uygulama Github'dan alma ve Arduino IDE hazırlama
+### <a name="get-hello-sample-application-from-github-and-prepare-hello-arduino-ide"></a>Merhaba örnek uygulaması Github'dan alma ve hello Arduino IDE hazırlama
 
-Örnek uygulama, GitHub üzerinde barındırılır. Github'dan örnek uygulamayı içeren örnek depoyu kopyalayın. Örnek deposuna kopyalamak için aşağıdaki adımları izleyin:
+Merhaba örnek uygulaması, GitHub üzerinde barındırılır. Merhaba örnek uygulaması github'dan içeren hello örnek depoyu kopyalayın. tooclone hello örnek deposu, şu adımları izleyin:
 
 1. Bir komut istemi veya terminal penceresi açın.
 
-2. Depolanması için örnek uygulama istediğiniz bir klasöre gidin.
-3. Şu komutu çalıştırın:
+2. Depolanan hello örnek uygulama toobe istediğiniz tooa klasörüne gidin.
+3. Merhaba aşağıdaki komutu çalıştırın:
 
    ```bash
    git clone https://github.com/Azure-Samples/iot-hub-Feather-M0-WiFi-client-app.git
    ```
 
-### <a name="install-the-package-for-feather-m0-wifi-in-the-arduino-ide"></a>Yumuşatma M0 WiFi Arduino IDE'de paketi yükle
+### <a name="install-hello-package-for-feather-m0-wifi-in-hello-arduino-ide"></a>Merhaba paketini yumuşatma M0 WiFi hello Arduino IDE yükleyin.
 
-1. Örnek uygulama depolandığı klasörü açın.
+1. Merhaba örnek uygulaması depolandığı hello klasörünü açın.
 
-2. Arduino IDE uygulama klasöründe app.ino dosyasını açın.
+2. Merhaba Arduino IDE hello uygulama klasöründe Hello app.ino dosyasını açın.
 
-   ![Örnek uygulamayı Arduino IDE içinde Aç](media/iot-hub-adafruit-feather-m0-wifi-get-started/6_arduino-ide-open-sample-app.png)
+   ![Merhaba örnek uygulaması Arduino IDE içinde açın](media/iot-hub-adafruit-feather-m0-wifi-get-started/6_arduino-ide-open-sample-app.png)
 
 
-1. Tıklatın **dosya** > **Tercihler** (Windows/Linux) veya **Arduino** > **Tercihler** (Mac) kopyalayıp ve Aşağıdaki bağlantıda içine yapıştırma **ek panoları yöneticisi URL'leri** Arduino IDE tercihlerinde seçeneği.
+1. Tıklatın **dosya** > **Tercihler** (Windows/Linux) veya **Arduino** > **Tercihler** (Mac) kopyalayıp ve Merhaba aşağıda Yapıştır hello bağlantıya **ek panoları yöneticisi URL'leri** Arduino IDE Tercihler hello seçeneği.
    
    ```
    https://adafruit.github.io/arduino-board-index/package_adafruit_index.json, https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
    ```
 
-1. ' I tıklatın **Araçları** > **Panosu** > **panoları Yöneticisi**ve ardından yükleyin `Arduino SAMD Boards` sürüm `1.6.2` veya sonraki bir sürümü. 
+1. Tıklatın **Araçları** > **Panosu** > **panoları Yöneticisi**, yükleyip ardından hello `Arduino SAMD Boards` sürüm `1.6.2` veya üstü. 
 
-1. Aynı pencerede yüklemek `Adafruit SAMD Boards` Panosu dosya tanımları eklemek için paket.
+1. Ardından Merhaba aynı penceresi, yükleme `Adafruit SAMD Boards` paketini tooadd hello Panosu dosya tanımları.
 
-   ![esp8266 paketi yüklü](media/iot-hub-adafruit-feather-m0-wifi-get-started/7_arduino-ide-package-url.png)
+   ![Merhaba esp8266 paketinin yüklü olduğu](media/iot-hub-adafruit-feather-m0-wifi-get-started/7_arduino-ide-package-url.png)
 
 4. Tıklatın **Araçları** > **Panosu** > **Adafruit M0 WiFi**.
 
-5. Sürücüleri (yalnızca Windows için) yükleyin. Yumuşatma M0 WiFi bağladığınızda, bir sürücü yüklemeniz gerekebilir. Tıklatın [sayfasındaki indirme bağlantısı](https://github.com/adafruit/Adafruit_Windows_Drivers/releases/download/1.1/adafruit_drivers.exe) sürücü yükleyici indirmek için. İstediğiniz sürücüleri yüklemek için adımları izleyin.
+5. Sürücüleri (yalnızca Windows için) yükleyin. Yumuşatma M0 WiFi taktığınızda tooinstall bir sürücü gerekebilir. Tıklatın [hello indirme bağlantısı hello Web sayfasındaki](https://github.com/adafruit/Adafruit_Windows_Drivers/releases/download/1.1/adafruit_drivers.exe) toodownload hello sürücü yükleyicisi. Merhaba adımları tooinstall hello sürücüleri istediğiniz izleyin.
 
 ### <a name="install-necessary-libraries"></a>Gerekli kitaplıkları yükleme
 
-1. Arduino IDE'de tıklatın **taslak** > **dahil Kitaplığı** > **yönetmek kitaplıkları**.
+1. Hello Arduino IDE, tıklatın **taslak** > **dahil Kitaplığı** > **yönetmek kitaplıkları**.
 
-2. Aşağıdaki Kitaplığı Ara tek tek adları. Bulduğunuz her kitaplığını tıklatın **yükleme**:
+2. Kitaplık adları tek tek aşağıdaki hello arayın. Bulduğunuz her kitaplığını tıklatın **yükleme**:
 
    * `RTCZero`
    * `NTPClient`
@@ -187,55 +187,55 @@ Bu bölümde, dağıtın ve yumuşatma M0 WiFi üzerinde bir örnek uygulamayı 
    * `Adafruit BME280 Library`
    * `Adafruit Unified Sensor`
 
-3. El ile yüklemeniz `Adafruit_WINC1500`. Git [bu Web sitesi](https://github.com/adafruit/Adafruit_WINC1500) tıklatıp **Kopyala veya indir** > **ZIP'i indir**. Arduino IDE'yi geçin **taslak** > **dahil Kitaplığı** > **.zip Kitaplığı eklemek** ve zip dosyası ekleyin.
+3. El ile yüklemeniz `Adafruit_WINC1500`. Çok Git[bu Web sitesi](https://github.com/adafruit/Adafruit_WINC1500) tıklatıp **Kopyala veya indir** > **ZIP'i indir**. Arduino IDE'yi çok Git**taslak** > **dahil Kitaplığı** > **.zip Kitaplığı eklemek** ve hello zip dosyası ekleyin.
 
-### <a name="use-the-sample-application-if-you-dont-have-a-real-bme280-sensor"></a>Örnek uygulamayı gerçek BME280 algılayıcı yoksa kullanın
+### <a name="use-hello-sample-application-if-you-dont-have-a-real-bme280-sensor"></a>Gerçek BME280 algılayıcı yoksa Merhaba örnek uygulaması kullanın
 
-Gerçek BME280 algılayıcı yoksa, örnek uygulamayı sıcaklık ve nem veri benzetimini yapabilirsiniz. Örnek uygulamayı benzetimli veri kullanacak şekilde ayarlamak için aşağıdaki adımları izleyin:
+Gerçek BME280 algılayıcı yoksa, hello örnek uygulama sıcaklık ve nem veri benzetimini yapabilirsiniz. tooset hello örnek uygulama benzetimli toouse verileri, şu adımları izleyin:
 
-1. Açık `config.h` dosyasını `app` klasör.
+1. Açık hello `config.h` hello dosyasında `app` klasör.
 
-2. Aşağıdaki kod satırını bulun ve değeri değiştirin `false` için `true`:
+2. Aşağıdaki kod hello bulun ve hello değerinden değiştirmek `false` çok`true`:
 
    ```c
    define SIMULATED_DATA true
    ```
-   ![Örnek uygulamayı benzetimli veri kullanacak şekilde yapılandırma](media/iot-hub-adafruit-feather-m0-wifi-get-started/8_arduino-ide-configure-app-use-simulated-data.png)
+   ![Merhaba örnek uygulama benzetimli toouse verileri yapılandırma](media/iot-hub-adafruit-feather-m0-wifi-get-started/8_arduino-ide-configure-app-use-simulated-data.png)
 
-3. Dosyayı kaydetmek `Control-s`.
+3. Merhaba dosyayla Kaydet `Control-s`.
 
-### <a name="deploy-the-sample-application-to-feather-m0-wifi"></a>Yumuşatma M0 WiFi örnek uygulamayı dağıtmak
+### <a name="deploy-hello-sample-application-toofeather-m0-wifi"></a>Merhaba örnek uygulama tooFeather M0 WiFi dağıtma
 
-1. Arduino IDE'de tıklatın **aracı** > **bağlantı noktası**ve yumuşatma M0 WiFi için seri bağlantı noktası'ı tıklatın.
+1. Hello Arduino IDE, tıklatın **aracı** > **bağlantı noktası**ve yumuşatma M0 WiFi hello seri bağlantı noktası'ı tıklatın.
 
-2. ' I tıklatın **taslak** > **karşıya** oluşturup yumuşatma M0 WiFi örnek uygulamayı dağıtın.
+2. Tıklatın **taslak** > **karşıya** toobuild ve hello örnek uygulama tooFeather M0 WiFi dağıtın.
 
 ### <a name="enter-your-credentials"></a>Kimlik bilgilerinizi girin
 
-Karşıya yükleme başarıyla tamamlandıktan sonra kimlik bilgilerinizi girmeniz için şu adımları izleyin:
+Merhaba karşıya yükleme başarıyla tamamlandıktan sonra bu adımları tooenter kimlik bilgilerinizi izleyin:
 
-1. Arduino IDE'de tıklatın **Araçları** > **seri İzleyici**.
+1. Hello Arduino IDE, tıklatın **Araçları** > **seri İzleyici**.
 
-2. Seri İzleyici penceresinin sağ alt köşesinde seçin **hiçbir satır bitiş** sol aşağı açılan listesinde.
-3. Seçin **115200 baud** sağdaki aşağı açılan listesinde.
-4. ' A tıklayın ve bunu sağlamak için sorulursa üst giriş kutusuna aşağıdaki bilgileri girin **Gönder**:
+2. Hello sağ alt köşesinde hello seri İzleyicisi penceresinde, seçin **hiçbir satır bitiş** hello soldaki hello aşağı açılan listesinde.
+3. Seçin **115200 baud** hello sağ hello aşağı açılan listesinde.
+4. Merhaba giriş kutusuna hello üstünde kullanıcısıysanız bilgisinden hello girin ve tıklatın tooprovide sorulan **Gönder**:
 
    * Wi-Fi SSID
    * Wi-Fi parola
    * Cihaz bağlantı dizesi
 
 > [!Note]
-> Kimlik bilgisi EEPROM, yumuşatma M0 WiFi içinde depolanır. Yumuşatma M0 WiFi panosunda Sıfırla düğmesini tıklatın, örnek uygulamayı bilgileri silmek isteyip istemediğinizi sorar. Girin `Y` bilgileri silmek için. İkinci kez bilgileri vermeniz istenir.
+> Merhaba kimlik bilgileri hello yumuşatma M0 WiFi EEPROM depolanır. Merhaba yumuşatma M0 WiFi Panosu hello Sıfırla düğmesini tıklatın, Merhaba örnek uygulaması tooerase hello bilgi isteyip istemediğinizi sorar. Girin `Y` tooerase hello bilgi. Tooprovide hello bilgi ikinci kez sorulur.
 
-### <a name="verify-that-the-sample-application-is-running-successfully"></a>Örnek Uygulama başarıyla çalıştığını doğrulayın
+### <a name="verify-that-hello-sample-application-is-running-successfully"></a>Merhaba örnek uygulaması başarılı bir şekilde çalıştığını doğrulayın
 
-Yumuşatma M0 WiFi üzerinde seri İzleyici penceresinin ve yanıp sönen LED aşağıdaki çıkışı görürseniz örnek uygulama başarıyla çalıştırma:
+Görürseniz hello seri İzleyicisi penceresinde hello şu çıktıları ve LED yumuşatma M0 WiFi Merhaba örnek uygulaması üzerinde yanıp sönen hello başarıyla çalıştırma:
 
 ![Arduino IDE içinde son çıktı](media/iot-hub-adafruit-feather-m0-wifi-get-started/9_arduino-ide-final-output.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Başarıyla yumuşatma M0 WiFi IOT hub'ına bağlı ve IOT hub'ınıza yakalanan algılayıcı verilerini gönderilir. 
+Başarıyla tooyour IOT hub'ı yumuşatma M0 WiFi bağlı ve yakalanan hello algılayıcı verileri tooyour IOT hub'ı gönderilir. 
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure'da PHP ve MySQL bir web uygulaması oluşturma | Microsoft Docs"
-description: "Azure MySQL veritabanında bağlantısı olan Azure üzerinde çalışan bir PHP uygulaması alma hakkında bilgi."
+title: "aaaBuild azure'da PHP ve MySQL bir web uygulaması | Microsoft Docs"
+description: "Bilgi nasıl Azure'da çalışan bir PHP uygulaması ile bağlantı tooa MySQL veritabanı Azure'da tooget."
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -15,15 +15,15 @@ ms.topic: tutorial
 ms.date: 07/21/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6e8d8962180f7534b0b9074f03ecc8ea431ae1a4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 3c050b30e2e2c80d011bed989cd5f8cecac35d15
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure"></a>Azure'da PHP ve MySQL bir web uygulaması oluşturma
 
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu öğretici, Azure üzerinde bir PHP web uygulaması oluşturma ve MySQL veritabanına bağlanmak gösterilmiştir. İşiniz bittiğinde, gerekir bir [Laravel](https://laravel.com/) Azure App Service Web Apps üzerinde çalışan uygulama.
+[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu öğretici nasıl toocreate bir PHP web uygulaması Azure ve tooa MySQL veritabanına bağlanmak gösterir. İşiniz bittiğinde, gerekir bir [Laravel](https://laravel.com/) Azure App Service Web Apps üzerinde çalışan uygulama.
 
 ![Azure uygulama Hizmeti'nde çalışan PHP uygulaması](./media/app-service-web-tutorial-php-mysql/complete-checkbox-published.png)
 
@@ -31,20 +31,20 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Azure üzerinde MySQL veritabanı oluşturma
-> * MySQL için PHP uygulamaya Bağlan
-> * Uygulamayı Azure'a dağıtma
-> * Veri modeli güncelleştirme ve uygulamayı yeniden dağıtın
+> * PHP uygulama tooMySQL Bağlan
+> * Merhaba uygulama tooAzure dağıtma
+> * Merhaba veri modeli güncelleştirmek ve hello uygulama yeniden dağıtın
 > * Azure Stream tanılama günlükleri
-> * Azure portalında uygulama yönetme
+> * Merhaba uygulamada hello Azure portalı Yönet
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğreticiyi tamamlamak için:
+toocomplete Bu öğretici:
 
 * [Git'i yükleyin](https://git-scm.com/)
 * [PHP 5.6.4 yükleme veya üstü](http://php.net/downloads.php)
 * [Oluşturucu yükleyin](https://getcomposer.org/doc/00-intro.md)
-* Aşağıdaki PHP uzantılarını Laravel gereksinimlerini etkinleştirme: OpenSSL, PDO MySQL, Mbstring, belirteç Oluşturucu, XML
+* PHP uzantıları Laravel gereksinimlerini aşağıdaki hello etkinleştirin: OpenSSL, PDO MySQL, Mbstring, belirteç Oluşturucu, XML
 * [Yükleyin ve MySQL başlatın](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -53,21 +53,21 @@ Bu öğreticiyi tamamlamak için:
 
 Bu adımda, bir veritabanı yerel MySQL sunucunuzu Bu öğreticide, kullanımınız için oluşturun.
 
-### <a name="connect-to-local-mysql-server"></a>Yerel MySQL sunucuya bağlanın
+### <a name="connect-toolocal-mysql-server"></a>Toolocal MySQL server Bağlan
 
-Bir terminal penceresi, yerel MySQL sunucusuna bağlanın. Bu öğreticide tüm komutları çalıştırmak için bu bir terminal penceresi kullanabilirsiniz.
+Bir terminal penceresi tooyour yerel MySQL sunucusuna bağlanın. Bu bir terminal penceresi toorun Bu öğreticide tüm hello komutlarını kullanabilirsiniz.
 
 ```bash
 mysql -u root -p
 ```
 
-İçin bir parola istenirse parolayı girin `root` hesabı. Kök hesap parolanızı hatırlamıyorsanız bkz [MySQL: kök parolasını sıfırlamak nasıl](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
+İçin bir parola istenirse Merhaba hello parolayı girin `root` hesabı. Kök hesap parolanızı hatırlamıyorsanız bkz [MySQL: nasıl tooReset hello kök parola](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
 
-Komutunuzu başarıyla çalışırsa, MySQL sunucunuzu çalışıyor. Aksi takdirde, yerel MySQL server'ınızdaki izleyerek başlatıldığından emin olun [MySQL yükleme sonrası adımları](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
+Komutunuzu başarıyla çalışırsa, MySQL sunucunuzu çalışıyor. Aksi takdirde, yerel MySQL sunucunuz tarafından aşağıdaki hello başlatıldığından emin olun [MySQL yükleme sonrası adımları](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
 
 ### <a name="create-a-database-locally"></a>Yerel bir veritabanı oluşturun
 
-Konumundaki `mysql` isteminde, bir veritabanı oluşturun.
+Merhaba, `mysql` isteminde, bir veritabanı oluşturun.
 
 ```sql 
 CREATE DATABASE sampledb;
@@ -84,18 +84,18 @@ quit
 ## <a name="create-a-php-app-locally"></a>Yerel olarak bir PHP uygulaması oluşturma
 Bu adımda, Laravel örnek bir uygulama almak, veritabanı bağlantısını yapılandırın ve yerel olarak çalıştırın. 
 
-### <a name="clone-the-sample"></a>Örnek kopyalama
+### <a name="clone-hello-sample"></a>Kopya hello örnek
 
-Terminal penceresinde `cd` bir çalışma dizini için.
+Merhaba terminal penceresinde `cd` tooa çalışma dizini.
 
-Örnek depoyu kopyalamak için aşağıdaki komutu çalıştırın.
+Çalışma hello aşağıdaki tooclone hello örnek depo komutu.
 
 ```bash
 git clone https://github.com/Azure-Samples/laravel-tasks
 ```
 
-`cd`Kopyalanan dizininize.
-Gerekli paketleri yükleyeceksiniz.
+`cd`tooyour kopyalanan dizin.
+Gerekli hello paketlerini yükleyin.
 
 ```bash
 cd laravel-tasks
@@ -104,7 +104,7 @@ composer install
 
 ### <a name="configure-mysql-connection"></a>MySQL bağlantısını yapılandırın
 
-Depo kök dizininde adlı bir dosya oluşturun *.env*. Aşağıdaki değişkenler içine kopyalamak *.env* dosya. Değiştir  _&lt;root_password >_ yer tutucusunu MySQL kök kullanıcının parolası ile.
+Merhaba depo kök dizininde adlı bir dosya oluşturun *.env*. Değişkenleri hello aşağıdaki kopyalama hello *.env* dosya. Hello yerine  _&lt;root_password >_ yer tutucusunu hello MySQL kök kullanıcının parolası ile.
 
 ```
 APP_ENV=local
@@ -118,11 +118,11 @@ DB_USERNAME=root
 DB_PASSWORD=<root_password>
 ```
 
-Laravel nasıl kullandığı hakkında bilgi için _.env_ dosya için bkz: [Laravel ortamı Yapılandırması](https://laravel.com/docs/5.4/configuration#environment-configuration).
+Laravel hello nasıl kullandığı hakkında bilgi için _.env_ dosya için bkz: [Laravel ortamı Yapılandırması](https://laravel.com/docs/5.4/configuration#environment-configuration).
 
-### <a name="run-the-sample-locally"></a>Örnek yerel olarak çalıştırma
+### <a name="run-hello-sample-locally"></a>Merhaba örnek yerel olarak çalıştırma
 
-Çalıştırma [Laravel veritabanı geçişler](https://laravel.com/docs/5.4/migrations) tabloları uygulama oluşturması gerekir. Hangi tablolar geçişleri oluşturulur görmek için konum _veritabanı/geçişler_ Git deposunda dizin.
+Çalıştırma [Laravel veritabanı geçişler](https://laravel.com/docs/5.4/migrations) toocreate hello tabloları hello uygulama gereksinimleri. hangi tablolar oluşturulur hello geçişlerde, arama hello toosee _veritabanı/geçişler_ hello Git deposu dizin.
 
 ```bash
 php artisan migrate
@@ -134,23 +134,23 @@ Yeni bir Laravel uygulama anahtarı oluşturur.
 php artisan key:generate
 ```
 
-Uygulamayı çalıştırın.
+Merhaba uygulamayı çalıştırın.
 
 ```bash
 php artisan serve
 ```
 
-Bir tarayıcıda `http://localhost:8000` sayfasına gidin. Bazı görevler sayfasında ekleyin.
+Çok gidin`http://localhost:8000` bir tarayıcıda. Bazı görevleri hello sayfasında ekleyin.
 
-![MySQL için PHP başarıyla bağlandığını](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
+![PHP tooMySQL başarıyla bağlanır.](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
 
-PHP durdurmak için aşağıdakileri yazın `Ctrl + C` Terminal.
+PHP, toostop yazın `Ctrl + C` hello terminal içinde.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-mysql-in-azure"></a>MySQL oluşturma
 
-Bu adımda oluşturduğunuz MySQL veritabanında [Azure veritabanı için MySQL (Önizleme)](/azure/mysql). Daha sonra bu veritabanına bağlanmak için PHP uygulaması yapılandırın.
+Bu adımda oluşturduğunuz MySQL veritabanında [Azure veritabanı için MySQL (Önizleme)](/azure/mysql). Daha sonra hello PHP uygulama tooconnect toothis veritabanını yapılandırın.
 
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
@@ -158,9 +158,9 @@ Bu adımda oluşturduğunuz MySQL veritabanında [Azure veritabanı için MySQL 
 
 ### <a name="create-a-mysql-server"></a>MySQL sunucusu oluşturun
 
-MySQL (Önizleme) Azure veritabanındaki bir sunucu oluşturmak [az mysql sunucusu oluşturun](/cli/azure/mysql/server#create) komutu.
+Bir sunucu Azure veritabanı'nda MySQL (Önizleme) ile Merhaba oluşturmak [az mysql sunucusu oluşturun](/cli/azure/mysql/server#create) komutu.
 
-Aşağıdaki komutta, gördüğünüz MySQL server adınızı alternatif  _&lt;mysql_server_name >_ yer tutucu (geçerli karakterler `a-z`, `0-9`, ve `-`). Bu ad MySQL sunucunun ana bilgisayar adı bir parçasıdır (`<mysql_server_name>.database.windows.net`), genel olarak benzersiz olması gerekir.
+Hello hello gördüğünüz MySQL server adınızı alternatif komutu, aşağıdaki  _&lt;mysql_server_name >_ yer tutucu (geçerli karakterler `a-z`, `0-9`, ve `-`). Bu ad hello MySQL sunucunun ana bilgisayar adı bir parçasıdır (`<mysql_server_name>.database.windows.net`), toobe genel olarak benzersiz olmalıdır.
 
 ```azurecli-interactive
 az mysql server create \
@@ -171,7 +171,7 @@ az mysql server create \
     --admin-password MySQLAzure2017
 ```
 
-MySQL sunucusu oluşturulduğunda, Azure CLI bilgileri aşağıdaki örneğe benzer şekilde gösterir:
+Merhaba MySQL server oluşturulduğunda hello Azure CLI örnek aşağıdaki bilgileri benzer toohello gösterir:
 
 ```json
 {
@@ -188,7 +188,7 @@ MySQL sunucusu oluşturulduğunda, Azure CLI bilgileri aşağıdaki örneğe ben
 
 ### <a name="configure-server-firewall"></a>Sunucu Güvenlik Duvarı'nı yapılandırma
 
-MySQL sunucunuzu kullanarak istemci bağlantılarına izin verecek şekilde için güvenlik duvarı kuralını [az mysql server güvenlik duvarı kuralı oluşturmak](/cli/azure/mysql/server/firewall-rule#create) komutu.
+Bağlantılar için MySQL server tooallow istemcinizi hello kullanarak bir güvenlik duvarı kuralı oluşturun [az mysql server güvenlik duvarı kuralı oluşturmak](/cli/azure/mysql/server/firewall-rule#create) komutu.
 
 ```azurecli-interactive
 az mysql server firewall-rule create \
@@ -200,23 +200,23 @@ az mysql server firewall-rule create \
 ```
 
 > [!NOTE]
-> Azure veritabanı için MySQL (Önizleme) şu anda yalnızca Azure hizmetlerine bağlantı sayısı sınırı değil. Dinamik olarak atanmış IP adresleri azure'da gibi tüm IP adresleri etkinleştirmek daha iyidir. Hizmet önizlemede değil. Veritabanınızın güvenliğini sağlamak için daha iyi yöntemleri aşağıda verilmiştir.
+> Azure veritabanı için MySQL (Önizleme) şu anda bağlantıları yalnızca tooAzure Hizmetleri sınırlamak değil. Dinamik olarak atanmış IP adresleri azure'da gibi daha iyi tooenable olan tüm IP adresleri. Merhaba, önizlemede hizmetidir. Veritabanınızın güvenliğini sağlamak için daha iyi yöntemleri aşağıda verilmiştir.
 >
 >
 
-### <a name="connect-to-production-mysql-server-locally"></a>Yerel olarak üretim MySQL sunucusuna bağlan
+### <a name="connect-tooproduction-mysql-server-locally"></a>Yerel olarak tooproduction MySQL server Bağlan
 
-Terminal penceresinde Azure MySQL sunucusuna bağlanın. Daha önce için belirttiğiniz değerini kullanmak  _&lt;mysql_server_name >_.
+Merhaba terminal penceresinde, azure'da toohello MySQL sunucusuna bağlanın. Daha önce için belirttiğiniz başlangıç değeri kullanın  _&lt;mysql_server_name >_.
 
 ```bash
 mysql -u adminuser@<mysql_server_name> -h <mysql_server_name>.database.windows.net -P 3306 -p
 ```
 
-Kullanmak için bir parola istendiğinde, _tr0ngPa $$ w0rd!_, veritabanı oluşturduğunuzda belirttiğiniz.
+Kullanmak için bir parola istendiğinde, _tr0ngPa $$ w0rd!_, hello veritabanı oluşturduğunuzda belirttiğiniz.
 
 ### <a name="create-a-production-database"></a>Bir üretim veritabanı oluşturma
 
-Konumundaki `mysql` isteminde, bir veritabanı oluşturun.
+Merhaba, `mysql` isteminde, bir veritabanı oluşturun.
 
 ```sql
 CREATE DATABASE sampledb;
@@ -224,28 +224,28 @@ CREATE DATABASE sampledb;
 
 ### <a name="create-a-user-with-permissions"></a>İzinleri olan bir kullanıcı oluşturun
 
-Adlı bir veritabanı kullanıcısı oluşturmalıdır _phpappuser_ ve tüm ayrıcalıkları verin `sampledb` veritabanı.
+Adlı bir veritabanı kullanıcısı oluşturmalıdır _phpappuser_ ve hello tüm ayrıcalıkları vermek `sampledb` veritabanı.
 
 ```sql
 CREATE USER 'phpappuser' IDENTIFIED BY 'MySQLAzure2017'; 
-GRANT ALL PRIVILEGES ON sampledb.* TO 'phpappuser';
+GRANT ALL PRIVILEGES ON sampledb.* too'phpappuser';
 ```
 
-Sunucu bağlantısı yazarak çıkmak `quit`.
+Exit hello sunucu bağlantısı yazarak `quit`.
 
 ```sql
 quit
 ```
 
-## <a name="connect-app-to-azure-mysql"></a>Azure MySQL uygulamaya Bağlan
+## <a name="connect-app-tooazure-mysql"></a>Uygulama tooAzure MySQL Bağlan
 
-Bu adımda, PHP uygulaması, Azure veritabanı'nda (Önizleme) MySQL için oluşturduğunuz MySQL veritabanına bağlanın.
+Bu adımda, Azure veritabanı'nda MySQL (Önizleme) için oluşturulan hello PHP uygulama toohello MySQL veritabanını bağlayın.
 
 <a name="devconfig"></a>
 
-### <a name="configure-the-database-connection"></a>Veritabanı bağlantısını yapılandır
+### <a name="configure-hello-database-connection"></a>Merhaba veritabanı bağlantısını yapılandır
 
-Depo kök dizininde oluşturma bir _. env.production_ dosya ve aşağıdaki değişkenleri buraya kopyalayın. Yer tutucu Değiştir  _&lt;mysql_server_name >_.
+Merhaba depo kök dizininde oluşturma bir _. env.production_ değişkenleri içine aşağıdaki dosya ve kopyalama hello. Merhaba yer tutucu Değiştir  _&lt;mysql_server_name >_.
 
 ```
 APP_ENV=production
@@ -260,17 +260,17 @@ DB_PASSWORD=MySQLAzure2017
 MYSQL_SSL=true
 ```
 
-Değişiklikleri kaydedin.
+Merhaba değişiklikleri kaydedin.
 
 > [!TIP]
-> MySQL bağlantı bilgilerinizin güvenliğini sağlamak için bu dosya zaten Git deposundan dışarıda bırakılmış (bkz _.gitignore_ depo kök içinde). Daha sonra MySQL (Önizleme) Azure veritabanı veritabanınızda bağlanmak için App Service'te ortam değişkenleri yapılandırma konusunda bilgi edinin. Ortam değişkenleri ile gerekmeyen *.env* uygulama hizmeti dosyasında.
+> MySQL bağlantı bilgilerinizi, bu dosya zaten hello Git deposundan dışarıda toosecure (bkz _.gitignore_ hello depo kök). Daha sonra uygulama hizmeti tooconnect tooyour tooconfigure ortam değişkenleri Azure veritabanı'nda MySQL (Önizleme) nasıl veritabanı öğrenin. Ortam değişkenleri ile Merhaba gerekmeyen *.env* uygulama hizmeti dosyasında.
 >
 
 ### <a name="configure-ssl-certificate"></a>SSL sertifikası yapılandırma
 
-Varsayılan olarak, Azure veritabanı için MySQL istemcilerden gelen SSL bağlantıları zorlar. Azure, MySQL veritabanınızı bağlanmak için kullanmanız gerekir bir _.pem_ SSL sertifikası.
+Varsayılan olarak, Azure veritabanı için MySQL istemcilerden gelen SSL bağlantıları zorlar. tooconnect tooyour MySQL veritabanında Azure kullanmalıdır bir _.pem_ SSL sertifikası.
 
-Açık _config/database.php_ ve ekleme _sslmode_ ve _seçenekleri_ parametreleri `connections.mysql`aşağıdaki kodda gösterildiği gibi.
+Açık _config/database.php_ ve hello ekleyin _sslmode_ ve _seçenekleri_ parametreler çok`connections.mysql`hello kod aşağıdaki gösterildiği gibi.
 
 ```php
 'mysql' => [
@@ -282,54 +282,54 @@ Açık _config/database.php_ ve ekleme _sslmode_ ve _seçenekleri_ parametreleri
 ],
 ```
 
-Bu oluşturma konusunda bilgi almak için _certificate.pem_, bkz: [uygulamanızda güvenli bir şekilde MySQL için Azure veritabanına bağlanmak için SSL yapılandırma bağlantısı](../mysql/howto-configure-ssl.md).
+toolearn nasıl toogenerate bu _certificate.pem_, bkz: [yapılandırma SSL bağlantısı'nda uygulama toosecurely bağlanmak tooAzure veritabanı için MySQL](../mysql/howto-configure-ssl.md).
 
 > [!TIP]
-> Yolun _/ssl/certificate.pem_ noktaları var olan _certificate.pem_ Git deposu dosyasında. Bu dosya, bu öğreticide kolaylık sağlaması açısından sunulmuştur. En iyi yöntem yürüttükten değil, _.pem_ kaynak denetimine sertifikalar. 
+> Merhaba yolu _/ssl/certificate.pem_ işaret tooan varolan _certificate.pem_ hello Git deposu dosyasında. Bu dosya, bu öğreticide kolaylık sağlaması açısından sunulmuştur. En iyi yöntem yürüttükten değil, _.pem_ kaynak denetimine sertifikalar. 
 >
 
-### <a name="test-the-application-locally"></a>Uygulamayı yerel olarak test etme
+### <a name="test-hello-application-locally"></a>Merhaba uygulamayı yerel olarak test etme
 
-Laravel veritabanı geçişler ile Çalıştır _. env.production_ MySQL (Önizleme), MySQL veritabanınızı Azure veritabanı tabloları oluşturmak için ortam dosyası olarak. Unutmayın _. env.production_ Azure üzerinde MySQL veritabanı için bağlantı bilgilerini içeren.
+Laravel veritabanı geçişler ile Çalıştır _. env.production_ (Önizleme) MySQL için ortam dosya toocreate hello MySQL veritabanınızı Azure veritabanında tablolarda hello gibi. Unutmayın _. env.production_ Azure'da hello bağlantı bilgileri tooyour MySQL veritabanı vardır.
 
 ```bash
 php artisan migrate --env=production --force
 ```
 
-_. env.production_ geçerli uygulama anahtarı henüz yok. Terminale daha yeni bir tane oluşturun.
+_. env.production_ geçerli uygulama anahtarı henüz yok. Merhaba terminal daha yeni bir tane oluşturun.
 
 ```bash
 php artisan key:generate --env=production --force
 ```
 
-Örnek uygulama ile Çalıştır _. env.production_ ortam dosyası olarak.
+Merhaba örnek uygulaması ile Çalıştır _. env.production_ hello ortam dosyası olarak.
 
 ```bash
 php artisan serve --env=production
 ```
 
-Gidin `http://localhost:8000`. Sayfa hatasız yüklerse, PHP uygulaması Azure MySQL veritabanına bağlanıyor.
+Çok gidin`http://localhost:8000`. Hello sayfa hatasız yüklerse hello PHP uygulaması Azure toohello MySQL veritabanına bağlanıyor.
 
-Bazı görevler sayfasında ekleyin.
+Bazı görevleri hello sayfasında ekleyin.
 
-![PHP, Azure veritabanına başarıyla MySQL (Önizleme) bağlanır.](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
+![PHP tooAzure veritabanı için MySQL (Önizleme) başarıyla bağlanır.](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
 
-PHP durdurmak için aşağıdakileri yazın `Ctrl + C` Terminal.
+PHP, toostop yazın `Ctrl + C` hello terminal içinde.
 
 ### <a name="commit-your-changes"></a>Değişikliklerinizi uygulamak
 
-Değişikliklerinizi kaydetmek için aşağıdaki Git komutları çalıştırın:
+Git komutları toocommit aşağıdaki hello değişikliklerinizi çalıştırın:
 
 ```bash
 git add .
 git commit -m "database.php updates"
 ```
 
-Uygulamanız dağıtılmaya hazırdır.
+Uygulamanızı dağıtılan hazır toobe ' dir.
 
-## <a name="deploy-to-azure"></a>Azure’a Dağıt
+## <a name="deploy-tooazure"></a>TooAzure dağıtma
 
-Bu adımda, Azure App Service'e MySQL bağlı PHP uygulaması dağıtın.
+Bu adımda, hello MySQL bağlı PHP uygulama tooAzure uygulama hizmeti dağıtın.
 
 ### <a name="create-an-app-service-plan"></a>App Service planı oluşturma
 
@@ -339,11 +339,11 @@ Bu adımda, Azure App Service'e MySQL bağlı PHP uygulaması dağıtın.
 
 [!INCLUDE [Create web app no h](../../includes/app-service-web-create-web-app-no-h.md)]
 
-### <a name="set-the-php-version"></a>PHP sürümünü ayarlayın
+### <a name="set-hello-php-version"></a>Set hello PHP sürümü
 
-Kullanarak uygulama gerektiriyor PHP sürümünü ayarlayın [az webapp yapılandırma kümesi](/cli/azure/webapp/config#set) komutu.
+Uygulama hello kümesi hello PHP sürümünü gerektirir hello kullanarak [az webapp yapılandırma kümesi](/cli/azure/webapp/config#set) komutu.
 
-Aşağıdaki komut PHP sürümünü ayarlar _7.0_.
+Merhaba aşağıdaki komut hello PHP sürümü too_7.0_ ayarlar.
 
 ```azurecli-interactive
 az webapp config set \
@@ -354,11 +354,11 @@ az webapp config set \
 
 ### <a name="configure-database-settings"></a>Veritabanı ayarlarını yapılandırma
 
-Daha önce işaret edildiği gibi Azure MySQL veritabanınızı App Service'te ortam değişkenleri kullanarak bağlanabilir.
+Daha önce işaret edildiği gibi App Service'te ortam değişkenlerini kullanma tooyour Azure MySQL veritabanı bağlanabilir.
 
-Ortam değişkenleri olarak ayarladığınız App Service'te _uygulama ayarları_ kullanarak [az webapp config appsettings kümesi](/cli/azure/webapp/config/appsettings#set) komutu.
+Ortam değişkenleri olarak ayarladığınız App Service'te _uygulama ayarları_ hello kullanarak [az webapp config appsettings kümesi](/cli/azure/webapp/config/appsettings#set) komutu.
 
-Aşağıdaki komut uygulama ayarlarını yapılandırır `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, ve `DB_PASSWORD`. Yer tutucuları değiştirmek  _&lt;uygulamaadı >_ ve  _&lt;mysql_server_name >_.
+Merhaba aşağıdaki komutu hello uygulama ayarlarını yapılandırır `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, ve `DB_PASSWORD`. Merhaba yer tutucuları değiştirmek  _&lt;uygulamaadı >_ ve  _&lt;mysql_server_name >_.
 
 ```azurecli-interactive
 az webapp config appsettings set \
@@ -367,7 +367,7 @@ az webapp config appsettings set \
     --settings DB_HOST="<mysql_server_name>.database.windows.net" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
 ```
 
-PHP kullanabilirsiniz [getenv](http://www.php.net/manual/function.getenv.php) ayarlarına erişmek için yöntem. Laravel kodu kullanan bir [env](https://laravel.com/docs/5.4/helpers#method-env) sarmalayıcı PHP üzerinden `getenv`. Örneğin, MySQL yapılandırmasında _config/database.php_ aşağıdaki kod gibi görünüyor:
+Merhaba PHP kullanabilirsiniz [getenv](http://www.php.net/manual/function.getenv.php) yöntemi tooaccess hello ayarları. Merhaba Laravel kodu kullanan bir [env](https://laravel.com/docs/5.4/helpers#method-env) sarmalayıcı hello PHP üzerinden `getenv`. Örneğin, hello MySQL yapılandırmasında _config/database.php_ hello kod aşağıdaki gibi görünür:
 
 ```php
 'mysql' => [
@@ -384,13 +384,13 @@ PHP kullanabilirsiniz [getenv](http://www.php.net/manual/function.getenv.php) ay
 
 Laravel App Service'te bir uygulama anahtarı gerekir. Uygulama ayarları ile yapılandırabilirsiniz.
 
-Kullanım `php artisan` için kaydetmeden yeni bir uygulama anahtarı oluşturmak için _.env_.
+Kullanım `php artisan` toogenerate too_.env_ kaydetmeden yeni bir uygulama anahtarı.
 
 ```bash
 php artisan key:generate --show
 ```
 
-Uygulama anahtarı kullanarak App Service'te web uygulaması ayarlamak [az webapp config appsettings kümesi](/cli/azure/webapp/config/appsettings#set) komutu. Yer tutucuları değiştirmek  _&lt;uygulamaadı >_ ve  _&lt;outputofphpartisankey: Oluştur >_.
+Merhaba uygulama anahtarı hello App Service web uygulaması hello kullanarak ayarlamak [az webapp config appsettings kümesi](/cli/azure/webapp/config/appsettings#set) komutu. Merhaba yer tutucuları değiştirmek  _&lt;uygulamaadı >_ ve  _&lt;outputofphpartisankey: Oluştur >_.
 
 ```azurecli-interactive
 az webapp config appsettings set \
@@ -399,13 +399,13 @@ az webapp config appsettings set \
     --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
 ```
 
-`APP_DEBUG="true"`dağıtılan web uygulamasının hatalarla karşılaştığında hata ayıklama bilgileri döndürmek için Laravel söyler. Bir üretim uygulaması çalıştırırken kümesine `false`, daha güvenli olduğu.
+`APP_DEBUG="true"`Merhaba web uygulaması dağıtıldığında Laravel tooreturn hata ayıklama bilgilerini hatayla karşılaştığında söyler. Bir üretim uygulaması çalışırken çok ayarlamak`false`, daha güvenli olduğu.
 
-### <a name="set-the-virtual-application-path"></a>Sanal uygulama yolu ayarla
+### <a name="set-hello-virtual-application-path"></a>Merhaba sanal uygulama yolu ayarla
 
-Web uygulaması için sanal uygulama yolu ayarlayın. Bu adım gereklidir çünkü [Laravel uygulama yaşam döngüsü](https://laravel.com/docs/5.4/lifecycle) içinde başlar _ortak_ uygulamanızın kök dizininde yerine dizin. İçinde yaşam döngüsü başlatmak diğer PHP çerçeveleri kök dizini sanal uygulama yolu el ile yapılandırma olmadan çalışabilir.
+Merhaba sanal uygulama yolu hello web uygulaması için ayarlayın. Bu adım gereklidir çünkü hello [Laravel uygulama yaşam döngüsü](https://laravel.com/docs/5.4/lifecycle) hello başlar _ortak_ hello uygulamanızın kök dizininde yerine dizin. Diğer PHP çerçeveleri, yaşam döngüsünü başlatma hello kök dizininde hello sanal uygulama yolu el ile yapılandırma olmadan çalışabilir.
 
-Sanal uygulama yolu kullanarak ayarlamak [az kaynak güncelleştirme](/cli/azure/resource#update) komutu. Değiştir  _&lt;uygulamaadı >_ yer tutucu.
+Hello kullanarak hello sanal uygulama yolu ayarla [az kaynak güncelleştirme](/cli/azure/resource#update) komutu. Hello yerine  _&lt;uygulamaadı >_ yer tutucu.
 
 ```azurecli-interactive
 az resource update \
@@ -418,7 +418,7 @@ az resource update \
     --api-version 2015-06-01
 ```
 
-Varsayılan olarak, Azure App Service kök sanal uygulama yolu işaret (_/_) dağıtılan uygulama dosyalarını kök dizinine (_sites\wwwroot_).
+Varsayılan olarak, Azure App Service hello kök sanal uygulama yolu işaret (_/_) toohello kök dizini hello dağıtılan uygulama dosyaları (_sites\wwwroot_).
 
 ### <a name="configure-a-deployment-user"></a>Dağıtım kullanıcısı yapılandırma
 
@@ -428,15 +428,15 @@ Varsayılan olarak, Azure App Service kök sanal uygulama yolu işaret (_/_) da�
 
 [!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git-no-h.md)]
 
-### <a name="push-to-azure-from-git"></a>Git üzerinden Azure'a gönderme
+### <a name="push-tooazure-from-git"></a>Anında iletme tooAzure Git
 
-Yerel Git deponuza bir Azure uzak deposu ekleyin.
+Bir Azure uzak tooyour yerel Git deposu ekleyin.
 
 ```bash
 git remote add azure <paste_copied_url_here>
 ```
 
-Azure'a PHP uygulama dağıtmak için uzaktan gönderin. Daha önce dağıtım kullanıcı oluşturmanın bir parçası sağlanan parola istenir.
+Toohello Azure uzak toodeploy Merhaba PHP uygulaması iletin. Merhaba dağıtım kullanıcının hello oluşturmanın bir parçası daha önce sağlanan hello parola istenir.
 
 ```bash
 git push azure master
@@ -446,7 +446,7 @@ Dağıtım sırasında Azure App Service, ilerleme durumunu Git ile iletişim ku
 
 ```bash
 Counting objects: 3, done.
-Delta compression using up to 8 threads.
+Delta compression using up too8 threads.
 Compressing objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 291 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
@@ -460,18 +460,18 @@ remote: Running deployment command...
 ```
 
 > [!NOTE]
-> Dağıtım işlemi yükleyeceğini karşılaşabilirsiniz [Oluşturucu](https://getcomposer.org/) sonunda paketler. Uygulama hizmeti varsayılan dağıtımı sırasında bu otomasyonlara çalışmaz, bu örnek depo etkinleştirmek için kök dizindeki üç ek dosyaların sahiptir:
+> Merhaba dağıtım işlemi yükleyeceğini karşılaşabilirsiniz [Oluşturucu](https://getcomposer.org/) hello sonunda paketler. Uygulama hizmeti bu otomasyonlara varsayılan dağıtımı sırasında çalışmaz, bu örnek depo üç nedenle ek kendi kök dizin tooenable, dosyalarını:
 >
-> - `.deployment`-Bu dosyayı çalıştırmak için uygulama hizmeti söyler `bash deploy.sh` özel dağıtım komut dosyası olarak.
-> - `deploy.sh`-Özel dağıtım komut dosyası. Dosyayı gözden geçirirseniz, çalıştığını görürsünüz `php composer.phar install` sonra `npm install`.
-> - `composer.phar`-Oluşturucu Paket Yöneticisi.
+> - `.deployment`-Uygulama hizmeti toorun bu dosya söyler `bash deploy.sh` hello özel dağıtım komut dosyası olarak.
+> - `deploy.sh`-hello özel dağıtım komut dosyası. Merhaba dosya gözden geçirirseniz, çalıştığını görürsünüz `php composer.phar install` sonra `npm install`.
+> - `composer.phar`-hello Oluşturucu Paket Yöneticisi.
 >
-> Git tabanlı dağıtımınız App Service için herhangi bir adımı eklemek için bu yaklaşımı kullanın. Daha fazla bilgi için bkz: [özel dağıtım betiği](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
+> Bu yaklaşım tooadd herhangi adım tooyour Git tabanlı dağıtım tooApp hizmetini kullanabilirsiniz. Daha fazla bilgi için bkz: [özel dağıtım betiği](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script).
 >
 
-### <a name="browse-to-the-azure-web-app"></a>Azure web uygulaması'na göz atın
+### <a name="browse-toohello-azure-web-app"></a>Toohello Azure web uygulaması Gözat
 
-Gözat `http://<app_name>.azurewebsites.net` ve birkaç görevi listesine ekleyin.
+Çok Gözat`http://<app_name>.azurewebsites.net` ve birkaç görevleri toohello listesine ekleyin.
 
 ![Azure uygulama Hizmeti'nde çalışan PHP uygulaması](./media/app-service-web-tutorial-php-mysql/php-mysql-in-azure.png)
 
@@ -479,23 +479,23 @@ Tebrikler, Azure App Service'te bir veri güdümlü PHP uygulaması çalıştır
 
 ## <a name="update-model-locally-and-redeploy"></a>Modeli yerel olarak güncelleştirin ve yeniden dağıtın
 
-Bu adımda, bir basit değişiklik `task` veri modeli ve webapp ve güncelleştirme Azure'a yayımlayabilirsiniz.
+Bu adımda, bir basit değişiklik toohello yaptığınız `task` veri modeli ve webapp hello ve hello güncelleştirme tooAzure yayımlayın.
 
-Görevler senaryo için bir görev tamamlandı olarak işaretleyebilirsiniz şekilde uygulama değiştirin.
+Merhaba görevler senaryo için bir görev tamamlandı olarak işaretleyebilirsiniz şekilde hello uygulama değiştirin.
 
 ### <a name="add-a-column"></a>Bir sütun ekleyin
 
-Terminale Git deposu kök dizinine gidin.
+Hello terminal, hello Git deposu toohello köküne gidin.
 
-İçin yeni bir veritabanı geçiş oluşturmayı `tasks` tablosu:
+Hello için yeni bir veritabanı geçiş oluşturmayı `tasks` tablosu:
 
 ```bash
 php artisan make:migration add_complete_column --table=tasks
 ```
 
-Bu komut oluşturulur geçiş dosyasının adını gösterir. Bu dosyada Bul _veritabanı/geçişler_ ve açın.
+Bu komut oluşturulan hello geçiş dosyasının adı hello gösterir. Bu dosyada Bul _veritabanı/geçişler_ ve açın.
 
-Değiştir `up` aşağıdaki kod ile yöntemi:
+Hello yerine `up` koddan hello yöntemiyle:
 
 ```php
 public function up()
@@ -506,9 +506,9 @@ public function up()
 }
 ```
 
-Önceki kod bir boolean sütunundaki ekler `tasks` adlı bir tablo `complete`.
+Merhaba önceki kod bir boolean sütun hello ekler `tasks` adlı bir tablo `complete`.
 
-Değiştir `down` geri alma eylemi için aşağıdaki kod ile yöntemi:
+Hello yerine `down` hello geri alma eylemi için kod aşağıdaki hello yöntemiyle:
 
 ```php
 public function down()
@@ -519,19 +519,19 @@ public function down()
 }
 ```
 
-Terminale yerel veritabanında değişiklik yapmak için Laravel veritabanı geçiş çalıştırın.
+Hello terminal, Laravel veritabanı geçişler toomake hello değişikliği hello yerel veritabanında çalıştırın.
 
 ```bash
 php artisan migrate
 ```
 
-Temel [Laravel adlandırma kuralı](https://laravel.com/docs/5.4/eloquent#defining-models), model `Task` (bkz _app/Task.php_) eşlendiği `tasks` varsayılan olarak tablo.
+Merhaba üzerinde temel [Laravel adlandırma kuralı](https://laravel.com/docs/5.4/eloquent#defining-models), hello modeli `Task` (bkz _app/Task.php_) toohello eşlemeleri `tasks` varsayılan olarak tablo.
 
 ### <a name="update-application-logic"></a>Uygulama mantığını güncelleştir
 
-Açık *routes/web.php* dosya. Uygulama kendi yollar ve iş mantığı buraya tanımlar.
+Açık hello *routes/web.php* dosya. Merhaba uygulaması kendi yollar ve iş mantığı buraya tanımlar.
 
-Dosyanın sonunda bir yol ile aşağıdaki kodu ekleyin:
+Merhaba dosya Hello sonunda koddan hello ile bir rota ekleyin:
 
 ```php
 /**
@@ -548,25 +548,25 @@ Route::post('/task/{id}', function ($id) {
 });
 ```
 
-Önceki kod, değerini değiştirerek veri modelini basit bir güncelleştirme yapar `complete`.
+Merhaba önceki kod basit güncelleştirme toohello veri modeli hello değerini değiştirerek yapar `complete`.
 
-### <a name="update-the-view"></a>Görünümü güncelleştirmek
+### <a name="update-hello-view"></a>Merhaba görünümünü güncelleştirme
 
-Açık *resources/views/tasks.blade.php* dosya. Bul `<tr>` açma etiketi ve ile değiştirin:
+Açık hello *resources/views/tasks.blade.php* dosya. Hello bulur `<tr>` açma etiketi ve ile değiştirin:
 
 ```html
 <tr class="{{ $task->complete ? 'success' : 'active' }}" >
 ```
 
-Önceki kod görev tam olup olmamasına bağlı olarak satır rengi değişir.
+Merhaba görev tam olup olmamasına bağlı olarak kod değişiklikleri hello satır rengi önceki hello.
 
-Sonraki satırında, aşağıdaki kodu kullanabilirsiniz:
+Merhaba sonraki satırda, kod aşağıdaki hello vardır:
 
 ```html
 <td class="table-text"><div>{{ $task->name }}</div></td>
 ```
 
-Tüm satırı aşağıdaki kodla değiştirin:
+Merhaba tüm satırı koddan hello ile değiştirin:
 
 ```html
 <td>
@@ -581,31 +581,31 @@ Tüm satırı aşağıdaki kodla değiştirin:
 </td>
 ```
 
-Önceki kod daha önce tanımlanan rota başvuran Gönder düğmesi ekler.
+Merhaba önceki kod daha önce tanımlanan hello rota başvuran hello Gönder düğmesi ekler.
 
-### <a name="test-the-changes-locally"></a>Değişiklikleri yerel olarak test etme
+### <a name="test-hello-changes-locally"></a>Yerel olarak test hello değişiklikleri
 
-Git deposu kök dizininden geliştirme sunucusu çalıştırın.
+Merhaba Git deposu, Hello kök dizinindeki hello geliştirme sunucusu çalıştırın.
 
 ```bash
 php artisan serve
 ```
 
-Değiştirme, gidin görev durumunu görmek için `http://localhost:8000` ve onay kutusunu seçin.
+toosee hello görev durumu değişikliği, çok gidin`http://localhost:8000` ve select hello onay kutusu.
 
-![Görev için eklenen onay kutusu](./media/app-service-web-tutorial-php-mysql/complete-checkbox.png)
+![Eklenen onay kutusunu tootask](./media/app-service-web-tutorial-php-mysql/complete-checkbox.png)
 
-PHP durdurmak için aşağıdakileri yazın `Ctrl + C` Terminal.
+PHP, toostop yazın `Ctrl + C` hello terminal içinde.
 
-### <a name="publish-changes-to-azure"></a>Değişiklikler için Azure yayımlama
+### <a name="publish-changes-tooazure"></a>Değişiklikleri tooAzure yayımlama
 
-Terminale Laravel veritabanı geçişler üretim bağlantı dizesini içeren Azure veritabanında değişiklik yapmak için çalıştırın.
+Hello terminal, Laravel veritabanı geçişler hello üretim bağlantı dizesi toomake hello değişikliği hello Azure veritabanı ile çalıştırın.
 
 ```bash
 php artisan migrate --env=production --force
 ```
 
-Git tüm değişiklikleri uygulayın ve ardından kod değişiklikleri Azure'a gönderin.
+Git tüm hello değişiklikleri kaydetmek ve hello kod değişiklikleri tooAzure anında iletme.
 
 ```bash
 git add .
@@ -613,17 +613,17 @@ git commit -m "added complete checkbox"
 git push azure master
 ```
 
-Bir kez `git push` tamamlamak, Azure web uygulaması'na gidin ve yeni işlevselliğini test etmek içindir.
+Bir kez hello `git push` tamamlamak ise toohello Azure web uygulaması ve test hello yeni işlevsellik gidin.
 
-![Azure için yayımlanan modeli ve veritabanı değişiklikleri](media/app-service-web-tutorial-php-mysql/complete-checkbox-published.png)
+![Model ve veritabanı değişikliklerini tooAzure yayımlanan](media/app-service-web-tutorial-php-mysql/complete-checkbox-published.png)
 
-Herhangi bir görevi eklediyseniz bunlar veritabanında tutulur. Veri şema güncelleştirmeleri varolan veriler olduğu gibi bırakın.
+Herhangi bir görevi eklediyseniz bunlar hello veritabanında tutulur. Güncelleştirmeleri toohello veri şeması bırakın mevcut verileri kalır.
 
 ## <a name="stream-diagnostic-logs"></a>Akış tanılama günlükleri
 
-PHP uygulaması Azure App Service'te çalışırken, terminal yöneltilen konsol günlükleri alabilirsiniz. Böylece, uygulama hatalarını hata ayıklama yardımcı olmak için aynı tanılama iletileri alabilirsiniz.
+Merhaba PHP uygulaması Azure App Service'te çalışırken hello konsol günlükleri yöneltilen tooyour terminal elde edebilirsiniz. Bu şekilde hello aynı tanılama iletileri alabilirsiniz uygulama hatalarını hata ayıklama toohelp.
 
-Günlük akış başlatmak için kullanmak [az webapp günlük tail](/cli/azure/webapp/log#tail) komutu.
+Akış, kullanım hello toostart günlük [az webapp günlük tail](/cli/azure/webapp/log#tail) komutu.
 
 ```azurecli-interactive
 az webapp log tail \
@@ -631,28 +631,28 @@ az webapp log tail \
     --resource-group myResourceGroup
 ```
 
-Günlük akış başladıktan sonra Azure web uygulaması bazı web trafiği almak için tarayıcıda yenileyin. Konsol günlükleri terminale yöneltilen şimdi görebilirsiniz. Konsol günlükleri hemen görmüyorsanız, 30 saniye içinde yeniden kontrol edin.
+Günlük akış başladıktan sonra bazı web trafiği hello tarayıcı tooget hello Azure web uygulamasında yenileyin. Konsol günlükleri yöneltilen toohello terminal şimdi görebilirsiniz. Konsol günlükleri hemen görmüyorsanız, 30 saniye içinde yeniden kontrol edin.
 
-Dilediğiniz zaman oturum sırasında akış durdurmak için aşağıdakileri yazın `Ctrl` + `C`.
+istediğiniz zaman, akış toostop günlük türü `Ctrl` + `C`.
 
 > [!TIP]
-> Bir PHP uygulaması standart kullanabilir [error_log()](http://php.net/manual/function.error-log.php) konsola çıktı için. Örnek uygulama bu yaklaşımı kullanır _app/Http/routes.php_.
+> Bir PHP uygulaması hello standart kullanabilir [error_log()](http://php.net/manual/function.error-log.php) toooutput toohello konsol. Merhaba örnek uygulama bu yaklaşımı kullanır _app/Http/routes.php_.
 >
-> Bir web çerçevesidir olarak [Laravel kullanan Monolog](https://laravel.com/docs/5.4/errors) olarak oturum açma sağlayıcısı. Çıkış iletilerini konsola Monolog alınacağı hakkında bilgi için bkz: [PHP: monolog Konsolu'na (php://out) oturum için nasıl kullanılacağını](http://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
+> Bir web çerçevesidir olarak [Laravel kullanan Monolog](https://laravel.com/docs/5.4/errors) hello oturum açma sağlayıcısı olarak. toosee tooget Monolog toooutput toohello konsol iletileri nasıl bkz [PHP: nasıl toouse monolog toolog tooconsole (php://out)](http://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
 >
 >
 
-## <a name="manage-the-azure-web-app"></a>Azure web uygulamasını yönetme
+## <a name="manage-hello-azure-web-app"></a>Hello Azure web uygulaması yönetme
 
-Oluşturduğunuz web uygulamasını yönetmek için [Azure portalına](https://portal.azure.com) gidin.
+Toohello Git [Azure portal](https://portal.azure.com) oluşturduğunuz toomanage hello web uygulaması.
 
-Sol menüden **Uygulama Hizmetleri**'ne ve ardından Azure web uygulamanızın adına tıklayın.
+Merhaba sol menüden **uygulama hizmetleri**ve ardından, Azure web uygulamanızın hello adına tıklayın.
 
-![Portaldan Azure web uygulamasına gitme](./media/app-service-web-tutorial-php-mysql/access-portal.png)
+![Portal Gezinti tooAzure web uygulaması](./media/app-service-web-tutorial-php-mysql/access-portal.png)
 
 Web uygulamanızın Genel Bakış sayfasını görürsünüz. Burada, Durdur, Başlat, yeniden başlatma, Gözat ve silme gibi temel yönetim görevlerini gerçekleştirebilirsiniz.
 
-Soldaki menüden, uygulamanızı yapılandırmak için sayfaları sağlar.
+Merhaba soldaki menüden, uygulamanızı yapılandırmak için sayfaları sağlar.
 
 ![Azure portalında App Service sayfası](./media/app-service-web-tutorial-php-mysql/web-app-blade.png)
 
@@ -666,13 +666,13 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
 > * Azure üzerinde MySQL veritabanı oluşturma
-> * MySQL için PHP uygulamaya Bağlan
-> * Uygulamayı Azure'a dağıtma
-> * Veri modeli güncelleştirme ve uygulamayı yeniden dağıtın
+> * PHP uygulama tooMySQL Bağlan
+> * Merhaba uygulama tooAzure dağıtma
+> * Merhaba veri modeli güncelleştirmek ve hello uygulama yeniden dağıtın
 > * Azure Stream tanılama günlükleri
-> * Azure portalında uygulama yönetme
+> * Merhaba uygulamada hello Azure portalı Yönet
 
-Bir web uygulaması için özel bir DNS adı eşleme öğrenmek için sonraki öğretici ilerleyin.
+İlerlemek toohello sonraki öğretici toolearn nasıl toomap özel DNS ad tooa web uygulaması.
 
 > [!div class="nextstepaction"]
-> [Mevcut bir özel DNS adını Azure Web Apps ile eşleme](app-service-web-tutorial-custom-domain.md)
+> [Harita bir var olan özel DNS adı tooAzure Web uygulamaları](app-service-web-tutorial-custom-domain.md)

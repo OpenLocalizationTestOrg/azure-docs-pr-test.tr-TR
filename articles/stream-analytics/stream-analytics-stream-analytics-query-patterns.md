@@ -1,5 +1,5 @@
 ---
-title: "Örnekler için ortak kullanım desenlerini Stream Analytics sorgu | Microsoft Docs"
+title: "Stream Analytics ortak kullanım desenlerini aaaQuery örnekleri | Microsoft Docs"
 description: "Ortak Azure akış analizi sorgu kalıplarından"
 keywords: "Sorgu örnekleri"
 services: stream-analytics
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/08/2017
 ms.author: jenniehubbard
-ms.openlocfilehash: a00855c200b3fb365073bad4c5773b02c4c2c7fe
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: c8f7a8ac661eaf0281f4140b02c42141b73040fe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Örnekler ortak Stream Analytics kullanım desenlerini için sorgu
 ## <a name="introduction"></a>Giriş
-Azure Stream Analytics sorgularda bir SQL benzeri sorgu dili ifade edilir. Bu sorguları belgelenmiştir [Stream Analytics sorgu dili başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx) Kılavuzu. Bu makalede gerçek senaryolarını temel alarak, birçok ortak sorgu kalıpları çözümleri özetlenmektedir. Bu iş sürüyor ve düzenli olarak yeni desenlerle güncelleştirilmesi devam eder.
+Azure Stream Analytics sorgularda bir SQL benzeri sorgu dili ifade edilir. Bu sorguları hello belgelenen [Stream Analytics sorgu dili başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx) Kılavuzu. Bu makalede anahatları çözümleri tooseveral ortak sorgu kalıpları, göre gerçek dünya senaryoları. Bu iş sürüyor ve düzenli olarak yeni desenlerle güncelleştirilmiş toobe devam eder.
 
 ## <a name="query-example-convert-data-types"></a>Sorgu örnek: veri türlerini dönüştürme
-**Açıklama**: Giriş akışı üzerinde özelliklerin türleri tanımlayın.
-Örneğin, araba ağırlık giriş akışta dize olarak geliyor ve dönüştürülmesi gerekiyor **INT** gerçekleştirmek için **toplam** bunun.
+**Açıklama**: hello giriş akışta özelliklerinin hello türlerini tanımlayın.
+Örneğin, hello araba ağırlık hello giriş akışta dize olarak geliyor ve çok dönüştürülen toobe gerekiyor**INT** tooperform **toplam** bunun.
 
 **Giriş**:
 
@@ -53,11 +53,11 @@ Azure Stream Analytics sorgularda bir SQL benzeri sorgu dili ifade edilir. Bu so
         Make,
         TumblingWindow(second, 10)
 
-**Açıklama**: kullanım bir **CAST** deyiminde **ağırlık** alanın veri türünü belirtin. Desteklenen veri türleri listesini görmek [veri türleri (Azure akış analizi)](https://msdn.microsoft.com/library/azure/dn835065.aspx).
+**Açıklama**: kullanım bir **CAST** hello deyiminde **ağırlık** toospecify alan, veri türü. Desteklenen veri türlerini Hello listesini [veri türleri (Azure akış analizi)](https://msdn.microsoft.com/library/azure/dn835065.aspx).
 
-## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>Sorgu örnek: kullanımı gibi/değil ister eşleştirme deseni
-**Açıklama**: olay bir alanın değerini belirli bir desene eşleşip eşleşmediğini denetleyin.
-Örneğin, sonuç ile başlamalı ve 9 ile bitmelidir lisans kalıplarını verir denetleyin.
+## <a name="query-example-use-likenot-like-toodo-pattern-matching"></a>Sorgu örnek: kullanımı gibi/değil gibi toodo desen eşleştirme
+**Açıklama**: hello olay bir alanın değerini belirli bir desene eşleşip eşleşmediğini denetleyin.
+Örneğin, hello sonucu ile başlamalı ve 9 ile bitmelidir lisans kalıplarını döndürür denetleyin.
 
 **Giriş**:
 
@@ -83,11 +83,11 @@ Azure Stream Analytics sorgularda bir SQL benzeri sorgu dili ifade edilir. Bu so
     WHERE
         LicensePlate LIKE 'A%9'
 
-**Açıklama**: kullanım **gibi** denetlemek için deyimi **LicensePlate** alan değer. Bu bir ile başlayan sonra sıfır veya daha fazla karakterden oluşan herhangi bir dize olması ve ardından 9 ile bitmesi gerekir. 
+**Açıklama**: kullanım hello **gibi** deyimi toocheck hello **LicensePlate** alan değer. Bu bir ile başlayan sonra sıfır veya daha fazla karakterden oluşan herhangi bir dize olması ve ardından 9 ile bitmesi gerekir. 
 
 ## <a name="query-example-specify-logic-for-different-casesvalues-case-statements"></a>Sorgu örnek: farklı durumlarda/değerleri (CASE deyimleri) için mantığı belirtin
 **Açıklama**: belirli bir ölçütü temel alan bir alan için farklı bir hesaplama sağlar.
-Örneğin, 1 için özel bir durum ile aynı kaç araba yapmak için dize açıklamasını geçirilen sağlar.
+Örneğin, 1 için özel bir durum ile aynı olun Merhaba, kaç tane araba geçirilen için dize açıklamasını sağlar.
 
 **Giriş**:
 
@@ -118,11 +118,11 @@ Azure Stream Analytics sorgularda bir SQL benzeri sorgu dili ifade edilir. Bu so
         Make,
         TumblingWindow(second, 10)
 
-**Açıklama**: **durumda** yan tümcesi (Bu örnekte, toplama penceresinde araba sayısı) bazı ölçütlere göre farklı bir hesaplama sağlamamız sağlar.
+**Açıklama**: Merhaba **durumda** yan tümcesi (Bu örnekte, hello hello toplama penceresinde hello araba sayısı) bazı ölçütlere göre tooprovide farklı bir hesaplama verir.
 
-## <a name="query-example-send-data-to-multiple-outputs"></a>Sorgu örnek: birden çok çıkış veri gönderme
-**Açıklama**: veri gönderme için birden çok çıktı hedefi tek bir işten.
-Örneğin, eşik tabanlı bir uyarı için verileri çözümlemek ve blob depolama alanına tüm olayların arşivlenmesini.
+## <a name="query-example-send-data-toomultiple-outputs"></a>Sorgu örnek: veri toomultiple çıkarır Gönder
+**Açıklama**: gönderme veri toomultiple tek bir iş hedeflerden çıktı.
+Örneğin, eşik tabanlı bir uyarı için verileri çözümlemek ve Arşiv tüm olayları tooblob depolama.
 
 **Giriş**:
 
@@ -173,11 +173,11 @@ Azure Stream Analytics sorgularda bir SQL benzeri sorgu dili ifade edilir. Bu so
     HAVING
         [Count] >= 3
 
-**Açıklama**: **INTO** yan tümcesi söyler akış analizi, bu deyim için verileri yazmak için çıktı.
-İlk sorguyu biz adlı bir çıktı aldık verilerin bir doğrudan sorgudur **ArchiveOutput**.
-Bazı basit toplama ve filtreleme ve ikinci sorguyu mu sonuçları bir aşağı akış uyarı sisteme gönderir.
+**Açıklama**: Merhaba **INTO** yan tümcesi bu deyim hangisinin hello toowrite hello veri toofrom çıkarır Stream Analytics söyler.
+Merhaba ilk sorgudur bir geçiş diski biz adlı tooan çıkış aldık hello veri **ArchiveOutput**.
+Merhaba ikinci sorgu mu bazı basit toplama ve filtreleme ve onu tooa aşağı akış uyarı sistemi hello sonuçları gönderir.
 
-Not ortak tablo ifadelerinde (Cte'lerin) sonuçlarını da kullanabilirsiniz (gibi **ile** deyimleri) birden çok çıktı deyimlerinde. Bu seçenek daha az giriş kaynağı okuyucularına açma avantaj vardır.
+Not hello sonuçlarını hello ortak tablo ifadelerinde (Cte'lerin) da kullanabilirsiniz (gibi **ile** deyimleri) birden çok çıktı deyimlerinde. Bu seçenek daha az Okuyucular toohello giriş kaynağı açma avantaj hello sahiptir.
 Örneğin: 
 
     WITH AllRedCars AS (
@@ -192,8 +192,8 @@ Not ortak tablo ifadelerinde (Cte'lerin) sonuçlarını da kullanabilirsiniz (gi
     SELECT * INTO ToyotaOutput FROM AllRedCars WHERE Make = 'Toyota'
 
 ## <a name="query-example-count-unique-values"></a>Sorgu örnek: Say benzersiz değerler
-**Açıklama**: bir zaman penceresi içinde akışında görünür benzersiz alan değerleri sayar.
-Örneğin, kaç tane benzersiz bir 2 saniyelik penceresinde Ücretli Stand geçtiğini araçların yapar?
+**Açıklama**: saymak bir zaman penceresi içinde hello akışında görünür benzersiz alan değerlerini hello sayısı.
+Örneğin, kaç tane benzersiz bir 2 saniyelik penceresinde hello Ücretli Stand geçtiğini araçların yapar?
 
 **Giriş**:
 
@@ -225,11 +225,11 @@ GROUP BY
 
 
 **Açıklama:**
-**sayısı (ayrı olun)** ayrı değerleri sayısını döndürür **olun** sütunu bir zaman penceresi içinde.
+**sayısı (ayrı olun)** döndürür hello hello ayrı değerleri sayısı **olun** sütunu bir zaman penceresi içinde.
 
 ## <a name="query-example-determine-if-a-value-has-changed"></a>Sorgu örnek: bir değer değişip değişmediğini belirleyen
-**Açıklama**: geçerli değerden farklı olup olmadığını belirlemek için önceki bir değeri bakın.
-Örneğin, önceki araba Ücretli yolda geçerli araba olarak aynı marka mi?
+**Açıklama**: hello geçerli değerinden farklı olması durumunda önceki bir değeri toodetermine bakın.
+Örneğin, aynı olarak hello geçerli otomobil olun hello Ücretli yol hello üzerinde hello önceki araba mi?
 
 **Giriş**:
 
@@ -254,10 +254,10 @@ GROUP BY
     WHERE
         LAG(Make, 1) OVER (LIMIT DURATION(minute, 1)) <> Make
 
-**Açıklama**: kullanım **GECİKME** Giriş akışı bir olay geri gözatma ve almak için **olun** değeri. Kendisine karşılaştırmak **olun** değeri geçerli olayında ve bunlar farklıysa olay çıktı.
+**Açıklama**: kullanım **GECİKME** toopeek hello içine geri bir olay akışı giriş ve hello alma **olun** değeri. Toohello karşılaştırmak **olun** değer hello geçerli olay ve çıktı hello olay farklı ise.
 
-## <a name="query-example-find-the-first-event-in-a-window"></a>Sorgu örnek: bir pencerede ilk olay Bul
-**Açıklama**: ilk arabanızın her 10 dakika arayla bulun.
+## <a name="query-example-find-hello-first-event-in-a-window"></a>Sorgu örnek: bir penceresinde hello ilk olay Bul
+**Açıklama**: Bul hello ilk otomobil her 10 dakikalık zaman aralığı içinde.
 
 **Giriş**:
 
@@ -289,7 +289,7 @@ GROUP BY
     WHERE 
         IsFirst(minute, 10) = 1
 
-Şimdi şimdi sorun değiştirin ve belirli olun, ilk arabanızın her 10 dakika arayla bulabilirsiniz.
+Değişiklik hello sorun ve Bul hello ilk arabanızın belirli bir olalım artık her 10 dakika arayla.
 
 | LicensePlate | Yapma | Zaman |
 | --- | --- | --- |
@@ -310,8 +310,8 @@ GROUP BY
     WHERE 
         IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
 
-## <a name="query-example-find-the-last-event-in-a-window"></a>Sorgu örnek: bir penceresinde son olayı bulun
-**Açıklama**: her 10 dakika arayla son araba bulun.
+## <a name="query-example-find-hello-last-event-in-a-window"></a>Sorgu örnek: bir penceresinde hello son olay Bul
+**Açıklama**: Bul hello son otomobil her 10 dakikalık zaman aralığı içinde.
 
 **Giriş**:
 
@@ -353,11 +353,11 @@ GROUP BY
         ON DATEDIFF(minute, Input, LastInWindow) BETWEEN 0 AND 10
         AND Input.Time = LastInWindow.LastEventTime
 
-**Açıklama**: sorguda iki adımı vardır. İlk 10 dakikalık Windows'da son zaman damgası bulur. İkinci adım her penceresinde son zaman damgalarının eşleşmesi olaylarını bulmak için özgün akış ile ilk sorgu sonuçları birleştirir. 
+**Açıklama**: hello sorguda iki adımı vardır. Merhaba ilk bir bulur hello son zaman damgası 10 dakikalık Windows. Merhaba ikinci adım birleştirmeler olaylarla hello son zaman damgaları her penceresinde eşleşen hello özgün akış toofind hello hello ilk sorgunun sonuçlarını hello. 
 
-## <a name="query-example-detect-the-absence-of-events"></a>Sorgu örnek:, olay eksikliklerini Algıla
+## <a name="query-example-detect-hello-absence-of-events"></a>Sorgu örnek: olayları hello yokluğu Algıla
 **Açıklama**: bir akış belirli bir ölçütle eşleşen herhangi bir değer olup olmadığını denetleyin.
-Örneğin, aynı marka gelen 2 ardışık araba Ücretli yol Son 90 saniye içinde girdiğiniz?
+Örneğin, aynı olun hello gelen 2 ardışık araba hello Ücretli yol hello içinde son 90 saniye girdiğiniz?
 
 **Giriş**:
 
@@ -387,10 +387,10 @@ GROUP BY
     WHERE
         LAG(Make, 1) OVER (LIMIT DURATION(second, 90)) = Make
 
-**Açıklama**: kullanım **GECİKME** Giriş akışı bir olay geri gözatma ve almak için **olun** değeri. Kendisine karşılaştırmak **olun** değeri geçerli olayında ve aynı olmaları durumunda olay çıktı. Aynı zamanda **GECİKME** önceki araba ilişkin veri almak için.
+**Açıklama**: kullanım **GECİKME** toopeek hello içine geri bir olay akışı giriş ve hello alma **olun** değeri. Toohello karşılaştırmak **olun** hello geçerli olay ve ardından olan Merhaba, aynı çıktı hello olay değeri. Aynı zamanda **GECİKME** hello önceki araba hakkında tooget veriler.
 
-## <a name="query-example-detect-the-duration-between-events"></a>Sorgu örnek: olaylar arasındaki süreyi Algıla
-**Açıklama**: belirli bir olayın süresi bulun. Örneğin, bir web clickstream göz önüne alındığında, bir özellik harcanan zamanı belirler.
+## <a name="query-example-detect-hello-duration-between-events"></a>Sorgu örnek: olaylar arasındaki süreyi hello Algıla
+**Açıklama**: hello süresi belirli bir olayın bulun. Örneğin, bir web clickstream göz önüne alındığında, bir özellik hello zamanın belirler.
 
 **Giriş**:  
 
@@ -415,11 +415,11 @@ GROUP BY
         Event = 'end'
 ````
 
-**Açıklama**: kullanım **son** son almak için işlevi **zaman** değer olay türünü olduğu zaman **Başlat**. **Son** işlev kullandığı **[kullanıcı] bölümü tarafından** sonucu benzersiz kullanıcı başına hesaplanır belirtmek için. 1 saat maksimum eşik arasındaki zaman farkı için sorgu sahip **Başlat** ve **durdurmak** olayları, ancak gerektiği gibi yapılandırılabilir **(sınırı DURATION(hour, 1)**.
+**Açıklama**: kullanım hello **son** tooretrieve hello son işlev **zaman** değer hello olay türü olduğu zaman **Başlat**. Merhaba **son** işlev kullanır **[kullanıcı] bölümü tarafından** sonuç hello tooindicate benzersiz kullanıcı başına hesaplanır. Merhaba sorgu sahip hello arasındaki zaman farkı bir 1 saatlik maksimum eşik **Başlat** ve **durdurmak** olayları, ancak gerektiği gibi yapılandırılabilir **(sınırı DURATION(hour, 1)**.
 
-## <a name="query-example-detect-the-duration-of-a-condition"></a>Sorgu örnek: bir koşul süresini Algıla
+## <a name="query-example-detect-hello-duration-of-a-condition"></a>Sorgu örnek: Merhaba süresi bir koşul algılama
 **Açıklama**: Bul ne kadar giden bir koşul oluştu.
-Örneğin, bir hata (yukarıda 20.000 sterlin) yanlış bir ağırlık sahip tüm araba kaynaklandığını varsayalım. İşlem süresi hatanın istiyoruz.
+Örneğin, bir hata (yukarıda 20.000 sterlin) yanlış bir ağırlık sahip tüm araba kaynaklandığını varsayalım. Merhaba hata toocompute hello süresi istiyoruz.
 
 **Giriş**:
 
@@ -461,11 +461,11 @@ GROUP BY
         AND previousWeight > 20000
 ````
 
-**Açıklama**: kullanım **GECİKME** 24 saat için giriş akışı görüntülemek ve aramak için örnekler where **StartFault** ve **StopFault** ağırlığa göre yayılmış < 20000.
+**Açıklama**: kullanım **GECİKME** tooview hello Giriş akışı 24 saat ve Ara örnekler where **StartFault** ve **StopFault** hello tarafından kapsanan < 20000 ağırlık.
 
 ## <a name="query-example-fill-missing-values"></a>Sorgu örnek: eksik değerleri doldurma
-**Açıklama**: eksik değerleri olan olayları akış için düzenli aralıklarla olaylarla akışı üretir.
-Örneğin, en son görülen veri noktası raporları 5 saniyede bir olayı oluşturur.
+**Açıklama**: eksik değerleri olan olayları hello akışı için düzenli aralıklarla olaylarla akışı üretir.
+Örneğin, en son görülen hello veri noktası raporları 5 saniyede bir olayı oluşturur.
 
 **Giriş**:
 
@@ -503,13 +503,13 @@ GROUP BY
     GROUP BY HOPPINGWINDOW(second, 300, 5)
 
 
-**Açıklama**: Bu sorguyu her 5 saniyede olaylar oluşturur ve daha önce alındı son olay çıkarır. [Hopping penceresi](https://msdn.microsoft.com/library/dn835041.aspx "Hopping penceresi--Azure akış analizi") süre belirler (Bu örnekte 300 saniye) en son olay bulmak için ne kadar geri sorgu arar.
+**Açıklama**: Bu sorguyu her 5 saniyede olaylar oluşturur ve çıkışları hello daha önce alındı son olay. Merhaba [Hopping penceresi](https://msdn.microsoft.com/library/dn835041.aspx "Hopping penceresi--Azure akış analizi") süre belirler ne kadar geri hello sorgu toofind hello son olay (Bu örnekte 300 saniye) arar.
 
 ## <a name="get-help"></a>Yardım alın
 Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure Stream Analytics'e giriş](stream-analytics-introduction.md)
+* [Giriş tooAzure akış analizi](stream-analytics-introduction.md)
 * [Azure Akış Analizi'ni kullanmaya başlama](stream-analytics-real-time-fraud-detection.md)
 * [Azure Akış Analizi işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
 * [Azure Akış Analizi Sorgu Dili Başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)

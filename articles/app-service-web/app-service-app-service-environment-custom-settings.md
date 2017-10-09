@@ -1,5 +1,5 @@
 ---
-title: "Uygulama hizmeti ortamları için özel ayarları"
+title: "Uygulama hizmeti ortamları için aaaCustom ayarları"
 description: "Uygulama hizmeti ortamları için özel yapılandırma ayarları"
 services: app-service
 documentationcenter: 
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2016
 ms.author: stefsch
-ms.openlocfilehash: 687475fae0c90713c15e8abbb92b71059eae81c0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3d140688c88b389e71bfdd465c418339cccab3a6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Uygulama hizmeti ortamları için özel yapılandırma ayarları
 ## <a name="overview"></a>Genel Bakış
-Uygulama hizmeti ortamları tek bir müşteri için yalıtılmış olduğundan, özel olarak App Service ortamları için uygulanabilecek bazı yapılandırma ayarları vardır. Bu makale App Service ortamları için kullanılabilen çeşitli belirli özelleştirmelere içermektedir.
+Uygulama hizmeti ortamları yalıtılmış tooa tek müşteri olduğundan var. özel olarak tooApp hizmeti ortamları olabilir yapılandırma ayarları uygulanan belirli Bu makale belgeleri App Service ortamları için kullanılabilen çeşitli belirli özelleştirmelere hello.
 
-Bir uygulama hizmeti ortamı yoksa bkz [bir uygulama hizmeti ortamı oluşturmak nasıl](app-service-web-how-to-create-an-app-service-environment.md).
+Bir uygulama hizmeti ortamı yoksa bkz [nasıl tooCreate bir uygulama hizmeti ortamı](app-service-web-how-to-create-an-app-service-environment.md).
 
-Bir dizi yeni kullanarak uygulama hizmeti ortamı özelleştirmeleri depolayabilirsiniz **clusterSettings** özniteliği. Bu öznitelik "Özellikler" sözlükte bulunan *hostingEnvironments* Azure Resource Manager varlığı.
+Bir dizi hello yeni kullanarak uygulama hizmeti ortamı özelleştirmeleri depolayabilir **clusterSettings** özniteliği. Bu öznitelik hello "Özellikler" sözlüğü hello içinde bulunan *hostingEnvironments* Azure Resource Manager varlığı.
 
-Resource Manager şablonu kod parçacığında gösterildiği aşağıdaki kısaltılmış **clusterSettings** özniteliği:
+Merhaba aşağıdaki kısaltılmış Resource Manager şablonu parçacığını gösterir hello **clusterSettings** özniteliği:
 
     "resources": [
     {
@@ -48,25 +48,25 @@ Resource Manager şablonu kod parçacığında gösterildiği aşağıdaki kısa
        }
     }
 
-**ClusterSettings** özniteliği uygulama hizmeti ortamı güncelleştirmek için bir Resource Manager şablonu dahil edilebilir.
+Merhaba **clusterSettings** özniteliği bir Resource Manager şablonu tooupdate hello uygulama hizmeti ortamı dahil edilebilir.
 
-## <a name="use-azure-resource-explorer-to-update-an-app-service-environment"></a>Bir uygulama hizmeti ortamı güncelleştirmek için Azure kaynak Gezgini'ni kullanma
-Alternatif olarak, uygulama hizmeti ortamı kullanarak güncelleştirebileceğinizi [Azure kaynak Gezgini](https://resources.azure.com).  
+## <a name="use-azure-resource-explorer-tooupdate-an-app-service-environment"></a>Azure kaynak Gezgini tooupdate bir uygulama hizmeti ortamı kullanın
+Alternatif olarak, hello uygulama hizmeti ortamı kullanarak güncelleştirebileceğinizi [Azure kaynak Gezgini](https://resources.azure.com).  
 
-1. Kaynak Gezgini, uygulama hizmeti ortamı için düğümüne gidin (**abonelikleri** > **resourceGroups** > **sağlayıcıları** > **Microsoft.Web** > **hostingEnvironments**). Güncelleştirmek istediğiniz belirli uygulama hizmeti ortamı'ye tıklayın.
-2. Sağ bölmede **okuma/yazma** kaynak Gezgini'nde düzenleme etkileşimli izin vermek için üst araç çubuğunda.  
-3. Mavi tıklatın **Düzenle** Resource Manager şablonu düzenlenebilir olmasını sağlamak için düğmesi.
-4. Sağ bölmede altına gidin. **ClusterSettings** buradan girin veya değerini güncelleştirme çok altındaki bir özniteliktir.
-5. Yazın (veya kopyalayıp yapıştırın), istediğiniz yapılandırma değerleri dizisi **clusterSettings** özniteliği.  
-6. Yeşil tıklatın **PUT** , düğme için uygulama hizmeti ortamı değişikliği kaydetmek için sağ bölmedeki üstünde bulunan.
+1. Kaynak Gezgini'nde hello uygulama hizmeti ortamı için toohello düğümüne gidin (**abonelikleri** > **resourceGroups** > **sağlayıcıları**  >  **Microsoft.Web** > **hostingEnvironments**). Merhaba tooupdate istediğiniz belirli uygulama hizmeti ortamı'ye tıklayın.
+2. Merhaba sağ bölmede **okuma/yazma** hello üst araç tooallow kaynak Gezgini'nde düzenleme etkileşimli olarak.  
+3. Merhaba mavi tıklatın **Düzenle** düğmesini toomake hello Resource Manager şablonu düzenlenebilir.
+4. Toohello bölmesinin hello sağa kaydırın. Merhaba **clusterSettings** buradan girin veya değerini güncelleştirme hello çok altındaki bir özniteliktir.
+5. Hello istediğiniz yapılandırma değerlerini yazın (veya Kopyala ve Yapıştır) hello dizisi **clusterSettings** özniteliği.  
+6. Hello yeşil tıklatın **PUT** , düğme hello sağ bölmede toocommit hello değişiklik toohello uygulama hizmeti ortamı hello üstünde bulunan.
 
-Değişiklik Gönder ancak değişikliğin etkili olması için uygulama hizmeti ortamında ön uçlar sayısı ile çarpılır yaklaşık 30 dakika sürer.
-Örneğin, bir uygulama hizmeti ortamı dört ön uçlar varsa, kabaca tamamlamak yapılandırma güncelleştirmesi için iki saat sürer. Yapılandırma değişikliği alınıyor sırada başka bir ölçeklendirme işlemleri veya yapılandırma değişiklik işlemleri uygulama hizmeti ortamı yerinde alabilir.
+Merhaba değişiklik Gönder ancak hello değişikliğin tootake Merhaba uygulama hizmeti ortamı'nda ön uçlar hello sayısı ile çarpılır yaklaşık 30 dakika sürer.
+Örneğin, bir uygulama hizmeti ortamı dört ön uçlar varsa, kabaca hello yapılandırmasını güncelleştirme toofinish için iki saat sürer. Merhaba yapılandırma değişikliği alınıyor sırada başka bir ölçeklendirme işlemleri veya yapılandırma değişiklik işlemleri hello uygulama hizmeti ortamı yerinde alabilir.
 
 ## <a name="disable-tls-10"></a>TLS 1.0 devre dışı bırak
-Yinelenen bir soru müşterilerden özellikle PCI uyumluluğunu ile ilgilenen müşteriler denetimleri, TLS 1.0 için uygulamalarını açıkça devre dışı bırakma.
+Yinelenen bir soru müşterilerden özellikle PCI uyumluluğunu ile ilgilenen müşteriler denetimleri, nasıl tooexplicitly devre dışı TLS 1.0 için uygulamalarını.
 
-TLS 1.0 devre dışı bırakılabilir aşağıdaki aracılığıyla **clusterSettings** girişi:
+TLS 1.0 devre dışı bırakılabilir hello aşağıdaki aracılığıyla **clusterSettings** girişi:
 
         "clusterSettings": [
             {
@@ -76,7 +76,7 @@ TLS 1.0 devre dışı bırakılabilir aşağıdaki aracılığıyla **clusterSet
         ],
 
 ## <a name="change-tls-cipher-suite-order"></a>Değişiklik TLS şifre paketi sırası
-Başka bir soru müşterilerden kendi sunucu tarafından anlaşılan şifre listesi değiştirebilirsiniz ve bu değiştirerek elde olan **clusterSettings** aşağıda gösterildiği gibi. Şifre paketleri kullanılabilir Listesi penceresinden alınabilir [bu MSDN makalesine](https://msdn.microsoft.com/library/windows/desktop/aa374757\(v=vs.85\).aspx).
+Başka bir soru müşterilerden kendi sunucu tarafından anlaşılan şifrelemeleri hello listesi değiştirebilirsiniz ve bu hello değiştirerek elde olan **clusterSettings** aşağıda gösterildiği gibi. Şifre paketleri kullanılabilir Hello listesi alınabileceği [bu MSDN makalesine](https://msdn.microsoft.com/library/windows/desktop/aa374757\(v=vs.85\).aspx).
 
         "clusterSettings": [
             {
@@ -86,12 +86,12 @@ Başka bir soru müşterilerden kendi sunucu tarafından anlaşılan şifre list
         ],
 
 > [!WARNING]
-> SChannel anlayamıyor şifre paketi için yanlış değerleri ayarlarsanız sunucunuza tüm TLS iletişim çalışmasını durdurabilir. Böyle bir durumda kaldırmanız gerekecek *FrontEndSSLCipherSuiteOrder* girdisinden **clusterSettings** ve varsayılan şifre paketi ayarlarına geri dönmek için güncelleştirilmiş Resource Manager şablonu gönderin.  Lütfen bu işlevi dikkatli kullanın.
+> SChannel anlayamıyor hello şifre paketi için yanlış değerleri ayarlarsanız, tüm TLS iletişim tooyour server çalışmasını durdurabilir. Böyle bir durumda tooremove hello gerekir *FrontEndSSLCipherSuiteOrder* girdisinden **clusterSettings** ve hello güncelleştirilmiş Resource Manager şablonu toorevert geri toohello varsayılan şifre gönderin Suite ayarları.  Lütfen bu işlevi dikkatli kullanın.
 > 
 > 
 
 ## <a name="get-started"></a>başlarken
-Bir şablonu temel tanımıyla Azure hızlı başlangıç Resource Manager şablonu sitesi içeren [bir uygulama hizmeti ortamı oluşturma](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
+Hello Azure hızlı başlangıç Resource Manager şablonu sitesi içeren hello temel tanımı için bir şablonla [bir uygulama hizmeti ortamı oluşturma](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/).
 
 <!-- LINKS -->
 

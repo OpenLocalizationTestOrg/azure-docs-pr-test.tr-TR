@@ -1,6 +1,6 @@
 ---
-title: "Service Fabric uygulamaları parolalarında yönetme | Microsoft Docs"
-description: "Bu makale, Service Fabric uygulaması gizli değerleri güvenli açıklamaktadır."
+title: "Service Fabric uygulamaları aaaManaging parolalarında | Microsoft Docs"
+description: "Bu makalede nasıl toosecure gizli bir Service Fabric uygulaması değerleri açıklanmaktadır."
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,59 +14,59 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.openlocfilehash: d71924cda8bb3bffbe221946d80dba150359e38e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b8cafcb681d95aaa1b8e9a1afaac78ba5b7f58b0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="managing-secrets-in-service-fabric-applications"></a>Service Fabric uygulamaları parolaları yönetme
-Bu kılavuz, Service Fabric uygulaması parolalarında yönetme adım adım anlatılmaktadır. Gizli depolama bağlantı dizeleri, parolalar veya düz metin olarak işleneceğini olmayan diğer değerleri gibi herhangi bir önemli bilgi olabilir.
+Bu kılavuzda, Service Fabric uygulaması parolalarında yönetme hello adımlar anlatılmaktadır. Gizli depolama bağlantı dizeleri, parolalar veya düz metin olarak işleneceğini olmayan diğer değerleri gibi herhangi bir önemli bilgi olabilir.
 
-Bu kılavuz, anahtarları ve gizli anahtarları yönetmek için Azure anahtar kasası kullanır. Ancak, *kullanarak* gizli bir uygulamada herhangi bir yerde barındırılan bir kümeye dağıtılacak uygulamalar izin vermek için platform belirsiz bulut. 
+Bu kılavuz, Azure anahtar kasası toomanage anahtarları ve gizli anahtarları kullanır. Ancak, *kullanarak* gizli bir uygulamada olduğu herhangi bir yerde barındırılan bulut platformu belirsiz tooallow uygulamaları toobe dağıtılan tooa küme. 
 
 ## <a name="overview"></a>Genel Bakış
-Hizmet yapılandırma ayarlarını yönetmek için önerilen yöntem aracılığıyladır [hizmet yapılandırma paketleri][config-package]. Yapılandırma paketleri sürümlü ve sistem durumu doğrulama ve Otomatik geri alma ile yönetilen yükseltmelerini aracılığıyla güncelleştirilebilir. Genel hizmet kesintisi olasılığını azaltır olarak bu genel yapılandırma için tercih edilir. Şifrelenmiş parolalar hiçbir istisnadır. Service Fabric şifreleme ve şifre çözme sertifikası şifreleme kullanarak bir yapılandırma paketi Settings.xml dosyasındaki değerleri için yerleşik özellikler vardır.
+Merhaba önerilen yöntem toomanage hizmeti yapılandırma ayarları olan aracılığıyla [hizmet yapılandırma paketleri][config-package]. Yapılandırma paketleri sürümlü ve sistem durumu doğrulama ve Otomatik geri alma ile yönetilen yükseltmelerini aracılığıyla güncelleştirilebilir. Genel hizmet kesintisi hello olasılığını azaltır olarak tercih edilen tooglobal yapılandırma budur. Şifrelenmiş parolalar hiçbir istisnadır. Service Fabric şifreleme ve şifre çözme sertifikası şifreleme kullanarak bir yapılandırma paketi Settings.xml dosyasındaki değerleri için yerleşik özellikler vardır.
 
-Aşağıdaki diyagramda Service Fabric uygulaması gizli yönetimi için temel akışı gösterilmektedir:
+Merhaba Aşağıdaki diyagramda bir Service Fabric uygulaması gizli yönetimi için temel akış hello gösterilmektedir:
 
 ![Gizli yönetimine genel bakış][overview]
 
 Bu akış dört ana adım vardır:
 
 1. Veri şifreleme sertifikası alın.
-2. Sertifikayı kümenizdeki yükleyin.
-3. Sertifikayla ilgili bir uygulama dağıtırken gizli değerleri şifreler ve bir hizmetin Settings.xml yapılandırma dosyasına Ekle.
-4. Settings.xml dışında şifrelenmiş değerler ile aynı şifreleme sertifikası şifresini çözerek okuyun. 
+2. Kümenizdeki Hello sertifikası yükleyin.
+3. Bir uygulamayı hello sertifikayla dağıtırken gizli değerleri şifrelemek ve bir hizmetin Settings.xml yapılandırma dosyasına Ekle.
+4. İle şifre çözme tarafından şifrelenmiş okuma değerleri Settings.xml dışında aynı şifreleme sertifikası hello. 
 
-[Azure anahtar kasası] [ key-vault-get-started] burada Azure Service Fabric kümeleri yüklü sertifikaları almak için bir yol ve sertifikalar için bir güvenli depolama konumu olarak kullanılır. Azure'a dağıtma değil, anahtar kasası Service Fabric uygulamaları parolalarında yönetmek üzere kullanmak gerekmez.
+[Azure anahtar kasası] [ key-vault-get-started] burada yolu tooget ve sertifikalar için bir güvenli depolama konumu olarak kullanılan Azure Service Fabric kümeleri üzerinde yüklü olan sertifikalar. TooAzure değil dağıtıyorsanız, Service Fabric uygulamaları toouse anahtar kasası toomanage parolalarında gerekmez.
 
 ## <a name="data-encipherment-certificate"></a>Veri şifreleme sertifikası
-Veri şifreleme sertifikası kesinlikle şifreleme için kullanılır ve şifre çözme yapılandırmasının bir hizmetin Settings.xml değerleri ve kimlik doğrulaması için kullanılan veya şifre metin imzalama değil. Sertifikanın aşağıdaki gereksinimleri karşılamalıdır:
+Veri şifreleme sertifikası kesinlikle şifreleme için kullanılır ve şifre çözme yapılandırmasının bir hizmetin Settings.xml değerleri ve kimlik doğrulaması için kullanılan veya şifre metin imzalama değil. Merhaba sertifika hello aşağıdaki gereksinimleri karşılamalıdır:
 
-* Sertifika bir özel anahtar içermelidir.
-* Sertifikanın bir kişisel bilgi değişimi (.pfx) dosyasına dışarı aktarılabilir olarak, anahtar değişimi için oluşturulmuş olması gerekir.
-* Sertifika anahtar kullanımı veri şifreleme (10) içermelidir ve sunucu kimlik doğrulaması veya istemci kimlik doğrulaması içermemesi gerekir. 
+* Merhaba sertifika özel anahtar içermelidir.
+* anahtar değişimi için dışarı aktarılabilir tooa kişisel bilgi değişimi (.pfx) dosyasını Hello sertifika oluşturulması gerekir.
+* Merhaba sertifika anahtar kullanımı veri şifreleme (10) içermelidir ve sunucu kimlik doğrulaması veya istemci kimlik doğrulaması içermemesi gerekir. 
   
-  Örneğin, PowerShell kullanarak otomatik olarak imzalanan sertifika oluşturulurken `KeyUsage` bayrağını ayarlayın, `DataEncipherment`:
+  Örneğin, PowerShell kullanarak otomatik olarak imzalanan bir sertifika oluştururken hello `KeyUsage` bayrağı çok ayarlanmalıdır`DataEncipherment`:
   
   ```powershell
   New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject mydataenciphermentcert -Provider 'Microsoft Enhanced Cryptographic Provider v1.0'
   ```
 
-## <a name="install-the-certificate-in-your-cluster"></a>Kümenizdeki sertifikayı yükleme
-Bu sertifika, kümedeki her düğümde yüklenmelidir. Bu çalışma zamanında bir hizmetin Settings.xml depolanan değerleri şifresini çözmek için kullanılır. Bkz: [Azure Kaynak Yöneticisi'ni kullanarak bir küme oluşturmak nasıl] [ service-fabric-cluster-creation-via-arm] kurulum yönergeleri. 
+## <a name="install-hello-certificate-in-your-cluster"></a>Kümenizdeki Hello sertifika yükleme
+Bu sertifika, hello kümedeki her düğümde yüklenmelidir. Bir hizmetin Settings.xml depolanan çalışma zamanı toodecrypt değerleri kullanılacaktır. Bkz: [nasıl toocreate Azure Kaynak Yöneticisi'ni kullanarak bir küme] [ service-fabric-cluster-creation-via-arm] kurulum yönergeleri. 
 
 ## <a name="encrypt-application-secrets"></a>Uygulama parolaları şifrelemek
-Service Fabric SDK yerleşik gizli şifreleme ve şifre çözme işlevi vardır. Gizli değerleri yerleşik anda şifrelenmiş şifresi ve program aracılığıyla hizmet kodunda okuyun. 
+Merhaba Service Fabric SDK yerleşik gizli şifreleme ve şifre çözme işlevi vardır. Gizli değerleri yerleşik anda şifrelenmiş şifresi ve program aracılığıyla hizmet kodunda okuyun. 
 
-Aşağıdaki PowerShell komutunu bir gizli anahtarı şifrelemek için kullanılır. Bu komut, yalnızca değeri şifreler; Mevcut **değil** şifre metnin imzalayın. Ciphertext gizli değerleri için üretmek için kümenizdeki yüklü aynı şifreleme sertifikası kullanmanız gerekir:
+PowerShell komutunu aşağıdaki hello kullanılan tooencrypt gizli ' dir. Bu komut, yalnızca hello değeri şifreler; Mevcut **değil** oturum hello şifreli metin. Merhaba kullanmalısınız gizli değerleri için küme tooproduce ciphertext yüklü aynı şifreleme sertifikası:
 
 ```powershell
 Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint "<thumbprint>" -Text "mysecret" -StoreLocation CurrentUser -StoreName My
 ```
 
-Sonuçta elde edilen base-64 dizesi hem gizli ciphertext yanı sıra, şifrelemek için kullanılan sertifikayla ilgili bilgileri içerir.  Base-64 kodlu bir dize hizmetinizin Settings.xml yapılandırma dosyasıyla parametresinde eklenebilir `IsEncrypted` özniteliğini `true`:
+Merhaba sonuç base-64 dizesi hem hello gizli ciphertext, hem de kullanılan tooencrypt edildi hello sertifikayla ilgili bilgileri içeren.  Merhaba base 64 kodlu bir dize parametresi hizmetinizin Settings.xml yapılandırma dosyasındaki hello ile eklenebilir `IsEncrypted` özniteliği ayarlanmış çok`true`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -78,10 +78,10 @@ Sonuçta elde edilen base-64 dizesi hem gizli ciphertext yanı sıra, şifreleme
 ```
 
 ### <a name="inject-application-secrets-into-application-instances"></a>Uygulama örnekleri uygulama parolaları Ekle
-İdeal olarak, farklı ortamlar için dağıtım olarak otomatik olmalıdır. Bu, gizli şifreleme bir yapı ortamında gerçekleştirme ve uygulama örnekleri oluşturulurken parametre olarak şifrelenmiş parolalar sağlama gerçekleştirilebilir.
+İdeal olarak, dağıtım toodifferent ortamları gibi otomatik olmalıdır. Bu, gizli şifreleme bir yapı ortamında gerçekleştirme ve şifrelenmiş hello gizli parametre olarak uygulama örnekleri oluşturulurken sağlama gerçekleştirilebilir.
 
 #### <a name="use-overridable-parameters-in-settingsxml"></a>Geçersiz kılınabilir parametreler Settings.xml kullanın
-Settings.xml yapılandırma dosyası uygulama oluşturma sırasında sağlanan geçersiz kılınabilir parametrelere izin verir. Kullanım `MustOverride` parametresi için bir değer sağlamak yerine özniteliği:
+Merhaba Settings.xml yapılandırma dosyası uygulama oluşturma sırasında sağlanan geçersiz kılınabilir parametrelere izin verir. Kullanım hello `MustOverride` parametresi için bir değer sağlamak yerine özniteliği:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -92,7 +92,7 @@ Settings.xml yapılandırma dosyası uygulama oluşturma sırasında sağlanan g
 </Settings>
 ```
 
-Settings.xml değerleri geçersiz kılmak için ApplicationManifest.xml hizmeti için bir geçersiz kılma parametresi bildirin:
+Settings.xml, toooverride değerleri ApplicationManifest.xml hello hizmeti için bir geçersiz kılma parametresi bildirin:
 
 ```xml
 <ApplicationManifest ... >
@@ -113,9 +113,9 @@ Settings.xml değerleri geçersiz kılmak için ApplicationManifest.xml hizmeti 
   </ServiceManifestImport>
  ```
 
-Değer olarak belirtilebilir şimdi bir *uygulama parametresi* uygulamasının bir örneğini oluştururken. Uygulama örneğini oluşturmak komut dosyasıyla PowerShell kullanarak veya bir derleme işlemindeki kolay tümleştirme için C# ile yazılmış.
+Merhaba değeri olarak belirtilebilir şimdi bir *uygulama parametresi* hello uygulamasının bir örneğini oluştururken. Uygulama örneğini oluşturmak komut dosyasıyla PowerShell kullanarak veya bir derleme işlemindeki kolay tümleştirme için C# ile yazılmış.
 
-PowerShell kullanarak, parametre için sağlanan `New-ServiceFabricApplication` olarak komutunu bir [karma tablosu](https://technet.microsoft.com/library/ee692803.aspx):
+PowerShell kullanarak hello sağlanan toohello parametredir `New-ServiceFabricApplication` olarak komutunu bir [karma tablosu](https://technet.microsoft.com/library/ee692803.aspx):
 
 ```powershell
 PS C:\Users\vturecek> New-ServiceFabricApplication -ApplicationName fabric:/MyApp -ApplicationTypeName MyAppType -ApplicationTypeVersion 1.0.0 -ApplicationParameter @{"MySecret" = "I6jCCAeYCAxgFhBXABFxzAt ... gNBRyeWFXl2VydmjZNwJIM="}
@@ -140,9 +140,9 @@ await fabricClient.ApplicationManager.CreateApplicationAsync(applicationDescript
 ```
 
 ## <a name="decrypt-secrets-from-service-code"></a>Hizmet kodundan gizli şifresini çözme
-Service Fabric Hizmetleri'nde altında ağ hizmeti varsayılan olarak Windows üzerinde çalışan ve bazı ek kurulum olmadan düğümde yüklü olan sertifikalar erişiminiz yok.
+Service Fabric Hizmetleri'nde altında ağ hizmeti varsayılan olarak Windows üzerinde çalışan ve erişim toocertificates yüklenmemiş bazı ek kurulum olmadan hello düğümde.
 
-Ne zaman emin ağ hizmeti yapmanıza gerek veri şifreleme sertifikasını kullanarak veya hangi kullanıcı hizmet hesabı altında çalışan sertifikanın özel anahtarı erişebilir. Service Fabric, bunu yapmak için yapılandırırsanız erişim hizmetiniz için otomatik olarak verme işleyecek. Bu yapılandırma, kullanıcılar ve sertifikalar için güvenlik ilkelerini tanımlayarak ApplicationManifest.xml yapılabilir. Aşağıdaki örnekte, ağ hizmeti hesabının, parmak izi tarafından tanımlanan bir sertifika okuma erişimi verilir:
+Veri şifreleme sertifikasını kullanırken toomake erişim toohello sertifikanın özel anahtarı ağ hizmeti veya seçtiğiniz kullanıcı hesabı hello hizmetinin altında çalışmakta olduğundan emin gerekir. Service Fabric toodo şekilde yapılandırmanız varsa erişim hizmetiniz için otomatik olarak verme işleyecek. Bu yapılandırma, kullanıcılar ve sertifikalar için güvenlik ilkelerini tanımlayarak ApplicationManifest.xml yapılabilir. Aşağıdaki örneğine hello hello NETWORK SERVICE hesabının okuma erişimi tooa sertifika, parmak izi tarafından tanımlanan verilmiştir:
 
 ```xml
 <ApplicationManifest … >
@@ -163,12 +163,12 @@ Ne zaman emin ağ hizmeti yapmanıza gerek veri şifreleme sertifikasını kulla
 ```
 
 > [!NOTE]
-> Sertifika parmak izi sertifika deposu ek bileşeninden Windows kopyalarken görünmeyen bir karakter parmak izi dizenin başında yerleştirilir. Bu görünmez karakter çalışırken bir sertifika parmak izi tarafından bulmak için bu nedenle bu ek karakter silmek istediğinizden emin bir hata neden olabilir.
+> Sertifika parmak izi kopyalarken Windows hello Sertifika ek bileşenini depolamak, görünmeyen bir karakter hello hello parmak izi dize başında yerleştirilir. Bu görünmez karakteri hata toolocate çalışırken bir sertifika neden olabilir parmak izi tarafından bu ek karakter böylece emin toodelete olması.
 > 
 > 
 
 ### <a name="use-application-secrets-in-service-code"></a>Uygulama parolaları hizmetini kullanma
-Kolay olan değerleri şifresini çözmek için bir yapılandırma paketi Settings.xml yapılandırma değerlerini erişmek için API sağlar `IsEncrypted` özniteliği kümesine `true`. Şifrelenmiş metin şifreleme için kullanılan sertifikayla ilgili bilgileri içerdiğinden, el ile Sertifika Bul gerekmez. Sertifika yalnızca hizmet üzerinde çalıştığı düğüm üzerinde yüklü olması gerekir. Basit Arama `DecryptValue()` yöntemi özgün gizli değer almak için:
+yapılandırma değerlerini Settings.xml bir yapılandırma paketi erişmek için API hello verir hello olan değerleri kolay şifresini çözmek için `IsEncrypted` özniteliği ayarlanmış çok`true`. Merhaba şifreli metin şifreleme için kullanılan hello sertifikayla ilgili bilgileri içerdiğinden toomanually Bul hello sertifika gerekmez. Merhaba sertifikanın yalnızca hello Hizmeti'nin çalıştığı hello düğümde yüklü toobe gerekir. Yalnızca hello çağrı `DecryptValue()` yöntemi tooretrieve hello özgün gizli değer:
 
 ```csharp
 ConfigurationPackage configPackage = this.Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");

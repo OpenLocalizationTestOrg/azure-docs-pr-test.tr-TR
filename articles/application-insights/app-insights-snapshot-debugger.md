@@ -1,5 +1,5 @@
 ---
-title: "Azure Application Insights .NET uygulamaları için hata ayıklayıcı anlık görüntü | Microsoft Docs"
+title: ".NET uygulamaları için uygulama Öngörüler anlık görüntü hata ayıklayıcı aaaAzure | Microsoft Docs"
 description: "Hata ayıklama anlık görüntüleri otomatik olarak üretim .NET uygulamaları özel durumlar, toplanan"
 services: application-insights
 documentationcenter: 
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: bwren
-ms.openlocfilehash: 56eba2ff7af228b3c44354ad43b384288b4e1972
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: f0173a752b5795d934fbab1bd53eb077433edc90
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Anlık görüntü özel durumları .NET uygulamalarında hata ayıklama
 
-Özel durum oluştuğunda, hata ayıklama anlık görüntü canlı web uygulamanızı otomatik olarak toplayabilirsiniz. Anlık görüntü özel durumu şu anda kaynak kodu ve değişkenleri durumunu gösterir. Anlık görüntü ayıklayıcıda (Önizleme) [Azure Application Insights](app-insights-overview.md) özel durum, web uygulamanızın telemetrisinden izler. Böylece üretim sorunları tanılamak için gereken bilgileri sahip anlık görüntüleri, üst atma özel durumlarını toplar. Dahil [anlık görüntü Toplayıcı NuGet paketi](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) uygulamanızda ve isteğe bağlı olarak koleksiyon parametrelerinde yapılandırma [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md). Anlık görüntüler görünmez [özel durumları](app-insights-asp-net-exceptions.md) Application Insights portalında.
+Özel durum oluştuğunda, hata ayıklama anlık görüntü canlı web uygulamanızı otomatik olarak toplayabilirsiniz. değişkenleri hello şu anda hello özel durum sırasında oluşturuldu ve Hello anlık görüntü kaynak kodu hello durumunu gösterir. Başlangıç anlık görüntü hata ayıklayıcısı (Önizleme) içinde [Azure Application Insights](app-insights-overview.md) özel durum, web uygulamanızın telemetrisinden izler. Böylece toodiagnose sorunları üretimde gereksinim hello bilgileri sahip anlık görüntüleri, üst atma özel durumlar toplar. Merhaba dahil [anlık görüntü Toplayıcı NuGet paketi](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) uygulamanızda ve isteğe bağlı olarak koleksiyon parametrelerinde yapılandırma [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md). Anlık görüntüler görünmez [özel durumları](app-insights-asp-net-exceptions.md) hello Application Insights portalında.
 
-Yığın ve her çağrı yığını çerçevesi en değişkenlerle incelemek çağrı görmek için Portalı'nda hata ayıklama anlık görüntüleri görüntüleyebilirsiniz. Kaynak kodu ile daha güçlü bir hata ayıklama deneyimini almak için anlık görüntüleri olan açık Visual Studio 2017 kuruluş tarafından [Visual Studio için anlık görüntü hata ayıklayıcısı uzantısı yükleme](https://aka.ms/snapshotdebugger).
+Hata ayıklama anlık görüntüleri hello portal toosee hello çağrı yığınında görüntüleyebilir ve her çağrı yığını çerçevesi en değişkenlerle inceleyin. Kaynak kodu, Visual Studio 2017 kuruluş tarafından sahip açık anlık görüntüleri ile daha güçlü bir hata ayıklama deneyimini tooget [Visual Studio için başlangıç anlık görüntü hata ayıklayıcısı uzantısı yükleme](https://aka.ms/snapshotdebugger).
 
 Anlık görüntü koleksiyonu için kullanılabilir:
 * .NET framework ve ASP.NET uygulamaları .NET Framework 4.5 veya sonraki sürümlerini çalıştırıyor.
@@ -32,44 +32,44 @@ Anlık görüntü koleksiyonu için kullanılabilir:
 
 1. [Application Insights web uygulamanızda etkinleştirmek](app-insights-asp-net.md), henüz yapmadınız.
 
-2. Dahil [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) uygulamanıza NuGet paketi. 
+2. Merhaba dahil [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) uygulamanıza NuGet paketi. 
 
-3. Pakete eklenen varsayılan seçenekleri gözden [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md):
+3. Paket çok eklenen hello hello varsayılan seçenekleri gözden geçir[Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md):
 
     ```xml
     <TelemetryProcessors>
         <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
-        <!-- The default is true, but you can disable Snapshot Debugging by setting it to false -->
+        <!-- hello default is true, but you can disable Snapshot Debugging by setting it toofalse -->
         <IsEnabled>true</IsEnabled>
-        <!-- Snapshot Debugging is usually disabled in developer mode, but you can enable it by setting this to true. -->
-        <!-- DeveloperMode is a property on the active TelemetryChannel. -->
+        <!-- Snapshot Debugging is usually disabled in developer mode, but you can enable it by setting this tootrue. -->
+        <!-- DeveloperMode is a property on hello active TelemetryChannel. -->
         <IsEnabledInDeveloperMode>false</IsEnabledInDeveloperMode>
-        <!-- How many times we need to see an exception before we ask for snapshots. -->
+        <!-- How many times we need toosee an exception before we ask for snapshots. -->
         <ThresholdForSnapshotting>5</ThresholdForSnapshotting>
-        <!-- The maximum number of examples we create for a single problem. -->
+        <!-- hello maximum number of examples we create for a single problem. -->
         <MaximumSnapshotsRequired>3</MaximumSnapshotsRequired>
-        <!-- The maximum number of problems that we can be tracking at any time. -->
+        <!-- hello maximum number of problems that we can be tracking at any time. -->
         <MaximumCollectionPlanSize>50</MaximumCollectionPlanSize>
-        <!-- How often to reset problem counters. -->
+        <!-- How often tooreset problem counters. -->
         <ProblemCounterResetInterval>06:00:00</ProblemCounterResetInterval>
-        <!-- The maximum number of snapshots allowed in one minute. -->
+        <!-- hello maximum number of snapshots allowed in one minute. -->
         <SnapshotsPerMinuteLimit>2</SnapshotsPerMinuteLimit>
-        <!-- The maximum number of snapshots allowed per day. -->
+        <!-- hello maximum number of snapshots allowed per day. -->
         <SnapshotsPerDayLimit>50</SnapshotsPerDayLimit>
         </Add>
     </TelemetryProcessors>
     ```
 
-4. Anlık görüntüler için Application Insights bildirilen özel durum toplanır. Bazı durumlarda (örneğin, daha eski sürümlerini .NET platformu) için gereksinim duyabileceğiniz [özel durum koleksiyonunu yapılandırma](app-insights-asp-net-exceptions.md#exceptions) portalında anlık görüntüler içeren özel durumları görmek için.
+4. Anlık görüntüler, bildirilen tooApplication Öngörüler yalnızca özel durumları toplanır. Bazı durumlarda (örneğin, daha eski sürümleri hello .NET platformu), çok gerekebilir[özel durum koleksiyonunu yapılandırma](app-insights-asp-net-exceptions.md#exceptions) toosee istisnalar hello portalında anlık görüntüler.
 
 
 ### <a name="configure-snapshot-collection-for-aspnet-core-20-applications"></a>ASP.NET Core 2.0 uygulamaları için anlık görüntü koleksiyonunu yapılandırma
 
 1. [Application Insights ASP.NET Core web uygulamanızda etkinleştirmek](app-insights-asp-net-core.md), henüz yapmadınız.
 
-2. Dahil [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) uygulamanıza NuGet paketi.
+2. Merhaba dahil [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) uygulamanıza NuGet paketi.
 
-3. Değiştirme `ConfigureServices` uygulamanızın yönteminde `Startup` sınıfı anlık görüntü toplayıcının telemetri işlemci ekleyin. Eklemeniz gereken kod Microsoft.ApplicationInsights.ASPNETCore NuGet paketi başvurulan sürümüne bağlıdır.
+3. Merhaba değiştirme `ConfigureServices` uygulamanızın yönteminde `Startup` tooadd hello anlık görüntü toplayıcının telemetri işlemci sınıfı. Merhaba kodu eklemeniz gerekir hello başvurulan hello Microsoft.ApplicationInsights.ASPNETCore NuGet paketi sürümüne bağlıdır.
 
    Microsoft.ApplicationInsights.AspNetCore 2.1.0 ekleyin:
    ```C#
@@ -77,7 +77,7 @@ Anlık görüntü koleksiyonu için kullanılabilir:
    ...
    class Startup
    {
-       // This method is called by the runtime. Use it to add services to the container.
+       // This method is called by hello runtime. Use it tooadd services toohello container.
        public void ConfigureServices(IServiceCollection services)
        {
            services.AddSingleton<Func<ITelemetryProcessor, ITelemetryProcessor>>(next => new SnapshotCollectorTelemetryProcessor(next));
@@ -98,7 +98,7 @@ Anlık görüntü koleksiyonu için kullanılabilir:
                new SnapshotCollectorTelemetryProcessor(next);
        }
 
-       // This method is called by the runtime. Use it to add services to the container.
+       // This method is called by hello runtime. Use it tooadd services toohello container.
        public void ConfigureServices(IServiceCollection services)
        {
             services.AddSingleton<ITelemetryProcessorFactory>(new SnapshotCollectorTelemetryProcessorFactory());
@@ -109,11 +109,11 @@ Anlık görüntü koleksiyonu için kullanılabilir:
 
 ### <a name="configure-snapshot-collection-for-other-net-applications"></a>Diğer .NET uygulamaları için anlık görüntü koleksiyonunu yapılandırma
 
-1. Uygulamanızı Application Insights ile zaten izlenmemektedir, başlayın [Application Insights etkinleştirme ve izleme anahtarı ayarını](app-insights-windows-desktop.md).
+1. Uygulamanızı Application Insights ile zaten izlenmemektedir, başlayın [Application Insights ve ayar hello izleme anahtarını etkinleştirme](app-insights-windows-desktop.md).
 
-2. Ekleme [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) uygulamanıza NuGet paketi.
+2. Merhaba eklemek [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) uygulamanıza NuGet paketi.
 
-3. Anlık görüntüler için Application Insights bildirilen özel durum toplanır. Bunları raporlamak için kodunuzu değiştirmeniz gerekebilir. Özel durum işleme kodunu yapısını uygulamanızın bağlıdır, ancak bir örnek aşağıda verilmiştir:
+3. Anlık görüntüler, bildirilen tooApplication Öngörüler yalnızca özel durumları toplanır. Kod tooreport toomodify gerekebilir bunları. Uygulamanızı hello yapısını hello özel durum kodu işleme bağlıdır, ancak bir örnek aşağıda verilmiştir:
     ```C#
    TelemetryClient _telemetryClient = new TelemetryClient();
 
@@ -121,96 +121,96 @@ Anlık görüntü koleksiyonu için kullanılabilir:
    {
         try
         {
-            // TODO: Handle the request.
+            // TODO: Handle hello request.
         }
         catch (Exception ex)
         {
-            // Report the exception to Application Insights.
+            // Report hello exception tooApplication Insights.
             _telemetryClient.TrackException(ex);
 
-            // TODO: Rethrow the exception if desired.
+            // TODO: Rethrow hello exception if desired.
         }
    }
     ```
     
 ## <a name="grant-permissions"></a>İzinleri
 
-Azure abonelik sahipleri anlık görüntüleri inceleyebilirsiniz. Diğer kullanıcıların bir sahibi tarafından izin verilmesi gerekir.
+Hello Azure abonelik sahipleri anlık görüntüleri inceleyebilirsiniz. Diğer kullanıcıların bir sahibi tarafından izin verilmesi gerekir.
 
-İzin vermek için Ata `Application Insights Snapshot Debugger` anlık görüntüleri araştırmasını kullanıcılara rol. Bu rolü, bireysel kullanıcılar veya gruplar için Application Insights kaynağı hedef abonelik sahipleri tarafından veya kendi kaynak grubuna veya aboneliğe atanabilir.
+toogrant izni, Ata hello `Application Insights Snapshot Debugger` anlık görüntüleri araştırmasını rol toousers. Bu rol, tooindividual kullanıcıları veya grupları hello hedef Application Insights kaynağı için abonelik sahipleri tarafından veya kaynak grubu ya da abonelik atanabilir.
 
-1. Erişim denetimi (IAM) dikey penceresini açın.
-1. Tıklatın + Ekle düğmesi.
-1. Uygulama Öngörüler anlık görüntü hata ayıklayıcı rolleri aşağı açılan listeden seçin.
-1. Arayın ve eklemek kullanıcı için bir ad girin.
-1. Kullanıcı rolüne eklemek için Kaydet düğmesine tıklayın.
+1. Merhaba erişim denetimi (IAM) dikey penceresini açın.
+1. Merhaba + Ekle düğmesini tıklatın.
+1. Uygulama Öngörüler anlık görüntü hata ayıklayıcı hello rolleri aşağı açılan listeden seçin.
+1. Arayın ve hello kullanıcı tooadd için bir ad girin.
+1. Merhaba Kaydet düğmesine tooadd hello kullanıcı toohello rolüne tıklayın.
 
 
 [!IMPORTANT]
     Anlık görüntüler olası değişken ve parametre değerlerini kişisel ve diğer hassas bilgiler içerebilir.
 
-## <a name="debug-snapshots-in-the-application-insights-portal"></a>Application Insights portalında anlık görüntüleri hata ayıklama
+## <a name="debug-snapshots-in-hello-application-insights-portal"></a>Anlık görüntüler hello Application Insights portalında hata ayıklama
 
-Belirli bir özel durum ya da bir sorun kimliği için bir anlık görüntü kullanılabiliyorsa, bir **açık hata ayıklama anlık görüntü** düğmesi görünür [özel durum](app-insights-asp-net-exceptions.md) Application Insights portalında.
+Belirli bir özel durum ya da bir sorun kimliği için bir anlık görüntü kullanılabiliyorsa, bir **açık hata ayıklama anlık görüntü** düğmesinin üzerinde hello [özel durum](app-insights-asp-net-exceptions.md) hello Application Insights portalında.
 
 ![Özel durum açık hata ayıklama anlık görüntü düğmesine](./media/app-insights-snapshot-debugger/snapshot-on-exception.png)
 
-Anlık görüntü hata ayıklama Görünümü'nde, çağrı yığını ve değişkenleri bölmesini görürsünüz. Çağrı yığını çerçeveler çağrı yığını Bölmesi'nde seçtiğinizde, yerel değişkenleri görüntüleyebilir ve bu işlev parametrelerini değişkenleri bölmesinde çağırın.
+Hello hata ayıklama anlık Görünüm'de, çağrı yığını ve değişkenleri bölmesine bakın. Seçtiğinizde hello çağrı yığını Bölmesi'nde hello çağrının çerçeveler yığın, yerel değişkenleri görüntüleyebilir ve bu işlev parametrelerini hello değişkenleri bölmesinde çağırın.
 
-![Hata ayıklama görünümü anlık portalında](./media/app-insights-snapshot-debugger/open-snapshot-portal.png)
+![Görünüm hata ayıklama anlık hello portalı](./media/app-insights-snapshot-debugger/open-snapshot-portal.png)
 
-Varsayılan olarak görüntülenebilir olmadıkları ve anlık görüntüleri hassas bilgiler içerebilir. Anlık görüntüler görüntülemek için bilmeniz gereken `Application Insights Snapshot Debugger` rolü size atanmış.
+Varsayılan olarak görüntülenebilir olmadıkları ve anlık görüntüleri hassas bilgiler içerebilir. tooview anlık görüntüler, hello olmalıdır `Application Insights Snapshot Debugger` atanan rolü tooyou.
 
 ## <a name="debug-snapshots-with-visual-studio-2017-enterprise"></a>Visual Studio 2017 Enterprise sahip anlık görüntüleri hata ayıklama
-1. Tıklatın **karşıdan anlık görüntü** karşıdan yüklemek için düğmeyi bir `.diagsession` Visual Studio 2017 kuruluş tarafından açılabilir dosya. 
+1. Merhaba tıklatın **karşıdan anlık görüntü** düğmesini toodownload bir `.diagsession` Visual Studio 2017 kuruluş tarafından açılabilir dosya. 
 
-2. Açmak için `.diagsession` dosya, şunları yapmalısınız ilk [anlık görüntü hata ayıklayıcısı uzantısı için Visual Studio yükleyip](https://aka.ms/snapshotdebugger).
+2. tooopen hello `.diagsession` dosya, şunları yapmalısınız ilk [hello anlık görüntü hata ayıklayıcısı uzantısı için Visual Studio yükleyip](https://aka.ms/snapshotdebugger).
 
-3. Anlık görüntü dosyayı açtıktan sonra Visual Studio'da mini döküm hata ayıklama sayfası görüntülenir. Tıklatın **yönetilen kod hata ayıklama** anlık görüntü hata ayıklama başlatılamıyor. Anlık görüntü işlemi geçerli durumunu ayıklayabilirsiniz böylece burada özel durum oluştu kod satırına açar.
+3. Başlangıç anlık görüntü dosyasını açın sonra Visual Studio'da hello mini döküm hata ayıklama sayfası görünür. Tıklatın **yönetilen kod hata ayıklama** hello anlık görüntü hata ayıklama toostart. Başlangıç anlık görüntü toohello kod satırı, böylece hello işleminin geçerli durumunu hello ayıklayabilirsiniz burada hello özel durum oluştu açar.
 
     ![Visual Studio'da hata ayıklama anlık görünümü](./media/app-insights-snapshot-debugger/open-snapshot-visualstudio.png)
 
-İndirilen anlık görüntü web uygulaması sunucunuzda bulunan tüm simge dosyaları içerir. Bu simge dosyaları, anlık görüntü verileri kaynak kodu ile ilişkilendirmek için gereklidir. Uygulama hizmeti uygulamalarınız için web uygulamaları yayımlarken simgesi dağıtım etkinleştirdiğinizden emin olun.
+Merhaba indirilen anlık görüntü web uygulaması sunucunuzda bulundu herhangi sembol dosyalarını içerir. Kaynak kodu ile gerekli tooassociate anlık görüntü verilerini bu simge dosyalarıdır. Web uygulamalarınızı yayımladığınızda, uygulama hizmeti uygulamalarınız için emin tooenable simgesi dağıtımı yapın.
 
 ## <a name="how-snapshots-work"></a>Anlık görüntüler nasıl çalışır
 
-Uygulamanız başladığında, ayrı anlık görüntü yükleyici işlemi, uygulamanız için anlık görüntü istekleri izleyen oluşturulur. Bir anlık görüntü istendiğinde, bir çalışan işlemi gölge kopyasını yaklaşık 10 ila 20 dakika içinde yapılır. Gölge işleminin ardından analiz ve çalıştırmanız ve kullanıcılar için trafiği hizmet ana işlem devam ederken bir anlık görüntüsü oluşturulur. Anlık görüntü, ardından Application Insights'a anlık görüntüyü görüntülemek için gereken ilgili simge (.pdb) dosyalarla birlikte yüklenir.
+Uygulamanız başladığında, ayrı anlık görüntü yükleyici işlemi, uygulamanız için anlık görüntü istekleri izleyen oluşturulur. Bir anlık görüntü istendiğinde işlem çalışan hello bir gölge kopyasını yaklaşık 10 too20 dakika içinde yapılır. Merhaba gölge işleminin ardından analiz ve bir anlık görüntü toorun hello ana işlem devam ederken oluşturulur ve trafik toousers hizmet. tüm ilgili simge (.pdb) dosyalar ile birlikte yüklenen tooApplication Öngörüler tooview gerekirse hello anlık görüntüsüdür hello anlık görüntü.
 
 ## <a name="current-limitations"></a>Geçerli sınırlamalar
 
 ### <a name="publish-symbols"></a>Simgeler yayımlama
-Anlık görüntü hata ayıklayıcı değişkenleri kod çözme ve Visual Studio'da hata ayıklama deneyimini sağlamak üzere üretim sunucusunda simge dosyaları gerektirir. Uygulama hizmeti yayımladığında Visual Studio 2017 15.2 sürümü yayın derlemeleri simgelerini varsayılan olarak yayımlar. Önceki sürümlerde, aşağıdaki satırı yayımlama profilinizi eklemenize gerek `.pubxml` simgeleri yayın modunda yayımlanan dosyasını:
+Başlangıç anlık görüntü hata ayıklayıcı simge dosyaları hello üretim sunucusu toodecode değişkenleri ve tooprovide Visual Studio'da hata ayıklama deneyimini gerektirir. tooApp hizmet yayımladığında hello 15.2 sürümü Visual Studio 2017, sürüm derlemeleri simgelerini varsayılan olarak yayımlar. Önceki sürümlerde, tooadd hello aşağıdakiler satır tooyour yayımlama profili `.pubxml` simgeleri yayın modunda yayımlanan dosyasını:
 
 ```xml
     <ExcludeGeneratedDebugSymbol>False</ExcludeGeneratedDebugSymbol>
 ```
 
-Azure işlem ve diğer türleri için simge dosyaları ana uygulama .dll aynı klasörde olduğundan emin olun (genellikle `wwwroot/bin`) ya da geçerli yolda kullanılabilir.
+Azure işlem ve diğer türleri için hello simge dosyaları hello olduğundan emin olun hello ana uygulama .dll aynı klasörü (genellikle `wwwroot/bin`) veya hello geçerli yolda kullanılabilir.
 
 ### <a name="optimized-builds"></a>En iyi duruma getirilmiş derlemeleri
-Bazı durumlarda, yerel değişkenleri oluşturma işlemi sırasında uygulanan en iyi duruma getirme nedeniyle yayın derlemelerde görüntülenemiyor.
+Bazı durumlarda, yerel değişkenleri hello oluşturma işlemi sırasında uygulanan en iyi duruma getirme nedeniyle yayın derlemelerde görüntülenemiyor.
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Bu ipuçları anlık görüntü hata ayıklayıcısı ile sorunları gidermenize yardımcı olur.
+Bu ipuçları hello anlık görüntü hata ayıklayıcı sorunlarını gidermenize yardımcı olur.
 
-### <a name="verify-the-instrumentation-key"></a>İzleme anahtarını doğrulayın
+### <a name="verify-hello-instrumentation-key"></a>Merhaba izleme anahtarını doğrulayın
 
-Yayımlanan uygulamanızda doğru izleme anahtarını kullandığınızdan emin olun. Genellikle, Application Insights izleme anahtarı Applicationınsights.config dosyasını okur. Değer Portalı'nda bkz Application Insights kaynağı izleme anahtarı ile aynı olduğunu doğrulayın.
+Yayımlanan uygulamanızda hello doğru izleme anahtarını kullandığınızdan emin olun. Genellikle, Application Insights hello izleme anahtarını hello Applicationınsights.config dosyasını okur. Hello değeri olan Merhaba, aynı hello Portalı'nda bkz hello Application Insights kaynağı için hello araçları anahtar olarak doğrulayın.
 
-### <a name="check-the-uploader-logs"></a>Yükleyici günlüklerini kontrol edin
+### <a name="check-hello-uploader-logs"></a>Merhaba yükleyici günlüklerini kontrol edin
 
-Bir anlık görüntü oluşturulduktan sonra bir mini döküm dosyası (.dmp) disk üzerinde oluşturulur. Ayrı yükleyici işlem, mini döküm dosyası alır ve bunu uygulama Öngörüler anlık görüntü hata ayıklayıcı depolama ilişkili tüm pdb birlikte yükler. Mini döküm başarıyla yükledi sonra diskten silinir. Mini döküm Yükleyici günlük dosyaları diskte korunur. Bir uygulama hizmeti ortamı'nda, bu günlükler bulabilirsiniz `D:\Home\LogFiles\Uploader_*.log`. Bu günlük dosyaları bulmak için uygulama hizmeti Kudu yönetim sitesi kullanın.
+Bir anlık görüntü oluşturulduktan sonra bir mini döküm dosyası (.dmp) disk üzerinde oluşturulur. Ayrı yükleyici işlem, mini döküm dosyası alır ve bunu, tooApplication Öngörüler anlık görüntü hata ayıklayıcı depolama gibi ilişkili tüm pdb birlikte yükler. Merhaba mini döküm başarıyla yükledi sonra diskten silinir. Merhaba mini döküm yükleyici için Hello günlük dosyaları diskte korunur. Bir uygulama hizmeti ortamı'nda, bu günlükler bulabilirsiniz `D:\Home\LogFiles\Uploader_*.log`. Kullanım hello Kudu yönetim sitesi için uygulama hizmeti toofind bu günlük dosyaları.
 
-1. Uygulama hizmeti uygulamanızı Azure Portal'da açın.
+1. Uygulama hizmeti uygulamanızı hello Azure portalını açın.
 
-2. Seçin **Gelişmiş Araçlar** dikey veya arama **Kudu**.
+2. Select hello **Gelişmiş Araçlar** dikey veya arama **Kudu**.
 3. tıklatın **Git**.
-4. İçinde **hata ayıklama konsoluna** aşağı açılan liste kutusunda **CMD**.
+4. Merhaba, **hata ayıklama konsoluna** aşağı açılan liste kutusunda **CMD**.
 5. Tıklatın **LogFiles**.
 
-İle başlayan bir ada sahip en az bir dosya görmelisiniz `Uploader_` ve `.log` uzantısı. Tüm günlük dosyalarını indirin veya bir tarayıcıda açmak için uygun simgeye tıklayın.
-Dosya adı makine adını içerir. Uygulama hizmeti örneğinizi birden fazla makine üzerinde barındırılıyorsa, her makine için farklı günlük dosyaları vardır. Yeni bir mini döküm dosyası karşıya yükleyen algıladığında, günlük dosyasına kaydedilir. Başarılı bir karşıya yükleme bir örneği burada verilmiştir:
+İle başlayan bir ada sahip en az bir dosya görmelisiniz `Uploader_` ve `.log` uzantısı. Tüm günlük dosyalarını Hello uygun simgeye toodownload tıklatın veya bir tarayıcıda açın.
+Merhaba dosya adı hello makine adını içerir. Uygulama hizmeti örneğinizi birden fazla makine üzerinde barındırılıyorsa, her makine için farklı günlük dosyaları vardır. Merhaba yükleyici yeni bir mini döküm dosyası algıladığında hello günlük dosyasına kaydedilir. Başarılı bir karşıya yükleme bir örneği burada verilmiştir:
 
 ```
 MinidumpUploader.exe Information: 0 : Dump available 139e411a23934dc0b9ea08a626db16c5.dmp
@@ -229,10 +229,10 @@ MinidumpUploader.exe Information: 0 : Deleted D:\local\Temp\Dumps\c12a605e73c443
     DateTime=2017-05-25T14:25:44.6095821Z
 ```
 
-İzleme anahtarını önceki örnekte olduğu `c12a605e73c44346a984e00000000000`. Bu değer, uygulamanız için izleme anahtarını eşleşmelidir.
-Mini döküm Kimliğine sahip bir anlık görüntüsü ile ilişkili `139e411a23934dc0b9ea08a626db16c5`. Daha sonra uygulama Öngörüler analizleri ilişkili özel durum telemetrisi bulmak için bu kodu kullanabilirsiniz.
+Merhaba izleme anahtarını Hello önceki örnekte olduğu `c12a605e73c44346a984e00000000000`. Bu değer, uygulamanız için hello izleme anahtarını eşleşmelidir.
+Merhaba mini döküm hello Kimliğine sahip bir anlık görüntüsü ile ilişkili `139e411a23934dc0b9ea08a626db16c5`. Bu kimliği kullanabilirsiniz sonraki toolocate hello ilişkili uygulama Öngörüler analytics'te özel durum telemetrisi.
 
-Karşıya yükleyen her 15 dakikada hakkında yeni pdb tarar. Örnek aşağıda verilmiştir:
+Merhaba Yükleyici her 15 dakikada hakkında yeni pdb tarar. Örnek aşağıda verilmiştir:
 
 ```
 MinidumpUploader.exe Information: 0 : PDB rescan requested.
@@ -247,30 +247,30 @@ MinidumpUploader.exe Information: 0 : Deleted PDB scan marker D:\local\Temp\Dump
     DateTime=2017-05-25T15:11:38.8316450Z
 ```
 
-Uygulamalar için _değil_ App Service içinde barındırılan, yükleyici Mini dökümler ile aynı klasörde günlüklerin: `%TEMP%\Dumps\<ikey>` (burada `<ikey>` araçları anahtarınız).
+Uygulamalar için _değil_ App Service içinde barındırılan, hello yükleyici hello günlüklerin hello Mini dökümler aynı klasöre: `%TEMP%\Dumps\<ikey>` (burada `<ikey>` araçları anahtarınız).
 
-### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Anlık görüntüler istisnalar bulmak için Application Insights arama kullanın
+### <a name="use-application-insights-search-toofind-exceptions-with-snapshots"></a>Anlık görüntü toofind istisnalar kullanım Application Insights arama
 
-Bir anlık görüntü oluşturulduğunda oluşturma özel durum ile bir anlık görüntü kimliği etiketli Ne zaman özel durum telemetrisi Application Insights için anlık görüntü kimliği bir özel özellik olarak dahil olduğunu bildirdi. Arama dikey Application Insights'ta kullanarak, tüm telemetri ile bulabilirsiniz `ai.snapshot.id` özel özellik.
+Bir anlık görüntü oluşturulduğunda, özel durum atma hello bir anlık görüntü kimliği ile etiketlenir Merhaba özel durum telemetrisi bildirilen tooApplication Öngörüler olduğunda, bu anlık görüntü kimliği bir özel özellik olarak dahil edilir. Merhaba Ara dikey Application Insights'ta kullanarak, tüm telemetri hello ile bulabilirsiniz `ai.snapshot.id` özel özellik.
 
-1. Azure portalında Application Insights kaynağınıza göz atın.
+1. Tooyour Application Insights kaynağını hello Azure portalına göz atın.
 2. Tıklatın **arama**.
-3. Tür `ai.snapshot.id` arama metin kutusuna ve Enter tuşuna basın.
+3. Tür `ai.snapshot.id` arama metin kutusuna hello ve Enter tuşuna basın.
 
-![Bir anlık görüntü kimliği portalındaki telemetriyle arayın](./media/app-insights-snapshot-debugger/search-snapshot-portal.png)
+![Bir anlık görüntü kimliği hello portalındaki telemetriyle arayın](./media/app-insights-snapshot-debugger/search-snapshot-portal.png)
 
-Bu arama sonuç döndürürse, hiç anlık görüntü seçili zaman aralığı içinde uygulamanız için Application Insights bildirildi.
+Bu arama sonuç döndürürse, hiç anlık görüntü uygulamanıza hello seçili zaman aralığı için raporlanan tooApplication Insights yoktu.
 
-Yükleyici günlüklerini belirli bir anlık görüntüye Kimliğinden aramak için arama kutusunu bu kimliği yazın. Karşıya yüklenen bildiğiniz bir anlık görüntü için telemetri bulamazsanız, aşağıdaki adımları izleyin:
+Merhaba yükleyici günlükleri, belirli bir anlık görüntüye Kimliğinden toosearch bu kimliği hello arama kutusuna yazın. Karşıya yüklenen bildiğiniz bir anlık görüntü için telemetri bulamazsanız, aşağıdaki adımları izleyin:
 
-1. İzleme anahtarını doğrulayarak sağ Application Insights kaynağı arıyorsanız denetleyin.
+1. Merhaba sağ Application Insights kaynağı hello izleme anahtarını doğrulayarak arıyorsanız denetleyin.
 
-2. Zaman damgası yükleyici günlüğündeki kullanarak, bu zaman aralığı karşılamak üzere arama zaman aralığı filtre ayarlayın.
+2. Merhaba zaman damgası hello yükleyici günlüğündeki kullanarak, bu zaman aralığı hello arama toocover hello zaman aralığı filtresi ayarlayın.
 
-Bu anlık görüntü Kimliğine sahip bir özel durum hala göremiyorsanız, özel durum telemetrisi Application Insights'a bildirilen değildi. Bu durum, anlık görüntü sürdü sonra uygulamanızın kilitlendi, ancak özel durum telemetrisi bildirilen önce gerçekleşebilir. Bu durumda, altında uygulama hizmeti günlüklerini kontrol `Diagnose and solve problems` beklenmeyen yeniden başlatmalar olup olmadığını görmek için veya işlenmeyen özel durum.
+Bu anlık görüntü Kimliğine sahip bir özel durum hala göremiyorsanız hello özel durum telemetrisi bildirilen tooApplication Öngörüler değildi. Bu durum, hello anlık görüntü sürdü sonra uygulamanızın kilitlendi, ancak hello özel durum telemetrisi bildirilen önce gerçekleşebilir. Bu durumda, uygulama hizmeti günlüklerini altında hello denetleyin `Diagnose and solve problems` olsaydı beklenmeyen toosee yeniden başlatır veya işlenmeyen özel durum.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Kodunuzda snappoints ayarlamak](https://azure.microsoft.com/blog/snapshot-debugger-for-azure/) için bir özel durum beklemeden anlık görüntüleri alınamıyor.
-* [Özel durumlar, web uygulamalarında tanılama](app-insights-asp-net-exceptions.md) daha fazla özel durumlar Application Insights tarafından görülebilmesi için açıklanmaktadır. 
+* [Kodunuzda snappoints ayarlamak](https://azure.microsoft.com/blog/snapshot-debugger-for-azure/) için bir özel durum bekleniyor olmadan tooget anlık görüntüler.
+* [Özel durumlar, web uygulamalarında tanılama](app-insights-asp-net-exceptions.md) açıklar nasıl toomake daha fazla özel durumları görünür tooApplication Öngörüler. 
 * [Akıllı algılama](app-insights-proactive-diagnostics.md) performans anormalliklerini otomatik olarak bulur.

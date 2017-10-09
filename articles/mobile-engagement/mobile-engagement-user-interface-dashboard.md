@@ -1,6 +1,6 @@
 ---
-title: "Azure Mobile Engagement kullanıcı arabirimi - Panosu"
-description: "Görüntülemek ve Azure Mobile Engagement kullanarak uygulamanızı ilgili veriler grafiklerini yönetme hakkında bilgi edinin"
+title: "aaaAzure Mobile Engagement kullanıcı arabirimi - Panosu"
+description: "Bilgi nasıl tooview ve Azure Mobile Engagement kullanarak uygulamanızı ilgili veriler grafiklerini yönetme"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: eaf5a2f9fdfcec33e8b4e2ddf77505980cd37c5e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d834c01cb748a962d50006398b75b381fa6d8cef
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-view-and-manage-charts-of-data-about-your-application"></a>Görüntüleme ve uygulamanız ile ilgili verilerin grafiklerini yönetme
-UI Pano bölümü kendi saat için analytics bölümünde arama yerine istedikleri tam bilgileri sağlayarak en üst düzeye çıkarmak özelleştirilmiş grafik oluşturmalarına olanak tanır. Bir Pano (saat/gün/hafta/ay/özelleştirilmiş) uygulamanız ve belirli bir zaman sırasında uygulamanız farklı sürümleri için etkin sayılarını kullanıcı eğilimlerini gösterir. Gösterilen eğilimleri son 7 gün temel alır.
+# <a name="how-tooview-and-manage-charts-of-data-about-your-application"></a>Nasıl tooview ve uygulamanız ile ilgili verilerin grafiklerini yönetme
+Merhaba hello kullanıcı Arabirimi sağlayan müşteriler toocreate özelleştirilmiş Pano bölümü grafikleri toomaximize istediğiniz için hello analytics bölümünde arama yerine hello tam bilgileri sağlayarak kendi saat. Bir Pano uygulama ve hello etkin kullanıcı sayısı için belirli bir süre (saat/gün/hafta/ay/özelleştirilmiş) sırasında uygulamanızın farklı sürümlerini hello hello eğilimlerini gösterir. gösterilen hello eğilimleri hello üzerinde son 7 gün temel alır.
 
 ### <a name="see-also"></a>Ayrıca bkz.
 * [Sorun giderme kılavuzu - Analytics'i][Link 21]
 
 ## <a name="dashboard"></a>Pano
-* Bir Panoda görmek istediğiniz UI Analytics bölümünde herhangi bir grafiğin dişli menüsünden "panoya Gönder" eylemini seçerek boş panoya grafikler ekleyebilirsiniz.
+* Merhaba toosee bir Panoda istediğiniz UI hello Analytics bölümünde herhangi bir grafiğin hello dişli menüsünden hello "toodashboard Gönder" eylemini seçerek grafikleri tooan boş Pano ekleyebilirsiniz.
 
 ## <a name="-add-a-dashboard"></a>+ (Bir Pano ekleyin)
-* Şerit menüsünde gösterecektir yeni bir Pano oluşturmak için "+" Şerit menü öğesini kullanabilirsiniz.
+* Sizin hello kullan "+" menü öğesi toocreate hello Şerit menüsünde gösterecektir yeni bir Pano Şerit.
 
 ## <a name="gear-menu"></a>Dişli menüsü
-* Silmek için yeniden adlandırmak, paylaşım, panonun dişli menüsünü kullanabilirsiniz veya panosunun zamanlama (e-posta alma). Hangi özel panonuzu e-posta ile almak istediğiniz zamanlamayı tanımlayın için zamanlama seçeneğini kullanabilirsiniz. Günlük, haftalık veya aylık almak üzere zamanlayabilirsiniz. Gün hafta veya ne zaman e-posta almak istersiniz ayın günü ve saat seçebilirsiniz. E-posta adresiniz ve saat dilimi UI hesabım bölümünde yapılandırdığınız ayarlara dayanır.
+* Pano tooDelete, yeniden adlandırma, paylaşımı ya da zamanlama (e-posta alma) panosunun hello dişli menüsünü kullanabilirsiniz. Özel panonuzu e-posta ile Merhaba zamanlaması seçeneği toodefine hello zamanlaması tooreceive ister misiniz kullanabilirsiniz. Bu günlük, haftalık veya aylık tooreceive zamanlayabilirsiniz. Başlangıç saati hello gün ve hello hello haftanın gününü veya ne zaman tooreceive hello e-posta gibi hello ayın günü seçebilirsiniz. E-posta adresiniz ve saat dilimi hello hello UI hesabım bölümünde yapılandırdığınız hello ayarları dayanır.
   
   ![dashboard1][34]
 

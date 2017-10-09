@@ -1,6 +1,6 @@
 ---
-title: "Azure çoğaltma için VMware ağ planı | Microsoft Docs"
-description: "Bu makalede VMware Vm'lerini Azure'a çoğaltırken ağ gerekli planlama açıklanır"
+title: "VMware tooAzure çoğaltma için ağ aaaPlan | Microsoft Docs"
+description: "Bu makalede ağ VMware Vm'lerini tooAzure çoğaltırken gerekli planlama açıklanır"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,67 +14,67 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: raynew
-ms.openlocfilehash: f164ac68ba6ec650bb3996b4aa870e1b98533a23
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2b4f385c768cc7f5e98abae0afb8258b00f3724f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="step-4-plan-networking-for-vmware-to-azure-replication"></a>4. adım: Azure çoğaltma VMware için ağ planlama
+# <a name="step-4-plan-networking-for-vmware-tooazure-replication"></a>4. adım: ağ VMware tooAzure çoğaltma için planlama
 
-Bu makalede ağ çoğaltmaya VMware Vm'lerini Azure kullanarak şirket içi zaman planlama konuları özetler [Azure Site Recovery](site-recovery-overview.md) hizmet.
+Bu makalede ağ çoğaltmaya VMware Vm'lerini tooAzure hello kullanarak şirket içi zaman planlama konuları özetler [Azure Site Recovery](site-recovery-overview.md) hizmet.
 
-Tüm yorumlarınızı bu makalenin alt kısmında paylaşabilir veya [Azure Kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)'nda soru sorabilirsiniz.
+Bu makalenin hello altındaki tüm yorumlar gönderin ya da hello sorular sormak [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
-## <a name="connect-to-replica-vms"></a>Çoğaltma sanal makineleri Bağlan
+## <a name="connect-tooreplica-vms"></a>Tooreplica VM'ler Bağlan
 
-Çoğaltma ve yük devretme stratejinizi planlarken, önemli sorular yük devretme sonrasında Azure VM'ye bağlanma biridir. Çoğaltma Azure VM'ler için ağ stratejinizi tasarlarken, birkaç seçeneğiniz vardır:
+Çoğaltma ve yük devretme stratejinizi planlarken hello önemli sorular biri nasıl yük devretme sonrasında Azure VM'de tooconnect toohello. Çoğaltma Azure VM'ler için ağ stratejinizi tasarlarken, birkaç seçeneğiniz vardır:
 
-- **Farklı bir IP adresi kullanmak**: çoğaltılan Azure VM ağı için farklı bir IP adresi aralığı kullanmayı seçebilirsiniz. Bu senaryoda VM yük devretme sonrasında yeni bir IP adresi alır ve DNS güncelleştirme gereklidir.
-- **Aynı IP adresini korumak**: aynı IP adresi aralığı olarak birincil şirket içi sitenizdeki yük devretme sonrasında Azure ağı için kullanmak isteyebilirsiniz. Tutma aynı IP adreslerini basitleştirir kurtarma azaltarak ağ ile ilgili sorunları yük devretme sonrasında. Ancak, Azure'a çoğaltma yapıyorsanız, yolları yeni konumunu IP adresleri ile yük devretme sonrasında güncelleştirmeniz gerekir. 
+- **Farklı bir IP adresi kullanmak**: hello çoğaltılan Azure VM ağında için farklı bir IP adresi aralığı toouse seçebilirsiniz. Bu senaryo hello VM yük devretme sonrasında yeni bir IP adresi alır ve DNS güncelleştirme gerekli değildir.
+- **Aynı IP adresini korumak**: bunu istemeyebilirsiniz toouse hello aynı IP adresi aralığı olarak hello yük devretme sonrasında Azure ağ için birincil şirket içi sitenizdeki. Aynı IP adreslerini basitleştirir tutma hello azaltarak hello kurtarma yük devretme sonrasında ilgili sorunlar ağ. Ancak, tooAzure çoğaltırken, yük devretme sonrasında tooupdate yollar hello IP adreslerinin hello yeni konumla gerekir. 
 
 
 ## <a name="retain-ip-addresses"></a>IP adreslerini korur
 
-Site Recovery sabit IP korumak özelliği üzerinden Azure için bir alt ağ yük devretme kümelemesiyle başarısız olduğunda adresleri sağlar.
+Site Recovery, bir alt ağ yük devretme ile tooAzure üzerinden başarısız olduğunda hello yetenek tooretain sabit IP adresleri sağlar.
 
-Alt ağ yük devretmesi ile belirli bir alt aynı anda Site 1 veya her iki sitede ancak hiçbir Site 2 konumunda bulunur. IP adres alanı bir yük devretme durumunda korumak için program aracılığıyla alt ağların bir siteden diğerine taşımak yönlendirici altyapı düzenleyin. Yük devretme sırasında alt ağlar ile ilişkili korumalı sanal makineleri taşıyın. Bir arıza olması durumunda olan asıl sakıncası, tüm alt ağı taşımanız gerekir.
+Alt ağ yük devretmesi ile belirli bir alt aynı anda Site 1 veya her iki sitede ancak hiçbir Site 2 konumunda bulunur. Sipariş toomaintain hello IP adres alanı bir yük devretme hello olaydaki, program aracılığıyla hello yönlendirici altyapı toomove hello alt ağlardan bir site tooanother için düzenleyin. Yük devretme sırasında korumalı VM'lerin hello alt ağlar taşıma hello ile ilişkilendirilmiş. Merhaba asıl sakıncası bir hatanın hello olayı, toomove hello tüm alt ağı olmasıdır.
 
 
 ### <a name="failover-example"></a>Yük devretme örneği
 
-Azure'a yük devretme için bir örneğe bakalım.
+Yük devretme tooAzure için bir örneğe bakalım.
 
 - Ficticious şirket, Woodgrove Bank, iş uygulamalarını barındıran bir şirket içi altyapı sahiptir. Kullanıcıların mobil uygulamalar Azure üzerinde barındırılır.
-- Azure ve şirket içi sunucularda Woodgrove Bank VMs arasındaki bağlantıyı, şirket içi uç ağ ve Azure sanal ağı arasında bir siteden siteye (VPN) bağlantısı tarafından sağlanır.
-- Bu VPN Azure sanal ağında şirketin kendi şirket içi ağ bir uzantısı olarak görüneceği anlamına gelir.
-- Woodgrove şirket içi iş yüklerini Azure'a çoğaltmak için Site Recovery kullanmak istiyor.
- - Uygulamalar ve IP adreslerini sabit kodlanmış bağlıdır ve bu nedenle Azure için yük devretme sonrasında uygulamaları için IP adreslerini bekletmeniz gerekir yapılandırmalarını uğraşmanız Woodgrove sahiptir.
- - Woodgrove atanmış IP adresleri aralığı 172.16.1.0/24, Azure'da çalışan kendi kaynaklarına 172.16.2.0/24 gelen.
+- Azure ve şirket içi sunucularda Woodgrove Bank VM'ler arasında bağlantı hello şirket içi uç ağ hello Azure sanal ağı arasında bir siteden siteye (VPN) bağlantısı tarafından sağlanır.
+- Azure sanal ağında şirketin hello VPN deyişle kendi şirket içi ağ bir uzantısı olarak görünür.
+- Woodgrove toouse Site Recovery tooreplicate şirket içi iş yüklerini tooAzure istemektedir.
+ - Woodgrove toodeal uygulamaları ve IP adreslerini sabit kodlanmış bağlıdır ve dolayısıyla tooretain IP adresi için kendi uygulamalarında sonra Yük devretme tooAzure kullanması gereken yapılandırmaları vardır.
+ - Woodgrove atanmış IP adresleri aralığı 172.16.1.0/24 Azure'da çalışan 172.16.2.0/24 tooits kaynakları.
 
 
-Woodgrove olması için IP adresleri, burada 's ne korurken VM'LERİNİ Azure'a çoğaltmak için şirket yapması gerekir:
+Kendi sanal makineleri tooAzure korunuyor hello sırada IP adresleri Woodgrove toobe mümkün tooreplicate için işte hangi hello şirketin toodo gerekir:
 
-1. Bir Azure sanal ağı oluşturun. Böylece uygulamaları sorunsuz bir şekilde yük devredebildiğini şirket içi ağ uzantısı olmalıdır.
-2. Azure siteden siteye VPN bağlantısı, Azure üzerinde oluşturulan sanal ağlar için noktadan siteye bağlantı yanı sıra eklemenize olanak sağlar.
-3. Yalnızca şirket içi IP adres aralığından IP adresi aralığı farklıysa Azure ağında siteden siteye bağlantı kurarken şirket içi konumuna (yerel ağ) trafiği yönlendirebilir.
-    - Azure esnetilen alt ağları desteklemiyor olmasıdır. Bu nedenle alt 192.168.1.0/24 şirket içi varsa, Azure ağında bir yerel ağ 192.168.1.0/24 ekleyemezsiniz.
-    - Azure alt ağda etkin VM yok ve yalnızca olağanüstü durum kurtarma için alt ağ oluşturulmaktadır bilmiyor çünkü bu beklenir.
-    - Doğru alt ağ ve yerel ağ çakışma dpm'nin bir Azure ağı dışında ağ trafiğini yönlendirmek için.
+1. Bir Azure sanal ağı oluşturun. Böylece uygulamaları sorunsuz bir şekilde yük devredebildiğini hello uzantısı ağ, şirket içi olmalıdır.
+2. Azure, tooadd siteden siteye VPN bağlantısı, ayrıca Azure içinde oluşturulan toopoint site bağlantısı toohello sanal ağlar sağlar.
+3. Merhaba siteden siteye bağlantı kurma, hello Azure ağ, başlangıç IP adresi aralığı hello şirket içi IP adresi aralığından farklı olduğunda trafiği toohello şirket içi konumu (yerel ağ) yönlendirebilir.
+    - Azure esnetilen alt ağları desteklemiyor olmasıdır. Bu nedenle içi 192.168.1.0/24 alt ağı varsa, bir yerel ağ 192.168.1.0/24 hello Azure ağı eklenemiyor.
+    - Azure hello alt ağda etkin VM yok ve yalnızca olağanüstü durum kurtarma için oluşturulan hello alt bilmiyor çünkü bu beklenir.
+    - toobe mümkün toocorrectly ağ trafiğini yönlendirmek hello ağ ve hello yerel ağ bir Azure ağı hello alt dışında çakışma gerekir.
 
 ![Alt ağ yük devretme önce](./media/site-recovery-network-design/network-design7.png)
 
 ### <a name="before-failover"></a>Önce yük devretme
 
-1. Ek bir ağa (örneğin kurtarma ağ) oluşturun. Bu ağdır VM'ler başarısız olarak oluşturulur.
-2. Bir VM için IP adresi VM Özellikleri'nde, yük devretme sonrasında korunur emin olmak için > **yapılandırma**VM içi sahip aynı IP adresi belirtin ve tıklatın **kaydetmek**.
-3. VM üzerinden başarısız olduğunda, Azure Site Recovery için sağlanan IP adresi atar.
+1. Ek bir ağa (örneğin kurtarma ağ) oluşturun. Bu hello ağdır VM'ler başarısız olarak oluşturulur.
+2. IP adresi için bir VM hello tooensure hello VM Özellikleri'nde, yük devretme sonrasında tutulur > **yapılandırma**, aynı IP adresi VM içi sahip ve'ı tıklatın, hello hello belirtin **kaydetmek**.
+3. Merhaba VM üzerinden başarısız olduğunda, Azure Site Recovery IP adresi tooit sağlanan hello atayın.
 
     ![Ağ Özellikleri](./media/site-recovery-network-design/network-design8.png)
 
-4. Yük devretme tetikleyici tetiklenir ve gerekli IP adresi ile oluşturulan sanal makineleri Azure içinde olduktan sonra ağ kullanmaya bağlanabilir bir [Vnet'e bağlantı](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md). Bu eylem betiği yazılabilir.
-5. Yollar uygun şekilde değiştirilmesi, bu 192.168.1.0/24 artık Azure'a taşındı yansıtacak şekilde gerekir.
+4. Yük devretme tetikleyici tetiklenir ve hello VM'ler Azure'da hello gerekli IP adresi ile oluşturulur olduktan sonra ağ toohello kullanarak bağlanabilir bir [Vnet tooVnet bağlantı](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md). Bu eylem betiği yazılabilir.
+5. Yollar uygun şekilde değiştirilmiş toobe tooreflect gerekir, 192.168.1.0/24 şimdi tooAzure taşındı.
 
     ![Alt ağ yük devretme sonrasında](./media/site-recovery-network-design/network-design9.png)
 
@@ -84,8 +84,8 @@ Yukarıda gösterildiği gibi bir Azure ağı yoksa, yük devretme sonrasında b
 
 ## <a name="change-ip-addresses"></a>IP adreslerini değiştirin
 
-Bu [blog gönderisi](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) IP adreslerini yük devretme sonrasında korumak gerekmediğinde Azure ağ altyapısını ayarlamak açıklanmaktadır. Uygulama açıklaması ile başlayan, şirket içi ağ yukarı ve Azure nasıl ayarlanacağını bakar ve yük devretme işlemleri çalıştırma hakkında bilgi ile sonlanır.  
+Bu [blog gönderisi](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) tooset hello tooretain IP gerekmediğinde Azure ağ altyapısı yukarı yük devretme sonrasında nasıl ele açıklar. Uygulama açıklaması ile başlayan, nasıl tooset ağ şirket içi ve Azure arar ve yük devretme işlemleri çalıştırma hakkında bilgi ile sonlanır.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Git [5. adım: Azure hazırlama](vmware-walkthrough-prepare-azure.md)
+Çok Git[5. adım: Azure hazırlama](vmware-walkthrough-prepare-azure.md)

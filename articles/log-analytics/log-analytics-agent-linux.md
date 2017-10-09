@@ -1,6 +1,6 @@
 ---
-title: "Linux bilgisayarları Operations Management Suite (OMS) bağlanma | Microsoft Docs"
-description: "Bu makalede, Azure, diğer Bulut veya şirket içi Linux için OMS Aracısı'nı kullanarak OMS barındırılan Linux bilgisayarları bağlamak açıklar."
+title: "aaaConnect, Linux bilgisayarları tooOperations Yönetim Paketi (OMS) | Microsoft Docs"
+description: "Bu makalede, Azure, diğer Bulut veya şirket içi tooOMS hello OMS aracısı için Linux kullanarak barındırılan tooconnect Linux bilgisayarların nasıl açıklanmaktadır."
 services: log-analytics
 documentationcenter: 
 author: mgoedtel
@@ -14,31 +14,31 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/21/2017
 ms.author: magoedte
-ms.openlocfilehash: 1c05f68235aafd0fa098a3b0edaba1258df09380
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: cb4fc671d0678f9fadc689c6ba7d719213aa61b5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="connect-your-linux-computers-to-operations-management-suite-oms"></a>Linux bilgisayarları Operations Management Suite (OMS) bağlanma 
+# <a name="connect-your-linux-computers-toooperations-management-suite-oms"></a>Linux bilgisayarları tooOperations Yönetim Paketi (OMS) bağlanma 
 
-Microsoft Operations Management Suite (OMS) ile toplama ve hareket Linux bilgisayarları ve fiziksel sunucularda veya sanal makineleri, sanal makinelerinizde olarak şirket içi veri Merkezinize bulunan Docker gibi kapsayıcı çözümlerinden oluşturulan veriler üzerinde bir Amazon Web Hizmetleri (AWS) veya Microsoft Azure gibi bulutta barındırılan hizmet. Yönetim çözümleri OMS içinde kullanılabilir değişiklik izleme gibi yapılandırma değişiklikleri ve Linux VM'ler yaşam döngüsü ileriye dönük olarak yönetmek için yazılım güncelleştirmelerini yönetmek için güncelleştirme yönetimi tanımlamak için de kullanabilirsiniz. 
+Microsoft Operations Management Suite (OMS) ile toplama ve hareket Linux bilgisayarları ve fiziksel sunucularda veya sanal makineleri, sanal makinelerinizde olarak şirket içi veri Merkezinize bulunan Docker gibi kapsayıcı çözümlerinden oluşturulan veriler üzerinde bir Amazon Web Hizmetleri (AWS) veya Microsoft Azure gibi bulutta barındırılan hizmet. Güncelleştirme yönetimi toomanage yazılım güncelleştirmeleri tooproactively Linux VM'ler hello ömrünü yönetmek ve değişiklik izleme, tooidentify yapılandırma değişiklikleri gibi yönetim çözümleri OMS içinde kullanılabilir de kullanabilirsiniz. 
 
-Linux için OMS Aracısı TCP bağlantı noktası 443 giden OMS hizmetiyle iletişim kurar ve bilgisayar Internet üzerinden iletişim kurmak için bir güvenlik duvarı veya proxy sunucusu bağlanırsa gözden [aracı kullanmak için bir HTTP proxy sunucusu veya OMS ile yapılandırma Ağ geçidi](#configuring-the-agent-for-use-with-an-http-proxy-server-or-oms-gateway) hangi yapılandırma değişiklikleri anlamak için uygulanması gerekir.  System Center 2016 - Operations Manager veya Operations Manager 2012 R2'de, bilgisayarla izliyorsanız çok konaklı veri toplamak ve Hizmeti'ne iletmek ve Operations Manager tarafından yine izlenmesi için OMS hizmetiyle olabilir.  OMS ile tümleşik bir Operations Manager yönetim grubu tarafından izlenen Linux bilgisayarlar veri kaynakları için yapılandırma almaz ve yönetim grubu ile veri oplanan.  Rapor birden fazla çalışma alanına OMS Aracısı yapılandırılamaz.  
+Merhaba OMS Aracısı Linux TCP bağlantı noktası 443 giden hello OMS hizmeti ile iletişim kurar ve hello bilgisayar tooa güvenlik duvarı veya proxy sunucu toocommunicate hello Internet bağlanıyorsa, gözden [bir HTTP Proxy'si ile kullanmak için yapılandırma hello Aracısı Sunucu veya OMS ağ geçidi](#configuring-the-agent-for-use-with-an-http-proxy-server-or-oms-gateway) hangi yapılandırma değişiklikleri toounderstand uygulanan toobe gerekir.  System Center 2016 - Operations Manager veya Operations Manager 2012 R2'de, hello bilgisayarla izliyorsanız çok konaklı hello OMS hizmeti toocollect verilerini ve iletme toohello hizmetlerle olabilir ve Operations Manager tarafından yine izlenmelidir.  OMS ile tümleşik bir Operations Manager yönetim grubu tarafından izlenen Linux bilgisayarlar veri kaynakları için yapılandırma almaz ve İleri hello yönetim grubu ile veri toplanır.  Merhaba OMS Aracısı, bir çalışma alanı daha yapılandırılmış tooreport toomore olamaz.  
 
-BT güvenlik ilkelerinizi bilgisayarları Internet'e bağlanmak için ağınızdaki izin vermiyorsa, aracı yapılandırma bilgilerini almak ve etkinleştirdiğiniz çözümüne bağlı olarak toplanan verileri göndermek için OMS ağ geçidine bağlanmak için yapılandırılabilir. Daha fazla bilgi ve OMS hizmetine bir OMS ağ geçidi üzerinden iletişim kurmak için OMS Linux aracınızı yapılandırma adımları için bkz: [OMS ağ geçidini kullanarak OMS bilgisayarları bağlamak](log-analytics-oms-gateway.md).  
+BT güvenlik ilkeleri, ağ tooconnect toohello Internet bilgisayarları izin vermiyorsa hello Aracısı yapılandırılmış tooconnect toohello OMS ağ geçidi tooreceive yapılandırma bilgilerini kullanılabilir ve sahip olduğunuz hello çözümüne bağlı olarak toplanan verileri gönder etkin. Daha fazla bilgi ve tooconfigure, OMS Linux Aracısı toocommunicate bir OMS ağ geçidi toohello OMS hizmeti aracılığıyla nasıl görürüm adımlar [hello OMS ağ geçidi kullanarak bilgisayarları tooOMS bağlanmak](log-analytics-oms-gateway.md).  
 
-Aşağıdaki diyagram, OMS bağlantı noktaları ve yön dahil olmak üzere ve aracıyla yönetilen Linux bilgisayarlar arasındaki bağlantıyı gösterir.
+Merhaba Aşağıdaki diyagramda hello aracıyla yönetilen Linux bilgisayarları hello yönü ve bağlantı noktaları da dahil olmak üzere OMS arasında hello bağlantı gösterilmektedir.
 
 ![OMS diyagramı ile doğrudan aracı iletişimi](./media/log-analytics-agent-linux/log-analytics-agent-linux-communication.png)
 
 ## <a name="system-requirements"></a>Sistem gereksinimleri
-Başlamadan önce önkoşulları karşılaması doğrulamak için aşağıdaki ayrıntıları gözden geçirin.
+Başlamadan önce hello önkoşulları karşılaması ayrıntıları tooverify aşağıdaki hello gözden geçirin.
 
 ### <a name="supported-linux-operating-systems"></a>Desteklenen Linux işletim sistemleri
-Aşağıdaki Linux dağıtımları resmi olarak desteklenir.  Ancak, OMS Aracısı Linux için listelenmeyen diğer dağıtımlar da çalıştırabilirsiniz.
+Linux dağıtımları aşağıdaki hello resmi olarak desteklenir.  Ancak, hello OMS Aracısı Linux için listelenmeyen diğer dağıtımlar da çalıştırabilirsiniz.
 
-* Amazon Linux için 2015.09 2012.09 (x86/x64)
+* Amazon Linux 2012.09 too2015.09 (x86/x64)
 * CentOS Linux 5, 6 ve 7 (x86/x64)
 * Oracle Linux 5, 6 ve 7 (x86/x64)
 * Red Hat Enterprise Linux Server 5, 6 ve 7 (x86/x64)
@@ -47,7 +47,7 @@ Aşağıdaki Linux dağıtımları resmi olarak desteklenir.  Ancak, OMS Aracıs
 * SUSE Linux Enterprise Server 11 ve 12 (x86/x64)
 
 ### <a name="network"></a>Ağ
-Aşağıdaki listeden OMS ile iletişim kurmak Linux aracısı için gerekli proxy ve güvenlik duvarı yapılandırma bilgilerini bilgileri. OMS hizmete ağınızdan giden trafiğidir. 
+Liste hello proxy altındaki Hello bilgi ve güvenlik duvarı yapılandırma bilgilerini Merhaba OMS ile Linux Aracısı toocommunicate gereklidir. Ağ toohello OMS hizmetinizden trafik gidendir. 
 
 |Aracı Kaynağı| Bağlantı Noktaları |  
 |------|---------|  
@@ -67,14 +67,14 @@ Python ctypes | |
 PAM | Eklenebilir kimlik doğrulaması modülleri | 
 
 > [!NOTE]
->  Rsyslog veya syslog ng syslog iletileri toplamak için gereklidir. Red Hat Enterprise Linux, CentOS ve Oracle Linux sürümü (sysklog) 5 sürümünü varsayılan syslog arka plan syslog olay toplaması için desteklenmiyor. Bu dağıtımları bu sürümünden Syslog verileri toplamak için rsyslog arka plan programı yüklenmeli ve sysklog değiştirmek üzere yapılandırılmamışsa, 
+>  Rsyslog veya syslog ng gerekli toocollect syslog iletileri şunlardır. Red Hat Enterprise Linux, CentOS ve Oracle Linux sürümü (sysklog) 5 sürümünü Hello varsayılan syslog arka plan syslog olay toplaması için desteklenmiyor. Bu sürümü bu dağıtımları toocollect syslog verileri hello rsyslog arka plan programı yüklenmelidir ve tooreplace sysklog yapılandırılmış 
 
-Aracı birden çok paket içerir. Aşağıdaki paketler, kabuk Paketle çalıştırarak kullanılabilir sürüm dosyasını içeren `--extract`:
+Merhaba aracı birden çok paket içerir. Merhaba yayın dosyasını içeren paketler, çalışan hello Kabuk Paketle tarafından kullanılabilen aşağıdaki hello `--extract`:
 
 **Paket** | **Sürüm** | **Açıklama**
 ----------- | ----------- | --------------
-omsagent | 1.4.0 | Linux için Operations Management Suite Aracısı
-omsconfig | 1.1.1 | OMS aracısı için yapılandırma aracısı
+omsagent | 1.4.0 | Merhaba Linux için Operations Management Suite Aracısı
+omsconfig | 1.1.1 | Merhaba OMS aracısı için yapılandırma aracısı
 OMI | 1.2.0 | Yönetim Altyapısı (OMI) - hafif bir CIM sunucusu açın
 scx | 1.6.3 | İşletim sistemi performans ölçümleri için OMI CIM sağlayıcıları
 Apache cimprov | 1.0.1 | Apache HTTP Server performansı sağlayıcısı OMI için izleme. Apache HTTP Server algılanırsa, yüklü.
@@ -82,56 +82,56 @@ MySQL cimprov | 1.0.1 | MySQL sunucusu performans sağlayıcısı OMI için izle
 docker cimprov | 1.0.0 | OMI docker sağlayıcısı. Docker algılanırsa, yüklü.
 
 ### <a name="compatibility-with-system-center-operations-manager"></a>System Center Operations Manager ile uyumluluk
-Linux için OMS aracısının Aracısı ikili dosyaları System Center Operations Manager Aracısı ile paylaşır. OMS Aracısı'nı Linux için bir sistem üzerinde şu anda yüklerseniz, SCX ve OMI paketleri daha yeni bir sürüme bilgisayarda Operations Manager tarafından yönetiliyor. Bu sürümde, OMS ve System Center 2016 - Operations Manager/Operations Manager 2012 R2 aracıları Linux için uyumlu değildir. 
+Merhaba OMS Aracısı Linux Aracısı ikili dosyalarının hello System Center Operations Manager Aracısı ile paylaşır. Şu anda Operations Manager tarafından yönetilen bir sistemde Linux için hello OMS Aracısı yüklerseniz, bu hello hello bilgisayar tooa daha yeni sürümü OMI ve SCX paketleri. Bu sürüm, hello OMS ve System Center 2016 - Operations Manager/Operations Manager 2012 R2 aracıları Linux için uyumlu değildir. 
 
 > [!NOTE]
-> System Center 2012 SP1 ve önceki sürümleri şu anda Linux için OMS Aracısı ile desteklenen veya uyumlu değildir.<br>
-> Linux için OMS Aracısı şu anda Operations Manager tarafından izlenmeyen bir bilgisayara yüklenir ve ardından bilgisayarı Operations Manager ile izlemek istediğiniz, değiştirmeniz gerekir [OMI yapılandırma](#enable-the-oms-agent-for-linux-to-report-to-system-center-operations-manager) keşfetme önce bilgisayar. **Bu adım *değil* önce OMS Aracısı'nı Linux için Operations Manager Aracısı yüklüyse gerekli.**
+> System Center 2012 SP1 ve önceki sürümleri şu anda hello Linux için OMS Aracısı ile desteklenen veya uyumlu değildir.<br>
+> Hello OMS Aracısı Linux için Operations Manager tarafından izlenen değil yüklü tooa bilgisayar ise ve ardından toomonitor hello bilgisayar Operations Manager ile istediğiniz hello değiştirmelisiniz [OMI yapılandırma](#enable-the-oms-agent-for-linux-to-report-to-system-center-operations-manager) önceki toodiscovering hello bilgisayar. **Bu adım *değil* hello Operations Manager Aracısı Linux için OMS aracısının hello önce yüklediyseniz gerekli.**
 
 ### <a name="system-configuration-changes"></a>Sistem yapılandırması değişiklikleri
-Linux paketler için OMS Aracısı yükledikten sonra aşağıdaki ek sistem genelinde yapılandırma değişikliklerini uygulanır. Bu yapıtların omsagent paket kaldırıldığında kaldırılır.
+Linux paketler için OMS aracısının Hello yükledikten sonra hello aşağıdaki ek sistem genelinde yapılandırma değişiklikleri uygulanır. Bu yapıtların Hello omsagent paket kaldırıldığında kaldırılır.
 
-* Adlı bir ayrıcalıklı olmayan kullanıcı: `omsagent` oluşturulur. Olarak omsagent arka plan programı çalıştıran hesap budur.
-* "Ekle" sudoers dosya /etc/sudoers.d/omsagent oluşturulur. Syslog ve omsagent Daemon başlatmayı omsagent yetkilendirir. Sudo "Ekle" yönergeleri sudo yüklü sürümü desteklenmiyorsa, bu girişler için /etc/sudoers yazılır.
-* Syslog yapılandırma aracıya bir alt olayların iletecek şekilde değiştirilir. Daha fazla bilgi için bkz: **yapılandırma veri toplama** bölümüne bakın
+* Adlı bir ayrıcalıklı olmayan kullanıcı: `omsagent` oluşturulur. Merhaba hesap hello omsagent arka plan programı çalışırken budur.
+* "Ekle" sudoers dosya /etc/sudoers.d/omsagent oluşturulur. Bu, omsagent toorestart hello syslog ve omsagent Daemon yetkilendirir. Sudo "Ekle" yönergeleri sudo yüklü hello sürümünde desteklenmez, bu girişler çok/etc/sudoers yazılır.
+* Değiştirilen tooforward olayları toohello Aracısı'nın bir alt Hello syslog yapılandırmadır. Merhaba daha fazla bilgi için bkz: **yapılandırma veri toplama** bölümüne bakın
 
 ### <a name="upgrade-from-a-previous-release"></a>Önceki bir sürümünden yükseltme
-Bu sürümde 1.0.0-47 desteklenenden daha önceki sürümlerden yükseltin. Yükleme işlemine gerçekleştirme `--upgrade` komutu agent'ın tüm bileşenleri en son sürüme yükseltir.
+Bu sürümde 1.0.0-47 desteklenenden daha önceki sürümlerden yükseltin. Merhaba Hello yüklemesini gerçekleştirme `--upgrade` komutu hello aracı toohello en son sürümü tüm bileşenlerini yükseltir.
 
-## <a name="installing-the-agent"></a>Aracı yükleme
+## <a name="installing-hello-agent"></a>Merhaba Aracısı yükleniyor
 
-Bu bölümde, Debian ve RPM paketlerini her aracı bileşenlerini içeren bir bunndle kullanarak Linux için OMS Aracısı'nı yüklemeyi açıklar.  Doğrudan yüklü veya tek tek paketleri almaya ayıklanır.  
+Bu bölümde, nasıl tooinstall hello Debian ve RPM içeren bir bunndle kullanarak Linux için OMS Aracısı bileşenlerinden her biri hello aracı için paketler açıklanmaktadır.  Doğrudan yüklenebilir veya tooretrieve hello tek paketler ayıklanır.  
 
-Öncelikle, OMS çalışma alanı kimliği ve geçiş yaparak bulabilirsiniz anahtarınızı gerekir [OMS Klasik portal](https://mms.microsoft.com).  Üzerinde **genel bakış** sayfasından üst menü Seç **ayarları**ve ardından gidin **bağlı Sources\Linux sunuculara**.  Değerin sağındaki bkz **çalışma alanı kimliği** ve **birincil anahtar**.  Kopyalayın ve her ikisi de, sık kullanılan düzenleyicisine yapıştırın.    
+Öncelikle, OMS çalışma alanı kimliği ve toohello geçerek bulabilirsiniz anahtarınızı gerekir [OMS Klasik portal](https://mms.microsoft.com).  Merhaba üzerinde **genel bakış** sayfasından hello üst menü seçin **ayarları**ve ardından çok gidin**bağlı Sources\Linux sunuculara**.  Merhaba değeri toohello sağındaki bkz **çalışma alanı kimliği** ve **birincil anahtar**.  Kopyalayın ve her ikisi de, sık kullanılan düzenleyicisine yapıştırın.    
 
-1. En son karşıdan [Linux (x64) için OMS aracısının](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x64.sh) veya [Linux x86 için OMS aracısının](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x86.sh) github'dan.  
-2. Uygun paket (x86 veya x64) scp/sftp kullanarak Linux bilgisayarınıza aktarın.
-3. Kullanarak paket yükleme `--install` veya `--upgrade` bağımsız değişkeni. 
+1. Son yükleme hello [Linux (x64) için OMS aracısının](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x64.sh) veya [Linux x86 için OMS aracısının](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x86.sh) github'dan.  
+2. SCP/sftp kullanılarak hello uygun paket (x86 veya x64) tooyour Linux bilgisayarı aktarın.
+3. Hello kullanarak yükleme hello paket `--install` veya `--upgrade` bağımsız değişkeni. 
 
     > [!NOTE]
-    > Varolan tüm paketler, ne zaman Linux için System Center Operations Manager Aracısı zaten yüklü gibi yüklediyseniz kullanın `--upgrade` bağımsız değişkeni. Yükleme sırasında Operations Management Suite'e bağlamak için sağlamanız `-w <WorkspaceID>` ve `-s <Shared Key>` parametreleri.
+    > Varolan tüm paketler, ne zaman hello System Center Operations Manager Aracısı Linux için zaten yüklenmiş gibi yüklediyseniz hello kullanın `--upgrade` bağımsız değişkeni. Yükleme sırasında tooconnect tooOperations Management Suite sağlamak hello `-w <WorkspaceID>` ve `-s <Shared Key>` parametreleri.
 
 
-#### <a name="to-install-and-onboard-directly"></a>Yüklemek için ve yerleşik doğrudan
+#### <a name="tooinstall-and-onboard-directly"></a>tooinstall ve yerleşik doğrudan
 ```
 sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -w <workspace id> -s <shared key>
 ```
 
-#### <a name="to-upgrade-the-agent-package"></a>Aracı paketini yükseltmek için
+#### <a name="tooupgrade-hello-agent-package"></a>tooupgrade hello aracı paketi
 ```
 sudo sh ./omsagent-<version>.universal.x64.sh --upgrade
 ```
 
-#### <a name="to-install-and-onboard-to-a-workspace-in-us-government-cloud"></a>Yüklemek için ve bir çalışma alanına US Government bulutta yerleşik
+#### <a name="tooinstall-and-onboard-tooa-workspace-in-us-government-cloud"></a>tooinstall ve US Government bulutta yerleşik tooa çalışma
 ```
 sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -d opinsights.azure.us
 ```
 
-## <a name="configuring-the-agent-for-use-with-an-http-proxy-server-or-oms-gateway"></a>Aracı kullanmak için bir HTTP proxy sunucusu veya OMS ağ geçidi ile yapılandırma
-Linux için OMS Aracısı, bir HTTP veya HTTPS proxy sunucusu veya OMS hizmetine OMS ağ geçidi ile iletişim kurmasını destekler.  Anonim ve temel kimlik doğrulaması (kullanıcı adı/parola) desteklenir.  
+## <a name="configuring-hello-agent-for-use-with-an-http-proxy-server-or-oms-gateway"></a>Bir HTTP proxy sunucusu veya OMS ağ geçidi ile Merhaba aracı kullanmak için yapılandırma
+bir HTTP veya HTTPS proxy sunucusu veya OMS ağ geçidi toohello OMS hizmeti ile iletişim kurmasını Hello Linux için OMS aracısının destekler.  Anonim ve temel kimlik doğrulaması (kullanıcı adı/parola) desteklenir.  
 
 ### <a name="proxy-configuration"></a>Proxy yapılandırması
-Proxy yapılandırma değeri sözdizimi aşağıdaki gibidir:
+Merhaba proxy yapılandırma değeri sözdizimi aşağıdaki hello sahiptir:
 
 `[protocol://][user:password@]proxyhost[:port]`
 
@@ -140,22 +140,22 @@ Proxy yapılandırma değeri sözdizimi aşağıdaki gibidir:
 Protokol|HTTP veya https
 Kullanıcı|Proxy kimlik doğrulaması için isteğe bağlı kullanıcı adı
 password|Proxy kimlik doğrulaması için isteğe bağlı parola
-proxyhost|Adres veya proxy sunucu/OMS ağ geçidi FQDN'sini
-port|Proxy sunucu/OMS ağ geçidi için isteğe bağlı bağlantı noktası numarası
+proxyhost|Adresini veya FQDN'sini hello proxy sunucu/OMS ağ geçidi
+port|Merhaba proxy sunucu/OMS ağ geçidi için isteğe bağlı bağlantı noktası numarası
 
 Örneğin, `http://user01:password@proxy01.contoso.com:8080`
 
-Proxy sunucusu yüklemesi sırasında veya yükleme işleminden sonra proxy.conf yapılandırma dosyasını değiştirerek belirtilebilir.   
+Merhaba proxy sunucusu yüklemesi sırasında veya yükleme işleminden sonra hello proxy.conf yapılandırma dosyasını değiştirerek belirtilebilir.   
 
 ### <a name="specify-proxy-configuration-during-installation"></a>Yükleme sırasında proxy yapılandırmasını belirtin
-`-p` Veya `--proxy` bağımsız değişkeni omsagent yükleme paket için kullanılacak proxy yapılandırması belirtir. 
+Merhaba `-p` veya `--proxy` hello omsagent yükleme paketi için bağımsız değişken hello proxy yapılandırması toouse belirtir. 
 
 ```
 sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -p http://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
 ```
 
-### <a name="define-the-proxy-configuration-in-a-file"></a>Bir dosyada proxy yapılandırmasını tanımlayın
-Proxy yapılandırma dosyalarında ayarlanabilir `/etc/opt/microsoft/omsagent/proxy.conf` ve `/etc/opt/microsoft/omsagent/conf/proxy.conf `. Dosyaları doğrudan oluşturduğunuz veya düzenlediğiniz, ancak bunların izinlerini omiuser kullanıcı okuma dosyalarda izni vermek için güncelleştirilmesi gerekir. Örneğin:
+### <a name="define-hello-proxy-configuration-in-a-file"></a>Bir dosyada Hello proxy yapılandırmasını tanımlayın
+Merhaba proxy yapılandırması hello dosyalarında ayarlanabilir `/etc/opt/microsoft/omsagent/proxy.conf` ve `/etc/opt/microsoft/omsagent/conf/proxy.conf `. Merhaba dosyaları doğrudan oluşturduğunuz veya düzenlediğiniz, ancak izinlerini okuma izni hello dosyalarda güncelleştirilmiş toogrant hello omiuser kullanıcı olmalıdır. Örneğin:
 ```
 proxyconf="https://proxyuser:proxypassword@proxyserver01:8080"
 sudo echo $proxyconf >>/etc/opt/microsoft/omsagent/proxy.conf
@@ -164,48 +164,48 @@ sudo chmod 600 /etc/opt/microsoft/omsagent/proxy.conf /etc/opt/microsoft/omsagen
 sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
 ```
 
-### <a name="removing-the-proxy-configuration"></a>Proxy yapılandırması kaldırılıyor
-Önceden tanımlanmış proxy yapılandırmasını kaldırın ve doğrudan bağlantı geri döndürmek için proxy.conf dosyayı kaldırın:
+### <a name="removing-hello-proxy-configuration"></a>Merhaba proxy yapılandırması kaldırılıyor
+tooremove önceden tanımlanmış proxy yapılandırmasını ve toodirect bağlantı geri, hello proxy.conf dosyasını kaldırın:
 ```
 sudo rm /etc/opt/microsoft/omsagent/proxy.conf /etc/opt/microsoft/omsagent/conf/proxy.conf
 sudo /opt/microsoft/omsagent/bin/service_control restart 
 ```
 
 ## <a name="onboarding-with-operations-management-suite"></a>Operations Management Suite ile ekleme
-Bir çalışma alanı kimliği ve anahtarı paket yükleme sırasında sağlanan değil, aracı sonradan Operations Management Suite ile kayıtlı olması gerekir.
+Bir çalışma alanı kimliği ve anahtarı hello paket yükleme sırasında sağlanan değil, hello Aracısı sonradan Operations Management Suite ile kayıtlı olması gerekir.
 
-### <a name="onboarding-using-the-command-line"></a>Komut satırını kullanarak ekleme
-Çalışma alanınız için anahtarı ve çalışma alanı kimliği sağladığını omsadmin.sh komutunu çalıştırın. Bu komut (sudo yükseltmesi ile) kök olarak çalıştırmanız gerekir:
+### <a name="onboarding-using-hello-command-line"></a>Merhaba komut satırını kullanarak ekleme
+Çalışma alanınız için anahtarı ve Hello çalışma alanı kimliği sağladığını hello omsadmin.sh komutunu çalıştırın. Bu komut (sudo yükseltmesi ile) kök olarak çalıştırmanız gerekir:
 ```
 cd /opt/microsoft/omsagent/bin
 sudo ./omsadmin.sh -w <WorkspaceID> -s <Shared Key>
 ```
 
 ### <a name="onboarding-using-a-file"></a>Bir dosyayı kullanarak ekleme
-1.  Dosyayı oluşturma `/etc/omsagent-onboard.conf`. Dosya okunabilir ve yazılabilir bir kök olmalıdır.
+1.  Merhaba dosyası oluşturma `/etc/omsagent-onboard.conf`. Merhaba dosya okunabilir ve yazılabilir bir kök olmalıdır.
 `sudo vi /etc/omsagent-onboard.conf`
-2.  Çalışma alanı kimliği ve paylaşılan anahtar ile dosyasında aşağıdaki satırları ekleyin:
+2.  Çalışma alanı kimliği ve paylaşılan anahtar ile Merhaba dosyasında satırlardan hello ekleyin:
 
         WORKSPACE_ID=<WorkspaceID>  
         SHARED_KEY=<Shared Key>  
    
-3.  OMS Onboard için aşağıdaki komutu çalıştırın:`sudo /opt/microsoft/omsagent/bin/omsadmin.sh`
-4.  Dosya üzerinde başarıyla Hazırlanmanız silinir.
+3.  Aşağıdaki komut tooOnboard tooOMS hello çalıştırın:`sudo /opt/microsoft/omsagent/bin/omsadmin.sh`
+4.  Merhaba dosyası üzerinde başarıyla Hazırlanmanız silinir.
 
-## <a name="enable-the-oms-agent-for-linux-to-report-to-system-center-operations-manager"></a>System Center Operations Manager için rapor Linux için OMS aracısının etkinleştir
-System Center Operations Manager yönetim grubu için rapor Linux için OMS aracısının yapılandırmak için aşağıdaki adımları gerçekleştirin.  
+## <a name="enable-hello-oms-agent-for-linux-tooreport-toosystem-center-operations-manager"></a>Linux tooreport tooSystem Center Operations Manager için OMS aracısının Hello etkinleştir
+Linux tooreport tooa System Center Operations Manager yönetim grubu için adımları tooconfigure hello OMS aracısı aşağıdaki hello gerçekleştirin.  
 
-1. Dosyayı düzenleyin.`/etc/opt/omi/conf/omiserver.conf`
-2. Satır başlayarak emin **httpsport =** bağlantı noktası 1270 tanımlar. Örneğin:`httpsport=1270`
-3. OMI sunucuyu yeniden başlatın:`sudo /opt/omi/bin/service_control restart`
+1. Merhaba dosyasını düzenleyin`/etc/opt/omi/conf/omiserver.conf`
+2. Bu hello satır başlayarak olun **httpsport =** hello bağlantı noktası 1270 tanımlar. Örneğin:`httpsport=1270`
+3. Merhaba OMI sunucuyu yeniden başlatın:`sudo /opt/omi/bin/service_control restart`
 
 ## <a name="agent-logs"></a>Aracı günlükleri
-Linux için OMS aracısının günlüklerinde bulunabilir: `/var/opt/microsoft/omsagent/<workspace id>/log/` omsconfig (Aracısı yapılandırması) programı günlüklerinde bulunabilir: `/var/opt/microsoft/omsconfig/log/` (performans ölçüm verilerini sağlayan) OMI ve scx farklı bileşenlerin günlüklerinde bulunabilir:`/var/opt/omi/log/ and /var/opt/microsoft/scx/log`
+Linux için OMS aracısının hello bulunabilir için günlükleri Hello: `/var/opt/microsoft/omsagent/<workspace id>/log/` hello omsconfig (Aracısı yapılandırması) programı bulunabilir için günlükleri hello: `/var/opt/microsoft/omsconfig/log/` (performans ölçüm verilerini sağlayan) hello OMI ve scx farklı bileşenlerin günlüklerinde bulunabilir:`/var/opt/omi/log/ and /var/opt/microsoft/scx/log`
 
 ### <a name="log-rotation-configuration"></a>Günlük döndürme yapılandırma ##
-Günlük döndürme yapılandırması omsagent için yolda bulunabilir:`/etc/logrotate.d/omsagent-<workspace id>`
+Merhaba günlük döndürme yapılandırması omsagent yolda bulunabilir:`/etc/logrotate.d/omsagent-<workspace id>`
 
-Varsayılan ayarlar şunlardır: 
+Merhaba varsayılan ayarlar şunlardır: 
 ```
 /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log {
     rotate 5
@@ -217,8 +217,8 @@ Varsayılan ayarlar şunlardır:
 }
 ```
 
-## <a name="uninstalling-the-oms-agent-for-linux"></a>Linux için OMS aracısı kaldırma
-Paket .sh dosyasıyla çalıştırarak aracı paketlerini kaldırılabilir `--purge` aracı ve yapılandırmasıyla bilgisayarınızdan tamamen kaldırır bağımsız değişkeni.   
+## <a name="uninstalling-hello-oms-agent-for-linux"></a>Linux için Hello OMS aracısı kaldırma
+Merhaba aracı paketlerini çalışan hello paket .sh dosyasıyla hello tarafından kaldırılabilir `--purge` hello bilgisayardan hello aracısı ve yapılandırmasını tamamen kaldırır bağımsız değişkeni.   
 
 ```
 > sudo rpm -e omsconfig
@@ -228,18 +228,18 @@ Paket .sh dosyasıyla çalıştırarak aracı paketlerini kaldırılabilir `--pu
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-### <a name="issue-unable-to-connect-through-proxy-to-oms"></a>Sorun: OMS proxy'si aracılığıyla bağlanılamıyor
+### <a name="issue-unable-tooconnect-through-proxy-toooms"></a>Sorunu: Proxy tooOMS aracılığıyla oluşturulamıyor tooconnect
 
 #### <a name="probable-causes"></a>Olası nedenler
-* Onboarding işlemi sırasında belirtilen proxy yanlış
-* OMS hizmet uç noktaları, veri merkezinizdeki whitelistested değildir 
+* onboarding işlemi sırasında belirtilen hello proxy yanlış
+* Merhaba OMS hizmet uç noktaları, veri merkezinizdeki whitelistested değildir 
 
 #### <a name="resolutions"></a>Çözümler
-1. Reonboard seçeneği ile aşağıdaki komutu kullanarak Linux için OMS Aracısı ile OMS hizmetine `-v` etkin. Bu OMS hizmetine proxy üzerinden bağlanma Aracısı'nın ayrıntılı çıktı sağlar. 
+1. Merhaba seçeneğiyle komut aşağıdaki hello kullanarak Linux için OMS aracısının hello ile Reonboard toohello OMS hizmetine `-v` etkin. Bu ayrıntılı çıktı hello proxy toohello OMS hizmeti bağlanma hello Aracısı'nın sağlar. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
-2. Bölümünü gözden [aracı kullanmak için bir HTTP Ara sunucusunu yapılandırma server(#configuring the-agent-for-use-with-a-http-proxy-server) düzgün bir şekilde yapılandırdığınız bir proxy sunucu üzerinden iletişim kurmak için aracıyı doğrulanamadı.    
-* Aşağıdaki OMS hizmet uç noktalarına Güvenilenler listesine olduğunu kontrol edin:
+2. Merhaba bölümüne [bir HTTP Proxy'si ile kullanmak için yapılandırma hello Aracısı server(#configuring the-agent-for-use-with-a-http-proxy-server) tooverify düzgün yapılandırılmış bir proxy sunucu üzerinden Aracısı toocommunicate hello.    
+* OMS hizmet uç noktaları hello çift onay Güvenilenler listesine şunlardır:
 
     |Aracı Kaynağı| Bağlantı Noktaları |  
     |------|---------|  
@@ -248,7 +248,7 @@ Paket .sh dosyasıyla çalıştırarak aracı paketlerini kaldırılabilir `--pu
     |ods.systemcenteradvisor.com | Bağlantı noktası 443|   
     |*.BLOB.Core.Windows.NET/ | Bağlantı noktası 443|   
 
-### <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>Sorun: Bir 403 hatası için yerleşik çalışırken alıyorsunuz
+### <a name="issue-you-receive-a-403-error-when-trying-tooonboard"></a>Sorun: Bir 403 hatası tooonboard çalışırken alıyorsunuz
 
 #### <a name="probable-causes"></a>Olası nedenler
 * Tarih ve saat, Linux sunucusu üzerinde yanlış 
@@ -256,26 +256,26 @@ Paket .sh dosyasıyla çalıştırarak aracı paketlerini kaldırılabilir `--pu
 
 #### <a name="resolution"></a>Çözüm
 
-1. Linux sunucunuzla komutu tarih zamanını denetleyin. Saati geçerli saatten 15 dakika +/-ise ekleme başarısız olur. Doğru Bu güncelleştirme için tarih ve/veya saat dilimi Linux sunucunuzun. 
-2. Linux için OMS aracısının en son sürümünün yüklü olduğunu doğrulayın.  En yeni sürümü şimdi zaman farkı, onboarding hataya neden olduğunu bildirir.
-3. Doğru çalışma alanı kimliği ve çalışma alanı bu konunun önceki kısımlarında yükleme yönergeleri izleyerek anahtarı kullanarak Reonboard.
+1. Başlangıç saati hello komutu tarihi ile Linux sunucunuzda denetleyin. Başlangıç zamanı geçerli zamandan 15 dakika +/-ise ekleme başarısız olur. toocorrect Bu güncelleştirme hello tarih ve/veya saat dilimi Linux sunucunuzun. 
+2. Linux için hello hello OMS Aracısı en son sürümünü yüklediğinizden emin olun.  saat eğriltme hello ekleme hatasına neden oluyorsa hello en yeni sürümü şimdi sizi bilgilendirir.
+3. Doğru çalışma alanı kimliği ve çalışma alanı bu konunun önceki kısımlarında hello yükleme yönergeleri izleyerek anahtarı kullanarak Reonboard.
 
-### <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>Sorun: Sağ onboarding sonra 500 ve 404 Hata günlük dosyasına bakın
+### <a name="issue-you-see-a-500-and-404-error-in-hello-log-file-right-after-onboarding"></a>Sorun: Sağ onboarding sonra 500 ve 404 hata hello günlük dosyasına bakın
 Bu OMS çalışma alanına Linux verilerin ilk karşıya yükleme sırasında oluşan bilinen bir sorundur. Bu verilerin gönderilen veya servis deneyimi olmasıyla etkilemez.
 
-### <a name="issue--you-are-not-seeing-any-data-in-the-oms-portal"></a>Sorun: Herhangi bir veri OMS portalında gördüğünüz değil
+### <a name="issue--you-are-not-seeing-any-data-in-hello-oms-portal"></a>Sorun: Herhangi bir veri hello OMS portalında gördüğünüz değil
 
 #### <a name="probable-causes"></a>Olası nedenler
 
-- OMS hizmetine ekleme başarısız oldu
-- OMS hizmetine bağlantı engellendi
+- Onboarding toohello OMS hizmeti başarısız oldu
+- Bağlantı toohello OMS hizmetine engellendi
 - Linux veriler için OMS aracısının yedeklenir
 
 #### <a name="resolutions"></a>Çözümler
-1. Aşağıdaki dosya olup olmadığını kontrol ederek ekleme OMS hizmetine başarılı olup olmadığını kontrol edin:`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
-2. Reonboard kullanarak `omsadmin.sh` komut satırı yönergeleri
-3. Bir proxy sunucu kullanıyorsanız, daha önce sağlanan proxy çözüm adımlarına bakın.
-4. Linux için OMS aracısının OMS hizmetiyle iletişim kuramadığında bazı durumlarda, aracı veri 50 MB'tır tam arabellek boyutu için sıraya alındı. Linux için OMS aracısı aşağıdaki komutu çalıştırarak yeniden başlatılması gerekir: `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 
+1. Ekleme hello OMS hizmetine hello aşağıdaki dosya olup olmadığını kontrol ederek başarılı olup olmadığını kontrol edin:`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
+2. Hello kullanarak Reonboard `omsadmin.sh` komut satırı yönergeleri
+3. Bir proxy sunucu kullanıyorsanız, daha önce sağlanan toohello proxy çözüm adımları bakın.
+4. Linux için OMS aracısının Hello hello OMS hizmeti ile iletişim kuramadığında bazı durumlarda, hello aracısında 50 MB'dir sıraya alınan toohello tam arabellek boyutu verilerdir. Linux için OMS aracısının Hello hello aşağıdaki komutu çalıştırarak başlatılması: `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 
 
     >[!NOTE]
     >Aracı sürümü 1.1.0-28 ve daha sonra bu sorun düzeltilmiştir.

@@ -1,53 +1,53 @@
 <!--author=alkohli last changed: 01/18/17 -->
 
-#### <a name="to-install-updates-via-the-azure-portal"></a>Azure portalı aracılığıyla güncelleştirmeleri yüklemek için
+#### <a name="tooinstall-updates-via-hello-azure-portal"></a>hello Azure portal aracılığıyla tooinstall güncelleştirmeleri
 
-1. StorSimple Cihaz Yöneticinize gidip **Cihazlar**’ı seçin. Hizmetinize bağlı cihazların listesinden güncelleştirmek istediğiniz cihazı seçip tıklayın. 
+1. Tooyour StorSimple Aygıt Yöneticisi'ni gidip seçin **aygıtları**. Merhaba aygıtları bağlı tooyour hizmetinin, listeden seçin ve tooupdate hello cihaza tıklayın. 
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate1m.png) 
 
-2. **Ayarlar** dikey penceresinde **Cihaz güncelleştirmeleri**'ne tıklayın. 
+2. Merhaba, **ayarları** dikey penceresinde tıklatın **aygıt güncelleştirmeleri**. 
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate2m.png)  
 
-3. Yazılım güncelleştirmeleri varsa bir ileti görürsünüz. Güncelleştirmeleri denetlemek için **Tara**’ya da tıklayabilirsiniz.
+3. Merhaba yazılım güncelleştirmeleri kullanılabilir değilse, bir ileti görürsünüz. toocheck güncelleştirmeleri de tıklayabilirsiniz **tarama**.
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate3m1.png)
 
-    Tarama başlayıp başarıyla tamamlandığında size bildirilir.
+    Merhaba tarama başlatır ve başarıyla tamamlandığında olduğunda size bildirilecek.
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate5m.png)
 
-4. Güncelleştirmeleri tarandıktan sonra **Güncelleştirmeleri indir**’e tıklayın. 
+4. Merhaba güncelleştirmeleri taranır sonra tıklayın **güncelleştirmelerini yükleme**. 
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate6m.png)
 
-5. **Yeni güncelleştirmeler** dikey penceresinde güncelleştirmeler indirildikten sonra bilgileri gözden geçirin; yüklemeyi onaylamanız gerekir. **Tamam** düğmesine tıklayın.
+5. Merhaba, **yeni güncelleştirmeler** dikey penceresinde hello bilgileri gözden geçir hello güncelleştirmeler İndirildikten sonra tooconfirm hello yüklemesi gerekir. **Tamam** düğmesine tıklayın.
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate7m.png)
 
-6. Karşıya yükleme başlayıp başarıyla tamamlandığında size bildirilir.
+6. Merhaba karşıya yükleme başlar ve başarıyla tamamlandığında, size bildirilir.
 
      ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate8m.png)
 
-5. **Cihaz güncelleştirmeleri** dikey penceresinde **Yükle**’ye tıklayın.
+5. Merhaba, **aygıt güncelleştirmeleri** dikey penceresinde tıklatın **yüklemek**.
 
      ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate11m1.png)   
 
-6. **Yeni güncelleştirmeler** dikey penceresinde güncelleştirmenin kesintiye uğratacağı konusunda uyarı alırsınız. Sanal dizi tek düğümlü bir cihaz olduğundan, cihaz güncelleştirildikten sonra yeniden başlatılır. Bu işlem devam eden G/Ç işlemlerini kesintiye uğratır. Güncelleştirmeleri yüklemek için **Tamam**’a tıklayın. 
+6. Merhaba, **yeni güncelleştirmeler** dikey penceresinde hello güncelleştirmenin kesintiye uğratan uyarılırsınız. Sanal dizinin bir tek düğümlü cihaz olduğundan, bu güncelleştirildikten sonra hello aygıt yeniden başlatılır. Bu işlem devam eden G/Ç işlemlerini kesintiye uğratır. Tıklatın **Tamam** tooinstall hello güncelleştirmeler. 
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate12m.png) 
 
-7. Yükleme işi başladığında size bildirilir. 
+7. Merhaba yükleme işi başladığında size bildirilir. 
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate13m.png)
 
-8.  Yükleme işi başarıyla tamamlandıktan sonra yüklemeyi izlemek için **Cihaz güncelleştirmeleri** dikey penceresindeki **İşi Görüntüle** bağlantısına tıklayın. 
+8.  Merhaba yükleme işi başarıyla tamamlandıktan sonra **işi görüntüle** hello bağlantıyı **aygıt güncelleştirmeleri** dikey toomonitor hello yükleme. 
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate15m1.png)
 
-    Bu işlem sizi **Güncelleştirmeleri Yükle** dikey penceresine götürür. İşle ilgili ayrıntılı bilgileri burada görüntüleyebilirsiniz.
+    Bu toohello sürer **Güncelleştirmeleri Yükle** dikey. Burada hello işle ilgili ayrıntılı bilgileri görüntüleyebilirsiniz.
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate16m1.png)
 
-9. Güncelleştirmeler başarıyla yüklendikten sonra **Cihaz güncelleştirmeleri** dikey penceresinde bununla ilgili bir ileti görürsünüz. 
+9. Merhaba güncelleştirmeler başarıyla yüklendikten sonra bir ileti toothis efekti hello bkz **aygıt güncelleştirmeleri** dikey. 

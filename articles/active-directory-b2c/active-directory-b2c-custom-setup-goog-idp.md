@@ -14,41 +14,41 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
-ms.openlocfilehash: e0aaf710d230f7667fff32b50ddb64104509d740
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 4feff21979c9c3b3b12c7a1cae4db0121d1bd79b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Özel ilkelerini kullanma OAuth2 kimlik sağlayıcısı Google + Ekle
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Bu kılavuz size nasıl oturum açma hesabından Google + kullanım yoluyla kullanıcılar için etkinleştirileceğini gösterir [özel ilkeler](active-directory-b2c-overview-custom.md).
+Bu kılavuz size nasıl tooenable oturum açma için Google + hello kullanımını hesabıyla kullanıcılardan gösterir [özel ilkeler](active-directory-b2c-overview-custom.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bölümündeki adımları tamamlamanız [özel ilkeleri ile çalışmaya başlama](active-directory-b2c-get-started-custom.md) makalesi.
+Tam hello adımları hello [özel ilkeleri ile çalışmaya başlama](active-directory-b2c-get-started-custom.md) makalesi.
 
 Bu adımlar şunları içerir:
 
 1.  Google + hesabı uygulaması oluşturuluyor.
-2.  Azure AD B2C'ye Google + hesap uygulama anahtarı ekleme
-3.  Bir ilke ekleme talep sağlayıcısını
-4.  Google + hesap talep sağlayıcısı için bir kullanıcı gezisine kaydediliyor
-5.  İlke için bir Azure AD B2C karşıya yükleme Kiracı ve test
+2.  Merhaba Google + hesap uygulama anahtar tooAzure AD B2C ekleme
+3.  Talep sağlayıcı tooa ilkesi ekleme
+4.  Merhaba Google + hesap talep sağlayıcısı tooa kullanıcı gezisine kaydetme
+5.  Kiracı Hello İlkesi tooan Azure AD B2C karşıya yükleme ve test
 
 ## <a name="create-a-google-account-application"></a>Google + hesabı uygulaması oluşturma
-Google + Azure Active Directory (Azure AD) B2C bir kimlik sağlayıcısı olarak kullanmak için bir Google + uygulaması oluşturmak ve doğru parametrelerle sağlamanız gerekir. Bir Google + uygulama burada kaydedebilirsiniz: [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp)
+toouse Google + Azure Active Directory (Azure AD) B2C içinde kimlik sağlayıcısı, toocreate Google + uygulama gerekir ve hello doğru parametrelerle sağlayın. Bir Google + uygulama burada kaydedebilirsiniz: [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp)
 
-1.  Git [Google geliştiriciler konsol](https://console.developers.google.com/) ve Google + hesabı kimlik bilgilerinizle oturum açın.
+1.  Toohello Git [Google geliştiriciler konsol](https://console.developers.google.com/) ve Google + hesabı kimlik bilgilerinizle oturum açın.
 2.  Tıklatın **proje oluştur**, girin bir **proje adı**ve ardından **oluşturma**.
 
-3.  Tıklayın **projeleri menü**.
+3.  Tıklatın hello üzerinde **projeleri menü**.
 
     ![Google + hesabı - proje'yi seçin](media/active-directory-b2c-custom-setup-goog-idp/goog-add-new-app1.png)
 
-4.  Tıklayın  **+**  düğmesi.
+4.  Tıklatın hello üzerinde  **+**  düğmesi.
 
     ![Google + hesap - yeni proje oluşturma](media/active-directory-b2c-custom-setup-goog-idp//goog-add-new-app2.png)
 
@@ -56,16 +56,16 @@ Google + Azure Active Directory (Azure AD) B2C bir kimlik sağlayıcısı olarak
 
     ![Google + hesabı - yeni proje](media/active-directory-b2c-custom-setup-goog-idp//goog-app-name.png)
 
-6.  Proje hazır olana kadar bekleyin ve tıklayın **projeleri menü**.
+6.  Hello proje hazır olana kadar bekleyin ve hello üzerinde tıklatın **projeleri menü**.
 
-    ![Google + hesabı - yeni proje kullanıma hazır olana kadar bekleyin](media/active-directory-b2c-custom-setup-goog-idp//goog-select-app1.png)
+    ![Google + hesabı - yeni proje hazır toouse olana kadar bekleyin](media/active-directory-b2c-custom-setup-goog-idp//goog-select-app1.png)
 
 7.  Proje adına tıklayın.
 
-    ![Google + hesabı - yeni proje seçin](media/active-directory-b2c-custom-setup-goog-idp//goog-select-app2.png)
+    ![Google + hesabı - Select hello yeni proje](media/active-directory-b2c-custom-setup-goog-idp//goog-select-app2.png)
 
-8.  Tıklatın **API Yöneticisi** ve ardından **kimlik bilgileri** sol gezinti bölmesinde.
-9.  Tıklatın **OAuth izni ekran** üst sekmesini.
+8.  Tıklatın **API Yöneticisi** ve ardından **kimlik bilgileri** sol gezinti hello içinde.
+9.  Merhaba tıklatın **OAuth izni ekran** sekmesini hello üstünde.
 
     ![Google + hesabı - ayarlamak OAuth onay ekranı](media/active-directory-b2c-custom-setup-goog-idp/goog-add-cred.png)
 
@@ -81,37 +81,37 @@ Google + Azure Active Directory (Azure AD) B2C bir kimlik sağlayıcısı olarak
 
     ![Google + - uygulama türünü seçme](media/active-directory-b2c-custom-setup-goog-idp/goog-web-app.png)
 
-13.  Sağlayan bir **adı** uygulamanız için girin `https://login.microsoftonline.com` içinde **yetkili JavaScript çıkış** alan, ve `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` içinde **yetkili URI'ler yeniden yönlendirme** alan. Değiştir **{tenant}** , kiracının adlı (örneğin, contosob2c.onmicrosoft.com). **{Tenant}** duyarlıdır. **Oluştur**'a tıklayın.
+13.  Sağlamak bir **adı** , uygulamanız için girin `https://login.microsoftonline.com` hello içinde **yetkili JavaScript çıkış** alan, ve `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` hello içinde **yetkili URI'leryenidenyönlendirme**alan. Değiştir **{tenant}** , kiracının adlı (örneğin, contosob2c.onmicrosoft.com). Merhaba **{tenant}** duyarlıdır. **Oluştur**'a tıklayın.
 
     ![Google + - yetkili JavaScript çıkış sağlayın ve URI'ler yeniden yönlendirme](media/active-directory-b2c-custom-setup-goog-idp/goog-create-client-id.png)
 
-14.  Değerleri kopyalamak **istemci kimliği** ve **gizli**. Google + kimlik sağlayıcısı kiracınızda yapılandırmak için her ikisini de gerekir. **İstemci parolası** önemli güvenlik kimlik bilgileri.
+14.  Merhaba değerlerini kopyalamayı **istemci kimliği** ve **gizli**. Her iki tooconfigure Google + kimlik sağlayıcısı olarak kiracınızda gerekir. **İstemci parolası** önemli güvenlik kimlik bilgileri.
 
-    ![Google + - istemci kimliği ve istemci gizli anahtarı değerlerini kopyalayın](media/active-directory-b2c-custom-setup-goog-idp/goog-client-secret.png)
+    ![Google + - istemci kimliği ve istemci gizli kopya hello değerleri](media/active-directory-b2c-custom-setup-goog-idp/goog-client-secret.png)
 
-## <a name="add-the-google-account-application-key-to-azure-ad-b2c"></a>Azure AD B2C'ye Google + hesap uygulama anahtarı Ekle
-Google + hesaplarıyla Federasyon Google + hesabına güven Azure AD B2C uygulama adına bir istemci parolası gerektirir. Azure AD B2C kiracısı Google + uygulama gizli anahtarı depolamak gerekir:  
+## <a name="add-hello-google-account-application-key-tooazure-ad-b2c"></a>Merhaba Google + hesap uygulama anahtar tooAzure AD B2C ekleme
+Google + hesaplarıyla Federasyon istemci parolasını Google + hesap tootrust için Azure AD B2C hello uygulama adına gerektirir. Azure AD B2C kiracısı içinde Google + uygulama gizli toostore gerekir:  
 
-1.  Azure AD B2C kiracınızın gidin ve seçin **B2C ayarlarını** > **kimlik deneyimi Framework**
-2.  Seçin **İlkesi anahtarları** kiracınızda kullanılabilir tuşlarını görmek için.
+1.  Tooyour Azure AD B2C Kiracı gidip seçin **B2C ayarlarını** > **kimlik deneyimi Framework**
+2.  Seçin **İlkesi anahtarları** tooview hello anahtarları kiracınızda kullanılabilir.
 3.  Tıklatın **+ Ekle**.
 4.  İçin **seçenekleri**, kullanın **el ile**.
 5.  İçin **adı**, kullanmak `GoogleSecret`.  
-    Önek `B2C_1A_` otomatik olarak eklenebilir.
-6.  İçinde **gizli** kutusuna, https://apps.dev.microsoft.com Microsoft uygulama gizli anahtarı girin
+    Merhaba önek `B2C_1A_` otomatik olarak eklenebilir.
+6.  Merhaba, **gizli** kutusuna, https://apps.dev.microsoft.com Microsoft uygulama gizli anahtarı girin
 7.  İçin **anahtar kullanımı**, kullanın **imza**.
 8.  **Oluştur**'a tıklayın
-9.  Anahtar oluşturduğunuz onaylayın `B2C_1A_GoogleSecret`.
+9.  Başlangıç anahtarı oluşturduğunuz onaylayın `B2C_1A_GoogleSecret`.
 
 ## <a name="add-a-claims-provider-in-your-extension-policy"></a>Bir talep sağlayıcı uzantısı ilkenizde ekleme
 
-Google + hesabını kullanarak oturum açmalarını istiyorsanız, bir talep sağlayıcısı olarak Google + hesap tanımlamanız gerekir. Diğer bir deyişle, Azure AD B2C ile iletişim kuran bir uç nokta belirtmeniz gerekir. Uç nokta Azure AD B2C tarafından belirli bir kullanıcı kimliği doğrulanmış olduğunu doğrulamak için kullanılan talep kümesini sağlar.
+Kullanıcıların toosign Google + hesabı kullanarak isterseniz, bir talep sağlayıcısı olarak toodefine Google + hesabınızın olması gerekir. Diğer bir deyişle, Azure AD B2C ile iletişim kuran bir uç nokta toospecify gerekir. Merhaba endpoint belirli bir kullanıcı doğrulaması Azure AD B2C tooverify tarafından kullanılan talepler kümesi sağlar.
 
 Google + hesabı ekleyerek bir talep sağlayıcısı olarak tanımlamak `<ClaimsProvider>` İlkesi uzantısının düğümünde:
 
-1.  Uzantı ilke dosyası (TrustFrameworkExtensions.xml) çalışma dizininizi açın. Bir XML Düzenleyici, gerekirse [Visual Studio Code deneyin](https://code.visualstudio.com/download), basit bir platformlar arası Düzenleyici.
-2.  Bul `<ClaimsProviders>` bölümü
-3.  Altında aşağıdaki XML parçacığını ekleyin `ClaimsProviders` öğesi ve Değiştir `client_id` dosyayı kaydetmeden önce Google + hesabı uygulama istemci kimliği ile değer.  
+1.  Hello İlkesi uzantısının (TrustFrameworkExtensions.xml) çalışma dizininizi açın. Bir XML Düzenleyici, gerekirse [Visual Studio Code deneyin](https://code.visualstudio.com/download), basit bir platformlar arası Düzenleyici.
+2.  Hello bulur `<ClaimsProviders>` bölümü
+3.  Aşağıdaki XML parçacığını hello altında hello eklemek `ClaimsProviders` öğesi ve Değiştir `client_id` hello dosyayı kaydetmeden önce Google + hesabı uygulama istemci kimliği değeri.  
 
 ```xml
 <ClaimsProvider>
@@ -155,7 +155,7 @@ Google + hesabı ekleyerek bir talep sağlayıcısı olarak tanımlamak `<Claims
             <ErrorResponseFormat>json</ErrorResponseFormat>
             <ResponseMatch>$[?(@@.error == 'invalid_grant')]</ResponseMatch>
             <Action>Reauthenticate</Action>
-            <!--In case of authorization code used error, we don't want the user to select his account again.-->
+            <!--In case of authorization code used error, we don't want hello user tooselect his account again.-->
             <!--AdditionalRequestParameters Key="prompt">select_account</AdditionalRequestParameters-->
         </ErrorHandler>
         </ErrorHandlers>
@@ -164,34 +164,34 @@ Google + hesabı ekleyerek bir talep sağlayıcısı olarak tanımlamak `<Claims
 </ClaimsProvider>
 ```
 
-## <a name="register-the-google-account-claims-provider-to-sign-up-or-sign-in-user-journey"></a>Kaydolun veya kullanıcı gezisine imzalamak için Google + hesap talep sağlayıcısını Kaydet
+## <a name="register-hello-google-account-claims-provider-toosign-up-or-sign-in-user-journey"></a>Yukarı Hello Google + hesap talep sağlayıcısı tooSign kaydetmek veya kullanıcı gezisine oturum
 
-Kimlik sağlayıcısı ayarlandığına.  Ancak, oturumu-up/oturum açma ekranları hiçbirinde kullanılabilir değil. Google + hesabı kimlik sağlayıcısı, kullanıcı ekleme `SignUpOrSignIn` kullanıcı gezisine. Kullanılabilir hale getirmek için var olan bir şablonu kullanıcı gezisine tekrarı oluşturuyoruz.  Daha sonra Google + hesabı kimlik sağlayıcısı ekleyin:
+Merhaba kimlik sağlayıcısı ayarlandığına.  Ancak, hello oturumu-up/oturum açma ekranları hiçbirinde kullanılabilir değil. Merhaba Google + hesabı kimlik sağlayıcısı tooyour kullanıcı ekleme `SignUpOrSignIn` kullanıcı gezisine. toomake kullanılabilir, biz var olan bir şablonu kullanıcı gezisine bir kopyasını oluşturun.  Daha sonra hello Google + hesabı kimlik sağlayıcısı ekleyin:
 
 >[!NOTE]
 >
->Kopyaladığınız varsa `<UserJourneys>` ilkenizin temel dosyanın bir öğeden uzantısının (TrustFrameworkExtensions.xml) için bu bölümü atlayabilirsiniz.
+>Merhaba kopyaladıysanız `<UserJourneys>` öğesi ilke toohello uzantısı dosyanız (TrustFrameworkExtensions.xml) temel dosyasından toothis bölümü atlayabilirsiniz.
 
-1.  Temel dosya ilkenizin (örneğin, TrustFrameworkBase.xml) açın.
-2.  Bul `<UserJourneys>` öğesi ve tüm içeriğini kopyalayın `<UserJourneys>` düğümü.
-3.  Uzantı dosyası (örneğin, TrustFrameworkExtensions.xml) açın ve Bul `<UserJourneys>` öğesi. Öğe yoksa, ekleyin.
-4.  Tüm içeriğini yapıştırın `<UserJournesy>` bir alt öğesi olarak kopyaladığınız düğümü `<UserJourneys>` öğesi.
+1.  Merhaba temel dosyanın ilkenizin (örneğin, TrustFrameworkBase.xml) açın.
+2.  Hello bulur `<UserJourneys>` öğesi ve kopyalama hello tüm içeriği `<UserJourneys>` düğümü.
+3.  Merhaba uzantısının (örneğin, TrustFrameworkExtensions.xml) açın ve hello bulur `<UserJourneys>` öğesi. Merhaba öğe yoksa, ekleyin.
+4.  Merhaba tüm içeriğini yapıştırın `<UserJournesy>` hello alt sitesi olarak kopyaladığınız düğümü `<UserJourneys>` öğesi.
 
-### <a name="display-the-button"></a>Görüntü düğmesi
-`<ClaimsProviderSelections>` Öğesi talep sağlayıcısı seçme seçenekleri ve bunların sırası listesini tanımlar.  `<ClaimsProviderSelection>`öğesi, bir oturumu-up/oturum açma sayfasında bir kimlik sağlayıcısı düğmesini benzerdir. Eklerseniz bir `<ClaimsProviderSelection>` öğesi Google + hesap için yeni bir düğme görüntülenir sayfasında bir kullanıcı adlandırıldığını olduğunda. Bu öğe eklemek için:
+### <a name="display-hello-button"></a>Görüntü hello düğmesi
+Merhaba `<ClaimsProviderSelections>` öğe, Talep sağlayıcı seçme seçenekleri hello listesi ve bunların sırası tanımlar.  `<ClaimsProviderSelection>`benzer tooan kimlik sağlayıcısı düğmesi oturumu-up/oturum açma sayfasında bir öğedir. Eklerseniz bir `<ClaimsProviderSelection>` öğesi Google + hesap için yeni bir düğme görüntülenir hello sayfasında bir kullanıcı adlandırıldığını olduğunda. tooadd bu öğe:
 
-1.  Bul `<UserJourney>` içeren düğüm `Id="SignUpOrSignIn"` kopyaladığınız kullanıcı gezisine içinde.
-2.  Bulun `<OrchestrationStep>` içeren düğümü`Order="1"`
+1.  Hello bulur `<UserJourney>` içeren düğüm `Id="SignUpOrSignIn"` kopyaladığınız hello kullanıcı gezisine içinde.
+2.  Merhaba bulun `<OrchestrationStep>` içeren düğümü`Order="1"`
 3.  Aşağıdaki XML parçacığını altında ekleyin `<ClaimsProviderSelections>` düğümü:
 
 ```xml
 <ClaimsProviderSelection TargetClaimsExchangeId="GoogleExchange" />
 ```
 
-### <a name="link-the-button-to-an-action"></a>Düğme için bir eylem bağlantı kurun
-Yerinde bir düğmeye sahip olduğunuza göre bir eyleme bağlamanız gerekir. Eylem, bu durumda, bir belirteç almak için Google + hesabı ile iletişim kurmak Azure AD B2C içindir.
+### <a name="link-hello-button-tooan-action"></a>Bağlantı hello düğmesi tooan eylemi
+Yerinde bir düğmeye sahip olduğunuza göre toolink gerekir, tooan eylem. Merhaba, bu durumda, Google + hesap tooreceive ile Azure AD B2C toocommunicate için bir belirteç eylemdir.
 
-1.  Bul `<OrchestrationStep>` içeren `Order="2"` içinde `<UserJourney>` düğümü.
+1.  Hello bulur `<OrchestrationStep>` içeren `Order="2"` hello içinde `<UserJourney>` düğümü.
 2.  Aşağıdaki XML parçacığını altında ekleyin `<ClaimsExchanges>` düğümü:
 
 ```xml
@@ -200,55 +200,55 @@ Yerinde bir düğmeye sahip olduğunuza göre bir eyleme bağlamanız gerekir. E
 
 >[!NOTE]
 >
-> * Olun `Id` , aynı değere sahip `TargetClaimsExchangeId` önceki bölümde
-> * Olun `TechnicalProfileReferenceId` kimliği ayarlanmış teknik profiline önceki (Google-OAUTH) oluşturuldu.
+> * Hello sağlamak `Id` hello aynı değeri aynı olan `TargetClaimsExchangeId` bölüm önceki hello içinde
+> * Olun `TechnicalProfileReferenceId` önceki (Google-OAUTH) oluşturulmuş toohello teknik profili kümesi kimliği.
 
-## <a name="upload-the-policy-to-your-tenant"></a>İlke kiracınız için karşıya yükleme
-1.  İçinde [Azure portal](https://portal.azure.com), içine geçiş [bağlam Azure AD B2C kiracınızın](active-directory-b2c-navigate-to-b2c-context.md), açarak **Azure AD B2C** dikey.
+## <a name="upload-hello-policy-tooyour-tenant"></a>Hello İlkesi tooyour Kiracı karşıya yükle
+1.  Merhaba, [Azure portal](https://portal.azure.com), geçiş hello [bağlamı Azure AD B2C kiracınızın](active-directory-b2c-navigate-to-b2c-context.md)ve açık hello **Azure AD B2C** dikey.
 2.  Seçin **kimlik deneyimi Framework**.
-3.  Açık **tüm ilkeler** dikey.
+3.  Açık hello **tüm ilkeler** dikey.
 4.  Seçin **karşıya İlkesi**.
-5.  Denetleme **varsa ilkesi üzerine** kutusu.
-6.  **Karşıya yükleme** TrustFrameworkExtensions.xml ve doğrulama başlayabildiğinden emin olun
+5.  Denetleme **varsa hello ilkesi üzerine** kutusu.
+6.  **Karşıya yükleme** TrustFrameworkExtensions.xml ve hello doğrulama başlayabildiğinden emin olun
 
-## <a name="test-the-custom-policy-by-using-run-now"></a>Özel ilke Şimdi Çalıştır kullanarak test
-1.  Açık **Azure AD B2C ayarlarını** ve Git **kimlik deneyimi Framework**.
+## <a name="test-hello-custom-policy-by-using-run-now"></a>Şimdi Çalıştır kullanarak Hello özel ilkesini test
+1.  Açık **Azure AD B2C ayarlarını** ve çok Git**kimlik deneyimi Framework**.
 
     >[!NOTE]
     >
-    >    **Şimdi Çalıştır** Kiracı'preregistered için en az bir uygulama gerekiyor. 
-    >    Uygulamaları kaydetmek öğrenmek için Azure AD B2C bkz [başlama](active-directory-b2c-get-started.md) makale veya [uygulama kaydı](active-directory-b2c-app-registration.md) makale.
+    >    **Şimdi Çalıştır** en az bir uygulama toobe preregistered hello Kiracı'gerektirir. 
+    >    tooregister uygulamaları nasıl görürüm toolearn hello Azure AD B2C [başlama](active-directory-b2c-get-started.md) makale veya hello [uygulama kaydı](active-directory-b2c-app-registration.md) makalesi.
 
 
-2.  Açık **B2C_1A_signup_signin**, karşıya yüklediğiniz bağlı olan taraf (RP) özel ilke. Seçin **Şimdi Çalıştır**.
-3.  Google + hesabı kullanarak oturum olması gerekir.
+2.  Açık **B2C_1A_signup_signin**, karşıya yüklediğiniz bağlı olan taraf (RP) özel ilke hello. Seçin **Şimdi Çalıştır**.
+3.  Google + hesabı kullanarak mümkün toosign olmalıdır.
 
-## <a name="optional-register-the-google-account-claims-provider-to-profile-edit-user-journey"></a>[İsteğe bağlı] Google + hesap talep sağlayıcısını profil düzenleme kullanıcı gezisine kaydetme
-Google + hesabı kimlik sağlayıcısı Ayrıca, kullanıcı eklemek isteyebilirsiniz `ProfileEdit` kullanıcı gezisine. Kullanılabilir hale getirmek için biz son iki adımı yineleyin:
+## <a name="optional-register-hello-google-account-claims-provider-tooprofile-edit-user-journey"></a>[İsteğe bağlı] Merhaba Google + hesap talep sağlayıcısı tooProfile düzenleme kullanıcı gezisine kaydetme
+Tooadd hello Google + hesabı kimlik sağlayıcısı tooyour kullanıcı da isteyebilir `ProfileEdit` kullanıcı gezisine. toomake, biz hello yineleyin kullanılabilir en son iki adımı:
 
-### <a name="display-the-button"></a>Görüntü düğmesi
-1.  Uzantı dosyası ilkenizin (örneğin, TrustFrameworkExtensions.xml) açın.
-2.  Bul `<UserJourney>` içeren düğüm `Id="ProfileEdit"` kopyaladığınız kullanıcı gezisine içinde.
-3.  Bulun `<OrchestrationStep>` içeren düğümü`Order="1"`
+### <a name="display-hello-button"></a>Görüntü hello düğmesi
+1.  Merhaba uzantısının ilkenizin (örneğin, TrustFrameworkExtensions.xml) açın.
+2.  Hello bulur `<UserJourney>` içeren düğüm `Id="ProfileEdit"` kopyaladığınız hello kullanıcı gezisine içinde.
+3.  Merhaba bulun `<OrchestrationStep>` içeren düğümü`Order="1"`
 4.  Aşağıdaki XML parçacığını altında ekleyin `<ClaimsProviderSelections>` düğümü:
 
 ```xml
 <ClaimsProviderSelection TargetClaimsExchangeId="GoogleExchange" />
 ```
 
-### <a name="link-the-button-to-an-action"></a>Düğme için bir eylem bağlantı kurun
-1.  Bul `<OrchestrationStep>` içeren `Order="2"` içinde `<UserJourney>` düğümü.
+### <a name="link-hello-button-tooan-action"></a>Bağlantı hello düğmesi tooan eylemi
+1.  Hello bulur `<OrchestrationStep>` içeren `Order="2"` hello içinde `<UserJourney>` düğümü.
 2.  Aşağıdaki XML parçacığını altında ekleyin `<ClaimsExchanges>` düğümü:
 
 ```xml
 <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
 ```
 
-### <a name="test-the-custom-profile-edit-policy-by-using-run-now"></a>Özel Profil Düzenleme İlkesi Şimdi Çalıştır kullanarak test
+### <a name="test-hello-custom-profile-edit-policy-by-using-run-now"></a>Şimdi Çalıştır kullanarak Hello özel profil Düzenleme İlkesi test
 
-1.  Açık **Azure AD B2C ayarlarını** ve Git **kimlik deneyimi Framework**.
-2.  Açık **B2C_1A_ProfileEdit**, karşıya yüklediğiniz bağlı olan taraf (RP) özel ilke. Seçin **Şimdi Çalıştır**.
-3.  Google + hesabı kullanarak oturum olması gerekir.
+1.  Açık **Azure AD B2C ayarlarını** ve çok Git**kimlik deneyimi Framework**.
+2.  Açık **B2C_1A_ProfileEdit**, karşıya yüklediğiniz bağlı olan taraf (RP) özel ilke hello. Seçin **Şimdi Çalıştır**.
+3.  Google + hesabı kullanarak mümkün toosign olmalıdır.
 
-## <a name="download-the-complete-policy-files"></a>Tam ilke dosyaları indirme
-İsteğe bağlı: Bu örnek dosyalar yerine dosyaları ile çalışmaya başlama özel ilkeler tamamladıktan sonra size yol kendi özel İlkesi kullanarak senaryonuz yapı öneririz.  [Başvuru için örnek ilke dosyaları](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-goog-app)
+## <a name="download-hello-complete-policy-files"></a>Merhaba tam ilke dosyaları indirme
+İsteğe bağlı: Özel ilkeleri ile çalışmaya başlama size yol Bu örnek dosyalarını kullanmak yerine hello tamamladıktan sonra kendi özel ilke dosyaları kullanarak senaryonuz yapı öneririz.  [Başvuru için örnek ilke dosyaları](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-goog-app)

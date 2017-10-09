@@ -1,5 +1,5 @@
 ---
-title: "Azure Media Services'i kullanarak canlı akış bakış | Microsoft Docs"
+title: "Azure Media Services'i kullanarak canlı akış aaaOverview | Microsoft Docs"
 description: "Bu konu Azure Media Services kullanarak canlı akış genel bir bakış sağlar."
 services: media-services
 documentationcenter: 
@@ -14,122 +14,122 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 6f500f25129470a679c75cae6cd1abc9d71b72a7
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: edc49069db6b491902bdcbb808b1974858cc92f1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>Azure Media Services'i kullanarak canlı akış genel bakış
 ## <a name="overview"></a>Genel Bakış
-Azure Media Services ile etkinliklerin canlı akış teslim edilirken aşağıdaki bileşenler yaygın olarak kullanılır:
+Akış olaylarını Azure Media Services ile canlı teslim edilirken bileşenleri aşağıdaki hello sık oynayan:
 
-* Etkinliği yayınlamak için kullanılan bir kamera.
-* Kameradan gelen sinyalleri bir canlı akış hizmetine gönderilen akışlara dönüştüren gerçek zamanlı bir video kodlayıcısı.
+* Kullanılan toobroadcast bir olay olduğu bir kamera.
+* Canlı akış hizmeti tooa gönderilen hello kamera toostreams sinyalleri dönüştürür canlı bir video Kodlayıcısı.
 
-    İsteğe bağlı olarak, birden çok, gerçek zamanlı, zaman eşitlenmiş kodlayıcı. Yüksek kullanılabilirlik ve üstün kaliteli bir deneyim gerektiren bazı önemli etkinliklerde, veri kaybı olmadan sorunsuz yük devretme elde etmek için zaman eşitlemeli aktif-aktif yedekli kodlayıcılar kullanılması önerilir.
-* Aşağıdakileri yapmanıza olanak sağlayan bir canlı akış hizmeti:
+    İsteğe bağlı olarak, birden çok, gerçek zamanlı, zaman eşitlenmiş kodlayıcı. Bazı önemli live olayları isteğe bağlı yüksek kullanılabilirlik ve üstün kaliteli bir deneyim, onu tooemploy aktif-aktif yedekli kodlayıcılar zaman eşitleme tooachieve veri kaybı olmadan sorunsuz yük önerilir.
+* Aşağıdaki toodo hello sağlayan bir canlı akış hizmeti:
 
   * çeşitli canlı akış protokollerini (RTMP veya Kesintisiz Akış gibi) kullanarak canlı içerik alma,
   * (isteğe bağlı olarak) akışınızı, bit hızı uyarlamalı akışa kodlama,
   * canlı akışınızı önizleme,
-  * alınan içeriği daha sonra akışla aktarmak üzere kaydedip depolama (İsteğe Bağlı Video),
-  * içeriği yaygın akış protokolleri (örneğin MPEG DASH, Kesintisiz, HLS) aracılığıyla doğrudan müşterilerinize veya başkalarına dağıtım için bir İçerik Teslim Ağına (CDN) teslim etme.
+  * sonraki (isteğe bağlı video) sipariş toobe kaydı ve deposu alınan hello içeriğinde akışı
+  * Merhaba içeriği yaygın akış protokolleri (örneğin, MPEG DASH, kesintisiz, HLS) aracılığıyla teslim tooyour müşteriler doğrudan ya da daha fazla dağıtım tooa içerik teslim ağı (CDN).
 
-**Microsoft Azure Media Services** (AMS) canlı akış içeriğinizi alma, kodlama, önizleme, depolama ve teslim etme olanağı sağlar.
+**Microsoft Azure Media Services** (AMS) yeteneği tooingest Merhaba, kodlama, Önizleme, depolamak ve canlı akış içeriğinizi teslim sağlar.
 
-İçeriğinizi müşterilere teslim ederken hedefiniz, farklı ağ koşulları altındaki çeşitli cihazlara yüksek kaliteli bir video sunmaktır. Bunu başarmak için gerçek zamanlı kodlayıcılar kullanarak akışınızı Çoklu bit hızlı (bit hızı Uyarlamalı) video akışına kodlayın kullanın.  Farklı cihazlarda akış yapmayı halletmek için Media Services [dinamik paketlemesini](media-services-dynamic-packaging-overview.md) kullanarak akışınızı dinamik olarak yeniden farklı protokollere paketleyin. Media Services şu bit hızı uyarlamalı akış teknolojilerinin dağıtımını destekler: HTTP Canlı Akışı (HLS), Kesintisiz Akış, MPEG DASH.
+Amacınız, içerik toocustomers teslim edilirken toodeliver farklı ağ koşulları altında yüksek kaliteli bir video toovarious aygıtları ' dir. tooachieve Bu, kullanım, akış tooa Çoklu bit hızlı (bit hızı Uyarlamalı) video akışına kodlayıcılar tooencode Canlı.  farklı cihazlarda akış Care of tootake kullanmak Media Services [dinamik paketleme](media-services-dynamic-packaging-overview.md) toodynamically yeniden akış toodifferent protokolleri paketini. Media Services şu bit hızı Uyarlamalı akış teknolojilerini hello teslimini destekler: HTTP canlı akışı (HLS), kesintisiz akış, MPEG DASH.
 
-Azure Media Services’de **Kanallar**, **Programlar** ve **Akış Uç Noktaları**; alma biçimlendirme, DVR, güvenlik, ölçeklenebilirlik ve yedeklilik dahil olmak üzere tüm canlı akış işlevlerini idare eder.
+Azure Media Services'de **kanalları**, **programları**, ve **akış** tüm hello canlı akış işlevlerini biçimlendirme, DVR, alma dahil olmak üzere tanıtıcısı Güvenlik, ölçeklenebilirlik ve yedeklilik.
 
-**Kanal**, canlı akış içeriğinin işleneceği bir işlem hattını temsil eder. Kanal aşağıdaki yollarla bir canlı girdi akışı alabilir:
+**Kanal**, canlı akış içeriğinin işleneceği bir işlem hattını temsil eder. Bir kanal canlı bir alabilir girdi şekilde aşağıdaki hello akış:
 
-* Şirket içi bir gerçek zamanlı kodlayıcı, çoklu bit hızına sahip **RTMP** veya **Kesintisiz Akışı** (parçalanmış MP4) **doğrudan geçiş** teslimi için yapılandırılmış Kanala gönderir. **Doğrudan geçiş** teslimi, alınan akışların herhangi başka bir işlemeye uğramadan **Kanallardan** geçmesidir. Çoklu bit hızlı kesintisiz akış çıkışı aşağıdaki gerçek zamanlı Kodlayıcıları kullanabilirsiniz: MediaExcel, Ateme, düşünün iletişimleri, Envivio, Cisco ve Elemental. Şu gerçek zamanlı kodlayıcılar RTMP çıkışı: Adobe Flash medya Canlı Kodlayıcı (FMLE), Telestream Wirecast, Haivision, Teradek ve Tricaster kod dönüştürücüleri.  Gerçek zamanlı bir kodlayıcı, gerçek zamanlı kodlama için etkinleştirilmemiş bir kanala tek bit hızlı bir akış da gönderebilir, ancak bu işlem önerilmez. İstendiğinde, Media Services akışı müşterilere teslim eder.
+* Çoklu bit hızlı bir şirket içi gerçek zamanlı Kodlayıcı gönderir **RTMP** veya **kesintisiz akış** (parçalanmış MP4) için yapılandırılmış toohello kanal **doğrudan** teslim. Merhaba **doğrudan** teslim alınan hello akışları geçirir olduğunda **kanal**herhangi başka bir işleme olmadan s. Çoklu bit hızlı kesintisiz akış çıkışı gerçek zamanlı kodlayıcılar aşağıdaki hello kullanabilirsiniz: MediaExcel, Ateme, düşünün iletişimleri, Envivio, Cisco ve Elemental. Merhaba şu gerçek zamanlı kodlayıcılar RTMP çıkışı: Adobe Flash medya Canlı Kodlayıcı (FMLE), Telestream Wirecast, Haivision, Teradek ve Tricaster kod dönüştürücüleri.  Gerçek zamanlı bir kodlayıcı, gerçek zamanlı kodlama için etkin değil, ancak tavsiye edilmez tek bit hızlı akış tooa kanal da gönderebilirsiniz. İstendiğinde, Media Services hello akış toocustomers sunar.
 
   > [!NOTE]
-  > Uzun bir dönem içerisinde birden çok etkinlik gerçekleştirecekseniz ve zaten şirket içi kodlayıcılara yatırım yaptıysanız, doğrudan geçiş yöntemini kullanmak canlı akış yapmanın en ekonomik yoludur. [Fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/) detaylarına bakın.
+  > Bir doğrudan geçiş yöntemini kullanmak, uzun bir süre boyunca birden çok olay yapmakta olduğunuz ve zaten şirket içi kodlayıcılara yatırım yaptıysanız toodo akış Canlı hello en ekonomik yoludur. [Fiyatlandırma](https://azure.microsoft.com/pricing/details/media-services/) detaylarına bakın.
   > 
   > 
-* Bir şirket içi gerçek zamanlı Kodlayıcı aşağıdaki biçimlerden birinde Media Services ile gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş kanala tek bit hızlı akış gönderir: RTMP veya kesintisiz akış (parçalanmış MP4). Azure veri merkezine adanmış bir bağlantıya sahip sağlanan RTP (MPEG-TS) de desteklenir. Şu gerçek zamanlı kodlayıcılar RTMP çıkışı ile bu tür kanallar ile çalışma bilinen: Telestream Wirecast, FMLE. Ardından Kanal, gelen tek bit hızlı akışın çoklu bit hızlı (uyarlamalı) bir video akışına gerçek zamanlı kodlanmasını gerçekleştirir. İstendiğinde, Media Services akışı müşterilere teslim eder.
+* Bir şirket içi gerçek zamanlı Kodlayıcı etkin tooperform toohello kanal Canlı biçimleri aşağıdaki hello birinde Media Services ile kodlama tek bit hızlı akış gönderir: RTMP veya kesintisiz akış (parçalanmış MP4). Ayrılmış bağlantı toohello Azure veri merkezi olması koşuluyla RTP (MPEG-TS) de desteklenir. gerçek zamanlı kodlayıcılar RTMP ile aşağıdaki hello çıktı toowork bu tür kanallar ile bilinir: Telestream Wirecast, FMLE. Merhaba kanal gerçekleştirir gerçek zamanlı kodlama Merhaba gelen tek bit hızlı akış tooa Çoklu bit hızlı (Uyarlamalı) video akışına. İstendiğinde, Media Services hello akış toocustomers sunar.
 
-Bir kanal oluşturduğunuzda Media Services 2.10 sürümünden başlayarak, hangi yolla, kanalınızı Giriş akışı almaya ve desteklemediğini kanalın akışınızı gerçek zamanlı kodlama gerçekleştirmek için istiyorsanız belirtebilirsiniz. İki seçeneğiniz vardır:
+Bir kanal oluşturduğunuzda hello Media Services 2.10 sürümünden başlayarak, Canlı akışınızı kodlama, kanal tooreceive hello Giriş akışı ve hello kanal tooperform olsun veya olmasın istediğiniz için istediğiniz hangi şekilde belirtebilirsiniz. İki seçeneğiniz vardır:
 
-* **Hiçbiri** (doğrudan geçiş) –, Çoklu bit hızında akışa (geçiş akışı) çıkış bir şirket içi gerçek zamanlı Kodlayıcı kullanmayı planlıyorsanız, bu değeri belirtin. Bu durumda, gelen akış çıkışı herhangi kodlamadan geçirilecek. Bir kanal 2.10 yayın önce davranış budur.  
-* **Standart** – tek bit hızlı Canlı akışınızı Çoklu bit hızı akışına kodlamak için Media Services kullanmayı planlıyorsanız, bu değer seçin. Bu yöntem için sık olayları hızla ölçeklendirmeyi için daha ekonomiktir. Gerçek zamanlı kodlama için fatura bir etkisi yoktur ve canlı bir kodlama kanal "Çalışır" durumda bırakır fatura ücret uygulanabilir unutmayın unutmayın.  Fazladan saatlik ücretlerden kaçınmak için canlı akış olayı tamamlandıktan sonra hemen çalışan kanalların durdurmanız önerilir.
+* **Hiçbiri** (doğrudan geçiş) – toouse, Çoklu bit hızında akışa (geçiş akışı) çıkış bir şirket içi gerçek zamanlı Kodlayıcı düşünüyorsanız, bu değeri belirtin. Bu durumda, tüm kodlamadan çıktı toohello aracılığıyla hello gelen akış geçirildi. Bir kanal önceki too2.10 sürümünün hello davranış budur.  
+* **Standart** – toouse Media Services tooencode düşünüyorsanız, bu değer, tek bit hızlı canlı akış toomulti bit hızında akışa seçin. Bu yöntem için sık olayları hızla ölçeklendirmeyi için daha ekonomiktir. Gerçek zamanlı kodlama için fatura bir etkisi yoktur ve canlı bir kodlama kanal hello "Çalışır" durumda bırakır fatura ücret uygulanabilir unutmayın unutmayın.  Çalışan kanalların hemen sonra canlı akış olayı durdurmanız önerilir tam tooavoid fazladan saatlik ücretleri olduğu.
 
 ## <a name="comparison-of-channel-types"></a>Kanal türleri karşılaştırması
-Aşağıdaki tabloda Media Services ile desteklenen iki kanallı türleri karşılaştırma için bir kılavuz sağlar
+Aşağıdaki tabloda, Media Services ile desteklenen toocomparing hello iki kanal türleri bir kılavuz sağlar
 
 | Özellik | Doğrudan geçiş kanalı | Standart kanal |
 | --- | --- | --- |
-| Tek bit hızlı giriş bulutta Çoklu bit içine kodlanmış |Hayır |Evet |
+| Tek bit hızlı giriş hello bulutta Çoklu bit içine kodlanmış |Hayır |Evet |
 | Maksimum çözünürlük, Katmanlar sayısı |1080p, 8 Katmanlar 60 + fps |720p, 6 Katmanlar 30 fps |
 | Giriş protokolleri |RTMP, kesintisiz akış |RTMP, kesintisiz akış ve RTP |
-| Fiyat |Bkz: [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/media-services/) ve "Canlı Video" sekmesini tıklatın |Bkz: [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/media-services/) |
+| Fiyat |Merhaba bkz [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/media-services/) ve "Canlı Video" sekmesini tıklatın |Merhaba bkz [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/media-services/) |
 | En fazla çalışma süresi |7 x 24 |8 saat |
 | Maskeleme görüntülerini ekleme desteği |Hayır |Evet |
 | Ad sinyal desteği |Hayır |Evet |
 | Doğrudan CEA 608/708 resim yazıları |Evet |Evet |
-| Akış katkı içinde kısa takılması kurtarma olanağı |Evet |Hayır (kanal slating giriş verisi olmadan 6 + saniye sonra başlayacak) |
+| Özelliği toorecover katkı içinde kısa takılması gelen akış |Evet |Hayır (kanal slating giriş verisi olmadan 6 + saniye sonra başlayacak) |
 | Tekdüzen olmayan giriş GOPs desteği |Evet |Giriş 2 sn GOPs Hayır – düzeltilmesi gerekir |
-| Değişken kare hızı giriş desteği |Evet |Hayır – giriş kare hızı düzeltilmesi gerekir.<br/>İkincil Çeşitlemeler, örneğin, yüksek hareket planda sırasında izin verilir. Ancak Kodlayıcı 10 Çerçeve/sn için bırakılamıyor. |
+| Değişken kare hızı giriş desteği |Evet |Hayır – giriş kare hızı düzeltilmesi gerekir.<br/>İkincil Çeşitlemeler, örneğin, yüksek hareket planda sırasında izin verilir. Ancak Kodlayıcı too10 Çerçeve/sn bırakılamıyor. |
 | Otomatik-akış kesici zaman Giriş kanalı kaybolur |Hayır |12 çalışan bir Program yok ise saat sonra |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Şirket içi kodlayıcılardan çoklu bit hızlı canlı akış alan Kanallar ile çalışma (doğrudan geçiş)
-Aşağıdaki diyagramda, AMS platformunun **doğrudan geçiş** iş akışında rol oynayan başlıca parçaları gösterilmektedir.
+Merhaba Aşağıdaki diyagramda hello oynayan başlıca parçaları hello AMS platformunun hello gösterilmektedir **doğrudan** iş akışı.
 
 ![Canlı iş akışı](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
 
 Daha fazla bilgi için bkz. [Şirket İçi Kodlayıcılardan Çoklu Bit Hızlı Canlı Akış Alan Kanallar ile Çalışma](media-services-live-streaming-with-onprem-encoders.md).
 
-## <a name="working-with-channels-that-are-enabled-to-perform-live-encoding-with-azure-media-services"></a>Azure Media Services ile gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş Kanallar ile çalışma
-Aşağıdaki diyagramda, AMS platformunun bir Kanalın, Media Services ile kodlama gerçekleştirmek için etkinleştirildiği Canlı Akış iş akışında rol oynayan başlıca parçaları gösterilmektedir.
+## <a name="working-with-channels-that-are-enabled-tooperform-live-encoding-with-azure-media-services"></a>Azure Media Services ile kodlama Canlı tooperform olan kanallar ile çalışma etkin
+Merhaba Aşağıdaki diyagramda hello önemli bir kanal olduğu canlı akış iş akışında oynayan parçaları hello AMS platformunun tooperform Media Services ile kodlama Canlı etkin gösterir.
 
 ![Canlı iş akışı](./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png)
 
-Daha fazla bilgi için bkz. [Azure Media Services ile Gerçek Zamanlı Kodlama Gerçekleştirmek İçin Etkinleştirilmiş Kanallar ile Çalışma](media-services-manage-live-encoder-enabled-channels.md).
+Daha fazla bilgi için bkz: [etkin tooPerform Canlı Azure Media Services ile kodlama olan kanallar ile çalışma](media-services-manage-live-encoder-enabled-channels.md).
 
 ## <a name="description-of-a-channel-and-its-related-components"></a>Bir kanal ve ilgili bileşenlerini açıklaması
 ### <a name="channel"></a>Kanal
-Media Services [kanal](https://docs.microsoft.com/rest/api/media/operations/channel)s canlı akış içeriğinin işlemekten sorumlu. Bir giriş uç noktası bir kanal sağlar (URL alma) için dinamik bir dönüştürücü ardından sağlayın. Kanal, Canlı giriş akışları Canlı dönüştürücü alır ve bir veya daha fazla Akış akış için kullanılabilir hale getirir. Kanal Önizleme ve başka bir işleme ve teslim önce akışınızı doğrulamak için kullanacağınız bir önizleme uç noktası (Önizleme URL) de sağlar.
+Media Services [kanal](https://docs.microsoft.com/rest/api/media/operations/channel)s canlı akış içeriğinin işlemekten sorumlu. Bir giriş uç noktası bir kanal sağlar (URL alma) tooa Canlı dönüştürücü ardından sağlayın. Merhaba kanal hello Canlı dönüştürücü Canlı giriş akışları alır ve bir veya daha fazla Akış akış için kullanılabilir hale getirir. Kanal ayrıca toopreview kullanmak ve başka bir işleme ve teslimat önce akışınızı doğrulamak bir önizleme uç noktası (Önizleme URL) sağlar.
 
-Kanal oluşturduğunuzda alma URL'si ve önizleme URL'sini alabilirsiniz. Bu URL'leri almak için kanal başlatılmış durumda olması gerekmez. Veri canlı bir dönüştürücü kanal dağıtmaya başlamak için hazır olduğunuzda, kanal başlatılması gerekir. Veri alma Canlı dönüştürücü başladıktan sonra akışınızın önizlemesini.
+Merhaba alabilirsiniz hello kanal oluşturduğunuzda, URL ve hello Önizleme URL'sini alın. tooget bu URL'leri, başlatılan hello durumda toobe hello kanal yok. Veri canlı bir dönüştürücü hello kanal dağıtmaya hazır toostart olduğunda hello kanal başlatılması gerekir. Veri alma Hello Canlı dönüştürücü başladıktan sonra akışınızın önizlemesini.
 
-Her Media Services hesabı birden fazla kanal, birden çok program ve birden çok akış içerebilir. Bant genişliği ve güvenlik gereksinimlerine bağlı olarak, bir veya daha fazla kanala StreamingEndpoint Hizmetleri ayrılabilir. Tüm StreamingEndpoint herhangi bir kanaldan çeker.
+Her Media Services hesabı birden fazla kanal, birden çok program ve birden çok akış içerebilir. Hello bant genişliği ve güvenlik gereksinimlerine bağlı olarak, ayrılmış tooone veya daha fazla kanalları StreamingEndpoint Hizmetleri olabilir. Tüm StreamingEndpoint herhangi bir kanaldan çeker.
 
 ### <a name="program"></a>Program
-A [Program](https://docs.microsoft.com/rest/api/media/operations/program) yayımlama ve canlı akıştaki kesimleri depolanmasını denetlemenizi sağlar. Kanallar, Programları yönetir. Kanal ve Program arasındaki ilişki, kanalın sürekli bir içerik akışının bulunduğu ve programın bu kanalda zamanlanmış bir olayı kapsadığı geleneksel medyadaki ilişkiye benzer.
-Program için kaydedilen içeriği ayarlayarak korumak istediğiniz saat sayısını belirtebilirsiniz **ArchiveWindowLength** özelliği. Bu değer en az 5 dakika, en çok 25 saat olarak ayarlanabilir.
+A [Program](https://docs.microsoft.com/rest/api/media/operations/program) toocontrol hello yayımlama ve canlı akıştaki kesimleri depolama sağlar. Kanallar, Programları yönetir. Merhaba kanal ve Program burada bir kanal sabit bir içerik akışının bulunduğu ve bir programın bu kanalda zaman aşımına kapsamlı toosome olay çok benzer tootraditional medya ilişkidir.
+İstediğiniz tooretain kaydedilen hello içerik hello programı ayarını hello tarafından saatleri hello sayısını belirtebilirsiniz **ArchiveWindowLength** özelliği. Bu değer en az 5 dakika tooa en çok 25 saat ayarlayabilirsiniz.
 
-ArchiveWindowLength de maksimum zaman istemcilerine geçmişe geçerli Canlı konumdan gidebilecekleri. Olaylar belirtilen süre miktarından uzun sürebilir, ancak pencere uzunluğunun gerisine düşen içerik sürekli olarak atılır. Bu özelliğin bu değeri, istemci bildiriminin ne kadar uzayabileceğini de belirler.
+ArchiveWindowLength hello maksimum istemcileri hello geçerli Canlı konumdan geçmişe arama süre miktarını da belirler. Merhaba belirtilen sürede programları çalıştırabilir, ancak hello pencere uzunluğunun gerisine düşen içerik sürekli olarak atılır. Bu özelliğin bu değeri bildirimleri büyüyebilir ne kadar süreyle hello istemci de belirler.
 
-Her program bir Varlık ile ilişkilidir. Programı yayımlamak için ilişkili varlığa yönelik bir Bulucu oluşturmanız gerekir. Bu bulucuya sahip olmak, istemcilerinize sağlayabileceğiniz bir akış URL’si oluşturmanıza olanak tanır.
+Her program bir Varlık ile ilişkilidir. Varlık ilişkili toopublish hello program hello yönelik bir Bulucu oluşturmanız gerekir. Bu bulucuya sahip olmak tooyour istemcileri sağlayabilen bir akış URL'si toobuild olanak sağlar.
 
-Bir kanal eşzamanlı çalışan üçe kadar olayı destekler, böylece aynı gelen akışın birden fazla arşivini oluşturabilirsiniz. Bu özellik, gerektiğinde bir olayın farklı kısımlarını yayımlamanıza ve arşivlemenize olanak tanır. Örneğin, iş gereksiniminiz bir programın 6 saatini arşivlemek ancak son 10 dakikasını yayınlamak olabilir. Bunu yapmak için, eşzamanlı olarak çalışan iki program oluşturmanız gerekir. Bir program olayı 6 saat arşivlemek için ayarlanır ancak program yayımlanmaz. Diğer program 10 dakika arşivlenecek şekilde ve bu program yayımlanır.
+Bir kanal hello birden çok arşivini oluşturabilmesi için eşzamanlı olarak çalışan programlar toothree destekler, aynı gelen akışın. Bu, gerektiği gibi bir olay toopublish ve Arşiv farklı kısımlarını sağlar. Örneğin, iş gereksiniminiz tooarchive 6 saatlik bir program, ancak toobroadcast yalnızca son 10 dakikadır. tooaccomplish Bu, iki eşzamanlı olarak çalışan program toocreate gerekir. Bir program tooarchive hello olay 6 saatlik ayarlandı ancak hello program yayımlanamaz. Merhaba başka bir programı kümesi tooarchive 10 dakika için ve bu program yayımlanır.
 
 ## <a name="billing-implications"></a>Faturalama etkileri
-Kanal durumu geçişleri "Çalışır" için API üzerinden olduğunda hemen faturalama başlar.  
+Bir kanal çok hello API "çalışır" buna ait durumu geçişleri hemen faturalama başlar.  
 
-Aşağıdaki tabloda, API ve Azure portalındaki Faturalama durumları nasıl kanal durumları Eşle gösterir. Durumları API ve Portal UX arasında biraz farklı olduğuna dikkat edin API aracılığıyla "Çalışır" durumda ya da Azure Portalı'ndaki "Hazır" veya "Akış" durumdaki bir kanaldır hemen faturalama etkin olacaktır.
+Merhaba aşağıdaki tabloda nasıl kanal durumları hello API toobilling Devletleri'nde ve Azure portalı karşıladığı gösterilmektedir. Merhaba durumları hello API ve Portal UX arasında biraz farklı olduğuna dikkat edin Bir kanal hello "Çalışıyor" Merhaba API aracılığıyla durumda veya hello "Hazır" veya "Akış" durumda hello Azure portal'ın faturalama etkin olarak çalışır.
 
-Daha fazla faturalama gelen kanal durdurmak için Azure portalında veya API aracılığıyla kanalı durdurun sahip.
-Kanal ile işiniz bittiğinde, kanalları durdurmak için sorumlu. Kanalı durdurun hatası içinde sürekli faturalama neden olur.
+Daha fazla faturalama gelen toostop hello kanal tooStop hello kanal hello API aracılığıyla veya hello Azure portal sahip.
+Merhaba kanalıyla bittiğinde, kanalları durdurmak için sorumlu. Hata toostop hello kanal içinde sürekli faturalama neden olur.
 
 > [!NOTE]
-> Standart kanallar ile çalışırken, AMS kesici hala "Çalışır" durumda 12 saat Giriş akışı kaybedilir ve çalışan program yok sonra herhangi bir kanal otomatik. Ancak, siz hala kanal "Çalışır" durumda ne zaman için Fatura edilecek.
+> Standart kanallar ile çalışırken, AMS kesici hala "Çalışır" durumda 12 saat hello Giriş akışı kaybedilir ve çalışan program yok sonra herhangi bir kanal otomatik. Ancak, siz hala kanal "Çalışır" durumda olmadığını hello zaman hello için Fatura edilecek.
 >
 >
 
-### <a id="states"></a>Kanal durumları ve bunların fatura moduna nasıl eşleneceğine
-Kanalın geçerli durumu. Olası değerler şunlardır:
+### <a id="states"></a>Kanal durumları ve bunların modu faturalama toohello nasıl eşleneceğine
+bir kanal geçerli durumu Hello. Olası değerler şunlardır:
 
-* **Durdurulmuş**. (Autostart portalda seçilmedi. sürece) bu ilk kanal oluşturulduktan sonra bir durumda Bu durumda hiçbir faturalama oluşur. Bu durumda, Kanal özellikleri güncelleştirilebilir ama akışa izin verilmez.
-* **Başlangıç**. Kanal başlatılıyor. Bu durumda hiçbir faturalama oluşur. Bu durum süresince güncelleştirmelere veya akışa izin verilmez. Bir sorun oluşursa Kanal, Durduruldu durumuna döndürülür.
-* **Çalışan**. Kanal canlı akışları işleyebilir. Şimdi kullanım faturalama. Daha fazla faturalama önlemek için kanal durdurmanız gerekir.
-* **Durdurma**. Kanal durduruluyor. Hiçbir faturalama bu geçici durumunda oluşur. Bu durum süresince güncelleştirmelere veya akışa izin verilmez.
-* **Silme**. Kanal siliniyor. Hiçbir faturalama bu geçici durumunda oluşur. Bu durum süresince güncelleştirmelere veya akışa izin verilmez.
+* **Durdurulmuş**. (Autostart hello Portalı'nda seçilmedi. sürece) bu hello ilk hello kanal oluşturulduktan sonra bir durumda Bu durumda hiçbir faturalama oluşur. Bu durumda, hello kanal özellikleri güncelleştirildi ancak Akış verilmez.
+* **Başlangıç**. Merhaba kanal başlatılıyor. Bu durumda hiçbir faturalama oluşur. Bu durum süresince güncelleştirmelere veya akışa izin verilmez. Bir hata oluşursa hello kanal toohello durduruldu durumu döndürür.
+* **Çalışan**. Merhaba kanal Canlı akışlar işleyebilen ' dir. Şimdi kullanım faturalama. Daha fazla faturalama hello kanal tooprevent durdurmanız gerekir.
+* **Durdurma**. Merhaba kanal durduruluyor. Hiçbir faturalama bu geçici durumunda oluşur. Bu durum süresince güncelleştirmelere veya akışa izin verilmez.
+* **Silme**. Merhaba kanal siliniyor. Hiçbir faturalama bu geçici durumunda oluşur. Bu durum süresince güncelleştirmelere veya akışa izin verilmez.
 
-Aşağıdaki tabloda, Kanal durumlarının faturalandırma modu ile nasıl eşleştiği gösterilir.
+Merhaba aşağıdaki tabloda nasıl kanal Haritası toohello fatura modu durumlarını gösterir.
 
 | Kanal durumu | Portal Arabirimi Göstergeleri | Faturalama mi? |
 | --- | --- | --- |
@@ -147,7 +147,7 @@ Aşağıdaki tabloda, Kanal durumlarının faturalandırma modu ile nasıl eşle
 ## <a name="related-topics"></a>İlgili konular
 [Azure Media Services parçalanmış MP4 Canlı belirtimi alma](media-services-fmp4-live-ingest-overview.md)
 
-[Gerçek zamanlı kodlama gerçekleştirmek Azure Media Services ile için etkinleştirilmiş kanallar ile çalışma](media-services-manage-live-encoder-enabled-channels.md)
+[Etkin tooPerform Canlı Azure Media Services ile kodlama olan kanallar ile çalışma](media-services-manage-live-encoder-enabled-channels.md)
 
 [Şirket İçi Kodlayıcılardan Çoklu Bit Hızlı Canlı Akış Alan Kanallar ile Çalışma](media-services-live-streaming-with-onprem-encoders.md)
 

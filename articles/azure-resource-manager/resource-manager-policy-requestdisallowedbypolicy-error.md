@@ -1,6 +1,6 @@
 ---
-title: "Azure kaynak İlkesi RequestDisallowedByPolicy hatasıyla | Microsoft Docs"
-description: "RequestDisallowedByPolicy hatanın nedenini açıklar."
+title: "Azure kaynak İlkesi aaaRequestDisallowedByPolicy hatasıyla | Microsoft Docs"
+description: "Merhaba RequestDisallowedByPolicy hata Hello nedenini açıklar."
 services: azure-resource-manager,azure-portal
 documentationcenter: 
 author: genlin
@@ -13,36 +13,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: genli
-ms.openlocfilehash: 182a27e444c2f5db66d518a1a0c608d3e319d553
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: 7870e40205cf433ccb4ba02376b5fe809f20d0df
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Azure kaynak ilkesiyle RequestDisallowedByPolicy hata
 
-RequestDisallowedByPolicy hatanın nedeni, bu makalede, ayrıca bu hata için çözüm sağlar.
+Merhaba hello RequestDisallowedByPolicy hatanın nedenini bu makalede, ayrıca bu hata için çözüm sağlar.
 
 ## <a name="symptom"></a>Belirti
 
-Dağıtım sırasında bir eylem yapmak çalıştığınızda alabileceğiniz bir **RequestDisallowedByPolicy** engellediğini hata gerçekleştirilebilir. Hatanın bir örnek verilmiştir:
+Toodo dağıtımı sırasında bir eylem çalıştığınızda alabileceğiniz bir **RequestDisallowedByPolicy** hello engellediğini hata gerçekleştirilebilir. Merhaba, hello hata örneği aşağıdadır:
 
 ```
 {
   "statusCode": "Forbidden",
   "serviceRequestId": null,
-  "statusMessage": "{\"error\":{\"code\":\"RequestDisallowedByPolicy\",\"message\":\"The resource action 'Microsoft.Network/publicIpAddresses/write' is disallowed by one or more policies. Policy identifier(s): '/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition'.\"}}",
-  "responseBody": "{\"error\":{\"code\":\"RequestDisallowedByPolicy\",\"message\":\"The resource action 'Microsoft.Network/publicIpAddresses/write' is disallowed by one or more policies. Policy identifier(s): '/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition'.\"}}"
+  "statusMessage": "{\"error\":{\"code\":\"RequestDisallowedByPolicy\",\"message\":\"hello resource action 'Microsoft.Network/publicIpAddresses/write' is disallowed by one or more policies. Policy identifier(s): '/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition'.\"}}",
+  "responseBody": "{\"error\":{\"code\":\"RequestDisallowedByPolicy\",\"message\":\"hello resource action 'Microsoft.Network/publicIpAddresses/write' is disallowed by one or more policies. Policy identifier(s): '/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition'.\"}}"
 }
 ```
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Dağıtımınızı engellenen İlkesi hakkındaki ayrıntıları almak için aşağıdaki yöntemlerden birini kullanın:
+Dağıtımınız, engellenen hello İlkesi tooretrieve ayrıntılarını hello yöntemlerden birini aşağıdaki hello kullanın:
 
 ### <a name="method-1"></a>Yöntem 1
 
-Bu ilke tanımlayıcısı olarak PowerShell'de sağlamak **kimliği** dağıtımınızı engellenen İlkesi hakkındaki ayrıntıları almak için parametre.
+Bu ilke tanımlayıcısı hello olarak PowerShell'de sağlamak **kimliği** parametresi tooretrieve dağıtımınızı engellenen hello ilkesi ayrıntılarını.
 
 ```PowerShell
 (Get-AzureRmPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
@@ -50,7 +50,7 @@ Bu ilke tanımlayıcısı olarak PowerShell'de sağlamak **kimliği** dağıtım
 
 ### <a name="method-2"></a>Yöntem 2 
 
-Azure CLI 2. 0'ilke tanımı adını sağlayın: 
+Azure CLI 2. 0'hello ilke tanımı hello adını sağlayın: 
 
 ```azurecli
 az policy definition show --name regionPolicyAssignment
@@ -58,11 +58,11 @@ az policy definition show --name regionPolicyAssignment
 
 ## <a name="solution"></a>Çözüm
 
-Güvenlik veya uyumluluk, BT departmanınızın genel IP adresleri, ağ güvenlik grupları, kullanıcı tanımlı yollar veya yönlendirme tabloları oluşturma yasaklar kaynak İlkesi zorlayabilir. "Belirtiler" bölümünde açıklanan hata iletisi örnek adlı ilke **regionPolicyDefinition**, ancak farklı olabilir.
-Bu sorunu gidermek için kaynak ilkelerini gözden geçirmek için BT departmanınıza çalışır ve bu ilkeleri ile uyumlu istenen eylemi gerçekleştirmek nasıl belirleyin.
+Güvenlik veya uyumluluk, BT departmanınızın genel IP adresleri, ağ güvenlik grupları, kullanıcı tanımlı yollar veya yönlendirme tabloları oluşturma yasaklar kaynak İlkesi zorlayabilir. Merhaba "Belirtiler" bölümünde açıklanan hello hata iletisinin Hello örnek hello İlkesi adlı **regionPolicyDefinition**, ancak farklı olabilir.
+tooresolve Bu sorun, BT departmanı tooreview hello kaynak ilkeleriyle çalışmak ve nasıl tooperform hello İstenen eyleme bu ilkeleri ile uyumlu belirleyin.
 
 
-Daha fazla bilgi için aşağıdaki makalelere bakın:
+Daha fazla bilgi için aşağıdaki makaleler hello bakın:
 
 - [Kaynak ilkesine genel bakış](resource-manager-policy.md)
 - [Ortak dağıtım RequestDisallowedByPolicy hataları](resource-manager-common-deployment-errors.md#requestdisallowedbypolicy)

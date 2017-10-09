@@ -1,6 +1,6 @@
 ---
-title: "Hadoop akış etkinliği - Azure kullanarak veri dönüştürme | Microsoft Docs"
-description: "Hadoop akış etkinliği bir Azure data factory üzerinde-isteğe bağlı/bilgisayarınızı kendi Hdınsight kümesi üzerinde çalışan Hadoop akış programlar verileri dönüştürmek için nasıl kullanabileceğinizi öğrenin."
+title: "Hadoop akış etkinliği - Azure kullanarak aaaTransform veri | Microsoft Docs"
+description: "Üzerinde-isteğe bağlı/bilgisayarınızı kendi Hdınsight kümesi üzerinde çalışan Hadoop akış programlar bir Azure veri fabrikası tootransform verileri Hadoop akış etkinliği hello nasıl kullanabileceğinizi öğrenin."
 services: data-factory
 documentationcenter: 
 author: sharonlo101
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: shlo
-ms.openlocfilehash: bfe62aa60f5a0ff339e1d495d22a5fdfac10d5dc
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: a7ddb7268f47162709a9c8136ccd69e0b7d4ad7d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Hadoop akış etkinliği Azure Data Factory kullanarak veri dönüştürme
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -33,15 +33,15 @@ ms.lasthandoff: 08/18/2017
 > * [Data Lake Analytics U-SQL Etkinliği](data-factory-usql-activity.md)
 > * [.NET özel etkinlik](data-factory-use-custom-activities.md)
 
-HDInsightStreamingActivity etkinlik kullanabileceğiniz bir Azure Data Factory işlem hattı Hadoop akış işten çağırma. Aşağıdaki JSON parçacığı HDInsightStreamingActivity bir ardışık düzen JSON dosyası kullanarak sözdizimi gösterilmektedir. 
+Kullanabileceğiniz hello HDInsightStreamingActivity etkinliği Azure Data Factory işlem hattı Hadoop akış işten çağırma. Merhaba aşağıdaki JSON parçacığı hello HDInsightStreamingActivity bir ardışık düzen JSON dosyası kullanarak hello sözdizimi gösterilmektedir. 
 
-Hdınsight akış etkinliğinde Data Factory [ardışık düzen](data-factory-create-pipelines.md) üzerinde Hadoop akış programları yürütür [kendi](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) veya [isteğe bağlı](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux tabanlı Hdınsight kümesi. Bu makalede derlemeler [veri dönüştürme etkinlikleri](data-factory-data-transformation-activities.md) makalesi, veri dönüştürme ve desteklenen dönüştürme etkinliklerinin genel bir bakış sunar.
+Merhaba Hdınsight akış etkinliğinde Data Factory [ardışık düzen](data-factory-create-pipelines.md) üzerinde Hadoop akış programları yürütür [kendi](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) veya [isteğe bağlı](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux tabanlı Hdınsight Küme. Bu makale üzerinde hello derlemeler [veri dönüştürme etkinlikleri](data-factory-data-transformation-activities.md) makalesi, veri dönüştürme ve desteklenen hello dönüştürme etkinliklerinin genel bir bakış sunar.
 
 > [!NOTE] 
-> Azure Data Factory yeniyseniz okuyun [Azure Data Factory'ye giriş](data-factory-introduction.md) ve öğretici: [ilk veri hattınızı yapı](data-factory-build-your-first-pipeline.md) bu makaleyi okumadan önce. 
+> Yeni tooAzure Data Factory varsa okuyun [giriş tooAzure Data Factory](data-factory-introduction.md) ve öğretici hello: [ilk veri hattınızı yapı](data-factory-build-your-first-pipeline.md) bu makaleyi okumadan önce. 
 
 ## <a name="json-sample"></a>JSON örneği
-Hdınsight kümesi örnek programlar (wc.exe ve cat.exe) ve veri (davinci.txt) ile otomatik olarak doldurulur. Varsayılan olarak, Hdınsight kümesi tarafından kullanılan kapsayıcının adını küme adıdır. Örneğin, küme adınızı myhdicluster ise, ilişkili blob kapsayıcısının adı myhdicluster olacaktır. 
+Merhaba Hdınsight kümesi örnek programlar (wc.exe ve cat.exe) ve veri (davinci.txt) ile otomatik olarak doldurulur. Varsayılan olarak, hello Hdınsight küme tarafından kullanılan hello kapsayıcının adını hello hello kümenin kendisi adıdır. Örneğin, küme adınızı myhdicluster ise, ilişkili hello blob kapsayıcısının adı myhdicluster olacaktır. 
 
 ```JSON
 {
@@ -89,30 +89,30 @@ Hdınsight kümesi örnek programlar (wc.exe ve cat.exe) ve veri (davinci.txt) i
 }
 ```
 
-Aşağıdaki noktalara dikkat edin:
+Hello aşağıdaki noktaları göz önünde bulundurun:
 
-1. Ayarlama **linkedServiceName** mapreduce iş akışında çalıştırıldığı, Hdınsight işaret bağlı hizmetin adı küme.
-2. Etkinlik türünü ayarlayın **HDInsightStreaming**.
-3. İçin **Eşleyici** özelliği Eşleyici yürütülebilir adını belirtin. Örnekte, cat.exe yürütülebilir Eşleyici ' dir.
-4. İçin **reducer** özelliği reducer yürütülebilir adını belirtin. Örnekte, wc.exe yürütülebilir reducer ' dir.
-5. İçin **giriş** türü özelliği, Eşleştiricisi (konum dahil) giriş dosyası belirtin. Örnekte: "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample blob kapsayıcısı, veri/örnek/Gutenberg klasördür ve davinci.txt blob.
-6. İçin **çıkış** türü özelliği, çıktı dosyası (konum dahil) için reducer belirtin. Hadoop akış işi çıkışı, bu özellik için belirtilen konuma yazılır.
-7. İçinde **filePaths** bölümünde, Eşleyici ve reducer yürütülebilir dosyalar için yollarını belirtin. Örnekte: "adfsample/example/apps/wc.exe" adfsample blob kapsayıcısı, örnek/uygulamaları klasördür ve wc.exe çalıştırılabilir.
-8. İçin **fileLinkedService** özelliği filePaths bölümünde belirtilen dosyaları içeren Azure depolama temsil eden Azure Storage bağlı hizmeti belirtin.
-9. İçin **bağımsız değişkenleri** özelliği, iş akışında bağımsız değişkenleri belirtin.
-10. **Getdebugınfo** özelliği isteğe bağlı bir öğedir. Hata için ayarlandığında, günlükleri yalnızca hatada indirilir. Her zaman olarak ayarlandığında, günlükleri yürütme durumu bağımsız olarak daima yüklenir.
+1. Set hello **linkedServiceName** hello toohello adını bağlantılı mapreduce akış hangi hello iş çalıştırıldığında tooyour Hdınsight kümesi işaret hizmeti.
+2. Merhaba etkinlik Hello türü çok ayarlamak**HDInsightStreaming**.
+3. Hello için **Eşleyici** özelliği Eşleyici yürütülebilir hello adını belirtin. Merhaba örnekte cat.exe hello Eşleyici yürütülebilir ' dir.
+4. Hello için **reducer** özelliği reducer yürütülebilir hello adını belirtin. Merhaba örnekte wc.exe hello reducer yürütülebilir ' dir.
+5. Hello için **giriş** türü özelliği, hello Eşleştiricisi hello giriş dosyası (Merhaba konum dahil) belirtin. Merhaba örnekte: "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample hello blob kapsayıcısı, veri/örnek/Gutenberg hello klasördür ve davinci.txt hello blob.
+6. Hello için **çıkış** türü özelliği, hello reducer hello çıktı dosyası (Merhaba konum dahil) belirtin. Merhaba çıktısı hello Hadoop akış işi, bu özelliği için belirtilen toohello konumu yazılır.
+7. Merhaba, **filePaths** bölümünde, hello Eşleyici ve reducer yürütülebilir dosyalar için hello yollarını belirtin. Merhaba örnekte: "adfsample/example/apps/wc.exe" adfsample hello blob kapsayıcısı, örnek/uygulamaları hello klasördür ve wc.exe hello çalıştırılabilir.
+8. Hello için **fileLinkedService** özelliği, hello Azure temsil eden bağlı hizmet hello hello filePaths bölümünde belirtilen hello dosyaları içeren Azure depolama depolama belirtin.
+9. Hello için **bağımsız değişkenleri** özelliği, iş akışı hello hello bağımsız değişkenleri belirtin.
+10. Merhaba **Getdebugınfo** özelliği isteğe bağlı bir öğedir. TooFailure ayarlandığında hello günlükleri yalnızca hatada indirilir. TooAlways ayarlandığında, günlükleri hello yürütme durumu bağımsız olarak daima yüklenir.
 
 > [!NOTE]
-> Örnekte gösterildiği gibi bir çıktı veri kümesi için Hadoop akış etkinliği için belirlediğiniz **çıkarır** özelliği. Bu veri kümesi yalnızca ardışık düzen zamanlama sürücü için gereken bir kukla dataset ' dir. Hiçbir girdi veri kümesi için etkinliği belirtmek gerekmez **girişleri** özelliği.  
+> Merhaba örnekte gösterildiği gibi bir çıktı veri kümesi hello Merhaba Hadoop akış etkinliği için belirttiğiniz **çıkarır** özelliği. Bu veri kümesi yalnızca gerekli toodrive hello ardışık düzen zamanlaması bir kukla dataset ' dir. Toospecify hiçbir girdi veri kümesi hello hello etkinliğinin gerekmez **girişleri** özelliği.  
 > 
 > 
 
 ## <a name="example"></a>Örnek
-Ardışık Düzen bu kılavuzda, Azure Hdınsight kümesinde sözcük sayımı akış Haritası/azaltın programı çalıştırır. 
+Bu kılavuzda Hello ardışık Azure Hdınsight kümesinde hello sözcük sayımı akış eşleme/azaltın programı çalıştırır. 
 
 ### <a name="linked-services"></a>Bağlı hizmetler
 #### <a name="azure-storage-linked-service"></a>Azure Storage bağlı hizmeti
-İlk olarak, Azure data factory Azure Hdınsight küme tarafından kullanılan Azure Storage bağlamak için bağlı hizmet oluşturun. Hesap adı ve hesap anahtarı adı ve Azure depolama alanınızı anahtarı ile değiştirmek, kopyala/yapıştır aşağıdaki kod, unutmayın. 
+İlk olarak, bağlantılı hizmet toolink hello hello Azure Hdınsight küme toohello Azure veri fabrikası tarafından kullanılan Azure Storage oluşturun. Kopyala/yapıştır koddan Merhaba, hello adla tooreplace hesap adını ve hesap anahtarını ve Azure depolama anahtarını unutmayın. 
 
 ```JSON
 {
@@ -127,7 +127,7 @@ Ardışık Düzen bu kılavuzda, Azure Hdınsight kümesinde sözcük sayımı a
 ```
 
 #### <a name="azure-hdinsight-linked-service"></a>Azure Hdınsight bağlı hizmeti
-Ardından, Azure Hdınsight kümenizi Azure data factory'ye bağlamak için bağlı hizmet oluşturun. Kopyala/yapıştır aşağıdaki kod, Hdınsight küme adı Hdınsight kümenizin adıyla değiştirin ve kullanıcı adı ve parola değerlerini değiştirin. 
+Ardından, Azure Hdınsight küme toohello Azure data factory'nizi bağlantılı hizmet toolink oluşturun. Kopyala/yapıştır koddan Merhaba, Hdınsight küme adı hello Hdınsight kümenizin adıyla değiştirin ve kullanıcı adı ve parola değerlerini değiştirin. 
 
 ```JSON
 {
@@ -146,7 +146,7 @@ Ardından, Azure Hdınsight kümenizi Azure data factory'ye bağlamak için bağ
 
 ### <a name="datasets"></a>Veri kümeleri
 #### <a name="output-dataset"></a>Çıktı veri kümesi
-Ardışık Düzen Bu örnekte, tüm girişleri almaz. Hdınsight akış etkinliği için bir çıkış veri kümesi belirtin. Bu veri kümesi yalnızca ardışık düzen zamanlama sürücü için gereken bir kukla dataset ' dir. 
+Bu örnekte Hello ardışık tüm girişleri almaz. Merhaba Hdınsight akış etkinliği için bir çıkış veri kümesi belirtin. Bu veri kümesi yalnızca gerekli toodrive hello ardışık düzen zamanlaması bir kukla dataset ' dir. 
 
 ```JSON
 {
@@ -171,9 +171,9 @@ Ardışık Düzen Bu örnekte, tüm girişleri almaz. Hdınsight akış etkinli�
 ```
 
 ### <a name="pipeline"></a>İşlem hattı
-Bu örnekte ardışık türünde yalnızca bir etkinlik vardır: **HDInsightStreaming**. 
+Bu örnekte Hello ardışık türünde yalnızca bir etkinlik vardır: **HDInsightStreaming**. 
 
-Hdınsight kümesi örnek programlar (wc.exe ve cat.exe) ve veri (davinci.txt) ile otomatik olarak doldurulur. Varsayılan olarak, Hdınsight kümesi tarafından kullanılan kapsayıcının adını küme adıdır. Örneğin, küme adınızı myhdicluster ise, ilişkili blob kapsayıcısının adı myhdicluster olacaktır.  
+Merhaba Hdınsight kümesi örnek programlar (wc.exe ve cat.exe) ve veri (davinci.txt) ile otomatik olarak doldurulur. Varsayılan olarak, hello Hdınsight küme tarafından kullanılan hello kapsayıcının adını hello hello kümenin kendisi adıdır. Örneğin, küme adınızı myhdicluster ise, ilişkili hello blob kapsayıcısının adı myhdicluster olacaktır.  
 
 ```JSON
 {

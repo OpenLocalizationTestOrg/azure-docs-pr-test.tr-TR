@@ -1,6 +1,6 @@
 ---
-title: "Linux kullanıcı adlarını seçme | Microsoft Docs"
-description: "Azure'da bir Linux sanal makine için kullanıcı adları seçin öğrenin."
+title: "Linux için kullanıcı adları aaaSelecting | Microsoft Docs"
+description: "Azure'da bir Linux sanal makine için nasıl tooselect kullanıcı adları öğrenin."
 services: virtual-machines-linux
 documentationcenter: 
 author: szarkos
@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: 1874d72e5f88816036667932371ff28704d186c8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c65e2ac46f40bb8c9d74cccbaf248a070c0fa6cc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="selecting-user-names-for-linux-on-azure"></a>Azure’da Linux için Kullanıcı Adları Seçme
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-Azure üzerinde bir Linux sanal makine sağlarken, daha sonra VM'de oturum açmak için kullanabileceğiniz bir kök olmayan kullanıcının adını belirtmeniz gerekir. Yeni kullanıcı adını seçebilir veya Azure Klasik portalı üzerinden sağlama değişirse "azureuser" varsayılan adı kabul edebilir.
+Azure üzerinde bir Linux sanal makine sağlarken hello VM hello toolog daha sonra kullanabileceğiniz bir kök olmayan kullanıcı adını belirtmeniz gerekir. Merhaba hello yeni kullanıcı adını seçebilir veya Klasik Azure Portalı aracılığıyla sağlama hello değişirse adı "azureuser" Merhaba varsayılan kabul edebilir.
 
-Çoğu durumda bu kullanıcı temel görüntü var olmaz ve sağlama işlemi sırasında oluşturulur. Ardından kullanıcı üzerinde temel VM görüntü varsa, Azure Linux Aracısı'nı parola ve/veya VM oluşturulurken belirtilen bilgilere göre bu kullanıcı için SSH anahtarı yalnızca yapılandırır.
+Çoğu durumda bu kullanıcı hello temel görüntü üzerinde var olmaz ve hello sağlama işlemi sırasında oluşturulur. Ardından Hello kullanıcı hello temel VM görüntü varsa, hello Azure Linux Aracısı hello parola ve/veya SSH anahtarı hello VM oluşturulurken belirtilen hello bilgilere göre bu kullanıcı için yalnızca yapılandırır.
 
-**Ancak**, Linux kullanılmaması gereken kullanıcı adları kümesini tanımlar. Sağlama işlemi **başarısız** UID 0-99 olan bir kullanıcı olarak tanımlanan bir varolan bir sistem kullanıcı kullanarak bir Linux VM sağlayacak çalışırsanız. Tipik bir örnektir `root` UID 0 olan kullanıcı.
+**Ancak**, Linux kullanılmaması gereken kullanıcı adları kümesini tanımlar. işlem sağlama hello **başarısız** tooprovision UID 0-99 olan bir kullanıcı olarak tanımlanan bir varolan bir sistem kullanıcı kullanarak bir Linux VM çalışırsanız. Merhaba tipik örneğidir `root` UID 0 olan kullanıcı.
 
 * Ayrıca bkz: [Linux standart Base - kullanıcı kimliği aralıkları](http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html)
 
-Aşağıdakiler, CentOS ve Ubuntu Linux sanal makine azure'da sağlamada yapmaktan kaçınmalısınız ortak yerleşik sistem kullanıcıların bir listesidir. Bu liste yalnızca bir örnek, seçtiğiniz kullanıcı adı ile var olan bir sistem kullanıcı çakışmadığından emin olmak, dağıtım için belgelere başvurun.
+Merhaba, CentOS ve Ubuntu Linux sanal makine azure'da sağlamada yapmaktan kaçınmalısınız için ortak yerleşik sistem kullanıcıları listesi aşağıdadır. Bu liste yalnızca bir örnek, Lütfen, dağıtım tooensure için mevcut bir sistem kullanıcıyla çakışıp çakışmadığını'ı seçin, hello kullanıcıadı toohello belgelerine bakın.
 
 ## <a name="centos"></a>CentOS
 * abrt

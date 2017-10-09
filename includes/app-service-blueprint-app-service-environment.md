@@ -4,7 +4,7 @@
 * [ILB etkin uygulama hizmeti Resource Manager şablonları kullanarak ortamı oluşturma](../articles/app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md)
 * [App Service Ortamı ile Otomatik Ölçeklendirmeyi Kullanma](../articles/app-service/app-service-environment-auto-scale.md)
 * [Gelen Trafiği Güvenli Hale Getirme](../articles/app-service-web/app-service-app-service-environment-control-inbound-traffic.md)
-* [Arka Uç Kaynaklarına Bağlanma](../articles/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md)
+* [TooBackend kaynaklarına bağlanma](../articles/app-service-web/app-service-app-service-environment-securely-connecting-to-backend-resources.md)
 * [ExpressRoute ve App Service Ortamları](../articles/app-service-web/app-service-app-service-environment-network-configuration-expressroute.md)
 * [PCI uyumluluk ayarları dahil olmak üzere uygulama hizmeti ortamları için özel yapılandırma ayarları](../articles/app-service-web/app-service-app-service-environment-custom-settings.md)
 * [Uygulama hizmeti ortamları ile barındırma yüksek yoğunluklu uygulama](../articles/app-service/app-service-high-density-hosting.md#recommended-configuration-for-high-density-hosting)

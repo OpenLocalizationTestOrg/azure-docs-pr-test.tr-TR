@@ -1,28 +1,28 @@
 
-### <a name="to-sign-up-for-a-blitline-account"></a>Blitline hesap için kaydolmanız için
-1. Oturum [Azure Yönetim Portalı](https://manage.windowsazure.com/).
-2. Yönetim Portalı'nın alt bölmesinde tıklatarak **yeni**.
+### <a name="toosign-up-for-a-blitline-account"></a>Blitline hesap kaydınızı toosign
+1. İçinde toohello oturum [Azure Yönetim Portalı](https://manage.windowsazure.com/).
+2. Merhaba alt hello Yönetim Portalı'nın bölmesinde **yeni**.
    
     ![komut-çubuğu-yeni][command-bar-new]
 3. Tıklatın **deposu**.
    
     ![blitline deposu][blitline-store]
-4. İçinde **bir eklenti seçin** iletişim kutusunda **Blitline** ve sağ oka tıklayın.
-5. İçinde **kişiselleştirme eklenti** iletişim kutusunda **Blitline** kaydolun planı.
-6. Tanımlamak için bir ad girin, **Blitline** hizmeti Azure ayarlarınızda veya varsayılan değeri kullanın **Blitline**. Adın 1-100 karakter arasında olması ve yalnızca alfasayısal karakterler, çizgi, nokta ve alt çizgi içermesi gerekir. Adın abone olunan Azure Mağazası Öğeleri arasında benzersiz olması gerekir.
+4. Merhaba, **bir eklenti seçin** iletişim kutusunda **Blitline** ve hello sağ oka tıklayın.
+5. Merhaba, **kişiselleştirme eklenti** iletişim select hello **Blitline** toosign için istediğiniz planı.
+6. Bir ad tooidentify girin, **Blitline** hizmeti Azure ayarlarınızda veya hello varsayılan değeri kullanın **Blitline**. Adın 1-100 karakter arasında olması ve yalnızca alfasayısal karakterler, çizgi, nokta ve alt çizgi içermesi gerekir. Merhaba adı, abone olduğunuz Azure depolama öğeler listesinde benzersiz olması gerekir.
    
     ![Depolama ekran 1][store-screen-1]
-7. Bölge için bir değer seçin; Örneğin, Batı ABD. 
-8. Sağ oka tıklayın.
-9. Üzerinde **gözden satın alma** sekmesinde planı ve fiyatlandırma bilgileri gözden geçirin ve yasal koşulları gözden geçirin. Koşulları kabul ediyorsanız, onay işaretine tıklayın. Onay işaretine tıkladığınızda Blitline hesabınızı sağlama işlemi başlar. 
+7. Merhaba bölge için bir değer seçin; Örneğin, Batı ABD. 
+8. Merhaba sağ oka tıklayın.
+9. Merhaba üzerinde **gözden satın alma** sekmesinde hello planı ve fiyatlandırma bilgileri gözden geçirin ve hello yasal koşulları gözden geçirin. Toohello kabul etmesi durumunda koşullarını hello onay işaretine tıklayın. Merhaba onay işaretine tıklayın sonra Blitline hesabınızı hello sağlama işlemi başlar. 
 
-Blitline kullanmak için uygulama kimliğinizi olması gerekir
+toouse Blitline toohave uygulaması kimliği gerekiyor
 
-### <a name="to-find-your-blitline-application-id"></a>Blitline uygulama Kimliğini bulmak için
+### <a name="toofind-your-blitline-application-id"></a>toofind Blitline uygulama kimliği
 1. Tıklatın **bağlantı bilgisi**.
    
     ![bağlantı bilgileri düğme blitline][blitline-connection-info-button]
-2. İçinde *bağlantı bilgisi* iletişim kutusunda, uygulama Kimliğiniz görebilirsiniz
+2. Merhaba, *bağlantı bilgisi* iletişim kutusunda, uygulama Kimliğiniz görebilirsiniz
    
     ![blitline bağlantı bilgisi][blitline-connection-info]
 

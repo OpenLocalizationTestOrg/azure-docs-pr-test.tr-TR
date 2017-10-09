@@ -1,7 +1,7 @@
 ## <a name="repeatability-during-copy"></a>Kopyalama sırasında Yinelenebilirlik
-Azure SQL/SQL Server veri kopyalamayı diğer verilerden depoladığında bir Yinelenebilirlik istenmeyen sonuçları önlemek için göz önünde bulundurmanız gerekir. 
+Ne zaman veri tooAzure SQL/SQL Server diğer veriler kopyalama depolayan bir gereksinimlerini tookeep Yinelenebilirlik göz tooavoid istenmeyen sonuçları. 
 
-Azure SQL/SQL Server veritabanına veri kopyalama, kopyalama etkinliği varsayılan APPEND havuz tablosu veri kümesi varsayılan olarak kullanacak. Örneğin, verileri Azure SQL/SQL Server veritabanına iki kayıtlarını içeren bir CSV (virgülle ayrılmış değerler veri kaynağından) dosya kopyalarken, bu tablonun benzer.
+Veri tooAzure SQL/SQL Server veritabanı kopyalama, kopyalama etkinliği varsayılan APPEND hello veri kümesi toohello havuz tablosu tarafından varsayılan olarak kullanacak. Örneğin, iki içeren CSV (virgülle ayrılmış değerler veri) dosya kaynağından veri kopyalama tooAzure SQL/SQL Server veritabanına kaydeder sonra bu gibi görünüyor hangi hello tablo olur:
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -10,7 +10,7 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    2            2015-05-01 00:00:00
 ```
 
-Kaynak dosyasında hata buldu ve miktarını aşağı boru 2-4 kaynak dosyasında güncelleştirilmiş varsayalım. Veri dilimi belirli bir döneme ait yeniden çalıştırırsanız, Azure SQL/SQL Server veritabanına eklenen iki yeni kayıtlar bulabilirsiniz. Aşağıdaki tablodaki sütunların hiçbiri birincil anahtar kısıtlaması varsayar.
+Hataları kaynak dosyasını ve aşağı boru güncelleştirilmiş hello miktarından 2 too4 itibaren hello kaynak dosyasında bulunan varsayalım. Belirli bir döneme ait yeniden hello veri dilimi çalıştırırsanız, iki yeni kayıt tooAzure SQL/SQL Server veritabanına eklenen bulabilirsiniz. Merhaba aşağıdaki hello tablodaki hello sütun hiçbiri hello birincil anahtar kısıtlaması olduğunu varsayar.
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -21,15 +21,15 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    4            2015-05-01 00:00:00
 ```
 
-Bunu önlemek için aşağıdakilerden birini yararlanarak UPSERT semantiği belirtin gerekecektir aşağıda belirtildiği 2 mekanizmaları aşağıda.
+tooavoid Bu, aşağıda belirtildiği 2 mekanizmaları aşağıda hello yararlanarak toospecify UPSERT semantiği gerekir.
 
 > [!NOTE]
-> Bir dilim otomatik olarak Azure Data Factory içinde belirtilen yeniden deneme ilkesi uyarınca yeniden çalıştırılabilir.
+> Bir dilim otomatik olarak Azure Data Factory içinde belirtilen hello yeniden deneme ilkesi uyarınca yeniden çalıştırılabilir.
 > 
 > 
 
 ### <a name="mechanism-1"></a>Mekanizması 1
-Yararlanabileceğiniz **sqlWriterCleanupScript** bir dilim çalıştırıldığında ilk temizleme eylemi gerçekleştirmek için özellik. 
+Yararlanabileceğiniz **sqlWriterCleanupScript** özelliği toofirst bir dilim çalıştırdığınızda temizleme eylemi gerçekleştirir. 
 
 ```json
 "sink":  
@@ -39,9 +39,9 @@ Yararlanabileceğiniz **sqlWriterCleanupScript** bir dilim çalıştırıldığ�
 }
 ```
 
-Temizleme betiğini yürütülen hangi verileri bu dilim karşılık gelen SQL tablosundan siler belirli bir dilim için kopyalama sırasında ilk. Etkinlik sonradan verileri SQL tablosuna ekler. 
+Merhaba temizleme betiğini yürütülmesi, hello veri hello SQL tablosuna karşılık gelen toothat dilimden silebilirsiniz belirli bir dilim için kopyalama sırasında ilk. Merhaba etkinlik sonradan hello veri hello SQL tablosuna ekler. 
 
-Dilimi yeniden çalıştırın. ardından, miktarı olarak güncelleştirilir bulacaksınız şimdi ise, istenen.
+Merhaba miktar olarak güncelleştirilir yeniden çalıştırın. ardından, bulur artık hello dilim varsa desired.
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -50,25 +50,25 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    4            2015-05-01 00:00:00
 ```
 
-Düz rondela kaydı özgün csv kaldırılana varsayalım. Dilimi yeniden çalıştırmak aşağıdaki sonucu oluşturur: 
+Merhaba düz rondela kayıt hello özgün csv kaldırılır varsayalım. Daha sonra yeniden çalıştırarak hello dilim sonuç aşağıdaki hello oluşturur: 
 
 ```
 ID    Product        Quantity    ModifiedDate
 ...    ...            ...            ...
 7     Down Tube    4            2015-05-01 00:00:00
 ```
-Yeni bir şey yapılması gerekiyordu. Kopyalama etkinliği, dilim karşılık gelen verileri silmek için temizleme betiğini verdi. Giriş (hangi sonra yalnızca 1 kaydı bulunan) csv okuma sonra ve tabloya eklenen. 
+Yeni bir şey bitti toobe vardı. Merhaba kopyalama etkinliği hello temizleme betik toodelete hello ilgili verilerini bu dilim verdi. (Bu, daha sonra yer alan yalnızca 1 kaydı) hello csv hello giriş okuyun sonra ve tablo hello eklenir. 
 
 ### <a name="mechanism-2"></a>Mekanizması 2
 > [!IMPORTANT]
 > Sliceıdentifiercolumnname Azure SQL Data Warehouse için şu anda desteklenmiyor. 
 
-Ayrılmış bir sütun sağlayarak Yinelenebilirlik elde etmek için başka bir mekanizma olan (**Sliceıdentifiercolumnname**) hedef tablo. Azure Data Factory tarafından bu sütun kaynak ve hedef eşitlenmesine emin olmak için kullanılır. Bu yaklaşım, değiştirme veya hedef SQL tablo şemasını tanımlama esneklik olduğunda çalışır. 
+Başka bir mekanizma tooachieve Yinelenebilirlik adanmış bir sütun sağlayarak olduğu (**Sliceıdentifiercolumnname**) tablo hello hedefleyin. Bu sütun eşitlenmiş Azure Data Factory tooensure hello kaynak ve hedef Kal tarafından kullanılır. Bu yaklaşım, değiştirme veya hello hedef SQL tablo şemasını tanımlama esneklik olduğunda çalışır. 
 
-Bu sütun Azure Data Factory'nin Yinelenebilirlik amaçlar için kullanılır ve işlem sırasında tablonun herhangi bir şema değişikliği Azure Data Factory yapmaz. Bu yaklaşımı kullanmak için yol:
+Bu sütun Azure Data Factory'nin Yinelenebilirlik amaçlar için kullanılır ve hello işlemde herhangi bir şema Azure Data Factory yapmaz toohello tablo değiştirir. Yol toouse bu yaklaşım:
 
-1. Türünde bir sütun ikili (32) hedef SQL tablosu tanımlayın. Bu sütunda hiç bir kısıtlama olması gerekir. Şimdi bu sütun bu örnekte 'ColumnForADFuseOnly' adlandırın.
-2. Kopyalama etkinliği şu şekilde kullanın:
+1. Türünde bir sütun ikili (32) hello hedef SQL tablosu tanımlayın. Bu sütunda hiç bir kısıtlama olması gerekir. Şimdi bu sütun bu örnekte 'ColumnForADFuseOnly' adlandırın.
+2. Merhaba kopyalama etkinliği şu şekilde kullanın:
    
     ```json
     "sink":  
@@ -79,7 +79,7 @@ Bu sütun Azure Data Factory'nin Yinelenebilirlik amaçlar için kullanılır ve
     }
     ```
 
-Azure Data Factory bu sütun kaynak ve hedef eşitlenmesine emin olmak için gerek göredir doldurur. Bu sütundaki değerleri dışında bu bağlamda kullanıcı tarafından kullanılmamalıdır. 
+Azure Data Factory bu sütun, gerek göredir doldurmak tooensure hello kaynak ve hedef eşitlenmiş kalır. Bu sütundaki değerleri Hello dışında bu bağlamda hello kullanıcı tarafından kullanılmamalıdır. 
 
-Benzer şekilde mekanizması 1, kopyalama etkinliği otomatik olarak ayarlanır hedef SQL tablosu verilen dilim için verileri ilk Temizle ve normal veri kaynağından bu dilim için hedef eklemek için kopyalama etkinliği çalıştırın. 
+Benzer toomechanism 1, kopyalama etkinliği otomatik olarak ilk dilim hello hedef SQL tablosu verilen ve hello kopyalama etkinliği normalde çalıştırılan hello hello verilerini temizleme, dilim için kaynak toodestination tooinsert hello verileri. 
 

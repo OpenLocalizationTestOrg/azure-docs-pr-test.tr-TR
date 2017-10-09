@@ -1,6 +1,6 @@
 ---
-title: "Azur İç yük dengeleyicisi oluşturma - PowerShell | Microsoft Docs"
-description: "Resource Manager’da PowerShell kullanarak iç yük dengeleyici oluşturmayı öğrenin"
+title: "aaaCreate Azure iç yük dengeleyici - PowerShell | Microsoft Docs"
+description: "Toocreate bir iç yük dengeleyici Kaynak Yöneticisi'nde PowerShell kullanarak nasıl öğrenin"
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.openlocfilehash: 7bd31ab8f52ec5e81f6966000554be46eaa59396
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4b9657c77aa32a142de49ff7871ed6a396b22223
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-internal-load-balancer-using-powershell"></a>PowerShell kullanarak iç yük dengeleyici oluşturma
 
@@ -31,29 +31,29 @@ ms.lasthandoff: 07/11/2017
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!NOTE]
-> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md).  Bu makale, Microsoft’un çoğu yeni dağıtım için [klasik dağıtım modeli](load-balancer-get-started-ilb-classic-ps.md) yerine önerdiği Resource Manager dağıtım modelini açıklamaktadır.
+> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md).  Bu makalede, kullanarak yer almaktadır hello yerine çoğu yeni dağıtımlar için Microsoft önerir hello Resource Manager dağıtım modeli [Klasik dağıtım modeli](load-balancer-get-started-ilb-classic-ps.md).
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-Aşağıdaki adımlarda, Azure Resource Manager ve PowerShell kullanarak iç yük dengeleyici oluşturma işlemleri açıklanmaktadır. Azure Resource Manager ile iç yük dengeleyici oluşturmak için gerekli olan adımları ayrı ayrı tamamlamanız, ardından bunları birleştirerek yük dengeleyici oluşturmanız gerekir.
+Aşağıdaki adımları hello nasıl toocreate bir iç yük dengeleyici PowerShell ile Azure Resource Manager kullanarak açıklanmaktadır. Azure Resource Manager ile Merhaba öğeleri toocreate bir iç yük dengeleyici ayrı ayrı yapılandırılır ve toocreate bir yük dengeleyici bileşik.
 
-Yük dengeleyici dağıtmak için aşağıdaki nesneleri oluşturmanız ve yapılandırmanız gerekir:
+Nesneleri toodeploy bir yük dengeleyici aşağıdaki hello yapılandırmak ve toocreate gerekir:
 
-* Ön uç IP yapılandırması: Gelen ağ trafiği için özel IP adresinin yapılandırılması
-* Arka uç adres havuzu: Ön uç IP havuzundan gelen yük dengeli trafiği alacak ağ arabirimlerinin yapılandırılması
-* Yük dengeleme kuralları: Yük dengeleyici için kaynak ve yerel bağlantı noktası yapılandırması.
-* Araştırmalar: Sanal Makine örnekleri için durum araştırması yapılandırması.
-* Gelen NAT kuralları: Sanal Makine örneklerinden birine doğrudan erişmek için bağlantı noktası kurallarının yapılandırılması.
+* Ön uç IP yapılandırması - hello özel IP adresi gelen ağ trafiği için yapılandırın
+* Arka uç adres havuzu - ön uç IP havuzundan gelen hello yükü dengelenmiş trafiği alacak hello ağ arabirimleri yapılandıracağınız
+* Yük Dengeleme kuralları - kaynak ve yerel bağlantı noktası yapılandırmasını hello için yük dengeleyici.
+* Yoklamaları - hello sistem durum araştırması hello sanal makine örnekleri için yapılandırır.
+* Gelen NAT kuralları - başlangıç bağlantı noktası kuralları toodirectly erişim hello sanal makine örneklerinden biri yapılandırır.
 
 Azure Resource Manager içindeki yük dengeleyici bileşenleri hakkında daha fazla bilgi için bkz. [Azure Resource Manager yük dengeleyici desteği](load-balancer-arm.md).
 
-Aşağıdaki adımlarda iki sanal makine arasında yük dengeleyici yapılandırma işlemleri açıklanmaktadır.
+Merhaba aşağıdaki adımlarda açıklanmaktadır nasıl tooconfigure iki sanal makineler arasında bir yük dengeleyici.
 
-## <a name="setup-powershell-to-use-resource-manager"></a>PowerShell’i Resource Manager’ı kullanacak şekilde ayarlama
+## <a name="setup-powershell-toouse-resource-manager"></a>PowerShell toouse Resource Manager Kurulumu
 
-PowerShell Azure modülünün son üretim sürümüne sahip olduğunuzdan ve PowerShell ayarlarının Azure aboneliğinize doğrudan erişecek şekilde yapıldığından emin olun.
+Hello en son ürün sürümüne hello Azure modülü için PowerShell sahip ve doğru şekilde, Azure aboneliğinizin tooaccess Kurulum PowerShell sahip olduğunuzdan emin olun.
 
 ### <a name="step-1"></a>1. Adım
 
@@ -63,17 +63,17 @@ Login-AzureRmAccount
 
 ### <a name="step-2"></a>2. Adım
 
-Hesapla ilişkili abonelikleri kontrol etme
+Merhaba hesabının Hello abonelikleri kontrol edin
 
 ```powershell
 Get-AzureRmSubscription
 ```
 
-Kimlik bilgilerinizle kimliğinizi doğrulamanız istenir.
+Kimlik bilgilerinizle istendiğinde tooAuthenticate olacaktır.
 
 ### <a name="step-3"></a>3. Adım
 
-Hangi Azure aboneliğinizin kullanılacağını seçin.
+Azure abonelikleri toouse hangisinin seçin.
 
 ```powershell
 Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
@@ -87,13 +87,13 @@ Yeni bir kaynak grubu oluşturma (mevcut bir kaynak grubu kullanıyorsanız bu a
 New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 ```
 
-Azure Resource Manager, tüm kaynak gruplarının bir konum belirtmesini gerektirir. Bu, kaynak grubunda kaynaklar için varsayılan konum olarak kullanılır. Tüm yük dengeleyici oluşturma komutlarının aynı kaynak grubunu kullanacağından emin olun.
+Azure Resource Manager, tüm kaynak gruplarının bir konum belirtmesini gerektirir. Bu kaynak grubundaki kaynaklar için hello varsayılan konum olarak kullanılır. Bir yük dengeleyicinin kullanacağı toocreate aynı hello tüm komutları emin olun kaynak grubu.
 
-Yukarıdaki örnekte, "NRP-RG" adlı "Batı ABD" konumlu bir kaynak grubu oluşturduk.
+Hello biz Yukarıdaki örnek "NRP-RG adlı" "Batı ABD" konumlu bir kaynak grubu oluşturduk.
 
 ## <a name="create-virtual-network-and-a-private-ip-address-for-front-end-ip-pool"></a>Ön uç IP havuzu için Sanal Ağ ve özel IP adresi oluşturma
 
-Sanal ağ için bir alt ağ oluşturur ve $backendSubnet değişkenine atar
+Merhaba sanal ağ için bir alt ağ oluşturur ve toovariable $backendSubnet atar
 
 ```powershell
 $backendSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -AddressPrefix 10.0.2.0/24
@@ -105,15 +105,15 @@ Sanal ağ oluşturma:
 $vnet= New-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
 ```
 
-Sanal ağı oluşturur ve lb-subnet-be alt ağını NRPVNet sanal ağına ekler ve $vnet değişkenine atar
+Merhaba sanal ağ oluşturur ve hello alt lb alt olması toohello sanal ağ NRPVNet ekler ve toovariable $vnet atar
 
 ## <a name="create-front-end-ip-pool-and-backend-address-pool"></a>Ön uç IP havuzu ve arka uç adres havuzu oluşturma
 
-Gelen yük dengeleyici ağı trafiği için ön uç IP havuzu ve yük dengeli trafiği almak için arka uç adres havuzu kurma.
+Merhaba gelen için bir ön uç IP havuzu ayarlama yük dengeleyici ağ trafiği ve arka uç adres havuzu tooreceive hello yükü dengelenmiş trafiği.
 
 ### <a name="step-1"></a>1. Adım
 
-Gelen ağ trafiği uç noktası olacak 10.0.2.0/24 alt ağı için 10.0.2.5 özel IP adresini kullanan ön uç IP havuzu oluşturma.
+Merhaba gelen ağ trafiğini uç olacağı hello alt 10.0.2.0/24 için Hello özel IP adresi 10.0.2.5 kullanarak bir ön uç IP havuzu oluşturun.
 
 ```powershell
 $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $vnet.subnets[0].Id
@@ -121,7 +121,7 @@ $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -Private
 
 ### <a name="step-2"></a>2. Adım
 
-Ön uç IP havuzundan gelen trafiği almak için kullanılacak arka uç adres havuzu kurma:
+Bir arka uç adres havuzu ayarlama tooreceive gelen trafiği ön uç IP havuzundan kullanılır:
 
 ```powershell
 $beaddresspool= New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "LB-backend"
@@ -129,7 +129,7 @@ $beaddresspool= New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "LB-backen
 
 ## <a name="create-lb-rules-nat-rules-probe-and-load-balancer"></a>LB kuralları, NAT kuralları, araştırma ve yük dengeleyici oluşturma
 
-Ön uç IP havuzunu ve arka uç adres havuzunu oluşturduktan sonra yük dengeleyici kaynağına ait olacak kuralları oluşturmanız gerekir:
+Merhaba ön uç IP havuzu ve hello arka uç adres havuzu oluşturduktan sonra toohello yük dengeleyici kaynak ait toocreate hello kuralları gerekir:
 
 ### <a name="step-1"></a>1. Adım
 
@@ -143,16 +143,16 @@ $healthProbe = New-AzureRmLoadBalancerProbeConfig -Name "HealthProbe" -RequestPa
 $lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HTTP" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
 ```
 
-Yukarıdaki örnek aşağıdaki öğeleri oluşturur:
+Yukarıdaki Hello örnek öğeleri aşağıdaki hello oluşturuluyor:
 
-* 3441 numaralı bağlantı noktasına gelen tüm trafiği 3389 numaralı bağlantı noktasına yönlendirecek NAT kuralı.
-* 3442 numaralı bağlantı noktasına gelen tüm trafiği 3389 numaralı bağlantı noktasına yönlendirecek ikinci NAT kuralı.
-* 80 numaralı genel bağlantı noktasına gelen tüm trafik için arka uç adres havuzundaki 80 numaralı yerel bağlantı noktasında yük dengeleme gerçekleştirecek yük dengeleyici kuralı.
-* "HealthProbe.aspx" yolu için sistem durumunu kontrol edecek bir araştırma kuralı
+* Tüm gelen tooport 3441 trafiği NAT kuralı tooport 3389 geçer.
+* tooport 3442 trafiği tüm gelen, ikinci bir NAT kuralı tooport 3389 geçer.
+* yükleyecek bir yük dengeleyici kuralı genel bağlantı noktası 80 toolocal 80 numaralı bağlantı noktasında hello arka uç adres havuzundaki tüm gelen trafiği dengeler.
+* Araştırma kuralı, bir yolu "HealthProbe.aspx" Merhaba sistem durumunu denetler
 
 ### <a name="step-2"></a>2. Adım
 
-Tüm nesneleri (NAT kuralları, Yük dengeleyici kuralları, araştırma yapılandırmaları) ekleyerek yük dengeleyiciyi oluşturma:
+Merhaba yük dengeleyici (NAT kuralları, yük dengeleyici kuralları, araştırma yapılandırmaları) tüm nesnelerin araya ekleme oluşturun:
 
 ```powershell
 $NRPLB = New-AzureRmLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Location "West US" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
@@ -160,11 +160,11 @@ $NRPLB = New-AzureRmLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Loc
 
 ## <a name="create-network-interfaces"></a>Ağ arabirimlerini oluşturma
 
-İç yük dengeleyiciyi oluşturduktan sonra gelen yük dengeli ağ trafiğini alacak olan ağ arabirimlerini, NAT kurallarını ve araştırmayı tanımlamanız gerekir. Bu durumda ağ arabirimi ayrı olarak yapılandırılabilir ve daha sonra bir sanal makineye atanabilir.
+Merhaba iç yük dengeleyici oluşturduktan sonra hangi ağ arabirimleri hello gelen yük dengeli ağ trafiği NAT kuralları ve araştırma alacaksınız tanımlayın. Hello ağ arabirimi, bu durumda tek tek yapılandırılır ve tooa sanal makineyi daha sonra atanabilir.
 
 ### <a name="step-1"></a>1. Adım
 
-Ağ arabirimlerini oluşturmak için kaynak sanal ağını ve alt ağını edinme:
+Merhaba kaynak sanal ağ ve alt ağ toocreate ağ arabirimlerini Al:
 
 ```powershell
 $vnet = Get-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG
@@ -172,7 +172,7 @@ $vnet = Get-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG
 $backendSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet
 ```
 
-Bu adımda yük dengeleyici arka uç havuzuna ait olacak ağ birimi oluşturulur ve bu ağ arabirimi için ilk RDP NAT kuralıyla ilişkilendirilir:
+Bu adım toohello yük dengeleyici arka uç havuzuna ait ve bu ağ arabirimi için RDP hello ilk NAT kuralında ilişkilendirmek bir ağ arabirimi oluşturur:
 
 ```powershell
 $backendnic1= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic1-be -Location "West US" -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
@@ -182,13 +182,13 @@ $backendnic1= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-n
 
 LB-Nic2-BE adında ikinci bir ağ arabirimi oluşturma:
 
-Bu adımda ikinci bir ağ arabirimi oluşturulur, aynı yük dengeleyici arka uç havuzuna atanır ve RDP için oluşturulan ikinci NAT kuralıyla ilişkilendirilir:
+Bu adımı ikinci bir ağ arabirimi oluşturur, geri aynı yük dengeleyici havuzu sonlandırmak ve hello ikinci NAT kuralı ilişkilendirme için RDP oluşturulan toohello atama:
 
 ```powershell
 $backendnic2= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-be -Location "West US" -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
 ```
 
-Sonuç şunu verecektir:
+Merhaba sonuç hello şunları gösterir:
 
     $backendnic1
 
@@ -240,17 +240,17 @@ Beklenen çıktı:
 
 ### <a name="step-3"></a>3. Adım
 
-NIC’i bir sanal makineye atamak için Add-AzureRmVMNetworkInterface komutunu kullanın.
+Merhaba komutu Ekle AzureRmVMNetworkInterface tooassign hello NIC tooa sanal makine kullanın.
 
-Sanal makine oluşturma ve bir NIC’e atama ile ilgili adım adım talimatları şu belgede bulabilirsiniz: [PowerShell kullanarak Azure VM oluşturma](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
+Adım adım yönergeler toocreate bir sanal makine hello ve tooa NIC atayın bulabilir hello belgelerine aşağıdaki: [Azure PowerShell kullanarak bir VM oluşturma](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
 
-## <a name="add-the-network-interface"></a>Ağ arabirimini ekleme
+## <a name="add-hello-network-interface"></a>Merhaba ağ arabirimi ekleyin
 
-Önceden oluşturulan bir sanal makineniz varsa aşağıdaki adımları uygulayarak ağ arabirimini etkileyebilirsiniz:
+Oluşturulan bir sanal makine zaten varsa, aşağıdaki adımları hello ile Merhaba ağ arabirimi ekleyebilirsiniz:
 
 ### <a name="step-1"></a>1. Adım
 
-Yük dengeleyici kaynağını bir değişkene yükleyin (henüz yapmadıysanız). Kullanılan değişken $lb olarak adlandırılır ve yukarıda oluşturulan yük dengeleyici kaynağıyla aynı adları kullanır.
+(Bunu, henüz yapmadıysanız) hello yük dengeleyici kaynak bir değişkene yükleyin. kullanılan hello çağrılan $lb ve kullanım hello hello yük dengeleyici kaynak aynı adlarından yukarıda oluşturduğunuz değişkenidir.
 
 ```powershell
 $lb = Get-AzureRmLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
@@ -258,7 +258,7 @@ $lb = Get-AzureRmLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
 
 ### <a name="step-2"></a>2. Adım
 
-Arka uç yapılandırmasını bir değişkene yükleyin.
+Yük hello arka uç yapılandırması tooa değişkeni.
 
 ```powershell
 $backend = Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
@@ -266,7 +266,7 @@ $backend = Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -L
 
 ### <a name="step-3"></a>3. Adım
 
-Önceden oluşturulan ağ arabirimini bir değişkene yükleyin. $nic değişken adı kullanılır. Kullanılan ağ arabirimi adı yukarıdaki örnekle aynıdır.
+Önceden oluşturulmuş hello ağ arabirimi bir değişkene yükleyin. kullanılan hello değişken $NIC adıdır kullanılan hello ağ arabirimi adı olduğu hello aynı örnek hello yukarıdaki.
 
 ```powershell
 $nic = Get-AzureRmNetworkInterface –name lb-nic1-be -resourcegroupname NRP-RG
@@ -274,7 +274,7 @@ $nic = Get-AzureRmNetworkInterface –name lb-nic1-be -resourcegroupname NRP-RG
 
 ### <a name="step-4"></a>4. Adım
 
-Ağ arabiriminde arka uç yapılandırmasını değiştirin.
+Merhaba arka uç yapılandırması hello ağ arabiriminde değiştirin.
 
 ```powershell
 $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
@@ -282,18 +282,18 @@ $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
 
 ### <a name="step-5"></a>5. Adım
 
-Ağ arabirimi nesnesini kaydedin.
+Merhaba ağ arabirimi nesnesi kaydedin.
 
 ```powershell
 Set-AzureRmNetworkInterface -NetworkInterface $nic
 ```
 
-Yük dengeleyici arka uç havuzuna bir ağ arabirimi eklendikten sonra ilgili yük dengeleyici kaynağı için yük dengeleme kurallarına göre ağ trafiğini almaya başlar.
+Bir ağ arabirimi toohello yük dengeleyici arka uç havuzuna eklendikten sonra ağ trafiğini hello Yük Dengeleme kuralları bu yük dengeleyici kaynak için temel almayı başlatır.
 
 ## <a name="update-an-existing-load-balancer"></a>Mevcut yük dengeleyiciyi güncelleştirme
 
 ### <a name="step-1"></a>1. Adım
-Yukarıdaki örnekte verilen yük dengeleyiciyi kullanarak yük dengeleyici nesnesini $slb değişkenine Get-AzureRmLoadBalancer ile atayın
+Yukarıdaki hello örneğindeki Hello yük dengeleyicinin kullanılması, yük dengeleyici nesne toovariable Get-AzureRmLoadBalancer kullanarak $slb atayın
 
 ```powershell
 $slb = Get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
@@ -301,7 +301,7 @@ $slb = Get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 
 ### <a name="step-2"></a>2. Adım
 
-Aşağıdaki örnekte mevcut bir yük dengeleyiciye ön uç için 81 numaralı bağlantı noktasını, arka uç havuzu için ise 8181 numaralı arka uç bağlantı noktasını kullanarak yeni bir Gelen NAT kuralı ekleyeceksiniz
+Merhaba, aşağıdaki örneğine, hello ön uç bağlantı noktası 81'i kullanarak yeni bir gelen NAT kuralı ekleyeceksiniz ve hello geri için bağlantı noktası 8181 bitiş havuzu tooan varolan yük dengeleyicisi
 
 ```powershell
 $slb | Add-AzureRmLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
@@ -309,7 +309,7 @@ $slb | Add-AzureRmLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConf
 
 ### <a name="step-3"></a>3. Adım
 
-Yeni yapılandırmayı Set-AzureLoadBalancer kullanarak kaydedin
+Set-AzureLoadBalancer kullanarak hello yeni yapılandırmayı kaydedin
 
 ```powershell
 $slb | Set-AzureRmLoadBalancer
@@ -317,14 +317,14 @@ $slb | Set-AzureRmLoadBalancer
 
 ## <a name="remove-a-load-balancer"></a>Yük dengeleyici kaldırma
 
-“NRP-RG” adlı kaynak grubunda yer alan “NRP-LB” adlı önceden oluşturulmuş yük dengeleyiciyi silmek için Remove-AzureRmLoadBalancer komutunu kullanın
+Merhaba komutu Kaldır AzureRmLoadBalancer toodelete "NRP-"NRP-RG"adlı LB" bir kaynak grubunda adlı önceden oluşturulmuş yük dengeleyici kullanın
 
 ```powershell
 Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 ```
 
 > [!NOTE]
-> Silme istemini atlamak için isteğe bağlı -Force anahtarını kullanabilirsiniz.
+> İsteğe bağlı hello kullanabilirsiniz geçiş - Force tooavoid hello istemi silme işlemi için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

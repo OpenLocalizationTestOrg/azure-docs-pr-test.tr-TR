@@ -1,6 +1,6 @@
 ---
-title: "Python ile Azure Service Bus kuyruklarını kullanma | Microsoft Docs"
-description: "Python'dan Azure Service Bus kuyruklarını kullanmayı öğrenin."
+title: "aaaHow toouse Azure Service Bus kuyrukları Python ile | Microsoft Docs"
+description: "Python nasıl toouse Azure Service Bus kuyrukları öğrenin."
 services: service-bus-messaging
 documentationcenter: python
 author: sethmanheim
@@ -14,35 +14,35 @@ ms.devlang: python
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm;lmazuel
-ms.openlocfilehash: e1e81ad1d7b4fe0e044917f090cac59dfd5b6332
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: bceb84d04ff3445c3087a9c246c583d6630f07af
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-service-bus-queues-with-python"></a>Python ile Service Bus kuyruklarını kullanma
+# <a name="how-toouse-service-bus-queues-with-python"></a>Python ile nasıl toouse Service Bus kuyrukları
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Bu makalede, Service Bus kuyruklarının nasıl kullanılacağı açıklanır. Python ve kullanım örnekleri yazılır [Python Azure Service Bus paket][Python Azure Service Bus package]. Kapsamdaki senaryolar dahil **ileti gönderme ve alma sıra oluşturma**, ve **sıraları silme**.
+Bu makalede nasıl toouse Service Bus kuyruklarını. Merhaba örnekleri Python içinde yazılmış ve hello kullan [Python Azure Service Bus paket][Python Azure Service Bus package]. Merhaba kapsanan senaryolar dahil **ileti gönderme ve alma sıra oluşturma**, ve **sıraları silme**.
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 > [!NOTE]
-> Python yüklemek için veya [Python Azure Service Bus paket][Python Azure Service Bus package], bkz: [Python Yükleme Kılavuzu'na](../python-how-to-install.md).
+> Python veya hello tooinstall [Python Azure Service Bus paket][Python Azure Service Bus package], hello bkz [Python Yükleme Kılavuzu'na](../python-how-to-install.md).
 > 
 > 
 
 ## <a name="create-a-queue"></a>Bir kuyruk oluşturma
-**ServiceBusService** nesne kuyruklarla çalışmanıza olanak sağlar. Service Bus programlı olarak erişmek istediğiniz tüm Python dosyanın en üstüne yakın aşağıdaki kodu ekleyin:
+Merhaba **ServiceBusService** nesne kuyruklarla toowork sağlar. Tooprogrammatically erişim Service Bus istediğiniz herhangi bir Python dosyasının kaydedileceği hello üstüne yakın koddan hello ekleyin:
 
 ```python
 from azure.servicebus import ServiceBusService, Message, Queue
 ```
 
-Aşağıdaki kod oluşturur bir **ServiceBusService** nesnesi. Değiştir `mynamespace`, `sharedaccesskeyname`, ve `sharedaccesskey` ad alanı, paylaşılan erişim imzası (SAS) anahtar adını ve değeri.
+Merhaba aşağıdaki kod oluşturur bir **ServiceBusService** nesnesi. Değiştir `mynamespace`, `sharedaccesskeyname`, ve `sharedaccesskey` ad alanı, paylaşılan erişim imzası (SAS) anahtar adını ve değeri.
 
 ```python
 bus_service = ServiceBusService(
@@ -51,13 +51,13 @@ bus_service = ServiceBusService(
     shared_access_key_value='sharedaccesskey')
 ```
 
-SAS anahtar adını ve değerini değerlerini bulunabilir [Azure portal] [ Azure portal] bağlantı bilgilerini veya Visual Studio'da **özellikleri** hizmet seçerken bölmesi Veri yolu ad alanı Sunucu Gezgininde (önceki bölümde gösterildiği gibi).
+Merhaba hello SAS anahtar adı ve değeri değerlerini hello bulunabilir [Azure portal] [ Azure portal] bağlantı bilgilerini veya hello Visual Studio **özellikleri** seçerken bölmesi Sunucu Gezgininde Service Bus ad alanı (Merhaba önceki bölümde gösterildiği gibi) hello.
 
 ```python
 bus_service.create_queue('taskqueue')
 ```
 
-`create_queue` Yöntemi de ileti zamanı dinamik (TTL) veya en büyük sıra boyutu gibi varsayılan sırası ayarlarını geçersiz kılmanıza olanak sağlayan ek seçenekleri destekler. Aşağıdaki örnek en büyük sıra boyutu 5 GB ve TTL değeri 1 dakika olarak ayarlar:
+Merhaba `create_queue` yöntemi de ileti toolive süresi (TTL) veya en büyük sıra boyutu gibi toooverride varsayılan sıra ayarları etkinleştirmek ek seçenekleri destekler. Merhaba aşağıdaki örnek hello en büyük sıra boyutu too5 GB ve hello TTL değeri too1 minute ayarlar:
 
 ```python
 queue_options = Queue()
@@ -67,31 +67,31 @@ queue_options.default_message_time_to_live = 'PT1M'
 bus_service.create_queue('taskqueue', queue_options)
 ```
 
-## <a name="send-messages-to-a-queue"></a>Kuyruğa ileti gönderme
-Uygulama çağrılarınızı bir Service Bus kuyruğuna bir ileti göndermek için `send_queue_message` yöntemi **ServiceBusService** nesnesi.
+## <a name="send-messages-tooa-queue"></a>İletileri tooa sırası Gönder
+ileti tooa Service Bus kuyruğuna toosend, uygulamanızın çağırır hello `send_queue_message` hello yöntemi **ServiceBusService** nesnesi.
 
-Aşağıdaki örnek adlı sırasına sınama iletisi göndermek nasıl gösterir `taskqueue` kullanarak `send_queue_message`:
+Merhaba aşağıdaki örnekte nasıl toosend adlı bir sınama iletisi toohello sırası gösteren `taskqueue` kullanarak `send_queue_message`:
 
 ```python
 msg = Message(b'Test Message')
 bus_service.send_queue_message('taskqueue', msg)
 ```
 
-Service Bus kuyrukları, [Standart katmanda](service-bus-premium-messaging.md) maksimum 256 KB ve [Premium katmanda](service-bus-premium-messaging.md) maksimum 1 MB ileti boyutunu destekler. Standart ve özel uygulama özelliklerini içeren üst bilginin maksimum dosya boyutu 64 KB olabilir. Kuyrukta tutulan ileti sayısına ilişkin bir sınır yoktur ancak kuyruk tarafından tutulan iletilerin toplam boyutu için uç sınır vardır. Bu kuyruk boyutu, üst sınır 5 GB olacak şekilde oluşturulma zamanında belirlenir. Kotalar hakkında daha fazla bilgi için bkz: [Service Bus kotaları][Service Bus quotas].
+Service Bus kuyruklarını destek maksimum ileti boyutu 256 KB hello [standart katmanı](service-bus-premium-messaging.md) hello 1 MB [Premium katmanı](service-bus-premium-messaging.md). Merhaba standart ve özel uygulama özelliklerini içeren hello üstbilgi en büyük boyutu 64 KB olabilir. Merhaba bir kuyrukta tutulan ileti sayısına bir sınır yoktur ancak kuyruk tarafından tutulan hello iletilerin toplam boyutu hello bir sınır yoktur. Bu kuyruk boyutu, üst sınır 5 GB olacak şekilde oluşturulma zamanında belirlenir. Kotalar hakkında daha fazla bilgi için bkz: [Service Bus kotaları][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-queue"></a>Kuyruktan ileti alma
-İletileri kullanarak bir Sıraya alınan `receive_queue_message` yöntemi **ServiceBusService** nesnesi:
+İletileri hello kullanarak bir kuyruktan alınan `receive_queue_message` hello yöntemi **ServiceBusService** nesnesi:
 
 ```python
 msg = bus_service.receive_queue_message('taskqueue', peek_lock=False)
 print(msg.body)
 ```
 
-İletileri zaman okunduğu gibi sıradan silinir parametresi `peek_lock` ayarlanır **False**. (Özet) okuma ve iletiyi sıradan parametresi ayarlanarak silmeden kilitlemek `peek_lock` için **doğru**.
+İletileri zaman okunduğu gibi hello sıradan silinir parametre hello `peek_lock` çok ayarlanır**False**. (Özet) okuma ve ayarlama hello parametresiyle hello sıradan silmeden selamlama iletisine kilitlemek `peek_lock` çok**doğru**.
 
-Okuma ve ileti alma işleminin bir parçası olarak silme davranışı en basit modeldir ve uygulamanın hata oluştuğunda bir iletiyi işlemeyi değil dayanabileceği senaryoları için en iyi şekilde çalışır. Bu durumu daha iyi anlamak için müşterinin bir alma isteği bildirdiğini ve bu isteğin işlenmeden çöktüğünü varsayın. Service Bus iletiyi kullanılıyor olarak işaretlenmiş nedeniyle uygulama yeniden başlatılıp iletileri tekrar kullanmaya başladığında, sonra da çökmenin öncesinde kullanılan iletiyi atlamış olur.
+Okuma davranışını hello ve hello parçası işlemi aldıklarında hello iletisi siliniyor hello en basit modeldir ve uygulamanın bir hatanın hello Olay iletisinde işlenmiyor dayanabileceği senaryolarda en iyi şekilde çalışır. toounderstand Bu, hangi hello tüketici sorunları hello alma isteği bir senaryo düşünün ve işlemeden önce çöküyor. Hizmet veri yolu selamlama iletisine hello uygulama yeniden başlatılıp iletileri tekrar kullanmaya başladığında olduğunda, ardından kullanılıyor olarak işaretlenmiş için onu olan hello iletiyi atlamış olur önceki toohello kilitlenme tüketilen.
 
-Varsa `peek_lock` parametrenin ayarlanmış **doğru**, alma, iletilere veremeyen uygulamaları desteklemenin mümkün kılar bir iki aşamalı işlemi haline gelir. Service Bus bir istek aldığında bir sonraki kullanılacak iletiyi bulur, diğer tüketicilerin bu iletiyi almasını engellemek için kilitler ve ardından uygulamaya döndürür. Uygulama iletiyi işlemeyi tamamladıktan sonra (veya sonra işlemek için depoladıktan sonra), çağırarak alma işleminin ikinci aşamasını tamamlar **silmek** yöntemi **ileti** nesne. **Silmek** yöntemi iletiyi kullanılıyor olarak işaretler ve kuyruktan kaldırır.
+Merhaba, `peek_lock` parametresi çok ayarlanırsa**True**, hello alma iletilere olası toosupport uygulamaları iki aşamalı işlemi olur. Service Bus bir istek aldığında hello sonraki ileti toobe tüketilen, diğer tüketicilerin alırken tooprevent kilitler ve toohello uygulama döndürür bulur. Merhaba uygulaması hello iletiyi işlemeyi tamamladıktan sonra (veya sonra işlemek için depoladıktan sonra), hello hello ikinci aşamasını tamamlar tarafından arama hello alma işleminin **silmek** hello yöntemi **ileti** nesnesi. Merhaba **silmek** yöntemi hello iletiyi kullanılıyor olarak işaretler ve hello sıradan kaldırın.
 
 ```python
 msg = bus_service.receive_queue_message('taskqueue', peek_lock=True)
@@ -100,15 +100,15 @@ print(msg.body)
 msg.delete()
 ```
 
-## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Uygulama çökmelerini ve okunmayan iletileri giderme
-Service Bus, uygulamanızda gerçekleşen hataları veya ileti işlenirken oluşan zorlukları rahat bir şekilde ortadan kaldırmanıza yardımcı olmak için işlevsellik sağlar. Alıcı uygulamanın iletiyi herhangi bir nedenden dolayı işleyemedi sonra işleyememesi **kilidini** yöntemi **ileti** nesnesi. Bu, Service Bus hizmetinin Kuyruktaki iletinin kilidini açmasına ve iletiyi aynı veya başka bir kullanıcı uygulama tarafından tekrar alınabilir hale getirmesine neden olur.
+## <a name="how-toohandle-application-crashes-and-unreadable-messages"></a>Nasıl toohandle uygulaması kilitlenir ve Okunmayan iletileri
+Hizmet veri yolu, gerçekleşen hataları uygulama ya da ileti işlenirken zorlukları rahat işlevselliği toohelp sağlar. Alıcı uygulamanın kaydedemediği tooprocess Merhaba ileti herhangi bir nedenden dolayı ardından hello çağırabilirsiniz **kilidini** hello yöntemi **ileti** nesnesi. Bu hizmet veri yolu toounlock selamlama iletisine hello sıra içinde neden ve yeniden alınan kullanılabilir toobe olun, ya da göre aynı uygulama veya başka bir kullanıcı uygulama tarafından tüketen hello.
 
-Ayrıca kuyrukta kilitlenen iletiye ilişkin bir zaman aşımı vardır ve uygulama önce iletiyi işleyemezse (örneğin, uygulama çökerse) Service Bus otomatik olarak iletinin kilidini açmak ve onu kilit zaman aşımı dolmadan yeniden alınabilmesi kullanılabilir.
+Ayrıca hello kuyrukta kilitlenen iletiye ilişkin bir zaman aşımı vardır ve hello tooprocess önce iletiyi hello hello uygulama başarısız olursa (örneğin, hello uygulama çökerse) Service Bus selamlama iletisine otomatik olarak kilitlenmeden kilit zaman aşımı dolmadan ve yeniden alınan kullanılabilir toobe yapın.
 
-Uygulama iletiyi ancak önce çökmesi durumunda, **silmek** yöntemi çağrıldıktan sonra yeniden başlatıldığında ileti uygulamaya tekrar teslim edilir. Bu genellikle adlandırılır **en az bir kez işleme**, diğer bir deyişle, her ileti en az bir kez işlenir ancak belirli durumlarda aynı ileti yeniden teslim. Senaryo yinelenen işlemeyi kabul etmiyorsa yinelenen ileti teslimine izin vermek için uygulama geliştiricilerin uygulamaya ilave bir mantık eklemesi gerekir. Bu genellikle kullanılarak elde edilen **MessageID** özelliğini iletinin teslimat denemelerinde.
+Merhaba ileti işlenirken sonra ancak hello önce uygulama hello olay Hello çöküyor **silmek** yöntemi çağrıldıktan sonra başlatıldığında hello ileti yeniden teslim toohello uygulama olacaktır. Bu genellikle adlandırılır **en az bir kez işleme**, diğer bir deyişle, her ileti en az bir kez işlenir ancak belirli durumlarda hello aynı ileti yeniden teslim. Merhaba senaryo yinelenen işlemeyi kabul etmiyorsa, uygulama geliştiricilerinin ek mantık tootheir uygulama toohandle yinelenen ileti teslimi eklemeniz gerekir. Bu genellikle hello kullanılarak elde edilen **MessageID** teslimat denemelerinde hello iletinin özelliği.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Service Bus kuyruklarını temel bilgileri öğrendiniz, daha fazla bilgi için aşağıdaki makalelere bakın.
+Service Bus kuyruklarını hello temel bilgileri öğrendiniz, daha fazla Bu makaleler toolearn bakın.
 
 * [Kuyruklar, konu başlıkları ve abonelikler][Queues, topics, and subscriptions]
 

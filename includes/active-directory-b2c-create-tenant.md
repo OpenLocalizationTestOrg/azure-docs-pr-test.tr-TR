@@ -1,21 +1,23 @@
-**Yeni** düğmesine tıklayın. **Markette ara** alanına `Azure Active Directory B2C` yazın.
+Sipi tarafından düzenlenebilir.
 
-![Ekle düğmesi vurgulanıyor, markette ara alanında Azure Active Directory B2C yazıyor.](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
+Merhaba tıklatın **yeni** düğmesi. Merhaba, **arama hello Market** alanına, `Azure Active Directory B2C`.
 
-Sonuç listesinde **Azure Active Directory B2C**’yi seçin.
+![Düğmesi vurgulanmış ve metin Azure Active Directory B2C hello arama hello Market alanına hello ekleme](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 
-![Sonuç listesinde Azure Active Directory B2C seçili](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c-result.png)
+Merhaba sonuçları listesinden seçmek **Azure Active Directory B2C**.
 
-Azure Active Directory B2C ile ilgili ayrıntılar gösterilir. Yeni Azure Active Directory B2C kiracınızı yapılandırmaya başlamak için **Oluştur** düğmesine tıklayın.
+![Merhaba sonuçlar listesinde seçili Azure Active Directory B2C](./media/active-directory-b2c-create-tenant/find-azure-ad-b2c-result.png)
 
-**Yeni Azure AD B2C Kiracısı oluştur**’u seçin. Ardından, tabloda belirtilen ayarları kullanın.
+Azure Active Directory B2C ile ilgili ayrıntılar gösterilir. Yeni Azure Active Directory B2C kiracınızın yapılandırma toobegin tıklatın hello **oluşturma** düğmesi.
 
-![Azure AD B2C kiracı oluşturma aşaması, kullanılabilir alanlarda örnek metinler](./media/active-directory-b2c-create-tenant/create-new-b2c-tenant.png)
+**Yeni Azure AD B2C Kiracısı oluştur**’u seçin. Ardından, hello tablosunda belirtilen hello ayarlarını kullanın.
+
+![Azure AD B2C oluşturmak Kiracı örnek metinle hello kullanılabilir alanlar](./media/active-directory-b2c-create-tenant/create-new-b2c-tenant.png)
 
 | Ayar      | Örnek değer  | Açıklama                                        |
 | ------------ | ------- | -------------------------------------------------- |
-| **Kuruluş adı** | Contoso | Kuruluşun adı. | 
-| **İlk etki alanı adı** |  ContosoB2CTenant | B2C Kiracısı için etki alanı adı. Varsayılan olarak, ilk etki alanı adı .microsoft.com içerir. Daha sonra kuruluşunuzun kullandığı etki alanı adını ekleyebilirsiniz. Daha önce silinmiş bir kiracıyla aynı ada sahip bir kiracı oluşturulamaz. Bir kiracı yoksa ContosoB2CTesting gibi üretim dışı bir ad seçin. |
-| **Ülke veya bölge** | Amerika Birleşik Devletleri | Dizin için ülke veya bölge seçin. Dizin, bu konumda oluşturulur ve daha sonra değiştirilemez.  |
+| **Kuruluş adı** | Contoso | Merhaba kuruluşun adı. | 
+| **İlk etki alanı adı** |  ContosoB2CTenant | Merhaba B2C Kiracı için etki alanı adı. Varsayılan olarak, hello ilk etki alanı adı yer alır. microsoft.com. Daha sonra kuruluşunuzun kullandığı etki alanı adını ekleyebilirsiniz. Merhaba aynı daha önce silinmiş bir kiracı adı ile bir kiracı oluşturulamıyor. Bir kiracı yoksa ContosoB2CTesting gibi üretim dışı bir ad seçin. |
+| **Ülke veya bölge** | Amerika Birleşik Devletleri | Merhaba dizin için Hello ülke veya bölgeyi seçin. Merhaba directory bu konumda oluşturulur ve daha sonra değiştirilemez.  |
 
-Kiracınızı oluşturmak için **Oluştur** düğmesine tıklayın. Kiracı oluşturma işlemi birkaç dakika sürebilir. Bu tamamlandığında, bir bildirim ile bilgi verilir.
+Hello tıklatın **oluşturma** toocreate kiracınız düğmesi. Oluşturma hello Kiracı birkaç dakika sürebilir. Bu tamamlandığında, bir bildirim ile bilgi verilir.

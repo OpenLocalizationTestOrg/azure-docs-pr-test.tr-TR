@@ -1,6 +1,6 @@
 ---
-title: "Azure Güvenlik Merkezi güvenlik açıkları OS düzeltme | Microsoft Docs"
-description: "Bu belgede Azure Güvenlik Merkezi öneriyi uygulamayı gösterilmiştir ** düzeltmek OS güvenlik açıkları **."
+title: "Azure Güvenlik Merkezi'nde aaaRemediate işletim sistemi güvenlik açıkları | Microsoft Docs"
+description: "Bu belge size nasıl tooimplement hello Azure Güvenlik Merkezi öneri gösterir. ** düzeltmek OS güvenlik açıkları **."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,72 +14,72 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: terrylan
-ms.openlocfilehash: e6b251d5b97c57b3b6f79d14e53fbed5ca37ecb0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 704103f7fb15835943d74b665d2bd56cb5e0a36d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="remediate-os-vulnerabilities-in-azure-security-center"></a>İşletim sistemi güvenlik açıkları Azure Güvenlik Merkezi'nde Düzelt
-Azure Güvenlik Merkezi günlük VM saldırı karşısında daha savunmasız hale getirebilecek ve bu güvenlik açıklarına değinen yapılandırma değişiklikleri önerir yapılandırmalar için sanal makine (VM) işletim sistemi (OS) çözümler. Güvenlik Merkezi, VM işletim sistemi yapılandırması önerilen yapılandırma kuralları eşleşmediğinde güvenlik açıkları gidermek önerir.
+Azure Güvenlik Merkezi çözümler günlük, sanal makine (VM) işletim sistemi (OS) yapabilir yapılandırmaları VM hello için daha savunmasız tooattack ve önerir yapılandırmasını açıklarından tooaddress değiştirir. Güvenlik Merkezi, VM işletim sistemi yapılandırması yapılandırma kuralları önerilen hello eşleşmediğinde güvenlik açıkları gidermek önerir.
 
 > [!NOTE]
-> İzlenmekte olan belirli yapılandırmalar hakkında daha fazla bilgi için bkz: [önerilen yapılandırma kuralları listesi](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
+> İzlenmekte olan hello belirli yapılandırmalar hakkında daha fazla bilgi için bkz: Merhaba [önerilen yapılandırma kuralları listesi](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
 >
 >
 
-## <a name="implement-the-recommendation"></a>Öneriyi uygulamayı
+## <a name="implement-hello-recommendation"></a>Merhaba öneriyi uygulamayı
 
 > [!NOTE]
-> Bu belge, örnek bir dağıtım kullanarak hizmeti tanıtır.  Bu belge hakkında adım adım kılavuz değildir.
+> Bu belge, örnek bir dağıtım kullanarak hello hizmeti sunar.  Bu belge hakkında adım adım kılavuz değildir.
 >
 >
 
-1. İçinde **önerileri** dikey penceresinde, select **düzeltmek OS güvenlik açıkları**.
+1. Merhaba, **önerileri** dikey penceresinde, select **düzeltmek OS güvenlik açıkları**.
    ![İşletim sistemi güvenlik açıklarını düzeltin][1]
 
-    **Düzeltmek OS güvenlik açıkları** dikey penceresi açılır ve Vm'lerinizi önerilen yapılandırma kuralları eşleşmeyen işletim sistemi yapılandırmalarını ile listeler.  Her bir VM dikey tanımlar:
+    Merhaba **düzeltmek OS güvenlik açıkları** dikey penceresi açılır ve yapılandırma kuralları önerilen hello eşleşmeyen işletim sistemi yapılandırmalarını ile sanal makineleri listeler.  Her bir VM hello dikey tanımlar:
 
-   * **BAŞARISIZ kuralları** --VM işletim sistemi yapılandırmasını başarısız kuralları sayısı.
-   * **En son tarama zamanı** --Güvenlik Merkezi VM işletim sistemi yapılandırmasını son tarama saati ve tarihi.
-   * **Durum** --güvenlik açığı geçerli durumu:
+   * **BAŞARISIZ kuralları** --hello VM işletim sistemi yapılandırmasını hello kuralların sayısını başarısız oldu.
+   * **En son tarama zamanı** --hello tarih ve Güvenlik Merkezi hello VM'ın işletim sistemi yapılandırması son tarama zamanı.
+   * **Durum** --hello hello güvenlik açığı geçerli durumu:
 
-     * Açık: Güvenlik açığı henüz ele alınmadı
-     * Devam ediyor: Güvenlik açığı uygulanmakta olan, sizin tarafınızdan herhangi bir eylem gerekli
-     * Çözüm: Bu güvenlik açığı zaten giderilmiş (sorun çözüldükten sonra girdi gri renkte görüntülenir)
-   * **Önem DERECESİ** --tüm güvenlik açıkları bir güvenlik açığının ele alınması gerekiyor ancak hemen ilgilenilmesi gerekmiyor anlamı bir düşük önem derecesi için ayarlanır.
+     * Açık: hello güvenlik açığı henüz ele alınmadı
+     * Devam ediyor: hello güvenlik açığı uygulanmakta olan, sizin tarafınızdan herhangi bir eylem gerekli
+     * Çözümlendi: hello güvenlik açığı zaten giderilmiş (Merhaba sorun çözüldükten sonra hello girdi gri renkte görüntülenir)
+   * **Önem DERECESİ** --tüm güvenlik açıkları bir güvenlik açığının ele alınması gerekiyor ancak hemen ilgilenilmesi gerekmiyor anlamına düşük tooa önemini ayarlanır.
 
-2. Bir VM'yi seçin. Bu VM için bir dikey pencere açar ve başarısız olan kuralları görüntüler.
+2. Bir VM'yi seçin. Bir dikey pencere söz konusu VM açar ve başarısız olan hello kurallarını görüntüler.
    ![Başarısız olan yapılandırma kuralları][2]
 
-3. Bir kural seçin. Bu örnekte seçin **parola, karmaşıklık gereksinimlerini karşılamalıdır**. Başarısız kuralı ve etkisi açıklayan bir dikey pencere açılır. Ayrıntıları gözden geçirin ve işletim sistemi yapılandırmalarının nasıl uygulanacağını göz önünde bulundurun.
-  ![Başarısız kuralı için açıklama][3]
+3. Bir kural seçin. Bu örnekte seçin **parola, karmaşıklık gereksinimlerini karşılamalıdır**. Açıklayan başarısız hello kuralı ve hello etkisi bir dikey pencere açılır. Merhaba ayrıntılarını gözden geçirin ve işletim sistemi yapılandırmalarının nasıl uygulanacağını göz önünde bulundurun.
+  ![Merhaba başarısız kuralı için açıklama][3]
 
-  Güvenlik Merkezi, yapılandırma kuralları için benzersiz tanımlayıcı atamak için Common Configuration Enumeration (CCE) kullanır. Aşağıdaki bilgiler bu dikey pencerede sağlanır:
+  Güvenlik Merkezi Common Configuration Enumeration (CCE) tooassign benzersiz tanımlayıcıları için yapılandırma kuralları kullanır. Aşağıdaki bilgilerle hello bu dikey pencerede sağlanır:
 
   - ADI--Kural adı
   - Önem DERECESİ--Kritik, önemli ya da uyarı CCE önem derecesi değeri
-  - CCIED--CCE kuralı için benzersiz bir tanımlayıcı
+  - CCIED--CCE hello kuralı için benzersiz bir tanımlayıcı
   - AÇIKLAMASI--Kural açıklaması
   - Güvenlik AÇIĞI - Açıklama güvenlik açığı veya kural uygulanmamış durumunda riski
   - ETKİSİ--kuralı uygulandığında iş etkisi
-  - BEKLENEN değer--Güvenlik Merkezi kural karşı VM OS yapılandırmanızı inceler, beklenen değer
-  - Kural işlemi--VM OS yapılandırmanızın kural karşı Çözümleme sırasında Güvenlik Merkezi tarafından kullanılan kuralı işlemi
-  - Gerçek değer--VM OS yapılandırmanızı kural karşı analizini sonra değer döndürdü.
+  - BEKLENEN değer--Güvenlik Merkezi hello kural karşı VM OS yapılandırmanızı inceler, beklenen değer
+  - Kural işlemi--VM OS yapılandırmanızın hello kural karşı Çözümleme sırasında Güvenlik Merkezi tarafından kullanılan kuralı işlemi
+  - Gerçek değer--VM OS yapılandırmanızı hello kural karşı analizini sonra değer döndürdü.
   - Değerlendirme sonucu –-analiz sonucu: geçirmek, başarısız
 
 ## <a name="see-also"></a>Ayrıca bkz.
-Bu makalede "Düzelt işletim sistemi güvenlik açıkları." Güvenlik Merkezi öneriyi uygulamayı nasıl oluşturulacağını gösterir Yapılandırma kuralları gözden geçirebilirsiniz [burada](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Güvenlik Merkezi, yapılandırma kuralları için benzersiz tanımlayıcı atamak için CCE (ortak yapılandırma sıralaması) kullanır. Ziyaret [CCE](https://nvd.nist.gov/cce/index.cfm) daha fazla bilgi için site.
+Bu makalede, nasıl tooimplement hello Güvenlik Merkezi öneri "Düzelt işletim sistemi güvenlik açıkları." gösterdi. Yapılandırma kuralları hello kümesi gözden geçirebilirsiniz [burada](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Güvenlik Merkezi CCE (ortak yapılandırma sıralaması) tooassign benzersiz tanımlayıcıları için yapılandırma kuralları kullanır. Merhaba ziyaret [CCE](https://nvd.nist.gov/cce/index.cfm) daha fazla bilgi için site.
 
-Güvenlik Merkezi hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+Güvenlik Merkezi hakkında daha fazla toolearn kaynakları aşağıdaki hello bakın:
 
 * [Azure Güvenlik Merkezi'nde desteklenen platformlar](security-center-os-coverage.md) -desteklenen Windows ve Linux VM'ler listesini sağlar.
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) -Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkeleri yapılandırmayı öğrenin.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) -öğrenin nasıl tooconfigure Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkeleri.
 * [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md) -önerilerin Azure kaynaklarınızı korumanıza nasıl yardımcı öğrenin.
-* [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) -Azure kaynaklarınızın sistem durumunu izlemek öğrenin.
-* [Yönetme ve Azure Güvenlik Merkezi'nde güvenlik uyarılarını yanıtlama](security-center-managing-and-responding-alerts.md) -yönetme ve güvenlik uyarılarını yanıtlama hakkında bilgi edinin.
-* [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) -iş ortağı çözümlerinizin sistem durumunu öğrenin.
-* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) -hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
+* [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) -nasıl toomonitor hello Azure kaynaklarınızın sistem durumunu öğrenin.
+* [Azure Güvenlik Merkezi'nde Uyarıları yönetme ve yanıt toosecurity](security-center-managing-and-responding-alerts.md) -öğrenin nasıl toomanage ve yanıt toosecurity uyarıları.
+* [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) -nasıl toomonitor hello iş ortağı çözümlerinizin sistem durumunu öğrenin.
+* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) -hello hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
 * [Azure güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/) -Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz.
 
 <!--Image references-->

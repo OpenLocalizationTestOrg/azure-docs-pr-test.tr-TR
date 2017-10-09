@@ -1,5 +1,5 @@
 ---
-title: "Bir veri tümleştirme hizmeti olan Data Factory’ye giriş | Microsoft Belgeleri"
+title: "aaaIntroduction tooData Fabrika, bir veri tümleştirme hizmeti | Microsoft Docs"
 description: "Azure Data Factory’nin ne olduğunu öğrenin: verilerin taşınmasını ve dönüştürülmesini düzenleyen ve otomatikleştiren bir bulut veri tümleştirme hizmetidir."
 keywords: "veri tümleştirme, bulut veri tümleştirme, azure data factory nedir"
 services: data-factory
@@ -15,58 +15,58 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/14/2017
 ms.author: shlo
-ms.openlocfilehash: bc72c4d58b98f6521dbb7420a5d05a121b0ddbda
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 4cc30515315efc938951057743ff8eb3701214ef
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-azure-data-factory"></a>Azure Data Factory'ye giriş 
+# <a name="introduction-tooazure-data-factory"></a>Giriş tooAzure veri fabrikası 
 ## <a name="what-is-azure-data-factory"></a>Azure Data Factory nedir?
-Büyük veri dünyasında, işletmede mevcut verilerden nasıl yararlanılır? Şirket içi veri kaynaklarından veya diğer dağınık veri kaynaklarından elde edilen başvuru verilerini kullanarak bulutta oluşturulan verileri zenginleştirmek mümkün mü? Örneğin, bir oyun şirketi, oyunlar tarafından üretilen çok sayıda günlüğü bulutta toplamaktadır. Müşteri tercihleri, demografik bilgileri, kullanım davranışı, vb. konusunda fikir edinmek, yukarı satış ve çapraz satış fırsatlarını belirlemek, iş büyümesi sağlamak üzere yeni çekici özellikler geliştirmek ve müşterilere daha iyi bir deneyim sunmak üzere bu günlükleri analiz etmek istemektedir. 
+Büyük veri Hello world nasıl mevcut verileri business yararlanır? Şirket içi veri kaynakları veya diğer farklı veri kaynaklarını başvuru verileri kullanarak, hello bulutta oluşturulan olası tooenrich veri mi? Örneğin, bir oyun şirket hello bulutta oyunlar tarafından üretilen birçok günlükleri toplar. Bu günlükler toogain ınsights'da toocustomer tercihleri, demografisine, kullanım davranışı tooanalyze istediği vb. tooidentify yukarı satış ve çapraz satış fırsatları yeni özellikler toodrive iş büyümesi çekici geliştirmek ve daha iyi bir deneyim sağlar toocustomers. 
 
-Bu günlükleri analiz etmek için, şirketin şirket içi veri deposunda bulunan müşteri bilgileri, oyun bilgileri, pazarlama kampanyası bilgileri gibi başvuru verilerini kullanması gerekir. Bu nedenle, şirket bulut veri deposundan günlük verilerini ve şirket içi veri deposundan başvuru verilerini almak istemektedir. Ardından, bulutta (Azure HDInsight) Hadoop kullanarak verileri işleyip, sonuç verilerini Azure SQL Veri Ambarı gibi bir bulut veri ambarında veya SQL Server gibi bir şirket içi veri deposunda yayımlamak ister. Bu iş akışının haftada bir kez gerçekleştirilmesini ister. 
+Bu günlükler hello şirket tooanalyze toouse hello başvuru verileri müşteri bilgileri, bir şirket içi veri deposunda kampanya bilgileri pazarlama oyun bilgileri gibi gerekir. Bu nedenle, hello şirket hello bulut veri deposu tooingest günlük verilerini ve başvuru verileri hello şirket içi veri deposundan ister. Ardından, işlem hello verileri Hadoop hello kullanarak (Azure Hdınsight) Bulut ve hello sonuç verilerini Azure SQL Data Warehouse veya bir şirket içi veri gibi bir bulut veri ambarında SQL Server gibi depolamak yayımlayın. Bu iş akışı toorun haftada bir kez istediği. 
 
-Gerekli olan şey, şirketin hem şirket içindeki hem de buluttaki veri depolarından veri alabilen bir iş akışı oluşturmasına, Hadoop gibi mevcut işlem hizmetlerini kullanarak verileri dönüştürmesine ya da işlemesine ve sonuçları BI uygulamalarının kullanması için şirket içi veya bulut veri deposunda yayımlamaya olanak tanıyan bir platformdur. 
+Gerekenleri Hadoop gibi varolan işlem hizmetlerini kullanarak şirket içi ve bulut veri depolarına veri ve dönüşüm ya da işlem verileri alma ve yayımlama hello sonuçları tooan şirket içi bir iş akışı hello şirket toocreate izin veren bir platformudur veya BI uygulamaları tooconsume için bulut veri deposu. 
 
 ![Data Factory'ye genel bakış](media/data-factory-introduction/what-is-azure-data-factory.png) 
 
-Azure Data Factory, bu tür senaryolara yönelik bir platformdur. **Bulutta veri hareketi ve veri dönüştürmeyi düzenleyip otomatikleştirmek için veri odaklı iş akışları oluşturmanıza olanak tanıyan, bulut tabanlı bir veri tümleştirme hizmetidir**. Azure Data Factory’yi kullanarak, farklı veri depolarından veri alabilen, Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics ve Azure Machine Learning gibi işlem hizmetlerini kullanarak verileri işleyebilen/dönüştürebilen ve çıktı verilerini iş zekası (BI) uygulamaları tarafından kullanılabilmesi için Azure SQL Veri Ambarı gibi veri depolarında yayımlayabilen veri odaklı iş akışları (işlem hatları olarak adlandırılır) oluşturup zamanlayabilirsiniz.  
+Azure Data Factory, bu tür senaryoların hello platformudur. Bu bir **toocreate veri temelli iş akışlarını yönetme ve veri taşıma ve veri dönüştürme otomatikleştirme hello bulutta sağlayan bulut tabanlı veri tümleştirme hizmeti**. Azure Data Factory kullanarak oluşturun ve farklı veri depolarına verilerden alma ve işlem/hello veri dönüştürme Azure Hdınsight Hadoop, Spark, Azure Data Lake gibi işlem hizmetlerini kullanarak (ardışık olarak adlandırılır) veri temelli iş akışlarını zamanlama Analizler ve Azure Machine Learning ve veri toodata depolar Azure SQL Data Warehouse gibi iş zekası (BI) uygulamaları tooconsume için çıktı yayımlayın.  
 
-Bu, geleneksel bir Ayıklama-Dönüştürme-Yükleme (ETL) platformu yerine daha çok Ayıklama-Dönüştürme (EL) ve sonra Dönüştürme-Yükleme (TL) platformudur. Gerçekleştirilen dönüşümler; türetilmiş sütunlar ekleme, satır sayısını sayma, verileri sıralama, vb. dönüşümleri gerçekleştirmek yerine işlem hizmetlerini kullanarak verileri dönüştürmek/işlemek için gerçekleştirilir. 
+Bu, geleneksel bir Ayıklama-Dönüştürme-Yükleme (ETL) platformu yerine daha çok Ayıklama-Dönüştürme (EL) ve sonra Dönüştürme-Yükleme (TL) platformudur. gerçekleştirilen hello dönüşümleri tootransform/işlem verileri işlem hizmetlerini kullanarak yerine çok sayıda satırı, sıralama vb. sayım sütun eklemek için olanları hello gibi tooperform dönüşümleri türetilmiş. 
 
-Şu anda Azure Data Factory’de iş akışları tarafından tüketilen ve üretilen veriler, **zaman dilimli verilerdir** (saatlik, günlük, haftalık, vb.). Örneğin, bir işlem hattı günde bir kez giriş verilerini okuyabilir, verileri işleyebilir ve çıktı üretebilir. Bir iş akışını yalnızca bir kez de çalıştırabilirsiniz.  
+Şu anda, Azure Data Factory'de tüketilen ve iş akışları tarafından üretilen hello verilerdir **zaman dilimlenebilir veri** (saatlik, günlük, haftalık, vb.). Örneğin, bir işlem hattı günde bir kez giriş verilerini okuyabilir, verileri işleyebilir ve çıktı üretebilir. Bir iş akışını yalnızca bir kez de çalıştırabilirsiniz.  
   
 
 ## <a name="how-does-it-work"></a>Nasıl çalışır? 
-Azure Data Factory’deki işlem hatları (veri odaklı iş akışları) genellikle aşağıdaki üç adımı gerçekleştirir:
+Azure veri fabrikası'nda Hello ardışık düzen (veri temelli iş akışlarını) genellikle hello aşağıdaki üç adımları gerçekleştirin:
 
 ![Azure Data Factory’nin üç aşaması](media/data-factory-introduction/three-information-production-stages.png)
 
 ### <a name="connect-and-collect"></a>Bağlanma ve toplama
-Kuruluşların dağınık kaynaklarda yer alan çeşitli türlerde verileri vardır. Bilgi üretim sistemi oluşturmanın ilk adımı SaaS hizmetleri, dosya paylaşımları, FTP, web hizmetleri gibi tüm gerekli veri kaynaklarına ve işleme çalışmalarına bağlanmak ve daha sonraki işleme çalışmaları için gerektiğinde verileri merkezi bir konuma taşımaktır.
+Kuruluşların dağınık kaynaklarda yer alan çeşitli türlerde verileri vardır. Merhaba bilgi üretim sistemi oluşturmanın ilk adımı olduğundan veri tooconnect tooall hello gerekli kaynakları ve işleme, SaaS Hizmetleri gibi dosya paylaşımları, FTP, web hizmetleri ve için hello veri merkezi gerektiği tooa konumu sonraki işleniyor.
 
-Data Factory olmadığında, kuruluşların bu veri kaynaklarını ve işleme çalışmalarını tümleştirmek için özel veri taşıma bileşenleri oluşturması veya özel hizmetler yazması gerekir. Bu tür sistemler pahalıdır, tümleştirmesi ve bakımı zordur; ayrıca tümüyle yönetilen bir hizmetin sağlayabileceği kurumsal sınıf izleme ve uyarılarla denetimlerden yoksundur.
+Veri Fabrikası kuruluşların derleme özel veri taşıma bileşenlerini veya bu veri kaynakları ve işleme özel hizmetler toointegrate yazma gerekir. Pahalı ve sabit toointegrate olduğundan ve bu sistemlere korumak ve izleme ve uyarma hello Kurumsal düzeyde ve tam olarak yönetilen bir hizmet sunabilir hello denetimleri genellikle eksik.
 
-Data Factory ile, veri işlem hattında Kopyalama Etkinliği’ni kullanarak hem şirket içinde hem de buluttaki kaynak veri depolarını daha fazla analiz için merkezi bir veri deposuna taşıyabilirsiniz. Örneğin, Azure Data Lake Store’da veri toplayabilir ve daha sonra Azure Data Lake Analytics işlem hizmetini kullanarak verileri dönüştürebilirsiniz. Öte yandan, verileri Azure Blob Depolama Alanı’ndan toplayıp daha sonra Azure HDInsight Hadoop kümesi kullanarak da dönüştürebilirsiniz.
+Data Factory ile hem şirket içi veri ardışık düzen toomove veri kopyalama etkinliği hello kullanın ve kaynak veri depoları tooa merkezileşmeyi veri deposunda hello bulut daha fazla çözümleme için bulut. Örneğin, bir Azure Data Lake Analytics işlem hizmetini kullanarak bir Azure Data Lake Store ve dönüştürme hello verilerini daha sonra toplayabilirsiniz. Öte yandan, verileri Azure Blob Depolama Alanı’ndan toplayıp daha sonra Azure HDInsight Hadoop kümesi kullanarak da dönüştürebilirsiniz.
 
 ### <a name="transform-and-enrich"></a>Dönüştürme ve zenginleştirme
-Veriler buluttaki merkezi bir veri deposuna sunulduktan sonra, toplanan verilerin HDInsight Hadoop, Spark, Data Lake Analytics ve Machine Learning gibi işlem hizmetleri kullanılarak işlenmesi veya dönüştürülmesi gerekir. Üretim ortamlarının güvenilir verilerle beslenmesi için sürdürülebilir ve denetlenebilir bir zamanlamaya göre dönüştürülmüş verileri güvenilir bir şekilde üretmeniz gerekir. 
+Veri merkezi veri deposunda hello bulutta mevcut olduğunda, işlenen veya Hdınsight Hadoop, Spark, Data Lake Analytics ve Machine Learning gibi işlem hizmetlerini kullanarak dönüştürülen hello toplanan verileri toobe istiyor. İle güvenilir veri sürdürülebilir ve denetlenen zamanlama toofeed üretim ortamlarında tooreliably dönüştürülmüş üretim verileri istediğiniz. 
 
 ### <a name="publish"></a>Yayımlama 
-Dönüştürülen verileri buluttan SQL Server gibi şirket içi kaynaklara aktarın veya iş zekası (BI) uygulamaları, analiz araçları ya da diğer uygulamalar tarafından kullanılmak üzere bulut depolama kaynaklarınızda saklayın.
+Dönüştürülen veriler tooon içi kaynakları SQL Server gibi hello buluttan teslim ya da içinde bulut depolama kaynakları tüketimi için iş zekası (BI) ve analiz araçları ve diğer uygulamalar tarafından kalmasını sağlamak.
 
 ## <a name="key-components"></a>Başlıca bileşenler
-Azure aboneliğinin bir veya birden çok Azure Data Factory örneği (veya veri fabrikası) olabilir. Azure Data Factory, üzerinde veri taşıma ve dönüştürme adımları ile veri odaklı iş akışları oluşturabileceğiniz platformu sağlamak üzere birlikte çalışan başlıca dört bileşenden oluşur. 
+Azure aboneliğinin bir veya birden çok Azure Data Factory örneği (veya veri fabrikası) olabilir. Azure Data Factory veri temelli iş akışlarını adımları toomove ve dönüştürme verilerle oluşturan tooprovide hello platform birlikte çalışan dört anahtar bileşenleri kümesinden oluşur. 
 
 ### <a name="pipeline"></a>İşlem hattı
-Bir veri fabrikasında bir veya daha fazla işlem hattı olabilir. İşlem hattı bir grup etkinliktir. İşlem hattındaki etkinlikler birlikte bir görev gerçekleştirir. Örneğin, bir işlem hattı Azure blobundan verileri alan ve ardından HDInsight kümesinde Hive sorgusu çalıştırarak verileri bölümlere ayıran bir grup etkinlik içerebilir. İşlem hattının avantajı, etkinliklerin her birini tek tek yönetmek yerine bir küme olarak yönetmenize olanak tanımasıdır. Örneğin, etkinlikleri bağımsız olarak dağıtmak ve zamanlamak yerine işlem hattını dağıtabilir ve zamanlayabilirsiniz. 
+Bir veri fabrikasında bir veya daha fazla işlem hattı olabilir. İşlem hattı bir grup etkinliktir. Birlikte hello etkinlikleri ardışık düzeninde bir görevi gerçekleştirebilirsiniz. Örneğin, bir işlem hattı bir Azure blob verilerini alır etkinlikleri grubunu içerir ve ardından bir Hive sorgusu bir Hdınsight kümesi toopartition hello veri çalıştırın. Bu Hello avantajı, o hello ardışık düzen toomanage hello etkinliklerin her biri yerine bir küme olarak ayrı ayrı sağlar ' dir. Örneğin, dağıtmak ve hello etkinlikleri yerine hello ardışık düzen bağımsız olarak zamanlayabilirsiniz. 
 
 ### <a name="activity"></a>Etkinlik
-İşlem hattında bir veya daha fazla etkinlik olabilir. Etkinlikler, verilerinizde gerçekleştirilecek eylemleri tanımlayın. Örneğin, bir veri deposundan başka bir veri deposuna veri kopyalamak için Kopyalama etkinliğini kullanabilirsiniz. Benzer şekilde, verilerinizi dönüştürmek veya analiz etmek amacıyla Azure HDInsight kümesinde bir Hive sorgusu çalıştıran bir Hive etkinliği kullanabilirsiniz. Data Factory iki tür etkinliği destekler: veri taşıma etkinlikleri ve veri dönüştürme etkinlikleri.
+İşlem hattında bir veya daha fazla etkinlik olabilir. Etkinlikler, verilerinizde hello Eylemler tooperform tanımlayın. Örneğin, bir veri deposu tooanother veri deposundan kopyalama etkinliği toocopy veri kullanabilir. Benzer şekilde, bir Azure Hdınsight küme tootransform üzerinde bir Hive sorgusu çalıştıran bir Hive etkinliği kullanın veya verilerinizi çözümlemek. Data Factory iki tür etkinliği destekler: veri taşıma etkinlikleri ve veri dönüştürme etkinlikleri.
 
 ### <a name="data-movement-activities"></a>Veri taşıma etkinlikleri
-Data Factory’deki Kopyalama Etkinliği bir kaynak veri deposundan havuz veri deposuna verileri kopyalar. Data Factory aşağıdaki veri depolarını destekler. Herhangi bir kaynaktan gelen veriler herhangi bir havuza yazılabilir. Bir depoya veya depodan veri kopyalama hakkında bilgi edinmek için veri deposuna tıklayın.
+Data Factory kopyalama etkinliği, bir kaynak veri deposu tooa havuz veri deposundan verileri kopyalar. Data Factory veri depolarına aşağıdaki hello destekler. Herhangi bir kaynaktan veri tooany havuz yazılabilir. Bir veri deposu toolearn nasıl tıklatın toocopy veri tooand o depolama alanından.
 
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
@@ -78,34 +78,34 @@ Daha fazla bilgi için [Veri Taşıma Etkinlikleri](data-factory-data-movement-a
 Daha fazla bilgi için [Veri Dönüştürme Etkinlikleri](data-factory-data-transformation-activities.md) makalesine bakın.
 
 ### <a name="custom-net-activities"></a>Özel .NET etkinlikleri
-Kopyalama Etkinliğinin desteklemediği bir veri deposuna/veri deposundan veri taşımanız ya da kendi mantığınızı kullanarak verileri dönüştürmeniz gerekirse **özel bir .NET etkinliği** oluşturun. Özel bir etkinlik oluşturma ve kullanma hakkında ayrıntılı bilgi için bkz. [Azure Data Factory işlem hattında özel etkinlikler kullanma](data-factory-use-custom-activities.md).
+Bir veri deposundan bu kopyalama etkinliği değil desteği veya kendi mantığı kullanarak verileri, Oluştur toomove verilere ihtiyacınız / bir **özel .NET etkinlik**. Özel bir etkinlik oluşturma ve kullanma hakkında ayrıntılı bilgi için bkz. [Azure Data Factory işlem hattında özel etkinlikler kullanma](data-factory-use-custom-activities.md).
 
 ### <a name="datasets"></a>Veri kümeleri
-Bir etkinlik girdi olarak sıfır veya daha fazla veri kümesi ve çıktı olarak bir ya da daha fazla veri kümesi alır. Veri kümeleri, veri depoları içinde etkinliklerinizde giriş veya çıkış olarak kullanmak istediğiniz verilere işaret eden veya başvuruda bulunan veri yapılarını temsil eder. Örneğin Azure Blob veri kümesi, işlem hattının verileri okuması gereken blob kapsayıcısını ve Azure Blob Depolama klasörünü belirtir. Veya bir Azure SQL Tablosu veri kümesi, çıktı verilerinin etkinlik tarafından yazılacağı tabloyu belirtir. 
+Bir etkinlik girdi olarak sıfır veya daha fazla veri kümesi ve çıktı olarak bir ya da daha fazla veri kümesi alır. Veri kümeleri yalnızca noktası veya toouse etkinliklerinizde giriş veya çıkış istediğiniz hello verileri başvuru hello veri depoları içindeki veri yapılarını temsil eder. Örneğin, bir Azure Blob dataset hello Azure Blob hangi hello ardışık düzen hello veri okumalısınız depolama alanına hello blob kapsayıcısı ve klasörü belirtir. Veya hello tablo toowhich hello çıktı verilerini hello etkinliği tarafından yazılmış bir Azure SQL tablosu veri kümesini belirtir. 
 
 ### <a name="linked-services"></a>Bağlı hizmetler
-Bağlı hizmetler, dış kaynaklara bağlanmak için Data Factory’ye gereken bağlantı bilgilerini tanımlayan bağlantı dizelerine çok benzer. Şöyle düşünün: bağlı bir hizmet, veri kaynağıyla bağlantıyı tanımlar ve veri kümesi verilerin yapısını temsil eder. Örneğin, Azure Depolama bağlı hizmeti Azure Depolama hesabına bağlanacak bağlantı dizesini belirtir. Ayrıca, bir Azure Blob veri kümesi blob kapsayıcıyı ve verileri içeren klasörü belirtir.   
+Bağlı hizmetler Data Factory tooconnect tooexternal kaynakları için gerekli hello bağlantı bilgilerini tanımlayın bağlantı dizeleri çok gibidir. Bunu bu şekilde düşünün - hello bağlantı toohello veri kaynağı bağlı hizmet tanımlar ve bir veri kümesi hello verilerin hello yapısını temsil eder. Örneğin, bir Azure Storage bağlı hizmeti bağlantı dizesini tooconnect toohello Azure depolama hesabı belirtir. Ve bir Azure Blob dataset hello blob kapsayıcısı ve hello veri içeren hello klasörü belirtir.   
 
 Bağlı hizmetler Data Factory’de iki amaçla kullanılır:
 
-* Bir **veri deposunu**, buradakilerle, ancak bunlarla sınırlı olmamak şartıyla göstermek için: şirket içi SQL Server, Oracle veritabanı, dosya paylaşımı veya bir Azure Blob Depolama hesabı. Desteklenen veri depolarının bir listesi için [Veri taşıma etkinlikleri](#data-movement-activities) bölümüne bakın.
-* Etkinlik yürütülmesini barındırabilen **işlem kaynağını** temsil etmek için. Örneğin, HDInsightHive etkinliği bir HDInsight Hadoop kümesinde yürütülür. Desteklenen işlem ortamlarının listesi için [Veri dönüştürme etkinlikleri](#data-transformation-activities) bölümüne bakın.
+* toorepresent bir **veri deposu** , ancak bunlarla sınırlı olmamak, bir şirket içi SQL Server, Oracle veritabanı, dosya paylaşımı veya bir Azure Blob Storage hesabı dahil olmak üzere. Merhaba bkz [veri taşıma etkinlikleri](#data-movement-activities) desteklenen veri depoları listesi bölümü.
+* toorepresent bir **kaynak işlem** etkinlik hello yürütülmesini barındırabilir. Örneğin, bir Hdınsight Hadoop kümesinde hello Hdınsighthive etkinliğini çalıştırır. Desteklenen işlem ortamlarının listesi için [Veri dönüştürme etkinlikleri](#data-transformation-activities) bölümüne bakın.
 
 ### <a name="relationship-between-data-factory-entities"></a>Data Factory varlıkları arasındaki ilişki
 ![Diyagram: Bir bulut veri tümleştirme hizmeti olan Data Factory ile ilgili Temel Kavramlar](./media/data-factory-introduction/data-integration-service-key-concepts.png)
 **Figure2.** Veri kümesi, Etkinlik, İşlem Hattı ve Bağlı hizmet arasındaki ilişkiler
 
 ## <a name="supported-regions"></a>Desteklenen bölgeler
-Şu anda **Batı ABD**, **Doğu ABD** ve **Kuzey Avrupa** bölgelerinde veri fabrikaları oluşturabilirsiniz. Ancak, verileri veri depoları arasında taşımak ve işlem hizmetlerini kullanarak verileri işlemek amacıyla data factory başka Azure bölgelerindeki veri depolarına ve işlem hizmetlerine erişebilir.
+Şu anda veri fabrikaları hello oluşturabilirsiniz **Batı ABD**, **Doğu ABD**, ve **Kuzey Avrupa** bölgeleri. Ancak, veri fabrikası veri depolarına ve diğer Azure bölgeleri toomove verileri veri depoları arasında Hizmetleri'nde işlem veya kullanarak verileri işlemek işlem Hizmetleri.
 
-Azure Data Factory’nin kendisi verileri depolamaz. Veri hareketini [desteklenen veri depoları](#data-movement-activities) arasında, verilerin işlenmesini de başka bölgelerde veya şirket içi bir ortamda [işlem hizmetleri](#data-transformation-activities) kullanarak düzenlemek için veri temelinde iş akışları oluşturmanızı sağlar. Hem programlama, hem de kullanıcı arabirimi mekanizmalarını kullanarak [iş akışlarını izlemenizi ve yönetmenizi](data-factory-monitor-manage-pipelines.md) de sağlar.
+Azure Data Factory’nin kendisi verileri depolamaz. Veri temelli iş akışlarını arasında veri tooorchestrate hareketini oluşturmanızı sağlar [desteklenen veri depoları](#data-movement-activities) ve verileri kullanarak işleme [işlem Hizmetleri](#data-transformation-activities) başka bölgelerde veya şirket içi ortam. Ayrıca çok tanır[izlemek ve iş akışlarını yönetme](data-factory-monitor-manage-pipelines.md) programlı her ikisini kullanarak kullanıcı Arabirimi mekanizmalarını.
 
-Data Factory yalnızca **Batı ABD**, **Doğu ABD** **Kuzey Avrupa** bölgelerinde kullanılabilir olsa da, Data Factory’de veri taşımayı destekleyen hizmet birçok bölgede [küresel olarak](data-factory-data-movement-activities.md#global) kullanılabilmektedir. Veri deposunun güvenlik duvarı ardında kaldığı durumlarda şirket içi ortamınızda yüklü bir [Veri Yönetimi Ağ Geçidi](data-factory-move-data-between-onprem-and-cloud.md) bunun yerine verileri taşır.
+Data Factory yalnızca kullanılabilir olsa bile **Batı ABD**, **Doğu ABD**, ve **Kuzey Avrupa** bölgeler, veri fabrikası'nda hello veri taşımayı destekleyen hello hizmet kullanılabilir [genel](data-factory-data-movement-activities.md#global) birçok bölgede. Bir veri deposu bir güvenlik duvarının arkasında olduğunda sonra bir [veri yönetimi ağ geçidi](data-factory-move-data-between-onprem-and-cloud.md) bunun yerine, şirket içi ortamına taşır hello verilerinizi yüklü.
 
-Örneğin, Azure HDInsight kümesi ve Azure Machine Learning gibi işlem ortamlarınızın Batı Avrupa bölgesinde çalıştığını varsayalım. Kuzey Avrupa’da bir Azure Data Factory örneği oluşturup geliştirebilir ve bunu Batı Avrupa’daki işlem ortamlarınızda iş zamanlamak için kullanabilirsiniz. Data Factory’nin işlem ortamınızda işi tetiklemesi birkaç milisaniye alsa da, bilgi işlem ortamınızda işin çalıştırılma süresi değişmez.
+Örneğin, Azure HDInsight kümesi ve Azure Machine Learning gibi işlem ortamlarınızın Batı Avrupa bölgesinde çalıştığını varsayalım. Oluşturup Kuzey Avrupa'da bir Azure Data Factory örneğini kullanın ve Batı Avrupa'da işlem ortamlarınızda tooschedule işlerini kullanın. Veri Fabrikası tootrigger hello işi birkaç milisaniye işlem ortamınızda alır ancak bilgi işlem ortamınızın hello işin çalıştırılması hello süre değişmez.
 
 ## <a name="get-started-with-creating-a-pipeline"></a>İşlem hattı oluşturmaya başlama
-Azure Data Factory'de veri işlem hatları oluşturmak için bu araç veya API'lerden birini kullanabilirsiniz: 
+Azure Data Factory'de Bu araçlar ve API'ler toocreate veri ardışık birini kullanabilirsiniz: 
 
 - Azure portalına
 - Visual Studio
@@ -114,10 +114,10 @@ Azure Data Factory'de veri işlem hatları oluşturmak için bu araç veya API'l
 - REST API
 - Azure Resource Manager şablonu. 
 
-Veri işlem hatları ile veri fabrikaları oluşturmayı öğrenmek için aşağıdaki öğreticilerde yer alan adım adım yönergeleri izleyin:
+nasıl toobuild veri fabrikaları verilerle ardışık düzenleri, toolearn öğreticileri aşağıdaki hello içindeki adım adım yönergeleri izleyin:
 
 | Öğretici | Açıklama |
 | --- | --- |
-| [İki bulut veri deposu arasında veri taşıma](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Bu öğreticide, Blob depolama biriminden SQL veritabanına **veri taşıyan** bir işlem hattı ile veri fabrikası oluşturacaksınız. |
+| [İki bulut veri deposu arasında veri taşıma](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Bu öğreticide, data factory işlem hattı ile oluşturduğunuz **verileri taşır** Blob Depolama tooSQL veritabanından. |
 | [Hadoop kümesi kullanarak veri dönüştürme](data-factory-build-your-first-pipeline.md) |Bu öğreticide, bir Azure HDInsight (Hadoop) kümesinde Hive betiği çalıştırarak **veri işleyen** bir veri işlem hattı ile ilk Azure veri fabrikanızı oluşturacaksınız. |
-| [Veri Yönetimi Ağ Geçidi'ni kullanarak verileri şirket içi veri deposu ile bulut veri deposu arasında taşıma](data-factory-move-data-between-onprem-and-cloud.md) |Bu öğreticide, **şirket içi** SQL Server veritabanından Azure blob’a **veri taşıyan** bir işlem hattı ile veri fabrikası oluşturacaksınız. Adım adım kılavuzun bir parçası olarak makinenize Veri Yönetimi Ağ Geçidi yükleyip bunu yapılandıracaksınız. |
+| [Veri Yönetimi Ağ Geçidi'ni kullanarak verileri şirket içi veri deposu ile bulut veri deposu arasında taşıma](data-factory-move-data-between-onprem-and-cloud.md) |Bu öğreticide, data factory işlem hattı ile yapı **verileri taşır** gelen bir **şirket içi** SQL Server veritabanı tooan Azure blob. Merhaba izlenecek bir parçası olarak yükleyin ve makinenizde hello veri yönetimi ağ geçidi yapılandırın. |

@@ -1,6 +1,6 @@
 ---
-title: "Sayfa Şablonları Azure API Management | Microsoft Docs"
-description: "Azure API Management'te şablonları kümesi kullanılarak Geliştirici portal sayfalarına içeriğini özelleştirmeyi öğrenin."
+title: "Azure API Management'te aaaPage şablonları | Microsoft Docs"
+description: "Nasıl toocustomize hello Azure API Management'te şablonları kümesi kullanılarak Geliştirici portal sayfalarına içeriğini öğrenin."
 services: api-management
 documentationcenter: 
 author: miaojiang
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 7f9ef37a694bce786b6acaa428df83f0cb23c2dc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 84bd971ad4bcacfdd36c2ebbe05b16063f2a547b
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="page-templates-in-azure-api-management"></a>Azure API Management sayfası şablonları
-Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandırma şablonları kümesini kullanarak içeriği özelleştirme yeteneği sağlar. Kullanarak [DotLiquid](http://dotliquidmarkup.org/) sözdizimi ve düzenleyiciyi, gibi [DotLiquid tasarımcıları için](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ve sağlanan bir dizi yerelleştirilmiş [dize kaynakları](api-management-template-resources.md#strings), [karakter kaynakları](api-management-template-resources.md#glyphs), ve [sayfa denetimleri](api-management-page-controls.md), bu şablonları kullanarak uygun gördüğünüz şekilde sayfaların yapılandırmak için büyük esneklik vardır.  
+Azure API Management yeteneği toocustomize hello Geliştirici portal sayfalarına içeriklerini yapılandırma şablonları kümesini kullanarak içeriğini hello sağlar. Kullanarak [DotLiquid](http://dotliquidmarkup.org/) sözdizimi ve hello düzenleyiciyi, gibi [tasarımcıları için DotLiquid](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ve sağlanan bir dizi yerelleştirilmiş [dize kaynakları](api-management-template-resources.md#strings), [ Karakter kaynakları](api-management-template-resources.md#glyphs), ve [sayfasında denetimleri](api-management-page-controls.md), bu şablonları kullanarak uygun gördüğünüz şekilde hello sayfaların büyük esneklik tooconfigure hello içeriğe sahip.  
   
- Bu bölümdeki şablonları, oturum açma, oturum içeriğini yukarı özelleştirmenize olanak tanır ve sayfa sayfaları Geliştirici Portalı'nda bulunamadı.  
+ Bu bölümdeki Hello şablonları yukarı hello oturum açma, oturum toocustomize Merhaba içeriğine izin ve sayfa sayfaları hello Geliştirici Portalı'nda bulunamadı.  
   
 -   [Oturum Aç](#SignIn)  
   
@@ -32,10 +32,10 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
 -   [Sayfa bulunamadı](#PageNotFound)  
   
 > [!NOTE]
->  Örnek varsayılan şablonları aşağıdaki belgelerde yer alır ancak değişikliği sürekli geliştirmeler nedeniyle tabidir. İstenen tek tek şablonları giderek Geliştirici Portalı'nda Canlı varsayılan şablonları görüntüleyebilirsiniz. Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [şablonları kullanarak API Management Geliştirici Portalı nasıl özelleştireceğinizi](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Örnek varsayılan şablonları belgelerine aşağıdaki hello dahil olan, ancak konu toochange toocontinuous geliştirmeler nedeniyle. İstenen toohello tek tek şablonları giderek hello Canlı varsayılan şablonları hello Geliştirici Portalı'nda görüntüleyebilirsiniz. Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [nasıl toocustomize hello şablonları kullanarak API Management Geliştirici Portalı](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
 ##  <a name="SignIn"></a>Oturum Aç  
- **Oturum** şablonu oturum açma sayfasında Geliştirici portalında özelleştirmenizi sağlar.  
+ Merhaba **oturum** şablon sağlar, toocustomize hello oturum hello Geliştirici Portalı'ndaki sayfasında.  
   
  ![Oturum açma sayfası](./media/api-management-page-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "APIM oturum açma sayfasında Geliştirici Portalı şablonları")  
   
@@ -96,7 +96,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
 ```  
   
 ### <a name="controls"></a>Denetimler  
- Bu şablon aşağıdaki kullanabilir [sayfasında denetimleri](api-management-page-controls.md).  
+ Bu şablon hello aşağıdaki kullanabilir [sayfasında denetimleri](api-management-page-controls.md).  
   
 -   [temel oturum açma](api-management-page-controls.md#basic-signin)  
   
@@ -134,7 +134,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
 ```  
   
 ##  <a name="SignUp"></a>Kaydol  
- **Kaydolun** şablonu kayıt sayfasını Geliştirici portalında özelleştirmenizi sağlar.  
+ Merhaba **kaydolun** şablonu verir toocustomize hello kayıt sayfasını hello Geliştirici Portalı'nda.  
   
  ![Oturum açma sayfasına](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "sayfasında Geliştirici Portalı şablonları APIM kaydolma")  
   
@@ -155,7 +155,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
 ```  
   
 ### <a name="controls"></a>Denetimler  
- Bu şablon aşağıdaki kullanabilir [sayfasında denetimleri](api-management-page-controls.md).  
+ Bu şablon hello aşağıdaki kullanabilir [sayfasında denetimleri](api-management-page-controls.md).  
   
 -   [Kaydolma](api-management-page-controls.md#sign-up)  
   
@@ -182,7 +182,7 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
 ```  
   
 ##  <a name="PageNotFound"></a>Sayfa bulunamadı  
- **Sayfa bulunamadı** şablon sayfa Geliştirici Portalı'nda bulunamadı sayfayı özelleştirmek sağlar.  
+ Merhaba **sayfa bulunamadı** şablon sayfa hello Geliştirici Portalı'nda bulunamadı toocustomize hello sayfa sağlar.  
   
  ![Sayfa bulunamadı](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "APIM Portal şablonları sayfasında Geliştirici bulunamadı")  
   
@@ -225,11 +225,11 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|referenceCode|Dize|Bu sayfa bir iç hata sonucunda görüntüleniyorsa oluşturulan kod.|  
-|hata kodu|Dize|Bu sayfa bir iç hata sonucunda görüntüleniyorsa oluşturulan kod.|  
-|emailBody|Dize|Bu sayfa bir iç hata sonucunda görüntüleniyorsa oluşturulan gövde e-posta.|  
-|requestedUrl|Dize|Sayfa bulunamadı, istenen URL.|  
-|referrerUrl|Dize|İstenen URL başvuran URL.|  
+|referenceCode|Dize|Bu sayfayı hello bir iç hata sonucunda görüntüleniyorsa oluşturulan kod.|  
+|hata kodu|Dize|Bu sayfayı hello bir iç hata sonucunda görüntüleniyorsa oluşturulan kod.|  
+|emailBody|Dize|Bu sayfayı hello bir iç hata sonucunda görüntüleniyorsa oluşturulan gövde e-posta.|  
+|requestedUrl|Dize|Merhaba sayfa bulunamadı, istenen hello URL'si.|  
+|referrerUrl|Dize|Merhaba başvuran URL toohello URL istendi.|  
   
 ### <a name="sample-template-data"></a>Örnek şablon verileri  
   
@@ -244,4 +244,4 @@ Azure API Management Geliştirici portal sayfalarına içeriklerini yapılandır
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [şablonları kullanarak API Management Geliştirici Portalı nasıl özelleştireceğinizi](api-management-developer-portal-templates.md).
+Şablonları ile çalışma hakkında daha fazla bilgi için bkz: [nasıl toocustomize hello şablonları kullanarak API Management Geliştirici Portalı](api-management-developer-portal-templates.md).

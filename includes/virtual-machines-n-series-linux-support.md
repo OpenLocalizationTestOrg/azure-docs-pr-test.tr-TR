@@ -16,5 +16,5 @@
 
 
 > [!WARNING] 
-> Red Hat ürünlerine üçüncü taraf yazılım yüklenmesi Red Hat destek koşullarını etkileyebilir. Bkz. [Red Hat Bilgi Bankası makalesi](https://access.redhat.com/articles/1067).
+> Red Hat ürünlerine üçüncü taraf yazılım yüklemesi hello Red Hat destek koşulları etkileyebilir. Merhaba bkz [Red Hat Bilgi Bankası makalesi](https://access.redhat.com/articles/1067).
 >

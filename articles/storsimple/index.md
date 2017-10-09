@@ -1,6 +1,6 @@
 ---
-title: "Azure StorSimple Belgeleri - Öğreticileri | Microsoft Docs"
-description: "Şirket içi cihazlar ile Azure bulut depolama arasındaki depolama görevlerini yöneten tümleşik bir çözüm olan Azure StorSimple’ı nasıl kullanacağınızı öğrenin."
+title: "aaaAzure StorSimple belgeleri - öğreticileri | Microsoft Docs"
+description: "Azure bulut depolama ve şirket içi aygıtlar arasında nasıl toouse Azure StorSimple, depolama yöneten bir tümleşik depolama çözümü görevleri öğrenin."
 services: storsimple
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 21f24f387e96ac763419c37eeb16c75eab0bc452
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: c9768c17118e8d5eecbd6791ef1be42afb1286c9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="storsimple-documentation"></a>StorSimple Belgeleri
 
-Şirket içi cihazlar ile Azure bulut depolama arasındaki depolama görevlerini yöneten tümleşik bir çözüm olan Azure StorSimple’ı nasıl kullanacağınızı öğrenin. Öğreticilerde ve diğer belgelerde, depolama yönetimi, konumdan bağımsız yedekleme ve olağanüstü durum kurtarma kurulumu hakkında bilgi sağlanmıştır.
+Azure bulut depolama ve şirket içi aygıtlar arasında nasıl toouse Azure StorSimple, depolama yöneten bir tümleşik depolama çözümü görevleri öğrenin. Öğreticilerde ve diğer belgelerde, depolama yönetimi, konumdan bağımsız yedekleme ve olağanüstü durum kurtarma kurulumu hakkında bilgi sağlanmıştır.
 
 <ul class="panelContent cardsFTitle">
      <li>

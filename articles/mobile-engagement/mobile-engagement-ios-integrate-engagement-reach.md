@@ -1,5 +1,5 @@
 ---
-title: "Azure Mobile Engagement iOS SDK tümleştirmesi ulaşmak | Microsoft Docs"
+title: "Mobile Engagement iOS SDK tümleştirmesi ulaşmak aaaAzure | Microsoft Docs"
 description: "En son güncelleştirmeler ve iOS için Azure Mobile Engagement SDK'sı için yordamlar"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,16 +14,16 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: piyushjo
-ms.openlocfilehash: ba74e0c442ac10f096d465f989e03d2ceae8cd88
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 40c9bfbdb475ab0b97bdbc9cea798a59cb8a71ac
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-integrate-engagement-reach-on-ios"></a>Engagement Reach tümleştirmek için iOS hakkında
-Açıklanan tümleştirme yordamı izlemelisiniz [tümleştirmek katılım iOS belgesinde nasıl](mobile-engagement-ios-integrate-engagement.md) bu kılavuz aşağıdaki önce.
+# <a name="how-toointegrate-engagement-reach-on-ios"></a>TooIntegrate Engagement Reach nasıl iOS
+Merhaba tümleştirme hello yordamını izleyin [nasıl tooIntegrate Engagement iOS belgesinde](mobile-engagement-ios-integrate-engagement.md) bu kılavuz aşağıdaki önce.
 
-Bu belge, XCode 8 gerektirir. XCode 7'de gerçekten bağımlı sonra kullanabilirsiniz [iOS Engagement SDK'sı v3.2.4](https://aka.ms/r6oouh). Bir bilinen hata varsa bu önceki sürüm 10 ios'de çalıştırılırken: Sistem bildirimleri işleme alınan değildir. Bu kullanım dışı API uygulamak için olacaktır sorunu gidermek için `application:didReceiveRemoteNotification:` uygulamanızda temsilci gibi:
+Bu belge, XCode 8 gerektirir. XCode 7'de gerçekten bağımlı sonra hello kullanabilir [iOS Engagement SDK'sı v3.2.4](https://aka.ms/r6oouh). Bir bilinen hata varsa bu önceki sürüm 10 ios'de çalıştırılırken: Sistem bildirimleri işleme alınan değildir. toofix bu tooimplement hello olacaktır API kullanım dışı `application:didReceiveRemoteNotification:` uygulamanızda temsilci gibi:
 
     - (void)application:(UIApplication*)application
     didReceiveRemoteNotification:(NSDictionary*)userInfo
@@ -32,23 +32,23 @@ Bu belge, XCode 8 gerektirir. XCode 7'de gerçekten bağımlı sonra kullanabili
     }
 
 > [!IMPORTANT]
-> **Bu geçici çözüm önermiyoruz** gibi bu iOS API kullanım dışı olduğundan tüm yaklaşan (hatta küçük) iOS sürüm yükseltme Bu davranışı değiştirebilirsiniz. Mümkün olan en kısa sürede XCode 8'e geçer.
+> **Bu geçici çözüm önermiyoruz** gibi bu iOS API kullanım dışı olduğundan tüm yaklaşan (hatta küçük) iOS sürüm yükseltme Bu davranışı değiştirebilirsiniz. Mümkün olan en kısa sürede tooXCode 8 geçmelisiniz.
 >
 >
 
-### <a name="enable-your-app-to-receive-silent-push-notifications"></a>Sessiz Anında İletme Bildirimlerini almak üzere uygulamanızı etkinleştirme
+### <a name="enable-your-app-tooreceive-silent-push-notifications"></a>Uygulama tooreceive sessiz anında iletme bildirimlerini etkinleştirme
 [!INCLUDE [mobile-engagement-ios-silent-push](../../includes/mobile-engagement-ios-silent-push.md)]
 
 ## <a name="integration-steps"></a>Tümleştirme adımları
-### <a name="embed-the-engagement-reach-sdk-into-your-ios-project"></a>Engagement Reach SDK'sı iOS projenize ekleme
-* Reach SDK'sını Xcode projenize ekleyin. Xcode'da, Git **proje \> projesine Ekle** ve `EngagementReach` klasör.
+### <a name="embed-hello-engagement-reach-sdk-into-your-ios-project"></a>Merhaba Engagement Reach SDK'sı iOS projenize ekleme
+* Merhaba Reach SDK'sını Xcode projenize ekleyin. Xcode'da, çok Git**proje \> tooproject ekleme** ve hello seçin `EngagementReach` klasör.
 
 ### <a name="modify-your-application-delegate"></a>Uygulama Temsilcinizi değiştirme
-* Uygulama dosyanızın en üstünde Engagement Reach modülünü içeri aktarın:
+* Uygulama dosyanızı Hello üstünde hello Engagement Reach modülünü içeri aktarın:
 
       [...]
       #import "AEReachModule.h"
-* Yöntemi içinde `applicationDidFinishLaunching:` veya `application:didFinishLaunchingWithOptions:`, bir reach modülü oluşturun ve mevcut Engagement başlatma satırınıza geçirin:
+* Yöntemi içinde `applicationDidFinishLaunching:` veya `application:didFinishLaunchingWithOptions:`, bir reach modülü oluşturun ve tooyour mevcut Engagement başlatma satır geçirme:
 
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
         AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
@@ -57,14 +57,14 @@ Bu belge, XCode 8 gerektirir. XCode 7'de gerçekten bağımlı sonra kullanabili
 
         return YES;
       }
-* Değiştirme **'icon.png'** dize bildirim simgesi olarak istediğiniz görüntü adı ile.
-* Seçeneğini kullanmak istiyorsanız, *güncelleştirme rozet değeri* Reach kampanyaları veya yerel gönderim kullanmak isteyip istemediğinizi \<SaaS/Reach API'sini/Kampanya biçimi/yerel anında iletme\> kampanyalar, rozet yönetmek Reach modülünün izin gerekir (bunu otomatik olarak uygulama rozet temizleyin ve ayrıca uygulama Başlarken veya foregrounded her zaman Engagement tarafından depolanan değer Sıfırla) simgesi kendisi. Bu, Reach modülü başlatma sonra aşağıdaki satırı ekleyerek yapılır:
+* Değiştirme **'icon.png'** dize bildirim simgesi olarak istediğiniz hello görüntü adı ile.
+* Toouse hello seçenek istiyorsanız *güncelleştirme rozet değeri* Reach kampanyaları veya toouse yerel gönderim isteyip istemediğinizi \<SaaS/Reach API'sini/Kampanya biçimi/yerel anında iletme\> kampanyalar, hello Reach modülünün yönetmenize izin gerekir (bunu hello uygulama gösterge otomatik olarak temizlemek ve ayrıca başlatılmadı veya foregrounded hello uygulama her zaman Engagement tarafından depolanan hello değerini sıfırlamak) hello rozet simgesi kendisi. Bu satırı Reach modülü başlatma sonra aşağıdaki hello ekleyerek yapılır:
 
       [reach setAutoBadgeEnabled:YES];
-* Reach veri gönderimi işlemek istiyorsanız, uygun uygulama temsilcinizi izin vermelisiniz `AEReachDataPushDelegate` protokolü. Reach modülü başlatma sonra aşağıdaki satırı ekleyin:
+* Toohandle Reach veri gönderimi istiyorsanız, uygulama temsilcinizi toohello uygun izin vermelisiniz `AEReachDataPushDelegate` protokolü. Satır Reach modülü başlatma sonra aşağıdaki hello ekleyin:
 
       [reach setDataPushDelegate:self];
-* Yöntemleri uygulayabilirsiniz sonra `onDataPushStringReceived:` ve `onDataPushBase64ReceivedWithDecodedBody:andEncodedBody:` uygulama temsilcinizi içinde:
+* Merhaba yöntemleri uygulayabilirsiniz sonra `onDataPushStringReceived:` ve `onDataPushBase64ReceivedWithDecodedBody:andEncodedBody:` uygulama temsilcinizi içinde:
 
       -(BOOL)didReceiveStringDataPushWithCategory:(NSString*)category body:(NSString*)body
       {
@@ -80,27 +80,27 @@ Bu belge, XCode 8 gerektirir. XCode 7'de gerçekten bağımlı sonra kullanabili
       }
 
 ### <a name="category"></a>Kategori
-Kategori parametresi bir veri gönderme kampanya oluşturduğunuzda isteğe bağlıdır ve filtre veri iter sağlar. Farklı tür itmek istiyorsanız kullanışlıdır, `Base64` veri ve ayrıştırmadan önce kendi türünü tanımlamak istiyorsanız.
+Merhaba kategori parametresi bir veri gönderme kampanya oluşturduğunuzda isteğe bağlıdır ve toofilter verileri iter sağlar. Toopush farklı tür istiyorsanız kullanışlıdır, `Base64` veri ve istediğiniz tooidentify bunları ayrıştırma önce kendi türü.
 
-**Uygulamanızı şimdi almak ve reach içeriğini görüntülemek hazır!**
+**Hazır tooreceive ve görüntü içeriğini ulaşmak şimdi uygulamanızı değil!**
 
-## <a name="how-to-receive-announcements-and-polls-at-any-time"></a>Duyuruları ve yoklamaları herhangi bir zamanda alma
-Engagement Reach bildirimleri son kullanıcılarınız için herhangi bir zamanda Apple anında iletilen bildirim servisi kullanarak gönderebilirsiniz.
+## <a name="how-tooreceive-announcements-and-polls-at-any-time"></a>Nasıl tooreceive duyuruları ve yoklamaları herhangi bir zamanda
+Engagement Reach bildirim tooyour son kullanıcıların herhangi bir zamanda hello Apple anında iletilen bildirim Servisi'ni kullanarak gönderebilirsiniz.
 
-Bu işlevselliği etkinleştirmek için Apple anında iletme bildirimleri için uygulamanızı hazırlamak ve uygulama temsilcinizi değiştirme gerekir.
+tooenable bu işlevselliği Apple anında iletme bildirimleri için uygulamanızı tooprepare varsa ve uygulama temsilcinizi değiştirme.
 
 ### <a name="prepare-your-application-for-apple-push-notifications"></a>Uygulamanızın Apple anında iletme bildirimleri için hazırlama
-Lütfen kılavuzunu izleyin: [uygulamanız Apple anında iletme bildirimleri için hazırlama](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
+Lütfen başlangıç kılavuzunu izleyin: [nasıl tooPrepare uygulamanız için Apple anında iletme bildirimleri](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
 
-### <a name="add-the-necessary-client-code"></a>Gerekli istemci kodu ekleyin
-*Bu noktada, uygulamanızın kayıtlı bir Apple anında iletme sertifika katılım ön ucunda olması gerekir.*
+### <a name="add-hello-necessary-client-code"></a>Merhaba gerekli istemci kodu ekleyin
+*Bu noktada, uygulamanızın kayıtlı bir Apple anında iletme sertifika hello katılım ön ucunda olması gerekir.*
 
-Henüz yapmadıysanız anında iletme bildirimlerini almak üzere uygulamanızı kaydetmeniz gerekir.
+Henüz yapmadıysanız, uygulama tooreceive anında iletme bildirimleri tooregister gerekir.
 
-* İçeri aktarma `User Notification` framework:
+* İçeri aktarma hello `User Notification` framework:
 
         #import <UserNotifications/UserNotifications.h>
-* Uygulamanız başladığında aşağıdaki satırı ekleyin (genellikle, `application:didFinishLaunchingWithOptions:`):
+* Uygulamanız başladığında satır aşağıdaki hello ekleyin (genellikle, `application:didFinishLaunchingWithOptions:`):
 
         if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_8_0)
         {
@@ -118,14 +118,14 @@ Henüz yapmadıysanız anında iletme bildirimlerini almak üzere uygulamanızı
             [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
         }
 
-Ardından, cihaz belirteci Apple sunucuları tarafından döndürülen engagement sağlamanız gerekir. Bu yöntemin adlı yapılır `application:didRegisterForRemoteNotificationsWithDeviceToken:` uygulama temsilcinizi içinde:
+Ardından, tooprovide tooEngagement hello cihaz belirteci Apple sunucuları tarafından döndürülen gerekir. Bu adlı hello yönteminde yapılır `application:didRegisterForRemoteNotificationsWithDeviceToken:` uygulama temsilcinizi içinde:
 
     - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
     {
         [[EngagementAgent shared] registerDeviceToken:deviceToken];
     }
 
-Son olarak, uygulamanızın uzak bir bildirim aldığında Engagement SDK'sı hakkında bilgilendirmek sahip. Bunu yapmak için yöntemi çağırın `applicationDidReceiveRemoteNotification:fetchCompletionHandler:` uygulama temsilcinizi içinde:
+Son olarak, uygulamanızın uzak bir bildirim aldığında tooinform hello Engagement SDK'sı olması. çağrı, toodo hello yöntemi `applicationDidReceiveRemoteNotification:fetchCompletionHandler:` uygulama temsilcinizi içinde:
 
     - (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler
     {
@@ -133,7 +133,7 @@ Son olarak, uygulamanızın uzak bir bildirim aldığında Engagement SDK'sı ha
     }
 
 > [!IMPORTANT]
-> Varsayılan olarak, Engagement Reach completionHandler denetler. El ile yanıt vermek istiyorsanız `handler` kodunuzda engellemek, nil geçirmek `handler` bağımsız değişkeni ve denetim tamamlama bloğu kendiniz. Bkz: `UIBackgroundFetchResult` olası değerler listesi türü.
+> Varsayılan olarak, Engagement Reach hello completionHandler denetler. Toomanually yanıt toohello istiyorsanız `handler` kodunuzda engellemek, hello nil geçirebilirsiniz `handler` bağımsız değişkeni ve denetim hello tamamlama kendiniz engelleyin. Merhaba bkz `UIBackgroundFetchResult` olası değerler listesi türü.
 >
 >
 
@@ -175,11 +175,11 @@ Tümleştirme tam bir örneği burada verilmiştir:
 
 *Uygulamanızı ya da üçüncü taraf Kitaplıklarınızı biri uygulayan bir `UNUserNotificationCenterDelegate` sonra da bu bölümü atlayabilirsiniz.*
 
-A `UNUserNotificationCenter` temsilci SDK tarafından katılım bildirimleri 10 veya daha büyük iOS çalıştıran cihazlarda yaşam döngüsünü izlemek için kullanılır. SDK, kendi uygulamanızda `UNUserNotificationCenterDelegate` protokol ancak yalnızca bir olabilir `UNUserNotificationCenter` temsilci uygulama başına. Eklenen herhangi bir temsilci `UNUserNotificationCenter` nesne katılım bir çakışma. SDK veya herhangi diğer üçüncü bir tarafın temsilci algılarsa sonra kendi uygulama çakışmaları olanağı vermek için kullanmaz. Çakışmaları çözümlemek amacıyla kendi temsilciye katılım mantığı eklemeniz gerekir.
+A `UNUserNotificationCenter` temsilci hello SDK toomonitor hello yaşam döngüsü katılım bildirimler iOS 10 veya daha büyük çalıştıran cihazlarda tarafından kullanılır. Merhaba SDK sahip hello kendi uyarlamasını `UNUserNotificationCenterDelegate` protokol ancak yalnızca bir olabilir `UNUserNotificationCenter` temsilci uygulama başına. Herhangi bir temsilci eklenen toohello `UNUserNotificationCenter` nesne katılım bir hello ile çakışan. Merhaba SDK veya herhangi diğer üçüncü bir tarafın temsilci algılarsa, kendi uygulama toogive kullanmayacak sonra bir fırsat tooresolve çakışmaları hello. Tooadd hello katılım mantığı tooyour tooresolve hello çakışmaları temsilci sırada sahip olacaktır.
 
-Bunu başarmak için iki yolu vardır.
+Var olan iki yolu tooachieve bu.
 
-SDK çağrıları temsilciniz iletme tarafından yalnızca 1, Teklif:
+Teklif 1, temsilciniz ileterek toohello SDK çağırır:
 
     #import <UIKit/UIKit.h>
     #import "EngagementAgent.h"
@@ -206,7 +206,7 @@ SDK çağrıları temsilciniz iletme tarafından yalnızca 1, Teklif:
     }
     @end
 
-Veya içinden devralma tarafından 2, teklif `AEUserNotificationHandler` sınıfı
+Veya hello devralan tarafından 2, teklif `AEUserNotificationHandler` sınıfı
 
     #import "AEUserNotificationHandler.h"
     #import "EngagementAgent.h"
@@ -233,10 +233,10 @@ Veya içinden devralma tarafından 2, teklif `AEUserNotificationHandler` sınıf
     @end
 
 > [!NOTE]
-> Bir bildirim geçirerek değil veya katılım üzerinden gelen olup olmadığını belirlemek, `userInfo` aracı sözlüğe `isEngagementPushPayload:` sınıf yöntemi.
+> Bir bildirim geçirerek değil veya katılım üzerinden gelen olup olmadığını belirlemek, `userInfo` sözlük toohello Aracısı `isEngagementPushPayload:` sınıf yöntemi.
 
-Olduğundan emin olun `UNUserNotificationCenter` nesnenin temsilci temsilciniz ya da içinde ayarlanmış `application:willFinishLaunchingWithOptions:` veya `application:didFinishLaunchingWithOptions:` uygulama temsilcinizi yöntemi.
-Örneğin, yukarıdaki teklifi 1 uygulanırsa:
+Bu hello emin olun `UNUserNotificationCenter` nesnenin temsilci ya da hello içinde tooyour temsilci Ayarla `application:willFinishLaunchingWithOptions:` veya hello `application:didFinishLaunchingWithOptions:` uygulama temsilcinizi yöntemi.
+Örneğin, Teklif 1 yukarıda hello uygulanırsa:
 
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
         // Any other code
@@ -245,33 +245,33 @@ Olduğundan emin olun `UNUserNotificationCenter` nesnenin temsilci temsilciniz y
         return YES;
       }
 
-## <a name="how-to-customize-campaigns"></a>Kampanyalar özelleştirme
+## <a name="how-toocustomize-campaigns"></a>Nasıl toocustomize Kampanyalar
 ### <a name="notifications"></a>Bildirimler
 Bildirimler iki tür vardır: Sistem ve uygulama içi bildirimler.
 
 Sistem bildirimleri iOS tarafından işlenir ve özelleştirilemez.
 
-Uygulama bildirimleri geçerli uygulama penceresi dinamik olarak eklenen bir görünümün yapılır. Bu bildirim bir katmana çağrılır. Bunlar gerekli olmadığı için uygulamanızda herhangi bir görünüm değiştirmenizi bildirim yer paylaşımları hızlı tümleştirme için mükemmeldir.
+Uygulama bildirimleri toohello geçerli uygulama penceresi dinamik olarak eklenen bir görünümünü yapılır. Bu bildirim bir katmana çağrılır. Uygulamanız herhangi bir görünümde, toomodify bunlar gerekli olmadığı için bildirim yer paylaşımları hızlı tümleştirme için mükemmeldir.
 
 #### <a name="layout"></a>Düzen
-Uygulama içi bildirimler görünümünü değiştirmek için yalnızca dosyasını değiştirebilirsiniz `AENotificationView.xib` gereksinimlerinize, varolan subviews türünü ve etiket değerleri tutmak sürece.
+Uygulama bildirimlerinizi toomodify hello görünümünü, yalnızca değiştirebileceğiniz hello dosya `AENotificationView.xib` hello etiket değerlerini ve hello varolan subviews türleri tutmak sürece tooyour gerekiyor.
 
-Varsayılan olarak, uygulama içi bildirimler ekranın alt kısmında sunulmuştur. Ekranın en üstünde görüntülenecek tercih ederseniz, sağlanan düzenleme `AENotificationView.xib` değiştirip `AutoSizing` kendi değerlendirmesi üstünde tutulması için ana görünümün özelliği.
+Varsayılan olarak, uygulama içi bildirimler hello ekranın hello altında sunulur. Toodisplay tercih ederseniz, bunları ekran, düzenleme hello hello üstündeki sağlanan `AENotificationView.xib` hello değiştirip `AutoSizing` kendi değerlendirmesi hello üstünde tutulabilir şekilde hello ana görünüm özelliği.
 
 #### <a name="categories"></a>Kategoriler
-Sağlanan Düzen değiştirdiğinizde, tüm bildirimlerinizi görünümünü değiştirin. Kategoriler, bildirimler için çeşitli hedeflenen görünüyor (büyük olasılıkla davranışları) tanımlamanıza olanak sağlar. Bir kategori Reach kampanya oluşturduğunuzda belirtilebilir. Bu belgenin sonraki bölümlerinde açıklanan kategoriler de duyuruları ve yoklamaları, özelleştirmenize olanak tanır olduğunu aklınızda bulundurun.
+Düzen sağlanan hello değiştirdiğinizde, tüm bildirimlerinizi hello görünümünü değiştirin. Çeşitli hedeflenen toodefine (büyük olasılıkla davranışları) bildirimleri için görünür kategoriler. Bir kategori Reach kampanya oluşturduğunuzda belirtilebilir. Bu belgenin sonraki bölümlerinde açıklanan kategoriler de duyuruları ve yoklamaları, özelleştirmenize olanak tanır olduğunu aklınızda bulundurun.
 
-Bildirimlerinizi için bir kategori işleyici kaydetmek için reach modülünün başlatıldıktan sonra bir çağrı eklemeniz gerekir.
+tooregister bildirimlerinizi için bir kategori işleyici, hello modülü ulaştığınızda bir çağrı başlatılmış tooadd gerekir.
 
     AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
     [reach registerNotifier:myNotifier forCategory:@"my_category"];
     ...
 
-`myNotifier`protokol uyan bir nesne örneği olmalıdır `AENotifier`.
+`myNotifier`toohello Protokolü uyan bir nesne örneği olmalıdır `AENotifier`.
 
-Kendi kendinize Protokolü yöntemleri uygulayabilirsiniz veya varolan bir sınıfı yeniden uygulamalı seçtiğiniz `AEDefaultNotifier` işlerin çoğunu zaten gerçekleştirir.
+Kendi kendinize hello Protokolü yöntemleri uygulayabilirsiniz veya tooreimplement hello varolan sınıf seçebilir `AEDefaultNotifier` hello çalışmanın çoğu zaten gerçekleştirir.
 
-Örneğin, belirli bir kategorideki uyarı görünümünü yeniden tanımlamak istiyorsanız, bu örnek izleyebilirsiniz:
+Örneğin, belirli bir kategorideki için tooredefine hello bildirim görünümü istiyorsanız, bu örnek izleyebilirsiniz:
 
     #import "AEDefaultNotifier.h"
     #import "AENotificationView.h"
@@ -287,89 +287,89 @@ Kendi kendinize Protokolü yöntemleri uygulayabilirsiniz veya varolan bir sın�
 
     @end
 
-Bu basit örnek kategorisinin varsayalım adında bir dosyanız varsa `MyNotificationView.xib` ana uygulama paket içindeki. Yöntem karşılık gelen bulamıyor değilse `.xib`, bildirim görüntülenmeyecek ve katılım konsolunda bir ileti çıktı.
+Bu basit örnek kategorisinin varsayalım adında bir dosyanız varsa `MyNotificationView.xib` ana uygulama paket içindeki. Merhaba yöntemi karşılık gelen mümkün toofind değilse `.xib`hello bildirim görüntülenmez ve katılım hello konsolunda bir ileti çıktı.
 
-Sağlanan nib dosyası aşağıdaki kuralları dikkate:
+sağlanan hello nib dosyası kuralları aşağıdaki hello saygı:
 
 * Yalnızca bir görünüm içermesi gerekir.
-* Sağlanan nib dosyası içindeki olanlarla aynı türlerinin subviews adlı`AENotificationView.xib`
-* Subviews anahtarlarla sağlanan içinde aynı etiketleri olması gerektiğini adlı nib dosyası`AENotificationView.xib`
+* Subviews aynı olanları adlı sağlanan hello nib dosyası içinde hello gibi türleri hello olması`AENotificationView.xib`
+* Aynı adlı sağlanan hello nib dosyası içinde olanları hello gibi etiketler hello subviews olmalıdır`AENotificationView.xib`
 
 > [!TIP]
-> Yalnızca adlı sağlanan nib dosya kopyalama `AENotificationView.xib`ve buradan çalışmaya başlayın. Ancak dikkatli olun, görünüm bu nib dosyası içinde sınıfla ilişkilendirilen `AENotificationView`. Bu sınıf yöntemi yeniden tanımlandı `layoutSubViews` taşımak ve kendi subviews bağlamı göre yeniden boyutlandırmak için. Değiştirmek istediğiniz bir `UIView` ya da size özel görünüm sınıfı.
+> Yalnızca, adlı sağlanan hello nib dosya kopyalama `AENotificationView.xib`ve buradan çalışmaya başlayın. Ancak dikkatli olun, bu nib dosya iç ilişkili toohello sınıf görünümü hello `AENotificationView`. Bu sınıf hello yöntemi yeniden tanımlandı `layoutSubViews` toomove ve toocontext göre kendi subviews yeniden boyutlandırın. Tooreplace isteyebilirsiniz ile bir `UIView` ya da size özel görünüm sınıfı.
 >
 >
 
-Daha derin özelleştirme bildirimlerinizi gerekiyorsa (örneğin istiyorsanız doğrudan kodunuzdan görünümünüzü yüklemek için), sağlanan kaynak kodu ve sınıf belgeleri bakmak için önerilir `Protocol ReferencesDefaultNotifier` ve `AENotifier`.
+Daha derin özelleştirme bildirimlerinizi (örneğin tooload görünümünüzden doğrudan hello kod istiyorsanız) gerekiyorsa, hello göz sağlanan kaynak kodu ve sınıf belgelerine tootake önerilir `Protocol ReferencesDefaultNotifier` ve `AENotifier`.
 
-Birden çok kategori için aynı bildirim kullanabileceğinizi unutmayın.
+Kullanabileceğiniz Not hello birden çok kategori için aynı bildirim.
 
-De yeniden tanımlandı varsayılan bildirim şuna benzer:
+Aynı zamanda yeniden tanımlanan hello varsayılan bildirim şöyle olabilir:
 
     AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
     [reach registerNotifier:myNotifier forCategory:kAEReachDefaultCategory];
 
 ##### <a name="notification-handling"></a>Bildirim işleme
-Varsayılan Kategori kullanırken, bazı yaşam döngüsü yöntemleri üzerinde denir `AEReachContent` nesne istatistikleri rapor ve kampanya durumunu güncelleştirin:
+Merhaba varsayılan kategori kullanırken, bazı yaşam döngüsü yöntemleri üzerinde hello denir `AEReachContent` nesne tooreport istatistikleri ve güncelleştirme hello kampanya durumu:
 
-* Uygulamada, bildirim görüntülendiğinde `displayNotification` yöntemi (hangi istatistikleri raporları) çağrılır tarafından `AEReachModule` varsa `handleNotification:` döndürür `YES`.
-* Bildirim kapatıldığında, `exitNotification` yöntemi çağrıldığında, istatistik bildirilir ve sonraki Kampanyalar şimdi işlenebilir.
-* Bildirim tıkladıysanız `actionNotification` olan çağrılır, istatistik bildirilir ve ilişkili eylem gerçekleştirilir.
+* Merhaba bildirim uygulamada görüntülendiğinde hello `displayNotification` yöntemi (hangi istatistikleri raporları) çağrılır tarafından `AEReachModule` varsa `handleNotification:` döndürür `YES`.
+* Merhaba bildirim kapatıldığında, hello `exitNotification` yöntemi çağrıldığında, istatistik bildirilir ve sonraki Kampanyalar şimdi işlenebilir.
+* Merhaba bildirim tıkladıysanız `actionNotification` olduğu adlı istatistik bildirilir ve ilişkili hello eylem gerçekleştirilir.
 
-Uygulamanıza `AENotifier` varsayılan davranışı, atlar başınıza bu yaşam döngüsü yöntemlerini çağırmaya sahip. Aşağıdaki örneklerde varsayılan davranış olduğu atlanır bazı durumlarda gösterilmektedir:
+Uygulamanıza `AENotifier` atlamaların hello varsayılan davranışı, toocall bu yaşam döngüsü yöntemleri başınıza gerekir. Örnek hello hello varsayılan davranışı burada atlanır bazı durumlarda gösterilmiştir:
 
 * Genişletme yok `AEDefaultNotifier`, sıfırdan kategori işleme uygulanan örn.
-* Geçersiz kılınmış `prepareNotificationView:forContent:`, en az eşlemek mutlaka `onNotificationActioned` veya `onNotificationExited` , U.I birine denetler.
+* Geçersiz kılınmış `prepareNotificationView:forContent:`emin toomap olması en az `onNotificationActioned` veya `onNotificationExited` U.I denetimlerin tooone.
 
 > [!WARNING]
-> Varsa `handleNotification:` bir özel durum, içeriği silinir atar ve `drop` olduğu çağrılır, bu istatistiklerine bildirilir ve sonraki Kampanyalar şimdi işlenebilir.
+> Varsa `handleNotification:` bir özel durum, içerik hello silinir ve `drop` olduğu çağrılır, bu istatistiklerine bildirilir ve sonraki Kampanyalar şimdi işlenebilir.
 >
 >
 
 #### <a name="include-notification-as-part-of-an-existing-view"></a>Bildirim var olan bir görünümü bir parçası olarak dahil
 Yer paylaşımları hızlı tümleştirme için oldukça uygundur ancak bazen uygun olamaz ya da istenmeyen yan etkileri olabilir.
 
-Kendi görünümlerinizi bazıları katmana sistemde memnun değilseniz, bu görünümleri için özelleştirebilirsiniz.
+Merhaba katmana sistem bazı görünümlerinizi memnun değilseniz, bu görünümleri için özelleştirebilirsiniz.
 
-Bizim bildirim düzeni varolan görünümlerinizi içerecek şekilde karar verebilirsiniz. Bunu yapmak için iki uygulama stili vardır:
+Varolan görünümlerinizi tooinclude bizim bildirim düzeni karar verebilirsiniz. toodo bu nedenle, iki uygulama stili vardır:
 
-1. Arabirim Oluşturucusu'nu kullanarak bildirim görünümü ekleme
+1. Arabirim Oluşturucusu'nu kullanarak hello bildirim görünümü ekleme
 
    * Açık *arabirim Oluşturucusu*
-   * 320 x 60'ı (ya da iPad cihazında varsa 768 x 60) koyun `UIView` bildirim görünmesini istediğiniz yere
-   * Bu görünüm için etiket değeri ayarlanamıyor: **36822491**
-2. Bildirim görünümü programlı olarak ekleyin. Görünümünüzü hazırlarken yalnızca aşağıdaki kodu ekleyin:
+   * 320 x 60'ı (ya da iPad cihazında varsa 768 x 60) koyun `UIView` hello bildirim tooappear istediğiniz
+   * Bu görünüm için Hello etiket değeri çok ayarlayın: **36822491**
+2. Merhaba bildirim görünümü programlı olarak ekleyin. Görünümünüzü hazırlarken koddan hello eklemeniz yeterlidir:
 
-       UIView* notificationView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 60)]; //Replace x and y coordinate values to your needs.
+       UIView* notificationView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 60)]; //Replace x and y coordinate values tooyour needs.
        notificationView.tag = NOTIFICATION_AREA_VIEW_TAG;
        [self.view addSubview:notificationView];
 
 `NOTIFICATION_AREA_VIEW_TAG`Makro bulunabilir `AEDefaultNotifier.h`.
 
 > [!NOTE]
-> Varsayılan bildirim bildirim düzeni bu görünüme dahil edilmiştir ve bir katmana için eklemez otomatik olarak algılar.
+> Merhaba varsayılan bildirim hello bildirim düzenini bu görünüme dahil edilmiştir ve bir katmana için eklemez otomatik olarak algılar.
 >
 >
 
 ### <a name="announcements-and-polls"></a>Duyuruları ve yoklamaları
 #### <a name="layouts"></a>Düzenleri
-Dosyalarda değişiklik yapabilir `AEDefaultAnnouncementView.xib` ve `AEDefaultPollView.xib` varolan subviews türünü ve etiket değerleri tutmak sürece.
+Merhaba dosyalarda değişiklik yapabilir `AEDefaultAnnouncementView.xib` ve `AEDefaultPollView.xib` hello etiket değerlerini ve hello varolan subviews türleri tutmak sürece.
 
 #### <a name="categories"></a>Kategoriler
 ##### <a name="alternate-layouts"></a>Alternatif düzenleri
-Bildirimler gibi kampanya kategori duyuruları ve yoklamaları için alternatif düzenleri sağlamak için kullanılabilir.
+Bildirimler gibi hello kampanya kategori duyuruları ve yoklamaları için kullanılan toohave alternatif düzenleri olabilir.
 
-Duyuru için bir kategori oluşturmak için genişletmelidir **AEAnnouncementViewController** ve reach modülünün başlatıldıktan sonra kaydedin:
+toocreate duyuru için bir kategori, genişlemelidir **AEAnnouncementViewController** ve hello reach modülünün başlatıldıktan sonra kaydedin:
 
     AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
     [reach registerAnnouncementController:[MyCustomAnnouncementViewController class] forCategory:@"my_category"];
 
 > [!NOTE]
-> Bir kullanıcı kategorisiyle duyuru için bir bildirim her tıkladığınızda "Benim\_kategori", kayıtlı görünüm denetleyicinizi (Bu durumda `MyCustomAnnouncementViewController`) yöntemi çağrılarak başlatılır `initWithAnnouncement:` ve görünüm eklenir Geçerli uygulama penceresi.
+> Bir kullanıcı hello kategorisiyle duyuru için bir bildirim her tıkladığınızda "Benim\_kategori", kayıtlı görünüm denetleyicinizi (Bu durumda `MyCustomAnnouncementViewController`) hello yöntemi çağrılarak başlatılır `initWithAnnouncement:` ve hello görünümü olacaktır eklenen toohello geçerli uygulama penceresi.
 >
 >
 
-Uygulamanızda `AEAnnouncementViewController` özelliği okumaya olacaktır sınıfı `announcement` , subviews başlatılamadı. Aşağıdaki örnek düşünün, burada iki etiket başlatılır kullanarak `title` ve `body` özelliklerini `AEReachAnnouncement` sınıfı:
+Uygulamanızda hello `AEAnnouncementViewController` tooread hello özelliği olacaktır sınıfı `announcement` tooinitialize, subviews. Merhaba aşağıdaki örnekte, iki yapmayı düşünebilirsiniz etiketleri kullanarak başlatılır `title` ve `body` hello özelliklerini `AEReachAnnouncement` sınıfı:
 
     -(void)loadView
     {
@@ -387,28 +387,28 @@ Uygulamanızda `AEAnnouncementViewController` özelliği okumaya olacaktır sın
         [self.view addSubview:bodyLabel];
     }
 
-Kendi görünümlerinizi kendiniz yüklemek istemediğiniz ancak yalnızca varsayılan duyuru görünüm düzenini yeniden kullanmak istediğiniz, yalnızca özel görünüm denetleyicinizi yapabilirsiniz sağlanan sınıfını genişleten `AEDefaultAnnouncementViewController`. Bu durumda, nib dosyası yinelenen `AEDefaultAnnouncementView.xib` ve özel görünüm denetleyicisi tarafından yüklenebilmesi için yeniden adlandırın (adlı bir denetleyici için `CustomAnnouncementViewController`, nib dosyanızı çağırmalıdır `CustomAnnouncementView.xib`).
+Tooload görünümlerinizi başınıza istemediğiniz ancak yalnızca tooreuse hello varsayılan duyuru görünüm düzeni istediğiniz, özel görünüm denetleyicinizi yalnızca yapabileceğiniz sağlanan hello sınıfını genişleten `AEDefaultAnnouncementViewController`. Bu durumda, hello nib dosya yinelenen `AEDefaultAnnouncementView.xib` ve özel görünüm denetleyicisi tarafından yüklenebilmesi için yeniden adlandırın (adlı bir denetleyici için `CustomAnnouncementViewController`, nib dosyanızı çağırmalıdır `CustomAnnouncementView.xib`).
 
-Duyurular varsayılan kategorisini değiştirmek için yalnızca özel görünüm denetleyicinizi tanımlanan kategori için kayıt `kAEReachDefaultCategory`:
+tooreplace hello varsayılan kategorisini Duyurular, yalnızca özel görünüm denetleyicinizi tanımlanan hello kategorisi için kayıt `kAEReachDefaultCategory`:
 
     [reach registerAnnouncementController:[MyCustomAnnouncementViewController class] forCategory:kAEReachDefaultCategory];
 
-Tıpkı yoklamalar özelleştirilebilir:
+Anketler, özelleştirilmiş hello olabilir aynı şekilde:
 
     AEReachModule* reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
     [reach registerPollController:[MyCustomPollViewController class] forCategory:@"my_category"];
 
-Bu süre, sağlanan `MyCustomPollViewController` genişletmelidir `AEPollViewController`. Veya varsayılan denetleyicisinden genişletmek seçebilirsiniz: `AEDefaultPollViewController`.
+Bu süre, sağlanan hello `MyCustomPollViewController` genişletmelidir `AEPollViewController`. Veya hello varsayılan denetleyicisinden tooextend seçebilirsiniz: `AEDefaultPollViewController`.
 
 > [!IMPORTANT]
-> Ya da çağırmayı unuttunuz mu `action` (`submitAnswers:` özel yoklama görünüm denetleyicileri için) veya `exit` görünüm denetleyicisini kapatıldığında önce yöntemi. Aksi takdirde istatistikleri (yani bir kampanya hiçbir analytics) gönderilmez ve uygulama işlemini yeniden başlatılana kadar daha fazla önemlisi sonraki Kampanyalar bildirilmez.
+> Toocall ya da unutmayın `action` (`submitAnswers:` özel yoklama görünüm denetleyicileri için) veya `exit` hello görünüm denetleyicisini kapatıldığında önce yöntemi. Aksi takdirde istatistikleri (yani hello kampanyası hiçbir analytics) gönderilmez ve hello uygulama işlemini yeniden başlatılana kadar daha fazla önemlisi sonraki Kampanyalar bildirilmez.
 >
 >
 
 ##### <a name="implementation-example"></a>Uygulama örneği
-Bu uygulama özel duyuru görünümü bir dış xib dosyasından yüklenir.
+Bu uygulama hello özel duyuru görünümü bir dış xib dosyasından yüklenir.
 
-Gibi gelişmiş bildirim özelleştirme için standart uygulama kaynak koduna bakmanız önerilir.
+Gibi gelişmiş bildirim özelleştirmesi hello kaynak koduna hello standart uygulama toolook önerilir.
 
 `CustomAnnouncementViewController.h`
 

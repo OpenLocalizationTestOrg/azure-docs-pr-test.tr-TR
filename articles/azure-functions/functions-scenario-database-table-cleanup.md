@@ -1,6 +1,6 @@
 ---
-title: "Bir veritabanı temizleme görevini gerçekleştirmek için Azure işlevleri kullanın | Microsoft Docs"
-description: "Azure işlevleri, düzenli aralıklarla satırları temizlemek için Azure SQL veritabanına bağlanan bir görev zamanlamak için kullanın."
+title: "aaaUse Azure işlevleri tooperform bir veritabanı temizleme görevi | Microsoft Docs"
+description: "Kullanım Azure işlevleri tooschedule tooAzure SQL veritabanı tooperiodically bağlayan görev satırları temizleyin."
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -15,76 +15,76 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/22/2017
 ms.author: glenga
-ms.openlocfilehash: 6fd0e32374827b249f5aba1cbfc39117c88c6272
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 063a25fe8d14a75d54e9b72cec9fc1e25fa3ff44
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Bir Azure SQL veritabanına bağlanmak için Azure işlevleri kullanın
-Bu konu Azure işlevleri, bir Azure SQL veritabanındaki bir tablodaki satırların temizler zamanlanmış bir işi oluşturmak için nasıl kullanılacağını gösterir. Yeni C# işlevi önceden tanımlanmış Zamanlayıcı tetikleyicisi şablonu Azure portalında temel alınarak oluşturulur. Bu senaryoyu desteklemek için de bir işlev uygulaması ayarında olarak bir veritabanı bağlantı dizesi ayarlamanız gerekir. Bu senaryo, bir toplu işlemin veritabanında kullanır. Mobile Apps tablodaki tek tek CRUD işlemlerini işlevinizi sağlamak için kullanmanız [Mobile Apps bağlamaları](functions-bindings-mobile-apps.md).
+# <a name="use-azure-functions-tooconnect-tooan-azure-sql-database"></a>Azure işlevleri tooconnect tooan Azure SQL veritabanını kullan
+Bu konu, nasıl toouse Azure işlevleri toocreate zamanlanmış bir işi, gösterir. bir Azure SQL veritabanı tablosunda satır temizler. Merhaba yeni C# işlevi hello Azure portalı önceden tanımlanmış Zamanlayıcı tetikleyicisi şablonda temel alınarak oluşturulur. toosupport bu senaryo ayrıca bir veritabanı bağlantı dizesi hello işlevi uygulama ayarı olarak ayarlamanız gerekir. Bu senaryo, bir toplu işlemin hello veritabanında kullanır. toohave, işlev işlem tek tek CRUD işlemleri Mobile Apps tablodaki, bunun yerine kullanmanız gerekir [Mobile Apps bağlamaları](functions-bindings-mobile-apps.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-+ Bu konuda bir zamanlayıcı tetiklenen işlevini kullanır. Konusundaki adımları tamamlamak [zamanlayıcısı tarafından tetiklenen Azure işlevi oluşturma](functions-create-scheduled-function.md) bu işlev, C# sürümünü oluşturmak için.   
++ Bu konuda bir zamanlayıcı tetiklenen işlevini kullanır. Tam hello hello konudaki adımları [zamanlayıcısı tarafından tetiklenen Azure işlevi oluşturma](functions-create-scheduled-function.md) bu işlev toocreate C# sürümü.   
 
-+ Bu konuda bir toplu temizleme işlemi yürüten bir Transact-SQL komutu gösterilir **SalesOrderHeader** AdventureWorksLT örnek veritabanı tablosunda. AdventureWorksLT örnek veritabanı oluşturmak için konusundaki adımları [Azure portalında bir Azure SQL veritabanı oluşturma](../sql-database/sql-database-get-started-portal.md). 
++ Bu konuda hello toplu temizleme işlemi yürüten bir Transact-SQL komutu gösterilir **SalesOrderHeader** hello AdventureWorksLT örnek veritabanı tablosunda. toocreate hello AdventureWorksLT örnek veritabanı tam hello hello konudaki adımları [hello Azure portalında bir Azure SQL veritabanı oluşturma](../sql-database/sql-database-get-started-portal.md). 
 
 ## <a name="get-connection-information"></a>Bağlantı bilgilerini alma
 
-Tamamlandığında, oluşturulan veritabanı için bağlantı dizesini almak gereken [Azure portalında bir Azure SQL veritabanı oluşturma](../sql-database/sql-database-get-started-portal.md).
+Tamamlandığında, oluşturulan hello veritabanı için tooget hello bağlantı dizesi gerekiyor [hello Azure portalında bir Azure SQL veritabanı oluşturma](../sql-database/sql-database-get-started-portal.md).
 
-1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com/).
  
-3. Seçin **SQL veritabanları** sol taraftaki menüden ve veritabanınızı seçin **SQL veritabanları** sayfası.
+3. Seçin **SQL veritabanları** hello sol taraftaki menüden veritabanınızda hello seçip **SQL veritabanları** sayfası.
 
-4. Seçin **veritabanı bağlantı dizelerini Göster** ve tam kopyalayın **ADO.NET** bağlantı dizesi.
+4. Seçin **veritabanı bağlantı dizelerini Göster** ve kopyalama hello tam **ADO.NET** bağlantı dizesi.
 
-    ![ADO.NET bağlantı dizesini kopyalayın.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
+    ![Merhaba ADO.NET bağlantı dizesini kopyalayın.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
-## <a name="set-the-connection-string"></a>Bağlantı dizesi ayarlama 
+## <a name="set-hello-connection-string"></a>Merhaba bağlantı dizesini ayarlayın 
 
-Azure'da işlevlerinizin yürütülmesini bir işlev uygulaması barındırır. Bağlantı dizeleri ve diğer parolaları işlevi uygulama ayarlarınızı depolamak için en iyi bir uygulamadır. Uygulama ayarları kullanarak kodunuzu bağlantı dizesiyle yanlışlıkla açıklanması engeller. 
+Merhaba azure'da işlevlerinizin yürütülmesini bir işlev uygulaması barındırır. Bu en iyi yöntem toostore bağlantı dizeleri ve diğer parolaları işlevi uygulama ayarlarınızda olur. Uygulama ayarları kullanarak kodunuzu hello bağlantı dizesiyle yanlışlıkla açıklanması engeller. 
 
-1. Oluşturduğunuz işlevi uygulamanıza gidin [zamanlayıcısı tarafından tetiklenen Azure işlevi oluşturma](functions-create-scheduled-function.md).
+1. Oluşturduğunuz tooyour işlevi uygulamasına gidin [zamanlayıcısı tarafından tetiklenen Azure işlevi oluşturma](functions-create-scheduled-function.md).
 
 2. Seçin **Platform özellikleri** > **uygulama ayarları**.
    
-    ![İşlev uygulaması için uygulama ayarları.](./media/functions-scenario-database-table-cleanup/functions-app-service-settings.png)
+    ![Merhaba işlev uygulaması için uygulama ayarları.](./media/functions-scenario-database-table-cleanup/functions-app-service-settings.png)
 
-2. Ekranı aşağı kaydırarak **bağlantı dizeleri** ve tabloda belirtildiği gibi ayarları kullanarak bir bağlantı dizesi ekleyin.
+2. Çok ilerleyin**bağlantı dizeleri** ve hello tabloda belirtildiği gibi hello ayarları kullanarak bir bağlantı dizesi ekleyin.
    
-    ![Bir bağlantı dizesi işlevi uygulama ayarlarına ekleyin.](./media/functions-scenario-database-table-cleanup/functions-app-service-settings-connection-strings.png)
+    ![Bir bağlantı dizesi toohello işlevi uygulama ayarları ekleyin.](./media/functions-scenario-database-table-cleanup/functions-app-service-settings-connection-strings.png)
 
     | Ayar       | Önerilen değer | Açıklama             | 
     | ------------ | ------------------ | --------------------- | 
-    | **Ad**  |  sqldb_connection  | İşlev kodunuzu depolanan bağlantı dizesinde erişmek için kullanılır.    |
-    | **Değer** | Kopyalanan dize  | Bağlantı dizesi önceki bölümde kopyalanır. |
-    | **Tür** | SQL Database | Varsayılan SQL veritabanı bağlantısı kullanın. |   
+    | **Ad**  |  sqldb_connection  | Kullanılan tooaccess hello işlevi kodunuzdaki bağlantı dizesi depolanır.    |
+    | **Değer** | Kopyalanan dize  | Merhaba bağlantı dizesi hello önceki bölümde kopyalanır. |
+    | **Tür** | SQL Database | Merhaba varsayılan SQL veritabanı bağlantısı kullanın. |   
 
 3. **Kaydet** düğmesine tıklayın.
 
-Şimdi, SQL veritabanına bağlanan C# işlev kodu ekleyebilirsiniz.
+Şimdi, tooyour SQL veritabanına bağlanan hello C# kod işlevi ekleyebilirsiniz.
 
 ## <a name="update-your-function-code"></a>İşlev kodunuzu güncelleştirin
 
-1. İşlev uygulamanızda Zamanlayıcı tetiklenen işlevi seçin.
+1. İşlev uygulamanızda hello Zamanlayıcı tetiklenen işlevi seçin.
  
-3. Varolan işlev kodu en üstte aşağıdaki derleme başvurularını ekleyin:
+3. Derleme başvurularını hello varolan işlev kodu hello üstündeki aşağıdaki hello ekleyin:
 
     ```cs
     #r "System.Configuration"
     #r "System.Data"
     ```
 
-3. Aşağıdakileri ekleyin `using` deyimleri işlevi için:
+3. Merhaba aşağıdakileri ekleyin `using` deyimleri toohello işlevi:
     ```cs
     using System.Configuration;
     using System.Data.SqlClient;
     using System.Threading.Tasks;
     ```
 
-4. Varolan **çalıştırmak** işlevi aşağıdaki kod ile:
+4. Merhaba varolan **çalıştırmak** koddan hello işleviyle:
     ```cs
     public static async Task Run(TimerInfo myTimer, TraceWriter log)
     {
@@ -97,7 +97,7 @@ Azure'da işlevlerinizin yürütülmesini bir işlev uygulaması barındırır. 
 
             using (SqlCommand cmd = new SqlCommand(text, conn))
             {
-                // Execute the command and log the # rows affected.
+                // Execute hello command and log hello # rows affected.
                 var rows = await cmd.ExecuteNonQueryAsync();
                 log.Info($"{rows} rows were updated");
             }
@@ -105,20 +105,20 @@ Azure'da işlevlerinizin yürütülmesini bir işlev uygulaması barındırır. 
     }
     ```
 
-    Bu örnek komut güncelleştirir **durum** sütun temel sevk tarih. Veri 32 satırı güncelleştirmeniz gerekir.
+    Bu örnek komut hello güncelleştirir **durum** sütun temel hello sevk tarihi. Veri 32 satırı güncelleştirmeniz gerekir.
 
-5. Tıklatın **kaydetmek**, izleme **günlükleri** sonraki windows işlev yürütme ve ardından güncelleştirilir satır sayısını Not **SalesOrderHeader** tablo.
+5. Tıklatın **kaydetmek**, izleme hello **günlükleri** windows hello için sonraki işlev yürütme sonra Not hello hello güncelleştirilen satır sayısı **SalesOrderHeader** tablo.
 
-    ![İşlev günlüklerine bakın.](./media/functions-scenario-database-table-cleanup/functions-logs.png)
+    ![Merhaba işlevi günlüklerine bakın.](./media/functions-scenario-database-table-cleanup/functions-logs.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ardından, işlevleri Logic Apps ile diğer hizmetleri ile tümleştirme için nasıl kullanılacağını öğrenin.
+Ardından, bilgi toouse nasıl çalıştığını Logic Apps toointegrate diğer hizmetlerle birlikte.
 
 > [!div class="nextstepaction"] 
 > [Logic Apps ile tümleşen bir işlev oluşturun](functions-twitter-email.md)
 
-İşlevler hakkında daha fazla bilgi için aşağıdaki konulara bakın:
+Aşağıdaki konularda hello işlevleri hakkında daha fazla bilgi için bkz:
 
 * [Azure İşlevleri geliştirici başvurusu](functions-reference.md)  
   İşlevleri kodlamak ve tetikleyicileri ve bağlamaları tanımlamak için programcı başvurusu

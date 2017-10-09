@@ -1,26 +1,26 @@
 <!--author=alkohli last changed: 03/17/16-->
 
 ## <a name="troubleshooting-update-failures"></a>Güncelleştirme hatalarını giderme
-**Yükseltme öncesi denetimlerin başarısız olduğuna dair bir bildirim görürseniz ne yapmalısınız?**
+**Yükseltme öncesi denetimleri hello bir bildirim görür ne başarısız olmuş?**
 
-Ön denetim başarısız olursa, sayfanın sonundaki ayrıntılı bildirim çubuğuna baktığınızdan emin olun. Bu, hangi ön denetimin başarısız olduğuna dair yönlendirme sağlar. Aşağıdaki çizimde, böyle bir bildirim görüntülenen durumun bir örneği gösterilmektedir. Bu durumda, denetleyici durumu denetimi ve donanım bileşeni denetimi başarısız olmuştur. **Donanım Durumu** bölümü altında, **Denetleyici 0** ve **Denetleyici 1** bileşenlerine dikkat gösterilmesi gerektiğini görebilirsiniz.
+Ön denetim başarısız olursa, hello sayfanın hello hello ayrıntılı bildirim çubuğu adresindeki attıktan emin olun. Toowhich ön denetim başarısız oldu gibi bu kılavuz sağlar. Merhaba aşağıda böyle bir bildirim görüntülendiği bir örnek gösterilmektedir. Bu durumda, hello denetleyicisi sistem durumu denetimi ve donanım bileşen sistem durumu denetimi başarısız oldu. Merhaba altında **donanım durumu** bölümünde görebilirsiniz, her ikisi de **denetleyici 0** ve **Denetleyici 1** bileşenleri ilgilenilmesi gerekiyor.
 
   ![Ön denetim başarısız](./media/storsimple-install-troubleshooting/HCS_PreUpdateCheckFailed-include.png)
 
-Her iki denetleyicilerinin sağlıklı ve çevrimiçi olduğundan emin olmanız gerekir. Bakım sayfasında StorSimple cihazındaki tüm donanım bileşenlerinin iyi durumda gözüktüğünden de emin olmanız gerekir. Ardından güncelleştirmeleri yüklemeyi deneyebilirsiniz. Donanım bileşeni sorunlarını çözemiyorsanız, sonraki adımlar için Microsoft Destek’e başvurmanız gerekecektir.
+Her iki denetleyicilerinin sağlıklı ve çevrimiçi olduğundan emin toomake gerekir. Merhaba StorSimple cihazı tüm hello donanım bileşenleri toobe sağlıklı hello bakım sayfasında gösterildiğinden emin toomake de gerekir. Tooinstall güncelleştirmeleri daha sonra deneyebilirsiniz. Ardından mümkün toofix hello donanım bileşeni sorunları olup olmadığı, sonraki adımlar için toocontact Microsoft Support gerekir.
 
-**“Güncelleştirmeler yüklenemedi” hata iletisini alırsanız ve hatanın nedeninin belirlemek için verilen tavsiye güncelleme sorun giderme kılavuzuna bakmak olduğunda ne yapmalısınız?**
+**Ne varsa, "güncelleştirmeleri yüklenemedi" hata iletisini alırsınız ve öneri hello sorun giderme kılavuzu toodetermine hello hello hatanın nedenini toorefer toohello güncelleştirme mi?**
 
-Bunun muhtemel bir nedeni, Microsoft Update sunucularına bağlantınız olmamasıdır. Bu, yapılması gereken manuel bir denetimdir. Güncelleştirme sunucusu bağlantınız kesilirse, güncelleştirme işi başarısız olur. StorSimple cihazınızın Windows PowerShell arabiriminden aşağıdaki cmdlet'i çalıştırarak bağlantı denetleyebilirsiniz:
+Bağlantı toohello Microsoft Update sunucularına sahip olmayan bir büyük olasılıkla bunun nedeni olabilir. Gerçekleştirilen toobe gerektiren el ile denetim budur. Bağlantı toohello güncelleştirme sunucusu kaybederseniz, güncelleştirme işi başarısız olur. Merhaba Windows PowerShell arabiriminden StorSimple Cihazınızı cmdlet'i aşağıdaki hello çalıştırarak hello bağlantı denetleyebilirsiniz:
 
  `Test-Connection -Source <Fixed IP of your device controller> -Destination <Any IP or computer name outside of datacenter>`
 
-Cmdlet'i iki denetleyicide çalıştırın.
+Her iki denetleyicilerinde Hello cmdlet'ini çalıştırın.
 
-Bağlantı olduğunu doğruladıysanız ve bu sorunla karşılaşmaya devam ediyorsanız, lütfen sonraki adımlar için Microsoft Destek ile irtibat kurun.
+Lütfen başlangıç bağlantı var ve bu sorunu toosee devam doğruladıysanız Microsoft Support sonraki adımlar için başvurun.
 
-**Cihazınızı Güncelleştirme 4’e güncelleştirirken ve her iki denetleyici de Güncelleştirme 4 çalıştırdığında bir güncelleştirme hatası görürseniz ne yapmalısınız?**
+**Ne, aygıt tooUpdate 4 güncelleştirilirken bir güncelleştirme hatası görebilir ve güncelleştirme 4 çalıştıran her iki hello denetleyicilerinin?**
 
-Güncelleştirme 4’ten itibaren, her iki denetleyici aynı yazılım sürümünü çalıştırıyorsa ve bir güncelleştirme hatası oluşursa, denetleyiciler kurtarma moduna girmemektedir. Cihaz yazılım düzeltmesi (1. sıra güncelleştirme) her iki denetleyiciye başarılı şekilde uygulandığında ancak diğer düzeltmeler (2. sıra ve 3. sıra) henüz uygulanmadığında bu durum meydana gelebilir. Güncelleştirme 4'ten itibaren, yalnızca iki denetleyici farklı yazılım sürümleri çalıştırıyorsa denetleyiciler kurtarma moduna geçer. 
+Hem hello denetleyicileri çalışan hello aynı yazılım sürümü ve güncelleştirme hatası olup olmadığını ise güncelleştirme 4, başlangıç, hello denetleyicileri kurtarma moduna girmez. Merhaba, bu durum ortaya çıkabilir aygıt yazılım düzeltme (1 sipariş) güncelleştirmedir uygulanan tooboth hello denetleyicileri diğer düzeltmeleri ancak başarıyla (2 sipariş ve 3 sipariş) henüz toobe uygulanır. Güncelleştirme 4'ten başlayarak, yalnızca hello iki denetleyicileri farklı yazılım sürümleri çalıştırıyorsanız hello denetleyicileri kurtarma moduna geçer. 
 
-Kullanıcı, her iki denetleyici Güncelleştirme 4 çalıştırırken bir güncelleme hatası görürse, birkaç saniye beklemelerini ve ardından güncelleştirmeyi yeniden denemelerini öneririz. Yeniden deneme başarısız olursa, Microsoft Destek ile irtibat kurmalıdırlar.
+Güncelleştirme 4 hem denetleyicileri çalıştırırken hello kullanıcı güncelleştirmesi başarısız görürse, birkaç dakika bekleyin ve sonra yeniden güncelleştirilmesi öneririz. Ardından Hello yeniden deneme başarısız olursa, Microsoft Support başvurmalısınız.

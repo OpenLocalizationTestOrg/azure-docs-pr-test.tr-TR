@@ -2,14 +2,14 @@
 
 ### <a name="before-you-begin"></a>Başlamadan önce
 
-Yapılandırmanıza başlamadan önce aşağıdaki öğelerin bulunduğunu doğrulayın.
+Yapılandırmanıza başlamadan önce aşağıdaki öğelerindeki hello sahip olduğunuzu doğrulayın.
 
 * Azure aboneliği. Henüz Azure aboneliğiniz yoksa [MSDN abonelik avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) etkinleştirebilir veya [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
-* Windows, Linux veya Mac için Azure CLI'nin son sürümünü yüklemeniz gerekir. Daha fazla bilgi için bkz. [Azure CLI'yı yükleme](../articles/cli-install-nodejs.md).
+* Merhaba hello Azure CLI, Windows, Linux veya Mac için kullanılabilir en son sürümünü yükleyin Daha fazla bilgi için bkz. [yükleme hello Azure CLI](../articles/cli-install-nodejs.md).
 
-### <a name="sign-in-to-your-azure-account"></a>Azure hesabınızda oturum açma
+### <a name="sign-in-tooyour-azure-account"></a>Azure hesabı tooyour içinde oturum
 
-Bir konsol penceresi açın ve kimlik bilgilerinizi girerek kimliğinizi doğrulayın. Daha fazla bilgi için bkz. [Azure CLI üzerinden Azure’da oturum açma](../articles/xplat-cli-connect.md)
+Bir konsol penceresi açın ve kimlik bilgilerinizi girerek kimliğinizi doğrulayın. Daha fazla bilgi için bkz: [tooAzure hello Azure CLI gelen oturum](../articles/xplat-cli-connect.md)
 
 ```azurecli
 azure login
@@ -17,21 +17,21 @@ azure login
 
 ### <a name="switch-cli-mode"></a>CLI moduna geçme
 
-Azure DNS, Azure Resource Manager'ı kullanır. Azure Resource Manager komutlarını kullanmak için CLI moduna geçtiğinizden emin olun.
+Azure DNS, Azure Resource Manager'ı kullanır. CLI moduna toouse Azure Resource Manager komutları geçtiğinizden emin olun.
 
 ```azurecli
 azure config mode arm
 ```
 
-### <a name="select-the-subscription"></a>Aboneliği seçme
+### <a name="select-hello-subscription"></a>Merhaba aboneliği seçin
 
-Hesapla ilişkili abonelikleri kontrol edin.
+Merhaba hesabının Hello abonelikleri kontrol edin.
 
 ```azurecli
 azure account list
 ```
 
-Hangi Azure aboneliğinizin kullanılacağını seçin.
+Azure abonelikleri toouse hangisinin seçin.
 
 ```azurecli
 azure account set "subscription name"
@@ -39,7 +39,7 @@ azure account set "subscription name"
 
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-Azure Resource Manager, tüm kaynak gruplarının bir konum belirtmesini gerektirir. Bu, kaynak grubunda kaynaklar için varsayılan konum olarak kullanılır. Ancak tüm DNS kaynakları bölgesel değil de global olduğundan, kaynak grubu konumu seçiminin Azure DNS üzerinde hiçbir etkisi yoktur.
+Azure Resource Manager, tüm kaynak gruplarının bir konum belirtmesini gerektirir. Bu kaynak grubundaki kaynaklar için hello varsayılan konum olarak kullanılır. Ancak, tüm DNS kaynakları global olduğundan, bölgesel değil, kaynak grubu konumu hello seçimine Azure DNS üzerinde hiçbir etkisi olmaz.
 
 Var olan bir kaynak grubunu kullanıyorsanız bu adımı atlayabilirsiniz.
 
@@ -49,7 +49,7 @@ azure group create -n myresourcegroup --location "West US"
 
 ### <a name="register-resource-provider"></a>Kaynak sağlayıcısını kaydetme
 
-Azure DNS hizmeti, Microsoft.Network kaynak sağlayıcısı tarafından yönetilir. Azure DNS'yi kullanabilmeniz için, Azure aboneliğinizin bu kaynak sağlayıcısını kullanmak üzere kayıtlı olması gerekir. Bu, her bir abonelik için tek seferlik bir işlemdir.
+Hello Azure DNS hizmeti hello Microsoft.Network kaynak sağlayıcısı tarafından yönetilir. Azure aboneliğinizde Azure DNS'yi kullanmadan önce bu kaynak sağlayıcısı kayıtlı toouse olmalıdır. Bu, her bir abonelik için tek seferlik bir işlemdir.
 
 ```azurecli
 azure provider register --namespace Microsoft.Network

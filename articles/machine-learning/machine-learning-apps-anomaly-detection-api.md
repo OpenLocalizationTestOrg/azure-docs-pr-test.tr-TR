@@ -1,5 +1,5 @@
 ---
-title: "Azure Machine Learning Anomali algılama API | Microsoft Docs"
+title: "Machine Learning Anomali algılama API'si aaaAzure | Microsoft Docs"
 description: "Anomali algılama API zaman serisi veri zamanında hep aralıklı sayısal değerler ile anormallikleri algılar Microsoft Azure Machine Learning ile yerleşik bir örnektir."
 services: machine-learning
 documentationcenter: 
@@ -14,52 +14,52 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok;rotimpe
-ms.openlocfilehash: 5ddc02905fbb7f9f7c5deb9b970101788d824642
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ce153689b8ddb36b67a2ad3607d846ea83ebcf61
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Anomali algılama API makine
 ## <a name="overview"></a>Genel Bakış
 [Anomali algılama API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) zaman serisi veri zamanında hep aralıklı sayısal değerler ile anormallikleri algılar Azure Machine Learning ile oluşturulmuş bir örnek verilmiştir.
 
-Bu API zaman serisi veri anormal desenleri aşağıdaki türlerini saptayabilir:
+Bu API hello şu anormal desenleri zaman serisi veri türlerini saptayabilir:
 
 * **Pozitif ve negatif eğilimleri**: Örneğin, ne zaman yukarı eğilimi bilgi işlem bellek kullanımını izleme ilgi çekici bir bellek sızıntısı göstergesi olabilir olarak olabilir
-* **Dinamik aralık değerleri değişiklikleri**: Örneğin, bir bulut hizmeti tarafından oluşturulan özel durumları izlerken, dinamik aralık değerleri değişiklikler sistem durumu hizmetinin kararsızlığı olduğunu gösteriyor olabilir ve
-* **Ani ve Dips**: Örneğin, bir hizmette oturum açma hatalarının sayısı veya bir e-ticaret sitesi kullanıma sayısında izlerken, ani veya dıps anormal davranışları olduğunu gösteriyor olabilir.
+* **Merhaba dinamik aralık değerleri değişiklikleri**: Örneğin, bir bulut hizmeti tarafından oluşturulan hello özel durumlar izlerken hello dinamik aralık değerleri değişiklikler hello hizmetinin hello durumunun kararsızlığı olduğunu gösteriyor olabilir ve
+* **Ani ve Dips**: Örneğin, bir hizmette oturum açma hataları veya kullanıma sayının e-ticaret sitesi hello izlerken, ani veya dıps anormal davranışları olduğunu gösteriyor olabilir.
 
-Bu makine öğrenme algılayıcılar değerleri gibi değişiklikleri anomali puanları olarak değerlerine zaman ve rapor süregiden değişiklikler üzerinden izleyebilirsiniz. Bunlar geçici eşiği ayarlama gerektirmez ve puanlarını yanlış pozitif hızı denetlemek için kullanılabilir. API, zaman içinde KPI'ları izleyerek hizmet izleme gibi çeşitli senaryolarda kullanışlıdır anomali algılama arama sayısı, sayılar tıklama, performans sayaçları CPU, bellek gibi aracılığıyla dosyasını okur izleme, vb. gibi ölçümleri aracılığıyla kullanımı izleme. zaman içinde.
+Bu makine öğrenme algılayıcılar değerleri gibi değişiklikleri anomali puanları olarak değerlerine zaman ve rapor süregiden değişiklikler üzerinden izleyebilirsiniz. Bunlar geçici eşiği ayarlama gerektirmez ve puanlarını kullanılan toocontrol yanlış pozitif oranı olabilir. Merhaba anomali algılama API, KPI'ları zamanla kullanımı izleyerek hizmet izleme gibi çeşitli senaryolarda kullanışlıdır arama, tıklama sayıda sayısı gibi ölçümleri aracılığıyla izleme performans sayaçları bellek, CPU, dosya gibi aracılığıyla izleme okur, zaman içinde vb..
 
-Anomali algılama sunan başlamanıza yardımcı olmak için faydalı araçları ile birlikte gelir.
+Merhaba Anomali algılama sunan başlattığınız yararlı Araçlar tooget ile birlikte gelir.
 
-* [Web uygulaması](http://anomalydetection-aml.azurewebsites.net/) değerlendirmek ve verileriniz üzerinde anomali algılama API'leri sonuçlarını görselleştirmenize yardımcı olur.
+* Merhaba [web uygulaması](http://anomalydetection-aml.azurewebsites.net/) değerlendirmek ve verileriniz üzerinde anomali algılama API'leri hello sonuçlarını görselleştirmenize yardımcı olur.
 
 > [!NOTE]
 > Deneyin **BT Anomali Insights çözümü** tarafından sağlanmıştır [bu API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)
 > 
-> Azure aboneliğinize dağıtılan bu uçtan uca çözüm almak için <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank"> **buradan başlayın >**</a>
+> tooget bu son tooend çözümü dağıtılmış tooyour Azure aboneliği <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank"> **buradan başlayın >**</a>
 > 
 >
 
 ## <a name="api-deployment"></a>API dağıtımı
-API kullanabilmeniz için burada bir Azure Machine Learning web hizmeti olarak barındırılacak Azure aboneliğinizde dağıtmanız gerekir.  Bunu yapmak [Cortana Intelligence Galerisi](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Bu iki AzureML Web Hizmetleri (ve bunların ilgili kaynaklar), Azure aboneliğinizin - mevsimselliğin algılama anomali algılama için diğeri mevsimselliğin algılama olmadan dağıtır.  Dağıtım tamamlandıktan sonra API'yönetmek kullanamazsınız [AzureML web Hizmetleri](https://services.azureml.net/webservices/) sayfası.  Bu sayfadan API'sini çağırmak için uç noktalarına, API anahtarları yanı sıra örnek kod Bul mümkün olacaktır.  Daha ayrıntılı yönergeler kullanılabilir [burada](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-manage-new-webservice).
+Sipariş toouse hello API, burada bir Azure Machine Learning web hizmeti olarak barındırılacak Azure aboneliği tooyour dağıtmalısınız.  Hello bunu yapabilirsiniz [Cortana Intelligence Galerisi](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Bu iki AzureML Web Hizmetleri (ve ilgili kaynaklarını) dağıtacağınız tooyour Azure aboneliği - biri mevsimselliğin algılama anomali algılama ve bir mevsimselliğin algılama olmadan.  Merhaba dağıtım tamamlandıktan sonra API'lerden mümkün toomanage olacaktır hello [AzureML web Hizmetleri](https://services.azureml.net/webservices/) sayfası.  Bu sayfadan, mümkün toofind API anahtarları, uç nokta konumlarının olması yanı sıra hello API'sini çağırmak için kodu örnek.  Daha ayrıntılı yönergeler kullanılabilir [burada](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-manage-new-webservice).
 
-## <a name="scaling-the-api"></a>API ölçeklendirme
-Varsayılan olarak, dağıtımınızı 1.000 işlemleri/ay ve 2 işlem saat/ay içeren boş bir fatura geliştirme ve Test planı sahip olur.  Başka bir plana gereksinimlerinize uygun şekilde yükseltebilirsiniz.  Farklı planları fiyatlandırma hakkında ayrıntıları [burada](https://azure.microsoft.com/en-us/pricing/details/machine-learning/) "Üretim Web API fiyatlandırma" altında.
+## <a name="scaling-hello-api"></a>Merhaba API ölçeklendirme
+Varsayılan olarak, dağıtımınızı 1.000 işlemleri/ay ve 2 işlem saat/ay içeren boş bir fatura geliştirme ve Test planı sahip olur.  Tooanother planı gereksinimlerinize uygun şekilde yükseltebilirsiniz.  Merhaba farklı planları fiyatlandırma hakkında ayrıntıları [burada](https://azure.microsoft.com/en-us/pricing/details/machine-learning/) "Üretim Web API fiyatlandırma" altında.
 
 ## <a name="managing-aml-plans"></a>AML yönetme planları 
-Faturalandırma planınıza yönetebilirsiniz [burada](https://services.azureml.net/plans/).  Plan adı API dağıtırken seçtiğiniz kaynak grubu adı yanı sıra, aboneliğiniz için benzersiz bir dizeye dayalı olacak.  Planınızı yükseltmek yönergeler kullanılabilir [burada](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-manage-new-webservice) "faturalandırma planları yönetme" bölümünün altında.
+Faturalandırma planınıza yönetebilirsiniz [burada](https://services.azureml.net/plans/).  Merhaba plan adı hello API dağıtırken seçtiğiniz hello kaynak grubu adı artı benzersiz tooyour abonelik bir dizeye dayalı olarak belirlenir.  Nasıl tooupgrade planınız kullanılabilir yönergeleri [burada](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-manage-new-webservice) hello "faturalandırma planları yönetme" bölümünün altında.
 
 ## <a name="api-definition"></a>API tanımı
-Web hizmeti REST tabanlı bir API sağlayan bir web veya mobil uygulama, R, Python, Excel gibi farklı yollarla tüketilebilir HTTPS üzerinden vb..  Bu hizmet bir REST API çağrısı aracılığıyla zaman serisi veri göndermek ve aşağıda açıklanan üç anomali türleri birlikte çalışır.
+Merhaba web hizmeti sağlayan REST tabanlı bir API web veya mobil uygulama, R, Python, Excel gibi farklı yollarla tüketilebilir HTTPS üzerinden vb..  Zaman serisi veri toothis hizmetiniz bir REST API çağrısı aracılığıyla göndermek ve aşağıda açıklanan hello anomali üç birlikte çalışır.
 
-## <a name="calling-the-api"></a>API çağırma
-API çağrısı için API anahtarı ve uç nokta konumunu bilmeniz gerekir.  API'sini çağırmak için örnek kod ile birlikte bunların her ikisi de mevcuttur [AzureML web Hizmetleri](https://services.azureml.net/webservices/) sayfası.  İstenen API'sine gidin ve ardından bunları bulmak için "Tüket" sekmesini tıklatın.  API olarak Swagger API'si çağırabilirsiniz unutmayın (yani URL parametresi ile `format=swagger`) veya farklı bir harici - Swagger API'si (yani olmadan `format` URL parametresi).  Örnek kod Swagger biçimini kullanır.  Aşağıda bir örnek istek ve yanıt Swagger olmayan biçimindedir.  Bu örnek mevsimselliğin uç noktasına verilebilir.  Mevsimselliğin olmayan endpoint benzer.
+## <a name="calling-hello-api"></a>Merhaba API çağırma
+Sipariş toocall hello API, tooknow hello uç nokta konumu ve API anahtarı gerekir.  Merhaba API'sini çağırmak için örnek kod ile birlikte bunların her ikisi de hello kullanılabilir [AzureML web Hizmetleri](https://services.azureml.net/webservices/) sayfası.  İstenen toohello API gidin ve hello "Tüket" sekmesini toofind ardından bunları.  Hello API olarak Swagger API'si çağırabilirsiniz unutmayın (yani hello URL parametresi ile `format=swagger`) veya farklı bir harici - Swagger API'si (yani, hello olmadan `format` URL parametresi).  Merhaba örnek kod hello Swagger biçimini kullanır.  Aşağıda bir örnek istek ve yanıt Swagger olmayan biçimindedir.  Bu örnek toohello mevsimselliğin endpoint verilebilir.  Merhaba mevsimselliğin olmayan endpoint benzer.
 
 ### <a name="sample-request-body"></a>Örnek istek gövdesi
-İki nesne istek içeriyor: `Inputs` ve `GlobalParameters`.  Diğerleri değildir aşağıdaki örnek istekte bazı parametreler açıkça gönderilen (aşağı kaydırın her bitiş noktasıyla ilgili parametrelerin tam bir listesi için).  Açıkça istekte gönderilmez Parametreler aşağıda verilen varsayılan değerleri kullanır.
+Merhaba isteği iki nesne içerir: `Inputs` ve `GlobalParameters`.  Diğerleri değildir hello örnek aşağıdaki isteği, bazı parametreler açıkça gönderilen (aşağı kaydırın her bitiş noktasıyla ilgili parametrelerin tam bir listesi için).  Merhaba istekte açıkça gönderilip gönderilmeyeceğini Parametreler aşağıda verilen hello varsayılan değerleri kullanır.
 
     {
                 "Inputs": {
@@ -81,7 +81,7 @@ API çağrısı için API anahtarı ve uç nokta konumunu bilmeniz gerekir.  API
     }
 
 ### <a name="sample-response"></a>Örnek Yanıtı
-Görmek için Not `ColumnNames` alan içermelidir `details=true` isteğiniz bir URL parametresi olarak.  Bu alanların her biri arkasında anlamı için aşağıdaki tablolara bakın.
+Unutmayın sipariş toosee hello `ColumnNames` alan içermelidir `details=true` isteğiniz bir URL parametresi olarak.  Bu alanların her biri arkasında hello anlamı için aşağıdaki Hello tablolara bakın.
 
     {
         "Results": {
@@ -102,91 +102,91 @@ Görmek için Not `ColumnNames` alan içermelidir `details=true` isteğiniz bir 
 
 
 ## <a name="score-api"></a>Puan API
-Puan API anomali algılama Mevsimlik olmayan zaman serisi veri üzerinde çalıştırmak için kullanılır. API anomali algılayıcılar çeşitli verileri çalıştırır ve anomali puanlarını döndürür. Aşağıdaki şekilde puan API algılayabilir anormallikleri örneği gösterilmektedir. Bu zaman serisi 2 ayrı düzeyi değişir ve 3 ani sahiptir. Kırmızı nokta siyah noktalar algılanan ani gösterirken, düzey değişikliği, algılanan zamanı gösterir.
+Merhaba puan API anomali algılama Mevsimlik olmayan zaman serisi veri üzerinde çalıştırmak için kullanılır. Merhaba API anomali algılayıcılar sayısı hello verileri çalıştırır ve anomali puanlarını döndürür. Aşağıdaki Hello şekilde puan API algılayabilir bu hello anormallikleri örneği gösterilmektedir. Bu zaman serisi 2 ayrı düzeyi değişir ve 3 ani sahiptir. Merhaba kırmızı nokta hello siyah nokta algılanan hello ani gösterirken hangi hello düzey değişikliği, algılandığında hello zamanı gösterir.
 ![Puan API][1]
 
 ### <a name="detectors"></a>Algılayıcılar
-Anomali algılama API algılayıcılar 3 geniş kategorilerde destekler. Belirli giriş parametreleri ve her algılayıcı çıktıların hakkında ayrıntılar aşağıdaki tabloda bulunabilir.
+Merhaba anomali algılama API algılayıcılar 3 geniş kategorilerde destekler. Belirli giriş parametreleri ve her algılayıcı çıktıların hakkında ayrıntılar aşağıdaki tablonun hello bulunabilir.
 
 | Algılayıcısı kategorisi | Algılayıcısı | Açıklama | Giriş parametreleri | Çıkışları |
 | --- | --- | --- | --- | --- |
-| Depo algılayıcılar |TSpike algılayıcısı |Ani ve şu ana kadar değerlerine göre dıps ilk ve üçüncü Dörttebirlikler saptamak |*tspikedetector.sensitivity:* aralığındaki tamsayı değeri 1-10, varsayılan alır: 3; Daha yüksek değerler, böylece daha az hassas yapmadan birden fazla aşırı değeri yakalar |TSpike: ikili değerler – '1' depo/DIP algılanırsa, '0' Aksi takdirde |
-| Depo algılayıcılar | ZSpike algılayıcısı |Ani ve ne kadar datapoints'ler ortalamasını göre dıps Algıla |*zspikedetector.sensitivity:* aralığındaki tamsayı değeri 1-10, varsayılan alın: 3; Daha yüksek değerleri daha az hassas kolaylaştırarak birden fazla aşırı değeri yakalar |ZSpike: ikili değerler – '1' depo/DIP algılanırsa, '0' Aksi takdirde | |
-| Yavaş eğilimi algılayıcısı |Yavaş eğilimi algılayıcısı |Yavaş pozitif eğilimi kümesi duyarlılık göredir Algıla |*trenddetector.sensitivity:* algılayıcısı puan eşiğine (varsayılan: 3,25, 3,25 – 5 öğesinden; seçmek için makul sınırlar. Yüksek daha az duyarlı) |tscore: anomali puan eğilimi üzerinde temsil eden kayan sayısı |
-| Düzey değişikliği algılayıcılar | Çift yönlü düzeyi değişiklik algılayıcısı |Yukarı ve aşağı düzey değişiklik kümesi duyarlılık göredir Algıla |*bileveldetector.sensitivity:* algılayıcısı puan eşiğine (varsayılan: 3,25, 3,25 – 5 öğesinden; seçmek için makul sınırlar. Yüksek daha az duyarlı) |rpscore: anomali puan yukarı ve aşağı düzey değişiklik gösteren kayan sayı | |
+| Depo algılayıcılar |TSpike algılayıcısı |Ani ve birinci ve üçüncü Dörttebirlikler değerler uzak hello göre dıps Algıla |*tspikedetector.sensitivity:* hello aralığındaki tamsayı değeri 1-10, varsayılan alır: 3; Daha yüksek değerler, böylece daha az hassas yapmadan birden fazla aşırı değeri yakalar |TSpike: ikili değerler – '1' depo/DIP algılanırsa, '0' Aksi takdirde |
+| Depo algılayıcılar | ZSpike algılayıcısı |Ani ve üzerinde ne kadar hello datapoints göre dıps ortalamasını saptamak |*zspikedetector.sensitivity:* hello aralığındaki tamsayı değeri 1-10, varsayılan alın: 3; Daha yüksek değerleri daha az hassas kolaylaştırarak birden fazla aşırı değeri yakalar |ZSpike: ikili değerler – '1' depo/DIP algılanırsa, '0' Aksi takdirde | |
+| Yavaş eğilimi algılayıcısı |Yavaş eğilimi algılayıcısı |Merhaba kümesi duyarlılık göredir yavaş pozitif eğilimi Algıla |*trenddetector.sensitivity:* algılayıcısı puan eşiğine (varsayılan: 3,25, 3,25 – 5 makul sınırlar tooselect öğesinden; hello yüksek hello daha az duyarlı) |tscore: anomali puan eğilimi üzerinde temsil eden kayan sayısı |
+| Düzey değişikliği algılayıcılar | Çift yönlü düzeyi değişiklik algılayıcısı |Hello kümesi duyarlılığına göre yukarı ve aşağı düzey değişikliği algılar |*bileveldetector.sensitivity:* algılayıcısı puan eşiğine (varsayılan: 3,25, 3,25 – 5 makul sınırlar tooselect öğesinden; hello yüksek hello daha az duyarlı) |rpscore: anomali puan yukarı ve aşağı düzey değişiklik gösteren kayan sayı | |
 
 ### <a name="parameters"></a>Parametreler
-Bu giriş parametreleri hakkında daha ayrıntılı bilgi aşağıdaki tabloda listelenmiştir:
+Bu giriş parametreleri hakkında daha ayrıntılı bilgi hello aşağıdaki tabloda listelenmiştir:
 
 | Giriş parametreleri | Açıklama | Varsayılan ayar | Tür | Geçerli aralık | Önerilen aralık |
 | --- | --- | --- | --- | --- | --- |
 | detectors.historyWindow |Anomali puan hesaplama için kullanılan geçmişinde (veri noktası sayısı) |500 |tamsayı |10-2000 |Zaman serisi bağımlı |
-| detectors.spikesdips | Algılanmayacağını yalnızca ani, yalnızca dıps veya her ikisi |Her ikisi |Numaralandırılan |Her ikisi de, ani, Dıps |Her ikisi |
+| detectors.spikesdips | Olup toodetect yalnızca ani, yalnızca dıps veya her ikisi |Her ikisi |Numaralandırılan |Her ikisi de, ani, Dıps |Her ikisi |
 | bileveldetector.sensitivity |Çift yönlü düzeyi duyarlılık algılayıcısı değiştirin. |3.25 |Çift |None |3,25 5 (daha düşük değerler daha hassas anlamına gelir) |
 | trenddetector.sensitivity |Pozitif eğilimi algılayıcısı duyarlılık. |3.25 |Çift |None |3,25 5 (daha düşük değerler daha hassas anlamına gelir) |
 | tspikedetector.sensitivity |Duyarlılık TSpike algılayıcısı |3 |tamsayı |1-10 |3-5 (daha düşük değerler daha hassas anlamına gelir) |
 | zspikedetector.sensitivity |Duyarlılık ZSpike algılayıcısı |3 |tamsayı |1-10 |3-5 (daha düşük değerler daha hassas anlamına gelir) |
-| postprocess.tailRows |Çıkış sonuçlarında tutulacak en son veri noktası sayısı |0 |tamsayı |(tüm veri noktaları tutun) 0 veya sonuçlarında tutmak için noktası sayısını belirtin |Yok |
+| postprocess.tailRows |Hello çıkış sonuçlarında tutulan toobe hello son veri noktaları |0 |tamsayı |(tüm veri noktaları tutun) 0 veya sonuçlarında noktaları tookeep sayısını belirtin |Yok |
 
 ### <a name="output"></a>Çıktı
-API tüm algılayıcılar zaman serisi verileriniz üzerinde çalışır ve anomali puanlarını ve her nokta için ikili depo göstergeleri zamanında döndürür. Aşağıdaki tabloda API'sinden çıkışları listeler. 
+Merhaba API tüm algılayıcılar zaman serisi verileriniz üzerinde çalışır ve anomali puanlarını ve her nokta için ikili depo göstergeleri zamanında döndürür. Merhaba tabloda hello API çıkışlarından listelenir. 
 
 | Çıkışları | Açıklama |
 | --- | --- |
 | Zaman |Ham verileri veya toplanan (ve/veya) imputed verilerden zaman damgaları, toplama (ve/veya) eksik veri imputation uygulanır |
 | Veriler |Değerleri ham verileri veya toplanan (ve/veya) imputed veri varsa toplama (ve/veya) eksik veri imputation uygulanır |
-| TSpike |Bir depo TSpike algılayıcısı tarafından algılanan olup olmadığını belirtmek için ikili göstergesi |
-| ZSpike |Bir depo ZSpike algılayıcısı tarafından algılanan olup olmadığını belirtmek için ikili göstergesi |
+| TSpike |İkili gösterge tooindicate bir ani TSpike algılayıcısı tarafından mı algılandı |
+| ZSpike |İkili gösterge tooindicate bir ani ZSpike algılayıcısı tarafından mı algılandı |
 | rpscore |Kayan sayı temsil eden anomali puan çift yönlü düzeyi değişiklik |
-| rpalert |çift yönlü düzeyi var. gösteren 1/0 değeri giriş duyarlılığına göre anomali değiştirme |
+| rpalert |çift yönlü düzeyi var. gösteren 1/0 değeri hello giriş duyarlılığına göre anomali değiştirme |
 | tscore |Kayan sayı temsil eden anomali puan üzerinde pozitif eğilimi |
-| talert |var. gösteren 1/0 giriş duyarlılığına göre pozitif eğilimi anomali değerdir |
+| talert |var. gösteren 1/0 hello giriş duyarlılığına göre pozitif eğilimi anomali değerdir |
 
 ## <a name="scorewithseasonality-api"></a>ScoreWithSeasonality API
-ScoreWithSeasonality API anormallik algılamayı Mevsimlik düzenlere sahip zaman serisi çalıştırmak için kullanılır. Bu API sapmaları Mevsimlik düzenleri algılamak kullanışlıdır.  
-Aşağıdaki şekilde Mevsimlik zaman serisinde algılanan anormallikleri örneği gösterilmektedir. Zaman serisi bir depo (1 siyah nokta), iki dıps (2 siyah nokta ve biri sonunda) ve tek düzey değişikliği (kırmızı nokta) sahiptir. DIP zaman serisi ve düzey değişikliği ortasında yalnızca discernable Mevsimlik bileşenleri serisinden kaldırıldıktan sonra dikkat edin.
+Merhaba ScoreWithSeasonality API anormallik algılamayı Mevsimlik düzenlere sahip zaman serisi çalıştırmak için kullanılır. Mevsimlik desenleri yararlı toodetect sapmaları API'dir.  
+Merhaba aşağıdaki şekilde bir Mevsimlik zaman serisinin algılanan anormallikleri örneği gösterilmektedir. Merhaba zaman serisi bir depo (Merhaba 1 siyah nokta), iki dıps (Merhaba 2 siyah nokta ve bir hello sonunda) ve tek düzey değişikliği (kırmızı nokta) sahiptir. Her ikisi de hello zaman serisinin hello ortasında DIP hello ve hello düzey değişikliği yalnızca discernable Mevsimlik bileşenleri hello serisinden kaldırıldıktan sonra unutmayın.
 ![Mevsimselliğin API][2]
 
 ### <a name="detectors"></a>Algılayıcılar
-Algılayıcılar mevsimselliğin uç noktada olanları mevsimselliğin olmayan uç noktası, ancak biraz farklı parametre adları (aşağıda listelenen) ile benzerdir.
+Merhaba mevsimselliğin uç noktada Hello algılayıcılar benzer toohello olanları hello mevsimselliğin olmayan uç noktası, ancak biraz farklı parametre adları (aşağıda listelenen) ile var.
 
 ### <a name="parameters"></a>Parametreler
 
-Bu giriş parametreleri hakkında daha ayrıntılı bilgi aşağıdaki tabloda listelenmiştir:
+Bu giriş parametreleri hakkında daha ayrıntılı bilgi hello aşağıdaki tabloda listelenmiştir:
 
 | Giriş parametreleri | Açıklama | Varsayılan ayar | Tür | Geçerli aralık | Önerilen aralık |
 | --- | --- | --- | --- | --- | --- |
-| preprocess.aggregationInterval |Toplama aralığı toplama için saniye cinsinden zaman serisi giriş |0 (hiçbir toplama gerçekleştirilir) |tamsayı |0: toplama, > 0 aksi atla |Zaman serisi bağımlı, 1 gün için 5 dakika |
-| preprocess.aggregationFunc |Belirtilen AggregationInterval veri toplamak için kullanılan işlevi |Ortalama |Numaralandırılan |Ortalama, Topla, uzunluğu |Yok |
-| preprocess.replaceMissing |Eksik veri impute için kullanılan değerleri |lkv (bilinen son değer) |Numaralandırılan |sıfır, lkv, ortalama |Yok |
+| preprocess.aggregationInterval |Toplama aralığı toplama için saniye cinsinden zaman serisi giriş |0 (hiçbir toplama gerçekleştirilir) |tamsayı |0: toplama, > 0 aksi atla |Zaman serisi bağımlı olan 5 dakika too1 günü |
+| preprocess.aggregationFunc |Merhaba veri toplamak için kullanılan işlev AggregationInterval belirtilen |Ortalama |Numaralandırılan |Ortalama, Topla, uzunluğu |Yok |
+| preprocess.replaceMissing |Kullanılan değerleri tooimpute eksik veri |lkv (bilinen son değer) |Numaralandırılan |sıfır, lkv, ortalama |Yok |
 | detectors.historyWindow |Anomali puan hesaplama için kullanılan geçmişinde (veri noktası sayısı) |500 |tamsayı |10-2000 |Zaman serisi bağımlı |
-| detectors.spikesdips | Algılanmayacağını yalnızca ani, yalnızca dıps veya her ikisi |Her ikisi |Numaralandırılan |Her ikisi de, ani, Dıps |Her ikisi |
+| detectors.spikesdips | Olup toodetect yalnızca ani, yalnızca dıps veya her ikisi |Her ikisi |Numaralandırılan |Her ikisi de, ani, Dıps |Her ikisi |
 | bileveldetector.sensitivity |Çift yönlü düzeyi duyarlılık algılayıcısı değiştirin. |3.25 |Çift |None |3,25 5 (daha düşük değerler daha hassas anlamına gelir) |
 | postrenddetector.sensitivity |Pozitif eğilimi algılayıcısı duyarlılık. |3.25 |Çift |None |3,25 5 (daha düşük değerler daha hassas anlamına gelir) |
 | negtrenddetector.sensitivity |Negatif eğilimi algılayıcısı duyarlılık. |3.25 |Çift |None |3,25 5 (daha düşük değerler daha hassas anlamına gelir) |
 | tspikedetector.sensitivity |Duyarlılık TSpike algılayıcısı |3 |tamsayı |1-10 |3-5 (daha düşük değerler daha hassas anlamına gelir) |
 | zspikedetector.sensitivity |Duyarlılık ZSpike algılayıcısı |3 |tamsayı |1-10 |3-5 (daha düşük değerler daha hassas anlamına gelir) |
-| seasonality.Enable |Mevsimselliğin analiz gerçekleştirilmesi olup |TRUE |Boole değeri |TRUE, false |Zaman serisi bağımlı |
-| seasonality.numSeasonality |Algılanacak düzenli döngüleri sayısı |1 |tamsayı |1, 2 |1-2 |
+| seasonality.Enable |Mevsimselliğin analiz toobe olup olmadığını gerçekleştirilen |TRUE |Boole değeri |TRUE, false |Zaman serisi bağımlı |
+| seasonality.numSeasonality |Algılanan düzenli döngüleri toobe maksimum sayısı |1 |tamsayı |1, 2 |1-2 |
 | seasonality.Transform |Mevsimlik olup olmadığını (ve) eğilimi bileşenleri anomali algılama uygulamadan önce kaldırılması |deseason |Numaralandırılan |None, deseason, deseasontrend |Yok |
-| postprocess.tailRows |Çıkış sonuçlarında tutulacak en son veri noktası sayısı |0 |tamsayı |(tüm veri noktaları tutun) 0 veya sonuçlarında tutmak için noktası sayısını belirtin |Yok |
+| postprocess.tailRows |Hello çıkış sonuçlarında tutulan toobe hello son veri noktaları |0 |tamsayı |(tüm veri noktaları tutun) 0 veya sonuçlarında noktaları tookeep sayısını belirtin |Yok |
 
 ### <a name="output"></a>Çıktı
-API tüm algılayıcılar zaman serisi verileriniz üzerinde çalışır ve anomali puanlarını ve her nokta için ikili depo göstergeleri zamanında döndürür. Aşağıdaki tabloda API'sinden çıkışları listeler. 
+Merhaba API tüm algılayıcılar zaman serisi verileriniz üzerinde çalışır ve anomali puanlarını ve her nokta için ikili depo göstergeleri zamanında döndürür. Merhaba tabloda hello API çıkışlarından listelenir. 
 
 | Çıkışları | Açıklama |
 | --- | --- |
 | Zaman |Ham verileri veya toplanan (ve/veya) imputed verilerden zaman damgaları, toplama (ve/veya) eksik veri imputation uygulanır |
 | OriginalData |Değerleri ham verileri veya toplanan (ve/veya) imputed veri varsa toplama (ve/veya) eksik veri imputation uygulanır |
-| ProcessedData |Aşağıdakilerden birini: <ul><li>Önemli mevsimselliğin algılandı ve seçeneğe deseason Mevsimlik değişiklikler zaman serisi ayarlandı;</li><li>Mevsimlik değişiklikler ayarlanmış ve önemli mevsimselliğin algıladıysa zaman serisi ve deseasontrend seçeneği seçili değişimleri giderilmiş</li><li>Aksi takdirde, bu OriginalData aynıdır</li> |
-| TSpike |Bir depo TSpike algılayıcısı tarafından algılanan olup olmadığını belirtmek için ikili göstergesi |
-| ZSpike |Bir depo ZSpike algılayıcısı tarafından algılanan olup olmadığını belirtmek için ikili göstergesi |
+| ProcessedData |Merhaba aşağıdakilerden herhangi birini: <ul><li>Önemli mevsimselliğin algılandı ve seçeneğe deseason Mevsimlik değişiklikler zaman serisi ayarlandı;</li><li>Mevsimlik değişiklikler ayarlanmış ve önemli mevsimselliğin algıladıysa zaman serisi ve deseasontrend seçeneği seçili değişimleri giderilmiş</li><li>Aksi takdirde, bu olduğu hello OriginalData aynı</li> |
+| TSpike |İkili gösterge tooindicate bir ani TSpike algılayıcısı tarafından mı algılandı |
+| ZSpike |İkili gösterge tooindicate bir ani ZSpike algılayıcısı tarafından mı algılandı |
 | BiLevelChangeScore |Kayan sayı temsil eden anomali puan düzeyi değişiklik |
-| BiLevelChangeAlert |Giriş duyarlılığına göre bir düzey değişikliği anomali olduğunu gösteren 1/0 değeri var. |
+| BiLevelChangeAlert |hello giriş duyarlılığına göre bir düzey değişikliği anomali olduğunu gösteren 1/0 değeri var. |
 | PosTrendScore |Kayan sayı temsil eden anomali puan üzerinde pozitif eğilimi |
-| PosTrendAlert |var. gösteren 1/0 giriş duyarlılığına göre pozitif eğilimi anomali değerdir |
+| PosTrendAlert |var. gösteren 1/0 hello giriş duyarlılığına göre pozitif eğilimi anomali değerdir |
 | NegTrendScore |Kayan sayı temsil eden anomali puana negatif eğilimi üzerinde |
-| NegTrendAlert |var. gösteren 1/0 giriş duyarlılığına göre negatif eğilimi anomali değerdir |
+| NegTrendAlert |var. gösteren 1/0 hello giriş duyarlılığına göre negatif eğilimi anomali değerdir |
 
 [1]: ./media/machine-learning-apps-anomaly-detection-api/anomaly-detection-score.png
 [2]: ./media/machine-learning-apps-anomaly-detection-api/anomaly-detection-seasonal.png

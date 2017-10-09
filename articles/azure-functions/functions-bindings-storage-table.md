@@ -1,6 +1,6 @@
 ---
-title: "Azure işlevleri depolama tablosu bağlamaları | Microsoft Docs"
-description: "Azure Storage bağlamaları Azure işlevlerini kullanmak nasıl anlayın."
+title: "aaaAzure işlevleri depolama tablosu bağlamaları | Microsoft Docs"
+description: "Anlamak nasıl toouse Azure Storage bağlamaları Azure işlevlerinde."
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -16,32 +16,32 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/28/2016
 ms.author: chrande
-ms.openlocfilehash: bb01be3ee044f60376e0c9c2de7b3dd34f3b7aca
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 90c2a73329139d4ab3504bc0e2c90370133158bf
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-storage-table-bindings"></a>Azure işlevleri depolama tablo bağlamaları
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-Bu makalede nasıl yapılandırılacağı ve kod Azure Storage tablo bağlamaları Azure işlevlerinde açıklanmaktadır. Giriş ve Azure Storage tablolarının bağlantılarında çıktı Azure işlevleri destekler.
+Bu makalede nasıl tooconfigure kodu Azure Storage Azure işlevlerinde bağlamaları tablo ve açıklanmaktadır. Giriş ve Azure Storage tablolarının bağlantılarında çıktı Azure işlevleri destekler.
 
-Depolama Tablo Bağlama aşağıdaki senaryoları destekler:
+Merhaba depolama Tablo Bağlama hello aşağıdaki senaryoları destekler:
 
-* **C# veya Node.js işlevi tek bir satırda okuma** - ayarlanmış `partitionKey` ve `rowKey`. `filter` Ve `take` özellikleri bu senaryoda kullanılmaz.
-* **C# işlevinde birden çok satır okuma** -işlevler çalışma zamanı sağlayan bir `IQueryable<T>` nesnesi tabloya bağlı. Tür `T` öğesinden türetilmelidir `TableEntity` veya uygulayan `ITableEntity`. `partitionKey`, `rowKey`, `filter`, Ve `take` özellikler bu senaryoda kullanılmaz; kullanabilirsiniz `IQueryable` tüm gerekli filtreleme yapmak için nesne. 
-* **Bir düğüm işlevinde birden çok satır okuma** - ayarlanmış `filter` ve `take` özellikleri. Ayarlamazsanız `partitionKey` veya `rowKey`.
-* **C# işlevinde bir veya daha fazla satır yazma** -işlevler çalışma zamanı sağlar bir `ICollector<T>` veya `IAsyncCollector<T>` tabloya bağlı olduğu `T` eklemek istediğiniz varlıklar şeması belirtir. Genellikle, yazın `T` türetilen `TableEntity` veya uygulayan `ITableEntity`, ancak gerekli değildir. `partitionKey`, `rowKey`, `filter`, Ve `take` özellikleri bu senaryoda kullanılmaz.
+* **C# veya Node.js işlevi tek bir satırda okuma** - ayarlanmış `partitionKey` ve `rowKey`. Merhaba `filter` ve `take` özellikleri bu senaryoda kullanılmaz.
+* **C# işlevinde birden çok satır okuma** -hello işlevleri çalışma zamanı sağlayan bir `IQueryable<T>` nesnesi bağlı toohello tablo. Tür `T` öğesinden türetilmelidir `TableEntity` veya uygulayan `ITableEntity`. Merhaba `partitionKey`, `rowKey`, `filter`, ve `take` özellikler bu senaryoda kullanılmaz; hello kullanabilirsiniz `IQueryable` tüm gerekli filtreleme toodo nesne. 
+* **Bir düğüm işlevinde birden çok satır okuma** - ayarlanmış hello `filter` ve `take` özellikleri. Ayarlamazsanız `partitionKey` veya `rowKey`.
+* **C# işlevinde bir veya daha fazla satır yazma** -hello işlevleri çalışma zamanı sağlar bir `ICollector<T>` veya `IAsyncCollector<T>` ilişkili toohello tablo nerede `T` hello şema belirtir hello varlıklarının tooadd istiyor. Genellikle, yazın `T` türetilen `TableEntity` veya uygulayan `ITableEntity`, ancak gerekli değildir. Merhaba `partitionKey`, `rowKey`, `filter`, ve `take` özellikleri bu senaryoda kullanılmaz.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 <a name="input"></a>
 
 ## <a name="storage-table-input-binding"></a>Depolama tablo giriş bağlama
-Azure Storage tablo giriş bağlama depolama tablosu, işlevinde kullanmanıza olanak sağlar. 
+Hello Azure Storage tablo giriş bağlama toouse işlevinizi depolama tabloda sağlar. 
 
-Bir işlev depolama tablo girişi aşağıdaki JSON nesneleri kullanan `bindings` function.json dizisi:
+Merhaba depolama tablo giriş tooa işlevini kullanır hello JSON nesneler şu hello `bindings` function.json dizisi:
 
 ```json
 {
@@ -49,28 +49,28 @@ Bir işlev depolama tablo girişi aşağıdaki JSON nesneleri kullanan `bindings
     "type": "table",
     "direction": "in",
     "tableName": "<Name of Storage table>",
-    "partitionKey": "<PartitionKey of table entity to read - see below>",
-    "rowKey": "<RowKey of table entity to read - see below>",
-    "take": "<Maximum number of entities to read in Node.js - optional>",
+    "partitionKey": "<PartitionKey of table entity tooread - see below>",
+    "rowKey": "<RowKey of table entity tooread - see below>",
+    "take": "<Maximum number of entities tooread in Node.js - optional>",
     "filter": "<OData filter expression for table input in Node.js - optional>",
     "connection": "<Name of app setting - see below>",
 }
 ```
 
-Şunlara dikkat edin: 
+Merhaba aşağıdakileri göz önünde bulundurun: 
 
-* Kullanım `partitionKey` ve `rowKey` birlikte tek bir varlık okunamıyor. Bu özellikleri isteğe bağlıdır. 
-* `connection`Depolama bağlantı dizesi içeren bir uygulama ayarı adı içermelidir. Standart Düzenleyici'de Azure portalında **tümleştir** sekmesinde, bir depolama alanı oluşturduğunuzda, hesap ya da mevcut bir seçer için bu uygulama ayarı yapılandırır. Ayrıca [bu uygulamayı el ile ayarlama yapılandırma](functions-how-to-use-azure-function-app-settings.md#settings).  
+* Kullanım `partitionKey` ve `rowKey` birlikte tooread tek bir varlık. Bu özellikleri isteğe bağlıdır. 
+* `connection`Depolama bağlantı dizesi içeren bir uygulama ayarı Hello adını içermelidir. Hello Azure portal, standart Düzenleyicisi'nde hello hello **tümleştir** sekmesinde, bir depolama alanı oluşturduğunuzda, hesap ya da mevcut bir seçer için bu uygulama ayarı yapılandırır. Ayrıca [bu uygulamayı el ile ayarlama yapılandırma](functions-how-to-use-azure-function-app-settings.md#settings).  
 
 <a name="inputusage"></a>
 
 ## <a name="input-usage"></a>Giriş kullanımı
-C# işlevlerde, giriş tablosu varlık (veya varlıklar) adlandırılmış bir parametre gibi işlevi imzanız kullanarak bağladığınız `<T> <name>`.
-Burada `T` veri türü, verileri seri durumdan istediğiniz olduğunda ve `paramName` , belirtilen adı [bağlama giriş](#input). Node.js işlevlerde kullanarak giriş tablosu varlık (veya varlıklar) erişim `context.bindings.<name>`.
+C# işlevlerde, toohello giriş tablosu varlık (veya varlıklar) adlandırılmış bir parametre gibi işlevi imzanız kullanarak bağladığınız `<T> <name>`.
+Burada `T` hello veri türü toodeserialize hello verilerini, istediğiniz olduğunda ve `paramName` hello belirtilen hello adı [bağlama giriş](#input). Node.js işlevlerde hello giriş tablosu varlık (veya varlıklar) kullanarak erişim `context.bindings.<name>`.
 
-Giriş verisi Node.js veya C# işlevlerde serisi. Seri durumdan çıkarılmış nesneler sahip `RowKey` ve `PartitionKey` özellikleri.
+Node.js veya C# işlevlerde Hello giriş verileri seri durumdan. seri durumdan hello nesneler sahip `RowKey` ve `PartitionKey` özellikleri.
 
-C# işlevleri, şu türlerden birine de bağlayabilirsiniz ve işlevleri çalışma zamanı türü kullanarak tablo verileri seri durumdan dener:
+C# işlevleri, şu türlerini hello tooany de bağlayabilirsiniz ve çalışma zamanı deneyecek hello işlevleri çok hello tablo veri türü kullanılarak seri durumdan:
 
 * Uygulayan herhangi bir türü`ITableEntity`
 * `IQueryable<T>`
@@ -78,8 +78,8 @@ C# işlevleri, şu türlerden birine de bağlayabilirsiniz ve işlevleri çalı�
 <a name="inputsample"></a>
 
 ## <a name="input-sample"></a>Giriş örneği
-Tek bir tablo satırı okumak için bir sıra tetikleyici kullanır aşağıdaki function.json sahip olması. JSON belirtir `PartitionKey`  
- `RowKey`. `"rowKey": "{queueTrigger}"`Satır anahtarını kuyruk iletisi dizeden geldiğini belirtir.
+Bir kuyruk tetikleyici tooread tek bir tablo satırı kullanan function.json aşağıdaki hello sahip olması. Merhaba JSON belirtir `PartitionKey`  
+ `RowKey`. `"rowKey": "{queueTrigger}"`Bu hello satır anahtarını hello kuyruk iletisi dizeden gelen gösterir.
 
 ```json
 {
@@ -105,7 +105,7 @@ Tek bir tablo satırı okumak için bir sıra tetikleyici kullanır aşağıdaki
 }
 ```
 
-Tek tablo varlığı okur dile özgü örneğe bakın.
+Tek tablo varlığı okur hello dile özgü örneğine bakın.
 
 * [C#](#inputcsharp)
 * [F#](#inputfsharp)
@@ -159,9 +159,9 @@ module.exports = function (context, myQueueItem) {
 <a name="output"></a>
 
 ## <a name="storage-table-output-binding"></a>Bağlama depolama tablo çıktısı
-Etkinleştirir bağlama Azure Storage tablo çıktısı, varlıklar bir depolama alanına yazmak için işlevinde tablo. 
+Hello Azure depolama tablosu bağlama toowrite varlıklar tooa depolama işlevinizi tabloda etkinleştirir çıktı. 
 
-Bir işlev aşağıdaki JSON nesneleri kullanan çıktısı depolama tablosu `bindings` function.json dizisi:
+bir işlev hello JSON nesneler şu hello kullanan depolama tablo çıktısı hello `bindings` function.json dizisi:
 
 ```json
 {
@@ -169,33 +169,33 @@ Bir işlev aşağıdaki JSON nesneleri kullanan çıktısı depolama tablosu `bi
     "type": "table",
     "direction": "out",
     "tableName": "<Name of Storage table>",
-    "partitionKey": "<PartitionKey of table entity to write - see below>",
-    "rowKey": "<RowKey of table entity to write - see below>",
+    "partitionKey": "<PartitionKey of table entity toowrite - see below>",
+    "rowKey": "<RowKey of table entity toowrite - see below>",
     "connection": "<Name of app setting - see below>",
 }
 ```
 
-Şunlara dikkat edin: 
+Merhaba aşağıdakileri göz önünde bulundurun: 
 
-* Kullanım `partitionKey` ve `rowKey` birlikte tek bir varlık yazmak için. Bu özellikleri isteğe bağlıdır. Ayrıca belirtebilirsiniz `PartitionKey` ve `RowKey` işlevi kodunuzda varlık nesnesi oluşturduğunuzda.
-* `connection`Depolama bağlantı dizesi içeren bir uygulama ayarı adı içermelidir. Standart Düzenleyici'de Azure portalında **tümleştir** sekmesinde, bir depolama alanı oluşturduğunuzda, hesap ya da mevcut bir seçer için bu uygulama ayarı yapılandırır. Ayrıca [bu uygulamayı el ile ayarlama yapılandırma](functions-how-to-use-azure-function-app-settings.md#settings). 
+* Kullanım `partitionKey` ve `rowKey` birlikte toowrite tek bir varlık. Bu özellikleri isteğe bağlıdır. Ayrıca belirtebilirsiniz `PartitionKey` ve `RowKey` oluşturduğunuzda hello varlık nesnesi işlevi kodunuzda.
+* `connection`Depolama bağlantı dizesi içeren bir uygulama ayarı Hello adını içermelidir. Hello Azure portal, standart Düzenleyicisi'nde hello hello **tümleştir** sekmesinde, bir depolama alanı oluşturduğunuzda, hesap ya da mevcut bir seçer için bu uygulama ayarı yapılandırır. Ayrıca [bu uygulamayı el ile ayarlama yapılandırma](functions-how-to-use-azure-function-app-settings.md#settings). 
 
 <a name="outputusage"></a>
 
 ## <a name="output-usage"></a>Çıktı kullanımı
-C# İşlevler, tablo çıktısı adlandırılmış kullanarak bağladığınız `out` işlevi imzanız parametresinde ister `out <T> <name>`, burada `T` veri türü, verileri seri hale getirmek istediğiniz olduğunda ve `paramName` , belirtilen adı [bağlama çıktı](#output). Node.js işlevlerde kullanarak çıktıyı tabloya erişim `context.bindings.<name>`.
+C# işlevlerde, toohello tablo çıktısı adlı hello kullanarak bağladığınız `out` işlevi imzanız parametresinde ister `out <T> <name>`, burada `T` hello veri türü tooserialize hello verilerini, istediğiniz olduğunda ve `paramName` olduğu hello adı, Hello belirtilen [bağlama çıktı](#output). Node.js işlevlerde kullanarak çıktıyı hello tablo erişim `context.bindings.<name>`.
 
-Node.js veya C# işlevleri nesneleri seri hale getirebilir. C# işlevlerde, aşağıdaki türlerine bağlayabilirsiniz:
+Node.js veya C# işlevleri nesneleri seri hale getirebilir. C# işlevlerde, şu türlerini toohello bağlayabilirsiniz:
 
 * Uygulayan herhangi bir türü`ITableEntity`
-* `ICollector<T>`(birden çok varlık çıkarmak için. Bkz: [örnek](#outcsharp).)
+* `ICollector<T>`(toooutput birden çok varlık. Bkz: [örnek](#outcsharp).)
 * `IAsyncCollector<T>`(zaman uyumsuz sürümü `ICollector<T>`)
-* `CloudTable`(Azure depolama SDK'sını kullanma. Bkz: [örnek](#readmulti).)
+* `CloudTable`(hello Azure depolama SDK'sını kullanma. Bkz: [örnek](#readmulti).)
 
 <a name="outputsample"></a>
 
 ## <a name="output-sample"></a>Çıkış örneği
-Aşağıdaki *function.json* ve *run.csx* örnek nasıl birden çok tablo varlıkları yazılacağını gösterir.
+Merhaba aşağıdaki *function.json* ve *run.csx* örnekteki nasıl toowrite birden çok tablo varlık.
 
 ```json
 {
@@ -217,7 +217,7 @@ Aşağıdaki *function.json* ve *run.csx* örnek nasıl birden çok tablo varlı
 }
 ```
 
-Birden çok tablo varlıkları oluşturur dile özgü örneğe bakın.
+Birden çok tablo varlıkları oluşturur hello dile özgü örneğine bakın.
 
 * [C#](#outcsharp)
 * [F#](#outfsharp)
@@ -262,7 +262,7 @@ type Person = {
 }
 
 let Run(input: string, tableBinding: ICollector<Person>, log: TraceWriter) =
-    for i = 1 to 10 do
+    for i = 1 too10 do
         log.Info(sprintf "Adding Person entity %d" i)
         tableBinding.Add(
             { PartitionKey = "Test"
@@ -293,7 +293,7 @@ module.exports = function (context) {
 <a name="readmulti"></a>
 
 ## <a name="sample-read-multiple-table-entities-in-c"></a>Örnek: C# birden çok tablo varlıkları okuma  #
-Aşağıdaki *function.json* ve C# kod örneği sıra iletide belirtilen bir bölüm anahtarı için varlıklar okur.
+Merhaba aşağıdaki *function.json* ve C# kod örneğinde varlıklar hello kuyruk iletisi içinde belirtilen bir bölüm anahtarı için okur.
 
 ```json
 {
@@ -317,7 +317,7 @@ Aşağıdaki *function.json* ve C# kod örneği sıra iletide belirtilen bir bö
 }
 ```
 
-C# kodu, Azure depolama SDK'sına bir başvuru ekler, böylece varlık türü öğesinden türetilen `TableEntity`.
+Böylece hello varlık türü öğesinden türetilen Hello C# kodu ekler başvuru toohello Azure depolama SDK'sı `TableEntity`.
 
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"

@@ -1,5 +1,5 @@
 ---
-title: "Azure CLI örnek komut dosyası - ACS Windows Kubernetes kümesi oluşturun. | Microsoft Docs"
+title: "aaaAzure CLI komut dosyası örneği - ACS Windows Kubernetes küme oluşturma | Microsoft Docs"
 description: "Azure CLI örnek komut dosyası - ACS Windows Kubernetes küme oluşturma"
 services: container-service
 documentationcenter: 
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: nepeters
-ms.openlocfilehash: 9ca289817b54c39c59271f35a0af26bad2811da6
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: afbaf17fb1d5310b50a2f181061339cb2ab87fd9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-an-azure-container-service-kubernetes-windows-cluster"></a>Bir Azure kapsayıcı hizmeti Kubernetes Windows kümesi oluşturma
 
@@ -47,7 +47,7 @@ az acs create \
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme 
 
-Kaynak grubu, VM ve tüm ilgili kaynaklar kaldırmak için aşağıdaki komutu çalıştırın.
+Çalışma hello aşağıdaki tooremove hello kaynak grubu, VM ve tüm ilişkili kaynakları komutu.
 
 ```azurecli
 az group delete --name myResourceGroup
@@ -55,7 +55,7 @@ az group delete --name myResourceGroup
 
 ## <a name="script-explanation"></a>Komut dosyası açıklaması
 
-Bu komut dosyası dağıtımı oluşturmak için aşağıdaki komutları kullanır. Komut belirli belgeleri tablo bağlanan her öğe.
+Bu komut dosyası komutları toocreate hello dağıtım aşağıdaki hello kullanır. Merhaba tablosundaki her öğesi toocommand belirli belgeleri bağlar.
 
 | Komut | Notlar |
 |---|---|
@@ -64,6 +64,6 @@ Bu komut dosyası dağıtımı oluşturmak için aşağıdaki komutları kullan�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).
+Hello Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).
 
-Ek Azure kapsayıcı hizmeti CLI kod örnekleri bulunabilir [Azure kapsayıcı hizmeti belgeleri](../cli-samples.md).
+Ek Azure kapsayıcı hizmeti CLI kod örnekleri hello bulunabilir [Azure kapsayıcı hizmeti belgeleri](../cli-samples.md).

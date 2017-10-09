@@ -1,0 +1,4 @@
+Iaas sanal makineleri (VM'ler) ve PaaS rolü örnekleri bir sanal ağ içinde otomatik olarak özel bir IP adresi arasında bir aralık, belirttiğiniz bağlı oldukları hello alt göre alırsınız. Yetkisi kadar bu adresi hello VM'ler ve rol örnekleri tarafından korunur. VM'deki veya rol örneğindeki Powershell'den hello Azure CLI durdurarak yetkisini veya Azure portal hello. Merhaba VM veya rol örneğini yeniden başlatır, hello olmayabilir Azure altyapı hello kullanılabilir bir IP adresi alacak sonra bu gibi durumlarda aynı, daha önce sahip. Hello VM veya rol örneğine hello konuk işletim sisteminden kapatmak, önceki hello IP adresini korur.  
+
+VM toorun DNS geçiyor ya da bir etki alanı denetleyicisidir belirli durumlarda, VM'deki veya rol örneği toohave statik bir IP adresi, örneğin, istediğiniz. Özel bir statik IP adresi ayarlayarak bunu yapabilirsiniz.
+

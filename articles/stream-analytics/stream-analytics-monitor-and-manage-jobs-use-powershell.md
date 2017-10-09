@@ -1,6 +1,6 @@
 ---
-title: "İzleme ve akış analizi işleri PowerShell ile yönetme | Microsoft Docs"
-description: "Akış analizi işleri yönetmek ve izlemek için Azure PowerShell ve cmdlet'lerini kullanmayı öğrenin."
+title: "aaaMonitor ve akış analizi işleri PowerShell ile yönetme | Microsoft Docs"
+description: "Bilgi nasıl toouse Azure PowerShell ve cmdlet'leri toomonitor ve akış analizi işleri yönetin."
 keywords: "Azure powershell, azure powershell cmdlet'leri, powershell komutu, powershell komut dosyası"
 services: stream-analytics
 documentationcenter: 
@@ -15,27 +15,27 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeffstok
-ms.openlocfilehash: e3449ee90cc83c5e823e5948a2a2e7e633c454f1
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 44abc82f1c44a5ebc1701badd6547b84dac239b6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>İzleme ve akış analizi işleri Azure PowerShell cmdlet'leri ile yönetme
-İzleme ve Azure PowerShell cmdlet'leri ve powershell komut dosyası ile temel akış analizi görevleri yürütün akış analizi kaynaklarını yönetme hakkında bilgi edinin.
+Bilgi nasıl toomonitor ve Azure PowerShell cmdlet'leri ve powershell komut dosyası ile temel akış analizi görevleri yürütün akış analizi kaynaklarını yönetme.
 
 ## <a name="prerequisites-for-running-azure-powershell-cmdlets-for-stream-analytics"></a>Akış analizi için Azure PowerShell cmdlet'lerini çalıştırmak için Önkoşullar
-* Aboneliğinizde Azure kaynak grubu oluşturun. Örnek bir Azure PowerShell komut dosyası verilmiştir. Azure PowerShell bilgi için bkz: [yükleyin ve Azure PowerShell yapılandırma](/powershell/azure/overview);  
+* Aboneliğinizde Azure kaynak grubu oluşturun. Merhaba, örnek bir Azure PowerShell komut dosyası aşağıdadır. Azure PowerShell bilgi için bkz: [yükleyin ve Azure PowerShell yapılandırma](/powershell/azure/overview);  
 
 Azure PowerShell 0.9.8:  
 
-         # Log in to your Azure account
+         # Log in tooyour Azure account
         Add-AzureAccount
 
-        # Select the Azure subscription you want to use to create the resource group if you have more than one subscription on your account.
+        # Select hello Azure subscription you want toouse toocreate hello resource group if you have more than one subscription on your account.
         Select-AzureSubscription -SubscriptionName <subscription name>
 
-        # If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureProvider cmdlet to register the provider namespace.
+        # If Stream Analytics has not been registered toohello subscription, remove remark symbol below (#) toorun hello Register-AzureProvider cmdlet tooregister hello provider namespace.
         #Register-AzureProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
 
         # Create an Azure resource group
@@ -43,13 +43,13 @@ Azure PowerShell 0.9.8:
 
 Azure PowerShell 1.0:  
 
-         # Log in to your Azure account
+         # Log in tooyour Azure account
         Login-AzureRmAccount
 
-        # Select the Azure subscription you want to use to create the resource group.
+        # Select hello Azure subscription you want toouse toocreate hello resource group.
         Get-AzureRmSubscription –SubscriptionName “your sub” | Select-AzureRmSubscription
 
-        # If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureProvider cmdlet to register the provider namespace.
+        # If Stream Analytics has not been registered toohello subscription, remove remark symbol below (#) toorun hello Register-AzureProvider cmdlet tooregister hello provider namespace.
         #Register-AzureRmResourceProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
 
         # Create an Azure resource group
@@ -58,16 +58,16 @@ Azure PowerShell 1.0:
 
 
 > [!NOTE]
-> Program aracılığıyla oluşturulan stream Analytics işlerini izleme varsayılan olarak etkin gerekmez.  Azure Portalı'nda izleme iş İzleyici sayfasına giderek ve etkinleştir düğmesine tıklayarak el ile etkinleştirebilirsiniz veya bu program aracılığıyla konumunda bulunan adımları izleyerek yapabilirsiniz [Azure akış analizi - Stream Analytics işleri izleme Programlı şekilde](stream-analytics-monitor-jobs.md).
+> Program aracılığıyla oluşturulan stream Analytics işlerini izleme varsayılan olarak etkin gerekmez.  Hello Azure Portal'ı toohello işin izleme sayfası gezinme tarafından izleme el ile etkinleştirebilir ve hello Etkinleştir düğmesini veya tıklatarak yapabilirsiniz konumunda bulunan hello adımları izleyerek program aracılığıyla [Azure akış analizi - İzleyici akış Analytics işleri programlı şekilde](stream-analytics-monitor-jobs.md).
 > 
 > 
 
 ## <a name="azure-powershell-cmdlets-for-stream-analytics"></a>Akış analizi için Azure PowerShell cmdlet'leri
-Azure Stream Analytics işlerini yönetmek ve izlemek için aşağıdaki Azure PowerShell cmdlet'leri kullanılabilir. Azure PowerShell farklı sürümlerini olduğuna dikkat edin. 
-**Azure PowerShell 0.9.8, ilk komut listelenen örneklerde olduğu için Azure PowerShell 1.0 ikinci komuttur.** Azure PowerShell 1.0 komutları komutta her zaman "AzureRM" olacaktır.
+Azure PowerShell cmdlet'lerini aşağıdaki hello kullanılan toomonitor olması ve Azure akış analizi işleri yönetin. Azure PowerShell farklı sürümlerini olduğuna dikkat edin. 
+**Listelenen hello ilk Azure PowerShell 0.9.8 komuttur hello örneklerde hello ikinci için Azure PowerShell 1.0 komuttur.** Hello Azure PowerShell 1.0 komutları, her zaman "AzureRM" Merhaba komutta olacaktır.
 
 ### <a name="get-azurestreamanalyticsjob--get-azurermstreamanalyticsjob"></a>Get-AzureStreamAnalyticsJob | Get-AzureRMStreamAnalyticsJob
-Azure aboneliği veya belirtilen kaynak grubunda tanımlanan tüm Stream Analytics işlerini listeler veya bir kaynak grubu içindeki belirli bir iş iş bilgilerini alır.
+Hello Azure aboneliği veya belirtilen kaynak grubunda tanımlanan tüm Stream Analytics işlerini listeler veya bir kaynak grubu içindeki belirli bir iş iş bilgilerini alır.
 
 **Örnek 1**
 
@@ -79,7 +79,7 @@ Azure PowerShell 1.0:
 
     Get-AzureRMStreamAnalyticsJob
 
-Bu PowerShell komutunu Azure aboneliğindeki tüm Stream Analytics işleri hakkında bilgi verir.
+Bu PowerShell komutunu hello Azure aboneliği tüm hello Stream Analytics işleri hakkında bilgi verir.
 
 **Örnek 2**
 
@@ -91,7 +91,7 @@ Azure PowerShell 1.0:
 
     Get-AzureRMStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US 
 
-Bu PowerShell komutunu kaynak grubunda varsayılan orta ABD StreamAnalytics tüm Stream Analytics işleri hakkında bilgi verir.
+Bu PowerShell komutunu hello kaynak grubunda varsayılan orta ABD StreamAnalytics tüm hello Stream Analytics işleri hakkında bilgi verir.
 
 **Örnek 3**
 
@@ -103,10 +103,10 @@ Azure PowerShell 1.0:
 
     Get-AzureRMStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US -Name StreamingJob
 
-Bu PowerShell komutunu kaynak grubunda varsayılan orta ABD StreamAnalytics StreamingJob Stream Analytics işi hakkında bilgi verir.
+Bu PowerShell komutunu hello kaynak grubunda varsayılan orta ABD StreamAnalytics hello Stream Analytics işi StreamingJob hakkında bilgi verir.
 
 ### <a name="get-azurestreamanalyticsinput--get-azurermstreamanalyticsinput"></a>Get-AzureStreamAnalyticsInput | Get-AzureRMStreamAnalyticsInput
-Tüm belirtilen Stream Analytics işinde tanımlı girdi listeler veya belirli bir giriş bilgilerini alır.
+Tüm belirtilen Stream Analytics işinde tanımlanan hello girdi listeler veya belirli bir giriş bilgilerini alır.
 
 **Örnek 1**
 
@@ -118,7 +118,7 @@ Azure PowerShell 1.0:
 
     Get-AzureRMStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob
 
-Bu PowerShell komutunu iş StreamingJob tanımlanan tüm girişleri hakkında bilgi verir.
+Bu PowerShell komutunu hello iş StreamingJob tanımlanan tüm hello girişleri hakkında bilgi verir.
 
 **Örnek 2**
 
@@ -130,10 +130,10 @@ Azure PowerShell 1.0:
 
     Get-AzureRMStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name EntryStream
 
-Bu PowerShell komutunu iş StreamingJob tanımlanan EntryStream adlı giriş hakkında bilgi verir.
+Bu PowerShell komutunu hello iş StreamingJob tanımlanan EntryStream adlı hello giriş hakkında bilgi verir.
 
 ### <a name="get-azurestreamanalyticsoutput--get-azurermstreamanalyticsoutput"></a>Get-AzureStreamAnalyticsOutput | Get-AzureRMStreamAnalyticsOutput
-Tüm belirtilen Stream Analytics işinde tanımlanan çıkışları listeler veya belirli bir çıkış hakkındaki bilgileri alır.
+Tüm belirtilen Stream Analytics işinde tanımlanan hello çıkışları listeler veya belirli bir çıkış hakkındaki bilgileri alır.
 
 **Örnek 1**
 
@@ -145,7 +145,7 @@ Azure PowerShell 1.0:
 
     Get-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob
 
-Bu PowerShell komutunu iş StreamingJob tanımlanan çıkışları hakkında bilgi verir.
+Bu PowerShell komutunu hello iş StreamingJob tanımlanan hello çıkışları hakkında bilgi verir.
 
 **Örnek 2**
 
@@ -157,10 +157,10 @@ Azure PowerShell 1.0:
 
     Get-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name Output
 
-Bu PowerShell komutunu iş StreamingJob tanımlanan çıkış adlı çıktı hakkında bilgi verir.
+Bu PowerShell komutunu hello iş StreamingJob tanımlanan çıkış adlı hello çıktı hakkında bilgi verir.
 
 ### <a name="get-azurestreamanalyticsquota--get-azurermstreamanalyticsquota"></a>Get-AzureStreamAnalyticsQuota | Get-AzureRMStreamAnalyticsQuota
-Akış birimleri belirtilen bir bölgede, kota hakkındaki bilgileri alır.
+Belirtilen bir bölgede birimleri akış hello kota hakkındaki bilgileri alır.
 
 **Örnek 1**
 
@@ -172,7 +172,7 @@ Azure PowerShell 1.0:
 
     Get-AzureRMStreamAnalyticsQuota –Location "Central US" 
 
-Bu PowerShell komutunu Orta ABD bölgesinde kota ve akış birimleri kullanımı hakkında bilgi verir.
+Bu PowerShell komutunu hello Orta ABD bölgesinde hello kota ve akış birimleri kullanımı hakkında bilgi verir.
 
 ### <a name="get-azurestreamanalyticstransformation--getazurermstreamanalyticstransformation"></a>Get-AzureStreamAnalyticsTransformation | GetAzureRMStreamAnalyticsTransformation
 Stream Analytics işinde tanımlanan belirli bir dönüşüm hakkındaki bilgileri alır.
@@ -187,18 +187,18 @@ Azure PowerShell 1.0:
 
     Get-AzureRMStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name StreamingJob
 
-Bu PowerShell komutunu iş StreamingJob StreamingJob adlı dönüştürme hakkında bilgi döndürür.
+Bu PowerShell komutunu hello iş StreamingJob StreamingJob adlı hello dönüştürme hakkında bilgi döndürür.
 
 ### <a name="new-azurestreamanalyticsinput--new-azurermstreamanalyticsinput"></a>AzureStreamAnalyticsInput yeni | AzureRMStreamAnalyticsInput yeni
 Akış analizi işi içinde yeni bir giriş oluşturur veya mevcut bir belirtilen giriş güncelleştirir.
 
-Giriş adı .json dosyası veya komut satırında belirtilebilir. Her ikisi de belirtilirse, komut satırında adı bir dosya ile aynı olması gerekir.
+Merhaba hello giriş adını hello .json dosyası veya hello komut satırında belirtilebilir. Her ikisi de belirtilirse hello adı hello komut satırında gerekir olması hello hello dosyasındaki hello ile aynı.
 
-Zaten bir girdi belirtin ve belirtmeyin Force parametresini cmdlet varolan giriş değiştirmek isteyip istemediğinizi sorar.
+Zaten bir girdi belirtin ve belirtmeyin hello – Force parametresini hello cmdlet tooreplace varolan giriş hello olup olmadığını sorar.
 
-Belirtirseniz – Force parametresi ve var olan giriş adı, giriş onaysız değiştirilecek belirtin.
+Belirtirseniz hello – Force parametresini ve var olan giriş adı, hello giriş onaysız değiştirilecek belirtin.
 
-JSON dosya yapısı ve içeriği hakkında ayrıntılı bilgi için bkz [girişi oluşturun (Azure akış analizi)] [ msdn-rest-api-create-stream-analytics-input] bölümünü [Stream Analytics Yönetimi REST API Başvurusu Kitaplık][stream.analytics.rest.api.reference].
+Toohello hello JSON dosya yapısı ve içeriği hakkında ayrıntılı bilgi için bkz [girişi oluşturun (Azure akış analizi)] [ msdn-rest-api-create-stream-analytics-input] hello bölümünü [Stream Analytics Yönetimi REST API'si Başvuru Kitaplığı][stream.analytics.rest.api.reference].
 
 **Örnek 1**
 
@@ -210,7 +210,7 @@ Azure PowerShell 1.0:
 
     New-AzureRMStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" 
 
-Bu PowerShell komutunu Input.json dosyasından yeni bir giriş oluşturur. Giriş tanım dosyasında belirtilen ada sahip mevcut bir giriş zaten tanımlanmış ise, cmdlet değiştirmek isteyip istemediğinizi sorar.
+Bu PowerShell komutunu Input.json hello dosyasından yeni bir giriş oluşturur. Var olan bir giriş hello giriş tanım dosyasında belirtilen hello adıyla zaten tanımlı olup olmadığını, hello cmdlet ister olsun veya olmasın tooreplace onu.
 
 **Örnek 2**
 
@@ -222,7 +222,7 @@ Azure PowerShell 1.0:
 
     New-AzureRMStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" –Name EntryStream
 
-Bu PowerShell komutunu İşte EntryStream adlı yeni bir giriş oluşturur. Bu ada sahip mevcut bir giriş zaten tanımlanmış ise, cmdlet değiştirmek isteyip istemediğinizi sorar.
+Bu PowerShell komutunu hello işe EntryStream adlı yeni bir giriş oluşturur. Bu ada sahip mevcut bir giriş zaten tanımlı olup olmadığını, hello cmdlet ister desteklemediğini tooreplace onu.
 
 **Örnek 3**
 
@@ -234,18 +234,18 @@ Azure PowerShell 1.0:
 
     New-AzureRMStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" –Name EntryStream -Force
 
-Bu PowerShell komut dosyasından tanımıyla EntryStream adlı varolan giriş kaynağı tanımını değiştirir.
+Bu PowerShell komutunu hello varolan giriş kaynağı hello dosyasından hello tanımıyla EntryStream adlı hello tanımının yerini alır.
 
 ### <a name="new-azurestreamanalyticsjob--new-azurermstreamanalyticsjob"></a>AzureStreamAnalyticsJob yeni | AzureRMStreamAnalyticsJob yeni
-Microsoft Azure'da yeni bir akış analizi işi oluşturur veya mevcut bir belirtilen iş tanımı güncelleştirir.
+Microsoft Azure'da yeni bir akış analizi işi oluşturur veya mevcut bir belirtilen proje hello tanımını güncelleştirir.
 
-İş adı .json dosyası veya komut satırında belirtilebilir. Her ikisi de belirtilirse, komut satırında adı bir dosya ile aynı olması gerekir.
+Merhaba .json dosyası veya hello komut satırında hello işinin Hello adı belirtilebilir. Her ikisi de belirtilirse hello adı hello komut satırında gerekir olması hello hello dosyasındaki hello ile aynı.
 
-Zaten bir iş adı belirtin ve belirtmeyin Force parametresini cmdlet mevcut iş değiştirmek isteyip istemediğinizi sorar.
+Zaten bir iş adı belirtin ve belirtmeyin hello – Force parametresini hello cmdlet tooreplace mevcut iş hello olup olmadığını sorar.
 
-Belirtirseniz, Force parametresi ve var olan bir iş adı belirtin iş tanımı onaysız değiştirilecek.
+Var olan bir iş adı belirtin ve hello – Force parametresini belirtirseniz, hello iş tanımı onaysız değiştirilecek.
 
-JSON dosya yapısı ve içeriği hakkında ayrıntılı bilgi için bkz [Stream Analytics işi oluşturmak] [ msdn-rest-api-create-stream-analytics-job] bölümünü [Stream Analytics Yönetimi REST API Başvurusu Kitaplığı] [stream.analytics.rest.api.reference].
+Toohello hello JSON dosya yapısı ve içeriği hakkında ayrıntılı bilgi için bkz [Stream Analytics işi oluşturmak] [ msdn-rest-api-create-stream-analytics-job] hello bölümünü [Stream Analytics Yönetimi REST API Başvurusu Kitaplık][stream.analytics.rest.api.reference].
 
 **Örnek 1**
 
@@ -257,7 +257,7 @@ Azure PowerShell 1.0:
 
     New-AzureRMStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\JobDefinition.json" 
 
-Bu PowerShell komutunu JobDefinition.json tanımında yeni bir proje oluşturur. İş tanımı dosyasında belirtilen ada sahip mevcut bir iş zaten tanımlanmış ise, cmdlet değiştirmek isteyip istemediğinizi sorar.
+Bu PowerShell komutunu JobDefinition.json hello tanımında yeni bir proje oluşturur. Merhaba iş tanımı dosyasında belirtilen hello ada sahip mevcut bir iş zaten tanımlı olup olmadığını, hello cmdlet ister desteklemediğini tooreplace onu.
 
 **Örnek 2**
 
@@ -269,18 +269,18 @@ Azure PowerShell 1.0:
 
     New-AzureRMStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\JobDefinition.json" –Name StreamingJob -Force
 
-Bu PowerShell komutunu iş tanımı için StreamingJob yerini alır.
+Bu PowerShell komutunu hello iş tanımı için StreamingJob yerini alır.
 
 ### <a name="new-azurestreamanalyticsoutput--new-azurermstreamanalyticsoutput"></a>AzureStreamAnalyticsOutput yeni | AzureRMStreamAnalyticsOutput yeni
 Akış analizi işi yeni çıktısı oluşturur veya mevcut bir çıktı güncelleştirir.  
 
-Çıktı adı .json dosyası veya komut satırında belirtilebilir. Her ikisi de belirtilirse, komut satırında adı bir dosya ile aynı olması gerekir.
+Merhaba Çıktı Hello adını hello .json dosyası veya hello komut satırında belirtilebilir. Her ikisi de belirtilirse hello adı hello komut satırında gerekir olması hello hello dosyasındaki hello ile aynı.
 
-Zaten bir çıktı belirtin ve belirtmeyin Force parametresini cmdlet varolan çıkış değiştirmek isteyip istemediğinizi sorar.
+Zaten bir çıktı belirtirseniz ve belirtmeyin hello – Force parametresini hello cmdlet tooreplace varolan çıktı hello olup olmadığını sorar.
 
-Belirtirseniz – Force parametresi ve mevcut bir çıktı adı, çıktı onaysız değiştirilecek belirtin.
+Belirtirseniz hello – Force parametresini ve mevcut bir çıktı adı, hello çıkış onaysız değiştirilecek belirtin.
 
-JSON dosya yapısı ve içeriği hakkında ayrıntılı bilgi için bkz [oluşturma çıkış (Azure akış analizi)] [ msdn-rest-api-create-stream-analytics-output] bölümünü [Stream Analytics Yönetimi REST API Başvurusu Kitaplık][stream.analytics.rest.api.reference].
+Toohello hello JSON dosya yapısı ve içeriği hakkında ayrıntılı bilgi için bkz [oluşturma çıkış (Azure akış analizi)] [ msdn-rest-api-create-stream-analytics-output] hello bölümünü [Stream Analytics Yönetimi REST API'si Başvuru Kitaplığı][stream.analytics.rest.api.reference].
 
 **Örnek 1**
 
@@ -292,7 +292,7 @@ Azure PowerShell 1.0:
 
     New-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Output.json" –JobName StreamingJob –Name output
 
-Bu PowerShell komutunu iş StreamingJob "çıktı" adlı yeni bir çıkış oluşturur. Bu ada sahip mevcut bir çıktı zaten tanımlanmış ise, cmdlet değiştirmek isteyip istemediğinizi sorar.
+Bu PowerShell komutunu hello iş StreamingJob "çıktı" adlı yeni bir çıkış oluşturur. Bu ada sahip mevcut bir çıktı zaten tanımlı olup olmadığını, hello cmdlet ister desteklemediğini tooreplace onu.
 
 **Örnek 2**
 
@@ -304,18 +304,18 @@ Azure PowerShell 1.0:
 
     New-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Output.json" –JobName StreamingJob –Name output -Force
 
-Bu PowerShell komutunu "çıktı" tanımı iş StreamingJob yerini alır.
+Bu PowerShell komutunu StreamingJob hello işteki "çıktı" Merhaba tanımı değiştirir.
 
 ### <a name="new-azurestreamanalyticstransformation--new-azurermstreamanalyticstransformation"></a>AzureStreamAnalyticsTransformation yeni | AzureRMStreamAnalyticsTransformation yeni
-Akış analizi işi içinde yeni bir dönüştürme oluşturur veya mevcut dönüştürme güncelleştirir.
+Akış analizi işi içinde yeni bir dönüştürme oluşturur veya hello varolan dönüştürme güncelleştirir.
 
-Dönüştürme adını .json dosyası veya komut satırında belirtilebilir. Her ikisi de belirtilirse, komut satırında adı bir dosya ile aynı olması gerekir.
+Merhaba dönüştürme Hello adını hello .json dosyası veya hello komut satırında belirtilebilir. Her ikisi de belirtilirse hello adı hello komut satırında gerekir olması hello hello dosyasındaki hello ile aynı.
 
-Zaten bir dönüşüm belirtin ve belirtmeyin Force parametresini cmdlet varolan dönüştürme değiştirmek isteyip istemediğinizi sorar.
+Zaten bir dönüşüm belirtirseniz ve belirtmeyin hello – Force parametresini hello cmdlet tooreplace varolan dönüştürme hello olup olmadığını sorar.
 
-Belirtirseniz, Force parametresi ve varolan bir dönüşüm adını belirtin dönüştürme onaysız değiştirilecek.
+Merhaba – Force parametresini ve varolan bir dönüşüm adı belirtirseniz belirtirseniz hello dönüştürme onaysız değiştirilecek.
 
-JSON dosya yapısı ve içeriği hakkında ayrıntılı bilgi için bkz [oluşturma dönüştürme (Azure akış analizi)] [ msdn-rest-api-create-stream-analytics-transformation] bölümünü [Stream Analytics Yönetimi REST API'si Başvuru Kitaplığı][stream.analytics.rest.api.reference].
+Toohello hello JSON dosya yapısı ve içeriği hakkında ayrıntılı bilgi için bkz [oluşturma dönüştürme (Azure akış analizi)] [ msdn-rest-api-create-stream-analytics-transformation] hello bölümünü [Stream Analytics Yönetimi REST API Başvurusu Kitaplığı][stream.analytics.rest.api.reference].
 
 **Örnek 1**
 
@@ -327,7 +327,7 @@ Azure PowerShell 1.0:
 
     New-AzureRMStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Transformation.json" –JobName StreamingJob –Name StreamingJobTransform
 
-Bu PowerShell komutunu iş StreamingJob StreamingJobTransform adlı yeni bir dönüştürme oluşturur. Varolan bir dönüşüm zaten bu ada sahip tanımlanmışsa, cmdlet değiştirmek isteyip istemediğinizi sorar.
+Bu PowerShell komutunu hello iş StreamingJob StreamingJobTransform adlı yeni bir dönüştürme oluşturur. Varolan bir dönüşüm zaten bu ada sahip tanımlı olup olmadığını, hello cmdlet ister desteklemediğini tooreplace onu.
 
 **Örnek 2**
 
@@ -339,11 +339,11 @@ Azure PowerShell 1.0:
 
     New-AzureRMStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Transformation.json" –JobName StreamingJob –Name StreamingJobTransform -Force
 
- Bu PowerShell komutunu StreamingJob iş StreamingJobTransform tanımında değiştirir.
+ Bu PowerShell komutunu hello tanımında StreamingJobTransform hello iş StreamingJob değiştirir.
 
 ### <a name="remove-azurestreamanalyticsinput--remove-azurermstreamanalyticsinput"></a>Remove-AzureStreamAnalyticsInput | Remove-AzureRMStreamAnalyticsInput
 Zaman uyumsuz olarak belirli bir giriş Microsoft Azure Stream Analytics işinde siler.  
-Belirtirseniz – Force parametresini giriş onay silinir.
+Belirtirseniz hello – Force parametresini, giriş hello onay silinir.
 
 **Örnek 1**
 
@@ -355,11 +355,11 @@ Azure PowerShell 1.0:
 
     Remove-AzureRMStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name EventStream
 
-Bu PowerShell komutunu giriş EventStream iş StreamingJob kaldırır.  
+Giriş EventStream StreamingJob hello işteki kaldırır hello bu PowerShell komutu.  
 
 ### <a name="remove-azurestreamanalyticsjob--remove-azurermstreamanalyticsjob"></a>Remove-AzureStreamAnalyticsJob | Remove-AzureRMStreamAnalyticsJob
 Zaman uyumsuz olarak bir belirli Microsoft Azure akış analizi işi siler.  
-Belirtirseniz – Force parametresini iş onay silinir.
+Belirtirseniz hello – Force parametresini hello iş olacaktır onay silinir.
 
 **Örnek 1**
 
@@ -371,11 +371,11 @@ Azure PowerShell 1.0:
 
     Remove-AzureRMStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –Name StreamingJob 
 
-Bu PowerShell komutunu StreamingJob iş kaldırır.  
+Bu PowerShell komutunu hello iş StreamingJob kaldırır.  
 
 ### <a name="remove-azurestreamanalyticsoutput--remove-azurermstreamanalyticsoutput"></a>Remove-AzureStreamAnalyticsOutput | Remove-AzureRMStreamAnalyticsOutput
 Zaman uyumsuz olarak belirli bir çıkış Microsoft Azure Stream Analytics işinde siler.  
-Belirtirseniz – Force parametresini çıkış onay silinir.
+Belirtirseniz hello – Force parametresini hello çıkış olacaktır onay silinir.
 
 **Örnek 1**
 
@@ -387,7 +387,7 @@ Azure PowerShell 1.0:
 
     Remove-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name Output
 
-Çıktıyı iş StreamingJob çıkış bu PowerShell komutunu kaldırır.  
+Bu PowerShell komutunu kaldırır hello hello iş StreamingJob çıkış çıktı.  
 
 ### <a name="start-azurestreamanalyticsjob--start-azurermstreamanalyticsjob"></a>Start-AzureStreamAnalyticsJob | Start-AzureRMStreamAnalyticsJob
 Zaman uyumsuz olarak dağıtır ve Microsoft Azure Stream Analytics işini başlatır.
@@ -402,10 +402,10 @@ Azure PowerShell 1.0:
 
     Start-AzureRMStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US -Name StreamingJob -OutputStartMode CustomTime -OutputStartTime 2012-12-12T12:12:12Z
 
-Bu PowerShell komutunu StreamingJob özel çıkış başlangıç saati ile 12:12:12 12 Kasım 2012 için ayarlanmış işini başlatır UTC.
+Bu PowerShell komutunu başlatır hello özel çıkış başlangıç saatine sahip StreamingJob ayarlamak tooDecember 12, 2012, 12:12:12 iş UTC.
 
 ### <a name="stop-azurestreamanalyticsjob--stop-azurermstreamanalyticsjob"></a>Stop-AzureStreamAnalyticsJob | Stop-AzureRMStreamAnalyticsJob
-Zaman uyumsuz olarak Microsoft Azure üzerinde çalışan bir Stream Analytics işini durdurur ve kullanılmakta olan kaynakları serbest bırakır. İş düzenlenmesi ve yeniden gibi meta verileri ve iş tanımı aboneliğinizi Azure portalı ve yönetim API'si aracılığıyla içinde kullanılabilir kalır. Durdurulmuş durumdaki bir iş için ücret alınmaz.
+Zaman uyumsuz olarak Microsoft Azure üzerinde çalışan bir Stream Analytics işini durdurur ve kullanılmakta olan kaynakları serbest bırakır. Merhaba iş düzenlenen yeniden ve gibi hello iş tanımı ve meta veri aboneliğinizi hello Azure portalı ve yönetim API'si aracılığıyla içinde kullanılabilir kalır. Hello durduruldu durumunda bir iş için ücret alınmaz.
 
 **Örnek 1**
 
@@ -417,10 +417,10 @@ Azure PowerShell 1.0:
 
     Stop-AzureRMStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –Name StreamingJob 
 
-Bu PowerShell komutunu StreamingJob işini durdurur.  
+Bu PowerShell komutunu hello işini StreamingJob durdurur.  
 
 ### <a name="test-azurestreamanalyticsinput--test-azurermstreamanalyticsinput"></a>Test-AzureStreamAnalyticsInput | Test-AzureRMStreamAnalyticsInput
-Akış analizi için belirtilen giriş bağlantı olanağı sınar.
+Stream Analytics tooconnect tooa testleri hello yeteneğini giriş belirtilmiş.
 
 **Örnek 1**
 
@@ -432,10 +432,10 @@ Azure PowerShell 1.0:
 
     Test-AzureRMStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name EntryStream
 
-Bu PowerShell komutunu StreamingJob içinde giriş EntryStream bağlantı durumunu sınar.  
+Bu PowerShell komutunu testleri hello bağlantı durumunu hello giriş StreamingJob EntryStream.  
 
 ### <a name="test-azurestreamanalyticsoutput--test-azurermstreamanalyticsoutput"></a>Test-AzureStreamAnalyticsOutput | Test-AzureRMStreamAnalyticsOutput
-Stream Analytics belirli bir çıktıya bağlanma yeteneğini sınar.
+Stream Analytics tooconnect tooa testleri hello yeteneğini çıkış belirtilmiş.
 
 **Örnek 1**
 
@@ -447,13 +447,13 @@ Azure PowerShell 1.0:
 
     Test-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name Output
 
-Bu PowerShell komut testleri StreamingJob çıkış bağlantı durumunu çıktı.  
+Bu PowerShell komutunu testleri hello bağlantı durumunu hello StreamingJob çıktısında çıktı.  
 
 ## <a name="get-support"></a>Destek alın
 Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure Stream Analytics'e giriş](stream-analytics-introduction.md)
+* [Giriş tooAzure akış analizi](stream-analytics-introduction.md)
 * [Azure Akış Analizi'ni kullanmaya başlama](stream-analytics-real-time-fraud-detection.md)
 * [Azure Akış Analizi işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
 * [Azure Akış Analizi Sorgu Dili Başvurusu](https://msdn.microsoft.com/library/azure/dn834998.aspx)

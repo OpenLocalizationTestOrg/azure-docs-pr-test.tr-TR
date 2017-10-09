@@ -1,6 +1,6 @@
 ---
-title: "Azure IOT kenar (Linux) ile çalışmaya başlama | Microsoft Docs"
-description: "Bir Linux makine üzerinde ağ geçidi oluşturmanın yanı sıra modüller ve JSON yapılandırma dosyaları gibi temel Azure IoT Edge kavramları hakkında bilgi edinin."
+title: "aaaGet başlatılan Azure IOT kenar (Linux) | Microsoft Docs"
+description: "Nasıl toobuild bir Linux üzerinde bir ağ geçidi makinesi ve modülleri ve JSON yapılandırma dosyaları gibi Azure IOT edge'de temel kavramları hakkında bilgi edinin."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/07/2017
 ms.author: andbuc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b02d79fcd9cd2a2ef0041aac4e85528263c8d58a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 40aa9c8ddca6a974c361cbb0b453c7d0ddc71b8d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="explore-azure-iot-edge-architecture-on-linux"></a>Linux üzerinde Azure IoT Edge mimarisini keşfedin
 
@@ -27,16 +27,16 @@ ms.lasthandoff: 07/11/2017
 
 [!INCLUDE [iot-hub-iot-edge-install-build-linux](../../includes/iot-hub-iot-edge-install-build-linux.md)]
 
-## <a name="how-to-run-the-sample"></a>Örneği çalıştırma
+## <a name="how-toorun-hello-sample"></a>Nasıl toorun hello örnek
 
-**build.sh** betiği, çıktısını **iot-edge** deposu yerel kopyasının **build** klasöründe oluşturur. Bu çıktı, bu örnekte kullanılan iki IOT kenar modüller içerir.
+Merhaba **build.sh** betik hello çıktısını oluşturur **yapı** hello yerel kopyasını klasöründe **IOT kenar** deposu. Bu çıktı hello Bu örnekte kullanılan iki IOT kenar modüller içerir.
 
-Derleme betiği, **liblogger.so** dosyasını **build/modules/logger/** klasörüne ve **libhello\_world.so** dosyasını **build/modules/hello_world/** klasörüne yerleştirir. Bu yolları için kullanma **modül yolu** değerleri aşağıdaki örnek JSON ayarları dosyasında gösterildiği gibi.
+Merhaba yapı betik yerler **liblogger.so** hello içinde **modülleri/yapı/Günlükçü/** klasör ve **libhello\_world.so** hello içinde **yapı / modülleri/hello_world/** klasörü. Bu yolları Merhaba kullanma **modül yolu** değerleri aşağıdaki örnek JSON ayarları dosyasına hello gösterildiği gibi.
 
-Merhaba\_dünya\_örneği işleminde JSON yapılandırma dosyasının yolu komut satırı bağımsız değişkeni olarak kullanılır. Aşağıdaki örnek JSON dosyası, SDK deposundaki **samples/hello\_world/src/hello\_world\_lin.json** dizininde sağlanır. Bu yapılandırma dosyası IOT kenar modülleri veya örnek yürütülebilir dosyalar varsayılan olmayan konumlara yerleştirmek için yapı betik değiştirmediğiniz sürece olduğu gibi çalışır.
+Merhaba hello\_world\_örnek işlemi, bir komut satırı bağımsız değişkeni hello yol tooa JSON yapılandırma dosyası kullanır. Merhaba aşağıdaki örnek JSON dosyası hello SDK deposu sırasında sağlanan **örnekleri/hello\_world/src/hello\_world\_lin.json**. Merhaba değiştirmediğiniz sürece olduğundan bu yapılandırma dosyası works betik tooplace hello IOT kenar modülleri oluşturabilir veya yürütülebilir dosyalar varsayılan olmayan konumlarda örnek.
 
 > [!NOTE]
-> Modül yolları, geçerli çalışma dizinine göre belirlenmiştir ve hello\_world\_sample yürütülebilir dosyasının bulunduğu değil çalıştırıldığı dizini temel alır. Örnek JSON yapılandırma dosyası varsayılan olarak “log.txt” dosyasını geçerli çalışma dizininize yazar.
+> Merhaba modülü göreli toohello geçerli çalışma dizini nerede yollardır hello hello\_world\_örnek yürütülebilir başlatıldığında, hello yürütülebilir bulunduğu dizin hello değil. Merhaba örnek JSON yapılandırma dosyası Varsayılanları toowriting 'log.txt', geçerli çalışma dizininde.
 
 ```json
 {
@@ -73,9 +73,9 @@ Merhaba\_dünya\_örneği işleminde JSON yapılandırma dosyasının yolu komut
 }
 ```
 
-1. Gidin **yapı** yerel kopyasını kök klasöründe **IOT kenar** deposu.
+1. Toohello gidin **yapı** hello yerel kopyasını hello kök klasöründe **IOT kenar** deposu.
 
-1. Şu komutu çalıştırın:
+1. Merhaba aşağıdaki komutu çalıştırın:
 
     ```sh
     ./samples/hello_world/hello_world_sample ../samples/hello_world/src/hello_world_lin.json`

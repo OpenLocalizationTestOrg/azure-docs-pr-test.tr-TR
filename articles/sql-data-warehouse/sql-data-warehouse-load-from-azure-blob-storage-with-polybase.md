@@ -1,6 +1,6 @@
 ---
-title: "Azure'dan yük blob Azure veri ambarına | Microsoft Docs"
-description: "PolyBase verileri Azure blob depolama alanından SQL Data Warehouse'a veri yüklemek için nasıl kullanılacağını öğrenin. Birkaç tablolar Contoso perakende veri ambarı şemasına genel verileri yüklenemiyor."
+title: "Azure blob tooAzure veri ambarından aaaLoad | Microsoft Docs"
+description: "Toouse PolyBase tooload verileri Azure depolama SQL Data Warehouse'a nasıl blob öğrenin. Birkaç tablolar hello Contoso perakende veri ambarı şemasına genel verileri yüklenemiyor."
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 2859c1144f72fd685af89f83024df1409902ab0c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 4b4978ccefa4d55ff5c89fba84c5e705422ddbb7
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="load-data-from-azure-blob-storage-into-sql-data-warehouse-polybase"></a>Azure blob depolama alanından SQL Data Warehouse'a (PolyBase) veri yükleme
 > [!div class="op_single_selector"]
@@ -28,37 +28,37 @@ ms.lasthandoff: 07/11/2017
 > 
 > 
 
-Verileri Azure blob depolama alanından Azure SQL Data Warehouse'a veri yüklemek için PolyBase ve T-SQL komutlarını kullanın. 
+PolyBase ve T-SQL komutlarını tooload verileri Azure blob depolama alanından Azure SQL Data Warehouse'a kullanın. 
 
-Basit tutmak için bu öğreticiyi iki tablo Contoso perakende veri ambarı şemasına ortak bir Azure Storage Blobundan yükler. Tam veri kümesi yüklemek için örneği çalıştırmak [tam Contoso perakende veri ambarı yük] [ Load the full Contoso Retail Data Warehouse] Microsoft SQL Server örnekleri depodan.
+tookeep basit, Bu öğretici iki tablo ortak bir Azure Storage Blobundan hello Contoso perakende veri ambarı şemasına yükler. tooload hello tam veri hello örneği çalıştırmak kümesi [yük hello tam Contoso perakende veri ambarı] [ Load hello full Contoso Retail Data Warehouse] hello Microsoft SQL Server örnekleri depodan.
 
 Bu öğreticide şunları yapacaksınız:
 
-1. Azure blob depolama alanından yüklemek için PolyBase yapılandırın
+1. PolyBase tooload Azure blob depolama biriminden yapılandırma
 2. Veritabanınıza ortak veri yükleme
-3. Yükleme tamamlandıktan sonra en iyi duruma getirme gerçekleştirin.
+3. Merhaba yükleme tamamlandıktan sonra en iyi duruma getirme gerçekleştirin.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-Bu öğretici çalıştırmak için SQL Data Warehouse veritabanı zaten bir Azure hesabınızın olması gerekir. Zaten yoksa, bkz: [SQL Data Warehouse oluşturma][Create a SQL Data Warehouse].
+toorun Bu öğreticide, bir SQL Data Warehouse veritabanı zaten olan bir Azure hesabınızın olması gerekir. Zaten yoksa, bkz: [SQL Data Warehouse oluşturma][Create a SQL Data Warehouse].
 
-## <a name="1-configure-the-data-source"></a>1. Veri kaynağını yapılandırma
-PolyBase, dış veri özniteliklerini ve konumunu tanımlamak için T-SQL dış nesneleri kullanır. Dış nesne tanımları SQL veri ambarında depolanır. Veri harici olarak depolanır.
+## <a name="1-configure-hello-data-source"></a>1. Merhaba veri kaynağını yapılandırma
+PolyBase T-SQL dış nesneleri toodefine hello konumu ve hello dış veri özniteliklerini kullanır. Merhaba dış nesne tanımları SQL veri ambarında depolanır. Merhaba verilerin kendisini harici olarak depolanır.
 
 ### <a name="11-create-a-credential"></a>1.1. Bir kimlik bilgisi oluşturma
-**Bu adımı atlayın** Contoso ortak veri yüklüyorsanız. Zaten herkes için erişilebilir olduğundan ortak verilere güvenli erişim gerekmez.
+**Bu adımı atlayın** hello Contoso ortak veri yüklüyorsanız. Erişilebilir tooanyone olduğundan güvenli erişim toohello ortak veri gerekmez.
 
-**Bu adımı atlamayın** kendi verileri yüklemek için bir şablon olarak Bu öğretici kullanıyorsanız. Bir kimlik bilgisi verilere erişmek için veritabanı kapsamlı bir kimlik bilgisi oluşturmak için aşağıdaki komut dosyasını kullanın ve veri kaynağının konumunu tanımlarken kullanın.
+**Bu adımı atlamayın** kendi verileri yüklemek için bir şablon olarak Bu öğretici kullanıyorsanız. kimlik bilgileri, aşağıdaki kullanım hello tooaccess verilerine toocreate veritabanı kapsamlı kimlik bilgisi komut dosyası ve hello hello veri kaynağının konumunu tanımlarken kullanın.
 
 ```sql
 -- A: Create a master key.
 -- Only necessary if one does not already exist.
--- Required to encrypt the credential secret in the next step.
+-- Required tooencrypt hello credential secret in hello next step.
 
 CREATE MASTER KEY;
 
 
 -- B: Create a database scoped credential
--- IDENTITY: Provide any string, it is not used for authentication to Azure storage.
+-- IDENTITY: Provide any string, it is not used for authentication tooAzure storage.
 -- SECRET: Provide your Azure storage account key.
 
 
@@ -70,9 +70,9 @@ WITH
 
 
 -- C: Create an external data source
--- TYPE: HADOOP - PolyBase uses Hadoop APIs to access data in Azure blob storage.
+-- TYPE: HADOOP - PolyBase uses Hadoop APIs tooaccess data in Azure blob storage.
 -- LOCATION: Provide Azure storage account name and blob container name.
--- CREDENTIAL: Provide the credential created in the previous step.
+-- CREDENTIAL: Provide hello credential created in hello previous step.
 
 CREATE EXTERNAL DATA SOURCE AzureStorage
 WITH (
@@ -82,10 +82,10 @@ WITH (
 );
 ```
 
-2. adıma atlayın.
+Toostep 2 atlayın.
 
-### <a name="12-create-the-external-data-source"></a>1.2. Dış veri kaynağı oluşturun
-Bu [dış veri kaynağı oluştur] [ CREATE EXTERNAL DATA SOURCE] veri ve veri türü konumunu depolamak için komutu. 
+### <a name="12-create-hello-external-data-source"></a>1.2. Merhaba dış veri kaynağı oluşturun
+Bu [dış veri kaynağı oluştur] [ CREATE EXTERNAL DATA SOURCE] komut toostore hello konumunu hello veri ve veri hello türü. 
 
 ```sql
 CREATE EXTERNAL DATA SOURCE AzureStorage_west_public
@@ -97,12 +97,12 @@ WITH
 ```
 
 > [!IMPORTANT]
-> Azure blob storage kapsayıcıları genel hale getirmek isterseniz verileri veri merkezi ayrıldığında veri sahibi olarak, veriler için çıkış ücretlerini ücretlendirilirsiniz olduğunu unutmayın. 
+> Azure blob depolama kapsayıcıları ortak toomake seçerseniz, veri hello veri merkezi ayrıldığında hello veri sahibi olarak, veriler için çıkış ücretlerini ücretlendirilirsiniz olduğunu unutmayın. 
 > 
 > 
 
 ## <a name="2-configure-data-format"></a>2. Veri biçimini yapılandırın
-Verileri Azure blob depolama alanındaki metin dosyalarında depolanır ve her bir alan sınırlayıcı ile ayrılır. Bu [oluşturmak dış dosya BİÇİMİNİ] [ CREATE EXTERNAL FILE FORMAT] metin dosyalarında verilerin biçimini belirtmek için komut. Contoso veri sıkıştırılmamış ve kanal ayrılmış.
+Merhaba veriler Azure blob depolama alanındaki metin dosyalarında depolanır ve her bir alan sınırlayıcı ile ayrılır. Bu [oluşturmak dış dosya BİÇİMİNİ] [ CREATE EXTERNAL FILE FORMAT] hello verilerin hello metin dosyalarında komutu toospecify hello biçimi. Merhaba Contoso veri sıkıştırılmamış ve kanal ayrılmış.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -116,21 +116,21 @@ WITH
 );
 ``` 
 
-## <a name="3-create-the-external-tables"></a>3. Dış tabloları oluşturma
-Veri kaynağı ve dosya biçimi belirttiğiniz, dış tablo oluşturmak hazır olursunuz. 
+## <a name="3-create-hello-external-tables"></a>3. Merhaba dış tabloları oluşturma
+Şimdi hello veri kaynağı ve dosya biçimi belirttiğiniz hazır toocreate hello dış tablolara demektir. 
 
-### <a name="31-create-a-schema-for-the-data"></a>3.1. Veriler için bir şema oluşturun.
-Contoso veri veritabanınızda depolamak için bir yer oluşturmak için bir şema oluşturun.
+### <a name="31-create-a-schema-for-hello-data"></a>3.1. Merhaba veri için bir şema oluşturun.
+toocreate yer toostore hello Contoso verileri, veritabanında bir şema oluşturun.
 
 ```sql
 CREATE SCHEMA [asb]
 GO
 ```
 
-### <a name="32-create-the-external-tables"></a>3.2. Harici tabloları oluşturun.
-DimProduct ve FactOnlineSales dış tablolar oluşturmak için bu komut dosyasını çalıştırın. Tüm biz burada yapmakta olduğunuz sütun adları ve veri türleri tanımlama ve konumunu ve Azure blob depolama dosyalarının biçimi bağlama. Tanımı SQL veri ambarı'nda depolanır ve verileri Azure depolama Blob hala.
+### <a name="32-create-hello-external-tables"></a>3.2. Merhaba dış tablolar oluşturun.
+Bu komut dosyası toocreate hello DimProduct ve FactOnlineSales dış tablolara çalıştırın. Tüm biz burada yapmakta olduğunuz sütun adları ve veri türleri tanımlama ve toohello konumu ve hello Azure blob depolama dosyalarının biçimi bağlama. Merhaba tanımı SQL veri ambarı'nda depolanır ve hello veri hala hello Azure Storage Blobuna.
 
-**Konumu** parametresi Azure Storage Blobuna kök klasöründe bir klasördür. Her tablo farklı bir klasöründe bulunur.
+Merhaba **konumu** hello klasörü hello Azure Storage Blobuna hello kök klasöründe bir parametredir. Her tablo farklı bir klasöründe bulunur.
 
 ```sql
 
@@ -215,23 +215,23 @@ WITH
 ;
 ```
 
-## <a name="4-load-the-data"></a>4. Verileri yükleme
-Dış verilere erişmek için farklı yollar yoktur.  Dış tablo verileri doğrudan sorgu, yeni veritabanı tablolarına verileri yüklemek veya var olan veritabanı tablolarında dış veri ekleyin.  
+## <a name="4-load-hello-data"></a>4. Merhaba veri yükleme
+Farklı şekillerde tooaccess dış veri yoktur.  Merhaba dış tablo verileri doğrudan sorgu, yeni veritabanı tablolarına hello verileri yüklemek veya dış veri tooexisting veritabanı tabloları ekleyin.  
 
 ### <a name="41-create-a-new-schema"></a>4.1. Yeni bir şema oluşturun
-CTAS verileri içeren yeni bir tablo oluşturur.  İlk olarak, contoso veri için bir şema oluşturun.
+CTAS verileri içeren yeni bir tablo oluşturur.  İlk olarak hello contoso veri için bir şema oluşturun.
 
 ```sql
 CREATE SCHEMA [cso]
 GO
 ```
 
-### <a name="42-load-the-data-into-new-tables"></a>4.2. Yeni tablolara veri yükleme
-Azure blob depolama alanından verileri yüklemek ve veritabanınızın içinde bir tablodaki kaydetmek için kullanın [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] deyimi. Yükleme CTAS ile oluşturduğunuz kesin türü belirtilmiş dış tablolara yararlanır. Verileri yeni tablolara yüklemek için kullanmayı [CTAS] [ CTAS] tablo başına deyimi. 
+### <a name="42-load-hello-data-into-new-tables"></a>4.2. Yeni tablolara hello veri yükleme
+tooload verileri Azure blob depolama ve veritabanınızı içinde bir tabloda, hello kullanmak [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] deyimi. İle CTAS yüklenirken yararlanır hello kesinlikle yalnızca created.tooload hello yeni tablolar verisine sahip dış tablolara yazılan, kullanmayı [CTAS] [ CTAS] tablo başına deyimi. 
  
-CTAS yeni bir tablo oluşturur ve bir select deyimi sonuçları ile doldurur. CTAS select deyimi sonuçları olarak aynı sütunları ve veri türleri için yeni tabloyu tanımlar. Dış bir tablodaki tüm sütunları seçin, yeni bir tablo sütunları ve dış tablosunda veri türlerini çoğaltmasını olacaktır.
+CTAS yeni bir tablo oluşturur ve bir select deyimi hello sonuçlarını ile doldurur. CTAS tanımlar hello yeni tablo toohave hello hello sonuçlarını select deyimi gibi hello aynı sütun ve veri türleri. Bir dış tablodan tüm hello sütunları seçerseniz, hello yeni tablo hello dış tabloda hello sütunları ve veri türleri çoğaltmasını olacaktır.
 
-Bu örnekte, boyut ve dağıtılmış tabloları karma gibi Olgu Tablosu oluşturun. 
+Bu örnekte, hello boyut ve dağıtılmış tabloları karma gibi hello Olgu Tablosu oluşturun. 
 
 ```sql
 SELECT GETDATE();
@@ -241,20 +241,20 @@ CREATE TABLE [cso].[DimProduct]            WITH (DISTRIBUTION = HASH([ProductKey
 CREATE TABLE [cso].[FactOnlineSales]       WITH (DISTRIBUTION = HASH([ProductKey]  ) ) AS SELECT * FROM [asb].[FactOnlineSales]        OPTION (LABEL = 'CTAS : Load [cso].[FactOnlineSales]        ');
 ```
 
-### <a name="43-track-the-load-progress"></a>4.3 yük ilerlemeyi
-Dinamik Yönetim görünümlerini (Dmv'leri) kullanarak yük ilerlemesini izleyebilirsiniz. 
+### <a name="43-track-hello-load-progress"></a>4.3 izleme hello yükleme ilerlemesi
+Dinamik Yönetim görünümlerini (Dmv'leri) kullanarak yük hello ilerlemesini izleyebilirsiniz. 
 
 ```sql
--- To see all requests
+-- toosee all requests
 SELECT * FROM sys.dm_pdw_exec_requests;
 
--- To see a particular request identified by its label
+-- toosee a particular request identified by its label
 SELECT * FROM sys.dm_pdw_exec_requests as r
 WHERE r.[label] = 'CTAS : Load [cso].[DimProduct]             '
       OR r.[label] = 'CTAS : Load [cso].[FactOnlineSales]        '
 ;
 
--- To track bytes and files
+-- tootrack bytes and files
 SELECT
     r.command,
     s.request_id,
@@ -278,9 +278,9 @@ ORDER BY
 ```
 
 ## <a name="5-optimize-columnstore-compression"></a>5. Columnstore sıkıştırma en iyi duruma getirme
-Varsayılan olarak, SQL Data Warehouse kümelenmiş columnstore dizini tablo depolar. Yükleme tamamlandıktan sonra bazı veriler satır columnstore sıkıştırılır değil.  Çeşitli nedenlerle oluşabilir neden yoktur. Daha fazla bilgi için bkz: [columnstore dizinleri yönetmek][manage columnstore indexes].
+Varsayılan olarak, SQL Data Warehouse kümelenmiş columnstore dizini hello tablo depolar. Yükleme tamamlandıktan sonra bazı hello veri satır hello columnstore sıkıştırılır değil.  Çeşitli nedenlerle oluşabilir neden yoktur. toolearn daha, fazla [columnstore dizinleri yönetmek][manage columnstore indexes].
 
-Sorgu performansı ve yük sonra columnstore sıkıştırma iyileştirmek için tüm satırların sıkıştırılacak columnstore dizinini zorlamak için tabloyu yeniden oluşturun. 
+toooptimize sorgu performansını ve columnstore sıkıştırma bir yükleme sonrasında, tüm hello satırları hello tablo tooforce hello columnstore dizini toocompress yeniden. 
 
 ```sql
 SELECT GETDATE();
@@ -290,14 +290,14 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-Columnstore dizinleri koruma ile ilgili daha fazla bilgi için bkz: [columnstore dizinleri yönetmek] [ manage columnstore indexes] makalesi.
+Merhaba columnstore dizinleri koruma ile ilgili daha fazla bilgi için bkz: [columnstore dizinleri yönetmek] [ manage columnstore indexes] makalesi.
 
 ## <a name="6-optimize-statistics"></a>6. İstatistikleri en iyi duruma getirme
-Bir yük hemen sonra tek sütunlu istatistikler oluşturmak en iyisidir. İstatistikleri için bazı seçeneğiniz vardır. Örneğin, her sütunda tek sütunlu İstatistikler oluşturursanız, tüm istatistikleri yeniden oluşturmak için uzun zaman alabilir. Belirli sütunları sorgu koşullarında yapmayacağınız biliyorsanız, bu sütunlarda oluşturma istatistikleri atlayabilirsiniz.
+Bu, bir yük hemen sonra en iyi toocreate tek sütunlu İstatistikler olur. İstatistikleri için bazı seçeneğiniz vardır. Örneğin, her sütunda tek sütunlu İstatistikler oluşturursanız, uzun süre toorebuild tüm hello istatistikleri alabilir. Belirli sütunları toobe sorgu koşullarda yapmayacağınız biliyorsanız, bu sütunlarda oluşturma istatistikleri atlayabilirsiniz.
 
-Tek sütunlu istatistikler her tablonun her sütunu üzerinde oluşturmaya karar verirseniz, saklı yordam kod örneği kullanabilirsiniz `prc_sqldw_create_stats` içinde [istatistikleri] [ statistics] makalesi.
+Her tablonun her sütunu toocreate tek sütunlu İstatistikler karar verirseniz, hello saklı yordam kod örneği kullanabilirsiniz `prc_sqldw_create_stats` hello içinde [istatistikleri] [ statistics] makalesi.
 
-Aşağıdaki istatistikler oluşturmak için iyi bir başlangıç noktası örnektir. Her sütunun Boyut tablosuna ve olgu tabloları katılan her sütunda tek sütunlu İstatistikler oluşturur. Her zaman tek veya birden çok sütun istatistikleri diğer olgu tablo sütunları daha sonra ekleyebilirsiniz.
+Aşağıdaki örnek hello istatistikleri oluşturmak için iyi bir başlangıç noktası ' dir. Her sütunda hello Boyut tablosuna ve hello olgu tabloları katılan her sütunda tek sütunlu İstatistikler oluşturur. Daha sonra onları tek veya birden çok sütun istatistikleri tooother Olgu Tablosu sütunlarını ekleyebilirsiniz.
 
 ```sql
 CREATE STATISTICS [stat_cso_DimProduct_AvailableForSaleDate] ON [cso].[DimProduct]([AvailableForSaleDate]);
@@ -344,7 +344,7 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]
 ## <a name="achievement-unlocked"></a>Kilidi başarı!
 Azure SQL Data Warehouse'a ortak veri başarıyla yüklemiş olduğunuz. Harika iş!
 
-Şimdi, aşağıdakiler gibi sorguları kullanarak tabloları sorgulama başlatabilirsiniz:
+Şimdi hello aşağıdaki gibi sorguları kullanarak hello tabloları sorgulama başlatabilirsiniz:
 
 ```sql
 SELECT  SUM(f.[SalesAmount]) AS [sales_by_brand_amount]
@@ -355,7 +355,7 @@ GROUP BY p.[BrandName]
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Tam Contoso perakende veri ambarı veri yüklemek için komut dosyasında daha fazla geliştirme ipuçları için bkz [SQL Data Warehouse geliştirmeye genel bakış][SQL Data Warehouse development overview].
+tooload hello tam Contoso perakende veri ambarı veri, hello komut dosyasında daha fazla geliştirme ipuçları için bkz [SQL Data Warehouse geliştirmeye genel bakış][SQL Data Warehouse development overview].
 
 <!--Image references-->
 
@@ -377,4 +377,4 @@ Tam Contoso perakende veri ambarı veri yüklemek için komut dosyasında daha f
 
 <!--Other Web references-->
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
-[Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
+[Load hello full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md

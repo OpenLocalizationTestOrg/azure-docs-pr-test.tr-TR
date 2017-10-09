@@ -1,6 +1,6 @@
 ---
-title: "Güvenilir hizmet mimarisi | Microsoft Docs"
-description: "Durum bilgisi olan ve durum bilgisi olmayan hizmetler için güvenilir hizmet mimarisine genel bakış"
+title: aaaReliable hizmet mimarisi | Microsoft Docs
+description: "Durum bilgisi olan ve durum bilgisi olmayan hizmetler için hello güvenilir hizmet mimarisine genel bakış"
 services: service-fabric
 documentationcenter: .net
 author: AlanWarwick
@@ -15,75 +15,75 @@ ms.workload: NA
 ms.date: 03/30/2016
 ms.author: alanwar
 redirect_url: /azure/service-fabric/service-fabric-reliable-services-introduction
-ms.openlocfilehash: a00a16945356b9731485554e06df46528b5c7bb2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d2d0ec9600275ae248ab7717be269cc7204a1e4d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="architecture-for-stateful-and-stateless-reliable-services"></a>Durum bilgisiz ve durum bilgisi olan güvenilir hizmetler için mimarisi
 Azure Service Fabric güvenilir hizmeti durum bilgisi olan veya durum bilgisiz olabilir. Her hizmet türü belirli bir mimari içinde çalışır. Bu makalede bu mimarileri açıklanmaktadır.
-Bkz: [güvenilir hizmetine genel bakış](service-fabric-reliable-services-introduction.md) durum bilgisi olan ve durum bilgisi olmayan hizmetler arasındaki farklar hakkında daha fazla bilgi için.
+Merhaba bkz [güvenilir hizmetine genel bakış](service-fabric-reliable-services-introduction.md) hello durum bilgisi olan ve durum bilgisi olmayan hizmetler arasındaki farklar hakkında daha fazla bilgi.
 
 ## <a name="stateful-reliable-services"></a>Durum bilgisi olan güvenilir hizmetler
 ### <a name="architecture-of-a-stateful-service"></a>Durum bilgisi olan hizmet mimarisi
 ![Durum bilgisi olan hizmet mimarisi diyagramı](./media/service-fabric-reliable-services-platform-architecture/reliable-stateful-service-architecture.png)
 
 ### <a name="stateful-reliable-service"></a>Durum bilgisi olan güvenilir hizmet
-Durum bilgisi olan güvenilir hizmet StatefulService veya StatefulServiceBase sınıfından türetilen. Temel sınıflar her ikisi de Service Fabric tarafından sağlanır. Bunlar, çeşitli düzeyde destek ve durum bilgisi olan hizmet ile Service Fabric--arabirim ve Service Fabric kümesi içinde bir hizmet olarak katılmak için Özet sunar.
+Durum bilgisi olan güvenilir hizmet hello StatefulService veya StatefulServiceBase sınıfı türetilemeyeceğini. Temel sınıflar her ikisi de Service Fabric tarafından sağlanır. Bunlar, çeşitli düzeyde destek ve hello durum bilgisi olan hizmet toointerface Service Fabric--ve tooparticipate için Özet hello Service Fabric kümesi içinde bir hizmet olarak sunar.
 
-StatefulService StatefulServiceBase türer. StatefulServiceBase Hizmetleri daha fazla esneklik sunar, ancak daha fazla Service Fabric içyüzü anlaşılmasını gerektirir.
-Bkz: [güvenilir hizmetine genel bakış](service-fabric-reliable-services-introduction.md) ve [güvenilir kullanım Gelişmiş Hizmet](service-fabric-reliable-services-advanced-usage.md) StatefulService ve StatefulServiceBase sınıflarını kullanarak Hizmetleri yazma özellikleri hakkında daha fazla bilgi için.
+StatefulService StatefulServiceBase türer. StatefulServiceBase Hizmetleri daha fazla esneklik sunar, ancak daha fazla Service Fabric hello içyüzü anlaşılmasını gerektirir.
+Merhaba bkz [güvenilir hizmetine genel bakış](service-fabric-reliable-services-introduction.md) ve [güvenilir kullanım Gelişmiş Hizmet](service-fabric-reliable-services-advanced-usage.md) hello StatefulService ve StatefulServiceBase sınıflarını kullanarak Hizmetleri yazma hello özellikleri hakkında daha fazla bilgi için .
 
-Her iki temel sınıfları yaşam süresi ve hizmet uygulaması rolü yönetin. Hizmet uygulaması, hizmet uygulaması noktalarda hizmet uygulama yaşam döngüsü--yapmak için iş varsa veya bir iletişim dinleyici nesnesi oluşturmak isterse, her iki temel sınıfın sanal yöntemleri geçersiz kılabilir. İletişim dinleyicisi bir hizmet uygulaması ICommunicationListener, yukarıdaki diyagramda gösterme kendi iletişim dinleyici nesnesi uygulayabilir rağmen hizmet uygulaması kullandıkça Service Fabric tarafından--uygulanır Not bir Service Fabric tarafından uygulanan iletişimi dinleyicisi.
+Her iki temel sınıflar hello yaşam süresi ve rol hello hizmet uygulamasının yönetin. Hello hizmet uygulaması hello hizmet uygulaması noktalarda hello hizmet uygulama yaşam döngüsü--iş toodo varsa veya toocreate iletişim dinleyici nesnesi istiyorsa, her iki temel sınıfın sanal yöntemleri geçersiz kılabilir. Bir hizmet uygulaması ICommunicationListener, yukarıdaki hello diyagramda gösterme kendi iletişim dinleyici nesnesi uygulayabilir rağmen hello iletişimi dinleyicisi tarafından Service Fabric--hizmet uygulaması hello olarak uygulandığını Not kullanan bir Service Fabric tarafından uygulanan iletişimi dinleyicisi.
 
-Bir durum bilgisi olan güvenilir hizmet güvenilir koleksiyonları yararlanmak için güvenilir durum Yöneticisi'ni kullanır. Güvenilir koleksiyonları olan hizmete--yüksek oranda kullanılabilir yerel veri yapılarını, her zaman hizmeti yerine bağımsız olarak kullanılabilir. Her tür güvenilir koleksiyonunun bir güvenilir durumu sağlayıcısı tarafından uygulanır.
-Güvenilir Koleksiyonlar hakkında daha fazla bilgi için bkz: [güvenilir koleksiyonları genel bakış](service-fabric-reliable-services-reliable-collections.md).
+Bir durum bilgisi olan güvenilir hizmet hello güvenilir durumu Yöneticisi tootake avantajı güvenilir koleksiyonları kullanır. Güvenilir koleksiyonları olduğu yüksek oranda kullanılabilir toohello hizmet--yerel veri yapılarını, her zaman hizmeti yerine bağımsız olarak kullanılabilir. Her tür güvenilir koleksiyonunun bir güvenilir durumu sağlayıcısı tarafından uygulanır.
+Merhaba güvenilir Koleksiyonlar hakkında daha fazla bilgi için bkz: [güvenilir koleksiyonları genel bakış](service-fabric-reliable-services-reliable-collections.md).
 
 ### <a name="reliable-state-manager-and-state-providers"></a>Güvenilir durum Yöneticisi ve durumu sağlayıcıları
-Güvenilir durum Yöneticisi güvenilir durum sağlayıcılarının yöneten nesnesidir. Oluşturma, silme, listeleme ve güvenilir durum sağlayıcılarının kalıcı ve yüksek oranda kullanılabilir olduğundan emin olmak için bir işleve sahiptir. Bir güvenilir durumu sağlayıcı örneği bir sözlük ya da sırası gibi bir kalıcı ve yüksek oranda kullanılabilir veri yapısı örneği temsil eder.
+Merhaba güvenilir durum Yöneticisi güvenilir durum sağlayıcılarının yöneten hello nesnesidir. Merhaba işlevselliği toocreate sahip, silme, listeleme ve hello güvenilir durum sağlayıcılarının kalıcı ve yüksek oranda kullanılabilir olduğundan emin olun. Bir güvenilir durumu sağlayıcı örneği bir sözlük ya da sırası gibi bir kalıcı ve yüksek oranda kullanılabilir veri yapısı örneği temsil eder.
 
-Her güvenilir durumu Sağlayıcısı güvenilir durumu sağlayıcısı ile etkileşim kurmak için bir durum bilgisi olan hizmeti tarafından kullanılan bir arabirim sunar. Örneğin, IReliableDictionary kullanılabilir IReliableQueue kullanılırken güvenilir sözlük ile arabirim oluşturmak için güvenilir sıra ile arabirim oluşturmak için. Tüm güvenilir durum sağlayıcılarının IReliableState arabirimini uygular.
+Her güvenilir durumu sağlayıcısı hello güvenilir durumu sağlayıcısı ile bir durum bilgisi olan hizmet toointeract tarafından kullanılan bir arabirim sunar. Örneğin, IReliableQueue hello güvenilir sıra ile kullanılan toointerface olsa IReliableDictionary hello güvenilir sözlüğü ile kullanılan toointerface ' dir. Tüm güvenilir durum sağlayıcılarının hello IReliableState arabirimini uygular.
 
-Güvenilir durumu Yöneticisi erişim olanak sağlayan bir durum bilgisi olan hizmetinden IReliableStateManager adlı bir arabirim sahiptir. Güvenilir durum sağlayıcılarının arabirimleri IReliableStateManager döndürülür.
+Merhaba güvenilir durum Yöneticisi durum bilgisi olan hizmet erişim tooit veren IReliableStateManager adlı bir arabirim sahiptir. Arabirimleri tooreliable durumu sağlayıcıları IReliableStateManager döndürülür.
 
-Güvenilir durum yöneticisi eklenti mimarisi kullanır, böylece yeni tür güvenilir koleksiyonların dinamik olarak takılı.
+Merhaba güvenilir durum yöneticisi eklenti mimarisi kullanır, böylece yeni tür güvenilir koleksiyonların dinamik olarak takılı.
 
-Güvenilir sözlük ve güvenilir sıra yüksek performanslı, sürümlü bir fark mağaza uygulaması üzerinde oluşturulmuştur.
+Merhaba güvenilir sözlük ve güvenilir sıra yüksek performanslı, sürümlü bir fark deposu hello uygulama üzerinde oluşturulmuştur.
 
 ### <a name="transactional-replicator"></a>İşlem çoğaltması
-İşlem çoğaltması bileşen hizmetinin (diğer bir deyişle, güvenilir durum Yöneticisi'ni ve güvenilir koleksiyonları içinde durumunu) durumunu hizmetini çalıştıran tüm çoğaltmalar arasında tutarlı olmasını sağlamak için sorumludur. Ayrıca, durumu günlüğüne kalıcı olmasını sağlar. Özel bir mekanizma aracılığıyla işlem çoğaltması güvenilir durumu Yöneticisi arabirimleriyle.
+Merhaba işlem çoğaltması bileşen hizmetinin (diğer bir deyişle, hello güvenilir durum Yöneticisi ve hello güvenilir koleksiyonları içinde hello durumunu) hello durumunu hello hizmetini çalıştıran tüm çoğaltmalar arasında tutarlı olmasını sağlamak için sorumludur. Ayrıca, hello durumu hello günlüğüne kalıcı olmasını sağlar. özel bir mekanizma aracılığıyla hello işlem çoğaltması ile Merhaba güvenilir durumu Yöneticisi arabirimleri.
 
-İşlem çoğaltması, böylece tüm çoğaltmaları güncel durum bilgilerini hizmet örneği diğer yinelemelerle durumunu iletmek için bir ağ protokolü kullanır.
+Böylece tüm çoğaltmaları güncel durum bilgilerini hello işlem çoğaltması bir ağ protokolü toocommunicate durumu hello hizmet örneği diğer yinelemelerle kullanır.
 
-İşlem çoğaltması, böylece durum bilgisi işlemi devam eder veya düğüm çöküyor durum bilgilerini kalıcı hale getirmek için bir günlük kullanır. Günlük arabirimi özel bir mekanizmadır.
+Merhaba işlem çoğaltması günlük toopersist durum bilgilerini kullanır, böylece hello durum bilgilerini işlemi devam eder veya düğüm çöker. Merhaba arabirimi toohello günlük özel bir mekanizmadır.
 
 ### <a name="log"></a>Günlük
-Yazma işlemi için iyileştirilmiş bir yüksek performanslı kalıcı depoya günlük bileşeni sağlar dönen veya katı hal diskleri.  Günlük (yani, sabit diskler) kalıcı depolama için durum bilgisi olan hizmet çalışan düğümlerine yerel olarak tasarımdır. Bu, düşük gecikme ve düğüme yerel olmayan uzak kalıcı depolama ile karşılaştırıldığında yüksek verimlilik sağlar.
+Merhaba günlük bileşeni toospinning veya katı hal diskleri yazmak için iyileştirilmiş bir yüksek performanslı kalıcı depoya sağlar.  Merhaba hello günlüğünün hello kalıcı depolama (yani, sabit diskler) hello durum bilgisi olan hizmet çalıştıran toobe yerel toohello düğümleri tasarımdır. Bu seçenek, düşük gecikme ve yüksek verimlilik için yerel toohello düğümü değil karşılaştırılan tooremote kalıcı depolama alanı sağlar.
 
-Günlük bileşeni, birden çok günlük dosyalarını kullanır. Tüm çoğaltmaları durumu verilerini depolamak için en düşük gecikme süreli ve yüksek verimlilik sağlayabilir olarak kullanan bir düğüm genelinde paylaşılan günlük dosyası yok. Varsayılan olarak Service Fabric düğümü çalışma dizininde paylaşılan günlük yerleştirilir ancak yalnızca paylaşılan günlüğü için ayrılmış bir disk üzerinde ideal olarak, başka bir konumda yerleştirilmesi için de yapılandırılabilir. Her çoğaltma hizmeti için de bir ayrılmış günlük dosyası vardır ve ayrılmış bir günlük hizmetin çalışma dizini içinde yerleştirilir. Farklı bir konumda yerleştirilmesi için ayrılmış bir günlük yapılandırmak için bir mekanizma yoktur.
+Merhaba günlük bileşeni, birden çok günlük dosyalarını kullanır. Tüm çoğaltmaları durumu verilerini depolamak için bu hello en düşük gecikme süreli ve yüksek verimlilik sağlayabilir olarak kullanan bir düğüm genelinde paylaşılan günlük dosyası yok. Varsayılan olarak hello paylaşılan günlük hello Service Fabric düğümü çalışma dizinine yerleştirilir ancak yapılandırılmış toobe ideal olarak yalnızca hello paylaşılan günlüğü için ayrılmış bir disk üzerinde başka bir konumda yerleştirilmiş olabilir. Her çoğaltma hello hizmeti için de bir ayrılmış günlük dosyası vardır ve hello ayrılmış günlük hello hizmetin çalışma dizini içinde yerleştirilir. Farklı bir konumda yerleştirilen hiçbir mekanizması tooconfigure ayrılmış hello günlük toobe yoktur.
 
-Ayrılmış günlük dosyası olduğu kalıcı son hedefi olsa da paylaşılan günlük yinelemenin durumu bilgileri için geçici bir alandır. Bu tasarımda, durum bilgisi ilk paylaşılan günlük dosyasına yazılır ve arka planda ayrılmış bir günlük dosyasına gevşek taşındı. Bu şekilde, paylaşılan günlüğüne yazma ilerleme hızlandırmak hizmet veren yüksek verimlilik ve düşük gecikme süresi gerekir.
+Hello paylaşılan günlük hello yinelemenin durumu bilgileri için geçici bir alan, başlangıç sırasında ayrılmış günlük dosyası hello son hedefi olduğu kalıcıdır. Bu tasarımda hello durum bilgilerini ilk yazılı toohello paylaşılan günlük dosyası ve toohello ayrılmış günlük dosyası hello arka planda gevşek taşındı. Bu şekilde, hello yazma toohello paylaşılan günlük hello en düşük gecikme süresi ve daha hızlı hello servis toomake ilerlemeyi sağlayan en yüksek verimlilik gerekir.
 
-Okur ve paylaşılan günlüğe yazmaya ön tahsis paylaşılan günlük dosyası için disk alanı için doğrudan g/ç aracılığıyla yapılır. Ayrılmış günlükleriyle sürücüsünde disk alanı optimum kullanımına izin vermek için ayrılmış bir günlük dosyası NTFS seyrek dosya olarak oluşturulur. Bu disk alanının işleminin izin verir ve işletim sistemi gerçekte kullanılan daha çok fazla disk alanı kullanarak ayrılmış günlük dosyaları gösterecektir unutmayın.
+Okur ve toohello paylaşılan günlük hello disk hello paylaşılan günlük dosyası için doğrudan g/ç toopreallocated alanı aracılığıyla yapılır yazar. tooallow en iyi ayrılmış günlükleriyle hello sürücüsünde disk alanı kullanımı, bir NTFS seyrek dosya olarak hello ayrılmış günlük dosyası oluşturulur. Bu disk alanının işleminin izin verir ve hello OS gerçekte kullanılan daha çok fazla disk alanı kullanarak hello ayrılmış günlük dosyaları gösterecektir unutmayın.
 
-Günlük için en az kullanıcı modu arabirimi yanı sıra, bir çekirdek modu sürücüsü olarak günlüğüne yazılır. Bir çekirdek modu sürücüsü olarak çalıştırarak günlük kullanan tüm hizmetler için en yüksek performans sağlar.
+En az kullanıcı modu arabirimi toohello günlük yanı sıra, bir çekirdek modu sürücüsü olarak hello günlüğüne yazılır. Bir çekirdek modu sürücüsü olarak çalıştırarak hello günlük kullanmak tooall Hizmetleri hello yüksek performans sağlayabilir.
 
-Günlük yapılandırma hakkında daha fazla bilgi için bkz: [durum bilgisi olan güvenilir hizmetler yapılandırma](service-fabric-reliable-services-configuration.md).
+Merhaba günlük yapılandırma hakkında daha fazla bilgi için bkz: [durum bilgisi olan güvenilir hizmetler yapılandırma](service-fabric-reliable-services-configuration.md).
 
 ## <a name="stateless-reliable-service"></a>Durum bilgisiz güvenilir hizmeti
 ### <a name="architecture-of-a-stateless-service"></a>Durum bilgisi olmayan hizmetin mimarisi
 ![Durum bilgisiz hizmet mimarisi diyagramı](./media/service-fabric-reliable-services-platform-architecture/reliable-stateless-service-architecture.png)
 
 ### <a name="stateless-reliable-service"></a>Durum bilgisiz güvenilir hizmeti
-Durum bilgisiz hizmet uygulamaları StatelessService veya StatelessServiceBase sınıfından türetilir. StatelessServiceBase sınıfı StatelessService sınıfı daha fazla esneklik sağlar.
-Her iki temel sınıfları yaşam süresi ve bir hizmetin rolünü yönetin.
+Durum bilgisiz hizmet uygulamaları hello StatelessService veya StatelessServiceBase sınıfından türetilir. Merhaba StatelessServiceBase sınıfı hello StatelessService sınıfı daha fazla esneklik sağlar.
+Her iki temel sınıflar hello yaşam süresi ve bir hizmetin rol yönetin.
 
-Hizmet uygulaması hizmet noktalarda hizmet yaşam döngüsü--yapmak için iş varsa veya bir iletişim dinleyici nesnesi oluşturmak isterse, her iki temel sınıfın sanal yöntemleri geçersiz kılabilir. Bu hizmet uygulaması bir iletişimi kullandıkça hizmet ICommunicationListener, yukarıdaki diyagramda gösterme kendi iletişim dinleyici nesnesi uygulayabilir rağmen iletişimi dinleyicisi Service Fabric tarafından uygulandığını unutmayın Service Fabric tarafından uygulanan dinleyicisi.
+Merhaba hizmet uygulaması hello hizmet noktalarda hello hizmet yaşam döngüsü--iş toodo varsa veya toocreate iletişim dinleyici nesnesi istiyorsa, her iki temel sınıfın sanal yöntemleri geçersiz kılabilir. Bu hizmet uygulaması bir iletişimi kullandıkça hello hizmet ICommunicationListener, yukarıdaki hello diyagramda gösterme kendi iletişim dinleyici nesnesi uygulayabilir rağmen hello iletişimi dinleyicisi Service Fabric tarafından uygulanır unutmayın Service Fabric tarafından uygulanan dinleyicisi.
 
-Bkz: [güvenilir hizmetine genel bakış](service-fabric-reliable-services-introduction.md) ve [güvenilir kullanım Gelişmiş Hizmet](service-fabric-reliable-services-advanced-usage.md) StatelessService ve StatelessServiceBase sınıflarını kullanarak Hizmetleri yazma özellikleri hakkında daha fazla bilgi için.
+Merhaba bkz [güvenilir hizmetine genel bakış](service-fabric-reliable-services-introduction.md) ve [güvenilir kullanım Gelişmiş Hizmet](service-fabric-reliable-services-advanced-usage.md) hello StatelessService ve StatelessServiceBase sınıflarını kullanarak Hizmetleri yazma hello özellikleri hakkında daha fazla bilgi için .
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+<!--Every topic should have next steps and links toohello next logical set of content tookeep hello customer engaged-->
 ## <a name="next-steps"></a>Sonraki adımlar
 Service Fabric hakkında daha fazla bilgi için bkz:
 

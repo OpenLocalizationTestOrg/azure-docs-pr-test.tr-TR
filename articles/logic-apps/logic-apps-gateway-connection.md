@@ -1,6 +1,6 @@
 ---
-title: "Azure mantıksal uygulamaları için şirket içi veri kaynaklarına erişim | Microsoft Docs"
-description: "Mantığı uygulamalardan şirket içi veri kaynaklarına erişebilmesi için şirket içi veri ağ geçidi kurun ayarlayın"
+title: "Şirket içi Azure Logic Apps için aaaAccess veri kaynakları | Microsoft Docs"
+description: "Merhaba şirket içi veri ağ geçidi mantığı uygulamalardan şirket içi veri kaynaklarına erişebilmesi için ayarlama"
 keywords: "Şirket içi veri aktarımı, şifreleme, veri kaynakları veri erişimi"
 services: logic-apps
 author: jeffhollan
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/13/2017
 ms.author: LADocs; dimazaid; estfan
-ms.openlocfilehash: 24793b83ca284fe9510fe21bc2d13b0589209d36
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 1d3deaac5a095316ce78e224dab0c08559bc2ff2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="access-data-sources-on-premises-from-logic-apps-with-the-on-premises-data-gateway"></a>Şirket içi şirket içi veri ağ geçidi ile mantığı uygulamalardan veri kaynaklarına erişim
+# <a name="access-data-sources-on-premises-from-logic-apps-with-hello-on-premises-data-gateway"></a>Şirket içi hello şirket içi veri ağ geçidi ile mantığı uygulamalardan veri kaynaklarına erişim
 
-Mantıksal uygulamalarınızı şirket içi veri kaynaklarına erişmek için ile desteklenen bağlayıcılar mantıksal uygulamaları kullanan şirket içi veri ağ geçidi ayarlayın. Ağ geçidi hızlı veri aktarımı ve logic apps ile şirket içi veri kaynakları arasındaki şifreleme sağlayan köprü gibi davranır. Ağ geçidi şifrelenmiş kanalda Azure Service Bus aracılığıyla şirket içi kaynaklardan veri aktarır. Ağ geçidi aracısından güvenli giden trafik olarak tüm trafiğin kaynaklandığı. Daha fazla bilgi edinmek [veri ağ geçidinin nasıl çalıştığını](logic-apps-gateway-install.md#gateway-cloud-service). 
+Şirket içi mantığı uygulamalarınızdan tooaccess veri kaynakları ile desteklenen bağlayıcılar mantıksal uygulamaları kullanan şirket içi veri ağ geçidi ayarlayın. Merhaba ağ geçidi hızlı veri aktarımı ve logic apps ile şirket içi veri kaynakları arasındaki şifreleme sağlayan köprü gibi davranır. Merhaba ağ geçidi şifrelenmiş kanalda hello Azure Service Bus aracılığıyla şirket içi kaynaklardan veri aktarır. Güvenli giden trafiği hello ağ geçidi aracısından olarak tüm trafiğin kaynaklandığı. Daha fazla bilgi edinmek [hello veri ağ geçidi nasıl çalıştığını](logic-apps-gateway-install.md#gateway-cloud-service). 
 
-Ağ geçidi, şirket içinde bu veri kaynaklarının bağlantılarını destekler:
+Merhaba ağ geçidi bağlantıları toothese veri kaynakları şirket içinde destekler:
 
 *   BizTalk Server 2016
 *   DB2  
@@ -41,9 +41,9 @@ Ağ geçidi, şirket içinde bu veri kaynaklarının bağlantılarını destekle
 *   SQL Server
 *   Teradata
 
-Bu adımları, şirket içi veri ağ geçidi kurun logic apps ile çalışacak biçimde ayarlamak gösterilmektedir. Desteklenen bağlayıcılar hakkında daha fazla bilgi için bkz: [Azure Logic Apps bağlayıcılarının](../connectors/apis-list.md). 
+Bu adımlar nasıl hello yukarı tooset veri ağ geçidi toowork logic apps ile şirket içi gösterir. Desteklenen bağlayıcılar hakkında daha fazla bilgi için bkz: [Azure Logic Apps bağlayıcılarının](../connectors/apis-list.md). 
 
-Ağ geçidi diğer hizmetlerle birlikte kullanma hakkında daha fazla bilgi için bu makalelere bakın:
+Nasıl toouse hello diğer hizmetler ile ağ geçidi hakkında daha fazla bilgi için bu makalelere bakın:
 
 *   [Microsoft Power BI şirket içi veri ağ geçidi](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
 *   [Azure Analysis Services veri ağ geçidi şirket içi](../analysis-services/analysis-services-gateway.md)
@@ -52,111 +52,111 @@ Ağ geçidi diğer hizmetlerle birlikte kullanma hakkında daha fazla bilgi içi
 
 ## <a name="requirements"></a>Gereksinimler
 
-* Önceden olmalıdır [veri ağ geçidi yerel bir bilgisayarda yüklü](logic-apps-gateway-install.md).
+* Önceden olmalıdır [hello veri ağ geçidi yerel bir bilgisayarda yüklü](logic-apps-gateway-install.md).
 
-* Azure portalında oturum açtığınızda, aynı iş veya Okul hesabı için kullanılan kullanmak zorunda [şirket içi veri ağ geçidi yükleme](logic-apps-gateway-install.md#requirements). Oturum açma hesabınızın Ayrıca ağ geçidi yükleme için Azure portalında bir ağ geçidi kaynak oluştururken kullanmak için bir Azure aboneliğine sahip olmalıdır.
+* Toohello Azure portalında oturum açtığınızda hello aynı iş veya Okul çok kullanılan hesap toouse sahip[hello şirket içi veri ağ geçidi yükleme](logic-apps-gateway-install.md#requirements). Ağ geçidi yüklemenize hello Azure portalında bir ağ geçidi kaynak oluşturduğunuzda, oturum açma hesabı ayrıca bir Azure aboneliği toouse sahip olmalıdır.
 
-* Ağ geçidi yüklemenizi zaten bir Azure ağ geçidi kaynağı tarafından istenemiyor. Ağ geçidi yüklemenizi yalnızca bir Azure ağ geçidi kaynağına ilişkilendirebilirsiniz. Yükleme için diğer kaynaklar kullanılamıyor, ağ geçidi kaynağı oluşturun, böylece talep olur.
+* Ağ geçidi yüklemenizi zaten bir Azure ağ geçidi kaynağı tarafından istenemiyor. Ağ geçidi yükleme tooonly bir Azure ağ geçidi kaynağınız ilişkilendirebilirsiniz. Böylece Hello yükleme için diğer kaynaklar kullanılamıyor hello ağ geçidi kaynağı oluşturmak talep olur.
 
-## <a name="set-up-the-data-gateway-connection"></a>Veri ağ geçidi bağlantısı kurma
+## <a name="set-up-hello-data-gateway-connection"></a>Merhaba veri ağ geçidi bağlantı kurma
 
-### <a name="1-install-the-on-premises-data-gateway"></a>1. Şirket içi veri ağ geçidi yükleme
+### <a name="1-install-hello-on-premises-data-gateway"></a>1. Merhaba şirket içi veri ağ geçidi yükleyin
 
-Henüz yapmadıysanız, izleyin [şirket içi veri ağ geçidi yüklemek için adımları](logic-apps-gateway-install.md). Diğer adımlarla devam etmeden önce veri ağ geçidi yerel bir bilgisayarda yüklü emin olun.
+Henüz yapmadıysanız, hello izleyin [adımları tooinstall hello şirket içi veri ağ geçidi](logic-apps-gateway-install.md). Merhaba ile devam etmeden önce diğer adımlar, yerel bir bilgisayarda hello veri ağ geçidi yüklü olduğundan emin olun.
 
 <a name="create-gateway-resource"></a>
-### <a name="2-create-an-azure-resource-for-the-on-premises-data-gateway"></a>2. Şirket içi veri ağ geçidi için bir Azure kaynağı oluşturma
+### <a name="2-create-an-azure-resource-for-hello-on-premises-data-gateway"></a>2. Merhaba şirket içi veri ağ geçidi için bir Azure kaynağı oluşturma
 
-Yerel bir bilgisayarda ağ geçidi'ni yükledikten sonra bir kaynak olarak Azure data gateway oluşturmanız gerekir. Bu adım, ağ geçidi kaynağı ayrıca Azure aboneliğiniz ile ilişkilendirir.
+Yerel bir bilgisayarda hello ağ geçidi yükledikten sonra bir kaynak olarak Azure data gateway oluşturmanız gerekir. Bu adım, ağ geçidi kaynağı ayrıca Azure aboneliğiniz ile ilişkilendirir.
 
-1. [Azure portalı](https://portal.azure.com "Azure portalı") oturumunu açın. Ağ geçidi yüklemek için kullanılan e-posta adresi okul veya aynı Azure iş emin olun.
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com "Azure portal"). Toouse hello aynı Azure iş veya Okul e-posta adresi tooinstall hello ağ geçidi kullanılan emin olun.
 
-2. Azure sol menüsünde, **yeni** > **Kurumsal tümleştirme** > **şirket içi veri ağ geçidi** aşağıda gösterildiği gibi:
+2. Merhaba sol menüsünde Azure, **yeni** > **Kurumsal tümleştirme** > **şirket içi veri ağ geçidi** aşağıda gösterildiği gibi:
 
    !["Şirket içi veri ağ geçidi" Bul](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
-3. Üzerinde **oluşturma bağlantı ağ geçidi** dikey penceresinde, veri ağ geçidi kaynağı oluşturmak için bu ayrıntıları sağlayın:
+3. Merhaba üzerinde **oluşturma bağlantı ağ geçidi** dikey penceresinde, bu ayrıntıları toocreate veri ağ geçidi kaynağı sağlar:
 
     * **Ad**: ağ geçidi kaynağı için bir ad girin. 
 
-    * **Abonelik**: ağ geçidi kaynağınız ile ilişkilendirmek için Azure aboneliğini seçin. 
-    Bu abonelik mantıksal uygulamanızı aynı abonelik olmalıdır.
+    * **Abonelik**: seçin, ağ geçidi kaynağı ile Azure aboneliği tooassociate hello. 
+    Bu abonelik olmalıdır hello mantıksal uygulamanızı aynı abonelik.
    
-      Varsayılan abonelik oturum açmak için kullandığınız Azure hesabı temel alır.
+      Merhaba varsayılan abonelik hello toosign içinde kullanılan Azure hesabı temel alır.
 
     * **Kaynak grubu**: bir kaynak grubu oluşturun veya varolan bir kaynak grubu, ağ geçidi kaynağı dağıtmak için seçin. 
     Kaynak grupları ilgili Azure varlıklar koleksiyonu olarak yönetmenize yardımcı olur.
 
-    * **Konum**: Azure kısıtlayan sırasında ağ geçidi bulut hizmeti için seçtiğiniz aynı bölgede bu konuma [ağ geçidi yükleme](logic-apps-gateway-install.md). 
+    * **Konum**: Azure kısıtlayan bu konumu toohello sırasında hello ağ geçidi bulut hizmeti için seçtiğiniz aynı bölgede [ağ geçidi yükleme](logic-apps-gateway-install.md). 
 
       > [!NOTE]
-      > Ağ geçidi kaynak konumu ağ geçidi bulut hizmeti konumu eşleştiğinden emin olun. Aksi halde, sonraki adımda seçebilmeniz için yüklü ağ geçitleri listesinde ağ geçidi yüklemenizi görünmeyebilir.
+      > Merhaba ağ geçidi kaynak konumu hello ağ geçidi bulut hizmeti konumu eşleştiğinden emin olun. Aksi takdirde, ağ geçidi yüklemenizi hello yüklü ağ geçitleri listesinde, tooselect hello sonraki adımda görünmeyebilir.
       > 
       > Farklı bölgelerde mantıksal uygulamanızı ve ağ geçidi kaynağı için kullanabilirsiniz.
 
-    * **Yükleme adı**: ağ geçidi yüklemenizi seçili değilse, daha önce yüklediğiniz ağ geçidi seçin. 
+    * **Yükleme adı**: ağ geçidi yüklemenizi seçili değilse, daha önce yüklediğiniz hello ağ geçidi seçin. 
 
-    Ağ geçidi kaynağı Azure panonuza eklemek için **panoya Sabitle**. 
+    tooadd hello ağ geçidi kaynak tooyour Azure Pano seçin **PIN toodashboard**. 
     İşiniz bittiğinde seçin **oluşturma**.
 
     Örneğin:
 
-    ![Şirket içi veri ağ geçidi oluşturmak için ayrıntıları belirtin](./media/logic-apps-gateway-connection/createblade.png)
+    ![Şirket içi data gateway ayrıntıları toocreate sağlayın](./media/logic-apps-gateway-connection/createblade.png)
 
-    Bulma veya ana menüden Azure sol, herhangi bir zamanda data gateway görüntülemek için Git **daha Hizmetleri** > **Kurumsal tümleştirme** > **şirket içi veri ağ geçidi**.
+    toofind veya görünümde herhangi bir zamanda data gateway hello ana Azure sol menüsünden Git çok **daha Hizmetleri** > **Kurumsal tümleştirme** > **şirket içi veri Ağ geçitleri**.
 
-    !["Daha fazla Hizmetleri", "Kurumsal tümleştirme", "şirket içi veri ağ geçidi" sayfasına gidin](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
+    ![Çok Git "Daha fazla Hizmetleri", "Kurumsal tümleştirme", "Şirket içi veri ağ geçidi"](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
 
 <a name="connect-logic-app-gateway"></a>
-### <a name="3-connect-your-logic-app-to-the-on-premises-data-gateway"></a>3. Şirket içi veri ağ geçidi mantıksal uygulamanızı Bağlan
+### <a name="3-connect-your-logic-app-toohello-on-premises-data-gateway"></a>3. Mantıksal uygulama toohello şirket içi data gateway Bağlan
 
-Veri ağ geçidi kaynağı oluşturulur ve Azure aboneliğiniz bu kaynakla ilişkili olduğundan, mantıksal uygulamanızı ve veri ağ geçidi arasında bir bağlantı oluşturun.
+Veri ağ geçidi kaynağı oluşturulur ve Azure aboneliğiniz bu kaynakla ilişkili göre logic app ve hello data gateway arasında bir bağlantı oluşturun.
 
 > [!NOTE]
-> Ağ geçidi bağlantı konumunuz mantıksal uygulamanızı ile aynı bölgede olması gerekir, ancak farklı bir bölgede bulunan bir veri ağ geçidi kullanabilirsiniz.
+> Ağ geçidi bağlantı konumunuz hello aynı bulunmalıdır bölgeye mantıksal uygulamanızı, ancak farklı bir bölgede mevcut bir veri ağ geçidi kullanabilirsiniz.
 
-1. Azure portalında oluşturun veya mantığı Uygulama Tasarımcısı'nda mantıksal uygulamanızı açın.
+1. Hello Azure portal, oluşturun veya mantığı Uygulama Tasarımcısı'nda mantıksal uygulamanızı açın.
 
 2. SQL Server gibi şirket içi bağlantıları destekleyen bir bağlayıcı ekleyin.
 
-3. Gösterilen sırada aşağıdaki seçin **Connect şirket içi veri ağ geçidi üzerinden**benzersiz bağlantı adı ve gerekli bilgileri sağlayın ve kullanmak istediğiniz veri ağ geçidi kaynağı seçin. İşiniz bittiğinde seçin **oluşturma**.
+3. Gösterilen hello sırasının seçin **Connect şirket içi veri ağ geçidi üzerinden**benzersiz bağlantı adı belirtin ve hello gerekli bilgileri ve hello veri ağ geçidi kaynağı toouse istediğinizi seçin. İşiniz bittiğinde seçin **oluşturma**.
 
    > [!TIP]
-   > Benzersiz bağlantı adı özellikle birden çok bağlantı oluşturduğunuzda bu bağlantıyı daha sonra kolayca belirlemenize yardımcı olur. Uygunsa, ayrıca, kullanıcı adı için tam etki alanı içerir. 
+   > Benzersiz bağlantı adı özellikle birden çok bağlantı oluşturduğunuzda bu bağlantıyı daha sonra kolayca belirlemenize yardımcı olur. Uygunsa, ayrıca Merhaba, kullanıcı adı için tam etki alanı içerir. 
 
    ![Mantıksal uygulama ve veri ağ geçidi arasında bağlantı oluşturma](./media/logic-apps-gateway-connection/blankconnection.png)
 
-Tebrikler, ağ geçidi bağlantınızı kullanmak mantığı uygulamanız için hazırdır.
+Tebrikler, ağ geçidi bağlantınızı, logic app toouse için hazırdır.
 
 ## <a name="edit-your-gateway-connection-settings"></a>Ağ geçidi bağlantı ayarlarını Düzenle
 
-Mantıksal uygulamanız için bir ağ geçidi bağlantısı oluşturduktan sonra daha sonra özel bağlantı ayarlarını güncelleştirmek isteyebilirsiniz.
+Mantıksal uygulamanız için bir ağ geçidi bağlantısı oluşturduktan sonra özel bağlantı toolater güncelleştirme hello ayarlarını isteyebilirsiniz.
 
-1. Ağ geçidi bağlantısı bulmak için:
+1. toofind hello ağ geçidi bağlantısı:
 
-   * Mantıksal uygulama dikey altında **geliştirme araçları**seçin **API bağlantıları**. 
+   * Merhaba mantığını uygulaması dikey penceresinde, altında **geliştirme araçları**seçin **API bağlantıları**. 
    
-     **API bağlantıları** bölmesinde Ağ Geçidi bağlantıları dahil olmak üzere mantıksal uygulamanızı ile ilişkili tüm API bağlantıları gösterir.
+     Merhaba **API bağlantıları** bölmesinde Ağ Geçidi bağlantıları dahil olmak üzere mantıksal uygulamanızı ile ilişkili tüm API bağlantıları gösterir.
 
-     ![Mantıksal uygulamanızı gidin, ""API bağlantıları seçin](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
+     ![Tooyour mantıksal uygulama gidin, ""API bağlantıları seçin](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
 
-   * Veya, ana Azure sol menüden, Git **daha Hizmetleri** > **Web ve mobil Hizmetler** > **API bağlantıları** tüm API bağlantıları için Azure aboneliğinizle ilişkili ağ geçidi bağlantıları dahil olmak üzere. 
+   * Veya hello ana Azure sol menüden, çok gidin **daha Hizmetleri** > **Web ve mobil Hizmetler** > **API bağlantıları** tüm API bağlantılarında Ağ Geçidi bağlantıları dahil olmak üzere, Azure aboneliğinizle ilişkilendirilmiş. 
 
-   * Veya, ana Azure sol menüde, Git **tüm kaynakları** tüm API bağlantıları için Azure aboneliğinizle ilişkili ağ geçidi bağlantıları dahil olmak üzere.
+   * Veya hello ana Azure sol menüde, çok gidin**tüm kaynakları** tüm API bağlantıları için Azure aboneliğinizle ilişkili ağ geçidi bağlantıları dahil olmak üzere.
 
-2. Görüntüleyin veya düzenleyin ve seçmek istediğiniz ağ geçidi bağlantısı seçin **Düzenle API bağlantı**.
+2. Tooview veya düzenlemek istediğiniz ve seçin hello ağ geçidi bağlantısı seçin **Düzenle API bağlantı**.
 
    > [!TIP]
-   > Yaptığınız güncelleştirmeler etkili değil olarak işaretlerse, [ağ geçidi Windows hizmeti durdurup](./logic-apps-gateway-install.md#restart-gateway).
+   > Yaptığınız güncelleştirmeler etkili değil olarak işaretlerse, [hello ağ geçidi Windows hizmetini durdurup yeniden başlatarak](./logic-apps-gateway-install.md#restart-gateway).
 
 <a name="change-delete-gateway-resource"></a>
 ## <a name="switch-or-delete-your-on-premises-data-gateway-resource"></a>Geçiş veya şirket içi veri ağ geçidi kaynağı silme
 
-Farklı ağ geçidi kaynağı oluşturmak, ağ geçidiniz farklı bir kaynakla ilişkilendirme veya ağ geçidi kaynağı kaldırmak için ağ geçidi kaynağına ağ geçidi yükleme etkilemeden silebilirsiniz. 
+toocreate farklı ağ geçidi kaynak ağ geçidiniz farklı bir kaynakla ilişkilendirme veya hello ağ geçidi kaynağı kaldırmak, hello ağ geçidi yükleme etkilemeden hello ağ geçidi kaynağı silebilirsiniz. 
 
-1. Ana Azure sol menüden, Git **tüm kaynakları**. 
+1. Merhaba ana Azure sol menüden, çok Git**tüm kaynakları**. 
 2. Bul ve veri ağ geçidi kaynağı seçin.
-3. Seçin **şirket içi veri ağ geçidi**ve kaynak araç çubuğunda seçin **silmek**.
+3. Seçin **şirket içi veri ağ geçidi**ve hello kaynak araç çubuğunda seçin **silmek**.
 
 <a name="faq"></a>
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular

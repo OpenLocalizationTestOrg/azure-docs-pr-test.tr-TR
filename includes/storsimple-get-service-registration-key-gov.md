@@ -1,19 +1,19 @@
 <!--author=SharS last changed: 9/17/15-->
 
 
-#### <a name="to-get-the-storsimple-service-registration-key"></a>StorSimple hizmet kayıt anahtarını almak için
-1. **StorSimple Yöneticisi hizmeti** sayfasında oluşturduğunuz hizmete tıklayın. Böylece **Hızlı Başlangıç** sayfasına gideceksiniz. (Hızlı başlangıç simgesine ![StorSimple Hızlı Başlangıç simgesi ](./media/storsimple-get-service-registration-key-gov/HCS_QuickStartIcon-include.png) tıklayarak her istediğinizde **Hızlı Başlangıç** sayfasına erişebilirsiniz.)
+#### <a name="tooget-hello-storsimple-service-registration-key"></a>tooget hello StorSimple hizmet kayıt anahtarı
+1. Merhaba üzerinde **StorSimple Yöneticisi hizmeti** sayfasında, oluşturduğunuz hello hizmete tıklayın. Bu toohello sürecek **Hızlı Başlangıç** sayfası. (Merhaba hızlı başlangıç simgesine tıklayabilirsiniz ![StorSimple hızlı başlangıç simgesi ](./media/storsimple-get-service-registration-key-gov/HCS_QuickStartIcon-include.png) tooaccess hello **Hızlı Başlangıç** herhangi bir zamanda sayfası.)
    
      ![StorSimple Hızlı Başlangıç sayfası](./media/storsimple-get-service-registration-key-gov/HCS_ServiceQuickStart-gov-include.png)
-2. **Hizmet kayıt anahtarını al**’a tıklayın. Sayfanın alt kısmındaki **Kayıt Anahtarı**’na da tıklayabilirsiniz. Anahtar alındığı sırada birkaç dakika beklemeniz gerekecektir. **Hizmet Kayıt Anahtarı** iletişim kutusu görüntülenir.
+2. **Hizmet kayıt anahtarını al**’a tıklayın. Tıklatarak **kayıt anahtarı** hello sayfanın hello sonundaki. Merhaba anahtar alındığı sırada birkaç dakika toowait gerekir. Merhaba **hizmet kayıt anahtarını** iletişim kutusu görüntülenir.
    
      ![Hizmet Kayıt Anahtarı iletişim kutusu](./media/storsimple-get-service-registration-key-gov/HCS_ServiceRegistrationKey-gov-include.png)
-3. Hizmet kayıt anahtarını bulun.
-4. Kopyala simgesine ![StorSimple Kopyala simgesi](./media/storsimple-get-service-registration-key-gov/HCS_CopyIcon-include.png) tıklayarak anahtarı kopyalayın ve daha sonra kullanmak üzere kaydedin.
-5. Onay simgesine ![StorSimple Onay simgesi](./media/storsimple-get-service-registration-key-gov/HCS_CheckIcon-include.png) tıklayarak bu iletişim kutusunu kapatır ve **Hızlı Başlangıç** sayfasına dönersiniz.
+3. Merhaba hizmet kayıt anahtarını bulun.
+4. Merhaba Kopyala simgesine ![StorSimple Kopyala simgesi](./media/storsimple-get-service-registration-key-gov/HCS_CopyIcon-include.png) toocopy anahtar hello ve daha sonra kullanmak üzere kaydedin.
+5. Merhaba onay simgesine ![StorSimple onay simgesi](./media/storsimple-get-service-registration-key-gov/HCS_CheckIcon-include.png) tooclose bu iletişim kutusu ve dönüş toohello **Hızlı Başlangıç** sayfası.
 
 > [!NOTE]
-> Hizmet kayıt anahtarı, StorSimple Yöneticisi hizmetiyle kaydedilmesi gereken tüm cihazları kaydetmek için kullanılır.
+> Merhaba hizmet kayıt anahtarı olan kullanılan tooregister tüm tooregister, StorSimple Yöneticisi hizmetiniz ile gereken cihazların Merhaba.
 > 
 > 
 

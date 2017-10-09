@@ -1,6 +1,6 @@
 ---
-title: "Nasıl kullanıcı hesaplarını Azure API Management'te yönetme | Microsoft Docs"
-description: "Oluşturma ve Azure API Management'te kullanıcıları davet öğrenin"
+title: "aaaHow kullanıcı hesapları Azure API Management'te yönetme | Microsoft Docs"
+description: "Bilgi nasıl toocreate veya davet kullanıcılar Azure API Management"
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,72 +14,72 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: d3a50f6d22cbf1797f580078bc0d2cc9cefe5064
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3966f4454e29621d7c615beefee352ec91b48b2e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Kullanıcı hesapları Azure API Management'te yönetme
-API Yönetimi'nde, geliştiriciler API Management kullanarak kullanıma API'leri kullanıcılardır. Bu kılavuz, API'ları ve ürünlerini kullanmak için için nasıl oluşturulacağını ve geliştiricilerin davet gösterir, API Management örneği ile kendileri için kullanılabilir hale. Kullanıcı hesaplarını program aracılığıyla yönetme hakkında daha fazla bilgi için bkz: [kullanıcı varlığı](https://msdn.microsoft.com/library/azure/dn776330.aspx) belgelerinde [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) başvuru.
+# <a name="how-toomanage-user-accounts-in-azure-api-management"></a>Azure API Management'te nasıl toomanage kullanıcı hesapları
+API Yönetimi'nde, geliştiricilerin hello API Management kullanarak kullanıma API'leri hello kullanıcılarının önerilir. Bu kılavuzu gösterir toohow toocreate ve davet geliştiriciler toouse hello API'leri ve ürünleri API Management örneğinizle kullanılabilir toothem olun. Merhaba programlı olarak kullanıcı hesaplarını yönetme hakkında daha fazla bilgi için bkz [kullanıcı varlığı](https://msdn.microsoft.com/library/azure/dn776330.aspx) hello belgelerinde [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) başvuru.
 
 ## <a name="create-developer"></a>Yeni bir geliştirici oluşturma
-Yeni bir geliştirici oluşturmak için tıklatın **yayımcı portalına** API Management hizmetiniz için Azure Portalı'nda. Bu sizi API Management yayımcı portalına götürür. Henüz bir API Management hizmeti örneği oluşturmadıysanız, [Azure API Management'i kullanmaya başlama][Get started with Azure API Management] öğreticisinde [API Management hizmet örneği oluşturma][Create an API Management service instance]'ya bakın.
+toocreate yeni bir geliştirici tıklatın **yayımcı portalına** API Management hizmetiniz için hello Azure Portalı'nda. Bu toohello API Management yayımcı portalına götürür. Henüz bir API Management hizmeti örneği oluşturmadıysanız, bkz: [bir API Management hizmet örneği oluşturma] [ Create an API Management service instance] hello içinde [Azure API Management ile çalışmaya başlama] [ Get started with Azure API Management] Öğreticisi.
 
 ![Yayımcı portalı][api-management-management-console]
 
-Tıklatın **kullanıcılar** gelen **API Management** sol menüsünde ve ardından **kullanıcı ekleme**.
+Tıklatın **kullanıcılar** hello gelen **API Management** sol hello ve ardından menüsünde **kullanıcı ekleme**.
 
 ![Geliştirici oluşturma][api-management-create-developer]
 
-Girin **e-posta**, **parola**, ve **adı** tıklatın ve yeni geliştirici için **kaydetmek**.
+Merhaba girin **e-posta**, **parola**, ve **adı** hello yeni Geliştirici ve tıklatın **kaydetmek**.
 
 ![Geliştirici oluşturma][api-management-add-new-user]
 
-Varsayılan olarak, yeni oluşturulan Geliştirici hesaplardır **etkin**ve ilişkili **geliştiriciler** grubu.
+Varsayılan olarak, yeni oluşturulan Geliştirici hesaplardır **etkin**ve hello ile ilişkili **geliştiriciler** grubu.
 
 ![Yeni Geliştirici][api-management-new-developer]
 
-Geliştirici hesaplarının bir **etkin** durumu, tüm abonelikleri sahiptirler API'leri erişmek için kullanılabilir. Yeni oluşturulan Geliştirici ek gruplarıyla ilişkilendirmek için bkz: [grupları geliştiricilerle ilişkilendirme][How to associate groups with developers].
+Geliştirici hesaplarının bir **etkin** durumu kullanılan tooaccess olabilir tüm abonelikleri sahiptirler hello API'leri. Ek gruplarla tooassociate yeni oluşturulan hello Geliştirici bkz [nasıl tooassociate geliştiricilere grupları][How tooassociate groups with developers].
 
 ## <a name="invite-developer"></a>Geliştirici davet et
-Bir geliştirici davet etmek için tıklatın **kullanıcılar** gelen **API Management** sol menüsünde ve ardından **davet kullanıcı**.
+tooinvite bir geliştirici tıklatın **kullanıcılar** hello gelen **API Management** sol hello ve ardından menüsünde **davet kullanıcı**.
 
 ![Geliştirici davet et][api-management-invite-developer]
 
-Geliştirici adını ve e-posta adresini girin ve tıklayın **davet**.
+Merhaba Geliştirici Hello adını ve e-posta adresini girin ve tıklayın **davet**.
 
 ![Geliştirici davet et][api-management-invite-developer-window]
 
-Bir onay iletisi görüntülenir, fakat daveti kabul ettikten sonra yeni davet edilen Geliştirici kadar listesinde görünmez. 
+Bir onay iletisi görüntülenir, ancak bunlar hello daveti kabul ettikten sonra yeni davet hello Geliştirici hello listesi kadar görünmez. 
 
 ![Onay davet et][api-management-invite-developer-confirmation]
 
-Bir geliştirici davet, geliştiriciler için bir e-posta gönderilir. Bu e-posta şablonu kullanılarak oluşturulan ve özelleştirilebilir. Daha fazla bilgi için bkz: [yapılandırma e-posta şablonlarını][Configure email templates].
+Bir geliştirici davet e-posta toohello Geliştirici gönderilir. Bu e-posta şablonu kullanılarak oluşturulan ve özelleştirilebilir. Daha fazla bilgi için bkz: [yapılandırma e-posta şablonlarını][Configure email templates].
 
-Daveti kabul edildikten sonra hesap etkin hale gelir.
+Merhaba daveti kabul edildikten sonra hello hesabı etkin hale gelir.
 
 ## <a name="block-developer"></a> Devre dışı bırakın veya bir geliştirici hesabını yeniden etkinleştirme
-Varsayılan olarak, yeni oluşturulan veya davet edilen Geliştirici hesaplardır **etkin**. Bir geliştirici hesabını devre dışı bırakmak için tıklatın **blok**. Engellenen Geliştirici hesabı yeniden etkinleştirmek için tıklatın **etkinleştirme**. Engellenen Geliştirici hesabını değil Geliştirici portalına erişmek veya tüm API'leri çağırın. Bir kullanıcı hesabını silmek için tıklatın **silmek**.
+Varsayılan olarak, yeni oluşturulan veya davet edilen Geliştirici hesaplardır **etkin**. toodeactivate bir geliştirici hesabını tıklatın **blok**. tooreactivate engellenen Geliştirici hesabını tıklatın **etkinleştirme**. Engellenen Geliştirici hesabını değil hello Geliştirici portalına erişmek veya tüm API'leri çağırın. bir kullanıcı hesabı toodelete tıklatın **silmek**.
 
 ![Blok Geliştirici][api-management-new-developer]
 
 ## <a name="reset-a-user-password"></a>Kullanıcı parolasını sıfırlama
-Bir kullanıcı hesabının parolasını sıfırlamak için hesap adına tıklayın.
+tooreset hello bir kullanıcı hesabının parolasını hello hello hesabının adını tıklatın.
 
 ![Parola sıfırlama][api-management-view-developer]
 
-Tıklatın **parola sıfırlama** kullanıcının parolasını sıfırlamak için bir bağlantı göndermek için.
+Tıklatın **parola sıfırlama** toosend bağlantı toohello kullanıcı tooreset parolalarını.
 
 ![Parola sıfırlama][api-management-reset-password]
 
-Program aracılığıyla kullanıcı hesapları ile çalışmak için bkz: [kullanıcı varlığı](https://msdn.microsoft.com/library/azure/dn776330.aspx) belgelerinde [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) başvuru. Belirli bir değere bir kullanıcı hesabı parolasını sıfırlamak için kullanabileceğiniz [kullanıcıyı güncelleştirmek](https://msdn.microsoft.com/library/azure/dn776330.aspx#UpdateUser) işlemi ve istenilen parola belirtin.
+bkz: hello kullanıcı hesapları ile tooprogrammatically çalışma [kullanıcı varlığı](https://msdn.microsoft.com/library/azure/dn776330.aspx) hello belgelerinde [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) başvuru. kullanıcı hesabı parolasını tooa belirli bir değer tooreset, kullanabileceğiniz hello [kullanıcıyı güncelleştirmek](https://msdn.microsoft.com/library/azure/dn776330.aspx#UpdateUser) işlemi ve hello istenen parolayı belirtin.
 
 ## <a name="pending-verification"></a>Bekleyen doğrulama
 ![Bekleyen doğrulama][api-management-pending-verification]
 
 ## <a name="next-steps"> </a>Sonraki adımlar
-Bir geliştirici hesabı oluşturulduktan sonra rolleriyle ilişkilendirmek ve ürünleri ve API'ler için abone olun. Daha fazla bilgi için bkz: [grupları oluşturma ve kullanma konusunda][How to create and use groups].
+Bir geliştirici hesabı oluşturulduktan sonra rolleriyle ilişkilendirmek ve tooproducts ve API'leri abone olun. Daha fazla bilgi için bkz: [nasıl toocreate ve kullanım grupları][How toocreate and use groups].
 
 [api-management-management-console]: ./media/api-management-howto-create-or-invite-developers/api-management-management-console.png
 [api-management-add-new-user]: ./media/api-management-howto-create-or-invite-developers/api-management-add-new-user.png
@@ -97,8 +97,8 @@ Bir geliştirici hesabı oluşturulduktan sonra rolleriyle ilişkilendirmek ve �
 [Invite a developer]: #invite-developer
 [Deactivate or reactivate a developer account]: #block-developer
 [Next steps]: #next-steps
-[How to create and use groups]: api-management-howto-create-groups.md
-[How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
+[How toocreate and use groups]: api-management-howto-create-groups.md
+[How tooassociate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
 
 [Get started with Azure API Management]: api-management-get-started.md
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance

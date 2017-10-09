@@ -1,6 +1,6 @@
 ---
-title: "URL tabanlı içerik yönlendirmeye genel bakış | Microsoft Belgeleri"
-description: "Bu sayfada, Application Gateway URL'si tabanlı içerik yönlendirme, UrlPathMap yapılandırması ve PathBasedRouting kuralı için genel bir bakış sunulmuştur."
+title: "aaaURL tabanlı içerik yönlendirmeye genel bakış | Microsoft Docs"
+description: "Bu sayfa uygulama ağ geçidi URL tabanlı hello içerik yönlendirme, UrlPathMap yapılandırma ve PathBasedRouting kuralı genel bakış sağlar."
 documentationcenter: na
 services: application-gateway
 author: georgewallace
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: gwallace
-ms.openlocfilehash: 75c3279d2d02cb3c6e949d191c88a1eb18b58a27
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 5094b42625baffeb395beace68db0d269e46080c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="url-path-based-routing-overview"></a>URL Yolu Tabanlı Yönlendirmeye genel bakış
 
-URL Yolu Tabanlı Yönlendirme, trafiği isteğin URL Yollarına göre arka uç sunucu havuzlarına yönlendirmenizi sağlar. 
+Temel URL yolu yönlendirme hello isteğinin URL yollarına bağlı, tooroute trafiği tooback uç sunucu havuzu sağlar. 
 
-Senaryolardan biri, farklı içerik türleri için istekleri farklı arka uç sunucu havuzlarına yönlendirmektir.
+Merhaba senaryolardan biri, farklı içerik türlerini toodifferent arka uç sunucu havuzu için tooroute isteği sayısıdır.
 
-Aşağıdaki örnekte, Application Gateway contoso.com için VideoServerPool, ImageServerPool ve DefaultServerPool gibi üç arka uç sunucu havuzlarından trafik sunmaktadır.
+Aşağıdaki örneğine hello, uygulama ağ geçidi trafiği üç arka uç sunucu havuzlarından contoso.com için örneğin görevi gören: VideoServerPool, ImageServerPool ve DefaultServerPool.
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-http://contoso.com/video* istekleri VideoServerPool'a ve http://contoso.com/images* istekleri ImageServerPool'a yönlendirilir. Yol desenlerinden hiçbiri eşleşmiyorsa DefaultServerPool seçilir.
+İstekleri için http://contoso.com/video * yönlendirilmiş tooVideoServerPool olduğunda ve http://contoso.com/images * yönlendirilmiş tooImageServerPool. Merhaba yolu desenleri hiçbiri eşleşiyorsa DefaultServerPool seçilir.
 
 > [!IMPORTANT]
-> Kurallar, portalda listelendikleri sırayla işlenir. Temel dinleyiciyi yapılandırmadan önce çok siteli dinleyicileri yapılandırmanız önerilir.  Bu işlem, trafiğin doğru arka uca yönlendirilmesini güvence altına alır. Temel dinleyici listede ilk sıradaysa ve gelen bir istekle eşleşiyorsa, o dinleyici tarafından işlenir.
+> Merhaba Portalı'nda listelenen hello sırada işlenir. Yüksek oranda önerilen tooconfigure çok siteli dinleyicileri ilk önceki tooconfiguring temel bir dinleyici olduğundan.  Bu, bu trafiği alır yönlendirilmiş toohello sağ geri bitiş sağlar. Temel dinleyici listede ilk sıradaysa ve gelen bir istekle eşleşiyorsa, o dinleyici tarafından işlenir.
 
 ## <a name="urlpathmap-configuration-element"></a>UrlPathMap yapılandırma öğesi
 
-UrlPathMap öğesi, arka uç sunucu havuzu eşlemeleri için Yol desenleri belirtmek üzere kullanılır. Aşağıdaki kod örneği, şablon dosyasındaki urlPathMap öğesinin kod parçacığıdır.
+Merhaba urlPathMap kullanılan toospecify yolu desenleri tooback uç sunucu havuzu eşlemeleri öğedir. Merhaba aşağıdaki kod örneğinde şablon dosyası urlPathMap öğesinden hello parçacığını ' dir.
 
 ```json
 "urlPathMaps": [{
@@ -69,13 +69,13 @@ UrlPathMap öğesi, arka uç sunucu havuzu eşlemeleri için Yol desenleri belir
 ```
 
 > [!NOTE]
-> PathPattern: Bu ayar, eşleştirilecek yol desenlerinin listesidir. Her biri / ile başlamalıdır. "*" işareti, yalnızca "/" işaretinin ardından en sona koyulabilir. Desen eşleştiricisine verilen dize, ilk ? veya # işaretinden sonra herhangi bir metin içermez ve burada, bu karakterlere izin verilmez.
+> PathPattern: Bu ayar, yol desenleri toomatch bir listesidir. Her ile başlamalıdır / ve hello yalnızca Yerleştir bir "*" Merhaba son izlemektir izin verilen bir "/." toohello yolu Eşleştirici sat hello dize herhangi bir metin hello sonra ilk içermiyor? veya # ve bu karakter burada izin verilmez.
 
 Daha fazla bilgi için [URL tabanlı yönlendirme kullanan bir Resource Manager şablonunu](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) inceleyebilirsiniz.
 
 ## <a name="pathbasedrouting-rule"></a>PathBasedRouting kuralı
 
-PathBasedRouting türündeki RequestRoutingRule, bir dinleyiciyi urlPathMap’e bağlamak için kullanılır. Bu dinleyici için alınan tüm istekler, urlPathMap’te belirtilen ilkeye göre yönlendirilir.
+RequestRoutingRule PathBasedRouting türünde kullanılan toobind bir dinleyici tooa urlPathMap ' dir. Bu dinleyici için alınan tüm istekler, urlPathMap’te belirtilen ilkeye göre yönlendirilir.
 PathBasedRouting kuralının kod parçacığı:
 
 ```json
@@ -100,4 +100,4 @@ PathBasedRouting kuralının kod parçacığı:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-URL tabanlı içerik yönlendirme hakkında bilgi edindikten sonra, URL yönlendirme kurallarıyla bir uygulama ağ geçidi oluşturmak için [URL tabanlı yönlendirme kullanan uygulama ağ geçidi oluşturma](application-gateway-create-url-route-portal.md) bölümüne gidin.
+URL tabanlı içerik yönlendirme hakkında daha fazla öğrenme sonra çok Git[URL tabanlı yönlendirme kullanarak bir uygulama ağ geçidi oluşturma](application-gateway-create-url-route-portal.md) toocreate URL yönlendirme kuralları ile uygulama ağ geçidi.

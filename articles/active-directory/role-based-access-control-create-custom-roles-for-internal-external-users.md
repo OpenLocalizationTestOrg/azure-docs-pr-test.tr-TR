@@ -1,5 +1,5 @@
 ---
-title: "Özel rol tabanlı erişim denetimi rolleri oluşturmak ve azure'da iç ve dış kullanıcılara atamak | Microsoft Docs"
+title: "aaaCreate özel rol tabanlı erişim denetimi rolleri ve toointernal ve azure'da dış kullanıcılar atayın | Microsoft Docs"
 description: "İç ve dış kullanıcılar için PowerShell ve CLI kullanılarak oluşturulan özel RBAC Rolleri Ata"
 services: active-directory
 documentationcenter: 
@@ -14,54 +14,54 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/10/2017
 ms.author: a-crradu
-ms.openlocfilehash: d687f94bebfd0b6c1ec0690da798be5409640954
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 26793a66d6ca2f771338eed87d10ce2b3b431841
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 ## <a name="intro-on-role-based-access-control"></a>Giriş rol tabanlı erişim denetimi hakkında
 
-Rol tabanlı erişim denetimi belirli kaynak kapsamları ortamlarında yöneten diğer kullanıcılara ayrıntılı rolleri atamak sahipleri, bir abonelik sağlayan bir Azure portal yalnızca özelliğidir.
+Rol tabanlı erişim denetimi belirli kaynak kapsamları ortamlarında yönetebilen tooassign ayrıntılı rolleri tooother kullanıcıların bir abonelik hello sahipleri vererek bir Azure portal yalnızca özelliğidir.
 
-Dış ortak çalışanları, satıcılar veya ortamınızdaki belirli kaynaklara ancak mutlaka tüm altyapının veya herhangi bir erişim gereken freelancers ile çalışma RBAC büyük kuruluşlarda ve SMB'ler için daha iyi güvenlik yönetimi sağlar Faturalama ilgili kapsamlar. Bir Azure aboneliğine sahip esnekliğini yönetici hesabı (Hizmet Yöneticisi rolü bir abonelik düzeyinde) tarafından yönetilen ve birden çok kullanıcı aynı abonelik altında ancak tüm yönetim haklarına sahip olmayan çalışmak için davet edildi RBAC sağlar . Bir yönetim ve fatura perspektifi, RBAC Özelliği Azure çeşitli senaryolarda kullanmak için saat ve yönetim verimli bir seçenek kanıtlar.
+Dış ortak çalışanları, satıcılar veya ortamınızda ancak mutlaka toohello tüm altyapının veya herhangi bir toospecific kaynaklara erişim freelancers ile çalışma RBAC büyük kuruluşlarda ve SMB'ler için daha iyi güvenlik yönetimi sağlar Faturalama ilgili kapsamlar. RBAC hello yönetici hesabı (Hizmet Yöneticisi rolü bir abonelik düzeyinde) tarafından yönetilen bir Azure aboneliğine sahip hello esnekliği sağlar ve sahip birden çok kullanıcıları davet toowork altında hello aynı aboneliği olmadan herhangi Yönetim Bu hakları. Yönetim ve fatura perspektifi hello RBAC Özelliği Azure çeşitli senaryolarda kullanmak için saat ve yönetim verimli bir seçenek toobe kanıtlar.
 
 ## <a name="prerequisites"></a>Ön koşullar
-RBAC kullanarak Azure ortamında gerektirir:
+RBAC hello Azure ortamı kullanmanız gerekir:
 
-* Azure aboneliği kullanıcıya (abonelik rolü) sahibi olarak atanmış bir tek başına sahip
-* Azure aboneliğinin sahibi rolüne sahip
-* Erişimi [Azure portalı](https://portal.azure.com)
-* Kullanıcı abonelik için kaydedilmiş aşağıdaki kaynak sağlayıcıları bulunduğundan emin olun: **Microsoft.Authorization**. Kaynak sağlayıcıları kaydetme hakkında daha fazla bilgi için bkz: [Resource Manager sağlayıcıları, bölgeleri, API sürümleri ve şemaları](/azure-resource-manager/resource-manager-supported-services.md).
+* Tek başına sahip Azure aboneliği toohello kullanıcı (abonelik rolü) sahibi olarak atanmış.
+* Merhaba sahibi hello Azure aboneliği rolünüz
+* Erişim toohello sahip [Azure portalı](https://portal.azure.com)
+* Kaynak sağlayıcıları aşağıdaki toohave hello hello kullanıcı abonelik için kayıtlı olduğundan emin olun: **Microsoft.Authorization**. Nasıl tooregister hello kaynak sağlayıcıları ile ilgili daha fazla bilgi için bkz: [Resource Manager sağlayıcıları, bölgeleri, API sürümleri ve şemaları](/azure-resource-manager/resource-manager-supported-services.md).
 
 > [!NOTE]
-> Office 365 aboneliği veya Azure Active Directory lisansları (örneğin: Azure Active Directory'ye erişim) portal yok kalitesi RBAC kullanarak O365 sağlandı.
+> Office 365 aboneliği veya Azure Active Directory lisansları (örneğin: tooAzure Active Directory erişimi) portal yok kalitesi RBAC kullanarak hello O365 sağlandı.
 
 ## <a name="how-can-rbac-be-used"></a>RBAC nasıl kullanılabileceğini
-RBAC, Azure üç farklı kapsamlar adresindeki uygulanabilir. En düşük bir üst kapsamdan bunlar şu şekildedir:
+RBAC, Azure üç farklı kapsamlar adresindeki uygulanabilir. Merhaba yüksek kapsam toohello düşük bir, bunlar şu şekildedir:
 
 * Abonelik (yüksek)
 * Kaynak grubu
-* Kaynak kapsamı (tek başına bir Azure kaynak kapsam hedeflenen izinleri sunumu düşük erişim düzeyi)
+* Kaynak kapsamı (tooan tek başına bir Azure kaynak kapsam hedeflenen izinleri sunumu hello düşük erişim düzeyi)
 
-## <a name="assign-rbac-roles-at-the-subscription-scope"></a>Abonelik kapsamında RBAC Rolleri Ata
+## <a name="assign-rbac-roles-at-hello-subscription-scope"></a>Merhaba abonelik kapsamında RBAC Rolleri Ata
 RBAC kullanılan (ancak bunlarla sınırlı olmamak kaydıyla olduğunda) iki ortak örnekler vardır:
 
-* Dış kullanıcılar kuruluşlardan sahip bazı kaynaklar ya da tüm abonelik yönetmek için (yönetici kullanıcının Azure Active Directory Kiracı parçası değil) davet
-* Kullanıcılar (bunlar parçası olan kullanıcının Azure Active Directory Kiracı) kuruluş ancak farklı ekipleri ve ayrıntılı erişim tüm abonelik ya da belirli kaynak grupları veya kaynak kapsamlarda gereken grupları parçası içinde ile çalışma ortamı
+* Dış kullanıcılar hello kuruluşların (Merhaba yönetici kullanıcının Azure Active Directory Kiracı parçası değil) sahip toomanage belirli kaynaklar veya hello tüm abonelik davet
+* Merhaba kuruluş (bunlar hello kullanıcının Azure Active Directory Kiracı parçası olan), ancak farklı ekipler veya ayrıntılı erişmeniz gruplarını parçası içindeki kullanıcılarla ya da toohello çalışma, tüm abonelik veya toocertain kaynak grupları veya kaynak hello kapsamları ortamı
 
 ## <a name="grant-access-at-a-subscription-level-for-a-user-outside-of-azure-active-directory"></a>Azure Active Directory dışındaki bir kullanıcı için erişim izni ver abonelik düzeyinde
-RBAC rolleri olanağı verilir yalnızca **sahipleri** aboneliği, bu nedenle yönetici kullanıcı, önceden atanmış bu rolü veya Azure aboneliği oluşturduğu bir kullanıcı adıyla oturum açmış olmanız gerekir.
+RBAC rolleri olanağı verilir yalnızca **sahipleri** hello aboneliği, bu nedenle hello yönetici kullanıcı, önceden atanmış bu rolü veya hello Azure aboneliği oluşturduğu bir kullanıcı adıyla oturum açmış olmanız gerekir.
 
-Oturum Yöneticisi olarak açma sonra Azure portalından "Abonelikleri" ve seçtiğiniz istenen bir seçin.
-![Azure portalında abonelik dikey penceresinde](./media/role-based-access-control-create-custom-roles-for-internal-external-users/0.png) yönetici kullanıcı Azure aboneliği satın aldıysa varsayılan olarak, kullanıcı olarak görünecek **Hesap Yöneticisi**, bu abonelik rol bırakılıyor. Azure aboneliği rolleri hakkında daha fazla bilgi için bkz: [abonelik ya da hizmetleri yönetmek ekleme veya değiştirme Azure yönetici rolleri](/billing/billing-add-change-azure-subscription-administrator.md).
+Hello Azure portal sonra oturum açma yönetici, seçin "Abonelikleri" ve seçtiğiniz hello bir istenen.
+![Azure portalında abonelik dikey penceresinde](./media/role-based-access-control-create-custom-roles-for-internal-external-users/0.png) hello yönetici kullanıcı hello Azure aboneliği satın aldıysa varsayılan olarak, hello kullanıcı olarak görüntülenecek **Hesap Yöneticisi**, bu hello abonelik rol bırakılıyor. Hello Azure aboneliği rolleri hakkında daha fazla bilgi için bkz: [hello abonelik ya da hizmetleri yönetmek ekleme veya değiştirme Azure yönetici rolleri](/billing/billing-add-change-azure-subscription-administrator.md).
 
-Bu örnekte, kullanıcı "alflanigan@outlook.com" olan **sahibi** "ücretsiz deneme sürümü" AAD abonelikte Kiracı "varsayılan Kiracı Azure". Bu kullanıcı ilk Microsoft Account "Outlook" Azure aboneliği oluşturan olduğundan (Microsoft Account Outlook, Canlı vb. =) bu Kiracı eklenen diğer tüm kullanıcılar için varsayılan etki alanı adı olacaktır **"@alflaniganuoutlook.onmicrosoft.com"**. Tasarım gereği, yeni etki alanının sözdizimi Kiracı oluşturan kullanıcının kullanıcı adı ve etki alanı adını bir araya getirilmesi ve uzantı ekleyerek biçimlendirildiğinden **". onmicrosoft.com"**.
-Ayrıca, kullanıcıların oturum Kiracı içinde bir özel etki alanı adıyla ekleme ve yeni bir kiracı için doğruladıktan sonra açma. Azure Active Directory kiracısı bir özel etki alanı adını doğrulama hakkında daha fazla ayrıntı için bkz: [bir özel etki alanı adı dizininize eklemek](/active-directory/active-directory-add-domain).
+Bu örnekte, kullanıcı hello "alflanigan@outlook.com" Merhaba olan **sahibi** "Ücretsiz deneme" hello hello AAD abonelikte Kiracı "varsayılan Kiracı Azure". Bu kullanıcı hello Azure aboneliği hello ile Merhaba oluşturan olduğundan Microsoft Account "Outlook" ilk (Microsoft Account Outlook, Canlı vb. =) bu Kiracı eklenen diğer tüm kullanıcılar için hello varsayılan etki alanı adı olacaktır **"@alflaniganuoutlook.onmicrosoft.com"**. Tasarım gereği, birlikte hello Kiracı ve ekleme hello uzantısı oluşturan hello kullanıcının hello kullanıcı adı ve etki alanı adı koyarak hello sözdizimi hello yeni etki alanının biçimlendirildiğinden **". onmicrosoft.com"**.
+Ayrıca, kullanıcıların oturum hello Kiracı içinde bir özel etki alanı adıyla ekleme ve hello yeni Kiracı için doğruladıktan sonra açma. Tooverify bir Azure Active Directory Kiracı özel etki alanı adının nasıl görürüm hakkında daha fazla ayrıntı için [bir özel etki alanı adı tooyour dizin eklemek](/active-directory/active-directory-add-domain).
 
-Bu örnekte, yalnızca etki alanı adı olan kullanıcılar "Varsayılan Kiracı Azure" dizinini içeren "@alflanigan.onmicrosoft.com".
+Bu örnekte, yalnızca hello etki alanı adına sahip kullanıcılar hello "varsayılan Kiracı Azure" dizinini içeren "@alflanigan.onmicrosoft.com".
 
-Abonelik seçtikten sonra yönetici kullanıcı tıklatmalısınız **erişim denetimi (IAM)** ve ardından **yeni rol ekleme**.
+Merhaba abonelik seçtikten sonra hello yönetici kullanıcı tıklatmalısınız **erişim denetimi (IAM)** ve ardından **yeni rol ekleme**.
 
 
 
@@ -75,15 +75,15 @@ Abonelik seçtikten sonra yönetici kullanıcı tıklatmalısınız **erişim de
 
 ![erişim denetimi IAM Özelliği Azure portalında yeni kullanıcı Ekle](./media/role-based-access-control-create-custom-roles-for-internal-external-users/2.png)
 
-Sonraki adım atanacak rol ve kullanıcı kim RBAC rolü atandı seçmektir. İçinde **rol** açılır menüsünde Yönetici kullanıcı Azure'da kullanılabilen yalnızca yerleşik RBAC rolleri görür. Her rol ve bunların atanabilir kapsamların açıklamalarını ayrıntılı için bkz: [Azure rol tabanlı erişim denetimi için yerleşik roller](/active-directory/role-based-access-built-in-roles.md).
+Merhaba sonraki atanan tooselect hello rol toobe ve hello RBAC rolü atandı hello kullanıcıyı adımdır. Merhaba, **rol** açılır menü hello yönetici kullanıcı Azure'da kullanılabilen yalnızca hello yerleşik RBAC rolleri görür. Her rol ve bunların atanabilir kapsamların açıklamalarını ayrıntılı için bkz: [Azure rol tabanlı erişim denetimi için yerleşik roller](/active-directory/role-based-access-built-in-roles.md).
 
-Yönetici kullanıcı, ardından dış kullanıcı e-posta adresini eklemesi gerekir. Varolan Kiracı göstermemeyi dış kullanıcı için beklenen davranıştır bakın. Dış kullanıcı davet sonra kendisinin altında görünür olacak **abonelikleri > erişim denetimi (IAM)** hangi aboneliği kapsamında bir RBAC rolü atanmış olan tüm geçerli kullanıcı ile.
-
-
+Merhaba yönetici kullanıcı ardından hello dış kullanıcı tooadd hello e-posta adresi gerekiyor. Merhaba hello dış kullanıcı toonot görünecektir Kiracı varolan hello için davranış bekleniyordu. Merhaba dış kullanıcı davet sonra kendisinin altında görünür olacak **abonelikleri > erişim denetimi (IAM)** hello abonelik kapsamını bir RBAC rolü atanmış olan tüm hello geçerli kullanıcılar ile.
 
 
 
-![Yeni RBAC rolü izinleri ekleyin](./media/role-based-access-control-create-custom-roles-for-internal-external-users/3.png)
+
+
+![izinleri toonew RBAC rolü Ekle](./media/role-based-access-control-create-custom-roles-for-internal-external-users/3.png)
 
 
 
@@ -91,10 +91,10 @@ Yönetici kullanıcı, ardından dış kullanıcı e-posta adresini eklemesi ger
 
 ![Abonelik düzeyinde RBAC rollerinin listesi](./media/role-based-access-control-create-custom-roles-for-internal-external-users/4.png)
 
-Kullanıcı "chessercarlton@gmail.com" olması için davet bir **sahibi** "Ücretsiz deneme" aboneliği için. Daveti gönderdikten sonra dış kullanıcı etkinleştirme bağlantısı ile bir e-posta onayı alacaksınız.
+Merhaba kullanıcı "chessercarlton@gmail.com" davet edilen toobe bırakıldı bir **sahibi** hello "Ücretsiz deneme" aboneliği için. Hello davet gönderdikten sonra hello dış kullanıcı etkinleştirme bağlantısı ile bir e-posta onayı alacaksınız.
 ![e-posta daveti RBAC rolü için](./media/role-based-access-control-create-custom-roles-for-internal-external-users/5.png)
 
-Kuruluş dış olmasının, yeni kullanıcı varolan öznitelikleri "Varsayılan Kiracı Azure" dizininde yok. Dış kullanıcı izin verdiği sonra bunlar oluşturulacak kendisine bir role atanmış olan aboneliği ile ilişkili olan dizin kaydedilecek.
+Dış toohello kuruluş olmasının, hello yeni kullanıcı varolan öznitelikleri hello "varsayılan Kiracı Azure" dizininde yok. Merhaba dış kullanıcı onayı toobe kendisine bir role atanan hello aboneliği ile ilişkili olan hello dizinde kayıtlı verdiği sonra bunlar oluşturulur.
 
 
 
@@ -102,7 +102,7 @@ Kuruluş dış olmasının, yeni kullanıcı varolan öznitelikleri "Varsayılan
 
 ![RBAC rolü için e-posta davet iletisi](./media/role-based-access-control-create-custom-roles-for-internal-external-users/6.png)
 
-Şu andan itibaren dış kullanıcı olarak Azure Active Directory Kiracı ve bu dış kullanıcı gösterir, hem Azure portalında hem de klasik Portalı'nda görüntülenebilir.
+Merhaba dış kullanıcı hello Azure Active Directory Kiracı şu andan itibaren dış kullanıcı olarak gösterilir ve bu hello Azure portalına hem hello Klasik Portalı'nda görüntülenebilir.
 
 
 
@@ -116,47 +116,47 @@ Kuruluş dış olmasının, yeni kullanıcı varolan öznitelikleri "Varsayılan
 
 ![Kullanıcılar dikey azure active directory Klasik Azure portalı](./media/role-based-access-control-create-custom-roles-for-internal-external-users/8.png)
 
-İçinde **kullanıcılar** dış kullanıcılar tarafından tanımasını her iki portalları görünümünde:
+Merhaba, **kullanıcılar** hem portalları hello dış kullanıcılar görünümünde tarafından tanımasını:
 
-* Azure portalında farklı simge türü
-* Klasik Portalı'nda farklı kaynak belirleme noktası
+* hello Azure portal Hello farklı simge türü
+* başlangıç noktası hello Klasik Portalı'ndaki kaynak Hizmeti'nden farklı
 
-Ancak, verme **sahibi** veya **katkıda bulunan** bir dış kullanıcı erişimi **abonelik** kapsamı, yönetici kullanıcının dizinine erişimi sürece izin vermiyor **Genel yönetici** verir. Kullanıcı proprieties içinde **kullanıcı türü** iki ortak parametreleri olan **üye** ve **Konuk** tanımlanabilir. Konuk bir dış kaynaktan dizine davet bir kullanıcı olsa da dizinde kayıtlı bir kullanıcı bir üyesidir. Daha fazla bilgi için bkz: [nasıl Azure Active Directory yöneticileri ekleyin B2B işbirliği kullanıcılar](/active-directory/active-directory-b2b-admin-add-users).
+Ancak, verme **sahibi** veya **katkıda bulunan** hello kullanıcıya erişim tooan dış **abonelik** kapsam, hello erişim toohello yönetici kullanıcının dizin izin vermiyor sürece hello **genel yönetici** verir. Merhaba kullanıcı proprieties içinde hello **kullanıcı türü** iki ortak parametreleri olan **üye** ve **Konuk** tanımlanabilir. Konuk kullanıcı davet toohello directory bir dış kaynaktan olsa da, hello dizinde kayıtlı bir kullanıcı bir üyesidir. Daha fazla bilgi için bkz: [nasıl Azure Active Directory yöneticileri ekleyin B2B işbirliği kullanıcılar](/active-directory/active-directory-b2b-admin-add-users).
 
 > [!NOTE]
-> Portalda kimlik bilgilerini girdikten sonra emin olun, dış kullanıcı oturum için açmak için doğru dizin seçer. Aynı kullanıcı birden fazla dizine erişiminiz ve üst taraftaki Azure portalında kullanıcı tıklayarak bunları birini seçin ve ardından açılır listeden uygun dizini seçin.
+> Merhaba Portalı'nda Hello kimlik bilgilerini girdikten sonra hello dış kullanıcı hello doğru dizinde toosign-için seçtiği emin olun. Merhaba aynı kullanıcı erişim toomultiple dizinler sahiptir ve ya da bunlardan birini üst sağ taraftaki hello Azure portal hello hello kullanıcı tıklayarak seçebilir ve ardından hello uygun dizin hello açılır listeden seçin.
 
-Dizinde Konuk olmasının, çalışırken dış kullanıcı Azure aboneliğine yönelik tüm kaynakları yönetebilir, ancak dizinine erişilemiyor.
-
-
+Merhaba dizinde Konuk olmasının, çalışırken hello dış kullanıcı hello Azure aboneliği için tüm kaynakları yönetebilir, ancak hello dizinine erişilemiyor.
 
 
 
-![Azure active Directory'yi Azure portalına sınırlı erişim](./media/role-based-access-control-create-custom-roles-for-internal-external-users/9.png)
 
-Azure Active Directory ve Azure aboneliği bir üst-alt ilişkisi gibi diğer Azure kaynaklarına sahip (örneğin: sanal makineler, sanal ağlar, web uygulamaları, depolama vb.) ile Azure aboneliğiniz yok. Tüm ikinci oluşturulur, yönetilen ve bir Azure dizinine erişimi yönetmek için bir Azure aboneliği kullanılırken bir Azure aboneliği altında faturalandırılır. Daha fazla ayrıntı için bkz: [nasıl bir Azure aboneliğine Azure AD ile ilgili](/active-directory/active-directory-how-subscriptions-associated-directory).
 
-Tüm rollerden yerleşik RBAC, **sahibi** ve **katkıda bulunan** katılımcı oluşturun ve yeni RBAC rollerini silme olmasına, fark ortamdaki tüm kaynaklar için tam yönetim erişimi sağlar . Diğer yerleşik roller ister **sanal makine Katılımcısı** yalnızca bağımsız olarak, adıyla belirtilen kaynaklarına tam yönetim erişimi teklif **kaynak grubu** içine oluşturulan.
+![kısıtlı tooazure active Directory'yi Azure portalına erişim](./media/role-based-access-control-create-custom-roles-for-internal-external-users/9.png)
 
-Yerleşik RBAC rolü atama **sanal makine Katılımcısı** kullanıcı rolü atanmış bir abonelik düzeyinde anlamına gelir:
+Azure Active Directory ve Azure aboneliği bir üst-alt ilişkisi gibi diğer Azure kaynaklarına sahip (örneğin: sanal makineler, sanal ağlar, web uygulamaları, depolama vb.) ile Azure aboneliğiniz yok. Tüm hello ikinci oluşturulur, yönetilen ve bir Azure aboneliği kullanılan toomanage hello erişim tooan Azure directory olsa da bir Azure aboneliği altında faturalandırılır. Daha fazla ayrıntı için bkz: [nasıl bir Azure aboneliği olan ilgili tooAzure AD](/active-directory/active-directory-how-subscriptions-associated-directory).
 
-* Tüm sanal makineleri bakılmaksızın kendi dağıtım tarihi ve parçası olan kaynak gruplarını görüntüleyebilirsiniz
-* Abonelikteki sanal makinelerin tam yönetim erişimi olan
-* Başka bir kaynak türleri abonelikte görüntüleyemezsiniz
+Tüm rollerden hello yerleşik RBAC, **sahibi** ve **katkıda bulunan** tooall kaynaklarında hello ortamı, katılımcı oluşturulamıyor hello fark olan ve yeni Sil tam yönetim erişimi sağlar RBAC rolleri. Merhaba diğer yerleşik roller ister **sanal makine Katılımcısı** tam yönetim erişimi yalnızca hello bakılmaksızın hello adıyla belirtilen toohello kaynakları sunan **kaynak grubu** bunlar oluşturuluyor .
+
+Atama hello yerleşik RBAC rolü **sanal makine Katılımcısı** abonelik düzeyinde o hello kullanıcıya atanan hello rol anlamına gelir:
+
+* Tüm sanal makineleri bakılmaksızın parçası olan kendi dağıtım tarihi ve hello kaynak grupları görüntüleyebilirsiniz
+* Tam yönetim erişimi toohello sanal makineye hello abonelikte sahiptir
+* Başka bir kaynak türleri hello abonelikte görüntüleyemezsiniz
 * Fatura perspektifi değişiklikler çalıştırılamıyor
 
 > [!NOTE]
-> RBAC, Azure portal yalnızca özelliği olan Klasik portal erişim izni vermez.
+> RBAC, Azure portal yalnızca özelliği olan erişim toohello Klasik portal izni vermez.
 
-## <a name="assign-a-built-in-rbac-role-to-an-external-user"></a>Bir dış kullanıcı için bir yerleşik RBAC rolü atayın
-Bu test, dış kullanıcı farklı bir senaryo için "alflanigan@gmail.com" olarak eklenen bir **sanal makine Katılımcısı**.
+## <a name="assign-a-built-in-rbac-role-tooan-external-user"></a>Yerleşik RBAC rolü tooan dış kullanıcı atama
+Bu test farklı bir senaryo için dış kullanıcı hello "alflanigan@gmail.com" olarak eklenen bir **sanal makine Katılımcısı**.
 
 
 
 
 ![sanal makine katkıda bulunan yerleşik rolü](./media/role-based-access-control-create-custom-roles-for-internal-external-users/11.png)
 
-Normal yerleşik bu rol ile dış bu kullanıcı için bakın ve yalnızca sanal makineler ve bitişik kaynak yöneticisi yalnızca kaynaklarını dağıtırken gereken yönetmek için bir davranıştır. Tasarım gereği, kısıtlı bu rolleri yalnızca Azure portalında oluşturulan karşılık düşen kaynaklarına erişimi sunmak, ne olursa olsun bazı hala Klasik portalda dağıtılabilir (örneğin: sanal makineler).
+Bu yerleşik rolü bu dış kullanıcı için normal davranışı Hello toosee olduğu ve yalnızca sanal makineler ve bitişik kaynak yöneticisi yalnızca kaynaklarını dağıtırken gereken yönetin. Tasarım gereği, kısıtlı bu rolleri erişim hello Azure portalında oluşturulan yalnızca tootheir karşılık düşen kaynakları sunar, ne olursa olsun bazı hala hello Klasik Portalı'nda da dağıtılabilir (örneğin: sanal makineler).
 
 
 
@@ -164,16 +164,16 @@ Normal yerleşik bu rol ile dış bu kullanıcı için bakın ve yalnızca sanal
 
 ![azure portalında sanal makine Katılımcısı rolüne genel bakış](./media/role-based-access-control-create-custom-roles-for-internal-external-users/12.png)
 
-## <a name="grant-access-at-a-subscription-level-for-a-user-in-the-same-directory"></a>Aynı dizinde bir kullanıcı için erişim izni ver abonelik düzeyinde
-İşlem akışı, bir dış kullanıcı ekleme ile aynıdır, hem kullanıcı yanı sıra RBAC rolü verme yönetici açısından rolüne erişim verilmeden. Burada oturum açtıktan sonra abonelik içindeki tüm kaynak kapsamları panosunda kullanılabilir olacak şekilde davet edilen kullanıcı e-posta Davetleri almaz farktır.
+## <a name="grant-access-at-a-subscription-level-for-a-user-in-hello-same-directory"></a>GRANT erişim hello bir kullanıcı için bir abonelik düzeyinde aynı dizin
+Merhaba işlem akışı aynı tooadding hem erişim toohello rolü verilmeden hello kullanıcı yanı sıra hello Yöneticisi perspektif izni veriliyor hello RBAC rolü bir dış kullanıcı olur. Merhaba burada oturum açtıktan sonra hello abonelik içindeki tüm hello kaynak kapsamları hello panosunda kullanılabilir olacak şekilde bu davet hello kullanıcının e-posta Davetleri almaz farktır.
 
-## <a name="assign-rbac-roles-at-the-resource-group-scope"></a>Kaynak grubu kapsamındaki RBAC Rolleri Ata
-Bir RBAC rolü atama bir **kaynak grubu** kapsama sahip abonelik düzeyinde, her iki tür kullanıcı - harici veya dahili (aynı dizinde parçası) için rol atama için benzer bir işlem. RBAC rolü atanmış kullanıcılar olduğu kaynak grubu, erişimden atanmış yalnızca ortamlarında görmek için **kaynak grupları** Azure portalında simgesi.
+## <a name="assign-rbac-roles-at-hello-resource-group-scope"></a>Merhaba Kaynak Grup kapsamı RBAC rollerini atama
+Bir RBAC rolü atama bir **kaynak grubu** kapsamı hello abonelik düzeyinde, her iki tür kullanıcı - harici veya dahili hello rol atama için benzer bir işlem var (Merhaba parçası aynı dizinde). Merhaba hello RBAC rolü atanmış kullanıcılar olan kullanıcıların, ortamlarında toosee hello kaynak grubu, erişim hello atanmış yalnızca **kaynak grupları** hello Azure Portalı'ndaki simgesini.
 
-## <a name="assign-rbac-roles-at-the-resource-scope"></a>Kaynak kapsamındaki RBAC Rolleri Ata
-Bir kaynak kapsamda Azure RBAC rolü atama abonelik düzeyinde ya da aynı iş akışı içinde her iki senaryoları için aşağıdaki kaynak grubu düzeyinde rol atama için benzer bir işlem var. RBAC rolü atanmış kullanıcılar yalnızca için ya da erişim, atanmış öğeleri yeniden görebilir **tüm kaynakları** sekmesini veya doğrudan kendi Pano.
+## <a name="assign-rbac-roles-at-hello-resource-scope"></a>Merhaba kaynak kapsamda RBAC Rolleri Ata
+Bir kaynak kapsamda Azure RBAC rolü atama hello rol hello abonelik düzeyinde veya hello kaynak grubu düzeyinde atamak için özdeş bir işlemi varsa, aşağıdaki hello aynı her iki senaryo için iş akışı. Merhaba RBAC rolü atanan hello kullanıcılar yalnızca, erişim için ya da hello atanmış olduğunu hello öğeleri yeniden görebilirsiniz **tüm kaynakları** sekmesini veya doğrudan kendi Pano.
 
-RBAC hem kaynak grup kapsamı veya kaynak kapsamı için önemli bir özelliği doğru dizinine oturum açmak emin olmak kullanıcıları içindir.
+RBAC hem kaynak grup kapsamı veya kaynak kapsamı için önemli bir yönü hello kullanıcılar toomake emin toosign bileşenini toohello doğru dizinidir.
 
 
 
@@ -182,9 +182,9 @@ RBAC hem kaynak grup kapsamı veya kaynak kapsamı için önemli bir özelliği 
 ![Azure portalında Directory oturum açma](./media/role-based-access-control-create-custom-roles-for-internal-external-users/13.png)
 
 ## <a name="assign-rbac-roles-for-an-azure-active-directory-group"></a>Bir Azure Active Directory grubu için RBAC Rolleri Ata
-Üç farklı kapsamlar Azure RBAC kullanarak tüm senaryoları yönetme, dağıtma ve kişisel bir aboneliği yönetme gerek kalmadan atanmış bir kullanıcı olarak çeşitli kaynakları yönetme ayrıcalık sunar. Ne olursa olsun RBAC rolü abonelik, kaynak grubu veya kaynak kapsamı, tüm kullanıcıların erişimi sahip olduğu bir Azure aboneliği altında hakkında daha fazla atanmış kullanıcılar tarafından oluşturulan kaynakları faturalandırılır atanır. Bu şekilde, tüm Azure aboneliğiniz için yönetici izinleri faturalama kullanıcılar var. eksiksiz bir genel görünüm tüketimi, bakılmaksızın kimin kaynaklarını yönetme
+Merhaba üç farklı kapsamlarda yönetme, dağıtma ve hello olmayan atanmış bir kullanıcı olarak çeşitli kaynakları yönetme Azure teklifi hello ayrıcalık RBAC kullanarak tüm hello senaryoları, kişisel abonelik yönetebilme gerekir. Abonelik, kaynak grubu veya kaynak kapsamı için bakılmaksızın hello RBAC rolü atanmış, burada hello kullanıcıların erişimi hello bir Azure aboneliği altında hakkında daha fazla hello atanmış kullanıcılar tarafından oluşturulan tüm hello kaynakları faturalandırılır. Bu şekilde hello faturalama, tüm Azure aboneliğiniz için yönetici izinlerine sahip kullanıcılar sahip hello kaynakları yöneten bir eksiksiz bir genel bakış hello tüketim, ne olursa olsun.
 
-Büyük kuruluşlar için yönetici kullanıcının ekipleri ve tüm bölümler için bu nedenle dikkate alarak, her bir kullanıcı için değil tek tek parçalı erişim vermek istediği perspektif dikkate Azure Active Directory grupları için aynı şekilde RBAC rolleri uygulanabilir. Bu isteğe bağlı olarak son derece saat ve yönetim etkin. Bu örnekte, göstermeye **katkıda bulunan** rol, bir kiracı abonelik düzeyinde gruplarının eklendi.
+Büyük kuruluşlar için RBAC rolleri uygulanabilir hello hello perspektif hello yönetici kullanıcının dikkate Azure Active Directory grupları ile aynı şekilde toogrant hello ayrıntılı erişim için ekipler veya değil ayrı ayrı her bir kullanıcı için tüm Departmanlar böylece istiyor son derece saat ve yönetim verimli isteğe bağlı olarak düşünebilirsiniz. tooillustrate Bu örnek, hello **katkıda bulunan** rol hello kiracısında hello abonelik düzeyinde hello gruplarının tooone eklendi.
 
 
 
@@ -194,16 +194,16 @@ Büyük kuruluşlar için yönetici kullanıcının ekipleri ve tüm bölümler 
 
 Bu grupları sağlanan ve yalnızca Azure Active Directory içinde yönetilen güvenlik gruplarıdır.
 
-## <a name="create-a-custom-rbac-role-to-open-support-requests-using-powershell"></a>PowerShell kullanarak destek istekleri açmak için özel bir RBAC rolü oluşturun
-Azure'da kullanılabilen yerleşik RBAC roller ortamında kullanılabilir kaynaklara dayalı belirli izin düzeyleri emin olun. Ancak, bu rollerin hiçbiri yönetici kullanıcının gereksinimlerinize uygun değilse, daha fazla özel RBAC rolleri oluşturarak erişimi sınırlamak için bir seçenek yoktur.
+## <a name="create-a-custom-rbac-role-tooopen-support-requests-using-powershell"></a>Bir özel RBAC rolü tooopen destek istekleri PowerShell kullanarak oluşturma
+Azure'da kullanılabilen hello yerleşik RBAC rolleri hello kullanılabilir kaynakları hello ortamında göre belirli izin düzeyleri emin olun. Ancak, bu rollerin hiçbiri hello yönetici kullanıcının gereksinimlerinize uygun değilse, hello seçeneği toolimit erişimi daha da olan en fazla özel RBAC rolleri oluşturarak yoktur.
 
-Özel RBAC rolleri oluşturmak için bir yerleşik rolü, düzenlemek ve ortam geri almak için gerekir. Rolünün karşıya yükleme ve indirme PowerShell veya CLI kullanılarak yönetilir.
+Özel RBAC rolleri oluşturmak için bir yerleşik rol tootake gerekir, düzenlemek ve hello Ortamı'nda içeri aktarın. Merhaba indirme ve karşıya yükleme hello rolünün PowerShell veya CLI kullanarak yönetilir.
 
-Abonelik düzeyinde ayrıntılı erişim vermek ve aynı zamanda davet edilen kullanıcı destek isteği açma esnekliğini tanımak özel bir rol oluşturarak Önkoşullar anlamak önemlidir.
+Merhaba abonelik düzeyinde ayrıntılı erişim vermek ve ayrıca destek isteği açma davet hello kullanıcı hello esneklik izin özel bir rol oluşturma önemli toounderstand hello Önkoşullar olur.
 
-Bu örneğin yerleşik rol **okuyucu** kullanıcılar tüm kaynak kapsamları görüntülemek üzere ancak bunları düzenleyin veya yeni kampanya oluşturmak erişim sağlayan destek isteği açma seçeneğini izin vermek için özelleştirildi.
+Bu örnek hello yerleşik rol için **okuyucu** hello kaynağın tüm kullanıcılara erişim tooview sağlayan değil tooedit bunları kapsamları veya yenilerini oluşturun bırakıldı destek isteği açma tooallow hello kullanıcı hello seçeneği özelleştirilmiş.
 
-Dışarı aktarma ilk eylemi **okuyucu** rol PowerShell'de tamamlanması gerekiyor yönetici olarak yükseltilmiş izinlerle çalıştı.
+Merhaba verme işleminin ilk eylemin Hello **okuyucu** PowerShell'de tamamlandı rol gereksinimlerini toobe yönetici olarak yükseltilmiş izinlerle çalıştı.
 
 ```
 Login-AzureRMAccount
@@ -220,7 +220,7 @@ Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\rbacrole
 
 ![Okuyucu RBAC rolü için PowerShell ekran görüntüsü](./media/role-based-access-control-create-custom-roles-for-internal-external-users/15.png)
 
-Ardından rolünün JSON şablonunu ayıklamanız gerekir.
+Daha sonra tooextract hello JSON şablonunu hello rolünün gerekir.
 
 
 
@@ -230,44 +230,44 @@ Ardından rolünün JSON şablonunu ayıklamanız gerekir.
 
 Tipik bir RBAC rolü üç ana bölüm dışında oluşan **Eylemler**, **NotActions** ve **AssignableScopes**.
 
-İçinde **eylem** bölümü olan bu rol için izin verilen tüm işlemler listelenir. Her eylemin kaynak sağlayıcısından atandığı anlamak önemlidir. Bu durumda, destek biletlerini oluşturmak için **Microsoft.Support** kaynak sağlayıcısı listelenmesi gerekir.
+Merhaba, **eylem** bölümde listelenen tüm bu rol için izin verilen işlemler hello. Bu, her eylemin kaynak sağlayıcısından atandığı önemli toounderstand olur. Bu durumda, destek biletlerini hello oluşturmak için **Microsoft.Support** kaynak sağlayıcısı listelenmesi gerekir.
 
-Kullanılabilir ve aboneliğinizde kayıtlı ilgili tüm kaynak sağlayıcıları kullanabilmek için PowerShell'i kullanabilirsiniz.
+toobe mümkün toosee tüm kaynak sağlayıcıları kullanılabilir ve aboneliğinizde kayıtlı Merhaba, PowerShell'i kullanabilirsiniz.
 ```
 Get-AzureRMResourceProvider
 
 ```
-Ayrıca, kaynak sağlayıcıları yönetmek tüm kullanılabilir için PowerShell cmdlet'leri kontrol edebilirsiniz.
+Ayrıca, tüm hello kullanılabilir PowerShell cmdlet'leri toomanage hello kaynak sağlayıcıları için hello kontrol edebilirsiniz.
     ![Kaynak sağlayıcısı yönetimi için PowerShell ekran görüntüsü](./media/role-based-access-control-create-custom-roles-for-internal-external-users/17.png)
 
-Belirli bir RBAC rolü için tüm eylemleri kısıtlamak için kaynak sağlayıcıları bölümü altında listelenen **NotActions**.
-Son olarak, RBAC rolü açık abonelik kimlikleri kullanıldığı içeren zorunludur. Abonelik kimlikleri altında listelenen **AssignableScopes**, aksi takdirde, aboneliğinizde rolünü içeri aktarmak için izin verilmez.
+Tüm eylemler için belirli bir RBAC rolü olan kaynak sağlayıcıları hello bölümü altında listelenen hello toorestrict **NotActions**.
+Son olarak, bu hello RBAC rolü hello açık abonelik kullanıldığı kimlikleri içeriyor zorunludur. Merhaba abonelik kimlikleri hello altında listelenen **AssignableScopes**, aksi takdirde, tooimport hello rol aboneliğinizde izin verilmez.
 
-Oluşturma ve RBAC rolü özelleştirme sonra aktarılması gereken ortamını yedekleyin.
+Oluşturma ve hello RBAC rolü özelleştirme sonra toobe alınan geri hello ortamın gerekir.
 
 ```
 New-AzureRMRoleDefinition -InputFile "C:\rbacrole2.json"
 
 ```
 
-Bu örnekte, özel bu RBAC rolü için "okuyucu destek biletleri erişim düzeyi kullanıcının her şeyi abonelikte görüntülemek ve destek istekleri açmaya izin verme" adıdır.
+Bu örnekte, hello özel bu RBAC rolü için "Merhaba abonelik yanı sıra tooopen destek istekleri hello kullanıcı tooview her şeyi sağlayan okuyucu destek biletleri erişim düzeyi" adıdır.
 
 > [!NOTE]
-> Destek isteği açma eylemi izin verme yalnızca iki yerleşik RBAC rolleri **sahibi** ve **katkıda bulunan**. Destek istekleri açmak bir kullanıcı için tüm destek isteklerini bir Azure aboneliğine yönelik temel alınarak oluşturulur çünkü kendisine yalnızca abonelik kapsamında bir RBAC rolü atanmalıdır.
+> Merhaba destek isteği açma hello eylemi izin verme yalnızca iki yerleşik RBAC rolleridir **sahibi** ve **katkıda bulunan**. Tüm destek isteklerini bir Azure aboneliğine yönelik temel alınarak oluşturulur çünkü bir kullanıcı toobe mümkün tooopen destek istekleri için kendisinin RBAC rolü yalnızca kapsamda hello abonelik, atanmış olması gerekir.
 
-Bu yeni özel rolü aynı dizinden bir kullanıcıya atandı.
-
-
-
-
-
-![Azure portalında içeri özel RBAC rolü ekran görüntüsü](./media/role-based-access-control-create-custom-roles-for-internal-external-users/18.png)
+Bu yeni özel rolü hello tooan kullanıcıdan atanan aynı dizin.
 
 
 
 
 
-![kullanıcı aynı dizinde özel alınan RBAC rol atama işleminin ekran görüntüsü](./media/role-based-access-control-create-custom-roles-for-internal-external-users/19.png)
+![hello Azure portal içeri özel RBAC rolü ekran görüntüsü](./media/role-based-access-control-create-custom-roles-for-internal-external-users/18.png)
+
+
+
+
+
+![Merhaba, içeri aktarılan özel RBAC rolü toouser atama ekran aynı dizinde](./media/role-based-access-control-create-custom-roles-for-internal-external-users/19.png)
 
 
 
@@ -275,7 +275,7 @@ Bu yeni özel rolü aynı dizinden bir kullanıcıya atandı.
 
 ![Özel alınan RBAC rolü izinlerini ekran görüntüsü](./media/role-based-access-control-create-custom-roles-for-internal-external-users/20.png)
 
-Bu özel RBAC rolü sınırları gibi vurgulamak için örnek daha ayrıntılı:
+Merhaba örneği daha fazla gibi ayrıntılı tooemphasize hello sınırları bu özel RBAC rolü bırakıldı:
 * Yeni destek istekleri oluşturabilirsiniz
 * Yeni kaynak kapsamlar oluşturulamıyor (örneğin: sanal makine)
 * Yeni kaynak grupları oluşturulamıyor
@@ -290,20 +290,20 @@ Bu özel RBAC rolü sınırları gibi vurgulamak için örnek daha ayrıntılı:
 
 
 
-![ekran görüntüsü özel RBAC rolü VM'ler oluşturmak mümkün değil](./media/role-based-access-control-create-custom-roles-for-internal-external-users/22.png)
+![ekran görüntüsü özel RBAC rolü erişilemiyor toocreate VM'ler](./media/role-based-access-control-create-custom-roles-for-internal-external-users/22.png)
 
 
 
 
 
-![ekran görüntüsü özel RBAC rolü yeni RGs oluşturmak mümkün değil](./media/role-based-access-control-create-custom-roles-for-internal-external-users/23.png)
+![ekran görüntüsü özel RBAC rolü erişilemiyor toocreate yeni RGs](./media/role-based-access-control-create-custom-roles-for-internal-external-users/23.png)
 
-## <a name="create-a-custom-rbac-role-to-open-support-requests-using-azure-cli"></a>Azure CLI kullanarak destek istekleri açmak için özel bir RBAC rolü oluşturun
-Mac ve PowerShell erişmesini olmadan çalışan, Azure CLI Git yoludur.
+## <a name="create-a-custom-rbac-role-tooopen-support-requests-using-azure-cli"></a>Bir özel RBAC rolü tooopen destek istekleri Azure CLI kullanarak oluşturma
+Mac'te ve erişim tooPowerShell kalmadan, Azure CLI hello yolu toogo çalışıyor.
 
-Özel bir rol oluşturmak için aşağıdaki adımları, rol CLI kullanarak bir JSON şablonu indirilemiyor ancak CLI görüntülenebilir tek özel durumu ile aynıdır.
+aynı, CLI kullanarak hello rol bir JSON şablonu, ancak bunu karşıdan yüklenemediğini hello tek özel durum ile Merhaba CLI görüntülenebilir hello Hello adımları toocreate özel bir rol var.
 
-Bu örnek için t yerleşik rolü seçtiniz **yedekleme okuyucu**.
+Bu örnek için ı hello yerleşik rolü seçtiniz **yedekleme okuyucu**.
 
 ```
 
@@ -317,7 +317,7 @@ azure role show "backup reader" --json
 
 ![CLI ekran görüntüsü yedekleme okuyucu rolüne Göster](./media/role-based-access-control-create-custom-roles-for-internal-external-users/24.png)
 
-Bir JSON şablonu proprieties kopyaladıktan sonra Visual Studio rolünde düzenleme **Microsoft.Support** kaynak sağlayıcısı eklendi **Eylemler** böylece bu kullanıcı destek bölümler Okuyucu için yedekleme kasalarını olmasını etmeden istek sayısı. Burada bu rolü kullanılacak, abonelik kimliği eklemek gerekli olan yeniden **AssignableScopes** bölümü.
+Visual Studio'da Hello rol bir JSON şablonu hello proprieties kopyaladıktan sonra düzenleme hello **Microsoft.Support** kaynak sağlayıcısı hello eklendi **Eylemler** bu kullanıcı açabileceği bölümler toobe hello yedekleme kasalarını için bir okuyucu devam ederken destek istekleri. Yeniden bu rolü hello nerede kullanılacak gerekli tooadd hello abonelik kimliği olan **AssignableScopes** bölümü.
 
 ```
 
@@ -331,7 +331,7 @@ azure role create --inputfile <path>
 
 ![Özel RBAC rolü alma CLI ekran görüntüsü](./media/role-based-access-control-create-custom-roles-for-internal-external-users/25.png)
 
-Yeni rol Azure portalında kullanılabilir ve atamasını önceki örneklerde olduğu gibi aynı işlemidir.
+Merhaba yeni rol hello Azure portalında kullanılabilir ve hello atamasını işlemi olduğundan hello aynı hello önceki örneklerde olduğu gibi.
 
 
 
@@ -339,7 +339,7 @@ Yeni rol Azure portalında kullanılabilir ve atamasını önceki örneklerde ol
 
 ![CLI 1.0 kullanılarak oluşturulan özel RBAC rolü Azure portal ekran görüntüsü](./media/role-based-access-control-create-custom-roles-for-internal-external-users/26.png)
 
-Son yapı 2017'dan sonra Azure bulut Kabuk genel kullanıma açıktır. Azure bulut Kabuk tamamlayan bir IDE ve Azure Portal ' dir. Bu hizmeti ile kimlik doğrulaması ve Azure içinde barındırılan ve tarayıcı tabanlı bir kabuk alın ve makinenize yüklü CLI yerine kullanın.
+İtibariyle Hello son yapı 2017, hello Azure bulut Kabuk genel kullanıma açıktır. Azure bulut Kabuk tamamlama tooIDE ve hello Azure Portal ' dir. Bu hizmeti ile kimlik doğrulaması ve Azure içinde barındırılan ve tarayıcı tabanlı bir kabuk alın ve makinenize yüklü CLI yerine kullanın.
 
 
 

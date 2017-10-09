@@ -1,24 +1,24 @@
-1. Portal sayfasının sol tarafına **+** simgesine tıklayın ve arama alanına ‘Sanal Ağ Geçidi’ yazın. **Sonuçlar** alanında **Sanal Ağ Geçidi**’ni bulup tıklayın.
-2. "Sanal ağ geçidi" dikey penceresinin alt tarafındaki **Oluştur**'a tıklayın. Bu işlem **Sanal ağ geçidi oluştur** dikey penceresini açar.
+1. Yan hello portal sayfasının sol hello üzerinde tıklatın  **+**  ve Ara 'Sanal ağ geçidi' yazın. **Sonuçlar** alanında **Sanal Ağ Geçidi**’ni bulup tıklayın.
+2. Merhaba 'Sanal ağ geçidi' dikey penceresinde Hello altındaki tıklatın **oluşturma**. Merhaba açılır **sanal ağ geçidi Oluştur** dikey.
 
     ![Sanal ağ geçidi oluştur dikey penceresinin alanları](./media/vpn-gateway-add-gw-s2s-rm-portal-include/vnet_gw.png "Yeni ağ geçidi")
 
-3. **Sanal ağ geçidi oluştur** dikey penceresinde, sanal ağ geçidinize ait değerleri belirtin.
+3. Merhaba üzerinde **sanal ağ geçidi Oluştur** dikey penceresinde, sanal ağ geçidinizi hello değerlerini belirtin.
 
-  - **Ad**: Ağ geçidinizi adlandırın. Bir ağ geçidi alt ağını adlandırmayla aynı değildir. Bu ad, oluşturduğunuz ağ geçidi nesnesinin adıdır.
-  - **Ağ geçidi türü**: **VPN**’i seçin. VPN ağ geçitleri, **VPN** sanal ağ geçidi türünü kullanır. 
-  - **VPN türü**: Yapılandırmanızla ilgili belirtilen VPN türünü seçin. Çoğu yapılandırma, Yol Tabanlı bir VPN türü gerektirir.
-  - **SKU**: Açılır listeden ağ geçidi SKU’sunu seçin. Açılır listede sıralanan SKU’lar seçtiğiniz VPN türüne bağlıdır. Ağ geçidi SKU’ları hakkında bilgi için bkz. [Ağ geçidi SKU’ları](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku).
-  - **Konum**: Konumu görmek için kaydırmanız gerekebilir. **Konum** alanını, sanal ağınızın bulunduğu konumu işaret edecek şekilde ayarlayın. Konum, sanal ağınızın bulunduğu bölgeye işaret etmiyorsa, sonraki adım olan 'Sanal ağ seçin' açılır menüsünde sanal ağ görüntülenmez.
-  - **Sanal ağ**: Bu ağ geçidini eklemek istediğiniz sanal ağı seçin. **Sanal ağ**'a tıklayarak "Sanal ağ seçin" dikey penceresini açın. VNet'i seçin. VNet'inizi görmüyorsanız Konum alanının, sanal ağınızın bulunduğu bölgeyi işaret ettiğinden emin olun.
-  - **Genel IP adresi**: "Ortak IP adresi oluştur" dikey penceresinde genel bir IP adresi nesnesi oluşturulur. VPN ağ geçidi oluşturulduğunda genel IP adresi dinamik olarak atanır. VPN Gateway hizmeti şu anda yalnızca *Dinamik* Genel IP adresi ayırmayı desteklemektedir. Ancak, bu durum IP adresinin VPN ağ geçidinize atandıktan sonra değiştiği anlamına gelmez. Genel IP adresi, yalnızca ağ geçidi silinip yeniden oluşturulduğunda değişir. VPN ağ geçidiniz üzerinde gerçekleştirilen yeniden boyutlandırma, sıfırlama veya diğer iç bakım/yükseltme işlemleri sırasında değişmez.
+  - **Ad**: Ağ geçidinizi adlandırın. Bu olduğu değil hello bir ağ geçidi alt ağını adlandırmayla aynı. Oluşturmakta olduğunuz hello ağ geçidi nesnesinin hello adı kullanıcının.
+  - **Ağ geçidi türü**: **VPN**’i seçin. VPN ağ geçitleri kullanmaları hello sanal ağ geçidi türü **VPN**. 
+  - **VPN türü**: yapılandırmanızla ilgili belirtilen hello VPN türünü seçin. Çoğu yapılandırma, Yol Tabanlı bir VPN türü gerektirir.
+  - **SKU**: Select hello ağ geçidinden SKU hello açılır. Merhaba açılır listede hello SKU'ları hello Seçtiğiniz VPN türü üzerinde bağlıdır. Ağ geçidi SKU’ları hakkında bilgi için bkz. [Ağ geçidi SKU’ları](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+  - **Konum**: tooscroll toosee konumu gerekebilir. Merhaba ayarlamak **konumu** alan sanal ağınızı bulunduğu toopoint toohello konumu. Başlangıç konumu, sanal ağınızda bulunduğu toohello bölge işaret etmiyor, hello sanal ağ açılır 'sanal ağ seçin' hello sonraki adımda görünmez.
+  - **Sanal ağ**: hello sanal ağ toowhich seçin bu ağ geçidi tooadd istiyor. Tıklatın **sanal ağ** tooopen hello 'sanal ağ seçin' dikey. Merhaba VNet seçin. Sanal ağınızı görmüyorsanız, sanal ağınızı bulunduğu toohello bölge hello konum alanı işaret ettiğinden emin olun.
+  - **Genel IP adresi**: hello 'ortak IP adresi oluştur' dikey bir ortak IP adresi nesnesi oluşturur. Merhaba VPN ağ geçidi oluşturulduğunda hello genel IP adresi dinamik olarak atanır. VPN Gateway hizmeti şu anda yalnızca *Dinamik* Genel IP adresi ayırmayı desteklemektedir. Ancak, bu tooyour VPN ağ geçidi atandıktan sonra hello IP adresini değiştirse anlamına gelmez. ağ geçidi Hello genel IP adresi değişiklikleri hello zaman hello yalnızca zaman silinmiş ve yeniden oluşturulmalıdır. VPN ağ geçidiniz üzerinde gerçekleştirilen yeniden boyutlandırma, sıfırlama veya diğer iç bakım/yükseltme işlemleri sırasında değişmez.
 
-    - Önce **Ortak IP Adresi**'ne tıklayarak "Ortak IP adresi seç" dikey penceresini, sonra da **+Yeni Oluştur**'a tıklayarak "Ortak IP adresi oluştur" dikey penceresini açın.
-    - Ardından genel IP adresiniz için bir **Ad** girin ve değişikliklerinizi kaydetmek için bu dikey pencerenin alt tarafındaki **Tamam**'a tıklayın.
+    - Önce tıklatın **genel IP adresi** tooopen dikey 'genel IP adresi seçin' hello ve ardından **+ Yeni Oluştur** tooopen hello 'ortak IP adresi oluştur' dikey.
+    - Ardından, Giriş bir **adı** için genel IP adresi, ardından **Tamam** sırasında değişikliklerinizi bu dikey toosave alt hello.
 
       ![Genel IP oluşturma](./media/vpn-gateway-add-gw-s2s-rm-portal-include/pip.png "PIP oluşturma")
 
-4. Ayarları doğrulayın. Ağ geçidinizin panoda görünmesini istiyorsanız dikey pencerenin altında yer alan **Panoya sabitle** seçeneğini belirleyebilirsiniz. 
-5. VPN ağ geçidi oluşturmaya başlamak için **Oluştur**'a tıklayın. Ayarlar doğrulandıktan sonra, panoda "Sanal ağ geçidi dağıtma" kutucuğunu görürsünüz. Bir ağ geçidi oluşturma 45 dakika kadar sürebilir. Tamamlanma durumunu görmek için portal sayfanızı yenilemeniz gerekebilir.
+4. Hello ayarlarını doğrulayın. Seçebileceğiniz **PIN toodashboard** , ağ geçidi tooappear hello Panoda istiyorsanız hello dikey penceresinde hello sonundaki. 
+5. Tıklatın **oluşturma** toobegin hello VPN ağ geçidi oluşturma. Merhaba görürsünüz ve Hello ayarları doğrulandı "Dağıtma sanal ağ geçidi" Merhaba Panoda döşeme. Bir ağ geçidi oluşturma too45 dakika sürebilir. Portal sayfasının toosee tamamlandı hello durumunuzu toorefresh gerekebilir.
 
-Ağ geçidi oluşturulduktan sonra, portalda sanal ağa bakarak bu ağ geçidine atanmış IP adresini görüntüleyin. Ağ geçidi bağlı bir cihaz gibi görüntülenir. Daha fazla bilgi görüntülemek için bağlı cihaza (sanal ağ geçidiniz) tıklayabilirsiniz.
+Merhaba ağ geçidi oluşturulduktan sonra tooit hello portaldaki sanal ağın hello bakarak atandı hello IP adresini görüntüleyin. Merhaba ağ geçidi bağlı bir aygıt görüntülenir. Daha fazla bilgi bağlı hello aygıt (sanal ağ geçidiniz) tooview tıklayabilirsiniz.

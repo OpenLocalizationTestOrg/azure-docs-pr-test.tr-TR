@@ -1,11 +1,11 @@
 ## <a name="overview-of-azure-resource-manager-templates"></a>Azure Resource Manager şablonlarına genel bakış
-Azure Resource Manager şablonları bildirimli olarak Azure Iaas altyapı Json dilde kaynakları arasındaki bağımlılıkların tanımlayarak belirtmenizi sağlar. Azure Resource Manager şablonları ayrıntılı bir genel bakış için lütfen aşağıdaki makaleye bakın:
+Azure Resource Manager şablonları izin toodeclaratively belirtin hello Azure Iaas altyapı Json dilde kaynakları arasındaki bağımlılıkların hello tanımlayarak. Azure Resource Manager şablonları ayrıntılı bir genel bakış için lütfen aşağıdaki toohello makalesine başvurun:
 
 [Kaynak grubu genel bakış](../articles/azure-resource-manager/resource-group-overview.md)
 
 ## <a name="sample-template-snippet-for-vm-extensions"></a>Örnek şablon parçacığı VM uzantıları için
-Bir Azure Kaynak Yöneticisi'nin bir parçası olarak VM uzantıları şablonu şablonda uzantı yapılandırması bildirimli olarak belirtmenizi gerektirir.
-Uzantı yapılandırması belirtmek için biçimi şöyledir.
+Bir Azure Resource Manager şablonu parçası gerektirdiği VM uzantıları toodeclaratively belirtin hello uzantı yapılandırması hello şablonunda.
+Merhaba uzantı yapılandırması belirtmek için hello biçimi şöyledir.
 
       {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -24,11 +24,11 @@ Uzantı yapılandırması belirtmek için biçimi şöyledir.
       }
       }
 
-Yukarıdaki görebileceğiniz gibi uzantısı şablon iki ana bölümleri içerir:
+Hello yukarıdaki görebileceğiniz gibi hello uzantısı şablon iki ana bölümleri içerir:
 
 1. Uzantı adı, yayımcı ve sürüm
 2. Uzantı yapılandırması.
 
-## <a name="identifying-the-publisher-type-and-typehandlerversion-for-any-extension"></a>Yayımcı, türü ve uzantıyı typeHandlerVersion tanımlama
-Azure VM uzantıları Microsoft tarafından yayınlanan ve güvenilir 3 taraf Yayımcılar ve her uzantı benzersiz olarak tanımlanır, yayımcısı, türü ve typeHandlerVersion. Bunlar aşağıdaki gibi belirlenebilir:  
+## <a name="identifying-hello-publisher-type-and-typehandlerversion-for-any-extension"></a>Merhaba yayımcı, türü ve uzantıyı typeHandlerVersion tanımlama
+Azure VM uzantıları Microsoft tarafından yayınlanan ve güvenilir 3 taraf Yayımcılar ve her bir uzantı, yayımcı, türü ve hello typeHandlerVersion tarafından tanımlanan benzersiz olarak. Bunlar aşağıdaki gibi belirlenebilir:  
 

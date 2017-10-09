@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric Docker Compose Önizleme | Microsoft Docs"
-description: "Azure Service Fabric Service Fabric kullanarak exsiting kapsayıcıları düzenlemek kolay hale getirmek için Docker Compose'u biçimi kabul eder. Bu destek, şu anda önizlemede değil."
+title: "Service Fabric Docker oluşturan Önizleme aaaAzure | Microsoft Docs"
+description: "Azure Service Fabric Docker Compose biçimi toomake kabul eder, Service Fabric kullanarak daha kolay tooorchestrate exsiting kapsayıcıları. Bu destek, şu anda önizlemede değil."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: b12ef95add6347621f7d4865fac46568f91a1e12
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 824044fd698f0ed94c4212722bc82187905315dc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="specifying-volume-plugins-and-logging-drivers-for-your-container"></a>Birim eklenti ve günlük sürücüleri, kapsayıcı için belirtme
 
-Service Fabric destekleyen belirtme [Docker birim eklentileri](https://docs.docker.com/engine/extend/plugins_volume/) ve [Docker günlük sürücüleri](https://docs.docker.com/engine/admin/logging/overview/) kapsayıcı hizmetiniz için. Eklenti uygulama bildiriminde aşağıdaki bildiriminde gösterildiği gibi belirtilir:
+Service Fabric destekleyen belirtme [Docker birim eklentileri](https://docs.docker.com/engine/extend/plugins_volume/) ve [Docker günlük sürücüleri](https://docs.docker.com/engine/admin/logging/overview/) kapsayıcı hizmetiniz için. Merhaba eklentileri hello uygulama bildiriminde hello bildirimi aşağıdaki gösterildiği gibi belirtilir:
 
 
 ```xml
@@ -56,9 +56,9 @@ Service Fabric destekleyen belirtme [Docker birim eklentileri](https://docs.dock
 </ApplicationManifest>
 ```
 
-Önceki örnekte `Source` etiketinde `Volume` kaynak klasörü gösterir. Kaynak klasörü kapsayıcıları ya da kalıcı bir uzak depo barındıran VM bir klasörde olabilir. `Destination` Etiketi konumudur, `Source` çalışan kapsayıcıda eşlenir. 
+Örnek önceki hello hello `Source` hello için etiket `Volume` toohello kaynak klasöre başvuruyor. Merhaba kaynak klasörü hello Merhaba kapsayıcılara ya da kalıcı bir uzak depo barındıran VM bir klasörde olabilir. Merhaba `Destination` etiketi olan hello hello konumu `Source` eşlenen toowithin hello çalıştığı kapsayıcı. 
 
-Bir birim eklentisi belirtirken, Service Fabric belirtilen parametreleri kullanarak birimi otomatik olarak oluşturur. `Source` Etiketi birim adıdır ve `Driver` etiketi birimin sürücü eklentisi belirtir. Seçenekleri kullanılarak belirtilebilir `DriverOption` etiketi aşağıdaki kod parçacığında gösterildiği gibi:
+Bir birim eklentisi belirtirken, Service Fabric belirtilen hello parametreleri kullanarak hello birimi otomatik olarak oluşturur. Merhaba `Source` etiketi adıdır hello hello birim ve hello `Driver` etiketi hello birimin sürücü eklentisi belirtir. Seçenekler hello kullanılarak belirtilebilir `DriverOption` etiketi hello aşağıdaki kod parçacığında gösterildiği gibi:
 
 ```xml
 <Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azurefile" IsReadOnly="true">
@@ -66,9 +66,9 @@ Bir birim eklentisi belirtirken, Service Fabric belirtilen parametreleri kullana
 </Volume>
 ```
 
-Docker günlük sürücü belirtilirse, kümede günlükleri işlemek için aracıları (veya kapsayıcıları) dağıtmak gereklidir.  `DriverOption` Etiketi de günlüğü sürücü seçeneklerini belirtmek için kullanılabilir.
+Docker günlük sürücü belirtilmişse gerekli toodeploy aracıları (veya kapsayıcıları) toohandle hello hello kümede günlüklerini alır.  Merhaba `DriverOption` etiketi kullanılan toospecify günlük sürücü seçenekleri de olabilir.
 
-Service Fabric kümesine kapsayıcıları dağıtmak için aşağıdaki makalelere bakın:
+Aşağıdaki makaleleri toodeploy kapsayıcıları tooa Service Fabric kümesi toohello bakın:
 
 
 [Service Fabric bir kapsayıcıda dağıtma](service-fabric-deploy-container.md)

@@ -1,6 +1,6 @@
 ---
-title: "Azure AD'de OAuth 2.0 yetkilendirme kodu akışını anlama | Microsoft Docs"
-description: "Bu makalede, web uygulamaları ve web API'leri Azure Active Directory ve OAuth 2.0 kullanarak kiracınızda erişim yetkisi vermek için HTTP iletileri kullanmayı açıklar."
+title: "aaaUnderstand hello OAuth 2.0 yetkilendirme kodu akışını Azure AD'de | Microsoft Docs"
+description: "Bu makalede toouse HTTP iletileri tooauthorize nasıl erişim tooweb uygulamaları ve web API'leri Azure Active Directory ve OAuth 2.0 kullanarak kiracınızda açıklanmaktadır."
 services: active-directory
 documentationcenter: .net
 author: dstrockis
@@ -15,26 +15,26 @@ ms.topic: article
 ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 35132eae4d6a7f85b19a7a49ad4034e795d7df13
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 4a6fe67d786a5fcb87d1059c2e94ba0c88d26cd3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# OAuth 2.0 ve Azure Active Directory kullanarak web uygulamalarına erişim yetkisi verme
-Web uygulamaları ve web Apı'lerinize Azure AD kiracınıza erişim yetkisi vermek etkinleştirmek için azure Active Directory (Azure AD) kullanan OAuth 2.0. Bu kılavuzda dilden bağımsızdır ve bizim açık kaynak kitaplıkları kullanmadan HTTP iletileri almasına ve göndermesine açıklar.
+# OAuth 2.0 ile Azure Active Directory kullanarak erişim tooweb uygulamaları yetkilendirmek
+Azure Active Directory (Azure AD), tooauthorize erişim tooweb uygulamaları ve web API'leri Azure AD kiracınızda OAuth 2.0 tooenable kullanır. Bu kılavuz dilden bağımsızdır ve açıklar nasıl toosend ve bizim açık kaynak kitaplıkları kullanmadan HTTP iletileri alabilirsiniz.
 
-OAuth 2.0 yetkilendirme kodu akışını açıklanan [4.1 OAuth 2.0 belirtimi bölüm](https://tools.ietf.org/html/rfc6749#section-4.1). Web uygulamaları dahil olmak üzere birçok uygulama türü, kimlik doğrulama ve yetkilendirme gerçekleştirmek için kullanılır ve yerel olarak yüklü uygulamalar.
+Merhaba OAuth 2.0 yetkilendirme kodu akışını açıklanan [4.1 hello OAuth 2.0 belirtimi bölüm](https://tools.ietf.org/html/rfc6749#section-4.1). Kullanılan tooperform kimlik doğrulama ve yetkilendirme web uygulamaları dahil olmak üzere çoğu uygulama türleri ve yerel olarak yüklü uygulamalar.
 
 [!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)]
 
 ## OAuth 2.0 yetkilendirme akışı
-Yüksek bir düzeyde bir uygulama için tüm yetkilendirme akışı biraz şöyle:
+Yüksek düzeyde, bir uygulama için hello tüm yetkilendirme akışı biraz şöyle:
 
 ![OAuth kimlik doğrulama kodu akışı](media/active-directory-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
 ## İstek bir kimlik doğrulama kodu
-Yetkilendirme kodu akışını kullanıcıya yönlendirerek istemci ile başlayan `/authorize` uç noktası. Bu istekte istemcisi kullanıcıdan almak için gerekli olan izinleri belirtir. OAuth 2.0 uç noktaları Klasik Azure portalı, uygulamanızın sayfasından içinde alabileceğiniz **uç noktalarını görüntüle** düğmesini alt bölümü.
+Merhaba yetkilendirme kodu akışı başlar hello kullanıcı toohello yönlendirerek hello istemcisiyle `/authorize` uç noktası. Bu istekte hello istemci hello kullanıcıdan tooacquire gereken hello izinleri gösterir. Sayfasından uygulamanızın Azure Klasik portalında hello hello OAuth 2.0 uç noktaları alabilirsiniz **uç noktalarını görüntüle** düğmesini hello alt bölümü.
 
 ```
 // Line breaks for legibility only
@@ -50,23 +50,23 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
-| Kiracı |Gerekli |`{tenant}` İstek yolunu değerinde uygulamasına oturum denetlemek için kullanılabilir.  İzin verilen değerler Kiracı, örneğin, tanımlayıcılardır `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` veya `contoso.onmicrosoft.com` veya `common` Kiracı bağımsız belirteçleri |
-| client_id |Gerekli |Azure AD ile kaydolurken uygulamanıza atanan uygulama kimliği. Bu Azure Portalı'nda bulabilirsiniz. Tıklatın **Active Directory**dizini, uygulamayı seçin ve öğesini tıklatın **Yapılandır** |
-| response_type |Gerekli |İçermelidir `code` yetkilendirme kodu akışı. |
-| redirect_uri |Önerilen |Burada kimlik doğrulama yanıtları gönderilebilen veya uygulamanız tarafından alınan, uygulamanızın redirect_uri.  Bu tam bir url kodlanmış olmalıdır dışında Portalı'nda kayıtlı redirect_uris eşleşmelidir.  Yerel & mobil uygulamaları için varsayılan değeri kullanması gereken `urn:ietf:wg:oauth:2.0:oob`. |
-| response_mode |Önerilen |Sonuçta elde edilen belirteci geri uygulamanıza göndermek için kullanılacak yöntemi belirtir.  Olabilir `query` veya `form_post`. |
-| durum |Önerilen |Ayrıca belirteci yanıtta döndürülen istek dahil bir değer. Rastgele oluşturulan benzersiz bir değer tipik olarak kullanılan [siteler arası istek sahteciliğini saldırılarını önleme](http://tools.ietf.org/html/rfc6749#section-10.12).  Durumu, sayfa veya görünüm üzerinde oldukları gibi kimlik doğrulama isteği oluşmadan önce uygulama kullanıcının durumu hakkındaki bilgileri kodlamak için de kullanılır. |
-| Kaynak |İsteğe bağlı |Web API (güvenli kaynak) uygulama kimliği URI'si. Web API'si, uygulama kimliği URI'sini Azure Portalı'nda bulmak için tıklatın **Active Directory**, dizini tıklatın, uygulama'yı tıklatın ve ardından **yapılandırma**. |
-| istemi |İsteğe bağlı |Gerekli bir kullanıcı etkileşimi türünü gösterir.<p> Geçerli değerler şunlardır: <p> *oturum açma*: kullanıcının yeniden kimlik doğrulaması yapmak istenir. <p> *onay*: kullanıcı izni verildi, ancak güncelleştirilmesi gerekiyor. Kullanıcının onaylaması istenir. <p> *admin_consent*: bir yönetici kendi kuruluşunuzdaki tüm kullanıcılar adına onaylaması istenir |
-| login_hint |İsteğe bağlı |Kullanıcı adlarını önceden biliyorsanız, kullanıcı için oturum açma sayfası kullanıcı adı/e-posta adresi alanının önceden doldurmak için kullanılabilir.  Genellikle uygulamaları yeniden kimlik doğrulaması, kullanıcı adı önceki oturum açma kullanarak bir zaten ayıklanan sırasında bu parametreyi kullanın `preferred_username` talep. |
-| domain_hint |İsteğe bağlı |Kiracı veya kullanıcı oturum açmak için kullanması gereken etki alanını hakkında bir ipucu sağlar. Kiracı için kaydedilmiş bir etki alanı domain_hint değeri. Bir şirket içi dizin için Kiracı birleştirildiyse AAD belirtilen Kiracı federasyon sunucusuna yeniden yönlendirir. |
+| Kiracı |Gerekli |Merhaba `{tenant}` değeri hello isteği hello yolunda hello uygulamasına oturum kullanılan toocontrol olabilir.  Merhaba izin verilen değerler: Kiracı tanımlayıcıları, örneğin, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` veya `contoso.onmicrosoft.com` veya `common` Kiracı bağımsız belirteçleri |
+| client_id |Gerekli |Azure AD ile kaydolurken hello uygulama kimliği atanan tooyour uygulama. Bu hello Azure portalında bulabilirsiniz. Tıklatın **Active Directory**hello dizin, hello uygulamayı seçin ve öğesini tıklatın **Yapılandır** |
+| response_type |Gerekli |İçermelidir `code` hello yetkilendirme kodu akışı. |
+| redirect_uri |Önerilen |Burada kimlik doğrulama yanıtları gönderilebilen veya uygulamanız tarafından alınan, uygulamanızın Hello redirect_uri.  Bu tam olarak bir url kodlanmış olmalıdır dışında hello Portalı'nda kayıtlı hello redirect_uris eşleşmelidir.  Yerel & mobil uygulamaları için hello varsayılan değeri kullanması gereken `urn:ietf:wg:oauth:2.0:oob`. |
+| response_mode |Önerilen |Kullanılan toosend hello elde edilen belirteci geri tooyour uygulama olmalıdır hello yöntemini belirtir.  Olabilir `query` veya `form_post`. |
+| durum |Önerilen |Ayrıca hello belirteci yanıtta döndürülen hello isteği dahil bir değer. Rastgele oluşturulan benzersiz bir değer tipik olarak kullanılan [siteler arası istek sahteciliğini saldırılarını önleme](http://tools.ietf.org/html/rfc6749#section-10.12).  hello sayfa veya görünüm üzerinde oldukları gibi Hello kimlik doğrulama isteği oluşmadan önce hello durumu ayrıca kullanılan tooencode hello uygulamasında hello kullanıcının durumu hakkındaki bilgilerdir. |
+| Kaynak |İsteğe bağlı |Merhaba uygulama kimliği URI'si hello Web API (güvenli kaynak). toofind hello uygulama kimliği URI'sini hello web API, hello Azure Portal'ı tıklatın **Active Directory**, hello dizin'i tıklatın, hello uygulama'yı tıklatın ve ardından **yapılandırma**. |
+| istemi |İsteğe bağlı |Gerekli bir kullanıcı etkileşimi Hello türünü gösterir.<p> Geçerli değerler şunlardır: <p> *oturum açma*: hello kullanıcı istendiğinde tooreauthenticate olması gerekir. <p> *onay*: kullanıcı izni verildi, ancak güncelleştirilmiş toobe gerekiyor. Merhaba kullanıcı istendiğinde tooconsent olmalıdır. <p> *admin_consent*: bir yönetici kendi kuruluşunuzdaki tüm kullanıcılar adına istendiğinde tooconsent olmalıdır |
+| login_hint |İsteğe bağlı |Kullanıcı adlarını önceden biliyorsanız kullanılan toopre dolgu hello kullanıcı adı/e-posta adresi alanı hello kullanıcı oturum açma hello sayfanın olabilir.  Genellikle uygulamaları yeniden kimlik doğrulaması, bir önceki oturum bileşeninden hello kullanıcı adı zaten ayıklanan sırasında bu parametreyi kullanın hello kullanarak `preferred_username` talep. |
+| domain_hint |İsteğe bağlı |Merhaba Kiracı veya kullanıcı hello etki alanı hakkında bir ipucu içinde toosign kullanması gereken sağlar. Merhaba hello domain_hint hello Kiracı için kaydedilmiş bir etki alanı değeridir. Merhaba Kiracı Federasyon tooan şirket içi dizin ise, AAD toohello belirtilen Kiracı federasyon sunucusuna yönlendirir. |
 
 > [!NOTE]
-> Kullanıcı kuruluşun parçası ise, kuruluş yöneticisi onayı veya kullanıcı adına reddetmek ya kullanıcının onayını istemeniz izin verir. Kullanıcı seçeneği yalnızca yönetici izin verdiğinde izin verilir.
+> Merhaba kullanıcı kuruluşun parçası ise, hello kuruluş yöneticisi onayı veya hello kullanıcı adına reddetmek ya hello kullanıcı tooconsent izin verir. yalnızca Merhaba yönetici izin verdiğinde hello kullanıcı hello seçeneği tooconsent verilir.
 >
 >
 
-Bu noktada, kullanıcı kimlik bilgilerini girin ve belirtilen izinler için izin istenir `scope` sorgu parametresi. Kullanıcı kimliğini doğrular ve izin veren sonra Azure AD uygulamanızı yanıt gönderir `redirect_uri` isteğiniz adresi.
+Merhaba kullanıcı tooenter bu noktada, sorular kendi kimlik bilgilerini ve onay toohello izinleri belirtilen hello `scope` sorgu parametresi. Merhaba kullanıcı kimliğini doğrular ve izin veren sonra Azure AD yanıt tooyour uygulama hello gönderir. `redirect_uri` isteğiniz adresi.
 
 ### Başarılı yanıt
 Başarılı yanıt şöyle:
@@ -78,13 +78,13 @@ Location: http://localhost/myapp/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLE
 
 | Parametre | Açıklama |
 | --- | --- |
-| admin_consent |Değeri True ise bir yönetici onayı isteğinin rıza. |
-| Kod |İstenen uygulama yetkilendirme kodu. Uygulama, hedef kaynak için bir erişim belirteci istemek için yetkilendirme kodu kullanabilirsiniz. |
-| session_state |Geçerli kullanıcı oturumunu tanımlayan benzersiz bir değerdir. Bu değer bir GUID olduğundan ancak İnceleme geçirilen genel olmayan bir değer olarak değerlendirilmelidir. |
-| durum |İstekte bir durum parametresi eklenirse, aynı değeri yanıt olarak görünmelidir. Yanıt kullanmadan önce istek ve yanıt durum değerleri özdeş olduğunu doğrulamak uygulama için iyi bir uygulamadır. Bu algılamaya yardımcı olur [siteler arası istek sahteciliği (CSRF) saldırılarını](https://tools.ietf.org/html/rfc6749#section-10.12) istemci karşı. |
+| admin_consent |Merhaba değeri True ise bir yönetici tooa onay isteği istemi rıza. |
+| Kod |İstenen hello uygulama hello yetkilendirme kodu. Merhaba uygulaması hello yetkilendirme kodu toorequest bir erişim belirteci hello hedef kaynak için kullanabilirsiniz. |
+| session_state |Merhaba geçerli kullanıcı oturumunu tanımlayan benzersiz bir değerdir. Bu değer bir GUID olduğundan ancak İnceleme geçirilen genel olmayan bir değer olarak değerlendirilmelidir. |
+| durum |Bir durum parametresi hello istekte yer alıyorsa hello aynı değere hello yanıt olarak görünmelidir. Merhaba yanıt kullanmadan önce hello istek ve yanıtta hello durum değerlerinin aynı olduğundan emin hello uygulama tooverify için iyi bir uygulamadır. Bu toodetect yardımcı [siteler arası istek sahteciliği (CSRF) saldırılarını](https://tools.ietf.org/html/rfc6749#section-10.12) hello istemci karşı. |
 
 ### Hata yanıtı
-Hata yanıtları da gönderilebilir için `redirect_uri` böylece uygulama bunları uygun şekilde işleyebilir.
+Hata yanıtları toohello da gönderilebilir `redirect_uri` böylece Merhaba uygulaması bunları uygun şekilde işleyebilir.
 
 ```
 GET http://localhost:12345/?
@@ -94,25 +94,25 @@ error=access_denied
 
 | Parametre | Açıklama |
 | --- | --- |
-| error |Bir hata kodu değeri bölüm 5.2 içinde tanımlanan [OAuth 2.0 yetkilendirme Framework](http://tools.ietf.org/html/rfc6749). Sonraki tabloda Azure AD döndürür hata kodları açıklanmaktadır. |
-| error_description |Hatanın ayrıntılı bir açıklaması. Bu ileti olması amaçlanmamıştır son kullanıcı dostu. |
-| durum |Durum değeri istekte gönderilen ve siteler arası istek sahtekarlığı (CSRF) saldırılarını önlemek için yanıtta döndürülen bir rastgele oluşturulmuş yeniden olmayan değerdir. |
+| error |Merhaba, bölüm 5.2 içinde tanımlanmış bir hata kodu değer [OAuth 2.0 yetkilendirme Framework](http://tools.ietf.org/html/rfc6749). Merhaba sonraki tabloda Azure AD döndürür hello hata kodları açıklanmaktadır. |
+| error_description |Merhaba hatanın ayrıntılı bir açıklaması. Bu ileti belirtmezseniz toobe son kullanıcı dostu. |
+| durum |Merhaba durum değeri hello istekte gönderilen ve hello yanıt tooprevent siteler arası istek sahtekarlığı (CSRF) saldırılarını döndürülen bir rastgele oluşturulmuş yeniden olmayan değeridir. |
 
 #### Yetkilendirme uç noktası hataları için hata kodları
-Aşağıdaki tabloda, döndürülen çeşitli hata kodları açıklanmaktadır `error` hata yanıtı parametresi.
+Merhaba aşağıdaki tabloda açıklanmaktadır hello hello döndürülebilecek çeşitli hata kodları `error` hello hata yanıtı parametresi.
 
 | Hata kodu | Açıklama | İstemci eylemi |
 | --- | --- | --- |
-| invalid_request |Eksik gerekli parametre gibi protokol hatası. |Düzeltin ve isteği yeniden gönderin. Bu geliştirme hata ve genellikle ilk test sırasında yakalandı. |
-| unauthorized_client |İstemci uygulaması bir kimlik doğrulama kodu isteme izni yok. |Bu durum genellikle, istemci uygulaması Azure AD'de kayıtlı değil veya kullanıcının Azure AD kiracısı eklenmez genellikle ortaya çıkar. Uygulama yönerge Azure AD'ye ekleme ve uygulama yükleme için kullanıcıya sor |
-| ACCESS_DENIED |Kaynak sahibi izin reddedildi |İstemci uygulaması kullanıcı izin sürece devam edemiyor kullanıcı bildirebilir. |
-| unsupported_response_type |Yetkilendirme sunucusu isteğine yanıt türünü desteklemiyor. |Düzeltin ve isteği yeniden gönderin. Bu geliştirme hata ve genellikle ilk test sırasında yakalandı. |
-| server_error |Sunucu beklenmeyen bir hatayla karşılaştı. |İsteği yeniden deneyin. Bu hatalar geçici koşulları neden olabilir. İstemci uygulaması yanıt geçici bir hata nedeniyle gecikti kullanıcıya açıklayabilir. |
-| temporarily_unavailable |Sunucunun geçici olarak istek işlemek için çok meşgul. |İsteği yeniden deneyin. İstemci uygulaması yanıt geçici bir koşul nedeniyle gecikti kullanıcıya açıklayabilir. |
-| invalid_resource |Hedef kaynak mevcut değil, Azure AD, bulunamıyor veya düzgün yapılandırılmamış olduğundan geçerli değil. |Bu, varsa, kaynak kiracısında yapılandırılmadı gösterir. Uygulama yönerge Azure AD'ye ekleme ve uygulama yükleme için kullanıcıya sor |
+| invalid_request |Eksik gerekli parametre gibi protokol hatası. |Düzeltin ve hello isteği yeniden gönderin. Bu geliştirme hata ve genellikle ilk test sırasında yakalandı. |
+| unauthorized_client |Merhaba istemci uygulaması olmadığından toorequest bir yetki kodu izin verilir. |Bu durum genellikle, Merhaba istemci uygulaması Azure AD'de kayıtlı değil veya toohello kullanıcının Azure AD kiracısı eklenmez genellikle ortaya çıkar. Merhaba uygulaması hello uygulama yüklemek ve tooAzure AD eklemek için yönerge hello kullanıcıyla isteyebilir. |
+| ACCESS_DENIED |Kaynak sahibi izin reddedildi |Merhaba istemci uygulaması hello kullanıcı izin sürece devam edemiyor hello kullanıcı bildirebilir. |
+| unsupported_response_type |Merhaba yetkilendirme sunucusu hello istekte hello yanıt türünü desteklemiyor. |Düzeltin ve hello isteği yeniden gönderin. Bu geliştirme hata ve genellikle ilk test sırasında yakalandı. |
+| server_error |Merhaba sunucu beklenmeyen bir hatayla karşılaştı. |Merhaba isteği yeniden deneyin. Bu hatalar geçici koşulları neden olabilir. Merhaba istemci uygulaması toohello kullanıcı açıklayan yanıt tooa geçici hata ertelendi. |
+| temporarily_unavailable |Merhaba geçici olarak meşgul toohandle hello isteği sunucusudur. |Merhaba isteği yeniden deneyin. Merhaba istemci uygulaması toohello kullanıcı açıklayan yanıt tooa geçici koşul ertelendi. |
+| invalid_resource |Merhaba hedef kaynak mevcut değil, Azure AD, bulunamıyor veya düzgün yapılandırılmamış olduğundan geçerli değil. |Bu, varsa, hello kaynak hello Kiracı yapılandırılmadı gösterir. Merhaba uygulaması hello uygulama yüklemek ve tooAzure AD eklemek için yönerge hello kullanıcıyla isteyebilir. |
 
-## Bir erişim belirteci istemek için yetkilendirme kodu kullanın
-Bir yetkilendirme kodu edindiğiniz ve kullanıcı tarafından izin verilen göre bir POST isteği göndererek istenen kaynak için bir erişim belirteci kodunu kullanmak `/token` uç noktası:
+## Merhaba yetkilendirme kodu toorequest bir erişim belirteci kullanın
+Bir yetkilendirme kodu edindiğiniz ve hello kullanıcı tarafından izin verilen göre bir POST isteği toohello göndererek hello kod bir erişim belirteci toohello istenen kaynak için kullanmak `/token` uç noktası:
 
 ```
 // Line breaks for legibility only
@@ -132,20 +132,20 @@ grant_type=authorization_code
 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
-| Kiracı |Gerekli |`{tenant}` İstek yolunu değerinde uygulamasına oturum denetlemek için kullanılabilir.  İzin verilen değerler Kiracı, örneğin, tanımlayıcılardır `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` veya `contoso.onmicrosoft.com` veya `common` Kiracı bağımsız belirteçleri |
-| client_id |Gerekli |Azure AD ile kaydolurken uygulamanıza atanan uygulama kimliği. Bu Azure Klasik Portalı'nda bulabilirsiniz. Tıklatın **Active Directory**dizini, uygulamayı seçin ve öğesini tıklatın **Yapılandır** |
-| grant_type |Gerekli |Olmalıdır `authorization_code` yetkilendirme kodu akışı. |
-| Kod |Gerekli |`authorization_code` Önceki bölümde edindiğiniz |
-| redirect_uri |Gerekli |Aynı `redirect_uri` almak için kullanılan değer `authorization_code`. |
-| client_secret |Web uygulamaları için gerekli |Uygulamanız için uygulama kayıt Portalı'nda oluşturulan uygulama gizli anahtarı.  Client_secrets güvenilir bir şekilde cihazlarda depolanamaz çünkü yerel bir uygulamada kullanılmamalıdır.  Web uygulamaları ve web depolama olanağı sahip API'leri için gerekli olan `client_secret` sunucu tarafında güvenli bir şekilde. |
-| Kaynak |Yetkilendirme kodu isteğinde başka isteğe bağlı belirttiyseniz gereklidir |Web API (güvenli kaynak) uygulama kimliği URI'si. |
+| Kiracı |Gerekli |Merhaba `{tenant}` değeri hello isteği hello yolunda hello uygulamasına oturum kullanılan toocontrol olabilir.  Merhaba izin verilen değerler: Kiracı tanımlayıcıları, örneğin, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` veya `contoso.onmicrosoft.com` veya `common` Kiracı bağımsız belirteçleri |
+| client_id |Gerekli |Azure AD ile kaydolurken hello uygulama kimliği atanan tooyour uygulama. Bu hello Azure Klasik portalında bulabilirsiniz. Tıklatın **Active Directory**hello dizin, hello uygulamayı seçin ve öğesini tıklatın **Yapılandır** |
+| grant_type |Gerekli |Olmalıdır `authorization_code` hello yetkilendirme kodu akışı. |
+| Kod |Gerekli |Merhaba `authorization_code` hello önceki bölümde edindiğiniz |
+| redirect_uri |Gerekli |aynı hello `redirect_uri` kullanılan tooacquire hello olan değer `authorization_code`. |
+| client_secret |Web uygulamaları için gerekli |Merhaba uygulama kayıt Portalı'nda uygulamanız için oluşturduğunuz hello uygulama gizli anahtarı.  Client_secrets güvenilir bir şekilde cihazlarda depolanamaz çünkü yerel bir uygulamada kullanılmamalıdır.  Web uygulamaları ve web hello özelliği toostore hello sahip API'leri için gerekli olan `client_secret` hello sunucu tarafında güvenli bir şekilde. |
+| Kaynak |Yetkilendirme kodu isteğinde başka isteğe bağlı belirttiyseniz gereklidir |Merhaba uygulama kimliği URI'si hello Web API (güvenli kaynak). |
 
-Uygulama Kimliği URI'sini Azure Yönetim Portalı'nda bulmak için tıklatın **Active Directory**dizini tıklatın, uygulama'yı tıklatın ve ardından **yapılandırma**.
+hello Azure Yönetim Portalı toofind hello uygulama kimliği URI'si tıklatın **Active Directory**hello dizin'i tıklatın, hello uygulama'yı tıklatın ve ardından **yapılandırma**.
 
 ### Başarılı yanıt
-Azure AD, bir erişim belirteci üzerine başarılı bir yanıt döndürür. Ağ çağrılarından istemci uygulaması ve bunların ilişkili gecikme süresi en aza indirmek için istemci uygulaması erişim belirteçleri OAuth 2.0 yanıt olarak belirtilen belirteç ömrü için önbelleğe. Belirteç ömrü belirlemek için kullanın ya da `expires_in` veya `expires_on` parametre değerleri.
+Azure AD, bir erişim belirteci üzerine başarılı bir yanıt döndürür. toominimize ağ çağrıları hello istemci uygulamasından ve bunların ilişkili gecikme süresi, Merhaba istemci uygulaması hello OAuth 2.0 yanıt belirtilen hello belirteç ömrü için erişim belirteçleri önbelleğe. toodetermine hello belirteç ömrü, her iki hello kullan `expires_in` veya `expires_on` parametre değerleri.
 
-Bir web API kaynak döndürürse bir `invalid_token` hata kodu, bu gösterebilir kaynak belirtecin süresinin dolduğunu algıladı. İstemci ve kaynak saatleri farklı (bir "saat eğriltme" olarak bilinir) varsa, kaynak belirteci istemci önbelleğinden temizlenmeden önce süresinin belirteç düşünebilirsiniz. Bu meydana gelirse, hala hesaplanan yaşam süresi içinde olsa bile, önbellekten belirteç temizleyin.
+Bir web API kaynak döndürürse bir `invalid_token` hata kodu, bu gösterebilir hello kaynak hello belirtecini süresi doldu belirledi. Merhaba istemci ve kaynak saatleri farklı (bir "saat eğriltme" olarak bilinir) varsa, hello kaynak hello belirteci hello istemci önbelleğinden temizlenmeden önce hello belirteci toobe süresi düşünebilirsiniz. Bu gerçekleşirse, hala hesaplanan yaşam süresi içinde olsa bile hello belirteci hello önbelleğinden temizleyin.
 
 Başarılı yanıt şöyle:
 
@@ -165,17 +165,17 @@ Başarılı yanıt şöyle:
 
 | Parametre | Açıklama |
 | --- | --- |
-| access_token |İstenen erişim belirteci. Uygulama, web API'si gibi güvenli kaynak kimliğini doğrulamak için bu belirteci kullanabilirsiniz. |
-| token_type |Belirteç türü değeri gösterir. Azure AD destekleyen tek taşıyıcı türüdür. Taşıyıcı belirteçlerini hakkında daha fazla bilgi için bkz: [OAuth2.0 yetkilendirme Framework: taşıyıcı belirteci kullanımı (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) |
-| expires_in |Ne kadar süreyle erişim belirteci (saniye olarak) geçerli değil. |
-| expires_on |Erişim belirtecinin süresi dolduğunda süre. Tarih 1970'ten saniyeyi temsil edilir-01-01T0:0:0Z UTC sona erme zamanı kadar. Bu değer, önbelleğe alınan belirteç ömrü belirlemek için kullanılır. |
-| Kaynak |Web API (güvenli kaynak) uygulama kimliği URI'si. |
-| Kapsam |İstemci uygulaması için kimliğe bürünme izinler. Varsayılan izni `user_impersonation`. Güvenli kaynağın sahibi Azure AD içinde ek değerler kaydedebilirsiniz. |
-| refresh_token |Bir OAuth 2.0 yenileme belirteci. Uygulama geçerli erişim belirtecinin süresi dolduktan sonra ek erişim belirteçleri almak için bu belirteci kullanabilirsiniz.  Yenileme belirteçleri uzun süreli ve uzun süre için kaynaklara erişimi korumak için kullanılabilir. |
-| id_token |Bir imzasız JSON Web Token (JWT). Uygulama can base64Url bu belirteç için oturum kullanıcı hakkında bilgi parçalarını kodunu çözer. Uygulama değerleri önbelleğe ve bunları görüntüler, ancak, bunlar üzerinde herhangi bir yetkilendirme veya güvenlik sınırları için güvenmemelisiniz. |
+| access_token |Merhaba istenen erişim belirteci. Merhaba uygulaması web API'si gibi kaynak güvenli Bu belirteci tooauthenticate toohello kullanabilir. |
+| token_type |Merhaba belirteç türü değeri gösterir. Merhaba yalnızca yazın Azure AD desteklediği taşıyıcı biçimde. Taşıyıcı belirteçlerini hakkında daha fazla bilgi için bkz: [OAuth2.0 yetkilendirme Framework: taşıyıcı belirteci kullanımı (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) |
+| expires_in |Ne kadar süreyle hello erişim belirteci (saniye olarak) geçerli değil. |
+| expires_on |Merhaba erişim belirtecinin süresi dolduğunda hello süre. Başlangıç tarihi 1970'ten hello saniyeyi temsil edilir-01-01T0:0:0Z UTC hello süre kadar. Önbelleğe alınan belirteçleri kullanılan toodetermine hello ömrü değerdir. |
+| Kaynak |Merhaba uygulama kimliği URI'si hello Web API (güvenli kaynak). |
+| Kapsam |Kimliğe bürünme, toohello istemci uygulaması izinler. Merhaba varsayılan izni `user_impersonation`. Kaynak güvenli hello Hello sahibi Azure AD içinde ek değerler kaydedebilirsiniz. |
+| refresh_token |Bir OAuth 2.0 yenileme belirteci. Merhaba geçerli erişim belirtecinin süresi dolduktan sonra bu belirteci tooacquire ek erişim belirteçleri hello uygulamasını kullanabilir.  Yenileme belirteçlerini uzun süreli ve uzun süre için kullanılan tooretain erişim tooresources olabilir. |
+| id_token |Bir imzasız JSON Web Token (JWT). Merhaba uygulama can base64Url açtığınız hello kullanıcının bu belirteci toorequest bilgilerini hello kesimleri kodunu çözer. Hello uygulama hello değerleri önbelleğe ve bunları görüntüler, ancak, bunlar üzerinde herhangi bir yetkilendirme veya güvenlik sınırları için güvenmemelisiniz. |
 
 ### JWT belirteci talepleri
-JWT belirteci değeri `id_token` parametresi aşağıdaki taleplerine kodu:
+Merhaba JWT belirteci hello hello değeri `id_token` parametresi hello talepler aşağıdaki kodu:
 
 ```
 {
@@ -199,35 +199,35 @@ JWT belirteci değeri `id_token` parametresi aşağıdaki taleplerine kodu:
 }.
 ```
 
-JSON web belirteçlerini hakkında daha fazla bilgi için bkz: [JWT IETF taslak belirtimi](http://go.microsoft.com/fwlink/?LinkId=392344). Talep ve belirteç türleri hakkında daha fazla bilgi için okuma [desteklenen belirteç ve talep türleri](active-directory-token-and-claims.md)
+JSON web belirteçlerini hakkında daha fazla bilgi için bkz: Merhaba [JWT IETF taslak belirtimi](http://go.microsoft.com/fwlink/?LinkId=392344). Merhaba belirteç türleri ve talepler hakkında daha fazla bilgi için okuma [desteklenen belirteç ve talep türleri](active-directory-token-and-claims.md)
 
-`id_token` Parametresi aşağıdaki talep türlerini içerir:
+Merhaba `id_token` parametresi hello şu talep türlerini içerir:
 
 | Talep türü | Açıklama |
 | --- | --- |
-| aud |Belirtecin hedef kitle. Belirtecin bir istemci uygulama, İzleyici olduğunda `client_id` istemcinin. |
-| exp |Süre sonu zamanı. Belirtecin süresinin dolduğu saati. Belirtecin geçerli olması, geçerli tarih/saat veya buna eşit olmalıdır `exp` değeri. Saat 1 Ocak 1970'ten saniye sayısı olarak temsil edilir (1970'ten-01-01T0:0:0Z) UTC belirteç yayımlandığında zamana kadar. |
-| family_name |Kullanıcının soyadı. Uygulama bu değeri görüntüleyebilirsiniz. |
-| given_name |Kullanıcının adı. Uygulama bu değeri görüntüleyebilirsiniz. |
-| IAT |Aynı anda verdi. JWT zaman verilmiş saat. Saat 1 Ocak 1970'ten saniye sayısı olarak temsil edilir (1970'ten-01-01T0:0:0Z) UTC belirteç yayımlandığında zamana kadar. |
-| ISS |Belirteç Verenin tanımlar |
-| NBF |Değil süreden önce. Belirteç etkin olduğunda süre. Belirtecin geçerli olması, geçerli tarih/saat Nbf değerine eşit veya daha büyük olmalıdır. Saat 1 Ocak 1970'ten saniye sayısı olarak temsil edilir (1970'ten-01-01T0:0:0Z) UTC belirteç yayımlandığında zamana kadar. |
-| OID |Azure AD'de kullanıcı nesnesinin nesne tanımlayıcısı (ID). |
-| Sub |Belirteç konu tanımlayıcısı. Bu bir kalıcı ve sabit belirteç açıklar kullanıcı tanımlayıcısıdır. Mantığı önbelleğe alma işleminde, bu değeri kullanın. |
-| komutu |Belirtecin Azure AD Kiracı Kiracı tanımlayıcısını (ID). |
-| unique_name |Kullanıcıya, için benzersiz bir tanımlayıcı görüntülenebilir. Genellikle bir kullanıcı asıl adı (UPN) budur. |
-| UPN |Kullanıcının kullanıcı asıl adı. |
-| ver |Sürüm. JWT belirteci, genellikle 1.0 sürümü. |
+| aud |İzleyici hello belirteci. Merhaba belirteci tooa istemci uygulaması verildiğinde hello İzleyici hello olduğu `client_id` hello istemci. |
+| exp |Süre sonu zamanı. Merhaba belirtecinin süresi dolduğunda hello süre. Merhaba belirteci toobe için geçerli, hello geçerli tarih/saat değerinden küçük veya buna eşit olmalıdır toohello `exp` değeri. Merhaba saat 1 Ocak 1970'ten hello saniyeyi temsil edilir (1970'ten-01-01T0:0:0Z) hello zaman hello belirteci verilmiş kadar UTC. |
+| family_name |Kullanıcının soyadı. Merhaba uygulaması, bu değeri görüntüleyebilirsiniz. |
+| given_name |Kullanıcının adı. Merhaba uygulaması, bu değeri görüntüleyebilirsiniz. |
+| IAT |Aynı anda verdi. hello zaman zaman hello JWT verilmiş. Merhaba saat 1 Ocak 1970'ten hello saniyeyi temsil edilir (1970'ten-01-01T0:0:0Z) hello zaman hello belirteci verilmiş kadar UTC. |
+| ISS |Merhaba Belirteç Verenin tanımlar |
+| NBF |Değil süreden önce. Merhaba belirteci etkin olduğunda hello süre. Merhaba belirteci toobe için geçerli, hello geçerli tarih/saat değerinden büyük veya eşit toohello Nbf değeri olmalıdır. Merhaba saat 1 Ocak 1970'ten hello saniyeyi temsil edilir (1970'ten-01-01T0:0:0Z) hello zaman hello belirteci verilmiş kadar UTC. |
+| OID |Azure AD'de hello kullanıcı nesnesinin nesne tanımlayıcısını (ID). |
+| Sub |Belirteç konu tanımlayıcısı. Belirteç hello hello kullanıcı açıklar için kalıcı ve sabit bir tanımlayıcı budur. Mantığı önbelleğe alma işleminde, bu değeri kullanın. |
+| komutu |Merhaba belirteç hello Azure AD Kiracı tanımlayıcısını (ID) Kiracı. |
+| unique_name |Görüntülenen toohello kullanıcı için benzersiz bir tanımlayıcıyı olabilir. Genellikle bir kullanıcı asıl adı (UPN) budur. |
+| UPN |Merhaba kullanıcının kullanıcı asıl adı. |
+| ver |Sürüm. Merhaba JWT belirteci, genellikle 1.0 sürümü Hello. |
 
 ### Hata yanıtı
-Belirteç verme uç nokta hataları HTTP hata kodları, olduklarından istemci belirteci verme uç noktası doğrudan çağırır. HTTP durum kodu ek olarak, Azure AD belirteci verme endpoint de hatayı açıklayan nesnelerinin ile bir JSON belgesini döndürür.
+Merhaba istemci çağrılarını belirteci verme uç noktası doğrudan hello çünkü hello belirteci verme uç noktası HTTP hata kodları, hatalardır. Ayrıca toohello HTTP durum kodu hello Azure AD belirteci verme endpoint hello hatasını açıklayan nesneleri ile bir JSON belgesini de döndürür.
 
 Bir örnek hata yanıtı şuna:
 
 ```
 {
   "error": "invalid_grant",
-  "error_description": "AADSTS70002: Error validating credentials. AADSTS70008: The provided authorization code or refresh token is expired. Send a new interactive authorization request for this user and resource.\r\nTrace ID: 3939d04c-d7ba-42bf-9cb7-1e5854cdce9e\r\nCorrelation ID: a8125194-2dc8-4078-90ba-7b6592a7f231\r\nTimestamp: 2016-04-11 18:00:12Z",
+  "error_description": "AADSTS70002: Error validating credentials. AADSTS70008: hello provided authorization code or refresh token is expired. Send a new interactive authorization request for this user and resource.\r\nTrace ID: 3939d04c-d7ba-42bf-9cb7-1e5854cdce9e\r\nCorrelation ID: a8125194-2dc8-4078-90ba-7b6592a7f231\r\nTimestamp: 2016-04-11 18:00:12Z",
   "error_codes": [
     70002,
     70008
@@ -239,37 +239,37 @@ Bir örnek hata yanıtı şuna:
 ```
 | Parametre | Açıklama |
 | --- | --- |
-| error |Oluşan hataları türlerini sınıflandırmak için kullanılan ve hataları tepki vermek için kullanılan bir hata kodu dizesi. |
-| error_description |Bir geliştirici bir kimlik doğrulama hatası kök nedenini belirlemenize yardımcı olabilecek belirli bir hata iletisi. |
+| error |Oluşan hataları kullanılan tooclassify türde olabilir ve kullanılan tooreact tooerrors olabilir bir hata kodu dizesi. |
+| error_description |Bir geliştirici yardımcı olabilecek belirli bir hata iletisi kimlik doğrulama hatası hello kök nedenini tanımlayın. |
 | error_codes |Tanılamada yardımcı olabilecek STS özgü hata kodları listesi. |
-| timestamp |Hatanın gerçekleştiği zaman. |
-| trace_id |Tanılamada yardımcı olabilecek isteği için benzersiz bir tanımlayıcı. |
-| correlation_id |Tanılamada bileşenlerinde yardımcı olabilecek isteği için benzersiz bir tanımlayıcı. |
+| timestamp |Merhaba hata gerçekleştiği hello süre. |
+| trace_id |Tanılamada yardımcı olabilecek hello isteği için benzersiz bir tanımlayıcı. |
+| correlation_id |Tanılama'bileşenlerinde yardımcı olabilecek hello isteği için benzersiz bir tanımlayıcı. |
 
 #### HTTP durum kodları
-Aşağıdaki tabloda, belirteç yayınında son noktasını döndürür HTTP durum kodları listelenmektedir. Bazı durumlarda, hata kodu yanıtı açıklamak yeterli olur, ancak hatalar varsa eşlik eden JSON belgesini ayrıştırma ve hata kodunun incelemek gerekir.
+Merhaba aşağıdaki tabloda belirteci verme uç nokta döndürür hello hello HTTP durum kodları listelenmektedir. Bazı durumlarda, hello hata kodu yeterli toodescribe hello yanıt olmakla birlikte, hatalar varsa, JSON eşlik tooparse hello gereken belge ve hata kodunun inceleyin.
 
 | HTTP kodu | Açıklama |
 | --- | --- |
-| 400 |Varsayılan HTTP kodu. Çoğu durumda kullanıldığı ve genellikle nedeniyle yanlış biçimli istek. Düzeltin ve isteği yeniden gönderin. |
-| 401 |Kimlik doğrulaması başarısız oldu. Örneğin, istek client_secret parametresi eksik. |
-| 403 |Yetkilendirme başarısız oldu. Örneğin, kullanıcının kaynağa erişim izni yok. |
-| 500 |Hizmeti bir iç hata oluştu. İsteği yeniden deneyin. |
+| 400 |Varsayılan HTTP kodu. Çoğu durumda kullanıldığı ve genellikle tooa yanlış biçimli istek. Düzeltin ve hello isteği yeniden gönderin. |
+| 401 |Kimlik doğrulaması başarısız oldu. Örneğin, hello isteği hello client_secret parametresi eksik. |
+| 403 |Yetkilendirme başarısız oldu. Örneğin, hello kullanıcı izni tooaccess hello kaynak yok. |
+| 500 |Merhaba hizmeti bir iç hata oluştu. Merhaba isteği yeniden deneyin. |
 
 #### Belirteç uç noktası hataları için hata kodları
 | Hata kodu | Açıklama | İstemci eylemi |
 | --- | --- | --- |
-| invalid_request |Eksik gerekli parametre gibi protokol hatası. |Düzeltin ve isteği yeniden gönderin |
-| invalid_grant |Yetkilendirme kodu geçersiz veya süresi doldu. |Yeni bir istek deneyin `/authorize` uç noktası |
-| unauthorized_client |Kimliği doğrulanmış istemci bu yetkilendirme verme türünü kullanmak için yetkili değil. |Bu durum genellikle, istemci uygulaması Azure AD'de kayıtlı değil veya kullanıcının Azure AD kiracısı eklenmez genellikle ortaya çıkar. Uygulama yönerge Azure AD'ye ekleme ve uygulama yükleme için kullanıcıya sor |
-| invalid_client |İstemci kimlik doğrulaması başarısız oldu. |İstemci kimlik bilgileri geçerli değil. Düzeltmek için uygulama Yöneticisi kimlik bilgilerini güncelleştirir. |
-| unsupported_grant_type |Yetkilendirme sunucusu yetkilendirme verme türünü desteklemiyor. |İstekteki grant türünü değiştirin. Bu tür bir hata yalnızca geliştirme sırasında gerçekleşmesi gerektiğini ve ilk test sırasında algılandı. |
-| invalid_resource |Hedef kaynak mevcut değil, Azure AD, bulunamıyor veya düzgün yapılandırılmamış olduğundan geçerli değil. |Bu, varsa, kaynak kiracısında yapılandırılmadı gösterir. Uygulama yönerge Azure AD'ye ekleme ve uygulama yükleme için kullanıcıya sor |
-| interaction_required |İstek kullanıcı etkileşimi gerektirir. Örneğin, bir ek kimlik doğrulama adım gereklidir. | Etkileşimli olmayan bir istek yerine, aynı kaynak için etkileşimli yetkilendirme isteği ile yeniden deneyin. |
-| temporarily_unavailable |Sunucunun geçici olarak istek işlemek için çok meşgul. |İsteği yeniden deneyin. İstemci uygulaması yanıt geçici bir koşul nedeniyle gecikti kullanıcıya açıklayabilir. |
+| invalid_request |Eksik gerekli parametre gibi protokol hatası. |Düzeltin ve hello isteği yeniden gönderin |
+| invalid_grant |Merhaba yetkilendirme kodu geçersiz veya süresi doldu. |Yeni bir istek toohello deneyin `/authorize` uç noktası |
+| unauthorized_client |Merhaba kimliği doğrulanmış istemci yetkilendirilmez toouse Bu yetki türü. |Bu durum genellikle, Merhaba istemci uygulaması Azure AD'de kayıtlı değil veya toohello kullanıcının Azure AD kiracısı eklenmez genellikle ortaya çıkar. Merhaba uygulaması hello uygulama yüklemek ve tooAzure AD eklemek için yönerge hello kullanıcıyla isteyebilir. |
+| invalid_client |İstemci kimlik doğrulaması başarısız oldu. |Merhaba istemci kimlik bilgileri geçerli değil. toofix, hello Uygulama Yöneticisi hello kimlik bilgilerini güncelleştirir. |
+| unsupported_grant_type |Merhaba yetkilendirme sunucusu hello yetkilendirme verme türünü desteklemiyor. |Değişiklik hello hello istek türü verin. Bu tür bir hata yalnızca geliştirme sırasında gerçekleşmesi gerektiğini ve ilk test sırasında algılandı. |
+| invalid_resource |Merhaba hedef kaynak mevcut değil, Azure AD, bulunamıyor veya düzgün yapılandırılmamış olduğundan geçerli değil. |Bu, varsa, hello kaynak hello Kiracı yapılandırılmadı gösterir. Merhaba uygulaması hello uygulama yüklemek ve tooAzure AD eklemek için yönerge hello kullanıcıyla isteyebilir. |
+| interaction_required |Merhaba isteği kullanıcı etkileşimi gerektirir. Örneğin, bir ek kimlik doğrulama adım gereklidir. | Etkileşimli olmayan bir istek yerine hello etkileşimli yetkilendirme talebi ile aynı yeniden deneme kaynak. |
+| temporarily_unavailable |Merhaba geçici olarak meşgul toohandle hello isteği sunucusudur. |Merhaba isteği yeniden deneyin. Merhaba istemci uygulaması toohello kullanıcı açıklayan yanıt tooa geçici koşul ertelendi. |
 
-## Kaynağa erişmek için erişim belirteci kullanın
-Başarıyla edindiğiniz göre bir `access_token`, belirteç Web API ' larını isteklere dahil ederek kullanabileceğiniz `Authorization` üstbilgi. [RFC 6750](http://www.rfc-editor.org/rfc/rfc6750.txt) belirtimi taşıyıcı belirteçlerini HTTP isteklerinde korunan kaynaklara erişim için nasıl kullanılacağını açıklar.
+## Merhaba erişim belirteci tooaccess hello kaynak kullanın
+Başarıyla edindiğiniz göre bir `access_token`, hello dahil ederek hello belirteci isteklerini tooWeb API ' larını kullanabilirsiniz `Authorization` üstbilgi. Merhaba [RFC 6750](http://www.rfc-editor.org/rfc/rfc6750.txt) belirtimi nasıl HTTP isteklerini tooaccess toouse taşıyıcı belirteçler korunan kaynakları açıklar.
 
 ### Örnek istek
 ```
@@ -279,41 +279,41 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 ### Hata yanıtı
-RFC 6750 sorunu HTTP durum kodları uygulamak güvenli kaynaklar. İstek kimlik doğrulama kimlik bilgileri içermiyor ya da belirteci eksik, yanıtı içeren bir `WWW-Authenticate` üstbilgi. Bir isteği başarısız olduğunda, kaynak sunucuda HTTP durum kodu ve bir hata kodu ile yanıt verir.
+RFC 6750 sorunu HTTP durum kodları uygulamak güvenli kaynaklar. Merhaba isteği kimlik doğrulama kimlik bilgileri içermiyor veya hello belirteç, hello yanıt eksik bulunduran bir `WWW-Authenticate` üstbilgi. Bir isteği başarısız olduğunda, hello kaynak sunucu hello HTTP durum kodu ve bir hata kodu ile yanıt verir.
 
-İstemci isteği taşıyıcı belirteci içermiyor, başarısız bir yanıt örneği verilmiştir:
+Merhaba istemci isteği hello taşıyıcı belirteci içermez zaman hello başarısız bir yanıt örneği aşağıdadır:
 
 ```
 HTTP/1.1 401 Unauthorized
-WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/contoso.com/oauth2/authorize",  error="invalid_token",  error_description="The access token is missing.",
+WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/contoso.com/oauth2/authorize",  error="invalid_token",  error_description="hello access token is missing.",
 ```
 
 #### Hata parametreleri
 | Parametre | Açıklama |
 | --- | --- |
-| authorization_uri |URI'si (fiziksel uç noktası) yetkilendirme sunucusu. Bu değer, bir bulma uç noktasından sunucusu hakkında daha fazla bilgi için arama anahtarı olarak da kullanılır. <p><p> İstemci yetkilendirme sunucusunun güvenilir olduğunu doğrulamanız gerekir. Kaynak Azure AD tarafından korunuyorsa, URL https://login.microsoftonline.com veya Azure AD destekleyen başka bir ana bilgisayar adı ile başlayan doğrulamak yeterlidir. Bir kiracı özgü kaynak her zaman bir kiracı özel yetkilendirme URI döndürmelidir. |
-| error |Bir hata kodu değeri bölüm 5.2 içinde tanımlanan [OAuth 2.0 yetkilendirme Framework](http://tools.ietf.org/html/rfc6749). |
-| error_description |Hatanın ayrıntılı bir açıklaması. Bu ileti olması amaçlanmamıştır son kullanıcı dostu. |
-| resource_id |Kaynak benzersiz tanımlayıcısını döndürür. İstemci uygulaması bu tanımlayıcı değeri olarak kullanabilirsiniz `resource` kaynak için bir belirteç istediğinde parametresi. <p><p> Bu değeri doğrulamak için istemci uygulaması için önemli, aksi takdirde kötü amaçlı bir hizmete anlamına olabilir bir **ayrıcalık yükseltme** saldırısı <p><p> Saldırının engellemek için önerilen doğrulamak için stratejidir `resource_id` erişilen web API'si URL tabanı eşleşen. Örneğin, https://service.contoso.com/data erişilen, `resource_id` htttps://service.contoso.com/ olabilir. İstemci uygulaması Reddet gerekir bir `resource_id` , değil başlamak temel URL ile kimlik doğrulamak için güvenilir bir alternatif yolu değilse. |
+| authorization_uri |Merhaba hello yetkilendirme sunucusu URI'si (fiziksel uç noktası). Bu değer hello sunucu bulma uç noktasından hakkında daha fazla bilgi tooget bir arama anahtar olarak da kullanılır. <p><p> Merhaba istemci o hello doğrulamak gerekir yetkilendirme sunucusu güvenilir. Azure AD tarafından korumalı Hello kaynak hello URL https://login.microsoftonline.com ile başlayan yeterli tooverify veya Azure AD destekleyen başka bir ana bilgisayar adı olur. Bir kiracı özgü kaynak her zaman bir kiracı özel yetkilendirme URI döndürmelidir. |
+| error |Merhaba, bölüm 5.2 içinde tanımlanmış bir hata kodu değer [OAuth 2.0 yetkilendirme Framework](http://tools.ietf.org/html/rfc6749). |
+| error_description |Merhaba hatanın ayrıntılı bir açıklaması. Bu ileti belirtmezseniz toobe son kullanıcı dostu. |
+| resource_id |Merhaba kaynak benzersiz tanımlayıcısını döndürür hello. Merhaba istemci uygulaması bu tanımlayıcı hello hello değeri olarak kullanabileceğiniz `resource` hello kaynak için bir belirteç istediğinde parametresi. <p><p> Önemlidir bu değer istemci uygulaması tooverify Merhaba, kötü amaçlı bir hizmete mümkün tooinduce aksi olabilir bir **ayrıcalık yükseltme** saldırısı <p><p> bir saldırı önleme hello tooverify için stratejisi önerilen hello `resource_id` eşleşmeleri erişilen hello web API'si URL tabanı hello. Örneğin, https://service.contoso.com/data erişilen, hello `resource_id` htttps://service.contoso.com/ olabilir. Merhaba istemci uygulaması gerekir Reddet bir `resource_id` , değil başlamak hello temel URL ile güvenilir bir alternatif yolu tooverify hello kimliği değilse. |
 
 #### Taşıyıcı düzeni hata kodları
-RFC 6750 belirtimi WWW-Authenticate üstbilgisi ve taşıyıcı düzeni yanıtta kullanan kaynaklar için aşağıdaki hataları tanımlar.
+Merhaba RFC 6750 belirtimi aşağıdaki hatalar hello WWW-Authenticate üstbilgisi ve taşıyıcı düzeni hello yanıt olarak kullanan kaynakları için hello tanımlar.
 
 | HTTP durum kodu | Hata kodu | Açıklama | İstemci eylemi |
 | --- | --- | --- | --- |
-| 400 |invalid_request |İstek düzgün biçimlendirilmemiş. Örneğin, bu bir parametre eksik veya aynı parametre iki kez kullanma. |Hatayı düzeltin ve isteği yeniden deneyin. Bu tür bir hata yalnızca geliştirme sırasında gerçekleşmesi gerektiğini ve ilk testinde algılandı. |
-| 401 |invalid_token |Erişim belirteci eksik, geçersiz veya iptal edilir. Error_description parametresinin değeri ek ayrıntılar sağlar. |Yeni bir belirteci yetkilendirme sunucusundan isteyin. Yeni bir belirteç başarısız olursa, beklenmeyen bir hata oluştu. Bir hata iletisi rastgele gecikme sonra yeniden deneyin ve kullanıcı için gönderin. |
-| 403 |insufficient_scope |Erişim belirteci kaynağa erişmek için gerekli kimliğe bürünme izinlere sahip değil. |Yetkilendirme uç noktası için yeni bir yetkilendirme isteği gönderin. Yanıt kapsam parametresi içeriyorsa, kaynak isteğinde kapsam değeri kullanın. |
-| 403 |insufficient_access |Belirteç konu kaynağa erişmek için gerekli izinlere sahip değil. |Farklı bir hesap kullanın veya belirtilen kaynak izni istemek için kullanıcıya sor. |
+| 400 |invalid_request |Merhaba isteği düzgün biçimlendirilmemiş. Örneğin, bir parametre eksik olabilir veya kullanarak hello aynı parametre iki kez. |Merhaba hatayı düzeltin ve hello isteği yeniden deneyin. Bu tür bir hata yalnızca geliştirme sırasında gerçekleşmesi gerektiğini ve ilk testinde algılandı. |
+| 401 |invalid_token |Merhaba erişim belirteci eksik, geçersiz veya iptal edilir. Merhaba hello error_description parametresinin değerini ek ayrıntılar sağlar. |Yeni bir belirteç hello yetkilendirme sunucusundan isteyin. Merhaba yeni belirteci başarısız olursa, beklenmeyen bir hata oluştu. Bir hata iletisi toohello kullanıcı göndermek ve rastgele gecikme sonra yeniden deneyin. |
+| 403 |insufficient_scope |Merhaba erişim belirteci hello kimliğe bürünme izinleri gerekli tooaccess hello kaynak içermiyor. |Yeni bir yetkilendirme isteği toohello yetkilendirme uç noktası gönderin. Merhaba yanıt hello kapsam parametresi içeriyorsa, hello kapsam değeri hello isteği toohello kaynağında kullanın. |
+| 403 |insufficient_access |Merhaba konu hello belirtecin gerekli tooaccess hello kaynaktır hello izinleri yok. |Komut istemi hello kullanıcı toouse farklı bir hesap veya toorequest izinleri toohello kaynak belirtildi. |
 
-## Erişim belirteçleri yenileme
-Erişim belirteçleri, kısa süreli ve kaynaklara erişmeye devam etmek için zaman aşımına uğradığında yenilenmesi gerekir. Yenileyebileceğiniz `access_token` başka gönderme tarafından `POST` isteği `/token` uç noktası, ancak bu süre sağlama `refresh_token` yerine `code`.
+## Yenileme hello erişim belirteçleri
+Erişim belirteçleri, kısa süreli ve kaynaklara erişim toocontinue süresi dolan yenilenmesi gerekir. Merhaba yenileyebilirsiniz `access_token` başka gönderme tarafından `POST` toohello isteği `/token` endpoint ancak bu kez hello sağlama `refresh_token` hello yerine `code`.
 
-Yenileme belirteçleri belirtilen yaşam süresi yok. Genellikle, yenileme belirteçleri ömürleri oldukça uzun. Ancak, bazı durumlarda, yenileme belirteçleri sona, iptal edilen veya istenen eylem için yeterli ayrıcalıkları yok. Beklediğiniz ve doğru belirteci verme bitiş noktası tarafından döndürülen hataları işlemek uygulamanız gerekir.
+Yenileme belirteçleri belirtilen yaşam süresi yok. Genellikle, yenileme belirteçleri hello ömrü oldukça uzun. Ancak, bazı durumlarda, yenileme belirteçleri sona, iptal edilen veya hello istenen eylem için yeterli ayrıcalıkları yok. Uygulamanız doğru hello belirteci verme bitiş noktası tarafından döndürülen tooexpect ve tanıtıcı hataları gerekir.
 
-Bir yenileme belirteci hatası ile bir yanıt aldığınızda, geçerli yenileme belirteci atmak ve yeni bir yetkilendirme kodu isteyin veya belirteç erişim. Özellikle, ne zaman bir yenileme kullanarak belirteci yetkilendirme kodu verme akışında yanıtta alırsanız `interaction_required` veya `invalid_grant` hata kodları, yenileme belirtecini atmak ve yeni bir yetkilendirme kodu isteyin.
+Bir yenileme belirteci hatası ile bir yanıt aldığınızda, hello geçerli yenileme belirteci atmak ve yeni bir yetkilendirme kodu isteyin veya belirteç erişim. Özellikle, ne zaman bir yenileme kullanarak belirteci hello yetkilendirme kodu verme akış hello yanıtta alırsanız `interaction_required` veya `invalid_grant` hata kodları hello yenileme belirteci atmak ve yeni bir yetkilendirme kodu isteyin.
 
-Bir örnek isteğine **Kiracı özgü** uç noktası (de kullanabilirsiniz **ortak** uç nokta) yeni bir erişim almak için bir yenileme belirteci kullanarak belirteci şöyle görünür:
+Örnek istek toohello **Kiracı özgü** uç noktası (Merhaba de kullanabilirsiniz **ortak** uç nokta) tooget bir yenileme belirteci kullanarak yeni bir erişim belirteci şu şekilde görünür:
 
 ```
 // Line breaks for legibility only
@@ -344,13 +344,13 @@ Başarılı bir token yanıt gibi görünür:
 ```
 | Parametre | Açıklama |
 | --- | --- |
-| token_type |Simge türü. Desteklenen tek değer: **taşıyıcı**. |
-| expires_in |Saniye cinsinden kalan belirteç ömrü. Tipik bir değer 3600 (bir saat) ' dir. |
-| expires_on |Tarih ve saat üzerinde belirtecinin süresi doluyor. Tarih 1970'ten saniyeyi temsil edilir-01-01T0:0:0Z UTC sona erme zamanı kadar. |
-| Kaynak |Erişim belirteci olabilir güvenli kaynağı tanımlayan erişmek için kullanılan. |
-| Kapsam |Yerel istemci uygulaması için kimliğe bürünme izinler. Varsayılan izni **user_impersonation**. Hedef kaynak sahibi Azure AD içinde alternatif değerler kaydedebilirsiniz. |
-| access_token |İstenen yeni bir erişim belirteci. |
-| refresh_token |Bu yanıt süresi dolduğunda yeni erişim belirteçleri istemek için kullanılan yeni bir OAuth 2.0 refresh_token. |
+| token_type |Merhaba simge türü. yalnızca desteklenen hello değer **taşıyıcı**. |
+| expires_in |Merhaba hello belirteç ömrü saniye kaldı. Tipik bir değer 3600 (bir saat) ' dir. |
+| expires_on |Başlangıç tarihi ve saati üretileceği hello belirtecinin süresi doluyor. Başlangıç tarihi 1970'ten hello saniyeyi temsil edilir-01-01T0:0:0Z UTC hello süre kadar. |
+| Kaynak |Merhaba tanımlayan kaynak güvenli hello erişim belirtecini kullanılan tooaccess olabilir. |
+| Kapsam |Kimliğe bürünme, toohello yerel istemci uygulaması izinler. Merhaba varsayılan izni **user_impersonation**. Merhaba hedef kaynak Hello sahibi alternatif değerler Azure AD'de kaydedebilirsiniz. |
+| access_token |İstenen hello yeni bir erişim belirteci. |
+| refresh_token |Bu yanıt Hello sona erdiğinde, kullanılan toorequest yeni erişim belirteçleri olabilecek bir yeni OAuth 2.0 refresh_token. |
 
 ### Hata yanıtı
 Bir örnek hata yanıtı şuna:
@@ -358,7 +358,7 @@ Bir örnek hata yanıtı şuna:
 ```
 {
   "error": "invalid_resource",
-  "error_description": "AADSTS50001: The application named https://foo.microsoft.com/mail.read was not found in the tenant named 295e01fc-0c56-4ac3-ac57-5d0ed568f872.  This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant.  You might have sent your authentication request to the wrong tenant.\r\nTrace ID: ef1f89f6-a14f-49de-9868-61bd4072f0a9\r\nCorrelation ID: b6908274-2c58-4e91-aea9-1f6b9c99347c\r\nTimestamp: 2016-04-11 18:59:01Z",
+  "error_description": "AADSTS50001: hello application named https://foo.microsoft.com/mail.read was not found in hello tenant named 295e01fc-0c56-4ac3-ac57-5d0ed568f872.  This can happen if hello application has not been installed by hello administrator of hello tenant or consented tooby any user in hello tenant.  You might have sent your authentication request toohello wrong tenant.\r\nTrace ID: ef1f89f6-a14f-49de-9868-61bd4072f0a9\r\nCorrelation ID: b6908274-2c58-4e91-aea9-1f6b9c99347c\r\nTimestamp: 2016-04-11 18:59:01Z",
   "error_codes": [
     50001
   ],
@@ -370,11 +370,11 @@ Bir örnek hata yanıtı şuna:
 
 | Parametre | Açıklama |
 | --- | --- |
-| error |Oluşan hataları türlerini sınıflandırmak için kullanılan ve hataları tepki vermek için kullanılan bir hata kodu dizesi. |
-| error_description |Bir geliştirici bir kimlik doğrulama hatası kök nedenini belirlemenize yardımcı olabilecek belirli bir hata iletisi. |
+| error |Oluşan hataları kullanılan tooclassify türde olabilir ve kullanılan tooreact tooerrors olabilir bir hata kodu dizesi. |
+| error_description |Bir geliştirici yardımcı olabilecek belirli bir hata iletisi kimlik doğrulama hatası hello kök nedenini tanımlayın. |
 | error_codes |Tanılamada yardımcı olabilecek STS özgü hata kodları listesi. |
-| timestamp |Hatanın gerçekleştiği zaman. |
-| trace_id |Tanılamada yardımcı olabilecek isteği için benzersiz bir tanımlayıcı. |
-| correlation_id |Tanılamada bileşenlerinde yardımcı olabilecek isteği için benzersiz bir tanımlayıcı. |
+| timestamp |Merhaba hata gerçekleştiği hello süre. |
+| trace_id |Tanılamada yardımcı olabilecek hello isteği için benzersiz bir tanımlayıcı. |
+| correlation_id |Tanılama'bileşenlerinde yardımcı olabilecek hello isteği için benzersiz bir tanımlayıcı. |
 
-Hata kodları ve önerilen istemci eylemi açıklaması için bkz: [belirteç uç noktası hataları için hata kodları](#error-codes-for-token-endpoint-errors).
+Merhaba hata kodları ve önerilen istemci eylem hello açıklaması için bkz: [belirteç uç noktası hataları için hata kodları](#error-codes-for-token-endpoint-errors).

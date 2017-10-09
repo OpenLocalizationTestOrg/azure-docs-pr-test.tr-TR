@@ -1,6 +1,6 @@
 ---
-title: "Azure Automation ile ilgili genel sorunları giderme | Microsoft Docs"
-description: "Bu makalede, sorun giderme ve ortak Azure Otomasyonu hataları giderin yardımcı olacak bilgiler sağlar."
+title: "Ortak Azure Otomasyonu sorunları aaaTroubleshooting | Microsoft Docs"
+description: "Bu makalede bilgiler sağlanmaktadır toohelp sorun giderme ve ortak Azure Otomasyonu hataları düzeltin."
 services: automation
 documentationcenter: 
 author: mgoedtel
@@ -16,175 +16,175 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2017
 ms.author: sngun; v-reagie
-ms.openlocfilehash: 64548d91e98754210cc5185d9d759141cc0621d3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: eb7d1cc5726f2b7a86c860e8f0c8340fa4221b2e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Azure Automation sık karşılaşılan sorunları giderme 
-Bu makalede Azure Otomasyonu'nda karşılaşabilirsiniz ve bunları gidermek için olası çözümleri önerir ortak hatalarında sorun giderme yardım sağlar.
+Bu makalede Azure Otomasyonu'nda karşılaşabilirsiniz ve olası çözümlerini tooresolve önerir ortak hatalarında sorun giderme yardımı sunar bunları.
 
 ## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>Azure Otomasyon çalışma kitabı ile çalışırken, kimlik doğrulama hataları
-### <a name="scenario-sign-in-to-azure-account-failed"></a>Senaryo: Başarısız Azure hesabınızda oturum açın
-**Hata:** Add-AzureAccount veya Login-AzureRmAccount cmdlet ile birlikte çalışırken "Unknown_user_type: Bilinmeyen kullanıcı türü" hatası alıyorsunuz.
+### <a name="scenario-sign-in-tooazure-account-failed"></a>Senaryo: Hesap oturum açma tooAzure başarısız oldu
+**Hata:** hello Add-AzureAccount veya Login-AzureRmAccount cmdlet ile birlikte çalışırken "Unknown_user_type: Bilinmeyen kullanıcı türü" Merhaba hata alırsınız.
 
-**Hatanın nedeni:** kimlik bilgisi varlığı adı geçerli değil veya kullanıcı adı ve Otomasyonu kimlik bilgisi varlığı kurulumu için kullanılan parola geçerli değilse bu hata oluşur.
+**Merhaba hata nedeni:** hello kimlik bilgisi varlığı adı geçerli değil veya Merhaba, kullanıcı adı ve parola toosetup hello Otomasyonu kimlik bilgisi varlığı kullanılan geçerli değil, bu hata oluşur.
 
-**Sorun giderme ipuçları:** sorunun ne olduğunu belirlemek için aşağıdaki adımları uygulayın:  
+**Sorun giderme ipuçları:** içinde yanlış nedir toodetermine sipariş, hello aşağıdaki adımları gerçekleştirin:  
 
-1. Dahil olmak üzere tüm özel karakterleri içermediğinden emin olun  **@**  karakteri, Azure'a bağlanmak için kullandığınız Otomasyonu kimlik bilgisi varlığı adı.  
-2. Azure Otomasyonu kimlik bilgisi yerel PowerShell ISE düzenleyicinizde depolanmış parola ve kullanıcı adı kullanıp kullanmadığını denetleyin. PowerShell ISE aşağıdaki cmdlet'leri çalıştırarak bunu yapabilirsiniz:  
+1. Merhaba dahil olmak üzere tüm özel karakterleri içermediğinden emin olun  **@**  hello Otomasyonu kimlik bilgisi varlık adı tooconnect tooAzure kullandığınız karakter.  
+2. Merhaba kullanıcı adı ve yerel PowerShell ISE düzenleyicinizde hello Azure Otomasyonu kimlik bilgisi depolanmış parola kullanıp kullanmadığını denetleyin. Merhaba PowerShell ISE cmdlet'leri aşağıdaki hello çalıştırarak bunu yapabilirsiniz:  
 
         $Cred = Get-Credential  
         #Using Azure Service Management   
         Add-AzureAccount –Credential $Cred  
         #Using Azure Resource Manager  
         Login-AzureRmAccount –Credential $Cred
-3. Yerel olarak, kimlik doğrulama başarısız olursa, bu Azure Active Directory bilgilerinizi düzgün ayarlamadıysanız anlamına gelir. Başvurmak [Azure Active Directory'yi kullanarak Azure için kimlik doğrulama](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) doğru şekilde ayarlanan Azure Active Directory hesap almak için blog postası.  
+3. Yerel olarak, kimlik doğrulama başarısız olursa, bu Azure Active Directory bilgilerinizi düzgün ayarlamadıysanız anlamına gelir. Çok başvuran[tooAzure Azure Active Directory'yi kullanarak kimlik doğrulaması](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blog gönderisine tooget hello Azure Active Directory hesabı doğru şekilde ayarlanamıyor.  
 
-### <a name="scenario-unable-to-find-the-azure-subscription"></a>Senaryo: Azure aboneliği bulunamıyor
-**Hata:** hatasını alıyorsunuz "adlı abonelik ``<subscription name>`` bulunamıyor" Select-AzureSubscription veya Select-AzureRmSubscription cmdlet ile birlikte çalışırken.
+### <a name="scenario-unable-toofind-hello-azure-subscription"></a>Senaryo: Oluşturulamıyor toofind hello Azure aboneliği
+**Hata:** hello hatasını alıyorsunuz "Merhaba adlı abonelik ``<subscription name>`` bulunamıyor" Merhaba Select-AzureSubscription veya Select-AzureRmSubscription cmdlet ile birlikte çalışırken.
 
-**Hatanın nedeni:** abonelik adı geçerli değil veya abonelik ayrıntıları alınmaya çalışılırken Azure Active Directory kullanıcı Abonelik Yöneticisi olarak yapılandırılmamışsa, bu hata oluşur.
+**Merhaba hata nedeni:** hello abonelik adı geçerli değil veya tooget hello Abonelik Ayrıntıları çalışan hello Azure Active Directory kullanıcı hello Abonelik Yöneticisi olarak yapılandırılmamışsa, bu hata oluşur.
 
-**Sorun giderme ipuçları:** Azure'a düzgün bir şekilde doğrulandı ve seçmek için çalıştığınız abonelik erişimi belirlemek için aşağıdaki adımları uygulayın:  
+**Sorun giderme ipuçları:** sırada toodetermine tooAzure düzgün bir şekilde doğrulandı ve tooselect, çalıştığınız erişim toohello aboneliğiniz ele aşağıdaki adımları hello:  
 
-1. Çalıştırdığınızdan emin olun **Add-AzureAccount** çalıştırmadan önce **Select-AzureSubscription** cmdlet'i.  
-2. Hala bu hata iletisini görürseniz, kodunuzu ekleyerek değiştirmeye **Get-AzureSubscription** cmdlet'i aşağıdaki **Add-AzureAccount** cmdlet'i ve kod yürütebilir.  Şimdi Get-AzureSubscription çıktısını abonelik ayrıntılarınızı içerip içermediğini doğrulayın.  
+1. Merhaba çalıştırdığınızdan emin olun **Add-AzureAccount** hello çalıştırmadan önce **Select-AzureSubscription** cmdlet'i.  
+2. Hala bu hata iletisini görürseniz, kodunuzu hello ekleyerek değiştirmeye **Get-AzureSubscription** hello aşağıdaki cmdlet'i **Add-AzureAccount** cmdlet'i ve hello kodunu yürütün.  Şimdi Get-AzureSubscription hello çıktısını abonelik ayrıntılarınızı içerip içermediğini doğrulayın.  
 
-   * Tüm abonelik ayrıntıları çıktıda görmüyorsanız, bu abonelik henüz başlatılmadı anlamına gelir.  
-   * Abonelik Ayrıntıları çıktıda görürseniz doğru abonelik adı veya kimliği ile kullandığınızdan emin olun **Select-AzureSubscription** cmdlet'i.   
+   * Tüm abonelik ayrıntıları hello çıktısında görmüyorsanız, bu hello abonelik henüz başlatılmadı anlamına gelir.  
+   * Merhaba Abonelik Ayrıntıları hello çıktısında görürseniz, hello doğru abonelik adı veya kimliği ile Merhaba kullandığınızı doğrulayın **Select-AzureSubscription** cmdlet'i.   
 
-### <a name="scenario-authentication-to-azure-failed-because-multi-factor-authentication-is-enabled"></a>Senaryo: çok faktörlü kimlik doğrulamasının etkin olduğundan Azure kimlik doğrulaması başarısız oldu
-**Hata:** hatasını alıyorsunuz "Add-AzureAccount: AADSTS50079: güçlü kimlik doğrulaması kayıt (yukarı kanıt) gereklidir" Azure kullanıcı adı ve parola ile Azure için kimlik doğrulama zaman.
+### <a name="scenario-authentication-tooazure-failed-because-multi-factor-authentication-is-enabled"></a>Senaryo: çok faktörlü kimlik doğrulamasının etkin kimlik doğrulama tooAzure başarısız oldu
+**Hata:** hello hatasını alıyorsunuz "Add-AzureAccount: AADSTS50079: güçlü kimlik doğrulaması kayıt (yukarı kanıt) gereklidir" tooAzure Azure kullanıcı adı ve parola kimlik doğrulaması yapılırken.
 
-**Hatanın nedeni:** çok faktörlü kimlik doğrulaması Azure hesabınız varsa, Azure için kimlik doğrulaması için bir Azure Active Directory kullanıcı kullanamaz.  Bunun yerine, Azure için kimlik doğrulaması için bir sertifika veya bir hizmet sorumlusu kullanmanız gerekir.
+**Merhaba hata nedeni:** çok faktörlü kimlik doğrulaması Azure hesabınız varsa, bir Azure Active Directory kullanıcı tooauthenticate tooAzure kullanamazsınız.  Bunun yerine, toouse bir sertifika veya bir hizmet asıl tooauthenticate tooAzure gerekir.
 
-**Sorun giderme ipuçları:** bir sertifika ile Azure Hizmet Yönetimi cmdlet'lerini kullanmak için başvurmak [oluşturma ve Azure hizmetleri yönetmek için bir sertifika ekleniyor.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Bir hizmet sorumlusu ile Azure Resource Manager cmdlet'lerini kullanmak için başvurmak [hizmet sorumlusu Azure portalını kullanarak oluşturuluyor](../azure-resource-manager/resource-group-create-service-principal-portal.md) ve [bir hizmet sorumlusu Azure Resource Manager ile kimlik doğrulaması.](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+**Sorun giderme ipuçları:** toouse hello Azure Hizmet Yönetimi cmdlet'leri bir sertifikayla başvurmak çok[oluşturma ve sertifika toomanage Azure ekleme Hizmetleri.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Azure Resource Manager cmdlet'lerini hizmet sorumlusuyla toouse başvurmak çok[hizmet sorumlusu Azure portalını kullanarak oluşturuluyor](../azure-resource-manager/resource-group-create-service-principal-portal.md) ve [bir hizmet sorumlusu Azure Resource Manager ile kimlik doğrulaması.](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Runbook'larla çalışırken sık karşılaşılan hataları
-### <a name="scenario-the-runbook-job-start-was-attempted-three-times-but-it-failed-to-start-each-time"></a>Senaryo: Runbook işi başlangıç üç kez denendi, ancak her zaman başlatılamadı
-**Hata:** runbook'unuz "" iş üç kez denedi ancak işlem başarısız oldu."hatasıyla başarısız oluyor
+### <a name="scenario-hello-runbook-job-start-was-attempted-three-times-but-it-failed-toostart-each-time"></a>Senaryo: Merhaba runbook işi başlangıç üç kez denendi, ancak her zaman toostart başarısız oldu
+**Hata:** runbook'unuz "" Merhaba iş girişiminde bulunulmamış üç kez ancak işlem başarısız oldu."Merhaba hatasıyla başarısız oluyor
 
-**Hatanın nedeni:** bu hatayı aşağıdaki nedenlerden kaynaklanabilir:  
+**Merhaba hata nedeni:** bu hata tarafından hello aşağıdaki nedenlerden kaynaklanabilir:  
 
-1. Bellek sınırı.  Biz bir korumalı alan için ayrılan bellek miktarını sınırları belgelenen [Otomasyon hizmet sınırları](../azure-subscription-service-limits.md#automation-limits) şekilde bir iş 400 MB'tan fazla bellek kullanması durumunda başarısız. 
+1. Bellek sınırı.  Biz tooa korumalı alan ne kadar bellek tahsis üzerinde sınırları belgelenen [Otomasyon hizmet sınırları](../azure-subscription-service-limits.md#automation-limits) şekilde bir iş 400 MB'tan fazla bellek kullanması durumunda başarısız. 
 
 2. Modül uyumlu değil.  Bu modül bağımlılıkları doğru değildir ve değilse, runbook'a genellikle "komut bulunamadı" döndürür oluşabilir veya "parametresi bağlanılamıyor" iletisi. 
 
-**Sorun giderme ipuçları:** aşağıdaki çözümlerden birini sorunu çözer:  
+**Sorun giderme ipuçları:** çözümleri aşağıdaki hello hiçbirini hello sorunu çözer:  
 
-* Bellek sınırı içinde çalışmak için önerilen yöntem, birden çok runbook arasında iş yükünü bölme veya değil, bellekte gereksiz çıktı, runbook'lardan yazamaz kadar verileri işlemek, PowerShell iş akışı runbook'larınızda yazma kaç kontrol noktaları göz önünde bulundurun üzeresiniz.  
+* Önerilen yöntem toowork hello bellek sınırı içinde birden çok runbook arasında toosplit hello iş yükü olan, bellek, değil gereksiz çıktısı, runbook'ları toowrite kadar verileri işlemez veya PowerShell içinde yazma kaç kontrol noktaları göz önünde bulundurun İş akışı runbook'ları.  
 
-* Aşağıdaki adımları izleyerek Azure modüllerinizi güncelleştirmek gereken [Azure PowerShell modülleri Azure Automation güncelleştirmek nasıl](automation-update-azure-modules.md).  
+* Merhaba adımları izleyerek Azure modüllerinizi ihtiyacınız tooupdate [nasıl tooupdate Azure PowerShell modülleri Azure Automation](automation-update-azure-modules.md).  
 
 
 ### <a name="scenario-runbook-fails-because-of-deserialized-object"></a>Senaryo: Runbook seri durumdan çıkarılmış nesne nedeniyle başarısız.
-**Hata:** runbook'unuz hatasıyla başarısız olur. "parametre bağlanamıyor ``<ParameterName>``. Dönüştürülemiyor ``<ParameterType>`` Deserialized türünde değer ``<ParameterType>`` yazmak için ``<ParameterType>``".
+**Hata:** runbook'unuz hello hatasıyla başarısız olur. "parametre bağlanamıyor ``<ParameterName>``. Merhaba dönüştürülemiyor ``<ParameterType>`` Deserialized türünde değer ``<ParameterType>`` tootype ``<ParameterType>``".
 
-**Hatanın nedeni:** runbook'unuz bir PowerShell iş akışı ise, bu karmaşık nesne seri durumdan çıkarılmış biçimde iş akışı askıya alınırsa, runbook durumu devam ettirmek için depolar.  
+**Merhaba hata nedeni:** runbook'unuz bir PowerShell iş akışı ise, hello iş akışı askıya alınırsa karmaşık nesneler sipariş toopersist seri durumdan çıkarılmış biçimde runbook durumunuza depolar.  
 
 **Sorun giderme ipuçları:**  
-Aşağıdaki üç çözümlerden birini bu sorunu çözer:
+Aşağıdaki üç çözümleri hello hiçbirini bu sorunu çözer:
 
-1. Bir cmdlet karmaşık nesneleri başka bir cmdlet'ine varsa, bu cmdlet'leri bir Inlinescript alın.  
-2. Nesnenin tamamı geçirme yerine karmaşık nesnesinden adını veya gereksinim duyduğunuz değerini geçirin.  
+1. Bir cmdlet tooanother karmaşık nesnelerden cmdlet'ine varsa, bu cmdlet'leri bir Inlinescript alın.  
+2. Gereksinim duyduğunuz Hello ad veya değer nesnesinden nesnenin tamamı hello geçirme yerine hello karmaşık geçirin.  
 3. Bir PowerShell runbook'u bir PowerShell iş akışı runbook yerine kullanın.  
 
-### <a name="scenario-runbook-job-failed-because-the-allocated-quota-exceeded"></a>Senaryo: Runbook işi başarısız oldu, ayrılmış kotasını aştığı için
-**Hata:** runbook işi, "aylık toplam iş yürütme süresi kotasına, bu abonelik için de ulaşıldı" hatasıyla başarısız oluyor.
+### <a name="scenario-runbook-job-failed-because-hello-allocated-quota-exceeded"></a>Senaryo: hello kotası aşıldı ayrılan Runbook işi başarısız oldu
+**Hata:** runbook işi, "Merhaba aylık toplam iş çalışma zamanı için hello kotası, bu abonelik için de ulaşıldı" Merhaba hatasıyla başarısız oluyor.
 
-**Hatanın nedeni:** iş yürütme hesabınız için 500 dakikalık ücretsiz kotayı aşan bu hata oluşur. Bu kota bir işi sınama, gibi portaldan bir iş başlatmayı Web kancalarını kullanarak ve Azure portalını kullanarak veya yürütmek için bir iş zamanlaması bir iş yürütme, veri merkezinizdeki iş yürütme görevleri tüm türleri için geçerlidir. Otomasyon bakın için fiyatlandırma hakkında daha fazla bilgi için [Otomasyon fiyatlandırma](https://azure.microsoft.com/pricing/details/automation/).
+**Merhaba hata nedeni:** bu hata hello iş yürütme aşıyor hello 500 dakikalık ücretsiz kota hesabınız için oluşur. Bu kota bir işi sınama, gibi hello Portalı'ndan bir iş başlatmayı Web kancalarını kullanarak ve her iki hello Azure portal kullanarak veya bir iş tooexecute zamanlama iş yürütme, veri merkezinizdeki iş yürütme görevleri tooall türleri geçerlidir. Otomasyon için fiyatlandırma hakkında daha fazla toolearn [Otomasyon fiyatlandırma](https://azure.microsoft.com/pricing/details/automation/).
 
-**Sorun giderme ipuçları:** 500 dakikadan fazla işleme aylık kullanmak isterseniz aboneliğinizin ücretsiz değiştirmeniz gerekecektir temel katmana katmanı. Aşağıdaki adımları uygulayarak temel katmana yükseltebilirsiniz:  
+**Sorun giderme ipuçları:** 500 toochange gerekir ayda hello ücretsiz katmanı toohello temel katmana aboneliğinizden işleme dakikadan fazla toouse istiyorsanız. Aşağıdaki adımları alma hello tarafından toohello temel katmana yükseltebilirsiniz:  
 
-1. Azure aboneliğinizde oturum açın  
-2. Yükseltmek istediğiniz Otomasyon hesabını seçin  
+1. Azure aboneliği tooyour oturum  
+2. Tooupgrade istediğiniz hello Otomasyon hesabı seçin  
 3. Tıklayın **ayarları** > **fiyatlandırma katmanı ve kullanım** > **fiyatlandırma katmanı**  
-4. Üzerinde **fiyatlandırma katmanınızı seçin** dikey penceresinde, select **temel**    
+4. Merhaba üzerinde **fiyatlandırma katmanınızı seçin** dikey penceresinde, select **temel**    
 
 ### <a name="scenario-cmdlet-not-recognized-when-executing-a-runbook"></a>Senaryo: bir runbook yürütülürken tanınmayan cmdlet'i
-**Hata:** , runbook işi şu hata ile başarısız "``<cmdlet name>``: terimi ``<cmdlet name>`` cmdlet, işlev, komut dosyası veya çalıştırılabilir program adı olarak tanınmıyor."
+**Hata:** runbook işinizi hello hatasıyla başarısız olur. "``<cmdlet name>``: hello terim ``<cmdlet name>`` cmdlet, işlev, komut dosyası veya çalıştırılabilir program hello adı olarak tanınmıyor."
 
-**Hatanın nedeni:** PowerShell altyapısı runbook'unuzda kullandığınız cmdlet bulamadığında bu hataya neden olur.  Bu cmdlet içeren modülü hesabından eksik olduğundan, runbook adı ile ad çakışması veya başka bir modülde mevcut cmdlet da ve Otomasyon adı çözümlenemiyor olabilir.
+**Merhaba hata nedeni:** hello PowerShell altyapısı runbook'unuzda kullandığınız hello cmdlet bulamadığında bu hataya neden olur.  Bu hello cmdlet içeren hello modülü hello hesabından eksik olduğundan, bir runbook adı, bir ad çakışması veya başka bir modülde mevcut hello cmdlet da ve Otomasyon hello adı çözümlenemiyor olabilir.
 
-**Sorun giderme ipuçları:** aşağıdaki çözümlerden birini sorunu çözer:  
+**Sorun giderme ipuçları:** çözümleri aşağıdaki hello hiçbirini hello sorunu çözer:  
 
-* Cmdlet adı doğru yazdığınızdan emin olun.  
-* Cmdlet, Automation hesabınız var ve herhangi bir çakışma olduğundan emin olun. Cmdlet'in mevcut olup olmadığını doğrulamak için bir runbook düzenleme modu ve arama çalıştırın veya kitaplık bulmak istediğiniz cmdlet'in açın **Get-Command ``<CommandName>``** .  Cmdlet hesabına kullanılabilir olan doğrulatma ve diğer cmdlet'leri veya runbook'ları ad çakışması yok sonra tuvale Ekle ve geçerli bir parametre runbook'unuzda kümesi kullandığınızdan emin olun.  
-* Bir ad çakışması varsa ve iki farklı modüllerde cmdlet kullanılabilir, bu cmdlet'i için tam adı kullanarak çözebilirsiniz. Örneğin, kullanabileceğiniz **ModuleName\CmdletName**.  
-* Karma çalışanı grubu içinde içi runbook çalıştırıldığında modül/cmdlet karma çalışanı barındıran makinede yüklü olduğundan emin olun.
+* Merhaba cmdlet adı doğru yazdığınızdan emin olun.  
+* Merhaba cmdlet Automation hesabınız var ve herhangi bir çakışma olduğundan emin olun. Merhaba cmdlet varsa, tooverify düzenleme modu ve arama toofind hello Kitaplığı'nda istediğiniz ya da çalıştırmak hello cmdlet için bir runbook açmak **Get-Command ``<CommandName>``** .  Bu hello cmdlet doğruladıktan sonra kullanılabilir toohello hesabıdır ve diğer cmdlet'leri veya runbook'ları, hiçbir adıyla çakışıyor olduğunu toohello tuvale Ekle ve runbook'unuzda kümesi geçerli bir parametre kullandığından emin olun.  
+* Bir ad çakışması varsa ve iki farklı modüllerde hello cmdlet kullanılabilir, bunu hello cmdlet'i için tam ad hello kullanarak çözebilirsiniz. Örneğin, kullanabileceğiniz **ModuleName\CmdletName**.  
+* Merhaba runbook şirket içi karma çalışanı grubu yürütme, ardından o hello emin olun, modül/cmdlet hello karma çalışanı barındıran hello makineye yüklenir.
 
-### <a name="scenario-a-long-running-runbook-consistently-fails-with-the-exception-the-job-cannot-continue-running-because-it-was-repeatedly-evicted-from-the-same-checkpoint"></a>Senaryo: Bir uzun süre çalışan runbook sürekli özel durumuyla başarısız: "iş sürekli olarak aynı denetim noktasından çıkarıldı çünkü çalışmaya devam edemiyor".
-**Hatanın nedeni:** bu "Orta Share" 3 saatten uzun yürütülürse, otomatik olarak bir runbook'u askıya Azure Otomasyonu süreçlerinde izlenmesini nedeniyle davranış tasarım gereğidir. Ancak, döndürülen hata iletisi "İleri hangi" sağlamaz seçenekleri. Bir runbook birçok nedenden dolayı askıya alınabilir. Durum çoğunlukla hatalar nedeniyle askıya alır. Örneğin, yakalanmayan bir özel durum bir runbook, bir ağ hatası veya çökmeyle runbook'u çalıştıran Runbook çalışanı üzerindeki tüm askıya ve sürdürülebilir olduğunda, son denetim noktasından başlatmak runbook neden olur.
+### <a name="scenario-a-long-running-runbook-consistently-fails-with-hello-exception-hello-job-cannot-continue-running-because-it-was-repeatedly-evicted-from-hello-same-checkpoint"></a>Senaryo: Bir uzun süre çalışan runbook sürekli hello özel durumuyla başarısız: "Merhaba işi art arda hello çıkarıldı çünkü çalıştıran devam edemiyor aynı denetim noktası".
+**Merhaba hata nedeni:** bu toohello 3 saatten uzun yürütülürse, otomatik olarak bir runbook'u askıya Azure Otomasyonu süreçlerinde "Orta Share" izlenmesini son davranış tasarım gereğidir. Ancak, döndürülen hata iletisi "İleri hangi" sağlamaz hello seçenekleri. Bir runbook birçok nedenden dolayı askıya alınabilir. Durum askıya çoğunlukla son tooerrors. Örneğin, bir runbook, bir ağ hatası veya üzerinde bir kilitlenme yakalanmayan bir özel durum Merhaba hello runbook'u çalıştıran Runbook Worker, tüm askıya hello runbook toobe neden ve sürdürüldü olduğunda, son denetim noktasından başlatın.
 
-**Sorun giderme ipuçları:** belgelenen çözüm bu sorunu önlemek için bir iş akışında denetim noktaları kullanmaktır.  Bilgi edinmek için daha fazla bilgi için bkz [öğrenme PowerShell iş akışları](automation-powershell-workflow.md#checkpoints).  Daha kapsamlı bir açıklama "Orta paylaşımı" ve denetim noktası bu blog makalesinde bulunabilir [kullanarak denetim noktaları runbook'lardaki](https://azure.microsoft.com/en-us/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/).
+**Sorun giderme ipuçları:** hello belgelenen çözüm tooavoid toouse denetim noktaları bir iş akışında bu sorunudur.  Daha fazla başvurmak çok toolearn[öğrenme PowerShell iş akışları](automation-powershell-workflow.md#checkpoints).  Daha kapsamlı bir açıklama "Orta paylaşımı" ve denetim noktası bu blog makalesinde bulunabilir [kullanarak denetim noktaları runbook'lardaki](https://azure.microsoft.com/en-us/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/).
 
 ## <a name="common-errors-when-importing-modules"></a>Modülleri içeri aktarırken sık karşılaşılan hataları
-### <a name="scenario-module-fails-to-import-or-cmdlets-cant-be-executed-after-importing"></a>Senaryo: Modülü içeri aktarmak başarısız veya cmdlet'leri içeri aktardıktan sonra yürütülemez.
-**Hata:** bir modülü içeri aktarmak başarısız olursa veya başarıyla alır, ancak hiçbir cmdlet'leri ayıklanır.
+### <a name="scenario-module-fails-tooimport-or-cmdlets-cant-be-executed-after-importing"></a>Senaryo: Tooimport modülü başarısız veya cmdlet'leri içeri aktardıktan sonra yürütülemez.
+**Hata:** bir modül tooimport başarısız veya başarılı bir şekilde alır, ancak hiçbir cmdlet'leri ayıklanır.
 
-**Hatanın nedeni:** bir modül başarıyla Azure Otomasyonu alabilir değil bazı genel nedenleri şunlardır:  
+**Merhaba hata nedeni:** bir modül başarıyla Otomasyon olan tooAzure alabilir değil, bazı ortak nedenleri:  
 
-* Yapısı, Otomasyon olması gereken yapısıyla uyuşmuyor.  
-* Modül, Automation hesabınızı dağıtılmadı başka bir modül bağımlıdır.  
-* Modülün bağımlılıklarını klasöründeki eksik.  
-* **Yeni AzureRmAutomationModule** cmdlet, modül karşıya yüklemek için kullanılıyor ve tam depolama için belirtilen yol değil veya modülü genel olarak erişilebilir bir URL kullanarak yüklenmedi.  
+* Merhaba yapısı hello yapısı eşleşmiyor Otomasyonu'nun bu toobe içinde gerekiyor.  
+* Merhaba modülü üzerinde dağıtılan tooyour Otomasyon hesabı ayarlanmadı başka bir modül bağlıdır.  
+* Merhaba modülü bağımlılıklarını hello klasöründeki eksik.  
+* Merhaba **yeni AzureRmAutomationModule** cmdlet kullanılan tooupload hello modülü olmasına ve hello tam depolama yolu vermedi veya hello modülü genel olarak erişilebilir bir URL kullanarak yüklenmedi.  
 
 **Sorun giderme ipuçları:**  
-Aşağıdaki çözümlerden birini sorunu çözer:  
+Çözümleri aşağıdaki hello hiçbirini hello sorunu çözer:  
 
-* Modül aşağıdaki biçime uyduğundan emin olun:  
+* Bu hello modül biçimini izleyen hello uyduğundan emin olun:  
   ModuleName.Zip  **->**  ModuleName veya sürüm numarası  **->**  (ModuleName.psm1, ModuleName.psd1)
-* .Psd1 dosyasını açın ve modül bağımlılıkları olup olmadığına bakın.  Varsa, bu modülleri Automation hesabına yükleyin.  
-* Başvurulan tüm .dll Modülü klasörde mevcut olduğundan emin olun.  
+* Merhaba .psd1 dosyasını açın ve hello modülü bağımlılıkları olup olmadığına bakın.  Varsa, bu modülleri toohello Otomasyon hesabı karşıya yükleyin.  
+* Başvurulan tüm .dll hello modülü klasörde mevcut olduğundan emin olun.  
 
 ## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>İstenen durum yapılandırması (DSC) ile çalışırken sık karşılaşılan hataları
 ### <a name="scenario-node-is-in-failed-status-with-a-not-found-error"></a>Senaryo: Bir "Bulunamadı" hatası ile başarısız durumundaki düğümdür
-**Hata:** sahip bir rapor düğümü sahip **başarısız** durum ve hata içeren "sunucu https:// eylemi alma denemesi``<url>``//accounts/``<account-id>``/Nodes(AgentId=``<agent-id>``)/GetDscAction başarısız oldu geçerli bir yapılandırma ``<guid>`` bulunamıyor."
+**Hata:** hello düğümü olan bir raporla **başarısız** durumu ve hello hata içeren "Merhaba girişimi tooget hello sunucu https:// eylemden``<url>``//accounts/``<account-id>``/Nodes(AgentId=``<agent-id>``) / GetDscAction başarısız olduğundan geçerli bir yapılandırma ``<guid>`` bulunamıyor. "
 
-**Hatanın nedeni:** düğüm yapılandırma adı (örneğin, ABC) atandığında, bu hata genellikle düğüm yapılandırma adı (örneğin, ABC. yerine oluşur Web sunucusu).  
+**Merhaba hata nedeni:** bu hata genellikle hello düğümü, bir düğüm yapılandırma adı (örneğin, ABC. yerine tooa yapılandırma adı (örneğin, ABC) atandığı oluşur Web sunucusu).  
 
 **Sorun giderme ipuçları:**  
 
-* "Düğüm yapılandırması adı" ve "yapılandırma adı değil" düğümle atıyorsanız emin olun.  
-* Azure portalını kullanarak bir düğüme veya bir PowerShell cmdlet ile bir düğüm yapılandırması atayabilirsiniz.
+* Merhaba düğümü "düğüm yapılandırması adı" hello "yapılandırma adı değil" ile atadığınız emin olun.  
+* Azure portal veya bir PowerShell cmdlet'ini kullanarak bir düğümü yapılandırma tooa düğümü atayabilirsiniz.
 
-  * Düğüm yapılandırması Azure portal kullanarak bir düğüme atamak için açık **DSC düğümleri** dikey penceresinde, ardından bir düğüm seçin ve tıklayın **Ata düğüm yapılandırması** düğmesi.  
-  * Düğüm yapılandırması PowerShell cmdlet'ini kullanarak bir düğüme atamak için kullanılması **kümesi AzureRmAutomationDscNode** cmdlet'i
+  * İçinde Azure portalını kullanarak bir düğümü yapılandırma tooa düğümü tooassign sipariş, açık hello **DSC düğümleri** dikey penceresinde, ardından bir düğüm seçin ve tıklayın **Ata düğüm yapılandırması** düğmesi.  
+  * Buna tooassign PowerShell cmdlet'ini kullanarak bir düğümü yapılandırma tooa düğümü sipariş, kullanın **kümesi AzureRmAutomationDscNode** cmdlet'i
 
 ### <a name="scenario--no-node-configurations-mof-files-were-produced-when-a-configuration-is-compiled"></a>Senaryo: düğüm yapılandırması (MOF dosyaları) bir yapılandırma derlendiğinde oluşturulamadığı
-**Hata:** DSC derleme işi şu hata ile askıya alır: "derleme başarıyla tamamlandı, ancak hiçbir düğüm yapılandırması .mofs oluşturuldu".
+**Hata:** hello hatasıyla DSC derleme işi askıya alır: "derleme başarıyla tamamlandı, ancak hiçbir düğüm yapılandırması .mofs oluşturuldu".
 
-**Hatanın nedeni:** zaman ifade aşağıdaki **düğümü** DSC yapılandırmada anahtar sözcüğü hesaplar için $null sonra düğüm yapılandırması üretilecek.    
+**Merhaba hata nedeni:** hello aşağıdaki ifade'ne zaman hello **düğümü** anahtar sözcüğü hello DSC yapılandırması değerlendirir çok$ null düğüm yapılandırması üretilen sonra.    
 
 **Sorun giderme ipuçları:**  
-Aşağıdaki çözümlerden birini sorunu çözer:  
+Çözümleri aşağıdaki hello hiçbirini hello sorunu çözer:  
 
-* Olduğundan emin olun yanındaki ifade **düğümü** $null için anahtar sözcüğü yapılandırma tanımında değerlendirme değil.  
-* Yapılandırma derlerken ConfigurationData geçirme, gelen yapılandırma gerektirir beklenen değerler geçirdiğinizden emin olun [ConfigurationData](automation-dsc-compile.md#configurationdata).
+* Bu hello ifade sonraki toohello emin olun **düğümü** anahtar sözcüğü hello yapılandırma tanımında değil değerlendirme çok$ null.  
+* Merhaba yapılandırması derlenirken ConfigurationData geçirme, hello beklenen değerler geçirdiğinizden emin olun gelen hello yapılandırmayı gerektirir [ConfigurationData](automation-dsc-compile.md#configurationdata).
 
-### <a name="scenario--the-dsc-node-report-becomes-stuck-in-progress-state"></a>Senaryo: DSC düğümü rapor "Sürüyor" durumunda kalmış olur
+### <a name="scenario--hello-dsc-node-report-becomes-stuck-in-progress-state"></a>Senaryo: hello DSC düğümü rapor "Sürüyor" durumunda kalmış olur
 **Hata:** DSC Aracısı çıkarır "ile özellik değerlerini bulunan örneği yok."
 
-**Hatanın nedeni:** WMF sürümünüzü yükseltmişseniz ve WMI bozulmuş.  
+**Merhaba hata nedeni:** WMF sürümünüzü yükseltmişseniz ve WMI bozulmuş.  
 
-**Sorun giderme ipuçları:** 'ndaki yönergeleri izleyin [bilinen sorunlar ve sınırlamalar DSC](https://msdn.microsoft.com/powershell/wmf/5.0/limitation_dsc) sorunu düzeltmek için.
+**Sorun giderme ipuçları:** hello hello'ndaki yönergeleri izlediğinizden [bilinen sorunlar ve sınırlamalar DSC](https://msdn.microsoft.com/powershell/wmf/5.0/limitation_dsc) toofix hello sorun.
 
-### <a name="scenario--unable-to-use-a-credential-in-a-dsc-configuration"></a>Senaryo: Bir kimlik bilgisi bir DSC yapılandırması kullanılamıyor
-**Hata:** DSC derleme işi şu hata ile askıya alındı: "özellik türü ' kimlik bilgisi' işlenirken System.InvalidOperationException hata ``<some resource name>``: dönüştürme ve yalnızca PSDscAllowPlainTextPassword ayarlandıysa düz metin izin verilir olarak şifrelenmiş parola depolama true".
+### <a name="scenario--unable-toouse-a-credential-in-a-dsc-configuration"></a>Senaryo: Oluşturulamıyor toouse bir kimlik bilgisi DSC yapılandırması
+**Hata:** hello hatasıyla DSC derleme işi askıya alındı: "özellik türü ' kimlik bilgisi' işlenirken System.InvalidOperationException hata ``<some resource name>``: dönüştürme ve şifreli bir parola düz metin yalnızca izin verilir olarak depolama PSDscAllowPlainTextPassword tootrue ayarlanmış".
 
-**Hatanın nedeni:** bir kimlik bilgisi bir yapılandırmada kullanmış ancak uygun sağlamadı **ConfigurationData** ayarlamak için **PSDscAllowPlainTextPassword** her düğüm yapılandırması için true.  
+**Merhaba hata nedeni:** bir kimlik bilgisi bir yapılandırmada kullanmış ancak uygun sağlamadı **ConfigurationData** tooset **PSDscAllowPlainTextPassword** tootrue her düğüm için yapılandırma.  
 
 **Sorun giderme ipuçları:**  
 
-* Uygun aktardığınızdan emin olun **ConfigurationData** ayarlamak için **PSDscAllowPlainTextPassword** yapılandırmasında belirtilen her düğüm yapılandırması için true. Daha fazla bilgi için bkz [Azure Otomasyonu DSC varlıkları](automation-dsc-compile.md#assets).
+* Merhaba uygun emin toopass olun **ConfigurationData** tooset **PSDscAllowPlainTextPassword** tootrue hello yapılandırmasında belirtilen her düğüm yapılandırması için. Daha fazla bilgi için çok başvurun[Azure Otomasyonu DSC varlıkları](automation-dsc-compile.md#assets).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Yukarıdaki sorun giderme adımları izlediğinizde ve yanıt bulamadıysanız, aşağıdaki ek destek seçenekleri gözden geçirebilirsiniz.
+Sorun giderme adımları yukarıdaki hello izleyen ve hello yanıt bulamadıysanız, aşağıdaki hello ek destek seçenekleri gözden geçirebilirsiniz.
 
-* Azure uzmanlarından yardım alın. Sorununuz için gönderme [MSDN Azure veya yığın taşması forumlar.](https://azure.microsoft.com/support/forums/).
-* Bir Azure destek olay dosya. Git [Azure Destek sitesi](https://azure.microsoft.com/support/options/) tıklatıp **alma desteği** altında **teknik ve faturalama desteği**.
+* Azure uzmanlarından yardım alın. Sorunu toohello gönderme [MSDN Azure veya yığın taşması forumlar.](https://azure.microsoft.com/support/forums/).
+* Bir Azure destek olay dosya. Toohello Git [Azure Destek sitesi](https://azure.microsoft.com/support/options/) tıklatıp **alma desteği** altında **teknik ve faturalama desteği**.
 * İleti bir betik isteği [Komut Merkezi](https://azure.microsoft.com/documentation/scripts/) bir Azure Otomasyonu runbook çözümü veya bir tümleştirme modülü arıyorsanız.
 * Azure Automation ile ilgili geribildirim ya da özellik isteğiniz ileti [kullanıcı sesi](https://feedback.azure.com/forums/34192--general-feedback).

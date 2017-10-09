@@ -1,6 +1,6 @@
 ---
-title: "Azure Search Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "Özel web uygulamalarına veya mobil uygulamalara, etkinlik izleme gibi güçlü arama özelliklerini nasıl ekleyebileceğinizi öğrenin. API başvuruları ve diğer belgeler."
+title: "aaaAzure arama belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
+description: "Nasıl tooadd güçlü arama özellikleri, etkinliği izleme, toocustom web veya mobil uygulamalar gibi öğrenin. API başvuruları ve diğer belgeler."
 services: search
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 7fffe78bebd6799cad544c12c20eb1926975a68f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2ef61d7bf68e94c4429ba1b13709ee9b31093b71
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-search-documentation"></a>Azure Search Belgeleri
 
-Yönetilen bir bulut arama hizmeti olan Azure Search ile özel web uygulamalarınıza veya mobil uygulamalarınıza arama özelliklerini nasıl ekleyebileceğinizi öğrenin. Öğreticiler, API başvuruları ve diğer belgeler; birden fazla dilde ölçeklenebilir tam metin araması, coğrafi uzamsal arama, filtreleme ve çok yönlü gezinme, yazarken tamamlanan sorgu, isabet vurgulama ve özel çözümleyiciler ekleme işlemleriyle ilgili bilgiler içerir.
+Tooadd nasıl arama yetenekleri tooyour özel web veya mobil uygulamalar Azure Search, yönetilen bir bulut arama hizmeti kullanma hakkında bilgi edinin. Öğreticiler, API başvuru ve diğer belgelerin, tooadd ölçeklenebilir tam metin araması birden çok dil, coğrafi uzamsal arama, filtreleme ve çok yönlü gezinme, yazarken tamamlanan sorgu üzerinden nasıl isabet vurgulama ve özel çözümleyiciler gösterir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -70,7 +70,7 @@ Yönetilen bir bulut arama hizmeti olan Azure Search ile özel web uygulamaları
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Portal ile Azure Search’ü kullanmaya başlama</h3>
+                        <h3>Hello Azure portal kullanarak Azure Search ile çalışmaya başlama</h3>
                     </div>
                 </div>
             </div>

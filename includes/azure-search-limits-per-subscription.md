@@ -1,6 +1,6 @@
-Yalnızca her katmanını izin verilen hizmetler sayısı sınırlı belirli bir katman, sağlanan her biri bir abonelik içindeki birden fazla hizmet oluşturabilirsiniz. Örneğin, 12 temel katmana adresindeki ve başka bir 12 Hizmetleri aynı abonelik içindeki S1 katmanı adresindeki kadar oluşturabilirsiniz. Katmanları hakkında daha fazla bilgi için bkz: [bir SKU katmanı için Azure Search seçin veya](../articles/search/search-sku-tier.md).
+Yalnızca her katmanını izin verilen hizmetler hello sayısı sınırlı belirli bir katman, sağlanan her biri bir abonelik içindeki birden fazla hizmet oluşturabilirsiniz. Örneğin, too12 hizmetlerini hello temel katmana adresindeki oluşturabilir ve başka bir 12 hello S1 katmanı hello içinde aynı Hizmetleri abonelik. Katmanları hakkında daha fazla bilgi için bkz: [bir SKU katmanı için Azure Search seçin veya](../articles/search/search-sku-tier.md).
 
-Maksimum hizmet sınırları, istek üzerine yükseltilebilir. Daha fazla hizmet aynı abonelik içindeki ihtiyacınız varsa Azure desteğine başvurun.
+Maksimum hizmet sınırları, istek üzerine yükseltilebilir. Azure daha gerekiyorsa desteğe başvurun Hizmetleri hello içinde aynı abonelik.
 
 | Kaynak | Ücretsiz | Temel | S1 | S2 | S3 | S3 HD <sup>1</sup> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -9,7 +9,7 @@ Maksimum hizmet sınırları, istek üzerine yükseltilebilir. Daha fazla hizmet
 
 <sup>1</sup> S3 HD desteklemiyor [dizin oluşturucular](../articles/search/search-indexer-overview.md) şu anda. 
 
-<sup>2</sup> arama birimi (SU) ya da ayrılan birimler, faturalama bir *çoğaltma* veya *bölüm*. Depolama, dizin oluşturma ve sorgu işlemleri için her iki kaynağın gerekir. Arama birimi nasıl hesaplanır plus grafikte maksimum sınırları altında kalmak geçerli kombinasyon hakkında daha fazla bilgi için bkz: [ölçeklendirme sorgu ve dizin iş yükleri için kaynak düzeylerinin](../articles/search/search-capacity-planning.md). 
+<sup>2</sup> arama birimi (SU) ya da ayrılan birimler, faturalama bir *çoğaltma* veya *bölüm*. Depolama, dizin oluşturma ve sorgu işlemleri için her iki kaynağın gerekir. Arama birimi nasıl hesaplanır plus grafikte hello maksimum sınırları altında kalmak için bkz: geçerli kombinasyon hakkında daha fazla toolearn [ölçeklendirme sorgu ve dizin iş yükleri için kaynak düzeylerinin](../articles/search/search-capacity-planning.md). 
 
 <sup>3</sup> serbest birden çok abone tarafından kullanılan paylaşılan kaynakları dayanır. Bu katman tek bir abone için ayrılmış kaynak yok. Bu nedenle, en fazla ölçek uygulanamaz olarak işaretlenir.
 

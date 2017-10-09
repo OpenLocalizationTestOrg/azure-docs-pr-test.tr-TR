@@ -1,5 +1,5 @@
 ---
-title: "Azure kapsayıcı hizmeti Öğreticisi - hazırlama ACR | Microsoft Docs"
+title: "aaaAzure kapsayıcı hizmeti Öğreticisi - hazırlama ACR | Microsoft Docs"
 description: "Azure kapsayıcı hizmeti Öğreticisi - ACR hazırlama"
 services: container-service
 documentationcenter: 
@@ -17,62 +17,62 @@ ms.workload: na
 ms.date: 08/21/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 3e1f7617bf2fc52ee4c15598f51a46276f4dc57d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 3980e5ce4eb9836f83c761a2f76c944bb3f13060
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Dağıtma ve Azure kapsayıcı kayıt defteri kullanma
 
-Azure kapsayıcı kayıt defteri (ACR) Docker kapsayıcısı görüntüleri için bir Azure tabanlı, özel kayıt defteri ' dir. Bu öğretici, bölümü yedi, iki kılavuzluk Azure kapsayıcı kayıt defteri örneğini dağıtma ve kapsayıcı görüntü için iletme. Tamamlanan adımları içerir:
+Azure kapsayıcı kayıt defteri (ACR) Docker kapsayıcısı görüntüleri için bir Azure tabanlı, özel kayıt defteri ' dir. Bu öğretici, bölümü yedi, iki anlatılmaktadır Azure kapsayıcı kayıt defteri örneğini dağıtma ve kapsayıcı görüntü tooit Ftp'den aracılığıyla. Tamamlanan adımları içerir:
 
 > [!div class="checklist"]
 > * Azure kapsayıcı kayıt defteri (ACR) örneğini dağıtma
 > * ACR için bir kapsayıcı görüntüsü etiketleme
-> * Görüntü ACR için karşıya yükleme
+> * Merhaba görüntü tooACR karşıya yükleme
 
 Sonraki öğreticilerde bu ACR örnek kapsayıcı görüntüleri güvenli bir şekilde çalıştırmak için bir Azure kapsayıcı hizmeti Kubernetes küme tümleşiktir. 
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-İçinde [önceki öğretici](./container-service-tutorial-kubernetes-prepare-app.md), basit bir Azure oylama uygulaması için bir kapsayıcı görüntüsü oluşturuldu. Bu öğreticide, Azure kapsayıcı kayıt defterine bu görüntüyü gönderilir. Azure oylama uygulama görüntüsü oluşturmadıysanız, geri dönüp [Öğreticisi 1 – Oluştur kapsayıcı görüntüleri](./container-service-tutorial-kubernetes-prepare-app.md). Alternatif olarak, adımlar burada herhangi bir kapsayıcı görüntü ile çalışma ayrıntılı.
+Merhaba, [önceki öğretici](./container-service-tutorial-kubernetes-prepare-app.md), basit bir Azure oylama uygulaması için bir kapsayıcı görüntüsü oluşturuldu. Bu öğreticide, bu görüntüyü tooan Azure kapsayıcı kayıt defteri gönderilir. Hello Azure oylama uygulama görüntüsü oluşturmadıysanız çok dönüş[Öğreticisi 1 – Oluştur kapsayıcı görüntüleri](./container-service-tutorial-kubernetes-prepare-app.md). Alternatif olarak, hello adımlar burada herhangi bir kapsayıcı görüntü ile çalışma ayrıntılı.
 
-Bu öğretici, Azure CLI Sürüm 2.0.4 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Bu öğretici hello Azure CLI Sürüm 2.0.4 çalıştırdığınız gerektirir veya sonraki bir sürümü. Çalıştırma `az --version` toofind hello sürümü. Tooinstall veya yükseltme gerekirse bkz [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 ## <a name="deploy-azure-container-registry"></a>Azure kapsayıcı kayıt defteri dağıtın
 
 Azure kapsayıcı kayıt defteri dağıtırken, önce bir kaynak grubu gerekir. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
-[az group create](/cli/azure/group#create) komutuyla bir kaynak grubu oluşturun. Bu örnekte, bir kaynak grubu adında *myResourceGroup* oluşturulan *westeurope* bölge.
+Bir kaynak grubu ile Merhaba oluşturmak [az grubu oluşturma](/cli/azure/group#create) komutu. Bu örnekte, bir kaynak grubu adında *myResourceGroup* hello oluşturulan *westeurope* bölge.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
 ```
 
-Azure kapsayıcı kayıt defteri ile oluşturma [az acr oluşturmak](/cli/azure/acr#create) komutu. Bir kapsayıcı kayıt defteri adını **benzersiz olmalıdır**.
+Azure kapsayıcı kayıt defteri ile Merhaba oluşturma [az acr oluşturmak](/cli/azure/acr#create) komutu. bir kapsayıcı kayıt defteri Hello adını **benzersiz olmalıdır**.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
 ```
 
-Bu öğreticinin geri kalanını, "acrname" yer tutucu olarak seçtiğiniz kapsayıcı kayıt defteri adını kullanıyoruz.
+Hello rest Bu öğreticinin "acrname" yer tutucu olarak seçtiğiniz hello kapsayıcı kayıt defteri adı için kullanırız.
 
 ## <a name="container-registry-login"></a>Kapsayıcı kayıt defteri oturum açma
 
-ACR örneğinizi görüntüleri göndermeden önce oturum gerekir. Kullanım [az acr oturum açma](https://docs.microsoft.com/en-us/cli/azure/acr#login) işlemi tamamlamak için komutu. Kapsayıcı kayıt defterine oluşturulduğunda verilen benzersiz bir ad vermeniz gerekir.
+Görüntüleri tooit göndermeden önce tooyour ACR örneğinde oturum açmanız gerekir. Kullanım hello [az acr oturum açma](https://docs.microsoft.com/en-us/cli/azure/acr#login) toocomplete hello işlemi komutu. Oluşturulduğunda toohello kapsayıcı kayıt defteri verilen tooprovide hello benzersiz adı gerekir.
 
 ```azurecli
 az acr login --name <acrName>
 ```
 
-Komut tamamlandıktan sonra 'Başarılı oturum açma' iletisi döndürür.
+Merhaba komut tamamlandıktan sonra 'Başarılı oturum açma' iletisi döndürür.
 
 ## <a name="tag-container-images"></a>Etiket kapsayıcı görüntüleri
 
-Her kapsayıcı görüntü kayıt loginServer adıyla etiketlenmesi gerekiyor. Bu etiket kapsayıcı görüntüleri bir görüntü kayıt defterine Ftp'den zaman yönlendirme için kullanılır.
+Her kapsayıcı görüntü hello loginServer adı hello kayıt defteri ile etiketlenmiş toobe gerekir. Bu etiket kapsayıcı görüntüleri tooan görüntü kayıt defteri Ftp'den zaman yönlendirme için kullanılır.
 
-Geçerli görüntüleri listesini görmek için [docker görüntüleri](https://docs.docker.com/engine/reference/commandline/images/) komutu.
+toosee geçerli görüntüleri, kullanım hello listesini [docker görüntüleri](https://docs.docker.com/engine/reference/commandline/images/) komutu.
 
 ```bash
 docker images
@@ -87,19 +87,19 @@ redis                        latest              a1b99da73d05        7 days ago 
 tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        9 months ago        694MB
 ```
 
-LoginServer adını almak için aşağıdaki komutu çalıştırın.
+komutu aşağıdaki hello çalıştırmak tooget hello loginServer adı.
 
 ```azurecli
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-Şimdi, etiket *azure oy ön* kapsayıcı kayıt defteri loginServer görüntüsüyle. Ayrıca, ekleme `:redis-v1` sonuna kadar görüntü adı. Bu etiket resim sürümünü gösterir.
+Şimdi, etiket hello *azure oy ön* hello loginServer hello kapsayıcı kayıt defteri görüntüsüyle. Ayrıca, ekleme `:redis-v1` toohello adının sonuna kadar hello görüntü. Bu etiket hello resim sürümünü gösterir.
 
 ```bash
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
 ```
 
-Etiketli sonra [docker görüntüler] çalıştırma işlemi doğrulamak için (https://docs.docker.com/engine/reference/commandline/images/).
+Etiketli sonra [docker görüntüler] (https://docs.docker.com/engine/reference/commandline/images/) tooverify hello işlemini çalıştırın.
 
 ```bash
 docker images
@@ -115,21 +115,21 @@ redis                                                latest              a1b99da
 tiangolo/uwsgi-nginx-flask                           flask               788ca94b2313        8 months ago        694 MB
 ```
 
-## <a name="push-images-to-registry"></a>Kayıt defteri itme görüntüleri
+## <a name="push-images-tooregistry"></a>Görüntüleri tooregistry bildirme
 
-Anında *azure oy ön* kayıt defterine görüntü. 
+Merhaba anında *azure oy ön* görüntü toohello kayıt defteri. 
 
-Aşağıdaki örneği kullanarak, ortamınızdan loginServer ACR loginServer adını değiştirin.
+Aşağıdaki örneğine hello kullanarak, ortamınızdan hello loginServer hello ACR loginServer adı değiştirin.
 
 ```bash
 docker push <acrLoginServer>/azure-vote-front:redis-v1
 ```
 
-Bu, birkaç tamamlamak için dakika sürer.
+Bu işlem birkaç dakika toocomplete götürür.
 
 ## <a name="list-images-in-registry"></a>Kayıt defterinde listesi görüntüler
 
-Azure kapsayıcı kaydınız gönderilen görüntüleri listesini döndürmek için kullanıcı [az acr deposu listesi](/cli/azure/acr/repository#list) komutu. Komut ACR örnek adıyla güncelleştirin.
+tooreturn tooyour Azure kapsayıcı kayıt defteri, kullanıcı hello gönderilen görüntüleri listesini [az acr deposu listesi](/cli/azure/acr/repository#list) komutu. Merhaba komutu hello ACR örnek adıyla güncelleştirin.
 
 ```azurecli
 az acr repository list --name <acrName> --output table
@@ -143,7 +143,7 @@ Result
 azure-vote-front
 ```
 
-Ve ardından belirli bir resim için etiketleri görmek için [az acr deposunu Göster-etiketleri](/cli/azure/acr/repository#show-tags) komutu.
+Ve ardından belirli bir görüntü için toosee hello etiketler hello [az acr deposunu Göster-etiketleri](/cli/azure/acr/repository#show-tags) komutu.
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
@@ -157,18 +157,18 @@ Result
 redis-v1
 ```
 
-Eğitmen tamamlandığında, kapsayıcı görüntünün bir özel Azure kapsayıcı kayıt defteri örneğinde zamandır depolanmış. Bu görüntü ACR sonraki öğreticilerde Kubernetes kümeye dağıtılır.
+Eğitmen tamamlandığında hello kapsayıcı görüntü özel bir Azure kapsayıcı kayıt defteri örneğinde zamandır depolanmış. Bu görüntü ACR tooa Kubernetes kümeden sonraki öğreticilerde dağıtılır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, bir ACS Kubernetes kümesinde kullanmak için bir Azure kapsayıcı kayıt defteri hazırlanan. Aşağıdaki adımlar tamamlandı:
+Bu öğreticide, bir ACS Kubernetes kümesinde kullanmak için bir Azure kapsayıcı kayıt defteri hazırlanan. Aşağıdaki adımları hello tamamlandı:
 
 > [!div class="checklist"]
 > * Azure kapsayıcı kayıt defteri örneği dağıtılan
 > * ACR için bir kapsayıcı görüntüsü etiketli
-> * ACR için görüntüyü karşıya
+> * Karşıya yüklenen hello görüntü tooACR
 
-Azure Kubernetes kümede dağıtma hakkında bilgi edinmek için sonraki öğretici ilerleyin.
+Azure Kubernetes kümede dağıtma hakkında toohello sonraki öğretici toolearn ilerleyin.
 
 > [!div class="nextstepaction"]
 > [Kubernetes kümesi dağıtma](./container-service-tutorial-kubernetes-deploy-cluster.md)

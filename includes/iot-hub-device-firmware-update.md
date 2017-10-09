@@ -1,25 +1,25 @@
 ## <a name="create-a-simulated-device-app"></a>Sanal cihaz uygulaması oluşturma
 Bu bölümde şunları yapacaksınız:
 
-* Bulut tarafından çağrılan doğrudan bir yönteme yanıt veren bir Node.js konsol uygulaması oluşturma
+* Merhaba bulut tarafından adlı tooa doğrudan yöntemi yanıt bir Node.js konsol uygulaması oluşturma
 * Sanal bir üretici yazılımı güncelleştirmesini tetikleme
-* Cihaz ikizi sorgularının cihazları ve bir üretici yazılımı güncelleştirmesini en son ne zaman tamamladığını belirlemesi için rapor edilen özellikleri kullanın
+* Kullanım hello özellikleri tooenable cihaz çifti sorguları tooidentify aygıtlar ve bellenim güncelleştirme en son ne zaman tamamladıkları bildirdi
 
-1. adım: adlı boş bir klasör oluşturun **manageddevice**.  Komut isteminizde aşağıdaki komutu kullanarak **manageddevice** klasöründe bir package.json dosyası oluşturun. Tüm varsayılanları kabul edin:
+1. adım: adlı boş bir klasör oluşturun **manageddevice**.  Merhaba, **manageddevice** klasörü, komut, komut isteminde aşağıdaki hello kullanarak bir package.json dosyası oluşturun. Tüm hello Varsayılanları kabul edin:
    
     ```
     npm init
     ```
 
-2. adım: İsteminizde komutu **manageddevice** klasörü yüklemek için aşağıdaki komutu çalıştırın, **azure IOT cihaz** ve **azure-IOT-cihaz-mqtt** cihaz SDK'sı paketler:
+2. adım: İsteminizde komutu hello **manageddevice** klasörüne, komut tooinstall hello aşağıdaki hello **azure IOT cihaz** ve **azure-IOT-cihaz-mqtt** aygıt SDK paketler:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-3. adım: bir metin düzenleyicisi kullanarak, oluşturduğunuz bir **dmpatterns_fwupdate_device.js** dosyasını **manageddevice** klasör.
+3. adım: bir metin düzenleyicisi kullanarak, oluşturduğunuz bir **dmpatterns_fwupdate_device.js** hello dosyasında **manageddevice** klasör.
 
-4. adım: aşağıdaki 'İste' deyimleri başlangıcında ekleme **dmpatterns_fwupdate_device.js** dosyası:
+4. adım: hello aşağıdaki 'İste' hello hello başlangıç deyimleri ekleme **dmpatterns_fwupdate_device.js** dosyası:
    
     ```
     'use strict';
@@ -27,14 +27,14 @@ Bu bölümde şunları yapacaksınız:
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. adım: Ekleme bir **connectionString** değişkeni ve oluşturmak için kullanın bir **istemci** örneği. `{yourdeviceconnectionstring}` yer tutucusunu, daha önce "Cihaz kimliği oluşturma" bölümünde not aldığınız bağlantı dizesiyle değiştirin:
+5. adım: Ekleme bir **connectionString** değişken ve toocreate kullanan bir **istemci** örneği. Hello yerine `{yourdeviceconnectionstring}` hello bağlantı dizesiyle daha önce yaptığınız Not hello "bir cihaz kimliği oluşturma" bölümünde daha önce yer tutucu:
    
     ```
     var connectionString = '{yourdeviceconnectionstring}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
 
-6. adım: bildirilen özelliklerini güncelleştirmek için kullanılan aşağıdaki işlevi ekleyin:
+6. adım: hello aşağıdakileri ekleyin kullanılan tooupdate olduğu işlevi bildirilen özellikleri:
    
     ```
     var reportFWUpdateThroughTwin = function(twin, firmwareUpdateValue) {
@@ -51,7 +51,7 @@ Bu bölümde şunları yapacaksınız:
     };
     ```
 
-7. adım: indirme ve bellenim yansımayı benzetimini aşağıdaki işlevi ekleyin:
+7. adım: indirme ve hello bellenim yansımayı benzetimini işlevleri aşağıdaki hello ekleyin:
    
     ```
     var simulateDownloadImage = function(imageUrl, callback) {
@@ -74,7 +74,7 @@ Bu bölümde şunları yapacaksınız:
     }
     ```
 
-8. adım: güncelleştirmeleri bildirilen özellikleri aracılığıyla bellenim güncelleştirme durumu aşağıdaki işlevi ekleyin **bekleyen**. Genellikle, cihazlar kullanılabilir güncelleştirmeden haberdar edilir ve yönetici tarafından tanımlanan bir ilke, cihazın güncelleştirmeyi indirip uygulamaya başlamasına neden olur. Bu işlev, ilgili ilkeyi etkinleştirme mantığının çalışması gereken yerdir. Kolaylık olması için örnek dört bellenim görüntüsünü karşıdan yüklemek için saniye devam etmeden önce bekler:
+8. adım: güncelleştirmeleri hello bellenim güncelleştirme durumu hello aracılığıyla özellikleri çok bildirilen işlevi aşağıdaki hello eklemek**bekleyen**. Genellikle, cihazları saat dilimi ve tarih ilkesi hello aygıt toostart indiriliyor ve hello güncelleştirmeyi uyguladıktan neden olan kullanılabilir bir güncelleştirme ve yöneticinin tanımladığı bildirilir. Bu işlev İlkesi çalışması gerektiğini mantığı tooenable burada hello. Kolaylık olması için devam etmeden toodownload hello bellenim görüntü önce dört saniye hello örnek bekler:
    
     ```
     var waitToDownload = function(twin, fwPackageUriVal, callback) {
@@ -90,7 +90,7 @@ Bu bölümde şunları yapacaksınız:
     };
     ```
 
-9. adım: güncelleştirmeleri bildirilen özellikleri aracılığıyla bellenim güncelleştirme durumu aşağıdaki işlevi ekleyin **indirme**. Bundan sonra işlev bir üretici yazılımı indirme işlemini taklit eder ve son olarak üretici yazılımı güncelleştirme durumunu **downloadFailed** ya da **downloadComplete** olarak güncelleştirir:
+9. adım: güncelleştirmeleri hello bellenim güncelleştirme durumu hello aracılığıyla özellikleri çok bildirilen işlevi aşağıdaki hello eklemek**indirme**. Hello işlevi sonra bellenim indirme canlandırır ve son olarak güncelleştirmeleri bellenim güncelleştirme durumu tooeither hello **downloadFailed** veya **downloadComplete**:
    
     ```
     var downloadImage = function(twin, fwPackageUriVal, callback) {
@@ -128,7 +128,7 @@ Bu bölümde şunları yapacaksınız:
     }
     ```
 
-10. adım: güncelleştirmeleri bildirilen özellikleri aracılığıyla bellenim güncelleştirme durumu aşağıdaki işlevi ekleyin **uygulama**. Bundan sonra işlev bir üretici yazılımı görüntüsünü uygulama işlemini taklit eder ve son olarak üretici yazılımı güncelleştirme durumunu **applyFailed** ya da **applyComplete** olarak güncelleştirir:
+10. adım: güncelleştirmeleri hello bellenim güncelleştirme durumu hello aracılığıyla özellikleri çok bildirilen işlevi aşağıdaki hello ekleme**uygulama**. Hello işlevi sonra uygulanan hello bellenim görüntü canlandırır ve son olarak güncelleştirmeleri bellenim güncelleştirme durumu tooeither hello **applyFailed** veya **applyComplete**:
     
     ```
     var applyImage = function(twin, imageData, callback) {
@@ -166,31 +166,31 @@ Bu bölümde şunları yapacaksınız:
     }
     ```
 
-11. adım: işleme aşağıdaki işlevi ekleyin **firmwareUpdate** doğrudan yöntemi ve başlatır çok aşama bellenim güncelleştirme işleminin:
+11. adım: hello aşağıdaki işlev bu tanıtıcıları hello ekleme **firmwareUpdate** doğrudan yöntemi ve başlatır hello çok aşama bellenim güncelleştirme işlemi:
     
     ```
     var onFirmwareUpdate = function(request, response) {
     
-      // Respond the cloud app for the direct method
+      // Respond hello cloud app for hello direct method
       response.send(200, 'FirmwareUpdate started', function(err) {
         if (!err) {
           console.error('An error occured when sending a method response:\n' + err.toString());
         } else {
-          console.log('Response to method \'' + request.methodName + '\' sent successfully.');
+          console.log('Response toomethod \'' + request.methodName + '\' sent successfully.');
         }
       });
     
-      // Get the parameter from the body of the method request
+      // Get hello parameter from hello body of hello method request
       var fwPackageUri = request.payload.fwPackageUri;
     
-      // Obtain the device twin
+      // Obtain hello device twin
       client.getTwin(function(err, twin) {
         if (err) {
           console.error('Could not get device twin.');
         } else {
           console.log('Device twin acquired.');
     
-          // Start the multi-stage firmware update
+          // Start hello multi-stage firmware update
           waitToDownload(twin, fwPackageUri, function() {
             downloadImage(twin, fwPackageUri, function(imageData) {
               applyImage(twin, imageData, function() {});    
@@ -202,14 +202,14 @@ Bu bölümde şunları yapacaksınız:
     }
     ```
 
-12. adım: Son olarak, IOT hub'ınızı bağlayan aşağıdaki kodu ekleyin:
+12. adım: Son olarak, tooyour IOT hub'a bağlanan koddan hello ekleyin:
     
     ```
     client.open(function(err) {
       if (err) {
-        console.error('Could not connect to IotHub client');
+        console.error('Could not connect tooIotHub client');
       }  else {
-        console.log('Client connected to IoT Hub.  Waiting for firmwareUpdate direct method.');
+        console.log('Client connected tooIoT Hub.  Waiting for firmwareUpdate direct method.');
       }
     
       client.onDeviceMethod('firmwareUpdate', onFirmwareUpdate);
@@ -217,6 +217,6 @@ Bu bölümde şunları yapacaksınız:
     ```
 
 > [!NOTE]
-> Sade ve basit bir anlatım gözetildiği için bu öğretici herhangi bir yeniden deneme ilkesi uygulamaz. Üretim kodunda yeniden deneme ilkelerini (üstel geri alma), önerilen MSDN makalesinde uygulamalıdır [geçici hata işleme](https://msdn.microsoft.com/library/hh675232.aspx).
+> tookeep şeyler basit, Bu öğretici herhangi bir yeniden deneme ilkesi uygulamaz. Üretim kodunda yeniden deneme ilkelerini (üstel geri alma), önerilen hello MSDN makalesinde uygulamalıdır [geçici hata işleme](https://msdn.microsoft.com/library/hh675232.aspx).
 > 
 > 

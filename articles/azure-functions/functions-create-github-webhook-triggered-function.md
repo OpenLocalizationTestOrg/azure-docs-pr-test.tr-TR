@@ -1,6 +1,6 @@
 ---
-title: "Azure’da GitHub web kancası tarafından tetiklenen bir işlev oluşturma | Microsoft Docs"
-description: "GitHub web kancası ile çağrılan sunucusuz işlev oluşturmak için Azure İşlevlerini kullanın."
+title: "aaaCreate GitHub Web kancası tarafından tetiklenen Azure işlevinde | Microsoft Docs"
+description: "Azure işlevleri toocreate GitHub Web kancası tarafından çağrılan sunucusuz bir işlevini kullanın."
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -16,17 +16,17 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 038bb4cf0a9278416261c05ddaa0ee97d83b63c5
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 8ffcde82c9310d749159ed53eab113658e38a030
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>GitHub web kancası tarafından tetiklenen bir işlev oluşturma
 
-GitHub’a özel bir yük kullanarak, HTTP web kancası isteğiyle tetiklenmiş bir işlev oluşturma hakkında bilgi edinin.
+Bilgi nasıl toocreate HTTP Web kancası isteğiyle bir GitHub özgü yükü tarafından tetiklenen bir işlev.
 
-![Azure portalında GitHub Web Kancası ile tetiklenen işlev](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
+![Github Web kancası hello Azure portal işlevinde tetiklendi](./media/functions-create-github-webhook-triggered-function/function-app-in-portal-editor.png)
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -41,61 +41,61 @@ GitHub’a özel bir yük kullanarak, HTTP web kancası isteğiyle tetiklenmiş 
 
 ![İşlev uygulaması başarıyla oluşturuldu.](./media/functions-create-first-azure-function/function-app-create-success.png)
 
-Ardından, yeni işlev uygulamasında bir işlev oluşturun.
+Ardından, hello yeni işlev uygulamada bir işlev oluşturun.
 
 <a name="create-function"></a>
 
 ## <a name="create-a-github-webhook-triggered-function"></a>GitHub web kancası ile tetiklenen bir işlev oluşturma
 
-1. İşlev uygulamanızı genişletin ve **İşlevler**'in yanındaki **+** düğmesine tıklayın. Bu, işlev uygulamanızdaki ilk işlevse **Özel işlev**'i seçin. Böylece işlev şablonlarının tamamı görüntülenir.
+1. Merhaba, işlev uygulaması'nı genişletin ve  **+**  sonraki çok düğmesini**işlevler**. Bu işlev uygulamanızda hello ilk işlevi ise seçin **özel işlevi**. Merhaba eksiksiz işlev şablonları görüntüler.
 
-    ![Azure portalındaki İşlevler hızlı başlangıç sayfası](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
+    ![Hello Azure portalı hızlı başlangıç sayfasında işlevleri](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
 
-2. Seçin **GitHub Web kancası** istediğiniz dili için şablon. **İşlevinizi adlandırın** ve ardından **Oluştur**'a tıklayın.
+2. Select hello **GitHub Web kancası** istediğiniz dili için şablon. **İşlevinizi adlandırın** ve ardından **Oluştur**'a tıklayın.
 
-     ![Azure portalında GitHub web kancası ile tetiklenen bir işlev oluşturma](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
+     ![GitHub Web kancası tetiklenen işlevi hello Azure portal oluşturma](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
 
-3. Yeni işlevinizde, **</> İşlev URL’sini al**’a tıklayın, sonra da değerleri kopyalayın ve kaydedin. **</> GitHub parolasını al** için de aynı işlemi yapın. GitHub’da web kancasını yapılandırırken bu değerleri kullanırsınız.
+3. Yeni işlevinizi tıklatın **<> / Get işlevi URL**, daha sonra kopyalayın ve başlangıç değerleri kaydedin. Aynı şeyi hello **<> / alma GitHub gizli**. Bu değerleri tooconfigure hello Web kancası Github'da kullanın.
 
-    ![İşlev kodunu gözden geçirme](./media/functions-create-github-webhook-triggered-function/functions-copy-function-url-github-secret.png)
+    ![Merhaba işlevi kod gözden geçirme](./media/functions-create-github-webhook-triggered-function/functions-copy-function-url-github-secret.png)
 
 Ardından, GitHub deponuzda web kancasını oluşturursunuz.
 
-## <a name="configure-the-webhook"></a>Web kancası yapılandırma
+## <a name="configure-hello-webhook"></a>Merhaba Web kancası yapılandırın
 
-1. GitHub’da sahip olduğunuz bir depoya gidin. Varsa çatallandırdığınız depoları da kullanabilirsiniz. Bir depoyu çatallaştırmanız gerekirse, <https://github.com/Azure-Samples/functions-quickstart> sayfasını kullanın.
+1. Github'da, sahip olduğunuz tooa depo gidin. Varsa çatallandırdığınız depoları da kullanabilirsiniz. Toofork depo gerekiyorsa kullanın <https://github.com/Azure-Samples/functions-quickstart>.
 
 1. **Ayarlar**’a tıklayın, sonra da **Web Kancaları**’na ve **Web kancası ekle**’ye tıklayın.
 
     ![GitHub web kancası ekleme](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-2.png)
 
-1. Tabloda belirtilen ayarları kullanın, ardından **Web kancası ekle**'ye tıklayın.
+1. Merhaba tabloda belirtildiği gibi ayarları kullanın ve ardından **Web kancası eklemek**.
 
-    ![Web kancası URL'sini ve parolasını ayarlama](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-3.png)
+    ![Merhaba Web kancası URL'si ve parolasını ayarlayın](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-3.png)
 
 | Ayar | Önerilen değer | Açıklama |
 |---|---|---|
-| **Yük URL'si** | Kopyalanan değer | **</> İşlev URL’sini Al** tarafından döndürülen değeri kullanın. |
-| **Gizli dizi**   | Kopyalanan değer | **</> GitHub gizli dizisini al** tarafından döndürülen değeri kullanın. |
-| **İçerik türü** | uygulama/json | İşlev bir JSON yükü bekler. |
-| Olay tetikleyicileri | Olayları ayrı ayrı seçmeme izin ver | Yalnızca sorun yorum olaylarını tetiklemek istiyoruz.  |
+| **Yük URL'si** | Kopyalanan değer | Tarafından döndürülen hello değeri kullanmak **<> / Get işlevi URL**. |
+| **Gizli dizi**   | Kopyalanan değer | Tarafından döndürülen hello değeri kullanmak **<> / alma GitHub gizli**. |
+| **İçerik türü** | uygulama/json | Merhaba işlevi bir JSON yükü bekliyor. |
+| Olay tetikleyicileri | Olayları ayrı ayrı seçmeme izin ver | Yalnızca tootrigger sorunu açıklama olaylarına istiyoruz.  |
 | | Sorun açıklaması |  |
 
-Şimdi, web kancası yeni bir sorun açıklaması eklendiğinde işlevinizi tetikleyecek şekilde yapılandırılır.
+Şimdi, Web kancası hello yeni bir sorun açıklama eklendiğinde yapılandırılmış tootrigger işlevinizi olur.
 
-## <a name="test-the-function"></a>İşlevi test etme
+## <a name="test-hello-function"></a>Test hello işlevi
 
-1. GitHub deposunda **Sorunlar** sekmesini yeni bir tarayıcı penceresinde açın.
+1. Merhaba, GitHub deposunda açmak **sorunları** yeni bir tarayıcı penceresi sekmesindedir.
 
-1. Yeni pencerede **Yeni Sorun**’a tıklayın, bir başlık yazın ve ardından **Yeni sorunu gönder**’e tıklayın.
+1. Merhaba yeni penceresinde **yeni sorun**bir başlık yazın ve ardından **yeni sorun gönderme**.
 
-1. Sorunda bir açıklama yazın ve **Açıklama**’ya tıklayın.
+1. Merhaba sayısındaki bir yorum yazın ve'ı tıklatın **açıklama**.
 
     ![GitHub sorun açıklaması ekleyin.](./media/functions-create-github-webhook-triggered-function/functions-github-webhook-add-comment.png)
 
-1. Portala geri dönün ve günlükleri görüntüleyin. Yeni açıklama metnini içeren bir izleme girişi görmeniz gerekir.
+1. Toohello portalına geri dönün ve hello günlüklerine bakın. Merhaba yeni açıklama metni içeren bir izleme girişi görmeniz gerekir.
 
-     ![Günlüklerde açıklama metnini görüntüleyin.](./media/functions-create-github-webhook-triggered-function/function-app-view-logs.png)
+     ![Merhaba açıklama metni hello günlüklerinde görüntüleyin.](./media/functions-create-github-webhook-triggered-function/function-app-view-logs.png)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

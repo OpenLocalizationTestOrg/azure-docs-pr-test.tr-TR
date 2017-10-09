@@ -1,31 +1,31 @@
-1. Yeni bir pencerede [Azure portalında](https://portal.azure.com/) oturum açın.
-2. Sol taraftaki menüde **Yeni**'ye, **Veritabanları**'na ve ardından **Azure Cosmos DB**' altında **Oluştur**’a tıklayın.
+1. Yeni bir pencerede toohello içinde oturum [Azure portal](https://portal.azure.com/).
+2. Hello sol menüde'ı tıklatın **yeni**, tıklatın **veritabanları**ve ardından **Azure Cosmos DB**, tıklatın **oluşturma**.
    
-   ![Diğer Hizmetler ve Azure Cosmos DB seçeneklerinin vurgulandığı Azure portalı ekran görüntüsü](./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-1.png)
+   ![Merhaba daha Hizmetleri ve Azure Cosmos DB vurgulama Azure portal ekran görüntüsü](./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-1.png)
 
-3. **Yeni hesap** dikey penceresinde, Azure Cosmos DB hesabı için istenen yapılandırmayı belirtin. 
+3. Merhaba, **yeni hesabı** dikey penceresinde hello hello Azure Cosmos DB hesabı için istenen yapılandırmayı belirtin. 
 
     Azure Cosmos DB'de dört programlama modelinden birini seçebilirsiniz: Gremlin (grafik), MongoDB, SQL (DocumentDB) ve Tablo (anahtar-değer). 
     
-    Bu hızlı başlangıçta Tablo API'si ile programlama yapacağımız için formu doldururken **Tablo (anahtar-değer)** seçeneğini belirleyin. Ancak bir sosyal medya uygulaması için grafik verileriniz, bir katalog uygulamasından belge verileriniz veya bir MongoDB uygulamasından aktarılmış verileriniz varsa Azure Cosmos DB'nin tüm görev açısından kritik uygulamalarınız için yüksek oranda kullanılabilir ve genel olarak dağıtılmış bir veritabanı hizmeti platformu sunacağını unutmayın.
+    Seçtiğiniz böylece bu hızlı başlangıç biz tablo API hello karşı programlama **tablosu (anahtar-değer)** gibi hello formu doldurun. Ancak bir sosyal medya uygulaması için grafik verileriniz, bir katalog uygulamasından belge verileriniz veya bir MongoDB uygulamasından aktarılmış verileriniz varsa Azure Cosmos DB'nin tüm görev açısından kritik uygulamalarınız için yüksek oranda kullanılabilir ve genel olarak dağıtılmış bir veritabanı hizmeti platformu sunacağını unutmayın.
 
-    Yeni hesap dikey penceresini ekran görüntüsündeki bilgileri kullanarak doldurun. Hesabınızın kurulumunu yaparken benzersiz değerler belirleyeceğiniz için değerler ekran görüntüsündekilerle bire bir aynı olmayacaktır. 
+    Merhaba hello bilgileri hello ekran görüntüsünde bir kılavuz olarak kullanarak yeni hesabı dikey doldurun. Benzersiz değerler değerlerinizi hello ekran tam olarak eşleşmez şekilde hesabınızı ayarlama yazarken seçeceksiniz. 
  
-    ![Yeni Azure Cosmos DB dikey penceresinin ekran görüntüsü](./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-2.png)
+    ![Merhaba yeni Azure Cosmos DB dikey ekran görüntüsü](./media/cosmos-db-create-dbaccount-table/create-nosql-db-databases-json-tutorial-2.png)
 
     Ayar|Önerilen değer|Açıklama
     ---|---|---
-    Kimlik|*Benzersiz değer*|Azure Cosmos DB hesabını tanımlamak için kullanılacak benzersiz ad. Girdiğiniz kimliğe *documents.azure.com* eklenerek URI'niz oluşturulur, bu nedenle benzersiz ancak uygun bir kimlik kullanmanız gerekir. Kimlik yalnızca küçük harf, rakam ve "-" karakteri içerebilir; 3 ila 50 karakter uzunluğunda olmalıdır.
-    API|Tablo (anahtar-değer)|Bu makalenin ilerleyen bölümlerinde [Tablo API'si](../articles/cosmos-db/table-introduction.md) ile programlama yapacağız.|
-    Abonelik|*Aboneliğiniz*|Azure Cosmos DB hesabı için kullanmak istediğiniz Azure aboneliği. 
-    Kaynak Grubu|*Kimlikle aynı değer*|Hesabınız için yeni kaynak grubu adı. Kolaylık olması için kimliğinizle aynı adı kullanabilirsiniz. 
-    Konum|*Kullanıcılarınıza en yakın bölge*|Azure Cosmos DB hesabınızın barındırılacağı coğrafi konum. Verilere en hızlı erişim için kullanıcılarınıza en yakın konumu seçin.   
+    Kimlik|*Benzersiz değer*|Benzersiz bir ad tooidentify hello Azure Cosmos DB hesabı seçin. *Documents.Azure.com* eklenmiş toohello kimliği, URI toocreate sağlar, bu nedenle bir benzersiz ancak tanımlanabilen kimliği kullanın Merhaba kimliği yalnızca küçük harf, sayı ve hello içerebilir '-' karakteri ve 3-50 karakter arasında olmalıdır.
+    API|Tablo (anahtar-değer)|Biz hello karşı programlama [tablo API](../articles/cosmos-db/table-introduction.md) bu makalenin ilerisinde yer.|
+    Abonelik|*Aboneliğiniz*|toouse hello Azure Cosmos DB hesap için istediğiniz Azure aboneliği hello. 
+    Kaynak Grubu|*aynı kimliği olarak değeri hello*|Merhaba yeni kaynak grubu adı, hesabınız için. Kolaylık olması için kimliğinizi hello aynı adı kullanabilirsiniz 
+    Konum|*Merhaba bölgeye en yakın tooyour kullanıcılar*|hangi toohost coğrafi konumda Azure Cosmos DB hesabınızı hello. En yakın tooyour kullanıcılar Hello konumu seçin bunları hello hızlı erişim toohello veri toogive.   
 
-4. Hesabı oluşturmak için **Oluştur**’a tıklayın.
-5. Araç çubuğunda **Bildirimler**’e tıklayarak dağıtım işlemini izleyin.
+4. Tıklatın **oluşturma** toocreate hello hesabı.
+5. Merhaba araç çubuğundan, **bildirimleri** toomonitor hello dağıtım işlemi.
 
     ![Dağıtım başlatıldı bildirimi](./media/cosmos-db-create-dbaccount-table/notification.png)
 
-6.  Dağıtım tamamlandığında Tüm Kaynaklar kutucuğundan yeni hesabı açın. 
+6.  Hello dağıtım tamamlandıktan sonra yeni hesabınıza hello açık hello tüm kaynakları döşeme. 
 
-    ![Tüm Kaynaklar kutucuğunda DocumentDB hesabı](./media/cosmos-db-create-dbaccount-table/all-resources.png)
+    ![Tüm kaynaklar döşeme hello DocumentDB hesabı](./media/cosmos-db-create-dbaccount-table/all-resources.png)

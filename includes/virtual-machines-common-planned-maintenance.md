@@ -1,48 +1,48 @@
-Azure güvenilirliği, performansı ve sanal makineler için konak altyapısının güvenliğini artırmak için güncelleştirmeleri düzenli olarak gerçekleştirir. Bu güncelleştirmeleri aralığı (örneğin, işletim sistemi, hiper yönetici ve konakta dağıtılan çeşitli aracılar), bir barındırma ortamında yazılım bileşenleri düzeltme eki uygulama gelen donanım yetkisini için ağ bileşenleri yükseltiliyor. Bu güncelleştirmeler çoğunluğu barındırılan sanal makineler için herhangi bir etkisi olmadan gerçekleştirilir. Ancak, güncelleştirmeler bir etkiye sahip olduğu durumlar vardır:
+Azure sanal makineler için güncelleştirmeleri tooimprove hello güvenilirlik, performans ve güvenlik hello konak altyapısının düzenli olarak gerçekleştirir. Bu güncelleştirmeler aralığı hello barındırma ortamı (örneğin, işletim sistemi, hiper yönetici ve hello konakta dağıtılan çeşitli aracılar), yazılım bileşenleri düzeltme eki uygulama ağ bileşenleri yükseltme toohardware yetkisini alma. Bu güncelleştirmeler Hello çoğunluğu herhangi etkisi toohello barındırılan sanal makineler gerçekleştirilir. Ancak, güncelleştirmeler bir etkiye sahip olduğu durumlar vardır:
 
-- Bakım yeniden başlatma gerektirmez, Azure VM konak güncelleştirilirken duraklatmak için yerinde geçiş kullanır.
+- Merhaba bakım yeniden başlatma gerektirmez, Azure hello konak güncelleştirilirken yerinde geçiş toopause hello VM kullanır.
 
-- Bakım bir yeniden başlatma gerektirirse, ne zaman bunu planlı bakım, bir bildirim alın. Bu durumlarda, ayrıca bakım kendiniz, uygun bir zaman başlayabileceğiniz bir zaman penceresi verilir.
+- Bakım bir yeniden başlatma gerektirirse, planlı hello bakım bildiren bir duyuru alın. Bu durumlarda, ayrıca hello bakım kendiniz, uygun bir zaman başlayabileceğiniz bir zaman penceresi verilir.
 
-Bu sayfa Microsoft Azure bakım her iki tür nasıl gerçekleştireceğini açıklar. Planlanmamış olaylar (kesintileri) hakkında daha fazla bilgi için sanal makinelerin kullanılabilirliğini yönetme [Windows] bakın (.. / articles/virtual-machines/windows/manage-availability.md) veya [Linux](../articles/virtual-machines/linux/manage-availability.md).
+Bu sayfa Microsoft Azure bakım her iki tür nasıl gerçekleştireceğini açıklar. Planlanmamış olaylar (kesintileri) hakkında daha fazla bilgi için sanal makinelerin kullanılabilirliğini yönetme hello [Windows] bakın (.. / articles/virtual-machines/windows/manage-availability.md) veya [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
-Bir sanal makinede çalışan uygulamalar için Azure meta veri hizmeti kullanarak gelecek güncelleştirmeleri hakkında bilgi toplayabilir [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) veya [Linux] (.. / articles/virtual-machines/linux/instance-metadata-service.md).
+Bir sanal makinede çalışan uygulamalar için Azure meta veri hizmeti kullanarak gelecek güncelleştirmeleri hakkında bilgi toplama hello [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) veya [Linux] (.. / articles/virtual-machines/linux/instance-metadata-service.md).
 
 ## <a name="in-place-vm-migration"></a>Yerinde VM geçiş
 
-Güncelleştirmeleri tam bir yeniden başlatma gerektirmez, bir yerinde dinamik geçiş kullanılır. Güncelleştirme sırasında yaklaşık 30 barındırma ortamı gerekli güncelleştirmeleri ve düzeltme eklerini uygularken RAM bellek koruma saniye için sanal makine duraklatıldı. Sanal makine sonra sürdürülür ve sanal makine saati otomatik olarak eşitlenir.
+Güncelleştirmeleri tam bir yeniden başlatma gerektirmez, bir yerinde dinamik geçiş kullanılır. Merhaba güncelleştirme sırasında yaklaşık 30 RAM hello bellekte barındırma ortamı hello hello gerekli güncelleştirmeleri ve düzeltme eklerini uygularken koruma saniye, hello sanal makine duraklatıldı. Merhaba sanal makine sonra sürdürülür ve başlangıç saati hello sanal makinenin otomatik olarak eşitlenir.
 
-Kullanılabilirlik kümelerinde VM'ler için güncelleştirilmiş birer birer güncelleştirme etki alanlarıdır. Bir güncelleştirme etki alanında (UD) tüm sanal makineleri duraklatıldı, güncelleştirilmiş ve planlı bakım için sonraki UD taşıyan önce sonra sürdürüldü.
+Kullanılabilirlik kümelerinde VM'ler için güncelleştirilmiş birer birer güncelleştirme etki alanlarıdır. Bir güncelleştirme etki alanında (UD) tüm sanal makineleri duraklatıldı güncelleştirildi ve planlı bakım toohello üzerinde gitmeden önce sonra sürdürüldü sonraki UD.
 
-Bazı uygulamalar, bu tür güncelleştirmeler tarafından etkilenebilir. Gerçek zamanlı Olay işleme, akış veya kod veya yüksek verimlilik senaryoları, ağ gibi gerçekleştiren uygulamaları 30 saniyelik duraklamalar tolerans için tasarlanmamış olabilir. <!-- sooooo, what should they do? --> 
+Bazı uygulamalar, bu tür güncelleştirmeler tarafından etkilenebilir. Gerçek zamanlı Olay işleme, akış veya kod veya yüksek verimlilik senaryoları, ağ gibi gerçekleştiren uygulamaları tasarlanmış tootolerate 30 saniyelik duraklamalar olmayabilir. <!-- sooooo, what should they do? --> 
 
 
 ## <a name="maintenance-requiring-a-reboot"></a>Yeniden başlatma gerektiren bakım
 
-Sanal makineleri planlı bakım için yeniden başlatılması gerektiğinde, önceden bildirilir. Planlı bakım iki aşaması vardır: Self Servis ve zamanlanmış bakım penceresinde.
+Sanal makineleri planlı bakım için yeniden toobe gerektiğinde, önceden bildirilir. Planlı bakım iki aşaması vardır: Self Servis ve zamanlanmış bakım penceresinde hello.
 
-**Self Servis penceresi** bakım, sanal makineleri üzerinde başlatmak olanak tanır. Bu süre boyunca bakım isteğiniz sonucunu denetleyin ve bunların durumunu görmek için her bir VM sorgulayabilirsiniz.
+Merhaba **Self Servis penceresi** hello bakım, sanal makineleri üzerinde başlatmak olanak tanır. Bu süre boyunca her VM toosee durumlarını sorgular ve Bakım isteğiniz hello sonucunu denetleyin.
 
-Self Servis bakım başlattığınızda, VM zaten güncelleştirildi ve geri çalıştırır bir düğüme taşınır. VM yeniden çünkü geçici disk kaybolur ve sanal ağ arabirimiyle ilişkilendirilmiş dinamik IP adreslerini güncelleştirilir.
+Self Servis bakım başlattığınızda, VM zaten güncelleştirildi ve geri çalıştırır taşınan tooa düğümdür. Merhaba VM yeniden çünkü hello geçici disk kaybolur ve sanal ağ arabirimiyle ilişkilendirilmiş dinamik IP adreslerini güncelleştirilir.
 
-Self Servis bakım başlatın ve işlemi sırasında bir hata ise, işlem durduruldu, VM güncelleştirilmez ve planlı bakım yinelemeden diğerine de kaldırılır. Daha sonra yeni bir zamanlama ile temas ve olması Self Servis bakım yapmak için yeni bir fırsat sunulan. 
+Self Servis bakımını Başlat ve hello işlemi sırasında bir hata varsa hello işlemi durdurulursa, VM güncelleştirilmez hello ve ayrıca kaldırılır hello planlı bakım yinelemeden diğerine. Daha sonra yeni bir zamanlama ile temas ve olması yeni fırsat toodo bakım Self Servis sunulan. 
 
-Self Servis penceresi geçtiğinde **zamanlanmış bakım penceresi** başlar. Bu zaman penceresi sırasında hala sorgu için bakım penceresi, ancak artık bakım kendiniz başlatılamaz.
+Merhaba Self Servis penceresi geçtiğinde hello **zamanlanmış bakım penceresi** başlar. Bu zaman penceresi sırasında hala hello bakım penceresi için sorgu, ancak artık mümkün toostart hello bakım kendiniz olabilir.
 
 ## <a name="availability-considerations-during-planned-maintenance"></a>Planlı bakım sırasında kullanılabilirlik konuları 
 
-Planlı Bakım penceresini beklemek karar verirseniz, VM'lerin yüksek availabilty sürdürmek için dikkate alınması gereken birkaç şey vardır. 
+Bakım penceresi Hello planlanan kadar toowait karar verirseniz, VM'lerin hello yüksek availabilty korumak için birkaç şey tooconsider vardır. 
 
 ### <a name="paired-regions"></a>Eşleştirilmiş bölgeleri
 
-Her Azure bölgesi başka bir bölge içinde aynı coğrafi konum ile eşleştirilmiş, bölgesel çifti birlikte yaptıkları. Planlı bakım sırasında Azure yalnızca tek bir bölgedeki bir bölge çiftinin VM'ler güncelleştirir. Örneğin, Orta Kuzey ABD’de Sanal Makineler güncelleştirilirken Azure aynı anda Orta Güney ABD’deki bir Sanal Makineyi güncelleştirmez. Ancak, Kuzey Avrupa gibi diğer bölgelerde, Doğu ABD ile aynı zamanda bakım yapılabilir. Bölge çiftleri nasıl yardımcı olabilecek anlama bölgeler arasında daha iyi Vm'leriniz dağıtın. Daha fazla bilgi için bkz: [Azure bölgesi çiftleri](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Her Azure bölgesi hello içinde başka bir bölge ile eşleştirilmiş aynı coğrafi bölge, bölgesel çifti yaptıkları birlikte. Planlı bakım sırasında Azure yalnızca hello bölge çiftinin tek bir bölgedeki sanal makineleri güncelleştirir. Örneğin, hello Kuzey Orta ABD sanal makinelerinizde güncelleştirirken Azure tüm sanal makineler Orta Güney ABD hello güncelleştirmez aynı anda. Kuzey Avrupa bakım altında gibi ancak, diğer bölgeleriyle aynı hello Doğu ABD olarak zaman. Bölge çiftleri nasıl yardımcı olabilecek anlama bölgeler arasında daha iyi Vm'leriniz dağıtın. Daha fazla bilgi için bkz: [Azure bölgesi çiftleri](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 ### <a name="availability-sets-and-scale-sets"></a>Kullanılabilirlik kümeleri ve ölçek kümeleri
 
-Bir iş yükü Azure vm'lerinde dağıtırken, uygulamanız için yüksek kullanılabilirlik sağlamak üzere bir kullanılabilirlik kümesi içindeki sanal makineleri oluşturabilirsiniz. Bu bir kesinti veya bakım olayları sırasında en az bir sanal makinenin kullanılabilir olmasını sağlar.
+Bir iş yükü Azure vm'lerinde dağıtırken, bir kullanılabilirlik kümesi tooprovide yüksek kullanılabilirlik tooyour uygulamadaki hello VM'ler oluşturabilirsiniz. Bu bir kesinti veya bakım olayları sırasında en az bir sanal makinenin kullanılabilir olmasını sağlar.
 
-Bir kullanılabilirlik kümesinde en fazla 20 güncelleştirme etki alanları arasında (UDs) tek tek sanal makineleri yayılır. Planlı bakım sırasında herhangi bir anda yalnızca bir tek güncelleştirme etki alanı etkilenmez. Güncelleme etki alanına etkilenip sırasını mutlaka sıralı olarak gerçekleşmez olduğunu unutmayın. 
+Bir kullanılabilirlik kümesi içinde tek tek sanal makineleri too20 güncelleştirme etki alanları (UDs) arasında yayılır. Planlı bakım sırasında herhangi bir anda yalnızca bir tek güncelleştirme etki alanı etkilenmez. Güncelleme etki alanına etkilenip Hello sırasını mutlaka sıralı olarak gerçekleşmez olduğunu unutmayın. 
 
-Sanal makine ölçek kümeleri dağıtmak ve aynı sanal makineleri bir küme tek bir kaynak olarak yönetmenize olanak sağlayan bir Azure işlem kaynaktır. Ölçek kümesi, bir kullanılabilirlik kümesindeki sanal makineleri gibi güncelleştirme etki alanları arasında otomatik olarak dağıtılır. Gibi kullanılabilirlik kümeleri ile ölçek kümeleri ile yalnızca bir tek güncelleştirme etki alanı herhangi bir zamanda etkilenmez.
+Sanal makine ölçek kümesi sağlayan bir Azure işlem toodeploy kaynaktır ve aynı sanal makineleri bir küme tek bir kaynak olarak yönetebilirsiniz. Merhaba ölçek kümesi, bir kullanılabilirlik kümesindeki sanal makineleri gibi güncelleştirme etki alanları arasında otomatik olarak dağıtılır. Gibi kullanılabilirlik kümeleri ile ölçek kümeleri ile yalnızca bir tek güncelleştirme etki alanı herhangi bir zamanda etkilenmez.
 
-Sanal makinelerinizin yüksek kullanılabilirlik için yapılandırma hakkında daha fazla bilgi için Windows için sanal makinelerin kullanılabilirliğini yönetme bakın (.. / articles/virtual-machines/windows/manage-availability.md) veya [Linux](../articles/virtual-machines/linux/manage-availability.md).
+Sanal makinelerinizin yüksek kullanılabilirlik için yapılandırma hakkında daha fazla bilgi için Windows için sanal makinelerin kullanılabilirliğini yönetme hello bakın (.. / articles/virtual-machines/windows/manage-availability.md) veya [Linux](../articles/virtual-machines/linux/manage-availability.md).

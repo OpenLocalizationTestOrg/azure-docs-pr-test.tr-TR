@@ -1,5 +1,5 @@
 
-Bir ana bilgisayar yapılandırma dosyası içeren bir kök klasörü ve her biri aşağıdaki örnekteki gibi ayrı bir işleve kodunu içeren bir veya daha fazla alt tüm işlevleri verilen işlevi uygulama kodunu yaşadığı:
+bir ana bilgisayar yapılandırma dosyası ve her biri aşağıdaki örneğine hello olduğu gibi ayrı bir işleve hello kodunu içeren bir veya daha fazla klasörleri içeren bir kök klasöründeki tüm verilen işlev uygulaması hello işlevlerin Hello kodunu yaşadığı:
 
 ```
 wwwroot
@@ -15,7 +15,7 @@ wwwroot
  | | - run.csx
 ```
 
-*Host.json* dosyası bazı çalışma zamanı özel yapılandırma içeriyor ve işlev uygulaması kök klasöründe bulunur. Kullanılabilir ayarlar hakkında daha fazla bilgi için bkz: [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) WebJobs.Script depo Wiki'deki.
+Merhaba *host.json* dosyası bazı çalışma zamanı özel yapılandırma içeriyor ve hello kök klasöründe hello işlev uygulaması bulunur. Kullanılabilir ayarlar hakkında daha fazla bilgi için bkz: [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) hello WebJobs.Script depo Wiki'deki.
 
-Her işlevi bir veya daha fazla kod dosyaları, function.json yapılandırma ve başka bir bağımlılık içeren bir klasörü vardır.
+Her işlevi bir veya daha fazla kod dosyaları, hello function.json yapılandırma ve başka bir bağımlılık içeren bir klasörü vardır.
 

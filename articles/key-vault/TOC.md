@@ -13,7 +13,7 @@
 ### [Anahtar Kasası geliştirici kılavuzu](key-vault-developers-guide.md)
 ### [Hizmet sınırlamaları](key-vault-service-limits.md)
 ### [HSM ile korunan anahtarlar](key-vault-hsm-protected-keys.md)
-### [.NET 2.0’a geçiş](key-vault-dotnet2api-release-notes.md)
+### [Too.NET 2.0 geçirme](key-vault-dotnet2api-release-notes.md)
 ### Genel bakış
 #### [Güvenlik dünyaları](key-vault-ovw-security-worlds.md)
 #### [Geçici silme](key-vault-ovw-soft-delete.md)
@@ -26,9 +26,9 @@
 ### [Kullanılabilirlik ve yedekleme](key-vault-disaster-recovery-guidance.md)
 ### [İstemci kimliğini değiştirme](key-vault-subscription-move-fix.md)
 ### [CLI 2.0 aracılığıyla oluşturma ve yönetme](key-vault-manage-with-cli2.md)
-### [Key Vault geçici silmeyi CLI ile kullanma](key-vault-soft-delete-cli.md)
-### [Key Vault geçici silmeyi PowerShell ile kullanma](key-vault-soft-delete-powershell.md)
-### [Erişim vermek için grupları kullanma](key-vault-group-permissions-for-apps.md)
+### [Nasıl toouse anahtar kasası soft-delete CLI ile](key-vault-soft-delete-cli.md)
+### [Nasıl toouse anahtar kasası soft-delete PowerShell ile](key-vault-soft-delete-powershell.md)
+### [Grupları toogrant erişimi kullanın.](key-vault-group-permissions-for-apps.md)
 ### [Anahtar kasanızın güvenliğini sağlama](key-vault-secure-your-key-vault.md)
 
 ## Otomatikleştirme

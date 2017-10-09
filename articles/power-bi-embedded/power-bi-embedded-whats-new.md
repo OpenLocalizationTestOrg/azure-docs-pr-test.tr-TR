@@ -1,6 +1,6 @@
 ---
-title: "Power BI Embedded’deki yenilikler"
-description: "Power BI Embedded yenilikler hakkında en son bilgilerini al"
+title: aaaWhat Power BI Embedded yeni
+description: "Power BI Embedded yenilikler üzerinde hello son bilgilerini al"
 services: power-bi-embedded
 documentationcenter: 
 author: guyinacube
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 03/11/2017
 ms.author: asaxton
-ms.openlocfilehash: 07c53a5d6b1881a4c207a2aefed9fcede0fa069e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 859fa57eda4311b17a0098d0e5cb7fa4f969b534
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="whats-new-in-power-bi-embedded"></a>Power BI Embedded’deki yenilikler
 
-Güncelleştirmeleri **Power BI Embedded** düzenli aralıklarla yayınlanır. Ancak, her sürüm, yeni kullanıcı yönelik özellikler içerir; Bazı sürümler arka uç hizmeti özelliklerine odaklanmıştır. Biz, yeni kullanıcı dönük yetenekleri burada vurgulayın. Geri sıklıkla kontrol ettiğinizden emin olun.
+Çok güncelleştirmeleri**Power BI Embedded** düzenli aralıklarla yayınlanır. Ancak, her sürüm, yeni kullanıcı yönelik özellikler içerir; Bazı sürümler arka uç hizmeti özelliklerine odaklanmıştır. Biz, yeni kullanıcı dönük yetenekleri burada vurgulayın. Emin toocheck genellikle dönecek.
 
 ## <a name="march-2017"></a>Mart 2017
 
@@ -44,7 +44,7 @@ Güncelleştirmeleri **Power BI Embedded** düzenli aralıklarla yayınlanır. A
 **Yönetim API'leri**
 
 * Kopya rapor ve veri kümesi
-* Raporu farklı bir veri kümesine bağlayın
+* Rapor tooa farklı veri kümesi bağlama
 
 **Örnekler**
 
@@ -62,18 +62,18 @@ Güncelleştirmeleri **Power BI Embedded** düzenli aralıklarla yayınlanır. A
 Bu sürüm şunları sunar:
 
 * Tüm yeni JavaScript destekleyen SDK'sı [Gelişmiş filtreleme ve sayfa gezinti](power-bi-embedded-interact-with-reports.md).
-* Power BI Embedded şimdi Kanada merkezi veri merkezine desteklenir. Denetleme [datacenter durum](https://azure.microsoft.com/status/).
+* Power BI Embedded şimdi hello Kanada merkezi merkezinde desteklenir. Denetleme [datacenter durum](https://azure.microsoft.com/status/).
 
 ## <a name="july-11th-2016"></a>11 Temmuz 2016
 Bu sürüm şunları sunar:
 
-* **İyi haber!** Power BI Embedded hizmeti artık önizlemede - GA (genel olarak kullanılabilir) sunulmuştur.  
-* Tüm REST API'leri taşınmış olması **/beta** için **/v1.0**.
+* **İyi haber!** Merhaba Power BI Embedded hizmeti artık önizlemede - GA (genel olarak kullanılabilir) sunulmuştur.  
+* Tüm REST API'leri taşınmış olması **/beta** çok**/v1.0**.
 * İçin .NET ve JavaScript SDK'ları güncelleştirilmiştir **v1.0**.
-* Power BI API çağrıları artık doğrudan API anahtarları kullanılarak doğrulanabilir. Uygulama belirteçleri yalnızca katıştırmak için gereklidir. Parçası olarak bu, v1.0 API'leri sağlamak ve geliştirme belirteçleri kullanım dışı bırakıldı, ancak bir beta sürümünde 30/12/2016 tarihine kadar çalışmaya devam edeceğiz. Daha fazla bilgi için bkz: [kimlik doğrulaması ve yetkilendirme Power BI Embedded ile](power-bi-embedded-app-token-flow.md).
-* Uygulama belirteçleri ve katıştırılmış raporları için satır düzeyi güvenlik (RLS) desteği. Daha fazla bilgi için bkz: [satır düzeyi güvenlikte Power BI Embedded](power-bi-embedded-rls.md).
+* Power BI API çağrıları artık doğrudan API anahtarları kullanılarak doğrulanabilir. Uygulama belirteçleri yalnızca katıştırmak için gereklidir. Parçası olarak bu, v1.0 API'leri sağlamak ve geliştirme belirteçleri kullanım dışı bırakıldı, ancak bunlar hello beta sürümünde toowork 30/12/2016 tarihine kadar devam edeceğiz. toolearn daha, fazla [kimlik doğrulaması ve yetkilendirme Power BI Embedded ile](power-bi-embedded-app-token-flow.md).
+* Uygulama belirteçleri ve katıştırılmış raporları için satır düzeyi güvenlik (RLS) desteği. toolearn daha, fazla [satır düzeyi güvenlikte Power BI Embedded](power-bi-embedded-rls.md).
 * Güncelleştirilen örnek bir uygulama için tüm **v1.0** API çağrıları.
 * Azure SDK'sı, PowerShell ve CLI için Power BI Embedded desteği.
-* Kullanıcıların görselleştirme verileri dışarı aktarma bir **.csv**.
-* Power BI Embedded şimdi tüm bölgelerde aynı diller/Microsoft Azure olarak desteklenir. Daha fazla bilgi için bkz: [Azure - dilleri](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx).
+* Kullanıcılar, görselleştirme veri tooa verebilirsiniz **.csv**.
+* Power BI Embedded artık desteklenmektedir içindeki tüm aynı diller/yerel ayarlar Microsoft Azure olarak hello. toolearn daha, fazla [Azure - dilleri](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx).
 

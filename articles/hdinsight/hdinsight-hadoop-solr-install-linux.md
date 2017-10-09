@@ -1,6 +1,6 @@
 ---
-title: "Linux tabanlı Hdınsight üzerinde - Azure Solr yüklemek için betik eylemi kullanın | Microsoft Docs"
-description: "Betik eylemleri kullanarak Linux tabanlı Hdınsight Hadoop kümeleri üzerinde Solr yüklemeyi öğrenin."
+title: "aaaUse betik eylemi tooinstall hdınsight'ta Linux tabanlı - Azure Solr | Microsoft Docs"
+description: "Betik eylemleri kullanılarak nasıl tooinstall Solr üzerinde Linux tabanlı Hdınsight Hadoop kümeleri hakkında bilgi edinin."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,71 +16,71 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: larryfr
-ms.openlocfilehash: ad930ca023a36fa5874483873c82fdba11d117c7
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 4c179032b95ae187f1830d8927f8796372fa8ebe
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Yükleme ve Solr Hdınsight Hadoop kümeleri kullanma
 
-Betik eylemi kullanarak Azure Hdınsight'ta Solr yüklemeyi öğrenin. Solr güçlü arama platformudur ve Hadoop tarafından yönetilen veri kuruluş düzeyinde arama yetenekleri sağlar.
+Bilgi nasıl betik eylemi kullanarak Azure hdınsight'ta Solr tooinstall. Solr güçlü arama platformudur ve Hadoop tarafından yönetilen veri kuruluş düzeyinde arama yetenekleri sağlar.
 
 > [!IMPORTANT]
-    > Bu belgede yer alan adımlar Linux kullanan bir Hdınsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+    > Bu belgedeki Hello adımlar Linux kullanan bir Hdınsight kümesi gerektirir. Linux hello yalnızca Hdınsight sürüm 3.4 veya büyük kullanılan işletim sistemini ' dir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 > [!IMPORTANT]
-> Bu belgede kullanılan örnek betik, belirli bir yapılandırmayla Solr 4.9 yükler. Farklı Koleksiyonlara, parça, şemalar, çoğaltmalar, vb. ile Solr küme yapılandırmak istiyorsanız, Solr ikili dosyaları ve komut dosyasını değiştirmeniz gerekir.
+> Bu belgede kullanılan hello örnek betik, belirli bir yapılandırmayla Solr 4.9 yükler. Farklı Koleksiyonlara, parça, şemalar, çoğaltmalar, vb. ile tooconfigure hello Solr kümesi istiyorsanız hello komut dosyası ve Solr ikili dosyaları değiştirmeniz gerekir.
 
 ## <a name="whatis"></a>Solr nedir
 
-[Apache Solr](http://lucene.apache.org/solr/features.html) güçlü tam metin araması verileri sağlayan bir kurumsal arama platformudur. Hadoop depolamak ve çok büyük miktarda veri yönetme olanak sağlarken, Apache Solr hızlı bir şekilde veri almak için arama yetenekleri sağlar.
+[Apache Solr](http://lucene.apache.org/solr/features.html) güçlü tam metin araması verileri sağlayan bir kurumsal arama platformudur. Hadoop depolamak ve çok büyük miktarda veri yönetme olanak sağlarken, Apache Solr tooquickly hello verileri almak hello arama yetenekleri sağlar.
 
 > [!WARNING]
-> Hdınsight kümesi ile sağlanan bileşenler tam olarak Microsoft tarafından desteklenir.
+> Merhaba Hdınsight kümesi ile sağlanan bileşenler tam olarak Microsoft tarafından desteklenir.
 >
-> Özel bileşenleri, Solr, örneğin, daha fazla sorun gidermenize yardımcı olması için ticari koşulların elverdiği oranda makul destek alırsınız. Microsoft destek özel bileşenlerle sorunları gidermek mümkün olmayabilir. Yardım için açık kaynak toplulukları devreye gerekebilir. Örneğin, olduğu gibi kullanılabilecek birçok topluluk siteleri vardır: [Hdınsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Apache projeleri proje siteleri de [http://apache.org](http://apache.org), örneğin: [Hadoop](http://hadoop.apache.org/).
+> Solr gibi özel bileşenlerini almak ticari koşulların elverdiği oranda makul destek toohelp, toofurther hello sorun giderme. Microsoft destek özel bileşenlerle mümkün tooresolve sorunları olabilir. Yardım için tooengage hello açık kaynak toplulukları gerekebilir. Örneğin, olduğu gibi kullanılabilecek birçok topluluk siteleri vardır: [Hdınsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Apache projeleri proje siteleri de [http://apache.org](http://apache.org), örneğin: [Hadoop](http://hadoop.apache.org/).
 
-## <a name="what-the-script-does"></a>Betiğin yaptığı
+## <a name="what-hello-script-does"></a>Hangi hello komut dosyası gerçekleştirir
 
-Bu komut, Hdınsight kümesine aşağıdaki değişiklikleri yapar:
+Bu komut dosyası değişiklikleri toohello Hdınsight kümesi aşağıdaki hello yapar:
 
 * Solr 4.9 içine yükler`/usr/hdp/current/solr`
-* Bir kullanıcı oluşturur **solrusr**, Solr hizmetini çalıştırmak için kullanılan
-* Ayarlar **solruser** sahibi olarak`/usr/hdp/current/solr`
+* Bir kullanıcı oluşturur **solrusr**, kullanılan toorun hello Solr hizmet olduğu
+* Ayarlar **solruser** hello sahibi olarak`/usr/hdp/current/solr`
 * Ekler bir [Upstart](http://upstart.ubuntu.com/) Solr otomatik olarak başlar yapılandırma.
 
 ## <a name="install"></a>Betik eylemleri kullanılarak Solr yükleyin
 
-Solr bir Hdınsight kümesine yüklemek için örnek komut dosyası şu konumda kullanılabilir:
+Hdınsight kümesinde bir örnek komut dosyası tooinstall Solr konumu aşağıdaki hello kullanılabilir:
 
     https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
 
-Solr yüklü olan bir küme oluşturmak için adımlarda kullanın [Hdınsight kümeleri oluşturma](hdinsight-hadoop-create-linux-clusters-portal.md) belge. Oluşturma işlemi sırasında Solr yüklemek için aşağıdaki adımları kullanın:
+toocreate Solr yüklü olan bir küme, kullanım hello adımları hello [Hdınsight kümeleri oluşturma](hdinsight-hadoop-create-linux-clusters-portal.md) belge. Merhaba oluşturma işlemi sırasında aşağıdaki adımları tooinstall Solr hello kullanın:
 
-1. Gelen __küme Özet__ dikey penceresinde, select__Advanced settings__, ardından __betik eylemleri__. Form doldurmak için aşağıdaki bilgileri kullanın:
+1. Merhaba gelen __küme Özet__ dikey penceresinde, select__Advanced settings__, ardından __betik eylemleri__. Bilgi toopopulate hello formu aşağıdaki hello kullan:
 
-   * **AD**: betik eylemi için kolay bir ad girin.
+   * **AD**: hello betik eylemi için kolay bir ad girin.
    * **BETİK URI'si**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
    * **HEAD**: Bu seçeneği işaretleyin.
    * **ÇALIŞAN**: Bu seçeneği işaretleyin.
-   * **ZOOKEEPER**: Zookeeper düğümüne yüklemek için bu seçeneği işaretleyin.
+   * **ZOOKEEPER**: Bu seçenek tooinstall hello Zookeeper düğümde denetleyin
    * **PARAMETRELERİ**: Bu alanı boş bırakın
 
-2. Ekranın alt kısmındaki **betik eylemleri** dikey penceresinde, kullanım **seçin** yapılandırmayı kaydetmek için düğmesi. Son olarak, **sonraki** geri dönmek için düğmesini __küme özeti__
+2. Merhaba hello sonundaki **betik eylemleri** dikey penceresinde, kullanım hello **seçin** düğme toosave hello yapılandırması. Son olarak, hello kullan **sonraki** düğmesini tooreturn toohello __küme özeti__
 
-3. Gelen __küme Özet__ sayfasında, __oluşturma__ küme oluşturmak için.
+3. Merhaba gelen __küme Özet__ sayfasında, __oluşturma__ toocreate hello küme.
 
 ## <a name="usesolr"></a>Hdınsight'ta nasıl Solr kullanıyor
 
 > [!IMPORTANT]
-> Bu bölümdeki adımları temel Solr işlevleri göstermektedir. Solr kullanma hakkında daha fazla bilgi için bkz: [Apache Solr site](http://lucene.apache.org/solr/).
+> Bu bölümdeki Hello adımları temel Solr işlevleri göstermektedir. Merhaba Solr kullanma hakkında daha fazla bilgi için bkz: [Apache Solr site](http://lucene.apache.org/solr/).
 
 ### <a name="index-data"></a>Dizin verileri
 
-Solr için örnek veri eklemek için aşağıdaki adımları kullanın ve ardından sorgu:
+Aşağıdaki adımları tooadd örnek veri tooSolr hello kullanın ve ardından sorgu:
 
-1. SSH kullanarak HDInsight kümesine bağlanma:
+1. SSH kullanarak toohello Hdınsight kümesine bağlanın:
 
     ```bash
     ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
@@ -89,34 +89,34 @@ Solr için örnek veri eklemek için aşağıdaki adımları kullanın ve ardın
     Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
      > [!IMPORTANT]
-     > Adımları bu belgenin sonraki bölümlerinde SSL tüneli Solr web kullanıcı Arabirimine bağlamak için kullanın. Bu adımları kullanabilmek için bir SSL tünel oluşturmak ve daha sonra kullanmak için tarayıcınızı yapılandırmanız gerekir.
+     > Adımları bu belgenin sonraki bölümlerinde bir SSL tünel tooconnect toohello Solr web kullanıcı arabirimini kullanın. Aşağıdaki adımları toouse, bir SSL kurmak gerekir tünel ve tarayıcı toouse yapılandırmak.
      >
-     > Daha fazla bilgi için bkz: [kullanım SSH tünel Hdınsight ile](hdinsight-linux-ambari-ssh-tunnel.md) belge.
+     > Daha fazla bilgi için bkz: Merhaba [kullanım SSH tünel Hdınsight ile](hdinsight-linux-ambari-ssh-tunnel.md) belge.
 
-2. Solr dizin örnek veri sağlamak için aşağıdaki komutları kullanın:
+2. Aşağıdaki komutları toohave Solr dizin örnek verileri hello kullan:
 
     ```bash
     cd /usr/hdp/current/solr/example/exampledocs
     java -jar post.jar solr.xml monitor.xml
     ```
 
-    Aşağıdaki çıktıyı konsola verilir:
+    Merhaba aşağıdaki çıktı toohello konsol döndürülür:
 
         POSTing file solr.xml
         POSTing file monitor.xml
         2 files indexed.
-        COMMITting Solr index changes to http://localhost:8983/solr/update..
+        COMMITting Solr index changes toohttp://localhost:8983/solr/update..
         Time spent: 0:00:01.624
 
-    `post.jar` Yardımcı programı ekler **solr.xml** ve **monitor.xml** dizine belgeleri.
+    Merhaba `post.jar` yardımcı programı ekler hello **solr.xml** ve **monitor.xml** belgeleri toohello dizini.
   
-3. Solr REST API sorgulamak için aşağıdaki komutu kullanın:
+3. Komut tooquery hello Solr REST API aşağıdaki hello kullan:
 
     ```bash
     curl "http://localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true"
     ```
 
-    Bu komut arar **collection1** eşleşen herhangi bir belgeniz için  **\*:\***  (olarak kodlanmış \*% 3A\* sorgu dizesinde). Aşağıdaki JSON belgesi, yanıt örneğidir:
+    Bu komut arar **collection1** eşleşen herhangi bir belgeniz için  **\*:\***  (olarak kodlanmış \*% 3A\* hello sorgu dizesinde). JSON belgesini aşağıdaki hello hello yanıt örneğidir:
 
             "response": {
                 "numFound": 2,
@@ -125,7 +125,7 @@ Solr için örnek veri eklemek için aşağıdaki adımları kullanın ve ardın
                 "docs": [
                   {
                     "id": "SOLR1000",
-                    "name": "Solr, the Enterprise Search Server",
+                    "name": "Solr, hello Enterprise Search Server",
                     "manu": "Apache Software Foundation",
                     "cat": [
                       "software",
@@ -136,9 +136,9 @@ Solr için örnek veri eklemek için aşağıdaki adımları kullanın ve ardın
                       "Optimized for High Volume Web Traffic",
                       "Standards Based Open Interfaces - XML and HTTP",
                       "Comprehensive HTML Administration Interfaces",
-                      "Scalability - Efficient Replication to other Solr Search Servers",
+                      "Scalability - Efficient Replication tooother Solr Search Servers",
                       "Flexible and Adaptable with XML configuration and Schema",
-                      "Good unicode support: héllo (hello with an accent over the e)"
+                      "Good unicode support: héllo (hello with an accent over hello e)"
                     ],
                     "price": 0,
                     "price_c": "0,USD",
@@ -170,48 +170,48 @@ Solr için örnek veri eklemek için aşağıdaki adımları kullanın ve ardın
                 ]
               }
 
-### <a name="using-the-solr-dashboard"></a>Solr panosunu kullanma
+### <a name="using-hello-solr-dashboard"></a>Merhaba Solr panosunu kullanma
 
-Solr Pano web tarayıcınız üzerinden Solr ile çalışmanıza olanak sağlayan kullanıcı Arabirimi bir web uygulamasıdır. Solr Pano doğrudan Internet'ten, Hdınsight kümesi üzerinde açık değil. SSH tüneli erişmek için kullanabilirsiniz. SSH tüneli kullanma hakkında daha fazla bilgi için bkz: [kullanım SSH tünel Hdınsight ile](hdinsight-linux-ambari-ssh-tunnel.md) belge.
+Merhaba Solr Pano web tarayıcınız üzerinden Solr ile toowork veren UI bir web uygulamasıdır. Merhaba Solr Pano doğrudan Hdınsight kümenize gelen hello Internet üzerinde açık değil. Bir SSH tünel tooaccess kullanabilirsiniz. SSH tüneli kullanma hakkında daha fazla bilgi için bkz: Merhaba [kullanım SSH tünel Hdınsight ile](hdinsight-linux-ambari-ssh-tunnel.md) belge.
 
-SSH tüneli kurduktan sonra Solr panoyu kullanmak için aşağıdaki adımları kullanın:
+SSH tüneli kurduktan sonra aşağıdaki adımları toouse hello Solr Pano hello kullan:
 
-1. Birincil headnode ana bilgisayar adını belirleyin:
+1. Merhaba birincil headnode Hello ana bilgisayar adını belirleyin:
 
-   1. SSH küme baş düğümüne bağlanmak için kullanın. Örneğin, `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
+   1. SSH tooconnect toohello küme baş düğümüne kullanın. Örneğin, `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
 
-       SSH kullanma hakkında daha fazla bilgi için bkz: [Hdınsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
+       Merhaba SSH kullanma hakkında daha fazla bilgi için bkz: [Hdınsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-   2. Tam ana bilgisayar adı almak için aşağıdaki komutu kullanın:
+   2. Tooget hello tam ana bilgisayar adı komutu aşağıdaki hello kullan:
 
         ```bash
         hostname -f
         ```
 
-        Bu komutu aşağıdaki ana bilgisayar adı için benzer bir değer döndürür:
+        Bu komut, ana bilgisayar adından bir değer benzer toohello döndürür:
 
             hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
 
-        Daha sonra kullanılmak üzere döndürdü, değer kaydedin.
+        Daha sonra kullanılmak üzere döndürülen, hello değeri kaydedin.
 
-2. Tarayıcınızda, bağlanmak **solr/http://HOSTNAME:8983 / #/**, burada **ana bilgisayar adı** önceki adımlarda belirlenen adıdır.
+2. Tarayıcınızda, çok bağlantı**solr/http://HOSTNAME:8983 / #/**, burada **ana bilgisayar adı** hello önceki adımlarda belirlenen hello adıdır.
 
-    İstek, kümenizde Solr Web Arabirimine SSH tüneli üzerinden yönlendirilir. Sayfa aşağıdaki görüntüye benzer görünür:
+    Merhaba isteği kümenizde hello SSH tünel toohello Solr web kullanıcı Arabirimi üzerinden yönlendirilir. Görüntü aşağıdaki benzer toohello Hello sayfası görünür:
 
     ![Solr Pano görüntüsü](./media/hdinsight-hadoop-solr-install-linux/solrdashboard.png)
 
-3. Sol bölmeden kullanmak **çekirdek Seçici** seçmek için açılır **collection1**. Birden çok girişi bunları altında görünmelidir **collection1**.
+3. Merhaba Hello sol bölmesinden kullanmak **çekirdek Seçici** açılan tooselect **collection1**. Birden çok girişi bunları altında görünmelidir **collection1**.
 
-4. Girişlerden **collection1**seçin **sorgu**. Arama sayfası doldurmak için aşağıdaki değerleri kullanın:
+4. Aşağıdaki hello girişlerinden **collection1**seçin **sorgu**. Değerleri toopopulate hello arama sayfası aşağıdaki hello kullan:
 
-   * İçinde **q** metin kutusuna  **\*:**\*. Bu sorgu Solr dizini tüm belgeleri döndürür. Belirli bir dizeyi belgelerde arama yapmak istiyorsanız, o dizeyi buraya girebilirsiniz.
-   * İçinde **wt** metin kutusunda, çıktı biçimi seçin. Varsayılan değer **json**.
+   * Merhaba, **q** metin kutusuna  **\*:**\*. Bu sorgu Solr dizini tüm hello belgeleri döndürür. Belirli bir dizeyi hello belgelerde toosearch istiyorsanız, o dizeyi buraya girebilirsiniz.
+   * Merhaba, **wt** metin kutusunda, select hello çıktı biçimi. Varsayılan değer **json**.
 
-     Son olarak, seçin **sorgu yürütme** arama pate sonundaki düğmesi.
+     Son olarak, hello seçin **sorgu yürütme** hello arama pate hello sonundaki düğmesi.
 
-     ![Bir küme özelleştirmek için betik eylemi kullanın](./media/hdinsight-hadoop-solr-install-linux/hdi-solr-dashboard-query.png)
+     ![Betik eylemi toocustomize bir küme kullanın](./media/hdinsight-hadoop-solr-install-linux/hdi-solr-dashboard-query.png)
 
-     Çıktı dizini daha önce eklediğimiz iki belge döndürür. Çıktı aşağıdaki JSON belgesi benzer:
+     Merhaba çıkış iki belge toohello eklenen önceki dizini hello döndürür. Merhaba, benzer toohello JSON belgesi aşağıdaki çıktı:
 
            "response": {
                "numFound": 2,
@@ -220,7 +220,7 @@ SSH tüneli kurduktan sonra Solr panoyu kullanmak için aşağıdaki adımları 
                "docs": [
                  {
                    "id": "SOLR1000",
-                   "name": "Solr, the Enterprise Search Server",
+                   "name": "Solr, hello Enterprise Search Server",
                    "manu": "Apache Software Foundation",
                    "cat": [
                      "software",
@@ -231,9 +231,9 @@ SSH tüneli kurduktan sonra Solr panoyu kullanmak için aşağıdaki adımları 
                      "Optimized for High Volume Web Traffic",
                      "Standards Based Open Interfaces - XML and HTTP",
                      "Comprehensive HTML Administration Interfaces",
-                     "Scalability - Efficient Replication to other Solr Search Servers",
+                     "Scalability - Efficient Replication tooother Solr Search Servers",
                      "Flexible and Adaptable with XML configuration and Schema",
-                     "Good unicode support: héllo (hello with an accent over the e)"
+                     "Good unicode support: héllo (hello with an accent over hello e)"
                    ],
                    "price": 0,
                    "price_c": "0,USD",
@@ -267,7 +267,7 @@ SSH tüneli kurduktan sonra Solr panoyu kullanmak için aşağıdaki adımları 
 
 ### <a name="starting-and-stopping-solr"></a>Başlatma ve durdurma Solr
 
-El ile durdurun ve Solr başlatmak için aşağıdaki komutları kullanın:
+Toomanually durdurma ve Solr başlatma komutları aşağıdaki hello kullan:
 
 ```bash
 sudo stop solr
@@ -276,21 +276,21 @@ sudo start solr
 
 ## <a name="backup-indexed-data"></a>Veri yedekleme dizini
 
-Kümeniz için varsayılan depolama Solr verileri yedeklemek için aşağıdaki adımları kullanın:
+Solr veri toohello varsayılan depolamayı kümeniz için adımları tooback aşağıdaki hello kullan:
 
-1. SSH kullanarak kümeye bağlanın, ardından baş düğüm için ana bilgisayar adı almak için aşağıdaki komutu kullanın:
+1. SSH kullanarak toohello kümesine bağlanın, sonra komutu tooget hello ana bilgisayar adı hello baş düğümü için aşağıdaki hello kullanın:
 
     ```bash
     hostname -f
     ```
 
-2. Dizinli verilerin bir anlık görüntüsünü oluşturmak için aşağıdaki komutu kullanın. Değiştir **ana bilgisayar adı** önceki komuttan döndürülen adı ile:
+2. Komut toocreate dizine hello verilerin bir anlık görüntüsünü aşağıdaki hello kullanın. Değiştir **ana bilgisayar adı** hello önceki komuttan döndürülen hello adı ile:
 
     ```bash
     curl http://HOSTNAME:8983/solr/replication?command=backup
     ```
 
-    Yanıt aşağıdaki XML'e benzer:
+    Merhaba yanıt benzer toohello XML aşağıdaki gibidir:
 
         <?xml version="1.0" encoding="UTF-8"?>
         <response>
@@ -301,19 +301,19 @@ Kümeniz için varsayılan depolama Solr verileri yedeklemek için aşağıdaki 
           <str name="status">OK</str>
         </response>
 
-3. Değiştirme dizinleri `/usr/hdp/current/solr/example/solr`. Bir alt burada her koleksiyon için yoktur. Her koleksiyon dizini içeren bir `data` koleksiyonu için anlık görüntü içeren dizini.
+3. Dizinleri çok değiştirin`/usr/hdp/current/solr/example/solr`. Bir alt burada her koleksiyon için yoktur. Her koleksiyon dizini içeren bir `data` hello koleksiyon için başlangıç anlık görüntü içeren dizini.
 
-4. Sıkıştırılmış bir anlık görüntü klasörü arşiv oluşturmak için aşağıdaki komutu kullanın:
+4. toocreate hello anlık görüntü klasörü, komutu aşağıdaki kullanım hello sıkıştırılmış bir arşiv:
 
     ```bash
     tar -zcf snapshot.20150806185338855.tgz snapshot.20150806185338855
     ```
 
-    Değiştir `snapshot.20150806185338855` koleksiyonunuz için anlık görüntü adı değerlerle.
+    Hello yerine `snapshot.20150806185338855` koleksiyonunuz için başlangıç anlık görüntüsünün hello ad değerlerle.
 
-    Bu komut, adlandırılmış bir arşiv oluşturur **snapshot.20150806185338855.tgz**, içeriğini içeren **snapshot.20150806185338855** dizini.
+    Bu komut, adlandırılmış bir arşiv oluşturur **snapshot.20150806185338855.tgz**, hello Merhaba içeriğine içeren **snapshot.20150806185338855** dizini.
 
-5. Ardından aşağıdaki komutu kullanarak kümenin birincil depolama arşive depolayabilirsiniz:
+5. Sonra komutu aşağıdaki hello kullanarak hello arşiv toohello kümenin birincil depolama depolayabilirsiniz:
 
     ```bash
     hdfs dfs -put snapshot.20150806185338855.tgz /example/data
@@ -323,8 +323,8 @@ Solr yedekleme ve geri yükleme ile çalışma hakkında daha fazla bilgi için 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Hdınsight kümelerinde Giraph yükleme](hdinsight-hadoop-giraph-install-linux.md). Küme özelleştirme Giraph Hdınsight Hadoop kümelerine yüklemek için kullanın. Giraph Hadoop kullanarak işleme grafik işlemleri yapmanıza olanak tanır ve Azure Hdınsight ile kullanılabilir.
+* [Hdınsight kümelerinde Giraph yükleme](hdinsight-hadoop-giraph-install-linux.md). Giraph üzerinde Hdınsight Hadoop kümeleri küme özelleştirme tooinstall kullanın. Giraph tooperform grafik Hadoop kullanarak işleme sağlar ve Azure Hdınsight ile kullanılabilir.
 
-* [Hdınsight kümelerinde Hue yüklemek](hdinsight-hadoop-hue-linux.md). Küme özelleştirme Hdınsight Hadoop kümeleri üzerinde Hue yüklemek için kullanın. Hue Hadoop kümeyle etkileşim kurmak için kullanılan Web uygulamaları kümesidir.
+* [Hdınsight kümelerinde Hue yüklemek](hdinsight-hadoop-hue-linux.md). Küme özelleştirme tooinstall ton Hdınsight Hadoop kümeleri üzerinde kullanın. Hue Web uygulamaları toointeract Hadoop kümesi ile kullanılır.
 
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md

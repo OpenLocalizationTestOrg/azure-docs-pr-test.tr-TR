@@ -1,5 +1,5 @@
 ---
-title: "Azure AD v2 ASP.NET Web sunucusu başlamak - kullanın | Microsoft Docs"
+title: "aaaAzure AD v2 ASP.NET Web sunucusu Getting Started - kullanım | Microsoft Docs"
 description: "Microsoft oturum açma Openıd Connect standardını kullanan geleneksel web tarayıcı tabanlı bir uygulama ile ASP.NET çözümünü uygulama"
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,21 +15,21 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 3b7d29e48c91f40e8782a5e32a52998b815fe331
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 03afce6fa6598215e8c4af841c00762c143a0cd4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Oturum açma ve oturum kapatma isteklerini işlemek için bir denetleyici ekleyin
+## <a name="add-a-controller-toohandle-sign-in-and-sign-out-requests"></a>Denetleyici toohandle oturum açma ve oturum kapatma isteklerini ekleyin
 
-Bu adım, oturum açma ve oturum kapatma yöntemlerini kullanıma sunmak için yeni bir denetleyici oluşturulacağını gösterir.
+Bu adım programlarını nasıl toocreate yeni bir denetleyici tooexpose oturum açma ve oturum kapatma yöntemlerini.
 
-1.  Sağ tıklayın `Controllers` klasörü ve seçin`Add` > `Controller`
-2.  Seçin `MVC (.NET version) Controller – Empty`.
+1.  Merhaba sağ tıklayın `Controllers` klasörü ve seçin`Add` > `Controller`
+2.  `MVC (.NET version) Controller – Empty` öğesini seçin.
 3.  Tıklatın *Ekle*
 4.  Bu ad `HomeController` tıklatıp *Ekle*
-5.  Ekleme *OWIN* sınıfına başvuruyor:
+5.  Ekleme *OWIN* toohello sınıfı başvuruyor:
 
 ```csharp
 using Microsoft.Owin.Security;
@@ -39,14 +39,14 @@ using Microsoft.Owin.Security.OpenIdConnect;
 <!-- Workaround for Docs conversion bug -->
 <ol start="6">
 <li>
-Oturum kapatma ve oturum açma işlemek için aşağıdaki iki yöntem, bir kimlik doğrulaması sınaması kodu aracılığıyla başlatarak denetleyicinize ekleyin:
+Bir kimlik doğrulaması sınaması kodu aracılığıyla başlatarak Hello iki yöntem aşağıda toohandle oturum açma ve oturum kapatma tooyour denetleyici ekleyin:
 </li>
 </ol>
 
 ```csharp
 /// <summary>
 /// Send an OpenID Connect sign-in request.
-/// Alternatively, you can just decorate the SignIn method with the [Authorize] attribute
+/// Alternatively, you can just decorate hello SignIn method with hello [Authorize] attribute
 /// </summary>
 public void SignIn()
 {
@@ -69,13 +69,13 @@ public void SignOut()
 }
 ```
 
-## <a name="create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>Kullanıcılar bir oturum açma düğmesi aracılığıyla imzalamak için uygulamanın giriş sayfası oluşturun
+## <a name="create-hello-apps-home-page-toosign-in-users-via-a-sign-in-button"></a>Kullanıcılar bir oturum açma düğmesiyle Hello uygulamanın giriş sayfası toosign oluşturma
 
-Visual Studio'da Oturum Aç düğmesini ekleyin ve kimlik doğrulamasından sonra kullanıcı bilgilerini görüntülemek için yeni bir görünüm oluşturun:
+Visual Studio'da oturum açma yeni bir görünüm tooadd hello düğmesini oluşturun ve kimlik doğrulamasından sonra kullanıcı bilgilerini görüntüleyin:
 
-1.  Sağ tıklayın `Views\Home` klasörü ve seçin`Add View`
+1.  Merhaba sağ tıklayın `Views\Home` klasörü ve seçin`Add View`
 2.  Bunu, `Index` olarak adlandırın.
-3.  Oturum açma düğmesi içerir, aşağıdaki HTML dosyaya ekleyin:
+3.  Merhaba oturum açma düğmesi, toohello dosyasını içeren HTML aşağıdaki hello ekleyin:
 
 ```html
 <html>
@@ -86,7 +86,7 @@ Visual Studio'da Oturum Aç düğmesini ekleyin ve kimlik doğrulamasından sonr
 <body>
 @if (!Request.IsAuthenticated)
 {
-    <!-- If the user is not authenticated, display the sign-in button -->
+    <!-- If hello user is not authenticated, display hello sign-in button -->
     <a href="@Url.Action("SignIn", "Home")" style="text-decoration: none;">
         <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="300px" height="50px" viewBox="0 0 3278 522" class="SignInButton">
         <style type="text/css">.fil0:hover {fill: #4B4B4B;} .fnt0 {font-size: 260px;font-family: 'Segoe UI Semibold', 'Segoe UI'; text-decoration: none;}</style>
@@ -116,39 +116,39 @@ else
 ```
 <!--start-collapse-->
 ### <a name="more-information"></a>Daha Fazla Bilgi
-> Bu sayfa bir oturum açma düğmesi siyah bir arka plan ile SVG biçiminde ekler:<br/>![Microsoft ile oturum aç](media/active-directory-serversidewebapp-aspnetwebappowin-use/aspnetsigninbuttonsample.png)<br/> Daha fazla düğme'nın oturum açma Lütfen gidin [bu sayfayı](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Branding guidelines").
+> Bu sayfa bir oturum açma düğmesi siyah bir arka plan ile SVG biçiminde ekler:<br/>![Microsoft ile oturum aç](media/active-directory-serversidewebapp-aspnetwebappowin-use/aspnetsigninbuttonsample.png)<br/> Daha fazla oturum açma için lütfen toohello gitme düğmeleri [bu sayfayı](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "yönergeleri marka").
 <!--end-collapse-->
 
-## <a name="add-a-controller-to-display-users-claims"></a>Kullanıcının talepleri görüntülemek için bir denetleyici ekleyin
-Bu denetleyici kullanımını gösteren `[Authorize]` bir denetleyici korumak için öznitelik. Bu öznitelik, yalnızca kimliği doğrulanan kullanıcılar vererek, denetleyiciye erişimi sınırlandırır. Aşağıdaki kodu yapar alındı kullanıcı talepleri, oturum açma parçası olarak görüntülemek için özniteliğini kullanın.
+## <a name="add-a-controller-toodisplay-users-claims"></a>Bir denetleyici toodisplay kullanıcının talep ekleme
+Bu denetleyici hello kullanır hello gösterir `[Authorize]` tooprotect bir denetleyici özniteliği. Bu öznitelik, yalnızca kimliği doğrulanan kullanıcılar vererek erişimi toohello denetleyicisi kısıtlar. Aşağıdaki kodu Hello kapsamında hello oturum açma alındı hello özniteliği toodisplay kullanıcı talepleri kullanır.
 
-1.  Sağ tıklayın `Controllers` klasörü:`Add` > `Controller`
-2.  Seçin `MVC {version} Controller – Empty`.
+1.  Merhaba sağ tıklayın `Controllers` klasörü:`Add` > `Controller`
+2.  `MVC {version} Controller – Empty` öğesini seçin.
 3.  Tıklatın *Ekle*
 4.  Adlandırın`ClaimsController`
-5.  Denetleyici sınıfının kodu aşağıdaki - bu ekler değiştirin `[Authorize]` öznitelik sınıfı:
+5.  Merhaba kod değiştirin bu hello ekler aşağıdaki - hello koduyla denetleyici sınıfının `[Authorize]` özniteliği toohello sınıfı:
 
 ```csharp
 [Authorize]
 public class ClaimsController : Controller
 {
     /// <summary>
-    /// Add user's claims to viewbag
+    /// Add user's claims tooviewbag
     /// </summary>
     /// <returns></returns>
     public ActionResult Index()
     {
         var claimsPrincipalCurrent = System.Security.Claims.ClaimsPrincipal.Current;
-        //You get the user’s first and last name below:
+        //You get hello user’s first and last name below:
         ViewBag.Name = claimsPrincipalCurrent.FindFirst("name").Value;
 
-        // The 'preferred_username' claim can be used for showing the username
+        // hello 'preferred_username' claim can be used for showing hello username
         ViewBag.Username = claimsPrincipalCurrent.FindFirst("preferred_username").Value;
 
-        // The subject claim can be used to uniquely identify the user across the web
+        // hello subject claim can be used toouniquely identify hello user across hello web
         ViewBag.Subject = claimsPrincipalCurrent.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier).Value;
 
-        // TenantId is the unique Tenant Id - which represents an organization in Azure AD
+        // TenantId is hello unique Tenant Id - which represents an organization in Azure AD
         ViewBag.TenantId = claimsPrincipalCurrent.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid").Value;
 
         return View();
@@ -158,16 +158,16 @@ public class ClaimsController : Controller
 
 <!--start-collapse-->
 ### <a name="more-information"></a>Daha Fazla Bilgi
-> Kullanımı nedeniyle `[Authorize]` özniteliği, bu denetleyicinin tüm yöntemleri, yalnızca kullanıcının kimliği doğrulanırsa çalıştırılabilir. Kullanıcı kimliği doğrulanmamış ve denetleyici erişmeye çalışırsa, OWIN kimlik doğrulaması sınaması başlatabilir ve kullanıcının kimlik doğrulamasını zorla. Yukarıdaki kod talep koleksiyonu görünür `ClaimsPrincipal.Current` kullanıcının belirteçte dahil belirli kullanıcı öznitelikleri için örneği. Bu öznitelikler, kullanıcının tam adını ve kullanıcı adı yanı sıra, genel kullanıcı tanımlayıcısı konu içerir. Ayrıca içerdiği *Kiracı kimliği*, kullanıcının kuruluş Kimliğini temsil eder. 
+> Merhaba hello kullanımı nedeniyle `[Authorize]` özniteliği, bu denetleyicinin tüm yöntemleri, yalnızca hello kullanıcı kimliği doğrulanırsa çalıştırılabilir. Merhaba kullanıcı kimliği doğrulanmamış ve tooaccess hello denetleyicisi çalışırsa, OWIN kimlik doğrulaması sınaması başlatabilir ve hello kullanıcı tooauthenticate zorla. bakar Merhaba, yukarıdaki Hello kodu talep hello koleksiyonunu `ClaimsPrincipal.Current` hello kullanıcının belirteçte dahil belirli kullanıcı öznitelikleri için örneği. Bu öznitelikler hello genel kullanıcı tanımlayıcısı konu yanı sıra hello kullanıcının tam adını ve kullanıcı adını içerir. Ayrıca hello içerdiği *Kiracı kimliği*, hello kullanıcının kuruluş için hello Kimliğini temsil eder. 
 <!--end-collapse-->
 
-## <a name="create-a-view-to-display-the-users-claims"></a>Kullanıcının talepleri görüntülemek için bir görünüm oluşturma
+## <a name="create-a-view-toodisplay-hello-users-claims"></a>Toodisplay hello kullanıcının talepleri bir görünüm oluşturma
 
-Visual Studio'da bir web sayfasında kullanıcının talepleri görüntülemek için yeni bir görünüm oluşturun:
+Visual Studio'da bir web sayfasında toodisplay hello kullanıcının talepleri yeni bir görünüm oluşturun:
 
-1.  Sağ tıklayın `Views\Claims` klasörü ve:`Add View`
+1.  Merhaba sağ tıklayın `Views\Claims` klasörü ve:`Add View`
 2.  Bunu, `Index` olarak adlandırın.
-3.  Aşağıdaki HTML dosyaya ekleyin:
+3.  Aşağıdaki HTML toohello dosyasına hello ekleyin:
 
 ```html
 <html>

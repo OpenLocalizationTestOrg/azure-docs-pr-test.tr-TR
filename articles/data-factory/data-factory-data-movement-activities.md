@@ -1,5 +1,5 @@
 ---
-title: "Kopyalama etkinliği kullanarak veri taşıma | Microsoft Docs"
+title: "Kopyalama etkinliği kullanarak aaaMove veri | Microsoft Docs"
 description: "Data Factory işlem hatlarını veri taşıma hakkında bilgi edinin: Bulut depoları arasında ve bir şirket içi depolama ve bulut deposu arasındaki veri geçişi. Kopyalama etkinliği kullanın."
 keywords: "veriler, veri taşıma, veri geçişi, aktarım veri kopyalama"
 services: data-factory
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 0cefbe1303de1cfa46cc4b771c0cd3aa7819597c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 29b74154b9006795ead3b0ee9638a3dbf2c5d831
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="move-data-by-using-copy-activity"></a>Kopyalama etkinliği kullanarak veri taşıma
 ## <a name="overview"></a>Genel Bakış
-Azure Data Factory'de şirket içi ve bulut arasında veri kopyalamak için kopyalama etkinliği kullanabilirsiniz verileri depolar. Verileri kopyaladıktan sonra daha fazla dönüştürülen ve analiz edilebilir. Kopyalama etkinliği, dönüştürme ve iş zekası (BI) ve uygulama tüketimi için çözümleme sonuçlarını yayımlamak için de kullanabilirsiniz.
+Şirket içi ve bulut arasında kopyalama etkinliği toocopy veri kullanabileceğiniz Azure Data Factory'de veri depolar. Merhaba veri kopyalandıktan sonra daha fazla dönüştürülen ve analiz edilebilir. İş Zekası (BI) ve uygulama tüketimi için kopyalama etkinliği toopublish dönüştürme ve çözümleme sonuçlarını de kullanabilirsiniz.
 
 ![Kopyalama etkinliği rolü](media/data-factory-data-movement-activities/copy-activity.png)
 
@@ -32,62 +32,62 @@ Kopyalama etkinliği desteklenir güvenli tarafından güvenilir ve ölçekleneb
 İlk olarak, iki bulut veri depoları arasında ve bir şirket içi veri depolama ve bulut veri deposu arasındaki veri geçişinin nasıl gerçekleştirildiğini görelim.
 
 > [!NOTE]
-> Aktiviteler hakkında genel bilgi edinmek için [anlama işlem hatlarının ve etkinliklerin](data-factory-create-pipelines.md).
+> toolearn etkinlikler hakkında genel olarak, bkz: [anlama işlem hatlarının ve etkinliklerin](data-factory-create-pipelines.md).
 >
 >
 
 ### <a name="copy-data-between-two-cloud-data-stores"></a>İki bulut veri depoları arasında veri kopyalama
-Kaynak ve havuz veri depolarına bulutta olduğunda kopyalama etkinliği verileri kaynak havuzuna kopyalamak için aşağıdaki aşamaları geçer. Kopyalama etkinliği'nın temelini oluşturan hizmeti:
+Kaynak ve havuz veri depolarına hello bulutta olduğunda kopyalama etkinliği aşamaları toocopy veri hello kaynak toohello havuz aşağıdaki hello geçer. Kopyalama etkinliği'nın temelini oluşturan hello hizmeti:
 
-1. Veri kaynağına veri deposundan okur.
-2. Serileştirme/seri durumdan çıkarma, sıkıştırma/açma, sütun eşleme gerçekleştirir ve dönüştürme yazın. Girdi veri kümesi, çıktı veri kümesi ve kopyalama etkinliği yapılandırmalarını temel alan bu işlemleri yapar.
-3. Hedef veri deposuna verileri yazar.
+1. Veri hello kaynak veri deposundan okur.
+2. Serileştirme/seri durumdan çıkarma, sıkıştırma/açma, sütun eşleme gerçekleştirir ve dönüştürme yazın. Merhaba girdi veri kümesi, çıktı veri kümesi ve kopyalama etkinliği hello yapılandırmalarını temel alan bu işlemleri yapar.
+3. Veri toohello hedef veri deposuna yazar.
 
-Hizmet veri taşımayı gerçekleştirmek için en iyi bölge otomatik olarak seçer. Bu genellikle bir havuz veri deposuna yakın bölgedir.
+Merhaba hizmet hello en iyi bölge tooperform hello veri taşıma otomatik olarak seçer. Bu bölge genellikle hello bir yakın toohello havuz veri deposudur.
 
 ![Bulut Bulut kopyalama](./media/data-factory-data-movement-activities/cloud-to-cloud.png)
 
 ### <a name="copy-data-between-an-on-premises-data-store-and-a-cloud-data-store"></a>Bir şirket içi veri depolama ve bir bulut veri deposu arasında veri kopyalama
-Güvenli bir şekilde bir şirket içi veri deposu ile bulut veri deposu arasında verileri taşımak için veri yönetimi ağ geçidi, şirket içi makineye yükleyin. Veri Yönetimi ağ geçidi karma veri hareketlerini ve işleme sağlayan bir aracıdır. Aynı makinede kendisi verileri depolamak ya da ayrı bir makinede veri deposuna erişim sahip olarak yükleyebilirsiniz.
+bir şirket içi veri depolama ve bir bulut veri deposu arasında toosecurely taşıma veri veri yönetimi ağ geçidi, şirket içi makinenizde yükleyin. Veri Yönetimi ağ geçidi karma veri hareketlerini ve işleme sağlayan bir aracıdır. Kendisini hello verileri saklamak gibi aynı makine hello veya erişim toohello verileri sahip ayrı bir makine yükleyebilirsiniz.
 
-Bu senaryoda, veri yönetimi ağ geçidi serileştirme/seri durumdan çıkarma, sıkıştırma/açma sütun eşleme gerçekleştirir ve dönüştürme yazın. Verileri Azure Data Factory hizmeti aracılığıyla geçmez. Bunun yerine, veri yönetimi ağ geçidi doğrudan hedef depolama verileri yazar.
+Bu senaryoda, veri yönetimi ağ geçidi hello serileştirme/seri durumdan çıkarma, sıkıştırma/açma, sütun eşleme gerçekleştirir ve dönüştürme yazın. Veri hello Azure Data Factory hizmeti geçmez. Bunun yerine, veri yönetimi ağ geçidi doğrudan hello veri toohello hedef depo yazar.
 
 ![Şirket içi-için-bulut kopyalama](./media/data-factory-data-movement-activities/onprem-to-cloud.png)
 
 Bkz: [şirket içi ve bulut arasında veri taşıma veri depolarına](data-factory-move-data-between-onprem-and-cloud.md) bir giriş ve gözden geçirme. Bkz: [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md) bu aracı hakkında ayrıntılı bilgi için.
 
-Veri Yönetimi ağ geçidi kullanarak Azure Iaas sanal makineleri (VM'ler) üzerinde barındırılan veri başlangıç/bitiş desteklenen veri depoları da taşıyabilirsiniz. Bu durumda, veri yönetimi ağ geçidi aynı VM'de kendisi verileri depolamak veya ayrı bir VM'ye veri deposuna erişimi olan yükleyebilirsiniz.
+Verileri de taşıyabilirsiniz / toosupported verilerini depolayan veri yönetimi ağ geçidi kullanarak Azure Iaas sanal makineleri (VM'ler) üzerinde barındırılır. Bu durumda, veri yönetimi ağ geçidi yükleyebileceğiniz kendisini hello verileri saklamak gibi veya erişim toohello verileri sahip ayrı bir VM'de aynı VM hello.
 
 ## <a name="supported-data-stores-and-formats"></a>Desteklenen veri depoları ve biçimler
-Data Factory’deki Kopyalama Etkinliği bir kaynak veri deposundan havuz veri deposuna verileri kopyalar. Data Factory aşağıdaki veri depolarını destekler. Herhangi bir kaynaktan gelen veriler herhangi bir havuza yazılabilir. Bir depoya veya depodan veri kopyalama hakkında bilgi edinmek için veri deposuna tıklayın.
+Data Factory kopyalama etkinliği, bir kaynak veri deposu tooa havuz veri deposundan verileri kopyalar. Data Factory veri depolarına aşağıdaki hello destekler. Herhangi bir kaynaktan veri tooany havuz yazılabilir. Bir veri deposu toolearn nasıl tıklatın toocopy veri tooand o depolama alanından.
 
 > [!NOTE] 
-> Kopyalama Etkinliğinin desteklemediği bir veri deposuna/veri deposundan veri taşımanız gerekirse Data Factory’de **özel bir etkinliği** kendi veri kopyalama/taşıma mantığınızla kullanın. Özel bir etkinlik oluşturma ve kullanma hakkında ayrıntılı bilgi için bkz. [Azure Data Factory işlem hattında özel etkinlikler kullanma](data-factory-use-custom-activities.md).
+> Kopyalama etkinliği desteklemeyen bir veri deposu/toomove verileri gerekiyorsa kullanın bir **özel etkinlik** veri fabrikasında veri kopyalama/taşıma için kendi mantığı ile. Özel bir etkinlik oluşturma ve kullanma hakkında ayrıntılı bilgi için bkz. [Azure Data Factory işlem hattında özel etkinlikler kullanma](data-factory-use-custom-activities.md).
 
 [!INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
 > [!NOTE]
-> * taşıyan veri depoları şirket içi veya Azure IaaS üzerinde olabilir ve bir şirket içi/Azure IaaS makinesine [Veri Yönetimi Ağ Geçidi](data-factory-data-management-gateway.md) yüklemenizi gerektirir.
+> Veri depolar ile * şirket içi olabilir veya Azure Iaas ve tooinstall gerektiren [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md) , şirket içi/Azure Iaas makinede.
 
 ### <a name="supported-file-formats"></a>Desteklenen dosya biçimleri
-Kopyalama etkinliği kullanabilirsiniz **olarak dosyaları kopyalama-olan** iki dosya tabanlı veri depoları arasında atlayabilirsiniz [Biçim bölümü](data-factory-create-datasets.md) girdi ve çıktı veri kümesi tanımlarında. Veriler, tüm serileştirme/seri durumdan çıkarma verimli bir şekilde kopyalanır.
+Kopyalama etkinliği kullanabileceğine**olarak dosyaları kopyalama-olan** iki dosya tabanlı veri depoları arasında hello atlayabilirsiniz [Biçim bölümü](data-factory-create-datasets.md) hem hello giriş ve çıkış veri kümesi tanımları. Merhaba veriler herhangi serileştirme/seri durumdan çıkarma verimli bir şekilde kopyalanır.
 
-Kopyalama etkinliği ayrıca okur ve belirtilen biçimleri dosyalarında Yazar: **metin, JSON, Avro, ORC ve Parquet**ve sıkıştırma codec **GZIP, Deflate, Bzıp2 ve ZipDeflate** desteklenir. Bkz: [desteklenen dosya ve sıkıştırma biçimleri](data-factory-supported-file-and-compression-formats.md) ayrıntılarla.
+Kopyalama etkinliği ayrıca okur ve belirtilen biçimlerde toofiles Yazar: **metin, JSON, Avro, ORC ve Parquet**ve sıkıştırma codec **GZIP, Deflate, Bzıp2 ve ZipDeflate** desteklenir. Bkz: [desteklenen dosya ve sıkıştırma biçimleri](data-factory-supported-file-and-compression-formats.md) ayrıntılarla.
 
-Örneğin, aşağıdaki kopyalama etkinliklerin yapabilirsiniz:
+Örneğin, bunu hello aşağıdaki etkinlikleri kopyalayın:
 
-* Şirket içi SQL Server veri kopyalama ve Azure Data Lake Store'a ORC biçiminde yazın.
-* Dosyaları metin (CSV) biçiminde şirket içi dosya sisteminden kopyalama ve Azure Blob Avro biçiminde yazın.
-* Şirket içi dosya sisteminden daraltılmış dosyaları kopyalayın ve Azure Data Lake Store'a kara açın.
-* Verileri Azure Blob'tan GZip sıkıştırılmış metin (CSV) biçiminde kopyalayın ve Azure SQL veritabanına yazma.
+* Şirket içi SQL Server veri kopyalama ve tooAzure Data Lake Store ORC biçiminde yazın.
+* Dosyaları metin (CSV) biçiminde şirket içi dosya sisteminden kopyalayıp tooAzure Blob Avro biçiminde yazın.
+* Şirket içi dosya sisteminden sıkıştırılmış dosyaları kopyalayın ve sıkıştırmasını sonra tooAzure Data Lake Store güden.
+* Verileri Azure Blob'tan GZip sıkıştırılmış metin (CSV) biçiminde kopyalayın ve tooAzure SQL veritabanı yazma.
 
 ## <a name="global"></a>Genel olarak kullanılabilir veri taşıma
-Azure Data Factory yalnızca Batı ABD, Doğu ABD ve Kuzey Avrupa bölgelerde kullanılabilir. Ancak, kopyalama etkinliği'nın temelini oluşturan genel olarak aşağıdaki bölgeler ve coğrafi kullanılabilir hizmetidir. Genel olarak kullanılabilir topoloji genellikle çapraz bölge atlama önler verimli veri taşıma sağlar. Bkz: [bölgeye göre Hizmetleri](https://azure.microsoft.com/regions/#services) Data Factory ve veri taşıma bir bölgede kullanılabilirliği.
+Azure Data Factory yalnızca hello Batı ABD, Doğu ABD ve Kuzey Avrupa bölgelerde kullanılabilir. Ancak, kopyalama etkinliği'nın temelini oluşturan hello hizmeti genel hello kullanılabilir bölgeler ve coğrafi aşağıdaki. Merhaba genel olarak kullanılabilir topoloji genellikle çapraz bölge atlama önler verimli veri taşıma sağlar. Bkz: [bölgeye göre Hizmetleri](https://azure.microsoft.com/regions/#services) Data Factory ve veri taşıma bir bölgede kullanılabilirliği.
 
 ### <a name="copy-data-between-cloud-data-stores"></a>Bulut veri depoları arasında veri kopyalama
-Kaynak ve havuz veri depolarına bulutta, veri fabrikası Hizmet dağıtımının verileri taşımak için aynı Coğrafya havuzunda yakın bölgede kullanır. Eşleme için aşağıdaki tabloya bakın:
+Kaynak ve havuz veri depolarına hello bulutta olduğunda, veri fabrikası hizmet dağıtımı hello içinde en yakın toohello havuzunun hello bölgede kullanır. aynı Coğrafya toomove hello verileri. Aşağıdaki tablonun eşlemesi için toohello bakın:
 
-| Coğrafya hedef veri depoları | Hedef veri deposuna bölgesi | Veri taşıma için kullanılan bölge |
+| Coğrafya hello hedef veri depoları | Bölge hello hedef veri deposu | Veri taşıma için kullanılan bölge |
 |:--- |:--- |:--- |
 | Amerika Birleşik Devletleri | Doğu ABD | Doğu ABD |
 | &nbsp; | Doğu ABD 2 | Doğu ABD 2 |
@@ -114,27 +114,27 @@ Kaynak ve havuz veri depolarına bulutta, veri fabrikası Hizmet dağıtımını
 | &nbsp; | Batı Hindistan | Orta Hindistan |
 | &nbsp; | Güney Hindistan | Orta Hindistan |
 
-Alternatif olarak, açıkça belirterek kopyalama işlemini gerçekleştirmek için kullanılacak Data Factory hizmetinin bölge belirtebilir `executionLocation` kopyalama etkinliği'nin altındaki özelliğini `typeProperties`. Bu özellik için desteklenen değerler listelenmiştir yukarıda **bölge veri taşıma için kullanılan** sütun. Verilerinizi bu bölge kablo üzerinden kopyalama sırasında gider unutmayın. Örneğin, arasında kopyalanacak belirleyebileceğiniz Azure içinde Kore depolar, `"executionLocation": "Japan East"` Japonya bölge yönlendir için (bkz [JSON örnek](#by-using-json-scripts) başvuru olarak).
+Alternatif olarak, açıkça Data Factory hizmeti toobe hello bölgesini belirterek tooperform hello kopyalama kullanılan belirtebilirsiniz `executionLocation` kopyalama etkinliği'nin altındaki özelliğini `typeProperties`. Bu özellik için desteklenen değerler listelenmiştir yukarıda **bölge veri taşıma için kullanılan** sütun. Verilerinizi bu bölge hello kablo üzerinden kopyalama sırasında gider unutmayın. Örneğin, Azure arasında toocopy belirtebilirsiniz Kore içinde depolar `"executionLocation": "Japan East"` tooroute Japonya bölge aracılığıyla (bkz [JSON örnek](#by-using-json-scripts) başvuru olarak).
 
 > [!NOTE]
-> Hedef veri deposuna bölge önceki listede yok veya belirlenemeyen, varsayılan olarak kopyalama etkinliği alternatif bir bölge giderek yerine sürece başarısız olursa `executionLocation` belirtilir. Desteklenen bölge listesi zamanla genişletilir.
+> Merhaba bölge hello hedef veri deposunun önceki listede değil veya belirlenemeyen, varsayılan olarak kopyalama etkinliği alternatif bir bölge giderek yerine sürece başarısız olursa `executionLocation` belirtilir. desteklenen hello bölge listesi zamanla genişletilir.
 >
 
 ### <a name="copy-data-between-an-on-premises-data-store-and-a-cloud-data-store"></a>Bir şirket içi veri depolama ve bir bulut veri deposu arasında veri kopyalama
-Ne zaman veri kopyalanır şirket içi (ya da Azure sanal makineleri/Iaas) arasında ve bulut depoları, [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md) bir şirket içi makineye veya sanal makineye veri taşımayı gerçekleştirir. Kullanmadığınız sürece veri bulut hizmeti aracılığıyla akış değil [kopyalama hazırlanan](data-factory-copy-activity-performance.md#staged-copy) yeteneği. Bu durumda, havuz veri deposuna yazılmadan önce verileri hazırlama Azure Blob Depolama akar.
+Ne zaman veri kopyalanır şirket içi (ya da Azure sanal makineleri/Iaas) arasında ve bulut depoları, [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md) bir şirket içi makineye veya sanal makineye veri taşımayı gerçekleştirir. Merhaba veri akan hello bulutta hello hizmeti aracılığıyla hello kullanmadığınız sürece [kopyalama hazırlanan](data-factory-copy-activity-performance.md#staged-copy) yeteneği. Bu durumda, veriler Azure Blob Depolama hello havuz veri deposuna yazılmadan önce hazırlama hello aracılığıyla akar.
 
 ## <a name="create-a-pipeline-with-copy-activity"></a>Kopyalama etkinliği ile işlem hattı oluşturma
 Çeşitli şekillerde kopyalama etkinliği ile işlem hattı oluşturabilirsiniz:
 
-### <a name="by-using-the-copy-wizard"></a>Kopyalama Sihirbazı'nı kullanma
-Data Factory Kopyalama Sihirbazı'nı kopyalama etkinliği ile işlem hattı oluşturmanıza yardımcı olur. Bu ardışık düzen hedeflere desteklenen kaynaklardan veri kopyalamanızı sağlar *JSON yazma olmadan* bağlı hizmetler, veri kümeleri ve işlem hatları için tanımlar. Bkz: [Data Factory Kopyalama Sihirbazı](data-factory-copy-wizard.md) sihirbaz hakkındaki ayrıntılar için.  
+### <a name="by-using-hello-copy-wizard"></a>Merhaba Kopyalama Sihirbazı'nı kullanarak
+Merhaba Data Factory Kopyalama Sihirbazı, toocreate kopyalama etkinliği ile işlem hattı yardımcı olur. Bu ardışık düzen desteklenen kaynakları toodestinations toocopy verileri sağlayan *JSON yazma olmadan* bağlı hizmetler, veri kümeleri ve işlem hatları için tanımlar. Bkz: [Data Factory Kopyalama Sihirbazı](data-factory-copy-wizard.md) hello Sihirbazı hakkında ayrıntılı bilgi için.  
 
 ### <a name="by-using-json-scripts"></a>JSON komut dosyalarını kullanarak
-Bir ardışık düzeni için JSON tanımını (bir kopyalama etkinliği'ı kullanarak) oluşturmak için Azure portal, Visual Studio veya Azure PowerShell Data Factory düzenleyici kullanabilirsiniz. Ardından, bu veri fabrikasında ardışık düzen oluşturmak için dağıtabilirsiniz. Bkz [Öğreticisi: Azure Data Factory işlem hattı kullanım kopyalama etkinliği](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) bir öğretici hakkında adım adım yönergeler için.    
+Data Factory Düzenleyici'hello Azure portal, Visual Studio veya Azure PowerShell toocreate JSON tanımını ardışık düzeni için (bir kopyalama etkinliği'ı kullanarak) kullanabilirsiniz. Ardından, veri fabrikası'nda toocreate hello ardışık olarak dağıtabilirsiniz. Bkz [Öğreticisi: Azure Data Factory işlem hattı kullanım kopyalama etkinliği](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) bir öğretici hakkında adım adım yönergeler için.    
 
-JSON özellikleri (örneğin, ad, açıklama, giriş ve çıkış tabloları ve ilkeleri) etkinlikleri tüm türleri için kullanılabilir. Kullanılabilir özellikler `typeProperties` etkinlik bölümünü her etkinlik türü ile değişir.
+JSON özellikleri (örneğin, ad, açıklama, giriş ve çıkış tabloları ve ilkeleri) etkinlikleri tüm türleri için kullanılabilir. Hello kullanılabilir özellikler `typeProperties` hello etkinlik bölümünü her etkinlik türü ile değişir.
 
-Kopya etkinliği için `typeProperties` bölüm kaynakları türlerine bağlı olarak değişir ve şu havuzlar. Kaynak/havuz içindeki tıklatın [desteklenen kaynakları ve havuzlarını](#supported-data-stores-and-formats) kopyalama etkinliği için bu veri deposu destekleyen türü özellikleri hakkında bilgi edinmek için bölüm.
+Kopya etkinliği için hello `typeProperties` bölüm kaynakları hello türlerine bağlı olarak değişir ve şu havuzlar. Bir kaynak/havuz hello tıklatın [desteklenen kaynakları ve havuzlarını](#supported-data-stores-and-formats) bölüm toolearn kopyalama etkinliği için bu veri deposu destekleyen türü özellikleri hakkında.
 
 Bir örnek JSON tanımı aşağıda verilmiştir:
 
@@ -142,7 +142,7 @@ Bir örnek JSON tanımı aşağıda verilmiştir:
 {
   "name": "ADFTutorialPipeline",
   "properties": {
-    "description": "Copy data from Azure blob to Azure SQL table",
+    "description": "Copy data from Azure blob tooAzure SQL table",
     "activities": [
       {
         "name": "CopyFromBlobToSQL",
@@ -179,30 +179,30 @@ Bir örnek JSON tanımı aşağıda verilmiştir:
   }
 }
 ```
-Etkinlik çalıştığında çıkış veri kümesinde tanımlanan zamanlaması belirler (örneğin: **günlük**, sıklığı olarak **gün**ve aralığı olarak **1**). Etkinliğin bir giriş veri kümesinden alınan verileri kopyalar (**kaynak**) bir çıkış veri kümesi için (**havuz**).
+hello tanımlanan hello zamanlama çıkış veri kümesi belirler hello etkinlik çalıştığında (örneğin: **günlük**, sıklığı olarak **gün**ve aralığı olarak **1**). Merhaba etkinlik verileri bir giriş veri kümesinden kopyalar (**kaynak**) tooan çıkış veri kümesi (**havuz**).
 
-Kopya etkinliği için birden fazla girdi veri kümesi belirtebilirsiniz. Bunlar, etkinlik çalıştırılmadan önce bağımlılıkları doğrulamak için kullanılır. Ancak, yalnızca ilk veri kümesini verileri hedef veri kümesi için kopyalanır. Daha fazla bilgi için bkz: [zamanlama ve yürütme](data-factory-scheduling-and-execution.md).  
+Birden fazla girdi veri kümesi tooCopy etkinlik belirtebilirsiniz. Merhaba etkinlik çalıştırılmadan önce kullanılan tooverify hello bağımlılıkları oldukları. Ancak, yalnızca hello hello ilk veri kümesini kopyalanan toohello hedef veri kümesi verilerdir. Daha fazla bilgi için bkz: [zamanlama ve yürütme](data-factory-scheduling-and-execution.md).  
 
 ## <a name="performance-and-tuning"></a>Performans ve ayar
-Bkz: [kopyalama etkinliği performans ve ayarlama Kılavuzu](data-factory-copy-activity-performance.md), Azure Data factory'de veri taşımayı (kopyalama etkinliği) performansını etkileyen önemli faktör açıklar. Ayrıca, iç test sırasında gözlemlenen performans listeler ve kopyalama etkinliği performansını iyileştirmek için çeşitli yollar ele alınmaktadır.
+Merhaba bkz [kopyalama etkinliği performans ve ayarlama Kılavuzu](data-factory-copy-activity-performance.md), Azure Data factory'de veri taşımayı (kopyalama etkinliği) hello performansını etkileyen önemli faktör açıklar. Ayrıca iç testi sırasında performans gözlenecek hello listeler ve çeşitli yolları toooptimize hello performansını kopyalama etkinliği açıklanır.
 
 ## <a name="fault-tolerance"></a>Hataya dayanıklılık
-Varsayılan olarak, veri ve return hatası kopyalama kopyalama etkinliği durdurulacak zaman uyumsuz veri kaynağı ve havuz; arasında karşılaşırsanız atla ve uyumlu olmayan satırlar ve yalnızca kopya oturum açıkça yapılandırabilirsiniz ancak kopya oluşturmak için bu uyumlu veri başarılı oldu. Bkz: [kopyalama etkinliği hataya dayanıklılık](data-factory-copy-activity-fault-tolerance.md) üzerinde daha ayrıntılı bilgi.
+Varsayılan olarak, veri ve return hatası kopyalama kopyalama etkinliği durdurulacak zaman uyumsuz veri kaynağı ve havuz; arasında karşılaşırsanız açıkça tooskip ve günlük hello uyumsuz satırları ve yalnızca kopya yapılandırabilirsiniz ancak bu uyumlu veri toomake hello kopyalama başarılı oldu. Merhaba bkz [kopyalama etkinliği hataya dayanıklılık](data-factory-copy-activity-fault-tolerance.md) üzerinde daha ayrıntılı bilgi.
 
 ## <a name="security-considerations"></a>Güvenlikle ilgili dikkat edilmesi gerekenler
-Bkz: [güvenlik konuları](data-factory-data-movement-security-considerations.md), verilerinizi güvenli hale getirmek için Azure Data Factory veri taşıma hizmetleri kullanan güvenlik altyapısı açıklar.
+Merhaba bkz [güvenlik konuları](data-factory-data-movement-security-considerations.md), Azure Data Factory veri taşıma hizmetleri verilerinizi toosecure kullanan güvenlik altyapısı açıklar.
 
 ## <a name="scheduling-and-sequential-copy"></a>Zamanlama ve sıralı kopyalama
-Bkz: [zamanlama ve yürütme](data-factory-scheduling-and-execution.md) zamanlama ve yürütme şeklini Data Factory hakkında ayrıntılı bilgi. Birden çok kopyalama işlemleri birbiri ardından sıralı/sıralı bir şekilde çalıştırmak mümkündür. Bkz: [sırayla kopyalamak](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) bölümü.
+Bkz: [zamanlama ve yürütme](data-factory-scheduling-and-execution.md) zamanlama ve yürütme şeklini Data Factory hakkında ayrıntılı bilgi. Bu olası toorun birden çok kopyalama işlemleri birbiri ardından sıralı/sıralı bir biçimde değil. Merhaba bkz [sırayla kopyalamak](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) bölümü.
 
 ## <a name="type-conversions"></a>Tür dönüştürmeleri
-Farklı veri depolarına farklı yerel tür sistemleri sahiptir. Kopyalama etkinliği, aşağıdaki iki aşamalı yaklaşımı türleriyle havuz için kaynak türünden otomatik tür dönüşümleri gerçekleştirir:
+Farklı veri depolarına farklı yerel tür sistemleri sahiptir. Kopyalama etkinliği ile iki aşamalı bir yaklaşım aşağıdaki hello kaynak türleri toosink türlerinden otomatik tür dönüşümleri gerçekleştirir:
 
-1. Yerel kaynak türlerinden .NET türüne dönüştürün.
-2. Bir .NET türünden bir yerel havuz türüne dönüştürün.
+1. Yerel kaynak türleri tooa .NET türünden dönüştürün.
+2. .NET türü tooa yerel Havuz türü dönüştürün.
 
-Yerel tür sistemden bir veri deposu için bir .NET türü için ilgili veri deposu makalesinde eşlemedir. (Belirli bağlantıya tıklayın [desteklenen veri depoları](#supported-data-stores) tablo). Bu eşlemeler, böylece kopyalama etkinliği sağ dönüşümleri gerçekleştirir, tablolarınızı oluşturulurken uygun türlerini belirlemek için kullanabilirsiniz.
+bir veri deposu için bir yerel tür sistem tooa .NET türü Hello eşlemesinden hello ilgili veri deposu makalesinde bulabilirsiniz. (Merhaba içinde hello belirli bağlantısını tıklatın [desteklenen veri depoları](#supported-data-stores) tablo). Böylece kopyalama etkinliği hello sağ dönüşümleri gerçekleştirir, tablolarınızı oluşturulurken bu eşlemeleri toodetermine uygun türleri kullanabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kopyalama etkinliği hakkında daha fazla bilgi edinmek için bkz: [kopyalama verileri Azure Blob depolama alanından Azure SQL veritabanına](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-* Bir bulut veri deposuna bir şirket içi veri deposundan veri taşıma hakkında bilgi edinmek için [veri depolarına buluta şirket içinden veri taşıma](data-factory-move-data-between-onprem-and-cloud.md).
+* toolearn hello daha kopyalama etkinliği hakkında bkz [Azure Blob Depolama tooAzure SQL veritabanı ' veri kopyalama](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+* bir şirket içi veri deposu tooa bulut veri deposundan veri taşıma hakkında toolearn bkz [şirket içi toocloud veri depolarına veri taşıma](data-factory-move-data-between-onprem-and-cloud.md).

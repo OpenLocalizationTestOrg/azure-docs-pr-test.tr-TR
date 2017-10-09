@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric için ağ desenleri | Microsoft Docs"
-description: "Service Fabric ve Azure ağ özellikleri kullanılarak bir küme oluşturma için ortak ağ desenleri açıklar."
+title: "Azure Service Fabric için aaaNetworking desenleri | Microsoft Docs"
+description: "Ortak ağ desenler için Service Fabric açıklar ve nasıl toocreate Azure ağ özelliklerini kullanarak bir küme."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -14,40 +14,40 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/16/2017
 ms.author: ryanwi
-ms.openlocfilehash: 126637002b24391058fb702227a570aa0b58c1d8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5973e3f9917076c6a36e71443ec256e0f414ff87
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric ağ desenleri
-Azure Service Fabric kümesi Azure diğer ağ özelliklerini ile tümleştirebilirsiniz. Bu makalede, sizi, aşağıdaki özellikleri kullanan bir küme nasıl oluşturulacağını gösterir:
+Azure Service Fabric kümesi Azure diğer ağ özelliklerini ile tümleştirebilirsiniz. Bu makalede, nasıl toocreate özellikler aşağıdaki bu kullanım hello kümeleri gösteriyoruz:
 
 - [Var olan sanal ağ veya alt ağ](#existingvnet)
 - [Statik genel IP adresi](#staticpublicip)
 - [Yalnızca dahili yük dengeleyici](#internallb)
 - [İç ve dış yük dengeleyici](#internalexternallb)
 
-Service Fabric standart sanal makine ölçek kümesindeki çalışır. Bir sanal makine ölçek kümesindeki kullanabileceğiniz herhangi bir işlevsellik, Service Fabric kümesi ile kullanabilirsiniz. Sanal makine ölçek kümeleri ve Service Fabric için Azure Resource Manager şablonları ağ bölümlerini aynıdır. Mevcut bir sanal ağa dağıttıktan sonra Azure ExpressRoute, Azure VPN ağ geçidi, bir ağ güvenlik grubu ve sanal ağ eşlemesi gibi diğer ağ özelliklerini içerecek şekilde kolaydır.
+Service Fabric standart sanal makine ölçek kümesindeki çalışır. Bir sanal makine ölçek kümesindeki kullanabileceğiniz herhangi bir işlevsellik, Service Fabric kümesi ile kullanabilirsiniz. sanal makine ölçek kümeleri ve Service Fabric hello Azure Resource Manager şablonları ağ bölümlerini Hello aynıdır. Sanal ağ varolan tooan dağıttıktan sonra diğer kolay tooincorporate olan ağ Azure ExpressRoute, Azure VPN ağ geçidi, bir ağ güvenlik grubu ve sanal ağ eşlemesi gibi özellikleri.
 
-Service Fabric diğer ağ özelliklerini tek bir yönüne içinde benzersizdir. [Azure portal](https://portal.azure.com) dahili olarak bir küme düğümlerini ve uygulamalar hakkında bilgi almak için aranacak Service Fabric kaynak sağlayıcısı kullanır. Service Fabric kaynak sağlayıcısı yönetim uç HTTP ağ geçidi bağlantı noktası (varsayılan olarak 19080, bağlantı noktası) için genel olarak erişilebilir gelen erişim gerektirir. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) kümenizi yönetmek için yönetim uç noktası kullanır. Service Fabric kaynak sağlayıcısı bu bağlantı noktası için küme hakkında bilgileri sorgulama Azure portalında görüntülemek için de kullanır. 
+Service Fabric diğer ağ özelliklerini tek bir yönüne içinde benzersizdir. Merhaba [Azure portal](https://portal.azure.com) dahili olarak kullandığı Service Fabric kaynak sağlayıcısı toocall tooa küme tooget düğümleri ve uygulamalar hakkında bilgi hello. Hello Service Fabric kaynak sağlayıcı genel olarak erişilebilir gelen erişim toohello HTTP ağ geçidi bağlantı noktası (varsayılan olarak 19080, bağlantı noktası) hello yönetim uç nokta gerektiriyor. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) kullanır, küme yönetim uç nokta toomanage hello. Merhaba Service Fabric kaynak sağlayıcısı ayrıca kümenizi, toodisplay hello Azure portal'ın bu bağlantı noktası tooquery bilgilerini kullanır. 
 
-Bağlantı noktası 19080 Service Fabric kaynak sağlayıcısından erişilebilir durumda değilse, bir ileti ister *düğümleri bulunamadı* Portalı'nda görüntülenir ve düğüm ve uygulama listenizi boş görünür. Kümenizi Azure portalında görmek istiyorsanız, bir ortak IP adresi, yük dengeleyici kullanıma gerekir ve ağ güvenlik grubu gelen bağlantı noktası 19080 trafiğe izin vermelidir. Azure portalı kurulumunuzu bu gereksinimlerini karşılamıyorsa, küme durumunu görüntülemez.
+Bağlantı noktası 19080 hello Service Fabric kaynak Sağlayıcısı'ndan erişilebilir durumda değilse, bir ileti ister *düğümleri bulunamadı* hello Portalı'nda görüntülenir ve düğüm ve uygulama listenizi boş görünür. Hello Azure portal kümenizdeki toosee istiyorsanız, bir ortak IP adresi, yük dengeleyici kullanıma gerekir ve ağ güvenlik grubu gelen bağlantı noktası 19080 trafiğe izin vermelidir. Kurulumunuzu bu gereksinimlerini karşılamıyorsa hello Azure portal kümenizi hello durumunu göstermez.
 
 ## <a name="templates"></a>Şablonlar
 
-Tüm Service Fabric şablonları bulunan [bir yükleme dosyası](https://msdnshared.blob.core.windows.net/media/2016/10/SF_Networking_Templates.zip). Şablon olarak dağıtamaz olmalıdır-aşağıdaki PowerShell komutlarını kullanmaktır. Var olan Azure Virtual Network şablonu veya statik genel IP şablonu dağıtıyorsanız, önce okuma [ilk kurulum](#initialsetup) bu makalenin.
+Tüm Service Fabric şablonları bulunan [bir yükleme dosyası](https://msdnshared.blob.core.windows.net/media/2016/10/SF_Networking_Templates.zip). Merhaba şablon olarak kullanabilirsiniz toodeploy olmalıdır-hello aşağıdaki PowerShell komutlarını kullanmaktır. Dağıtıyorsanız hello olan Azure Virtual Network şablonu veya hello statik genel IP şablonu, ilk hello okuma [ilk kurulum](#initialsetup) bu makalenin.
 
 <a id="initialsetup"></a>
 ## <a name="initial-setup"></a>İlk kurulumu
 
 ### <a name="existing-virtual-network"></a>Var olan sanal ağ
 
-Aşağıdaki örnekte, biz ExistingRG-vnet adlı varolan bir sanal ağı Başlat **ExistingRG** kaynak grubu. Alt ağ varsayılan olarak adlandırılır. Standart bir sanal makine (VM) oluşturmak için Azure Portalı'nı kullandığınızda bu varsayılan kaynakları oluşturulur. VM oluşturmak zorunda kalmadan sanal ağ ve alt oluşturabilirsiniz, ancak mevcut bir sanal ağa bir kümeyi eklemeyi ana amacı diğer VM'ler için ağ bağlantısı sağlamaktır. VM oluşturma, varolan bir sanal ağı genellikle nasıl kullanıldığını, iyi bir örnek verir. Service Fabric kümesi yalnızca bir iç yük dengeleyici, genel bir IP adresi olmadan kullanıyorsa, VM ve genel IP güvenli kullanabileceğiniz *kutusunu atlama*.
+Aşağıdaki örneğine hello biz ExistingRG-vnet, hello adlı varolan bir sanal ağı Başlat **ExistingRG** kaynak grubu. Merhaba alt ağ varsayılan olarak adlandırılır. Hello Azure portal toocreate standart bir sanal makine (VM) kullandığınızda, bu varsayılan kaynakları oluşturulur. Merhaba VM oluşturmadan hello sanal ağ ve alt ağ oluşturabilirsiniz, ancak küme tooan varolan sanal ağ ekleme hello ana tooprovide ağ bağlantısı tooother VM'ler hedeftir. Oluşturma hello VM varolan bir sanal ağı genellikle nasıl kullanıldığını, iyi bir örnek verir. Service Fabric kümesi yalnızca bir iç yük dengeleyici, genel bir IP adresi olmadan kullanıyorsa kullanabileceğiniz VM ve güvenli olarak ortak IP hello *kutusunu atlama*.
 
 ### <a name="static-public-ip-address"></a>Statik genel IP adresi
 
-Bir statik genel IP adresi, genellikle için atanan VM ya da sanal makineleri ayrı olarak yönetilen ayrılmış bir kaynak değil. (Kendisini Service Fabric küme kaynağı grubuna aygıtlardır), ayrılmış bir ağ kaynak grubunda sağlanır. Aynı ExistingRG kaynak grubunda, Azure portalında veya PowerShell kullanarak staticIP1 adlı bir statik genel IP adresi oluşturun:
+Bir statik genel IP adresi, genellikle hello VM veya atandığı VM'ler gelen ayrı olarak yönetilen ayrılmış bir kaynak değil. Bu ayrılmış bir ağ kaynak grubunda (karşılıklı tooin hello Service Fabric küme kaynak grubu kendisi) sağlanır. Merhaba staticIP1 adlı bir statik genel IP adresi oluşturma hello Azure portal veya PowerShell kullanarak aynı ExistingRG kaynak grubu:
 
 ```powershell
 PS C:\Users\user> New-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location westus -AllocationMethod Static -DomainNameLabel sfnetworking
@@ -73,12 +73,12 @@ DnsSettings              : {
 
 ### <a name="service-fabric-template"></a>Service Fabric şablonu
 
-Bu makaledeki örneklerde, Service Fabric template.json kullanırız. Küme oluşturmadan önce şablonu portalından karşıdan yüklemek için standart portal Sihirbazı'nı kullanabilirsiniz. Şablonlardan birini de kullanabilirsiniz [Şablon Galerisi](https://azure.microsoft.com/en-us/documentation/templates/?term=service+fabric)gibi [beş düğümlü Service Fabric kümesi](https://azure.microsoft.com/en-us/documentation/templates/service-fabric-unsecure-cluster-5-node-1-nodetype/).
+Bu makalede Hello örneklerde hello Service Fabric template.json kullanırız. Küme oluşturmadan önce hello standart portal Sihirbazı toodownload hello hello portal şablondan kullanabilirsiniz. Merhaba şablonlarından birini de hello kullanabilirsiniz [Şablon Galerisi](https://azure.microsoft.com/en-us/documentation/templates/?term=service+fabric), hello gibi [beş düğümlü Service Fabric kümesi](https://azure.microsoft.com/en-us/documentation/templates/service-fabric-unsecure-cluster-5-node-1-nodetype/).
 
 <a id="existingvnet"></a>
 ## <a name="existing-virtual-network-or-subnet"></a>Var olan sanal ağ veya alt ağ
 
-1. Alt parametre mevcut alt adını değiştirin ve ardından mevcut bir sanal ağ başvurmak için iki yeni parametreler ekleyin:
+1. Hello alt parametre toohello hello mevcut alt adını değiştirin ve sonra iki yeni parametreleri tooreference hello var olan bir sanal ağ ekleyin:
 
     ```
         "subnet0Name": {
@@ -106,7 +106,7 @@ Bu makaledeki örneklerde, Service Fabric template.json kullanırız. Küme olu�
     ```
 
 
-2. Değişiklik `vnetID` varolan bir sanal ağa işaret edecek şekilde değişkeni:
+2. Değişiklik hello `vnetID` değişken toopoint toohello var olan sanal ağ:
 
     ```
             /*old "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",*/
@@ -143,7 +143,7 @@ Bu makaledeki örneklerde, Service Fabric template.json kullanırız. Küme olu�
     },*/
     ```
 
-4. Sanal ağdan çıkışı açıklama `dependsOn` özniteliği `Microsoft.Compute/virtualMachineScaleSets`, yeni bir sanal ağ oluşturma ile ilgili bağımlı yok:
+4. Açıklama hello sanal ağdan hello çıkışı `dependsOn` özniteliği `Microsoft.Compute/virtualMachineScaleSets`, yeni bir sanal ağ oluşturma ile ilgili bağımlı yok:
 
     ```
     "apiVersion": "[variables('vmssApiVersion')]",
@@ -157,27 +157,27 @@ Bu makaledeki örneklerde, Service Fabric template.json kullanırız. Küme olu�
 
     ```
 
-5. Şablon dağıtma:
+5. Merhaba şablonunu dağıtın:
 
     ```powershell
     New-AzureRmResourceGroup -Name sfnetworkingexistingvnet -Location westus
     New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
     ```
 
-    Dağıtımdan sonra sanal ağınızı yeni içermelidir ölçek kümesi VM. Sanal makine ölçek kümesi düğüm türü, varolan sanal ağ ve alt göstermesi gerekir. Sanal ağ zaten olan VM erişmek için Uzak Masaüstü Protokolü (RDP) de kullanabilirsiniz ve yeni ölçek ping işlemi yapmak için sanal makineleri ayarlayın:
+    Dağıtımdan sonra sanal ağınızı içermelidir hello yeni ölçek kümesi VM. Merhaba sanal makine ölçek kümesi düğüm türü hello varolan sanal ağ ve alt göstermelidir. Sanal makineleri tooping hello yeni ölçek kümesi ve Uzak Masaüstü Protokolü (RDP) tooaccess hello sanal ağda zaten olan VM hello de kullanabilirsiniz:
 
     ```
     C:>\Users\users>ping 10.0.0.5 -n 1
     C:>\Users\users>ping NOde1000000 -n 1
     ```
 
-Başka bir örnek için bkz: [Service Fabric belirli olmayan bir](https://github.com/gbowerman/azure-myriad/tree/master/existing-vnet).
+Başka bir örnek için bkz: [belirli tooService doku olmayan bir](https://github.com/gbowerman/azure-myriad/tree/master/existing-vnet).
 
 
 <a id="staticpublicip"></a>
 ## <a name="static-public-ip-address"></a>Statik genel IP adresi
 
-1. Mevcut bir statik IP kaynak grubunun adı, adı ve tam etki alanı adı (FQDN) parametreleri ekleyin:
+1. Statik IP kaynak grubu, adı ve tam etki alanı adı (FQDN) mevcut hello hello adını parametrelerini ekleyin:
 
     ```
     "existingStaticIPResourceGroup": {
@@ -191,7 +191,7 @@ Başka bir örnek için bkz: [Service Fabric belirli olmayan bir](https://github
     }
     ```
 
-2. Kaldırma `dnsName` parametresi. (Statik IP adresi zaten varsa.)
+2. Merhaba kaldırmak `dnsName` parametresi. (Merhaba statik IP adresi zaten varsa.)
 
     ```
     /*
@@ -201,7 +201,7 @@ Başka bir örnek için bkz: [Service Fabric belirli olmayan bir](https://github
     */
     ```
 
-3. Var olan bir statik IP adresi başvurusu için bir değişken ekleyin:
+3. Değişken tooreference hello varolan statik bir IP adresi ekleyin:
 
     ```
     "existingStaticIP": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('existingStaticIPResourceGroup'), '/providers/Microsoft.Network/publicIPAddresses/', parameters('existingStaticIPName'))]",
@@ -229,7 +229,7 @@ Başka bir örnek için bkz: [Service Fabric belirli olmayan bir](https://github
     }, */
     ```
 
-5. IP adresinden çıkışı açıklama `dependsOn` özniteliği `Microsoft.Network/loadBalancers`, yeni bir IP adresi oluşturma bağımlı yok:
+5. Açıklama hello hello IP adresinden çıkışı `dependsOn` özniteliği `Microsoft.Network/loadBalancers`, yeni bir IP adresi oluşturma bağımlı yok:
 
     ```
     "apiVersion": "[variables('lbIPApiVersion')]",
@@ -243,7 +243,7 @@ Başka bir örnek için bkz: [Service Fabric belirli olmayan bir](https://github
     "properties": {
     ```
 
-6. İçinde `Microsoft.Network/loadBalancers` kaynak, değişiklik `publicIPAddress` öğesinin `frontendIPConfigurations` varolan statik IP adresi yerine yeni oluşturulan bir başvurmak için:
+6. Merhaba, `Microsoft.Network/loadBalancers` kaynak, değişiklik hello `publicIPAddress` öğesinin `frontendIPConfigurations` tooreference hello yeni oluşturulan bir yerine var olan statik IP adresi:
 
     ```
                 "frontendIPConfigurations": [
@@ -259,7 +259,7 @@ Başka bir örnek için bkz: [Service Fabric belirli olmayan bir](https://github
                     ],
     ```
 
-7. İçinde `Microsoft.ServiceFabric/clusters` kaynak, değişiklik `managementEndpoint` statik IP adresinin DNS FQDN için. Güvenli bir küme kullanıyorsanız, değiştirdiğinizden emin olun *http://* için *https://*. (Bu adım yalnızca Service Fabric kümeleri için geçerli olduğunu unutmayın. Bir sanal makine ölçek kümesini kullanıyorsanız, bu adımı atlayın.)
+7. Merhaba, `Microsoft.ServiceFabric/clusters` kaynak, değişiklik `managementEndpoint` toohello hello statik IP adresi DNS FQDN'si. Güvenli bir küme kullanıyorsanız, değiştirdiğinizden emin olun *http://* çok*https://*. (Bu adım yalnızca tooService yapı kümeleri geçerli olduğunu unutmayın. Bir sanal makine ölçek kümesini kullanıyorsanız, bu adımı atlayın.)
 
     ```
                     "fabricSettings": [],
@@ -267,7 +267,7 @@ Başka bir örnek için bkz: [Service Fabric belirli olmayan bir](https://github
                     "managementEndpoint": "[concat('http://',parameters('existingStaticIPDnsFQDN'),':',parameters('nt0fabricHttpGatewayPort'))]",
     ```
 
-8. Şablon dağıtma:
+8. Merhaba şablonunu dağıtın:
 
     ```powershell
     New-AzureRmResourceGroup -Name sfnetworkingstaticip -Location westus
@@ -279,14 +279,14 @@ Başka bir örnek için bkz: [Service Fabric belirli olmayan bir](https://github
     New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingstaticip -TemplateFile C:\SFSamples\Final\template\_staticip.json -existingStaticIPResourceGroup $staticip.ResourceGroupName -existingStaticIPName $staticip.Name -existingStaticIPDnsFQDN $staticip.DnsSettings.Fqdn
     ```
 
-Dağıtımdan sonra Yük Dengeleyici diğer bir kaynak grubundan ortak statik IP adresine bağlı olduğunu görebilirsiniz. Service Fabric istemci bağlantı uç noktasının ve [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) DNS FQDN uç noktasına statik IP adresi.
+Dağıtımdan sonra Yük Dengeleyici ilişkili toohello ortak statik IP adresi hello olduğunu görebilirsiniz diğer kaynak grubu. Service Fabric istemci bağlantı uç noktasının hello ve [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) uç noktası toohello hello statik IP adresi DNS FQDN'si.
 
 <a id="internallb"></a>
 ## <a name="internal-only-load-balancer"></a>Yalnızca dahili yük dengeleyici
 
-Bu senaryo varsayılan Service Fabric şablonunda dış yük dengeleyici yalnızca iç yük dengeleyici ile değiştirir. Azure portal ve Service Fabric kaynak sağlayıcısı için uygulamaları için önceki bölümüne bakın.
+Bu senaryo hello dış yük dengeleyici hello varsayılan Service Fabric şablonunda yalnızca iç yük dengeleyici ile değiştirir. Hello Azure portal ve hello Service Fabric kaynak sağlayıcısı için uygulamaları için önceki bölümde hello bakın.
 
-1. Kaldırma `dnsName` parametresi. (Bu gerekli değildir.)
+1. Merhaba kaldırmak `dnsName` parametresi. (Bu gerekli değildir.)
 
     ```
     /*
@@ -296,7 +296,7 @@ Bu senaryo varsayılan Service Fabric şablonunda dış yük dengeleyici yalnız
     */
     ```
 
-2. İsteğe bağlı olarak, statik ayırma yöntemi kullanırsanız, bir statik IP adresi parametre ekleyebilirsiniz. Dinamik ayırma yöntemini kullanırsanız, bu adımı gerekmez.
+2. İsteğe bağlı olarak, statik ayırma yöntemi kullanırsanız, bir statik IP adresi parametre ekleyebilirsiniz. Dinamik ayırma yöntemini kullanırsanız, bu adımı toodo gerekmez.
 
     ```
             "internalLBAddress": {
@@ -327,7 +327,7 @@ Bu senaryo varsayılan Service Fabric şablonunda dış yük dengeleyici yalnız
     }, */
     ```
 
-4. IP adresini kaldırın `dependsOn` özniteliği `Microsoft.Network/loadBalancers`, yeni bir IP adresi oluşturma bağımlı yok. Sanal ağ ekleme `dependsOn` yük dengeleyici şimdi alt ağdan sanal ağa bağımlı olduğundan dolayı özniteliği:
+4. Başlangıç IP adresini kaldırın `dependsOn` özniteliği `Microsoft.Network/loadBalancers`, yeni bir IP adresi oluşturma bağımlı yok. Merhaba sanal ağ ekleme `dependsOn` hello yük dengeleyici şimdi hello alt hello sanal ağdan bağımlı olduğundan dolayı özniteliği:
 
     ```
                 "apiVersion": "[variables('lbApiVersion')]",
@@ -340,7 +340,7 @@ Bu senaryo varsayılan Service Fabric şablonunda dış yük dengeleyici yalnız
                 ],
     ```
 
-5. Yük dengeleyicinin değiştirme `frontendIPConfigurations` kullanımından ayarını bir `publicIPAddress`, bir alt ağ kullanarak ve `privateIPAddress`. `privateIPAddress`önceden tanımlanmış statik iç IP adresi kullanır. Dinamik IP adresi kullanmak için kaldırmak `privateIPAddress` öğesini ve ardından değişiklik `privateIPAllocationMethod` için **dinamik**.
+5. Değiştirme hello yük dengeleyicisinin `frontendIPConfigurations` kullanımından ayarını bir `publicIPAddress`, toousing bir alt ağ ve `privateIPAddress`. `privateIPAddress`önceden tanımlanmış statik iç IP adresi kullanır. toouse dinamik bir IP adresi kaldırmak hello `privateIPAddress` öğesini ve ardından değişiklik `privateIPAllocationMethod` çok**dinamik**.
 
     ```
                 "frontendIPConfigurations": [
@@ -361,7 +361,7 @@ Bu senaryo varsayılan Service Fabric şablonunda dış yük dengeleyici yalnız
                     ],
     ```
 
-6. İçinde `Microsoft.ServiceFabric/clusters` kaynak, değişiklik `managementEndpoint` iç yük dengeleyici adresine yönlendirin. Güvenli bir küme kullanıyorsanız, değiştirdiğiniz emin olun *http://* için *https://*. (Bu adım yalnızca Service Fabric kümeleri için geçerli olduğunu unutmayın. Bir sanal makine ölçek kümesini kullanıyorsanız, bu adımı atlayın.)
+6. Merhaba, `Microsoft.ServiceFabric/clusters` kaynak, değişiklik `managementEndpoint` toopoint toohello iç yük dengeleyici adresi. Güvenli bir küme kullanıyorsanız, değiştirdiğiniz emin olun *http://* çok*https://*. (Bu adım yalnızca tooService yapı kümeleri geçerli olduğunu unutmayın. Bir sanal makine ölçek kümesini kullanıyorsanız, bu adımı atlayın.)
 
     ```
                     "fabricSettings": [],
@@ -369,7 +369,7 @@ Bu senaryo varsayılan Service Fabric şablonunda dış yük dengeleyici yalnız
                     "managementEndpoint": "[concat('http://',reference(variables('lbID0')).frontEndIPConfigurations[0].properties.privateIPAddress,':',parameters('nt0fabricHttpGatewayPort'))]",
     ```
 
-7. Şablon dağıtma:
+7. Merhaba şablonunu dağıtın:
 
     ```powershell
     New-AzureRmResourceGroup -Name sfnetworkinginternallb -Location westus
@@ -377,16 +377,16 @@ Bu senaryo varsayılan Service Fabric şablonunda dış yük dengeleyici yalnız
     New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
     ```
 
-Dağıtımdan sonra yük dengeleyicisi statik 10.0.0.250 özel IP adresi kullanır. Bu aynı sanal ağdaki başka bir makine varsa, iç ağa gidebilirsiniz [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) uç noktası. Yük dengeleyicinin arkasındaki düğümlerinden biri bağlanır unutmayın.
+Dağıtımdan sonra Yük Dengeleyici hello özel statik 10.0.0.250 IP adresini kullanır. Bu aynı sanal ağdaki başka bir makine varsa, iç toohello gidebilirsiniz [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) uç noktası. Merhaba yük dengeleyicinin arkasındaki hello düğümlerinin tooone bağladığı unutmayın.
 
 <a id="internalexternallb"></a>
 ## <a name="internal-and-external-load-balancer"></a>İç ve dış yük dengeleyici
 
-Bu senaryoda, var olan tek bir düğüm türü dış yük dengeleyici ile başlatın ve aynı düğüm türü için iç yük dengeleyiciye ekleyin. Yalnızca bir tek yük dengeleyici arka uç adres havuzuna bağlı bir arka uç bağlantı noktası atanabilir. Hangi yük dengeleyici, uygulama bağlantı noktaları sahip ve hangi yük dengeleyici Yönetimi noktalarınızı (bağlantı noktaları 19000 ve 19080) sahip seçin. İç yük dengeleyici ile ilgili yönetim uç noktalarının yerleştirirseniz, Service Fabric kaynak sağlayıcısı kısıtlamaları makalenin önceki bölümlerinde açıklanan unutmayın. Örnekte kullanıyoruz, yönetim uç noktaları dış yük dengeleyici üzerinde kalır. Ayrıca bir bağlantı noktası 80 uygulama bağlantı noktası eklemek ve iç yük dengeleyicide yerleştirin.
+Bu senaryoda, hello var olan tek bir düğüm türü dış yük dengeleyici ile başlatın ve hello için bir iç yük dengeleyici eklemek aynı düğüm türü. Yalnızca tooa tek yük dengeleyici arka uç bağlantı noktası bağlı tooa arka uç adres havuzu atanabilir. Hangi yük dengeleyici, uygulama bağlantı noktaları sahip ve hangi yük dengeleyici Yönetimi noktalarınızı (bağlantı noktaları 19000 ve 19080) sahip seçin. Merhaba iç yük dengeleyicide hello yönetim uç noktalarının yerleştirirseniz göz hello Service Fabric kaynak sağlayıcısı kısıtlamaları hello makalenin önceki bölümlerinde açıklanan tutun. Kullanırız hello örnekte hello yönetim uç noktalarının hello dış yük dengeleyici üzerinde kalır. Ayrıca bir bağlantı noktası 80 uygulama bağlantı noktası eklemek ve hello iç yük dengeleyicide yerleştirin.
 
-İki düğüm türü kümedeki bir düğüm üzerinde dış yük dengeleyici türüdür. Bir düğüm türü için iç yük dengeleyicide ' dir. İki düğüm türü küme (sahip iki yük dengeleyici desteklemektedir) portal tarafından oluşturulan iki düğüm türü şablonunda kullanmak için ikinci yük dengeleyici için bir iç yük dengeleyici geçin. Daha fazla bilgi için bkz: [yalnızca dahili yük dengeleyici](#internallb) bölümü.
+İki düğüm türü kümedeki bir düğüm üzerinde hello dış yük dengeleyici türüdür. Merhaba diğer düğümü hello iç yük dengeleyicide türüdür. toouse (sahip iki yük dengeleyici gelen) hello portal tarafından oluşturulan iki düğüm türü şablonu, bir iki düğüm türü kümede hello ikinci yük dengeleyici tooan iç yük dengeleyici geçin. Daha fazla bilgi için bkz: Merhaba [yalnızca dahili yük dengeleyici](#internallb) bölümü.
 
-1. Statik iç yük dengeleyici IP adresi parametresini ekleyin. (Dinamik bir IP adresi kullanmayla ilgili notlar için bu makalenin önceki bölümlerinde bkz.)
+1. Merhaba statik iç yük dengeleyici IP adresi parametresini ekleyin. (Notları ilgili toousing için dinamik bir IP adresi, bu makalenin önceki bölümlerinde bkz.)
 
     ```
             "internalLBAddress": {
@@ -397,7 +397,7 @@ Bu senaryoda, var olan tek bir düğüm türü dış yük dengeleyici ile başla
 
 2. Bir uygulama bağlantı noktası 80 parametresini ekleyin.
 
-3. Var olan iç sürümleri kopyalamak ve yapıştırmak değişkenleri, ağ ekleyin ve eklemek için "-Int" adı:
+3. Merhaba varolan tooadd iç sürümlerini kopyalama değişkenleri, ağ ve kopyalayıp yapıştırın ve Ekle "-Int" toohello adı:
 
     ```
     /* Add internal load balancer networking variables */
@@ -410,7 +410,7 @@ Bu senaryoda, var olan tek bir düğüm türü dış yük dengeleyici ile başla
             /* Internal load balancer networking variables end */
     ```
 
-4. Uygulama bağlantı noktası 80 portal tarafından oluşturulan şablonla başlatırsanız, varsayılan portal şablonu AppPort1 ekler (bağlantı noktası 80) dış yük dengeleyici üzerinde. Bu durumda, AppPort1 dış yük dengeleyiciden kaldırın `loadBalancingRules` ve iç yük dengeleyiciye ekleyebilmek araştırmalar:
+4. Uygulama bağlantı noktası 80 kullanan hello portal tarafından oluşturulan şablon ile başlatırsanız, hello varsayılan portal şablonu AppPort1 ekler (bağlantı noktası 80) hello dış yük dengeleyici üzerinde. Bu durumda, AppPort1 hello dış yük dengeleyiciden kaldırın `loadBalancingRules` ve araştırmalar toohello iç yük dengeleyici eklemek için:
 
     ```
     "loadBalancingRules": [
@@ -432,7 +432,7 @@ Bu senaryoda, var olan tek bir düğüm türü dış yük dengeleyici ile başla
                 },
                 "protocol": "tcp"
             }
-        } /* Remove AppPort1 from the external load balancer.
+        } /* Remove AppPort1 from hello external load balancer.
         {
             "name": "AppPortLBRule1",
             "properties": {
@@ -472,7 +472,7 @@ Bu senaryoda, var olan tek bir düğüm türü dış yük dengeleyici ile başla
                 "port": "[parameters('nt0fabricHttpGatewayPort')]",
                 "protocol": "tcp"
             }
-        } /* Remove AppPort1 from the external load balancer.
+        } /* Remove AppPort1 from hello external load balancer.
         {
             "name": "AppPortProbe1",
             "properties": {
@@ -487,14 +487,14 @@ Bu senaryoda, var olan tek bir düğüm türü dış yük dengeleyici ile başla
     "inboundNatPools": [
     ```
 
-5. İkinci bir ekleme `Microsoft.Network/loadBalancers` kaynak. Oluşturulan iç yük dengeleyiciye benzer [yalnızca dahili yük dengeleyici](#internallb) bölüm, ancak kullanır "-Int" Yük Dengeleyici değişkenleri ve yalnızca uygulama bağlantı noktası 80 uygular. Bu da kaldırır `inboundNatPools`, genel yük dengeleyiciye üzerinde RDP uç noktaları korumak için. İç yük dengeleyici üzerinde RDP istiyorsanız taşıyın `inboundNatPools` dışarıdan yük dengeleyici bu dahili yük dengeleyici için:
+5. İkinci bir ekleme `Microsoft.Network/loadBalancers` kaynak. Hello oluşturulan benzer toohello iç yük dengeleyici görünüyor [yalnızca dahili yük dengeleyici](#internallb) bölüm, ancak kullanan hello "-Int" dengeleyici değişkenleri ve uygular yalnızca hello uygulama bağlantı noktası 80'i yükler. Bu da kaldırır `inboundNatPools`, hello genel yük dengeleyiciye üzerindeki tookeep RDP uç noktaları. Merhaba iç yük dengeleyici üzerinde RDP istiyorsanız taşıyın `inboundNatPools` hello dış yük dengeleyici toothis iç yük dengeleyici:
 
     ```
-            /* Add a second load balancer, configured with a static privateIPAddress and the "-Int" load balancer variables. */
+            /* Add a second load balancer, configured with a static privateIPAddress and hello "-Int" load balancer variables. */
             {
                 "apiVersion": "[variables('lbApiVersion')]",
                 "type": "Microsoft.Network/loadBalancers",
-                /* Add "-Internal" to the name. */
+                /* Add "-Internal" toohello name. */
                 "name": "[concat('LB','-', parameters('clusterName'),'-',parameters('vmNodeType0Name'), '-Internal')]",
                 "location": "[parameters('computeLocation')]",
                 "dependsOn": [
@@ -508,7 +508,7 @@ Bu senaryoda, var olan tek bir düğüm türü dış yük dengeleyici ile başla
                         {
                             "name": "LoadBalancerIPConfig",
                             "properties": {
-                                /* Switch from Public to Private IP address
+                                /* Switch from Public tooPrivate IP address
                                 */
                                 "publicIPAddress": {
                                     "id": "[resourceId('Microsoft.Network/publicIPAddresses',concat(parameters('lbIPName'),'-','0'))]"
@@ -529,7 +529,7 @@ Bu senaryoda, var olan tek bir düğüm türü dış yük dengeleyici ile başla
                         }
                     ],
                     "loadBalancingRules": [
-                        /* Add the AppPort rule. Be sure to reference the "-Int" versions of backendAddressPool, frontendIPConfiguration, and the probe variables. */
+                        /* Add hello AppPort rule. Be sure tooreference hello "-Int" versions of backendAddressPool, frontendIPConfiguration, and hello probe variables. */
                         {
                             "name": "AppPortLBRule1",
                             "properties": {
@@ -551,7 +551,7 @@ Bu senaryoda, var olan tek bir düğüm türü dış yük dengeleyici ile başla
                         }
                     ],
                     "probes": [
-                    /* Add the probe for the app port. */
+                    /* Add hello probe for hello app port. */
                     {
                             "name": "AppPortProbe1",
                             "properties": {
@@ -572,7 +572,7 @@ Bu senaryoda, var olan tek bir düğüm türü dış yük dengeleyici ile başla
             },
     ```
 
-6. İçinde `networkProfile` için `Microsoft.Compute/virtualMachineScaleSets` kaynak, iç arka uç adres havuzu ekleyin:
+6. İçinde `networkProfile` hello için `Microsoft.Compute/virtualMachineScaleSets` kaynak hello iç arka uç adres havuzu ekleyin:
 
     ```
     "loadBalancerBackendAddressPools": [
@@ -586,7 +586,7 @@ Bu senaryoda, var olan tek bir düğüm türü dış yük dengeleyici ile başla
     ],
     ```
 
-7. Şablon dağıtma:
+7. Merhaba şablonunu dağıtın:
 
     ```powershell
     New-AzureRmResourceGroup -Name sfnetworkinginternalexternallb -Location westus
@@ -594,7 +594,7 @@ Bu senaryoda, var olan tek bir düğüm türü dış yük dengeleyici ile başla
     New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
     ```
 
-Dağıtımdan sonra kaynak grubunda iki yük dengeleyici görebilirsiniz. Yük Dengeleyici göz atarsanız, genel IP adresi atanmış ortak IP adresi ve yönetim uç noktalar (bağlantı noktaları 19000 ve 19080) görebilirsiniz. İç yük dengeleyiciye atanan statik iç IP adresi ve uygulama uç noktası (bağlantı noktası 80) de görebilirsiniz. Her iki yük dengeleyicisi, aynı sanal makine ölçek kümesi arka uç havuzu kullanın.
+Dağıtımdan sonra hello kaynak grubunda iki yük dengeleyici görebilirsiniz. Merhaba yük dengeleyici göz atarsanız, hello genel IP adresi ve yönetim atanan uç noktaları (ve bağlantı noktaları 19000 19080) toohello genel IP adresi görebilirsiniz. Merhaba statik iç IP adresi ve uygulama atanan uç noktasını (bağlantı noktası 80) toohello iç de görebilirsiniz yük dengeleyici. Yük Dengeleyici kullanın hello aynı sanal makine ölçek kümesi arka uç havuzu.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Küme oluşturma](service-fabric-cluster-creation-via-arm.md)

@@ -1,5 +1,5 @@
 ---
-title: "İstek-yanıt tabanlı Azure Service Bus işlemlerinde AMQP 1.0 | Microsoft Docs"
+title: "İstek-yanıt tabanlı Azure Service Bus işlemlerinde 1.0 aaaAMQP | Microsoft Docs"
 description: "Microsoft Azure Service Bus istek/yanıt tabanlı işlemleri listesi."
 services: service-bus-messaging
 documentationcenter: na
@@ -14,35 +14,35 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2017
 ms.author: sethm
-ms.openlocfilehash: 756565b3da6e0a818d1ee3d5e17f942d96be14f0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: e4f26219c53b0c4172747af683fe511d6366ff2d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>Microsoft Azure hizmet veri yolu AMQP 1.0: istek-yanıt tabanlı işlemleri
 
-Bu konu, Microsoft Azure Service Bus istek/yanıt tabanlı işlemlerin listesini tanımlar. Bu bilgiler üzerinde AMQP yönetim sürüm 1.0 çalışma taslak dayanır.  
+Bu konu, Microsoft Azure Service Bus istek/yanıt tabanlı işlemleri hello listesini tanımlar. Bu bilgiler üzerinde hello AMQP yönetim sürüm 1.0 çalışma taslak dayanır.  
   
-Service Bus nasıl uygular ve OASIS AMQP teknik belirtimi derlemeler açıklayan, ayrıntılı Hat düzeyinde AMQP 1.0 protokolü kılavuzu için bkz: [AMQP 1.0 Azure Service Bus ve Event Hubs Protokolü Kılavuzu'nda](service-bus-amqp-protocol-guide.md).  
+Merhaba nasıl Service Bus uygular ve OASIS AMQP teknik belirtim hello üzerinde derlemeler açıklayan, ayrıntılı Hat düzeyinde AMQP 1.0 protokolü kılavuzu için bkz: [AMQP 1.0 Azure Service Bus ve Event Hubs Protokolü Kılavuzu'nda](service-bus-amqp-protocol-guide.md).  
   
 ## <a name="concepts"></a>Kavramlar  
   
 ### <a name="entity-description"></a>Varlık açıklaması  
 
-Bir varlık açıklaması ya da hizmet veri yolu başvuruyor [QueueDescription sınıfı](/dotnet/api/microsoft.servicebus.messaging.queuedescription), [TopicDescription sınıfı](/dotnet/api/microsoft.servicebus.messaging.topicdescription), veya [SubscriptionDescription sınıfı](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) nesnesi.  
+Bir varlık açıklaması tooeither Service Bus başvuruyor [QueueDescription sınıfı](/dotnet/api/microsoft.servicebus.messaging.queuedescription), [TopicDescription sınıfı](/dotnet/api/microsoft.servicebus.messaging.topicdescription), veya [SubscriptionDescription sınıfı](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) nesnesi.  
   
 ### <a name="brokered-message"></a>Aracılık edilen ileti  
 
-Hizmet veri yolu AMQP iletisine eşlenen iletisinde temsil eder. Eşleme tanımlanan [hizmet veri yolu AMQP protokolünü Kılavuzu](service-bus-amqp-protocol-guide.md).  
+Eşlenen tooan AMQP iletisi Service Bus içinde bir ileti temsil eder. Merhaba eşleme hello tanımlanan [hizmet veri yolu AMQP protokolünü Kılavuzu](service-bus-amqp-protocol-guide.md).  
   
-## <a name="attach-to-entity-management-node"></a>Varlık Yönetimi düğümüne ekleme  
+## <a name="attach-tooentity-management-node"></a>Tooentity yönetim düğümü ekleme  
 
-Bu belgede açıklanan tüm işlemleri istek/yanıt desenler izleyen bir varlığa kapsamlı ve bir varlık yönetimi düğümüne bağlanmasını gerektirir.  
+Bu belgede açıklanan tüm hello işlemleri istek/yanıt desenler izleyen, kapsamlı tooan varlığı ve tooan varlık yönetim düğümü bağlanmasını gerektirir.  
   
 ### <a name="create-link-for-sending-requests"></a>İstekleri göndermek için bağlantı oluşturma  
 
-İstek göndermek için yönetim düğümü için bir bağlantı oluşturur.  
+İstekleri göndermek için bir bağlantı toohello yönetim düğümü oluşturur.  
   
 ```  
 requestLink = session.attach(     
@@ -55,7 +55,7 @@ role: SENDER,
   
 ### <a name="create-link-for-receiving-responses"></a>Yanıtları almak için bağlantı oluşturma  
 
-Yönetim düğümden yanıtları almak için bir bağlantı oluşturur.  
+Merhaba yönetim düğümden yanıtları almak için bir bağlantı oluşturur.  
   
 ```  
 responseLink = session.attach(    
@@ -85,13 +85,13 @@ requestLink.sendTransfer(
   
 ### <a name="receive-a-response-message"></a>Bir yanıt iletisi alıyorsunuz  
 
-Yanıt bağlantısından yanıt iletisini alır.  
+Merhaba yanıt bağlantısından Hello yanıt iletisini alır.  
   
 ```  
 responseMessage = responseLink.receiveTransfer()  
 ```  
   
-Yanıt iletisi aşağıdaki biçimdedir:
+Merhaba yanıt iletisi hello form aşağıdaki gibidir:
   
 ```  
 Message(  
@@ -120,37 +120,37 @@ Hizmet veri yolu varlıklarını gibi ele alınması gerekir:
   
 ### <a name="message-renew-lock"></a>İleti kilit yenileme  
 
-Varlık açıklamasında belirtilen süreye göre bir ileti kilit genişletir.  
+Merhaba varlık açıklamasında belirtilen hello zamana göre bir iletinin Hello kilit genişletir.  
   
 #### <a name="request"></a>İstek  
 
-İstek iletisi, aşağıdaki uygulama özellikleri de eklemeniz gerekir:  
+Merhaba istek iletisi aşağıdaki uygulama özelliklere hello şunları içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |işlemi|Dize|Evet|`com.microsoft:renew-lock`|  
 |`com.microsoft:server-timeout`|uint|Hayır|Milisaniye cinsinden işlem sunucusu zaman aşımı.|  
   
- İstek ileti gövdesi aşağıdaki girişleri ile eşleme içeren bir amqp değer bölümünde oluşması gerekir:  
+ Merhaba istek ileti gövdesi girişleri aşağıdaki hello ile eşleme içeren bir amqp değer bölümünde oluşması gerekir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|`lock-tokens`|UUID dizisi|Evet|Yenilemek için kilit belirteçleri ileti.|  
+|`lock-tokens`|UUID dizisi|Evet|İleti kilit belirteçleri toorenew.|  
   
 #### <a name="response"></a>Yanıt  
 
-Yanıt iletisi, aşağıdaki uygulama özellikleri de eklemeniz gerekir:  
+Merhaba yanıt iletisi aşağıdaki uygulama özelliklere hello şunları içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|Int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – başarılı, aksi takdirde başarısız oldu.|  
-|StatusDescription|Dize|Hayır|Durum açıklaması.|  
+|StatusDescription|Dize|Hayır|Merhaba durum açıklaması.|  
   
-Yanıt ileti gövdesi aşağıdaki girişleri ile eşleme içeren bir amqp değer bölümünde oluşması gerekir:  
+Merhaba yanıt ileti gövdesi girişleri aşağıdaki hello ile eşleme içeren bir amqp değer bölümünde oluşması gerekir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|süre sonu|zaman damgası dizisi|Evet|Kilit belirteç isteme karşılık gelen ileti kilit belirteci yeni süre sonu.|  
+|süre sonu|zaman damgası dizisi|Evet|İleti belirteci yeni sona erme karşılık gelen toohello kilit belirteç isteme kilitleyin.|  
   
 ### <a name="peek-message"></a>İletiye Gözat  
 
@@ -158,36 +158,36 @@ Yanıt ileti gövdesi aşağıdaki girişleri ile eşleme içeren bir amqp değe
   
 #### <a name="request"></a>İstek  
 
-İstek iletisi, aşağıdaki uygulama özellikleri de eklemeniz gerekir:  
+Merhaba istek iletisi aşağıdaki uygulama özelliklere hello şunları içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |işlemi|Dize|Evet|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|Hayır|Milisaniye cinsinden işlem sunucusu zaman aşımı.|  
   
-İstek ileti gövdesi oluşması gerekir bir **amqp değeri** bölüm içeren bir **harita** aşağıdaki girişleri:  
+Merhaba istek ileti gövdesi oluşmalıdır bir **amqp değeri** bölüm içeren bir **harita** girişleri aşağıdaki hello ile:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|`from-sequence-number`|uzun|Evet|Peek başlayacağı sıra numarası.|  
-|`message-count`|Int|Evet|En fazla atmaya ileti sayısı.|  
+|`from-sequence-number`|uzun|Evet|Hangi toostart gözlem numarasından dizisi.|  
+|`message-count`|Int|Evet|İletileri toopeek maksimum sayısı.|  
   
 #### <a name="response"></a>Yanıt  
 
-Yanıt iletisi, aşağıdaki uygulama özellikleri de eklemeniz gerekir:  
+Merhaba yanıt iletisi aşağıdaki uygulama özelliklere hello şunları içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|Int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – daha fazla ileti sahip<br /><br /> 0xcc: Hayır içerik – daha fazla ileti yok|  
-|StatusDescription|Dize|Hayır|Durum açıklaması.|  
+|StatusDescription|Dize|Hayır|Merhaba durum açıklaması.|  
   
-Yanıt ileti gövdesi oluşması gerekir bir **amqp değeri** bölüm içeren bir **harita** aşağıdaki girişleri:  
+Merhaba yanıt ileti gövdesi oluşmalıdır bir **amqp değeri** bölüm içeren bir **harita** girişleri aşağıdaki hello ile:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |sayısı|eşlemeleri listesi|Evet|Her eşleme bir iletiyi temsil eden iletilerinin listesi.|  
   
-Bir ileti temsil eden harita aşağıdaki girdileri içermelidir:  
+bir ileti temsil eden hello harita girişleri aşağıdaki hello içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
@@ -199,20 +199,20 @@ Bir ileti temsil eden harita aşağıdaki girdileri içermelidir:
   
 #### <a name="request"></a>İstek  
 
-İstek iletisi, aşağıdaki uygulama özellikleri de eklemeniz gerekir:  
+Merhaba istek iletisi aşağıdaki uygulama özelliklere hello şunları içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |işlemi|Dize|Evet|`com.microsoft:schedule-message`|  
 |`com.microsoft:server-timeout`|uint|Hayır|Milisaniye cinsinden işlem sunucusu zaman aşımı.|  
   
-İstek ileti gövdesi oluşması gerekir bir **amqp değeri** bölüm içeren bir **harita** aşağıdaki girişleri:  
+Merhaba istek ileti gövdesi oluşmalıdır bir **amqp değeri** bölüm içeren bir **harita** girişleri aşağıdaki hello ile:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |sayısı|eşlemeleri listesi|Evet|Her eşleme bir iletiyi temsil eden iletilerinin listesi.|  
   
-Bir ileti temsil eden harita aşağıdaki girdileri içermelidir:  
+bir ileti temsil eden hello harita girişleri aşağıdaki hello içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
@@ -223,18 +223,18 @@ Bir ileti temsil eden harita aşağıdaki girdileri içermelidir:
   
 #### <a name="response"></a>Yanıt  
 
-Yanıt iletisi, aşağıdaki uygulama özellikleri de eklemeniz gerekir:  
+Merhaba yanıt iletisi aşağıdaki uygulama özelliklere hello şunları içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|Int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – başarılı, aksi takdirde başarısız oldu.|  
-|StatusDescription|Dize|Hayır|Durum açıklaması.|  
+|StatusDescription|Dize|Hayır|Merhaba durum açıklaması.|  
   
-Yanıt ileti gövdesi oluşması gerekir bir **amqp değeri** bölümüne aşağıdaki girişleri ile eşleme içeren:  
+Merhaba yanıt ileti gövdesi oluşmalıdır bir **amqp değeri** bölümü girdileri aşağıdaki hello ile eşleme içeren:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|sıra numaraları|uzun dizi|Evet|Zamanlanmış ileti sıra numarası. Sıra numarası, iptal etmek için kullanılır.|  
+|sıra numaraları|uzun dizi|Evet|Zamanlanmış ileti sıra numarası. Sıra numarası kullanılan toocancel ' dir.|  
   
 ### <a name="cancel-scheduled-message"></a>Zamanlanmış iletiyi iptal etme  
 
@@ -242,50 +242,50 @@ Zamanlanmış iletileri iptal eder.
   
 #### <a name="request"></a>İstek  
 
-İstek iletisi, aşağıdaki uygulama özellikleri de eklemeniz gerekir:  
+Merhaba istek iletisi aşağıdaki uygulama özelliklere hello şunları içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |işlemi|Dize|Evet|`com.microsoft:cancel-scheduled-message`|  
 |`com.microsoft:server-timeout`|uint|Hayır|Milisaniye cinsinden işlem sunucusu zaman aşımı.|  
   
-İstek ileti gövdesi oluşması gerekir bir **amqp değeri** bölüm içeren bir **harita** aşağıdaki girişleri:  
+Merhaba istek ileti gövdesi oluşmalıdır bir **amqp değeri** bölüm içeren bir **harita** girişleri aşağıdaki hello ile:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|sıra numaraları|uzun dizi|Evet|İptal etmek için zamanlanmış ileti sıra numarası.|  
+|sıra numaraları|uzun dizi|Evet|Zamanlanmış iletileri toocancel sıra numarası.|  
   
 #### <a name="response"></a>Yanıt  
 
-Yanıt iletisi, aşağıdaki uygulama özellikleri de eklemeniz gerekir:  
+Merhaba yanıt iletisi aşağıdaki uygulama özelliklere hello şunları içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|Int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – başarılı, aksi takdirde başarısız oldu.|  
-|StatusDescription|Dize|Hayır|Durum açıklaması.|  
+|StatusDescription|Dize|Hayır|Merhaba durum açıklaması.|  
   
-Yanıt ileti gövdesi oluşması gerekir bir **amqp değeri** bölümüne aşağıdaki girişleri ile eşleme içeren:  
+Merhaba yanıt ileti gövdesi oluşmalıdır bir **amqp değeri** bölümü girdileri aşağıdaki hello ile eşleme içeren:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|sıra numaraları|uzun dizi|Evet|Zamanlanmış ileti sıra numarası. Sıra numarası, iptal etmek için kullanılır.|  
+|sıra numaraları|uzun dizi|Evet|Zamanlanmış ileti sıra numarası. Sıra numarası kullanılan toocancel ' dir.|  
   
 ## <a name="session-operations"></a>Oturum işlemleri  
   
 ### <a name="session-renew-lock"></a>Oturum kilidi yenileme  
 
-Varlık açıklamasında belirtilen süreye göre bir ileti kilit genişletir.  
+Merhaba varlık açıklamasında belirtilen hello zamana göre bir iletinin Hello kilit genişletir.  
   
 #### <a name="request"></a>İstek  
 
-İstek iletisi, aşağıdaki uygulama özellikleri de eklemeniz gerekir:  
+Merhaba istek iletisi aşağıdaki uygulama özelliklere hello şunları içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |işlemi|Dize|Evet|`com.microsoft:renew-session-lock`|  
 |`com.microsoft:server-timeout`|uint|Hayır|Milisaniye cinsinden işlem sunucusu zaman aşımı.|  
   
-İstek ileti gövdesi oluşması gerekir bir **amqp değeri** bölüm içeren bir **harita** aşağıdaki girişleri:  
+Merhaba istek ileti gövdesi oluşmalıdır bir **amqp değeri** bölüm içeren bir **harita** girişleri aşağıdaki hello ile:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
@@ -293,14 +293,14 @@ Varlık açıklamasında belirtilen süreye göre bir ileti kilit genişletir.
   
 #### <a name="response"></a>Yanıt  
 
-Yanıt iletisi, aşağıdaki uygulama özellikleri de eklemeniz gerekir:  
+Merhaba yanıt iletisi aşağıdaki uygulama özelliklere hello şunları içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|Int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – daha fazla ileti sahip<br /><br /> 0xcc: Hayır içerik – daha fazla ileti yok|  
-|StatusDescription|Dize|Hayır|Durum açıklaması.|  
+|StatusDescription|Dize|Hayır|Merhaba durum açıklaması.|  
   
-Yanıt ileti gövdesi oluşması gerekir bir **amqp değeri** bölümüne aşağıdaki girişleri ile eşleme içeren:  
+Merhaba yanıt ileti gövdesi oluşmalıdır bir **amqp değeri** bölümü girdileri aşağıdaki hello ile eşleme içeren:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
@@ -312,37 +312,37 @@ Oturum iletileri kilitlemeden iletiye göz atar.
   
 #### <a name="request"></a>İstek  
 
-İstek iletisi, aşağıdaki uygulama özellikleri de eklemeniz gerekir:  
+Merhaba istek iletisi aşağıdaki uygulama özelliklere hello şunları içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |işlemi|Dize|Evet|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|Hayır|Milisaniye cinsinden işlem sunucusu zaman aşımı.|  
   
-İstek ileti gövdesi oluşması gerekir bir **amqp değeri** bölüm içeren bir **harita** aşağıdaki girişleri:  
+Merhaba istek ileti gövdesi oluşmalıdır bir **amqp değeri** bölüm içeren bir **harita** girişleri aşağıdaki hello ile:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|sırası-sayı|uzun|Evet|Peek başlayacağı sıra numarası.|  
-|ileti sayısı|Int|Evet|En fazla atmaya ileti sayısı.|  
+|sırası-sayı|uzun|Evet|Hangi toostart gözlem numarasından dizisi.|  
+|ileti sayısı|Int|Evet|İletileri toopeek maksimum sayısı.|  
 |oturum kimliği|Dize|Evet|Oturum kimliği|  
   
 #### <a name="response"></a>Yanıt  
 
-Yanıt iletisi, aşağıdaki uygulama özellikleri de eklemeniz gerekir:  
+Merhaba yanıt iletisi aşağıdaki uygulama özelliklere hello şunları içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|Int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – daha fazla ileti sahip<br /><br /> 0xcc: Hayır içerik – daha fazla ileti yok|  
-|StatusDescription|Dize|Hayır|Durum açıklaması.|  
+|StatusDescription|Dize|Hayır|Merhaba durum açıklaması.|  
   
-Yanıt ileti gövdesi oluşması gerekir bir **amqp değeri** bölümüne aşağıdaki girişleri ile eşleme içeren:  
+Merhaba yanıt ileti gövdesi oluşmalıdır bir **amqp değeri** bölümü girdileri aşağıdaki hello ile eşleme içeren:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |sayısı|eşlemeleri listesi|Evet|Her eşleme bir iletiyi temsil eden iletilerinin listesi.|  
   
- Bir ileti temsil eden harita aşağıdaki girdileri içermelidir:  
+ bir ileti temsil eden hello harita girişleri aşağıdaki hello içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
@@ -350,18 +350,18 @@ Yanıt ileti gövdesi oluşması gerekir bir **amqp değeri** bölümüne aşağ
   
 ### <a name="set-session-state"></a>Oturum durumunu belirle  
 
-Oturum durumunu ayarlar.  
+Ayarlar, bir oturum durumunu hello.  
   
 #### <a name="request"></a>İstek  
 
-İstek iletisi, aşağıdaki uygulama özellikleri de eklemeniz gerekir:  
+Merhaba istek iletisi aşağıdaki uygulama özelliklere hello şunları içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |işlemi|Dize|Evet|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|Hayır|Milisaniye cinsinden işlem sunucusu zaman aşımı.|  
   
-İstek ileti gövdesi oluşması gerekir bir **amqp değeri** bölüm içeren bir **harita** aşağıdaki girişleri:  
+Merhaba istek ileti gövdesi oluşmalıdır bir **amqp değeri** bölüm içeren bir **harita** girişleri aşağıdaki hello ile:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
@@ -370,27 +370,27 @@ Oturum durumunu ayarlar.
   
 #### <a name="response"></a>Yanıt  
 
-Yanıt iletisi, aşağıdaki uygulama özellikleri de eklemeniz gerekir:  
+Merhaba yanıt iletisi aşağıdaki uygulama özelliklere hello şunları içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|Int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – başarılı, aksi takdirde başarısız oldu|  
-|StatusDescription|Dize|Hayır|Durum açıklaması.|  
+|StatusDescription|Dize|Hayır|Merhaba durum açıklaması.|  
   
 ### <a name="get-session-state"></a>Get oturum durumu  
 
-Oturum durumunu alır.  
+Bir oturum Hello durumunu alır.  
   
 #### <a name="request"></a>İstek  
 
-İstek iletisi, aşağıdaki uygulama özellikleri de eklemeniz gerekir:  
+Merhaba istek iletisi aşağıdaki uygulama özelliklere hello şunları içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |işlemi|Dize|Evet|`com.microsoft:get-session-state`|  
 |`com.microsoft:server-timeout`|uint|Hayır|Milisaniye cinsinden işlem sunucusu zaman aşımı.|  
   
-İstek ileti gövdesi oluşması gerekir bir **amqp değeri** bölüm içeren bir **harita** aşağıdaki girişleri:  
+Merhaba istek ileti gövdesi oluşmalıdır bir **amqp değeri** bölüm içeren bir **harita** girişleri aşağıdaki hello ile:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
@@ -398,14 +398,14 @@ Oturum durumunu alır.
   
 #### <a name="response"></a>Yanıt  
 
-Yanıt iletisi, aşağıdaki uygulama özellikleri de eklemeniz gerekir:  
+Merhaba yanıt iletisi aşağıdaki uygulama özelliklere hello şunları içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|Int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – başarılı, aksi takdirde başarısız oldu|  
-|StatusDescription|Dize|Hayır|Durum açıklaması.|  
+|StatusDescription|Dize|Hayır|Merhaba durum açıklaması.|  
   
-Yanıt ileti gövdesi oluşması gerekir bir **amqp değeri** bölüm içeren bir **harita** aşağıdaki girişleri:  
+Merhaba yanıt ileti gövdesi oluşmalıdır bir **amqp değeri** bölüm içeren bir **harita** girişleri aşağıdaki hello ile:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
@@ -417,31 +417,31 @@ Bir Mesajlaşma varlığı oturumlarını numaralandırır.
   
 #### <a name="request"></a>İstek  
 
-İstek iletisi, aşağıdaki uygulama özellikleri de eklemeniz gerekir:  
+Merhaba istek iletisi aşağıdaki uygulama özelliklere hello şunları içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |işlemi|Dize|Evet|`com.microsoft:get-message-sessions`|  
 |`com.microsoft:server-timeout`|uint|Hayır|Milisaniye cinsinden işlem sunucusu zaman aşımı.|  
   
-İstek ileti gövdesi oluşması gerekir bir **amqp değeri** bölüm içeren bir **harita** aşağıdaki girişleri:  
+Merhaba istek ileti gövdesi oluşmalıdır bir **amqp değeri** bölüm içeren bir **harita** girişleri aşağıdaki hello ile:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|Son güncelleştirme saati|timestamp|Evet|Yalnızca belirli bir süre sonra güncelleştirilmiş oturumları göstermek için filtrelenir.|  
+|Son güncelleştirme saati|timestamp|Evet|Belirli bir süre sonra güncelleştirilmiş tooinclude yalnızca oturumları filtreleyin.|  
 |Atla|Int|Evet|Oturum sayısını atlayın.|  
 |Sayfanın Üstü|Int|Evet|En fazla oturum sayısını.|  
   
 #### <a name="response"></a>Yanıt  
 
-Yanıt iletisi, aşağıdaki uygulama özellikleri de eklemeniz gerekir:  
+Merhaba yanıt iletisi aşağıdaki uygulama özelliklere hello şunları içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|Int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – daha fazla ileti sahip<br /><br /> 0xcc: Hayır içerik – daha fazla ileti yok|  
-|StatusDescription|Dize|Hayır|Durum açıklaması.|  
+|StatusDescription|Dize|Hayır|Merhaba durum açıklaması.|  
   
-Yanıt ileti gövdesi oluşması gerekir bir **amqp değeri** bölüm içeren bir **harita** aşağıdaki girişleri:  
+Merhaba yanıt ileti gövdesi oluşmalıdır bir **amqp değeri** bölüm içeren bir **harita** girişleri aşağıdaki hello ile:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
@@ -454,35 +454,35 @@ Yanıt ileti gövdesi oluşması gerekir bir **amqp değeri** bölüm içeren bi
   
 #### <a name="request"></a>İstek  
 
-İstek iletisi, aşağıdaki uygulama özellikleri de eklemeniz gerekir:  
+Merhaba istek iletisi aşağıdaki uygulama özelliklere hello şunları içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |işlemi|Dize|Evet|`com.microsoft:add-rule`|  
 |`com.microsoft:server-timeout`|uint|Hayır|Milisaniye cinsinden işlem sunucusu zaman aşımı.|  
   
-İstek ileti gövdesi oluşması gerekir bir **amqp değeri** bölüm içeren bir **harita** aşağıdaki girişleri:  
+Merhaba istek ileti gövdesi oluşmalıdır bir **amqp değeri** bölüm içeren bir **harita** girişleri aşağıdaki hello ile:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |Kural adı|Dize|Evet|Kural adı, abonelik ve konu adları dahil edilmez.|  
 |Kural açıklaması|eşleme|Evet|Sonraki bölümde belirtildiği gibi kural açıklaması.|  
   
-**Kural açıklaması** eşlemesi, aşağıdaki girişleri içermelidir nerede **sql filtresi** ve **bağıntı filtresi** karşılıklı olarak birbirini dışlar:  
+Merhaba **kural açıklaması** harita girişleri, aşağıdaki hello içermelidir nerede **sql filtresi** ve **bağıntı filtresi** karşılıklı olarak birbirini dışlar:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|SQL filtresi|eşleme|Evet|`sql-filter`, sonraki bölümde belirtildiği gibi.|  
-|Bağıntı filtresi|eşleme|Evet|`correlation-filter`, sonraki bölümde belirtildiği gibi.|  
-|SQL kural eylemi|eşleme|Evet|`sql-rule-action`, sonraki bölümde belirtildiği gibi.|  
+|SQL filtresi|eşleme|Evet|`sql-filter`, hello sonraki bölümde belirtildiği gibi.|  
+|Bağıntı filtresi|eşleme|Evet|`correlation-filter`, hello sonraki bölümde belirtildiği gibi.|  
+|SQL kural eylemi|eşleme|Evet|`sql-rule-action`, hello sonraki bölümde belirtildiği gibi.|  
   
-Sql filtresi eşleme aşağıdaki girdileri şunları içermelidir:  
+Merhaba sql filtresi eşleme girdileri aşağıdaki hello şunları içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |ifade|Dize|Evet|SQL filtre ifadesi.|  
   
-**Bağıntı filtresi** harita aşağıdaki girdileri en az birini içermelidir:  
+Merhaba **bağıntı filtresi** harita girişleri aşağıdaki hello en az birini içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
@@ -494,9 +494,9 @@ Sql filtresi eşleme aşağıdaki girdileri şunları içermelidir:
 |oturum kimliği|Dize|Hayır||  
 |yanıt için oturum kimliği|Dize|Hayır||  
 |içerik türü|Dize|Hayır||  
-|properties|eşleme|Hayır|Hizmet veri yolu eşlemelerini [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties).|  
+|properties|eşleme|Hayır|TooService Bus eşlemeleri [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties).|  
   
-**Sql kural eylemi** eşlemesi, aşağıdaki girişleri içermelidir:  
+Merhaba **sql kural eylemi** harita girişleri aşağıdaki hello içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
@@ -504,25 +504,25 @@ Sql filtresi eşleme aşağıdaki girdileri şunları içermelidir:
   
 #### <a name="response"></a>Yanıt  
 
-Yanıt iletisi, aşağıdaki uygulama özellikleri de eklemeniz gerekir:  
+Merhaba yanıt iletisi aşağıdaki uygulama özelliklere hello şunları içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|Int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – başarılı, aksi takdirde başarısız oldu|  
-|StatusDescription|Dize|Hayır|Durum açıklaması.|  
+|StatusDescription|Dize|Hayır|Merhaba durum açıklaması.|  
   
 ### <a name="remove-rule"></a>Kuralını Kaldır  
   
 #### <a name="request"></a>İstek  
 
-İstek iletisi, aşağıdaki uygulama özellikleri de eklemeniz gerekir:  
+Merhaba istek iletisi aşağıdaki uygulama özelliklere hello şunları içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |işlemi|Dize|Evet|`com.microsoft:remove-rule`|  
 |`com.microsoft:server-timeout`|uint|Hayır|Milisaniye cinsinden işlem sunucusu zaman aşımı.|  
   
-İstek ileti gövdesi oluşması gerekir bir **amqp değeri** bölüm içeren bir **harita** aşağıdaki girişleri:  
+Merhaba istek ileti gövdesi oluşmalıdır bir **amqp değeri** bölüm içeren bir **harita** girişleri aşağıdaki hello ile:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
@@ -530,12 +530,12 @@ Yanıt iletisi, aşağıdaki uygulama özellikleri de eklemeniz gerekir:
   
 #### <a name="response"></a>Yanıt  
 
-Yanıt iletisi, aşağıdaki uygulama özellikleri de eklemeniz gerekir:  
+Merhaba yanıt iletisi aşağıdaki uygulama özelliklere hello şunları içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|Int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – başarılı, aksi takdirde başarısız oldu|  
-|StatusDescription|Dize|Hayır|Durum açıklaması.|  
+|StatusDescription|Dize|Hayır|Merhaba durum açıklaması.|  
   
 ## <a name="deferred-message-operations"></a>Ertelenmiş ileti işlemleri  
   
@@ -545,14 +545,14 @@ Sıra numarası tarafından ertelenmiş iletilerini alır.
   
 #### <a name="request"></a>İstek  
 
-İstek iletisi, aşağıdaki uygulama özellikleri de eklemeniz gerekir:  
+Merhaba istek iletisi aşağıdaki uygulama özelliklere hello şunları içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |işlemi|Dize|Evet|`com.microsoft:receive-by-sequence-number`|  
 |`com.microsoft:server-timeout`|uint|Hayır|Milisaniye cinsinden işlem sunucusu zaman aşımı.|  
   
-İstek ileti gövdesi oluşması gerekir bir **amqp değeri** bölüm içeren bir **harita** aşağıdaki girişleri:  
+Merhaba istek ileti gövdesi oluşmalıdır bir **amqp değeri** bölüm içeren bir **harita** girişleri aşağıdaki hello ile:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
@@ -561,20 +561,20 @@ Sıra numarası tarafından ertelenmiş iletilerini alır.
   
 #### <a name="response"></a>Yanıt  
 
-Yanıt iletisi, aşağıdaki uygulama özellikleri de eklemeniz gerekir:  
+Merhaba yanıt iletisi aşağıdaki uygulama özelliklere hello şunları içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|Int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – başarılı, aksi takdirde başarısız oldu|  
-|StatusDescription|Dize|Hayır|Durum açıklaması.|  
+|StatusDescription|Dize|Hayır|Merhaba durum açıklaması.|  
   
-Yanıt ileti gövdesi oluşması gerekir bir **amqp değeri** bölüm içeren bir **harita** aşağıdaki girişleri:  
+Merhaba yanıt ileti gövdesi oluşmalıdır bir **amqp değeri** bölüm içeren bir **harita** girişleri aşağıdaki hello ile:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |sayısı|eşlemeleri listesi|Evet|Her eşleme bir ileti temsil ettiği ileti listesi.|  
   
-Bir ileti temsil eden harita aşağıdaki girdileri içermelidir:  
+bir ileti temsil eden hello harita girişleri aşağıdaki hello içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
@@ -583,39 +583,39 @@ Bir ileti temsil eden harita aşağıdaki girdileri içermelidir:
   
 ### <a name="update-disposition-status"></a>Değerlendirme durumunu güncelleştir  
 
-Ertelenmiş iletileri değerlendirme durumunu güncelleştirir.  
+Ertelenmiş iletilerin Hello değerlendirme durumunu güncelleştirir.  
   
 #### <a name="request"></a>İstek  
 
-İstek iletisi, aşağıdaki uygulama özellikleri de eklemeniz gerekir:  
+Merhaba istek iletisi aşağıdaki uygulama özelliklere hello şunları içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |işlemi|Dize|Evet|`com.microsoft:update-disposition`|  
 |`com.microsoft:server-timeout`|uint|Hayır|Milisaniye cinsinden işlem sunucusu zaman aşımı.|  
   
-İstek ileti gövdesi oluşması gerekir bir **amqp değeri** bölüm içeren bir **harita** aşağıdaki girişleri:  
+Merhaba istek ileti gövdesi oluşmalıdır bir **amqp değeri** bölüm içeren bir **harita** girişleri aşağıdaki hello ile:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |Değerlendirme durumu|Dize|Evet|tamamlandı<br /><br /> terk<br /><br /> askıya alındı|  
-|Kilit belirteçleri|UUID dizisi|Evet|Değerlendirme durumunu güncelleştirmek için kilit belirteçleri ileti.|  
-|sahipsiz nedeni|Dize|Hayır|Değerlendirme durumu ayarlanmışsa ayarlanabilir **askıya**.|  
-|sahipsiz açıklaması|Dize|Hayır|Değerlendirme durumu ayarlanmışsa ayarlanabilir **askıya**.|  
-|değiştirme özellikleri|eşleme|Hayır|Hizmet veri yolu listesini değiştirmek için ileti özellikleri aracılı.|  
+|Kilit belirteçleri|UUID dizisi|Evet|İleti kilit belirteçleri tooupdate değerlendirme durumu.|  
+|sahipsiz nedeni|Dize|Hayır|Değerlendirme durumu çok ayarlandıysa ayarlanabilir**askıya**.|  
+|sahipsiz açıklaması|Dize|Hayır|Değerlendirme durumu çok ayarlandıysa ayarlanabilir**askıya**.|  
+|değiştirme özellikleri|eşleme|Hayır|Hizmet veri yolu listesi ileti özellikleri toomodify aracılı.|  
   
 #### <a name="response"></a>Yanıt  
 
-Yanıt iletisi, aşağıdaki uygulama özellikleri de eklemeniz gerekir:  
+Merhaba yanıt iletisi aşağıdaki uygulama özelliklere hello şunları içermelidir:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|Int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – başarılı, aksi takdirde başarısız oldu|  
-|StatusDescription|Dize|Hayır|Durum açıklaması.|
+|StatusDescription|Dize|Hayır|Merhaba durum açıklaması.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-AMQP ve Service Bus hakkında daha fazla bilgi için aşağıdaki bağlantıları ziyaret edin:
+AMQP ve Service Bus hakkında daha fazla toolearn bağlantılar aşağıdaki hello ziyaret edin:
 
 * [Hizmet veri yolu AMQP genel bakış]
 * [AMQP 1.0 desteği bölümlenmiş Service Bus kuyrukları ve konuları]

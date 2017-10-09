@@ -16,88 +16,88 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 0fa05ee6a2df13845024e770a82f50ab7f75bafd
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: c177192bbe69d179a25d174b06a0813ec28e2615
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Self Servis parola sıfırlama Azure AD derin Dalış
 
-SSPR nasıl çalışır? Bu seçenek arabiriminde anlamı nedir? Azure AD Self Servis parola hakkında daha fazla bilgi için okumaya devam sıfırlayın.
+SSPR nasıl çalışır? Bu seçenek hello arabiriminde anlamı nedir? Azure AD Self Servis parola hakkında daha fazla toofind okuma devam sıfırlayın.
 
-## <a name="how-does-the-password-reset-portal-work"></a>Parola portalı iş nasıl sıfırlama
+## <a name="how-does-hello-password-reset-portal-work"></a>Merhaba parola portalı iş nasıl sıfırlama
 
-Bir kullanıcı gittiğinde parola sıfırlama portalını, bir iş akışı belirlemek için başlayacağı zamana devre dışı:
+Bir kullanıcı toohello parola sıfırlama portalı gittiğinde, bir iş akışı toodetermine başlayacağı zamana:
 
-   * Nasıl sayfa yerelleştirilmiş?
-   * Kullanıcı hesabı geçerli mi?
-   * Hangi kuruluş için kullanıcının ait?
-   * Kullanıcının parolasını yönetildiği?
-   * Kullanıcı bu özelliği kullanmak için lisanslanır?
+   * Nasıl hello sayfa yerelleştirilmiş?
+   * Merhaba kullanıcı hesabı geçerli mi?
+   * Hangi kuruluş hello kullanıcının ait?
+   * Merhaba kullanıcının parolasını yönetildiği?
+   * Merhaba kullanıcı lisanslı toouse hello özellik mi var?
 
 
-Parola sıfırlama sayfası arkasındaki mantığı hakkında bilgi edinmek için aşağıdaki adımları okuyun.
+Merhaba adımlar aşağıda toolearn hello parola sıfırlama sayfasına arkasındaki hello mantığı hakkında okuyun.
 
-1. Kullanıcı hesabı bağlantısı veya gelecek doğrudan erişemiyor [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com).
-2. Deneyimi uygun dili işlenmeden tarayıcı yerel ayar temel. Office 365 desteklediği parola sıfırlama deneyimi aynı dillere yerelleştirilmiştir.
+1. Merhaba, hesap bağlantısı erişilemiyor veya doğrudan çok girdiği kullanıcı tıklama[https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com).
+2. Temel hello tarayıcı yerel hello üzerinde deneyimi hello uygun dilde işlenir. Merhaba parola sıfırlama deneyimi içine yerelleştirilmiş Office 365 desteklediği dillerini hello.
 3. Kullanıcı bir kullanıcı kimliği girer ve bir güvenlik kodu geçirir.
-4. Azure AD kullanıcı aşağıdakileri yaparak bu özelliği kullanabilmek için olup olmadığını doğrular:
-   * Kullanıcının bu özellik etkinleştirildiğinde ve bir Azure AD lisansı atanmış olup olmadığını denetler.
-     * Kullanıcının bu özellik etkinleştirildiğinde veya atanmış bir lisans yoksa, kullanıcı parolasını sıfırlamayı kendi yöneticisine başvurun istenir.
-   * Kullanıcı hakkına sahip denetimleri hesaplarında Yönetici İlkesi uygun olarak tanımlanan verileri sınama.
-     * İlkesi yalnızca bir sınama gerektiriyorsa, ardından bu kullanıcı için en az bir yönetici İlkesi tarafından etkinleştirilen zorluklar tanımlanan uygun veri olduğunu güvence altına.
-       * Kullanıcı yapılandırılmamışsa, kullanıcı parolasını sıfırlamayı kendi yöneticisine başvurmanız önerilir.
-     * İlkesi iki zorluk gerektiriyorsa, ardından bunu kullanıcının en az iki Yönetici İlkesi tarafından etkinleştirilen zorluklar için tanımlanan uygun veri olduğunu güvence altına.
-       * Kullanıcı yapılandırılmamış sonra biz kullanıcıdır parolasını sıfırlamak için kendi yöneticisine başvurmanız önerilir.
-   * Kullanıcının parolasını (Federe veya parola karması eşitlenen) şirket içinde yönetilen olup olmadığını denetler.
-     * Daha sonra geri yazma dağıtılır ve kullanıcının parolasını şirket içinde yönetilir, kullanıcı kimliğini ve parolasını sıfırlamak için devam etmesine izin verilir.
-     * Geri yazma dağıtılmadığı ve kullanıcının parolasını şirket içinde yönetilir, ardından kullanıcının parolasını sıfırlamak için kendi yöneticisine başvurun istenir.
-5. Kullanıcının parolasını başarıyla sıfırlayamazsınız olduğunu belirlenirse kullanıcı sıfırlama işlemi boyunca yönlendirilir.
+4. Azure AD doğrular hello kullanıcı mümkün toouse olup olmadığını hello aşağıdakileri yaparak bu özellik:
+   * Bu özellik etkinleştirildiğinde ve bir Azure AD lisansı atanmış hello kullanıcının sahip denetler.
+     * Merhaba kullanıcının bu özellik etkinleştirildiğinde veya atanmış bir lisans yok hello kullanıcı varsa, bunların yönetici tooreset toocontact sorulan parolalarını.
+   * Merhaba kullanıcı hesaplarında Yönetici İlkesi uygun olarak tanımlanan hello sağ sınama veri sahip olmadığını denetler.
+     * Merhaba zorluklar hello Yönetici İlkesi tarafından etkinleştirilmiş en az biri için tanımlanan hello uygun verileri hello kullanıcının sahip sağlamış sonra ilkesi yalnızca bir sınama gerektiriyorsa.
+       * Merhaba kullanıcı yapılandırılmamış sonra hello kullanıcı tavsiye edilir toocontact kendi yönetici tooreset ise parolalarını.
+     * Hello İlkesi iki zorluk gerektiriyorsa, sonra en az iki hello Yönetici İlkesi tarafından etkinleştirilen hello zorluklar için tanımlanan hello uygun verileri hello kullanıcının sahip güvence altına.
+       * Merhaba kullanıcı yapılandırılmamış sonra size kullanıcı hello kendi yönetici tooreset tavsiye edilir toocontact olan parolalarını.
+   * Merhaba kullanıcının parolasını (Federe veya parola karması eşitlenen) şirket içinde yönetilen olup olmadığını denetler.
+     * Geri yazma dağıtılır ve hello kullanıcının parolasını şirket içinde yönetilir, hello kullanıcı tooproceed tooauthenticate izin verilir ve parolalarını sıfırlayın.
+     * Geri yazma dağıtılmadığı ve hello kullanıcının parolasını şirket içinde yönetilir durumunda hello kullanıcı kendi yönetici tooreset toocontact sorulan parolalarını.
+5. Bu hello kullanıcının belirlenirse toosuccessfully parolalarını sıfırlama sonra hello kullanıcı hello sıfırlama işlemi yönlendirilir.
 
 ## <a name="authentication-methods"></a>Kimlik doğrulama yöntemleri
 
-Self Servis parola sıfırlama (SSPR) etkinleştirilirse, en az bir kimlik doğrulama yöntemleri için aşağıdaki seçeneklerden birini seçmeniz gerekir. Böylece, kullanıcılarınızın daha fazla esnekliğe sahip en az iki kimlik doğrulama yöntemi seçme öneririz.
+Self Servis parola sıfırlama (SSPR) etkinleştirilirse, aşağıdaki seçenekleri kimlik doğrulama yöntemleri için şu hello en az birini seçmeniz gerekir. Böylece, kullanıcılarınızın daha fazla esnekliğe sahip en az iki kimlik doğrulama yöntemi seçme öneririz.
 
 * E-posta
 * Cep telefonu
 * Ofis telefonu
 * Güvenlik Soruları
 
-### <a name="what-fields-are-used-in-the-directory-for-authentication-data"></a>Hangi alanların dizinde kimlik doğrulama verileri için kullanılır
+### <a name="what-fields-are-used-in-hello-directory-for-authentication-data"></a>Hangi alanların hello dizininde kimlik doğrulama verileri için kullanılır
 
-* Ofis telefonu iş telefonu karşılık gelen
-    * Kullanıcılar bu ayarlanamıyor kendilerini onu tanımlanmalıdır bir yönetici tarafından alan
-* Cep telefonu kimlik doğrulama telefon (herkese görünür) veya cep telefonu (herkese görünür) karşılık gelir.
-    * Hizmet için kimlik doğrulama telefon ilk görünür, ardından cep telefonuna geri döner yoksa
-* Kimlik doğrulama e-posta (herkese görünür) veya alternatif e-posta için alternatif e-posta adresi karşılık gelen
-    * Hizmet kimlik doğrulama e-posta için önce arar ve ardından geri alternatif e-posta başarısız
+* Ofis telefonu tooOffice telefon karşılık gelir.
+    * Bu alanda kendilerini bir yönetici tarafından tanımlanmalıdır oluşturulamıyor tooset kullanıcılardır
+* Cep telefonu tooeither (herkese görünür) kimlik doğrulama telefon veya cep telefonu (herkese görünür) karşılık gelen
+    * Hello hizmet için kimlik doğrulama telefon ilk görünür, ardından tooMobile telefon geri döner yoksa
+* Alternatif e-posta adresi tooeither kimlik doğrulama e-posta (herkese görünür) veya alternatif e-posta karşılık gelen
+    * Merhaba hizmet kimlik doğrulama e-posta için önce arar ve ardından geri tooAlternate e-posta başarısız
 
-Varsayılan olarak, yalnızca bulut öznitelikleri ofis telefonu ve cep telefonu, kimlik doğrulama verileri için şirket içi dizininizden bulut dizininiz için eşitlenir.
+Varsayılan olarak, ofis telefonu ve cep telefonu hello bulut öznitelikleri tooyour bulut directory kimlik doğrulama verileri için şirket içi dizininizden eşitlenmiş.
 
-Bunlar, yönetici etkin olduğundan ve gerektiren kimlik doğrulama yöntemlerini mevcut verileri varsa kullanıcılar yalnızca parolalarını sıfırlayabilir.
+Kullanıcılar parolalarını o hello yönetici hello kimlik doğrulama yöntemlerini mevcut verileri varsa etkinleştirilmiş yalnızca sıfırlama ve gerektirir.
 
-Kullanıcıların cep telefonu numaralarına dizinde görünür olmasını istiyor musunuz ancak hala parola sıfırlama için kullanmak istediğiniz yöneticileri değil doldurmak bu dizinde ve kullanıcı ardından doldurur kendi **kimlik doğrulama telefon** aracılığıyla özniteliği [parola sıfırlama kayıt portalı](http://aka.ms/ssprsetup). Yöneticiler kullanıcı profili için bu bilgiyi görebilir, ancak başka bir yerde yayınlanmadı. Azure yönetici hesabı kimlik doğrulaması telefon numarasını kaydederse, cep telefonu alana doldurulur ve görülebilir.
+Kullanıcılar, cep telefonu numarası toobe hello dizinde görünür istiyor musunuz ancak toouse gibi parola sıfırlama için hala, yöneticiler değil doldurmak onu hello dizininde ve hello kullanıcı ardından doldurmak kendi **kimlik doğrulama telefon**  özniteliği hello aracılığıyla [parola sıfırlama kayıt portalı](http://aka.ms/ssprsetup). Yöneticiler hello kullanıcının profili için bu bilgiyi görebilir, ancak başka bir yerde yayınlanmadı. Azure yönetici hesabı kimlik doğrulaması telefon numarasını kaydederse, hello cep telefonu alanına doldurulur ve görülebilir.
 
 ### <a name="number-of-authentication-methods-required"></a>Gereken kimlik doğrulama yöntemleri sayısı
 
-Bu seçenek en az bir kullanıcı sıfırlama veya parolalarını kilidini açmak için geçtikleri gerekir ve 1 veya 2'ye ayarlanabilir kullanılabilir kimlik doğrulama yöntemleri sayısını belirler.
+Bu seçenek hello en az bir kullanıcı tooreset gitmek gerekir hello kullanılabilir kimlik doğrulama yöntemleri sayısını belirler veya kilidini açma parolasını ve tooeither 1 veya 2 ayarlayabilirsiniz.
 
-Kullanıcılar, yönetici tarafından etkinleştirilmişse daha fazla kimlik doğrulama yöntemleri sağlamak seçebilirsiniz.
+Hello Yöneticisi tarafından etkinleştirilirse kullanıcılar daha fazla kimlik doğrulama yöntemleri toosupply seçebilirsiniz.
 
-Bir kullanıcıya kayıtlı gerekli en düşük yöntemleri yoksa, parolasını sıfırlamak için yönetici istemek için yönlendirmez bir hata sayfası görürler.
+Bir kullanıcıya kayıtlı gerekli en düşük hello yöntemleri yoksa toorequest bir yönetici tooreset yönlendiren bir hata sayfası gördükleri parolalarını.
 
 ### <a name="how-secure-are-my-security-questions"></a>My güvenlik soruları ne kadar güvenli mi
 
-Güvenlik soruları kullanırsanız, bazı kişiler başka bir kullanıcı soruların yanıtlarını bildiğiniz beri bunlar diğer yöntemlerinden daha az güvenli olabilir olarak bunları kullanımda başka bir yöntemle öneririz.
+Güvenlik soruları kullanırsanız, bazı kişiler hello yanıtlar tooanother kullanıcıların sorularını bildiğiniz beri bunlar diğer yöntemlerinden daha az güvenli olabilir olarak bunları kullanımda başka bir yöntemle öneririz.
 
 > [!NOTE] 
-> Güvenlik soruları dizininde bir kullanıcı nesnesi üzerinde özel olarak ve güvenli bir şekilde depolanır ve kullanıcılar tarafından kayıt sırasında yalnızca yanıtlanması. Hiçbir şekilde okumak veya kullanıcılar değiştirmek bir yöneticinin soru veya yanıt.
+> Güvenlik soruları özel olarak ve güvenli bir şekilde hello dizininde bir kullanıcı nesnesi üzerinde depolanır ve kullanıcılar tarafından kayıt sırasında yalnızca yanıtlanması. Bir yönetici tooread bir yolu yoktur veya kullanıcı değiştirme soru veya yanıt.
 >
 
 ### <a name="security-question-localization"></a>Güvenlik sorusu yerelleştirme
 
-İzleyen tüm önceden tanımlanmış sorular kullanıcının tarayıcı bölgesel ayarına göre Office 365 diller, tamamını içine yerelleştirilmiştir.
+İzleyen tüm önceden tanımlanmış soruları hello kullanıcının tarayıcı bölgesel ayarına göre Office 365 dilleri hello kümesini içine yerelleştirilmiştir.
 
 * İlk eşiniz/partneriniz ile hangi şehirde tanıştınız?
 * Anneniz ile babanız hangi şehirde tanıştı?
@@ -106,9 +106,9 @@ Güvenlik soruları kullanırsanız, bazı kişiler başka bir kullanıcı sorul
 * İlk işiniz hangi şehirdeydi?
 * Anneniz hangi şehirde doğdu?
 * 2000 yılına girdiğimiz yılbaşında hangi şehirdeydiniz?
-* Yüksek içinde en sevdiğiniz öğretmenin soyadı nedir * Okul?
-* Başvurduğunuz ancak gitmediğiniz üniversitenin adı nedir?
-* İlk düğününüzü gerçekleştirdiğiniz yerin adı nedir?
+* Merhaba Soyadı yüksek içinde en sevdiğiniz öğretmenin nedir * Okul?
+* Merhaba, uyguladığınız üniversitenin adı nedir kaydetmedi toobut katılın?
+* İlk düğününüzü gerçekleştirdiğiniz yerin hello hello adı nedir?
 * Babanızın ikinci adı nedir?
 * En sevdiğiniz yemek nedir?
 * Anneannenizin adı ve soyadı nedir?
@@ -118,43 +118,43 @@ Güvenlik soruları kullanırsanız, bazı kişiler başka bir kullanıcı sorul
 * Dedenizin adı ve soyadı nedir?
 * En küçük kardeşinizin ikinci adı nedir?
 * Altıncı sınıfta hangi okula gidiyordunuz?
-* Çocukken en iyi arkadaşınızın adı ve soyadı neydi?
-* İlk partnerinizin adı ve soyadı neydi?
-* İlkokulda en sevdiğiniz öğretmenin soyadı neydi?
-* İlk arabanızın veya motosikletinizin markası ve modeli neydi?
-* Gittiğiniz ilk okulun adı neydi?
-* Doğduğunuz hastanenin adı neydi?
-* Çocukluğunuzun geçtiği ilk evin bulunduğu sokağın adı neydi?
-* Çocukluk kahramanınızın adı neydi?
-* En sevdiğiniz peluş hayvanın adı neydi?
-* İlk evcil hayvanınızın adı neydi?
+* Ne hello ilk oldu ve çocukken en iyi arkadaşınızın adı en son?
+* Ne hello ilk oldu ve ilk partnerinizin adı en son?
+* Merhaba, ilkokulda en sevdiğiniz öğretmenin Soyadı neydi?
+* Merhaba marka ve model ilk arabanızın veya motosikletinizin neydi?
+* Merhaba gittiğiniz hello ilk okulun adı neydi?
+* Merhaba, Doğduğunuz hello Hastanenin adı neydi?
+* Merhaba Sokak, ilk evin, hello adı neydi?
+* Merhaba çocukluk kahramanınızın adı neydi?
+* Merhaba en sevdiğiniz peluş hayvanın adı neydi?
+* Merhaba ilk Evcil hayvanınızın adı neydi?
 * Çocukken lakabınız neydi?
 * Lisedeyken en sevdiğiniz spor hangisiydi?
 * İlk işiniz neydi?
-* Çocukken kullandığınız telefon numaranızın son dört rakamı neydi?
-* Küçükken büyüdüğünüzde ne olmak istiyordunuz?
-* Tanıştığınız en ünlü kişi kim?
+* Ne olan hello çocukken kullandığınız telefon numaranızın son dört rakamı?
+* Küçükken olduğunda, Büyüyünce ne toobe istiyordunuz?
+* Merhaba tanıştığınız En ünlü kişi kim?
 
 ### <a name="custom-security-questions"></a>Özel güvenlik soruları
 
-Özel güvenlik soruları farklı yerel ayarlar için yerelleştirilmiş değil. Tüm özel sorular kullanıcının tarayıcı yerel farklı olsa bile yönetici kullanıcı arabiriminde girildiği dilde görüntülenir. Yerelleştirilmiş soruları gerekiyorsa, lütfen önceden tanımlanmış soruları kullanın.
+Özel güvenlik soruları farklı yerel ayarlar için yerelleştirilmiş değil. Tüm özel soruları hello görüntülenen bunlar girilir hello yönetici kullanıcı arabiriminde hello kullanıcının tarayıcı yerel farklı olsa bile aynı dildir. Yerelleştirilmiş soruları gerekiyorsa, lütfen önceden tanımlanmış hello soruları kullanın.
 
-Bir özel Güvenlik sorusu uzunluğu en fazla 200 karakter olabilir.
+bir özel Güvenlik sorusu Hello en fazla 200 karakter olabilir.
 
 ### <a name="security-question-requirements"></a>Güvenlik sorusu gereksinimleri
 
 * En az yanıt karakter sınırı 3 karakterdir
 * En büyük yanıt karakter sınırı 40 karakterdir
-* Kullanıcılar, aynı soruyu birden fazla kez yanıt vermeyebilir
-* Kullanıcıların birden fazla soru aynı yanıt sağlamayabilir
-* Herhangi bir karakter kümesi sorular ve yanıtlar Unicode karakterler içeren tanımlamak için kullanılabilir
-* Tanımlanmış soru sayısını kaydetmek için gereken soru sayısına eşit veya daha büyük olmalıdır
+* Kullanıcılar aynı birden fazla kez soru hello yanıt vermeyebilir
+* Kullanıcıların hello değil sağlayabilir aynı yanıt bir soru daha toomore
+* Herhangi bir karakter kümesi kullanılan toodefine sorular ve yanıtlar Unicode karakterler dahil olabilir
+* tanımlı soruları Hello sayısı büyüktür veya soruları gerekli tooregister toohello sayısı eşit
 
 ## <a name="registration"></a>Kayıt
 
-### <a name="require-users-to-register-when-signing-in"></a>Kullanıcılardan oturum açarken kaydolmalarını iste
+### <a name="require-users-tooregister-when-signing-in"></a>Oturum açarken kullanıcıların tooregister gerektirir
 
-Bu seçeneğin etkinleştirilmesi izleyen olanlar gibi oturum açmak için Azure AD kullanan uygulamalar için oturum açma, parola tamamlamak amacıyla parola sıfırlama için etkin bir kullanıcı sıfırlama kaydı gerektirir:
+Bu seçeneğin etkinleştirilmesi tooapplications izleyin olanlar gibi Azure AD toosign kullanarak oturum açtıysanız toocomplete hello parola sıfırlama kaydı parolasını etkin bir kullanıcı sıfırlama gerektirir:
 
 * Office 365
 * Azure portalına
@@ -162,27 +162,27 @@ Bu seçeneğin etkinleştirilmesi izleyen olanlar gibi oturum açmak için Azure
 * Federasyon uygulamalarına
 * Azure AD kullanarak özel uygulamalar
 
-Bu özellik devre dışı bırakma hala izni verdiği kişi bilgileri ziyaret ederek el ile kaydetmek kullanıcıların [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) veya tıklatarak **parola sıfırlama için kaydetme** altında bağlantı erişim paneli sekmesinde profil.
+Bu özellik devre dışı bırakma hala izni verdiği kullanıcılar toomanually kayıt kişi bilgileri ziyaret ederek [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) veya hello tıklatarak **parola sıfırlama için kaydetme** hello altındaki bağlantı Merhaba erişim panelinde profili sekmesi.
 
 > [!NOTE]
-> Kullanıcıları parola sıfırlama kayıt Portalı'nı İptal'i tıklatarak veya pencereyi sayabilirsiniz ancak kayıt tamamlanana kadar kullanıcılar oturum açma her zaman istenir.
+> Kullanıcılar hello parola sıfırlama kayıt portalı İptal'i tıklatarak veya hello pencereyi sayabilirsiniz ancak kayıt tamamlanana kadar kullanıcılar oturum açma her zaman istenir.
 >
 
-### <a name="number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Kullanıcıların kimlik doğrulaması bilgilerini yeniden onaylamasını istemeden önce geçen gün sayısı
+### <a name="number-of-days-before-users-are-asked-tooreconfirm-their-authentication-information"></a>Sayısı kullanıcılar önce gün sorulan tooreconfirm kendi kimlik doğrulama bilgileri
 
-Bu seçenek ayarlama ve kimlik doğrulama bilgilerini reconfirming arasındaki süreyi belirler ve yalnızca etkinleştirirseniz, kullanılabilir **oturum açarken kullanıcıların** seçeneği.
+Bu seçenek hello ayarlama ve kimlik doğrulama bilgilerini reconfirming arasındaki süreyi belirler ve yalnızca hello etkinleştirirseniz, kullanılabilir **oturum açarken kullanıcıların tooregister gerektiren** seçeneği.
 
-Geçerli değerler: 0-730 hiçbir zaman kullanıcıların kendi kimlik bilgilerini yeniden onayladıktan ister yani 0 gün
+Geçerli değerler: 0-730 kullanıcılar tooreconfirm kendi kimlik doğrulama bilgileri hiçbir zaman isteyin anlamına 0 gün
 
 ## <a name="notifications"></a>Bildirimler
 
 ### <a name="notify-users-on-password-resets"></a>Parola sıfırlamayı kullanıcılara bildir
 
-Bu seçenek Evet olarak ayarlarsanız, parola sıfırlama kullanıcı parolalarını SSPR portal üzerinden birincil ve alternatif e-posta adreslerini dosyada Azure AD içinde değiştirildi olduğunu bildiren bir e-posta alır. Hiç kimse bu sıfırlanmasını bildirilir olay.
+Bu seçeneği tooyes ayarlarsanız, parola sıfırlama hello kullanıcı parolalarını hello SSPR portal tootheir birincil değiştirildi ve Azure AD içinde dosyada alternatif e-posta adresleri bildiren bir e-posta alır. Hiç kimse bu sıfırlanmasını bildirilir olay.
 
 ### <a name="notify-all-admins-when-other-admins-reset-their-passwords"></a>Tüm Yöneticiler diğer yöneticilerin kullanıcıların parolalarını sıfırladığınızda bildir
 
-Bu seçenek Evet olarak ayarlarsanız, ardından **tüm yöneticiler** başka bir yönetici SSPR kullanarak parolalarını değiştiğini bildiren Azure AD'de dosya, birincil e-posta adresine bir e-posta alırsınız.
+Bu seçenek tooyes, ardından ayarlanırsa **tüm yöneticiler** dosya bir e-posta tootheir birincil e-posta adresi başka bir yönetici SSPR kullanarak parolalarını değiştiğini bildiren Azure AD'de alırsınız.
 
 Örnek: Bir ortamda dört Yöneticiler vardır. Yönetici "A" SSPR kullanarak kendi parolasını sıfırlar. Yöneticiler B, C ve D bunları bunun uyarı bir e-posta alır.
 
@@ -190,19 +190,19 @@ Bu seçenek Evet olarak ayarlarsanız, ardından **tüm yöneticiler** başka bi
 
 Yükledikten, yapılandırılmış ve Azure AD Connect etkin değilse, şirket içi tümleştirmeler için ek seçenekler gerekir.
 
-### <a name="write-back-passwords-to-your-on-premises-directory"></a>Şirket içi dizininize parolaları geri Yaz
+### <a name="write-back-passwords-tooyour-on-premises-directory"></a>Tooyour şirket içi dizine parolaları geri Yaz
 
-Parola geri yazma bu dizin için etkin denetler ve geri yazma açıksa, şirket içi geri yazma hizmetinin durumunu gösterir. Bu parola geri yazma'nın Azure AD Connect'i yeniden yapılandırma olmadan geçici olarak devre dışı bırakmak istiyorsanız kullanışlıdır.
+Parola geri yazma bu dizin için etkin denetler ve geri yazma açıksa hello hello şirket içi geri yazma hizmetinin durumunu gösterir. Bu, Azure AD Connect'i yeniden yapılandırma olmadan tootemporarily devre dışı bırak hello parola geri yazma istiyorsanız kullanışlıdır.
 
-* Anahtar Evet olarak ayarlarsanız, daha sonra geri yazma, Federasyon ve etkinleştirilir ve parola karma eşitlenmiş kullanıcıların parolalarını sıfırlayabilmesi mümkün olacaktır.
-* Anahtarı ayarlanırsa Hayır'a, ardından geri yazma ve devre dışı, Federasyon ve parola karma eşitlenmiş kullanıcıların parolalarını sıfırlayabilmesi mümkün olmaz.
+* Merhaba anahtar kümesi tooyes geri yazma, Federasyon ve etkinleştirilir ve parola karma eşitlenen kullanıcılar mümkün tooreset olacaktır parolalarını olur.
+* Merhaba anahtar kümesi toono geri yazma ve devre dışı, Federasyon ve parola karma eşitlenen kullanıcılar mümkün tooreset olmayacaktır parolalarını olur.
 
-### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>Kullanıcıların parolalarını sıfırlamadan hesaplarının kilidini izin ver
+### <a name="allow-users-toounlock-accounts-without-resetting-their-password"></a>Kullanıcıların parolalarını sıfırlamadan toounlock hesaplarına izin ver
 
-Parola sıfırlama portalı ziyaret eden kullanıcılar, şirket içi Active Directory hesaplarını, parola sıfırlama olmadan kilidini açmak için seçeneği verilmelidir olup olmadığını belirler. Varsayılan olarak, bir parola sıfırlama gerçekleştirirken Azure AD her zaman hesapları kilitlenmeden, bu ayar, bu iki işlem ayırmanıza olanak sağlar. 
+Merhaba parola sıfırlama portalı ziyaret eden kullanıcılar kendi şirket içi Active Directory parolalarını sıfırlama olmadan hesapları verilen hello seçeneği toounlock olmalıdır olup olmadığını belirler. Varsayılan olarak, Azure AD her zaman hesapları parola sıfırlama gerçekleştirirken kilidini, bu ayar, tooseparate sağlar bu iki işlem. 
 
-* "Evet" olarak ayarlayın, sonra kullanıcılar seçeneği parolalarını sıfırlama ve hesabın kilidini ya da parola sıfırlama olmadan kilidini açmak için sunulur durumunda.
-* Yalnızca kullanıcıların açabilirler sonra "Hayır" olarak ayarlayın birleşik bir parola gerçekleştirmek için sıfırlama ve hesabın kilidini açma işlemi varsa.
+* Varsa çok "Evet", kullanıcıların parolalarını verilen hello seçeneği tooreset olması ve hello parola sıfırlamadan hello hesabı ya da toounlock kilidini ayarlayın.
+* Kullanıcılar yalnızca mümkün tooperform sonra çok "Hayır", ayarlamak birleşik parola sıfırlama ve hesap işlemi kilidini durumunda.
 
 ## <a name="network-requirements"></a>Ağ gereksinimleri
 
@@ -210,67 +210,67 @@ Parola sıfırlama portalı ziyaret eden kullanıcılar, şirket içi Active Dir
 
 [Microsoft Office URL'leri ve IP adreslerinin listesi](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
 
-Azure AD Connect'i sürüm 1.1.443.0 ve yukarıdaki, giden HTTPS aşağıdaki erişim
+Azure AD Connect'i sürüm 1.1.443.0 ve yukarıdaki, giden HTTPS erişim toohello aşağıdakilere sahip olmanız gerekir
 * passwordreset.microsoftonline.com
 * servicebus.Windows.NET
 
-Daha ayrıntılı erişim için Microsoft Azure veri merkezi IP her Çarşamba güncelleştirilen ve aşağıdaki yürürlüğe koymak aralıkları güncelleştirilmiş listesini bulabilirsiniz Pazartesi [burada](https://www.microsoft.com/download/details.aspx?id=41653).
+Daha ayrıntılı erişim için Microsoft Azure veri merkezi IP her Çarşamba güncelleştirilen ve etkili hello aşağıdaki put aralıkları hello güncelleştirilmiş listesini bulabilirsiniz Pazartesi [burada](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### <a name="idle-connection-timeouts"></a>Boşta kalma zaman aşımları
 
-Azure AD Connect aracını ServiceBus Uç noktalara bağlantıları etkin kalmasını sağlamak için düzenli aralıklarla ping/ayarlandığında Canlı tutmalar gönderir. Aracın çok fazla bağlantının sonlandırıldığını algılaması halinde, uç noktasına ping sıklığını otomatik olarak artırır. En düşük 'aralıklarla ping' düşme 1 ping 60 saniyede, ancak biz kesinlikle proxy/güvenlik duvarları en az 2-3 dakika boyunca kalıcı hale getirmek boşta bağlantılara izin öneriyoruz. * Eski sürümleri için dört dakika veya daha fazla öneririz.
+Hello Azure AD Connect aracı, düzenli aralıklarla ping/ayarlandığında Canlı tutmalar tooServiceBus uç noktaları tooensure hello bağlantıları canlı kalması gönderir. Merhaba aracı çok fazla bağlantı sonlandırıldı algılaması gerekir, bu otomatik olarak hello ping toohello uç noktasının artacaktır. Hello en düşük 'aralıklarla ping' düşme toois 1 ping 60 saniyede ancak biz kesinlikle proxy/güvenlik duvarları en az 2-3 dakika boyunca boşta bağlantıları toopersist izin öneriyoruz. * Eski sürümleri için dört dakika veya daha fazla öneririz.
 
 ## <a name="active-directory-permissions"></a>Active Directory izinleri
 
-Azure AD Connect yardımcı programında belirtilen hesabın parola sıfırlama, parola değiştirme, yazma izinleri üzerinde lockoutTime olmalıdır ve genişletilmiş pwdLastSet yazma izinlerini hakları üzerinde kök nesne **her etki alanı** , Orman **veya** OU'lar SSPR kapsamında olmasını istediğiniz kullanıcı.
+Merhaba hello Azure AD Connect yardımcı programı belirtilen hesabın parola sıfırlama, parola değiştirme, lockoutTime yazma izinlerini ve her iki hello kök nesne üzerinde hakları genişletilmiş pwdLastSet yazma izinlerini olmalıdır **her etki alanı** o ormandaki **veya** hello kullanıcı OU'lar SSPR kapsamına toobe istiyor.
 
-Yukarıdaki başvurduğu hangi hesabın emin değilseniz Azure Active Directory Connect yapılandırma kullanıcı arabirimini açın ve görünüm geçerli yapılandırma seçeneğini tıklatın. Hesap listelenir "Altındaki dizinler eşitlenen" izni eklemeniz gerekir
+Emin değilseniz, yukarıdaki hangi hesabı hello hello Azure Active Directory Connect yapılandırma kullanıcı arabirimini açın ve hello görünümü geçerli yapılandırma seçeneğini ifade eder. Merhaba hesabı "Eşitlenmiş dizinleri" altında listelenen tooadd izin toois gerekir
 
-Bu izinlerin ayarlanması MA hizmet hesabının bu orman içindeki kullanıcı hesapları adına parolaları yönetmek her bir orman için sağlar. **Bu izinleri atamazsanız geri yazma doğru yapılandırılmış gibi görünüyor olsa da sonra kullanıcılar buluttan şirket içi parolalarını yönetme girişiminde bulunduğunda hatalarla.**
+Bu izinlerin ayarlanması her orman toomanage parolalar için kullanıcı hesapları adına hello MA hizmet hesabının bu orman içindeki sağlar. **Geri yazma doğru yapılandırılmış toobe görünse bile, tooassign bu izinleri daha sonra yayımlarsanız, kullanıcılar toomanage hello buluttan şirket içi parolalarını çalışırken hatalarla.**
 
 > [!NOTE]
-> Bu bir saat veya daha fazla bilgi için bu izinlerin dizininizdeki tüm nesnelere çoğaltmak için kadar sürebilir.
+> Tooan saat veya daha fazla bilgi için bu izinleri tooreplicate tooall nesneleri dizininizde ele geçirebilir.
 >
 
-Parola geri yazmanın gerçekleşmesini sağlamak için gerekli izinleri ayarlamak için
+Parola geri yazma toooccur için uygun izinleri hello tooset
 
-1. Active Directory Kullanıcıları ve bilgisayarları uygun etki alanı yönetim izinleri olan bir hesap ile açma
-2. Görünüm menüsünden Gelişmiş Özellikler açık olduğundan emin olun
-3. Sol bölmede, etki alanının kökünü temsil eden nesne sağ tıklayın ve Özellikler'i seçin
-    * Güvenlik sekmesini tıklatın
+1. Active Directory Kullanıcıları ve bilgisayarları hello uygun etki alanı yönetim izinlerine sahip bir hesap ile açın
+2. Merhaba Görünüm menüsünden Gelişmiş Özellikler açık olduğundan emin olun
+3. Merhaba sol panelinde hello hello etki alanının kökünü temsil eder hello nesnesine sağ tıklayın ve Özellikler'i seçin
+    * Merhaba Güvenlik sekmesini tıklatın
     * Ardından Gelişmiş'i tıklatın.
-4. İzinleri sekmesinden Ekle
-5. İzinler (Azure AD Connect kurulumdan) uygulanmakta olan hesabı seç
-6. Açılan kutusu uygulanacağı alt kullanıcı nesneleri seçin.
-7. İzinler altında aşağıdaki onay kutularını işaretleyin
+4. Merhaba izinleri sekmesinden Ekle
+5. İzinler (Azure AD Connect Kurulum'u) çok uygulanıyor hello hesabı seç
+6. Merhaba uygulanacağı toodrop aşağı kutusu alt kullanıcı nesneleri seçin
+7. İzinler altında hello aşağıdaki hello kutularını kontrol edin
     * Süresi dolmasın parola
     * Parola Sıfırlama
     * Parolayı Değiştir
     * LockoutTime yazma
     * PwdLastSet yazma
-8. Uygula/Tamam aracılığıyla uygulamak ve açık iletişim kutularını çıkmak için'ı tıklatın.
+8. Tooapply Uygula/Tamam'ı tıklatın ve tüm açık iletişim kutularını kapatın.
 
 ## <a name="how-does-password-reset-work-for-b2b-users"></a>Parola iş B2B kullanıcıları için nasıl sıfırlama?
-Parola sıfırlama ve değişiklik tüm B2B yapılandırmaları ile tam olarak desteklenir.  Aşağıda parola sıfırlama tarafından desteklenen üç açık B2B durumlarda okuyun.
+Parola sıfırlama ve değişiklik tüm B2B yapılandırmaları ile tam olarak desteklenir.  Aşağıda parola sıfırlama tarafından desteklenen hello üç açık B2B durumlarda okuyun.
 
-1. **Kullanıcıların mevcut Azure AD kiracısı ile partner org'dan** - mevcut bir Azure AD kiracısı ile ortaklık kuruluş varsa, biz **Kiracı içinde ne olursa olsun parola sıfırlama ilkelerinin etkinleştirildiğinden dikkate**. Parola O365 müşteriler için ek ücret ödemeden olan Azure AD SSPR'yi etkinleştirildiğinden emin olmak için iş ortağı kuruluş yalnızca gereksinimlerini çalışmaya sıfırlamak ve içindeki adımları izleyerek etkinleştirilebilir bizim [parola yönetimiileçalışmayabaşlama](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords)Kılavuzu.
-2. **Kaydolan kullanarak kullanıcıların [Self Servis kaydolma](active-directory-self-service-signup.md)**  - kuruluş, kullanılan ile ortaklık [Self Servis kaydolma](active-directory-self-service-signup.md) Kiracı alınacağı özellik, size bildirmek ile Sıfırla Kayıtlı e-posta.
-3. **B2B kullanıcılar** -yeni kullanılarak oluşturulan tüm yeni B2B kullanıcılar [Azure AD B2B yetenekleri](active-directory-b2b-what-is-azure-ad-b2b.md) parolalarını davet işlemi sırasında kayıtlı e-posta ile mümkün olacaktır.
+1. **Kullanıcıların mevcut Azure AD kiracısı ile partner org'dan** - hello kuruluş ile ortaklık mevcut bir Azure AD kiracısı biz **Kiracı içinde ne olursa olsun parola sıfırlama ilkelerinin etkinleştirildiğinden dikkate**. Parola toowork sıfırlama, O365 müşteriler için ek ücret ödemeden olan iş ortağı kuruluş yalnızca gereksinimlerini toomake Azure AD SSPR'yi etkinleştirildiğinden emin hello ve izleyerek etkinleştirilebilir hello adımları bizim [parola yönetimi ile çalışmaya başlama ](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) Kılavuzu.
+2. **Kaydolan kullanarak kullanıcıların [Self Servis kaydolma](active-directory-self-service-signup.md)**  - hello kuruluş ile ortaklık hello kullandıysanız [Self Servis kaydolma](active-directory-self-service-signup.md) özelliği tooget Kiracı içine biz izin bunları ile Sıfırla Merhaba eposta kayıtlı.
+3. **B2B kullanıcılar** -hello kullanarak yeni oluşturulan tüm yeni B2B kullanıcılar [Azure AD B2B yetenekleri](active-directory-b2b-what-is-azure-ad-b2b.md) mümkün tooreset parolalarını hello davet işlemi sırasında kayıtlı hello e-posta ile de olur.
 
-Bunu test etmek için bu iş ortağı kullanıcılar biriyle http://passwordreset.microsoftonline.com gidin. Bir alternatif e-posta veya tanımlanan kimlik doğrulama e-posta sahip oldukları sürece, parola beklendiği gibi çalıştığını sıfırlayın.
+tootest bu iş ortağı kullanıcılar biriyle gidin, toohttp://passwordreset.microsoftonline.com. Bir alternatif e-posta veya tanımlanan kimlik doğrulama e-posta sahip oldukları sürece, parola beklendiği gibi çalıştığını sıfırlayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Aşağıdaki bağlantılar, Azure AD kullanarak parola sıfırlama ile ilgili ek bilgiler sağlar
+bağlantılar aşağıdaki hello parola sıfırlama ve Azure AD kullanma ile ilgili ek bilgiler sağlar
 
 * [**Hızlı Başlangıç**](active-directory-passwords-getting-started.md) - Azure AD self servis parola yönetimi ile çalışmaya hazırlanın 
 * [**Lisanslama**](active-directory-passwords-licensing.md) - Azure AD Lisanslarınızı yapılandırın
-* [**Veri**](active-directory-passwords-data.md) - Gerekli olan verileri ve parola yönetimi için nasıl kullanıldığını anlayın
-* [**Kullanıma Sunma** ](active-directory-passwords-best-practices.md) - Buradaki yönergelerle SSPR’ı planlayın ve kullanıcılarınıza dağıtın
+* [**Veri** ](active-directory-passwords-data.md) - gereklidir hello verileri anlamak ve nasıl kullanıldığı için parola yönetimi
+* [**Sunum** ](active-directory-passwords-best-practices.md) -planlama ve burada bulunan hello kılavuzu kullanarak SSPR tooyour kullanıcılara dağıtma
 * [**İlke**](active-directory-passwords-policy.md) - Azure AD parola ilkelerini anlayın ve ayarlayın
 * [**Parola Geri Yazma**](active-directory-passwords-writeback.md) - Şirket içi dizininizde parola geri yazma özelliğinin nasıl çalıştığını anlayın
-* [**Özelleştirme**](active-directory-passwords-customize.md) - SSPR deneyiminin görünümünü şirketiniz için özelleştirin.
+* [**Özelleştirme** ](active-directory-passwords-customize.md) -hello görünümüne hello SSPR deneyimi, şirketiniz için özelleştirebilirsiniz.
 * [**Raporlama**](active-directory-passwords-reporting.md) - Kullanıcılarınızın SSPR işlevine erişip erişmediğini, ne zaman ve nerede eriştiğini öğrenin
-* [**Sık Sorulan Sorular**](active-directory-passwords-faq.md) - Nasıl? Neden? Ne? Nerede? Kim? Ne zaman? - Her zaman sormak istediğiniz soruların yanıtları
-* [**Sorun giderme**](active-directory-passwords-troubleshoot.md) - SSPR ile yaygın olarak karşılaştığımız sorunların çözümü hakkında bilgi alın
+* [**Sık Sorulan Sorular**](active-directory-passwords-faq.md) - Nasıl? Neden? Ne? Nerede? Kim? Ne zaman? -Her zaman tooask istediğinizi tooquestions yanıtlar
+* [**Sorun giderme** ](active-directory-passwords-troubleshoot.md) -nasıl biz SSPR ile bkz tooresolve ortak sorunları öğrenin
 

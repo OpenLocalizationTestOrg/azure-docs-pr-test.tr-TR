@@ -1,5 +1,5 @@
 ---
-title: "Azure Application Insights izleme bağımlılık | Microsoft Docs"
+title: aaaDependency Azure Application Insights izleme | Microsoft Docs
 description: "Application Insights ile şirket içi veya Microsoft Azure web uygulamanızın kullanımını, kullanılabilirliğini ve performansını analiz edin."
 services: application-insights
 documentationcenter: .net
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: bwren
-ms.openlocfilehash: 6e0b67ba98af27017901608dde4401600eb9957f
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: e72f5465462ae8e64363cbbaa62911aff636c504
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Application Insights'ı ayarlayın: bağımlılık izleme
-A *bağımlılık* uygulamanız tarafından çağrılan bir dış bileşendir. Bu genellikle HTTP veya bir veritabanı veya bir dosya sistemi kullanılarak adlı bir hizmettir. [Application Insights](app-insights-overview.md) uygulamanız için bağımlılıkları ne kadar bekleyeceğini ve ne sıklıkta bir bağımlılık araması başarısız ölçer. Belirli çağrıları araştırmak ve bunları istekler ve özel durumlar için ilişkilendirebilirsiniz.
+A *bağımlılık* uygulamanız tarafından çağrılan bir dış bileşendir. Bu genellikle HTTP veya bir veritabanı veya bir dosya sistemi kullanılarak adlı bir hizmettir. [Application Insights](app-insights-overview.md) uygulamanız için bağımlılıkları ne kadar bekleyeceğini ve ne sıklıkta bir bağımlılık araması başarısız ölçer. Belirli çağrıları araştırmak ve bunları toorequests ve özel durumları ilişkilendirebilirsiniz.
 
 ![örnek grafikler](./media/app-insights-asp-net-dependencies/10-intro.png)
 
-Giden kutusu bağımlılık İzleyicisi şu anda bu tür bağımlılıkların çağrıları raporları:
+Merhaba Giden kutusu bağımlılık İzleyicisi şu anda çağrıları toothese tür bağımlılığı raporları:
 
 * Sunucu
   * SQL veritabanları
@@ -36,103 +36,103 @@ Giden kutusu bağımlılık İzleyicisi şu anda bu tür bağımlılıkların ç
 
 Kullanarak Works izleme [bayt kodu Araçları](https://msdn.microsoft.com/library/z9z62c29.aspx) seçili yöntemleri geçici. Performansa düzeydedir.
 
-Aynı zamanda, diğer bağımlılıkları, hem de istemci ve sunucu kodu izlemek için kendi SDK çağrıları yazabilirsiniz kullanarak [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency).
+Kendi SDK çağrıları toomonitor diğer bağımlılıkları, hem de hello istemci ve sunucu kodu hello kullanarak da yazabilirsiniz [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency).
 
 ## <a name="set-up-dependency-monitoring"></a>Bağımlılık izleme işlevini ayarlama
-Kısmi bağımlılık bilgi tarafından otomatik olarak toplanan [Application Insights SDK'sı](app-insights-asp-net.md). Tam veri almak için ana bilgisayar sunucusu için uygun aracısını yükleyin.
+Kısmi bağımlılık bilgi hello tarafından otomatik olarak toplanır [Application Insights SDK'sı](app-insights-asp-net.md). tooget tam veri hello hello ana bilgisayarı sunucusu için uygun aracısı yükleyin.
 
 | Platform | Yükleme |
 | --- | --- |
-| IIS sunucusu |Her iki [sunucunuza Durum İzleyicisi yükleme](app-insights-monitor-performance-live-website-now.md) veya [uygulamanız .NET Framework 4.6 veya sonrası yükseltme](http://go.microsoft.com/fwlink/?LinkId=528259) yükleyip [Application Insights SDK'sı](app-insights-asp-net.md) uygulamanızda. |
-| Azure Web Uygulaması |Web uygulama Denetim Masası'ndaki [, web uygulama Denetim Masası'nda Application Insights dikey penceresini açmak](app-insights-azure-web-apps.md) ve yükleme istenirse seçin. |
+| IIS sunucusu |Her iki [sunucunuza Durum İzleyicisi yükleme](app-insights-monitor-performance-live-website-now.md) veya [, uygulama too.NET framework 4.6 veya sonrası yükseltme](http://go.microsoft.com/fwlink/?LinkId=528259) hello yükleyip [Application Insights SDK'sı](app-insights-asp-net.md) uygulamanızda. |
+| Azure Web Uygulaması |Web uygulama Denetim Masası'ndaki [açık hello Application Insights dikey penceresinde, web uygulama Denetim Masası'ndaki](app-insights-azure-web-apps.md) ve yükleme istenirse seçin. |
 | Azure bulut hizmeti |[Kullanım başlangıç görevi](app-insights-cloudservices.md) veya [yükleme .NET framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
-## <a name="where-to-find-dependency-data"></a>Bağımlılık verileri nerede bulacağını
+## <a name="where-toofind-dependency-data"></a>Burada toofind bağımlılık verileri
 * [Uygulama eşlemesi](#application-map) uygulama ve neighbouring bileşenleri arasındaki bağımlılıkları visualizes.
 * [Performans, tarayıcı ve hata dikey pencereleri](#performance-and-blades) sunucu bağımlılık verileri göster.
 * [Tarayıcılar dikey penceresinde](#ajax-calls) kullanıcılarınızın tarayıcılarından AJAX çağrıları gösterilir.
-* [Yavaş ya da başarısız isteklerinden tıklatın aracılığıyla](#diagnose-slow-requests) kendi bağımlılık denetlemek için çağırır.
-* [Analytics](#analytics) sorgu bağımlılık verileri için kullanılabilir.
+* [Yavaş ya da başarısız isteklerinden tıklatın aracılığıyla](#diagnose-slow-requests) kendi bağımlılık toocheck çağırır.
+* [Analytics](#analytics) kullanılan tooquery bağımlılık verileri olabilir.
 
 ## <a name="application-map"></a>Uygulama Eşlemesi
-Uygulama bileşenleri arasındaki bağımlılıkları keşfetmek için bir görsel Yardım uygulama eşlemesi görür. Ayrıca, uygulamanızdan alınan telemetri gelen otomatik olarak oluşturulur. Bu örnek AJAX çağrılarını tarayıcı komut dosyaları ve sunucu uygulamasından REST çağrılarını iki dış hizmetler için gösterir.
+Uygulama eşlemesi, uygulamanızın hello bileşenler arasındaki bir görsel Yardım toodiscovering bağımlılıklar olarak görev yapar. Merhaba, uygulamanızın telemetrisinden gelen otomatik olarak oluşturulur. Bu örnek uygulama tootwo dış hizmetler hello tarayıcı komut dosyalarından AJAX çağrılarını ve REST çağrılarını hello sunucusundan gösterir.
 
 ![Uygulama Eşlemesi](./media/app-insights-asp-net-dependencies/08.png)
 
-* **Kutularından gidin** ilgili bağımlılık ve diğer grafik.
-* **Harita PIN** için [Pano](app-insights-dashboards.md), burada bu tamamen işlevsel olacaktır.
+* **Merhaba kutularından gidin** toorelevant bağımlılık ve diğer grafik.
+* **PIN hello harita** toohello [Pano](app-insights-dashboards.md), burada bu tamamen işlevsel olacaktır.
 
 [Daha fazla bilgi edinin](app-insights-app-map.md).
 
 ## <a name="performance-and-failure-blades"></a>Performans ve hata dikey pencereleri
-Performans dikey penceresini sunucu uygulama tarafından oluşturulan bağımlılık çağrıları süresini gösterir. Bir Özet Grafik ve çağrısı tarafından bölümlenmiş bir tablo yok.
+Merhaba performans dikey penceresinde hello sunucu uygulama tarafından oluşturulan bağımlılık çağrıları hello süresini gösterir. Bir Özet Grafik ve çağrısı tarafından bölümlenmiş bir tablo yok.
 
 ![Performans dikey bağımlılık grafikleri](./media/app-insights-asp-net-dependencies/dependencies-in-performance-blade.png)
 
-Özet grafikleri veya bu çağrıları ham oluşumları aramak için Tablo öğelerini tıklatın.
+Merhaba Özet grafikleri veya hello Tablo öğeleri toosearch ham oluşumları bu çağrıları tıklayın.
 
 ![Bağımlılık çağrısı örnekleri](./media/app-insights-asp-net-dependencies/dependency-call-instance.png)
 
-**Hata sayısı** üzerinde gösterilen **hataları** dikey. Aralık 200-399, veya bilinmeyen olmayan dönüş kodları hatasıdır.
+**Hata sayısı** hello üzerinde gösterilen **hataları** dikey. Merhaba aralığı 200-399, veya bilinmeyen olmayan dönüş kodları hatasıdır.
 
 > [!NOTE]
-> **% 100 hataları?** -Bu, büyük olasılıkla kısmi bağımlılık verileri yalnızca aldıklarından gösterir. Yapmanız [bağımlılık izleme işlevini platformunuz için uygun ayarlama](#set-up-dependency-monitoring).
+> **% 100 hataları?** -Bu, büyük olasılıkla kısmi bağımlılık verileri yalnızca aldıklarından gösterir. Çok ihtiyacınız[uygun tooyour platform izleme bağımlılık ayarlamak](#set-up-dependency-monitoring).
 >
 >
 
 ## <a name="ajax-calls"></a>AJAX çağrıları
-Tarayıcılar dikey penceresinde AJAX çağrılarından süresi ve hata oranını gösterir [web sayfalarında JavaScript](app-insights-javascript.md). Bunlar bağımlılıklar olarak gösterilir.
+Merhaba tarayıcılar dikey penceresinde hello süresi gösterir ve hata oranı AJAX çağrıları [web sayfalarında JavaScript](app-insights-javascript.md). Bunlar bağımlılıklar olarak gösterilir.
 
 ## <a name="diagnosis"></a>Yavaş istekler tanılama
-Her istek olayı bağımlılık çağrıları, özel durumlar ve uygulamanızı isteği işlerken izlenen diğer olayları ile ilişkilidir. Bu nedenle bazı istekleri hatalı gerçekleştiriyorsanız, bir bağımlılık yavaş yanıt nedeniyle olup olmadığını bulabilirsiniz.
+Her isteği olayı hello bağımlılık çağrıları ile ilişkili olduğundan, özel durumlar ve uygulamanızı işlerken izlenen diğer olayları isteği Merhaba. Bu nedenle bazı istekleri hatalı gerçekleştiriyorsanız, bir bağımlılık tooslow yanıtlarının son olup olmadığını bulabilirsiniz.
 
 Şimdi örneği, yol gösterir.
 
-### <a name="tracing-from-requests-to-dependencies"></a>Gelen istekleri için bağımlılıkları izleme
-Performans dikey penceresini açın ve istekleri kılavuz bakın:
+### <a name="tracing-from-requests-toodependencies"></a>İstekleri toodependencies izleme
+Merhaba performans dikey penceresini açın ve istekleri hello kılavuz bakın:
 
 ![Ortalamalar ve sayıları istekleriyle listesi](./media/app-insights-asp-net-dependencies/02-reqs.png)
 
-Üst biri çok uzun sürüyor. Biz zamanın nerede harcandığına çıkışı bulmak, görelim.
+Merhaba üst biri çok uzun sürüyor. Biz hello zamanın nerede harcandığına çıkışı bulmak, görelim.
 
-Satır ayrı istek olayları görmek için tıklatın:
+Bu satır toosee ayrı istek olayları tıklatın:
 
 ![İstek örnekleri listesi](./media/app-insights-asp-net-dependencies/03-instances.png)
 
-Daha fazla incelemek ve bu istekle ilişkili uzak bağımlılık çağrıları aşağıya doğru kaydırmak için uzun süre çalışan örnek tıklatın:
+Daha fazla ve toohello uzak bağımlılık çağrıları ilgili toothis isteği kaydırarak herhangi uzun süre çalışan örnek tooinspect tıklatın:
 
-![Uzak bağımlılıkları çağrıları bulmak, olağan dışı süre tanımla](./media/app-insights-asp-net-dependencies/04-dependencies.png)
+![Çağrıları tooRemote bağımlılıkları bulun, olağan dışı süre tanımla](./media/app-insights-asp-net-dependencies/04-dependencies.png)
 
-Bu istek bir yerel hizmete çağrıda harcanan zaman bakım çoğu gibi görünüyor.
+Bu istek bir çağrı tooa yerel hizmetinde harcanan zamanı hello bakım çoğu gibi görünüyor.
 
-Daha fazla bilgi için bu satırı seçin:
+Bu satır tooget daha fazla bilgi seçin:
 
-![Sorunlu tanımlamak için bu uzak bağımlılık ' a tıklayın](./media/app-insights-asp-net-dependencies/05-detail.png)
+![Bu uzak bağımlılık tooidentify hello sorunlu tıklatın](./media/app-insights-asp-net-dependencies/05-detail.png)
 
-Bu sorunu olduğu görülüyor. Biz sorun pinpointed, biz yalnızca artık bu nedenle neden bu çağrı çok uzun sürüyor bulmanız.
+Bu hello sorunu olduğu görülüyor. Biz hello sorun pinpointed, biz yalnızca artık neden bu çağrı çok uzun sürüyor çıkışı toofind şekilde gerekir.
 
 ### <a name="request-timeline"></a>İstek zaman çizelgesi
-Farklı bir durumda, özellikle uzun hiçbir bağımlılık çağrısı yoktur. Ancak Zaman Çizelgesi görünümüne geçerek, gecikme bizim iç işlem oluştuğu görebiliriz:
+Farklı bir durumda, özellikle uzun hiçbir bağımlılık çağrısı yoktur. Ancak toohello Zaman Çizelgesi görünümüne geçiş yaparak hello gecikme bizim iç işlem oluştuğu görebiliriz:
 
-![Uzak bağımlılıkları çağrıları bulmak, olağan dışı süre tanımla](./media/app-insights-asp-net-dependencies/04-1.png)
+![Çağrıları tooRemote bağımlılıkları bulun, olağan dışı süre tanımla](./media/app-insights-asp-net-dependencies/04-1.png)
 
-Olduğu anlaşılıyor ilk bağımlılık çağırdıktan sonra neden olan görmek için bizim kod gibi görünmelidir şekilde büyük bir boşluk olmalıdır.
+Olduğu anlaşılıyor toobe büyük bir boşluk hello ilk bağımlılık çağrısından sonra diğer bir deyişle neden biz bizim kod toosee görünmelidir şekilde.
 
 ### <a name="profile-your-live-site"></a>Canlı sitenizi profil
 
-Fikir olduğu zaman gider mi? [Application Insights profil oluşturucu](app-insights-profiler.md) HTTP canlı sitenize çağırır ve hangi işlevleri kodunuzda gösterir izlemeleri en uzun zaman aldı.
+Fikir burada hello zaman gider mi? Merhaba [Application Insights profil oluşturucu](app-insights-profiler.md) HTTP tooyour Canlı site çağırır ve hangi işlevleri kodunuzda gösterir izlemeleri hello en uzun zaman aldı.
 
 ## <a name="failed-requests"></a>Başarısız istekler
-Başarısız olan istekler başarısız çağrılar bağımlılıkları ile ilişkili olabilir. Yeniden, biz aracılığıyla problemi izlemek için tıklatabilirsiniz.
+Başarısız olan istekler başarısız çağrılar toodependencies ile ilişkili olabilir. Yeniden, biz hello sorun aşağı tootrack aracılığıyla tıklatabilirsiniz.
 
-![Başarısız istekler grafiği tıklatın](./media/app-insights-asp-net-dependencies/06-fail.png)
+![Merhaba başarısız isteklerin grafiği tıklatın](./media/app-insights-asp-net-dependencies/06-fail.png)
 
-Aracılığıyla başarısız bir istek bir örneğini tıklatın ve onun ilişkili olay bakın.
+Başarısız bir istek tooan geçişi tıklatın ve onun ilişkili olay arayın.
 
-![Bir istek türünü tıklatın, örnek aynı örneği farklı bir görünümünü almak için özel durum ayrıntıları almak için tıklatın.](./media/app-insights-asp-net-dependencies/07-faildetail.png)
+![Bir istek türünü tıklatın, hello örnek tooget tooa farklı görünümünü Merhaba aynı örneği, tooget özel durum ayrıntıları tıklatın.](./media/app-insights-asp-net-dependencies/07-faildetail.png)
 
 ## <a name="analytics"></a>Analiz
-Bağımlılıkları izleyebilirsiniz [günlük analizi sorgu dili](https://docs.loganalytics.io/). Bazı örnekler aşağıda verilmiştir.
+Merhaba bağımlılıkları izleyebilirsiniz [günlük analizi sorgu dili](https://docs.loganalytics.io/). Bazı örnekler aşağıda verilmiştir.
 
 * Tüm başarısız bağımlılık çağrıları bulun:
 
@@ -172,11 +172,11 @@ Bağımlılıkları izleyebilirsiniz [günlük analizi sorgu dili](https://docs.
 
 
 ## <a name="custom-dependency-tracking"></a>Özel bağımlılık izleme
-Standart bağımlılık izleme modülü veritabanları ve REST API'leri gibi dış bağımlılıklar otomatik olarak bulur. Ancak, aynı şekilde kabul edilmesi için bazı ek bileşenleri isteyebilirsiniz.
+Merhaba standart bağımlılık izleme modülü veritabanları ve REST API'leri gibi dış bağımlılıklar otomatik olarak bulur. Ancak, bazı ek bileşenleri toobe kabul hello aynı isteyebilirsiniz yolu.
 
-Aynı kullanarak bağımlılık bilgi gönderir kod yazabilirsiniz [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency) standart modülleri tarafından kullanılır.
+Bağımlılık bilgi gönderir kod yazabilirsiniz kullanarak, hello aynı [TrackDependency API](app-insights-api-custom-events-metrics.md#trackdependency) hello standart modülleri tarafından kullanılır.
 
-Örneğin, kendiniz yazmak kaydetmedi ile bir derlemeyi kodunuzu yapılandırdıysanız, yanıt sürelerini kolaylaştırır hangi katkı öğrenmek için tüm çağrıları, zaman. Application Insights bağımlılık grafikte görüntülenen bu verileri olmasını kullanarak göndermek `TrackDependency`.
+Örneğin, bir derleme kodunuzu yapı, kendiniz yazmak alamadık, size tüm hello çağrıları tooit zaman hangi katkı kolaylaştırır tooyour yanıt çıkışı toofind zaman. toohave hello bağımlılık Application Insights, grafiklerde görüntülenen bu verileri gönder kullanarak `TrackDependency`.
 
 ```C#
 
@@ -193,16 +193,16 @@ Aynı kullanarak bağımlılık bilgi gönderir kod yazabilirsiniz [TrackDepende
             }
 ```
 
-Standart bağımlılık izleme modülünü devre dışı geçiş yapmak istiyorsanız, DependencyTrackingTelemetryModule içinde başvurusunu kaldırın [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md).
+Tooswitch hello standart bağımlılık izleme modülü kapatmak isterseniz, hello başvuru tooDependencyTrackingTelemetryModule kaldırmak [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md).
 
 ## <a name="troubleshooting"></a>Sorun giderme
 *Bağımlılık başarı bayrağı her zaman true veya false gösterir.*
 
 *SQL sorgu tam olarak gösterilmez.*
 
-* SDK'ın en son sürüme yükseltin. .NET sürüm 4.6'den az ise:
-  * IIS ana: yükleme [Application Insights Aracısı](app-insights-monitor-performance-live-website-now.md) ana bilgisayar sunucuları üzerinde.
-  * Azure web uygulaması: açık Application Insights sekmesinde web uygulama Denetim Masası'nda ve Application Insights yükleyin.
+* Merhaba SDK toohello en son sürümüne yükseltme. .NET sürüm 4.6'den az ise:
+  * IIS ana: yükleme [Application Insights Aracısı](app-insights-monitor-performance-live-website-now.md) hello ana bilgisayar sunucuları üzerinde.
+  * Azure web uygulaması: açık Application Insights sekmesinde hello web uygulama Denetim Masası'nda ve Application Insights yükleyin.
 
 ## <a name="video"></a>Video
 

@@ -1,7 +1,7 @@
 ---
-title: "Başka bir hesap için Azure aboneliği sahipliğini aktarma | Microsoft Docs"
-description: "Başka bir kullanıcı ve süreci hakkında bazı sık sorulan sorular (SSS) için bir Azure aboneliği aktarım açıklar"
-keywords: "Azure abonelik, azure aktarımı abonelik aktarımı, başka bir hesap, azure yeni abonelik sahibi azure aboneliği taşımak, azure aboneliği başka bir hesaba aktarın"
+title: "Azure aboneliği sahipliği tooanother hesap aaaTransfer | Microsoft Docs"
+description: "Nasıl tootransfer bir Azure aboneliği tooanother kullanıcı ve bazı sık sorulan sorular (SSS hakkında hello işlemi) açıklanır"
+keywords: "Azure abonelik, azure aktarımı abonelik aktarımı, azure aboneliği tooanother hesabı, azure yeni abonelik sahibi, aktarım azure abonelik tooanother hesabı taşıma"
 services: 
 documentationcenter: 
 author: genlin
@@ -17,144 +17,144 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8a856c39eb11546f35cb4e8c21e6bdcce98857a8
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: d2d9f5d9ccd34738701493e5f31c2f83a02f5d48
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Başka bir hesap için bir Azure aboneliği sahipliğini aktarma
+# <a name="transfer-ownership-of-an-azure-subscription-tooanother-account"></a>Bir Azure aboneliği tooanother hesap sahipliğini aktarma
 
-Kullandıkça Öde, Visual Studio, eylem paketi ya da hesap Merkezi'nde BizSpark abonelik için aboneliğinizi başka bir kullanıcıya aktarabilir. Bu abonelik türleri için de Azure dış hizmetler aktarımını destekliyoruz. 
+Abonelik tooanother kullanıcınız hello hesap Merkezi'nde Kullandıkça Öde, Visual Studio, eylem paketi veya BizSpark abonelikler için aktarabilirsiniz. Bu abonelik türleri için de Azure dış hizmetler hello aktarımını destekliyoruz. 
 
-Varsa bir Azure aboneliği sahipliğini aktarma isteyebilirsiniz:
+Bir Azure aboneliği tootransfer sahipliğini isteyebilirsiniz:
 
-* Azure aboneliğinize başkası sahipliğini faturalama üzerinden elle gerekir.
-* Azure için kaydolmak için kullandığınız hesap değiştirmek istiyorum. Belki de Microsoft Account kullanılan ancak çalışmanızı kullanma veya Okul hesabı yerine anlamına gelir.
-* Azure aboneliğinizde bir dizinden taşımak istersiniz.
-* Azure ve Office 365 farklı kiracılar varsa ve birleştirmek istiyorsanız.
+* Toohand fatura sahipliğini başka Azure aboneliği toosomeone gerekir.
+* Azure için toosign toochange hello hesabı kullanılan istersiniz. Belki de Microsoft Account kullanılan ancak bunun yerine iş veya Okul hesabınızı toouse anlamına gelir.
+* Bir dizin tooanother Azure aboneliğinizden toomove istiyor.
+* Azure ve Office 365 farklı kiracılar sahip ve tooconsolidate istiyor.
 
-Aboneliğinizi farklı bir teklif değiştirmek için bkz: [Azure aboneliğinizi başka bir teklife geç](billing-how-to-switch-azure-offer.md). 
+toochange farklı, abonelik tooa sunar, bkz: [Azure aboneliği tooanother teklifiniz geçiş](billing-how-to-switch-azure-offer.md). 
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Bir Azure aboneliği sahipliğini aktarma
 > [!VIDEO https://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/Transfer-an-Azure-subscription/player]
 >
 >
 
-1. Adresinde oturum açın <https://account.windowsazure.com/Subscriptions>. Sahiplik aktarımı gerçekleştirmek için hesap yöneticisi olmanız gerekir. Aboneliğin hesap yöneticisi kim olduğunu bulmak için bkz: [sık sorulan sorular](#faq).
+1. Adresinde oturum açın <https://account.windowsazure.com/Subscriptions>. Toobe hello Hesap Yöneticisi tooperform Sahiplik aktarımı var. Merhaba hello aboneliğin hesap yöneticisi kim çıkışı toofind bkz hello [sık sorulan sorular](#faq).
 
-2. Aktarılacak abonelik seçin.
+2. Merhaba abonelik tootransfer seçin.
 
-3. Tıklatın **abonelik aktarımı** seçeneği. Bkz: [SSS](#no-button) düğmeyi görmüyorsanız.
+3. Merhaba tıklatın **abonelik aktarımı** seçeneği. Bkz: [SSS](#no-button) hello düğmesini görmüyorsanız.
 
    ![Azure hesabı abonelikleri sekmesi](./media/billing-subscription-transfer/image1.png)
-4. Alıcıyı belirtin.
+4. Merhaba alıcı belirtin.
 
    ![Aktarım abonelik iletişim kutusu](./media/billing-subscription-transfer/image2.PNG)
-5. Alıcı otomatik olarak, kabul bağlantısı içeren bir e-posta alır.
+5. Merhaba alıcı otomatik olarak kabul bağlantı içeren bir e-posta alır.
 
-   ![Abonelik aktarımı alıcı'e-posta](./media/billing-subscription-transfer/image3.png)
-6. Alıcı bağlantıya tıklar ve yönergeleri izler; bu arada ödeme bilgilerini de girer.
+   ![Abonelik aktarımı e-posta toorecipient](./media/billing-subscription-transfer/image3.png)
+6. Merhaba alıcı hello bağlantıya tıklar ve ödeme bilgilerini girme dahil hello yönergeleri izler.
 
    ![İlk abonelik aktarımı web sayfası](./media/billing-subscription-transfer/image4.png)
 
    ![İkinci abonelik aktarımı web sayfası](./media/billing-subscription-transfer/image5.png)
-7. Başarılı! Abonelik artık aktarılır.
+7. Başarılı! Merhaba abonelik artık aktarılır.
 
 ## <a name="transfer-subscription-ownership-for-enterprise-agreement-ea-customers"></a>Kurumsal Anlaşma (Kurumsal Sözleşme) müşteriler için abonelik sahipliğini aktarma
-Kuruluş Yöneticisi bir kayıt içinde abonelikleri sahipliğini aktarabilirsiniz. Başlamak için bkz: [hesap sahipliğini aktarma](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) EA Portalı'nda.
+Merhaba kuruluş yöneticisi bir kayıt içinde abonelikleri sahipliğini aktarabilirsiniz. başlatıldı, tooget bkz [hesap sahipliğini aktarma](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) hello EA Portalı'nda.
 
 ## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>Bir aboneliğin sahipliğini kabul sonraki adımlar
-1. Hesap Yöneticisi sunulmuştur. Gözden geçirin ve hizmet yöneticisini ve ortak Yöneticiler güncelleştirin. Admins yönetmek [Klasik Azure portalı](https://manage.windowsazure.com) ayarlarına giderek. [Yönetici rolleri hakkında daha fazla bilgi](billing-add-change-azure-subscription-administrator.md).
+1. Artık hello hesabı yönetici demektir. Gözden geçirin ve hello Hizmet Yöneticisi ve ortak Yöneticiler güncelleştirin. Merhaba Admins yönetmek [Klasik Azure portalı](https://manage.windowsazure.com) tooSettings giderek. [Yönetici rolleri hakkında daha fazla bilgi](billing-add-change-azure-subscription-administrator.md).
 
-2. Rol tabanlı erişim denetimi (RBAC), aboneliğiniz ve hizmetleriniz için de kullanabilirsiniz. [Azure portalını](https://portal.azure.com) ziyaret edin. [RBAC hakkında daha fazla bilgi edinin](../active-directory/role-based-access-control-configure.md)
+2. Rol tabanlı erişim denetimi (RBAC), aboneliğiniz ve hizmetleriniz için de kullanabilirsiniz. Merhaba ziyaret [Azure portal](https://portal.azure.com). [RBAC hakkında daha fazla bilgi edinin](../active-directory/role-based-access-control-configure.md)
 
 3. Dahil olmak üzere bu aboneliğin hizmetleriyle ilişkili kimlik bilgilerini güncelleştirin:
    
-   * Kullanıcının yönetici hakları abonelik kaynaklarına yönetim sertifikaları. Daha fazla bilgi için bkz: [oluşturun ve bir yönetim sertifikası için Azure yükleyin](../cloud-services/cloud-services-certs-create.md)
+   * Merhaba kullanıcı yönetici hakları toosubscription kaynaklara erişim izni yönetim sertifikaları. Daha fazla bilgi için bkz: [oluşturun ve bir yönetim sertifikası için Azure yükleyin](../cloud-services/cloud-services-certs-create.md)
    
    * Depolama Hizmetleri için erişim anahtarlarını ister. Daha fazla bilgi için bkz: [Azure storage hesapları hakkında](../storage/common/storage-create-storage-account.md)
    
    * Azure sanal makineleri Hizmetleri için uzaktan erişim kimlik bilgilerini ister. 
 
-4. [Bu abonelik için faturalama uyarılarını güncelleştirin](billing-set-up-alerts.md) adresindeki [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions). 
+4. [Bu abonelik için faturalama uyarılarını güncelleştirin](billing-set-up-alerts.md) hello adresindeki [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions). 
 
-5. Bir iş ortağı ile çalışıyorsanız, iş ortağı Kimliğini bu abonelikte güncelleştirmeyi deneyin. İş ortağı Kimliğini güncelleştirebilirsiniz [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions).
+5. Bir iş ortağı ile çalışıyorsanız, hello iş ortağı Kimliğini bu abonelikte güncelleştirmeyi deneyin. Merhaba hello iş ortağı kimliği güncelleştirebilirsiniz [Azure hesap Merkezi](https://account.windowsazure.com/Subscriptions).
 
 <a id="faq"></a>
 
 ## <a name="frequently-asked-questions-faq"></a>Sık sorulan sorular (SSS)
-* <a name="whoisaa"></a>**Aboneliğin Hesap Yöneticisi kimdir?**
+* <a name="whoisaa"></a>**Hello aboneliğin Hesap Yöneticisi hello kimdir?**
 
-  Hesap Yöneticisi kaydolup veya Azure aboneliği satın kullanıcıdır. Bunlar erişim yetkiniz [hesap Merkezi'nde](https://account.windowsazure.com/Home/Index) ve abonelikleri oluşturma, aboneliklerinizi iptal edin, bir abonelik için faturalama değiştirmek veya Hizmet Yöneticisi değiştirme gibi çeşitli yönetim görevlerini gerçekleştirebilirsiniz. Bir abonelik için hesap yöneticinize olan emin değilseniz, öğrenmek için aşağıdaki adımları kullanın.
+  Merhaba Hesap Yöneticisi kaydolup veya hello Azure aboneliği satın hello kullanıcıdır. Yetkili tooaccess hello oldukları [hesap Merkezi'nde](https://account.windowsazure.com/Home/Index) ve abonelikleri oluşturma, aboneliklerinizi iptal edin, bir abonelik için hello fatura değiştirmek veya hello Hizmet Yöneticisi değiştirme gibi çeşitli yönetim görevlerini gerçekleştirebilirsiniz. Bir abonelik için hello hesap yöneticisi olan emin değilseniz, aşağıdaki adımları toofind çıkışı hello kullanın.
 
-  1. [Azure Portal](https://portal.azure.com) oturum açın.
-  2. Hub menüsünde seçin **abonelik**.
-  3. Denetleyin ve altında aramak istediğiniz aboneliği seçin **ayarları**.
-  4. Seçin **özellikleri**. Aboneliğin Hesap Yöneticisi görüntülenen **Hesap Yöneticisi** kutusu.  
+  1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
+  2. Merhaba Hub menüsünde seçin **abonelik**.
+  3. Toocheck istediğiniz ve altında Ara hello aboneliği seçin **ayarları**.
+  4. Seçin **özellikleri**. hello aboneliğin Hesap Yöneticisi Hello hello görüntülenen **Hesap Yöneticisi** kutusu.  
 
 * **Her şeyi aktarım mu? Kaynak grupları, VM'ler, diskleri ve diğer çalışan hizmetleri de dahil olmak üzere?**
 
-  Evet, tüm kaynaklarınızı VM'ler, diskler ve Web siteleri aktarımı için yeni sahibin ister. Ancak, tüm [yönetici rolleri](billing-add-change-azure-subscription-administrator.md) ve [rol tabanlı erişim denetimi (RBAC)](../active-directory/role-based-access-control-configure.md) ayarladığınız ilkeleri farklı dizinlerde aktarım değil.
+  Evet, sanal makineleri, diskler, tüm kaynaklarınızı ister ve Web siteleri toohello yeni sahibi aktarın. Ancak, tüm [yönetici rolleri](billing-add-change-azure-subscription-administrator.md) ve [rol tabanlı erişim denetimi (RBAC)](../active-directory/role-based-access-control-configure.md) ayarladığınız ilkeleri farklı dizinlerde aktarım değil.
 
-* <a id="no-button"></a>**Yok görmemin nedeni abonelik aktarımı düğmesi?**
+* <a id="no-button"></a>**Yok görmemin nedeni hello abonelik aktarımı düğmesi?**
 
-  Görmüyorsanız, **aktarımı abonelik** düğmesi, sonra da teklifiniz için abonelik aktarımı desteklemiyoruz. [Desteğe başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+  Merhaba görmüyorsanız, **aktarımı abonelik** düğmesi, sonra da teklifiniz için abonelik aktarımı desteklemiyoruz. [Desteğe başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 * **Abonelik aktarımı herhangi bir hizmet kesintisi yol mu?**
 
-  Hizmet üzerinde etkisi yoktur. Aboneliğin aktarılması abonelik geçerli hesap yöneticisi altında iptal eder ve alıcının hesabı altında bir abonelik oluşturur. Yeni Abonelik için temel Azure Hizmetleri ilişkilidir. Abonelik kimliği aynı kalır.
+  Etkisi toohello hizmet yok. Merhaba aboneliğin aktarılması hello abonelik hello geçerli hesap yöneticisi altında iptal eder ve hello alıcının hesabı altında bir abonelik oluşturur. Merhaba yeni abonelik ilişkili toohello temel Azure Hizmetleri ' dir. Merhaba abonelik kimliği kalır aynı hello.
 
-* **Abonelik için dizini değiştirmek için bu işlemi nasıl kullanırım?**
+* **Abonelik için nasıl bu işlem toochange hello dizin kullanıyor?**
 
-  Bir Azure aboneliğiniz Hesap Yöneticisi ait dizinde oluşturulur. Dizini değiştirmek için hedef dizininde bir kullanıcı hesabı için abonelik aktarın. Bu kullanıcının aktarımı kabul etmek için adımları tamamlandığında, abonelik otomatik olarak hedef dizinine taşınır.
+  Bir Azure aboneliğiniz Hesap Yöneticisi ait bu hello hello dizininde oluşturulur. toochange hello dizini transfer hello abonelik tooa kullanıcı hesabında hello hedef dizin. Bu kullanıcının hello adımları tooaccept aktarımı tamamlandığında hello abonelik otomatik olarak taşınan toohello hedef dizindir.
 
-* **Fatura sahipliğini başka bir kuruluştan bir abonelik üzerinden izlerseniz Kaynaklarım erişiminiz devam eder?**
+* **Fatura sahipliğini başka bir kuruluştan bir abonelik üzerinden izlerseniz toohave erişimine toomy devam etmeyin?**
 
-  Abonelik için başka bir kiracı aktardıysanız, önceki Kiracı ile ilişkilendirilen kullanıcılar abonelik erişimi kaybedersiniz. Bir kullanıcı bir Hizmet Yöneticisi veya ortak yönetici artık olsa bile, yine de dahil olmak üzere, başka bir güvenlik mekanizması abonelikle erişimleri:
+  Merhaba abonelik aktarılan tooanother Kiracı ise, hello önceki Kiracı ile ilişkilendirilen hello kullanıcıların erişim toohello abonelik kaybedersiniz. Bir kullanıcının olsa bile bir Hizmet Yöneticisi değil veya ortak yönetici artık, bunlar yine de dahil olmak üzere, başka bir güvenlik mekanizması aracılığıyla erişim toohello abonelik olabilir:
 
-  * Kullanıcının yönetici hakları abonelik kaynaklarına yönetim sertifikaları. Daha fazla bilgi için bkz: [oluşturun ve Azure için yönetim sertifikası karşıya](../cloud-services/cloud-services-certs-create.md).
+  * Merhaba kullanıcı yönetici hakları toosubscription kaynaklara erişim izni yönetim sertifikaları. Daha fazla bilgi için bkz: [oluşturun ve Azure için yönetim sertifikası karşıya](../cloud-services/cloud-services-certs-create.md).
   * Depolama Hizmetleri için erişim anahtarlarını ister. Daha fazla bilgi için bkz: [Azure storage hesapları hakkında](../storage/common/storage-create-storage-account.md).
   * Azure sanal makineleri Hizmetleri için uzaktan erişim kimlik bilgilerini ister.
 
- Alıcı kullanıcıların kaynaklara erişimini kısıtlamak gerekirse, hizmetle ilişkilendirilmiş gizli güncelleştirmeyi düşünmelisiniz. En fazla kaynak, aşağıdaki adımları kullanarak güncelleştirilebilir:
+ Merhaba alıcı toorestrict erişimine tootheir gerekirse, hello hizmetiyle ilişkili tüm gizli güncelleştirmeyi düşünmelisiniz. En fazla kaynak hello aşağıdaki adımları kullanarak güncelleştirilebilir:
 
-    1. [Azure Portal](https://portal.azure.com) gidin.
-    2. Hub menüsünde seçin **tüm kaynakları**.
-    3. Kaynak seçin. 
-    4. Kaynak dikey penceresinde tıklayın **ayarları**. Burada görebilirsiniz ve var olan gizli güncelleştirin.
+    1. Toohello Git [Azure portal](https://portal.azure.com).
+    2. Merhaba Hub menüsünde seçin **tüm kaynakları**.
+    3. Merhaba kaynağı seçin. 
+    4. Merhaba kaynak dikey penceresinde tıklayın **ayarları**. Burada görebilirsiniz ve var olan gizli güncelleştirin.
 
-* **Abonelik faturalama döngüsü ortasında aktarırsanız, alıcı ödeme tüm faturalama döngüsü mu?**
+* **Faturalama döngüsü hello hello ortasında hello aboneliği transfer ederseniz, hello alıcı ödeme hello tüm faturalama döngüsü mu?**
 
-  Gönderen, aktarım tamamlandıktan noktaya kadar bildirildi kullanım için ödeme sorumludur. Alıcı, sonraki sürümlerde aktarımı zamandan bildirilen kullanım sorumludur. Aktarım önce gerçekleşen ancak daha sonra bildirildi bazı kullanım olabilir. Kullanım alıcının fatura dahil edilir.
+  Merhaba gönderen hello transfer tamamlandıktan toohello noktasını yukarı bildirildi kullanım için ödeme sorumludur. Merhaba alıcı, sonraki sürümlerde aktarımı hello zamandan bildirilen kullanım sorumludur. Aktarım önce gerçekleşen ancak daha sonra bildirildi bazı kullanım olabilir. Merhaba kullanım hello alıcının fatura dahil edilir.
 
-* **Alıcı, kullanım ve Fatura geçmişi erişimi var mı?**
+* **Merhaba alıcı erişim toousage ve Fatura geçmişi var mı?**
 
-  Bilgiler yalnızca alıcıya kullanılabilir son fatura miktarıdır veya ilk fatura başlatmasından önce abonelik aktarılan varsa geçerli bakiye oluşturulur. Kullanım ve fatura geçmişini geri kalanı abonelikle aktarılmaz.
+  Merhaba tek bilgi kullanılabilir toohello alıcı hello son fatura hello miktarıdır veya hello abonelik hello ilk fatura oluşturulan önce aktardıysanız geçerli bakiye hello. Merhaba kullanım ve fatura geçmişini Hello kalan hello abonelikle aktarılmaz.
 
-* **Teklif aktarım sırasında değiştirilebilir mi?**
+* **Merhaba teklif aktarım sırasında değiştirilebilir mi?**
 
-  Teklif aynı kalması gerekir. Teklifiniz değiştirmek için bkz: [Azure aboneliğinizi başka bir teklife geç](billing-how-to-switch-azure-offer.md).
+  Merhaba teklif kalması gereken aynı hello. toochange teklifiniz, bkz: [Azure aboneliği tooanother teklifiniz geçiş](billing-how-to-switch-azure-offer.md).
 
-* **Başka bir ülkede bir kullanıcı hesabı için bir abonelik aktarabilirim?**
+* **Bir abonelik tooa kullanıcı hesabı başka bir ülkede aktarabilir miyim?**
 
-  Hayır, başka bir ülkede kullanıcı hesabına bir aboneliğin aktarılması desteklenmiyor. Alıcının kullanıcı hesabının aynı ülkede olması gerekir.
+  Hayır, bir abonelik tooa kullanıcı hesabı başka bir ülkede aktarma desteklenmiyor. Merhaba alıcının kullanıcı hesabı hello olmalıdır aynı ülkede.
 
-* **Alıcı, farklı bir ödeme yöntemi kullanabilir miyim?**
+* **Merhaba alıcı farklı bir ödeme yöntemi kullanabilir miyim?**
 
-  Evet. Ancak abonelik faturalama geçmişi iki hesap arasında bölünür.  
+  Evet. Ancak hello abonelik faturalama geçmişi iki hesap arasında bölünür.  
 
-* **Bir Azure aboneliği transfer sonra ödeme yöntemini etkileniyor mu?**
+* **Bir Azure aboneliği transfer sonra hello ödeme yöntemini etkileniyor mu?**
 
-  Abonelik aktarımı, kredi kartı veya benzer ödeme kabul etmek için yöntem abonelik için ödeme yapmak sağlanmalıdır. Örneğin, Bob bir abonelik için Jane aktarır ve Jane aktarımı kabul eder, Jane abonelik için ödeme yapmak için bir ödeme yöntemi sağlamanız gerekir. Transfer işlemi tamamlandıktan sonra Jane değil Bob abonelik için faturalandırılır.
+  tooaccept abonelik aktarımı, kredi kartı veya benzer ödeme yöntemini toopay hello abonelik için sağlanmalıdır. Örneğin, bir abonelik tooJane Bob aktarır ve Jane hello aktarımı kabul eder, Jane bir ödeme yöntemi toopay hello abonelik için sağlamanız gerekir. Merhaba transfer tamamlandıktan sonra Jane hello abonelik değil Bob için faturalandırılır.
 
-* **Nasıl veri ve Hizmetleri Azure Aboneliğim için yeni abonelik geçişini miyim?**
+* **Nasıl veri ve Azure abonelik toonew Aboneliğimi Hizmetleri geçişini miyim?**
 
-  Abonelik sahipliği aktaramaz, kaynaklarınızın el ile geçirebilirsiniz. Bkz: [yeni kaynak grubu veya abonelik kaynaklarını taşıma](../azure-resource-manager/resource-group-move-resources.md).
+  Abonelik sahipliği aktaramaz, kaynaklarınızın el ile geçirebilirsiniz. Bkz: [kaynakları toonew kaynak grubuna veya aboneliğe taşıma](../azure-resource-manager/resource-group-move-resources.md).
 
 
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
-Hala yardıma gereksiniminiz varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) hızla çözümlenen sorunu almak için. 
+Hala yardıma gereksiniminiz varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorunu Çözümlendi hızla tooget. 
 
 

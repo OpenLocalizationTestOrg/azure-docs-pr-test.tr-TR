@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI kullanarak kaynak yöneticisi Vm'leri geçirme | Microsoft Docs"
-description: "Bu makalede kaynakları platform desteklenen geçiş Klasikten Azure Resource Manager'da Azure CLI kullanarak anlatılmaktadır"
+title: aaaMigrate VM'ler tooResource Azure CLI kullanarak Manager | Microsoft Docs
+description: "Bu makalede, Azure CLI kullanarak Klasik tooAzure Resource Manager hello platform desteklenen geçiş kaynakların anlatılmaktadır"
 services: virtual-machines-linux
 documentationcenter: 
 author: singhkays
@@ -15,177 +15,177 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: a63d758570b09b37b8e51c639267f729521d9ae0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0b11f4bb1b4658b3e88bf7629147ed953b678556
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Iaas kaynaklarını Klasikten Azure Resource Manager'da Azure CLI kullanarak geçirme
-Bu adımlar Azure komut satırı arabirimi (CLI) komutları altyapı Klasik dağıtım modeli hizmet (Iaas) kaynaklardan Azure Resource Manager dağıtım modeline olarak geçirmek için nasıl kullanılacağını gösterir. Makale gerektirir [Azure CLI](../../cli-install-nodejs.md).
+# <a name="migrate-iaas-resources-from-classic-tooazure-resource-manager-by-using-azure-cli"></a>Azure CLI kullanarak Klasik tooAzure Resource Manager Iaas kaynaklarını geçirme
+Bu adımlar nasıl hello Klasik dağıtım modeli toohello Azure Resource Manager dağıtım modeli hizmet (Iaas) kaynaklardan olarak toomigrate altyapı toouse Azure komut satırı arabirimi (CLI) komutları gösterir. Merhaba makale gerektirir hello [Azure CLI](../../cli-install-nodejs.md).
 
 > [!NOTE]
-> Burada açıklanan tüm ıdempotent işlemleridir. Desteklenmeyen bir özellik veya bir yapılandırma hatası başka bir sorun varsa, hazırlama yeniden deneme öneririz, veya tamamlanmaya işlemi. Platform sonra eylemi yeniden deneyecek.
+> Burada açıklanan tüm hello ıdempotent işlemleridir. Desteklenmeyen bir özellik veya bir yapılandırma hatası başka bir sorun varsa, hello yeniden deneme öneririz hazırlamak, iptal etmek veya yürütme işlemi. Merhaba platform sonra hello eylemi yeniden deneyecek.
 > 
 > 
 
 <br>
-İşte adımları geçiş işlemi sırasında yürütülmesi gerekir siparişi tanımlamak için bir akış çizelgesi
+Adımları bir geçiş işlemi sırasında yürütülen toobe gereken bir akış çizelgesi tooidentify hello siparişi İşte
 
-![Geçiş adımlarını gösteren ekran görüntüsü](../windows/media/migration-classic-resource-manager/migration-flow.png)
+![Merhaba geçiş adımlarını gösteren ekran görüntüsü](../windows/media/migration-classic-resource-manager/migration-flow.png)
 
 ## <a name="step-1-prepare-for-migration"></a>1. adım: geçiş için hazırlama
-Geçirme Iaas kaynaklardan Klasik Kaynak Yöneticisi değerlendirirken öneririz birkaç en iyi uygulamalar şunlardır:
+Klasik tooResource Yöneticisi geçirme Iaas kaynaklardan değerlendirirken öneririz birkaç en iyi uygulamalar şunlardır:
 
-* Okuyun [desteklenmeyen yapılandırmaları veya özellikleri listesi](../windows/migration-classic-resource-manager-overview.md). Desteklenmeyen yapılandırmaları veya özellikleri kullanan sanal makineler varsa, duyurdu özellik/yapılandırma desteği beklemenizi öneririz. Alternatif olarak, bu özelliği kaldırmak veya gereksinimlerinize uygun değilse, geçiş etkinleştirmek için bu yapılandırma dışında taşıyın.
-* Bugün, altyapı ve uygulamalarınızı dağıtma komut otomatik değilse, geçiş için bu komut dosyalarını kullanarak benzer bir test Kurulum oluşturmayı deneyin. Alternatif olarak, Azure portalını kullanarak örnek ortamları ayarlayabilirsiniz.
+* Merhaba okuma [desteklenmeyen yapılandırmaları veya özellikleri listesi](../windows/migration-classic-resource-manager-overview.md). Desteklenmeyen yapılandırmaları veya özellikleri kullanan sanal makineler varsa, hello özelliği/yapılandırma desteği toobe duyurdu için beklemenizi öneririz. Alternatif olarak, bu özelliği kaldırmak veya gereksinimlerinize uygun yapılandırma tooenable geçişin dışına taşıyın.
+* Bugün, altyapı ve uygulamalarınızı dağıtma komut otomatik değilse, geçiş için bu komut dosyalarını kullanarak toocreate benzer bir test Kurulum deneyin. Alternatif olarak, örnek ortamları hello Azure portal kullanarak ayarlayabilirsiniz.
 
 > [!IMPORTANT]
-> Uygulama ağ geçitleri, Klasik geçiş için kaynak yöneticisi için şu anda desteklenmemektedir. Bir uygulama ağ geçidi Klasik sanal ağla geçirmek için ağ taşımak için bir hazırlama işlemi çalıştırmadan önce ağ geçidi kaldırın. Geçişi tamamladıktan sonra Azure Kaynak Yöneticisi'nde ağ geçidi yeniden bağlanın. 
+> Uygulama ağ geçitleri, Klasik tooResource Yöneticisi geçiş için şu anda desteklenmemektedir. toomigrate bir uygulama ağ geçidi ile klasik sanal ağ hazırlama işlemi toomove hello ağ çalıştırmadan önce hello ağ geçidi kaldırın. Merhaba ağ geçidi Azure Kaynak Yöneticisi'nde hello geçişi tamamlandıktan sonra yeniden bağlanın. 
 >
->ExpressRoute ağ geçidi başka bir Abonelikteki ExpressRoute bağlantı hatları bağlanma otomatik olarak geçirilemez. Böyle durumlarda, ExpressRoute ağ geçidi kaldırın, sanal ağ geçirmek ve ağ geçidi oluşturun. Lütfen bakın [geçirmek ExpressRoute bağlantı hattına ve Resource Manager dağıtım modeli için Klasik sanal ağlar ilişkili](../../expressroute/expressroute-migration-classic-resource-manager.md) daha fazla bilgi için.
+>ExpressRoute ağ geçidi başka bir Abonelikteki tooExpressRoute devreler bağlanma otomatik olarak geçirilemez. Böyle durumlarda, hello ExpressRoute ağ geçidi kaldırın, hello sanal ağını geçirin ve hello ağ geçidi oluşturun. Lütfen bakın [geçirmek ExpressRoute bağlantı hattına ve hello Klasik toohello Resource Manager dağıtım modeli sanal ağlardan ilişkili](../../expressroute/expressroute-migration-classic-resource-manager.md) daha fazla bilgi için.
 > 
 > 
 
-## <a name="step-2-set-your-subscription-and-register-the-provider"></a>2. adım: aboneliğinizi ayarlamak ve sağlayıcısını Kaydet
-Geçiş senaryoları için her iki Klasik ortamınızı ayarlamanız gerekir ve Resource Manager. [Azure CLI yükleme](../../cli-install-nodejs.md) ve [aboneliğinizi seçin](../../xplat-cli-connect.md).
+## <a name="step-2-set-your-subscription-and-register-hello-provider"></a>2. adım: aboneliğinizi ayarlamak ve hello sağlayıcısını Kaydet
+Geçiş senaryoları için her iki Klasik için ortamınızı kurma tooset gerekir ve Resource Manager. [Azure CLI yükleme](../../cli-install-nodejs.md) ve [aboneliğinizi seçin](../../xplat-cli-connect.md).
 
-Oturum hesabınıza açın.
+Oturum açma tooyour hesabı.
 
     azure login
 
-Aşağıdaki komutu kullanarak Azure aboneliğini seçin.
+Komutu aşağıdaki hello kullanarak Hello Azure aboneliği seçin.
 
     azure account set "<azure-subscription-name>"
 
 > [!NOTE]
-> Kayıt olan bir zaman adım ancak kez geçiş işlemini denemeden önce yapılması gerekir. Kaydettirmeden aşağıdaki hata iletisini görürsünüz 
+> Kayıt bir kez, ancak ihtiyaçlarını kez geçiş işlemini denemeden önce bitti toobe adımıdır. Kaydettirmeden hello aşağıdaki hata iletisini görürsünüz 
 > 
 > *BadRequest: Abonelik geçiş için kayıtlı değil.* 
 > 
 > 
 
-Geçiş kaynak sağlayıcısı ile aşağıdaki komutu kullanarak kaydedin. Bazı durumlarda, bu komut zaman aşımına uğruyor olduğunu unutmayın. Ancak, kayıt başarılı olur.
+Merhaba geçiş kaynak sağlayıcısı ile komutu aşağıdaki hello kullanarak kaydedin. Bazı durumlarda, bu komut zaman aşımına uğruyor olduğunu unutmayın. Ancak, hello kaydı başarılı olur.
 
     azure provider register Microsoft.ClassicInfrastructureMigrate
 
-Kaydın son beş dakika bekleyin. Aşağıdaki komutu kullanarak onay durumunu kontrol edebilirsiniz. RegistrationState olduğundan emin olun `Registered` devam etmeden önce.
+Merhaba kayıt toofinish için beş dakika bekleyin. Komutu aşağıdaki hello kullanarak hello hello onay durumunu kontrol edebilirsiniz. RegistrationState olduğundan emin olun `Registered` devam etmeden önce.
 
     azure provider show Microsoft.ClassicInfrastructureMigrate
 
-Şimdi için CLI geçiş `asm` modu.
+Şimdi CLI toohello geçiş `asm` modu.
 
     azure config mode asm
 
-## <a name="step-3-make-sure-you-have-enough-azure-resource-manager-virtual-machine-cores-in-the-azure-region-of-your-current-deployment-or-vnet"></a>3. adım: Geçerli dağıtım veya VNET Azure bölgesinde yeterli Azure Resource Manager sanal makinesi çekirdeğe sahip olduğunuzdan emin olun
-Bu adım için geçiş gerekir `arm` modu. Aşağıdaki komutla bunu.
+## <a name="step-3-make-sure-you-have-enough-azure-resource-manager-virtual-machine-cores-in-hello-azure-region-of-your-current-deployment-or-vnet"></a>3. adım: hello geçerli dağıtım veya VNET Azure bölgesi yeterli Azure Resource Manager sanal makinesi çekirdeğe sahip olduğunuzdan emin olun
+Bu adımda, tooswitch çok gerekir`arm` modu. Bu komutu aşağıdaki hello ile yapın.
 
 ```
 azure config mode arm
 ```
 
-Azure Kaynak Yöneticisi'nde sahip Çekirdek geçerli miktarını denetlemek için aşağıdaki CLI komutu kullanabilirsiniz. Çekirdek kotaları hakkında daha fazla bilgi için bkz: [sınırları ve Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)
+CLI komutu toocheck hello geçerli miktarını Azure Kaynak Yöneticisi'nde sahip Çekirdek aşağıdaki hello kullanabilirsiniz. toolearn çekirdek kotaları hakkında daha fazla bilgi görmek [sınırları ve hello Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)
 
 ```
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"
 ```
 
-İşiniz bittiğinde bu adımı doğrulanıyor, size geri dönebilirsiniz `asm` modu.
+İşiniz bittiğinde bu adımı doğrulanıyor, geri çok geçebilirsiniz`asm` modu.
 
     azure config mode asm
 
 
 ## <a name="step-4-option-1---migrate-virtual-machines-in-a-cloud-service"></a>4. adım: 1. seçenek - sanal makineler bir bulut hizmetinde geçirme
-Aşağıdaki komutu kullanarak bulut Hizmetleri listesini almak ve geçirmek istediğiniz bulut hizmeti seçin. Bulut hizmetindeki sanal makineleri bir sanal ağ veya web/çalışan rolleri varsa, bir hata iletisi alırsınız unutmayın.
+Komutu aşağıdaki hello kullanarak bulut Hizmetleri ve çekme hello bulut hizmeti toomigrate istediğiniz Get hello listesi. Merhaba VM'ler hello bulut hizmetindeki bir sanal ağ veya web/çalışan rolleri varsa, bir hata iletisi alırsınız unutmayın.
 
     azure service list
 
-Bulut hizmeti için dağıtım adı ayrıntılı çıktısını almak için aşağıdaki komutu çalıştırın. Çoğu durumda, dağıtım adı bulut hizmet adı ile aynıdır.
+Merhaba ayrıntılı çıktı komutu tooget hello dağıtım adı hello bulut hizmeti için aşağıdaki hello çalıştırın. Çoğu durumda, hello dağıtım adı olduğu hello hello bulut hizmet adı ile aynı.
 
     azure service show <serviceName> -vv
 
-İlk olarak, aşağıdaki komutları kullanarak bulut hizmeti geçirirseniz doğrulama:
+Merhaba aşağıdaki komutları kullanarak hello bulut hizmeti geçirirseniz ilk olarak, doğrulama:
 
 ```shell
 azure service deployment validate-migration <serviceName> <deploymentName> new "" "" ""
 ```
 
-Sanal makine bulut hizmeti geçiş için hazırlayın. Aralarından seçim yapabileceğiniz iki seçeneğiniz vardır.
+Merhaba sanal makineleri hello bulut hizmetinde geçiş için hazırlayın. Gelen iki seçenekleri toochoose sahip.
 
-Platform tarafından oluşturulan bir sanal ağ sanal makineleri geçirmek istiyorsanız, aşağıdaki komutu kullanın.
+Toomigrate hello VM'ler tooa platform tarafından oluşturulan sanal ağ istiyorsanız, komutu aşağıdaki hello kullanın.
 
     azure service deployment prepare-migration <serviceName> <deploymentName> new "" "" ""
 
-Resource Manager dağıtım modelinde var olan bir sanal ağa geçirmek istiyorsanız, aşağıdaki komutu kullanın.
+Merhaba Resource Manager dağıtım modelinde sanal ağ varolan toomigrate tooan istiyorsanız, komutu aşağıdaki hello kullanın.
 
     azure service deployment prepare-migration <serviceName> <deploymentName> existing <destinationVNETResourceGroupName> <subnetName> <vnetName>
 
-Hazırlama işlemi başarılı olduktan sonra sanal makineleri geçiş durumunu alma ve içinde olduklarından emin olmak için ayrıntılı çıktı aracılığıyla bakabilirsiniz `Prepared` durumu.
+Merhaba hazırladıktan sonra işlemi başarılı olur, hello ayrıntılı çıktı tooget hello geçiş durumunu hello VM'ler bakın ve hello olduklarından emin olun `Prepared` durumu.
 
     azure vm show <vmName> -vv
 
-CLI veya Azure portalını kullanarak hazırlanmış kaynakların yapılandırmasını denetleyin. Geçiş için hazır olmayan ve eski durumuna geri dönmek istiyorsanız aşağıdaki komutu kullanın.
+CLI veya hello Azure portal kullanarak kaynakları hazırlanmış hello için başlangıç yapılandırmasını denetleyin. Geçiş için hazır olmayan ve toogo geri toohello eski durum istiyorsanız, komutu aşağıdaki hello kullanın.
 
     azure service deployment abort-migration <serviceName> <deploymentName>
 
-Hazırlanan yapılandırma iyi görünüyorsa, ilerlemek ve aşağıdaki komutu kullanarak kaynakları uygulayın.
+Merhaba hazırlanan yapılandırma iyi görünüyorsa, ilerlemek ve komut aşağıdaki hello kullanarak hello kaynakları uygulayın.
 
     azure service deployment commit-migration <serviceName> <deploymentName>
 
 
 
 ## <a name="step-4-option-2----migrate-virtual-machines-in-a-virtual-network"></a>4. adım: 2. seçenek - bir sanal ağdaki sanal makineleri geçirme
-Geçirmek istediğiniz sanal ağ seçin. Sanal ağ ile desteklenmeyen yapılandırmalar web/çalışan rolleri veya VM'ler içeriyorsa, bir doğrulama hata iletisi alırsınız unutmayın.
+Çekme hello sanal ağ toomigrate istiyor. Not Hello sanal ağ ile desteklenmeyen yapılandırmalar web/çalışan rolleri veya VM'ler içeriyorsa, bir doğrulama hata iletisi alırsınız.
 
-Tüm sanal ağları, aşağıdaki komutu kullanarak abonelikte alın.
+Tüm hello sanal ağlar, komutu aşağıdaki hello kullanarak hello abonelikte alın.
 
     azure network vnet list
 
-Çıktı aşağıdakine benzer görünecektir:
+Merhaba çıktı aşağıdakine benzer görünecektir:
 
-![Vurgulanan tüm sanal ağ adıyla komut satırının ekran görüntüsü.](../media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
+![Vurgulanan hello tüm sanal ağ adıyla hello komut satırının ekran görüntüsü.](../media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
 
-Yukarıdaki örnekte, **virtualNetworkName** tüm adı **"Grubu classicubuntu16 classicubuntu16"**.
+Yukarıdaki örnek Hello hello **virtualNetworkName** hello tüm adı **"Grubu classicubuntu16 classicubuntu16"**.
 
-İlk olarak, aşağıdaki komutu kullanarak sanal ağ geçirirseniz doğrulama:
+İlk olarak, komutu aşağıdaki hello kullanarak hello sanal ağ geçirirseniz doğrulama:
 
 ```shell
 azure network vnet validate-migration <virtualNetworkName>
 ```
 
-Seçtiğiniz sanal ağ, aşağıdaki komutu kullanarak geçiş için hazırlayın.
+Tercih ettiğiniz Hello sanal ağ, komutu aşağıdaki hello kullanarak geçiş için hazırlayın.
 
     azure network vnet prepare-migration <virtualNetworkName>
 
-CLI veya Azure portalını kullanarak hazırlanmış sanal makineler için yapılandırmayı denetleyin. Geçiş için hazır olmayan ve eski durumuna geri dönmek istiyorsanız aşağıdaki komutu kullanın.
+CLI veya hello Azure portal kullanarak sanal makineleri hazırlanmış hello için başlangıç yapılandırmasını denetleyin. Geçiş için hazır olmayan ve toogo geri toohello eski durum istiyorsanız, komutu aşağıdaki hello kullanın.
 
     azure network vnet abort-migration <virtualNetworkName>
 
-Hazırlanan yapılandırma iyi görünüyorsa, ilerlemek ve aşağıdaki komutu kullanarak kaynakları uygulayın.
+Merhaba hazırlanan yapılandırma iyi görünüyorsa, ilerlemek ve komut aşağıdaki hello kullanarak hello kaynakları uygulayın.
 
     azure network vnet commit-migration <virtualNetworkName>
 
 ## <a name="step-5-migrate-a-storage-account"></a>5. adım: bir depolama hesabını geçirin
-İşiniz bittiğinde sanal makineleri geçiriyorsanız, depolama hesabı geçir öneririz.
+Merhaba sanal makinelerin geçirilmesine bitirdiğinizde hello depolama hesabını geçirin öneririz.
 
-Aşağıdaki komutu kullanarak depolama hesabı geçiş için hazırlama
+Komutu aşağıdaki hello kullanarak Hello depolama hesabı geçiş için hazırlama
 
     azure storage account prepare-migration <storageAccountName>
 
-CLI veya Azure portalını kullanarak hazırlanmış depolama hesabı için yapılandırmasını denetleyin. Geçiş için hazır olmayan ve eski durumuna geri dönmek istiyorsanız aşağıdaki komutu kullanın.
+Depolama hesabı CLI veya hello Azure portal kullanarak hazırlanmış hello için başlangıç yapılandırmasını denetleyin. Geçiş için hazır olmayan ve toogo geri toohello eski durum istiyorsanız, komutu aşağıdaki hello kullanın.
 
     azure storage account abort-migration <storageAccountName>
 
-Hazırlanan yapılandırma iyi görünüyorsa, ilerlemek ve aşağıdaki komutu kullanarak kaynakları uygulayın.
+Merhaba hazırlanan yapılandırma iyi görünüyorsa, ilerlemek ve komut aşağıdaki hello kullanarak hello kaynakları uygulayın.
 
     azure storage account commit-migration <storageAccountName>
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Platform desteklenen geçişi Iaas Klasik kaynaklardan Azure Resource Manager'a genel bakış](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Teknik ya ilişkin ayrıntılar platform desteklenen geçiş Klasik'ten Azure Kaynak Yöneticisi](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [IaaS kaynaklarının Klasik’ten Azure Resource Manager’a geçişini planlama](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Iaas kaynaklarına Klasikten Azure Resource Manager geçirmek için PowerShell kullanma](../windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Iaas Klasik kaynaklardan Azure Resource Manager için geçiş ile Yardım için topluluk araçları](../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Klasik tooAzure Resource Manager Iaas kaynaklardan platform desteklenen geçişini genel bakış](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Teknik ya ilişkin ayrıntılar platform desteklenen geçiş Klasik tooAzure Kaynak Yöneticisi'nden](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Iaas kaynaklardan Klasik tooAzure Kaynak Yöneticisi geçişini planlama](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Klasik tooAzure Resource Manager PowerShell toomigrate Iaas kaynakları kullanın](../windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Iaas kaynaklardan Klasik tooAzure Kaynak Yöneticisi geçişini ile Yardım için topluluk araçları](../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [En sık karşılaşılan geçiş hatalarını gözden geçirme](migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Gözden geçirme Iaas kaynaklardan Klasik Azure Kaynak Yöneticisi hakkında en sık sorulan sorular](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Gözden geçirme hello en sık Klasik tooAzure Kaynak Yöneticisi geçirme Iaas kaynaklardan hakkında sorular](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

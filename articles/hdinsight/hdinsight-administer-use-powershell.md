@@ -1,6 +1,6 @@
 ---
-title: "PowerShell - Azure ile hdınsight'ta Hadoop kümelerini yönetme | Microsoft Docs"
-description: "Azure PowerShell kullanarak hdınsight'ta Hadoop kümeleri için yönetim görevlerini gerçekleştirmek öğrenin."
+title: "aaaManage Hadoop kümeleri PowerShell - Azure ile hdınsight'ta | Microsoft Docs"
+description: "Tooperform yönetim hello için Azure PowerShell kullanarak hdınsight'ta Hadoop kümelerinin nasıl görevleri öğrenin."
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
@@ -16,20 +16,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
-ms.openlocfilehash: c47dabd7c4aa4ba0be08c419989e536711f03677
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 3df082d752fa8c703db82a54b82b740290af6729
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Azure PowerShell kullanarak hdınsight'ta Hadoop kümelerini yönetme
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell denetlemek ve dağıtımını ve yönetimini azure'da, iş yüklerini otomatikleştirmek için kullanabileceğiniz güçlü bir komut dosyası ortamıdır. Bu makalede, Windows PowerShell kullanarak yerel bir Azure PowerShell konsolunu kullanarak Azure hdınsight'ta Hadoop kümelerini yönetme öğreneceksiniz. Hdınsight PowerShell cmdlet'leri listesi için bkz: [Hdınsight cmdlet başvurusu][hdinsight-powershell-reference].
+Azure PowerShell toocontrol kullanın ve hello dağıtımı ve Yönetimi azure'da iş yüklerinizin otomatikleştirmek bir güçlü komut dosyası ortamıdır. Bu makalede, Azure hdınsight'ta toomanage Hadoop kümelerini yerel bir Azure PowerShell konsol hello üzerinden kullanarak Windows PowerShell kullanma öğreneceksiniz. Merhaba Hdınsight PowerShell cmdlet'leri Hello listesi için bkz [Hdınsight cmdlet başvurusu][hdinsight-powershell-reference].
 
 **Önkoşullar**
 
-Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki işlemleri yapmış olmanız gerekir:
+Bu makaleye başlamadan önce hello şunlara sahip olmanız gerekir:
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
@@ -38,85 +38,85 @@ Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki i�
 
 Azure PowerShell sürüm 0.9 yüklediyseniz x, bunu yeni bir sürümünü yüklemeden önce kaldırmalısınız.
 
-Yüklü PowerShell sürümü denetlemek için:
+Merhaba toocheck hello sürümü PowerShell yüklü:
 
     Get-Module *azure*
 
-Eski sürümünü kaldırmak için Denetim Masası'ndaki Programlar ve Özellikler'ı çalıştırın.
+toouninstall hello eski sürümü, hello Denetim Masası'ndaki Programlar ve Özellikler çalıştırın.
 
 ## <a name="create-clusters"></a>Küme oluşturma
 Bkz: [Azure PowerShell kullanarak Hdınsight oluşturma Linux tabanlı kümelerde](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
 
 ## <a name="list-clusters"></a>Liste kümeleri
-Tüm kümelerde geçerli abonelik listelemek için aşağıdaki komutu kullanın:
+Komut toolist aşağıdaki hello tüm kümelerin hello geçerli abonelikte kullanın:
 
     Get-AzureRmHDInsightCluster
 
 ## <a name="show-cluster"></a>Küme Göster
-Belirli bir kümeyi ayrıntılarını geçerli abonelikte göstermek için aşağıdaki komutu kullanın:
+Aşağıdaki komut tooshow ayrıntılara hello geçerli abonelikte belirli bir kümenin hello kullan:
 
     Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
 ## <a name="delete-clusters"></a>Küme silme
-Bir küme silmek için aşağıdaki komutu kullanın:
+Komut toodelete bir küme aşağıdaki hello kullan:
 
     Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 
-Ayrıca, küme içeren kaynak grubunu kaldırarak bir küme silebilirsiniz. Lütfen unutmayın, bu varsayılan depolama hesabı dahil olmak üzere gruptaki tüm kaynakları siler.
+Merhaba küme içeren hello kaynak grubunu kaldırarak bir küme de silebilirsiniz. Lütfen unutmayın, bu hello varsayılan depolama hesabı dahil olmak üzere hello grubundaki tüm hello kaynaklarını siler.
 
     Remove-AzureRmResourceGroup -Name <Resource Group Name>
 
 ## <a name="scale-clusters"></a>Kümeleri ölçeklendirme
-Özellik ölçeklendirme küme kümeye yeniden oluşturmak zorunda kalmadan Azure Hdınsight'ta çalıştıran bir küme tarafından kullanılan çalışan düğümü sayısını değiştirmenize izin verir.
+özellik ölçeklendirme hello küme toochange hello Azure Hdınsight'ta toore gerek kalmadan çalışan bir küme tarafından kullanılan çalışan düğüm sayısı sağlar-hello kümesi oluşturun.
 
 > [!NOTE]
-> Yalnızca, Hdınsight sürüm 3.1.3 ile kümeleri veya üzeri desteklenir. Kümenizin sürümünü emin değilseniz, Özellikler sayfasını kontrol edebilirsiniz.  Bkz: [listesi ve Göster kümeleri](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+> Yalnızca, Hdınsight sürüm 3.1.3 ile kümeleri veya üzeri desteklenir. Kümenizin hello sürümü değilseniz hello özellikler sayfasını kontrol edebilirsiniz.  Bkz: [listesi ve Göster kümeleri](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 >
 >
 
-Her tür Hdınsight tarafından desteklenen küme için veri düğüm sayısını değiştirme etkisi:
+hello etkisini, her tür Hdınsight tarafından desteklenen küme için veri düğümünün hello numarasını değiştirmek için:
 
 * Hadoop
 
-    Sorunsuz bir şekilde tüm bekleyen veya çalışan işler etkilemeden çalıştıran bir Hadoop kümesinde çalışan düğümü sayısını da artırabilirsiniz. İşlemi devam ederken yeni işleri da gönderilebilir. Kümenin her zaman işlevsel bir durumda bırakılır böylece bir ölçeklendirme işlemi hatalar düzgün bir şekilde ele alınır.
+    Sorunsuz bir şekilde hello tüm bekleyen veya çalışan işler etkilemeden çalıştıran bir Hadoop kümesinde çalışan düğümü sayısını da artırabilirsiniz. Merhaba işlemi devam ederken yeni işleri da gönderilebilir. Böylece Hello küme her zaman işlevsel bir durumda bırakılır bir ölçeklendirme işlemi hatalar düzgün bir şekilde ele alınır.
 
-    Bir Hadoop kümesine veri düğüm sayısını azaltarak ölçeklendirilir, bazı kümedeki hizmetleri yeniden başlatılır. Bu işleri bekleyen tüm çalışan ve ölçeklendirme işlemi tamamlandığında başarısız olmasına neden olur. İşlemi tamamlandıktan sonra ancak, sunmaları olabilir.
+    Bir Hadoop kümesine veri düğümlerini hello sayısını azaltarak ölçeklendirilir, bazı hello kümedeki hello hizmetleri yeniden başlatılır. Bu, tüm çalışan ve işleri toofail hello tamamlanma işlemi ölçeklendirme Merhaba, bekleyen neden olur. Hello işlemi tamamlandıktan sonra ancak, hello sunmaları olabilir.
 * HBase
 
-    Sorunsuz bir şekilde ekleyebilir veya çalışırken, HBase kümesi düğümleri kaldırın. Bölgesel sunucular otomatik olarak ölçeklendirme işlemi tamamladıktan birkaç dakika içinde dengeli. Ancak, küme headnode için oturum açma ve bir komut istemi penceresinden aşağıdaki komutları çalıştırarak el ile de bölgesel sunucular dengeleyebilirsiniz:
+    Sorunsuz bir şekilde ekleme veya düğümleri tooyour HBase kümesi çalışırken kaldırın. Bölgesel sunucuları işlemi ölçeklendirme hello tamamladıktan birkaç dakika içinde otomatik olarak dengeli. Ancak, küme ve komutlar bir komut istemi penceresinden aşağıdaki çalışan hello toohello headnode oturum açarak hello bölgesel sunucular el ile de dengeleyebilirsiniz:
 
         >pushd %HBASE_HOME%\bin
         >hbase shell
         >balancer
 * Storm
 
-    Sorunsuz bir şekilde ekleyebilir veya çalışırken Storm kümeniz veri düğümleri kaldırın. Ancak ölçeklendirme işlemi başarıyla tamamlandıktan sonra topoloji yeniden dengelemeniz gerekir.
+    Sorunsuz bir şekilde ekleyebilir veya çalışırken veri düğümleri tooyour Storm kümesi kaldırabilirsiniz. Ancak hello ölçekleme işlemi başarıyla tamamlandıktan sonra toorebalance hello topoloji gerekir.
 
     İki yolla yeniden dengelenmesi gerçekleştirilebilir:
 
   * Storm web kullanıcı Arabirimi
   * Komut satırı arabirimi (CLI) aracı
 
-    Lütfen [Apache Storm belgelerine](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) daha fazla ayrıntı için.
+    Lütfen toohello bakın [Apache Storm belgelerine](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) daha fazla ayrıntı için.
 
-    Hdınsight kümesinde Storm web kullanıcı Arabirimi kullanılabilir:
+    Merhaba Storm web kullanıcı Arabirimi hello Hdınsight kümesinde kullanılabilir:
 
     ![Hdınsight storm ölçek yeniden dengeleyin](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.png)
 
-    Storm topolojisini yeniden dengelemeniz CLI komutunu kullanma örneği şöyledir:
+    Örneği nasıl toouse hello CLI komutu toorebalance hello Storm topolojisini:
 
-        ## Reconfigure the topology "mytopology" to use 5 worker processes,
-        ## the spout "blue-spout" to use 3 executors, and
-        ## the bolt "yellow-bolt" to use 10 executors
+        ## Reconfigure hello topology "mytopology" toouse 5 worker processes,
+        ## hello spout "blue-spout" toouse 3 executors, and
+        ## hello bolt "yellow-bolt" toouse 10 executors
         $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
-Azure PowerShell kullanarak Hadoop küme boyutunu değiştirmek için bir istemci makinesinden aşağıdaki komutu çalıştırın:
+toochange hello bir istemci makinesinden komutu aşağıdaki hello çalıştırmak, Azure PowerShell kullanarak Hadoop küme boyutu:
 
     Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
 
 
 ## <a name="grantrevoke-access"></a>GRANT/revoke erişim
-Hdınsight kümeleri (Bu hizmetlerin tümü için RESTful uç noktaları vardır) aşağıdaki HTTP web hizmetleri vardır:
+Hdınsight kümeleri HTTP web Hizmetleri (Bu hizmetlerin tümü için RESTful uç noktaları vardır) aşağıdaki hello vardır:
 
 * ODBC
 * JDBC
@@ -124,37 +124,37 @@ Hdınsight kümeleri (Bu hizmetlerin tümü için RESTful uç noktaları vardır
 * Oozie
 * Templeton
 
-Varsayılan olarak, bu hizmetleri için erişim verilir. İptal etme / erişim izninin. İptal etmek için:
+Varsayılan olarak, bu hizmetleri için erişim verilir. İptal etme/hello erişim izninin. toorevoke:
 
     Revoke-AzureRmHDInsightHttpServicesAccess -ClusterName <Cluster Name>
 
-Vermek için:
+toogrant:
 
     $clusterName = "<HDInsight Cluster Name>"
 
     # Credential option 1
     $hadoopUserName = "admin"
-    $hadoopUserPassword = "<Enter the Password>"
+    $hadoopUserPassword = "<Enter hello Password>"
     $hadoopUserPW = ConvertTo-SecureString -String $hadoopUserPassword -AsPlainText -Force
     $credential = New-Object System.Management.Automation.PSCredential($hadoopUserName,$hadoopUserPW)
 
     # Credential option 2
-    #$credential = Get-Credential -Message "Enter the HTTP username and password:" -UserName "admin"
+    #$credential = Get-Credential -Message "Enter hello HTTP username and password:" -UserName "admin"
 
     Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
 
 > [!NOTE]
-> Verme/erişimi iptal ederek, küme kullanıcı adı ve parola sıfırlanır.
+> Verme/hello erişimi iptal ederek, hello küme kullanıcı adı ve parola sıfırlanır.
 >
 >
 
-Bu, Portal üzerinden de yapılabilir. Bkz: [yönetmek Azure portalını kullanarak Hdınsight][hdinsight-admin-portal].
+Bu ayrıca hello Portal yapılabilir. Bkz: [kullanarak Hdınsight yönetmek hello Azure portal][hdinsight-admin-portal].
 
 ## <a name="update-http-user-credentials"></a>HTTP kullanıcı kimlik bilgilerini güncelleştirin
-Yordamın aynısını olan [Grant/revoke HTTP erişimi](#grant/revoke-access). Küme HTTP erişim verilmişse, öncelikle iptal gerekir.  Ve ardından yeni HTTP kullanıcı kimlik bilgileriyle erişim verin.
+Aynı hello olan yordamı [Grant/revoke HTTP erişimi](#grant/revoke-access). Merhaba küme hello HTTP erişim verilmişse, öncelikle iptal gerekir.  Ve ardından yeni HTTP kullanıcı kimlik bilgileriyle hello erişim verin.
 
-## <a name="find-the-default-storage-account"></a>Varsayılan depolama hesabı bulunamadı
-Aşağıdaki Powershell betiğini varsayılan depolama hesabı adı ve bir küme için varsayılan depolama hesabı anahtarı alma gösterir.
+## <a name="find-hello-default-storage-account"></a>Merhaba varsayılan depolama hesabı bulunamadı
+PowerShell Betiği aşağıdaki hello nasıl tooget varsayılan depolama hesabı adı hello ve küme için varsayılan depolama hesabı anahtarı hello gösterir.
 
     $clusterName = "<HDInsight Cluster Name>"
 
@@ -165,8 +165,8 @@ Aşağıdaki Powershell betiğini varsayılan depolama hesabı adı ve bir küme
     $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
     $defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
 
-## <a name="find-the-resource-group"></a>Kaynak Grup bulunamıyor
-Kaynak Yöneticisi modunda her Hdınsight kümesi bir Azure kaynak grubuna ait.  Kaynak grubu bulmak için:
+## <a name="find-hello-resource-group"></a>Merhaba kaynak grup bulunamıyor
+Merhaba Kaynak Yöneticisi modunda tooan Azure kaynak grubu her Hdınsight kümesine ait.  toofind hello kaynak grubu:
 
     $clusterName = "<HDInsight Cluster Name>"
 
@@ -175,35 +175,35 @@ Kaynak Yöneticisi modunda her Hdınsight kümesi bir Azure kaynak grubuna ait. 
 
 
 ## <a name="submit-jobs"></a>İşlerini gönderme
-**MapReduce işleri göndermek için**
+**toosubmit MapReduce işleri**
 
 Bkz: [Windows tabanlı Hdınsight Hadoop MapReduce çalıştırma örnekleri](hdinsight-run-samples.md).
 
-**Hive işlerini göndermek için**
+**toosubmit Hive işleri**
 
 Bkz: [PowerShell kullanarak Hive sorgularını çalıştırma](hdinsight-hadoop-use-hive-powershell.md).
 
-**Pig işleri göndermek için**
+**toosubmit Pig işleri**
 
 Bkz: [çalıştırmak Pig işleri PowerShell kullanarak](hdinsight-hadoop-use-pig-powershell.md).
 
-**Sqoop işlerini göndermek için**
+**toosubmit Sqoop işleri**
 
 Bkz: [Hdınsight ile Sqoop kullanma](hdinsight-use-sqoop.md).
 
-**Oozie işlerini göndermek için**
+**toosubmit Oozie işleri**
 
-Bkz: [tanımlamak ve Hdınsight'ta bir iş akışını çalıştırmak için Hadoop ile kullanım Oozie](hdinsight-use-oozie.md).
+Bkz: [Hadoop toodefine ve çalışma Hdınsight bir iş akışında kullanmak Oozie](hdinsight-use-oozie.md).
 
-## <a name="upload-data-to-azure-blob-storage"></a>Azure Blob depolama alanına veri yükleme
-Bkz. [HDInsight'a veri yükleme][hdinsight-upload-data].
+## <a name="upload-data-tooazure-blob-storage"></a>Veri tooAzure Blob Depolama yükleme
+Bkz: [karşıya veri tooHDInsight][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 * [Hdınsight cmdlet başvuru belgeleri][hdinsight-powershell-reference]
-* [Hdınsight Azure Portalı'nı kullanarak yönetme][hdinsight-admin-portal]
+* [Hdınsight hello Azure portal kullanarak yönetme][hdinsight-admin-portal]
 * [Bir komut satırı arabirimi kullanarak Hdınsight yönetme][hdinsight-admin-cli]
 * [Hdınsight kümeleri oluşturma][hdinsight-provision]
-* [HDInsight'a veri yükleme][hdinsight-upload-data]
+* [Veri tooHDInsight karşıya yükle][hdinsight-upload-data]
 * [Hadoop işlerini programlı olarak gönderme][hdinsight-submit-jobs]
 * [Azure HDInsight'ı Kullanmaya Başlama][hdinsight-get-started]
 

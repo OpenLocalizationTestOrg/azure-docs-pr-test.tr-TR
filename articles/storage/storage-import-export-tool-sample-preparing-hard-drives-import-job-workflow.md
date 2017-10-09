@@ -1,6 +1,6 @@
 ---
-title: "Bir Azure içeri/dışarı aktarma alma işi sabit sürücülerini prep için örnek iş akışı | Microsoft Docs"
-description: "Sürücüleri Azure içeri/dışarı aktarma hizmetindeki bir içeri aktarma işi hazırlama tam işlemi için bkz."
+title: "aaaSample iş akışı tooprep sabit sürücüler için bir Azure içeri/dışarı aktarma alma işi | Microsoft Docs"
+description: "Sürücüleri hello Azure içeri/dışarı aktarma hizmeti, bir içeri aktarma işi hazırlama hello tam işlemi için bkz."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: muralikk
-ms.openlocfilehash: 78d7ce3bbd3205fd995ba331af08d830097c8156
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 560220b7dc9f87416f1fec1ff30fa5cd65812ce5
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Sabit sürücüleri içeri aktarma işine hazırlamak için örnek iş akışı
+# <a name="sample-workflow-tooprepare-hard-drives-for-an-import-job"></a>Örnek iş akışı tooprepare sabit sürücüler içeri aktarma işi için
 
-Bu makalede, sürücüler için içeri aktarma işi hazırlama tam işlemi açıklanmaktadır.
+Bu makalede, sürücüler için içeri aktarma işi hazırlama hello tam işlemi açıklanmaktadır.
 
 ## <a name="sample-data"></a>Örnek veriler
 
-Bu örnek olarak aşağıdaki verileri adlı bir Azure storage hesabınıza aktarır `mystorageaccount`:
+Bu örnek veri adlı bir Azure storage hesabınıza aşağıdaki hello alır `mystorageaccount`:
 
 |Konum|Açıklama|Veri boyutu|
 |--------------|-----------------|-----|
@@ -37,7 +37,7 @@ Bu örnek olarak aşağıdaki verileri adlı bir Azure storage hesabınıza akta
 
 ## <a name="storage-account-destinations"></a>Depolama hesabı hedefleri
 
-İçe aktarma işi verileri depolama hesabındaki aşağıdaki hedefleri alın:
+Merhaba alma işi hello depolama hesabındaki hedeflerini izleyerek hello hello veri aktarmak:
 
 |Kaynak|Hedef sanal dizin veya blob|
 |------------|-------------------------------------------|
@@ -46,25 +46,25 @@ Bu örnek olarak aşağıdaki verileri adlı bir Azure storage hesabınıza akta
 |K:\Temp\FavoriteMovie.ISO|favorite/FavoriteMovies.ISO|
 |\\\bigshare\john\music\ |Müzik|
 
-Bu eşleme, dosya ile `H:\Video\Drama\GreatMovie.mov` blob içeri aktarılacak `https://mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov`.
+Bu eşleme ile dosya hello `H:\Video\Drama\GreatMovie.mov` alınan toohello blob olacaktır `https://mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov`.
 
 ## <a name="determine-hard-drive-requirements"></a>Sabit sürücü gereksinimlerini belirleyin
 
-Ardından, kaç tane sabit sürücüler gerekli belirlemek için verilerin boyutunu hesaplama:
+Ardından, toodetermine işlem hello hello verilerin boyutunu kaç sabit sürücüler gerekli değildir:
 
 `12TB + 30GB + 25GB + 10GB = 12TB + 65GB`
 
-Bu örnekte, iki 8TB sabit sürücü yeterli olacaktır. Ancak, kaynak dizin itibaren `H:\Video` yalnızca 8 TB, tek sabit diskin kapasitesini 12 TB'lık veriyi sahipse ve bu yolla da aşağıdakileri belirtin kuramaz **driveset.csv** dosyası:
+Bu örnekte, iki 8TB sabit sürücü yeterli olacaktır. Ancak, hello kaynak dizin itibaren `H:\Video` 12 TB'lık veriyi varsa ve yalnızca 8 TB, tek sabit diskin kapasitesini mümkün toospecify bu olacaktır hello hello şekilde aşağıdaki **driveset.csv** dosya:
 
 ```
 DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
 X,Format,SilentMode,Encrypt,
 Y,Format,SilentMode,Encrypt,
 ```
-Aracın en iyi duruma getirilmiş bir şekilde iki sabit sürücüde veri dağıtın.
+Merhaba aracı en iyi duruma getirilmiş bir şekilde iki sabit sürücüde veri dağıtın.
 
-## <a name="attach-drives-and-configure-the-job"></a>Sürücüleri bağlayın ve iş yapılandırın
-Her iki diskin makineye ekleyebilir ve birimler oluşturabilir. Ardından Yazar **dataset.csv** dosyası:
+## <a name="attach-drives-and-configure-hello-job"></a>Sürücüleri bağlayın ve hello iş yapılandırın
+Her iki diskleri toohello makine ekleme ve birimler oluşturabilir. Ardından Yazar **dataset.csv** dosyası:
 ```
 BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 H:\Video\,video/,BlockBlob,rename,None,H:\mydirectory\properties.xml
@@ -73,13 +73,13 @@ K:\Temp\FavoriteVideo.ISO,favorite/FavoriteVideo.ISO,BlockBlob,rename,None,H:\my
 \\myshare\john\music\,music/,BlockBlob,rename,None,H:\mydirectory\properties.xml
 ```
 
-Ayrıca, aşağıdaki meta verileri tüm dosyalar için ayarlayabilirsiniz:
+Ayrıca, tüm dosyalar için meta veriler aşağıdaki hello ayarlayabilirsiniz:
 
 * **UploadMethod:** Windows Azure içeri/dışarı aktarma hizmeti
 * **DataSetName:** SampleData
 * **CreationDate:** 1/10/2013
 
-İçeri aktarılan dosyalar için meta veri ayarlamak için bir metin dosyası oluşturun `c:\WAImportExport\SampleMetadata.txt`, aşağıdaki içeriğe sahip:
+tooset meta verileri içe hello dosyaları için bir metin dosyası oluşturma `c:\WAImportExport\SampleMetadata.txt`, içeriği aşağıdaki hello ile:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -90,13 +90,13 @@ Ayrıca, aşağıdaki meta verileri tüm dosyalar için ayarlayabilirsiniz:
 </Metadata>
 ```
 
-Bazı özellikler için de ayarlayabilirsiniz `FavoriteMovie.ISO` blob:
+Başlangıç için bazı özellikler de ayarlayabilirsiniz `FavoriteMovie.ISO` blob:
 
 * **Content-Type:** application/octet-stream,
 * **Content-MD5:** Q2hlY2sgSW50ZWdyaXR5IQ ==
 * **Cache-Control:** no cache
 
-Bu özellikleri ayarlamak için bir metin dosyası oluşturun `c:\WAImportExport\SampleProperties.txt`:
+tooset bu özellikler bir metin dosyası oluşturma `c:\WAImportExport\SampleProperties.txt`:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -107,25 +107,25 @@ Bu özellikleri ayarlamak için bir metin dosyası oluşturun `c:\WAImportExport
 </Properties>
 ```
 
-## <a name="run-the-azure-importexport-tool-waimportexportexe"></a>Azure içeri/dışarı aktarma Aracı (WAImportExport.exe) çalıştırın
+## <a name="run-hello-azure-importexport-tool-waimportexportexe"></a>Çalışma hello Azure içeri/dışarı aktarma Aracı (WAImportExport.exe)
 
-Şimdi iki sabit sürücü hazırlamak için Azure içeri/dışarı aktarma aracını çalıştırmak hazırsınız.
+Hazır toorun hello Azure içeri/dışarı aktarma aracı tooprepare hello iki sabit sürücü sunulmuştur.
 
-**İlk oturum için:**
+**Merhaba ilk oturum için:**
 
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
 ```
 
-Daha fazla veri eklenmesi gerekiyorsa, başka bir veri kümesi dosyasını (Initialdataset ile aynı biçimi) oluşturun.
+Daha fazla veri eklenen toobe gerekirse, başka bir veri kümesi dosyasını (Initialdataset ile aynı biçimi) oluşturun.
 
-**İkinci oturum için:**
+**Merhaba ikinci oturumu için:**
 
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
 ```
 
-Kopyalama oturumları tamamladıktan sonra iki sürücü kopyalama bilgisayardan bağlantısını kesmek ve uygun Azure veri merkezine sevk. İki günlük dosyalarını yükleyeceğiniz `<FirstDriveSerialNumber>.xml` ve `<SecondDriveSerialNumber>.xml`, Azure portalında alma işi oluşturduğunuzda.
+Merhaba kopyalama oturumları tamamladıktan sonra hello iki sürücüsü hello kopyalama bilgisayardan çıkarın ve toohello uygun Azure veri merkezi sevk. Merhaba iki günlük dosyaları, yükleyeceğiniz `<FirstDriveSerialNumber>.xml` ve `<SecondDriveSerialNumber>.xml`, hello Azure portal hello alma işi oluşturduğunuzda.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure MFA ve AD FS ile bulut kaynaklarını güvenli hale getirme | Microsoft Docs"
-description: "Bu, bulutta nasıl Azure MFA ve AD FS kullanmaya başlayacağınızı açıklayan Azure Multi-Factor Authentication sayfasıdır."
+title: "Azure MFA ve AD FS ile aaaSecure bulut kaynaklarına | Microsoft Docs"
+description: "Bu Azure MFA ve AD FS hello bulutta tooget nasıl kullanmaya açıklayan hello Azure multi-Factor authentication sayfasıdır."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/29/2017
 ms.author: kgremban
-ms.openlocfilehash: 6cf4ec4f777ea1f2b852945ab82da2547946f378
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 8d38d6a4af63ddcaf0fefded0b73d82d5178aa36
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Azure Multi-Factor Authentication ve AD FS ile bulut kaynaklarını güvenli hale getirme
-Kuruluşunuz Azure Active Directory ile birleştiriliyorsa, Azure AD’nin erişebildiği kaynakları güvenli hale getirmek için Azure Multi-Factor Authentication ya da Active Directory Federation Services (AD FS) kullanın. Azure Active Directory kaynaklarını Azure Multi-Factor Authentication ya da Active Directory Federasyon Hizmetleri ile güvenli hale getirmek için aşağıdaki yordamları kullanın.
+Kuruluşunuz Azure Active Directory ile birleştirildiyse Azure çok faktörlü kimlik doğrulaması veya Azure AD tarafından erişilen Active Directory Federasyon Hizmetleri (AD FS) toosecure kaynakları kullanın. Aşağıdaki yordamlar toosecure Azure Active Directory kaynaklarını Azure multi-Factor Authentication veya Active Directory Federasyon Hizmetleri ile Merhaba kullanın.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>AD FS kullanarak Azure AD kaynaklarını güvenli hale getirme
-Bulut kaynağınızın güvenliğini sağlamak için, kullanıcı iki adımlı doğrulamayı başarıyla gerçekleştirdiğinde Active Directory Federation Services tarafından multipleauthn talebinin yayılması için bir talep kuralı oluşturun. Bu talep Azure AD'ye aktarılır. İlerlemek için bu yordamı izleyin:
+toosecure, bulut kaynak kümesi bir talep kuralı böylece bir kullanıcı iki aşamalı doğrulamayı başarıyla gerçekleştirdiğinde, Active Directory Federasyon Hizmetleri hello multipleauthn talebi gösterir. Bu talep AD tooAzure üzerinde geçirilir. Bu yordam toowalk hello adımları izleyin:
 
 
 1. AD FS Yönetimi'ni açın.
-2. Solda, **Bağlı Olan Taraf Güvenleri**’ni seçin.
+2. Merhaba solda seçin **bağlı olan taraf güvenleri**.
 3. **Microsoft Office 365 Kimlik Platformu**'na sağ tıklayın ve **Talep Kurallarını Düzenle**'yi seçin.
 
    ![Bulut](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
@@ -37,40 +37,40 @@ Bulut kaynağınızın güvenliğini sağlamak için, kullanıcı iki adımlı d
 
    ![Bulut](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
 
-5. Dönüştürme Kuralı Ekleme Sihirbazı’nda, açılır menüde **Gelen Talep için Geçiş ya da Filtre**’yi seçin ve **İleri**’ye tıklayın.
+5. Açık dönüştürme talep Kuralı Ekleme Sihirbazı Merhaba, seçin **geçir veya Filtrele bir gelen talep** açılan hello ve'ı tıklatın **sonraki**.
 
    ![Bulut](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
 
 6. Kuralınıza bir ad verin. 
-7. Gelen talep türü olarak **Kimlik Doğrulama Yöntemleri Başvuruları**’nı seçin.
+7. Seçin **kimlik doğrulama yöntemleri başvuruları** hello gelen talep türü.
 8. **Tüm talep değerlerini geçir**’i seçin.
     ![Dönüşüm Talep Kuralı Ekleme Sihirbazı](./media/multi-factor-authentication-get-started-adfs-cloud/configurewizard.png)
-9. **Son**'a tıklayın. AD FS Yönetim Konsolu'nu kapatın.
+9. **Son**'a tıklayın. Merhaba AD FS Yönetim Konsolu'nu kapatın.
 
 ## <a name="trusted-ips-for-federated-users"></a>Federasyon kullanıcıları için Güvenilen IP'ler
-Güvenilen IP'ler yöneticilerin, belirli IP adresleri ya da kendi intranetlerinden kaynaklanan taleplere sahip federasyon kullanıcıları için iki aşamalı doğrulamayı atlamasına izin verir. Aşağıdaki bölümlerde, federasyon kullanıcıları intranetinden gelen talepler için Azure Multi-Factor Authentication Güvenilen IP’lerinin federasyon kullanıcılarıyla yapılandırılması ve iki aşamalı doğrulamanın atlanması açıklanmıştır. Bu, AD FS’nin bir geçiş kullanacak ya da Kurumsal Ağ İçinde talep türü ile gelen bir talep şablonunu filtreleyecek şekilde yapılandırılmasıyla gerçekleştirilir.
+Güvenilen IP'ler yöneticilerin tooby geçişi iki aşamalı doğrulamayı belirli IP adresleri için ya da kendi intranetlerinden kaynaklanan taleplere sahip Federasyon kullanıcıları için izin verir. Merhaba aşağıdaki nasıl tooconfigure Azure multi-Factor Authentication güvenilen bölümlerde IP'leri Federasyon kullanıcıları ve bir Federasyon kullanıcıları intranet içinde bir isteğin kaynaklandığı zaman atlama iki aşamalı doğrulama. Bu, AD FS toouse bir geçiş veya filtre gelen talep şablonu hello Kurumsal ağın içinden talep türü ile yapılandırarak sağlanır.
 
 Bu örnekte Güvenilen Taraf Güvenlerimiz için Office 365 kullanılmıştır.
 
-### <a name="configure-the-ad-fs-claims-rules"></a>AD FS talep kurallarını yapılandırma
-Yapmamız gereken ilk şey, AD FS taleplerini yapılandırmaktır. Biri Kurumsal Ağ İçinde talep türü için, diğeriyse kullanıcıların oturumunu açık şekilde tutmak için olmak üzere iki talep kuralı oluşturun.
+### <a name="configure-hello-ad-fs-claims-rules"></a>Merhaba AD FS talep kurallarını yapılandırma
+toodo ihtiyacımız hello ilk tooconfigure hello AD FS talep şeydir. Biri hello Kurumsal ağın içinden talep türü ve ek bir oturum açık tutmak için iki talep kurallarını oluşturun.
 
 1. AD FS Yönetimi'ni açın.
-2. Solda, **Bağlı Olan Taraf Güvenleri**’ni seçin.
+2. Merhaba solda seçin **bağlı olan taraf güvenleri**.
 3. **Microsoft Office 365 Kimlik Platformu**’na sağ tıklayın ve **Talep Kurallarını Düzenle…** seçeneğini belirleyin.
    ![Bulut](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
 4. Verme Dönüştürme Kuralları’nda **Kural Ekle**’ye tıklayın.
    ![Bulut](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
-5. Dönüştürme Kuralı Ekleme Sihirbazı’nda, açılır menüde **Gelen Talep için Geçiş ya da Filtre**’yi seçin ve **İleri**’ye tıklayın.
+5. Açık dönüştürme talep Kuralı Ekleme Sihirbazı Merhaba, seçin **geçir veya Filtrele bir gelen talep** açılan hello ve'ı tıklatın **sonraki**.
    ![Bulut](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
-6. Talep kuralı adının yanındaki kutuda kuralınıza bir ad verin. Örneğin: InsideCorpNet.
-7. Gelen talep türü’nün yanındaki açılır menüde, **Kurumsal Ağ İçinde** seçeneğini belirleyin.
+6. Merhaba kutusunu sonraki tooClaim kural adı kuralınıza bir ad verin. Örneğin: InsideCorpNet.
+7. Sonraki tooIncoming hello açılır, gelen talep türü, seçin **Kurumsal ağın içinden**.
    ![Bulut](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip4.png)
 8. **Son**'a tıklayın.
 9. Verme Dönüştürme Kuralları’nda **Kural Ekle**’ye tıklayın.
-10. Dönüştürme Kuralı Ekleme Sihirbazı’nda, açılır menüden **Talepleri Özel Bir Kural Kullanarak Gönder**’i seçin ve **İleri**’ye tıklayın.
-11. Talep kuralı adı: altındaki kutuya *Kullanıcıların Oturumlarını Açık Tut* ifadesini girin.
-12. Özel kural kutusuna şunu girin:
+10. Açık dönüştürme talep Kuralı Ekleme Sihirbazı Merhaba, seçin **talepleri özel kural kullanarak Gönder** açılan hello ve'ı tıklatın **sonraki**.
+11. Talep kuralı adı altındaki hello kutusuna: girin *tutmak kullanıcılar imzalı içinde*.
+12. Merhaba özel kural kutusuna şunu girin:
 
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
@@ -81,18 +81,18 @@ Yapmamız gereken ilk şey, AD FS taleplerini yapılandırmaktır. Biri Kurumsal
 16. AD FS Yönetimi'ni kapatın.
 
 ### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Azure Multi-Factor Authentication Güvenilen IP’leri Federasyon Kullanıcıları ile Yapılandırma
-Talepler yapıldığına göre, artık güvenilen IP’leri yapılandırabiliriz.
+Merhaba talepler, biz güvenilen IP'leri yapılandırabilirsiniz.
 
-1. [Klasik Azure portalında](https://manage.windowsazure.com) oturum açın.
-2. Solda, **Active Directory**'ye tıklayın.
-3. Dizin altında, güvenilen IP'leri ayarlamak istediğiniz dizini seçin.
-4. Seçtiğiniz Dizinde **Yapılandır**'a tıklayın.
-5. Çok faktörlü kimlik doğrulaması bölümünde, **Hizmet ayarlarını yönet**'e tıklayın.
-6. Hizmet Ayarları sayfasındaki güvenilen IP'ler altında bulunan **İntranetimde bulunan şirket dışındaki kullanıcıların istekleri için çok öğeli kimlik doğrulamayı atla** seçeneğini belirleyin.  
+1. İçinde toohello oturum [Klasik Azure portalı](https://manage.windowsazure.com).
+2. Hello solda tıklatın **Active Directory**.
+3. Dizini altında hello dizini tooset güvenilen IP'leri ayarlamak istediğiniz yeri seçin.
+4. Hello seçtiğiniz dizin, tıklatın **yapılandırma**.
+5. Merhaba çok faktörlü kimlik doğrulaması bölümünde tıklayın **hizmet ayarlarını Yönet**.
+6. Merhaba hizmet ayarları sayfasında, güvenilen IP'ler altında seçin **Atla çok / multi-Factor-authentication istekleri için Federasyon kullanıcıları intranetimde bulunan**.  
 
    ![Bulut](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
    
 7. **Kaydet**’e tıklayın.
-8. Güncelleştirmeler uygulandıktan sonra **Kapat**'a tıklayın.
+8. Merhaba güncelleştirmeler uygulandıktan sonra tıklayın **kapatmak**.
 
-Bu kadar! Bu noktada, birleştirilmiş Office 365 kullanıcıları yalnızca talep kurumsal intranet dışından kaynaklandığı zaman MFA kullanmalıdır.
+Bu kadar! Bir talep dış hello Kurumsal intranet bağlantısı kaynaklandığı bu noktada, birleştirilmiş Office 365 kullanıcıları yalnızca toouse MFA olması gerekir.

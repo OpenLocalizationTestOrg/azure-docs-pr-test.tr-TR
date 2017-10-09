@@ -1,6 +1,6 @@
 ---
-title: "Azure İzleyici Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "İzleme ve tanılama hizmetlerini kullanarak performansı izleme, güvenliği koruma ve eğilimleri belirleme konusunda bilgi edinin. API başvuruları, en iyi yöntemler ve daha fazlası."
+title: "aaaAzure İzleyici dokümantasyonu - öğreticileri, API Başvurusu | Microsoft Docs"
+description: "Eğilimleri belirlemek ve güvenliğini korumak veya toouse izleme ve tanılama hizmetleri nasıl tootrack performans öğrenin. API başvuruları, en iyi yöntemler ve daha fazlası."
 services: monitoring-and-diagnostics
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 5583254cd559314478bdc42e3f41171c6cf1e85a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: b86390735ef74e137ec835b301b904763fad4405
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-monitor-documentation"></a>Azure İzleyici Belgeleri
 
-Azure izleme ve tanılama hizmetlerini kullanarak performansı izleme, güvenliği koruma ve eğilimleri belirleme konusunda bilgi edinin. Öğreticiler, API başvuruları, en iyi yöntemler ve diğer belgeler, izleme ve tanılama özelliklerinin kullanım alanlarının yanı sıra ölçeklenebilir ve güvenilir çözümleri nasıl planlayıp dağıtacağınızı anlamanıza yardımcı olur.
+Nasıl toouse Azure izleme ve tanılama Hizmetleri tootrack performans, güvenlik korumak ve eğilimlerini öğrenin. Öğreticiler, API başvuruları, en iyi yöntemler ve anlamak hello kullanan izleme ve tanılama diğer belgeleri Yardım ve nasıl tooplan ve ölçeklenebilir ve güvenilir çözümlerini dağıtma.
 
 <ul class="panelContent cardsFTitle">
     <li>

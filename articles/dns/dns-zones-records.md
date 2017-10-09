@@ -1,5 +1,5 @@
 ---
-title: "DNS bölgeleri ve kayıtları genel bakış - Azure DNS | Microsoft Docs"
+title: "aaaDNS bölgeleri ve genel bakış - Azure DNS kayıtlarını | Microsoft Docs"
 description: "DNS bölgeleri ve Microsoft Azure DNS kayıtlarını barındırmak için destek genel bakış."
 services: dns
 documentationcenter: na
@@ -15,25 +15,25 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
-ms.openlocfilehash: 5818986c939c464a364c52ab31225e15130ab30e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f214c3e2e810a80a000281820acd35f0aaf5a7e1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="overview-of-dns-zones-and-records"></a>DNS bölgeleri ve kayıtları'na genel bakış
 
-Bu sayfa, etki alanları, DNS bölgeleri ve DNS kayıtlarını ve kayıt kümelerini ve Azure DNS'de nasıl desteklenen anahtar kavramlarını açıklar.
+Bu sayfa, etki alanları, DNS bölgeleri ve DNS kayıtlarını ve kayıt kümelerini ve Azure DNS'de nasıl desteklenen anahtar kavramlarını hello açıklar.
 
 ## <a name="domain-names"></a>Etki alanı adları
 
-Etki Alanı Adı Sistemi, bir etki alanları hiyerarşisidir. Hiyerarşi, adı yalnızca "**.**" olan "kök" etki alanından başlar.  Bunun altında "com", "net", "org", "uk" veya "jp" gibi en üst düzey etki alanları bulunur.  Bunların altında "org.uk" veya "co.jp" gibi ikinci düzey etki alanları bulunur. DNS hiyerarşisindeki etki alanları genel olarak, dünya genelindeki DNS ad sunucuları tarafından barındırılan dağıtılır.
+Merhaba etki alanı adı sistemi, etki alanları hiyerarşisidir. Merhaba hiyerarşi adı olan basitçe hello 'kök' etki alanından başlar '**.**'.  Bunun altında "com", "net", "org", "uk" veya "jp" gibi en üst düzey etki alanları bulunur.  Bunların altında "org.uk" veya "co.jp" gibi ikinci düzey etki alanları bulunur. Merhaba DNS hiyerarşisindeki Hello etki alanlarının genel olarak, Merhaba dünya genelindeki DNS ad sunucuları tarafından barındırılan dağıtılır.
 
-Bir etki alanı adı kayıt "contoso.com" gibi bir etki alanı adı satın almanızı sağlayan bir kuruluş olan.  Bir etki alanı adı satın Örneğin, şirketinizin web sitesi için 'www.contoso.com' adı doğrudan olanak tanıyan DNS hiyerarşi o adla denetim hakkı verir. Kayıt şirketi ana sizin adınıza kendi ad sunucuları, etki alanı veya diğer ad sunucularını belirtmenizi sağlar.
+Bir etki alanı adı kayıt toopurchase "contoso.com" gibi bir etki alanı adı sağlayan bir kuruluş olan.  Bir etki alanı satın alma sağ toocontrol hello DNS hiyerarşi örneğin toodirect 'www.contoso.com' hello adı tooyour şirketinizin web sitesi izin vererek bu adla hello adı sağlar. Merhaba Kaydedici hello etki alanında kendi ad sunucuları sizin adınıza ana bilgisayar veya toospecify alternatif ad sunucuları izin vermez.
 
-Azure DNS, etki alanınızın barındırmak için kullanabileceğiniz bir genel dağıtılmış, yüksek kullanılabilirlik adı sunucu altyapısı sağlar. Azure DNS'de etki alanlarınızı barındırarak, diğer Azure hizmetleriyle DNS kayıtlarınızı aynı kimlik bilgilerini, API'leri, Araçlar, faturalama ve Destek ile yönetebilirsiniz.
+Azure DNS yapabileceğiniz bir genel dağıtılmış, yüksek kullanılabilirlik adı sunucu altyapısı sağlar toohost etki alanınızı kullanacak. Azure DNS'de etki alanlarınızı barındırarak DNS kayıtlarınızı hello ile yönetebilmeniz için aynı kimlik bilgileri, API'leri, Araçlar, faturalama ve diğer Azure hizmetlerinizi desteği.
 
-Azure DNS, etki alanı adlarını satın alma şu anda desteklemiyor. Bir etki alanı adı satın almak istiyorsanız, bir üçüncü taraf etki alanı adı kayıt kullanmanız gerekebilir. Kayıt, genellikle küçük bir yıllık ücret ister. Etki alanları için DNS kayıtlarını Yönetimi sonra Azure DNS'de barındırılabilir. Bkz: [bir etki alanını Azure DNS'ye devretme](dns-domain-delegation.md) Ayrıntılar için.
+Azure DNS, etki alanı adlarını satın alma şu anda desteklemiyor. Bir etki alanı adı toopurchase istiyorsanız toouse bir üçüncü taraf etki alanı adı kayıt gerekir. Merhaba Kaydedici genellikle küçük bir yıllık ücret ister. Merhaba etki alanları için DNS kayıtlarını Yönetimi sonra Azure DNS'de barındırılabilir. Bkz: [bir etki alanı tooAzure DNS temsilci](dns-domain-delegation.md) Ayrıntılar için.
 
 ## <a name="dns-zones"></a>DNS bölgeleri
 
@@ -45,37 +45,37 @@ Azure DNS, etki alanı adlarını satın alma şu anda desteklemiyor. Bir etki a
 
 ### <a name="time-to-live"></a>Yaşam süresi
 
-Yaşam süresi veya TTL, yeniden sorgulanmadan önce istemci tarafından ne süreyle önbelleğe alınacağını belirtir. Yukarıdaki örnekte, TTL 3600 saniye veya 1 saat değil.
+toolive Hello süresi veya TTL, ne kadar süreyle her kayıt istemciler tarafından yeniden sorgulanmadan önce önbelleğe alınacağını belirtir. Yukarıdaki örnek Hello hello TTL 3600 saniye veya 1 saat değil.
 
-Bu kayıt kümesindeki tüm kayıtlar için aynı değeri kullanılmak üzere Azure DNS'de TTL her kayıt için kayıt kümesi için belirtilmiş.  Herhangi bir TTL değeri 1 ile 2.147.483.647 saniye arasında bir değer belirtebilirsiniz.
+Azure DNS'de hello TTL her kayıt için değil hello kayıt kümesi için belirtilen şekilde hello bu kaydından tüm kayıtlar için aynı değer kullanılır ayarlayın.  Herhangi bir TTL değeri 1 ile 2.147.483.647 saniye arasında bir değer belirtebilirsiniz.
 
 ### <a name="wildcard-records"></a>Joker karakter kayıtları
 
-Azure DNS [joker kayıtlarını](https://en.wikipedia.org/wiki/Wildcard_DNS_record) destekler. (Bir joker karakter olmayan kayıt kümesinden daha yakın bir eşleşme olmadıkça) joker kayıtlarını yanıt adla eşleşen herhangi bir sorgu olarak döndürülür. Azure DNS joker karakter kaydı kümeleri NS ve SOA dışında tüm kayıt türleri için destekler.
+Azure DNS [joker kayıtlarını](https://en.wikipedia.org/wiki/Wildcard_DNS_record) destekler. (Bir joker karakter olmayan kayıt kümesinden daha yakın bir eşleşme olmadıkça) joker kayıtlarını eşleşen ada sahip bir yanıt tooany sorgusunda döndürülür. Azure DNS joker karakter kaydı kümeleri NS ve SOA dışında tüm kayıt türleri için destekler.
 
-Joker karakter kaydı kümesi oluşturmak için kayıt kümesi adını kullanın '\*'. Alternatif olarak, aynı zamanda bir adla kullanabilirsiniz '\*'olarak kendi en solundaki etiketle, örneğin,'\*.foo'.
+toocreate bir joker karakter kaydı kümesi, hello kayıt kümesi adını kullanın '\*'. Alternatif olarak, aynı zamanda bir adla kullanabilirsiniz '\*'olarak kendi en solundaki etiketle, örneğin,'\*.foo'.
 
 ### <a name="cname-records"></a>CNAME kayıtları
 
-CNAME kaydı kümeleri aynı ada sahip diğer kayıt kümeleriyle birlikte olamaz. Örneğin, aynı anda göreli adına sahip 'www' kümesi göreli adı 'www' ile bir CNAME kaydı ve bir A kaydı oluşturamazsınız.
+CNAME kaydı kümeleri birlikte bulunamaz hello diğer kayıt kümeleri ile aynı adı. Örneğin, kümesi hello göreli adı 'www' ile bir CNAME kaydı oluşturamazsınız ve bir A kaydı hello adresindeki hello göreli adı 'www' ile aynı saat.
 
-Çünkü bölge tepesinde (ad = ' @') her zaman içeren bölge oluşturulduğunda oluşturulan kümeleri NS ve SOA kaydı, bölgenin tepesinde ayarlamak bir CNAME kaydı oluşturamazsınız.
+Çünkü hello bölge tepesinde (ad = ' @') her zaman hello NS ve SOA kaydı içeren hello bölge oluşturulduğunda oluşturulan kümeleri, CNAME kaydı hello bölgenin tepesinde kümesi oluşturamıyor.
 
-Bu kısıtlamalar DNS standartları kaynaklıdır ve Azure DNS sınırlamaları değildir.
+Bu kısıtlamaların hello DNS standartları kaynaklıdır ve Azure DNS sınırlamaları değildir.
 
 ### <a name="ns-records"></a>NS kayıtları
 
-NS kayıt kümesinde bölge tepesinde (ad ' @') her DNS bölge ile otomatik olarak oluşturulur ve bölge silindiğinde otomatik olarak silinir (ayrı olarak silinemez).
+Merhaba NS kayıt kümesi hello bölgenin tepesinde (ad ' @') her DNS bölge ile otomatik olarak oluşturulur ve hello bölge silindiğinde otomatik olarak silinir (ayrı olarak silinemez).
 
-Bu kayıt kümesi bölgeye atanan Azure DNS ad sunucularının adlarını içerir. Birden fazla DNS sağlayıcınız ile birlikte barındırma etki alanlarını destekleyecek şekilde bu NS kaydının sunucularına ayarlayın ek ad ekleyebilirsiniz. Bu kayıt kümesi için meta verileri ve TTL de değiştirebilirsiniz. Ancak, kaldırmak veya önceden doldurulmuş haldedir Azure DNS ad sunucuları değiştirin. 
+Bu kayıt kümesinin hello Azure DNS ad sunucuları atanan toohello bölgesi hello adlarını içerir. Ek ad sunucuları toothis NS kayıt kümesi, etki alanları birden fazla DNS sağlayıcınız ile birlikte barındırma toosupport ekleyebilirsiniz. Merhaba TTL ve bu kayıt kümesi için meta verileri de değiştirebilirsiniz. Ancak, kaldırmak veya hello önceden doldurulmuş haldedir Azure DNS ad sunucuları değiştirin. 
 
-Bu bölge tepesinde yalnızca NS kayıt kümesi için geçerli olduğunu unutmayın. (Alt bölgelere temsilci seçmek için kullanıldığı şekilde), bu bölgedeki diğer NS kayıt kümelerini oluşturulan, değiştirilebilir ve kısıtlama silinir.
+Bu yalnızca toohello NS kayıt kümesi hello bölge tepesinde en geçerli olduğunu unutmayın. Diğer NS kayıt kümelerinde bölgenizi (olarak kullanılan toodelegate alt bölgeler) oluşturulmuş, değiştirilebilir ve kısıtlama silinir.
 
 ### <a name="soa-records"></a>SOA kayıtları
 
-Her bölgenin tepesinde bir SOA kayıt kümesini otomatik olarak oluşturulan (ad = ' @') ve bölge silindiğinde otomatik olarak silinir.  SOA kayıtları oluşturulamıyor veya ayrı olarak silinir.
+SOA kayıt kümesi hello her bölge tepesinde otomatik olarak oluşturulur (ad = ' @') ve hello bölge silindiğinde otomatik olarak silinir.  SOA kayıtları oluşturulamıyor veya ayrı olarak silinir.
 
-SOA kaydı Azure DNS tarafından sağlanan birincil sunucu adı başvurmak üzere önceden yapılandırılmıştır 'ana' özellik dışında tüm özelliklerini değiştirebilirsiniz.
+Merhaba SOA kaydına hello Azure DNS tarafından sağlanan önceden yapılandırılmış toorefer toohello birincil sunucu adı olan 'ana' özellik dışında tüm özelliklerini değiştirebilirsiniz.
 
 ### <a name="spf-records"></a>SPF kayıtlarının
 
@@ -83,42 +83,42 @@ SOA kaydı Azure DNS tarafından sağlanan birincil sunucu adı başvurmak üzer
 
 ### <a name="srv-records"></a>SRV kayıtları
 
-[SRV kayıtları](https://en.wikipedia.org/wiki/SRV_record) çeşitli hizmetler tarafından sunucu konumlarını belirtmek için kullanılır. Bir SRV kaydı Azure DNS'de belirtirken:
+[SRV kayıtları](https://en.wikipedia.org/wiki/SRV_record) çeşitli hizmetler toospecify sunucu konumlar tarafından kullanılır. Bir SRV kaydı Azure DNS'de belirtirken:
 
-* *Hizmet* ve *Protokolü* alt çizgi ile önek kayıt kümesi adı, bir parçası olarak belirtilmesi gerekir.  Örneğin, '\_SIP.\_ TCP.Name'.  Bölge tepesinde bir kaydı için belirtmek için gerek yoktur ' @' kayıt adı yalnızca hizmet ve protokol, örneğin kullanma '\_SIP.\_ TCP'.
-* *Öncelik*, *ağırlık*, *bağlantı noktası*, ve *hedef* kayıt kümesindeki her bir kaydı parametrelerinin olarak belirtilir.
+* Merhaba *hizmet* ve *Protokolü* hello kayıt kümesi adı bir parçası olarak belirtilen, alt çizgi ile önek.  Örneğin, '\_SIP.\_ TCP.Name'.  Merhaba bölge tepesinde bir kaydı için gerek toospecify yok ' @' hello kayıt adında, yalnızca hello hizmet ve protokol, örneğin kullanmak '\_SIP.\_ TCP'.
+* Merhaba *öncelik*, *ağırlık*, *bağlantı noktası*, ve *hedef* hello kayıt kümesindeki her bir kaydı parametrelerinin olarak belirtilir.
 
 ### <a name="txt-records"></a>TXT kayıtları
 
-TXT kayıtlarının rastgele metin dizelerini etki alanı adlarını eşleştirmek için kullanılır. E-posta yapılandırması için özellikle gibi ilgili birden çok uygulamalarda kullanılır [gönderen ilke Çerçevesi'ı (SPF)](https://en.wikipedia.org/wiki/Sender_Policy_Framework) ve [DomainKeys tanımlanan posta (DKIM)](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail).
+TXT, kullanılan toomap etki alanı adları tooarbitrary metin dizelerini kayıtlarıdır. Birden çok uygulamalarında hello gibi özellikle ilgili tooemail yapılandırma kullanılan [gönderen ilke Çerçevesi'ı (SPF)](https://en.wikipedia.org/wiki/Sender_Policy_Framework) ve [DomainKeys tanımlanan posta (DKIM)](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail).
 
-DNS standartları her biri en fazla 254 karakter uzunluğunda olabilir, birden çok dizeyi içeren tek bir TXT kaydı izin verir. Birden çok dizenin kullanıldığı durumlarda, bunlar istemciler tarafından birleştirilmiş ve tek bir dize kabul edilir.
+Merhaba DNS standartları her biri yukarı too254 karakter uzunluğunda olabilir, birden çok dizeyi tek bir TXT kaydı toocontain izin verir. Birden çok dizenin kullanıldığı durumlarda, bunlar istemciler tarafından birleştirilmiş ve tek bir dize kabul edilir.
 
-Azure DNS REST API'si çağrılırken, her bir TXT dize ayrı olarak belirtmeniz gerekir.  Azure Portalı'nı kullanırken, PowerShell veya CLI arabirimleri 254 karakter parçaya gerekirse, otomatik olarak bölünür kayıt başına tek bir dize belirtmeniz gerekir.
+Hello Azure DNS REST API'si çağrılırken, toospecify her TXT dize ayrı olarak gerekir.  PowerShell veya CLI arabirimleri Hello Azure portalı kullanırken, gerekirse 254 karakter parçaya otomatik olarak bölünür kayıt başına tek bir dize belirtmeniz gerekir.
 
-Bir DNS kaydı birden çok dizelerde TXT kayıt kümesi içinde birden çok TXT kayıt ile karıştırılmamalıdır.  TXT kayıt kümesi birden fazla kayıt içerebilir *her biri* birden çok dizenin içerebilir.  Azure DNS, toplam dize uzunluğu en çok 1024 karakter (Birleşik ayarlanmış tüm kayıtları arasında) her bir TXT kaydı destekler.
+bir DNS kaydı birden çok dizelerde ile karıştırılmamalıdır hello TXT kayıt kümesi içinde birden çok TXT kayıt hello.  TXT kayıt kümesi birden fazla kayıt içerebilir *her biri* birden çok dizenin içerebilir.  Azure DNS too1024 karakterleri yukarı toplam dize uzunluğu (Birleşik ayarlanmış tüm kayıtları arasında) her bir TXT kaydı destekler.
 
 ## <a name="tags-and-metadata"></a>Etiketleri ve meta veriler
 
 ### <a name="tags"></a>Etiketler
 
-Etiketleri ad-değer çiftlerinin listesini ve Azure Resource Manager tarafından kaynakları etiketlemek üzere kullanılır.  Azure Resource Manager Azure faturasını filtrelenmiş görünümlerini etkinleştirmek için etiketleri kullanır ve ayrıca etiketleri gereklidir ilkesi ayarlamanıza olanak sağlar. Etiketler hakkında daha fazla bilgi için bkz. [Etiketleri kullanarak Azure kaynaklarınızı düzenleme](../azure-resource-manager/resource-group-using-tags.md).
+Etiketleri ad-değer çiftlerinin listesini ve Azure Resource Manager toolabel kaynaklar tarafından kullanılır.  Azure Resource Manager Azure faturasını etiketleri filtre tooenable görünümlerini kullanır ve ayrıca, hangi etiketlerin ilke gereklidir tooset sağlar. Etiketler hakkında daha fazla bilgi için bkz: [kullanarak Azure kaynaklarınızı tooorganize etiketler](../azure-resource-manager/resource-group-using-tags.md).
 
 Azure DNS, DNS bölge kaynakları Azure Resource Manager etiketleri kullanarak destekler.  Alternatif 'meta verileri' desteklenir gibi DNS kaydı aşağıda açıklandığı gibi ayarlar ancak DNS kayıt kümelerini üzerinde etiketleri desteklemez.
 
 ### <a name="metadata"></a>Meta Veriler
 
-Kayıt kümesi etiketleri alternatif olarak, Azure DNS kayıt kümelerini 'meta verileri' kullanarak açıklanmasını destekler.  Benzer şekilde etiketleri, meta verileri, ad-değer çiftleri her bir kayıt kümesi ile ilişkilendirmek sağlar.  Bu örneğin kayıt her kayıt kümesi amacı yararlı olabilir.  Etiketler, aksine meta verileri Azure faturasını filtre uygulanmış bir görünümünü sağlamak için kullanılamaz ve bir Azure Resource Manager ilkesinde belirtilemez.
+Bir alternatif toorecord kümesi etiketleri gibi Azure DNS kayıt kümelerini 'meta verileri' kullanarak açıklanmasını destekler.  Benzer tootags, tooassociate ad-değer çiftleri her kayıt kümesi ile meta veri sağlar.  Bu yararlı olabilir, örneğin her kayıt toorecord hello amacı ayarlayın.  Etiketler, farklı meta verileri kullanılan tooprovide Azure faturasını filtre uygulanmış bir görünümünü olamaz ve bir Azure Resource Manager ilkesinde belirtilemez.
 
 ## <a name="etags"></a>Etag'ler
 
-İki kişinin veya iki işlemler aynı anda bir DNS kaydı değiştirmeye çalıştığınızda varsayalım. Hangisinin WINS? Ve başkaları tarafından oluşturulan değişikliklerin üzerine kazanan bilir?
+İki kişinin iki işlem toomodify deneyin varsayalım bir DNS kaydı sırasında hello aynı saat. Hangisinin WINS? Ve başkaları tarafından oluşturulan değişikliklerin üzerine hello kazanan bilir?
 
-Azure DNS Etag'ler aynı kaynak eşzamanlı değişiklikleri güvenli bir şekilde işlemek için kullanır. Etag'ler ayrı [Azure Resource Manager 'Etiketleri'](#tags). Her DNS kaynak (bölge veya kayıt kümesi) ilişkili bir ETag değerine sahip. Bir kaynak alınır olduğunda, kendi Etag de alınır. Bir kaynak güncelleştirirken Azure DNS, doğrulayabilmeniz için Etag sunucu eşleşmeleri ile Etag geri geçirmek seçebilirsiniz. Yeniden Etag bir kaynağa her bir güncelleştirme sonuçları olduğundan, bir Etag uyuşmazlığı eşzamanlı bir değişiklik oluştuğunu gösterir. Etag'ler da yeni bir kaynak oluştururken kaynak zaten yoksa emin olmak için kullanılabilir.
+Azure DNS kullanır Etag'ler toohandle eşzamanlı değişiklikleri toohello aynı kaynak güvenle. Etag'ler ayrı [Azure Resource Manager 'Etiketleri'](#tags). Her DNS kaynak (bölge veya kayıt kümesi) ilişkili bir ETag değerine sahip. Bir kaynak alınır olduğunda, kendi Etag de alınır. Bir kaynak güncelleştirirken Azure DNS, ' % s'hello Etag hello sunucu eşleşmeleri üzerinde doğrulayabilmeniz için geri toopass Etag hello seçebilirsiniz. Her güncelleştirme tooa kaynak hello yeniden Etag sonuçları olduğundan, bir Etag uyuşmazlığı eşzamanlı bir değişiklik oluştuğunu gösterir. Etag'ler hello kaynak zaten mevcut değilse yeni bir kaynak tooensure oluşturulurken kullanılabilir.
 
-Varsayılan olarak, Azure DNS PowerShell Etag'ler bölgelere eşzamanlı değişiklikleri engellemek ve kayıt kümeleri için kullanır. İsteğe bağlı *-üzerine* anahtar Etag denetimlerini gizlemek için kullanılabilir, her eşzamanlı durumda oluşan değişikliklerin üzerine yazılır.
+Varsayılan olarak, Azure DNS PowerShell Etag'ler tooblock eşzamanlı değişiklikleri toozones ve kayıt kümelerini kullanır. İsteğe bağlı Hello *-üzerine* anahtar kullanılan toosuppress Etag denetimleri olabilir, her eşzamanlı durumda oluşan değişikliklerin üzerine yazılır.
 
-Azure DNS REST API düzeyinde Etag'ler HTTP üstbilgileri kullanılarak belirtilir.  Davranışlarını aşağıdaki tabloda verilmiştir:
+Hello Azure DNS REST API'si Hello düzeyinde Etag'ler HTTP üstbilgileri kullanılarak belirtilir.  Aşağıdaki tablonun hello davranışları verilmiştir:
 
 | Üstbilgi | Davranışı |
 | --- | --- |
@@ -130,11 +130,11 @@ Azure DNS REST API düzeyinde Etag'ler HTTP üstbilgileri kullanılarak belirtil
 
 ## <a name="limits"></a>Sınırlar
 
-Azure DNS kullanarak aşağıdaki varsayılan sınırları uygulayın:
+Azure DNS kullanarak varsayılan sınırları aşağıdaki hello uygulayın:
 
 [!INCLUDE [dns-limits](../../includes/dns-limits.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Azure DNS kullanmaya başlamak için bilgi nasıl [bir DNS bölgesi oluşturma](dns-getstarted-create-dnszone-portal.md) ve [DNS kayıtlarını oluşturun](dns-getstarted-create-recordset-portal.md).
-* Varolan bir DNS bölgesi geçirmek için bilgi nasıl [içeri ve dışarı aktarma bir DNS bölge dosyasına](dns-import-export.md).
+* Azure DNS kullanarak toostart öğrenin nasıl çok[bir DNS bölgesi oluşturma](dns-getstarted-create-dnszone-portal.md) ve [DNS kayıtlarını oluşturun](dns-getstarted-create-recordset-portal.md).
+* Varolan bir DNS bölgesi toomigrate öğrenin nasıl çok[içeri ve dışarı aktarma bir DNS bölge dosyasına](dns-import-export.md).

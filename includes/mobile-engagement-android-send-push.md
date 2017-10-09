@@ -1,6 +1,6 @@
 
-### <a name="update-manifest-file-to-enable-notifications"></a>Bildirimleri etkinleştirmek için bildirim dosyasını güncelleştirme
-Aşağıdaki uygulama içi mesajlaşma kaynaklarını aşağıdaki Manifest.xml dosyasında `<application>` ve `</application>` etiketleri arasına kopyalayın.
+### <a name="update-manifest-file-tooenable-notifications"></a>Güncelleştirme bildirim dosyası tooenable bildirimleri
+Merhaba uygulama içi Mesajlaşma kaynaklarını aşağıdaki manifest.XML dosyanızda hello arasında kopyalama `<application>` ve `</application>` etiketler.
 
         <activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light" android:exported="false">
               <intent-filter>
@@ -45,32 +45,32 @@ Aşağıdaki uygulama içi mesajlaşma kaynaklarını aşağıdaki Manifest.xml 
         </receiver>
 
 ### <a name="specify-an-icon-for-notifications"></a>Bildirimler için simge belirtme
-Manifest.xml dosyanızda yer alan aşağıdaki XML parçacığını `<application>` ve `</application>` etiketleri arasına yapıştırın.
+Merhaba arasında Manifest.xml dosyanızda yer XML parçacığını aşağıdaki Yapıştır hello `<application>` ve `</application>` etiketler.
 
         <meta-data android:name="engagement:reach:notification:icon" android:value="engagement_close"/>
 
-Böylece simgenin hem sistemde, hem de uygulama içi bildirimlerde görüntüleneceği belirtilir. Bu, uygulama içi bildirimler için isteğe bağlı olsa da, sistem bildirimleri için zorunludur. Android, geçersiz simgelere sahip sistem bildirimlerini reddeder.
+Bu, hem de sistem ve uygulama içi bildirimler görüntülenen hello simgesini tanımlar. Bu, uygulama içi bildirimler için isteğe bağlı olsa da, sistem bildirimleri için zorunludur. Android, geçersiz simgelere sahip sistem bildirimlerini reddeder.
 
-**drawable** klasörlerinden birinde bulunan simgeleri kullandığınızdan emin olun (örneğin, ``engagement_close.png``). **mipmap** klasörü desteklenmez.
+Kullanmakta olduğunuz var simge hello birinde emin olun **drawable** klasörleri (gibi ``engagement_close.png``). **mipmap** klasörü desteklenmez.
 
 > [!NOTE]
-> **Başlatıcı** simgesi kullanılamaz. Bunun farklı bir çözünürlüğü vardır ve çoğunlukla desteklemediğimiz mipmap klasörlerinde yer alır.
+> Merhaba kullanmamalıdır **Başlatıcısı** simgesi. Farklı bir çözünürlüğü vardır ve çoğunlukla desteklemediğimiz hello mipmap klasörlerinde yer alır.
 > 
 > 
 
 Gerçek uygulamalar için, her[Android tasarım yönergesi](http://developer.android.com/design/patterns/notifications.html) için bir bildirime uygun simgeleri kullanabilirsiniz.
 
 > [!TIP]
-> Doğru simge çözünürlüğü kullandığınızdan emin olmak için [bu örneklere](https://www.google.com/design/icons) bakabilirsiniz.
-> Kayarak **Bildirim** bölümüne gidin, simgeye tıklayın ve ardından simge çizilebilir kümesini indirmek için `PNGS` öğesine tıklayın. Simgenin her sürümü için hangi drawable klasörlerde hangi çözünürlüğün kullanıldığını da görebilirsiniz.
+> toobe emin toouse doğru simge çözünürlüğü göz önünde bulundurmanız adresindeki [Bu örnekler](https://www.google.com/design/icons).
+> Toohello aşağı **bildirim** bölümünde, bir simgesine tıklayın ve ardından `PNGS` toodownload hello simge çizilebilir kümesini. Hangi drawable klasörlerde hangi çözümleme toouse hello simgesi her sürümü ile görebilirsiniz.
 > 
 > 
 
-### <a name="enable-your-app-to-receive-gcm-push-notifications"></a>GCM anında iletme bildirimlerini almak için uygulamanızı etkinleştirme
-1. Firebase proje konsolunuzdan alınan **Gönderen Kimliği**’ni değiştirdikten sonra aşağıdaki kodu, Manifest.xml dosyanızda `<application>` ve `</application>` etiketleri arasına yapıştırın. \n kasıtlı olarak konmuştur; bu nedenle proje numarasını bununla bitirdiğinizden emin olun.
+### <a name="enable-your-app-tooreceive-gcm-push-notifications"></a>Uygulama tooreceive GCM anında iletme bildirimlerini etkinleştirin
+1. Merhaba arasında manifest.XML dosyanızda hello aşağıdaki Yapıştır `<application>` ve `</application>` hello değiştirildikten sonra etiketleri **Gönderen Kimliği** Firebase proje konsolunuzdan elde. Merhaba \n maksatlı şekilde hello proje numarasını bitirdiğinizden emin olun.
    
         <meta-data android:name="engagement:gcm:sender" android:value="************\n" />
-2. Aşağıdaki kodu Manifest.xml dosyanızda `<application>` ve `</application>` etiketleri arasına yapıştırın. <Your package name> paket adını değiştirin.
+2. Merhaba arasında manifest.XML dosyanızda hello kodu kopyalayıp yapıştırın `<application>` ve `</application>` etiketler. Merhaba paket adını değiştirin <Your package name>.
    
         <receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMEnabler"
         android:exported="false">
@@ -86,7 +86,7 @@ Gerçek uygulamalar için, her[Android tasarım yönergesi](http://developer.and
                 <category android:name="<Your package name>" />
             </intent-filter>
         </receiver>
-3. `<application>` etiketinin önünde vurgulanan son izin kümesini ekleyin. `<Your package name>` öğesini uygulamanızın asıl paket adıyla değiştirin.
+3. Merhaba son önce hello vurgulanmıştır izinler kümesini eklemek `<application>` etiketi. Değiştir `<Your package name>` uygulamanızın hello asıl Paket adıyla.
    
         <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
         <uses-permission android:name="<Your package name>.permission.C2D_MESSAGE" />

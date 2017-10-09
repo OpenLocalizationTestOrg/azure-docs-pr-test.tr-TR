@@ -1,4 +1,4 @@
-Aşağıdaki tabloda olası karşıya yükleme listeler ve Windows yakalama birleşimlerini (Genel) genelleştirilmiş ve (belirtimi) özelleştirilmiş İşletim sistemi görüntüsü. Herhangi bir hata olmadan işleyecek birleşimleri Y tarafından belirtilir ve hataları atar o n ile gösterilir Aşağıdaki tabloda, nedenleri ve çözümlemeleri içine çalışacak farklı hatalar için verilir.
+Merhaba aşağıdaki tabloda olası karşıya yükleme ve genelleştirilmiş Windows (Genel) ve özelleştirilmiş (belirtimi) yakalama birleşimlerini hello İşletim sistemi görüntüsü. hataları Y tarafından belirtilir ve hataları atar o n ile belirtilir olmadan işleyecek hello birleşimleri nedenler hello ve çözümleri hello farklı hataları içine çalışacak hello tabloda verilir.
 
 | İşletim Sistemi | Spec karşıya yükleyin. | Gen karşıya yükleyin. | Spec yakalayın. | Gen yakalayın. |
 | --- | --- | --- | --- | --- |

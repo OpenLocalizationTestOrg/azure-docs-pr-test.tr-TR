@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell Betiği örnek - uygulama bir kümeye dağıtma | Microsoft Docs"
-description: "Azure PowerShell Betiği örnek - Service Fabric kümesi için bir uygulamayı dağıtın."
+title: "PowerShell komut dosyası örneği - aaaAzure uygulama tooa kümesini dağıtma | Microsoft Docs"
+description: "Azure PowerShell Betiği örnek - bir uygulama tooa Service Fabric kümesi dağıtma."
 services: service-fabric
 documentationcenter: 
 author: rwike77
@@ -15,38 +15,38 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 2863823205dbd70f63948ecd4af8898220fe1ff8
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: b417c9908c72f016e930c43ff2d13e0cc5451f46
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Service Fabric kümesi bir uygulamayı dağıtma
+# <a name="deploy-an-application-tooa-service-fabric-cluster"></a>Bir uygulama tooa Service Fabric kümesi dağıtma
 
-Bu örnek betik bir uygulama paketi bir küme görüntü deposuna kopyalar, kümede uygulama türü kaydeder ve uygulama türünden uygulama örneğini oluşturur.  Varsayılan hizmetlerin hedef uygulama türü uygulama bildiriminde tanımlanan yapıyorsanız, bu hizmetleri şu anda oluşturulur. Parametreleri gerektiği gibi özelleştirin. 
+Bu örnek betik bir uygulama paketi tooa kümenin görüntü deposu kopyalar, hello kümede hello uygulama türü kaydeder ve hello uygulama türünden uygulama örneğini oluşturur.  Varsayılan hizmetlerin hello uygulama bildiriminde hello hedef uygulama türü olarak tanımlanmış olan, bu hizmetleri şu anda oluşturulur. Merhaba parametrelerini gerektiği gibi özelleştirin. 
 
-Gerekirse, ile Service Fabric PowerShell modülünü yüklemek [Service Fabric SDK](../service-fabric-get-started.md). 
+Gerekirse, hello ile Merhaba Service Fabric PowerShell modülünü yüklemek [Service Fabric SDK](../service-fabric-get-started.md). 
 
 ## <a name="sample-script"></a>Örnek komut dosyası
 
-[!code-powershell[Ana](../../../powershell_scripts/service-fabric/deploy-application/deploy-application.ps1 "bir küme bir uygulamayı dağıtma")]
+[!code-powershell[main](../../../powershell_scripts/service-fabric/deploy-application/deploy-application.ps1 "Deploy an application tooa cluster")]
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme 
 
-Komut dosyası örneği gerçekleştirildikten sonra komut dosyasını [bir uygulamayı kaldırmak](service-fabric-powershell-remove-application.md) uygulama örneğini kaldırma, uygulama türü kaydını kaldırma ve uygulama paketi görüntü deposundan silmek için kullanılabilir.
+Merhaba komut dosyası örneği çalıştırdıktan sonra komut dosyasında hello [bir uygulamayı kaldırmak](service-fabric-powershell-remove-application.md) kullanılan tooremove hello Uygulama örneğinin olması, hello uygulama türü kaydını kaldırma ve hello uygulama paketi hello görüntü deposundan silin.
 
 ## <a name="script-explanation"></a>Komut dosyası açıklaması
 
-Bu komut dosyasını aşağıdaki komutları kullanır. Komut belirli belgeleri tablo bağlanan her komut.
+Bu komut dosyası komutları aşağıdaki hello kullanır. Her komut hello tablosundaki toocommand belirli belgeleri bağlar.
 
 | Komut | Notlar |
 |---|---|
-| [Kopyalama ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) | Bir uygulama paketi küme görüntü deposuna kopyalama.  |
-|[Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)| Bir uygulama türü ve sürümü küme üzerinde kaydeder. |
+| [Kopyalama ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps) | Bir uygulama paketi toohello kümenin görüntü deposu kopyalayın.  |
+|[Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps)| Bir uygulama türü ve sürümü hello kümede kaydeder. |
 |[ServiceFabricApplication yeni](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps)| Kayıtlı uygulama türünden bir uygulama oluşturur. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Service Fabric PowerShell modülü hakkında daha fazla bilgi için bkz: [Azure PowerShell belgelerine](/powershell/azure/service-fabric/?view=azureservicefabricps).
+Merhaba Service Fabric PowerShell modülü hakkında daha fazla bilgi için bkz: [Azure PowerShell belgelerine](/powershell/azure/service-fabric/?view=azureservicefabricps).
 
-Azure Service Fabric ek Powershell örnekleri bulunabilir [Azure PowerShell örnekleri](../service-fabric-powershell-samples.md).
+Azure Service Fabric ek Powershell örnekleri hello bulunabilir [Azure PowerShell örnekleri](../service-fabric-powershell-samples.md).

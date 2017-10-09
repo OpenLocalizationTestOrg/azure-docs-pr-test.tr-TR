@@ -1,6 +1,6 @@
 ---
-title: "Azure Log Analytics Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "Log Analytics’i kullanarak bulut ve şirket içi ortamlarınızdaki kaynaklar tarafından oluşturulan verileri fiziksel konumdan bağımsız olarak toplama ve çözümleme hakkında bilgi edinin."
+title: "aaaAzure günlük analizi belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
+description: "Bilgi nasıl toouse günlük analizi toocollect ve fiziksel konum ne olursa olsun, Bulut ve şirket içi ortamlarda kaynaklar tarafından oluşturulan veri çözümleme."
 services: log-analytics
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 9d5d1ada86a2cb1b6f6f70d9c662708f81b5bcc6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 48b3c1b28d9e3a9eaed34201d6bae2a6fdea90fd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="log-analytics-documentation"></a>Log Analytics Belgeleri
 
-Operations Management Suite paketindeki Log Analytics’i kullanarak bulut ve şirket içi ortamlarınızdaki kaynaklar tarafından oluşturulan verileri toplama ve çözümleme hakkında bilgi edinin. Öğreticilerde ve diğer belgelerde, fiziksel konumdan bağımsız olarak iş yüklerinizde ve sunucularınızda gerçek zamanlı öngörüler edinmenizi sağlamaya yönelik bilgiler sunulmuştur.
+Bilgi nasıl toouse günlük analizi Operations Management Suite toocollect hello ve Bulut ve şirket içi ortamlarda kaynaklar tarafından oluşturulan verileri analiz etmek. Öğreticiler ve diğer belgelerin Göster, nasıl tooget gerçek zamanlı Öngörüler iş yükleri ve fiziksel konum ne olursa olsun sunucuları arasında.
 
 <ul class="panelContent cardsFTitle">
     <li>

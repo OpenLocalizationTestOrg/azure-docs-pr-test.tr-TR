@@ -1,23 +1,23 @@
 ## <a name="route-tables"></a>Yönlendirme tabloları
-Rota tablosu kaynakları Azure altyapısı içinde trafiğinin nasıl akacağını belirlemek için kullanılan yolları içerir. Bir güvenlik duvarı veya izinsiz giriş algılama sistem gibi (Kimlikler) tüm trafik için sanal bir gereç, belirli bir alt ağ üzerinden göndermek için kullanıcı tanımlı yolları (UDR) kullanabilirsiniz. Bir yol tablosu alt ağlara ilişkilendirebilirsiniz. 
+Rota tablosu kaynakları Azure altyapısı içinde trafiğinin nasıl akacağını kullanılan yolları toodefine içerir. Belirli alt ağ tooa sanal gereç, bir güvenlik duvarı veya izinsiz giriş algılama sistemi gibi (Kimlikler) gelen tüm trafiği kullanıcı tanımlı yolları (UDR) toosend kullanabilirsiniz. Bir rota tablosu toosubnets ilişkilendirebilirsiniz. 
 
-Yönlendirme tabloları aşağıdaki özellikleri içerir.
+Yönlendirme tabloları aşağıdaki özelliklere hello içerir.
 
 | Özellik | Açıklama | Örnek değerler |
 | --- | --- | --- |
-| **yollar** |Kullanıcı koleksiyonunu rota tablosunda tanımlı yollar |bkz: [kullanıcı tanımlı yollar](#User-defined-routes) |
-| **alt ağlar** |Alt ağlar koleksiyonunu rota tablosu uygulanır. |bkz: [alt ağlar](#Subnets) |
+| **yollar** |Kullanıcı koleksiyonu yolları hello rota tablosunda tanımlı. |bkz: [kullanıcı tanımlı yollar](#User-defined-routes) |
+| **alt ağlar** |Alt ağlar hello yol tablosu koleksiyonunu çok uygulanır|bkz: [alt ağlar](#Subnets) |
 
 ### <a name="user-defined-routes"></a>Kullanıcı tanımlı yollar
-Hedef adresine göre burada trafiği için gönderilmesi gerektiğini belirtmek için Udr'ler oluşturabilirsiniz. Bir ağ paketi hedef adresini temel alarak varsayılan ağ geçidi tanımı bir yolu düşünebilirsiniz.
+Hedef adresine göre burada trafiği, gönderilmesi gereken Udr'ler toospecify oluşturabilirsiniz. Bir yolu, bir ağ paketinin hello hedef adresine göre hello varsayılan ağ geçidi tanımı olarak düşünebilirsiniz.
 
-Udr'ler aşağıdaki özellikleri içerir. 
+Aşağıdaki özelliklere hello Udr'ler içerir. 
 
 | Özellik | Açıklama | Örnek değerler |
 | --- | --- | --- |
-| **addressPrefix** |Adres ön eki veya hedef için tam IP adresi |192.168.1.0/24, 192.168.1.101 |
-| **nextHopType** |Trafiğin gönderileceği aygıt türü |Değerinin VirtualAppliance, VPN ağ geçidi, Internet |
-| **Nexthopıpaddress** |Sonraki atlama IP adresi |192.168.1.4 |
+| **addressPrefix** |Merhaba hedef tam IP adresini veya adres öneki |192.168.1.0/24, 192.168.1.101 |
+| **nextHopType** |Cihaz hello trafik türü çok gönderilir|Değerinin VirtualAppliance, VPN ağ geçidi, Internet |
+| **Nexthopıpaddress** |Merhaba sonraki atlama IP adresi |192.168.1.4 |
 
 JSON biçiminde örnek yol tablosu:
 
@@ -52,6 +52,6 @@ JSON biçiminde örnek yol tablosu:
 
 ### <a name="additional-resources"></a>Ek kaynaklar
 * Hakkında daha fazla bilgi almak [Udr'ler](../articles/virtual-network/virtual-networks-udr-overview.md).
-* Okuma [REST API başvuru belgeleri](https://msdn.microsoft.com/library/azure/mt502549.aspx) yönlendirme tabloları için.
-* Okuma [REST API başvuru belgeleri](https://msdn.microsoft.com/library/azure/mt502539.aspx) için kullanıcı tanımlı yollar (Udr'ler).
+* Okuma hello [REST API başvuru belgeleri](https://msdn.microsoft.com/library/azure/mt502549.aspx) yönlendirme tabloları için.
+* Okuma hello [REST API başvuru belgeleri](https://msdn.microsoft.com/library/azure/mt502539.aspx) için kullanıcı tanımlı yollar (Udr'ler).
 

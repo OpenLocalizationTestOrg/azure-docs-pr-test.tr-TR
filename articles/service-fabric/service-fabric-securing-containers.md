@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric kapsayıcı güvenlik | Microsoft Docs"
-description: "Şimdi güvenli kapsayıcı hizmetleri öğrenin."
+title: "Service Fabric kapsayıcı güvenlik aaaAzure | Microsoft Docs"
+description: "Şimdi toosecure kapsayıcı hizmetlerini öğrenin."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 75faca1e827a0eca6b97adcb2e1c6ca72b3364d6
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 88faf4e8f949c2f7743756b6272ca672d9710630
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="container-security"></a>Kapsayıcı güvenlik
 
-Service Fabric kümesindeki düğümlere bir Windows veya Linux (sürüm 5.7 veya üstü) yüklü bir sertifika erişmek için bir kapsayıcı içindeki hizmetler için bir mekanizma sağlar. Ayrıca, Service Fabric Windows kapsayıcıları için de gMSA (Grup yönetilen hizmet hesapları) destekler. 
+Service Fabric hello kümedeki düğümlere bir Windows veya Linux (sürüm 5.7 veya üstü) yüklü bir Sertifika Hizmetleri bir kapsayıcı tooaccess içinde bir mekanizma sağlar. Ayrıca, Service Fabric Windows kapsayıcıları için de gMSA (Grup yönetilen hizmet hesapları) destekler. 
 
 ## <a name="certificate-management-for-containers"></a>Kapsayıcıları için sertifika yönetimi
 
-Bir sertifika belirterek, kapsayıcı hizmetlerini güvenliğini sağlayabilirsiniz. Sertifika, küme düğümlerinde yüklü olmalıdır. Sertifika bilgilerini altında uygulama bildiriminde sağlanan `ContainerHostPolicies` aşağıdaki kod parçacığında gösterildiği gibi etiketi:
+Bir sertifika belirterek, kapsayıcı hizmetlerini güvenliğini sağlayabilirsiniz. Merhaba sertifika hello hello küme düğümlerinde yüklü olmalıdır. Merhaba sertifika bilgilerini hello altında hello uygulama bildiriminde sağlanan `ContainerHostPolicies` etiketi aşağıdaki kod parçacığında gösterildiği hello olarak:
 
 ```xml
   <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
@@ -34,12 +34,12 @@ Bir sertifika belirterek, kapsayıcı hizmetlerini güvenliğini sağlayabilirsi
     <CertificateRef Name="MyCert2" X509FindValue="[Thumbprint2]"/>
  ```
 
-Uygulama başlatılırken çalışma zamanı sertifikaları okur ve bir PFX dosyası ve her sertifika için parola oluşturur. Bu PFX dosyası ve parola, aşağıdaki ortam değişkenlerini kullanma kapsayıcısı içindeki erişilebilir: 
+Merhaba uygulama başlatılırken hello çalışma zamanı hello sertifikaları okur ve bir PFX dosyası ve her sertifika için parola oluşturur. Bu PFX dosyası ve parola, ortam değişkenleri aşağıdaki hello kullanarak hello kapsayıcısı içindeki erişilebilir: 
 
 * **Certificate_ [CodePackageName] _ [CertName] _PFX**
 * **Certificate_ [CodePackageName] _ [CertName] _Password**
 
-Kapsayıcı hizmeti veya işlem kapsayıcıya PFX dosyasını içeri aktarmak için sorumludur. Sertifikayı içeri aktarmak için kullanabilirsiniz `setupentrypoint.sh` komut dosyaları veya özel kod kapsayıcı işlemi içinde yürütülür. C# örnek kod PFX dosyasını içeri aktarmak için aşağıdaki gibidir:
+Merhaba kapsayıcı hizmeti ya da işlem hello kapsayıcıya hello PFX dosyasını içeri aktarmak için sorumludur. kullanabileceğiniz tooimport hello sertifika `setupentrypoint.sh` komut dosyaları veya özel kod hello kapsayıcı işlemi içinde yürütülür. C# örnek kod hello PFX dosyasını içeri aktarmak için aşağıdaki gibidir:
 
 ```c#
     string certificateFilePath = Environment.GetEnvironmentVariable("Certificate_NodeContainerService.Code_MyCert1_PFX");
@@ -52,12 +52,12 @@ Kapsayıcı hizmeti veya işlem kapsayıcıya PFX dosyasını içeri aktarmak i�
     store.Add(cert);
     store.Close();
 ```
-Bu PFX sertifika için kullanılabilmesi için uygulama veya hizmet veya diğer hizmetleri ile güvenli commmunication kimlik doğrulaması.
+Bu PFX sertifika kimlik doğrulaması yap hello uygulama veya hizmet ya da diğer hizmetleri ile güvenli commmunication için kullanılabilir.
 
 
 ## <a name="set-up-gmsa-for-windows-containers"></a>GMSA Windows kapsayıcıları için ayarlama
 
-Bir kimlik bilgisi belirtimi dosyası gmsa'yı (Grup yönetilen hizmet hesapları) ayarlamak için (`credspec`) kümedeki tüm düğümlere yerleştirilir. Dosya bir VM uzantısı kullanılarak tüm düğümlerde kopyalanabilir.  `credspec` Dosya gMSA hesabı bilgileri içermesi gerekir. Daha fazla bilgi için `credspec` dosya için bkz: [hizmet hesaplarını](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/live/windows-server-container-tools/ServiceAccounts). Kimlik bilgisi belirtimi ve `Hostname` etiketi, uygulama bildiriminde belirtilir. `Hostname` Etiketi kapsayıcı çalıştığı gMSA hesabı adı eşleşmelidir.  `Hostname` Etiketi Kerberos kimlik doğrulaması kullanarak etki alanındaki diğer hizmetler için kendi kimliğini doğrulamak kapsayıcı sağlar.  Belirtmek için bir örnek `Hostname` ve `credspec` uygulama bildirimi aşağıdaki kod parçacığında gösterilir:
+gMSA (Grup yönetilen hizmet hesapları), bir kimlik bilgisi belirtimi dosyası yukarı tooset (`credspec`) hello kümedeki tüm düğümlere yerleştirilir. bir VM uzantısı kullanılarak tüm düğümlerde Hello dosya kopyalanabilir.  Merhaba `credspec` dosya hello gMSA hesabı bilgileri içermesi gerekir. Merhaba hakkında daha fazla bilgi için `credspec` dosya için bkz: [hizmet hesaplarını](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/live/windows-server-container-tools/ServiceAccounts). Merhaba kimlik bilgisi belirtimi ve hello `Hostname` etiketi hello uygulama bildiriminde belirtilir. Merhaba `Hostname` etiketi altında kapsayıcı çalıştığı hello hello gMSA hesabı adı eşleşmelidir.  Merhaba `Hostname` etiketi hello kapsayıcı tooauthenticate kendisini Kerberos kimlik doğrulaması kullanarak hello etki alanındaki tooother hizmetleri sağlar.  Merhaba belirtmek için bir örnek `Hostname` ve hello `credspec` hello uygulama bildirimi parçacığını aşağıdaki hello gösterilir:
 
 ```xml
 <Policies>
@@ -68,5 +68,5 @@ Bir kimlik bilgisi belirtimi dosyası gmsa'yı (Grup yönetilen hizmet hesaplar�
 ```
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Windows Server 2016 Service Fabric Windows kapsayıcı dağıtma](service-fabric-get-started-containers.md)
-* [Service Fabric Linux'ta Docker kapsayıcısı dağıtma](service-fabric-get-started-containers-linux.md)
+* [Bir Windows kapsayıcı tooService Windows Server 2016 doku dağıtma](service-fabric-get-started-containers.md)
+* [Docker kapsayıcısı tooService doku Linux'ta dağıtma](service-fabric-get-started-containers-linux.md)

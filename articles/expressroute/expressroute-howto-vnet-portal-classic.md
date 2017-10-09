@@ -1,6 +1,6 @@
 ---
-title: "Bir sanal ağ ve ağ geçidi Klasik portalda ExpressRoute için yapılandırma | Microsoft Docs"
-description: "Bu makalede Klasik dağıtım modeli ve klasik Portalı'nı kullanarak ExpressRoute için bir sanal ağ ayarı aracılığıyla anlatılmaktadır."
+title: "aaaConfigure bir sanal ağ ve ağ geçidi için de ExpressRoute hello Klasik portalı | Microsoft Docs"
+description: "Bu makalede hello Klasik dağıtım modeli ve hello Klasik portalı kullanarak ExpressRoute için bir sanal ağ ayarı aracılığıyla anlatılmaktadır."
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2016
 ms.author: cherylmc
-ms.openlocfilehash: f62254b2a7df50aa55a2a49009702848a9aecebd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: dd1f6c5e85dbb3ad0a53ecd81c13b4d3f5c06e66
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="create-a-virtual-network-for-expressroute-in-the-classic-portal"></a>Klasik portalda ExpressRoute için bir sanal ağ oluşturma
-Bu makaledeki adımları sanal ağ ve sanal ağ geçidi kullanmak için Klasik dağıtım modeli ve klasik Portalı'nı kullanarak ExpressRoute ile nasıl yapılandıracağınız anlatılmaktadır.
+# <a name="create-a-virtual-network-for-expressroute-in-hello-classic-portal"></a>Merhaba Klasik Portalı'nda ExpressRoute için bir sanal ağ oluşturma
+Bu makaledeki adımları Hello hello Klasik dağıtım modeli ve hello Klasik portalı kullanarak ExpressRoute ile bir sanal ağ ve sanal ağ geçidi kullanmak için yapılandırırken size yol gösterir.
 
-Resource Manager dağıtım modeli için yönergeler arıyorsanız, aşağıdaki makaleler kullanabilirsiniz: [PowerShell kullanarak bir sanal ağ oluşturma](../virtual-network/virtual-networks-create-vnet-arm-ps.md) ve [Resource Manager Vnet'i ExpressRoute için bir VPN ağ geçidi eklemek](expressroute-howto-add-gateway-resource-manager.md).
+Merhaba Resource Manager dağıtım modeli için yönergeler arıyorsanız, aşağıdaki makaleler hello kullanabilirsiniz: [PowerShell kullanarak bir sanal ağ oluşturma](../virtual-network/virtual-networks-create-vnet-arm-ps.md) ve [bir VPN ağ geçidi tooa Resource Manager Vnet'i eklemek için ExpressRoute](expressroute-howto-add-gateway-resource-manager.md).
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -33,46 +33,46 @@ Resource Manager dağıtım modeli için yönergeler arıyorsanız, aşağıdaki
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="create-a-classic-vnet-and-gateway"></a>Bir Klasik VNet ve ağ geçidi oluşturun
-Aşağıdaki adımlar, Klasik VNet ve bir sanal ağ geçidi oluşturun. Klasik bir VNet zaten varsa, bkz: [olan bir Klasik VNet yapılandırma](#config) bu makalenin bölümünde.
+Merhaba aşağıdaki adımları Klasik VNet ve bir sanal ağ geçidi oluşturun. Klasik bir VNet zaten varsa hello bkz [olan bir Klasik VNet yapılandırma](#config) bu makalenin bölümünde.
 
-1. [Klasik Azure portalında](http://manage.windowsazure.com) oturum açın.
-2. Ekranın sol alt köşesinde, **yeni**. Gezinme bölmesinde **Ağ Hizmetleri**’ne, sonra da **Virtual Network**’a tıklayın. Yapılandırma sihirbazını başlatmak için **Özel Oluştur**’a tıklayın.
-3. Üzerinde **sanal ağ ayrıntıları** sayfasında, aşağıdakileri girin:
+1. İçinde toohello oturum [Klasik Azure portalı](http://manage.windowsazure.com).
+2. Merhaba sol alt köşedeki hello ekranının, tıklatın **yeni**. Merhaba Gezinti bölmesinde **Ağ Hizmetleri**ve ardından **sanal ağ**. Tıklatın **özel Oluştur** toobegin hello Yapılandırma Sihirbazı'nı.
+3. Merhaba üzerinde **sanal ağ ayrıntıları** sayfasında, hello aşağıdakileri girin:
    
-   * **Ad** – sanal ağınızı adlandırın. Çok karışık bir isim vermekten istemeyebilirsiniz şekilde Vm'leri ve PaaS örnekleri dağıtırken bu sanal ağ adı kullanacaksınız.
-   * **Konum** – konum, kaynaklarınızın (VM'ler) bulunmasını istediğiniz fiziksel konum (bölge) doğrudan ilişkilidir. Örneğin, bu sanal ağa dağıttığınız VM’lerin fiziksel olarak Doğu ABD’de bulunmasını istiyorsanız, o konumu seçin. Oluşturduktan sonra sanal ağınızla ilişkili bölgeyi değiştiremezsiniz.
-4. **DNS Sunucuları ve VPN Bağlantısı** sayfasında aşağıdaki bilgileri girin ve sağ alt köşedeki ileri okuna tıklayın. 
+   * **Ad** – sanal ağınızı adlandırın. Çok karmaşık toomake hello adı isteyebilirsiniz, Vm'leri ve PaaS örnekleri dağıtırken bu sanal ağ adı kullanacaksınız.
+   * **Konum** – hello konumdur kaynaklar (VM'ler) tooreside istediğiniz doğrudan ilgili toohello fiziksel konum (bölge). Örneğin, fiziksel olarak Doğu ABD'de bulunan toothis sanal ağ toobe dağıttığınız hello VM'ler istiyorsanız, o konumu seçin. Oluşturduktan sonra sanal ağınızla ilişkili hello bölgeyi değiştiremezsiniz.
+4. Merhaba üzerinde **DNS sunucuları ve VPN bağlantısı** sayfasında, aşağıdaki bilgilerle hello girin ve ardından hello hello alt köşedeki İleri okuna tıklayın. 
    
-   * **DNS sunucuları** - IP adresi ve DNS sunucusu adı girin veya kısayol menüsünden daha önce kaydedilmiş bir DNS sunucusu seçin. Bu ayarla bir DNS sunucusu oluşturulmaz. Söz konusu ayar, bu sanal ağa ilişkin ad çözümlemesi için kullanmak istediğiniz DNS sunucularını belirtmenize olanak sağlar.
-   * **Siteden siteye bağlantı** -onay kutusunu seçip **siteden siteye VPN bağlantısını yapılandırma**.
-   * **ExpressRoute** – onay kutusunu işaretleyin **kullanım ExpressRoute**. Seçtiyseniz bu seçeneği yalnızca görünür **siteden siteye VPN bağlantısını yapılandırma**.
-   * **Yerel ağ** -ExpressRoute için bir yerel ağ sitesi için gereklidir. Ancak, bir ExpressRoute bağlantı söz konusu olduğunda yerel ağ site için belirtilen adres öneklerini yoksayılacak. Bunun yerine, expressroute bağlantı hattı Microsoft'a tanıtılan adres öneklerini yönlendirme amaçlar için kullanılır.<BR>ExpressRoute bağlantınızı için oluşturulan bir yerel ağ zaten varsa, açılan listeden seçebilirsiniz. Aksi takdirde, seçin **yeni bir yerel ağ belirtmek**.
-5. **Siteden siteye bağlantı** önceki adımda yeni bir yerel ağ belirtmek için seçtiyseniz sayfası görüntülenir. Yerel ağınızın yapılandırmak için aşağıdaki bilgileri girin ve ardından sonraki oka tıklayın. 
+   * **DNS sunucuları** - hello DNS sunucusu adı ve IP adresini girin ya da daha önce kaydedilmiş bir DNS sunucusu hello kısayol menüsünden seçin. Bu ayarla bir DNS sunucusu oluşturulmaz. Bu sanal ağ için ad çözümlemesi için toouse istediğiniz toospecify hello DNS sunucuları sağlar.
+   * **Siteden siteye bağlantı** - seçin onay kutusunu hello **siteden siteye VPN bağlantısını yapılandırma**.
+   * **ExpressRoute** – seç onay kutusu hello **kullanım ExpressRoute**. Seçtiyseniz bu seçeneği yalnızca görünür **siteden siteye VPN bağlantısını yapılandırma**.
+   * **Yerel ağ** -gerekli toohave ExpressRoute için bir yerel ağ sitesi olan. Ancak, bir ExpressRoute bağlantı hello durumda ağ site yok sayılacak hello adres öneklerini hello yerel belirtilmiş. Bunun yerine, hello adres öneklerini tooMicrosoft hello expressroute bağlantı hattı üzerinden yönlendirme amacıyla kullanılacak tanıtılan.<BR>ExpressRoute bağlantınızı için oluşturulan bir yerel ağ zaten varsa, hello aşağı açılır listeden seçebilirsiniz. Aksi takdirde, seçin **yeni bir yerel ağ belirtmek**.
+5. Merhaba **siteden siteye bağlantı** hello önceki adımda toospecify yeni bir yerel ağ seçtiyseniz sayfası görüntülenir. tooconfigure, yerel ağınızda bilgisinden hello girin ve ardından hello İleri okuna tıklayın. 
    
-   * **Ad** -ağ sitesini (şirket içi) yerel çağırmak istediğiniz adı.
-   * **Adres alanı** - dahil olmak üzere başlangıç IP'si ve CIDR'si (adres sayısı). Sanal ağınız için adres aralığıyla örtüşmeyecek sürece herhangi bir adres aralığı belirtebilirsiniz. Genellikle, bunun şirket içi ağlarınız adres aralıklarını belirtebilirsiniz, ancak ExpressRoute söz konusu olduğunda, bu ayarlar kullanılmaz. Ancak, bu ayar, Klasik Portalı'nı kullanırken, yerel ağ oluşturmak için gereklidir.
+   * **Ad** -yerel toocall istediğiniz hello adını (şirket içi) ağ alanı.
+   * **Adres alanı** - dahil olmak üzere başlangıç IP'si ve CIDR'si (adres sayısı). Sanal ağınız için hello adres aralığıyla örtüşmeyecek sürece herhangi bir adres aralığı belirtebilirsiniz. Genellikle, bunun şirket içi ağlarınız hello adres aralıklarını belirtebilirsiniz, ancak ExpressRoute hello durumda bu ayarları kullanılmaz. Ancak, bu ayar hello Klasik portal kullanırken sipariş toocreate hello yerel ağ gereklidir.
    * **Adres Alanı Ekle** -Bu ayar için ExpressRoute ilgili değildir.
-6. Üzerinde **sanal ağ adres alanları** sayfasında, aşağıdaki bilgileri girin ve ağınızı yapılandırmak için alt köşedeki onay işaretine tıklayın. 
+6. Merhaba üzerinde **sanal ağ adres alanları** sayfasında, aşağıdaki bilgilerle hello girin ve ağınızı hello alt sağ tooconfigure hello onay işaretine'ye tıklayın. 
    
-   * **Adres alanı** - başlangıç IP dahil olmak üzere ve adres sayısı. Belirlediğiniz adres alanlarından herhangi biri yerel ağınızda sahip adres alanları çakışmadığını doğrulayın.
+   * **Adres alanı** - başlangıç IP dahil olmak üzere ve adres sayısı. Belirttiğiniz hello adres alanlarından herhangi biri yerel ağınızda sahip hello adres alanları çakışmadığını doğrulayın.
    * **Alt ağ Ekle** - dahil olmak üzere başlangıç IP'si ve adres sayısı. Ek alt ağlar gerekli değildir.
-   * **Ağ geçidi alt ağı eklemek** -ağ geçidi alt ağı eklemek için tıklatın. Ağ geçidi alt ağı, yalnızca sanal ağ geçidi için kullanılır ve bu yapılandırma için gereklidir.<BR>CIDR (adres sayısı) için ExpressRoute ağ geçidi alt ağı /28 olmalıdır veya daha büyük (/ 27, / 26 vb..). Bu alt yeterli IP adresi çalışmak yapılandırma olanak sağlar. ExpressRoute, kullanmak için onay kutusunu seçtiyseniz, Klasik portalda /28 ile bir ağ geçidi alt ağı portal belirtir.  Klasik portalda CIDR adres sayısı ayarlayamazsınız. Ağ geçidi alt ağı olarak görünür **ağ geçidi** Klasik Portalı'nda oluşturulan ağ geçidi alt ağı gerçek adı gerçekte olmasına rağmen **GatewaySubnet**. Bu ad, Azure portalında veya PowerShell kullanarak görüntüleyebilirsiniz.
-7. Sayfanın altındaki onay işaretine tıkladığınızda sanal ağınız oluşturulmaya başlar. Tamamlandığında, görürsünüz **oluşturulan** altında listelenen **durum** üzerinde **ağlar** Klasik portalında sayfası.
+   * **Ağ geçidi alt ağı eklemek** -tooadd hello ağ geçidi alt ağı'ı tıklatın. Merhaba ağ geçidi alt ağı yalnızca hello sanal ağ geçidi için kullanılır ve bu yapılandırma için gereklidir.<BR>ağ geçidi alt ağı CIDR (adres sayısı) ExpressRoute /28 olmalıdır hello veya daha büyük (/ 27, / 26 vb..). Bu, alt ağ tooallow hello yapılandırma toowork yeterli IP adresi sağlar. Hello onay kutusunu toouse ExpressRoute seçtiyseniz hello Klasik Portalı'nda, bir ağ geçidi alt ağı hello portalı ile /28 belirtir.  Merhaba CIDR adres sayısı hello Klasik Portalı'nda ayarlayamazsınız. Merhaba ağ geçidi alt ağı olarak görünür **ağ geçidi** hello Klasik portalında hello oluşturulan hello ağ geçidi alt ağı gerçek adını gerçekten olsa **GatewaySubnet**. Bu ad hello Azure portal veya PowerShell kullanarak görüntüleyebilirsiniz.
+7. Tıklatın hello sayfasının hello altındaki onay işaretine hello ve sanal ağınız toocreate başlar. Tamamlandığında, görürsünüz **oluşturulan** altında listelenen **durum** hello üzerinde **ağlar** hello Klasik portalında sayfası.
 
-## <a name="gw"></a>Ağ geçidi oluşturma
-1. Üzerinde **ağlar** sayfasında, yeni sanal ağ oluşturulan tıklayın ve ardından **Pano** sayfanın üst kısmındaki.
-2. Pencerenin alt kısmındaki **Pano** sayfasında, **ağ geçidi Oluştur** seçip **dinamik yönlendirme**. Tıklatın **Evet** bir ağ geçidi oluşturmak istediğinizi onaylamak için.
-3. Ağ geçidi oluşturma başlatıldığında, ağ geçidi başlatılmış olduğunu bildiğiniz bir ileti veren görürsünüz. Ağ geçidinin oluşturulması 45 dakika kadar sürebilir.
-4. Ağınızdaki bir hattına bağlayın. Makalesindeki yönergeleri izleyin [ExpressRoute bağlantı hatları için sanal ağlara bağlanma](expressroute-howto-linkvnet-classic.md).
+## <a name="gw"></a>Merhaba ağ geçidi oluşturma
+1. Merhaba üzerinde **ağlar** sayfasında, yeni sanal ağ hello oluşturulan tıklayın ve ardından **Pano** hello sayfanın üst kısmındaki hello.
+2. Merhaba, hello altta **Pano** sayfasında, **ağ geçidi Oluştur** seçip **dinamik yönlendirme**. Tıklatın **Evet** tooconfirm toocreate bir ağ geçidi istiyor.
+3. Merhaba ağ geçidi oluşturma başlatıldığında, bu hello ağ geçidi başlatıldı bildiğiniz bir ileti veren görürsünüz. Merhaba ağ geçidi toocreate too45 dakika yukarı sürebilir.
+4. Ağ tooa hattınız bağlayın. Merhaba hello makalesindeki yönergeleri izleyin [nasıl toolink sanal ağlar tooExpressRoute devreler](expressroute-howto-linkvnet-classic.md).
 
 ## <a name="config"></a>Varolan Klasik VNet ExpressRoute için yapılandırma
-Klasik bir VNet zaten varsa, ExpressRoute için Klasik portalda bağlanmak için yapılandırabilirsiniz. Yukarıdaki bölümlerde aynı şekilde gerekli ayarlarla tanımak için bu bölümler üzerinden okuma ayarlardır. Bir ExpressRoute /-siteye eşzamanlı bağlantı oluşturmak istiyorsanız, bkz: [bu makalede](expressroute-howto-coexist-classic.md) adımlar için. Bunlar, bu makaledeki adımları farklı değildir.
+Klasik bir VNet zaten varsa, hello Klasik Portalı'nda tooconnect tooExpressRoute yapılandırabilirsiniz. Hello ayarları olan hello aynı hello bölümlerde yukarıdaki okuyun, bu bölümler toobecome ile Merhaba tanıdık ayarlarını gereken şekilde. Toocreate ExpressRoute /-siteye eşzamanlı bağlantı istiyorsanız, bkz: [bu makalede](expressroute-howto-coexist-classic.md) hello adımlar için. Bunlar hello bu makaledeki adımları farklı.
 
-1. Yerel ağ VNet ayarlarınızı kalan güncelleştirmeden önce oluşturmanız gerekir. ExpressRoute Klasik Portalı'nı yapılandırırken gerekli olan yeni bir yerel ağ oluşturmak için tıklatın **yeni**  **>**  **Ağ Hizmetleri**  **>**  **sanal ağ**  **>**  **Ekle yerel ağ**. Yerel ağ oluşturmak için sihirbazın adımlarını izleyin.
-2. Kullanım **yapılandırma** sayfa ayarlarını geri kalanı güncelleştirmek ve yerel ağ Vnet'e ilişkilendirmek için.
-3. Ayarlarını yapılandırdıktan sonra Git [ağ geçidi oluşturmak](#gw) ağ geçidi oluşturmak için bu makalenin.
+1. Sanal ağ ayarlarınızı hello rest güncelleştirmeden önce toocreate hello yerel ağ gerekir. ExpressRoute hello Klasik portal aracılığıyla yapılandırırken gerekli olan yeni bir yerel ağ toocreate tıklatın **yeni**  **>**  **Ağ Hizmetleri**  **>**  **Sanal ağ**  **>**  **Ekle yerel ağ**. Merhaba Sihirbazı adımları toocreate hello yerel ağ uygulayın.
+2. Kullanım **yapılandırma** sayfasında tooupdate hello rest hello ayarlarının VNet ve tooassociate hello VNet toohello yerel ağınız için.
+3. Hello ayarlarını yapılandırdıktan sonra toohello Git [oluşturma hello ağ geçidi](#gw) Bu makale toocreate hello ağ geçidi bölümü.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Sanal makineler, sanal ağınıza eklemek istiyorsanız, bkz: [sanal makine öğrenme yolları](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/).
-* ExpressRoute hakkında daha fazla bilgi edinmek istiyorsanız, bkz: [ExpressRoute genel bakış](expressroute-introduction.md).
+* Tooadd sanal makineleri tooyour sanal ağ istiyorsanız, bkz: [sanal makine öğrenme yolları](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/).
+* Merhaba toolearn ExpressRoute hakkında daha fazla bilgi istiyorsanız bkz [ExpressRoute genel bakış](expressroute-introduction.md).
 

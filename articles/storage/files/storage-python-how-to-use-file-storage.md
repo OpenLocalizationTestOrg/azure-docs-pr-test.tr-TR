@@ -1,6 +1,6 @@
 ---
-title: "Python ile Azure File storage için geliştirme | Microsoft Docs"
-description: "Python uygulamaları ve dosya verilerini depolamak için Azure File storage'ı kullanma hizmetleri geliştirmeyi öğrenin."
+title: "Python ile Azure File storage için aaaDevelop | Microsoft Docs"
+description: "Nasıl toodevelop Python uygulamalar ve Azure File storage toostore kullanan hizmetler dosya verileri öğrenin."
 services: storage
 documentationcenter: python
 author: robinsh
@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: robinsh
-ms.openlocfilehash: 3dd14e8d3ea7d1e50f41633a7920a6d36becf789
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 2adc5aac2765b98a8022ab1f706c1fcdbca1b43c
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="develop-for-azure-file-storage-with-python"></a>Python ile Azure File storage için geliştirme
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -26,7 +26,7 @@ ms.lasthandoff: 08/29/2017
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
 ## <a name="about-this-tutorial"></a>Bu öğretici hakkında
-Bu öğretici, temel uygulamaları veya dosya verilerini depolamak için Azure dosya depolama kullanan hizmetler geliştirmek için Python kullanımını gösterilmektedir. Bu öğreticide, basit bir konsol uygulaması oluşturur ve Python ve Azure File storage ile temel eylemleri gerçekleştirme göster:
+Bu öğretici Python toodevelop uygulamalar veya Azure File storage toostore dosya verilerini kullanan Hizmetleri kullanma temelleri hello gösterilmektedir. Bu öğreticide, basit bir konsol uygulaması oluşturur ve Göster nasıl tooperform temel eylemleri Python ve Azure File storage ile:
 
 * Azure dosya paylaşımları oluşturma
 * Dizinler oluşturma
@@ -34,38 +34,38 @@ Bu öğretici, temel uygulamaları veya dosya verilerini depolamak için Azure d
 * Karşıya yükleyin, indirin ve dosya silme
 
 > [!Note]  
-> SMB üzerinden Azure File storage erişilebileceği için standart Python g/ç sınıfları ve işlevleri kullanarak Azure dosya paylaşımına erişim basit uygulamaları yazmak mümkündür. Bu makalede Azure depolama Python kullanan SDK'ın, uygulamaların nasıl yazılacağını anlatmaktadır [Azure File storage REST API](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/file-service-rest-api) Azure dosya depolama alanına anlaşmak için.
+> SMB üzerinden Azure File storage erişilebileceği için hello standart Python g/ç sınıfları ve işlevleri kullanarak hello Azure dosya paylaşımına erişim olası toowrite basit uygulamalar var. Bu makalede nasıl kullanan toowrite uygulamaları hello kullanan Azure depolama Python SDK hello anlatmaktadır [Azure File storage REST API](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/file-service-rest-api) tootalk tooAzure dosya depolama.
 
-### <a name="set-up-your-application-to-use-azure-file-storage"></a>Uygulamanızı Azure File storage kullanacak şekilde ayarlama
-Azure Storage programlı olarak erişmek istediğiniz tüm Python kaynak dosyanın en üstüne yakın aşağıdakileri ekleyin.
+### <a name="set-up-your-application-toouse-azure-file-storage"></a>Uygulama toouse Azure File storage ayarlayın
+Tooprogrammatically erişim Azure Storage istediğiniz herhangi bir Python kaynak dosyasının hello üstüne yakın Hello aşağıdakileri ekleyin.
 
 ```python
 from azure.storage.file import FileService
 ```
 
-### <a name="set-up-a-connection-to-azure-file-storage"></a>Azure File storage için bir bağlantı ayarlayın 
-`FileService` Nesne paylaşımları, dizinleri ve dosyaları ile çalışmanıza olanak sağlar. Aşağıdaki kod oluşturur bir `FileService` depolama hesabı adı ve hesap anahtarını kullanarak nesne. Değiştir `<myaccount>` ve `<mykey>` , hesap adı ve anahtarınız ile.
+### <a name="set-up-a-connection-tooazure-file-storage"></a>Bir bağlantı tooAzure dosya depolama ayarlayın 
+Merhaba `FileService` nesne paylaşımları, dizinleri ve dosyaları ile çalışmanıza olanak sağlar. Merhaba aşağıdaki kod oluşturur bir `FileService` Merhaba, depolama hesabı adı ve hesap anahtarını kullanarak nesnesi. Değiştir `<myaccount>` ve `<mykey>` , hesap adı ve anahtarınız ile.
 
 ```python
 file_service = FileService(account_name='myaccount', account_key='mykey')
 ```
 
 ### <a name="create-an-azure-file-share"></a>Bir Azure dosya paylaşımı oluşturma
-Aşağıdaki kod örneğinde kullanabileceğiniz bir `FileService` yoksa paylaşımı oluşturmak için nesne.
+Aşağıdaki kod örneğine hello kullanabileceğiniz bir `FileService` yoksa nesne toocreate hello paylaşımı.
 
 ```python
 file_service.create_share('myshare')
 ```
 
 ### <a name="create-a-directory"></a>Dizin oluşturma
-Depolama kök dizininde yerine bunların tümünün alt dizinleri içindeki dosyaları yerleştirerek de düzenleyebilirsiniz. Azure File storage hesabınıza izin verdiği sayıda dizinleri oluşturmanıza olanak sağlar. Aşağıdaki kodu adlı bir alt dizinin oluşturacak **sampledir** kök dizininin altında.
+Ayrıca, bunların tümünün hello kök dizinine sahip olmak yerine alt dizinleri içindeki dosyaları koyarak depolama düzenleyebilirsiniz. Azure File storage hesabı olacak olarak birden çok dizini izin toocreate sağlar. Aşağıdaki Hello kodu adlı bir alt dizinin oluşturur **sampledir** hello kök dizininin altında.
 
 ```python
 file_service.create_directory('myshare', 'sampledir')
 ```
 
 ### <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Dosya ve dizinlerin bir Azure dosya paylaşımında listeleme
-Dosyaların ve dizinlerin bir paylaşımda listelemek için kullanın **listesi\_dizinleri\_ve\_dosyaları** yöntemi. Bu yöntem bir oluşturucuyu döndürür. Aşağıdaki kod çıktıları **adı** her bir dosya ve dizin konsoluna bir paylaşımda.
+toolist hello dosyaları ve dizinleri bir paylaşımda kullanmak hello **listesi\_dizinleri\_ve\_dosyaları** yöntemi. Bu yöntem bir oluşturucuyu döndürür. Merhaba aşağıdaki kodu çıkarır hello **adı** her bir dosya ve dizin paylaşımı toohello konsolunda.
 
 ```python
 generator = file_service.list_directories_and_files('myshare')
@@ -74,42 +74,42 @@ for file_or_dir in generator:
 ```
 
 ### <a name="upload-a-file"></a>Dosyayı karşıya yükleme 
-Azure dosya paylaşımı en azından içerir, bir kök dizin dosyalarının bulunduğu. Bu bölümde, bir paylaşım kök dizini üzerine yerel depolama biriminden bir dosya karşıya nasıl yükleneceğini öğreneceksiniz.
+Azure dosya paylaşımı hello çok az içerir, bir kök dizin dosyalarının bulunduğu. Bu bölümde, nasıl tooupload hello üzerine yerel depolama biriminden bir dosya kök dizini bir paylaşımın öğreneceksiniz.
 
-Bir dosya oluşturun ve verileri yüklemek için kullanmak `create_file_from_path`, `create_file_from_stream`, `create_file_from_bytes` veya `create_file_from_text` yöntemleri. Bunlar veri boyutu 64 MB aştığında gerekli Öbekleme gerçekleştiren üst düzey yöntemleridir.
+bir dosya toocreate ve karşıya yükleme verileri kullanmak hello `create_file_from_path`, `create_file_from_stream`, `create_file_from_bytes` veya `create_file_from_text` yöntemleri. Bunlar hello verilerin hello boyutu 64 MB aştığında hello gerekli Öbekleme gerçekleştiren üst düzey yöntemleridir.
 
-`create_file_from_path`Belirtilen yol bir dosyanın içeriğini yükler ve `create_file_from_stream` zaten açılmış bir dosya/akışı içeriğini yükler. `create_file_from_bytes`bayt dizisi yükler ve `create_file_from_text` belirtilen (varsayılan UTF-8) kodlaması kullanarak belirli bir metin değeri yükler.
+`create_file_from_path`Karşıya hello hello belirtilen yoldan dosya içeriğini ve `create_file_from_stream` karşıya hello zaten açılmış bir dosya/akışı içeriği. `create_file_from_bytes`bayt dizisi yükler ve `create_file_from_text` karşıya hello belirtilen hello kullanarak metin değeri belirtilen kodlama (Varsayılanları tooUTF-8).
 
-Aşağıdaki örnek içeriğini yükler **sunset.png** içine dosya **myfile** dosya.
+Merhaba aşağıdaki örnek yükler hello Merhaba içeriğine **sunset.png** hello dosyasına **myfile** dosya.
 
 ```python
 from azure.storage.file import ContentSettings
 file_service.create_file_from_path(
     'myshare',
-    None, # We want to create this blob in the root directory, so we specify None for the directory_name
+    None, # We want toocreate this blob in hello root directory, so we specify None for hello directory_name
     'myfile',
     'sunset.png',
     content_settings=ContentSettings(content_type='image/png'))
 ```
 
 ### <a name="download-a-file"></a>Dosya indirme
-Bir dosyadan veri indirmek için kullanacağınız `get_file_to_path`, `get_file_to_stream`, `get_file_to_bytes`, veya `get_file_to_text`. Bunlar veri boyutu 64 MB aştığında gerekli Öbekleme gerçekleştiren üst düzey yöntemleridir.
+bir dosya toodownload verileri kullan `get_file_to_path`, `get_file_to_stream`, `get_file_to_bytes`, veya `get_file_to_text`. Bunlar hello verilerin hello boyutu 64 MB aştığında hello gerekli Öbekleme gerçekleştiren üst düzey yöntemleridir.
 
-Aşağıdaki örnek, kullanma gösterir `get_file_to_path` içeriğini indirmek için **myfile** dosya ve onun için depolamak **çıkış sunset.png** dosya.
+Merhaba aşağıdaki örneği kullanarak gösterir `get_file_to_path` toodownload Merhaba içeriğine hello **myfile** toohello depolamak ve dosya **çıkış sunset.png** dosya.
 
 ```python
 file_service.get_file_to_path('myshare', None, 'myfile', 'out-sunset.png')
 ```
 
 ### <a name="delete-a-file"></a>Dosya silme
-Son olarak, bir dosyayı silmek için çağrı `delete_file`.
+Son olarak, bir dosya toodelete çağrı `delete_file`.
 
 ```python
 file_service.delete_file('myshare', None, 'myfile')
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Python ile Azure File storage işlemek nasıl öğrendiğinize göre daha fazla bilgi için aşağıdaki bağlantıları izleyin.
+Artık, öğrendiğinize göre nasıl toomanipulate Python, Azure File storage daha fazla bu bağlantılar toolearn izleyin.
 
 * [Python Geliştirici Merkezi](/develop/python/)
 * [Azure Depolama Hizmetleri REST API'si](http://msdn.microsoft.com/library/azure/dd179355)

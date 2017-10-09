@@ -1,25 +1,25 @@
-## <a name="provision-the-solution"></a>Çözüm sağlama
+## <a name="provision-hello-solution"></a>Sağlama hello çözümü
 
-Önceden yapılandırılmış uzaktan izleme çözümünüzü hesabınızda henüz hazırlamadıysanız:
+Henüz yapmadıysanız sağlanan hello hesabınızı çözümde önceden yapılandırılmış Uzaktan izleme:
 
-1. Azure hesabı kimlik bilgilerinizi kullanarak [azureiotsuite.com][lnk-azureiotsuite] adresinde oturum açın ve çözüm oluşturmak için **+** seçeneğine tıklayın.
-2. **Uzaktan izleme** kutucuğunda **Seç**'e tıklayın.
+1. Çok oturum[azureiotsuite.com] [ lnk-azureiotsuite] Azure kullanarak hesap kimlik bilgilerini ve tıklatın  **+**  toocreate bir çözüm.
+2. Tıklatın **seçin** hello üzerinde **Uzaktan izleme** döşeme.
 3. Önceden yapılandırılmış uzaktan izleme çözümünüz için bir **Çözüm adı** girin.
-4. Çözümü sağlamak için kullanmak istediğiniz **Bölge** ve **Abonelik** seçimini yapın.
-5. Hazırlama işlemini başlatmak için **Çözümü Oluştur**'a tıklayın. Bu işlemin çalışması genellikle birkaç dakika sürer.
+4. Select hello **bölge** ve **abonelik** toouse tooprovision hello çözüm istiyorsunuz.
+5. Tıklatın **çözümü Oluştur** toobegin hello sağlama işlemi. Bu işlem genellikle birkaç dakika toorun alır.
 
-### <a name="wait-for-the-provisioning-process-to-complete"></a>Hazırlama işleminin tamamlanmasını bekleme
-1. Çözümünüzün **Hazırlama** durumuna sahip olan kutucuğuna tıklayın.
-2. Azure hizmetleri Azure aboneliğinize dağıtılırken **Hazırlama durumlarına** dikkat edin.
-3. Hazırlama tamamlandığında durum **Hazır** olarak değişir.
-4. Kutucuğa tıkladığınızda sağ bölmede çözümünüzün ayrıntılarını görürsünüz.
+### <a name="wait-for-hello-provisioning-process-toocomplete"></a>İşlem toocomplete sağlama Merhaba bekleyin
+1. Çözümünüzle birlikte Hello kutucuğa tıklayın **sağlama** durumu.
+2. Bildirim hello **hazırlama durumlarına** gibi Azure Hizmetleri Azure aboneliğinize dağıtılır.
+3. Hazırlama tamamlandığında durum değişikliklerini çok hello**hazır**.
+4. Merhaba döşeme toosee hello hello sağ bölmede çözümünüzün ayrıntılarını'ı tıklatın.
 
 > [!NOTE]
-> Önceden yapılandırılmış çözümün dağıtımında sorunlarla karşılaşıyorsanız bkz. [Azureiotsuite.com sitesindeki izinler][lnk-permissions] ve [SSS][lnk-faq]. Sorunlar devam ederse [portalda][lnk-portal] bir hizmet bileti oluşturun.
+> Merhaba önceden yapılandırılmış çözümün dağıtılmasında sorunlarla karşılaşıyorsanız gözden [hello azureiotsuite.com sitesindeki izinler] [ lnk-permissions] ve hello [SSS] [ lnk-faq]. Merhaba sorunları devam ederse, bir hizmet bileti hello üzerinde oluşturma [portal][lnk-portal].
 > 
 > 
 
-Görmeyi beklediğiniz ancak çözümünüz için listelenmemiş ayrıntılar mı var? [User Voice](https://feedback.azure.com/forums/321918-azure-iot)'da bize özellik önerileri verin.
+Çözümünüz için listelenmeyen toosee beklediğiniz ayrıntılar bulunur? [User Voice](https://feedback.azure.com/forums/321918-azure-iot)'da bize özellik önerileri verin.
 
 [lnk-azureiotsuite]: https://www.azureiotsuite.com
 [lnk-permissions]: ../articles/iot-suite/iot-suite-permissions.md

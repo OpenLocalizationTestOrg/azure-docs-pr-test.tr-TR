@@ -1,6 +1,6 @@
 ---
-title: "Intellij için Azure araç setini kullanarak bir Docker kapsayıcısı yay önyükleme uygulama yayımlama | Microsoft Docs"
-description: "Docker kapsayıcısı Microsoft Azure Intellij için Azure araç setini kullanarak bir web uygulaması yayımlama öğrenin."
+title: "aaaPublish yay önyükleme uygulama kullanarak bir Docker kapsayıcısı olarak hello Azure Araç Seti için Intellij | Microsoft Docs"
+description: "Bilgi nasıl toopublish bir web uygulaması tooMicrosoft kullanarak bir Docker kapsayıcısı olarak Azure hello Azure Araç Seti Intellij için."
 services: 
 documentationcenter: java
 author: rmcmurray
@@ -14,75 +14,75 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: robmcm
-ms.openlocfilehash: b771238934183c953615ac33c42a275d80657556
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 8964cb33fd8f61a39f091633ae9074d9658232fd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="publish-a-spring-boot-app-as-a-docker-container-by-using-the-azure-toolkit-for-intellij"></a>Intellij için Azure araç setini kullanarak bir Docker kapsayıcısı yay önyükleme uygulama yayımlama
+# <a name="publish-a-spring-boot-app-as-a-docker-container-by-using-hello-azure-toolkit-for-intellij"></a>Intellij için hello Azure Araç Seti kullanarak Docker kapsayıcısı yay önyükleme uygulama yayımlama
 
-[Yay Framework] Java geliştiriciler kuruluş düzeyinde uygulamalar oluşturmanıza yardımcı olan bir açık kaynaklı bir çözümdür. Yerleşik daha popüler projelerden biri üzerinde üst o platformudur [yay önyükleme], tek başına Java uygulamaları oluşturmak için basitleştirilmiş bir yaklaşım sağlar.
+Merhaba [yay Framework] Java geliştiriciler kuruluş düzeyinde uygulamalar oluşturmanıza yardımcı olan bir açık kaynaklı bir çözümdür. Yerleşik hello daha popüler projelerden biri üzerinde üst o platformudur [yay önyükleme], tek başına Java uygulamaları oluşturmak için basitleştirilmiş bir yaklaşım sağlar.
 
-[Docker] geliştiricilere yardımcı olan bir açık kaynak çözümü dağıtımını, ölçeklendirme ve kapsayıcılarında çalışan kendi uygulamalarını yönetimini otomatikleştirmek olduğu.
+[Docker] geliştiricilere yardımcı olan bir açık kaynak çözümü hello dağıtımını, ölçeklendirme ve kapsayıcılarında çalışan kendi uygulamalarını yönetimini otomatikleştirmek olduğu.
 
-Bu öğreticide, bir yay önyükleme uygulama Docker kapsayıcısı olarak Intellij için Azure Araç Seti kullanarak Microsoft Azure'a dağıtma adımları açıklanmaktadır.
+Bu öğreticide Intellij için hello Azure Araç Seti kullanarak bir yay önyükleme uygulama Docker kapsayıcısı tooMicrosoft Azure olarak hello adımları toodeploy açıklanmaktadır.
 
 [!INCLUDE [azure-toolkit-for-intellij-prerequisites](../includes/azure-toolkit-for-intellij-prerequisites.md)]
 
-## <a name="clone-the-default-spring-boot-docker-repo"></a>Varsayılan yay önyükleme Docker depoyu kopyalama
+## <a name="clone-hello-default-spring-boot-docker-repo"></a>Merhaba varsayılan yay önyükleme Docker depoyu kopyalama
 
-Aşağıdaki adımlar Intellij kullanarak yay önyükleme Docker depoyu kopyalama aracılığıyla yol. Bir komut satırı kullanmak istiyorsanız, bkz: [Linux Azure kapsayıcı Hizmeti'nde bir yay önyükleme uygulamasını dağıtmak][Deploy Spring Boot on Linux in ACS].
+Merhaba aşağıdaki adımlar Intellij kullanarak hello yay önyükleme Docker depoyu kopyalama aracılığıyla yol. Bir komut satırı toouse istiyorsanız, bkz: [Linux Azure kapsayıcı Hizmeti'nde bir yay önyükleme uygulamasını dağıtmak][Deploy Spring Boot on Linux in ACS].
 
 1. Intellij açın.
 
-1. Hoş Geldiniz ekranında seçin **GitHub** seçeneğini **sürüm denetiminden kullanıma** listesi.
+1. Merhaba Hoş Geldiniz ekranında hello seçin **GitHub** hello seçeneğinde **sürüm denetiminden kullanıma** listesi.
 
    ![Sürüm denetimi için GitHub seçeneği][CL01]
 
-1. Oturum açmak için istenirse kimlik bilgilerinizi girin.
+1. İstendiğinde toolog içinde olması durumunda kimlik bilgilerinizi girin.
 
-   * GitHub için oturum açmak için bir kullanıcı adı/parola kullanıyorsanız:
+   * Bir kullanıcı adı/parola toolog tooGitHub içinde kullanıyorsanız:
 
       ![GitHub kullanıcı adı ve parola girme iletişim kutusu][CL02a]
 
-   * GitHub için oturum açmak için bir belirteç kullanıyorsanız:
+   * İçinde tooGitHub belirteci toolog kullanıyorsanız:
 
       ![Bir GitHub belirteci girmek için iletişim kutusu][CL02b]
 
-1. Girin **https://github.com/spring-guides/gs-spring-boot-docker.git** deposu URL'sini yerel yolu ve klasör bilgileri belirtin ve ardından **kopya**.
+1. Girin **https://github.com/spring-guides/gs-spring-boot-docker.git** hello depo URL'si için yerel yolu ve klasör bilgileri belirtin ve ardından **kopya**.
 
    ![Kopya Deposu iletişim kutusu][CL03]
 
-1. Intellij projesi oluşturmak için istendiğinde seçin **Hayır**.
+1. Sorulduğunda toocreate Intellij projesinde, select **Hayır**.
 
-   ![Intellij projesi oluşturmak reddetme][CL04]
+   ![Toocreate Intellij projesinde reddetme][CL04]
 
-1. Hoş Geldiniz sayfasında, tıklatın **projeyi içeri aktarma**.
+1. Merhaba Hoş Geldiniz sayfasında, tıklatın **projeyi içeri aktarma**.
 
    ![Proje Seçimi alma][CL05]
 
-1. Yay önyükleme depoyu kopyaladığınız yolu bulun, seçin **tam** kök ve ardından altında bir klasör **Tamam**.
+1. Merhaba yay önyükleme depodaki kopyaladığınız hello yolu bulun, seçin hello **tam** hello kök ve ardından altında bir klasör **Tamam**.
 
    ![İçeri aktarma için bir klasör seçin][CL06]
 
 1. İstendiğinde, seçin **mevcut kaynaklardan proje oluştur**.
 
-   ![Mevcut kaynaklardan bir proje oluşturmak için seçeneği][CL07]
+   ![Seçenek toocreate mevcut kaynaklardan bir proje][CL07]
 
-1. Proje adı belirtin veya varsayılanı kabul etmek, doğru yolunu doğrulayın **tam** klasörünü ve ardından **sonraki**.
+1. Proje adı belirtin veya hello varsayılanı kabul etmek, hello doğru yolu toohello doğrulayın **tam** klasörünü ve ardından **sonraki**.
 
-   ![Proje adı belirtin][CL08]
+   ![Merhaba proje adı belirtin][CL08]
 
 1. Alma için herhangi bir dizin özelleştirmek ve ardından **sonraki**.
 
    ![Dizinleri seçin][CL09]
 
-1. Kitaplıkları içeri aktarın ve ardından gözden **sonraki**.
+1. Merhaba kitaplıkları tooimport gözden geçirin ve ardından **sonraki**.
 
    ![Proje kitaplıkları gözden geçirin][CL10]
 
-1. Modül yapısı gözden geçirin ve ardından **sonraki**.
+1. Merhaba modül yapısı gözden geçirin ve ardından **sonraki**.
 
    ![Modül yapısı gözden geçirin][CL11]
 
@@ -94,19 +94,19 @@ Aşağıdaki adımlar Intellij kullanarak yay önyükleme Docker depoyu kopyalam
 
    ![Son düğmesine][CL13]
 
-Intellij yay önyükleme uygulamayı bir proje olarak içe aktarır ve alma işlemini tamamladığında yapısını görüntüler.
+Intellij hello yay önyükleme uygulama projesi alır ve hello alma sona erdiğinde hello yapısını görüntüler.
 
 ![Yay önyükleme Intellij uygulamada][CL14]
 
 ## <a name="build-your-spring-boot-app"></a>Yay önyükleme derleme uygulama
 
-### <a name="build-the-app-by-using-the-maven-pom"></a>Maven POM kullanarak uygulaması oluşturma
+### <a name="build-hello-app-by-using-hello-maven-pom"></a>Merhaba Maven POM kullanarak Hello uygulaması oluşturma
 
-1. Zaten açık değilse Maven aracı penceresini açın. Tıklatın **Görünüm** > **aracı Windows** > **Maven projelerini**.
+1. Zaten açık değilse hello Maven araç penceresi açın. Tıklatın **Görünüm** > **aracı Windows** > **Maven projelerini**.
 
    ![Araç pencereleri ve Maven projelerini komutları][BU01]
 
-1. Maven araç penceresinde sağ **paket** seçip **çalıştırmak Maven derleme**. (Maven projenize otomatik olarak gösterilmez, tıklatın **yeniden içeri aktarın** Maven araç çubuğundaki simgeye.)
+1. Merhaba Maven araç penceresinde sağ **paket** seçip **çalıştırmak Maven derleme**. (Maven projenize otomatik olarak gösterilmez, hello tıklatın **yeniden içeri aktarın** hello Maven araç çubuğundaki simgesini.)
 
    ![Maven derleme komutunu çalıştırın][BU02]
 
@@ -116,7 +116,7 @@ Intellij yay önyükleme uygulamayı bir proje olarak içe aktarır ve alma işl
 
 ### <a name="create-a-deployment-ready-artifact"></a>Bir dağıtım için hazır yapı oluşturma
 
-Yay önyükleme uygulamanızı yayımlamak için bir dağıtım için hazır yapı oluşturmanız gerekir. Aşağıdaki adımları kullanın:
+toopublish yay önyükleme uygulamanızı toocreate bir dağıtım için hazır yapı gerekir. Merhaba aşağıdaki adımları kullanın:
 
 1. Web uygulaması projenizin Intellij içinde açın.
 
@@ -124,11 +124,11 @@ Yay önyükleme uygulamanızı yayımlamak için bir dağıtım için hazır yap
 
    ![Proje yapısı komutu][ART01]
 
-1. Yeşil artı (**+**) bir yapı eklemek için Sembol **JAR**ve ardından **boş**.
+1. Merhaba artı yeşil tıklayın (**+**) sembol tooadd bir yapı, tıklatın **JAR**ve ardından **boş**.
 
    ![Bir yapı ekleyin][ART02]
 
-1. ".Jar" uzantısı eklememek emin olmasını sağlarken, yapı adlandırın ve ardından Maven çıktısı için hedef klasör belirtin.
+1. Değil tooadd ".jar" uzantısı hello ve Maven çıktı hello hello hedef klasör belirtin emin olmasını sağlarken, yapı adı.
 
    ![Yapı özelliklerini belirtin][ART03]
 
@@ -136,13 +136,13 @@ Yay önyükleme uygulamanızı yayımlamak için bir dağıtım için hazır yap
 
    a. Tıklatın **bildirimi oluşturma**.
 
-      ![Oluşturma bildirim düğmesini tıklatın][ART04a]
+      ![Merhaba oluşturmak bildirim düğmesini tıklatın][ART04a]
 
-   b. Yapı için varsayılan yolu seçin ve ardından **Tamam**.
+   b. Merhaba yapı için Hello varsayılan yolu seçin ve ardından **Tamam**.
 
       ![Yapı yolu belirtin][ART04b]
 
-   c. Üç nokta işaretine (**...** ) ana sınıf bulunamadı.
+   c. Merhaba üç nokta düğmesine (**...** ) toolocate hello ana sınıfı.
 
       ![Ana sınıf bulunamadı][ART04c]
 
@@ -152,65 +152,65 @@ Yay önyükleme uygulamanızı yayımlamak için bir dağıtım için hazır yap
 
 1. **Tamam** düğmesine tıklayın.
 
-   ![Proje Yapısı iletişim kutusunu kapatın][ART05]
+   ![Merhaba proje yapısını iletişim kutusunu kapatın][ART05]
 
 > [!NOTE]
-> Intellij yapıları oluşturma hakkında daha fazla bilgi için bkz: [yapılandırma yapıları] JetBrains Web sitesinde.
+> Intellij yapıları oluşturma hakkında daha fazla bilgi için bkz: [yapılandırma yapıları] hello JetBrains Web sitesinde.
 >
 
-### <a name="build-the-artifact-for-deployment"></a>Dağıtım için yapı derleme
+### <a name="build-hello-artifact-for-deployment"></a>Merhaba yapı dağıtımı için derleme
 
 1. Tıklatın **yapı**ve ardından **yapıları**.
 
    ![Yapıları komutu derleme][BU04]
 
-1. Zaman **yapı yapı** bağlam menüsü görüntülendikten sonra **yapı**.
+1. Ne zaman hello **yapı yapı** bağlam menüsü görüntülendikten sonra **yapı**.
 
    ![Yapı bağlam menüsü oluşturma][BU05]
 
-Intellij yay önyükleme uygulamanız için tamamlanan yapı proje araç penceresinde görüntülemelidir.
+Intellij yay önyükleme uygulamanız için tamamlanan hello yapı hello proje araç penceresinde görüntülemelidir.
 
    ![Oluşturulan yapı][BU06]
 
-## <a name="publish-your-web-app-to-azure-by-using-a-docker-container"></a>Docker kapsayıcısı kullanarak Azure için web uygulamanızı yayınlama
+## <a name="publish-your-web-app-tooazure-by-using-a-docker-container"></a>Web uygulaması tooAzure Docker kapsayıcısı kullanarak yayımlama
 
-1. Azure hesabınızda oturum açmanızdan değil, adımları [oturum açma ilişkin yönergeler için Azure Araç Seti Intellij][Azure Sign In for IntelliJ].
+1. Tooyour Azure hesabı imzalanmamış, hello adımları [oturum açma ilişkin yönergeler için hello Azure Araç Seti Intellij][Azure Sign In for IntelliJ].
 
-1. Proje Gezgini araç penceresi projeye sağ tıklayın ve ardından **Azure** > **Docker kapsayıcısı olarak Yayımla**.
+1. Merhaba Proje Gezgini aracı penceresinde hello projesine sağ tıklayın ve ardından **Azure** > **Docker kapsayıcısı olarak Yayımla**.
 
    ![Docker kapsayıcısı komut olarak Yayımla][PU01]
 
-1. Zaman **azure'da dağıtmak Docker kapsayıcısı** iletişim kutusu görüntülenirse, varolan herhangi Docker konağına görüntülenir. Varolan bir ana bilgisayara dağıtmak isterseniz, 4. adıma atlayabilirsiniz. Aksi halde, bir ana bilgisayar oluşturmak için aşağıdaki adımları kullanın:
+1. Ne zaman hello **azure'da dağıtmak Docker kapsayıcısı** iletişim kutusu görüntülenirse, varolan herhangi Docker konağına görüntülenir. Toodeploy tooan var olan konak seçerseniz, toostep 4 atlayabilirsiniz. Aksi takdirde, aşağıdaki adımları toocreate bir ana bilgisayar hello kullanın:
 
-   a. Yeşil artı (**+**) simgesi.
+   a. Merhaba artı yeşil tıklayın (**+**) simgesi.
 
       ![Yeni bir Docker ana bilgisayar Ekle][PU02]
 
-   b. Zaman **oluşturma Docker ana** iletişim kutusu görüntülenirse, varsayılan değerleri kabul etmeyi tercih edebilirsiniz veya yeni Docker ana bilgisayarınız için özel ayarlar belirtebilirsiniz. (Çeşitli ayarları ayrıntılı açıklamaları için bkz: [Intellij için Azure araç setini kullanarak bir web uygulaması Docker kapsayıcısı yayımlama][Publish Container with Azure Toolkit].) Tıklatın **sonraki** zaman belirttiğiniz kullanmak için hangi ayarları.
+   b. Ne zaman hello **oluşturma Docker ana** iletişim kutusu görüntülenirse, tooaccept hello Varsayılanları seçin veya yeni Docker ana bilgisayarınız için özel ayarlar belirtebilirsiniz. (Merhaba ayrıntılı açıklamaları için bkz: çeşitli ayarlar, [Intellij için hello Azure Araç Seti kullanarak bir web uygulaması Docker kapsayıcısı yayımlama][Publish Container with Azure Toolkit].) Tıklatın **sonraki** zaman belirttiğiniz hangi ayarları toouse.
 
       ![Docker ana bilgisayar seçeneklerini belirtin][PU03a]
 
-   c. Azure anahtar Kasası'ndan varolan oturum açma kimlik bilgilerini kullanmayı seçebilirsiniz veya yeni Docker oturum açma kimlik bilgilerini girmeyi seçebilirsiniz. Tıklatın **son** zaman belirttiğiniz seçeneklerinizi.
+   c. Azure anahtar Kasası'nı toouse varolan oturum açma kimlik bilgilerini seçin veya yeni Docker oturum açma kimlik bilgileri tooenter seçebilirsiniz. Tıklatın **son** zaman belirttiğiniz seçeneklerinizi.
 
       ![Docker ana bilgisayar kimlik bilgilerini belirtin][PU03b]
 
 1. Docker ana bilgisayarınız seçin ve ardından **sonraki**.
 
-   ![Kullanmak için Docker konağı seçin][PU04]
+   ![Merhaba Docker ana toouse seçin][PU04]
 
-1. Sihirbazın son sayfasında **azure'da dağıtmak Docker kapsayıcısı** iletişim kutusunda, aşağıdaki seçenekleri belirtin:
+1. Merhaba hello son sayfasında **azure'da dağıtmak Docker kapsayıcısı** iletişim kutusunda, aşağıdaki seçenekleri şu hello belirtin:
 
-   a. Varsayılan ayarı kabul edebilirsiniz veya özel bir Docker kapsayıcısı barındıracak kapsayıcının adını belirtmek seçebilirsiniz.
+   a. Merhaba varsayılan kabul edebilir veya toospecify, Docker kapsayıcısı barındıracak hello kapsayıcı için bir özel ad seçebilirsiniz.
 
-   b. TCP bağlantı noktaları docker ana bilgisayarınız için aşağıdaki sözdizimini kullanarak girin: *[dış bağlantı noktası]*:*[iç bağlantı noktası]*. Örneğin, **80:8080** bir dış bağlantı noktası 80 ve varsayılan iç yay önyükleme bağlantı noktası 8080 belirtir.
+   b. Merhaba TCP bağlantı noktaları docker ana bilgisayarınız için sözdizimi aşağıdaki hello kullanarak girin: *[dış bağlantı noktası]*:*[iç bağlantı noktası]*. Örneğin, **80:8080** bir dış bağlantı noktası 80 ve hello varsayılan iç yay önyükleme bağlantı noktası 8080 belirtir.
    
-      İç bağlantı noktası (örneğin, application.yml dosyasını düzenleyerek) özelleştirdiyseniz, doğru Azure üzerinde gerçekleşmesi için yönlendirme için bağlantı noktası numarasını belirtmeniz gerekir.
+      İç bağlantı noktası (örneğin, hello application.yml dosyasını düzenleyerek) özelleştirdiyseniz, azure'da hello doğru yönlendirme toooccur için toospecify hello bağlantı noktası numarası gerekir.
 
    c. Bu seçenekleri yapılandırdıktan sonra tıklayın **son**.
 
    ![Azure üzerinde bir Docker kapsayıcısı dağıtma][PU05]
 
-1. Azure Araç Seti yayımlama tamamlandığında, Azure etkinlik günlüğü görüntüler **yayımlanan** durum.
+1. Yayımlama Hello Azure Araç Seti sona erdiğinde hello Azure etkinlik günlüğü görüntüler **yayımlanan** hello durumu.
 
    ![Docker ana başarıyla dağıtıldı][PU06]
 
@@ -218,7 +218,7 @@ Intellij yay önyükleme uygulamanız için tamamlanan yapı proje araç pencere
 
 [!INCLUDE [azure-toolkit-additional-resources](../includes/azure-toolkit-additional-resources.md)]
 
-Intellij kullanarak yay önyükleme uygulamaları oluşturmak için ek yöntemleri hakkında bilgi edinmek için [yay önyükleme projeleri oluşturma](https://www.jetbrains.com/help/idea/creating-spring-boot-projects.html) JetBrains Web sitesinde.
+toolearn Intellij, kullanarak yay önyükleme uygulamaları oluşturmak için ek yöntemleri hakkında bkz [yay önyükleme projeleri oluşturma](https://www.jetbrains.com/help/idea/creating-spring-boot-projects.html) hello JetBrains Web sitesinde.
 
 <!-- URL List -->
 
@@ -229,7 +229,7 @@ Intellij kullanarak yay önyükleme uygulamaları oluşturmak için ek yöntemle
 [Docker]: https://www.docker.com/
 [Publish Container with Azure Toolkit]: ./azure-toolkit-for-intellij-publish-as-docker-container.md
 [yay önyükleme]: http://projects.spring.io/spring-boot/
-[Yay Framework]: https://spring.io/
+[yay Framework]: https://spring.io/
 
 <!-- IMG List -->
 

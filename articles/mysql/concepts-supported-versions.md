@@ -1,6 +1,6 @@
 ---
-title: "Azure veritabanı'nda MySQL için desteklenen sürümleri | Microsoft Docs"
-description: "Azure veritabanı'nın desteklenen sürümleri için MySQL açıklar."
+title: "Azure veritabanı için MySQL aaaSupported sürümlerde | Microsoft Docs"
+description: "Desteklenen hello sürümlerinde Azure veritabanı için MySQL açıklar."
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
@@ -9,23 +9,23 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 05/10/2017
-ms.openlocfilehash: 04ccb4ab4e60a11cdce11ca8194c157b8e8f11f4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0adea61fd6bac9a1dfdf2f59917ef93a93713e85
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>MySQL server sürümleri için desteklenen Azure veritabanı
-Azure veritabanı için MySQL, MySQL Community Edition geliştirilen [MySQL Community Edition](https://www.mysql.com/products/community/), InnoDB altyapısını kullanarak.  MySQL için Azure veritabanı şu anda aşağıdaki sürümlerini destekler.
+Azure veritabanı için MySQL, MySQL Community Edition geliştirilen [MySQL Community Edition](https://www.mysql.com/products/community/), hello InnoDB altyapısını kullanarak.  MySQL için Azure veritabanı şu anda sürümleri aşağıdaki hello destekler.
 
 ## <a name="mysql-version-5635"></a>MySQL sürüm 5.6.35
-Geliştirmeleri ve düzeltmeler hakkında daha fazla bilgi için MySQL [belgelerine] (https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-35.html) MySQL 5.6.35 bakın.
+Toohello MySQL [belgelerine] (https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-35.html) başvuran toolearn geliştirmeleri ve MySQL 5.6.35 düzeltmeler hakkında daha fazla bilgi.
 
 ## <a name="mysql-version-5717"></a>MySQL sürüm 5.7.17
-Geliştirmeleri ve düzeltmeler hakkında bilgi edinmek için MySQL [belgelerine] (https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-17.html) MySQL 5.7.17 bakın.
+Toohello MySQL [belgelerine] (https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-17.html) başvuran toolearn geliştirmeleri ve MySQL 5.7.17 düzeltmeler hakkında.
 
 ## <a name="managing-updates-and-upgrades"></a>Yönetme güncelleştirmeleri ve yükseltmeleri
-MySQL için Azure veritabanı için ikincil sürüm güncelleştirmeleri düzeltme eki uygulama otomatik olarak yönetir. Şu anda, genel önizlemede ana sürüm yükseltme desteklenmiyor. Örneğin, MySQL 5.7 MySQL 5.6 ' yükseltme desteklenmiyor.
+MySQL için Azure veritabanı için ikincil sürüm güncelleştirmeleri düzeltme eki uygulama otomatik olarak yönetir. Şu anda, genel önizlemede ana sürüm yükseltme desteklenmiyor. Örneğin, MySQL 5.6 tooMySQL 5.7 ' yükseltme desteklenmiyor.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

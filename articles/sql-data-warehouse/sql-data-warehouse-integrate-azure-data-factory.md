@@ -1,5 +1,5 @@
 ---
-title: "SQL Data Warehouse ile Azure Data Factory kullanın | Microsoft Docs"
+title: SQL Data Warehouse ile Azure Data Factory aaaUse | Microsoft Docs
 description: "Çözümleri geliştirme için Azure SQL Data Warehouse ile Azure Data Factory (ADF) kullanma ipuçları."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,27 +15,27 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
-ms.openlocfilehash: 7cd113f4a92635bc68253c2beb165ad1f0c96569
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d40a547830f9681504253d39ae3066800a955c04
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="use-azure-data-factory-with-sql-data-warehouse"></a>SQL Data Warehouse ile Azure Data Factory kullanın
-Azure Data Factory veri aktarımını ve saklı yordamlar SQL veri ambarı üzerinde yürütülmesi yönetme için tam olarak yönetilen bir yöntem sağlar.  Bu yordamlara daha kolay kurulum ve zamanlama karmaşık ayıklamak dönüştürme ve yükleme (ETL) SQL veri ambarı ile olanak sağlar. Azure Data Factory daha kapsamlı bir genel bakış için bkz: [Azure Data Factory belgelerine][Azure Data Factory documentation].
+Azure Data Factory veri aktarımını hello ve saklı yordamlar SQL veri ambarı üzerinde yürütülmesi yönetme için tam olarak yönetilen bir yöntem sağlar.  Bu, toomore kolayca sağlayacak Kurulum ve zamanlama karmaşık ayıklamak dönüştürme ve yükleme (ETL) yordamlar SQL veri ambarı ile. Azure Data Factory daha kapsamlı bir genel bakış için bkz: Merhaba [Azure Data Factory belgelerine][Azure Data Factory documentation].
 
 ## <a name="data-movement"></a>Veri Taşıma
-Azure Data Factory hem şirket içi kaynakları hem de farklı Azure hizmetleri arasında veri taşıma sağlar.  Genel, geçerli tümleştirme Azure Data Factory ile veri taşıma için ve aşağıdaki konumlardan destekler:
+Azure Data Factory hem şirket içi kaynakları hem de farklı Azure hizmetleri arasında veri taşıma sağlar.  Genel, geçerli tümleştirme Azure Data Factory ile veri taşıma tooand hello aşağıdaki konumlardan gelen destekler:
 
 * Azure blob depolama
 * Azure SQL Database
 * Şirket içi SQL Server
 * SQL Server Iaas üzerinde
 
-Kopya etkinliği bir verileri ayarlama hakkında bilgi için bkz [Azure Data Factory ile veri kopyalama][Copy data with Azure Data Factory]
+Nasıl bir verileri tooset kopyalama etkinliği hakkında bilgi için bkz: [Azure Data Factory ile veri kopyalama][Copy data with Azure Data Factory]
 
 ## <a name="stored-procedures"></a>Saklı Yordamlar
- Veri aktarımı zamanlamak için kullanılabilir aynı şekilde Azure Data Factory de saklı yordamlar yürütülmesi düzenlemek için kullanılabilir.  Bu oluşturulacak daha karmaşık ardışık düzen verir ve Azure veri fabrikasının SQL Data Warehouse hesaplama gücünü yararlanan yeteneğini genişletir.
+ Hello aynı şekilde bu olabilir tooschedule veri aktarımı, Azure Data Factory can da kullanılan tooorchestrate hello saklı yordamlar yürütülmesi kullanılabilir.  Bu, daha karmaşık ardışık düzen toobe oluşturulan verir ve Azure veri fabrikasının özelliği tooleverage hello hesaplama gücüne SQL veri ambarı genişletir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Tümleştirme genel bakış için bkz: [SQL Data Warehouse tümleştirme genel bakış][SQL Data Warehouse integration overview].

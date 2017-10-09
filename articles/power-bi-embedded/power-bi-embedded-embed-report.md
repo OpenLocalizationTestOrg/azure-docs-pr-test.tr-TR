@@ -1,6 +1,6 @@
 ---
-title: Bir rapor Azure Power BI Embedded ekleme | Microsoft Docs
-description: "Power BI Embedded içinde olduğu uygulamanıza bir rapor ekleme hakkında bilgi edinin."
+title: bir rapor Azure Power BI Embedded aaaEmbed | Microsoft Docs
+description: "Bilgi nasıl tooembed olan Power BI Embedded uygulamanıza bir rapor."
 services: power-bi-embedded
 documentationcenter: 
 author: guyinacube
@@ -15,31 +15,31 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 03/11/2017
 ms.author: asaxton
-ms.openlocfilehash: 3d865af2418c9c557c861a379766a125d75cebf1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: f25344bbd0b9c092ef19da04d0b455d453b426a4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="embed-a-report-in-power-bi-embedded"></a>Power BI Embedded içinde bir rapor ekleme
 
-Power BI Embedded içinde olduğu uygulamanıza bir rapor ekleme hakkında bilgi edinin.
+Bilgi nasıl tooembed olan Power BI Embedded uygulamanıza bir rapor.
 
-Gerçekte uygulamanıza bir rapor eklemek nasıl ele alacağız. Bu, mevcut bir rapor içinde bir çalışma alanı, çalışma alanı koleksiyonu zaten varsayılır. Bu adım henüz yapmadıysanız bkz [Power BI Embedded ile çalışmaya başlama](power-bi-embedded-get-started.md).
+Nasıl tooactually katıştırmak bir raporu uygulamanıza ele alacağız. Bu, mevcut bir rapor içinde bir çalışma alanı, çalışma alanı koleksiyonu zaten varsayılır. Bu adım henüz yapmadıysanız bkz [Power BI Embedded ile çalışmaya başlama](power-bi-embedded-get-started.md).
 
-Kolayca Power BI Embedded ile uygulamanızı .NET (C#) veya Node.js SDK, JavaScript ile birlikte kullanabilirsiniz. 
+Tooeasily Power BI Embedded ile uygulamanızı oluşturma, hello .NET (C#) veya Node.js SDK, JavaScript ile birlikte kullanabilirsiniz. 
 
-## <a name="using-the-access-keys-to-use-rest-apis"></a>REST API'lerini kullanma için erişim anahtarlarını kullanma
+## <a name="using-hello-access-keys-toouse-rest-apis"></a>Merhaba erişim anahtarları toouse REST API'lerini kullanma
 
-REST API çağrısı için belirtilen çalışma alanı koleksiyonu için Azure Portalı'ndan elde edebilirsiniz erişim anahtarı geçirebilirsiniz. Daha fazla bilgi için bkz: [Power BI Embedded ile çalışmaya başlama](power-bi-embedded-get-started.md).
+Sipariş toocall hello REST API, hello belirli çalışma alanı koleksiyonu için Azure Portalı'ndan elde edebilirsiniz hello erişim tuşu geçirebilirsiniz. Daha fazla bilgi için bkz: [Power BI Embedded ile çalışmaya başlama](power-bi-embedded-get-started.md).
 
 ## <a name="get-a-report-id"></a>Bir rapor kimliği alma
 
-Her erişim belirteci bir raporda temel alır. Eklemek istediğiniz rapor için belirli rapor kimliği alma gerekecektir. Bu temel alınarak çağrıları yapılabilir [raporları Al](https://msdn.microsoft.com/library/azure/mt711510.aspx) REST API. Bu rapor kimliği ve embed URL'sini döndürür. Bu Power BI .NET SDK kullanarak veya doğrudan REST API çağırma yapılabilir.
+Her erişim belirteci bir raporda temel alır. Tooembed istediğiniz hello rapor için rapor kimliği belirtilen tooget hello gerekir. Bu çağrı toohello göre yapılabilir [raporları Al](https://msdn.microsoft.com/library/azure/mt711510.aspx) REST API. Bu kimliği ve hello url katıştırmak hello rapor döndürür. Bu yapılabilir hello Power BI .NET SDK kullanarak veya doğrudan hello REST API çağırma.
 
-### <a name="using-the-power-bi-net-sdk"></a>Power BI .NET SDK kullanarak
+### <a name="using-hello-power-bi-net-sdk"></a>Merhaba Power BI .NET SDK kullanarak
 
-.NET SDK'sı kullanırken, Azure portalından aldığınız erişim tuşu dayalı olan bir belirteç kimlik bilgisi oluşturmanız gerekir. Bu, yüklemenizi gerektirir [Power BI API'si NuGet paketi](https://www.nuget.org/profiles/powerbi).
+Merhaba .NET SDK'sı kullanırken toocreate hello Azure portal ' aldığınız hello erişim tuşu dayalı olan bir belirteç kimlik bilgisi gerekir. Bu hello yüklemenizi gerektirir [Power BI API'si NuGet paketi](https://www.nuget.org/profiles/powerbi).
 
 **NuGet paketi yüklemesi**
 
@@ -59,10 +59,10 @@ client.BaseUri = new Uri(https://api.powerbi.com);
 
 var reports = (IList<Report>)client.Reports.GetReports(workspaceCollectionName, workspaceId).Value;
 
-// Select the report that you want to work with from the collection of reports.
+// Select hello report that you want toowork with from hello collection of reports.
 ```
 
-### <a name="calling-the-rest-api-directly"></a>REST API doğrudan çağırma
+### <a name="calling-hello-rest-api-directly"></a>Doğrudan çağırma hello REST API'si
 
 ```
 System.Net.WebRequest request = System.Net.WebRequest.Create("https://api.powerbi.com/v1.0/collections/{collectionName}/workspaces/{workspaceId}/Reports") as System.Net.HttpWebRequest;
@@ -75,7 +75,7 @@ using (var response = request.GetResponse() as System.Net.HttpWebResponse)
 {
     using (var reader = new System.IO.StreamReader(response.GetResponseStream()))
     {
-        // Work with JSON response to get the report you want to work with.
+        // Work with JSON response tooget hello report you want toowork with.
     }
 
 }
@@ -83,11 +83,11 @@ using (var response = request.GetResponse() as System.Net.HttpWebResponse)
 
 ## <a name="create-an-access-token"></a>Bir erişim belirteci oluşturma
 
-Power BI Embedded kullanır ekleme belirteci, JSON Web belirteçlerini imzalı HMAC olduğu. Belirteçler, Azure Power BI Embedded çalışma alanı koleksiyonu erişim anahtarla imzalanmıştır. Varsayılan olarak belirteçleri, ekleme, bir uygulamaya eklemek için bir rapor için salt okunur erişim sağlamak için kullanılır. Embed belirteçleri için belirli bir rapor verilir ve bir embed URL'si ile ilişkili olmalıdır.
+Power BI Embedded kullanır ekleme belirteci, JSON Web belirteçlerini imzalı HMAC olduğu. Merhaba belirteçleri hello erişim anahtarıyla Azure Power BI Embedded çalışma alanı koleksiyonu imzalanmıştır. Varsayılan olarak belirteçleri, ekleme, olan okuma kullanılan tooprovide yalnızca erişim tooa rapor tooembed bir uygulamaya. Embed belirteçleri için belirli bir rapor verilir ve bir embed URL'si ile ilişkili olmalıdır.
 
-Erişim tuşları belirteçleri oturum/şifrelemek için kullanılan erişim belirteçleri sunucuda oluşturulması gerekir. Bir erişim belirteci oluşturma hakkında daha fazla bilgi için bkz: [Authenticating ve Power BI Embedded ile yetkilendirme](power-bi-embedded-app-token-flow.md). Ayrıca gözden geçirebilirsiniz [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) yöntemi. Burada, ne için Power BI .NET SDK kullanarak gibi görünür bir örnek verilmiştir.
+Merhaba erişim tuşları kullanılan toosign/şifrelemek hello belirteçleri gibi erişim belirteçleri hello sunucusunda oluşturulmalıdır. Hakkında bilgi için bkz: toocreate bir erişim belirteci [Authenticating ve Power BI Embedded ile yetkilendirme](power-bi-embedded-app-token-flow.md). Merhaba gözden geçirebilirsiniz [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) yöntemi. Burada, ne için Power BI hello .NET SDK kullanarak gibi görünür bir örnek verilmiştir.
 
-Daha önce aldığınız rapor kimliği kullanır. Ekleme belirteci oluşturulduktan sonra javascript açısından kullanabileceğiniz belirteci üretmek için erişim anahtarı kullanır. *PowerBIToken sınıfı* , yüklemenizi gerektirir [Power BI çekirdek NuGut paketi](https://www.nuget.org/packages/Microsoft.PowerBI.Core/).
+Daha önce aldığınız hello rapor kimliği kullanır. Hello katıştırmak sonra belirteç oluşturulur, ardından hello javascript açısından kullanabileceğiniz hello erişim anahtar toogenerate hello belirteci kullanacaktır. Merhaba *PowerBIToken sınıfı* hello yüklemenizi gerektirir [Power BI çekirdek NuGut paketi](https://www.nuget.org/packages/Microsoft.PowerBI.Core/).
 
 **NuGet paketi yüklemesi**
 
@@ -106,16 +106,16 @@ embedToken = PowerBIToken.CreateReportEmbedToken(workspaceCollectionName, worksp
 var token = embedToken.Generate("{access key}");
 ```
 
-### <a name="adding-permission-scopes-to-embed-tokens"></a>Belirteçleri katıştırmak için izin kapsamları ekleme
+### <a name="adding-permission-scopes-tooembed-tokens"></a>İzin kapsamları tooembed belirteçleri ekleme
 
-Embed belirteçleri kullanırken, erişim hakkı vermek kaynak kullanımını kısıtlamak istediğinizi düşünelim. Bu nedenle, kapsamlı izinlere sahip bir belirteç oluşturabilirsiniz. Daha fazla bilgi için bkz: [kapsamları](power-bi-embedded-app-token-flow.md#scopes)
+Embed belirteçleri kullanırken toorestrict kullanım hello kaynakların erişim hakkı vermek isteyebilirsiniz. Bu nedenle, kapsamlı izinlere sahip bir belirteç oluşturabilirsiniz. Daha fazla bilgi için bkz: [kapsamları](power-bi-embedded-app-token-flow.md#scopes)
 
 ## <a name="embed-using-javascript"></a>JavaScript kullanarak ekleme
 
-Erişim belirteci ve rapor kimliği aldıktan sonra biz JavaScript kullanarak raporu eklenebilir. Bu, nuget yüklemenizi gerektirir [Power BI JavaScript paket](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/). EmbedUrl yalnızca https://embedded.powerbi.com/appTokenReportEmbed olacaktır.
+Merhaba erişim belirtecini ve hello rapor kimliğini oluşturduktan sonra biz JavaScript kullanarak hello rapor eklenebilir. Bu hello nuget yüklemenizi gerektirir [Power BI JavaScript paket](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/). Merhaba embedUrl yalnızca https://embedded.powerbi.com/appTokenReportEmbed olacaktır.
 
 > [!NOTE]
-> Kullanabileceğiniz [JavaScript rapor katıştırmak örnek](https://microsoft.github.io/PowerBI-JavaScript/demo/) işlevselliğini test etmek için. Aynı zamanda kullanılabilir farklı işlemler için kod örnekleri sağlar.
+> Merhaba kullanabilirsiniz [JavaScript rapor katıştırmak örnek](https://microsoft.github.io/PowerBI-JavaScript/demo/) tootest işlevselliği. Aynı zamanda kullanılabilir hello farklı işlemler için kod örnekleri sağlar.
 
 **NuGet paketi yüklemesi**
 
@@ -140,9 +140,9 @@ var $reportContainer = $('#reportContainer');
 var report = powerbi.embed($reportContainer.get(0), embedConfiguration);
 ```
 
-### <a name="set-the-size-of-embedded-elements"></a>Katıştırılmış öğelerinin boyutunu ayarlama
+### <a name="set-hello-size-of-embedded-elements"></a>Katıştırılmış öğeleri Hello boyutunu ayarlama
 
-Rapor kapsayıcısı boyutuna göre otomatik olarak katıştırılır. Varsayılan boyutu geçersiz kılmak için katıştırır genişliği ve yüksekliği için bir CSS sınıfı özniteliği veya satır içi stil eklemeniz yeterlidir.
+Merhaba rapor kapsayıcısı hello boyutuna göre otomatik olarak katıştırılır. Merhaba toooverride hello varsayılan boyutu katıştırır yalnızca genişliği ve yüksekliği için bir CSS sınıfı özniteliği veya satır içi stil ekleyin.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
@@ -155,4 +155,4 @@ Rapor kapsayıcısı boyutuna göre otomatik olarak katıştırılır. Varsayıl
 [Power BI çekirdek NuGut paketi](https://www.nuget.org/packages/Microsoft.PowerBI.Core/)  
 [Powerbı CSharp Git deposu](https://github.com/Microsoft/PowerBI-CSharp)  
 [Powerbı düğümlü Git deposu](https://github.com/Microsoft/PowerBI-Node)  
-Başka sorunuz mu var? [Power BI Topluluğu'nu deneyin](http://community.powerbi.com/)
+Başka sorunuz mu var? [Merhaba Power BI topluluk deneyin](http://community.powerbi.com/)

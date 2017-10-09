@@ -1,6 +1,6 @@
 ---
-title: "Başkalarının veri bilimi örnekler – Azure Machine Learning kopyalama | Microsoft Docs"
-description: "Veri bilimi, ticari sır: çalışmanızı bunu başkalarına alın. Machine learning örnekler Cortana Analytics Galerisi'nden alın."
+title: "aaaCopy başkalarının veri bilimi örnekler – Azure Machine Learning | Microsoft Docs"
+description: "Veri bilimi, ticari sır: başkalarının almak toodo çalışmanızı sizin için. Machine learning örnekler Cortana Analytics Galerisi hello alın."
 keywords: "Veri bilimi örnekler, algoritma örnek kümeleme algoritması, kümeleme machine learning örnek"
 services: machine-learning
 documentationcenter: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2017
 ms.author: cgronlun
-ms.openlocfilehash: a67d9ccb9d9e6074bee7e1429ede96bd508945c9
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 41dfc97ef35df772a5ba5e33bb470b1ca268f04e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="copy-other-peoples-work-to-do-data-science"></a>Veri bilimi için başkalarının çalışmalarını kopyalama
+# <a name="copy-other-peoples-work-toodo-data-science"></a>Diğer kişilerin çalışma toodo veri bilimi kopyalayın
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Yeni başlayanlar seri için veri bilimi
-Veri bilimi, ticari sır birini iş yaptığınız için diğer kişileri almaktır. Cortana Analytics galerisinde kendi makine öğrenimi denemesinin için kullanılacak bir kümeleme algoritması örnek bulun.
+Veri bilimi hello ticari gizlilikleri birini mdan diğer toodo çalışmanızı sizin için kişi. Kümeleme algoritması örnek Cortana Analytics Galerisi toouse kendi makine öğrenimi denemesinin için bulun.
 
-Serinin en dışında almak için tümünü izleyin. [Videolar listesine Git](#other-videos-in-this-series)
+tooget hello en hello serisi dışında tümünü izleyin. [Videolar toohello listesi gidin](#other-videos-in-this-series)
 <br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-copy-other-peoples-work-to-do-data-science/player]
@@ -33,64 +33,64 @@ Serinin en dışında almak için tümünü izleyin. [Videolar listesine Git](#o
 >
 
 ## <a name="other-videos-in-this-series"></a>Bu serideki diğer videolar
-*Yeni başlayanlar için veri bilimi* veri bilimi beş kısa videolar içindeki bir giriş değil.
+*Yeni başlayanlar için veri bilimi* beş kısa video içinde hızlı giriş toodata bilimsel olduğu.
 
-* Video 1: [5 veri bilimi yanıtlar sorular](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 dakika 14 saniye)*
+* Video 1: [hello 5 sorular veri bilimi yanıtlar](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 dakika 14 saniye)*
 * Video 2: [verileriniz için veri bilimi hazır?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 min 56 sn)*
 * Video 3: [verilerle yanıt soru](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 min 17 sn)*
 * Video 4: [basit bir modelle bir yanıt tahmin](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 min 42 sn)*
-* Video 5: veri bilimi yapmak için diğer kişilerin çalışma kopyalayın
+* Video 5: diğer kişilerin çalışma toodo veri bilimi kopyalayın
 
-## <a name="transcript-copy-other-peoples-work-to-do-data-science"></a>Dökümü: veri bilimi yapmak için diğer kişilerin iş kopyalama
-Serideki beşinci video "Yeni başlayanlar için veri bilimi." Hoş Geldiniz
+## <a name="transcript-copy-other-peoples-work-toodo-data-science"></a>Dökümü: diğer kişilerin çalışma toodo veri bilimi kopyalama
+"Yeni başlayanlar için veri bilimi." Merhaba serideki toohello beşinci video Hoş Geldiniz
 
-Bu tek bir yerde, gelen bir başlangıç noktası olarak kendi iş için kullanırım Bul örnekler için öğreneceksiniz. Bu serideki önceki videoları ilk izleyin, en iyi bu videoyu alabilirsiniz.
+Bu birinde, gelen bir başlangıç noktası olarak kendi iş için kullanırım bir yerde toofind örnekler öğreneceksiniz. Merhaba alabilirsiniz en iyi bu videoyu ilk izleme, bu serideki önceki videolar hello.
 
-Veri bilimi, ticari sır birini iş yaptığınız için diğer kişileri almaktır.
+Veri bilimi hello ticari gizlilikleri birini mdan diğer toodo çalışmanızı sizin için kişi.
 
-## <a name="find-examples-in-the-cortana-intelligence-gallery"></a>Cortana Intelligence Galerisi'nde örnekleri Bul
-Microsoft adlı bulut tabanlı bir hizmete sahip [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) ücretsiz deneyin Hoş Geldiniz. Bu, bir çalışma alanıyla farklı machine learning algoritmaları ile deneyebilirsiniz ve yerdir, çalışılan çözümünüzün var olduğunda sağlar, web hizmeti olarak başlatın.
+## <a name="find-examples-in-hello-cortana-intelligence-gallery"></a>Merhaba Cortana Intelligence Galerisi örnekleri Bul
+Microsoft adlı bulut tabanlı bir hizmete sahip [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) Hoş Geldiniz tootry ücretsiz demektir. Bu, bir çalışma alanıyla farklı machine learning algoritmaları ile deneyebilirsiniz ve yerdir, çalışılan çözümünüzün var olduğunda sağlar, web hizmeti olarak başlatın.
 
-Bu hizmetin parçası olan bir şey adlı  **[Cortana Intelligence Galerisi](http://aka.ms/CortanaIntelligenceGallery)**. Azure Machine Learning denemeleri veya kişiler yerleşik ve diğerleri için kullanılacak katkıda modelleri koleksiyonu gibi kaynakları içerir. Bu denemeler düşünce ve diğer kendi çözümlerini başlamanıza yardımcı olmak için sabit iş yararlanmak için harika bir yoludur.
+Bu hizmetin parçası olan bir şey adlı hello  **[Cortana Intelligence Galerisi](http://aka.ms/CortanaIntelligenceGallery)**. Azure Machine Learning denemeleri veya Kişiler'in yerleşik ve başkaları için toouse katkısı modelleri koleksiyonu gibi kaynakları içerir. Bu denemeler tooleverage hello planlanmış ve sabit çalışma diğerleriyle kendi çözümlerini kullanmaya tooget harika bir yoludur.
 
-' Daki galeri bulabilirsiniz [aka.ms/CortanaIntelligenceGallery](http://aka.ms/CortanaIntelligenceGallery). Herkes üzerinden Gözat Hoş Geldiniz.
+' Daki hello galeri bulabilirsiniz [aka.ms/CortanaIntelligenceGallery](http://aka.ms/CortanaIntelligenceGallery). Herkes aracılığıyla Hoş Geldiniz toobrowse olur.
 
 ![Cortana Intelligence Galerisi](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/cortana-intelligence-gallery.png)
 
-Tıklatırsanız **denemeler** en üstte en son ve popüler denemeler galerideki sayısı görürsünüz. Tıklatarak denemeler kullanılmadıkları arayabilirsiniz **tümüne Gözat** ekranın üstünde ve orada girdiğiniz arama terimleri ve arama filtrelerini seçin.
+Tıklatırsanız **denemeler** hello üstünde hello galerisinde hello en son ve popüler denemeleri sayısı görürsünüz. Tıklatarak denemeler hello kullanılmadıkları arayabilirsiniz **tümüne Gözat** Merhaba ekranında, hello üstündeki ve orada girdiğiniz arama terimleri ve arama filtrelerini seçin.
 
 ## <a name="find-and-use-a-clustering-algorithm-example"></a>Bulma ve kümeleme algoritması örneği kullanın
-Bu nedenle, örneğin, arama için kümeleme nasıl çalıştığını, bir örnek görmek istediğiniz diyelim ki **"Tarama Kümeleme"** denemeler.
+Bu nedenle, örneğin, istediğiniz toosee kümeleme nasıl çalıştığını, bir örnek için arama şekilde diyelim ki **"Tarama Kümeleme"** denemeler.
 
 ![Denemeler kümeleme için arama](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/search-for-clustering-experiments.png)
 
-Birisi Galeriye katkıda ilginç bir İşte.
+İlginç bir İşte birisi toohello galeri katkısı.
 
 ![Deneme kümeleme](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/clustering-experiment.png)
 
-Üzerinde deneme ve bazı sonuçları yanı sıra bu katkıda bulunan, yaptığınız iş açıklayan bir web sayfası Al'ı tıklatın.
+Üzerinde deneme ve bazı sonuçları yanı sıra bu katkıda bulunan, vermedi hello iş açıklayan bir web sayfası Al'ı tıklatın.
 
 ![Deneme açıklama sayfa kümeleme](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/clustering-experiment-description-page.png)
 
-Bildirim bağlantısını **Studio'da Aç**.
+Diyor bildirimi hello bağlantı **Studio'da Aç**.
 
 ![Studio düğmesi Aç](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/open-in-studio.png)
 
-Üzerinde tıklayabilir ve bana sağdan sürdüğünü **Azure Machine Learning Studio**. Denemeyi bir kopyasını oluşturur ve çalışma Alanım kendi yerleştirir. Bu, Katkıda Bulunanlar veri kümesi, yaptıkları işlemin, tüm işlemler tüm kullandıkları algoritmaları ve sonuçları kaydedilme içerir.
+Üzerinde tıklayabilir ve sağa çok bana sürer**Azure Machine Learning Studio**. Merhaba deneme bir kopyasını oluşturur ve çalışma Alanım kendi yerleştirir. Bu hello katkıda bulunanlar dataset içerir, tüm bunlar, tüm bunlar kullanıldığında, hello algoritmalarının yaptığınıza işleme hello ve hello sonuçları kaydedilme.
 
 ![Machine Learning Studio - kümeleme algoritması örnek bir galeri deneme açın](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/cluster-experiment-open-in-studio.png)
 
-Ve bir başlangıç noktası şimdi sahibim. I için kendi verilerini takas ve kendi modelini uyguladıkça yapın. Bu bana bir çalışan başlangıç verir ve bana bilen gerçekten ne yaptıklarını kişilerin çalışmalarını yapı olanak tanır.
+Ve bir başlangıç noktası şimdi sahibim. I için kendi verilerini takas ve kendi hello modelinin uyguladıkça yapın. Bu bana bir çalışan başlangıç verir ve bana bilen gerçekten ne yaptıklarını kişiler hello çalışmanın yapı olanak tanır.
 
 ## <a name="find-experiments-that-demonstrate-machine-learning-techniques"></a>Machine learning teknikleri göstermek denemeler Bul
-Diğer denemeler vardır [Cortana Intelligence Galerisi](http://aka.ms/CortanaIntelligenceGallery) , katkıda bulunan özellikle veri bilimi yeni kişiler için nasıl yapılır örnekler sağlamak için. Örneğin, bir deneme eksik değerleri nasıl ele alınacağını gösteren galerisinde yoktur ([eksik değerleri işlemek için yöntemleri](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)). Boş değerleri değiştirerek 15 farklı yöntemler size yol gösterir ve her yöntem ve ne zaman kullanılmalı avantajları hakkında ettiği.
+Hello diğer denemeler olan [Cortana Intelligence Galerisi](http://aka.ms/CortanaIntelligenceGallery) olduğunu özellikle tooprovide nasıl-tooexamples kişiler yeni toodata Bilim için katkıda. Örneğin, bir deneme nasıl toohandle eksik değerleri gösteren hello galerisinde yoktur ([eksik değerleri işlemek için yöntemleri](https://gallery.cortanaintelligence.com/Experiment/Methods-for-handling-missing-values-1)). Boş değerleri değiştirerek 15 farklı yöntemler size yol gösterir ve ettiği hello her yöntemin avantajları hakkında ne zaman ve toouse bunu.
 
 ![Machine Learning Studio'da - eksik değerleri için yöntemleri galeri denemeler açın](./media/machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
 
-[Cortana Intelligence Galerisi](http://aka.ms/CortanaIntelligenceGallery) kendi çözümleri için bir başlangıç noktası olarak kullanabileceğiniz çalışma denemeleri bulmak için bir yerdir.
+[Cortana Intelligence Galerisi](http://aka.ms/CortanaIntelligenceGallery) yer toofind kendi çözümleri için bir başlangıç noktası olarak kullanabileceğiniz çalışma denemeler olduğu.
 
-"Veri bilimi için yeni başlayanlar" Microsoft Azure Machine learning'in diğer videoları kullanıma emin olun.
+Merhaba çıkışı emin toocheck "Veri bilimi için yeni başlayanlar" Microsoft Azure Machine learning'in diğer videoları olabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Machine Learning ile ilk veri bilimi denemenizi deneyin](machine-learning-create-experiment.md)
-* [Microsoft Azure Machine Learning giriş Al](machine-learning-what-is-machine-learning.md)
+* [Bir giriş tooMachine alma Microsoft Azure üzerinde öğrenme](machine-learning-what-is-machine-learning.md)

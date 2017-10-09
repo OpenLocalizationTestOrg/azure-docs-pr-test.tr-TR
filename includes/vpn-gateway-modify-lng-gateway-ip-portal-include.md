@@ -1,32 +1,32 @@
-### <a name="gwipnoconnection"></a>Yerel ağ geçidi IP adresi - ağ geçidi bağlantı değiştirmek için
+### <a name="gwipnoconnection"></a>toomodify hello yerel ağ geçidi IP adresi - hiçbir ağ geçidi bağlantısı
 
-Ağ geçidi bağlantısı olmayan bir yerel ağ geçidini değiştirmek için örneği kullanın. Bu değeri değiştirirken aynı zamanda adres ön eklerini de değiştirebilirsiniz.
+Merhaba örnek toomodify bir ağ geçidi bağlantısı olmayan yerel ağ geçidi kullanın. Bu değer değiştirirken hello adres öneklerini hello adresindeki de değiştirebilirsiniz aynı anda.
 
-1. Yerel ağ geçidi kaynağına içinde **ayarları** 'yi tıklatın **yapılandırma**.
-2. İçinde **IP adresi** kutusunda, IP adresini değiştirin.
-3. Tıklatın **kaydetmek** ayarları kaydetmek için.
+1. Merhaba yerel ağ geçidi kaynağında hello üzerinde **ayarları** 'yi tıklatın **yapılandırma**.
+2. Merhaba, **IP adresi** kutusunda, hello IP adresini değiştirin.
+3. Tıklatın **kaydetmek** toosave hello ayarları.
 
-### <a name="gwipwithconnection"></a>Var olan ağ geçidi bağlantısı yerel ağ geçidi ağ geçidi IP adresi - değiştirmek için
+### <a name="gwipwithconnection"></a>ağ geçidi bağlantısı varolan toomodify hello yerel ağ geçidi ağ geçidi IP adresi-
 
-Bir bağlantısı olan bir yerel ağ geçidi değiştirmek için önce bağlantıyı kaldırmanız gerekir. Bağlantı kaldırıldıktan sonra ağ geçidi IP adresini değiştirebilir ve yeni bir bağlantı oluşturabilirsiniz. Aynı zamanda adres ön eklerini de değiştirebilirsiniz. Bunun sonucunda, VPN bağlantınızda kesinti oluşur. Ağ geçidi IP adresini değiştirirken, VPN ağ geçidini silmeniz gerekmez. Yalnızca bağlantıyı kaldırmanız gerekir.
+toomodify bağlantısı olan bir yerel ağ geçidi, toofirst Kaldır hello bağlantı gerekir. Merhaba bağlantı kaldırıldıktan sonra hello ağ geçidi IP adresi değiştirebilir ve yeni bir bağlantı oluşturun. Merhaba adres öneklerini hello adresindeki değiştirebilirsiniz aynı anda. Bunun sonucunda, VPN bağlantınızda kesinti oluşur. Merhaba ağ geçidi IP adresi değiştirirken toodelete hello VPN ağ geçidi gerekmez. Yalnızca tooremove hello bağlantı gerekir.
  
-#### <a name="1-remove-the-connection"></a>1. Bağlantıyı kaldırın.
+#### <a name="1-remove-hello-connection"></a>1. Merhaba bağlantısını kaldırın.
 
-1. Yerel ağ geçidi kaynağına içinde **ayarları** 'yi tıklatın **bağlantıları**.
-2. Tıklatın **...**  bağlantı için satırda ardından **silmek**.
-3. Tıklatın **kaydetmek** ayarlarınızı kaydetmek için.
+1. Merhaba yerel ağ geçidi kaynağında hello üzerinde **ayarları** 'yi tıklatın **bağlantıları**.
+2. Merhaba tıklatın **...**  hello bağlantı hello satırında, ardından **silmek**.
+3. Tıklatın **kaydetmek** toosave ayarlarınızı.
 
-#### <a name="2-modify-the-ip-address"></a>2. IP adresini değiştirin.
+#### <a name="2-modify-hello-ip-address"></a>2. Başlangıç IP adresini değiştirin.
 
-Aynı zamanda adres ön eklerini de değiştirebilirsiniz.
+Merhaba adres öneklerini hello adresindeki değiştirebilirsiniz aynı anda.
 
-1. İçinde **IP adresi** kutusunda, IP adresini değiştirin.
-2. Tıklatın **kaydetmek** ayarları kaydetmek için.
+1. Merhaba, **IP adresi** kutusunda, hello IP adresini değiştirin.
+2. Tıklatın **kaydetmek** toosave hello ayarları.
 
-#### <a name="3-recreate-the-connection"></a>3. Bağlantısını yeniden oluşturun.
+#### <a name="3-recreate-hello-connection"></a>3. Merhaba bağlantısını yeniden oluşturun.
 
-1. Sanal ağ geçidi için sanal ağınızı gidin. (Olmayan yerel ağ geçidi.)
-2. Sanal ağ geçidi olarak **ayarları** 'yi tıklatın **bağlantıları**.
-3. Tıklatın **+ Ekle** açmak için **Bağlantı Ekle** dikey.
+1. Sanal ağ geçidi toohello ağınız için gidin. (Değil hello yerel ağ geçidi.)
+2. Merhaba hello sanal ağ geçidi üzerinde **ayarları** 'yi tıklatın **bağlantıları**.
+3. Merhaba tıklatın **+ Ekle** tooopen hello **Bağlantı Ekle** dikey.
 4. Bağlantınızı yeniden oluşturun.
-5. Tıklatın **Tamam** bağlantı oluşturmak için.
+5. Tıklatın **Tamam** toocreate hello bağlantı.

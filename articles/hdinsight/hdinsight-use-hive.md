@@ -1,7 +1,7 @@
 ---
-title: "Apache Hive ve HiveQL - Azure Hdınsight nedir | Microsoft Docs"
-description: "Apache Hive bir veri ambarı için Hadoop sistemidir. HiveQL, kullanarak kovanında depolanan verileri sorgulayabilir, Transact-SQL benzer. Bu belgede, Azure Hdınsight ile Hive ve HiveQL kullanmayı öğrenin."
-keywords: "hive, hadoop hiveql nedir hiveql nasıl hive kullanma, hive, hive nedir öğrenme"
+title: "Apache Hive ve HiveQL - Azure Hdınsight aaaWhat olan | Microsoft Docs"
+description: "Apache Hive bir veri ambarı için Hadoop sistemidir. HiveQL, hangi benzer tooTransact SQL kullanarak kovanında depolanan verileri sorgulayabilir. Bu belgede, bilgi nasıl toouse Hive ve HiveQL Azure Hdınsight ile."
+keywords: "hive, hadoop hiveql nedir hiveql toouse hive nasıl hive nedir hive öğrenin"
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -17,31 +17,31 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/03/2017
 ms.author: larryfr
-ms.openlocfilehash: 6b3ee17141f773bec07cf40e0b6d63363e9b5164
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: a2772312263895ff99b499898264c2e6d5e816e9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Apache Hive ve HiveQL Azure hdınsight'ta nedir?
 
-[Apache Hive](http://hive.apache.org/) Hadoop için veri ambarı sistemidir. Hive veri özetleme, sorgulama ve veri analizini sağlar. Hive sorguları SQL benzer bir sorgu dili HiveQL yazılır.
+[Apache Hive](http://hive.apache.org/) Hadoop için veri ambarı sistemidir. Hive veri özetleme, sorgulama ve veri analizini sağlar. Hive sorguları bir sorgu dili benzer tooSQL olan HiveQL yazılır.
 
-Hive, büyük ölçüde yapılandırılmamış veriler üzerinde proje yapısını olanak tanır. Yapı tanımladıktan sonra Java veya MapReduce bilgisi olmadan verileri sorgulamak için HiveQL kullanabilirsiniz.
+Hive büyük ölçüde yapılandırılmamış veriler üzerinde tooproject yapısı sağlar. Merhaba yapısı tanımladıktan sonra HiveQL tooquery hello verileri Java veya MapReduce bilgisi olmadan kullanabilirsiniz.
 
-Hdınsight belirli iş yükleri için ayarlanmış birkaç küme türler sağlar. Aşağıdaki küme türleri Hive sorguları için en sık kullanılır:
+Hdınsight belirli iş yükleri için ayarlanmış birkaç küme türler sağlar. Küme türleri aşağıdaki hello Hive sorguları için en sık kullanılır:
 
-* __Etkileşimli Hive__: sağlayan bir Hadoop kümesine [düşük gecikme süresi analitik işleme (LLAP)](https://cwiki.apache.org/confluence/display/Hive/LLAP) işlevselliği etkileşimli sorgular için yanıt sürelerini geliştirebilir. Daha fazla bilgi için bkz: [başlayarak etkileşimli hdınsight'ta Hive](hdinsight-hadoop-use-interactive-hive.md) belge.
+* __Etkileşimli Hive__: sağlayan bir Hadoop kümesine [düşük gecikme süresi analitik işleme (LLAP)](https://cwiki.apache.org/confluence/display/Hive/LLAP) işlevselliği tooimprove yanıt sürelerini etkileşimli sorgular. Daha fazla bilgi için bkz: Merhaba [etkileşimli hdınsight'ta Hive ile başlar](hdinsight-hadoop-use-interactive-hive.md) belge.
 
-* __Hadoop__: toplu işlem iş yüklerini işlemek için ayarlanmış bir Hadoop kümesi. Daha fazla bilgi için bkz: [Başlat hdınsight'ta Hadoop ile](hdinsight-hadoop-linux-tutorial-get-started.md) belge.
+* __Hadoop__: toplu işlem iş yüklerini işlemek için ayarlanmış bir Hadoop kümesi. Daha fazla bilgi için bkz: Merhaba [Başlat hdınsight'ta Hadoop ile](hdinsight-hadoop-linux-tutorial-get-started.md) belge.
 
-* __Spark__: Apache Spark Hive ile çalışmak için yerleşik bir işleve sahiptir. Daha fazla bilgi için bkz: [hdınsight'ta Spark başlayarak](hdinsight-apache-spark-jupyter-spark-sql.md) belge.
+* __Spark__: Apache Spark Hive ile çalışmak için yerleşik bir işleve sahiptir. Daha fazla bilgi için bkz: Merhaba [hdınsight'ta Spark ile başlar](hdinsight-apache-spark-jupyter-spark-sql.md) belge.
 
-* __HBase__: HiveQL, HBase içinde depolanan verileri için kullanılabilir. Daha fazla bilgi için bkz: [hdınsight'ta HBase ile başlar](hdinsight-hbase-tutorial-get-started-linux.md) belge.
+* __HBase__: HiveQL HBase içinde depolanan kullanılan tooquery verileri olabilir. Daha fazla bilgi için bkz: Merhaba [hdınsight'ta HBase ile başlar](hdinsight-hbase-tutorial-get-started-linux.md) belge.
 
-## <a name="how-to-use-hive"></a>Hive kullanma
+## <a name="how-toouse-hive"></a>Nasıl toouse yığını
 
-Hdınsight ile Hive kullanma bulmak için aşağıdaki tabloyu kullanın:
+Nasıl toouse Hdınsight ile Hive tablosu toodiscover aşağıdaki hello kullan:
 
 | **Bu yöntemi kullanmak** isterseniz... | .. .an **etkileşimli** Kabuk | ... **toplu** işleme | .. hemen bu **küme işletim sistemi** | .. .from bu **istemci işletim sistemi** |
 |:--- |:---:|:---:|:--- |:--- |
@@ -52,17 +52,17 @@ Hdınsight ile Hive kullanma bulmak için aşağıdaki tabloyu kullanın:
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux veya Windows * |Windows |
 
 > [!IMPORTANT]
-> \*Linux üzerinde Hdınsight sürüm 3.4 veya büyük kullanılan yalnızca işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> \*Linux hello yalnızca Hdınsight sürüm 3.4 veya büyük kullanılan işletim sistemini ' dir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
-> Bir Windows tabanlı Hdınsight kümesi kullanıyorsanız, kullanabileceğiniz [sorgu konsol](hdinsight-hadoop-use-hive-query-console.md) tarayıcınızdan veya [Uzak Masaüstü](hdinsight-hadoop-use-hive-remote-desktop.md) Hive sorguları çalıştırmak için.
+> Bir Windows tabanlı Hdınsight kümesi kullanıyorsanız, hello kullanabilirsiniz [sorgu konsol](hdinsight-hadoop-use-hive-query-console.md) tarayıcınızdan veya [Uzak Masaüstü](hdinsight-hadoop-use-hive-remote-desktop.md) toorun Hive sorguları.
 
 ## <a name="hiveql-language-reference"></a>HiveQL dil başvurusu
 
-HiveQL dil başvurusu bulunan [dil el ile (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
+HiveQL dil başvurusu hello kullanılabilir [dil el ile (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
 
 ## <a name="hive-and-data-structure"></a>Hive ve veri yapısı
 
-Hive yapılandırılmış ve yarı yapılandırılmış verilerle çalışmak nasıl bilir. Burada alanları belirli karakterleriyle sınırlandırılır Örneğin, metin dosyaları. Aşağıdaki HiveQL deyimi boşlukla ayrılmış veriler üzerinde bir tablo oluşturur:
+Hive nasıl toowork ile yapılandırılmış ve yarı yapılandırılmış veri bilir. Merhaba alanlar belirli karakterleriyle burada sınırlandırılmıştır Örneğin, metin dosyaları. Aşağıdaki HiveQL ifadeyi hello boşlukla ayrılmış veriler üzerinde bir tablo oluşturur:
 
 ```hiveql
 CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -70,35 +70,35 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
 STORED AS TEXTFILE LOCATION '/example/data/';
 ```
 
-Hive ayrıca özel destekler **seri hale getirici/deserializers (SerDe)** karmaşık veya düzensiz yapılandırılmış veriler için. Daha fazla bilgi için bkz: [Hdınsight ile özel bir JSON SerDe kullanmayı](http://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx) belge.
+Hive ayrıca özel destekler **seri hale getirici/deserializers (SerDe)** karmaşık veya düzensiz yapılandırılmış veriler için. Daha fazla bilgi için bkz: Merhaba [nasıl toouse Hdınsight ile özel bir JSON SerDe](http://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx) belge.
 
-Hive tarafından desteklenen dosya biçimleri hakkında daha fazla bilgi için bkz: [dil el ile (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
+Merhaba Hive tarafından desteklenen dosya biçimleri hakkında daha fazla bilgi için bkz: [dil el ile (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
 
 ## <a name="hive-internal-tables-vs-external-tables"></a>İç tablolar vs dış tablolara yığını
 
 Hive ile oluşturabileceğiniz tablolar iki tür vardır:
 
-* __İç__: Hive veri ambarında depolanır. Veri ambarı bulunur `/hive/warehouse/` kümenin varsayılan depolama.
+* __İç__: veri hello Hive veri ambarında depolanır. Merhaba veri ambarı bulunur `/hive/warehouse/` hello varsayılan depolama hello kümesi için.
 
     İç kullanım ne zaman tabloları:
 
     * Veri geçicidir.
-    * Hive tablosu ve veri yaşam döngüsü yönetmek istiyorsunuz.
+    * Hive toomanage hello yaşam döngüsü hello tablo ve veri istiyor.
 
-* __Dış__: dışında veri ambarında depolanır. Veri kümesi tarafından herhangi bir depolama alanı üzerinde erişilebilir depolanabilir.
+* __Dış__: dışında hello veri ambarında depolanır. Merhaba veri herhangi bir depolama alanı üzerinde erişilebilir hello küme tarafından depolanabilir.
 
     Kullanım dış tablolar:
 
-    * Verileri de Hive dışında kullanılır. Örneğin, veri dosyalarını (yani dosyaları kilit yok.) başka bir işlem tarafından güncelleştirilir
-    * Veri tablosu bile silmeden sonra temel alınan konumda kalır gerekiyor.
+    * Merhaba verileri de Hive dışında kullanılır. Örneğin, hello veri dosyaları (Merhaba dosyaları kilit yok.) başka bir işlem tarafından güncelleştirilir
+    * Verilerin bile hello tablo bırakarak sonra konum, temel alınan hello tooremain gerekir.
     * Varsayılan olmayan depolama hesabı gibi özel bir konuma gerekir.
-    * Hive dışında bir program veri biçimi, konum vb. yönetir.
+    * Hive dışında bir program hello veri biçimi, konum vb. yönetir.
 
-Daha fazla bilgi için bkz: [Hive iç ve dış tablolar giriş] [ cindygross-hive-tables] blog postası.
+Merhaba daha fazla bilgi için bkz: [Hive iç ve dış tablolar giriş] [ cindygross-hive-tables] blog postası.
 
 ## <a name="user-defined-functions-udf"></a>Kullanıcı tanımlı işlevler (UDF)
 
-Hive ayrıca uzatabilirsiniz aracılığıyla **kullanıcı tanımlı işlevler (UDF)**. Bir UDF işlev veya kolayca modellenir değil mantığı içinde HiveQL uygulamak sağlar. UDF'ler ile Hive kullanma örneği için aşağıdaki belgelere bakın:
+Hive ayrıca uzatabilirsiniz aracılığıyla **kullanıcı tanımlı işlevler (UDF)**. Bir UDF tooimplement işlev veya HiveQL içinde kolayca modellenir değil mantığı sağlar. UDF'ler ile Hive kullanma örneği için aşağıdaki belgeleri hello bakın:
 
 * [Kullanıcı tanımlı bir Java işlev ile Hive kullanma](hdinsight-hadoop-hive-java-udf.md)
 
@@ -106,17 +106,17 @@ Hive ayrıca uzatabilirsiniz aracılığıyla **kullanıcı tanımlı işlevler 
 
 * [C# kullanıcı tanımlı bir işlev Hive veya Pig kullanın](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [Hdınsight için özel bir Hive kullanıcı tanımlı işlev ekleme](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [Nasıl tooadd özel Hive kullanıcı tanımlı işlev tooHDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
-* [Tarih/saat biçimlerinden Hive zaman damgası için dönüştürmek için bir örnek Hive kullanıcı tanımlı işlevi](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
+* [Bir örnek Hive kullanıcı tanımlı işlev tooconvert tarih/saat tooHive zaman damgası biçimleri](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 
 ## <a id="data"></a>Örnek veri
 
-Hdınsight'ta Hive gelen önceden yüklenmiş bir iç tablosu adlı `hivesampletable`. Hdınsight ile Hive kullanılabilir bir örnek veri kümeleri de sağlar. Bu veri kümeleri depolanmış `/example/data` ve `/HdiSamples` dizinleri. Bu dizinleri, kümeniz için varsayılan depolama yok.
+Hdınsight'ta Hive gelen önceden yüklenmiş bir iç tablosu adlı `hivesampletable`. Hdınsight ile Hive kullanılabilir bir örnek veri kümeleri de sağlar. Bu veri kümeleri hello depolanan `/example/data` ve `/HdiSamples` dizinleri. Bu dizinleri, kümeniz için hello varsayılan depolama yok.
 
 ## <a id="job"></a>Örnek Hive sorgusu
 
-Aşağıdaki HiveQL ifadelerini sütunları üzerine proje `/example/data/sample.log` dosyası:
+Aşağıdaki HiveQL ifadelerini proje sütunları hello üzerine hello `/example/data/sample.log` dosyası:
 
     set hive.execution.engine=tez;
     DROP TABLE log4jLogs;
@@ -125,31 +125,31 @@ Aşağıdaki HiveQL ifadelerini sütunları üzerine proje `/example/data/sample
     STORED AS TEXTFILE LOCATION '/example/data/';
     SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
-Önceki örnekte, HiveQL ifadelerini aşağıdaki eylemleri gerçekleştirin:
+Hello önceki örnekte, hello HiveQL ifadelerini hello aşağıdaki eylemleri gerçekleştirin:
 
-* `set hive.execution.engine=tez;`: Yürütme altyapısı, Tez kullanacak şekilde ayarlar. Tez yerine MapReduce kullanarak sorgu performansı bir artış sağlayabilir. Tez hakkında daha fazla bilgi için bkz: [iyileştirilmiş performans için Apache Tez kullanma](#usetez) bölümü.
+* `set hive.execution.engine=tez;`: Kümeleri yürütme altyapısı toouse Tez hello. Tez yerine MapReduce kullanarak sorgu performansı bir artış sağlayabilir. Tez hakkında daha fazla bilgi için bkz: Merhaba [iyileştirilmiş performans için Apache Tez kullanma](#usetez) bölümü.
 
     > [!NOTE]
-    > Bu deyim yalnızca olan Windows tabanlı Hdınsight kümesi kullanılırken gereklidir. Tez Linux tabanlı Hdınsight için varsayılan yürütme altyapısıdır.
+    > Bu deyim yalnızca olan Windows tabanlı Hdınsight kümesi kullanılırken gereklidir. Tez hello varsayılan yürütme Linux tabanlı Hdınsight için altyapısıdır.
 
-* `DROP TABLE`: Tablo zaten varsa dosyayı silin.
+* `DROP TABLE`: Hello tablo zaten varsa dosyayı silin.
 
-* `CREATE EXTERNAL TABLE`: Oluşturur Yeni bir **dış** Hive tablo. Dış tablolara tablo tanımı kovanında yalnızca depolar. Veriler özgün konumdaki ve özgün biçiminde bırakılır.
+* `CREATE EXTERNAL TABLE`: Oluşturur Yeni bir **dış** Hive tablo. Dış tablolara hello tablo tanımı kovanında yalnızca depolar. Merhaba veri hello özgün konumuna hem de hello özgün biçiminde bırakılır.
 
-* `ROW FORMAT`: Veri nasıl biçimlendirilmiş Hive söyler. Bu durumda, her günlüğün içinde alanlar boşlukla ayrılır.
+* `ROW FORMAT`: Hello verilerin nasıl biçimlendirilmiş Hive söyler. Bu durumda, her günlüğün içinde hello alanlar boşlukla ayrılır.
 
-* `STORED AS TEXTFILE LOCATION`: Veri depolandığı Hive söyler ( `example/data` dizini) ve metin olarak depolanır. Verileri bir dosyada yer veya birden çok dosya dizininde üzerinden yayılan.
+* `STORED AS TEXTFILE LOCATION`: Hive hello burada verilerin depolandığı söyler (Merhaba `example/data` dizini) ve metin olarak depolanır. Merhaba verileri, bir dosyada yer veya hello dizini içindeki birden çok dosya üzerinden yayılan.
 
-* `SELECT`: Tüm satırların sayımını seçer Burada sütun **t4** değeri içeren **[Hata]**. Bu ifade değerini döndürür **3** çünkü bu değer içeren üç satır vardır.
+* `SELECT`: Tüm satırların sayımını hello burada seçer sütun **t4** hello değeri içeren **[Hata]**. Bu ifade değerini döndürür **3** çünkü bu değer içeren üç satır vardır.
 
-* `INPUT__FILE__NAME LIKE '%.log'`-Dizindeki tüm dosyaları şema uygulamak hive çalışır. Bu durumda, dizin şeması eşleşmiyor dosyalarını içerir. Çöp veri sonuçlarında önlemek için bu bildirimi Hive biz yalnızca veri biten dosyalarından döndürmesi gerektiğini bildirir. günlük.
+* `INPUT__FILE__NAME LIKE '%.log'`-Hive tooapply hello şema tooall dosyaları hello dizininde çalışır. Bu durumda, başlangıç dizini hello şema eşleşmiyor dosyalarını içerir. tooprevent çöp veriler hello sonuçlarında, bu bildirimi bildirir Hive biz yalnızca veri biten dosyalarından döndürmesi gerektiğini. günlük.
 
 > [!NOTE]
-> Dış kaynak tarafından güncelleştirilecek temel alınan veri beklediğiniz dış tablolara kullanılmalıdır. Örneğin, bir otomatik veri karşıya yükleme işlemi veya MapReduce işlemi.
+> Dış kaynak tarafından güncelleştirilmiş hello temel alınan veri toobe beklediğiniz dış tablolara kullanılmalıdır. Örneğin, bir otomatik veri karşıya yükleme işlemi veya MapReduce işlemi.
 >
-> Bir dış tablo bırakma mu **değil** verileri silmek için yalnızca tablo tanımını siler.
+> Bir dış tablo bırakma mu **değil** hello verilerini silmek yalnızca hello tablosu tanımını siler.
 
-Oluşturmak için bir **iç** tablo dış yerine, aşağıdaki HiveQL kullanın:
+toocreate bir **iç** tablo dış yerine, aşağıdaki HiveQL hello kullanın:
 
     set hive.execution.engine=tez;
     CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
@@ -157,59 +157,59 @@ Oluşturmak için bir **iç** tablo dış yerine, aşağıdaki HiveQL kullanın:
     INSERT OVERWRITE TABLE errorLogs
     SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
 
-Bu ifadeler aşağıdaki eylemleri gerçekleştirin:
+Bu deyimler hello aşağıdaki eylemleri gerçekleştirin:
 
-* `CREATE TABLE IF NOT EXISTS`: Tablo mevcut değilse oluşturun. Çünkü **dış** anahtar sözcüğü kullanılmaz, bu deyim bir iç tablosu oluşturur. Tablo Hive veri ambarında depolanır ve tamamen Hive tarafından yönetilir.
+* `CREATE TABLE IF NOT EXISTS`: Hello tablo mevcut değilse oluşturun. Çünkü hello **dış** anahtar sözcüğü kullanılmaz, bu deyim bir iç tablosu oluşturur. Hello tablo hello Hive veri ambarında depolanır ve tamamen Hive tarafından yönetilir.
 
-* `STORED AS ORC`: En iyi duruma getirilmiş satır sütunlu (ORC) biçiminde verileri depolar. ORC Hive verilerini depolamak için yüksek oranda en iyi duruma getirilmiş ve verimli bir biçimidir.
+* `STORED AS ORC`: En iyi duruma getirilmiş satır sütunlu (ORC) biçiminde hello verileri depolar. ORC Hive verilerini depolamak için yüksek oranda en iyi duruma getirilmiş ve verimli bir biçimidir.
 
-* `INSERT OVERWRITE ... SELECT`: Satırları seçer **log4jLogs** içeren tablo **[Hata]**ve ardından verileri ekler **günlüklerini** tablo.
+* `INSERT OVERWRITE ... SELECT`: Hello satırları seçer **log4jLogs** içeren tablo **[Hata]**, ve ardından ekler veri hello hello **günlüklerini** tablo.
 
 > [!NOTE]
-> Dış tablolara, bir iç tablosu bırakarak temel alınan verileri siler.
+> Dış tablolara, bir iç tablosu bırakarak hello temel verilerini siler.
 
 ## <a name="improve-hive-query-performance"></a>Hive sorgu performansı
 
 ### <a id="usetez"></a>Apache Tez
 
-[Apache Tez](http://tez.apache.org) çok daha verimli bir şekilde ölçekli olarak çalıştırmak için Hive gibi veri yoğun uygulamalar sağlayan bir çerçevedir. Tez Linux tabanlı Hdınsight kümeleri için varsayılan olarak etkindir.
+[Apache Tez](http://tez.apache.org) Hive, ölçekte daha verimli bir şekilde toorun gibi veri yoğun uygulamalar sağlayan bir çerçevedir. Tez Linux tabanlı Hdınsight kümeleri için varsayılan olarak etkindir.
 
 > [!NOTE]
-> Tez şu anda Windows tabanlı Hdınsight kümeleri için varsayılan olarak kapalıdır ve etkinleştirilmesi gerekir. Tez yararlanmak için aşağıdaki değeri bir Hive sorgusu için ayarlanmalıdır:
+> Tez şu anda Windows tabanlı Hdınsight kümeleri için varsayılan olarak kapalıdır ve etkinleştirilmesi gerekir. Tez, aşağıdaki değeri hello tootake avantajlarından bir Hive sorgusu için ayarlamanız gerekir:
 >
 > `set hive.execution.engine=tez;`
 >
-> Tez Linux tabanlı Hdınsight kümeleri için varsayılan altyapısıdır.
+> Tez hello varsayılan Linux tabanlı Hdınsight kümeleri altyapısıdır.
 
-[Hive Tez tasarım belgeleri](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) uygulama seçeneklerine ve ayarlama yapılandırmalar hakkında ayrıntılar içerir.
+Merhaba [Hive Tez tasarım belgeleri](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) hello uygulama seçeneklerine ve ayarlama yapılandırmalar hakkında ayrıntılar içerir.
 
-İşlerini hata ayıklamaya yardımcı olmak için Tez kullanılarak çalıştırıldı, aşağıdaki web Tez işlerinde ayrıntılarını görüntülemek izin Uı'lar Hdınsight sağlar:
+işlerini hata tooaid Tez kullanılarak çalıştırıldı, Hdınsight Tez işlerinde tooview ayrıntılarını izin web Uı'lar aşağıdaki hello sağlar:
 
-* [Linux tabanlı Hdınsight üzerinde Ambari Tez görünümünü kullanın](hdinsight-debug-ambari-tez-view.md)
+* [Merhaba Linux tabanlı Hdınsight Ambari Tez görünümünde kullanın](hdinsight-debug-ambari-tez-view.md)
 
-* [Windows tabanlı Hdınsight üzerinde Tez kullanıcı arabirimini kullanma](hdinsight-debug-tez-ui.md)
+* [Windows tabanlı Hdınsight üzerinde Hello Tez UI kullanın](hdinsight-debug-tez-ui.md)
 
 ### <a name="low-latency-analytical-processing-llap"></a>Düşük gecikme süresi analitik işleme (LLAP)
 
-[LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) (Canlı uzun ve işlem da bilinir) Hive sorguları bellek içi önbelleğe alma veren 2.0 yeni bir özelliktir. LLAP yapar kadar daha hızlı Hive sorguları [26 x bazı durumlarda 1.x Hive çok hızlı](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
+[LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) (Canlı uzun ve işlem da bilinir) Hive sorguları bellek içi önbelleğe alma veren 2.0 yeni bir özelliktir. LLAP yapar yukarı daha hızlı Hive sorguları çok[26 x bazı durumlarda 1.x Hive çok hızlı](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
 
-Hdınsight LLAP etkileşimli Hive küme türü sağlar. Daha fazla bilgi için bkz: [Başlat ile etkileşimli Hive](hdinsight-hadoop-use-interactive-hive.md) belge.
+Hdınsight LLAP hello etkileşimli Hive küme türü sağlar. Merhaba daha fazla bilgi için bkz: [Başlat ile etkileşimli Hive](hdinsight-hadoop-use-interactive-hive.md) belge.
 
 ## <a name="hive-jobs-and-sql-server-integration-services"></a>Hive işleri ve SQL Server Integration Services
 
-Hive işi çalıştırmak için SQL Server Integration Services (SSIS) kullanabilirsiniz. Azure Feature Pack SSIS için Hdınsight'ta Hive işlerle çalışma aşağıdaki bileşenleri sağlar.
+SQL Server Integration Services (SSIS) toorun Hive işi kullanabilirsiniz. Hello Azure Feature Pack SSIS için Hdınsight'ta Hive işlerle çalışma bileşenleri aşağıdaki hello sağlar.
 
 * [Azure Hdınsight Hive görevi][hivetask]
 
 * [Azure aboneliği Bağlantı Yöneticisi][connectionmanager]
 
-Azure Feature Pack hakkında daha fazla bilgi için SSIS [burada][ssispack].
+Hello Azure Feature Pack hakkında daha fazla bilgi için SSIS [burada][ssispack].
 
 ## <a id="nextsteps"></a>Sonraki adımlar
 
-Hive nedir ve hdınsight'ta Hadoop ile kullanma öğrendiğinize göre Azure Hdınsight ile çalışmak için diğer yollarını keşfetmek için aşağıdaki bağlantıları kullanın.
+Artık Hive nedir öğrendiğinize göre ve nasıl diğer yolları toowork Azure Hdınsight ile aşağıdaki kullanım hello hdınsight'ta Hadoop ile bağlantı tooexplore toouse.
 
-* [HDInsight'a veri yükleme][hdinsight-upload-data]
+* [Veri tooHDInsight karşıya yükle][hdinsight-upload-data]
 * [HDInsight ile Pig kullanma][hdinsight-use-pig]
 * [Hdınsight ile MapReduce işleri kullanma][hdinsight-use-mapreduce]
 

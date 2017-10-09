@@ -1,6 +1,6 @@
 ---
-title: "PHP ile Service Bus konu başlıklarını kullanma | Microsoft Docs"
-description: "Azure'da PHP ile Service Bus konu başlıklarını kullanmayı öğrenin."
+title: "PHP ile aaaHow toouse Service Bus konuları | Microsoft Docs"
+description: "Bilgi nasıl toouse Service Bus konuları azure'da PHP ile."
 services: service-bus-messaging
 documentationcenter: php
 author: sethmanheim
@@ -14,43 +14,43 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sethm
-ms.openlocfilehash: afa9efcb6335786198021ec81dd087287c39bda9
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: 0ca8625fa3edc5854c0d6c1c2f6adab6a2d42f91
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Service Bus konuları ve abonelikleri PHP ile kullanma
+# <a name="how-toouse-service-bus-topics-and-subscriptions-with-php"></a>Nasıl toouse Service Bus konuları ve abonelikleri PHP ile
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Bu makalede, Service Bus konuları ve abonelikleri nasıl kullanılacağı gösterilmektedir. PHP ve kullanım örnekleri yazılır [PHP için Azure SDK](../php-download-sdk.md). Kapsamdaki senaryolar dahil **konuları ve abonelikleri oluşturma**, **abonelik filtreleri oluşturma**, **konu başlığına ileti gönderme**, **abonelikten ileti alma**, ve **konuları ve abonelikleri silmeyi**.
+Bu makale size nasıl gösterir toouse Service Bus konuları ve abonelikleri. Merhaba örnekler PHP ile yazılmıştır ve hello kullan [PHP için Azure SDK](../php-download-sdk.md). Merhaba kapsanan senaryolar dahil **konuları ve abonelikleri oluşturma**, **abonelik filtreleri oluşturma**, **iletileri tooa konu gönderme**, **alma bir abonelik iletilerden**, ve **konuları ve abonelikleri silmeyi**.
 
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
 ## <a name="create-a-php-application"></a>PHP uygulaması oluşturma
-Azure Blob hizmete erişen bir PHP uygulaması oluşturmak için yalnızca sınıflarda başvurmak için gereksinimdir [PHP için Azure SDK](../php-download-sdk.md) gelen kodunuzu içinde. Herhangi bir geliştirme aracı, uygulama veya Notepad oluşturmak için kullanabilirsiniz.
+Merhaba tooreference sınıflarda hello Azure Blob hizmete erişen bir PHP uygulaması oluşturmaya yönelik gereksinim, yalnızca hello [PHP için Azure SDK](../php-download-sdk.md) gelen kodunuzu içinde. Uygulama veya Notepad tüm geliştirme araçları toocreate kullanabilirsiniz.
 
 > [!NOTE]
-> PHP yüklemenizi de olmalıdır [OpenSSL uzantısı](http://php.net/openssl) yüklenir ve etkinleştirilir.
+> PHP yüklemenizi de hello olmalıdır [OpenSSL uzantısı](http://php.net/openssl) yüklenir ve etkinleştirilir.
 > 
 > 
 
-Bu makalede, bir PHP uygulamanızda yerel olarak veya bir Azure web rolü, çalışan rolü veya Web sitesi içinde çalışan kodu çağrılabilir hizmet özelliklerini kullanmayı açıklar.
+Bu makalede nasıl toouse hizmet PHP uygulamanızda yerel olarak veya bir Azure web rolü, çalışan rolü veya Web sitesi içinde çalışan kodu çağrılabilir özellikleri açıklanmaktadır.
 
-## <a name="get-the-azure-client-libraries"></a>Azure istemci kitaplıkları Al
+## <a name="get-hello-azure-client-libraries"></a>Hello Azure istemci kitaplıkları Al
 [!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
 
-## <a name="configure-your-application-to-use-service-bus"></a>Service Bus hizmetini kullanmak için uygulamanızı yapılandırın
-Service Bus API'lerine kullanmak için:
+## <a name="configure-your-application-toouse-service-bus"></a>Uygulama toouse Service Bus yapılandırın
+toouse hello Service Bus API'lerine:
 
-1. Otomatik Yükleyiciden kullanarak dosya başvuru [require_once] [ require-once] deyimi.
+1. Hello kullanarak başvuru hello otomatik yükleyici dosyasını [require_once] [ require-once] deyimi.
 2. Kullanabileceğinize sınıfları başvuru.
 
-Aşağıdaki örnek otomatik Yükleyiciden dosya ve başvuru dahil gösterilmektedir **ServiceBusService** sınıfı.
+Merhaba aşağıdaki örnekte nasıl tooinclude hello otomatik Yükleyiciden dosya ve başvuru hello gösterir **ServiceBusService** sınıfı.
 
 > [!NOTE]
-> Bu örnek (ve diğer örnekleri bu makalede) oluşturucu aracılığıyla Azure için PHP istemci kitaplıkları yüklü olduğunu varsayar. El ile veya bir ARMUTLU paketi olarak kitaplıkları yüklediyseniz, başvurmalıdır **WindowsAzure.php** otomatik yükleyici dosyası.
+> Bu örnek (ve diğer örnekleri bu makalede) hello PHP istemci kitaplıkları oluşturucu aracılığıyla Azure yüklü olduğunu varsayar. El ile veya bir ARMUTLU paketi olarak hello kitaplıkları yüklediyseniz, hello başvurmalıdır **WindowsAzure.php** otomatik yükleyici dosyası.
 > 
 > 
 
@@ -59,25 +59,25 @@ require_once 'vendor\autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
 ```
 
-Aşağıdaki örneklerde, `require_once` deyimi her zaman gösterilecek, ancak yalnızca örnek yürütmek gerekli sınıfları başvurulur.
+Örnek hello hello `require_once` deyimi her zaman gösterilecek, ancak yalnızca hello sınıfları hello örnek tooexecute için gereken başvuru.
 
 ## <a name="set-up-a-service-bus-connection"></a>Hizmet veri yolu bağlantı kurma
-Service Bus istemci örneği oluşturmak için önce geçerli bir bağlantı dizesi şu biçimde olmalıdır:
+tooinstantiate önce yapmalısınız Service Bus istemci geçerli bir bağlantı dizesi şu biçimde vardır:
 
 ```
 Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[Primary Key]
 ```
 
-Burada `Endpoint` genellikle biçimidir `https://[yourNamespace].servicebus.windows.net`.
+Burada `Endpoint` genellikle hello biçimidir `https://[yourNamespace].servicebus.windows.net`.
 
-Kullanmalısınız herhangi bir Azure hizmeti istemcisi oluşturmak için `ServicesBuilder` sınıfı. Şunları yapabilirsiniz:
+toocreate hello kullanmalıdır herhangi bir Azure hizmeti istemci `ServicesBuilder` sınıfı. Şunları yapabilirsiniz:
 
-* Bağlantı dizesi doğrudan geçirin.
-* kullanmak **CloudConfigurationManager (CCM)** bağlantı dizesi için dış kaynaklardan denetlemek için:
+* Merhaba bağlantı geçirmek doğrudan tooit dize.
+* Kullanım hello **CloudConfigurationManager (CCM)** toocheck birden çok dış kaynaklardan hello bağlantı dizesi:
   * Varsayılan olarak, bir dış kaynak - ortam değişkenleri desteği ile birlikte gelir.
-  * Genişleterek yeni kaynakları ekleyebilirsiniz `ConnectionStringSource` sınıfı.
+  * Merhaba genişleterek yeni kaynakları ekleyebilirsiniz `ConnectionStringSource` sınıfı.
 
-Burada özetlenen örnekler için bağlantı dizesi doğrudan geçirilir.
+Burada özetlenen hello örnekler için başlangıç bağlantı dizesi doğrudan geçirilir.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -90,9 +90,9 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 ```
 
 ## <a name="create-a-topic"></a>Konu başlığı oluşturma
-Service Bus konu başlıklarına yönelik yönetim işlemlerini gerçekleştirebilirsiniz `ServiceBusRestProxy` sınıfı. A `ServiceBusRestProxy` nesnesi aracılığıyla yapılandırılmıştır `ServicesBuilder::createServiceBusService` yönetmek için belirteç izinleri yalıtan bir uygun bir bağlantı dizesi ile Üreteç yöntemi.
+Merhaba üzerinden Service Bus konu başlıklarına yönelik yönetim işlemlerini gerçekleştirebilirsiniz `ServiceBusRestProxy` sınıfı. A `ServiceBusRestProxy` nesne hello oluşturulan `ServicesBuilder::createServiceBusService` Üreteç yöntemi hello belirteci izinleri toomanage yalıtan bir uygun bir bağlantı dizesi ile.
 
-Aşağıdaki örnek örneği gösterilmektedir bir `ServiceBusRestProxy` ve arama `ServiceBusRestProxy->createTopic` adlandırılan bir konu oluşturmak için `mytopic` içinde bir `MySBNamespace` ad alanı:
+örnekte gösterildiği nasıl aşağıdaki hello tooinstantiate bir `ServiceBusRestProxy` ve arama `ServiceBusRestProxy->createTopic` toocreate adlandırılan bir konu `mytopic` içinde bir `MySBNamespace` ad alanı:
 
 ```php
 require_once 'vendor/autoload.php';
@@ -120,15 +120,15 @@ catch(ServiceException $e){
 ```
 
 > [!NOTE]
-> Kullanabileceğiniz `listTopics` yöntemi `ServiceBusRestProxy` nesneleri zaten bir hizmet ad alanında belirtilen ada sahip bir konu var olup olmadığını denetleyin.
+> Merhaba kullanabilirsiniz `listTopics` yöntemi `ServiceBusRestProxy` bir hizmet ad alanında belirtilen ada sahip bir konu zaten varsa toocheck nesneleri.
 > 
 > 
 
 ## <a name="create-a-subscription"></a>Abonelik oluşturma
-Konu aboneliklerini içeren de oluşturulur `ServiceBusRestProxy->createSubscription` yöntemi. Abonelikler adlandırılır ve aboneliğin sanal kuyruğuna gönderilen ileti kümesini sınırlayan isteğe bağlı bir filtre içerebilir.
+Konu aboneliklerini ayrıca hello ile oluşturulan `ServiceBusRestProxy->createSubscription` yöntemi. Abonelikler adlandırılır ve hello toohello aboneliğin sanal kuyruğuna gönderilen ileti kümesini sınırlayan isteğe bağlı bir filtre içerebilir.
 
-### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Varsayılan (MatchAll) filtreyle abonelik oluşturma
-**MatchAll** filtresi, yeni bir abonelik oluşturulurken filtre belirtilmeyen durumlarda kullanılan varsayılan filtredir. Zaman **MatchAll** filtre kullanıldığında, konu başlığında yayımlanan tüm iletiler aboneliğin sanal kuyruğuna yerleştirilir. Aşağıdaki örnekte 'mysubscription' adlı bir abonelik oluşturulur ve varsayılan **MatchAll** Filtresi.
+### <a name="create-a-subscription-with-hello-default-matchall-filter"></a>Merhaba varsayılan (MatchAll) filtreyle abonelik oluşturma
+Merhaba **MatchAll** yeni bir abonelik oluşturulurken filtre belirtilmeyen varsa, kullanılan hello varsayılan filtre filtredir. Ne zaman hello **MatchAll** filtre kullanıldığında, tüm iletileri yayımlanan toohello konu hello aboneliğin sanal kuyruğuna yerleştirilir. Merhaba aşağıdaki örnekte 'mysubscription' adlı bir abonelik oluşturur ve kullanır hello varsayılan **MatchAll** Filtresi.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -156,14 +156,14 @@ catch(ServiceException $e){
 ```
 
 ### <a name="create-subscriptions-with-filters"></a>Filtre içeren abonelik oluşturma
-Bir konu başlığına gönderilen iletilerden hangilerinin belirli bir konu başlığı aboneliğinde görüneceğini belirlemenize olanak sağlayan filtreler de ayarlayabilirsiniz. Filtre abonelikler tarafından desteklenen en esnek türü [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter#microsoft_servicebus_messaging_sqlfilter), SQL92 alt kümesi uygular. SQL filtreleri, konu başlığında yayımlanan iletilerin özelliklerinde çalışır. SqlFilters hakkında daha fazla bilgi için bkz: [SqlFilter.SqlExpression özelliği][sqlfilter].
+Hangi iletilerin tooa konu içinde belirli konu aboneliği görünmelidir gönderilen toospecify etkinleştirmek filtreler de ayarlayabilirsiniz. Merhaba en esnek filtre abonelikler tarafından desteklenen hello türünde [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter#microsoft_servicebus_messaging_sqlfilter), SQL92 alt kümesi uygular. SQL filtreleri yayımlanan toohello konu hello iletilerinin hello özelliklerini çalışır. SqlFilters hakkında daha fazla bilgi için bkz: [SqlFilter.SqlExpression özelliği][sqlfilter].
 
 > [!NOTE]
-> Bir abonelikte her bir kural kendi sonuç iletileri için abonelik ekleme gelen iletileri bağımsız olarak işler. Ayrıca, her yeni abonelik varsayılan sahip **kural** tüm iletileri konusundan aboneliğine ekler bir filtre ile nesne. Filtrenizle eşleşen iletileri almak için varsayılan kuralı kaldırmanız gerekir. Varsayılan kural kullanarak kaldırabilirsiniz `ServiceBusRestProxy->deleteRule` yöntemi.
+> Bir abonelikte her bir kural sonuç iletileri toohello aboneliğini ekleme gelen iletileri bağımsız olarak işler. Ayrıca, her yeni abonelik varsayılan sahip **kural** tüm iletileri hello konu toohello abonelikten ekler bir filtre ile nesne. filtrenizle eşleşen tooreceive yalnızca iletiler hello varsayılan kural kaldırmanız gerekir. Hello kullanarak hello varsayılan kural kaldırabilirsiniz `ServiceBusRestProxy->deleteRule` yöntemi.
 > 
 > 
 
-Aşağıdaki örnek adlı bir abonelik oluşturur `HighMessages` ile bir **SqlFilter** özel iletileri yalnızca seçer `MessageNumber` özelliği 3'ten büyük. Bkz: [konu başlığına ileti gönderme](#send-messages-to-a-topic) iletileri özel özellikler ekleme hakkında bilgi.
+Merhaba aşağıdaki örnek adlı bir abonelik oluşturulur `HighMessages` ile bir **SqlFilter** özel iletileri yalnızca seçer `MessageNumber` özelliği 3'ten büyük. Bkz: [gönderme iletileri tooa konu](#send-messages-to-a-topic) özel özellikler toomessages ekleme hakkında bilgi.
 
 ```php
 $subscriptionInfo = new SubscriptionInfo("HighMessages");
@@ -176,9 +176,9 @@ $ruleInfo->withSqlFilter("MessageNumber > 3");
 $ruleResult = $serviceBusRestProxy->createRule("mytopic", "HighMessages", $ruleInfo);
 ```
 
-Bu kod ek bir ad alanı kullanılmasını gerektiren Not: `WindowsAzure\ServiceBus\Models\SubscriptionInfo`.
+Bu kod ek bir ad alanı hello kullanılmasını gerektiren Not: `WindowsAzure\ServiceBus\Models\SubscriptionInfo`.
 
-Benzer şekilde, aşağıdaki örnekte adlı bir abonelik oluşturulur `LowMessages` ile bir `SqlFilter` olan iletiler yalnızca seçer bir `MessageNumber` özelliğine daha az veya bu değere eşit 3.
+Benzer şekilde, hello aşağıdaki örnek adlı bir abonelik oluşturur `LowMessages` ile bir `SqlFilter` olan iletiler yalnızca seçer bir `MessageNumber` özelliği daha az veya bu değere eşit too3.
 
 ```php
 $subscriptionInfo = new SubscriptionInfo("LowMessages");
@@ -191,10 +191,10 @@ $ruleInfo->withSqlFilter("MessageNumber <= 3");
 $ruleResult = $serviceBusRestProxy->createRule("mytopic", "LowMessages", $ruleInfo);
 ```
 
-Şimdi, ne zaman bir ileti gönderilir `mytopic` konu her zaman teslim alıcılara `mysubscription` aboneliği ve alıcılara teslim seçmeli olarak `HighMessages` ve `LowMessages` (bağlı olarak abonelikleri ileti içeriği).
+Şimdi, ne zaman bir ileti gönderilir toohello `mytopic` konuya abone tooreceivers toohello her zaman teslim `mysubscription` abonelik ve abone olunan seçmeli olarak teslim tooreceivers toohello `HighMessages` ve `LowMessages` abonelikleri ( Merhaba ileti içeriği bağlı olarak).
 
-## <a name="send-messages-to-a-topic"></a>Konu başlığına ileti gönderme
-Uygulama çağrılarınızı bir Service Bus konu başlığına bir ileti göndermek için `ServiceBusRestProxy->sendTopicMessage` yöntemi. Aşağıdaki kod bir ileti göndermek nasıl gösterir `mytopic` konu içinde daha önce oluşturduğunuz `MySBNamespace` hizmet ad alanı.
+## <a name="send-messages-tooa-topic"></a>İletileri tooa konu gönderin
+toosend ileti tooa Service Bus konu, uygulamanızı çağırır hello `ServiceBusRestProxy->sendTopicMessage` yöntemi. kodun gösterdiği nasıl aşağıdaki hello toosend ileti toohello `mytopic` konu içinde daha önce oluşturduğunuz `MySBNamespace` hizmet ad alanı.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -224,7 +224,7 @@ catch(ServiceException $e){
 }
 ```
 
-Service Bus konu başlıklarına gönderilen iletiler örnekleridir [BrokeredMessage] [ BrokeredMessage] sınıfı. [BrokeredMessage] [ BrokeredMessage] nesnelerinin standart özellikleri ve yöntemleri yanı sıra, uygulamaya özgü özel özellikleri tutmak için kullanılan özellikler kümesi vardır. Aşağıdaki örnek 5 sınama iletileri göndermek nasıl gösterir `mytopic` daha önce oluşturulan konu. `setProperty` Yöntemi bir özel özellik eklemek için kullanılır (`MessageNumber`) her ileti için. Unutmayın `MessageNumber` özellik değeri değişir her ileti için (gösterildiği gibi alacak abonelikleri belirlemek için bu değeri kullanın [abonelik oluşturma](#create-a-subscription) bölümü):
+İletileri gönderilir tooService veri yolu konuları hello örneklerini [BrokeredMessage] [ BrokeredMessage] sınıfı. [BrokeredMessage] [ BrokeredMessage] nesnelerinin standart özellikleri ve yöntemleri yanı sıra, kullanılan toohold özel uygulamaya özgü özellikleri olabilir özellikler kümesi vardır. Merhaba aşağıdaki örnekte nasıl toosend 5 test toohello iletileri gösterir `mytopic` daha önce oluşturulan konu. Merhaba `setProperty` yöntemdir kullanılan tooadd özel özelliğin (`MessageNumber`) tooeach ileti. Bu hello Not `MessageNumber` özellik değeri değişir her ileti için (hangi abonelik almak, bu değer toodetermine hello gösterildiği gibi kullanabilirsiniz [abonelik oluşturma](#create-a-subscription) bölümü):
 
 ```php
 for($i = 0; $i < 5; $i++){
@@ -240,16 +240,16 @@ for($i = 0; $i < 5; $i++){
 }
 ```
 
-Service Bus konu başlıkları, [Standart katmanda](service-bus-premium-messaging.md) maksimum 256 KB ve [Premium katmanda](service-bus-premium-messaging.md) maksimum 1 MB ileti boyutunu destekler. Standart ve özel uygulama özelliklerini içeren üst bilginin maksimum dosya boyutu 64 KB olabilir. Konu başlığında tutulan ileti sayısına ilişkin bir sınır yoktur ancak konu başlığı tarafından tutulan iletilerin toplam boyutu için uç sınır vardır. Bu konu başlığı boyutu üst sınır 5 GB'tır. Kotalar hakkında daha fazla bilgi için bkz: [Service Bus kotaları][Service Bus quotas].
+Service Bus konu başlıklarını destek maksimum ileti boyutu 256 KB hello [standart katmanı](service-bus-premium-messaging.md) hello 1 MB [Premium katmanı](service-bus-premium-messaging.md). Merhaba standart ve özel uygulama özelliklerini içeren hello üstbilgi en büyük boyutu 64 KB olabilir. Merhaba konu başlığında tutulan ileti sayısına bir sınır yoktur ancak konu başlığı tarafından tutulan hello iletilerin toplam boyutu hello bir sınır yoktur. Bu konu başlığı boyutu üst sınır 5 GB'tır. Kotalar hakkında daha fazla bilgi için bkz: [Service Bus kotaları][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-subscription"></a>Abonelikten ileti alma
-Abonelikten ileti almak için en iyi yolu bir `ServiceBusRestProxy->receiveSubscriptionMessage` yöntemi. İletileri iki farklı modda alınan: [ *ReceiveAndDelete* ve *PeekLock*](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode). **PeekLock** varsayılan değerdir.
+Merhaba en iyi şekilde tooreceive iletileri bir aboneliğe ilişkin toouse olan bir `ServiceBusRestProxy->receiveSubscriptionMessage` yöntemi. İletileri iki farklı modda alınan: [ *ReceiveAndDelete* ve *PeekLock*](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode). **PeekLock** hello varsayılandır.
 
-[ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) modunu kullanırken alma işlemi tek aşamalıdır. Service Bus abonelikte bir iletiye yönelik okuma isteği aldığında, iletiyi kullanılıyor olarak işaretler ve uygulamaya döndürür. [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) * modu en basit modeldir ve senaryoları bir uygulama içinde tolerans bir arıza olması durumunda bir ileti işlenirken değil en iyi şekilde çalışır. Bu durumu daha iyi anlamak için müşterinin bir alma isteği bildirdiğini ve bu isteğin işlenmeden çöktüğünü varsayın. Service Bus iletiyi kullanılıyor olarak işaretlenmiş nedeniyle uygulama yeniden başlatılıp iletileri tekrar kullanmaya başladığında, sonra da çökmenin öncesinde kullanılan iletiyi atlamış olur.
+Merhaba kullanırken [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) modu, alma bir tek işlemi; diğer bir deyişle, hizmet veri yolu bir abonelikte bir iletiye yönelik Okuma isteği aldığında, hello iletiyi kullanılıyor olarak işaretler ve toohello döndürür uygulama. [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) * modu hello en basit modeldir ve senaryoları bir uygulama içinde tolerans bir hatanın hello Olay iletisinde işlenmiyor en iyi şekilde çalışır. toounderstand Bu, hangi hello tüketici sorunları hello alma isteği bir senaryo düşünün ve işlemeden önce çöküyor. Hizmet veri yolu selamlama iletisine hello uygulama yeniden başlatılıp iletileri tekrar kullanmaya başladığında olduğunda, ardından kullanılıyor olarak işaretlenmiş için onu olan hello iletiyi atlamış olur önceki toohello kilitlenme tüketilen.
 
-Varsayılan [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) bir ileti alma modu, iletilere veremeyen uygulamaları desteklemenin mümkün kılar bir iki aşamalı işlemi haline gelir. Service Bus bir istek aldığında bir sonraki kullanılacak iletiyi bulur, diğer tüketicilerin bu iletiyi almasını engellemek için kilitler ve ardından uygulamaya döndürür. Uygulama iletiyi işlemeyi tamamladıktan sonra (veya sonra işlemek için depoladıktan sonra), alınan ileti geçirerek alma işleminin ikinci aşamasını tamamlar `ServiceBusRestProxy->deleteMessage`. Hizmet veri yolu gördüğünde `deleteMessage` çağrısı iletiyi kullanılıyor olarak işaretler ve kuyruktan kaldırın.
+Merhaba varsayılan [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) bir ileti alma modu, iletilere olası toosupport uygulamaları iki aşamalı işlemi haline gelir. Service Bus bir istek aldığında hello sonraki ileti toobe tüketilen, diğer tüketicilerin alırken tooprevent kilitler ve toohello uygulama döndürür bulur. Merhaba uygulaması hello iletiyi işlemeyi tamamladıktan sonra (veya sonra işlemek için depoladıktan sonra), hello hello ikinci aşamasını tamamlar alınan selamlama iletisine çok geçirerek alma işleminin`ServiceBusRestProxy->deleteMessage`. Hizmet veri yolu hello gördüğünde `deleteMessage` çağrısı hello iletiyi kullanılıyor olarak işaretler ve hello sıradan kaldırın.
 
-Aşağıdaki örnek, almak ve bir iletiyi kullanarak işlemek gösterilmiştir [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) modu (varsayılan). 
+örnekte gösterildiği nasıl aşağıdaki hello tooreceive ve bir iletiyi kullanarak işlem [PeekLock](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) (Merhaba varsayılan modu). 
 
 ```php
 require_once 'vendor/autoload.php';
@@ -262,7 +262,7 @@ use WindowsAzure\ServiceBus\Models\ReceiveMessageOptions;
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
 try    {
-    // Set receive mode to PeekLock (default is ReceiveAndDelete)
+    // Set receive mode tooPeekLock (default is ReceiveAndDelete)
     $options = new ReceiveMessageOptions();
     $options->setPeekLock();
 
@@ -291,16 +291,16 @@ catch(ServiceException $e){
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Nasıl yapılır: uygulama çökmelerini ve Okunmayan iletileri işleme
-Service Bus, uygulamanızda gerçekleşen hataları veya ileti işlenirken oluşan zorlukları rahat bir şekilde ortadan kaldırmanıza yardımcı olmak için işlevsellik sağlar. Alıcı uygulamanın iletiyi herhangi bir nedenden dolayı işleyemedi sonra işleyememesi `unlockMessage` alınan iletide yöntemi (yerine `deleteMessage` yöntemi). Bu, Service Bus hizmetinin Kuyruktaki iletinin kilidini açmasına ve iletiyi aynı veya başka bir kullanıcı uygulama tarafından tekrar alınabilir hale getirmesine neden olur.
+Hizmet veri yolu, gerçekleşen hataları uygulama ya da ileti işlenirken zorlukları rahat işlevselliği toohelp sağlar. Alıcı uygulamanın kaydedemediği tooprocess Merhaba ileti herhangi bir nedenden dolayı ardından hello çağırabilirsiniz `unlockMessage` hello alınan ileti üzerinde yöntemi (hello yerine `deleteMessage` yöntemi). Bu hizmet veri yolu toounlock selamlama iletisine hello sıra içinde neden ve yeniden alınan kullanılabilir toobe olun, ya da göre aynı uygulama veya başka bir kullanıcı uygulama tarafından tüketen hello.
 
-Ayrıca kuyrukta kilitlenen iletiye ilişkin bir zaman aşımı vardır ve uygulama önce iletiyi işleyemezse (örneğin, uygulama çökerse) hizmet veri yolu ileti otomatik olarak kilidini açmasına ve tekrar alınabilir hale kilit zaman aşımı dolmadan.
+Ayrıca hello kuyrukta kilitlenen iletiye ilişkin bir zaman aşımı vardır ve tooprocess selamlama iletisine önce hello uygulama başarısız olursa (örneğin, hello uygulama çökerse) Service Bus selamlama iletisine kilidini hello kilit zaman aşımı dolmadan otomatik olarak yeniden alınan kullanılabilir toobe olun.
 
-Uygulama iletiyi ancak önce çökmesi durumunda, `deleteMessage` isteği bildirilmeden, sonra yeniden başlatıldığında ileti uygulamaya tekrar teslim edilir. Bu genellikle adlandırılır *en az bir kez* diğer bir deyişle, her ileti en az bir kez işlenir işleme; ancak belirli durumlarda aynı ileti yeniden teslim. Senaryo yinelenen işlemeyi kabul etmiyorsa, uygulama geliştiricilerinin yinelenen ileti teslimine uygulamalar için ek mantık eklemelisiniz. Bu genellikle kullanılarak elde edilen `getMessageId` iletinin teslimat denemelerinde yöntemi.
+Merhaba ileti işlenirken sonra ancak hello önce uygulama hello olay Hello çöküyor `deleteMessage` isteği bildirilmeden sonra başlatıldığında hello ileti yeniden teslim toohello uygulama olacaktır. Bu genellikle adlandırılır *en az bir kez* işleme; diğer bir deyişle, her ileti en az bir kez işlenir ancak belirli durumlarda hello aynı ileti yeniden teslim. Merhaba senaryo yinelenen işlemeyi kabul etmiyorsa, uygulama geliştiricilerinin ek mantık tooapplications toohandle yinelenen ileti teslimi eklemeniz gerekir. Bu genellikle hello kullanılarak elde edilen `getMessageId` teslimat denemelerinde hello iletisinin yöntemi.
 
 ## <a name="delete-topics-and-subscriptions"></a>Konu başlıklarını ve abonelikleri silme
-Bir konu veya abonelik silmek için kullanın `ServiceBusRestProxy->deleteTopic` veya `ServiceBusRestProxy->deleteSubscripton` yöntemleri, sırasıyla. Konu başlığı silindiğinde, konu başlığıyla kaydedilen tüm abonelikler de silinir olduğunu unutmayın.
+bir konu veya abonelik, kullanım hello toodelete `ServiceBusRestProxy->deleteTopic` veya hello `ServiceBusRestProxy->deleteSubscripton` yöntemleri, sırasıyla. Konu başlığı silindiğinde, hello konu başlığıyla kaydedilen tüm abonelikler de silinir olduğunu unutmayın.
 
-Aşağıdaki örnek, adlandırılan bir konu silmek gösterilmiştir `mytopic` ve kayıtlı abonelikler.
+Merhaba aşağıdaki örnekte nasıl toodelete bir konu adlı gösterir `mytopic` ve kayıtlı abonelikler.
 
 ```php
 require_once 'vendor/autoload.php';
@@ -326,14 +326,14 @@ catch(ServiceException $e){
 }
 ```
 
-Kullanarak `deleteSubscription` yöntemi, bir abonelik bağımsız olarak silebilirsiniz:
+Hello kullanarak `deleteSubscription` yöntemi, bir abonelik bağımsız olarak silebilirsiniz:
 
 ```php
 $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Service Bus kuyruklarına öğrendiğinize göre bkz: [kuyruklar, konu başlıkları ve abonelikler] [ Queues, topics, and subscriptions] daha fazla bilgi için.
+Artık Service Bus kuyruklarını hello temellerini öğrendiğinize göre bkz: [kuyruklar, konu başlıkları ve abonelikler] [ Queues, topics, and subscriptions] daha fazla bilgi için.
 
 [BrokeredMessage]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md

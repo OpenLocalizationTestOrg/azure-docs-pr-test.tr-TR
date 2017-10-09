@@ -1,5 +1,5 @@
 ---
-title: "Büyük veri uygulamaları Data Lake Store ile uyumlu | Microsoft Docs"
+title: "Data Lake Store ile uyumlu aaaBig veri uygulamalarını | Microsoft Docs"
 description: "Azure Data Lake Store ile çalışma açık kaynak uygulamaların listesi"
 services: data-lake-store
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: nitinme
-ms.openlocfilehash: 0570e86c16ff3bc647040c202ab46df535bb2ba1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ad4afd6437412c596c77d6b001478b82ddccf276
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="open-source-big-data-applications-that-work-with-azure-data-lake-store"></a>Azure Data Lake Store ile çalışma açık kaynak büyük veri uygulamaları
-Bu makalede Azure Data Lake Store ile çalışma açık kaynak büyük veri uygulamaları listeler. Aşağıdaki tabloda uygulamaları için yalnızca listelenen dağıtım ile kullanılabilir sürümleri desteklenir. Bu uygulamaların hangi sürümlerinin Hdınsight ile kullanılabilir olduğunu hakkında daha fazla bilgi için bkz: [Hdınsight bileşen sürümü oluşturma](../hdinsight/hdinsight-component-versioning.md).
+Bu makalede Azure Data Lake Store ile çalışma hello açık kaynak büyük veri uygulamaları listeler. Aşağıda, yalnızca hello hello tablosundaki hello uygulamalar için listelenen hello dağıtım kullanılabilir sürümleri desteklenir. Bu uygulamaların hangi sürümlerinin Hdınsight ile kullanılabilir olduğunu hakkında daha fazla bilgi için bkz: [Hdınsight bileşen sürümü oluşturma](../hdinsight/hdinsight-component-versioning.md).
 
 | Açık kaynak yazılım | Dağıtım |
 | --- | --- |

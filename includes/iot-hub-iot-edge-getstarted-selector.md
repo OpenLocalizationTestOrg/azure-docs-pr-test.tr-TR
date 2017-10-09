@@ -4,34 +4,34 @@
 > 
 > 
 
-Bu makalede [Azure IoT Edge][lnk-iot-edge] mimarisinin temel bileşenlerini göstermek üzere [Hello World örnek kodunun][lnk-helloworld-sample] ayrıntılı bilgileri verilmektedir. Örnek, "hello world" iletisini her beş saniyede bir dosyaya kaydeden basit bir ağ geçidi oluşturmak üzere Azure IoT Edge'i kullanır.
+Bu makalede hello ayrıntılı bir kılavuz sağlar [Hello World örnek kodunun] [ lnk-helloworld-sample] tooillustrate hello temel bileşenlerini hello [Azure IOT kenar] [ lnk-iot-edge] mimarisi. Merhaba örnek hello Azure IOT kenar toobuild beş saniyede bir "hello world" iletisini tooa dosyası günlüklerini basit bir ağ geçidi kullanır.
 
 Bu kılavuzda aşağıdaki konular ele alınmaktadır:
 
-* **Hello World örnek mimarisi**: açıklar nasıl [Azure IOT kenar mimari kavramlarını] [ lnk-edge-concepts] Hello World örneği ve bileşenlerin nasıl bir araya getireceğinizi için geçerlidir.
-* **Örneği oluşturma**: Örneği oluşturmak için gerekli adımlar.
-* **Örneği çalıştırma**: Örneği çalıştırmak için gerekli adımlar. 
-* **Tipik çıkış**: Örneği çalıştırdığınızda beklenecek çıktı örneği.
-* **Kod parçacıkları**: Hello World örnek anahtar IOT sınır ağ geçidi bileşenlerini nasıl uyguladığını gösteren kod parçacıkları koleksiyonu.
+* **Hello World örnek mimarisi**: açıklar nasıl [Azure IOT kenar mimari kavramlarını] [ lnk-edge-concepts] toohello Hello World örnek ve hello bileşenleri nasıl bir araya getireceğinizi uygulanır.
+* **Nasıl toobuild hello örnek**: hello adımları gerekli toobuild hello örnek.
+* **Nasıl toorun hello örnek**: hello adımları gerekli toorun hello örnek. 
+* **Tipik çıkış**: hello örneği tooexpect hello örnek çalıştırdığınızda, çıktı.
+* **Kod parçacıkları**: hello Hello World örnek nasıl uyguladığını kod parçacıkları tooshow koleksiyonu IOT sınır ağ geçidi bileşenlerini anahtar.
 
 
 ## <a name="hello-world-sample-architecture"></a>Hello World örnek mimarisi
-Hello World örneği önceki bölümde açıklanan kavramları göstermektedir. Hello World örneği iki IOT kenar modülden oluşan bir işlem hattına sahip bir IOT sınır ağ geçidi uygular:
+Merhaba Hello World örnek hello önceki bölümde açıklanan hello kavramları göstermektedir. Merhaba Hello World örneği iki IOT kenar modülden oluşan bir işlem hattına sahip bir IOT sınır ağ geçidi uygular:
 
-* *Hello world* modülü beş saniyede bir ileti oluşturur ve günlükçü modülüne geçirir.
-* *Günlükçü* modülü aldığı iletileri bir dosyaya yazar.
+* Merhaba *Merhaba Dünya* modülü beş saniyede bir ileti oluşturur ve bunu toohello Günlükçü modülüne geçirir.
+* Merhaba *Günlükçü* tooa dosya aldığı modülü yazma Merhaba iletileri.
 
 ![Azure IoT Edge ile oluşturulan Hello World örneğinin mimarisi][4]
 
-Önceki bölümde açıklandığı gibi Hello World modülü iletileri beş saniyede bir günlükçü modülüne doğrudan iletmez. Bunun yerine, beş saniyede bir aracıya bir ileti yayımlar.
+Merhaba önceki bölümde açıklandığı gibi hello Hello World modülü geçemezse toohello Günlükçü modülü beş saniyede doğrudan iletileri. Bunun yerine, beş saniyede bir ileti toohello Aracısı yayımlar.
 
-Günlükçü modülü aracıdan iletiyi alır ve buna göre davranırken iletinin içeriğini bir dosyaya yazar.
+Merhaba Günlükçü modülü hello Aracısı'ndan hello iletiyi alır ve bunu temel hello ileti tooa dosyasının Merhaba içeriğine yazma davranır.
 
-Günlükçü modülü yalnızca aracıdan gelen iletileri kullanır, aracıya hiçbir zaman yeni ileti yayımlamaz.
+Merhaba Günlükçü modülü yalnızca hello Aracısı gelen iletileri kullanır, hiçbir zaman yeni ileti toohello Aracısı yayımlar.
 
-![Aracının Azure IoT Edge’deki modüller arasında iletileri yönlendirme yöntemi][5]
+![Azure IOT kenar modülleri arasında iletileri hello Aracısı nasıl yönlendirir][5]
 
-Yukarıdaki şekilde Hello World örneğinin mimarisi ve örneğin farklı kısımlarını [depoda][lnk-iot-edge] kullanan kaynak dosyalarının ilgili yolları gösterilmektedir. Kodu kendiniz keşfedin veya kılavuz olarak aşağıdaki kod parçacıklarından birini kullanın.
+Merhaba Yukarıdaki şekilde hello Hello World örnek ve hello göreli yollar hello mimarisi hello hello örnek farklı kısımlarını uygulayan toohello kaynak dosyaları gösterir [deposu][lnk-iot-edge]. Merhaba kodu kendiniz keşfedin veya kılavuz olarak aşağıdaki kod parçacıklarından hello kullanın.
 
 <!-- Images -->
 [4]: media/iot-hub-iot-edge-getstarted-selector/high_level_architecture.png

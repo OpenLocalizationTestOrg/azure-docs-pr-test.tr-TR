@@ -1,6 +1,6 @@
 ---
-title: "Azure IOT - Ders 2 Raspberry Pi'yi (düğüm) bağlanma: Get Araçlar (Ubuntu) | Microsoft Docs"
-description: "Python ve Azure komut satırı arabirimi (Azure CLI) üzerinde Ubuntu yükleyin."
+title: "Raspberry Pi'yi (düğüm) tooAzure IOT - Ders 2 bağlanın: Get Araçlar (Ubuntu) | Microsoft Docs"
+description: "Python yüklemek ve Azure komut satırı arabirimi (Azure CLI) üzerinde Ubuntu hello."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -17,11 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 3933ccea992c62da1dd402f651d5b5b4ad43713d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 0adf91bef41f502e1333fdcc75cfb2fe912364c9
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-azure-tools-ubuntu-1604"></a>Azure Araçları (Ubuntu 16.04) alın
 > [!div class="op_single_selector"]
@@ -30,23 +30,23 @@ ms.lasthandoff: 07/11/2017
 > * [macOS 10.10](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-mac.md)
 
 ## <a name="what-you-will-do"></a>Ne yapacağını
-Azure komut satırı arabirimi (Azure CLI) yükleyin. Herhangi bir sorun varsa, çözümleri için Ara [sorun giderme sayfası](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
+Hello Azure komut satırı arabirimi (Azure CLI) yükleyin. Herhangi bir sorun varsa, hello çözümlerini arayın [sorun giderme sayfası](iot-hub-raspberry-pi-kit-node-troubleshooting.md).
 
 ## <a name="what-you-will-learn"></a>Bilgi edineceksiniz
 Bu makalede, şunları öğreneceksiniz:
-* Azure CLI yükleme.
-* Azure CLI IOT GUID'sinin ekleme.
+* Nasıl tooinstall Azure CLI hello.
+* Nasıl tooadd hello Azure CLI IOT GUID'sinin.
 
 ## <a name="what-you-need"></a>Ne gerekiyor
 * Bir Internet bağlantısı olan bir Ubuntu bilgisayar.
 * Etkin bir Azure aboneliği. Bir hesabınız yoksa, oluşturabileceğiniz bir [ücretsiz deneme sürümü hesabı](http://azure.microsoft.com/pricing/free-trial/) yalnızca birkaç dakika içinde.
 
-## <a name="install-the-azure-cli"></a>Azure CLI'yı yükleme
-Azure CLI çok platformlu bir komut satırı deneyimi, Azure için doğrudan, komut satırından sağlamak için çalışır ve kaynakları yönetmenize olanak sağlar.
+## <a name="install-hello-azure-cli"></a>Hello Azure CLI yükleme
+Hello Azure CLI, Azure, komut satırı tooprovision doğrudan toowork etkinleştirme için birden çok platformlu bir komut satırı deneyimi sağlar ve kaynakları yönetin.
 
-En son Azure CLI yüklemek için aşağıdaki adımları izleyin:
+tooinstall en son Azure CLI Merhaba, şu adımları izleyin:
 
-1. Bir terminal penceresi aşağıdaki komutları çalıştırın. Azure CLI yüklemek için beş dakika sürebilir.
+1. Bir terminal penceresi komutlarda aşağıdaki hello çalıştırın. Beş dakika tooinstall hello Azure CLI alabilir.
 
    ```bash
    sudo apt-get update
@@ -57,18 +57,18 @@ En son Azure CLI yüklemek için aşağıdaki adımları izleyin:
    sudo pip install --upgrade azure-cli
    sudo pip install --upgrade azure-cli-iot
    ```
-2. Aşağıdaki komutu çalıştırarak yüklemeyi doğrulayın:
+2. Merhaba aşağıdaki komutu çalıştırarak Hello yüklemeyi doğrulayın:
 
    ```bash
    az iot -h
    ```
 
-Yükleme başarılı olursa aşağıdaki çıktı görmeniz gerekir.
+Merhaba yükleme başarılı olup olmadığını hello aşağıdaki çıktı görmeniz gerekir.
 
 ![Başarı belirten bir çıkış](media/iot-hub-raspberry-pi-lessons/lesson2/az_iot_help_ubuntu.png)
 
 ## <a name="summary"></a>Özet
-Azure CLI yüklediniz. Sonraki göreviniz Azure CLI kullanarak Azure IOT hub ve cihaz kimliğinizi oluşturmaktır.
+Hello Azure CLI yüklediniz. Sonraki göreviniz toocreate olan Azure IOT hub ve cihaz kimliğini kullanarak Azure CLI hello.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [IOT hub'ınızı oluşturun ve Raspberry Pi 3 kaydedin](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)

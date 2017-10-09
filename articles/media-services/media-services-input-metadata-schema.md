@@ -1,6 +1,6 @@
 ---
-title: "Azure Media Services giriş meta veri şema | Microsoft Docs"
-description: "Konu Azure Media Services giriş meta veri şema genel bir bakış sağlar."
+title: "aaaAzure Media Services giriş meta veri şema | Microsoft Docs"
+description: "Merhaba konu Azure Media Services giriş meta veri şema genel bir bakış sağlar."
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,28 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
-ms.openlocfilehash: 4787e4033e1afda6339b0b917263ecc165e400ad
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 9b72c6ff317aa98451ea75548465dc6023b44a55
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="input-metadata"></a>Meta veri girişi
-Kodlama işinin bir giriş varlık (veya varlıklar) ile ilişkili kodlama bazı görevleri gerçekleştirmek istediğiniz üzerinde.  Bir görev tamamlandığında, çıkış varlık oluşturulur.  Çıkış varlığına, video, ses, küçük resimleri, bildirim, vb. içerir. Çıkış varlığına da giriş varlık hakkındaki meta verileri ile bir dosya içeriyor. Meta veri XML dosyasının adı şu biçimdedir: &lt;asset_id&gt;_metadata.xml (örneğin, 41114ad3-eb5e - 4c 57-8d 92-5354e2b7d4a4_metadata.xml), burada &lt;asset_id&gt; giriş varlık AssetID değeri.  
+Kodlama işinin bir giriş varlık (veya varlıklar) ile ilişkili istediğiniz tooperform kodlama bazı görevler.  Bir görev tamamlandığında, çıkış varlık oluşturulur.  video, ses, küçük resimleri, bildirim Hello çıkış varlık içeriyor, vb. hello çıkış varlığına hello giriş varlık hakkındaki meta verileri dosyasıyla de içerir. Merhaba hello meta veri XML dosyası adına sahip biçimini izleyen hello: &lt;asset_id&gt;_metadata.xml (örneğin, 41114ad3-eb5e - 4c 57-8d 92-5354e2b7d4a4_metadata.xml), burada &lt;asset_id&gt; hello AssetID olduğu Merhaba giriş varlık değeri.  
 
-Meta veri dosyası incelemek isterseniz, oluşturabileceğiniz bir **SAS** Bulucu ve dosyayı yerel bilgisayarınıza indirin. Bir SAS Bulucu oluşturun ve dosya indirme konusunda bir örnek bulabilirsiniz [Media Services .NET SDK uzantıları kullanarak](media-services-dotnet-get-started.md).  
+Tooexamine hello meta veri dosyası istiyorsanız, oluşturabileceğiniz bir **SAS** Bulucu ve indirme hello dosya tooyour yerel bilgisayar. Hakkında bir örnek bulabilirsiniz toocreate bir SAS Bulucu ve dosya indirme [hello Media Services .NET SDK uzantıları kullanarak](media-services-dotnet-get-started.md).  
 
-Bu konuda öğeleri ve XML Şeması türleri üzerinde anlatılmaktadır giriş metada (&lt;asset_id&gt;_metadata.xml) dayanır.  Çıkış varlığına hakkındaki meta verileri içeren dosyası hakkında daha fazla bilgi için bkz: [çıkış meta verileri](media-services-output-metadata-schema.md).  
+Bu konuda hangi hello giriş metada ele alınmıştır, hello öğeleri ve hello XML Şeması türleri (&lt;asset_id&gt;_metadata.xml) dayanır.  Merhaba çıkış varlık hakkında meta veriler içeren hello dosyası hakkında daha fazla bilgi için bkz: [çıkış meta verileri](media-services-output-metadata-schema.md).  
 
 > [!NOTE]
-> Bulabileceğiniz [şeması kodu](media-services-input-metadata-schema.md#code) bir [XML örneği](media-services-input-metadata-schema.md#xml) bu konunun sonundaki.  
+> Merhaba bulabilirsiniz [şeması kodu](media-services-input-metadata-schema.md#code) bir [XML örneği](media-services-input-metadata-schema.md#xml) hello sonunda bu konuda.  
 > 
 > 
 
 ## <a name="AssetFiles"></a>AssetFiles öğesi (kök öğesi)
-Bir koleksiyonu içerir [AssetFile öğesi](media-services-input-metadata-schema.md#AssetFile)kodlama işi için s.  
+Bir koleksiyonu içerir [AssetFile öğesi](media-services-input-metadata-schema.md#AssetFile)hello kodlama işi için s.  
 
-XML örneği, bu konunun sonunda bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
+XML örneği hello sonunda bu konuda bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
 
 | Ad | Açıklama |
 | --- | --- |
@@ -44,40 +44,40 @@ XML örneği, bu konunun sonunda bkz: [XML örneği](media-services-input-metada
 ## <a name="AssetFile"></a>AssetFile öğesi
  Öznitelikler ve bir varlık dosyası açıklayan öğeler içerir.  
 
- XML örneği, bu konunun sonunda bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
+ XML örneği hello sonunda bu konuda bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Öznitelikler
 | Ad | Tür | Açıklama |
 | --- | --- | --- |
 | **Ad**<br /><br /> Gerekli |**xs: String** |Varlık dosya adı. |
-| **Boyut**<br /><br /> Gerekli |**xs:Long** |Varlık dosyasının bayt cinsinden boyutu. |
+| **Boyut**<br /><br /> Gerekli |**xs:Long** |Merhaba varlık dosyasının bayt cinsinden boyutu. |
 | **Süre**<br /><br /> Gerekli |**xs: Duration** |İçerik play geri süresi. Örnek: Süre = "PT25M37.757S". |
-| **NumberOfStreams**<br /><br /> Gerekli |**xs:int** |Varlık dosyası akış sayısı. |
+| **NumberOfStreams**<br /><br /> Gerekli |**xs:int** |Merhaba varlık dosyası akış sayısı. |
 | **FormatNames**<br /><br /> Gerekli |**xs: String** |Biçim adları. |
 | **FormatVerboseNames**<br /><br /> Gerekli |**xs: String** |Biçim ayrıntılı adları. |
 | **StartTime** |**xs: Duration** |İçerik başlangıç saati. Örnek: StartTime = "PT2.669S". |
-| **OverallBitRate** |**xs:int** |Ortalama bit hızı Kbps varlık dosyasının. |
+| **OverallBitRate** |**xs:int** |Ortalama bit hızı hello varlık dosyasının KB/sn. |
 
 > [!NOTE]
-> Aşağıdaki 4 alt öğeleri bir sırada yer almalıdır.  
+> 4 alt öğelerini aşağıdaki hello bir sırada yer almalıdır.  
 > 
 > 
 
 ### <a name="child-elements"></a>Alt öğeler
 | Ad | Tür | Açıklama |
 | --- | --- | --- |
-| **Programlar**<br /><br /> minOccurs = "0" | |Tüm koleksiyon [programları öğesi](media-services-input-metadata-schema.md#Programs) varlık dosyası MPEG-TS biçiminde olduğunda. |
-| **VideoTracks**<br /><br /> minOccurs = "0" | |Her fiziksel varlık dosyası, uygun bir kapsayıcı biçimi, araya eklemeli sıfır veya daha fazla video parçaları içerebilir. Bu öğe tüm koleksiyonunu içerir [VideoTracks öğesi](media-services-input-metadata-schema.md#VideoTracks) varlık dosyası bir parçası. |
-| **AudioTracks**<br /><br /> minOccurs = "0" | |Her fiziksel varlık dosyası, uygun bir kapsayıcı biçimi, araya eklemeli sıfır veya daha fazla ses izleri içerebilir. Bu öğe tüm koleksiyonunu içerir [AudioTracks öğesi](media-services-input-metadata-schema.md#AudioTracks) varlık dosyası bir parçası. |
+| **Programlar**<br /><br /> minOccurs = "0" | |Tüm koleksiyon [programları öğesi](media-services-input-metadata-schema.md#Programs) hello varlık dosyası MPEG-TS biçiminde olduğunda. |
+| **VideoTracks**<br /><br /> minOccurs = "0" | |Her fiziksel varlık dosyası, uygun bir kapsayıcı biçimi, araya eklemeli sıfır veya daha fazla video parçaları içerebilir. Bu öğe tüm koleksiyonunu içerir [VideoTracks öğesi](media-services-input-metadata-schema.md#VideoTracks) hello varlık dosyası bir parçası. |
+| **AudioTracks**<br /><br /> minOccurs = "0" | |Her fiziksel varlık dosyası, uygun bir kapsayıcı biçimi, araya eklemeli sıfır veya daha fazla ses izleri içerebilir. Bu öğe tüm koleksiyonunu içerir [AudioTracks öğesi](media-services-input-metadata-schema.md#AudioTracks) hello varlık dosyası bir parçası. |
 | **Meta veriler**<br /><br /> minOccurs "0" maxOccurs = "unbounded" = |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |Varlık dosyanın meta verilerini key\value dize olarak temsil. Örneğin:<br /><br /> **&lt;Meta verilerinin anahtarı "language" value = "eng" = /&gt;** |
 
 ## <a name="TrackType"></a>TrackType
-XML örneği, bu konunun sonunda bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
+XML örneği hello sonunda bu konuda bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Öznitelikler
 | Ad | Tür | Açıklama |
 | --- | --- | --- |
-| **Kimliği**<br /><br /> Gerekli |**xs:int** |Bu ses veya video izlemeyi sıfır tabanlı dizini.<br /><br /> Bu mutlaka olarak TrackID bir MP4 dosyasında kullanılan değildir. |
+| **Kimliği**<br /><br /> Gerekli |**xs:int** |Bu ses veya video izlemeyi sıfır tabanlı dizini.<br /><br /> Bu mutlaka o hello olarak kullanılan bir MP4 dosyasına TrackID değildir. |
 | **Codec** |**xs: String** |Video İzle codec dizesi. |
 | **CodecLongName** |**xs: String** |Ses veya video izleme codec uzun adı. |
 | **Zaman temeli**<br /><br /> Gerekli |**xs: String** |Süresi tabanı. Örnek: Zaman temeli "1/48000" = |
@@ -86,7 +86,7 @@ XML örneği, bu konunun sonunda bkz: [XML örneği](media-services-input-metada
 | **Süre** |**xs: Duration** |Süre izler. Örnek: Süre = "PTSampleFormat M37.757S". |
 
 > [!NOTE]
-> Aşağıdaki 2 alt öğeleri bir sırada yer almalıdır.  
+> 2 alt öğelerini aşağıdaki hello bir sırada yer almalıdır.  
 > 
 > 
 
@@ -94,14 +94,14 @@ XML örneği, bu konunun sonunda bkz: [XML örneği](media-services-input-metada
 | Ad | Tür | Açıklama |
 | --- | --- | --- |
 | **Değerlendirme**<br /><br /> minOccurs = "0" maxOccurs = "1" |[StreamDispositionType](media-services-input-metadata-schema.md#StreamDispositionType) |Sunu bilgileri (örneğin, belirli bir ses izleme görme engelli izleyicilere olup olmadığı) içerir. |
-| **Meta veriler**<br /><br /> minOccurs "0" maxOccurs = "unbounded" = |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |Çeşitli bilgiler tutmak için kullanılan genel anahtar/değer dizeleri. Örneğin, anahtar = "dil" değeri "eng" =. |
+| **Meta veriler**<br /><br /> minOccurs "0" maxOccurs = "unbounded" = |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |Kullanılan toohold bilgi çeşitli olabilir genel anahtar/değer dizeleri. Örneğin, anahtar = "dil" değeri "eng" =. |
 
 ## <a name="AudioTrackType"></a>AudioTrackType (TrackType devralan)
  **AudioTrackType** devraldığı genel bir karmaşık tür [TrackType](media-services-input-metadata-schema.md#TrackType).  
 
- Türü belirli bir ses izleme varlık dosyasında temsil eder.  
+ belirli bir ses İzle hello varlık dosyası'Hello türünü temsil eder.  
 
- XML örneği, bu konunun sonunda bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
+ XML örneği hello sonunda bu konuda bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Öznitelikler
 | Ad | Tür | Açıklama |
@@ -110,15 +110,15 @@ XML örneği, bu konunun sonunda bkz: [XML örneği](media-services-input-metada
 | **ChannelLayout** |**xs: String** |Kanal düzeni. |
 | **Kanalları**<br /><br /> Gerekli |**xs:int** |(0 veya daha fazla) ses kanal sayısı. |
 | **SamplingRate**<br /><br /> Gerekli |**xs:int** |Saniye başına örnekleri veya Hz ses örnekleme hızı. |
-| **Bit hızı** |**xs:int** |Varlık dosyasından hesaplanan olarak saniyedeki ortalama ses bit hızı. Yalnızca başlangıç akışı yükü kabul edilir ve paketleme yükünü bu sayıma dahil değildir. |
-| **BitsPerSample** |**xs:int** |WFormatTag biçimi için örnek başına bit yazın. |
+| **Bit hızı** |**xs:int** |Merhaba varlık dosyasından hesaplanan olarak saniyedeki ortalama ses bit hızı. Yalnızca hello başlangıç akışı yükü kabul edilir ve bu sayıma hello paketleme yükünü dahil değil. |
+| **BitsPerSample** |**xs:int** |Merhaba wFormatTag biçimi için örnek başına bit yazın. |
 
 ## <a name="VideoTrackType"></a>VideoTrackType (TrackType devralan)
 **VideoTrackType** devraldığı genel bir karmaşık tür [TrackType](media-services-input-metadata-schema.md#TrackType).  
 
-Türü belirli bir video izlemek varlık dosyasında temsil eder.  
+belirli bir video izlemek hello varlık dosyasındaki Hello türünü temsil eder.  
 
-XML örneği, bu konunun sonunda bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
+XML örneği hello sonunda bu konuda bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Öznitelikler
 | Ad | Tür | Açıklama |
@@ -135,20 +135,20 @@ XML örneği, bu konunun sonunda bkz: [XML örneği](media-services-input-metada
 | **SampleAspectRatioNumerator** |**xs:double** |Video örneği en boy oranını pay. |
 | **SampleAspectRatioNumerator** |**xs:double** |Video örneği en boy oranını payda. |
 | **Kare hızı**<br /><br /> Gerekli |**xs:decimal** |Video kare hızı .3f biçiminde ölçülür. |
-| **Bit hızı** |**xs:int** |Varlık dosyasından hesaplanan olarak kilobit / saniye ortalama video bit hızı. Yalnızca başlangıç akışı yükü kabul edilir ve paketleme ek yük dahil değildir. |
+| **Bit hızı** |**xs:int** |Ortalama video bit hızı hello varlık dosyasından hesaplanan olarak kilobit / saniye. Yalnızca hello başlangıç akışı yükü kabul edilir ve hello paketleme ek yük dahil değildir. |
 | **MaxGOPBitrate** |**xs:int** |Max GOP ortalama bit hızı kilobit bu video izlemek için. |
 | **HasBFrames** |**xs:int** |Video parça B çerçeve sayısı. |
 
 ## <a name="MetadataType"></a>MetadataType
 **MetadataType** anahtar/değer dize olarak bir varlık dosya meta verileri tanımlayan genel bir karmaşık türü. Örneğin, anahtar = "dil" değeri "eng" =.  
 
-XML örneği, bu konunun sonunda bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
+XML örneği hello sonunda bu konuda bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Öznitelikler
 | Ad | Tür | Açıklama |
 | --- | --- | --- |
-| **anahtarı**<br /><br /> Gerekli |**xs: String** |Anahtar/değer çifti anahtar. |
-| **değer**<br /><br /> Gerekli |**xs: String** |Anahtar/değer çifti değer. |
+| **anahtarı**<br /><br /> Gerekli |**xs: String** |Merhaba anahtar/değer çifti Hello anahtar. |
+| **değer**<br /><br /> Gerekli |**xs: String** |Merhaba anahtar/değer çifti Hello değeri. |
 
 ## <a name="ProgramType"></a>ProgramType
 **ProgramType** bir programı anlatır genel bir karmaşık tür.  
@@ -164,24 +164,24 @@ XML örneği, bu konunun sonunda bkz: [XML örneği](media-services-input-metada
 | **EndPTS** |**xs: uzun** |Bitiş sunu zaman damgası. |
 
 ## <a name="StreamDispositionType"></a>StreamDispositionType
-**StreamDispositionType** akış açıklar genel bir karmaşık tür.  
+**StreamDispositionType** hello akışı açıklanır genel bir karmaşık tür.  
 
-XML örneği, bu konunun sonunda bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
+XML örneği hello sonunda bu konuda bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Öznitelikler
 | Ad | Tür | Açıklama |
 | --- | --- | --- |
-| **Varsayılan**<br /><br /> Gerekli |**xs:int** |Bu öznitelik bu varsayılan sunu olduğunu göstermek için 1 olarak ayarlayın. |
-| **Dub**<br /><br /> Gerekli |**xs:int** |Bu öznitelik bu Dublaj sunu olduğunu göstermek için 1 olarak ayarlayın. |
-| **Özgün**<br /><br /> Gerekli |**xs:int** |Bu öznitelik bu özgün sunu olduğunu göstermek için 1 olarak ayarlayın. |
-| **Açıklama**<br /><br /> Gerekli |**xs:int** |Bu öznitelik bu parça yorumlar içerdiğini belirtmek için 1 olarak ayarlayın. |
-| **Sözleri**<br /><br /> Gerekli |**xs:int** |Bu öznitelik bu parça sözleri içerdiğini belirtmek için 1 olarak ayarlayın. |
-| **Karaoke**<br /><br /> Gerekli |**xs:int** |Bu öznitelik bu karaoke İzle (arka plan müzik, hiçbir vokallerle) temsil eden belirtmek için 1 olarak ayarlayın. |
-| **Zorla**<br /><br /> Gerekli |**xs:int** |Bu öznitelik bu zorlanmış sunu olduğunu göstermek için 1 olarak ayarlayın. |
-| **HearingImpaired**<br /><br /> Gerekli |**xs:int** |Bu öznitelik işitme engelli için bu izleme belirtmek için 1 olarak ayarlayın. |
-| **VisualImpaired**<br /><br /> Gerekli |**xs:int** |Bu öznitelik bu izleme için görme engelli belirtmek için 1 olarak ayarlayın. |
-| **CleanEffects**<br /><br /> Gerekli |**xs:int** |Bu öznitelik bu parça temiz etkileri olduğunu belirtmek için 1 olarak ayarlayın. |
-| **AttachedPic**<br /><br /> Gerekli |**xs:int** |Bu öznitelik bu parça resimleri sahip belirtmek için 1 olarak ayarlayın. |
+| **Varsayılan**<br /><br /> Gerekli |**xs:int** |Bu öznitelik too1 tooindicate bu hello varsayılan sunu ayarlayın. |
+| **Dub**<br /><br /> Gerekli |**xs:int** |Bu öznitelik too1 tooindicate ayarlamanız hello sunu Dublaj. |
+| **Özgün**<br /><br /> Gerekli |**xs:int** |Bu öznitelik too1 tooindicate bu hello özgün sunu ayarlayın. |
+| **Açıklama**<br /><br /> Gerekli |**xs:int** |Bu öznitelik too1 tooindicate ayarlamanız izleme yorumlar içerir. |
+| **Sözleri**<br /><br /> Gerekli |**xs:int** |Bu öznitelik too1 tooindicate ayarlamanız izleme sözleri içerir. |
+| **Karaoke**<br /><br /> Gerekli |**xs:int** |Bu öznitelik too1 tooindicate ayarlamanız hello karaoke İzle (arka plan müzik, hiçbir vokallerle) temsil eder. |
+| **Zorla**<br /><br /> Gerekli |**xs:int** |Bu öznitelik too1 tooindicate bu zorunlu hello sunu ayarlayın. |
+| **HearingImpaired**<br /><br /> Gerekli |**xs:int** |Bu izleme için hello işitme engelli olduğundan bu öznitelik too1 tooindicate ayarlayın. |
+| **VisualImpaired**<br /><br /> Gerekli |**xs:int** |Bu izleme görme engelli hello için olan bu öznitelik too1 tooindicate ayarlayın. |
+| **CleanEffects**<br /><br /> Gerekli |**xs:int** |Bu izi varsa bu öznitelik too1 tooindicate temiz etkileri ayarlayın. |
+| **AttachedPic**<br /><br /> Gerekli |**xs:int** |Bu izi varsa bu öznitelik too1 tooindicate resimleri ayarlayın. |
 
 ## <a name="Programs"></a>Programları öğesi
 Birden çok tutan kapsayıcı öğe **Program** öğeleri.  
@@ -189,27 +189,27 @@ Birden çok tutan kapsayıcı öğe **Program** öğeleri.
 ### <a name="child-elements"></a>Alt öğeler
 | Ad | Tür | Açıklama |
 | --- | --- | --- |
-| **Program**<br /><br /> minOccurs "0" maxOccurs = "unbounded" = |[ProgramType](media-services-input-metadata-schema.md#ProgramType) |MPEG-TS biçimindeki varlık dosyaları için varlık dosyasındaki programlar hakkında bilgi içerir. |
+| **Program**<br /><br /> minOccurs "0" maxOccurs = "unbounded" = |[ProgramType](media-services-input-metadata-schema.md#ProgramType) |MPEG-TS biçimindeki varlık dosyaları için hello varlık dosyasındaki programlar hakkında bilgi içerir. |
 
 ## <a name="VideoTracks"></a>VideoTracks öğesi
  Birden çok tutan kapsayıcı öğe **VideoTrack** öğeleri.  
 
- XML örneği, bu konunun sonunda bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
+ XML örneği hello sonunda bu konuda bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="child-elements"></a>Alt öğeler
 | Ad | Tür | Açıklama |
 | --- | --- | --- |
-| **VideoTrack**<br /><br /> minOccurs "0" maxOccurs = "unbounded" = |[VideoTrackType (TrackType devralan)](media-services-input-metadata-schema.md#VideoTrackType) |Varlık dosyasındaki video parçaları hakkında bilgiler içerir. |
+| **VideoTrack**<br /><br /> minOccurs "0" maxOccurs = "unbounded" = |[VideoTrackType (TrackType devralan)](media-services-input-metadata-schema.md#VideoTrackType) |Merhaba varlık dosyasındaki video parçaları hakkında bilgiler içerir. |
 
 ## <a name="AudioTracks"></a>AudioTracks öğesi
  Birden çok tutan kapsayıcı öğe **AudioTrack** öğeleri.  
 
- XML örneği, bu konunun sonunda bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
+ XML örneği hello sonunda bu konuda bkz: [XML örneği](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="elements"></a>Öğeleri
 | Ad | Tür | Açıklama |
 | --- | --- | --- |
-| **AudioTrack**<br /><br /> minOccurs "0" maxOccurs = "unbounded" = |[AudioTrackType (TrackType devralan)](media-services-input-metadata-schema.md#AudioTrackType) |Varlık dosyasındaki ses izleri hakkında bilgiler içerir. |
+| **AudioTrack**<br /><br /> minOccurs "0" maxOccurs = "unbounded" = |[AudioTrackType (TrackType devralan)](media-services-input-metadata-schema.md#AudioTrackType) |Merhaba varlık dosyasındaki ses izleri hakkında bilgiler içerir. |
 
 ## <a name="code"></a>Şema kodu
     <?xml version="1.0" encoding="utf-8"?>  
@@ -277,7 +277,7 @@ Birden çok tutan kapsayıcı öğe **Program** öğeleri.
         </xs:sequence>  
         <xs:attribute name="Id" use="required">  
           <xs:annotation>  
-            <xs:documentation>zero-based index of this video track. Note: this is not necessarily the TrackID as used in an MP4 file</xs:documentation>  
+            <xs:documentation>zero-based index of this video track. Note: this is not necessarily hello TrackID as used in an MP4 file</xs:documentation>  
           </xs:annotation>  
           <xs:simpleType>  
             <xs:restriction base="xs:int">  
@@ -324,7 +324,7 @@ Birden çok tutan kapsayıcı öğe **Program** öğeleri.
 
       <xs:complexType name="VideoTrackType">  
         <xs:annotation>  
-          <xs:documentation>A specific video track in the parent AssetFile</xs:documentation>  
+          <xs:documentation>A specific video track in hello parent AssetFile</xs:documentation>  
         </xs:annotation>  
         <xs:complexContent>  
           <xs:extension base="TrackType">  
@@ -421,7 +421,7 @@ Birden çok tutan kapsayıcı öğe **Program** öğeleri.
             </xs:attribute>  
             <xs:attribute name="Bitrate">  
               <xs:annotation>  
-                <xs:documentation>average video bit rate in kilobits per second, as calculated from the AssetFile. Counts only the elementary stream payload, and does not include the packaging overhead</xs:documentation>  
+                <xs:documentation>average video bit rate in kilobits per second, as calculated from hello AssetFile. Counts only hello elementary stream payload, and does not include hello packaging overhead</xs:documentation>  
               </xs:annotation>  
               <xs:simpleType>  
                 <xs:restriction base="xs:int">  
@@ -450,7 +450,7 @@ Birden çok tutan kapsayıcı öğe **Program** öğeleri.
 
       <xs:complexType name="AudioTrackType">  
         <xs:annotation>  
-          <xs:documentation>a specific audio track in the parent AssetFile</xs:documentation>  
+          <xs:documentation>a specific audio track in hello parent AssetFile</xs:documentation>  
         </xs:annotation>  
         <xs:complexContent>  
           <xs:extension base="TrackType">  
@@ -486,7 +486,7 @@ Birden çok tutan kapsayıcı öğe **Program** öğeleri.
             </xs:attribute>  
             <xs:attribute name="Bitrate">  
               <xs:annotation>  
-                <xs:documentation>average audio bit rate in bits per second, as calculated from the AssetFile. Counts only the elementary stream payload, and does not include the packaging overhead</xs:documentation>  
+                <xs:documentation>average audio bit rate in bits per second, as calculated from hello AssetFile. Counts only hello elementary stream payload, and does not include hello packaging overhead</xs:documentation>  
               </xs:annotation>  
               <xs:simpleType>  
                 <xs:restriction base="xs:int">  
@@ -496,7 +496,7 @@ Birden çok tutan kapsayıcı öğe **Program** öğeleri.
             </xs:attribute>  
             <xs:attribute name="BitsPerSample">  
               <xs:annotation>  
-                <xs:documentation>Bits per sample for the wFormatTag format type</xs:documentation>  
+                <xs:documentation>Bits per sample for hello wFormatTag format type</xs:documentation>  
               </xs:annotation>  
               <xs:simpleType>  
                 <xs:restriction base="xs:int">  
@@ -510,7 +510,7 @@ Birden çok tutan kapsayıcı öğe **Program** öğeleri.
 
       <xs:element name="AssetFiles">  
         <xs:annotation>  
-          <xs:documentation>Collection of AssetFile entries for the encoding job</xs:documentation>  
+          <xs:documentation>Collection of AssetFile entries for hello encoding job</xs:documentation>  
         </xs:annotation>  
         <xs:complexType>  
           <xs:sequence>  
@@ -522,7 +522,7 @@ Birden çok tutan kapsayıcı öğe **Program** öğeleri.
                 <xs:sequence>  
                   <xs:element name="Programs" minOccurs="0">  
                     <xs:annotation>  
-                      <xs:documentation>This is the collection of all programs when file is MPEG-TS</xs:documentation>  
+                      <xs:documentation>This is hello collection of all programs when file is MPEG-TS</xs:documentation>  
                     </xs:annotation>  
                     <xs:complexType>  
                       <xs:sequence>  
@@ -532,7 +532,7 @@ Birden çok tutan kapsayıcı öğe **Program** öğeleri.
                   </xs:element>  
                   <xs:element name="VideoTracks" minOccurs="0">  
                     <xs:annotation>  
-                      <xs:documentation>Each physical AssetFile can contain in it zero or more video tracks interleaved into an appropriate container format. This is the collection of all those video tracks</xs:documentation>  
+                      <xs:documentation>Each physical AssetFile can contain in it zero or more video tracks interleaved into an appropriate container format. This is hello collection of all those video tracks</xs:documentation>  
                     </xs:annotation>  
                     <xs:complexType>  
                       <xs:sequence>  
@@ -542,7 +542,7 @@ Birden çok tutan kapsayıcı öğe **Program** öğeleri.
                   </xs:element>  
                   <xs:element name="AudioTracks" minOccurs="0">  
                     <xs:annotation>  
-                      <xs:documentation>each physical AssetFile can contain in it zero or more audio tracks interleaved into an appropriate container format. This is the collection of all those audio tracks</xs:documentation>  
+                      <xs:documentation>each physical AssetFile can contain in it zero or more audio tracks interleaved into an appropriate container format. This is hello collection of all those audio tracks</xs:documentation>  
                     </xs:annotation>  
                     <xs:complexType>  
                       <xs:sequence>  
@@ -554,7 +554,7 @@ Birden çok tutan kapsayıcı öğe **Program** öğeleri.
                 </xs:sequence>  
                 <xs:attribute name="Name" type="xs:string" use="required">  
                   <xs:annotation>  
-                    <xs:documentation>the media asset file name</xs:documentation>  
+                    <xs:documentation>hello media asset file name</xs:documentation>  
                   </xs:annotation>  
                 </xs:attribute>  
                 <xs:attribute name="Size" use="required">  
@@ -594,7 +594,7 @@ Birden çok tutan kapsayıcı öğe **Program** öğeleri.
                 </xs:attribute>  
                 <xs:attribute name="OverallBitRate">  
                   <xs:annotation>  
-                    <xs:documentation>average bitrate of the asset file in kbps</xs:documentation>  
+                    <xs:documentation>average bitrate of hello asset file in kbps</xs:documentation>  
                   </xs:annotation>  
                   <xs:simpleType>  
                     <xs:restriction base="xs:int">  
@@ -611,7 +611,7 @@ Birden çok tutan kapsayıcı öğe **Program** öğeleri.
 
 
 ## <a name="xml"></a>XML örneği
-Giriş meta veri dosyası örneği verilmiştir.  
+Merhaba, hello giriş meta veri dosyası örneği verilmiştir.  
 
     <?xml version="1.0" encoding="utf-8"?>  
     <AssetFiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2014/07/mediaencoder/inputmetadata">  

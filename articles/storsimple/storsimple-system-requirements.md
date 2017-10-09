@@ -1,5 +1,5 @@
 ---
-title: StorSimple sistem gereksinimleri | Microsoft Docs
+title: aaaStorSimple sistem gereksinimleri | Microsoft Docs
 description: "Yazılım, ağ ve yüksek oranda kullanılabilirlik gereksinimleri ve Microsoft Azure StorSimple çözümünüzle için en iyi uygulamaları açıklar."
 services: storsimple
 documentationcenter: NA
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: alkohli
-ms.openlocfilehash: 9fb4d440fad8e4c5af8030c91e6871c6418ab9be
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: ec0bb5ad2f2d4c9901da2d95147dd9daa178f6b6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="storsimple-software-high-availability-and-networking-requirements"></a>StorSimple yazılım, yüksek kullanılabilirlik ve ağ gereksinimleri
 ## <a name="overview"></a>Genel Bakış
-Microsoft Azure StorSimple hoşgeldiniz. Bu makalede önemli sistem gereksinimleri ve StorSimple cihazınız için ve aygıta erişirken depolama istemciler için en iyi uygulamaları açıklar. Önce StorSimple sisteminizi dağıtma ve ardından geri gerektiği gibi dağıtım ve sonraki işlemi sırasında başvurduğu bilgileri dikkatle gözden geçirmenizi öneririz.
+Azure StorSimple tooMicrosoft Hoş Geldiniz. Bu makalede önemli sistem gereksinimleri ve StorSimple cihazınız için ve hello depolama istemciler hello cihaza erişmek için en iyi uygulamaları açıklar. StorSimple sisteminizi dağıtma ve ardından geri tooit gerektiği gibi dağıtım ve sonraki işlemi sırasında başvurmak önce hello bilgileri dikkatle gözden geçirmenizi öneririz.
 
-Sistem gereksinimleri şunlardır:
+Merhaba sistem gereksinimleri şunlardır:
 
-* **Depolama istemciler için yazılım gereksinimleri** -desteklenen işletim sistemleri ve bu işletim sistemleri için tüm ek gereksinimleri açıklanmaktadır.
-* **StorSimple cihazı için ağ gereksinimleri** -için iSCSI, Bulut veya yönetim trafiğe izin verme, Güvenlik Duvarı'nda açılması gereken bağlantı noktaları hakkında bilgi sağlar.
+* **Depolama istemciler için yazılım gereksinimleri** -hello desteklenen işletim sistemleri ve bu işletim sistemleri için tüm ek gereksinimleri açıklanmaktadır.
+* **Merhaba StorSimple cihazı için ağ gereksinimleri** -iSCSI, Bulut veya yönetim trafiği için güvenlik duvarı tooallow açık bu gereksinimi toobe hello bağlantı noktaları hakkında bilgi sağlar.
 * **StorSimple için yüksek kullanılabilirlik gereksinimlerini** - yüksek kullanılabilirlik gereksinimlerini açıklar ve StorSimple cihaz ve ana bilgisayar için'en iyi uygulamalar. 
 
 ## <a name="software-requirements-for-storage-clients"></a>Depolama istemciler için yazılım gereksinimleri
-StorSimple Cihazınızı erişim depolama istemciler için aşağıdaki yazılım gereksinimleri verilmiştir.
+yazılım gereksinimleri aşağıdaki hello StorSimple Cihazınızı erişen hello depolama için istemcileridir.
 
 | Desteklenen işletim sistemleri | Gerekli sürümü | Ek gereksinimler/Notlar |
 | --- | --- | --- |
-| Windows Server |2008R2 SP1, 2012, 2012 R2, 2016 |StorSimple iSCSI birimleri, yalnızca aşağıdaki Windows disk türleri üzerinde kullanım için desteklenir:<ul><li>Temel diskteki basit birim</li><li>Dinamik diskteki basit ve yansıtılmış birim</li></ul>Yalnızca yazılım iSCSI başlatıcıları işletim sisteminde yerel olarak mevcut desteklenir. Donanım iSCSI başlatıcıları desteklenmez.<br></br>Bir StorSimple iSCSI birim kullanıyorsanız, Windows Server 2012 ve 2016 ölçülü kaynak sağlama ve ODX özellikler desteklenir.<br><br>Ölçülü kaynak kullanan ve tamamen sağlanan StorSimple oluşturabilir birimler. Kısmen sağlanan birimler oluşturamazsınız.<br><br>Ölçülü kaynak kullanan bir birim yeniden biçimlendirme uzun sürebilir. Toplu silme ve yeniden biçimlendirme yerine yeni bir tane oluşturma öneririz. Yine ancak, bir birim yeniden biçimlendirmek tercih eder:<ul><li>Alan geri kazanma gecikmelerden kaçınmak için yeniden biçimlendirme önce aşağıdaki komutu çalıştırın: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Biçimlendirme tamamlandıktan sonra alan geri kazanma yeniden etkinleştirmek için aşağıdaki komutu kullanın:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Bölümünde açıklandığı gibi Windows Server 2012 düzeltmeyi [KB 2878635](https://support.microsoft.com/kb/2870270) , Windows Server bilgisayarınıza.</li></ul></li></ul></ul> SharePoint için StorSimple Snapshot Manager veya StorSimple bağdaştırıcısı yapılandırıyorsanız, Git [isteğe bağlı bileşenler için yazılım gereksinimleri](#software-requirements-for-optional-components). |
+| Windows Server |2008R2 SP1, 2012, 2012 R2, 2016 |StorSimple iSCSI birimleri, yalnızca şu Windows disk türlerini hello üzerinde kullanım için desteklenir:<ul><li>Temel diskteki basit birim</li><li>Dinamik diskteki basit ve yansıtılmış birim</li></ul>Yalnızca hello yazılım iSCSI başlatıcıları yerel hello işletim sisteminde mevcut desteklenir. Donanım iSCSI başlatıcıları desteklenmez.<br></br>Bir StorSimple iSCSI birim kullanıyorsanız, Windows Server 2012 ve 2016 ölçülü kaynak sağlama ve ODX özellikler desteklenir.<br><br>Ölçülü kaynak kullanan ve tamamen sağlanan StorSimple oluşturabilir birimler. Kısmen sağlanan birimler oluşturamazsınız.<br><br>Ölçülü kaynak kullanan bir birim yeniden biçimlendirme uzun sürebilir. Merhaba toplu silme ve yeniden biçimlendirme yerine yeni bir tane oluşturma öneririz. Ancak, yine tooreformat bir birim tercih:<ul><li>Merhaba yeniden biçimlendirme tooavoid alan geri kazanma gecikmeler önce komutunu aşağıdaki hello çalıştırın: <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Merhaba biçimlendirme tamamlandıktan sonra kullanım hello aşağıdaki toore etkinleştir alan geri kazanma komutu:<br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Bölümünde açıklandığı gibi Hello Windows Server 2012 düzeltmeyi [KB 2878635](https://support.microsoft.com/kb/2870270) tooyour Windows Server bilgisayarı.</li></ul></li></ul></ul> SharePoint için StorSimple Snapshot Manager veya StorSimple bağdaştırıcısı yapılandırıyorsanız, çok Git[isteğe bağlı bileşenler için yazılım gereksinimleri](#software-requirements-for-optional-components). |
 | VMWare ESX |5.5 ve 6.0 |VMWare vSphere ile iSCSI istemcisi olarak desteklenir. VAAI engelleme özelliği, VMware vsphere StorSimple cihazlarda desteklenir. |
 | Linux RHEL/CentOS |5, 6 ve 7 |Açık iSCSI başlatıcısı sürümlerini 5, 6 ve 7 Linux iSCSI istemciler için destek. |
 | Linux |SUSE Linux 11 | |
@@ -46,7 +46,7 @@ StorSimple Cihazınızı erişim depolama istemciler için aşağıdaki yazılı
 > 
 
 ## <a name="software-requirements-for-optional-components"></a>İsteğe bağlı bileşenler için yazılım gereksinimleri
-(StorSimple Snapshot Manager ve SharePoint için StorSimple bağdaştırıcısı) isteğe bağlı StorSimple bileşenleri için aşağıdaki yazılım gereksinimleri verilmiştir.
+yazılım gereksinimleri aşağıdaki hello hello isteğe bağlı StorSimple bileşenleri (StorSimple Snapshot Manager ve SharePoint için StorSimple bağdaştırıcısı) içindir.
 
 | Bileşen | Ana bilgisayar platformu | Ek gereksinimler/Notlar |
 | --- | --- | --- |
@@ -54,37 +54,37 @@ StorSimple Cihazınızı erişim depolama istemciler için aşağıdaki yazılı
 | SharePoint için StorSimple Bağdaştırıcısı |Windows Server 2008R2 SP1, 2012, 2012 R2 |<ul><li>SharePoint için StorSimple bağdaştırıcısı yalnızca SharePoint 2010 ve SharePoint 2013 üzerinde desteklenir.</li><li>KKY SQL Server Enterprise Edition, sürüm 2008 R2 veya 2012 gerektirir.</li></ul> |
 
 ## <a name="networking-requirements-for-your-storsimple-device"></a>StorSimple cihazınız için ağ gereksinimleri
-StorSimple Cihazınızı kilitli aygıttır. Ancak, bağlantı noktaları iSCSI, Bulut ve yönetim trafiği için izin vermek için Güvenlik Duvarı'nda açılması gerekir. Aşağıdaki tabloda, Güvenlik Duvarı'nda açılması gereken bağlantı noktalarını listeler. Bu tabloda *içinde* veya *gelen* gelen istemci isteklerini Cihazınızı erişim yönünü belirtir. *Out* veya *giden* , StorSimple Cihazınızı verileri gönderir harici olarak dağıtım yönü başvuruyor: Örneğin, Internet'e giden.
+StorSimple Cihazınızı kilitli aygıttır. Ancak, bağlantı noktaları iSCSI, Bulut ve yönetim trafiği için güvenlik duvarı tooallow açılır toobe gerekir. Merhaba aşağıdaki tabloda, Güvenlik Duvarı'nda açılan toobe gereksinim hello bağlantı noktalarını listeler. Bu tabloda *içinde* veya *gelen* gelen istemci isteklerini erişim Cihazınızı toohello yönünü belirtir. *Out* veya *giden* toohello yönü, StorSimple Cihazınızı verileri gönderir harici olarak hello dağıtım başvuruyor: Örneğin, giden toohello Internet.
 
 | Bağlantı noktası No<sup>1,2</sup> | Giriş veya çıkış | Bağlantı noktası kapsamı | Gerekli | Notlar |
 | --- | --- | --- | --- | --- |
-| TCP 80 (HTTP)<sup>3</sup> |Çıkışı |WAN |Hayır |<ul><li>Giden bağlantı noktası, güncelleştirmeleri almak için Internet erişimi için kullanılır.</li><li>Giden web proxy yapılandırılabilir kullanıcıdır.</li><li>Sistem güncelleştirmelere izin vermek için bu bağlantı noktası da IP'leri sabit denetleyici için açık olması gerekir.</li></ul> |
-| TCP 443 (HTTPS)<sup>3</sup> |Çıkışı |WAN |Evet |<ul><li>Giden bağlantı noktası, bulut veri erişimi için kullanılır.</li><li>Giden web proxy yapılandırılabilir kullanıcıdır.</li><li>Sistem güncelleştirmelere izin vermek için bu bağlantı noktası da IP'leri sabit denetleyici için açık olması gerekir.</li><li>Bu bağlantı noktası, atık toplama için her iki denetleyicilerinde de kullanılır.</li></ul> |
+| TCP 80 (HTTP)<sup>3</sup> |Çıkışı |WAN |Hayır |<ul><li>Giden bağlantı noktası, Internet erişimi tooretrieve güncelleştirmeler için kullanılır.</li><li>Merhaba giden web proxy yapılandırılabilir kullanıcıdır.</li><li>tooallow sistem güncelleştirmeleri, bu bağlantı noktası da hello denetleyicisi sabit IP'leri açık olması gerekir.</li></ul> |
+| TCP 443 (HTTPS)<sup>3</sup> |Çıkışı |WAN |Evet |<ul><li>Giden bağlantı noktası hello bulut veri erişimi için kullanılır.</li><li>Merhaba giden web proxy yapılandırılabilir kullanıcıdır.</li><li>tooallow sistem güncelleştirmeleri, bu bağlantı noktası da hello denetleyicisi sabit IP'leri açık olması gerekir.</li><li>Bu bağlantı noktası, atık toplama için her iki hello denetleyicilerinde de kullanılır.</li></ul> |
 | UDP 53 (DNS) |Çıkışı |WAN |Bazı durumlarda; notlarına bakın. |Yalnızca bir Internet tabanlı DNS sunucusu kullanıyorsanız, bu bağlantı noktası gereklidir. |
 | UDP 123 (NTP) |Çıkışı |WAN |Bazı durumlarda; notlarına bakın. |Yalnızca bir Internet tabanlı NTP sunucusu kullanıyorsanız, bu bağlantı noktası gereklidir. |
-| TCP 9354 |Çıkışı |WAN |Evet |Giden bağlantı noktası tarafından StorSimple cihaz StorSimple Yöneticisi hizmetiyle iletişim kurmak için kullanılır. |
-| 3260 (iSCSI) |İçinde |LAN |Hayır |Bu bağlantı noktası üzerinde iSCSI verilere erişmek için kullanılır. |
-| 5985 |İçinde |LAN |Hayır |Gelen bağlantı noktası StorSimple Snapshot Manager tarafından StorSimple aygıtıyla iletişim kurmak için kullanılır.<br>Uzaktan Windows PowerShell için StorSimple için HTTP üzerinden bağlandığınızda bu bağlantı noktası da kullanılır. |
-| 5986 |İçinde |LAN |Hayır |Uzaktan Windows PowerShell için StorSimple için HTTPS üzerinden bağlandığınızda bu bağlantı noktası kullanılır. |
+| TCP 9354 |Çıkışı |WAN |Evet |Merhaba giden bağlantı noktası hello StorSimple Yöneticisi hizmeti ile Merhaba StorSimple cihaz toocommunicate tarafından kullanılır. |
+| 3260 (iSCSI) |İçinde |LAN |Hayır |Bu bağlantı noktası kullanılan tooaccess üzerinde iSCSI verilerdir. |
+| 5985 |İçinde |LAN |Hayır |Gelen bağlantı noktası hello StorSimple cihazı ile StorSimple Snapshot Manager toocommunicate tarafından kullanılır.<br>Bu bağlantı noktası, uzaktan tooWindows PowerShell StorSimple için HTTP üzerinden bağlandıklarında da kullanılır. |
+| 5986 |İçinde |LAN |Hayır |Uzaktan tooWindows PowerShell StorSimple için HTTPS üzerinden bağlandığınızda bu bağlantı noktası kullanılır. |
 
-<sup>1</sup> hiçbir gelen bağlantı noktalarının genel Internet'te açılması gerekir.
+<sup>1</sup> hiçbir gelen bağlantı noktalarının açılan toobe gereken genel Internet hello.
 
-<sup>2</sup> birden çok bağlantı noktası bir ağ geçidi yapılandırmasını gerçekleştirmek, giden yönlendirilen trafiği sipariş açıklanan bağlantı noktası yönlendirme sipariş göre belirlenir [bağlantı noktası yönlendirme](#routing-metric), aşağıdaki.
+<sup>2</sup> birden çok bağlantı noktası bir ağ geçidi yapılandırma planlaması yapıyorsanız hello giden yönlendirilen trafiği sipariş hello bağlantı noktası yönlendirme sipariş açıklanan göre belirlenir [bağlantı noktası yönlendirme](#routing-metric), aşağıdaki.
 
-<sup>3</sup> StorSimple Cihazınızda IP'leri sabit denetleyici yönlendirilebilir ve Internet'e doğrudan veya yapılandırılmış web proxy'si aracılığıyla bağlanılamıyor olması gerekir. Sabit IP adreslerini cihaz güncelleştirmeler bakım için kullanılır. Aygıt denetleyicileri sabit IP'leri üzerinden İnternete bağlanamazsa, StorSimple Cihazınızı güncelleştirin mümkün olmaz.
+<sup>3</sup> StorSimple Cihazınızda IP'leri sabit hello denetleyicisi yönlendirilebilir olmalıdır ve mümkün tooconnect toohello Internet doğrudan veya hello üzerinden web proxy yapılandırılır. hello sabit IP adresleri hello güncelleştirmeleri toohello aygıt bakım için kullanılır. Merhaba aygıt denetleyicileri hello üzerinden Internet sabit IP'leri toohello bağlanamıyorsanız, mümkün tooupdate olmaz StorSimple Cihazınızı.
 
 > [!IMPORTANT]
-> Güvenlik Duvarı'nı değil değiştirmek veya tüm SSL trafiği StorSimple cihazı ve Azure arasında şifresini emin olun.
+> Merhaba güvenlik duvarının değiştirmeyin veya tüm SSL trafiği hello StorSimple cihazı ve Azure arasında şifresini emin olun.
 > 
 > 
 
 ### <a name="url-patterns-for-firewall-rules"></a>Güvenlik duvarı kuralları için URL düzenleri
-Ağ yöneticileri genellikle gelen filtrelemek için URL desenlerini ve giden trafiğe göre Gelişmiş güvenlik duvarı kuralları yapılandırabilirsiniz. StorSimple Cihazınızı ve StorSimple Yöneticisi hizmeti Azure Service Bus, Azure Active Directory erişim denetimi, depolama hesapları ve Microsoft Update sunucuları gibi diğer Microsoft uygulamaları bağlıdır. Bu uygulamalarla ilişkili URL desenlerini, güvenlik duvarı kurallarını yapılandırmak için kullanılabilir. Bu uygulamalarla ilişkili URL desenlerini değiştirebilirsiniz anlamak önemlidir. Bu sırayla izleyebilir ve güvenlik duvarı kuralları, StorSimple için ve gerektiğinde güncelleştirmek için ağ yöneticisine gerektirecektir.
+Ağ yöneticileri genellikle hello URL desenlerini toofilter hello üzerinde dayalı kurallar gelen ve giden trafiği hello Gelişmiş Güvenlik Duvarı yapılandırabilirsiniz. Merhaba StorSimple Yöneticisi hizmetiniz ve StorSimple cihazı Azure Service Bus, Azure Active Directory erişim denetimi, depolama hesapları ve Microsoft Update sunucuları gibi diğer Microsoft uygulamaları bağlıdır. Bu uygulamalarla ilişkili hello URL desenlerini kullanılan tooconfigure güvenlik duvarı kuralları olabilir. Bu uygulamalarla ilişkili hello URL desenlerini değiştirebilirsiniz önemli toounderstand olur. Bu sırayla hello ağ yöneticisi toomonitor gerektirir ve güvenlik duvarı kuralları, StorSimple için ve gerektiğinde güncelleştirin.
 
-Çoğu durumda liberally sabit IP adresleri, StorSimple göre giden trafiği için güvenlik duvarı kuralları ayarlamanızı öneririz. Ancak, güvenli ortamlar oluşturmak için gereken gelişmiş güvenlik duvarı kuralları ayarlamak için aşağıdaki bilgileri kullanabilirsiniz.
+Çoğu durumda liberally sabit IP adresleri, StorSimple göre giden trafiği için güvenlik duvarı kuralları ayarlamanızı öneririz. Ancak, gerekli toocreate güvenli ortamları güvenlik duvarı kuralları Gelişmiş tooset aşağıda hello bilgileri kullanabilirsiniz.
 
 > [!NOTE]
-> (Kaynak) IP'leri cihaz için tüm etkin ağ arabirimlerinin her zaman ayarlanması gerekir. IP'leri ayarlanmalıdır hedef [Azure veri merkezi IP aralıkları](https://www.microsoft.com/en-us/download/confirmation.aspx?id=41653).
+> Merhaba aygıt (kaynak) IP'leri her zaman tooall etkin hello ağ arabirimleri ayarlamanız gerekir. IP çok ayarlanmalıdır hello hedef[Azure veri merkezi IP aralıkları](https://www.microsoft.com/en-us/download/confirmation.aspx?id=41653).
 > 
 > 
 
@@ -111,32 +111,32 @@ Ağ yöneticileri genellikle gelen filtrelemek için URL desenlerini ve giden tr
 | `https://*.partners.extranet.microsoft.com/*` |Destek Paketi |Bulut etkin ağ arabirimleri |
 
 ### <a name="routing-metric"></a>Yönlendirme ölçümü
-Bir yönlendirme ölçümü arabirimleri ve verileri belirtilen ağa yönlendirme ağ geçidi ile ilişkilidir. Aynı hedefe birden çok yol var öğrenir yönlendirme ölçüm yönlendirme protokolü tarafından belirli bir hedefe en iyi yolu hesaplamak için kullanılır. Daha düşük bir yönlendirme metriği, daha yüksek öncelik.
+Bir yönlendirme ölçümü hello arabirimleri ve belirtilen hello veri toohello rota hello ağ geçidi ile ilişkili olduğunu ağlar. Yönlendirme metriği birden çok yol var toohello öğrenir, hedef, verilen hello yönlendirme protokolü toocalculate hello en iyi yolu tooa tarafından kullanılan aynı hedef. Merhaba alt hello yönlendirme ölçüm, hello daha yüksek hello tercih.
 
-Birden çok ağ arabirimleri ve ağ geçitleri kanal trafiği için yapılandırıldıysa, StorSimple bağlamında oyuna içinde arabirimler kullanılan göreli sırayı belirlemek için yönlendirme ölçümleri gelecektir. Yönlendirme ölçümleri kullanıcı tarafından değiştirilemez. Ancak kullanabilirsiniz `Get-HcsRoutingTable` yönlendirme tablosunu (ve ölçümleri), StorSimple Cihazınızda yazdırmak için cmdlet. Get-HcsRoutingTable cmdlet hakkında daha fazla bilgi [sorun giderme StorSimple dağıtım](storsimple-troubleshoot-deployment.md).
+Hello toochannel trafiği birden çok ağ arabirimleri ve ağ geçitleri ise StorSimple bağlamında yapılandırılmış, hello yönlendirme ölçümleri hangi hello arabirimleri kullanılan play toodetermine hello göreli sırasına gelecektir. Merhaba yönlendirme ölçümleri hello kullanıcı tarafından değiştirilemez. Merhaba ancak kullanabilirsiniz `Get-HcsRoutingTable` cmdlet tooprint hello yönlendirme tablosunu (ve ölçümleri), StorSimple Cihazınızda. Get-HcsRoutingTable cmdlet hakkında daha fazla bilgi [sorun giderme StorSimple dağıtım](storsimple-troubleshoot-deployment.md).
 
-Yönlendirme ölçüm algoritmaları StorSimple Cihazınızda çalışan yazılımın sürümüne bağlı olarak farklılık gösterir.
+Ölçüm algoritmaları yönlendirme hello StorSimple Cihazınızda çalıştıran hello yazılımın sürümüne bağlı olarak farklılık gösterir.
 
-**Güncelleştirme 1 önce sürümleri**
+**Önceki tooUpdate 1 serbest bırakır**
 
-Bu güncelleştirme 1 ' 0.1, GA gibi önce yazılım sürümlerini içerir 0.2 veya 0,3 sürüm. Yönlendirme ölçümleri temel sipariş aşağıdaki gibidir:
+Bu yazılım sürümleri önceki tooUpdate 1 hello GA gibi 0.1, 0.2 veya 0.3 sürüm içerir. yönlendirme ölçümleri temel hello sipariş aşağıdaki gibidir:
 
    *Son 10 GbE ağ arabirimi yapılandırılmış > diğer 10 GbE ağ arabirimi > son 1 GbE ağ arabirimi yapılandırılmış > diğer 1 GbE ağ arabirimi*
 
-**Güncelleştirme 1 ve güncelleştirme 2 öncesinde başlatma sürümleri**
+**Başlangıç güncelleştirme 1 ve önceki tooUpdate 2 sürümleri**
 
-Bu, 1, 1.1 ve 1.2 gibi yazılım sürümlerini içerir. Yönlendirme ölçümleri temel sipariş şu şekilde belirlenir:
+Bu, 1, 1.1 ve 1.2 gibi yazılım sürümlerini içerir. yönlendirme ölçümleri temel hello sipariş şu şekilde belirlenir:
 
    *Veri 0 > son 10 GbE ağ arabirimi yapılandırılmış > diğer 10 GbE ağ arabirimi > son 1 GbE ağ arabirimi yapılandırılmış > diğer 1 GbE ağ arabirimi*
 
-   Veri 0 yönlendirme ölçüsü güncelleştirme 1'de yapılan düşük; Bu nedenle, tüm bulut-trafik veri 0 yönlendirilir. StorSimple Cihazınızda birden fazla bulut etkin ağ arabiriminin varsa bu not edin.
+   Güncelleştirme 1'de, veri 0 yönlendirme ölçüsü hello hello düşük yapılır; Bu nedenle, tüm hello bulut trafiği veri 0 yönlendirilir. StorSimple Cihazınızda birden fazla bulut etkin ağ arabiriminin varsa bu not edin.
 
 **Güncelleştirme 2'den başlayan sürümleri**
 
-Güncelleştirme 2 ağla ilgili çeşitli iyileştirmeler sahiptir ve yönlendirme ölçümleri değişti. Davranış şu şekilde açıklanabilir.
+Güncelleştirme 2 ağla ilgili çeşitli iyileştirmeler sahiptir ve hello yönlendirme ölçümleri değişti. Merhaba davranışı şu şekilde açıklanabilir.
 
-* Önceden tanımlanmış değerler atanan ağ arabirimlerine.     
-* Bunlar bulut etkin olduğunda çeşitli ağ arabirimleri için atanan değerlerin ya da devre dışı bulut ile ancak yapılandırılmış bir ağ geçidi aşağıda gösterilen örnek bir tabloyu göz önünde bulundurun. Burada atanan değerlerin yalnızca örnek değerler olduğunu unutmayın.
+* Önceden tanımlanmış değerler atanan toonetwork arabirimleri.     
+* Atanan değerlerin toohello ile çeşitli ağ arabirimleri, Bulut-Bulut devre dışı veya etkin ancak yapılandırılmış bir ağ geçidi ile Aşağıda örnek bir tabloyu göz önünde bulundurun. Burada atanan Not hello yalnızca örnek değerler değerlerdir.
 
     | Ağ arabirimi | Bulut etkin | Ağ geçidi ile Bulut devre dışı |
     |-----|---------------|---------------------------|
@@ -148,105 +148,105 @@ Güncelleştirme 2 ağla ilgili çeşitli iyileştirmeler sahiptir ve yönlendir
     | Veri 5  | 6            | 60                       |
 
 
-* Bulut trafiği ağ arabirimleri aracılığıyla yönlendirilir sırası şöyledir:
+* Merhaba bulut trafiği hello ağ arabirimleri aracılığıyla yönlendirilecek hello sırası şöyledir:
   
     *Veri 0 > veri 1 > tarih 2 > veri 3 > veri 4 > veri 5*
   
-    Bu, aşağıdaki örnekte açıklanabilir.
+    Bu örnekte aşağıdaki hello tarafından açıklanabilir.
   
-    StorSimple cihazı iki bulut etkin ağ arabirimleri, veri 0 ve verileri 5 ile göz önünde bulundurun. Veri 1 ile veri 4 Bulut devre dışı ancak yapılandırılmış bir ağ geçidi sahip. Trafik bu aygıt için yönlendirilir sıralaması olacaktır:
+    StorSimple cihazı iki bulut etkin ağ arabirimleri, veri 0 ve verileri 5 ile göz önünde bulundurun. Veri 1 ile veri 4 Bulut devre dışı ancak yapılandırılmış bir ağ geçidi sahip. trafiği için bu cihazı yönlendirilecek hello sıralaması olacaktır:
   
     *Veri 0 (1) > veri 5 (6) > veri 1 (20) > veri 2 (30) > veri 3 (40) > veri 4 (50)*
   
-    *Burada parantez içinde sayılar ilgili yönlendirme ölçümleri gösterir.*
+    *Burada hello sayılar parantez içinde hello ilgili yönlendirme ölçümleri gösterir.*
   
-    Veri 0 başarısız olursa, bulut trafiği veri 5'ten yönlendirilmiş. O veri 0 ve verileri 5 arızalanması durumunda diğer tüm ağ üzerinde yapılandırılmış bir ağ geçidi, bulut trafik verileri 1'den geçer.
-* Bir bulut etkin ağ arabiriminin başarısız olursa, 3 yeniden denemeyi arabirimine bağlamak için bir 30 saniyelik bir gecikme ile olan. Tüm yeniden denemeler başarısız olursa, trafik yönlendirme tablosu tarafından belirlenen şekilde sonraki kullanılabilir bulut etkin arabirimine yönlendirilir. Başarısız tüm bulut etkin ağ arabirimleri, ardından cihaz üzerinden diğer denetleyici (Bu durumda hiçbir reboot) için başarısız olur.
-* Bir iSCSI etkin ağ arabiriminin VIP hatası varsa, 3 yeniden denemeyi 2 saniye gecikmeyle olacaktır. Bu davranış önceki sürümlerden aynı stayed. Tüm iSCSI ağ arabirimleri başarısız olursa, denetleyici yük devretmesi (yeniden başlatma işlemi tarafından accompanied) meydana gelir.
-* VIP başarısız olduğunda bir uyarı da StorSimple Cihazınızda tetiklenir. Daha fazla bilgi için Git [uyarı hızlı başvuru](storsimple-manage-alerts.md).
+    Veri 0 başarısız olursa, hello bulut trafiği veri 5'ten yönlendirilmiş. Veri 0 ve verileri 5 toofail olsaydı bir ağ geçidi diğer tüm ağ üzerinde yapılandırılmış koşuluyla, hello bulut trafik verileri 1'den geçer.
+* Bir bulut etkin ağ arabiriminin başarısız olursa, 3 yeniden denemeyi 30 ikinci gecikme tooconnect toohello arabirimi olan. Tüm hello yeniden deneme başarısız olursa, hello trafiği hello yönlendirme tablosu tarafından belirlenen yönlendirilmiş toohello sonraki kullanılabilir bulut etkin arabirimidir. Tüm bulut etkin Merhaba, ağ arabirimleri başarısız sonra hello aygıt toohello başarısız olur diğer denetleyici (hiçbir yeniden başlatma bu durumda).
+* Bir iSCSI etkin ağ arabiriminin VIP hatası varsa, 3 yeniden denemeyi 2 saniye gecikmeyle olacaktır. Bu davranış stayed aynı hello önceki sürümlerden hello. Tüm hello iSCSI ağ arabirimleri başarısız olursa, denetleyici yük devretmesi (yeniden başlatma işlemi tarafından accompanied) meydana gelir.
+* VIP başarısız olduğunda bir uyarı da StorSimple Cihazınızda tetiklenir. Daha fazla bilgi için çok Git[uyarı hızlı başvuru](storsimple-manage-alerts.md).
 * Yeniden deneme sayısı bakımından iSCSI bulut üzerinden öncelikli olur.
   
-    Aşağıdaki örneği göz önünde bulundurun: A aygıtın iki ağ arabirimin StorSimple, veri 0 ve 1 Data. Veri 0 bulut etkin Data 1 hem bulut iken ve iSCSI etkin. Bu aygıtta diğer ağ arabirimleri, bulut ya da iSCSI için etkinleştirilir.
+    Aşağıdaki örnek hello göz önünde bulundurun: A aygıtın iki ağ arabirimin StorSimple, veri 0 ve 1 Data. Veri 0 bulut etkin Data 1 hem bulut iken ve iSCSI etkin. Bu aygıtta diğer ağ arabirimleri, bulut ya da iSCSI için etkinleştirilir.
   
-    Verilen veri 1 başarısız son iSCSI ağ arabirimi ise, bu diğer denetleyicisinde verileri 1'e bir denetleyici yük devretme kümesinde sonuçlanır.
+    Verilen veri 1 başarısız hello son iSCSI ağ arabirimi ise, bu diğer Denetleyici 1 üzerinde hello denetleyici yük devretme tooData içinde sonuçlanır.
 
 ### <a name="networking-best-practices"></a>Ağ en iyi uygulamalar
-StorSimple çözümünüzün en iyi performans için yukarıdaki ağ gereksinimlerine ek olarak aşağıdaki en iyi yöntemleri uyar:
+Ayrıca ağ gereksinimleri, StorSimple çözümünüzün hello en iyi performans için yukarıdaki toohello Lütfen uyması en iyi uygulamaları izleyerek toohello:
 
-* StorSimple Cihazınızı ayrılmış 40 MB/sn bant genişliği (veya daha fazla) sahip olduğundan emin olun her zaman kullanılabilir. Bu bant genişliği Paylaşılmaması gerektiğini (veya ayırma QoS ilkeleri kullanılarak garanti) diğer uygulamalar ile.
-* Internet ağ bağlantısı her zaman kullanılabilir olduğundan emin olun. Aralıklı ya da güvenilir olmayan Internet bağlantıları doğabilecek, Internet bağlantısı aygıtlar için desteklenmeyen bir yapılandırmada neden olur.
-* Ağ arabirimleri aygıtınızda iSCSI ve bulut erişimi için ayrılmış tarafından iSCSI ve bulut trafiği yalıtabilirsiniz. Daha fazla bilgi için bkz: nasıl yapılır [ağ arabirimleri değiştirme](storsimple-modify-device-config.md#modify-network-interfaces) , StorSimple Cihazınızda.
+* StorSimple Cihazınızı ayrılmış 40 MB/sn bant genişliği (veya daha fazla) sahip olduğundan emin olun her zaman kullanılabilir. Bu bant genişliği Paylaşılmaması gerektiğini (veya ayırma hello QoS ilkeleri kullanarak garanti) diğer uygulamalar ile.
+* Ağ bağlantısı toohello Internet her zaman kullanılabilir olduğundan emin olun. Ne olursa olsun, Internet bağlantısı durumlarıyla ya da güvenilir olmayan Internet bağlantıları toohello aygıtlar, desteklenmeyen bir yapılandırmada neden olur.
+* Ağ arabirimleri aygıtınızda iSCSI ve bulut erişimi için ayrılmış olarak Hello iSCSI ve bulut trafiği yalıtabilirsiniz. Daha fazla bilgi için bkz. nasıl çok[ağ arabirimleri değiştirme](storsimple-modify-device-config.md#modify-network-interfaces) , StorSimple Cihazınızda.
 * Bir bağlantı toplama Denetim Protokolü (LACP) yapılandırması ağ arabirimleri için kullanmayın. Bu desteklenmeyen bir yapılandırmadır.
 
 ## <a name="high-availability-requirements-for-storsimple"></a>StorSimple için yüksek oranda kullanılabilirlik gereksinimleri
-StorSimple çözümünüzle birlikte gelen donanım platformu, veri merkezinizdeki bir yüksek oranda kullanılabilir, hataya dayanıklı bir depolama altyapısı için bir temel sağlayan kullanılabilirliği ve güvenilirliği özelliklere sahiptir. Ancak, gereksinimler ve StorSimple çözümünüzün kullanılabilirliğini sağlamaya yardımcı olmak için uymanız en iyi yöntemler vardır. StorSimple dağıtmadan önce dikkatle bağlı ana bilgisayarlar ve StorSimple cihazı için en iyi yöntemler ve aşağıdaki gereksinimleri gözden geçirin.
+Merhaba StorSimple çözümünüzle birlikte gelen hello donanım platformu, veri merkezinizdeki bir yüksek oranda kullanılabilir, hataya dayanıklı bir depolama altyapısı için bir temel sağlayan kullanılabilirliği ve güvenilirliği özelliklere sahiptir. Ancak, gereksinimler yoktur ve StorSimple çözümünüzün hello kullanılabilirliğini toohelp ile uyumlu olmalıdır en iyi yöntemleri sağlamak. StorSimple dağıtmadan önce gereksinimleri ve hello StorSimple cihazı için en iyi uygulamaları izleyerek ve ana bilgisayarlarda bağlı hello dikkatle gözden geçirin.
 
-İzleme ve StorSimple Cihazınızı donanım bileşenlerinin bakımı hakkında daha fazla bilgi için Git [İzleyicisi donanım bileşenleri ve durumunu StorSimple Yöneticisi hizmetini kullanma](storsimple-monitor-hardware-status.md) ve [StorSimple donanım Bileşen değiştirme](storsimple-hardware-component-replacement.md).
+İzleme ve StorSimple Cihazınızı hello donanım bileşenleri bakımı hakkında daha fazla bilgi için çok Git[hello StorSimple Yöneticisi hizmet toomonitor donanım bileşenleri ve durum kullanma](storsimple-monitor-hardware-status.md) ve [StorSimple donanım bileşeni değiştirme](storsimple-hardware-component-replacement.md).
 
 ### <a name="high-availability-requirements-and-procedures-for-your-storsimple-device"></a>Yüksek oranda kullanılabilirlik gereksinimleri ve StorSimple cihazınız için yordamlar
-Dikkatle StorSimple Cihazınızı yüksek kullanılabilirliğini sağlamak için aşağıdaki bilgileri gözden geçirin.
+Aşağıdaki bilgilerle dikkatle gözden geçirme hello tooensure hello yüksek kullanılabilirliğini StorSimple Cihazınızı.
 
 #### <a name="pcms"></a>PCMs
-StorSimple cihazları yedekli, hot Swap güç ve soğutma modülleri (PCMs) içerir. Her PCM tüm kasa servis sağlamak için yeterli kapasiteye sahiptir. Yüksek kullanılabilirlik sağlamak için her iki PCMs yüklenmesi gerekir.
+StorSimple cihazları yedekli, hot Swap güç ve soğutma modülleri (PCMs) içerir. Her PCM hello tüm kasa için yeterli kapasitesi tooprovide hizmeti vardır. tooensure yüksek kullanılabilirlik, her iki PCMs yüklü olması gerekir.
 
-* Güç kaynağı başarısız olursa kullanılabilirlik sağlamak için farklı güç kaynakları, PCMs bağlayın.
+* Güç kaynağı başarısız olursa, PCMs toodifferent güç kaynakları tooprovide kullanılabilirlik bağlayın.
 * Bir PCM başarısız olursa, yenisini hemen isteyin.
-* Yalnızca değiştirme varsa ve bunu yüklenmeye hazır olduğunda başarısız PCM kaldırın.
-* Her iki PCMs eşzamanlı olarak kaldırmayın. PCM modülü, yedek pil modülü içerir. PCMs her ikisi de kaldırmak pil koruma kapatılmadan neden olacak ve cihaz durumu kaydedilmeyecek. Pil hakkında daha fazla bilgi için Git [yedek pil modülü korumak](storsimple-battery-replacement.md#maintain-the-backup-battery-module).
+* Yalnızca hello değiştirme varsa ve hazır tooinstall olan başarısız bir PCM kaldırırsanız.
+* Her iki PCMs eşzamanlı olarak kaldırmayın. Merhaba PCM modülü hello yedek pil modülü içerir. Her ikisi de kaldırarak Merhaba pil koruma kapatılmadan PCMs sonuçlanır ve hello cihaz durumu kaydedilmeyecek. Merhaba pil hakkında daha fazla bilgi için çok Git[Koru hello yedek pil Modülü](storsimple-battery-replacement.md#maintain-the-backup-battery-module).
 
 #### <a name="controller-modules"></a>Denetleyici modülleri
-StorSimple cihazları yedekli, hot Swap denetleyicisi modülleri içerir. Denetleyici modülleri bir etkin/pasif şekilde çalışır. Herhangi bir anda belirli bir denetleyici modülü etkin ve bir Denetleyici Modülü pasif olsa da, ağlardaki hizmet. Pasif denetleyiciyi modülü açık olduğundan ve etkin Denetleyici Modülü hata verirse veya işlemsel duruma kaldırıldı. Her Denetleyici Modülü tüm kasa servis sağlamak için yeterli kapasiteye sahiptir. Yüksek kullanılabilirlik sağlamak için her iki denetleyicisi modülleri yüklenmesi gerekir.
+StorSimple cihazları yedekli, hot Swap denetleyicisi modülleri içerir. Merhaba denetleyicisi modülleri bir etkin/pasif şekilde çalışır. Herhangi bir anda belirli bir Denetleyici Modülü etkindir ve hizmet sağlama, başlangıç sırasında diğer Denetleyici Modülü pasif. Merhaba pasif denetleyiciyi modülü açık olduğundan ve hello etkin Denetleyici Modülü hata verirse veya işlemsel duruma kaldırıldı. Her Denetleyici Modülü hello tüm kasa için yeterli kapasitesi tooprovide hizmeti vardır. Her iki denetleyicisi modülleri yüklü tooensure yüksek oranda kullanılabilir olması gerekir.
 
 * Her iki denetleyicisi modülleri her zaman yüklü olduğundan emin olun.
 * Bir Denetleyici Modülü başarısız olursa, yenisini hemen isteyin.
-* Yalnızca değiştirme varsa ve bunu yüklenmeye hazır olduğunda başarısız Denetleyici Modülü kaldırın. Uzun süreler hava akışı etkiler için bir modül kaldırma ve bu nedenle sistem soğutma.
-* Ağ bağlantıları hem denetleyicisi modüllerle aynıdır ve aynı ağ yapılandırması bağlı ağ arabirimine sahip emin olun.
-* Denetleyici Modülü başarısız veya değiştirilmesi gerekiyorsa, başarısız olan Denetleyici Modülü değiştirmeden önce bir denetleyici modülü etkin durumda olduğundan emin olun. Bir denetleyici etkin olduğunu doğrulamak için şu adrese gidin [Cihazınızı etkin denetleyicisinde tanımlamak](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
-* Her iki denetleyicisi modülleri aynı anda kaldırmayın. Denetleyici yük devretme işlemi devam ediyor, etmeyin bekleme Denetleyici Modülü kapatın veya kasanın kaldırın.
+* Yalnızca hello değiştirme varsa ve hazır tooinstall olan başarısız Denetleyici Modülü kaldırırsanız. Bir modül uzun süreler kaldırma hello hava akışı etkileyebilir ve bu nedenle hello sistemi soğutma hello.
+* Merhaba ağ bağlantıları tooboth denetleyicisi modülleri özdeş ve hello bağlı ağ arabirimine sahip bir aynı ağ yapılandırması emin olun.
+* Denetleyici Modülü başarısız veya değiştirilmesi gerekiyorsa, o hello emin olun hello başarısız Denetleyici Modülü değiştirmeden önce diğer denetleyici modülü etkin durumda değil. bir denetleyici etkin olduğunu tooverify Git çok[tanımla hello etkin denetleyicisinde Cihazınızı](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
+* Her iki denetleyicisi modüller hello kaldırmayın aynı anda. Denetleyici yük devretme işlemi devam ediyor, etmeyin hello bekleme Denetleyici Modülü kapatın veya hello kasa kaldırın.
 * Denetleyici yük devretme sonrasında, her iki Denetleyici Modülü kaldırmadan önce en az beş dakika bekleyin.
 
 #### <a name="network-interfaces"></a>Ağ arabirimleri
 StorSimple cihaz denetleyicisi modülleri her olan dört 1 Gigabit ve iki 10 Gigabit Ethernet ağ arabirimleri.
 
-* Ağ bağlantıları hem denetleyicisi modüllerle aynıdır ve aynı ağ yapılandırmasına sahip olmak üzere bu Denetleyici Modülü arabirimler bağlı ağ arabirimleri emin olun.
-* Mümkün olduğunda, bir ağ aygıtı hatası durumunda hizmet kullanılabilirliğini sağlamak için farklı anahtarlar arasındaki ağ bağlantıları'nı dağıtın.
-* Yalnızca ya da son kalan iSCSI etkin arabirimi (atanan IP) ile çıkarırken varsa arabirimi önce devre dışı bırakın ve kablolarını çıkarın. Ardından arabirimi ilk takılı ise, pasif denetleyiciyi üzerinden vermesine etkin denetleyicisi neden olur. Pasif denetleyiciyi de takılı karşılık gelen arabirimlerinden varsa, ardından iki denetleyiciye de birden çok kez bir denetleyicisinde şekilde önce yeniden başlatılır.
-* En az iki veri arabirimleri her denetleyici modülünden ağına bağlayın.
-* İki etkinleştirilirse, 10 GbE arabirimleri farklı anahtarlara kullananlar dağıtın.
-* Mümkün olduğunda, MPIO sunucularda sunucuları bağlantı, ağ veya arabirim hatalarına dayanabileceğinden emin olmak için kullanın.
+* Merhaba ağ bağlantıları tooboth denetleyicisi modülleri özdeş ve hello Denetleyici Modülü arabirimler bağlı toohave aynı ağ yapılandırması olduğunu hello ağ arabirimleri emin olun.
+* Mümkün olduğunda, farklı anahtarlara tooensure hizmet kullanılabilirliği hello olay bir ağ aygıtı hatanın üzerinden ağ bağlantıları dağıtın.
+* Yalnızca başlangıç ya da hello son kalan çıkarırken varsa iSCSI etkin arabirimiyle (IP) atanan, hello arabirimi önce devre dışı bırakın ve hello kabloları çıkarın. Ardından Hello arabirimi ilk takılı ise, onu hello active denetleyicisi toofail toohello pasif denetleyiciyi neden olur. Hello pasif denetleyiciyi de takılı karşılık gelen arabirimlerinden varsa, daha sonra hem hello denetleyicileri birden çok kez bir denetleyicisinde şekilde önce yeniden başlatılır.
+* En az iki veri arabirimleri toohello ağ her denetleyici modülünden bağlayın.
+* Merhaba iki 10 GbE arabirimleri etkinleştirilirse, farklı anahtarlara kullananlar dağıtın.
+* Mümkün olduğunda, MPIO hello sunucuları bağlantı, ağ veya arabirim hatalarına dayanabileceğinden sunucuları tooensure üzerinde kullanın.
 
-Cihazınız yüksek kullanılabilirlik ve performans için ağ hakkında daha fazla bilgi için Git [StorSimple 8100 cihazınız yüklemek](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) veya [StorSimple 8600 model Cihazınızı yüklemek](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
+Cihazınız yüksek kullanılabilirlik ve performans için ağ hakkında daha fazla bilgi için çok Git[StorSimple 8100 cihazınız yüklemek](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) veya [StorSimple 8600 model Cihazınızı yüklemek](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
 
 #### <a name="ssds-and-hdds"></a>SSD ve HDD
-Kullanılarak korunan sabit disk sürücülerinin (HDD'ler) alanları yansıtılmış ve katı hal diskleri (SSD'ler) StorSimple cihazları içerir. Yansıtılmış alanlardaki kullanımını cihaz bir veya daha fazla SSD veya de HDD hatasını tolere mümkün olmasını sağlar.
+Kullanılarak korunan sabit disk sürücülerinin (HDD'ler) alanları yansıtılmış ve katı hal diskleri (SSD'ler) StorSimple cihazları içerir. Yansıtılmış alanlardaki kullanımını hello aygıt mümkün tootolerate hello hatası veya bir veya daha fazla SSD HDD sağlar.
 
 * Tüm SSD ve HDD modülleri yüklü olduğundan emin olun.
 * Bir SSD veya HDD başarısız olursa, yenisini hemen isteyin.
-* Bir SSD veya HDD başarısız veya değiştirilmesi gerekiyorsa, yalnızca SSD veya değiştirme gerektirir HDD kaldırdığınızdan emin olun.
-* Herhangi bir noktada sisteminden birden fazla SSD veya HDD zamanında kaldırmayın.
+* Bir SSD veya HDD başarısız veya değiştirilmesi gerekiyorsa, yalnızca hello SSD ya da değiştirme gerektirir HDD kaldırdığınızdan emin olun.
+* Herhangi bir noktada hello sisteminden birden fazla SSD veya HDD zamanında kaldırmayın.
   2 veya daha fazla disk (HDD, SSD), belirli türde bir hata veya kısa süre içinde art arda başarısız sistemi arızası ve olası veri kaybına neden olabilir. Bu gerçekleşirse, [Microsoft Support başvurun](storsimple-contact-microsoft-support.md) Yardım için.
-* Değiştirme sırasında izlemek **donanım durumu** içinde **Bakım** SSD ve HDD sürücüleri için sayfa. Yeşil onay durumu disklerde iyi ya da Tamam, kırmızı bir ünlem işaret ise bir başarısız SSD veya HDD gösterir gösterir.
-* Bir sistem hatası durumunda korumak için gereken tüm birimler için bulut anlık görüntüleri yapılandırmanızı öneririz.
+* Merhaba değiştirme sırasında izlemek **donanım durumu** hello içinde **Bakım** hello hello SSD ve HDD sürücülerini sayfası. Yeşil onay durumu hello disklerde iyi ya da Tamam, kırmızı bir ünlem işaret ise bir başarısız SSD veya HDD gösterir gösterir.
+* Bir sistem hatası durumunda tooprotect gereken tüm birimler için bulut anlık görüntüleri yapılandırmanızı öneririz.
 
 #### <a name="ebod-enclosure"></a>EBOD muhafazası
-StorSimple cihaz modeli 8600 genişletilmiş demet, diskleri (EBOD) kasası birincil muhafaza yanı sıra içerir. Kullanılarak korunan sabit disk sürücülerinin (HDD'ler) alanları yansıtılmış ve bir EBOD EBOD denetleyicisi içerir. Yansıtılmış alanlardaki kullanımını cihaz bir veya daha fazla HDD hatasını tolere mümkün olmasını sağlar. EBOD muhafazası yedek SAS kabloları birincil Motoru'nu bağlı.
+StorSimple cihaz modeli 8600 genişletilmiş demet, diskleri (EBOD) kasası ayrıca toohello birincil muhafazada içerir. Kullanılarak korunan sabit disk sürücülerinin (HDD'ler) alanları yansıtılmış ve bir EBOD EBOD denetleyicisi içerir. Yansıtılmış alanlardaki kullanımını hello cihaz bir veya daha fazla HDD mümkün tootolerate hello başarısızlığını sağlar. Merhaba EBOD muhafazası bağlı toohello birincil yedek SAS kabloları Motoru'nu ' dir.
 
-* Olduğundan emin olun hem EBOD muhafazası denetleyicisi modülleri hem SAS kabloları ve tüm sabit disk sürücülerinin her zaman yüklenir.
+* Olduğundan emin olun hem EBOD muhafazası denetleyicisi modülleri SAS kabloları hem tüm hello sabit disk sürücülerinin her zaman yüklenir.
 * EBOD muhafazası Denetleyici Modülü başarısız olursa, yenisini hemen isteyin.
-* EBOD muhafazası Denetleyici Modülü başarısız olursa, başarısız modülü değiştirmeden önce bir denetleyici modülü etkin olduğundan emin olun. Bir denetleyici etkin olduğunu doğrulamak için şu adrese gidin [Cihazınızı etkin denetleyicisinde tanımlamak](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
-* Sürekli bir EBOD denetleyicisi modülü değiştirme sırasında erişerek StorSimple Yöneticisi hizmeti bileşeni'nin durumunu izlemek **Bakım** > **donanım durum**.
-* Bir SAS kablosu başarısız veya değiştirme (Microsoft Support böyle bir belirlenmesi için söz konusu) gerekiyorsa, değiştirme gerektiren SAS kablosu kaldırdığınızdan emin olun.
-* Aynı anda iki SAS kabloları herhangi bir noktada sisteminden zamanında kaldırmayın.
+* EBOD muhafazası Denetleyici Modülü başarısız olursa, o hello emin olun hello başarısız modülü değiştirmeden önce diğer Denetleyici Modülü etkindir. bir denetleyici etkin olduğunu tooverify Git çok[tanımla hello etkin denetleyicisinde Cihazınızı](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device).
+* Sürekli bir EBOD denetleyicisi modülü değiştirme sırasında erişerek hello StorSimple Yöneticisi hizmeti hello bileşeninde hello durumunu izleme **Bakım** > **donanım durum**.
+* Bir SAS kablosu başarısız veya değiştirme (Microsoft Support söz konusu toomake bir tür belirleme olmalıdır) gerekiyorsa, değiştirme gerektiren hello SAS kablosu kaldırdığınızdan emin olun.
+* Aynı anda iki SAS kabloları herhangi bir noktada hello sisteminden zamanında kaldırmayın.
 
 ### <a name="high-availability-recommendations-for-your-host-computers"></a>Ana bilgisayarlar için yüksek kullanılabilirlik önerileri
-StorSimple Cihazınızı bağlı konaklar yüksek kullanılabilirliğini sağlamak için bu en iyi uygulamaları dikkatle gözden geçirin.
+Bu en iyi yöntemler tooensure hello yüksek kullanılabilirliğini konakları bağlı tooyour StorSimple cihazı dikkatle gözden geçirin.
 
-* StorSimple ile yapılandırma [iki düğümlü dosya sunucusu küme yapılandırmaları][1]. Hata ve konak tarafındaki artıklık oluşturmak tek hata noktaları kaldırarak, çözümün tamamında yüksek oranda kullanılabilir hale gelir.
-* Kullanılabilir paylaşımları sürekli olarak (CA) kullanılabilir depolama alanı denetleyicileri yük devretme sırasında yüksek kullanılabilirlik için Windows Server 2012 (SMB 3.0) kullanın. Dosya sunucusu kümesi ve kullanılabilir paylaşımları sürekli olarak Windows Server 2012 ile yapılandırmak için ek bilgi için bu başvuru [video demo](http://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares).
+* StorSimple ile yapılandırma [iki düğümlü dosya sunucusu küme yapılandırmaları][1]. Hata ve artıklık hello konak tarafındaki oluşturma tek hata noktaları kaldırarak, çözümün tamamında hello yüksek oranda kullanılabilir hale gelir.
+* Kullanılabilir paylaşımları sürekli olarak (CA) kullanılabilir hello depolama alanı denetleyicileri yük devretme sırasında yüksek kullanılabilirlik için Windows Server 2012 (SMB 3.0) kullanın. Dosya sunucusu kümesi ve kullanılabilir paylaşımları sürekli olarak Windows Server 2012 ile yapılandırmak için ek bilgi için toothis başvurun [video demo](http://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [StorSimple sistemi sınırları hakkında bilgi almak](storsimple-limits.md).
-* [StorSimple çözümünüzün dağıtmayı öğrenin](storsimple-deployment-walkthrough-u2.md).
+* [Bilgi nasıl toodeploy StorSimple çözümünüzün](storsimple-deployment-walkthrough-u2.md).
 
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx

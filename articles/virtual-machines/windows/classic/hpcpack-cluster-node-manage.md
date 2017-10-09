@@ -1,6 +1,6 @@
 ---
-title: "HPC Pack küme bilgi işlem düğümleri yönetme | Microsoft Docs"
-description: "Ekle, Kaldır, başlatmak ve HPC Pack 2012 R2 küme işlem düğümlerine Azure durdurmak için PowerShell komut dosyası araçları hakkında bilgi edinin"
+title: "işlem düğümleri aaaManage HPC Pack kümesi | Microsoft Docs"
+description: "PowerShell komut dosyası araçları tooadd, Kaldır, başlangıç hakkında bilgi edinin ve HPC Pack 2012 R2 küme işlem düğümlerine Azure Durdur"
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
@@ -15,40 +15,40 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: dc9f354191b9e80ff6a01bd401a874c6998bda79
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5ac1142cc5da984020779434fbb7cba5ad7c14bc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="manage-the-number-and-availability-of-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Azure’da bir HPC Pack kümesindeki işlem düğümlerinin sayısını ve kullanılabilirliğini yönetme
-Azure Vm'lerinde bir HPC Pack 2012 R2 kümesi oluşturduysanız, kolayca eklemek, kaldırmak, (sağlayamaz) Başlat veya Durdur (deprovision) yolları isteyebilirsiniz bazı kümedeki düğüm Vm'lerle işlem. Bu görevleri gerçekleştirmek için VM baş düğümünde yüklü olan Azure PowerShell betikleri çalıştırın. Bu komut dosyaları sayısı ve HPC paketi küme kaynaklarınızın kullanılabilirliğini maliyetleri denetimi denetlemenize yardımcı.
+# <a name="manage-hello-number-and-availability-of-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Merhaba numarası ve Azure HPC Pack kümede işlem düğümlerine kullanılabilirliğini yönetme
+Azure Vm'lerinde bir HPC Pack 2012 R2 kümesi oluşturduysanız, küme düğümü Vm'lerde tooeasily ekleyin, kaldırın, (sağlayamaz) Başlat veya (deprovision) bazı Durdur yolları işlem isteyebilirsiniz. Bu görevleri toodo hello baş düğümünde VM yüklü olan Azure PowerShell komut dosyalarını çalıştır. Bu maliyetleri denetimi hello numarası ve HPC paketi küme kaynaklarınızın kullanılabilirliğini denetlemenize yardımcı olur komutlar.
 
 > [!IMPORTANT] 
-> Bu makale, yalnızca Azure Klasik dağıtım modeli kullanılarak oluşturulan kümelerde HPC Pack 2012 R2 için geçerlidir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir.
-> Ayrıca, bu makalede açıklanan PowerShell betikleri HPC Pack 2016'da kullanılabilir değildir.
+> Bu makale yalnızca tooHPC Pack 2012 R2 kümeleri hello Klasik dağıtım modeli kullanılarak oluşturulmuş Azure içinde geçerlidir. Microsoft, en yeni dağıtımların hello Resource Manager modelini kullanmasını önerir.
+> Ayrıca, bu makalede açıklanan hello PowerShell betikleri HPC Pack 2016'da kullanılabilir değildir.
 
 ## <a name="prerequisites"></a>Ön koşullar
-* **Azure VM'de HPC Pack 2012 R2 küme**: Klasik dağıtım modelinde bir HPC Pack 2012 R2 kümesi oluşturun. Örneğin, Azure Marketi ve bir Azure PowerShell Betiği HPC Pack 2012 R2 VM görüntüsünü kullanarak dağıtım otomatikleştirebilirsiniz. Bilgi ve Önkoşullar için bkz: [HPC Kümesi ile HPC Pack Iaas dağıtım komut dosyası oluşturma](hpcpack-cluster-powershell-script.md).
+* **Azure VM'de HPC Pack 2012 R2 küme**: hello Klasik dağıtım modelinde bir HPC Pack 2012 R2 kümesi oluşturun. Örneğin, hello dağıtım hello Azure Marketi hello HPC Pack 2012 R2 VM görüntüsünde ve bir Azure PowerShell komut dosyası kullanarak otomatikleştirebilirsiniz. Bilgi ve Önkoşullar için bkz: [hello HPC Pack Iaas dağıtım betiği ile bir HPC kümesi oluşturma](hpcpack-cluster-powershell-script.md).
   
-    Dağıtımdan sonra düğümü yönetim komut dosyaları % CCP bulun\_giriş % bin klasörü baş düğüm. Her komut dosyalarının, yönetici olarak çalıştırın.
-* **Azure yayımlama ayarları dosyası veya yönetim sertifikası**: baş düğüm aşağıdakilerden birini yapmanız gerekir:
+    Dağıtımdan sonra hello düğümü yönetim komut dosyaları hello % CCP bulur\_giriş % bin klasörü hello baş düğüm üzerinde. Her hello komut dosyalarının, yönetici olarak çalıştırın.
+* **Azure yayımlama ayarları dosyası veya yönetim sertifikası**: toodo hello aşağıdakilerden birini hello baş düğümünde gerekir:
   
-  * **Yayımlama ayarları dosyasını içeri aktar Azure**. Bunu yapmak için baş düğümünde aşağıdaki Azure PowerShell cmdlet'lerini çalıştırın:
+  * **İçeri aktarma hello Azure yayımlama ayarları dosyası**. toodo hello baş düğümünde Azure PowerShell cmdlet'lerini aşağıdaki Bu, çalışma hello:
     
     ```PowerShell
     Get-AzurePublishSettingsFile
     
     Import-AzurePublishSettingsFile –PublishSettingsFile <publish settings file>
     ```
-  * **Azure yönetim sertifikası baş düğümünde yapılandırma**. .Cer dosyanız varsa, CurrentUser\My sertifika deposuna içeri aktarın ve ardından Azure ortamınıza (AzureCloud veya AzureChinaCloud) için aşağıdaki Azure PowerShell cmdlet'ini çalıştırın:
+  * **Merhaba baş düğümünde Hello Azure yönetim sertifikası yapılandırma**. Merhaba .cer dosyanız varsa, hello CurrentUser\My sertifika deposuna içeri aktarın ve ardından Azure ortamınıza (AzureCloud veya AzureChinaCloud) için Azure PowerShell cmdlet'i aşağıdaki hello çalıştırın:
     
     ```PowerShell
     Set-AzureSubscription -SubscriptionName <Sub Name> -SubscriptionId <Sub ID> -Certificate (Get-Item Cert:\CurrentUser\My\<Cert Thrumbprint>) -Environment <AzureCloud | AzureChinaCloud>
     ```
 
 ## <a name="add-compute-node-vms"></a>İşlem düğümü sanal makineleri ekleyin
-İşlem düğümleri eklemek **Ekle HpcIaaSNode.ps1** komut dosyası.
+İşlem düğümleri hello ile ekleme **Ekle HpcIaaSNode.ps1** komut dosyası.
 
 ### <a name="syntax"></a>Sözdizimi
 ```PowerShell
@@ -58,20 +58,20 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 
 ```
 ### <a name="parameters"></a>Parametreler
-* **ServiceName**: yeni düğümü VM'ler işlem bulut hizmeti adını eklenir.
-* **Görüntü adı**: Klasik Azure portalında veya Azure PowerShell cmdlet'i aracılığıyla alınabilir Azure VM görüntü adı **Get-AzureVMImage**. Görüntünün aşağıdaki gereksinimleri karşılamalıdır:
+* **ServiceName**: yeni düğümü VM'ler işlem hello bulut hizmeti adını eklenir.
+* **Görüntü adı**: hello Azure Klasik portalında veya Azure PowerShell cmdlet'i aracılığıyla alınabilir Azure VM görüntü adı **Get-AzureVMImage**. Hello görüntü hello aşağıdaki gereksinimleri karşılamalıdır:
   
   1. Bir Windows işletim sistemi yüklenmelidir.
-  2. HPC Pack ise bilgi işlem düğümü rolü yüklü olmalıdır.
-  3. Görüntüyü özel görüntü kullanıcı kategori, ortak bir Azure VM görüntüsü değil olmalıdır.
-* **Miktar**: işlem düğümü sanal makinelerin eklenmesi sayısı.
-* **InstanceSize**: işlem düğümü VM'ler boyutu.
-* **DomainUserName**: yeni VM'ler etki alanına katılmak için kullanılan etki alanı kullanıcı adı.
-* **DomainUserPassword**: etki alanı kullanıcı parolası.
-* **NodeNameSeries** (isteğe bağlı): işlem düğümlerini için desen adlandırma. Biçimi olmalıdır &lt; *kök\_adı*&gt;&lt;*Başlat\_numarası*&gt;%. Örneğin, MyCN11 başlayan işlem düğümü adları dizi bir MyCN % %10 anlamına gelir. Belirtilmezse, betik HPC küme serisinde adlandırma yapılandırılan düğüm kullanır.
+  2. HPC Pack Merhaba bilgi işlem düğümü rolü yüklü olmalıdır.
+  3. Merhaba görüntü hello kullanıcı kategorisi, ortak bir Azure VM görüntüsü değil, özel bir görüntü olması gerekir.
+* **Miktar**: işlem düğümü VM'ler toobe eklenen sayısı.
+* **InstanceSize**: hello boyutunu işlem düğümü VM'ler.
+* **DomainUserName**: kullanılan toojoin hello yeni VM'ler toohello etki alanında etki alanı kullanıcı adı.
+* **DomainUserPassword**: hello etki alanı kullanıcı parolası.
+* **NodeNameSeries** (isteğe bağlı): deseni Merhaba işlem düğümleri adlandırma. Merhaba biçiminde olmalıdır &lt; *kök\_adı*&gt;&lt;*Başlat\_numarası*&gt;%. Örneğin, MyCN11 başlangıç düğümü adlarını MyCN % %10 anlamına gelir hello bir dizi işlem. Belirtilmezse, hello komut dosyası kullanan hello düğümü adlandırma serisi hello HPC kümede yapılandırılmış.
 
 ### <a name="example"></a>Örnek
-Aşağıdaki örnek, bulut hizmeti 20 boyutu büyük işlem düğümü VM'ler ekler *hpcservice1*bağlı olarak VM görüntüsü *hpccnimage1*.
+Merhaba aşağıdaki örnek 20 boyutu büyük işlem düğümü VM'ler hello bulut hizmetinde, *hpcservice1*bağlı hello VM görüntüsü olarak *hpccnimage1*.
 
 ```PowerShell
 Add-HPCIaaSNode.ps1 –ServiceName hpcservice1 –ImageName hpccniamge1
@@ -81,7 +81,7 @@ Add-HPCIaaSNode.ps1 –ServiceName hpcservice1 –ImageName hpccniamge1
 
 
 ## <a name="remove-compute-node-vms"></a>İşlem düğümü VM'ler Kaldır
-İşlem düğümleri kaldırma **Kaldır HpcIaaSNode.ps1** komut dosyası.
+İşlem düğümleri hello ile Kaldır **Kaldır HpcIaaSNode.ps1** komut dosyası.
 
 ### <a name="syntax"></a>Sözdizimi
 ```PowerShell
@@ -91,22 +91,22 @@ Remove-HPCIaaSNode.ps1 -Node <Object> [-DeleteVHD] [-Force] [-Confirm] [<CommonP
 ```
 
 ### <a name="parameters"></a>Parametreler
-* **Ad**: küme düğümlerinin adlarını kaldırılacak. Joker karakterleri desteklenir. Parametre kümesi adı adıdır. Her ikisini birden belirtemezsiniz **adı** ve **düğümü** parametreleri.
-* **Düğüm**: HpcNode nesne HPC PowerShell cmdlet'i alınabilir kaldırılacak, düğümler için [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). Parametre kümesi adı düğümdür. Her ikisini birden belirtemezsiniz **adı** ve **düğümü** parametreleri.
-* **DeleteVHD** (isteğe bağlı): kaldırılır VM'ler için ilişkili diskler silmek için ayarı.
-* **Zorla** (isteğe bağlı): kaldırmadan önce çevrimdışı HPC düğümleri zorlamak için ayarı.
-* **Onayla** (isteğe bağlı): komutu çalıştırmadan önce onaylamanız için komut istemi.
-* **WhatIf**: komutu çalıştırmadan komut çalıştırıldığında ne olacağını açıklamak için ayarı.
+* **Ad**: küme düğümleri toobe adlarını kaldırıldı. Joker karakterleri desteklenir. Merhaba parametre kümesi adı adıdır. Her iki hello belirtemezsiniz **adı** ve **düğümü** parametreleri.
+* **Düğüm**: hello HPC PowerShell cmdlet'i alınabilir hello HpcNode nesne kaldırılmış hello düğümleri toobe için [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). Merhaba parametre kümesi adı düğümdür. Her iki hello belirtemezsiniz **adı** ve **düğümü** parametreleri.
+* **DeleteVHD** (isteğe bağlı): toodelete ilişkili hello diskler hello kaldırılır VM'ler için ayarlama.
+* **Zorla** (isteğe bağlı): kaldırmadan önce çevrimdışı HPC düğümleri tooforce ayarlama.
+* **Onayla** (isteğe bağlı): hello komutu çalıştırmadan önce onaylamanız için komut istemi.
+* **WhatIf**: toodescribe ne ayarı durum hello komutu çalıştırmadan hello komut yürütülürse.
 
 ### <a name="example"></a>Örnek
-Aşağıdaki örnek düğümleri başlayan adlarla çevrimdışı zorlar *HPCNode-CN -* düğümleri ve bunların ilişkili diskler kaldırır.
+Merhaba aşağıdaki örnek çevrimdışı hello düğümleri başlayan adlarla zorlar *HPCNode-CN -* hello düğümler ve bunların ilişkili diskler kaldırır.
 
 ```PowerShell
 Remove-HPCIaaSNode.ps1 –Name HPCNodeCN-* –DeleteVHD -Force
 ```
 
 ## <a name="start-compute-node-vms"></a>İşlem düğümü sanal makineleri Başlat
-Başlangıç işlem düğümleriyle **başlangıç HpcIaaSNode.ps1** komut dosyası.
+Başlangıç işlem düğümlerini hello ile **başlangıç HpcIaaSNode.ps1** komut dosyası.
 
 ### <a name="syntax"></a>Sözdizimi
 ```PowerShell
@@ -115,18 +115,18 @@ Start-HPCIaaSNode.ps1 -Name <String[]> [<CommonParameters>]
 Start-HPCIaaSNode.ps1 -Node <Object> [<CommonParameters>]
 ```
 ### <a name="parameters"></a>Parametreler
-* **Ad**: küme düğümlerinin adlarını başlatılacak. Joker karakterleri desteklenir. Parametre kümesi adı adıdır. Her ikisini birden belirtemezsiniz **adı** ve **düğümü** parametreleri.
-* **Düğüm**-HpcNode nesne HPC PowerShell cmdlet'i alınabilir başlatılacak düğümler için [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). Parametre kümesi adı düğümdür. Her ikisini birden belirtemezsiniz **adı** ve **düğümü** parametreleri.
+* **Ad**: hello küme düğümleri toobe adlarını başlatıldı. Joker karakterleri desteklenir. Merhaba parametre kümesi adı adıdır. Her iki hello belirtemezsiniz **adı** ve **düğümü** parametreleri.
+* **Düğüm**-hello HPC PowerShell cmdlet'i alınabilir hello HpcNode nesne hello düğümleri toobe başlamak için [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). Merhaba parametre kümesi adı düğümdür. Her iki hello belirtemezsiniz **adı** ve **düğümü** parametreleri.
 
 ### <a name="example"></a>Örnek
-Aşağıdaki örnek düğümleri başlayan adlarla başlatır *HPCNode-CN -*.
+Merhaba aşağıdaki örnek düğümleri başlayan adlarla başlatır *HPCNode-CN -*.
 
 ```PowerShell
 Start-HPCIaaSNode.ps1 –Name HPCNodeCN-*
 ```
 
 ## <a name="stop-compute-node-vms"></a>İşlem düğümü VM'ler Durdur
-İşlem düğümleriyle Durdur **Stop-HpcIaaSNode.ps1** komut dosyası.
+İşlem düğümleri hello ile Durdur **Stop-HpcIaaSNode.ps1** komut dosyası.
 
 ### <a name="syntax"></a>Sözdizimi
 ```PowerShell
@@ -136,17 +136,17 @@ Stop-HPCIaaSNode.ps1 -Node <Object> [-Force] [<CommonParameters>]
 ```
 
 ### <a name="parameters"></a>Parametreler
-* **Ad**-durdurulacak küme düğümlerinin adlarını. Joker karakterleri desteklenir. Parametre kümesi adı adıdır. Her ikisini birden belirtemezsiniz **adı** ve **düğümü** parametreleri.
-* **Düğüm**: HpcNode nesne HPC PowerShell cmdlet'i alınabilir durdurulacak düğümler için [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). Parametre kümesi adı düğümdür. Her ikisini birden belirtemezsiniz **adı** ve **düğümü** parametreleri.
-* **Zorla** (isteğe bağlı): durdurmadan önce çevrimdışı HPC düğümleri zorlamak için ayarı.
+* **Ad**-hello küme düğümleri toobe adlarını durduruldu. Joker karakterleri desteklenir. Merhaba parametre kümesi adı adıdır. Her iki hello belirtemezsiniz **adı** ve **düğümü** parametreleri.
+* **Düğüm**: hello HPC PowerShell cmdlet'i alınabilir hello HpcNode nesne durduruldu, hello düğümleri toobe için [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx). Merhaba parametre kümesi adı düğümdür. Her iki hello belirtemezsiniz **adı** ve **düğümü** parametreleri.
+* **Zorla** (isteğe bağlı): durdurmadan önce çevrimdışı HPC düğümleri tooforce ayarlama.
 
 ### <a name="example"></a>Örnek
-Aşağıdaki örnek çevrimdışı düğümleri başlayan adlarla zorlar *HPCNode-CN -* ve ardından düğümler durdurur.
+Merhaba aşağıdaki örnek çevrimdışı düğümleri başlayan adlarla zorlar *HPCNode-CN -* ve ardından düğümler durakları hello.
 
 ```PowerShell
 Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Otomatik olarak büyütür veya küme düğümleri, işler ve görevleri küme üzerinde geçerli iş yükü göre daraltmak için bkz: [otomatik olarak Büyüt ve Azure HPC paketi küme kaynaklarında göre küme iş yükü küçültme](hpcpack-cluster-node-autogrowshrink.md).
+* tooautomatically arttıkça ya da küçültmek hello küme düğümleri, işler ve görevleri hello kümede hello geçerli iş yükü göre bkz: [otomatik olarak Büyüt ve Küçült Azure according toohello küme iş yükühelloHPCpaketikümekaynaklarında](hpcpack-cluster-node-autogrowshrink.md).
 

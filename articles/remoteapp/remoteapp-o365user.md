@@ -1,6 +1,6 @@
 ---
-title: "Azure RemoteApp ile Office 365 kullanıcı hesaplarını kullanma | Microsoft Docs"
-description: "Azure RemoteApp ile my Office 365 kullanıcı hesaplarını kullanmayı öğrenin"
+title: "Office 365 kullanıcı hesapları olan aaaHow toouse Azure RemoteApp | Microsoft Docs"
+description: "Bilgi nasıl toouse Azure RemoteApp my Office 365 kullanıcı hesapları"
 services: remoteapp
 documentationcenter: 
 author: piotrci
@@ -13,41 +13,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: mbaldwin
-ms.openlocfilehash: 1bc8949c236afd03415f961cf7a657d4d3926b07
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: d2dbed2a6838adf9bb0f7508eb7dcecb0a74a62f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-use-azure-remoteapp-with-office-365-user-accounts"></a>Azure RemoteApp ile Office 365 kullanıcı hesaplarını kullanma
+# <a name="how-toouse-azure-remoteapp-with-office-365-user-accounts"></a>Nasıl toouse Azure RemoteApp ile Office 365 kullanıcı hesapları
 > [!IMPORTANT]
-> Azure RemoteApp 31 Ağustos 2017’de kullanımdan kaldırılacaktır. Ayrıntılı bilgi için [duyuruyu](https://go.microsoft.com/fwlink/?linkid=821148) okuyun.
+> Azure RemoteApp 31 Ağustos 2017’de kullanımdan kaldırılacaktır. Okuma hello [duyuru](https://go.microsoft.com/fwlink/?linkid=821148) Ayrıntılar için.
 > 
 > 
 
-Bir Office 365 aboneliğiniz varsa Azure Active kullanıcı adları ve Office 365 hizmetlerine erişmek için kullanılan parolalar depolayan Directory gerekir. Kullanıcılarınız Office 365 ProPlus etkinleştirdiğinizde Örneğin, bunlar için lisans denetlemek için Azure ad kimlik doğrulaması. Müşterilerin çoğu, Azure RemoteApp ile aynı dizinde kullanmak istersiniz.
+Bir Azure Active kullanıcı adlarınız depolayan Directory sahip bir Office 365 aboneliğiniz varsa ve parolaları tooaccess Office 365 hizmetleri kullanılan istiyorsanız. Kullanıcılarınız Office 365 ProPlus etkinleştirdiğinizde Örneğin, Azure AD toocheck lisansları karşı doğrularlar. Müşterilerin çoğu toouse gibi aynı hello Azure RemoteApp ile dizin.
 
-Azure RemoteApp dağıtıyorsanız farklı bir Azure AD ile ilişkili bir Azure aboneliği büyük olasılıkla kullanıyor. Office 365 dizininize kullanabilmeniz için bu dizine Azure aboneliği taşımanız gerekir.
+Azure RemoteApp dağıtıyorsanız farklı bir Azure AD ile ilişkili bir Azure aboneliği büyük olasılıkla kullanıyor. Office 365 dizininize toouse sipariş, toomove hello bu dizine Azure aboneliği gerekir.
 
-Office 365 istemci uygulamaları dağıtma hakkında daha fazla bilgi için bkz: [Azure RemoteApp ile Office 365 aboneliğinizi kullanma](remoteapp-officesubscription.md).
+Konusunda bilgi için bkz: toodeploy Office 365 istemci uygulamaları, [nasıl toouse Azure RemoteApp ile Office 365 aboneliğinize](remoteapp-officesubscription.md).
 
 ## <a name="phase-1-register-your-free-office-365-azure-active-directory-subscription"></a>1. Aşama: ücretsiz, Office 365 Azure Active Directory abonelik kaydı
-Klasik Azure portalını kullanıyorsanız, içindeki adımları kullanın [ücretsiz Azure Active Directory aboneliğinizi kaydetmek](https://technet.microsoft.com/library/dn832618.aspx) Azure Yönetim Portalı aracılığıyla Azure AD yönetim erişmek için. Bu işlem sonucu olarak Azure portalında oturum açın ve Azure RemoteApp ile kullandığınız tam Azure aboneliği farklı bir dizinde olduğundan, çok daha bu noktada görmezsiniz dizininiz var. – bkz yapabiliyor olmanız gerekir.
+Hello Azure Klasik portalı kullanıyorsanız, hello adımlarda kullanın [ücretsiz Azure Active Directory aboneliğinizi kaydetmek](https://technet.microsoft.com/library/dn832618.aspx) hello Azure Yönetim Portalı aracılığıyla tooget yönetimsel erişim tooyour Azure AD. Merhaba bu işlem sonucunda hello Azure portal içine mümkün toolog olması ve hello Azure RemoteApp ile kullandığınız tam Azure aboneliği farklı bir dizinde olduğundan, çok daha bu noktada görmezsiniz dizininiz var. – konusuna bakın.
 
-Bu adımda oluşturduğunuz yönetici hesabının parolasını ve adını anımsamak – Aşama 2'de gerekecektir.
+Merhaba adını ve bu adımda oluşturduğunuz hello yönetici hesabının parolasını anımsamasını – Aşama 2'de gerekecektir.
 
-Azure portalını kullanıyorsanız, kullanıma [kaydetmek ve bir ücretsiz Azure Office 365 portalı kullanarak Active Directory etkinleştirmek nasıl](http://azureblogger.com/2016/01/how-to-register-and-activate-a-free-azure-active-directory-using-office-365-portal/).
+Hello Azure portalını kullanıyorsanız, kullanıma [nasıl tooregister ve bir ücretsiz Azure Office 365 portalı kullanarak Active Directory etkinleştirme](http://azureblogger.com/2016/01/how-to-register-and-activate-a-free-azure-active-directory-using-office-365-portal/).
 
-## <a name="phase-2-change-the-azure-ad-associated-with-your-azure-subscription"></a>2. Aşama: Azure aboneliğinizle ilişkili Azure AD değiştirin.
-1. aşaması biz çalışılan ile Office 365 dizine geçerli dizinden Azure aboneliğinizi değiştirme olacak.
+## <a name="phase-2-change-hello-azure-ad-associated-with-your-azure-subscription"></a>2. Aşama: Değişiklik hello Azure AD, Azure aboneliğinizle ilişkilendirilmiş.
+Biz toochange, Azure aboneliğinizin geçerli dizinden biz Aşama 1'de çalıştığınız hello Office 365 dizine adımıdır.
 
-Bölümünde açıklanan yönergeleri izleyin [Azure remoteapp'te Azure Active Directory kiracısını değiştirme](remoteapp-changetenant.md). Belirli aşağıdaki adımları dikkat edin:
+Açıklanan hello yönergeleri [değişiklik hello Azure Active Directory kiracısı Azure remoteapp'te](remoteapp-changetenant.md). Aşağıdaki adımları özellikle dikkat toohello ödeme:
 
 * #1. adım: Bu abonelikte Azure RemoteApp (ARA) dağıttıysanız, Azure AD kullanıcı hesaplarının tümünü tüm ARA koleksiyonlarından ilk olarak, başka bir şey denemeden önce kaldırdığınız emin olun. Alternatif olarak, var olan tüm koleksiyonlar silme düşünebilirsiniz.
-* #2. adım: Bu önemli bir adımdır. Bir Microsoft hesabı kullanmanız gerekir (örneğin @outlook.com) herhangi bir kullanıcı hesabı için abonelik – bağlı mevcut Azure AD'den sahip olamaz; abonelikte Hizmet Yöneticisi olarak bu çünkü bunu biz farklı bir Azure AD ile taşımak mümkün olmayacaktır.
-* #4. adım: varolan bir dizin eklerken, sistem dizin için Yönetici hesabınızla oturum açmak için istenir. 1. aşaması yönetici hesabından kullandığınızdan emin olun.
-* #5. adım: Office 365 dizininize aboneliğin üst dizini değiştirin. Sonuç olmalıdır ayarları altında Office 365 dizini aboneliğinizi listeler abonelikleri ->. 
-  ![Aboneliğin üst dizini değiştirin](./media/remoteapp-o365user/settings.png)
+* #2. adım: Bu önemli bir adımdır. Toouse bir Microsoft hesabı gerekir (örneğin @outlook.com) hello bunu Azure AD bağlı toohello abonelik – var olan tüm kullanıcı hesaplarının sahip olamaz olarak bir Hizmet Yöneticisi hello abonelikte; Bunun nedeni biz mümkün toomove olmayacaktır, tooa farklı Azure AD.
+* #4. adım: varolan bir dizin eklerken hello sistem toosign hello yönetici hesabıyla oturum dizin için istenir. Aşama 1'den emin toouse hello yönetici hesabı olun.
+* #5. adım: hello abonelik tooyour Office 365 dizininin hello üst dizini değiştirin. Merhaba sonuç olmalıdır ayarları altında aboneliğinizi hello Office 365 dizini listeler abonelikleri ->. 
+  ![Merhaba aboneliğin Hello üst dizini değiştirin](./media/remoteapp-o365user/settings.png)
 
-Bu noktada Azure RemoteApp aboneliğiniz, Office 365 Azure AD ile ilişkili değil; Azure RemoteApp ile mevcut Office 365 kullanıcı hesaplarını kullanabilirsiniz!
+Bu noktada Azure RemoteApp aboneliğiniz, Office 365 Azure AD ile ilişkili değil; Azure RemoteApp ile Merhaba mevcut Office 365 kullanıcı hesaplarını kullanabilirsiniz!
 

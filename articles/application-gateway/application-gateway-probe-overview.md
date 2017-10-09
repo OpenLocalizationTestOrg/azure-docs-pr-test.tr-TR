@@ -1,6 +1,6 @@
 ---
-title: "Azure uygulama ağ geçidi için genel bakış izleme sistem durumu | Microsoft Docs"
-description: "Azure uygulama ağ geçidi izleme özellikleri hakkında bilgi edinin"
+title: "Azure uygulama ağ geçidi için genel bakış izleme aaaHealth | Microsoft Docs"
+description: "Azure uygulama ağ geçidi özelliklerinde izleme hello hakkında bilgi edinin"
 services: application-gateway
 documentationcenter: na
 author: georgewallace
@@ -15,30 +15,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2016
 ms.author: gwallace
-ms.openlocfilehash: 899115d213e626f17e58c2e5f01313f760f9e7f4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 5091d80394a354ff849ce7ccee8cc9d2fd0456db
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Uygulama ağ geçidi sistem durumu izlemeye genel bakış
 
-Varsayılan olarak Azure uygulama ağ geçidi arka uç havuzundaki tüm kaynakların durumunu izler ve herhangi bir kaynak havuzundan sağlıksız kabul otomatik olarak kaldırır. Uygulama ağ geçidi düzgün çalışmayan örnekleri izlemek devam eder ve kullanılabilir hale gelir ve sistem durumu araştırmalarının yanıt sonra bunları sağlıklı arka uç havuzuna ekler. Uygulama ağ geçidi arka uç HTTP Ayarları'nda tanımlanan aynı bağlantı noktası ile sistem durumu araştırmalarının gönderir. Bu yapılandırma, araştırma müşteriler arka ucuna bağlanmak için kullanılmasını aynı bağlantı noktasını test ediyor sağlar.
+Varsayılan olarak Azure uygulama ağ geçidi arka uç havuzundaki tüm kaynakları hello durumunu izler ve hello havuzundan sağlıksız kabul herhangi bir kaynağa otomatik olarak kaldırır. Uygulama ağ geçidi toomonitor hello sağlıksız örnekleri devam eder ve bunları ekler kullanılabilir durumda olduklarında ve yanıt toohealth yoklamaları sonra toohello sağlıklı arka uç havuzu yedekleyin. Uygulama ağ geçidi hello sistem durumu araştırmalarının hello ile Merhaba arka uç HTTP Ayarları'nda tanımlanan aynı bağlantı noktasını gönderir. Bu yapılandırma bu hello araştırma müşteriler tooconnect toohello arka uç kullanarak, aynı bağlantı noktası hello sınama sağlar.
 
 ![Uygulama ağ geçidi araştırma örneği][1]
 
-Varsayılan araştırma sistem durumu izleme kullanmanın yanı sıra, uygulamanızın gereksinimlerine uyacak şekilde durumu araştırması de özelleştirebilirsiniz. Bu makalede, hem varsayılan hem de özel sistem durumu araştırmalarının ele alınmıştır.
+Toplama toousing varsayılan durumu araştırma izleme, uygulamanızın gereksinimleri hello sistem durumu araştırma toosuit de özelleştirebilirsiniz. Bu makalede, hem varsayılan hem de özel sistem durumu araştırmalarının ele alınmıştır.
 
 > [!NOTE]
-> Uygulama ağ geçidi alt ağı üzerinde bir NSG varsa, bağlantı noktası aralıkları 65503 65534 uygulama ağ geçidi alt ağı gelen trafik için açılmalıdır. Bu bağlantı noktaları, arka uç sistem çalışmak için API için gereklidir.
+> Uygulama ağ geçidi alt ağı üzerinde bir NSG varsa, bağlantı noktası aralıkları 65503 65534 hello uygulama ağ geçidi alt gelen trafik için açılmalıdır. Bu bağlantı noktaları hello arka uç sistem durumu API toowork için gereklidir.
 
 ## <a name="default-health-probe"></a>Varsayılan durumu araştırması
 
-Herhangi bir özel araştırma yapılandırma ayarladığınızda olmayan bir uygulama ağ geçidi varsayılan durumu araştırması otomatik olarak yapılandırır. İzleme davranışı, arka uç havuzu için yapılandırılmış IP adresleri için bir HTTP isteği yaparak çalışır. Arka uç http ayarları HTTPS için yapılandırılmış olması halinde varsayılan araştırmalar için araştırma HTTPS de arka uçlarını durumunu sınamak için kullanır.
+Herhangi bir özel araştırma yapılandırma ayarladığınızda olmayan bir uygulama ağ geçidi varsayılan durumu araştırması otomatik olarak yapılandırır. davranış izlemeyi hello hello arka uç havuzu için yapılandırılmış bir HTTP isteği toohello IP adresleri yapma çalışır. Merhaba arka uç http ayarları HTTPS için yapılandırılmış olması halinde için varsayılan araştırmalar hello araştırma hello arka uçlarını iyi tootest sistem durumu HTTPS kullanır.
 
-Örneğin: bağlantı noktası 80 üzerinde HTTP ağ trafiği almak için arka uç sunucu A, B ve C kullanmak için uygulama ağ geçidi yapılandırması. Varsayılan sistem durumu izleme üç sunucu her 30 saniyede sağlıklı bir HTTP yanıtı için sınar. Sağlıklı bir HTTP yanıtı sahip bir [durum kodu](https://msdn.microsoft.com/library/aa287675.aspx) 200 399 arasındaki.
+Örneğin: bağlantı noktası 80 üzerinde uygulama ağ geçidi toouse arka uç sunucuları A, B ve C tooreceive HTTP ağ trafiğinizi yapılandırın. Merhaba varsayılan sistem durumu izleme hello üç sunucu her 30 saniyede sağlıklı bir HTTP yanıtı için sınar. Sağlıklı bir HTTP yanıtı sahip bir [durum kodu](https://msdn.microsoft.com/library/aa287675.aspx) 200 399 arasındaki.
 
-Sunucu A varsayılan araştırma denetimi başarısız olursa, isteğe bağlı olarak uygulama ağ geçidi, arka uç havuzundan kaldırır ve bu sunucuya akışı ağ trafiğini durur. Varsayılan araştırmasını her 30 saniyede bir sunucu için denetlemek hala devam eder. Sunucu, bir isteği başarıyla varsayılan durumu araştırması yanıt verir. Bu geri sağlıklı arka uç havuzuna eklenir ve sunucuya yeniden akan trafik başlatır.
+Sunucu A Hello varsayılan araştırma denetimi başarısız olursa, isteğe bağlı olarak hello uygulama ağ geçidi, arka uç havuzundan kaldırır ve ağ trafiğini toothis sunucu akışı durur. Merhaba varsayılan araştırma, her 30 saniyede bir toocheck sunucusu için hala devam eder. Sunucu A varsayılan durumu araştırması başarıyla tooone isteğini yanıtladığında, sağlıklı toohello arka uç havuzu ve toohello sunucu yeniden akan trafik başlatır geri eklenir.
 
 ### <a name="default-health-probe-settings"></a>Varsayılan durumu araştırma ayarları
 
@@ -47,36 +47,36 @@ Sunucu A varsayılan araştırma denetimi başarısız olursa, isteğe bağlı o
 | Araştırma URL'si |http://127.0.0.1:\<bağlantı noktası\>/ |URL yolu |
 | aralığı |30 |Saniye cinsinden yoklama aralığı |
 | Zaman aşımı |30 |Zaman aşımı saniye cinsinden araştırma |
-| Sağlıksız durum eşiği. |3 |Yeniden deneme sayısı araştırma. Sağlıksız eşik arka arkaya araştırma hatası sayısı ulaştıktan sonra arka uç sunucu işaretlenmiş. |
+| Sağlıksız durum eşiği. |3 |Yeniden deneme sayısı araştırma. Merhaba arka arkaya araştırma hatası sayısı hello sağlıksız durum eşiği ulaştıktan sonra hello arka uç sunucu işaretlenmiş. |
 
 > [!NOTE]
-> Bağlantı uç HTTP ayarları aynı bağlantı noktasıdır.
+> Merhaba bağlantı noktası olan hello aynı hello arka uç HTTP ayarları olarak bağlantı noktası.
 
-Varsayılan araştırma yalnızca http://127.0.0.1 arar:\<bağlantı noktası\> sistem durumunu belirlemek için. Bir özel URL'ye Git veya diğer herhangi bir ayarı değiştirmek için sistem durumu araştırma yapılandırmanız gerekiyorsa, aşağıdaki adımlarda açıklandığı gibi özel araştırmalara kullanmanız gerekir:
+Merhaba varsayılan araştırma yalnızca http://127.0.0.1 arar:\<bağlantı noktası\> toodetermine sistem durumu. Tooconfigure hello sistem durumu araştırma toogo tooa özel URL gerekir veya diğer herhangi bir ayarı değiştirmek, aşağıdaki adımları hello açıklandığı gibi özel araştırmalara kullanmanız gerekir:
 
 ## <a name="custom-health-probe"></a>Özel durum araştırması
 
-Özel araştırmalara sistem durumu izleme üzerinde daha ayrıntılı bir denetim olmasına izin verir. Özel araştırmalara kullanırken, yoklama aralığı, URL ve test etmek için yolu ve arka uç havuzu örneği sağlıksız olarak işaretleme önce kabul etmek için kaç tane başarısız yanıtları yapılandırabilirsiniz.
+Özel araştırmalara toohave hello sistem durumu izleme üzerinde daha ayrıntılı bir denetim sağlar. Özel araştırmalara kullanırken hello arka uç havuzu örneği sağlıksız olarak işaretleme önce hello yoklama aralığı, hello URL ve yol tootest ve kaç tane başarısız yanıtları tooaccept yapılandırabilirsiniz.
 
 ### <a name="custom-health-probe-settings"></a>Özel durum yoklama ayarları
 
-Aşağıdaki tabloda bir özel durum araştırması özelliklerini için tanımları sağlar.
+Merhaba aşağıdaki tabloda bir özel durum araştırması hello özelliklerini için tanımları sağlar.
 
 | Araştırma özelliği | Açıklama |
 | --- | --- |
-| Ad |Araştırma adı. Bu ad, arka uç HTTP Ayarları'nda araştırma başvurmak için kullanılır. |
-| Protokol |Araştırma göndermek için kullanılan protokol. Araştırma arka uç HTTP Ayarları'nda tanımlanan protokolünü kullanır |
-| Host |Araştırma göndermek için ana bilgisayar adı. Geçerli yalnızca çok siteli uygulama ağ geçidi üzerinde yapılandırılmış, aksi takdirde '127.0.0.1' kullanın. Bu değer, VM ana bilgisayar adından farklıdır. |
-| Yol |Araştırma göreli yolu. Geçerli yol başlar '/'. |
-| aralığı |Aralığı saniye cinsinden araştırma. Bu değer arasında iki ardışık araştırmalar zaman aralığıdır. |
-| Zaman aşımı |Zaman aşımı saniye cinsinden araştırma. Bu zaman aşımı süresi içinde geçerli bir yanıt alınmazsa, araştırma başarısız olarak işaretlenir.  |
-| Sağlıksız durum eşiği. |Yeniden deneme sayısı araştırma. Sağlıksız eşik arka arkaya araştırma hatası sayısı ulaştıktan sonra arka uç sunucu işaretlenmiş. |
+| Ad |Merhaba araştırma adı. Arka uç HTTP Ayarları'nda kullanılan toorefer toohello araştırma adıdır. |
+| Protokol |Toosend hello araştırma kullanılan protokol. Merhaba araştırma hello arka uç HTTP Ayarları'nda tanımlanan hello protokolünü kullanır |
+| Host |Ana bilgisayar adı toosend hello araştırma. Geçerli yalnızca çok siteli uygulama ağ geçidi üzerinde yapılandırılmış, aksi takdirde '127.0.0.1' kullanın. Bu değer, VM ana bilgisayar adından farklıdır. |
+| Yol |Merhaba araştırma göreli yolu. Merhaba geçerli bir yol başlatır '/'. |
+| aralığı |Aralığı saniye cinsinden araştırma. İki ardışık araştırmalar arasındaki hello zaman aralığını değerdir. |
+| Zaman aşımı |Zaman aşımı saniye cinsinden araştırma. Bu zaman aşımı süresi içinde geçerli bir yanıt alınmazsa, hello araştırma başarısız olarak işaretlenir.  |
+| Sağlıksız durum eşiği. |Yeniden deneme sayısı araştırma. Merhaba arka arkaya araştırma hatası sayısı hello sağlıksız durum eşiği ulaştıktan sonra hello arka uç sunucu işaretlenmiş. |
 
 > [!IMPORTANT]
-> Uygulama ağ geçidi tek bir site için yapılandırılmışsa, varsayılan olarak ana bilgisayar adı '127.0.0.1' içinde özel araştırma aksi belirtilmedikçe belirtilmesi gerekir.
-> Özel bir araştırma gönderilir başvurusunu \<Protokolü\>://\<konak\>:\<bağlantı noktası\>\<yolu\>. Kullanılan bağlantı noktası aynı bağlantı noktasını arka uç HTTP Ayarları'nda tanımlanan gibi olacaktır.
+> Uygulama ağ geçidi tek bir site için yapılandırılmışsa, varsayılan hello ana bilgisayar tarafından adı '127.0.0.1', içinde özel araştırma aksi belirtilmedikçe belirtilmesi gerekir.
+> Başvuru için özel bir araştırma çok gönderilir\<Protokolü\>://\<konak\>:\<bağlantı noktası\>\<yolu\>. Merhaba kullanılan bağlantı noktası olacaktır hello arka uç HTTP Ayarları'nda tanımlanan gibi hello aynı bağlantı noktası.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Uygulama ağ geçidi durumunu izleme hakkında daha fazla öğrenme sonra yapılandırdığınız bir [özel durumu araştırması](application-gateway-create-probe-portal.md) Azure portalında veya [özel durumu araştırması](application-gateway-create-probe-ps.md) PowerShell ve Azure Resource Manager kullanarak dağıtım modeli.
+Uygulama ağ geçidi durumunu izleme hakkında daha fazla öğrenme sonra yapılandırdığınız bir [özel durumu araştırması](application-gateway-create-probe-portal.md) hello Azure portal'ın veya [özel durumu araştırması](application-gateway-create-probe-ps.md) PowerShell ve hello Azure Resource Manager kullanarak dağıtım modeli.
 
 [1]: ./media/application-gateway-probe-overview/appgatewayprobe.png

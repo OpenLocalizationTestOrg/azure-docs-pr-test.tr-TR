@@ -1,6 +1,6 @@
 ---
-title: "Azure İzleyicisi ile çalışmaya başlama | Microsoft Docs"
-description: "Kaynaklarınızın çalışmasını anlamak ve verilere dayalı işlem yapmak için Azure İzleyici kullanmaya başlayın."
+title: "aaaGet Azure İzleyicisi ile başlatılan | Microsoft Docs"
+description: "Azure İzleyici toogain hello işlem kaynaklarınızın bir anlayış kullanmaya başlamanıza ve verilerini temizleyebilirsiniz temel adımları uygulayın."
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -14,47 +14,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: johnkem
-ms.openlocfilehash: a4871cdee882fae8e43f84ce4f2fa0b4c0a8e1de
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 49e7105621a9e60c9fa14c4911c4fe45e0d197a6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="get-started-with-azure-monitor"></a>Azure İzleyici’yi kullanmaya başlama
-Azure İzleyici, Azure kaynaklarını izlemeye yönelik tek bir kaynak sağlayan platform hizmetidir. Azure İzleyici ile Azure’daki kaynaklardan gelen ölçüm ve günlükleri görüntüleyebilir, sorgulayabilir, yönlendirebilir ve bunlar üzerinde işlem yapabilirsiniz. İzleyici portal dikey penceresi, [İzleyici PowerShell Cmdlet’leri](insights-powershell-samples.md), [Platformlar Arası CLI](insights-cli-samples.md) veya [Azure İzleyici REST API’leri](https://msdn.microsoft.com/library/dn931943.aspx) kullanarak bu verilerle çalışabilirsiniz. Bu makalede portal gösterim amacıyla kullanılarak Azure İzleyici’nin temel bileşenlerinden birkaç tanesi gösterilecektir.
+Azure İzleyici Azure kaynakları izlemek için tek bir kaynak sağlar hello platform hizmetidir. Azure izleme ile görselleştirme, sorgulama yapabilir, yol, arşiv ve hello ölçümleri ve Azure kaynaklarında'ten gelen günlükleri üzerinde işlem gerçekleştirin. Merhaba İzleyici portal dikey penceresinde, kullanarak bu verilerle çalışma [İzleyici PowerShell cmdlet'leri](insights-powershell-samples.md), [platformlar arası CLI](insights-cli-samples.md), veya [Azure İzleyici REST API'lerini](https://msdn.microsoft.com/library/dn931943.aspx). Bu makalede, hello anahtar tanıtımı için hello portal'ı kullanarak Azure İzleyicisi bileşenlerinin bazılarını size rehberlik eder.
 
-1. Portalda **Diğer hizmetler**’e gidin ve **İzleyici** seçeneğini bulun. Bu seçeneği sol gezinti çubuğundan kolayca erişilebilmesi için sık kullanılanlar listenize eklemek üzere yıldız simgesine tıklayın.
+1. Merhaba Portalı'nda çok gidin**daha fazla hizmet** ve hello bulur **İzleyici** seçeneği. Böylece her zaman hello sol gezinti çubuğunda kolayca erişilebilir hello yıldız simgesine tooadd bu seçeneği tooyour Sık Kullanılanlar listesine tıklayın.
    
-    ![Hizmet listesinde İzleyici](./media/monitoring-get-started/monitor-more-services.png)
-2. **İzleyici** seçeneğine tıklayarak **İzleyici** dikey penceresini açın. Bu dikey pencere tüm izleme ayarlarınızı ve verilerinizi tek bir birleştirilmiş görünümde gösterir. İlk olarak **Etkinlik günlüğü** bölümü açılır.
+    ![Merhaba Hizmetler listesinde izleme](./media/monitoring-get-started/monitor-more-services.png)
+2. Merhaba tıklatın **İzleyici** hello ayarlama seçeneği tooopen **İzleyici** dikey. Bu dikey pencere tüm izleme ayarlarınızı ve verilerinizi tek bir birleştirilmiş görünümde gösterir. Toohello ilk açıldığında **etkinlik günlüğü** bölümü.
    
     ![İzleyici dikey penceresinde gezinme](./media/monitoring-get-started/monitor-blade-nav.png)
    
-    Azure İzleyici, verileri üç temel kategoride izler: **etkinlik günlüğü**, **ölçümler** ve **tanılama günlükleri**.
-3. Etkinlik günlüğü bölümünün gösterildiğinden emin olmak için **Etkinlik günlüğü**’ne tıklayın.
+    Azure İzleyicisi izleme verilerinin üç temel kategorisi vardır: Merhaba **etkinlik günlüğü**, **ölçümleri**, ve **tanılama günlükleri**.
+3. Tıklatın **etkinlik günlüğü** etkinlik günlük bölümü hello tooensure görüntülenir.
    
     ![Etkinlik Günlüğü dikey penceresi](./media/monitoring-get-started/monitor-act-log-blade.png)
    
-    [**Etkinlik günlüğü**](monitoring-overview-activity-logs.md), aboneliğinizdeki kaynaklar üzerinde gerçekleştirilen tüm işlemleri açıklar. Etkinlik Günlüğü’nü kullanarak aboneliğinizdeki kaynaklarla ilgili herhangi bir oluşturma, güncelleştirme veya silme işlemine ilişkin ‘ne, kim ve ne zaman’ sorularına yanıt bulabilirsiniz. Örneğin, Etkinlik Günlüğü bir web uygulamasının ne zaman ve kim tarafından durdurulduğunu söyler. Etkinlik Günlüğü olayları platforma depolanır ve 90 gün boyunca sorgulanabilir.
+    Merhaba [ **etkinlik günlüğü** ](monitoring-overview-activity-logs.md) aboneliğinizde kaynaklar üzerinde gerçekleştirilen tüm işlemler açıklanmaktadır. Merhaba etkinlik günlüğü kullanarak hello belirleyebilirsiniz ' ne, kimin, ne zaman ve ' herhangi bir oluşturma için güncelleştirme veya silme işlemleri aboneliğinizde kaynaklardaki. Örneğin, hello etkinlik günlüğü, ne zaman bir web uygulaması durduruldu ve kimlerin durduruldu bildirir. Etkinlik günlüğü olaylarını hello platform ve kullanılabilir tooquery 90 gün süreyle depolanır.
    
-    Ortak filtrelere yönelik sorgular oluşturup kaydedebilir ve sonra ölçütlerinizi karşılayan olayların gerçekleşip gerçekleşmediğinden her zaman haberdar olmak için en önemli sorguları bir portal panosuna sabitleyebilirsiniz.
-4. Görünümü son bir haftadaki belirli bir kaynak grubu ile filtreleyin, ardından **Kaydet** düğmesine tıklayın.
+    Oluşturun ve her zaman Ölçütünüzle eşleşen olaylar meydana gelmiş bilirsiniz ortak filtreleri sonra PIN hello en önemli sorguları tooa portal panosu için sorgular kaydedin.
+4. Geçen hafta hello Hello görünüm tooa belirli kaynak grubu filtre ve ardından hello **kaydetmek** düğmesi.
    
     ![Etkinlik günlüğü sorgusunu kaydedin](./media/monitoring-get-started/monitor-act-log-save.png)
-5. Şimdi **Sabitle** düğmesine tıklayın.
+5. Şimdi, hello tıklayın **PIN** düğmesi.
    
     ![Etkinlik günlüğü için sabitle düğmesine tıklayın](./media/monitoring-get-started/monitor-act-log-pin.png)
    
-    Bu kılavuzdaki görünümlerin birçoğu panoya sabitlenebilir. Bunun yapılması, hizmetlerinize ilişkin çalışma verilerine ait tek bir bilgi kaynağı oluşturmanıza yardımcı olur. 
-6. Panonuza geri dönün. Şu anda sorgunun (ve sonuç sayısının) panonuzda gösterildiğini görebilirsiniz. Aboneliğinizde yakın zamanda gerçekleşmiş yüksek profilli eylemleri (örn. yeni bir rolün atanması veya bir sanal makinenin silinmesi) hızlıca görmek istiyorsanız bunun yapılması yararlıdır.
+    Bu kılavuzda hello görünümleri çoğunu sabitlenmiş tooa Pano olabilir. Bunun yapılması, hizmetlerinize ilişkin çalışma verilerine ait tek bir bilgi kaynağı oluşturmanıza yardımcı olur. 
+6. Tooyour Pano döndür. Şimdi, hello sorgu (ve sonuç sayısı) Panonuzda görüntülendiğini görebilirsiniz. Bu, aboneliğinizde son ör oluşan herhangi bir yüksek profilli eylem tooquickly bakın istiyorsanız kullanışlıdır. yeni bir rolün atanması veya bir sanal makinenin silinmesi) hızlıca görmek istiyorsanız bunun yapılması yararlıdır.
    
-    ![Panoya sabitlenmiş etkinlik günlüğü](./media/monitoring-get-started/monitor-act-log-db.png)
-7. **İzleyici** kutucuğuna geri dönüp **Ölçümler** bölümüne tıklayın. İlk olarak dikey pencerenin üst kısmındaki açılır menü seçenekleri ile filtreleyerek ve seçerek bir kaynak belirlemeniz gerekir.
+    ![Etkinlik günlüğü sabitlenmiş toodashboard](./media/monitoring-get-started/monitor-act-log-db.png)
+7. Toohello dönmek **İzleyici** parçasında ve hello tıklatın **ölçümleri** bölümü. İlk filtreleme ve hello dikey penceresinde hello üstünde hello açılan seçenekleri kullanarak seçerek tooselect kaynak gerekir.
    
     ![Ölçümler için kaynak filtreleme](./media/monitoring-get-started/monitor-met-filter.png)
    
     Tüm Azure kaynakları [**ölçümler**](monitoring-overview-metrics.md) gösterir. Bu görünüm, kaynaklarınızın performansını kolayca anlayabilmeniz için tüm ölçümleri tek bir cam bölmede bir araya getirir.
-8. Bir kaynak seçmenizden sonra kullanılabilen tüm ölçümler dikey pencerenin sol tarafında görünür. Ölçümleri seçip grafik türü ile saat aralığını değiştirerek birden fazla ölçümün grafiğini tek seferde oluşturabilirsiniz. Ayrıca bu kaynak üzerinde oluşturulmuş tüm ölçüm uyarılarını görüntüleyebilirsiniz.
+8. Bir kaynak seçtikten sonra tüm kullanılabilir ölçümler yan hello dikey pencerenin sol hello üzerinde görüntülenir. Ölçümleri seçerek aynı anda birden çok ölçümleri grafik ve hello grafik türü ve zaman aralığını değiştirebilirsiniz. Ayrıca bu kaynak üzerinde oluşturulmuş tüm ölçüm uyarılarını görüntüleyebilirsiniz.
    
     ![Ölçüm dikey penceresi](./media/monitoring-get-started/monitor-metric-blade.png)
    
@@ -62,40 +62,40 @@ Azure İzleyici, Azure kaynaklarını izlemeye yönelik tek bir kaynak sağlayan
    > Bazı ölçümler yalnızca kaynağınızda [Application Insights](../application-insights/app-insights-overview.md) ve/veya Windows ya da Linux Azure Tanılama etkinleştirilerek kullanılabilir.
    > 
    > 
-9. Grafiğiniz hazır olduğunda **Sabitle** düğmesini kullanarak grafiği panoya sabitleyebilirsiniz.
-10. **İzleyici** dikey penceresine geri dönüp **Tanılama günlükleri**’ne tıklayın.
+9. Grafiğinizi hazır olduğunuzda, hello kullanabilirsiniz **PIN** düğmesini toopin onu tooyour Pano.
+10. Toohello iade **İzleyici** tıklayın ve dikey **tanılama günlükleri**.
     
     ![Tanılama günlükleri dikey penceresi](./media/monitoring-get-started/monitor-diaglogs-blade.png)
     
-    [**Tanılama günlükleri**](monitoring-overview-of-diagnostic-logs.md), kendi çalışması hakkında veriler sağlayan belirli bir kaynak *tarafından* gösterilen günlüklerdir. Örneğin, Ağ Güvenliği Grup Kuralı Sayaçları ve Mantıksal Uygulama İş Akışı Günlükleri, tanılama günlüğü türleridir. Bu günlükler bir depolama hesabına depolanabilir, Event Hub’da yayınlanabilir ve/veya [Log Analytics](../log-analytics/log-analytics-overview.md)’e gönderilebilir. Log Analytics, Microsoft'un gelişmiş arama ve uyarı vermeye yönelik işletimsel bilgi ürünüdür.
+    [**Tanılama günlüklerini** ](monitoring-overview-of-diagnostic-logs.md) olan yayılan günlükleri *tarafından* hello işlemi, belirli bir kaynak hakkında veri sağlayan bir kaynak. Örneğin, Ağ Güvenliği Grup Kuralı Sayaçları ve Mantıksal Uygulama İş Akışı Günlükleri, tanılama günlüğü türleridir. Bu günlükler akış tooan olay hub'ı bir depolama hesabında depolanan ve/veya çok gönderilen[günlük analizi](../log-analytics/log-analytics-overview.md). Log Analytics, Microsoft'un gelişmiş arama ve uyarı vermeye yönelik işletimsel bilgi ürünüdür.
     
-    Portalda, aboneliğinizdeki tüm kaynakların listesini görüntüleyebilir ve tanılama günlüklerinin etkin olup olmadığını belirlemek üzere bu listeyi filtreleyebilirsiniz.
-11. Tanılama günlükleri dikey penceresinde bir kaynağa tıklayın. Tanılama günlükleriniz bir depolama hesabına kaydediliyorsa doğrudan indirebileceğiniz saatlik günlüklerin bir listesini görürsünüz.
+    Hello Portalı'nda görüntüleyin ve etkin tanılama günlükleri varsa, abonelik tooidentify tüm kaynakların bir listesini filtreleyin.
+11. Merhaba tanılama günlüklerini dikey penceresinde bir kaynak'ı tıklatın. Tanılama günlükleriniz bir depolama hesabına kaydediliyorsa doğrudan indirebileceğiniz saatlik günlüklerin bir listesini görürsünüz.
     
     ![Bir kaynağın tanılama günlükleri](./media/monitoring-get-started/monitor-diaglogs-detail.png)
     
-    Bir depolama hesabına arşivleme, Event Hubs’da yayınlama veya Log Analytics çalışma alanına gönderme amacıyla ayarlarınızı düzenlemek veya değiştirmek için **Tanılama Ayarları**’na da tıklayabilirsiniz.
+    Tıklatarak **tanılama ayarlarını**, hangi yukarı tooset izin verir veya tooEvent hub akış veya tooa günlük analizi çalışma alanı gönderme ayarlarınızı arşivleme tooa depolama hesabı için değiştirin.
     
     ![Tanılama günlüklerini etkinleştirme](./media/monitoring-get-started/monitor-diaglogs-enable.png)
     
-    Log Analytics için tanılama günlüklerini ayarladıysanız bu tanılama günlüklerini portalın **Günlük arama** bölümünde arayabilirsiniz.
-12. İzleyici dikey penceresinin **Uyarılar** bölümüne gidin.
+    Tanılama günlüklerini tooLog Analytics ayarlarsanız, sonra bunları hello arayabilirsiniz **günlük arama** hello portalı bölümü.
+12. Toohello gidin **uyarıları** hello İzleyici dikey bölümü.
     
     ![genel kullanıma yönelik uyarılar dikey penceresi](./media/monitoring-get-started/monitor-alerts-nopp.png)
     
-    Burada Azure kaynaklarınıza ilişkin tüm [**uyarıları**](monitoring-overview-alerts.md) yönetebilirsiniz. Bu ölçümleri, etkinlik günlüğü olaylarını, Application Insights web testleri (konumlara) ve Application Insights öngörülü tanılama uyarılarını içerir. Uyarılar bir e-posta gönderilmesini veya bir web kancası URL’sine HTTP POST işlemi yapılmasını tetikleyebilir.
-13. Uyarı oluşturmak için **Ölçüm uyarısı ekle**’ye tıklayın.
+    Burada Azure kaynaklarınıza ilişkin tüm [**uyarıları**](monitoring-overview-alerts.md) yönetebilirsiniz. Bu ölçümleri, etkinlik günlüğü olaylarını, Application Insights web testleri (konumlara) ve Application Insights öngörülü tanılama uyarılarını içerir. Uyarılar, gönderilen e-posta toobe ya da bir HTTP POST tooa Web kancası URL'si tetikleyebilir.
+13. Tıklatın **ölçüm uyarı Ekle** toocreate bir uyarı.
     
     ![ölçüm uyarısı ekleme](./media/monitoring-get-started/monitor-alerts-add.png)
     
-    Bundan sonra uyarının durumunu dilediğiniz zaman kolayca görmek için uyarıyı panonuza sabitleyebilirsiniz.
-14. İzleyici bölümünde [Application Insights](../application-insights/app-insights-overview.md) uygulamaları ve [Log Analytics](../log-analytics/log-analytics-overview.md) yönetim çözümleriyle ilgili bağlantılar da bulunur. Bu diğer Microsoft ürünleri, Azure İzleyici ile kapsamlı tümleştirmeye sahiptir.
-15. Application Insights veya Log Analytics kullanmıyorsanız Azure İzleyici mevcut izleme, günlüğe kaydetme ve uyarı verme ürünleriyle bir ortaklığa sahip olabilir. Tam liste ve tümleştirme yönergeleri için [ortaklar sayfamıza](monitoring-partners.md) bakın.
+    Herhangi bir zamanda durumuna PIN bir uyarı tooyour Pano tooeasily bkz sonra kullanabilirsiniz.
+14. Merhaba izleme bölümü de içerir bağlantılar çok[Application Insights](../application-insights/app-insights-overview.md) uygulamaları ve [günlük analizi](../log-analytics/log-analytics-overview.md) yönetim çözümleri. Bu diğer Microsoft ürünleri, Azure İzleyici ile kapsamlı tümleştirmeye sahiptir.
+15. Application Insights veya Log Analytics kullanmıyorsanız Azure İzleyici mevcut izleme, günlüğe kaydetme ve uyarı verme ürünleriyle bir ortaklığa sahip olabilir. Bkz: bizim [iş ortakları sayfasında](monitoring-partners.md) tam listesi ve hakkında yönergeler için toointegrate.
 
-Aşağıdaki adımları izleyerek ve tüm ilgili kutucukları panoya sabitleyerek uygulamanızın ve altyapınızın aşağıdaki gibi kapsamlı görünümlerini oluşturabilirsiniz:
+Şu adımları izleyin ve tüm ilgili döşeme tooa panoya sabitleme, uygulama ve bunun gibi altyapı kapsamlı görünümlerini oluşturabilirsiniz:
 
 ![Azure İzleyici panosu](./media/monitoring-get-started/monitor-final-dash.png)
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-* [Azure İzleyici’ye Genel Bakış](monitoring-overview.md) makalesini okuyun
+* Okuma hello [Azure İzleyicisi'ne genel bakış](monitoring-overview.md)
 

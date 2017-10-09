@@ -1,6 +1,6 @@
 ---
-title: "Kimlik doğrulama ve yetkilendirme Azure zaman serisi Öngörüler API çağrılarının özel bir uygulama için yapılandırma | Microsoft Docs"
-description: "Bu öğretici kimlik doğrulama ve yetkilendirme Azure zaman serisi Öngörüler API çağrılarının özel bir uygulama için nasıl yapılandırılacağı açıklanmaktadır."
+title: "aaaConfigure kimlik doğrulama ve yetkilendirme çağıran özel bir uygulama için hello Azure zaman serisi Insights API'si | Microsoft Docs"
+description: "Bu öğretici Azure zaman serisi Insights API'si tooconfigure kimlik doğrulama ve yetkilendirme çağıran özel bir uygulama için nasıl hello açıklar"
 keywords: 
 services: time-series-insights
 documentationcenter: 
@@ -15,75 +15,75 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/24/2017
 ms.author: dmden
-ms.openlocfilehash: 4dd4865dc556e09a31d2cb7a32768aeb19ba9900
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 5043468bfc2af3c0d27e8602508d92ba2848409e
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Kimlik doğrulama ve yetkilendirme Azure zaman serisi Insights API'si
 
-Bu makalede Azure zaman serisi Öngörüler API çağrılarının özel bir uygulamasının nasıl yapılandırılacağını açıklar.
+Bu makalede nasıl tooconfigure çağıran özel bir uygulama hello Azure zaman serisi Insights API'si açıklanmaktadır.
 
 ## <a name="service-principal"></a>Hizmet sorumlusu
 
-Bu bölümde, uygulama adına zaman serisi Insights API'si erişmek için bir uygulama yapılandırma açıklanmaktadır. Uygulama sonra verileri sorgulamak veya uygulama kimlik bilgileri ve kullanıcı kimlik bilgilerini değil zaman serisi Öngörüler ortamında başvuru veri yayımlama.
+Bu bölümde, nasıl tooconfigure bir uygulama tooaccess hello zaman serisi Insights API'si hello uygulama adına açıklanmaktadır. Merhaba uygulaması sonra verileri sorgulamak veya uygulama kimlik bilgilerini ve değil hello kullanıcı kimlik bilgileri ile Merhaba zaman serisi Öngörüler ortamda başvuru veri yayımlama.
 
-Gerektiren bir uygulamaya erişim zaman serisi Öngörüler varsa, Azure Active Directory Uygulama ayarlama ve veri erişimi ilkelerini zaman serisi Öngörüler ortamında atamanız gerekir. Bu yaklaşım, çünkü uygulama kendi kimlik bilgileri altında çalışırken için tercih edilir:
+Zaman serisi Öngörüler tooaccess gerektiren bir uygulamanız varsa, Azure Active Directory Uygulama ayarlama ve hello veri erişimi ilkelerini hello zaman serisi Öngörüler ortamında atamanız gerekir. Bu yaklaşım tercih toorunning hello uygulama kendi kimlik bilgileri altında nedeni:
 
-* Kendi izinlerinin farklı uygulama kimliği için izinleri atayabilirsiniz. Genellikle, bu izinleri tam olarak hangi uygulama yapması gereken için kısıtlanır. Örneğin, yalnızca belirli bir zaman serisi Öngörüler ortamda verileri okumak uygulama izin verebilirsiniz.
-* Sizin Sorumluluklarınız değiştirirseniz uygulamanın kimlik bilgilerini değiştirmek zorunda değilsiniz.
-* Katılımsız betik çalışırken kimlik doğrulaması otomatikleştirmek için bir sertifika veya bir uygulama anahtarı kullanın.
+* Kendi izinlerden farklıdır toohello uygulama kimliği izinleri atayabilirsiniz. Genellikle, bu kısıtlı tooexactly hangi hello uygulamanın toodo ihtiyacı izinlerdir. Örneğin, belirli bir zaman serisi Öngörüler ortamda veri hello uygulama tooonly okuma izin verebilirsiniz.
+* Sizin Sorumluluklarınız değiştirirseniz toochange hello uygulamanın kimlik bilgileri yok.
+* Katılımsız betik çalıştırılırken bir sertifika veya bir uygulamanın anahtar tooautomate kimlik doğrulaması kullanabilirsiniz.
 
-Bu makalede Azure Portalı aracılığıyla bu adımların nasıl gerçekleştirileceğini gösterir. Uygulama yalnızca bir kuruluşta çalıştırmak için burada hedeflenen bir tek kiracılı uygulama odaklanır. Genellikle, kuruluşunuzda çalıştırmak satır iş kolu uygulamaları için tek Kiracı uygulamaları kullanın.
+Bu makalede, bu adımları aracılığıyla tooperform hello Azure portalına nasıl gösterir. Merhaba uygulaması yalnızca bir kuruluştaki hedeflenen toorun olduğu bir tek kiracılı uygulama odaklanır. Genellikle, kuruluşunuzda çalıştırmak satır iş kolu uygulamaları için tek Kiracı uygulamaları kullanın.
 
-Kurulum akışında üç üst düzey adımları içerir:
+Merhaba Kurulum akışında üç üst düzey adımları içerir:
 
 1. Azure Active Directory'de bir uygulama oluşturun.
-2. Bu uygulamanın zaman serisi Öngörüler ortam erişim yetkisi verir.
-3. Bir belirteç almak için uygulama kimliği ve anahtarı kullanın `"https://api.timeseries.azure.com/"` İzleyici veya kaynak. Belirteç ardından zaman serisi Öngörüler API'sini çağırmak için kullanılabilir.
+2. Bu uygulama tooaccess hello zaman serisi Öngörüler ortamı yetkilendirin.
+3. Merhaba uygulama kimliği ve anahtarı tooacquire belirteci toohello kullanma `"https://api.timeseries.azure.com/"` İzleyici veya kaynak. Merhaba belirteci sonra kullanılan toocall hello zaman serisi Insights API'si olabilir.
 
-Ayrıntılı adımlar şunlardır:
+Ayrıntılı adımlar hello şunlardır:
 
-1. Azure portalında seçin **Azure Active Directory** > **uygulama kayıtlar** > **yeni uygulama kaydı**.
+1. Hello Azure portal, seçin **Azure Active Directory** > **uygulama kayıtlar** > **yeni uygulama kaydı**.
 
    ![Azure Active Directory'de yeni uygulama kaydı](media/authentication-and-authorization/active-directory-new-application-registration.png)  
 
-2. Uygulama bir ad verin, olmasını seçin **Web uygulaması / API**, için geçerli bir URI seçin **oturum açma URL'si**, tıklatıp **oluşturma**.
+2. Merhaba uygulama adı, select hello türü toobe vermek **Web uygulaması / API**, için geçerli bir URI seçin **oturum açma URL'si**, tıklatıp **oluşturma**.
 
-   ![Azure Active Directory'de uygulama oluşturma](media/authentication-and-authorization/active-directory-create-web-api-application.png)
+   ![Azure Active Directory'de Merhaba uygulaması oluşturma](media/authentication-and-authorization/active-directory-create-web-api-application.png)
 
-3. Yeni oluşturulan uygulamanızı seçin ve uygulama Kimliğini, sık kullandığınız metin düzenleyicisine kopyalayın.
+3. Yeni oluşturulan uygulamanızı seçin ve kendi uygulama kimliği tooyour sık kullandığınız metin Düzenleyicisi'ni kopyalayın.
 
-   ![Uygulama Kimliğini kopyalayın](media/authentication-and-authorization/active-directory-copy-application-id.png)
+   ![Merhaba uygulama Kimliğini kopyalayın](media/authentication-and-authorization/active-directory-copy-application-id.png)
 
-4. Seçin **anahtarları**anahtar adını girin, sona erme seçin ve tıklatın **kaydetmek**.
+4. Seçin **anahtarları**, hello anahtar adı, select hello sona erme girin ve tıklayın **kaydetmek**.
 
    ![Uygulama anahtarı seçin](media/authentication-and-authorization/active-directory-application-keys.png)
 
-   ![Süre sonu ve anahtar adını girin ve Kaydet'e tıklayın.](media/authentication-and-authorization/active-directory-application-keys-save.png)
+   ![Merhaba anahtar adını ve sona erme girin ve Kaydet'e tıklayın.](media/authentication-and-authorization/active-directory-application-keys-save.png)
 
-5. Anahtarı, sık kullandığınız metin düzenleyicisine kopyalayın.
+5. Merhaba anahtar tooyour sık kullandığınız metin düzenleyiciyi kopyalayın.
 
-   ![Uygulama anahtarı kopyalayın](media/authentication-and-authorization/active-directory-copy-application-key.png)
+   ![Merhaba uygulama anahtarı kopyalayın](media/authentication-and-authorization/active-directory-copy-application-key.png)
 
-6. Zaman serisi Öngörüler ortamı için seçin **veri erişimi ilkelerini** tıklatıp **Ekle**.
+6. Merhaba zaman serisi Öngörüler ortamı için seçin **veri erişimi ilkelerini** tıklatıp **Ekle**.
 
-   ![Zaman serisi Öngörüler ortamına yeni veri erişim ilkesi Ekle](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)
+   ![Yeni veri erişim ilkesi toohello zaman serisi Öngörüler ortama ekleyin](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)
 
-7. İçinde **Kullanıcı Seç** iletişim kutusunda, yapıştırma uygulama adı (2. adım) veya uygulama Kimliğinden (3. adım).
+7. Merhaba, **Kullanıcı Seç** iletişim kutusunda, Yapıştır hello uygulama adını (2. adım) veya uygulama Kimliğinden (3. adım).
 
-   ![Kullanıcı Seç iletişim kutusunda bir uygulama Bul](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)
+   ![Bir uygulama Bul hello Kullanıcı Seç iletişim kutusu](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)
 
-8. Rol seçin (**okuyucu** veri sorgulama için **katkıda bulunan** veri sorgulama ve başvuru verileri değiştirme) tıklatıp **Tamam**.
+8. Select hello rolü (**okuyucu** veri sorgulama için **katkıda bulunan** veri sorgulama ve başvuru verileri değiştirme) tıklatıp **Tamam**.
 
-   ![Okuyucu ve katkıda bulunan rolü Seç iletişim kutusunda seçin](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)
+   ![Okuyucu ve katkıda bulunan hello rolü Seç iletişim kutusunda seçin](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)
 
-9. Tıklayarak ilkeyi kaydedin **Tamam**.
+9. Tıklayarak Hello ilkeyi kaydetmek **Tamam**.
 
-10. Uygulama adına belirtecini almak için uygulama Kimliğinden (3. adım) ve uygulama anahtarından (5. adım) kullanın. Belirteç sonra geçirilebilir `Authorization` uygulama zaman serisi Insights API'si çağırdığında üstbilgi.
+10. Merhaba uygulama kimliği (3. adım) ve uygulama (Başlangıç 5. adım) anahtar tooacquire hello belirteci hello uygulama adına kullanın. Merhaba belirteci sonra hello geçirilebilir `Authorization` zaman serisi Insights API'si hello uygulama çağrıları hello zaman üstbilgi.
 
-    C# kullanıyorsanız, uygulama adına belirtecini almak için aşağıdaki kodu kullanabilirsiniz. Tam bir örnek için bkz: [C# kullanarak veri sorgulama](time-series-insights-query-data-csharp.md).
+    C# kullanıyorsanız, kod tooacquire hello belirteci hello uygulama adına aşağıdaki hello kullanabilirsiniz. Tam bir örnek için bkz: [C# kullanarak veri sorgulama](time-series-insights-query-data-csharp.md).
 
     ```csharp
     var authenticationContext = new AuthenticationContext(
@@ -91,12 +91,12 @@ Ayrıntılı adımlar şunlardır:
         TokenCache.DefaultShared);
 
     AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
-        // Set the resource URI to the Azure Time Series Insights API
+        // Set hello resource URI toohello Azure Time Series Insights API
         resource: "https://api.timeseries.azure.com/", 
         clientCredential: new ClientCredential(
             // Application ID of application registered in Azure Active Directory
             clientId: "1bc3af48-7e2f-4845-880a-c7649a6470b8", 
-            // Application key of the application that's registered in Azure Active Directory
+            // Application key of hello application that's registered in Azure Active Directory
             clientSecret: "aBcdEffs4XYxoAXzLB1n3R2meNCYdGpIGBc2YC5D6L2="));
 
     string accessToken = token.AccessToken;
@@ -104,9 +104,9 @@ Ayrıntılı adımlar şunlardır:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Uygulama kimliği ve anahtarı uygulamanızda kullanın. Zaman serisi Öngörüler API çağrılarının örnek kod için bkz: [C# kullanarak veri sorgulama](time-series-insights-query-data-csharp.md).
+Merhaba uygulama kimliği ve anahtarı uygulamanızda kullanın. Merhaba zaman serisi Öngörüler API çağrıları örnek kod için bkz: [C# kullanarak veri sorgulama](time-series-insights-query-data-csharp.md).
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* [Sorgu API](/rest/api/time-series-insights/time-series-insights-reference-queryapi) için tam sorgu API Başvurusu
-* [Azure portalında bir hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+* [Sorgu API](/rest/api/time-series-insights/time-series-insights-reference-queryapi) hello tam sorgu API Başvurusu için
+* [Bir hizmet sorumlusu hello Azure portal oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md)

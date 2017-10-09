@@ -1,6 +1,6 @@
 ---
-title: "Self servis uygulamaya erişim yönetimi için Azure Active Directory'yi ayarlama | Microsoft Docs"
-description: "Self servis grup yönetimi, kullanıcıların Azure Active Directory'de güvenlik grupları veya Office 365 grupları oluşturup bunları yönetmelerine olanak sağlamanın yanı sıra kullanıcılara güvenlik grubu veya Office 365 grup üyeliği isteme olanağı sunar"
+title: "self servis uygulamaya erişim yönetimi için Azure Active Directory yukarı aaaSetting | Microsoft Docs"
+description: "Self Servis Grup Yönetimi kullanıcıları toocreate sağlar ve güvenlik grupları veya Office 365 grupları Azure Active Directory ve teklifleri kullanıcılar hello olasılığı toorequest güvenlik grubu veya Office 365 grup üyeliği yönetme"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -16,38 +16,38 @@ ms.date: 07/27/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 92681a42ff1eb7e9bfa834308833b96749cbd078
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 2a73f4ed2532d41143fe5abe2fef1322d971a5c0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="setting-up-azure-active-directory-for-self-service-group-management"></a>Self servis grup yönetimi için Azure Active Directory'yi ayarlama
-Self servis grup yönetimi kullanıcıların Azure Active Directory’de (Azure AD) güvenlik gruplarını veya Office 365 gruplarını oluşturup yönetmesine imkan tanır. Kullanıcılar ayrıca güvenlik grubu veya Office 365 grubu üyelikleri ister ve grubun sahibi üyeliği onaylayabilir ya da reddedebilir. Bu şekilde grup üyeliği günlük denetimi o üyeliğe ilişkin iş bağlamını bilen kişilere atanabilir. Self servis grup yönetimi özellikleri yalnızca güvenlik grupları ve Office 365 grupları için kullanılabilir, ancak posta etkin güvenlik grupları veya dağıtım listeleri için kullanılamaz.
+Self Servis Grup Yönetimi, kullanıcıların toocreate sağlar ve güvenlik grupları veya Office 365 grupları Azure Active Directory'de (Azure AD) yönetin. Kullanıcılar ayrıca güvenlik grubu veya Office 365 grup üyeliği isteyebilir ve ardından hello hello grubun sahibi onaylayabilir veya üyelik reddet. Bu şekilde, grup üyeliği günlük denetimi o üyeliğe ilişkin hello iş bağlamı anlamak temsilci toopeople olabilir. Self servis grup yönetimi özellikleri yalnızca güvenlik grupları ve Office 365 grupları için kullanılabilir, ancak posta etkin güvenlik grupları veya dağıtım listeleri için kullanılamaz.
 
 > [!IMPORTANT]
-> Microsoft, Azure AD’yi bu makalede bahsedilen Klasik Azure Portalı yerine Azure portalındaki [Azure AD yönetim merkezini](https://aad.portal.azure.com) kullanarak yönetmenizi öneriyor.
+> Microsoft önerir hello kullanarak Azure AD'yi yönetme [Azure AD Yönetim Merkezi](https://aad.portal.azure.com) hello yerine Azure portal hello bu makalede başvurulan Klasik Azure portalı.
 
 Self servis grup yönetimi, şu anda iki temel senaryo içerir: temsilcili grup yönetimi ve self servis grup yönetimi.
 
-* **Temsilcili grup yönetimi** Şirketinin kullandığı SaaS uygulamasına erişimi yöneten bir yönetici, bu senaryoya örnek olarak verilebilir. Bu erişim haklarını yönetmek sıkıcı bir hal alabilir; bu durumda yönetici, işletme sahibinden yeni bir grup oluşturmasını ister. Yönetici, uygulamanın erişimini yeni gruba atar ve ardından uygulamaya zaten erişimi olan tüm kişileri gruba ekler. Ardından işletme sahibi daha fazla kullanıcı ekleyebilir ve bu kullanıcılar uygulamaya otomatik olarak sağlanır. İşletme sahibinin, yöneticinin kullanıcılar için erişimi yönetmesini beklemesi gerekmez. Yönetici farklı iş grubundaki bir yöneticiye aynı izin verirse söz konusu kişi kendi kullanıcılar için de erişimi yönetebilir. İşletme sahibi ve yönetici birbirlerinin kullanıcılarını görüntüleyemez veya yönetemez. Yönetici uygulamaya erişimi olan tüm kullanıcıları görebilir ve gerekirse erişim haklarını engelleyebilir.
-* **Self servis grup yönetimi** SharePoint Online sitelerine sahip olan ve bu siteleri ayrı şekilde ayarlayan iki kullanıcı, bu senaryoya örnek olarak verilebilir. Bunlar birbirlerinin ekiplerine siteleri için erişim vermek ister. Bunun için Azure AD'de bir grup oluşturabilirler ve her biri SharePoint Online'da kendi sitelerine erişim sunmak üzere bu grubu seçerler. Birisi erişim istediğinde Erişim Paneli'nden ister ve onayın ardından otomatik olarak iki SharePoint Online sitesine de erişim sağlanır. Daha sonra bu kişilerden biri, siteye erişen herkesin belirli bir SaaS uygulamasına da erişmesi gerektiğine karar verir. SaaS uygulamasının yöneticisi uygulamanın erişim haklarını SharePoint Online sitesine ekleyebilir. Daha sonra onaylanan tüm istekler, iki SharePoint Online sitesine ve bu SaaS uygulamasına erişim sağlar.
+* **Temsilcili Grup Yönetimi** hello şirket kullanarak tooa SaaS uygulamasına erişimi yöneten bir yönetici bir örnektir. Bu yönetici yeni bir grup hello iş sahibi toocreate ister için bu erişim haklarını yönetmek sıkıcı durumundadır. Hello Yöneticisi hello uygulama toohello yeni grup için erişim atar ve zaten toohello uygulamaya erişmeyi herkes toohello grubu ekler. Hello işletme sahibi daha sonra daha fazla kullanıcı ekleyebilir ve otomatik olarak sağlanan toohello uygulama bu kullanıcılardır. Merhaba işletme sahibi toowait hello yönetici toomanage erişimi kullanıcılar için gerekli değildir. Hello Yöneticisi verirse hello aynı izni tooa Yöneticisi'nde farklı bir iş grubunun, bu kişi ayrıca kendi kendi kullanıcılarının erişimini yönetebilir. Merhaba işletme sahibi ne hello Yöneticisi görüntüleyebilir veya diğer kişilerin kullanıcıları yönetme. Hello Yöneticisi hala erişim toohello uygulama ve gerekirse erişim haklarını engelleyebilir olan tüm kullanıcıları görebilirsiniz.
+* **Self servis grup yönetimi** SharePoint Online sitelerine sahip olan ve bu siteleri ayrı şekilde ayarlayan iki kullanıcı, bu senaryoya örnek olarak verilebilir. Toogive her diğer kişilerin erişimini tootheir siteleri ekipleri isterler. tooaccomplish Bu, Azure AD'de bir grup oluşturabilirsiniz ve SharePoint Online ile bunların her biri bu Grup tooprovide erişim tootheir siteleri seçer. Birisi erişim istediğinde erişim paneli hello istekte ve onay sonrası erişim tooboth SharePoint Online sitesine otomatik olarak elde. Daha sonra bunlardan birini hello sitesine erişen tüm kişilerin de erişim tooa belirli SaaS uygulamasına aldığından emin karar verir. Hello Yöneticisi hello SaaS uygulamasına hello uygulama toohello SharePoint Online sitesi için erişim hakları ekleyebilirsiniz. Daha sonra onaylanmış istekleri erişim toohello iki SharePoint Online siteleri ve ayrıca toothis SaaS uygulaması sağlar.
 
 ## <a name="making-a-group-available-for-end-user-self-service"></a>Bir grubu, son kullanıcı self servisi için kullanıma sunma
-1. [Klasik Azure portalı](https://manage.windowsazure.com)’nda Azure AD dizininizi açın.
-2. **Yapılandır** sekmesinde **Grup yönetimi temsilcisi** seçeneğini Etkin olarak ayarlayın.
-3. **Kullanıcılar güvenlik grupları oluşturabilir** veya **Kullanıcılar Office grupları oluşturabilir** ayarını Etkin olarak belirleyin.
+1. Merhaba, [Klasik Azure portalı](https://manage.windowsazure.com), Azure AD dizininizi açın.
+2. Merhaba üzerinde **yapılandırma** sekmesinde, ayarlamak **Grup Yönetimi için temsilci** tooEnabled.
+3. Ayarlama **kullanıcılar güvenlik grupları oluşturabilir** veya **kullanıcılar Office grupları oluşturabilir** tooEnabled.
 
-**Users can create security groups (Kullanıcılar güvenlik grupları oluşturabilir)** seçeneği etkinleştirildiğinde, dizininizdeki tüm kullanıcılara yeni güvenlik grupları oluşturma ve bu gruplara üye ekleme izni verilir. Bu yeni gruplar ayrıca diğer tüm kullanıcılar Erişim Paneli’nde gösterilir. Grup üzerindeki ilke ayarı izin veriyorsa diğer kullanıcılar bu gruplara katılmak için istekler oluşturabilir. **Kullanıcılar güvenlik grupları oluşturabilir** seçeneği devre dışı ise kullanıcılar grup oluşturamaz ve sahibi oldukları mevcut grupları değiştiremez. Ancak, bu grupların üyeliklerini yönetmeye ve diğer kullanıcıların gruplara katılma isteklerini onaylamaya devam edebilirler.
+Zaman **kullanıcılar güvenlik grupları oluşturabilir** olan etkinleştirildiğinde, dizininizdeki tüm kullanıcılara toocreate yeni güvenlik grubuna izin verilir ve üyeleri toothese grupları ekleyin. Bu yeni gruplar da diğer tüm kullanıcılar için erişim paneli hello görünmesini. Hello ilke ayarını hello grubunda izin veriyorsa, diğer kullanıcıların istekleri toojoin bu grupları oluşturabilirsiniz. **Kullanıcılar güvenlik grupları oluşturabilir** seçeneği devre dışı ise kullanıcılar grup oluşturamaz ve sahibi oldukları mevcut grupları değiştiremez. Ancak, bunlar hala hello bu grupların üyeliklerini yönetebilir ve bunları gruplara diğer kullanıcıların toojoin gelen istekleri onaylayabilir.
 
-Kullanıcılarınız için self servis grup yönetimi ile ilgili daha ayrıntılı bir erişim denetimi elde etmek istiyorsanız **Güvenlik grupları için self servis kullanabilen kullanıcılar** seçeneğini de kullanabilirsiniz. **Users can create groups (Kullanıcılar grup oluşturabilir)** seçeneği etkinleştirildiğinde, dizininizdeki tüm kullanıcılara yeni grup oluşturma ve bu gruplara üye ekleme izni verilir. Ayrıca **Users who can use self-service for security groups (Güvenlik grupları için self servis kullanabilen kullanıcılar)** seçeneğini Some (Bazıları) olarak ayarlayarak, grup yönetimini yalnızca belirli bir kullanıcı grubuyla sınırlarsınız. Bu anahtar Bazıları olarak ayarlandığında kullanıcıların yeni gruplar oluşturabilmesi ve gruplara üye ekleyebilmesi için SSGMSecurityGroupsUsers grubuna kullanıcı eklemeniz gerekir. **Users who can use self-service for security groups (Güvenlik grupları için self servis kullanabilen kullanıcılar)** seçeneğini All (Tümü) olarak ayarlayarak, dizininizdeki tüm kullanıcıların yeni grup oluşturabilmesini sağlayabilirsiniz.
+Aynı zamanda **güvenlik grupları için Self Servis kullanabilen kullanıcılar** tooachieve kullanıcılarınız için Self Servis Grup Yönetimi üzerinde daha ayrıntılı bir erişim denetimi. Zaman **kullanıcılar, gruplar oluşturabilir** olan etkinleştirildiğinde, dizininizdeki tüm kullanıcılara toocreate yeni gruplar kullanılabilir ve üyeleri toothese grupları ekleyin. Ayrıca ayarlayarak **güvenlik grupları için Self Servis kullanabilen kullanıcılar** tooSome, kısıtlama Grup Yönetimi tooonly sınırlı bir kullanıcı grubu. Bu anahtar tooSome ayarladığınızda, yeni gruplar oluşturabilir ve üye toothem eklemek için önce kullanıcıların toohello Grup SSGMSecurityGroupsUsers eklemeniz gerekir. Ayarlayarak **güvenlik grupları için Self Servis kullanabilen kullanıcılar** tooAll, tüm kullanıcılar, dizin toocreate yeni gruplarında etkinleştirin.
 
-Ayrıca **Güvenlik grupları için self servis kullanabilen grup** kutusunu kullanarak, üyeleri self servis kullanabilen bir grup için özel bir ad belirtebilirsiniz.
+Merhaba de kullanabilirsiniz **güvenlik grupları için Self Servis kullanan Grup** toospecify üyeleri, Self Servis kullanabileceğiniz bir grup için bir özel ad kutusuna.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalelerde Azure Active Directory ile ilgili ek bilgi sağlanmıştır.
 
-* [Azure Active Directory grupları ile kaynaklara erişimi yönetme](active-directory-manage-groups.md)
+* [Azure Active Directory grupları ile erişim tooresources yönetme](active-directory-manage-groups.md)
 * [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](active-directory-accessmanagement-groups-settings-cmdlets.md)
 * [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](active-directory-apps-index.md)
 * [Azure Active Directory nedir?](active-directory-whatis.md)

@@ -1,6 +1,6 @@
 ---
-title: "Azure Java SDK'sını kullanarak Azure Data Lake Analytics yönetme | Microsoft Docs"
-description: "Uygulama geliştirmek için Azure Data Lake Analytics Java SDK'yı kullanma"
+title: "Azure Java SDK'sını kullanarak Azure Data Lake Analytics aaaManage | Microsoft Docs"
+description: "Azure Data Lake Analytics Java SDK'yı toodevelop uygulamaları kullanın"
 services: data-lake-analytics
 documentationcenter: 
 author: matt1883
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/18/2017
 ms.author: saveenr
-ms.openlocfilehash: 8a0c1c7aab89f3bb62d0eb9f42e8ac65309d617e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 79e5fa1bacd5fd65072a1c3c480482a8e51d94b6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="manage--azure-data-lake-analytics-using-java-sdk"></a>Java SDK'yı kullanarak Azure Data Lake Analytics'i yönetme
 
@@ -26,17 +26,17 @@ Bu öğreticide, Azure Data Lake için ortak işlemleri gerçekleştiren bir Jav
 
 ## <a name="prerequisites"></a>Ön koşullar
 * **Java Geliştirme Seti (JDK) 8** (Java Sürüm 1,8 kullanarak).
-* **Intellij** veya başka bir uygun Java geliştirme ortamı. Bu belgedeki yönergeleri Intellij kullanılmıştır.
-* Bir Azure Active Directory (AAD) uygulaması oluşturun ve **İstemci Kimliği**, **Kiracı Kimliği** ve **Anahtar** bilgilerini alın. AAD uygulamaları hakkında daha fazla bilgi ve istemci kimliği almaya ilişkin yönergeler için bkz. [Portal kullanarak Active Directory uygulaması ve hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md). Yanıt URI ve anahtarınızı kullanılabilir Portalı'ndan uygulama oluşturulur ve oluşturulan anahtarı sahip olduğunda.
+* **Intellij** veya başka bir uygun Java geliştirme ortamı. Bu belgedeki Hello yönergeleri Intellij kullanın.
+* Bir Azure Active Directory (AAD) uygulaması oluşturun ve **İstemci Kimliği**, **Kiracı Kimliği** ve **Anahtar** bilgilerini alın. Nasıl AAD uygulamaları ve yönergeleri hakkında daha fazla bilgi için bir istemci kimliği tooget bkz [oluşturma Active Directory uygulaması ve hizmet sorumlusu portal kullanarak](../azure-resource-manager/resource-group-create-service-principal-portal.md). Merhaba yanıt URI ve anahtarınızı kullanılabilir hello portalından hello uygulama oluşturulur ve oluşturulan anahtarı sahip olduğunda.
 
 ## <a name="authenticating-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak kimlik doğrulaması
 
-Aşağıdaki kod parçacığında sağlar kod için kod **etkileşimli olmayan** kimlik doğrulaması, burada uygulama kendi kimlik bilgilerini sağlar.
+Aşağıdaki kod parçacığında sağlar kod için kod Hello **etkileşimli olmayan** kimlik doğrulaması, burada hello uygulama kendi kimlik bilgilerini sağlar.
 
 ## <a name="create-a-java-application"></a>Java uygulaması oluşturma
-1. Intellij hizmetini açın ve kullanarak bir Java projesi oluşturma **komut satırı uygulaması** şablonu.
-2. Ekranınızın sol tarafında projeye sağ tıklayın ve **Add Framework Support (Framework Desteği Ekle)** seçeneğine tıklayın. **Maven**'ı seçip **OK (Tamam)** seçeneğine tıklayın.
-3. Yeni oluşturulan **"pom.xml"** dosyasını açın ve **\</version>** etiketi ile **\</project>** etiketi arasına şu metin parçacığını ekleyin:
+1. Intellij hizmetini açın ve hello kullanarak bir Java projesi oluşturma **komut satırı uygulaması** şablonu.
+2. Ekranınızın sol taraftaki hello hello projeye sağ tıklatın ve **Framework desteği Ekle**. **Maven**'ı seçip **OK (Tamam)** seçeneğine tıklayın.
+3. Yeni oluşturulan açık hello **"pom.xml"** dosya ve metin parçacığını hello arasında aşağıdaki hello ekleyin  **\</VERSION >** etiketini ve hello  **\< /project >** etiketi:
 
 ```
 <repositories>
@@ -89,9 +89,9 @@ Aşağıdaki kod parçacığında sağlar kod için kod **etkileşimli olmayan**
 </dependencies>
 ```
 
-Git **Dosya > Ayarlar > Yapı > yürütme > Dağıtım**. Seçin **derleme araçlarını > Maven > içeri aktarma**. Ardından denetleyin **Import Maven projeleri otomatik olarak**.
+Çok Git**Dosya > Ayarlar > Yapı > yürütme > Dağıtım**. Seçin **derleme araçlarını > Maven > içeri aktarma**. Ardından denetleyin **Import Maven projeleri otomatik olarak**.
 
-Açık `Main.java` ve var olan kod bloğunu aşağıdaki kod parçacığıyla değiştirin:
+Açık `Main.java` ve Değiştir hello hello ile var olan kod bloğunu aşağıdaki kod parçacığını:
 
 ```
 package com.company;
@@ -175,10 +175,10 @@ public class Main {
         WaitForNewline("File created.", "Submitting a job.");
 
         // ----------------------------------------
-        // Submit a job to Data Lake Analytics
+        // Submit a job tooData Lake Analytics
         // ----------------------------------------
 
-string script = "@input =  EXTRACT Data string FROM \"/input1.csv\" USING Extractors.Csv(); OUTPUT @input TO @\"/output1.csv\" USING Outputters.Csv();", "testJob";
+string script = "@input =  EXTRACT Data string FROM \"/input1.csv\" USING Extractors.Csv(); OUTPUT @input too@\"/output1.csv\" USING Outputters.Csv();", "testJob";
         UUID jobId = SubmitJobByScript(script);
         WaitForNewline("Job submitted.", "Getting job status.");
 
@@ -201,13 +201,13 @@ string script = "@input =  EXTRACT Data string FROM \"/input1.csv\" USING Extrac
 }
 ```
 
-Kod parçacığında çağrılan parametrelerin değerlerini belirtin:
+Merhaba kod parçacığında çağrılan parametrelerin Hello değerlerini sağlayın:
 * `localFolderPath`
 * `_adlaAccountName`
 * `_adlsAccountName`
 * `_resourceGroupName`
 
-Yer tutucularını değiştirin:
+Merhaba yer tutucularını değiştirin:
 * `CLIENT-ID`,
 * `CLIENT-SECRET`,
 * `TENANT-ID`
@@ -239,7 +239,7 @@ public static void WaitForNewline(String reason, String nextAction)
     if (nextAction == null)
         nextAction = "";
 
-    System.out.println(reason + "\r\nPress ENTER to continue...");
+    System.out.println(reason + "\r\nPress ENTER toocontinue...");
     try{System.in.read();}
     catch(Exception e){}
 
@@ -379,6 +379,6 @@ public static String GetJobStatus(UUID jobId) throws IOException, CloudException
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* U-SQL öğrenmek için bkz. [Azure Data Lake Analytics U-SQL dili ile çalışmaya başlama](data-lake-analytics-u-sql-get-started.md) ve [U-SQL dili başvurusu](http://go.microsoft.com/fwlink/?LinkId=691348).
+* U-SQL, toolearn bkz [Azure Data Lake Analytics U-SQL dili ile çalışmaya başlama](data-lake-analytics-u-sql-get-started.md), ve [U-SQL dili başvurusu](http://go.microsoft.com/fwlink/?LinkId=691348).
 * Yönetim görevleri için bkz. [Azure portalı kullanarak Azure Data Lake Analytics'i yönetme](data-lake-analytics-manage-use-portal.md).
-* Data Lake Analytics'e yönelik bir genel bakış için bkz. [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md).
+* bir Data Lake Analytics özetini tooget bkz [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md).

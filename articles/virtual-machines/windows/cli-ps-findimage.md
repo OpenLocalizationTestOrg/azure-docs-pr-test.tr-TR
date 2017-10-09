@@ -1,6 +1,6 @@
 ---
-title: "Windows VM görüntüleri seçin | Microsoft Docs"
-description: "Yayımcı, teklif, SKU ve sürümü Market VM görüntüleri belirlemek için Azure PowerSHell kullanmayı öğrenin."
+title: "aaaSelect Windows VM görüntüleri Azure'da | Microsoft Docs"
+description: "Toouse Azure PowerSHell toodetermine nasıl hello publisher, teklif, SKU ve sürümü Market VM görüntüleri öğrenin."
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/12/2017
 ms.author: danlep
-ms.openlocfilehash: 814ae260123c045d4b6766bf4b312f874cd77068
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 752edcd0935f5141832e49503ae800ea0145e219
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Azure PowerShell ile Azure Market'te Windows VM görüntüleri bulma
+# <a name="how-toofind-windows-vm-images-in-hello-azure-marketplace-with-azure-powershell"></a>Nasıl hello Azure PowerShell ile Azure Marketi içinde toofind Windows VM görüntüleri
 
-Bu konuda, Azure Marketi'nde VM görüntüleri bulmak için Azure PowerShell kullanmayı açıklar. Bir Windows VM oluşturduğunuzda bir Market görüntüsü belirtmek için bu bilgileri kullanın.
+Bu konuda nasıl hello Azure Marketi toouse Azure PowerShell toofind VM görüntüleri açıklanmaktadır. Bir Windows VM oluşturduğunuzda, bu bilgileri toospecify bir Market görüntüsü kullanın.
 
-Yüklü ve en son yapılandırıldığından emin olun [Azure PowerShell Modülü](/powershell/azure/install-azurerm-ps).
+Yüklü ve hello son yapılandırıldığından emin olun [Azure PowerShell Modülü](/powershell/azure/install-azurerm-ps).
 
 
 
@@ -48,44 +48,44 @@ Yüklü ve en son yapılandırıldığından emin olun [Azure PowerShell Modül�
 ## <a name="find-specific-images"></a>Belirli görüntüleri bulma
 
 
-Azure Resource Manager ile yeni bir sanal makine oluştururken bazı durumlarda aşağıdaki görüntü özelliklerinin birleşimine sahip bir görüntü belirtmeniz gerekir:
+Azure Resource Manager ile yeni bir sanal makine oluştururken, bazı durumlarda, toospecify görüntünün görüntü özelliklerini aşağıdaki hello hello birlikte gerekir:
 
 * Yayımcı
 * Sunduğu
 * SKU
 
-Örneğin, bu değerler içeren kullanın [kümesi AzureRMVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) PowerShell cmdlet'ini veya bir kaynak grubu şablonu içinde belirtmelisiniz oluşturulacak VM türü.
+Örneğin, bu değerleri ile Merhaba kullanın [kümesi AzureRMVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) PowerShell cmdlet'ini veya bir kaynak grubu şablonu içinde belirtmelisiniz oluşturulan VM toobe hello türü.
 
-Bu değerleri belirlemek gerekiyorsa, çalıştırabilirsiniz [Get-AzureRMVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher), [Get-AzureRMVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer), ve [Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) gitmek için cmdlet'leri görüntüler. Bu değerler belirler:
+Bu değerleri toodetermine gerekiyorsa, hello çalıştırabilirsiniz [Get-AzureRMVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher), [Get-AzureRMVMImageOffer](/powershell/module/azurerm.compute/get-azurermvmimageoffer), ve [Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) cmdlet'leri toonavigate hello görüntüler. Bu değerler belirler:
 
-1. Görüntü yayımcılarını listeleyin.
+1. Liste hello görüntü yayımcılar.
 2. Belirli bir yayımcı varsa yayımcının tekliflerini listeleyin.
 3. Belirli bir teklif varsa SKU’larını listeleyin.
 
-İlk olarak aşağıdaki komutlarla yayımcıları listeleyin:
+İlk olarak, aşağıdaki komutları hello ile hello yayımcılar listesi:
 
 ```powershell
 $locName="<Azure location, such as West US>"
 Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
 ```
 
-Seçtiğiniz yayımcı adını girin ve aşağıdaki komutları çalıştırın:
+Seçilen yayımcı adınızı doldurmanız ve hello aşağıdaki komutları çalıştırın:
 
 ```powershell
 $pubName="<publisher>"
 Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 ```
 
-Seçtiğiniz teklif adını girin ve aşağıdaki komutları çalıştırın:
+Seçilen teklif adınızı doldurun ve hello aşağıdaki komutları çalıştırın:
 
 ```powershell
 $offerName="<offer>"
 Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 ```
 
-Çıktısından `Get-AzureRMVMImageSku` komutu, sahip olduğunuz tüm bilgilerin görüntüsü yeni bir sanal makine için belirtmeniz gerekir.
+Merhaba, hello çıktısından `Get-AzureRMVMImageSku` komut, tüm hello bilgilerin için yeni bir sanal makine toospecify hello görüntü gerekir.
 
-Aşağıda tam bir örnek gösterilmiştir:
+Merhaba aşağıdaki tam bir örnek gösterilmektedir:
 
 ```powershell
 $locName="West US"
@@ -111,7 +111,7 @@ Canonical
 ...
 ```
 
-"MicrosoftWindowsServer" yayımcısı için:
+Merhaba "MicrosoftWindowsServer" publisher için:
 
 ```powershell
 $pubName="MicrosoftWindowsServer"
@@ -128,7 +128,7 @@ WindowsServer
 WindowsServer-HUB
 ```
 
-"WindowsServer" teklifi için:
+"Windows Server" Merhaba sunar:
 
 ```powershell
 $offerName="WindowsServer"
@@ -154,7 +154,7 @@ Skus
 2016-Nano-Server
 ```
 
-Bu listeden seçtiğiniz SKU adını kopyaladığınızda, `Set-AzureRMVMSourceImage` PowerShell cmdlet’i veya bir kaynak grubu şablonu için ihtiyacınız olan tüm bilgilere sahip olursunuz.
+Bu listeden SKU Adı Seçilen hello kopyalayın ve hello tüm hello bilgisine sahip `Set-AzureRMVMSourceImage` PowerShell cmdlet'ini veya bir kaynak grubu şablonu için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Artık tam olarak kullanmak istediğiniz görüntüyü seçebilirsiniz. Yalnızca bulundu, görüntü bilgileri kullanarak bir sanal makineyi hızlı bir şekilde oluşturmak için bkz: [PowerShell ile Windows sanal makine oluşturma](quick-create-powershell.md).
+Tam olarak hello görüntüsünü seçebilirsiniz artık toouse istiyor. yalnızca bulundu, hello görüntü bilgileri kullanarak hızlı bir şekilde bir sanal makine toocreate bkz [PowerShell ile Windows sanal makine oluşturma](quick-create-powershell.md).

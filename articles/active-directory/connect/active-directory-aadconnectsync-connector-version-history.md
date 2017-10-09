@@ -1,6 +1,6 @@
 ---
-title: "Bağlayıcısı sürüm yayımlama geçmişi | Microsoft Docs"
-description: "Bu konu bağlayıcıları tüm sürümleri, Forefront Identity Manager (FIM) ve Microsoft Identity Manager (MIM) için listeler."
+title: "aaaConnector sürüm yayımlama geçmişi | Microsoft Docs"
+description: "Bu konu hello bağlayıcılar tüm sürümleri, Forefront Identity Manager (FIM) ve Microsoft Identity Manager (MIM) için listeler."
 services: active-directory
 documentationcenter: 
 author: fimguy
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/24/2017
 ms.author: fimguy
-ms.openlocfilehash: 313145f4d8e5faa91fb3504cb0fd0ba87ca2e379
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 3522f17c30e46542eaa367ecdefdfd2fc47f71a4
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="connector-version-release-history"></a>Bağlayıcı Sürümü Yayınlama Geçmişi
-Forefront Identity Manager (FIM) ve Microsoft Identity Manager (MIM) bağlayıcıları sık sık güncelleştirilir.
+Merhaba bağlayıcıları Forefront Identity Manager (FIM) ve Microsoft Identity Manager (MIM) için sıkça güncelleştirilir.
 
 > [!NOTE]
-> Bu konuda FIM ve MIM yalnızca bilinmiyor. Bu bağlayıcıların üzerinde Azure AD Connect yüklemesi için desteklenmiyor. Yükseltme yapı belirtildiğinde yayımlanan bağlayıcılar AADConnect üzerinde önceden yüklenmiş.
+> Bu konuda FIM ve MIM yalnızca bilinmiyor. Bu bağlayıcıların üzerinde Azure AD Connect yüklemesi için desteklenmiyor. Yayımlanan bağlayıcılar AADConnect üzerinde toospecified yapı yükseltirken önceden yüklenmiş.
 
-Bu konuda çıkarılan bağlayıcılarının tüm sürümlerini listeler.
+Bu konuda hello çıkarılan bağlayıcılar tüm sürümlerini listeler.
 
 İlgili bağlantılar:
 
@@ -46,20 +46,20 @@ Bu konuda çıkarılan bağlayıcılarının tüm sürümlerini listeler.
 * Genel Web Hizmetleri:
   * İki veya daha fazla uç noktaları zamanki oluşturulan bir SOAP proje engelleyen bir sorun düzeltilmiştir.
 * Genel SQL:
-  * Alma işleminde GSQL saati doğru bağlayıcı alanı kaydedildiğinde dönüştürülürken değil. GSQL bağlayıcı alanı için varsayılan tarih ve saat Biçim 'yyyy-aa-gg: ssZ ', 'yyyy-aa-gg için: ssZ' değiştirildi.
+  * Merhaba alma işleminde hello GSQL saati doğru kaydedildiğinde dönüştürülürken değil tooconnector alanı. Merhaba hello GSQL bağlayıcı alanı için varsayılan tarih ve saat Biçim 'yyyy-aa-gg: ssZ' too'yyyy-aa-gg: ssZ değiştirildi '.
 
 ## <a name="115510-aadconnect-115530"></a>1.1.551.0 (AADConnect 1.1.553.0)
 
 ### <a name="fixed-issues"></a>Giderilen sorunlar:
 
 * Genel Web Hizmetleri:
-  * Wsconfig Aracı'nı doğru şekilde isteğinden"örnek" REST hizmeti yöntemi için Json dizisi dönüştürmemenizi. Bu, bu Json dizisi REST isteği için seri hale getirme sorunlara neden oldu.
+  * Merhaba Wsconfig aracı doğru hello Json dizisi isteğinden"örnek" Merhaba REST hizmeti yöntemi için dönüştürmemenizi. Bu, bu Json dizisi hello REST isteği için seri hale getirme sorunlara neden oldu.
   * Web Hizmeti Bağlayıcısı Yapılandırması aracını JSON öznitelik adları alanı simgeleri kullanımını desteklemiyor 
-    * Değiştirme deseni el ile WSConfigTool.exe.config dosyasına örneğin eklenebilir```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+    * Değiştirme deseni el ile toohello WSConfigTool.exe.config dosyasına, örneğin eklenebilir```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
 
 * Lotus Notes:
-  * Zaman seçeneği **kuruluşun/kuruluş birimleri için özel certifiers izin** Bağlayıcısı'nı (güncelleştirme) dışa aktarma sırasında başarısız sonra tüm öznitelikleri Domino ancak dışarı aktarma zamanında dışarı verme akış sonra devre dışı bir KeyNotFoundException eşitlemeye izin verilir. 
-    * Aşağıdaki öznitelikler birini değiştirerek DN (kullanıcı adı özniteliği) değiştirmeye çalışırsa yeniden adlandırma işlemi başarısız olduğu için bu gerçekleşir:  
+  * Seçenek'ne zaman hello **kuruluşun/kuruluş birimleri için özel certifiers izin** hello bağlayıcı başarısız (Merhaba verme akış sonra tüm öznitelikleri güncelleştirme) dışarı aktarılırken dışarı aktarılan tooDomino sonra ancak hello sırasındaki devre dışı bırakıldı dışarı aktarma bir KeyNotFoundException tooSync döndürülür. 
+    * Merhaba yeniden adlandırmak olduğundan işlem başarısız toochange DN (kullanıcı adı özniteliği) çalıştığında, aşağıdaki hello özniteliklerinden biri değiştirerek olur:  
       - Soyadı
       - FirstName
       - MiddleInitial
@@ -89,7 +89,7 @@ Bu konuda çıkarılan bağlayıcılarının tüm sürümlerini listeler.
   * OverflowException GSQL Bağlayıcısı ile DB2 AS / 400
 
 Lotus:
-  * OU'lar GlobalParameters sayfa açmadan önce arama enable\disable eklenen seçeneği
+  * Eklenen seçeneği tooenable\disable GlobalParameters sayfa açmadan önce OU'lar arama
 
 ## <a name="114430"></a>1.1.443.0
 
@@ -98,18 +98,18 @@ Yayımlanma tarihi: 2017 Mart
 ### <a name="enhancements"></a>Geliştirmeleri
 
 * Genel SQL:</br>
-  **Senaryo Belirtiler:** SQL burada biz yalnızca bir nesne türüne bir başvuru izin ve çapraz başvuru üyeleriyle gerektiren Bağlayıcısı ile iyi bilinen bir sınırlama geçerlidir. </br>
-  **Çözüm açıklaması:** başvuruları için işlem adımda olan "*" seçeneği seçildiğinde, nesne türlerinin tüm bileşimleri eşitleme altyapısında döndürülür.
+  **Senaryo Belirtiler:** hello SQL burada biz yalnızca başvuru tooone nesne türüne izin ve çapraz başvuru üyeleriyle gerektiren Connector ile iyi bilinen bir sınırlama geçerlidir. </br>
+  **Çözüm açıklaması:** başvurular için hello işleme adımda olan "*" seçeneği seçildiğinde, nesne türlerinin tüm bileşimleri geri toohello eşitleme altyapısı döndürülür.
 
 >[!Important]
 - Bu çok sayıda yer tutucuları oluşturur
-- Adlandırma nesne türleri benzersiz olduğundan emin olmak için gereklidir.
+- Gerekli toomake hello adlandırma nesne türleri benzersiz olduğundan emin olur.
 
 
 * Genel LDAP:</br>
- **Senaryo:** yalnızca birkaç kapsayıcıları belirli bir bölüm seçildiğinde sonra arama hala tüm bölümünde yapılır. Özel eşitleme hizmeti, ancak bir değil, performans düşüşüne neden MA filtrelenir. </br>
+ **Senaryo:** yalnızca birkaç kapsayıcıları belirli bir bölüm seçildiğinde sonra hello arama hala tüm bölümünde yapılır. Özel eşitleme hizmeti, ancak bir değil, performans düşüşüne neden MA filtrelenir. </br>
 
- **Çözüm açıklaması:** tüm kapsayıcıları aracılığıyla olası Git yapmak ve her biri tüm bölümünde arama yerine nesneleri aramak için değiştirilmiş GLDAP bağlayıcı'nın kodu.
+ **Çözüm açıklaması:** değiştirilen GLDAP bağlayıcı'nın kodunu toomake mümkün tüm kapsayıcıları gidin ve her biri hello tüm bölümünde arama yerine nesneleri arayın.
 
 
 * Lotus Domino:
@@ -119,15 +119,15 @@ Yayımlanma tarihi: 2017 Mart
 
 ### <a name="fixed-issues"></a>Giderilen sorunlar:
 * Genel Web Hizmetleri:
- * Aşağıdaki hata olur sonra hizmet URL'si varsayılan değiştirirken SAP wsconfig WebService yapılandırma aracı aracılığıyla projeleri: yolunun bir bölümü bulunamadı.
+ * Aşağıdaki hata hello olur sonra hello hizmeti URL'si varsayılan değiştirirken SAP wsconfig WebService yapılandırma aracı aracılığıyla projeleri: hello yolunun bir bölümü bulunamadı.
 
       ``'C:\Users\cstpopovaz\AppData\Local\Temp\2\e2c9d9b0-0d8a-4409-b059-dceeb900a2b3\b9bedcc0-88ac-454c-8c69-7d6ea1c41d17\cfg.config\cloneconfig.xml'. ``
 
 * Genel LDAP:
  * AD LDS tüm öznitelikleri GLDAP bağlayıcı görmez
- * LDAP dizini şemadan UPN özniteliklere algılandığında Sihirbazı sonları
+ * UPN özniteliklere hello LDAP dizin şemadan algılandığında Sihirbazı sonları
  * Delta içeri aktarmalar başarısız bulma hatalı "objectclass" özniteliği seçilmediğinde tam içeri aktarma sırasında mevcut değil
- * Bir "Bölümleri ve hiyerarşileri Yapılandır" yapılandırma sayfası değil Göster herhangi bir nesne türü için genel yeni sunucuları bölümü eşittir  
+ * Bir "Bölümleri ve hiyerarşileri Yapılandır" yapılandırma sayfası eşit toohello bölümdür hello genel yeni sunucular için hangi tür nesneleri göster değil  
 LDAP MA. Bunlar yalnızca nesneleri RootDSE bölümünden gösterdi.
 
 
@@ -137,13 +137,13 @@ LDAP MA. Bunlar yalnızca nesneleri RootDSE bölümünden gösterdi.
 
 
 * Lotus Notes:
- * Belirli bir alan "Tam adı" için Notlar verilirken özniteliğinin değeri Null veya boş. ancak meta veri deposunda doğru şekilde gösterilir.
+ * Belirli bir alan "Tam adı" Merhaba meta veri deposunda doğru değeri verme tooNotes hello ancak hello özniteliği Null veya boş olduğunda gösterilir.
  * Yinelenen Certifier hata düzeltme
- * Lotus Domino Bağlayıcısı diğer nesnelerle üzerinde herhangi bir veri olmadan nesne seçildiğinde sonra bulma hatası tam içeri aktarma işlemi gerçekleştirilirken aldığımız.
- * Delta içeri aktarma olduğunda Lotus Domino Bağlayıcısı, o çalışma sonunda Microsoft.IdentityManagement.MA.LotusDomino.Service.exe çalıştıran hizmet bazen döndürür bir uygulama hatası.
- * Genel grup üyelikleri düzgün çalışır ve bir kullanıcıyı üyelikten kaldırmak denemek için dışa aktarma çalıştırırken içeren bir güncelleştirme başarılı olarak gösterir, ancak kullanıcının gerçekten Lotus Notes üyeliğinin kaldırılmaları değil dışında tutulur.
- * Dışarı aktarma modunu "Append öğesi en altındaki" GUI, birden çok değerli öznitelikler için dışa aktarma sırasında en altındaki yeni öğeler eklemek için Lotus MA yapılandırmasında eklendiği gibi seçmek için bir fırsat.
- * Bağlayıcı posta klasörü ve kimliği kasası dosyayı silmek için gerekli mantığı ekleyeceksiniz.
+ * Merhaba nesne herhangi bir veri olmadan hello Lotus Domino Bağlayıcısı diğer nesnelerle seçildiğinde sonra hello bulma hatası tam içeri aktarma işlemi gerçekleştirilirken aldığımız.
+ * Delta içeri aktarma olduğunda Lotus Domino Bağlayıcısı hello üzerinde hello çalıştırma, o hello sonunda Microsoft.IdentityManagement.MA.LotusDomino.Service.exe hizmeti bazen çalıştıran bir uygulama hatası döndürür.
+ * Genel grup üyelikleri düzgün çalışır ve hello verme tootry tooremove kullanıcı çalıştırırken üyeliğinden içeren bir güncelleştirme başarılı olarak gösterir, ancak hello kullanıcı gerçekte Lotus Notes üyeliğinin kaldırılmaları değil dışında tutulur.
+ * Bir fırsat toochoose modu "Append öğesi en altındaki" olarak dışa aktarma yapılandırma Lotus GUI MA tooappend yeni öğeler en altında birden çok değerli öznitelikler için hello dışa aktarma sırasında eklendi.
+ * Bağlayıcı hello mantığı toodelete hello hello posta klasörünün dosyasından ve kimliği kasa gerekli ekler.
  * Üyelik için NAB üye çalışmıyor silin.
  * Değerleri başarıyla birden çok değerli özniteliğinden silinmelidir
 
@@ -151,33 +151,33 @@ LDAP MA. Bunlar yalnızca nesneleri RootDSE bölümünden gösterdi.
 Yayımlanma tarihi: 2016 Mart
 
 **Yeni bir bağlayıcı**  
-İlk sürümü [Genel SQL bağlayıcı](active-directory-aadconnectsync-connector-genericsql.md).
+İlk hello sürümü [Genel SQL bağlayıcı](active-directory-aadconnectsync-connector-genericsql.md).
 
 **Yeni Özellikler:**
 
 * Genel LDAP Bağlayıcısı:
   * Delta içeri aktarma Isode ile desteği eklendi.
 * Web Hizmetleri Bağlayıcısı:
-  * CsEntryChangeResult ve nesne düzeyi hataları eşitleme altyapısında döndürülecek izin vermek için setImportErrorCode etkinliğiyle güncelleştirildi.
-  * Yeni nesne düzeyinde hata işlevselliği kullanmak için SAP6 ve SAP6User şablonları güncelleştirildi.
+  * Güncelleştirilmiş hello csEntryChangeResult etkinliği ve setImportErrorCode etkinlik tooallow nesne düzeyi hataları toobe döndürülen geri toohello eşitleme altyapısı.
+  * Güncelleştirilmiş hello SAP6 ve SAP6User şablonları toouse hello yeni nesne düzeyinde hata işlevselliği.
 * Lotus Domino Bağlayıcısı:
-  * Dışarı aktarma için adres defteri başına bir certifier gerekir. Artık tüm certifiers için aynı parola yönetimini kolaylaştırmak için de kullanabilirsiniz.
+  * Dışarı aktarma için adres defteri başına bir certifier gerekir. Kullanım hello artık aynı yapabilecekleriniz parola tüm certifiers toomake hello yönetimi için daha kolay.
 
 **Giderilen sorunlar:**
 
 * Genel LDAP Bağlayıcısı:
   * IBM Tivoli DS için bazı başvuru öznitelikleri doğru algılanmadı.
-  * Delta içeri aktarma sırasında açık LDAP için başında ve dizeleri sonuna boşluk kesildi.
-  * Novell ve NetIQ için OU/kapsayıcıları arasında ve aynı zamanda bir nesne taşındı verme başarısız nesne yeniden adlandırıldı.
+  * Delta içeri aktarma sırasında açık LDAP için hello başına ve dizeleri sonunda boşluk kesildi.
+  * Novell ve NetIQ için bir nesne hello adresindeki OU'lar/kapsayıcıları arasında taşındı verme aynı yeniden adlandırılmış hello nesnesi oluşturulamadı zaman.
 * Web Hizmetleri Bağlayıcısı:
-  * Ardından web hizmeti aynı bağlama için birden çok uç noktalarının olsaydı, bağlayıcı Bu uç noktalarının doğru bulamadı.
+  * Merhaba web hizmeti aynı bağlama için birden çok uç noktalarının olsaydı, ardından hello bağlayıcı doğru Bu uç noktalarının bulamadı.
 * Lotus Domino Bağlayıcısı:
-  * Bir verme bir posta veritabanına fullName özniteliğinin çalışmadı.
-  * Hem eklendi ve üye bir gruptan kaldırılan bir dışa aktarma yalnızca eklenen üyelerin verildi.
-  * Notlar belge geçersiz (öznitelik IsValid false olarak ayarlayın), bağlayıcı başarısız ise.
+  * Bir verme posta hello fullName özniteliği tooa veritabanının çalışmadı.
+  * Bir gruptan kaldırılan ve eklendi üye yalnızca hello dışarı verme üyeleri eklendi.
+  * Notlar belge geçersizse (Merhaba özniteliği IsValid toofalse ayarlanır), bağlayıcı başarısız hello.
 
 ## <a name="older-releases"></a>Eski sürümleri
-Mart 2016 öncesinde bağlayıcıları destek konuları yayımlanmıştır.
+Mart 2016 öncesinde hello bağlayıcılar destek konuları yayımlanmıştır.
 
 **Genel LDAP**
 
@@ -205,6 +205,6 @@ Mart 2016 öncesinde bağlayıcıları destek konuları yayımlanmıştır.
 * [KB2875551](https://support.microsoft.com/kb/2875551) -5.3.0534, 2013 Ağustos
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi edinmek [Azure AD Connect eşitleme](active-directory-aadconnectsync-whatis.md) yapılandırma.
+Merhaba hakkında daha fazla bilgi [Azure AD Connect eşitleme](active-directory-aadconnectsync-whatis.md) yapılandırma.
 
 [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md) hakkında daha fazla bilgi edinin.

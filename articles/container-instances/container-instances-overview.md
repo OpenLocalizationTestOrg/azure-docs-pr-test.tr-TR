@@ -1,5 +1,5 @@
 ---
-title: "Azure Container Instances’a Genel Bakış | Azure Docs"
+title: "aaaAzure kapsayıcı örnekleri genel bakış | Azure belgeleri"
 description: "Azure Container Instances’ı Anlama"
 services: container-instances
 documentationcenter: 
@@ -17,21 +17,21 @@ ms.workload: na
 ms.date: 07/20/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 3fb230c6b16a57e3650abf2000acdfe944cd633c
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: c0662ede1260b15d9841bfc2c3c4cec4c30338d6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
-Kapsayıcılar, bulut uygulamalarını hızlı bir şekilde paketlemek, dağıtmak ve yönetmek için giderek daha fazla tercih edilmektedir. Azure Container Instances, herhangi bir sanal makine sağlamak ve daha yüksek düzeyde bir hizmeti benimsemek zorunda kalmadan Azure içinde kapsayıcı çalıştırmanın en hızlı ve en kolay yolunu sunar. 
+Kapsayıcıları hızlı bir şekilde hello tercih edilen yol toopackage gelmektedir, dağıtın ve bulut uygulamalarını yönetin. Azure kapsayıcı örnekleri hello en hızlı ve kolay şekilde toorun bir kapsayıcıda Azure, herhangi bir sanal makine tooprovision kalmadan ve üst düzey hizmet tooadopt kalmadan sunar. 
 
-Yalıtılmış kapsayıcılarda çalışabileceğiniz senaryolar (basit uygulamalar, görev otomasyonu ve sürüm işleri gibi) için Azure Container Instances harika bir çözümdür. Eksiksiz bir kapsayıcı düzenlemesi gerektiren senaryolar (birden çok kapsayıcıda hizmet bulma, otomatik ölçeklendirme ve eşgüdümlü uygulama yükseltmeleri gibi) için [Azure Container Service](https://docs.microsoft.com/azure/container-service/)’i öneririz.
+Yalıtılmış kapsayıcılarda çalışabileceğiniz senaryolar (basit uygulamalar, görev otomasyonu ve sürüm işleri gibi) için Azure Container Instances harika bir çözümdür. Merhaba öneririz burada dosyalarda tam birden çok kapsayıcı, otomatik ölçeklendirme ve Eşgüdümlü uygulama yükseltmelerini arasında hizmet bulma de dahil olmak üzere, kapsayıcı orchestration senaryoları için [Azure kapsayıcı hizmeti](https://docs.microsoft.com/azure/container-service/).
 
 ## <a name="fast-startup-times"></a>Hızlı başlangıç süreleri
 
-Kapsayıcılar, sanal makinelerde önemli başlangıç süresi avantajları sunar. Azure Container Instances sayesinde Azure’da, sanal makineleri sağlamaya ve yönetmeye gerek kalmadan saniyeler içinde kapsayıcı başlatabilirsiniz.
+Kapsayıcılar, sanal makinelerde önemli başlangıç süresi avantajları sunar. Azure kapsayıcı örnekleriyle bir kapsayıcı Azure'da hello gerek tooprovision olmadan saniye başlatmak ve VM'ler yönetin.
 
 ## <a name="hypervisor-level-security"></a>Hiper yönetici düzeyinde güvenlik
 
@@ -39,24 +39,24 @@ Geçmişte kapsayıcılar, uygulama bağımlılığı yalıtımı ve kaynak idar
 
 ## <a name="custom-sizes"></a>Özel boyutlar
 
-Kapsayıcılar genellikle tek bir uygulamayı çalıştırmak üzere iyileştirilmiştir, ancak söz konusu uygulamaların tam gereksinimleri önemli ölçüde farklı olabilir. Azure Container Instances kullandığınızda, CPU çekirdekleri ve bellek açısından tam olarak gerek duyduğunuz kadar kaynak isteyebilirsiniz. Yalnızca istedikleriniz için, saniye başına faturalandırılır ve harcamalarınızı ihtiyaçlarınıza uyacak şekilde ayarlayabilirsiniz.
+Yalnızca tek bir uygulama, ancak bu uygulamaların tam gereksinimlerini hello büyük ölçüde değişebilir genellikle en iyi duruma getirilmiş toorun kapsayıcılardır. Azure Container Instances kullandığınızda, CPU çekirdekleri ve bellek açısından tam olarak gerek duyduğunuz kadar kaynak isteyebilirsiniz. Ne istemcinin göre tarafından hello fatura ödeme, gereksinimlerinize göre harcama ince iyileştirebilirsiniz şekilde ikinci.
 
 ## <a name="public-ip-connectivity"></a>Genel IP bağlantısı
 
-Azure Container Instances ile kapsayıcılarınızı İnternet üzerinde genel IP adresi ile doğrudan kullanıma sunabilirsiniz. Gelecekte ağ olanaklarımızı, sanal ağlar ile tümleştirmeyi, yük dengeleyicileri ve Azure ağ altyapısının diğer çekirdek bölümlerini içerecek şekilde genişleteceğiz.
+Azure kapsayıcı örnekleriyle kapsayıcılarınızı getirebilir doğrudan toohello Internet ortak IP adresine sahip. Hello gelecekteki, biz bizim ağ yeteneklerini tooinclude tümleştirme sanal ağlarla genişletin, yük dengeleyicileri ve diğer çekirdek bölümleri hello Azure ağ altyapısı.
 
 ## <a name="persistent-storage"></a>Kalıcı depolama
 
-Azure Container Instances ile durum alma ve durumu kalıcı hale getirme işlemleri için, Azure dosya paylaşımlarını doğrudan bağlama olanağı sunuyoruz.
+tooretrieve ve Azure kapsayıcı örnekleri durumuyla kalıcı, doğrudan bağlama Azure dosya paylaşımları sunuyoruz.
 
 ## <a name="linux-and-windows-containers"></a>Linux ve Windows kapsayıcıları
 
-Azure Container Instances sayesinde, aynı API ile hem Windows hem de Linux kapsayıcıları zamanlayabilirsiniz. Bunun için temel işletim sistemi türünü belirtmeniz yeterlidir, diğer her şey aynıdır.
+Azure kapsayıcı örnekleri, hem Windows zamanlayabilir ve aynı API ile Linux kapsayıcıları hello. Yalnızca hello temel işletim sistemi türü ve şey aynı göstermek.
 
 ## <a name="co-scheduled-groups"></a>Birlikte zamanlanmış gruplar
 
-Azure Container Instances, aynı ana makineyi, yerel ağı, depolama alanını ve yaşam döngüsünü paylaşan birden çok kapsayıcı grubunun zamanlanmasını destekler. Böylece ana uygulamanızı, günlüğe kaydetme gibi diğer destekleyici uygulamalarla birleştirebilirsiniz.
+Azure Container Instances, aynı ana makineyi, yerel ağı, depolama alanını ve yaşam döngüsünü paylaşan birden çok kapsayıcı grubunun zamanlanmasını destekler. Bu, toocombine ana uygulamanızı başkalarıyla sağlar destekleyen bir rol, günlüğe kaydetme gibi davranan.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Hızlı başlangıç kılavuzumuzu](container-instances-quickstart.md) kullanarak bir kapsayıcıyı tek bir komutla Azure’a dağıtmayı deneyin.
+Tek bir komut kullanarak bir kapsayıcı tooAzure dağıtmayı deneyin bizim [Hızlı Başlangıç Kılavuzu](container-instances-quickstart.md).

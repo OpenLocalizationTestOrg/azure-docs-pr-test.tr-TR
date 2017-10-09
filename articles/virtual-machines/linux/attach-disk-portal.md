@@ -1,6 +1,6 @@
 ---
-title: "Bir Linux VM için bir veri diski ekleme | Microsoft Docs"
-description: "Bir Linux VM Resource Manager dağıtım modelini kullanarak Azure portalında yeni veya var olan veri diski ekleme yapma."
+title: bir veri diski tooa Linux VM aaaAttach | Microsoft Docs
+description: "Nasıl tooattach yeni veya var olan veri diski tooa Linux VM Azure portal kullanarak hello Resource Manager dağıtım modeli hello."
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -15,27 +15,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2017
 ms.author: cynthn
-ms.openlocfilehash: 1599ee241c3d9fb3623ebd89ae30f2795cae1930
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 069c3c6f5e71a8c495342e6d0c6f3d92c4ed5053
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-attach-a-data-disk-to-a-linux-vm-in-the-azure-portal"></a>Nasıl bir Linux VM Azure portalında bir veri diski ekleme
-Bu makalede Azure portalı üzerinden Linux sanal makine için yeni ve mevcut diskleri ekleme gösterilmiştir. Ayrıca [bir Windows VM Azure portalında bir veri diski ekleme](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Azure diskleri yönetilen veya yönetilmeyen diskler kullanmayı da tercih edebilirsiniz. Yönetilen diskleri Azure platformu tarafından işlenir ve hazırlık veya konum depolamaya gerektirmez. Yönetilmeyen diskler bir depolama hesabı gerektirir ve bazı [kotalar ve uygulama sınırlar](../../azure-subscription-service-limits.md#storage-limits). Azure Yönetilen Diskler hakkında daha fazla bilgi için bkz. [Azure Yönetilen Disklere genel bakış](../windows/managed-disks-overview.md).
+# <a name="how-tooattach-a-data-disk-tooa-linux-vm-in-hello-azure-portal"></a>Nasıl tooattach bir veri diski hello Azure portal'ın tooa Linux VM
+Bu makalede nasıl tooattach hem yeni hem de mevcut hello Azure portal aracılığıyla tooa Linux sanal makine disklerini gösterilmektedir. Ayrıca [hello Azure portal'ın bir veri diski tooa Windows VM ekleme](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Toouse yönetilen ya da Azure diskleri seçin veya yönetilmeyen diskler. Yönetilen diskleri hello Azure platformu tarafından işlenir ve hazırlık veya konumu toostore gerektirmeyen bunları. Yönetilmeyen diskler bir depolama hesabı gerektirir ve bazı [kotalar ve uygulama sınırlar](../../azure-subscription-service-limits.md#storage-limits). Azure Yönetilen Diskler hakkında daha fazla bilgi için bkz. [Azure Yönetilen Disklere genel bakış](../windows/managed-disks-overview.md).
 
-VM'nize diskleri eklemeden önce bu ipuçlarını gözden geçirin:
+Diskleri tooyour VM eklemeden önce bu ipuçlarını gözden geçirin:
 
-* Sanal makinenin boyutunu, iliştirebilirsiniz kaç tane veri diskleri denetler. Ayrıntılar için bkz [sanal makineler için Boyutlar](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Premium depolama kullanmak için DS serisi veya GS serisi bir sanal makine gerekir. Bu sanal makinelerle Premium ve standart diskler kullanabilirsiniz. Premium depolama belirli bölgelerde kullanılabilir. Ayrıntılar için bkz [Premium Storage: Azure sanal makine iş yükleri için yüksek performanslı depolama](../../storage/common/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Sanal makinelere bağlı diskler Azure'da depolanan gerçekte .vhd dosyalarıdır. Ayrıntılar için bkz [diskler ve sanal makineler için VHD'ler hakkında](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Merhaba boyutunu hello sanal makine, iliştirebilirsiniz kaç tane veri diskleri denetler. Ayrıntılar için bkz [sanal makineler için Boyutlar](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Premium depolama toouse, DS serisi veya GS serisi bir sanal makine gerekir. Bu sanal makinelerle Premium ve standart diskler kullanabilirsiniz. Premium depolama belirli bölgelerde kullanılabilir. Ayrıntılar için bkz [Premium Storage: Azure sanal makine iş yükleri için yüksek performanslı depolama](../../storage/common/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Diskleri ekli toovirtual makineleri Azure'da depolanan gerçekte .vhd dosyalarıdır. Ayrıntılar için bkz [diskler ve sanal makineler için VHD'ler hakkında](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
-## <a name="find-the-virtual-machine"></a>Sanal makine bulunamadı
-1. [Azure Portal](https://portal.azure.com/) oturum açın.
-2. Hub menüsünde, **Virtual Machines**’e tıklayın.
-3. Listeden sanal makineyi seçin.
-4. Sanal makineleri dikey penceresinde de **Essentials**, tıklatın **diskleri**.
+## <a name="find-hello-virtual-machine"></a>Merhaba sanal makine bulunamadı
+1. İçinde toohello oturum [Azure portal](https://portal.azure.com/).
+2. Merhaba Hub menüsünde **sanal makineleri**.
+3. Merhaba sanal makine hello listeden seçin.
+4. toohello sanal makineleri dikey penceresinde de **Essentials**, tıklatın **diskleri**.
    
     ![Disk Ayarları'nı açın](./media/attach-disk-portal/find-disk-settings.png)
 
@@ -45,57 +45,57 @@ Ya da eklemek için aşağıdaki yönergeleri tarafından devam bir [yönetilen 
 
 ### <a name="attach-a-new-disk"></a>Yeni bir diski kullanıma açın
 
-1. Üzerinde **diskleri** dikey penceresinde tıklatın **+ Ekle veri diski**.
-2. Aşağı açılan menüsüne tıklayın **adı** seçip **oluşturma disk**:
+1. Merhaba üzerinde **diskleri** dikey penceresinde tıklatın **+ Ekle veri diski**.
+2. Merhaba açılan menüsüne tıklayın **adı** seçip **oluşturma disk**:
 
     ![Azure oluşturmak yönetilen disk](./media/attach-disk-portal/create-new-md.png)
 
-3. Yönetilen disk için bir ad girin. Varsayılan ayarları gözden geçirin, gerektiği gibi güncelleştirin ve ardından **oluşturma**.
+3. Yönetilen disk için bir ad girin. Merhaba varsayılan ayarları gözden geçirin, gerektiği gibi güncelleştirin ve ardından **oluşturma**.
    
    ![Disk ayarlarını gözden geçirin](./media/attach-disk-portal/create-new-md-settings.png)
 
-4. Tıklatın **kaydetmek** yönetilen disk oluşturmak ve VM yapılandırmasını güncelleştirmek için:
+4. Tıklatın **kaydetmek** toocreate hello yönetilen disk ve güncelleştirme hello VM yapılandırması:
 
    ![Yeni Azure diski yönetilen Kaydet](./media/attach-disk-portal/confirm-create-new-md.png)
 
-5. Azure disk oluşturur ve sanal makineye iliştirir sonra yeni disk sanal makinenin disk ayarları altında listelenen **veri diskleri**. Yönetilen diskleri en üst düzey bir kaynak olduğundan, diskin kaynak grubu kökünde görünür:
+5. Azure hello disk oluşturur ve toohello sanal makineye iliştirir sonra hello yeni disk hello sanal makinenin disk ayarları altında listelenen **veri diskleri**. Yönetilen diskleri en üst düzey bir kaynak olduğundan, hello disk hello hello kaynak grubu kökünde görüntülenir:
 
    ![Kaynak grubundaki yönetilen Azure Disk](./media/attach-disk-portal/view-md-resource-group.png)
 
 ### <a name="attach-an-existing-disk"></a>Var olan bir diski ekleme
-1. Üzerinde **diskleri** dikey penceresinde tıklatın **+ Ekle veri diski**.
-2. Aşağı açılan menüsüne tıklayın **adı** Azure aboneliğinize erişilebilir olan yönetilen disklerin listesini görüntülemek için. Yönetilen bir disk eklemek için seçin:
+1. Merhaba üzerinde **diskleri** dikey penceresinde tıklatın **+ Ekle veri diski**.
+2. Merhaba açılan menüsüne tıklayın **adı** tooview varolan listesini yönetilen diskleri erişilebilir tooyour Azure aboneliği. Select hello disk tooattach yönetilen:
 
    ![Yönetilen mevcut Azure diski ekleme](./media/attach-disk-portal/select-existing-md.png)
 
-3. Tıklatın **kaydetmek** mevcut yönetilen diski ekleyin ve VM yapılandırmasını güncelleştirmek için:
+3. Tıklatın **kaydetmek** tooattach hello varolan yönetilen disk ve güncelleştirme hello VM yapılandırması:
    
    ![Azure yönetilen diski güncelleştirmelerini kaydedin](./media/attach-disk-portal/confirm-attach-existing-md.png)
 
-4. Azure disk sanal makineye iliştirir sonra sanal makinenin disk ayarları altında listelenen **veri diskleri**.
+4. Disk toohello sanal makine Azure ekler hello sonra hello sanal makinenin disk ayarları altında listelenen **veri diskleri**.
 
 ## <a name="use-unmanaged-disks"></a>Yönetilmeyen diskleri kullanın
 
 ### <a name="attach-a-new-disk"></a>Yeni bir diski kullanıma açın
 
-1. Üzerinde **diskleri** dikey penceresinde tıklatın **+ Ekle veri diski**.
-2. Varsayılan ayarları gözden geçirin, gerektiği gibi güncelleştirin ve ardından **Tamam**.
+1. Merhaba üzerinde **diskleri** dikey penceresinde tıklatın **+ Ekle veri diski**.
+2. Merhaba varsayılan ayarları gözden geçirin, gerektiği gibi güncelleştirin ve ardından **Tamam**.
    
    ![Disk ayarlarını gözden geçirin](./media/attach-disk-portal/attach-new.png)
-3. Azure disk oluşturur ve sanal makineye iliştirir sonra yeni disk sanal makinenin disk ayarları altında listelenen **veri diskleri**.
+3. Azure hello disk oluşturur ve toohello sanal makineye iliştirir sonra hello yeni disk hello sanal makinenin disk ayarları altında listelenen **veri diskleri**.
 
 ### <a name="attach-an-existing-disk"></a>Var olan bir diski ekleme
-1. Üzerinde **diskleri** dikey penceresinde tıklatın **+ Ekle veri diski**.
+1. Merhaba üzerinde **diskleri** dikey penceresinde tıklatın **+ Ekle veri diski**.
 2. Altında **varolan bir diski İlişti**, tıklatın **VHD dosyasını**.
    
    ![Varolan bir diski kullanıma açın](./media/attach-disk-portal/attach-existing.png)
-3. Altında **depolama hesapları**, .vhd dosyası tutan kapsayıcı ve hesabı seçin.
+3. Altında **depolama hesapları**, hello hesabınızı ve hello .vhd dosyası tutan kapsayıcı.
    
    ![VHD konumunu bulma](./media/attach-disk-portal/find-storage-container.png)
-4. .Vhd dosyasını seçin.
-5. Altında **varolan bir diski İlişti**, seçtiğiniz dosya altında listelenen **VHD dosyasını**. **Tamam** düğmesine tıklayın.
-6. Azure disk sanal makineye iliştirir sonra sanal makinenin disk ayarları altında listelenen **veri diskleri**.
+4. Merhaba .vhd dosyasını seçin.
+5. Altında **varolan bir diski İlişti**, seçtiğiniz hello dosya altında listelenen **VHD dosyasını**. **Tamam** düğmesine tıklayın.
+6. Disk toohello sanal makine Azure ekler hello sonra hello sanal makinenin disk ayarları altında listelenen **veri diskleri**.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Disk eklendikten sonra kullanım için hazırlamanız gerekir. Daha fazla bilgi için bkz: [nasıl yapılır: Linux yeni bir veri diski başlatma](add-disk.md).
+Merhaba disk eklendikten sonra tooprepare gereksinim için kullanın. Daha fazla bilgi için bkz: [nasıl yapılır: Linux yeni bir veri diski başlatma](add-disk.md).

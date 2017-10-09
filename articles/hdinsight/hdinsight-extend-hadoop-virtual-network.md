@@ -1,6 +1,6 @@
 ---
-title: "Hdınsight sanal ağ - Azure ile genişletmek | Microsoft Docs"
-description: "Hdınsight diğer bulut kaynaklarına veya veri merkezinizdeki kaynaklarına bağlanmak için Azure sanal ağı kullanmayı öğrenin"
+title: "aaaExtend Hdınsight sanal ağ - Azure ile | Microsoft Docs"
+description: "Toouse Azure Virtual Network tooconnect Hdınsight tooother nasıl bulut kaynakları veya kaynakları, veri merkezinizdeki öğrenin"
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -15,173 +15,173 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/23/2017
 ms.author: larryfr
-ms.openlocfilehash: 380423ec42ad4905c73fcd57501102e9f7062e81
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: ba80be4d9f280c6c62fa8acc996ef5f921acdbbd
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Bir Azure sanal ağı kullanarak Azure Hdınsight genişletme
 
-Hdınsight ile kullanmayı öğrenin bir [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Bir Azure sanal ağı kullanarak aşağıdaki senaryolar sağlar:
+Bilgi nasıl toouse Hdınsight ile bir [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Bir Azure sanal ağı kullanarak aşağıdaki senaryolar hello sağlar:
 
-* Hdınsight için doğrudan bir şirket içi ağ üzerinden bağlanılıyor.
+* TooHDInsight doğrudan bir şirket içi ağ üzerinden bağlanılıyor.
 
-* Hdınsight verilere bağlanma bir Azure sanal ağında depolar.
+* Hdınsight toodata bağlanan bir Azure sanal ağında depolar.
 
-* Doğrudan genel olarak internet üzerinden kullanılabilir değil Hadoop hizmetlerine erişme. Örneğin, Kafka API'leri veya HBase Java API.
+* Doğrudan internet üzerinde herkese açık şekilde kullanılamayan Hadoop hizmetlerine erişimi hello. Örneğin, Kafka API'leri veya hello HBase Java API.
 
 > [!WARNING]
-> Bu belgedeki bilgiler TCP/IP ağı bilinmesini gerektirir. TCP/IP ağ ile bilmiyorsanız, üretim ağları değişiklikler yapmadan önce olan bir kullanıcıyla ortak.
+> Merhaba bu belgedeki bilgiler, TCP/IP ağ bilinmesini gerektirir. TCP/IP ağ ile bilmiyorsanız tooproduction ağlar değişiklikler yapmadan önce olan bir kullanıcıyla ortak.
 
 ## <a name="planning"></a>Planlama
 
-Sanal bir ağa Hdınsight yüklemek planlama yaparken yanıt sorular şunlardır:
+Merhaba, bir sanal ağdaki tooinstall Hdınsight planlarken yanıt hello sorular şunlardır:
 
-* Mevcut bir sanal ağı Hdınsight yükleme gerekiyor mu? Veya yeni bir ağ oluşturmak?
+* Mevcut sanal ağda tooinstall Hdınsight gerekiyor mu? Veya yeni bir ağ oluşturmak?
 
-    Varolan bir sanal ağı kullanıyorsanız, Hdınsight yükleyebilmek için önce ağ yapılandırmasını değiştirmeniz gerekebilir. Daha fazla bilgi için bkz: [Hdınsight mevcut bir sanal ağa eklemek](#existingvnet) bölümü.
+    Varolan bir sanal ağı kullanıyorsanız, Hdınsight yükleyebilmek için önce toomodify hello ağ yapılandırması gerekebilir. Daha fazla bilgi için bkz: Merhaba [Hdınsight tooan var olan sanal ağ ekleme](#existingvnet) bölümü.
 
-* Başka bir sanal ağ veya şirket içi ağınız için Hdınsight içeren sanal ağa bağlanmak istiyor musunuz?
+* Hdınsight tooanother sanal ağ içeren tooconnect hello sanal ağ veya şirket içi ağınıza istiyor musunuz?
 
-    Kolayca ağlarda kaynakları ile çalışmak için bir özel DNS oluşturma ve DNS iletmeyi yapılandırma gerekebilir. Daha fazla bilgi için bkz: [birden çok ağları bağlama](#multinet) bölümü.
+    tooeasily iş ağlar kaynaklarla toocreate özel DNS ve gerekir DNS iletmeyi yapılandırın. Merhaba daha fazla bilgi için bkz: [birden çok ağları bağlama](#multinet) bölümü.
 
-* Hdınsight gelen veya giden trafiği kısıtlama/yeniden yönlendirme etmek istiyor musunuz?
+* Toorestrict/yeniden yönlendirme istiyorsunuz gelen veya giden trafiği tooHDInsight?
 
-    Hdınsight Azure veri merkezindeki belirli IP adresleri ile iletişim sınırsız gerekir. Güvenlik duvarları üzerinden istemci iletişimi için izin verilmelidir çeşitli bağlantı noktaları da vardır. Daha fazla bilgi için bkz: [ağ trafiğini denetleme](#networktraffic) bölümü.
+    Hdınsight hello Azure veri merkezinde belirli IP adresleri ile iletişim sınırsız gerekir. Güvenlik duvarları üzerinden istemci iletişimi için izin verilmelidir çeşitli bağlantı noktaları da vardır. Daha fazla bilgi için bkz: Merhaba [ağ trafiğini denetleme](#networktraffic) bölümü.
 
-## <a id="existingvnet"></a>Mevcut bir sanal ağa Hdınsight Ekle
+## <a id="existingvnet"></a>Hdınsight tooan var olan sanal ağ ekleme
 
-Yeni Hdınsight var olan bir Azure sanal ağı eklemek nasıl keşfetmek için bu bölümdeki adımları kullanın.
+Merhaba adımları Bu bölümde toodiscover kullanma tooadd Azure sanal ağı var olan yeni bir Hdınsight tooan.
 
 > [!NOTE]
 > Bir sanal ağ var olan bir Hdınsight kümesine eklenemiyor.
 
-1. Sanal ağ için bir Klasik veya Resource Manager dağıtım modeli kullanıyor musunuz?
+1. Merhaba sanal ağ için bir Klasik veya Resource Manager dağıtım modeli kullanıyor musunuz?
 
     Hdınsight 3.4 ve büyük bir Resource Manager sanal ağ gerektirir. Hdınsight'ın önceki sürümlerini Klasik sanal ağ gereklidir.
 
-    Ardından, varolan ağınızda bir Klasik sanal ağı ise, Resource Manager sanal ağ oluşturma ve iki bağlantı gerekir. [Klasik sanal ağlar için yeni sanal ağlara bağlanma](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
+    Ardından, varolan ağınızda bir Klasik sanal ağı ise, Resource Manager sanal ağ oluşturma ve hello iki bağlantı gerekir. [Klasik sanal ağlar toonew sanal ağlara bağlanma](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
-    Birleştirilmiş sonra kaynak yöneticisi ağ yüklü Hdınsight Klasik ağ kaynakları ile etkileşim kurabilir.
+    Birleştirilmiş sonra hello Resource Manager ağında yüklü Hdınsight hello Klasik ağ kaynakları ile etkileşim kurabilir.
 
-2. Zorlamalı tünel kullanıyor musunuz? Zorlamalı tünel, giden Internet trafiğini incelemesi için bir cihaz için zorlar bir alt ağ ayarı ve günlüğe kaydetme olur. Hdınsight zorlamalı tünel desteklemez. Bir alt ağ Hdınsight yüklemeden önce zorlamalı tünel kaldırmak veya Hdınsight için yeni bir alt ağ oluşturun.
+2. Zorlamalı tünel kullanıyor musunuz? Zorlamalı tünel, giden Internet trafiği tooa aygıt İnceleme için zorlayan bir alt ağ ayarı ve günlüğe kaydetme olur. Hdınsight zorlamalı tünel desteklemez. Bir alt ağ Hdınsight yüklemeden önce zorlamalı tünel kaldırmak veya Hdınsight için yeni bir alt ağ oluşturun.
 
-3. İçine veya dışına sanal ağ trafiği kısıtlamak için ağ güvenlik grupları, kullanıcı tanımlı yollar ya da sanal ağ cihazları kullanıyorsunuz?
+3. Ağ güvenlik grupları, kullanıcı tanımlı yollar veya sanal ağ uygulamaları toorestrict trafiği içine veya dışına hello sanal ağ kullanıyorsunuz?
 
-    Yönetilen bir hizmet olarak Hdınsight Azure veri merkezinde birden fazla IP adresi Kısıtlanmamış erişim gerektirir. Bu IP adresleri ile iletişime izin verecek şekilde herhangi bir mevcut ağ güvenlik grupları veya kullanıcı tanımlı yollar güncelleştirin.
+    Yönetilen bir hizmet olarak Hdınsight Kısıtlanmamış erişim tooseveral IP adreslerini hello Azure veri merkezinde gerektirir. Bu IP adresleri ile tooallow iletişim herhangi bir mevcut ağ güvenlik grupları veya kullanıcı tanımlı yollar güncelleştirin.
 
-    Hdınsight çeşitli bağlantı noktaları kullanan birden çok hizmetleri barındırır. Bu bağlantı noktaları için trafiği engellemez. Sanal gereç güvenlik duvarlarından izin vermek için bağlantı noktalarının listesi için bkz [güvenlik](#security) bölümü.
+    Hdınsight çeşitli bağlantı noktaları kullanan birden çok hizmetleri barındırır. Trafik toothese bağlantı noktalarını engellemez. Bağlantı noktaları tooallow sanal gereç güvenlik duvarları üzerinden bir listesi için bkz: hello [güvenlik](#security) bölümü.
 
-    Var olan güvenlik yapılandırmanızı bulmak için aşağıdaki Azure PowerShell veya Azure CLI komutları kullanın:
+    toofind var olan güvenlik yapılandırmanızı Azure PowerShell veya Azure CLI komutları aşağıdaki kullanım hello:
 
     * Ağ güvenlik grupları
 
         ```powershell
-        $resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"
+        $resourceGroupName = Read-Input -Prompt "Enter hello resource group that contains hello virtual network used with HDInsight"
         get-azurermnetworksecuritygroup -resourcegroupname $resourceGroupName
         ```
 
         ```azurecli-interactive
-        read -p "Enter the name of the resource group that contains the virtual network: " RESOURCEGROUP
+        read -p "Enter hello name of hello resource group that contains hello virtual network: " RESOURCEGROUP
         az network nsg list --resource-group $RESOURCEGROUP
         ```
 
-        Daha fazla bilgi için bkz: [ağ güvenlik grupları sorun giderme](../virtual-network/virtual-network-nsg-troubleshoot-portal.md) belge.
+        Daha fazla bilgi için bkz: Merhaba [ağ güvenlik grupları sorun giderme](../virtual-network/virtual-network-nsg-troubleshoot-portal.md) belge.
 
         > [!IMPORTANT]
-        > Ağ güvenlik grubu kural kuralı önceliği temelinde sırayla uygulanır. Trafik desenle eşleşen ilk kural uygulanır ve hiçbir diğerlerinin bu trafiği için uygulanır. Sipariş kurallardan en fazla izne sahip az izin veren için. Daha fazla bilgi için bkz: [filtre ağ güvenlik grupları ile ağ trafiği](../virtual-network/virtual-networks-nsg.md) belge.
+        > Ağ güvenlik grubu kural kuralı önceliği temelinde sırayla uygulanır. Merhaba trafik desenle eşleşen hello ilk kural uygulanır ve hiçbir diğerlerinin bu trafiği için uygulanır. Sipariş en fazla izne sahip tooleast izin veren kuralları. Daha fazla bilgi için bkz: Merhaba [filtre ağ güvenlik grupları ile ağ trafiği](../virtual-network/virtual-networks-nsg.md) belge.
 
     * Kullanıcı tanımlı yollar
 
         ```powershell
-        $resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"
+        $resourceGroupName = Read-Input -Prompt "Enter hello resource group that contains hello virtual network used with HDInsight"
         get-azurermroutetable -resourcegroupname $resourceGroupName
         ```
 
         ```azurecli-interactive
-        read -p "Enter the name of the resource group that contains the virtual network: " RESOURCEGROUP
+        read -p "Enter hello name of hello resource group that contains hello virtual network: " RESOURCEGROUP
         az network route-table list --resource-group $RESOURCEGROUP
         ```
 
-        Daha fazla bilgi için bkz: [sorun giderme yolları](../virtual-network/virtual-network-routes-troubleshoot-portal.md) belge.
+        Merhaba daha fazla bilgi için bkz: [sorun giderme yolları](../virtual-network/virtual-network-routes-troubleshoot-portal.md) belge.
 
-4. Hdınsight kümesi oluşturma ve yapılandırma sırasında Azure sanal ağı seçin. Küme oluşturma işlemi anlamak için aşağıdaki belgelerde adımları kullanın:
+4. Hdınsight kümesi oluşturma ve yapılandırma sırasında hello Azure sanal ağı seçin. Belgeleri toounderstand hello küme oluşturma işlemi aşağıdaki hello Hello adımları kullanın:
 
-    * [Azure portalını kullanarak HDInsight oluşturma](hdinsight-hadoop-create-linux-clusters-portal.md)
+    * [Hello Azure portal kullanarak Hdınsight oluşturma](hdinsight-hadoop-create-linux-clusters-portal.md)
     * [Azure PowerShell kullanarak HDInsight oluşturma](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
     * [Azure CLI 1.0 kullanarak Hdınsight oluşturma](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
     * [Bir Azure Resource Manager şablonu kullanarak Hdınsight oluşturma](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
   > [!IMPORTANT]
-  > Bir sanal ağa Hdınsight ekleyerek bir isteğe bağlı yapılandırma adımdır. Küme yapılandırırken sanal ağı seçtiğinizden emin olun.
+  > Hdınsight ekleme bir isteğe bağlı yapılandırma adımı tooa sanal ağ oluşturur. Merhaba küme yapılandırma emin tooselect hello sanal ağ olabilir.
 
 ## <a id="multinet"></a>Birden çok ağları bağlama
 
-Büyük çok ağ yapılandırması ile ağlar arasında ad çözümleme iştir.
+Hello büyük sınama birden fazla ağ yapılandırması ile Merhaba ağlar arasında ad çözümleme ' dir.
 
-Azure ad çözümlemesi için sanal bir ağa yüklü olan Azure hizmetleri sağlar. Bu yerleşik ad çözümlemesi bir tam etki alanı adı (FQDN) kullanarak aşağıdaki kaynaklara bağlanmak Hdınsight sağlar:
+Azure ad çözümlemesi için sanal bir ağa yüklü olan Azure hizmetleri sağlar. Bu yerleşik ad çözümlemesi bir tam etki alanı adı (FQDN) kullanarak kaynaklarına aşağıdaki Hdınsight tooconnect toohello sağlar:
 
-* İnternet'te kullanılabilir herhangi bir kaynağa. Örneğin, microsoft.com, google.com.
+* Kullanılabilir herhangi bir kaynağa Internet hello. Örneğin, microsoft.com, google.com.
 
-* Kullanarak aynı Azure sanal ağında, olan herhangi bir kaynağa __iç DNS ad__ kaynağının. Örneğin, varsayılan ad çözümlemesi kullanırken, Hdınsight çalışan düğümlerine atanan örnek iç DNS adları şunlardır:
+* İçinde aynı Azure sanal ağ, hello kullanarak hello olan herhangi bir kaynağa __iç DNS ad__ hello kaynağının. Örneğin, hello varsayılan ad çözümlemesi kullanırken hello örnek iç DNS adları atanan tooHDInsight çalışan düğümleri şunlardır:
 
     * wn0 hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
     * wn2 hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
 
     Bu her iki düğüm iç DNS adları kullanarak birbirine ve diğer düğümlere, hdınsight'ta ile doğrudan iletişim kurabilir.
 
-Varsayılan ad çözümlemesi mu __değil__ ağlarda, sanal ağa katılan kaynakların adları çözümlemek Hdınsight izin verin. Örneğin, sanal ağa şirket içi ağınıza katılmak için yaygındır. Yalnızca varsayılan ad çözümlemesi ile Hdınsight, ada göre şirket içi ağ kaynaklarına erişemez. Şirket içi ağınızdaki kaynaklara ada göre sanal ağ kaynaklarına erişemez, bunun tersi de geçerlidir.
+Merhaba varsayılan ad çözümlemesini yapar __değil__ Hdınsight tooresolve kaynakların hello adları birleştirilmiş toohello sanal ağı olan ağlarda izin verin. Örneğin, ortak toojoin şirket içi toohello sanal ağ ağ. Yalnızca hello varsayılan ad çözümlemesi ile Hdınsight adıyla hello şirket içi ağınızdaki kaynaklara erişemez. Şirket içi ağınızdaki kaynaklara adıyla hello sanal ağ kaynaklarına erişemez, Hello ters de geçerlidir.
 
 > [!WARNING]
-> Özel DNS sunucusu oluşturmak ve Hdınsight küme oluşturmadan önce kullanılacak sanal ağ yapılandırmanız gerekir.
+> Merhaba özel DNS sunucusu oluşturmak ve hello sanal ağ toouse yapılandırmanız gerekir, oluşturmadan önce hello Hdınsight kümesi.
 
-Sanal ağ ve birleştirilmiş ağlarda bulunan kaynaklar arasındaki ad çözümlemesi etkinleştirmek için aşağıdaki eylemleri gerçekleştirmeniz gerekir:
+tooenable ad çözümlemesi hello sanal ağ ve birleştirilmiş ağlarda bulunan kaynaklar arasında hello aşağıdaki eylemleri gerçekleştirmeniz gerekir:
 
-1. Özel bir DNS sunucusu, Azure sanal Hdınsight yüklemeyi planladığınız Ağ oluşturun.
+1. Özel bir DNS sunucusu hello tooinstall Hdınsight planlama burada Azure sanal ağ oluşturun.
 
-2. Sanal ağ özel DNS sunucusunu kullanacak şekilde yapılandırın.
+2. Merhaba sanal ağ toouse hello özel DNS sunucusunu yapılandırın.
 
-3. Azure sanal ağınızın DNS soneki atanan bulun. Bu değer benzer `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net`. DNS son eki bulma hakkında daha fazla bilgi için bkz: [örnek: özel DNS](#example-dns) bölümü.
+3. Azure sanal ağınızın DNS soneki atanan hello bulur. Bu değeri çok benzer`0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net`. Merhaba hello DNS soneki bulma hakkında daha fazla bilgi için bkz: [örnek: özel DNS](#example-dns) bölümü.
 
-4. DNS sunucuları arasında iletme yapılandırın. Yapılandırma uzak ağ türüne bağlıdır.
+4. İletme hello DNS sunucuları arasında yapılandırın. Merhaba yapılandırma uzak ağ hello türüne bağlıdır.
 
-    * Uzak ağ bir şirket içi ağ ise, DNS aşağıdaki gibi yapılandırın:
+    * Merhaba uzak ağ bir şirket içi ağ ise, DNS aşağıdaki gibi yapılandırın:
         
-        * __Özel DNS__ (sanal ağındaki):
+        * __Özel DNS__ (Merhaba sanal ağındaki):
 
-            * Sanal ağın Azure özyinelemeli çözümleyici (168.63.129.16) için DNS soneki için istekleri ilet. Azure sanal ağındaki kaynaklara yönelik isteklerin işleme
+            * Merhaba DNS sonekini hello sanal ağ toohello Azure özyinelemeli çözümleyici (168.63.129.16) istekleri ilet. Azure hello sanal ağ içindeki kaynaklar için istekleri işleyen
 
-            * Şirket içi DNS sunucusuna tüm diğer isteklerden iletin. Şirket içi DNS bile istekleri Internet kaynakların Microsoft.com gibi diğer tüm ad çözümleme isteklerini işler.
+            * Tüm diğer istekleri toohello şirket içi DNS sunucusu iletin. Merhaba DNS diğer tüm ad çözümleme isteklerini Internet kaynakların Microsoft.com gibi bile istekleri işleyen şirket içi.
 
-        * __Şirket içi DNS__: iletmek sanal ağ DNS soneki özel DNS sunucusu için istek. Özel DNS sunucusu, daha sonra Azure özyinelemeli çözümleyici iletir.
+        * __Şirket içi DNS__: iletmek hello sanal ağ DNS soneki toohello özel DNS sunucusu için istek. Merhaba özel DNS sunucusu, daha sonra toohello Azure özyinelemeli çözümleyici iletir.
 
-        Bu yapılandırma yolları istekleri için sanal ağ özel DNS sunucusuna DNS sonekini içeren etki alanı adları tam. Tüm diğer isteklerden (hatta genel internet adresleri için) şirket içi DNS sunucusu tarafından işlenir.
+        Bu yapılandırma yolları isteklerinde hello DNS sonekinde hello sanal ağ toohello özel DNS sunucusunun etki alanı adları tam. (Hatta genel internet adresleri için) tüm diğer isteklerden hello şirket içi DNS sunucusu tarafından işlenir.
 
-    * Uzak ağ başka bir Azure sanal ağ ise, DNS aşağıdaki gibi yapılandırın:
+    * Merhaba uzak ağ başka bir Azure sanal ağ ise, DNS aşağıdaki gibi yapılandırın:
 
         * __Özel DNS__ (her sanal ağındaki):
 
-            * DNS soneki sanal ağlar için istekleri özel DNS sunucularına iletilir. Her sanal ağındaki DNS, alt ağ içindeki kaynakların çözümlemek için sorumludur.
+            * Merhaba DNS sonekini hello sanal ağlar için istekleri toohello özel DNS sunucularını iletilir. Merhaba DNS her sanal ağ içindeki alt ağ içindeki kaynakların çözümlemek için sorumludur.
 
-            * Tüm diğer isteklerden Azure özyinelemeli çözümleyici iletin. Özyinelemeli çözümleyici yerel çözme ve Internet kaynakların sorumludur.
+            * Tüm diğer istekleri toohello Azure özyinelemeli çözümleyici iletin. Merhaba özyinelemeli çözümleyici yerel çözme ve Internet kaynakların sorumludur.
 
-        Her ağ diğerini isteklerini iletir için DNS sunucusu DNS son ekini temel alarak. Diğer istekleri Azure özyinelemeli çözümleyici kullanarak çözümlenir.
+        Merhaba DNS sunucusu her ağ için DNS soneki göre diğer istekleri toohello iletir. Diğer istekleri hello Azure özyinelemeli çözümleyici kullanarak çözümlenir.
 
-    Her yapılandırma örneği için bkz: [örnek: özel DNS](#example-dns) bölümü.
+    Her yapılandırma örneği için bkz: Merhaba [örnek: özel DNS](#example-dns) bölümü.
 
-Daha fazla bilgi için bkz: [VM'ler ve rol örnekleri için ad çözümlemesi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) belge.
+Daha fazla bilgi için bkz: Merhaba [VM'ler ve rol örnekleri için ad çözümlemesi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) belge.
 
-## <a name="directly-connect-to-hadoop-services"></a>Hadoop Services'e doğrudan bağlanmak
+## <a name="directly-connect-toohadoop-services"></a>TooHadoop Hizmetleri doğrudan bağlanın
 
-Hdınsight üzerinde çoğu belgeleri Internet üzerinden kümesine erişimi olduğunu varsayar. Https://CLUSTERNAME.azurehdinsight.net konumundaki küme bağlanabileceği bir örnek için. Bu adres Nsg'ler veya Udr'ler kullandıysanız internet'ten erişimi kısıtlamak için kullanılabilir olmayan ortak ağ geçidi, kullanır.
+Hdınsight üzerinde çoğu belgelerine hello erişim toohello küme sahip olduğunuzu varsayar Internet. Https://CLUSTERNAME.azurehdinsight.net toohello kümesine bağlayabilirsiniz örneğin. Bu adres Nsg'ler kullandınız veya Udr'ler toorestrict erişimden hello Internet kullanılabilir değilse hello ortak ağ geçidi, kullanır.
 
-Ambari ve sanal ağ üzerinden diğer web sayfalarına bağlanmak için aşağıdaki adımları kullanın:
+tooconnect tooAmbari ve diğer web sayfalarını hello sanal ağ üzerinden hello aşağıdaki adımları kullanın:
 
-1. Hdınsight küme düğümlerinin iç tam etki alanı adları (FQDN) bulmak için aşağıdaki yöntemlerden birini kullanın:
+1. Merhaba Hdınsight küme düğümlerinin toodiscover hello iç tam etki alanı adları (FQDN) aşağıdaki yöntemleri hello birini kullanın:
 
     ```powershell
-    $resourceGroupName = "The resource group that contains the virtual network used with HDInsight"
+    $resourceGroupName = "hello resource group that contains hello virtual network used with HDInsight"
 
     $clusterNICs = Get-AzureRmNetworkInterface -ResourceGroupName $resourceGroupName | where-object {$_.Name -like "*node*"}
 
@@ -200,44 +200,44 @@ Ambari ve sanal ağ üzerinden diğer web sayfalarına bağlanmak için aşağı
     az network nic list --resource-group <resourcegroupname> --output table --query "[?contains(name,'node')].{NICname:name,InternalIP:ipConfigurations[0].privateIpAddress,InternalFQDN:dnsSettings.internalFqdn}"
     ```
 
-    Verilen düğüm listesi, baş düğümler için FQDN bulun ve Ambari ve diğer web hizmetlerine bağlanmak için FQDN'leri kullanın. Örneğin, `http://<headnode-fqdn>:8080` Ambari erişmek için.
+    Verilen düğüm listesi Merhaba, hello FQDN Merhaba baş düğümler bulmak ve hello FQDN'ler tooconnect tooAmbari ve diğer web Hizmetleri kullanın. Örneğin, `http://<headnode-fqdn>:8080` tooaccess Ambari.
 
     > [!IMPORTANT]
-    > Baş düğümler üzerinde barındırılan bazı hizmetler aynı anda yalnızca bir düğümde etkin olur. Bir hizmet bir baş düğüm üzerindeki erişmeyi deneyin ve bir 404 hatası döndürür, diğer baş düğüme geçiş yapar.
+    > Merhaba baş düğümler üzerinde barındırılan bazı hizmetler aynı anda yalnızca bir düğümde etkin olur. Bir hizmet bir baş düğüm üzerindeki erişmeyi deneyin ve bir 404 hatası döndürürse toohello diğer baş düğüm geçin.
 
-2. Düğüm ve bir hizmet kullanılabilir bağlantı noktasını belirlemek için bkz: [hdınsight'ta Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları](./hdinsight-hadoop-port-settings-for-services.md) belge.
+2. toodetermine hello düğümünü ve bir hizmet, kullanılabilir bağlantı noktası bkz hello [hdınsight'ta Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları](./hdinsight-hadoop-port-settings-for-services.md) belge.
 
 ## <a id="networktraffic"></a>Ağ trafiğini denetleme
 
-Bir Azure sanal ağlarda ağ trafiğini aşağıdaki yöntemler kullanılarak denetlenebilir:
+Bir Azure sanal ağlarda ağ trafiğini, yöntemler aşağıdaki hello kullanılarak denetlenebilir:
 
-* **Ağ güvenlik grupları** (NSG) ağa gelen ve giden trafiği filtrelemek olanak sağlar. Daha fazla bilgi için bkz: [filtre ağ güvenlik grupları ile ağ trafiği](../virtual-network/virtual-networks-nsg.md) belge.
+* **Ağ güvenlik grupları** (NSG) toofilter gelen ve giden trafik toohello ağ izin verin. Daha fazla bilgi için bkz: Merhaba [filtre ağ güvenlik grupları ile ağ trafiği](../virtual-network/virtual-networks-nsg.md) belge.
 
     > [!WARNING]
     > Hdınsight giden trafiği kısıtlama desteklemez.
 
-* **Kullanıcı tanımlı yollar** (UDR) nasıl trafiği ağ kaynakları arasında akan tanımlayın. Daha fazla bilgi için bkz: [kullanıcı tanımlı yollar ve IP iletimini](../virtual-network/virtual-networks-udr-overview.md) belge.
+* **Kullanıcı tanımlı yollar** (UDR) nasıl hello ağ kaynakları arasında trafiği akan tanımlayın. Daha fazla bilgi için bkz: Merhaba [kullanıcı tanımlı yollar ve IP iletimini](../virtual-network/virtual-networks-udr-overview.md) belge.
 
-* **Ağ sanal Gereçleri** güvenlik duvarları ve yönlendiriciler gibi cihazların işlevselliğiyle Çoğalt. Daha fazla bilgi için bkz: [ağ uygulamaları](https://azure.microsoft.com/solutions/network-appliances) belge.
+* **Ağ sanal Gereçleri** çoğaltmak güvenlik duvarları ve yönlendiriciler gibi cihazların Merhaba işlevselliği. Daha fazla bilgi için bkz: Merhaba [ağ uygulamaları](https://azure.microsoft.com/solutions/network-appliances) belge.
 
-Yönetilen bir hizmet olarak Hdınsight Azure bulutta Azure sistem durumu ve Yönetim hizmetlerine Kısıtlanmamış erişim gerektirir. Nsg'ler ve Udr'ler kullanırken Hdınsight hizmetlerin hala Hdınsight ile iletişim kurabildiğinden emin olmalısınız.
+Yönetilen bir hizmet olarak Hdınsight Kısıtlanmamış erişim tooAzure sistem durumu ve yönetim Hizmetleri'nde hello Azure bulut gerektirir. Nsg'ler ve Udr'ler kullanırken Hdınsight hizmetlerin hala Hdınsight ile iletişim kurabildiğinden emin olmalısınız.
 
-Hdınsight, çeşitli bağlantı noktaları üzerinde hizmetleri sunar. Bir sanal gereç Güvenlik Duvarı'nı kullanırken, bu hizmetler için kullanılan bağlantı noktaları üzerinde trafiğe izin vermelidir. Daha fazla bilgi için [gerekli bağlantı noktalarını] bölümüne bakın.
+Hdınsight, çeşitli bağlantı noktaları üzerinde hizmetleri sunar. Bir sanal gereç Güvenlik Duvarı'nı kullanırken, bu hizmetler için kullanılan bağlantı noktaları hello üzerinde trafiğe izin vermelidir. Daha fazla bilgi için hello [gerekli bağlantı noktalarını] bölümüne bakın.
 
 ### <a id="hdinsight-ip"></a>Hdınsight ile ağ güvenlik gruplarını ve kullanıcı tanımlı yollar
 
-Kullanmayı planlıyorsanız, **ağ güvenlik grubu** veya **kullanıcı tanımlı yollar** ağ trafiğini denetlemek için Hdınsight'ı yüklemeden önce aşağıdaki eylemleri gerçekleştirin:
+Kullanmayı planlıyorsanız, **ağ güvenlik grubu** veya **kullanıcı tanımlı yollar** toocontrol ağ trafiğini, Eylemler Hdınsight'ı yüklemeden önce aşağıdaki hello gerçekleştirin:
 
-1. Hdınsight için kullanmayı planladığınız Azure bölgesi tanımlayın.
+1. Merhaba toouse Hdınsight için planlama Azure bölgesi tanımlayın.
 
-2. Hdınsight tarafından gerekli IP adreslerini belirleyin. Daha fazla bilgi için bkz: [Hdınsight tarafından gerekli IP adreslerini](#hdinsight-ip) bölümü.
+2. Hdınsight tarafından gerekli hello IP adreslerini belirleyin. Daha fazla bilgi için bkz: Merhaba [Hdınsight tarafından gerekli IP adreslerini](#hdinsight-ip) bölüm.
 
-3. Oluşturun veya ağ güvenlik grupları veya kullanıcı tanımlı yollar Hdınsight'a yüklemeyi planladığınız alt ağ için değiştirin.
+3. Oluşturma veya hello ağ güvenlik grupları veya kullanıcı tanımlı yollar tooinstall Hdınsight planlama hello alt ağ için değiştirme içine.
 
-    * __Ağ güvenlik grupları__: izin __gelen__ bağlantı noktasında trafik __443__ IP adresleri.
-    * __Kullanıcı tanımlı yollar__: her IP adresi için bir yol oluşturun ve ayarlayın __sonraki atlama türü__ için __Internet__.
+    * __Ağ güvenlik grupları__: izin __gelen__ bağlantı noktasında trafik __443__ hello IP adreslerinden.
+    * __Kullanıcı tanımlı yollar__: bir rota tooeach IP adresi oluşturma ve ayarlama hello __sonraki atlama türü__ too__Internet__.
 
-Ağ güvenlik grupları veya kullanıcı tanımlı yollar hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
+Ağ güvenlik grupları veya kullanıcı tanımlı yollar hakkında daha fazla bilgi için belge aşağıdaki hello bakın:
 
 * [Ağ güvenlik grubu](../virtual-network/virtual-networks-nsg.md)
 
@@ -245,18 +245,18 @@ Ağ güvenlik grupları veya kullanıcı tanımlı yollar hakkında daha fazla b
 
 #### <a name="forced-tunneling"></a>Zorlamalı tünel oluşturma
 
-Zorlamalı tünel bir kullanıcı tanımlı yönlendirme burada bir alt ağdaki tüm trafiği belirli ağ veya şirket içi ağınız gibi konuma zorlanır yapılandırmadır. Hdınsight mu __değil__ destek zorlamalı tünel.
+Zorlamalı tünel kullanıcı tanımlı yönlendirme yapılandırması bir alt ağdaki tüm trafiği zorunlu tooa belirli ağ veya şirket içi ağınız gibi konuma olduğu. Hdınsight mu __değil__ destek zorlamalı tünel.
 
 ## <a id="hdinsight-ip"></a>Gerekli IP adresi
 
 > [!IMPORTANT]
-> Azure sistem durumu ve Yönetim Hizmetleri Hdınsight ile iletişim kurabilmesi gerekir. Ağ güvenlik grupları veya kullanıcı tanımlı yollar kullanıyorsanız, Hdınsight ulaşmak bu hizmetler için IP adreslerinden gelen trafiğe izin verecek.
+> Azure sistem durumu hello ve Yönetim Hizmetleri Hdınsight ile mümkün toocommunicate olması gerekir. Ağ güvenlik grupları veya kullanıcı tanımlı yollar kullanıyorsanız, bu hizmetleri tooreach Hdınsight için IP adresleri hello trafiğinden izin verin.
 >
-> Trafiği denetlemek için ağ güvenlik grupları veya kullanıcı tanımlı yollar kullanmıyorsanız, bu bölüm göz ardı edebilirsiniz.
+> Ağ güvenlik grupları veya kullanıcı tanımlı yollar toocontrol trafik kullanmıyorsanız, bu bölüm göz ardı edebilirsiniz.
 
-Ağ güvenlik grupları veya kullanıcı tanımlı yollar kullanıyorsanız, Hdınsight erişmek için Azure sistem durumu ve Yönetim hizmetlerinden trafiğe izin vermelidir. İzin verilmiş olmalıdır IP adresleri bulmak için aşağıdaki adımları kullanın:
+Ağ güvenlik grupları veya kullanıcı tanımlı yollar kullanıyorsanız, hello Azure sistem durumu ve Yönetim Hizmetleri tooreach Hdınsight gelen trafiğe izin vermelidir. İzin verilmiş olmalıdır adımları toofind hello IP adreslerini aşağıdaki hello kullan:
 
-1. Her zaman aşağıdaki IP adreslerinden gelen trafiğe izin vermeniz gerekir:
+1. Her zaman IP adreslerini aşağıdaki hello gelen trafiğe izin vermeniz gerekir:
 
     | IP adresi | İzin verilen bağlantı noktası | Yön |
     | ---- | ----- | ----- |
@@ -265,10 +265,10 @@ Ağ güvenlik grupları veya kullanıcı tanımlı yollar kullanıyorsanız, Hd�
     | 168.61.48.131 | 443 | Gelen |
     | 138.91.141.162 | 443 | Gelen |
 
-2. Hdınsight kümenizi aşağıdaki bölgeler birinde ise, bölge için listelenen IP adreslerinden gelen trafiğe izin vermelidir:
+2. Hdınsight kümenize bölgeleri aşağıdaki hello birinde ise, hello bölge için listelenen hello IP adreslerinden gelen trafiğe izin vermelidir:
 
     > [!IMPORTANT]
-    > Kullanmakta olduğunuz Azure bölgesi listede yoksa, yalnızca 1. adım dört IP adreslerinden kullanın.
+    > Merhaba, kullanmakta olduğunuz Azure bölgesi listede yoksa, yalnızca hello dört IP adresleri adım 1'deki kullanın.
 
     | Ülke | Bölge | İzin verilen IP adresi | İzin verilen bağlantı noktası | Yön |
     | ---- | ---- | ---- | ---- | ----- |
@@ -297,15 +297,15 @@ Ağ güvenlik grupları veya kullanıcı tanımlı yollar kullanıyorsanız, Hd�
     | &nbsp; | Batı Orta ABD | 52.161.23.15</br>52.161.10.167 | 443 | Gelen |
     | &nbsp; | Batı ABD 2 | 52.175.211.210</br>52.175.222.222 | 443 | Gelen |
 
-    Azure kamu için kullanılacak IP adresleri hakkında daha fazla bilgi için bkz: [Azure Kamu Intelligence + analiz](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) belge.
+    Merhaba hello IP hakkında bilgi için Azure kamu toouse adresleri için bkz: [Azure Kamu Intelligence + analiz](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) belge.
 
-3. Sanal ağınız ile özel bir DNS sunucusu kullanıyorsanız, erişimden de izin vermeniz gerekir __168.63.129.16__. Azure'nın özyinelemeli çözümleyici adresidir. Daha fazla bilgi için bkz: [VM'ler ve rol için ad çözümlemesi örnekleri](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) belge.
+3. Sanal ağınız ile özel bir DNS sunucusu kullanıyorsanız, erişimden de izin vermeniz gerekir __168.63.129.16__. Azure'nın özyinelemeli çözümleyici adresidir. Daha fazla bilgi için bkz: Merhaba [VM'ler ve rol için ad çözümlemesi örnekleri](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) belge.
 
-Daha fazla bilgi için bkz: [ağ trafiğini denetleme](#networktraffic) bölümü.
+Daha fazla bilgi için bkz: Merhaba [ağ trafiğini denetleme](#networktraffic) bölümü.
 
 ## <a id="hdinsight-ports"></a>Gerekli bağlantı noktaları
 
-Bir ağı kullanmayı planlıyorsanız, **sanal gereç Güvenlik Duvarı** sanal ağ güvenliğini sağlamak için aşağıdaki bağlantı noktaları üzerinde giden trafiğe izin vermesi gerekir:
+Bir ağı kullanmayı planlıyorsanız, **sanal gereç Güvenlik Duvarı** toosecure hello sanal ağ, size izin vermelidir giden trafiği bağlantı noktaları aşağıdaki hello üzerinde:
 
 * 53
 * 443
@@ -313,44 +313,44 @@ Bir ağı kullanmayı planlıyorsanız, **sanal gereç Güvenlik Duvarı** sanal
 * 11000-11999
 * 14000-14999
 
-Belirli hizmetleri için bağlantı noktalarını bir listesi için bkz: [hdınsight'ta Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları](hdinsight-hadoop-port-settings-for-services.md) belge.
+Merhaba belirli hizmetleri için bağlantı noktalarının listesi için bkz [hdınsight'ta Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları](hdinsight-hadoop-port-settings-for-services.md) belge.
 
-Sanal gereçler için güvenlik duvarı kuralları hakkında daha fazla bilgi için bkz: [sanal gereç senaryo](../virtual-network/virtual-network-scenario-udr-gw-nva.md) belge.
+Sanal gereçler için güvenlik duvarı kuralları hakkında daha fazla bilgi için bkz: Merhaba [sanal gereç senaryo](../virtual-network/virtual-network-scenario-udr-gw-nva.md) belge.
 
 ## <a id="hdinsight-nsg"></a>Örnek: ağ güvenlik grupları Hdınsight ile
 
-Bu bölümdeki örnekleri ağ güvenliği Hdınsight Azure Yönetim Hizmetleri ile iletişim kurmasına izin ver Grup kuralları oluşturmak nasıl ekleyebileceğiniz gösterilmektedir. Örnekler kullanmadan önce kullanmakta olduğunuz Azure bölgesinin olanlarla eşleşmesi için IP adreslerini ayarlayın. Bu bilgiler bulabilirsiniz [Hdınsight ağ güvenlik gruplarını ve kullanıcı tanımlı yollar ile](#hdinsight-ip) bölümü.
+Bu bölümdeki Hello örnekler, nasıl Azure Yönetim Hizmetleri ile Merhaba Hdınsight toocommunicate izin toocreate ağ güvenlik grubu kuralları gösterir. Merhaba örnekler kullanmadan önce hello IP adreslerini toomatch Merhaba olanları hello kullanmakta olduğunuz Azure bölgesini ayarlayın. Bu bilgileri hello bulabilirsiniz [Hdınsight ağ güvenlik gruplarını ve kullanıcı tanımlı yollar ile](#hdinsight-ip) bölümü.
 
 ### <a name="azure-resource-management-template"></a>Azure kaynak yönetimi şablonu
 
-Aşağıdaki kaynak yönetimi şablon gelen trafiği sınırlar, ancak Hdınsight tarafından gerekli IP adreslerinden gelen trafiğe izin veren bir sanal ağ oluşturur. Bu şablon, ayrıca bir Hdınsight kümesi sanal ağ oluşturur.
+Merhaba aşağıdaki kaynak yönetimi şablon gelen trafiği sınırlar, ancak Hdınsight tarafından gerekli hello IP adreslerinden gelen trafiğe izin veren bir sanal ağ oluşturur. Bu şablon, hello sanal ağında ayrıca bir Hdınsight kümesi oluşturur.
 
 * [Güvenli bir Azure sanal ağ ve bir Hdınsight Hadoop kümesi dağıtma](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
 
 > [!IMPORTANT]
-> Bu örnekte, kullanmakta olduğunuz Azure bölgesi eşleştirmek için kullanılan IP adreslerini değiştirin. Bu bilgiler bulabilirsiniz [Hdınsight ağ güvenlik gruplarını ve kullanıcı tanımlı yollar ile](#hdinsight-ip) bölümü.
+> Bu örnek toomatch hello kullanmakta olduğunuz Azure bölgesi kullanılan hello IP adreslerini değiştirin. Bu bilgileri hello bulabilirsiniz [Hdınsight ağ güvenlik gruplarını ve kullanıcı tanımlı yollar ile](#hdinsight-ip) bölümü.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Gelen trafik kısıtlar ve Kuzey Avrupa bölgesinin IP adreslerinden gelen trafiğe izin veren bir sanal ağ oluşturmak için aşağıdaki PowerShell betiğini kullanın.
+PowerShell komut dosyası toocreate gelen trafiği kısıtlar ve hello trafiğinden hello Kuzey Avrupa bölge için IP adreslerini sağlayan bir sanal ağ aşağıdaki hello kullanın.
 
 > [!IMPORTANT]
-> Bu örnekte, kullanmakta olduğunuz Azure bölgesi eşleştirmek için kullanılan IP adreslerini değiştirin. Bu bilgiler bulabilirsiniz [Hdınsight ağ güvenlik gruplarını ve kullanıcı tanımlı yollar ile](#hdinsight-ip) bölümü.
+> Bu örnek toomatch hello kullanmakta olduğunuz Azure bölgesi kullanılan hello IP adreslerini değiştirin. Bu bilgileri hello bulabilirsiniz [Hdınsight ağ güvenlik gruplarını ve kullanıcı tanımlı yollar ile](#hdinsight-ip) bölümü.
 
 ```powershell
 $vnetName = "Replace with your virtual network name"
-$resourceGroupName = "Replace with the resource group the virtual network is in"
-$subnetName = "Replace with the name of the subnet that you plan to use for HDInsight"
-# Get the Virtual Network object
+$resourceGroupName = "Replace with hello resource group hello virtual network is in"
+$subnetName = "Replace with hello name of hello subnet that you plan toouse for HDInsight"
+# Get hello Virtual Network object
 $vnet = Get-AzureRmVirtualNetwork `
     -Name $vnetName `
     -ResourceGroupName $resourceGroupName
-# Get the region the Virtual network is in.
+# Get hello region hello Virtual network is in.
 $location = $vnet.Location
-# Get the subnet object
+# Get hello subnet object
 $subnet = $vnet.Subnets | Where-Object Name -eq $subnetName
 # Create a Network Security Group.
-# And add exemptions for the HDInsight health and management services.
+# And add exemptions for hello HDInsight health and management services.
 $nsg = New-AzureRmNetworkSecurityGroup `
     -Name "hdisecure" `
     -ResourceGroupName $resourceGroupName `
@@ -432,9 +432,9 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Access Deny `
         -Priority 500 `
         -Direction Inbound
-# Set the changes to the security group
+# Set hello changes toohello security group
 Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
-# Apply the NSG to the subnet
+# Apply hello NSG toohello subnet
 Set-AzureRmVirtualNetworkSubnetConfig `
     -VirtualNetwork $vnet `
     -Name $subnetName `
@@ -443,9 +443,9 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 ```
 
 > [!IMPORTANT]
-> Bu örnek gerekli IP adreslerini gelen trafiğe izin verme kuralları ekleneceği gösterilmektedir. Diğer kaynaklardan gelen erişimi kısıtlamak için bir kural içermiyor.
+> Bu örnek nasıl tooadd kuralları tooallow gelen gerekli hello IP adreslerindeki trafiği gösterir. Bir kural toorestrict içermiyor gelen diğer kaynaklardan erişim.
 >
-> Aşağıdaki örnek, Internet'ten SSH erişimini etkinleştirmek gösterilmiştir:
+> Aşağıdaki örneğine hello nasıl tooenable SSH erişim Internet hello gösterir:
 >
 > ```powershell
 > Add-AzureRmNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
@@ -453,20 +453,20 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Gelen trafik sınırlar, ancak Hdınsight tarafından gerekli IP adreslerinden gelen trafiğe izin veren bir sanal ağ oluşturmak için aşağıdaki adımları kullanın.
+Aşağıdaki adımları toocreate gelen trafik sınırlar, ancak Hdınsight tarafından gerekli hello IP adreslerinden gelen trafiğe izin veren bir sanal ağ hello kullanın.
 
-1. Adlı yeni bir ağ güvenlik grubu oluşturmak için aşağıdaki komutu kullanın `hdisecure`. Değiştir **RESOURCEGROUPNAME** Azure sanal ağı içeren kaynak grubunu ile. Değiştir **konumu** grubunun oluşturulduğu konum (bölge).
+1. Yeni bir ağ güvenlik grubu adlı komut toocreate aşağıdaki kullanım hello `hdisecure`. Değiştir **RESOURCEGROUPNAME** hello Azure sanal ağı içeren hello kaynak grubu ile. Değiştir **konumu** hello konum (bölge) içinde bu hello grup oluşturuldu.
 
     ```azurecli
     az network nsg create -g RESOURCEGROUPNAME -n hdisecure -l LOCATION
     ```
 
-    Grup oluşturulduktan sonra yeni grubu hakkında bilgi alabilir.
+    Merhaba Grup oluşturulduktan sonra hello yeni grubu hakkında bilgi alabilir.
 
-2. Bağlantı noktası 443 üzerinden Azure Hdınsight sistem durumu ve yönetim hizmetinden gelen iletişime izin verecek yeni bir ağ güvenlik grubu kural eklemek için aşağıdakileri kullanın. Değiştir **RESOURCEGROUPNAME** Azure sanal ağı içeren kaynak grubu adı.
+2. Bağlantı noktası 443 üzerinden hello Azure Hdınsight sistem durumu ve yönetim hizmeti öğesinden gelen iletişime izin tooadd kuralları toohello yeni ağ güvenlik grubu aşağıdaki hello kullanın. Değiştir **RESOURCEGROUPNAME** hello Azure sanal ağı içeren hello kaynak grubunun hello ada sahip.
 
     > [!IMPORTANT]
-    > Bu örnekte, kullanmakta olduğunuz Azure bölgesi eşleştirmek için kullanılan IP adreslerini değiştirin. Bu bilgiler bulabilirsiniz [Hdınsight ağ güvenlik gruplarını ve kullanıcı tanımlı yollar ile](#hdinsight-ip) bölümü.
+    > Bu örnek toomatch hello kullanmakta olduğunuz Azure bölgesi kullanılan hello IP adreslerini değiştirin. Bu bilgileri hello bulabilirsiniz [Hdınsight ağ güvenlik gruplarını ve kullanıcı tanımlı yollar ile](#hdinsight-ip) bölümü.
 
     ```azurecli
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "52.164.210.96" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
@@ -478,30 +478,30 @@ Gelen trafik sınırlar, ancak Hdınsight tarafından gerekli IP adreslerinden g
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n block --protocol "*" --source-port-range "*" --destination-port-range "*" --source-address-prefix "Internet" --destination-address-prefix "VirtualNetwork" --access "Deny" --priority 500 --direction "Inbound"
     ```
 
-3. Bu ağ güvenlik grubu için benzersiz tanımlayıcı almak için aşağıdaki komutu kullanın:
+3. tooretrieve bu ağ güvenlik grubu için benzersiz tanımlayıcı Merhaba, hello aşağıdaki komutu kullanın:
 
     ```azurecli
     az network nsg show -g RESOURCEGROUPNAME -n hdisecure --query 'id'
     ```
 
-    Bu komutu aşağıdaki metni benzer bir değer döndürür:
+    Bu komut metnini izleyen bir değer benzer toohello döndürür:
 
         "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
 
-    Beklenen sonuç alamazsanız kimliği etrafında çift tırnak komutunu kullanın.
+    Beklenen hello sonuç alamazsanız kimliği etrafında çift tırnak hello komutunu kullanın.
 
-4. Bir alt ağ için ağ güvenlik grubu uygulamak için aşağıdaki komutu kullanın. Değiştir __GUID__ ve __RESOURCEGROUPNAME__ olanları değerlerle önceki adımda döndürülen. Değiştir __vnetname ADLI__ ve __SUBNETNAME__ oluşturmak istediğiniz alt ağ adı ve sanal ağ adı.
+4. Kullanım hello aşağıdaki tooapply hello ağ güvenlik grubu tooa alt komutu. Hello yerine __GUID__ ve __RESOURCEGROUPNAME__ hello olanları değerlerle hello önceki adımdaki döndürdü. Değiştir __vnetname ADLI__ ve __SUBNETNAME__ hello sanal ağ adı ve alt ağ adıyla toocreate istiyor.
 
     ```azurecli
     az network vnet subnet update -g RESOURCEGROUPNAME --vnet-name VNETNAME --name SUBNETNAME --set networkSecurityGroup.id="/subscriptions/GUID/resourceGroups/RESOURCEGROUPNAME/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
     ```
 
-    Bu komut tamamlandıktan sonra sanal ağa Hdınsight yükleyebilirsiniz.
+    Bu komut tamamlandıktan sonra sanal ağ hello Hdınsight yükleyebilirsiniz.
 
 > [!IMPORTANT]
-> Bu adımları yalnızca Azure Bulutu üzerinde Hdınsight sistem durumu ve yönetim hizmetine erişim açın. Hdınsight küme sanal ağ dışındaki diğer tüm erişimi engellenir. Sanal Ağ dışından erişim etkinleştirmek için ek ağ güvenlik grubu kuralları eklemeniz gerekir.
+> Bu adımları yalnızca access toohello Hdınsight sistem durumu ve yönetim hizmetine hello Azure bulut açın. Tüm diğer erişim toohello Hdınsight kümeden dış hello sanal ağ engellendi. tooenable erişim hello sanal ağ dışından, ek ağ güvenlik grubu kuralları eklemeniz gerekir.
 >
-> Aşağıdaki örnek, Internet'ten SSH erişimini etkinleştirmek gösterilmiştir:
+> Aşağıdaki örneğine hello nasıl tooenable SSH erişim Internet hello gösterir:
 >
 > ```azurecli
 > az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
@@ -511,50 +511,50 @@ Gelen trafik sınırlar, ancak Hdınsight tarafından gerekli IP adreslerinden g
 
 ### <a name="name-resolution-between-a-virtual-network-and-a-connected-on-premises-network"></a>Sanal bir ağa bağlı şirket içi ağ arasındaki ad çözümlemesi
 
-Bu örnekte aşağıdaki varsayımlar yapar:
+Bu örnek varsayımlar aşağıdaki hello yapar:
 
-* Bir Azure sanal bir VPN ağ geçidi kullanarak bir şirket ağına bağlı ağ var.
+* Bir Azure sanal bir VPN ağ geçidi kullanarak bağlı tooan şirket içi ağ ağ var.
 
-* Özel sanal ağın DNS sunucusu, Linux veya UNIX işletim sistemi olarak çalışıyor.
+* Merhaba özel DNS sunucusu hello sanal ağındaki hello işletim sistemi olarak Linux veya UNIX çalışıyor.
 
-* [Bağlama](https://www.isc.org/downloads/bind/) özel DNS sunucusuna yüklenir.
+* [Bağlama](https://www.isc.org/downloads/bind/) hello özel DNS sunucusuna yüklenir.
 
-Özel DNS sunucusunda sanal ağda:
+Merhaba özel DNS sunucusunda hello sanal ağ içinde:
 
-1. Sanal ağın DNS soneki bulmak için Azure PowerShell veya Azure CLI kullanın:
+1. Sanal ağ hello Azure PowerShell veya Azure CLI toofind hello DNS sonekini kullanın:
 
     ```powershell
-    $resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"
+    $resourceGroupName = Read-Input -Prompt "Enter hello resource group that contains hello virtual network used with HDInsight"
     $NICs = Get-AzureRmNetworkInterface -ResourceGroupName $resourceGroupName
     $NICs[0].DnsSettings.InternalDomainNameSuffix
     ```
 
     ```azurecli-interactive
-    read -p "Enter the name of the resource group that contains the virtual network: " RESOURCEGROUP
+    read -p "Enter hello name of hello resource group that contains hello virtual network: " RESOURCEGROUP
     az network nic list --resource-group $RESOURCEGROUP --query "[0].dnsSettings.internalDomainNameSuffix"
     ```
 
-2. Sanal ağ için özel DNS sunucusunda aşağıdaki metni içeriğini kullanmak `/etc/bind/named.conf.local` dosyası:
+2. Merhaba özel DNS sunucusunda hello sanal ağ için metin hello Merhaba içeriğine aşağıdaki hello kullanın `/etc/bind/named.conf.local` dosyası:
 
     ```
-    // Forward requests for the virtual network suffix to Azure recursive resolver
+    // Forward requests for hello virtual network suffix tooAzure recursive resolver
     zone "0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net" {
         type forward;
         forwarders {168.63.129.16;}; # Azure recursive resolver
     };
     ```
 
-    Değiştir `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net` sanal ağınızın DNS soneki ile değer.
+    Hello yerine `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net` hello sanal ağınızın DNS soneki ile değer.
 
-    Bu yapılandırma sanal ağın DNS soneki için tüm DNS isteklerine Azure özyinelemeli çözümleyici yönlendirir.
+    Bu yapılandırma tüm DNS isteklerine hello sanal ağ toohello Azure özyinelemeli çözümleyici hello DNS soneki için yönlendirir.
 
-2. Sanal ağ için özel DNS sunucusunda aşağıdaki metni içeriğini kullanmak `/etc/bind/named.conf.options` dosyası:
+2. Merhaba özel DNS sunucusunda hello sanal ağ için metin hello Merhaba içeriğine aşağıdaki hello kullanın `/etc/bind/named.conf.options` dosyası:
 
     ```
-    // Clients to accept requests from
-    // TODO: Add the IP range of the joined network to this list
+    // Clients tooaccept requests from
+    // TODO: Add hello IP range of hello joined network toothis list
     acl goodclients {
-        10.0.0.0/16; # IP address range of the virtual network
+        10.0.0.0/16; # IP address range of hello virtual network
         localhost;
         localnets;
     };
@@ -566,75 +566,75 @@ Bu örnekte aşağıdaki varsayımlar yapar:
 
             allow-query { goodclients; };
 
-            # All other requests are sent to the following
+            # All other requests are sent toohello following
             forwarders {
-                192.168.0.1; # Replace with the IP address of your on-premises DNS server
+                192.168.0.1; # Replace with hello IP address of your on-premises DNS server
             };
 
             dnssec-validation auto;
 
-            auth-nxdomain no;    # conform to RFC1035
+            auth-nxdomain no;    # conform tooRFC1035
             listen-on { any; };
     };
     ```
     
-    * Değiştir `10.0.0.0/16` sanal ağınızdaki IP adres aralığı ile değer. Bu giriş, ad çözümleme istekleri adreslerini bu aralıkta sağlar.
+    * Hello yerine `10.0.0.0/16` hello IP adres aralığını, sanal ağınızın değerle. Bu giriş, ad çözümleme istekleri adreslerini bu aralıkta sağlar.
 
-    * Şirket içi ağ için IP adres aralığı Ekle `acl goodclients { ... }` bölümü.  Giriş ad çözümleme isteklerinin kaynaklardan şirket içi ağ sağlar.
+    * Merhaba şirket içi ağ toohello Hello IP adres aralığı Ekle `acl goodclients { ... }` bölümü.  Giriş ad çözümleme isteklerinin kaynaklardan hello şirket ağında sağlar.
     
-    * Değeri değiştirme `192.168.0.1` şirket içi DNS sunucunuzun IP adresine sahip. Bu giriş diğer tüm DNS isteklerine şirket DNS sunucusuna yönlendirir.
+    * Merhaba değeri değiştirin `192.168.0.1` hello şirket içi DNS sunucunuzun IP adresine sahip. Bu giriş, tüm diğer DNS isteklerini toohello şirket DNS sunucularına yönlendirir.
 
-3. Yapılandırmayı kullanmak için bağlama yeniden başlatın. Örneğin, `sudo service bind9 restart`.
+3. toouse hello yapılandırma, bağlama yeniden başlatın. Örneğin, `sudo service bind9 restart`.
 
-4. Koşullu ileticisi şirket DNS sunucusuna ekleyin. Adım 1'den özel DNS sunucusuna DNS soneki için istekleri göndermesine koşullu ileticisi yapılandırın.
+4. Bir koşullu ileticisi toohello şirket içi DNS sunucusu ekleyin. Adım 1 toohello özel DNS sunucusundan hello DNS soneki için Hello koşullu ileticisi toosend istekleri yapılandırın.
 
     > [!NOTE]
-    > Koşullu ileticisi ekleme özellikleri için DNS yazılımınızın belgelerine bakın.
+    > DNS yazılımınızın nasıl özellikleri için Hello belgelerine tooadd koşullu ileticisi.
 
-Bu adımları tamamladıktan sonra tam etki alanı adları (FQDN) kullanarak ya da ağdaki kaynaklara bağlanabilir. Bu gibi durumlarda, Hdınsight artık sanal ağınıza yükleyebilirsiniz.
+Bu adımları tamamladıktan sonra tam etki alanı adları (FQDN) kullanarak ya da ağ tooresources bağlanabilir. Bu gibi durumlarda, Hdınsight şimdi hello sanal ağınıza yükleyebilirsiniz.
 
 ### <a name="name-resolution-between-two-connected-virtual-networks"></a>İki bağlı sanal ağlar arasındaki ad çözümlemesi
 
-Bu örnekte aşağıdaki varsayımlar yapar:
+Bu örnek varsayımlar aşağıdaki hello yapar:
 
 * İki Azure sanal veya eşliği ya da, bir VPN ağ geçidi kullanarak bağlanan ağ var.
 
-* Her iki ağlarda özel DNS sunucusu, Linux veya UNIX işletim sistemi olarak çalışıyor.
+* Her iki ağ Hello özel DNS sunucusu, Linux veya UNIX hello işletim sistemi olarak çalışıyor.
 
-* [Bağlama](https://www.isc.org/downloads/bind/) özel DNS sunucularında yüklü.
+* [Bağlama](https://www.isc.org/downloads/bind/) hello özel DNS sunucularında yüklü.
 
-1. Her iki sanal ağ DNS sonekini bulmak için Azure PowerShell veya Azure CLI kullanın:
+1. Her iki sanal ağlar Azure PowerShell veya Azure CLI toofind hello DNS sonekini kullanın:
 
     ```powershell
-    $resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"
+    $resourceGroupName = Read-Input -Prompt "Enter hello resource group that contains hello virtual network used with HDInsight"
     $NICs = Get-AzureRmNetworkInterface -ResourceGroupName $resourceGroupName
     $NICs[0].DnsSettings.InternalDomainNameSuffix
     ```
 
     ```azurecli-interactive
-    read -p "Enter the name of the resource group that contains the virtual network: " RESOURCEGROUP
+    read -p "Enter hello name of hello resource group that contains hello virtual network: " RESOURCEGROUP
     az network nic list --resource-group $RESOURCEGROUP --query "[0].dnsSettings.internalDomainNameSuffix"
     ```
 
-2. Aşağıdaki metni içeriğini kullanmak `/etc/bind/named.config.local` özel DNS sunucusunda dosya. Özel DNS sunucusunda hem de sanal ağlarda bu değişikliği yapın.
+2. Metin hello Merhaba içeriğine aşağıdaki kullanım hello `/etc/bind/named.config.local` hello özel DNS sunucusunda dosya. Merhaba özel DNS sunucusunda hem de sanal ağlarda bu değişikliği yapın.
 
     ```
-    // Forward requests for the virtual network suffix to Azure recursive resolver
+    // Forward requests for hello virtual network suffix tooAzure recursive resolver
     zone "0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net" {
         type forward;
-        forwarders {10.0.0.4;}; # The IP address of the DNS server in the other virtual network
+        forwarders {10.0.0.4;}; # hello IP address of hello DNS server in hello other virtual network
     };
     ```
 
-    Değiştir `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net` DNS soneki değeri __diğer__ sanal ağ. Bu giriş özel DNS, ağ istekleri uzak ağın DNS soneki için yönlendirir.
+    Hello yerine `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net` hello hello DNS soneki değeri __diğer__ sanal ağ. Bu girdi hello uzak ağ toohello hello DNS soneki için istekleri yönlendirir özel ağındaki DNS, o.
 
-3. Her iki sanal ağlarda özel DNS sunucularında aşağıdaki metni içeriğini kullanın `/etc/bind/named.conf.options` dosyası:
+3. Metin hello Merhaba içeriğine aşağıdaki hello Hello özel DNS sunucularında hem de sanal ağlarda kullanmak `/etc/bind/named.conf.options` dosyası:
 
     ```
-    // Clients to accept requests from
+    // Clients tooaccept requests from
     acl goodclients {
-        10.1.0.0/16; # The IP address range of one virtual network
-        10.0.0.0/16; # The IP address range of the other virtual network
+        10.1.0.0/16; # hello IP address range of one virtual network
+        10.0.0.0/16; # hello IP address range of hello other virtual network
         localhost;
         localnets;
     };
@@ -652,24 +652,24 @@ Bu örnekte aşağıdaki varsayımlar yapar:
 
             dnssec-validation auto;
 
-            auth-nxdomain no;    # conform to RFC1035
+            auth-nxdomain no;    # conform tooRFC1035
             listen-on { any; };
     };
     ```
     
-    * Değiştir `10.0.0.0/16` ve `10.1.0.0/16` değerleri ile IP adresi aralıkları, sanal ağların. Bu girdi kaynakları her ağın DNS sunucularını istekler yapmasını sağlar.
+    * Hello yerine `10.0.0.0/16` ve `10.1.0.0/16` değerleri ile başlangıç IP adresi aralıkları, sanal ağların. Bu girdi her ağ kaynaklarında hello DNS sunucularının toomake isteklere izin verir.
 
-    Sanal ağlar (örneğin, microsoft.com) DNS sonekleri için değil tüm istekleri Azure özyinelemeli çözümleyici tarafından işlenir.
+    Merhaba sanal ağların (örneğin, microsoft.com) DNS soneklerini hello olmayan tüm istekler hello Azure özyinelemeli çözümleyici tarafından işlenir.
 
-4. Yapılandırmayı kullanmak için bağlama yeniden başlatın. Örneğin, `sudo service bind9 restart` hem DNS sunucularında.
+4. toouse hello yapılandırma, bağlama yeniden başlatın. Örneğin, `sudo service bind9 restart` hem DNS sunucularında.
 
-Bu adımları tamamladıktan sonra tam etki alanı adları (FQDN) kullanarak sanal ağınızdaki kaynaklara bağlanabilir. Bu gibi durumlarda, Hdınsight artık sanal ağınıza yükleyebilirsiniz.
+Bu adımları tamamladıktan sonra tam etki alanı adları (FQDN) kullanarak hello sanal ağ içinde tooresources bağlanabilir. Bu gibi durumlarda, Hdınsight şimdi hello sanal ağınıza yükleyebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Bir şirket ağına bağlanmak için Hdınsight yapılandırma uçtan uca örneği için bkz: [bir şirket içi ağınıza bağlanmak Hdınsight](./connect-on-premises-network.md).
+* Hdınsight tooconnect tooan şirket içi ağ yapılandırma uçtan uca örneği için bkz: [bağlanmak Hdınsight tooan şirket içi ağ](./connect-on-premises-network.md).
 
-* Azure sanal ağlar hakkında daha fazla bilgi için bkz: [Azure Virtual Network'e genel bakış](../virtual-network/virtual-networks-overview.md).
+* Azure sanal ağlar hakkında daha fazla bilgi için bkz: Merhaba [Azure Virtual Network'e genel bakış](../virtual-network/virtual-networks-overview.md).
 
 * Ağ güvenlik grupları hakkında daha fazla bilgi için bkz: [ağ güvenlik grupları](../virtual-network/virtual-networks-nsg.md).
 

@@ -1,6 +1,6 @@
 ---
-title: "IIS Kimlik Doğrulaması ve Azure MFA Sunucusu | Microsoft Docs"
-description: "Bu, IIS Kimlik Doğrulaması ve Azure Multi-Factor Authentication Sunucusu’nu dağıtmada yardımcı olacak Azure Multi-factor authentication sayfasıdır."
+title: "kimlik doğrulaması ve Azure MFA sunucusu aaaIIS | Microsoft Docs"
+description: "Bu, IIS kimlik doğrulaması ve Azure multi-Factor Authentication Sunucusu'nu dağıtmada yardımcı olacak hello Azure multi-Factor authentication sayfasıdır."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -15,64 +15,64 @@ ms.date: 06/16/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017,it-pro
-ms.openlocfilehash: ab6f9110dccd3cfc15092f535650e8d8cb1af13c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 74bd39c2644e2bca0880baea3824cad4c9215111
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>IIS web uygulamaları için Azure Multi-Factor Authentication Sunucusu
 
-Microsoft IIS web uygulamaları ile IIS kimlik doğrulamasını etkinleştirmek ve yapılandırmak için Azure Multi-Factor Authentication (MFA) Sunucusu’nun IIS Kimlik Doğrulaması bölümünü kullanın. Azure MFA Sunucusu, Azure Multi-Factor Authentication eklemek üzere IIS web sunucusuna yapılan istekleri filtreleyebilen bir eklenti yükler. IIS eklentisi Form Tabanlı Kimlik Doğrulaması ve Tümleşik Windows HTTP Kimlik Doğrulaması için destek sağlar. Güvenilen IP’ler iç IP adreslerini iki öğeli kimlik doğrulamasından muaf tutmak için de kullanılabilir.
+Microsoft IIS web uygulamaları ile tümleştirme için IIS kimlik doğrulamasını yapılandırma ve hello Azure çok faktörlü kimlik doğrulama (MFA) sunucusu tooenable Hello IIS kimlik doğrulaması bölümü kullanın. Hello Azure MFA sunucusu toohello IIS web sunucusu tooadd Azure çok faktörlü kimlik doğrulaması yapılan istekleri filtreleyebilirsiniz bir eklenti yükler. Merhaba IIS eklentisi Form tabanlı kimlik doğrulaması ve tümleşik Windows HTTP kimlik doğrulaması için destek sağlar. Güvenilen IP'leri yapılandırılmış tooexempt iç IP adreslerinden iki öğeli kimlik doğrulama da olabilir.
 
 ![IIS Kimlik Doğrulaması](./media/multi-factor-authentication-get-started-server-iis/iis.png)
 
 ## <a name="using-form-based-iis-authentication-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu ile Form Tabanlı IIS Kimlik Doğrulaması kullanma
-Form tabanlı kimlik doğrulaması kullanan bir IIS web uygulamasını güvenli hale getirmek için, IIS web sunucusuna Azure Multi-Factor Authentication Sunucusu’nu yükleyin ve Sunucu’yu aşağıdaki yordama göre yapılandırın:
+bir IIS web form tabanlı kimlik doğrulaması kullanan uygulaması, hello IIS web sunucusunda hello Azure multi-Factor Authentication sunucusu yükleme ve yapılandırma toosecure sunucu aşağıdaki yordamı hello hello:
 
-1. Azure Multi-Factor Authentication Sunucusu’nun soldaki menüsünde IIS Kimlik Doğrulaması simgesine tıklayın.
-2. **Form Tabanlı** sekmesine tıklayın.
+1. Hello Azure multi-Factor Authentication sunucusu, hello hello soldaki menüde IIS kimlik doğrulaması simgesine tıklayın.
+2. Merhaba tıklatın **Form tabanlı** sekmesi.
 3. **Ekle**'ye tıklayın.
-4. Kullanıcı adı, parola ve etki alanı değişkenlerini otomatik olarak algılamak için, Otomatik Yapılandırma Form Tabanlı Web Sitesi iletişim kutusuna Oturum Açma URL’sini (https://localhost/contoso/auth/login.aspx gibi) girin ve **Tamam**’a tıklayın.
-5. Tüm kullanıcılar Sunucu’ya aktarılmışsa ya da aktarılacaksa ve multi-factor authentication’a tabi olacaksa, **Multi-Factor Authentication İste kullanıcı eşleme** kutusunu işaretleyin. Çok sayıda kullanıcı Sunucu’ya henüz aktarılmadı ve/veya multi-factor authentication’da muaf tutulacaksa, kutunun işaretini kaldırın.
-6. Sayfa değişkenleri otomatik olarak algılanamıyorsa Otomatik Yapılandırma Form Tabanlı Web Sitesi iletişim kutusunda **Elle Belirt**’e tıklayın.
-7. Otomatik Yapılandırma Form Tabanlı Web Sitesi iletişim kutusunda, URL Gönder alanına oturum açma sayfası URL’sini girin ve Uygulama adı girin (isteğe bağlı). Uygulama adı Azure Multi-Factor Authentication raporlarında görünür ve SMS veya Mobil Uygulama kimlik doğrulama iletilerinde görüntülenebilir.
-8. Doğru İstek biçimini seçin. Bu, çoğu web uygulaması için **POST or GET** olarak ayarlanır.
-9. Kullanıcı adı değişkenini, Parola değişkenini ve Etki alanı değişkenini (oturum açma sayfasında görünüyorsa) girin. Girdi kutularının adlarını bulmak için bir web tarayıcısında oturum açma sayfasına gidin, sayfaya sağ tıklayın ve **Kaynağı Görüntüle**’yi seçin.
-10. Tüm kullanıcılar Sunucu’ya aktarılmışsa ya da aktarılacaksa ve multi-factor authentication’a tabi olacaksa, **Azure Multi-Factor Authentication İste kullanıcı eşleme** kutusunu işaretleyin. Çok sayıda kullanıcı Sunucu’ya henüz aktarılmadı ve/veya multi-factor authentication’da muaf tutulacaksa, kutunun işaretini kaldırın.
-11. Aşağıdaki gibi gelişmiş ayarları gözden geçirmek için **Gelişmiş**’e tıklayın:
+4. toodetect kullanıcı adı, parola ve etki alanı değişkenlerini otomatik olarak hello form tabanlı Web sitesi iletişim kutusunda hello oturum açma URL'si (örneğin, https://localhost/contoso/auth/login.aspx) girin ve tıklayın **Tamam**.
+5. Merhaba denetleyin **multi-Factor Authentication iste kullanıcı eşleşme** tüm kullanıcılar Sunucu'ya aktarılmışsa ya da hello sunucu ve konu toomulti faktörlü kimlik doğrulaması olarak içeri aktarılacak varsa kutusu. Çok sayıda kullanıcı sunucu hello henüz içeri aktarılmadı ve/veya multi-Factor authentication'da muaf tutulacaksa hello kutunun işaretini kaldırın.
+6. Merhaba sayfa değişkenleri otomatik olarak algılanamaz ise tıklatın **el ile belirt** hello form tabanlı Web sitesi iletişim kutusunda.
+7. Hello form tabanlı Web sitesi iletişim kutusunda, hello URL toohello oturum açma sayfasına hello URL Gönder alanına ve (isteğe bağlı) bir uygulama adı girin. Merhaba uygulama adı Azure multi-Factor Authentication raporlarında görünür ve SMS veya mobil uygulama kimlik doğrulama iletilerinde görüntülenebilir.
+8. Merhaba doğru istek biçimini seçin. Bu çok ayarlanır**POST veya GET** çoğu web uygulamaları için.
+9. Merhaba kullanıcı adı değişkenini, parola değişkenini ve etki alanı değişkenini (Merhaba oturum açma sayfasında görünürse) girin. Merhaba toofind hello adlarını giriş kutuları, bir web tarayıcısında toohello oturum açma sayfasına gidin, hello sayfada sağ tıklamanız ve seçin **kaynağı görüntüle**.
+10. Merhaba denetleyin **Azure multi-Factor Authentication iste kullanıcı eşleşme** tüm kullanıcılar Sunucu'ya aktarılmışsa ya da hello sunucu ve konu toomulti faktörlü kimlik doğrulaması olarak içeri aktarılacak varsa kutusu. Çok sayıda kullanıcı sunucu hello henüz içeri aktarılmadı ve/veya multi-Factor authentication'da muaf tutulacaksa hello kutunun işaretini kaldırın.
+11. Tıklatın **Gelişmiş** tooreview dahil olmak üzere, Gelişmiş ayarları:
 
   - Özel bir reddetme sayfa dosyası seçme
-  - Tanımlama bilgilerini kullanarak web sitesinde başarılı kimlik doğrulamalarını belirli bir dönem boyunca önbelleğe alma
-  - Birincil kimlik bilgilerinin bir Windows Etki Alanı, LDAP dizinine göre mi yoksa RADIUS sunucusuna göre mi doğrulanacağını belirtin.
+  - Tanımlama bilgilerini kullanarak bir süre için önbellek başarılı kimlik doğrulamalarını toohello Web sitesi
+  - Bir Windows etki alanına göre LDAP dizini tooauthenticate hello birincil kimlik bilgileri olup olmadığını seçin. RADIUS sunucusuna göre mi doğrulanacağını belirtin.
 
-12. Form Tabanlı Web Sitesi Ekle iletişim kutusuna dönmek için **Tamam**’a tıklayın.
+12. Tıklatın **Tamam** tooreturn toohello form tabanlı Web sitesi iletişim kutusu.
 13. **Tamam** düğmesine tıklayın.
-14. URL ve sayfa değişkenleri algılandığında veya girildiğinde, web sitesi verileri Form Tabanlı panelde görüntülenir.
+14. Bir kez URL Merhaba ve sayfa değişkenleri algılandığında veya girildiğinde, hello Web sitesi verileri Form tabanlı panel hello görüntüler.
 
 ## <a name="using-integrated-windows-authentication-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu ile Tümleşik Windows Kimlik Doğrulaması kullanma
-Tümleşik Windows HTTP kimlik doğrulaması kullanan bir IIS web uygulamasını güvenli hale getirmek için, IIS web sunucusuna Azure MFA Sunucusu’nu yükleyin ve aşağıdaki adımları izleyerek Sunucu’yu yapılandırın:
+bir IIS tümleşik Windows HTTP kimlik doğrulaması kullanan uygulamayı web, hello Azure MFA sunucusu hello IIS web sunucusuna yükleyin ve ardından yapılandırma toosecure, aşağıdaki adımları hello ile sunucu hello:
 
-1. Azure Multi-Factor Authentication Sunucusu’nun soldaki menüsünde IIS Kimlik Doğrulaması simgesine tıklayın.
-2. **HTTP** sekmesine tıklayın.
+1. Hello Azure multi-Factor Authentication sunucusu, hello hello soldaki menüde IIS kimlik doğrulaması simgesine tıklayın.
+2. Merhaba tıklatın **HTTP** sekmesi.
 3. **Ekle**'ye tıklayın.
-4. Taban URL’si Ekle iletişim kutusuna, HTTP kimlik doğrulamasının gerçekleştirileceği web sitesinin URL’sini (http://localhost/owa gibi) girin ve bir Uygulama adı sağlayın (isteğe bağlı). Uygulama adı Azure Multi-Factor Authentication raporlarında görünür ve SMS veya Mobil Uygulama kimlik doğrulama iletilerinde görüntülenebilir.
-5. Varsayılan yeterli değilse, Boşta kalma zaman aşımı ve Maksimum oturum sürelerini ayarlayın.
-6. Tüm kullanıcılar Sunucu’ya aktarılmışsa ya da aktarılacaksa ve multi-factor authentication’a tabi olacaksa, **Multi-Factor Authentication İste kullanıcı eşleme** kutusunu işaretleyin. Çok sayıda kullanıcı Sunucu’ya henüz aktarılmadı ve/veya multi-factor authentication’da muaf tutulacaksa, kutunun işaretini kaldırın.
-7. İsterseniz **Tanımlama bilgisi önbelleği** kutusunu işaretleyin.
+4. Merhaba taban URL'si Ekle iletişim kutusu, hello Web sitesi HTTP kimlik doğrulaması (http://localhost/owa gibi) gerçekleştirildiği için hello URL'sini girin ve bir uygulama adı (isteğe bağlı) sağlayın. Merhaba uygulama adı Azure multi-Factor Authentication raporlarında görünür ve SMS veya mobil uygulama kimlik doğrulama iletilerinde görüntülenebilir.
+5. Merhaba varsayılan yeterli değilse hello boşta kalma zaman aşımı ve maksimum oturum sürelerini ayarlayın.
+6. Merhaba denetleyin **multi-Factor Authentication iste kullanıcı eşleşme** tüm kullanıcılar Sunucu'ya aktarılmışsa ya da hello sunucu ve konu toomulti faktörlü kimlik doğrulaması olarak içeri aktarılacak varsa kutusu. Çok sayıda kullanıcı sunucu hello henüz içeri aktarılmadı ve/veya multi-Factor authentication'da muaf tutulacaksa hello kutunun işaretini kaldırın.
+7. Merhaba denetleyin **tanımlama bilgisi önbellek** isterseniz kutusu.
 8. **Tamam** düğmesine tıklayın.
 
 ## <a name="enable-iis-plug-ins-for-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu için IIS Eklentilerini Etkinleştirme
-Form Tabanlı ya da HTTP kimlik doğrulaması URL’lerini ve ayarlarını yapılandırdıktan sonra, Azure Multi-Factor Authentication IIS eklentilerinin IIS’de yüklenmesi ve etkinleştirilmesi gereken konumları seçin. Aşağıdaki yordamı kullanın:
+Yapılandırdıktan sonra hello Form tabanlı veya HTTP kimlik doğrulaması URL'lerini ve ayarlarını, select hello burada hello Azure çok faktörlü kimlik doğrulaması IIS eklentilerini yüklenmesi ve IIS'de etkinleştirilmesi konumları. Merhaba aşağıdaki yordamı kullanın:
 
-1. IIS 6'da çalıştırılıyorsa **ISAPI** sekmesine tıklayın. Bu site için Azure Multi-Factor Authentication ISAPI filtresi eklentisini etkinleştirmek için web uygulamasının altında çalıştığı web sitesini (örneğin, Varsayılan Web Sitesi) seçin.
-2. IIS 7 veya üzeri çalıştırılıyorsa **Yerel Modül** sekmesine tıklayın. IIS eklentisini istenen düzeylerde etkinleştirmek için sunucu, web siteleri veya uygulamaları seçin.
-3. Ekranın üst kısmındaki **IIS kimlik doğrulamasını etkinleştir** kutusuna tıklayın. Azure Multi-Factor Authentication artık seçilen IIS uygulamasını güvenli hale getirir. Kullanıcıların sunucuya aktarıldığından emin olun.
+1. IIS 6'da çalıştırılıyorsa hello tıklatın **ISAPI** sekmesi. Web uygulaması hello select hello Web sitesi (örneğin varsayılan Web sitesi altında) çalıştıran tooenable hello Azure multi-Factor Authentication ISAPI filtresi eklentisini bu site için.
+2. IIS 7 veya üzeri çalıştıran hello tıklatın **yerel modül** sekmesi. Merhaba sunucusu, Web siteleri veya uygulamaları tooenable hello hello istenen düzeylerde IIS eklentisini seçin.
+3. Merhaba tıklatın **etkinleştirmek IIS kimlik doğrulaması** Merhaba ekranında hello üstündeki kutusu. Azure çok faktörlü kimlik doğrulaması artık hello seçilen IIS uygulamasını güvenli hale getirir. Kullanıcıların sunucu hello aktarıldığından emin olun.
 
 ## <a name="trusted-ips"></a>Güvenilen IP'ler
-Güvenilen IP'ler kullanıcıların belirli IP adresleri veya alt ağlardan kaynaklanan web sitesi istekleri için Azure Multi-Factor Authentication’ı atlamasına olanak tanır. Örneğin, ofisten oturum açarken kullanıcıların Azure Multi-Factor Authentication’dan muaf tutulmasını isteyebilirsiniz. Bunun için ofis alt ağını Güvenilen IP’ler girişi olarak belirtebilirsiniz. Güvenilen IP’leri yapılandırmak için aşağıdaki yordamı kullanın:
+Merhaba güvenilen IP'leri belirli IP adresleri veya alt ağlardan kaynaklanan Web sitesi istekleri için kullanıcıların toobypass Azure çok faktörlü kimlik doğrulaması sağlar. Örneğin, Azure multi-Factor Authentication tooexempt kullanıcılardan hello ofisten oturum açarken sırasında isteyebilirsiniz. Bunun için güvenilen IP'ler girişi olarak hello ofis alt belirtirsiniz. tooconfigure güvenilen IP'leri hello aşağıdaki yordamı kullanın:
 
-1. IIS Kimlik Doğrulaması bölümünde **Güvenilen IP'ler** sekmesine tıklayın.
+1. Hello IIS kimlik doğrulaması bölümü, hello tıklatın **güvenilen IP'leri** sekmesi.
 2. **Ekle**'ye tıklayın.
-3. Güvenilen IP'leri Ekle iletişim kutusu göründüğünde **Tek IP**, **IP aralığı** veya **Alt ağ** radyo düğmesini seçin.
-4. Güvenilir listesinde olması gereken IP adresini, IP adresleri aralığını ya da alt ağı girin. Bir alt ağ giriyorsanız uygun Ağ maskesini seçip **Tamam**’a tıklayın. Güvenilir listesi şimdi eklendi.
+3. Merhaba güvenilen IP'leri Ekle iletişim kutusu göründüğünde, hello seçin **tek bir IP**, **IP aralığı**, veya **alt** radyo düğmesi.
+4. Başlangıç IP adresi, IP adresi aralığı veya güvenilir listesinde olması gereken alt ağ girin. Bir alt ağ, select hello girme ve uygun ağ maskesini tıklatırsanız **Tamam**. Merhaba beyaz listesi şimdi eklendi.

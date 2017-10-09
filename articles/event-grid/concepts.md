@@ -1,5 +1,5 @@
 ---
-title: "Azure olay kılavuz kavramları"
+title: "aaaAzure olay kılavuz kavramları"
 description: "Azure olay kılavuz ve onun kavramlarını açıklar. Olay kılavuzunun birkaç anahtar bileşenleri tanımlar."
 services: event-grid
 author: banisadr
@@ -8,51 +8,51 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: babanisa
-ms.openlocfilehash: 83b9b2c7bb4134e1d9bdf857449bfb85884333d0
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: bb86381330fd2d6d2769167ec1953f0d5c28af85
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="concepts-in-azure-event-grid"></a>Azure Event kılavuzunda kavramları
 
-Azure olay kılavuzunda ana kavramları şunlardır:
+Merhaba kavramlarla Azure olay kılavuzunda şunlardır:
 
 ## <a name="events"></a>Olaylar
 
-Bir olay sistem içinde gerçekleşen tam olarak bir şey açıklayan bilgileri küçük miktarıdır.  Her olay gibi genel bilgiler vardır: olay kaynağı olay yerinde ve benzersiz tanımlayıcı geçen süre.  Her olay da yalnızca belirli olay ilgili belirli bilgiler sahiptir. Örneğin, Azure depolama alanında oluşturulan yeni bir dosya ile ilgili bir olay lastTimeModified değeri gibi dosya hakkındaki ayrıntıları içerir. Veya bir sanal makine yeniden başlatılıyor hakkında bir olay sanal makine ve yeniden başlatma nedenini adını içerir.
+Bir olay hello en küçük hello sistemde gerçekleşen tam olarak bir şey açıklayan bilgileri miktarıdır.  Her olay gibi genel bilgiler vardır: hello olayın zaman hello olay kaynağını sürdü yerinde ve benzersiz tanımlayıcı.  Her olay yalnızca ilgili toohello belirli olay belirli bilgileri de vardır. Örneğin, Azure depolama alanında oluşturulan yeni bir dosya ile ilgili bir olay hello lastTimeModified değeri gibi hello dosyası ayrıntılarını içerir. Veya bir sanal makine yeniden başlatılıyor hakkında bir olay hello sanal makine ve yeniden başlatma hello nedeni hello adını içerir.
 
 ## <a name="event-sourcespublishers"></a>Olay kaynakları/yayımcıları
 
-Burada olay gerçekleştiğinde bir olay kaynağıdır. Örneğin, Azure Storage blobu olayları oluşturulan olay kaynağıdır. Azure VM doku sanal makine olayları için olay kaynağı ' dir. Olay kaynakları, olayları olay kılavuza yayımlamak için sorumludur.
+Burada hello olay gerçekleştiğinde bir olay kaynağıdır. Örneğin, Azure Storage hello olay olaylar oluşturulup blob kaynağıdır. Azure VM doku hello olay için sanal makine olayları kaynağıdır. Olay kaynakları olayları tooEvent kılavuz yayımlamak için sorumludur.
 
 ## <a name="topics"></a>Konu başlıkları
 
-Yayımcıları olayları konulara kategorilere ayırma. Konu, burada yayımcı olaylar gönderir bir uç nokta içerir. Belirli olay türleri için yanıt vermek için abone olmak için hangi konuları aboneleri karar verin. Böylece aboneleri olayları uygun şekilde kullanma bulabilir konular da bir olay şeması sağlar.
+Yayımcıları olayları konulara kategorilere ayırma. Merhaba konu burada hello yayımcı olaylar gönderir bir uç nokta içerir. Olay toorespond toocertain türleri, hangi konuları toosubscribe aboneleri karar verin. Böylece aboneleri nasıl tooconsume hello olayları uygun şekilde bulabilir konular da bir olay şeması sağlar.
 
 Sistem konular, Azure Hizmetleri tarafından sağlanan yerleşik konulardır. Uygulama ve üçüncü taraf konuları bunun özel konulardır.
 
 ## <a name="event-subscriptions"></a>Olay abonelikleri
 
-Bir abonelik olay hangi olayların bir konuda üzerinde bir abone olarak alma ilgilenmektedir kılavuz bildirir.  Bir abonelik de olayları aboneye nasıl teslim hakkında bilgi içerir.
+Bir abonelik olay hangi olayların bir konuda üzerinde bir abone olarak alma ilgilenmektedir kılavuz bildirir.  Bir abonelik de olayları toohello abone nasıl teslim hakkında bilgi içerir.
 
 ## <a name="event-handlers"></a>Olay işleyicileri
 
-Bir olay kılavuz açısından bakıldığında, olay işleyici burada olayı gönderilir yerdir. İşleyicisi olayını işlemek için bazı başka bir eylem alır.  Olay kılavuz birden çok abone türlerini destekler. Abone türüne bağlı olarak, olay kılavuz olay teslimini garanti etmek için farklı mekanizmaları izler.  Bir durum kodu, işleyici dönene kadar HTTP Web kancası olay işleyicileri için olay denenir `200 – OK`. Sıra hizmeti başarıyla kuyruğa ileti gönderme işlem kadar için Azure depolama kuyruğu, olayları denenir.
+Bir olay kılavuz açısından bakıldığında, olay işleyici burada hello olayı gönderilir hello yerdir. Merhaba işleyici bazı başka eylem tooprocess hello olayı alır.  Olay kılavuz birden çok abone türlerini destekler. Abone Hello türüne bağlı olarak farklı mekanizmaları tooguarantee hello teslim hello olayın olay kılavuz izler.  Durum kodu Hello işleyici dönene kadar HTTP Web kancası olay işleyicileri için hello olay denenir `200 – OK`. Merhaba sıra hizmeti mümkün toosuccessfully işlem hello ileti gönderme hello kuyruğuna olana kadar Azure depolama kuyruğu için hello olayları denenir.
 
 ## <a name="filters"></a>Filtreler
 
-Bir konuya abone olurken uç noktasına gönderilen olaylar için filtre uygulayabilirsiniz. Olay türü ya da konu düzeni göre filtreleyebilirsiniz. Daha fazla bilgi için bkz: [olay kılavuz abonelik şema](subscription-creation-schema.md).
+Tooa konu abone olurken toohello endpoint gönderilen hello olayları filtreleyebilirsiniz. Olay türü ya da konu düzeni göre filtreleyebilirsiniz. Daha fazla bilgi için bkz: [olay kılavuz abonelik şema](subscription-creation-schema.md).
 
 ## <a name="security"></a>Güvenlik
 
-Olay konularına abone olma ve konuları yayımlamak için güvenlik sağlar. Abone olduğunda, kaynak veya konu yeterli izinleriniz olmalıdır. Yayımlarken, konu için anahtar kimlik doğrulaması ya da SAS belirteci olması gerekir. Daha fazla bilgi için bkz: [olay kılavuz güvenlik ve kimlik doğrulama](security-authentication.md).
+Olay tootopics abone olma ve konuları yayımlamak için güvenlik sağlar. Abone olurken hello kaynak ya da konu yeterli izinleriniz olmalıdır. Yayımlama sırasında hello konu için anahtar kimlik doğrulaması ya da SAS belirteci olması gerekir. Daha fazla bilgi için bkz: [olay kılavuz güvenlik ve kimlik doğrulama](security-authentication.md).
 
 ## <a name="failed-delivery"></a>Başarısız teslim
 
-Olay kılavuz bulunamıyor doğrulayın olaya abonenin bitiş noktası tarafından alındı, olay redelivers. Daha fazla bilgi için bkz: [olay kılavuz ileti teslimi ve Yeniden Dene'yi](delivery-and-retry.md).
+Olay kılavuz bulunamıyor doğrulayın olaya hello abonenin bitiş noktası tarafından alındı, hello olay redelivers. Daha fazla bilgi için bkz: [olay kılavuz ileti teslimi ve Yeniden Dene'yi](delivery-and-retry.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Olay kılavuz giriş için bkz: [hakkında olay kılavuz](overview.md).
-* Hızlı bir şekilde olay Kılavuzu ile çalışmaya başlamak için bkz: [Azure olay kılavuz oluşturma ve rota özel olaylarla](custom-event-quickstart.md).
+* Bir giriş tooEvent kılavuz için bkz: [hakkında olay kılavuz](overview.md).
+* tooquickly olay kılavuz kullanımına başlamanıza bkz [Azure olay kılavuz oluşturma ve rota özel olaylarla](custom-event-quickstart.md).

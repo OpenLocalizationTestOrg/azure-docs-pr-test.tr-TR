@@ -1,5 +1,5 @@
 ---
-title: "Azure kapsayıcı hizmeti Öğreticisi - DC/OS yönetme | Microsoft Docs"
+title: "aaaAzure kapsayıcı hizmeti Öğreticisi - DC/OS yönetme | Microsoft Docs"
 description: "Azure kapsayıcı hizmeti Öğreticisi - DC/OS yönetme"
 services: container-service
 documentationcenter: 
@@ -17,41 +17,41 @@ ms.workload: na
 ms.date: 07/17/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: e93f782c26c32f97749e817ec59ee3c2ecb7e119
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: b91c433bfd7e48ec405cc62be1486d9d4662839d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-container-service-tutorial---manage-dcos"></a>Azure kapsayıcı hizmeti Öğreticisi - DC/OS yönetme
 
-DC/OS çalışan modern ve kapsayıcılı uygulamaları için Dağıtılmış bir platform sağlar. Azure kapsayıcı hizmeti ile basit ve hızlı bir üretim hazır DC/OS kümesi sağlama. Bu hızlı başlangıç ayrıntıları için temel adımlar gerekli, DC/OS kümesi ve çalışma temel iş yükü dağıtın.
+DC/OS çalışan modern ve kapsayıcılı uygulamaları için Dağıtılmış bir platform sağlar. Azure kapsayıcı hizmeti ile basit ve hızlı bir üretim hazır DC/OS kümesi sağlama. Bu hızlı başlangıç ayrıntıları temel adımlar, bir DC/OS kümesi ve çalışma temel iş yükü toodeploy gerekir.
 
 > [!div class="checklist"]
 > * Bir ACS DC/OS kümesi oluşturma
-> * Kümeye bağlanma
-> * DC/OS CLI'yi yükleyin
-> * Bir uygulamayı kümeye dağıtma
-> * Kümede uygulama ölçeklendirme
-> * DC/OS küme düğümleri ölçeklendirme
+> * Toohello kümesine bağlanın
+> * Merhaba DC/OS CLI yükleme
+> * Bir uygulama toohello kümeyi dağıtma
+> * Merhaba kümede uygulama ölçeklendirme
+> * Merhaba DC/OS küme düğümleri ölçeklendirme
 > * Temel DC/OS Yönetimi
-> * DC/OS kümesi Sil
+> * Merhaba DC/OS kümesi Sil
 
-Bu öğretici, Azure CLI 2.0.4 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükseltme gerekiyorsa, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Bu öğretici hello Azure CLI Sürüm 2.0.4 gerektirir veya sonraki bir sürümü. Çalıştırma `az --version` toofind hello sürümü. Tooupgrade gerekirse bkz [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-dcos-cluster"></a>DC/OS kümesi oluşturma
 
-İlk olarak, bir kaynak grubu ile oluşturmak [az grubu oluşturma](/cli/azure/group#create) komutu. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
+İlk olarak, bir kaynak grubu ile Merhaba oluşturmak [az grubu oluşturma](/cli/azure/group#create) komutu. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
 
-Aşağıdaki örnek *westeurope* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
+Merhaba aşağıdaki örnekte oluşturur adlı bir kaynak grubu *myResourceGroup* hello içinde *westeurope* konumu.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
 ```
 
-Ardından, DC/OS kümesi ile oluşturma [az acs oluşturmak](/cli/azure/acs#create) komutu.
+Ardından, DC/OS kümesi ile Merhaba oluşturun [az acs oluşturmak](/cli/azure/acs#create) komutu.
 
-Aşağıdaki örnek, adlandırılmış bir DC/OS kümesi oluşturur *myDCOSCluster* ve zaten mevcut değilse SSH anahtarları oluşturur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın.  
+Merhaba aşağıdaki örnek adlı bir DC/OS kümesi oluşturur *myDCOSCluster* ve zaten mevcut değilse SSH anahtarları oluşturur. toouse belirli bir ayarla anahtarları, hello kullan `--ssh-key-value` seçeneği.  
 
 ```azurecli
 az acs create \
@@ -61,17 +61,17 @@ az acs create \
   --generate-ssh-keys
 ```
 
-Birkaç dakika sonra komut tamamlandıktan ve dağıtım hakkında bilgi döndürür.
+Birkaç dakika sonra hello komut tamamlandıktan ve hello dağıtımı hakkında bilgi döndürür.
 
-## <a name="connect-to-dcos-cluster"></a>DC/OS kümesine bağlanma
+## <a name="connect-toodcos-cluster"></a>TooDC/OS kümesine bağlanın
 
-DC/OS kümesi oluşturulduktan sonra bir SSH tüneli üzerinden erişimleri olabilir. DC/OS asıl ortak IP adresini döndürmek için aşağıdaki komutu çalıştırın. Bu IP adresi bir değişkende depolanan ve sonraki adımda kullanılır.
+DC/OS kümesi oluşturulduktan sonra bir SSH tüneli üzerinden erişimleri olabilir. Çalışma hello aşağıdaki hello DC/OS ana tooreturn hello genel IP adresi komutu. Bu IP adresi bir değişkende depolanan ve hello sonraki adımda kullanılır.
 
 ```azurecli
 ip=$(az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-master')].[ipAddress]" -o tsv)
 ```
 
-SSH tüneli oluşturmak için aşağıdaki komutu çalıştırın ve izleyin ekrandaki yönergeleri. Bağlantı noktası 80 kullanımda olduğundan komut başarısız olur. Tünel bağlantı noktası gibi bir içinde değil kullanımına güncelleştirme `85:localhost:80`. 
+toocreate SSH tüneli Merhaba, komutu aşağıdaki hello çalıştırın ve hello ekrandaki yönergeleri izleyin. Bağlantı noktası 80 kullanımda hello komutu başarısız olur. Güncelleştirme hello tünelli kullanılmadığı, bağlantı noktası tooone gibi `85:localhost:80`. 
 
 ```azurecli
 sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
@@ -79,13 +79,13 @@ sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 
 ## <a name="install-dcos-cli"></a>DC/OS CLI'yi yükleyin
 
-DC/OS CLI kullanarak yükleme [az acs dcos yükleme-CLI](/azure/acs/dcos#install-cli) komutu. Azure CloudShell kullanıyorsanız, DC/OS CLI zaten yüklü. Azure CLI macOS ya da Linux üzerinde çalıştırıyorsanız, sudo komutu çalıştırmanız gerekebilir.
+Hello kullanarak hello DC/OS CLI'yı yükleme [az acs dcos yükleme-CLI](/azure/acs/dcos#install-cli) komutu. Azure CloudShell kullanıyorsanız, hello DC/OS CLI zaten yüklü. Hello Azure CLI macOS ya da Linux üzerinde çalıştırıyorsanız, sudo toorun hello komutuyla gerekebilir.
 
 ```azurecli
 az acs dcos install-cli
 ```
 
-CLI kümeyle kullanılabilmesi için önce SSH tüneli kullanacak şekilde yapılandırılmalıdır. Bunu yapmak için bağlantı noktası gerekiyorsa ayarlayarak aşağıdaki komutu çalıştırın.
+CLI hello kümeyle kullanılabilir hello önce yapılandırılmış toouse hello SSH tüneli olmalıdır. toodo, bu nedenle, aşağıdaki komut, başlangıç bağlantı noktası gerekiyorsa ayarlama hello çalıştırın.
 
 ```azurecli
 dcos config set core.dcos_url http://localhost
@@ -93,7 +93,7 @@ dcos config set core.dcos_url http://localhost
 
 ## <a name="run-an-application"></a>Bir uygulamayı çalıştırın
 
-Bir ACS DC/OS kümesi için mekanizma zamanlama Marathon varsayılandır. Marathon, uygulama başlatma ve DC/OS kümesinde uygulama durumunu yönetmek için kullanılır. Marathon aracılığıyla bir uygulama zamanlamak için adlı bir dosya oluşturun **marathon app.json**ve aşağıdaki içeriği buraya kopyalayın. 
+bir ACS DC/OS kümesi için mekanizma zamanlama hello Marathon varsayılandır. Marathon kullanılan toostart bir uygulamasıdır ve Merhaba uygulaması hello DC/OS kümesinde hello durumunu yönetin. bir uygulama, Marathon aracılığıyla tooschedule adlı bir dosya oluşturmak **marathon app.json**, kopya hello izleyerek içeriği içine. 
 
 ```json
 {
@@ -121,19 +121,19 @@ Bir ACS DC/OS kümesi için mekanizma zamanlama Marathon varsayılandır. Marath
 }
 ```
 
-Uygulamayı DC/OS kümesinde çalışacak şekilde zamanlamak için aşağıdaki komutu çalıştırın.
+Komut tooschedule hello uygulama toorun hello DC/OS kümesinde aşağıdaki hello çalıştırın.
 
 ```azurecli
 dcos marathon app add marathon-app.json
 ```
 
-Uygulama dağıtımı durumunu görmek için aşağıdaki komutu çalıştırın.
+toosee hello dağıtım durumunu hello uygulama, komutu aşağıdaki hello çalıştırın.
 
 ```azurecli
 dcos marathon app list
 ```
 
-Zaman **görevleri** sütun değeri geçer *0/1* için *1/1*, uygulama dağıtımı tamamlandı.
+Ne zaman hello **görevleri** sütun değeri geçer *0/1* çok*1/1*, uygulama dağıtımı tamamlandı.
 
 ```azurecli
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
@@ -142,7 +142,7 @@ ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
 
 ## <a name="scale-marathon-application"></a>Marathon uygulamayı Ölçeklendir
 
-Önceki örnekte, bir tek örnek uygulaması oluşturuldu. Uygulamanın üç örneğine kullanılabilir olacak şekilde, bu dağıtımı güncelleştirmek için açık **marathon app.json** dosya ve 3'e örnek özelliğini güncelleştirin.
+Merhaba önceki örnekte, bir tek örnek uygulaması oluşturuldu. Bu dağıtım hello uygulamanın üç örneğine kullanılabilir, böylece hello açmak tooupdate **marathon app.json** dosya ve hello örnek özellik too3 güncelleştirin.
 
 ```json
 {
@@ -170,19 +170,19 @@ ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
 }
 ```
 
-Uygulamayı kullanarak güncelleştirme `dcos marathon app update` komutu.
+Merhaba uygulaması Hello kullanarak güncelleştirme `dcos marathon app update` komutu.
 
 ```azurecli
 dcos marathon app update demo-app-private < marathon-app.json
 ```
 
-Uygulama dağıtımı durumunu görmek için aşağıdaki komutu çalıştırın.
+toosee hello dağıtım durumunu hello uygulama, komutu aşağıdaki hello çalıştırın.
 
 ```azurecli
 dcos marathon app list
 ```
 
-Zaman **görevleri** sütun değeri geçer *1/3* için *3/1*, uygulama dağıtımı tamamlandı.
+Ne zaman hello **görevleri** sütun değeri geçer *1/3* çok*3/1*, uygulama dağıtımı tamamlandı.
 
 ```azurecli
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
@@ -191,11 +191,11 @@ ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
 
 ## <a name="run-internet-accessible-app"></a>Internet erişilebilir uygulamayı çalıştırma
 
-ACS DC/OS kümesi iki düğüm kümesi, internet üzerinde erişilebilir olan bir ortak ve internet'te erişilemeyen bir özel oluşur. Varsayılan, Son örnekte kullanılan özel düğümleri kümesidir.
+Merhaba ACS DC/OS kümesi oluşan iki düğüm kümesi üzerinde erişilebilir olan bir ortak hello Internet ve Internet üzerinde erişilemeyen bir özel hello. Merhaba varsayılan hello özel düğümler, hangi hello Son örnekte kullanılan kümesidir.
 
-Bir uygulama Internet üzerinden erişilebilir olması için ortak düğüm kümesi dağıtın. Bunu yapmak için vermek `acceptedResourceRoles` değerini nesne `slave_public`.
+toomake erişilebilir bir uygulama üzerinde Internet Merhaba, bunları toohello ortak düğüm kümesi dağıtabilirsiniz. toodo, bu nedenle, hello vermek `acceptedResourceRoles` değerini nesne `slave_public`.
 
-Adlı bir dosya oluşturun **nginx public.json** ve aşağıdaki içeriği buraya kopyalayın.
+Adlı bir dosya oluşturun **nginx public.json** ve kopyalama hello aşağıdaki içeriği içine.
 
 ```json
 {
@@ -227,33 +227,33 @@ Adlı bir dosya oluşturun **nginx public.json** ve aşağıdaki içeriği buray
 }
 ```
 
-Uygulamayı DC/OS kümesinde çalışacak şekilde zamanlamak için aşağıdaki komutu çalıştırın.
+Komut tooschedule hello uygulama toorun hello DC/OS kümesinde aşağıdaki hello çalıştırın.
 
 ```azurecli 
 dcos marathon app add nginx-public.json
 ```
 
-DC/OS ortak küme aracıların genel IP adresi alın.
+Merhaba DC/OS ortak küme aracıları Hello genel IP adresi alın.
 
 ```azurecli 
 az network public-ip list --resource-group myResourceGroup --query "[?contains(name,'dcos-agent')].[ipAddress]" -o tsv
 ```
 
-Bu adrese gözatma varsayılan NGINX site döndürür.
+Toothis adresi gözatma hello varsayılan NGINX site döndürür.
 
 ![NGINX](./media/container-service-dcos-manage-tutorial/nginx.png)
 
 ## <a name="scale-dcos-cluster"></a>Ölçek DC/OS kümesi
 
-Önceki örneklerde, bir uygulama için birden çok örneği ölçeklendirilmiş. DC/OS altyapı da fazla veya az işlem kapasitesini sağlamak için genişletilebilir. Bu gerçekleştirilir [az acs ölçeklendirme]() komutu. 
+Merhaba önceki örneklerde, ölçeklendirilmiş toomultiple örnek bir uygulama oluştu. Merhaba DC/OS altyapı da daha fazla veya daha az işlem kapasitesini ölçeklendirilmiş tooprovide olabilir. Bu hello ile yapılır [az acs ölçeklendirme]() komutu. 
 
-DC/OS aracıları geçerli sayısını görmek için [acs az göster](/cli/azure/acs#show) komutu.
+DC/OS aracılarının toosee hello geçerli sayısını hello kullan [acs az göster](/cli/azure/acs#show) komutu.
 
 ```azurecli
 az acs show --resource-group myResourceGroup --name myDCOSCluster --query "agentPoolProfiles[0].count"
 ```
 
-5 sayısını artırmak için [az acs ölçeklendirme](/cli/azure/acs#scale) komutu. 
+tooincrease sayısı too5 Merhaba, hello kullan [az acs ölçeklendirme](/cli/azure/acs#scale) komutu. 
 
 ```azurecli
 az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-count 5
@@ -261,7 +261,7 @@ az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-c
 
 ## <a name="delete-dcos-cluster"></a>DC/OS kümesi Sil
 
-Artık gerekli olduğunda, kullanabileceğiniz [az grubu Sil](/cli/azure/group#delete) kaynak grubu, DC/OS kümesi kaldırmak için komut ve ilişkili tüm kaynakları.
+Artık gerektiğinde Merhaba kullanabilirsiniz [az grubu Sil](/cli/azure/group#delete) tooremove hello kaynak grubu, DC/OS kümesi ve tüm ilişkili kaynakları komutu.
 
 ```azurecli 
 az group delete --name myResourceGroup --no-wait
@@ -269,18 +269,18 @@ az group delete --name myResourceGroup --no-wait
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, aşağıdakiler de dahil olmak üzere temel DC/OS yönetim görevle ilgili öğrendiniz. 
+Bu öğreticide, hello aşağıdakileri içeren temel DC/OS yönetim görevle ilgili öğrendiniz. 
 
 > [!div class="checklist"]
 > * Bir ACS DC/OS kümesi oluşturma
-> * Kümeye bağlanma
-> * DC/OS CLI'yi yükleyin
-> * Bir uygulamayı kümeye dağıtma
-> * Kümede uygulama ölçeklendirme
-> * DC/OS küme düğümleri ölçeklendirme
-> * DC/OS kümesi Sil
+> * Toohello kümesine bağlanın
+> * Merhaba DC/OS CLI yükleme
+> * Bir uygulama toohello kümeyi dağıtma
+> * Merhaba kümede uygulama ölçeklendirme
+> * Merhaba DC/OS küme düğümleri ölçeklendirme
+> * Merhaba DC/OS kümesi Sil
 
-Yük Dengeleme DC/OS Azure ile ilgili uygulamada hakkında bilgi almak için sonraki öğretici ilerleyin. 
+Gelişmiş toohello sonraki öğretici toolearn hakkında Yük Dengeleme uygulamada DC/OS Azure üzerinde. 
 
 > [!div class="nextstepaction"]
 > [Uygulamalarda yük dengeleme gerçekleştirme](container-service-load-balancing.md)

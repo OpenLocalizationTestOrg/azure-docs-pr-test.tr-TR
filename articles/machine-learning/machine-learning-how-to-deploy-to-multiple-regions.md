@@ -1,6 +1,6 @@
 ---
-title: "Bir Web hizmeti için birden çok bölgeye dağıtma | Microsoft Docs"
-description: "(Kopya) yeni bir Web hizmeti diğer bölgeler dağıtmak için adımları."
+title: "bir Web hizmeti aaaHow toodeploy toomultiple bölgeler | Microsoft Docs"
+description: "Adımları toodeploy (kopya) yeni Web hizmeti tooother bölgeleri."
 services: machine-learning
 documentationcenter: 
 author: vDonGlover
@@ -14,38 +14,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 3895537bbca72e687838ff5013c291dfee3be707
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 21fcdb96f118c60ed98b60b1b2df833766c7c8bb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-deploy-a-web-service-to-multiple-regions"></a>Web Hizmetini birden fazla bölgeye dağıtma
-Yeni Azure Web Hizmetleri kolayca birden fazla abonelikleri veya çalışma alanları gerek kalmadan bir web hizmeti için birden çok bölgeye dağıtmanıza izin verin. 
+# <a name="how-toodeploy-a-web-service-toomultiple-regions"></a>Nasıl toodeploy bir Web hizmeti toomultiple bölgeleri
+Merhaba yeni Azure Web Hizmetleri izin tooeasily birden çok abonelikleri veya çalışma alanları gerek kalmadan bir web hizmeti toomultiple bölgeler dağıtın. 
 
-Fiyatlandırma belirli, bu nedenle, web hizmeti dağıtacağınız her bölge için bir faturalandırma planı tanımlamalısınız bölgedir.
+Fiyatlandırma belirli, bu nedenle hello web hizmeti dağıtacağınız her bölge için bir faturalandırma planı tanımlamanız gerekir bölgedir.
 
-## <a name="to-create-a-plan-in-another-region"></a>Başka bir bölgede bir plan oluşturmak için
+## <a name="toocreate-a-plan-in-another-region"></a>toocreate başka bir bölgede bir planı
 1. Oturum [Microsoft Azure Machine Learning Web Hizmetleri](https://services.azureml.net/).
-2. Tıklatın **planları** menü seçeneği.
-3. Görünüm sayfası üzerinden planlarında tıklatın **yeni**.
-4. Gelen **abonelik** açılan listesinde, yeni plan bulunacağı aboneliği seçin.
-5. Gelen **bölge** açılan listesinde, yeni plan için bölge seçin. Seçilen bölge için planlama seçenekleri görüntüleyecek **planlama seçenekleri** sayfasının bölümünde.
-6. Gelen **kaynak grubu** bir kaynak grubu plan için açılan listesinde, seçin. Kaynak grupları hakkında daha fazla bilgi [Azure Resource Manager'a genel bakış](../azure-resource-manager/resource-group-overview.md).
-7. İçinde **Plan adı** planın adını yazın.
-8. Altında **planı seçenekleri**, yeni plan için fatura düzeyi'ı tıklatın.
+2. Merhaba tıklatın **planları** menü seçeneği.
+3. Görünüm sayfası üzerinden Hello planlarını temel tıklatın **yeni**.
+4. Merhaba gelen **abonelik** açılan listesinde, hangi hello yeni plan bulunacağı select hello abonelik.
+5. Merhaba gelen **bölge** açılan listesinde, hello yeni plan için bölge seçin. Merhaba planlama seçenekleri hello seçili bölgeye hello görüntüler **planlama seçenekleri** hello sayfasının bölümünde.
+6. Merhaba gelen **kaynak grubu** bir kaynak grubu hello planlama açılan listesinde, seçin. Kaynak grupları hakkında daha fazla bilgi [Azure Resource Manager'a genel bakış](../azure-resource-manager/resource-group-overview.md).
+7. İçinde **Plan adı** hello planının türü hello adı.
+8. Altında **planı seçenekleri**, fatura düzeyi hello yeni plan hello'i tıklatın.
 9. **Oluştur**'a tıklayın.
 
-## <a name="deploying-the-web-service-to-another-region"></a>Web hizmeti başka bir bölgeye dağıtmayı
-1. Tıklatın **Web Hizmetleri** menü seçeneği.
-2. Yeni bir bölgeye dağıtmayı Web hizmeti seçin.
+## <a name="deploying-hello-web-service-tooanother-region"></a>Merhaba web hizmeti tooanother bölge dağıtma
+1. Merhaba tıklatın **Web Hizmetleri** menü seçeneği.
+2. Merhaba, tooa yeni bölge dağıttığınız Web hizmeti seçin.
 3. Tıklatın **kopya**.
-4. İçinde **Web hizmeti adı**, web hizmeti için yeni bir ad yazın.
-5. İçinde **Web hizmeti açıklaması**, web hizmeti için bir açıklama yazın.
-6. Gelen **abonelik** açılan listesinde, yeni web hizmeti bulunacağı aboneliği seçin.
-7. Gelen **kaynak grubu** bir kaynak grubu için web hizmeti açılan listesinde, seçin. Kaynak grupları hakkında daha fazla bilgi [Azure Resource Manager'a genel bakış](../azure-resource-manager/resource-group-overview.md).
-8. Gelen **bölge** açılan listesinde, web hizmeti dağıtmak üzere bölgeyi seçin.
-9. Gelen **depolama hesabı** açılan listesinde, bir depolama birimi seçin, web hizmeti depolamak hesap.
-10. Gelen **fiyat planı** açılan listesinde, 8. adımda seçtiğiniz bölgede planı seçin.
+4. İçinde **Web hizmeti adı**, hello web hizmeti için yeni bir ad yazın.
+5. İçinde **Web hizmeti açıklaması**, hello web hizmeti için bir açıklama yazın.
+6. Merhaba gelen **abonelik** açılan listesinde, hangi hello yeni web hizmeti bulunacağı select hello abonelik.
+7. Merhaba gelen **kaynak grubu** bir kaynak grubu hello web hizmeti için açılan listesinde, seçin. Kaynak grupları hakkında daha fazla bilgi [Azure Resource Manager'a genel bakış](../azure-resource-manager/resource-group-overview.md).
+8. Merhaba gelen **bölge** açılan listesinde, hangi toodeploy hello web hizmeti seçin hello bölgede.
+9. Merhaba gelen **depolama hesabı** hangi toostore hello depolama hesabında web hizmeti açılan listesinde, seçin.
+10. Merhaba gelen **fiyat planı** açılan listesinde, 8. adımda seçtiğiniz hello bölgede planı seçin.
 11. Tıklatın **kopya**.
 

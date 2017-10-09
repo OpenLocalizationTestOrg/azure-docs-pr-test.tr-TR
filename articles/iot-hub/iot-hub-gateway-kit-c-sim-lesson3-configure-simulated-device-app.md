@@ -1,12 +1,12 @@
 ---
 title: "Benzetimli cihaz & Azure IOT ağ geçidi - Ders 3: örnek uygulamayı çalıştırma | Microsoft Docs"
-description: "IOT hub'ınıza sıcaklık veri göndermek için bir sanal cihaz örnek uygulamayı çalıştırma"
+description: "Bir sanal cihaz örnek uygulama toosend sıcaklık veri tooyour IOT hub çalıştırın"
 services: iot-hub
 documentationcenter: 
 author: shizn
 manager: timtl
 tags: 
-keywords: "Bulut için veri"
+keywords: Veri toocloud
 ROBOTS: NOINDEX
 redirect_url: /azure/iot-hub/iot-hub-gateway-kit-c-lesson1-set-up-nuc
 ms.assetid: 5d051d99-9749-4150-b3c8-573b0bda9c52
@@ -17,26 +17,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.openlocfilehash: 7df2d730c38a9f715e0fd57b4d436724a5727760
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bc2c97919e95e4e3977a8b6ac75162bf2b5017be
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-and-run-a-simulated-device-sample-app"></a>Yapılandırma ve sanal cihaz örnek uygulamayı çalıştırma
 
 ## <a name="what-you-will-do"></a>Ne yapacağını
 
-- Örnek depoyu kopyalayın.
-- IOT hub ve sanal cihaz örnek uygulama için mantıksal aygıt bilgilerini almak için Azure CLI kullanın. Yapılandırın ve sanal cihaz örnek uygulamayı çalıştırın.
+- Kopya hello örnek depo.
+- Hello Azure CLI tooget sanal cihaz örnek bir uygulama için IOT hub ve mantıksal aygıt bilgileri kullanın. Yapılandırma ve benzetimli hello aygıt örnek uygulamayı çalıştırın.
 
-Herhangi bir sorun varsa, çözümleri için Ara [sorun giderme sayfası](iot-hub-gateway-kit-c-sim-troubleshooting.md).
+Herhangi bir sorun varsa, hello çözümlerini arayın [sorun giderme sayfası](iot-hub-gateway-kit-c-sim-troubleshooting.md).
 
 ## <a name="what-you-will-learn"></a>Bilgi edineceksiniz
 
 Bu makalede, şunları öğreneceksiniz:
 
-- Nasıl yapılandırmak ve sanal cihaz örnek uygulamayı çalıştırın.
+- Nasıl tooconfigure ve çalışma hello aygıt örnek uygulama benzetimi.
 
 ## <a name="what-you-need"></a>Ne gerekiyor
 
@@ -44,21 +44,21 @@ Başarılı bir şekilde tamamladınız gerekir
 
 - [IoT hub'ı oluşturma ve cihazınızı kaydetme](iot-hub-gateway-kit-c-sim-lesson2-register-device.md)
 
-## <a name="clone-the-sample-repository-to-the-host-computer"></a>Ana bilgisayara örnek depoyu kopyalayın
+## <a name="clone-hello-sample-repository-toohello-host-computer"></a>Kopya hello örnek depo toohello ana bilgisayarı
 
-Örnek deposuna kopyalamak için ana bilgisayarda aşağıdaki adımları izleyin:
+tooclone hello örnek deposu, hello ana bilgisayarda aşağıdaki adımları izleyin:
 
 1. Windows komut istemi veya terminal macOS veya Ubuntu açın.
-2. Aşağıdaki komutları çalıştırın:
+2. Merhaba aşağıdaki komutları çalıştırın:
 
    ```bash
    git clone https://github.com/Azure-samples/iot-hub-c-intel-nuc-gateway-getting-started
    cd iot-hub-c-intel-nuc-gateway-getting-started
    ```
 
-## <a name="configure-the-simulated-device-and-your-nuc"></a>Sanal cihazı ve, NUC yapılandırın
+## <a name="configure-hello-simulated-device-and-your-nuc"></a>Merhaba sanal cihazı ve, NUC yapılandırın
 
-1. Yapılandırma dosyasını açın `config.json` aşağıdaki komutu çalıştırarak Visual Studio Code:
+1. Açık hello yapılandırma dosyası `config.json` hello aşağıdaki komutu çalıştırarak Visual Studio Code:
 
    ```bash
    code config.json
@@ -68,7 +68,7 @@ Başarılı bir şekilde tamamladınız gerekir
 
    ![Config tı SensorTag cihaz yok](media/iot-hub-gateway-kit-lessons/lesson3/config_no_sensortag.png)
 
-3. Yapılandırma dosyası, aşağıdaki komutları çalıştırarak başlatın:
+3. Merhaba yapılandırma dosyası hello aşağıdaki komutları çalıştırarak başlatın:
 
    ```bash
    cd Lesson3
@@ -76,7 +76,7 @@ Başarılı bir şekilde tamamladınız gerekir
    gulp init
    ```
 
-4. Açık `config-gateway.json` aşağıdaki komutu çalıştırarak Visual Studio Code:
+4. Açık `config-gateway.json` hello aşağıdaki komutu çalıştırarak Visual Studio Code:
 
    ```bash
    # For Windows command prompt
@@ -85,24 +85,24 @@ Başarılı bir şekilde tamamladınız gerekir
    code ~/.iot-hub-getting-started/config-gateway.json
    ```
 
-5. Aşağıdaki kod satırını bulun ve değiştirin `[device hostname or IP address]` Intel NUC IP adresi veya ana bilgisayar adına sahip.
+5. Aşağıdaki kod hello bulun ve değiştirin `[device hostname or IP address]` hello Intel NUC IP adresi veya ana bilgisayar adına sahip.
    ![config ağ geçidinin ekran görüntüsü](media/iot-hub-gateway-kit-lessons/lesson3/config_gateway.png)
 
-## <a name="get-the-connection-string-of-your-iot-hub-logical-device"></a>IOT hub mantıksal aygıtı bağlantı dizesi alma
+## <a name="get-hello-connection-string-of-your-iot-hub-logical-device"></a>IOT hub mantıksal aygıtı Hello bağlantı dizesi alma
 
-Mantıksal Cihazınızı Azure IOT hub bağlantı dizesini almak için ana bilgisayarda aşağıdaki komutu çalıştırın:
+tooget hello Azure IOT hub bağlantı dizesine hello ana bilgisayarda komut aşağıdaki hello çalıştırmak aygıtınızın mantıksal:
 
 ```bash
 az iot device show-connection-string --hub-name {IoT hub name} --device-id mydevice --resource-group iot-gateway
 ```
 
-`{IoT hub name}`kullandığınız IOT hub addır. IOT ağ geçidi değeri olarak kullanın `{resource group name}` ve mydevice değeri olarak `{device id}` Ders 2 değerinde değiştirilmediyse.
+`{IoT hub name}`kullandığınız hello IOT hub adıdır. IOT ağ geçidi hello değeri olarak kullanın `{resource group name}` ve mydevice hello değeri olarak `{device id}` Ders 2 hello değerinde değiştirilmediyse.
 
-## <a name="configure-the-simulated-device-cloud-upload-sample-application"></a>Sanal cihaz bulut karşıya yükleme örnek uygulamayı yapılandırma
+## <a name="configure-hello-simulated-device-cloud-upload-sample-application"></a>Benzetimli hello cihaz bulut karşıya yükleme örnek uygulamayı yapılandırma
 
-Yapılandırmak ve sanal cihaz bulut karşıya yükleme örnek uygulamayı çalıştırmak için ana bilgisayarda aşağıdaki adımları izleyin:
+tooconfigure ve benzetimli çalışma hello cihaz bulut örnek uygulamayı karşıya yüklemek, hello ana bilgisayarda aşağıdaki adımları izleyin:
 
-1. Açık `config-sensortag.json` aşağıdaki komutu çalıştırarak Visual Studio Code:
+1. Açık `config-sensortag.json` hello aşağıdaki komutu çalıştırarak Visual Studio Code:
 
    ```bash
    # For Windows command prompt
@@ -113,29 +113,29 @@ Yapılandırmak ve sanal cihaz bulut karşıya yükleme örnek uygulamayı çal�
 
    ![config sensortag ekran görüntüsü](media/iot-hub-gateway-kit-lessons/lesson3/config_simulated_device.png)
 
-2. Kod içinde aşağıdaki değişiklikleri yapın:
-   - Değiştir `[IoT hub name]` IOT hub'ı adı ile.
-   - Değiştir `[IoT device connection string]` IOT hub mantıksal aygıtı bağlantı dizesi ile.
+2. Merhaba kodda değişiklik aşağıdaki hello olun:
+   - Değiştir `[IoT hub name]` hello IOT hub'ı adı ile.
+   - Değiştir `[IoT device connection string]` IOT hub'ı mantıksal aygıtınızın hello bağlantı dizesiyle.
 
-3. Uygulamayı çalıştırın.
+3. Merhaba uygulamayı çalıştırın.
 
-   Dağıtma ve aşağıdaki komutu çalıştırarak uygulamayı çalıştırın:
+   Dağıtma ve hello aşağıdaki komutu çalıştırarak hello uygulamayı çalıştırın:
 
    ```bash
    gulp run
    ```
 
-## <a name="verify-the-sample-application-works"></a>Örnek uygulama çalıştığını doğrulama
+## <a name="verify-hello-sample-application-works"></a>Merhaba örnek uygulama çalıştığını doğrulama
 
-Şimdi aşağıdaki gibi bir çıktı görmeniz gerekir:
+Şimdi hello aşağıdaki gibi bir çıktı görmeniz gerekir:
 
 ![Sanal cihaz örnek uygulama çıktısı](media/iot-hub-gateway-kit-lessons/lesson3/gulp_run_simudev.png)
 
-Uygulama için 40 saniye sürer, IOT hub ' ınızı sıcaklık verileri gönderir.
+Merhaba uygulaması, 40 saniye sürer sıcaklık veri tooyour IOT hub'ına gönderir.
 
 ## <a name="summary"></a>Özet
 
-Başarılı bir şekilde yapılandırılmış artık ve veri ile sanal cihaz IOT hub'ınıza gönderen sanal cihaz bulut karşıya yükleme örnek uygulamayı çalıştırın.
+Başarılı bir şekilde yapılandırdıysanız ve veri tooyour IOT hub ile sanal cihaz gönderen cihaz bulut karşıya yükleme örnek uygulamayı çalıştırma hello benzetimli.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [IoT hub'ınızdan ileti okuma](iot-hub-gateway-kit-c-sim-lesson3-read-messages-from-hub.md)

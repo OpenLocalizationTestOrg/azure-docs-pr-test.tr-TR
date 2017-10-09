@@ -1,6 +1,6 @@
 ---
-title: "Azure içeri/dışarı aktarma hizmeti REST API kullanarak | Microsoft Docs"
-description: "Azure içeri/dışarı aktarma hizmeti REST API'si, nasıl yapılır ve başvuru malzeme dahil olmak üzere kullanmak için kaynakların nerede bulacağını öğrenin."
+title: "aaaUsing hello Azure içeri/dışarı aktarma hizmeti REST API'si | Microsoft Docs"
+description: "Burada toofind kaynakları'hello Azure içeri/dışarı aktarma kullanmak için REST API, her iki nasıl tooand başvuru malzemesinde dahil olmak üzere hizmet öğrenin."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.openlocfilehash: b780385ad0af34bcb15639683d1aa5d689b38b50
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: fc7e1007ad632cf6f771c2545644f8de43c8f181
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="using-the-azure-importexport-service-rest-api"></a>Azure İçeri/Dışarı Aktarma hizmeti REST API’sini kullanma
+# <a name="using-hello-azure-importexport-service-rest-api"></a>Hello Azure içeri/dışarı aktarma hizmeti REST API kullanma
 
-Microsoft Azure içeri/dışarı aktarma hizmetini içeri/dışarı aktarma işleri programsal denetimi etkinleştirmek için bir REST API gösterir. REST API tüm ile gerçekleştirebileceğiniz içeri/dışarı aktarma işlemlerini gerçekleştirmek için kullanabileceğiniz [Azure portal](https://portal.azure.com/). Ayrıca, REST API Klasik Azure portalında şu anda kullanılabilir değil bir işin tamamlanma sorgulama gibi belirli ayrıntılı işlemler gerçekleştirmek için kullanabilirsiniz.
+Merhaba Microsoft Azure içeri/dışarı aktarma hizmeti REST API'si tooenable programsal denetim içeri/dışarı aktarma işlerinin kullanıma sunar. Tüm hello içeri/dışarı aktarma hello ile gerçekleştirebileceğiniz işlemler hello REST API tooperform kullanabileceğiniz [Azure portal](https://portal.azure.com/). Ayrıca, hello tamamlanma hello Klasik Azure portalında şu anda kullanılabilir değil bir işin sorgulama gibi belirli ayrıntılı işlemler hello REST API tooperform kullanabilirsiniz.
 
-Bkz: [Blob depolama alanına veri aktarmak için Microsoft Azure içeri/dışarı aktarma hizmeti kullanılarak](../storage-import-export-service.md) içeri/dışarı aktarma hizmeti ve klasik Portalı'nı oluşturmak ve içeri aktarma yönetmek ve işleri dışarı aktarmak için nasıl kullanılacağını gösteren bir eğitim genel bakış.
+Bkz: [hello Microsoft Azure içeri/dışarı aktarma hizmeti tooTransfer veri tooBlob depolama kullanarak](../storage-import-export-service.md) hello içeri/dışarı aktarma hizmeti ve nasıl toouse Klasik portal toocreate hello ve içeri aktarma yönetmek gösteren bir eğitim genel bakış ve işleri dışa aktarın.
 
 ## <a name="service-endpoints"></a>Hizmet uç noktaları
 
-Azure içeri/dışarı aktarma hizmeti kaynak sağlayıcısı için Azure Resource Manager ve içeri/dışarı aktarma işleri yönetmek için bir REST API kümesi aşağıdaki HTTPS uç noktada sağlar:
+Hello Azure içeri/dışarı aktarma hizmeti kaynak sağlayıcısı için Azure Resource Manager ve bir dizi REST API hello içeri/dışarı aktarma işleri yönetmek için HTTPS uç noktası şu anda sağlar:
 
 ```
 https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ImportExport/jobs/<job-name>
@@ -36,7 +36,7 @@ https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<res
 
 ## <a name="versioning"></a>Sürüm oluşturma
 
-İçeri/dışarı aktarma hizmeti isteklerine belirtmelisiniz `api-version` parametresi ve değeri ayarlayın `2016-11-01`.
+Toohello içeri/dışarı aktarma hizmeti hello belirtmelisiniz istekleri `api-version` parametresi ve değeri çok ayarlayın`2016-11-01`.
 
 ## <a name="importexport-service-operations"></a>İçeri/dışarı aktarma hizmeti işlemleri
 

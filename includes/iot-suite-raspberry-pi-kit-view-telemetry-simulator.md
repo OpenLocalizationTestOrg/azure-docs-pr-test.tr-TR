@@ -1,31 +1,31 @@
-## <a name="view-the-telemetry"></a>Telemetriyi görüntüleyebilir
+## <a name="view-hello-telemetry"></a>Görünüm hello telemetri
 
-Raspberry Pi'yi, artık uzaktan izleme çözümüne telemetri gönderiyor. Çözüm panosunda telemetri görüntüleyebilirsiniz. Ayrıca, Raspberry Pi'yi çözüm panodan iletisi gönderebilir.
+Merhaba Raspberry Pi'yi artık telemetri toohello Uzaktan izleme çözümü gönderiyor. Merhaba telemetri hello çözüm panosunda görüntüleyebilirsiniz. Merhaba çözüm panodan iletileri tooyour Raspberry Pi'yi de gönderebilirsiniz.
 
-- Çözüm panosuna gidin.
-- Cihazınızı seçmek **cihaz görünümüne** açılır.
-- Raspberry Pi'yi telemetrisinden Panoda görüntüler.
+- Toohello çözüm Panosu gidin.
+- Cihazınızı hello seçin **aygıt tooView** açılır.
+- Merhaba Hello telemetrisinden Raspberry Pi'yi hello Panoda görüntüler.
 
-![Raspberry Pi'yi telemetrisini görüntüleme][img-telemetry-display]
+![Merhaba Raspberry Pi'yi telemetrisini görüntüleme][img-telemetry-display]
 
-## <a name="act-on-the-device"></a>Cihazda hareket
+## <a name="act-on-hello-device"></a>Merhaba aygıtta hareket
 
-Çözüm panodan, Raspberry Pi'yi yöntemleri çağırabilirsiniz. Uzaktan izleme çözümüne Raspberry Pi'yi bağlandığında, desteklediği yöntemleri hakkında bilgi gönderir.
+Merhaba çözüm panodan, Raspberry Pi'yi yöntemleri çağırabilirsiniz. Merhaba Raspberry Pi'yi toohello Uzaktan izleme çözümü bağlandığında, desteklediği hello yöntemleri hakkında bilgi gönderir.
 
-- Çözüm panosunda tıklatın **aygıtları** ziyaret etmek için **aygıtları** sayfası. Böğürtlenli Pi seçin **cihaz listesi**. Ardından **yöntemleri**:
+- Merhaba çözüm panosunda tıklatın **aygıtları** toovisit hello **aygıtları** sayfası. Hello Raspberry Pi'yi seçin **cihaz listesi**. Ardından **yöntemleri**:
 
     ![Panoda aygıtları listele][img-list-devices]
 
-- Üzerinde **yöntemi çağırma** sayfasında, **LightBlink** içinde **yöntemi** açılır.
+- Merhaba üzerinde **yöntemi çağırma** sayfasında, **LightBlink** hello içinde **yöntemi** açılır.
 
-- Seçin **InvokeMethod**. Simulator konsolunda bir ileti üzerinde Raspberry Pi'yi yazdırır. Uygulamasını Raspberry Pi'yi çözüm panosuna geri bildirim gönderir:
+- Seçin **InvokeMethod**. Merhaba simulator Raspberry Pi'yi hello üzerinde bir ileti hello konsolunda yazdırır. Merhaba Raspberry Pi'yi Hello uygulamasına bir bildirim geri toohello çözüm Panosu gönderir:
 
     ![Yöntem geçmişini göster][img-method-history]
 
-- Kullanarak açma ve kapatma LED geçebilirsiniz **ChangeLightStatus** yöntemi ile bir **LightStatusValue** kümesine **1** için üzerinde veya **0** için devre dışı.
+- Hello kullanarak açma ve kapatma hello LED geçebilirsiniz **ChangeLightStatus** yöntemi ile bir **LightStatusValue** çok ayarlamak**1** için üzerinde veya **0** için devre dışı.
 
 > [!WARNING]
-> Azure hesabınızda çalıştıran uzaktan izleme çözümü bırakırsanız çalıştırıldığında için faturalandırılır. Uzaktan izleme çözümü çalışırken tüketiminin azaltılması hakkında daha fazla bilgi için bkz: [yapılandırma Azure IOT paketi önceden yapılandırılmış çözümleri tanıtım amacıyla][lnk-demo-config]. Bunu kullanmayı bitirdikten sonra önceden yapılandırılmış çözümü Azure hesabınızdan silin.
+> Merhaba Uzaktan izleme çözümü Azure hesabınızda çalışan bırakırsanız hello çalıştırıldığında için faturalandırılır. Merhaba Uzaktan izleme çözümü çalıştığında hatayla tüketiminin azaltılması hakkında daha fazla bilgi için bkz: [yapılandırma Azure IOT paketi önceden yapılandırılmış çözümleri tanıtım amacıyla][lnk-demo-config]. Bunu kullanmayı bitirdikten sonra hello önceden yapılandırılmış çözümü Azure hesabınızdan silin.
 
 
 [img-telemetry-display]: media/iot-suite-raspberry-pi-kit-view-telemetry-simulator/telemetry.png

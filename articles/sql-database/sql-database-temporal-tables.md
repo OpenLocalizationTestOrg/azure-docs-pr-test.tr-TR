@@ -1,6 +1,6 @@
 ---
-title: "Zamana bağlı tablolarda Azure SQL veritabanı ile çalışmaya başlama | Microsoft Docs"
-description: "Azure SQL veritabanı'nda zamana bağlı tablolarda kullanmaya başlamanıza öğrenin."
+title: "aaaGetting zamana bağlı tablolarda Azure SQL veritabanı ile Başlarken | Microsoft Docs"
+description: "Nasıl tooget zamana bağlı tablolarda Azure SQL veritabanı'nda kullanmaya öğrenin."
 services: sql-database
 documentationcenter: 
 author: bonova
@@ -15,42 +15,42 @@ ms.tgt_pltfrm: NA
 ms.workload: sql-database
 ms.date: 01/10/2017
 ms.author: bonova
-ms.openlocfilehash: d84db682089c65c2716d2d9bd92f7bc0ac47af27
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 54f394b51df07aa2f9bb299f207e692171d23479
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Zamana bağlı tablolarda Azure SQL veritabanı ile çalışmaya başlama
-Zamana bağlı tablolarda, izlemek ve özel kodlama için gerek kalmadan, verilerde yapılan değişiklikler tam geçmişini çözümlemek izin veren Azure SQL veritabanı'nın yeni bir programlama özelliğidir. Zamana bağlı tablolarda yalnızca belirli bir dönem içinde depolanan bulguları yorumlanabilen böylece zaman bağlamına yakından ilgili veriler geçerli olarak tutun. Zamana bağlı tablolarda, bu özellik etkili zamana dayalı çözümleme ve veri evrimi alma ilişkin bilgiler sağlar.
+Zamana bağlı tablolarda tootrack sağlayan bir Azure SQL veritabanı'nın yeni bir programlama özelliğidir ve özel kodlama için hello gerek kalmadan, verilerde yapılan değişiklikler tam geçmişini hello analiz edin. Böylece saklı bulguları yorumlanabilen zamana bağlı tablolarda veri yakından ilgili tootime bağlamı yalnızca hello belirli bir dönem içinde geçerli olarak tutun. Zamana bağlı tablolarda, bu özellik etkili zamana dayalı çözümleme ve veri evrimi alma ilişkin bilgiler sağlar.
 
 ## <a name="temporal-scenario"></a>Zamana bağlı senaryosu
-Bu makalede, zamana bağlı tablolarda bir uygulama senaryosunda kullanmak için adımları gösterilmektedir. Sıfırdan geliştirilen yeni bir Web sitesi ya da kullanıcı etkinliği analytics ile genişletmek istediğiniz mevcut bir Web kullanıcı etkinliğini izlemek istediğinizi varsayalım. Bu basit örnekte, bir süre sırasında ziyaret ettiğiniz web sayfalarının sayısının yakalanan ve Azure SQL veritabanı üzerinde barındırılan Web sitesi veritabanında izlenen gerekir bir gösterge olduğunu varsayalım. Kullanıcı etkinliği geçmiş çözümleme amacı, Web sitesi yeniden tasarlama ve ziyaretçilere daha iyi deneyimi sağlamak için girişleri almaktır.
+Bu makalede, bir uygulama senaryosunda başlangıç adımları tooutilize zamana bağlı tablolarda gösterilmektedir. Tootrack kullanıcı etkinliği sıfırdan geliştirilen yeni bir Web sitesi ya da kullanıcı etkinliği analytics ile tooextend istediğiniz mevcut bir Web istediğinizi varsayalım. Bu basit örnekte, bir süre sırasında ziyaret ettiğiniz web sayfalarının hello sayısının yakalanan ve Azure SQL veritabanı üzerinde barındırılan hello Web sitesi veritabanında izlenen toobe gerektiren bir gösterge olduğunu varsayalım. kullanıcı etkinliği hello geçmiş çözümleme Hello amacı tooget girişleri tooredesign Web sitesidir ve hello ziyaretçiler için daha iyi deneyimi sağlamak.
 
-Bu senaryo için veritabanı modeli oldukça basittir - kullanıcı etkinliği ölçüm bir tek tamsayı alanıyla temsil **PageVisited**ve kullanıcı profilini temel bilgiler birlikte yakalanır. Ayrıca, temel saat analizi için her satır, belirli bir kullanıcının belirli bir dönem içinde ziyaret sayfaların sayısını temsil ettiği satırları her kullanıcı için bir dizi engelleneceği.
+Bu senaryo için Hello veritabanı modeli çok basit - kullanıcı etkinliği ölçüm bir tek tamsayı alanıyla temsil **PageVisited**ve hello kullanıcı profili temel bilgiler birlikte yakalanır. Ayrıca, temel saat analizi için her satır belirli bir kullanıcının belirli bir dönem içinde ziyaret edilen sayfalar hello sayısı temsil ettiği satırları her kullanıcı için bir dizi engelleneceği.
 
 ![Şema](./media/sql-database-temporal-tables/AzureTemporal1.png)
 
-Neyse ki, bu etkinlik bilgileri korumak için uygulamanızda herhangi çaba put gerekmez. Zamana bağlı tablolar ile bu işlem - Web sitesi tasarımı ve daha fazla zaman veri analizi kendisini odaklanmaya sırasında tam esneklik sağlayan otomatik hale getirilmiştir. Emin olmak için yapmanız gereken tek şey. **WebSiteInfo** tablo olarak yapılandırılmış [zamana bağlı sistem sürümlü](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_0). Bu senaryoda, zamana bağlı tablolarda faydalanmak için uygulanacak adımlar aşağıda açıklanmıştır.
+Neyse ki, tooput herhangi çaba, uygulama toomaintain gerekmez bu etkinliği bilgileri. Zamana bağlı tablolar ile bu işlem - Web sitesi tasarımı ve hello veri analizi kendisi hakkında daha fazla zaman toofocus sırasında tam esneklik sağlayan otomatik hale getirilmiştir. yalnızca bir şey toodo sahip tooensure Merhaba, **WebSiteInfo** tablo olarak yapılandırılmış [zamana bağlı sistem sürümlü](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_0). Bu senaryoda Hello tam adımlar tooutilize zamana bağlı tablolarda aşağıda açıklanmıştır.
 
 ## <a name="step-1-configure-tables-as-temporal"></a>1. adım: tabloları zamana bağlı olarak yapılandırma
 Yeni yazılım geliştirme başlangıç mı var olan uygulama yükseltme bağlı olarak, zamana bağlı tablolarda oluşturun veya var olanları zamana bağlı öznitelikleri ekleyerek değiştirin. Genel durumda senaryonuz iki bu seçeneklerin bir bileşimi olabilir. Bunlar gerçekleştirmek eylemini kullanarak [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) (SSMS) [SQL Server veri Araçları](https://msdn.microsoft.com/library/mt204009.aspx) (SSDT) veya başka bir Transact-SQL geliştirme aracıdır.
 
 > [!IMPORTANT]
-> Microsoft Azure ve SQL Veritabanı güncelleştirmeleriyle aynı sürümde olmak için her zaman en güncel Management Studio sürümünü kullanmanız önerilir. [SQL Server Management Studio’yu güncelleyin](https://msdn.microsoft.com/library/mt238290.aspx).
+> Her zaman hello kullanmanız önerilir Management Studio tooremain en son sürümünü Azure ve SQL veritabanı güncelleştirmeleri tooMicrosoft ile eşitlenir. [SQL Server Management Studio’yu güncelleyin](https://msdn.microsoft.com/library/mt238290.aspx).
 > 
 > 
 
 ### <a name="create-new-table"></a>Yeni Tablo Oluştur
-Bağlam menüsü öğesini "Yeni sistem sürümlü tablo" SSMS nesne Gezgini'nde bir zamana bağlı tablo şablonu komut dosyasıyla sorgu Düzenleyicisi'ni açın ve şablon doldurmak için "Değerler için şablon parametrelerini belirt" (Ctrl + Shift + M) kullanmak için kullanın:
+SSMS Nesne Gezgini tooopen hello sorgu Düzenleyicisi'nde bağlam menüsü öğesini "Yeni sistem sürümlü tablo" ile bir zamana bağlı tablo şablonu komut dosyası kullanın ve ardından "Değerleri için şablon parametrelerini belirt" (Ctrl + Shift + M) toopopulate hello şablonu kullanabilirsiniz:
 
 ![SSMSNewTable](./media/sql-database-temporal-tables/AzureTemporal2.png)
 
-Yeni öğe için veritabanı projesi eklerken SSDT içinde "(sistem sürümü tutulan) zamana bağlı tablo" Şablon seçtiniz. Bu Tablo Tasarımcısı'nı açın ve kolayca Tablo düzeni belirtmenize olanak sağlar:
+SSDT içinde yeni öğeleri toohello veritabanı projesi eklerken "(sistem sürümü tutulan) zamana bağlı tablo" Şablon seçtiniz. Açık Tablo Tasarımcısı ve etkinleştirme, tooeasily belirtin Tablo düzeni hello olduğunu:
 
 ![SSDTNewTable](./media/sql-database-temporal-tables/AzureTemporal3.png)
 
-Ayrıca bir oluşturma zamana bağlı tablo Transact-SQL deyimlerini doğrudan belirterek aşağıdaki örnekte gösterildiği gibi erişebilirsiniz. Her zamana bağlı tabloda zorunlu öğelerini süre tanımının ve geçmiş satır sürümlerini depolamak başka bir kullanıcı tablosu başvuru system_versıonıng yan tümcesini olduğuna dikkat edin:
+Ayrıca bir oluşturma zamana bağlı tablo hello Transact-SQL deyimlerini doğrudan belirterek hello aşağıdaki örnekte gösterildiği gibi erişebilirsiniz. Her zamana bağlı tabloda zorunlu öğeleri Hello hello süre tanımının ve geçmiş satır sürümleri depolayacak bir başvuru tooanother kullanıcı tablosu ile Merhaba system_versıonıng yan tümcesini olduğuna dikkat edin:
 
 ````
 CREATE TABLE WebsiteUserInfo 
@@ -65,15 +65,15 @@ CREATE TABLE WebsiteUserInfo
  WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.WebsiteUserInfoHistory));
 ````
 
-Sistem sürümü tutulan zamana bağlı tablo oluşturduğunuzda eşlik eden geçmiş tablosu varsayılan yapılandırması otomatik olarak oluşturulur. Varsayılan geçmiş tablosu sayfası sıkıştırmayı etkin dönem sütunlarında (end, start) bir kümelenmiş B-Ağacı dizini içerir. Bu yapılandırma en iyi zamana bağlı tablolarda kullanılan senaryoları çoğunluğu için özellikle de [verileri denetleme](https://msdn.microsoft.com/library/mt631669.aspx#Anchor_0). 
+Sistem sürümü tutulan zamana bağlı tablo oluşturduğunuzda, geçmiş tablosu hello varsayılan yapılandırması ile birlikte gelen hello otomatik olarak oluşturulur. Merhaba varsayılan geçmiş tablosu sayfası sıkıştırma ile Merhaba dönem sütunlarında (end, start) bir kümelenmiş B-Ağacı dizini içerir. Bu yapılandırma en iyi zamana bağlı tablolarda kullanılan senaryoları hello çoğunluğu için özellikle de [verileri denetleme](https://msdn.microsoft.com/library/mt631669.aspx#Anchor_0). 
 
-Bu özel durumda biz depolama için geçmiş tablosu kümelenmiş columnstore dizini seçimdir şekilde zamana dayalı eğilim analizi üzerinden uzun bir veri geçmişini ve büyük veri kümeleriyle gerçekleştirmek için hedefleyin. Kümelenmiş columnstore çok iyi sıkıştırma ve analitik sorguları için performans sağlar. Zamana bağlı tablolarda geçerli ve zamana bağlı tablolarda tamamen bağımsız olarak Dizinleri'ni esnekliği sağlar. 
+Merhaba depolama hello geçmiş tablosu için kümelenmiş columnstore dizini seçimdir şekilde bu özel durumda biz tooperform zamana dayalı eğilim analizi üzerinden uzun bir veri geçmişini ve büyük veri kümeleriyle hedefleyin. Kümelenmiş columnstore çok iyi sıkıştırma ve analitik sorguları için performans sağlar. Esneklik tooconfigure dizinleri hello geçerli ve zamana bağlı tablolarda tamamen bağımsız olarak hello zamana bağlı tablolar verin. 
 
 > [!NOTE]
-> Columnstore dizinleri yalnızca premium hizmet katmanında kullanılabilir.
+> Columnstore dizinleri yalnızca hello premium hizmet katmanında kullanılabilir.
 >
 
-Aşağıdaki komut dosyasında varsayılan dizini geçmiş tablosu kümelenmiş columnstore nasıl değiştirilebilir gösterir:
+komut dosyası izleyen hello varsayılan dizini geçmiş tablosu değişen toohello kümelenmiş columnstore nasıl olabilir gösterir:
 
 ````
 CREATE CLUSTERED COLUMNSTORE INDEX IX_WebsiteUserInfoHistory
@@ -81,12 +81,12 @@ ON dbo.WebsiteUserInfoHistory
 WITH (DROP_EXISTING = ON); 
 ````
 
-Geçmiş tablosu bir alt düğüm olarak görüntülendiği sırada zamana bağlı tablolarda daha kolay tanımlama için belirli simgesiyle nesne Gezgini'nde temsil edilir.
+Geçmiş tablosu bir alt düğüm olarak görüntülendiği sırada zamana bağlı tablolarda hello Nesne Gezgini daha kolay tanımlama için hello belirli simgesiyle gösterilir.
 
 ![AlterTable](./media/sql-database-temporal-tables/AzureTemporal4.png)
 
-### <a name="alter-existing-table-to-temporal"></a>Zamana bağlı için var olan tablo değiştirme
-Şimdi, WebsiteUserInfo tablo zaten var, ancak değişikliklerin geçmişini tutmak için tasarlanmamıştır alternatif senaryo kapsar. Bu durumda, aşağıdaki örnekte gösterildiği gibi zamana bağlı, olmasını varolan tablonun yalnızca genişletebilirsiniz:
+### <a name="alter-existing-table-tootemporal"></a>Var olan tablo tootemporal alter
+Şimdi hangi hello WebsiteUserInfo tablo zaten var, ancak tasarlanmış tookeep değişikliklerin geçmişini değildi hello alternatif senaryo kapsar. Bu durumda, yalnızca hello var olan tablo toobecome hello örnek aşağıdaki gösterildiği gibi zamana bağlı genişletebilirsiniz:
 
 ````
 ALTER TABLE WebsiteUserInfo 
@@ -107,23 +107,23 @@ WITH (DROP_EXISTING = ON);
 ````
 
 ## <a name="step-2-run-your-workload-regularly"></a>2. adım: İş yükünüzün düzenli olarak çalıştırma
-Zamana bağlı tablolarda ana avantajı, Web sitenizi değişiklik izlemeyi gerçekleştirmek için herhangi bir şekilde ayarlamak veya değiştirmek gerekmez ' dir. Değişiklikler, verilerinizde gerçekleştirilecek her zaman oluşturduktan sonra zamana bağlı tablolarda saydam önceki satır sürümleri kalıcı olmasını sağlar. 
+zamana bağlı tablolarda Hello ana avantajı, değil toochange gerekir veya herhangi bir şekilde tooperform değişiklik izleme, Web sitenizi ayarlama olması. Değişiklikler, verilerinizde gerçekleştirilecek her zaman oluşturduktan sonra zamana bağlı tablolarda saydam önceki satır sürümleri kalıcı olmasını sağlar. 
 
-Otomatik değişiklik izleme bu belirli bir senaryo için kullanılabilmesi için şirketinizdeki yalnızca sütun güncelleştirme **PagesVisited** kullanıcı Web sitesinde her/his oturumu sona erdiğinde her zaman:
+Sipariş tooleverage otomatik değişiklik izleme, bu belirli bir senaryo için şirketinizdeki yalnızca sütun güncelleştirme **PagesVisited** kullanıcı hello Web sitesinde her/his oturumu sona erdiğinde her zaman:
 
 ````
 UPDATE WebsiteUserInfo  SET [PagesVisited] = 5 
 WHERE [UserID] = 1;
 ````
 
-Güncelleştirme sorgusu tam zaman gerçek işlemi oluştuğunda veya geçmiş verileri gelecekteki analize korunacak nasıl bilmesi gerekmez fark önemlidir. Her iki yönlerini otomatik olarak Azure SQL veritabanı tarafından işlenir. Aşağıdaki diyagram, geçmiş verileri üzerindeki her bir güncelleştirme oluşturulan nasıl gösterir.
+Güncelleştirme sorgusu hello toonotice tooknow hello tam zaman hello gerçek işlemi oluştuğunda veya geçmiş verileri gelecekteki analize korunacak nasıl gerek duymaz önemlidir. Her iki yönlerini hello Azure SQL veritabanı tarafından otomatik olarak işlenir. Merhaba Aşağıdaki diyagramda geçmiş verileri üzerindeki her bir güncelleştirme nasıl üretiliyor gösterilmektedir.
 
 ![TemporalArchitecture](./media/sql-database-temporal-tables/AzureTemporal5.png)
 
 ## <a name="step-3-perform-historical-data-analysis"></a>3. adım: geçmiş veri çözümlemesi gerçekleştirme
-Zamana bağlı sistem sürümü oluşturma etkin olduğunda, geçmiş verileri çözümleme, uzakta yalnızca bir sorgu sunulmuştur. Bu makalede, söz tüm ayrıntıları öğrenmek için çeşitli seçenekler ile sunulan keşfedin ortak analiz - senaryosu birkaç örnek sağlarız [FOR system_tıme](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_3) yan tümcesi.
+Zamana bağlı sistem sürümü oluşturma etkin olduğunda, geçmiş verileri çözümleme, uzakta yalnızca bir sorgu sunulmuştur. Bu makalede, biz ortak analiz - toolearn senaryosu birkaç örnek tüm ayrıntıları sağlayın, hello ile sunulan çeşitli seçenekleriniz keşfetme [FOR system_tıme](https://msdn.microsoft.com/library/dn935015.aspx#Anchor_3) yan tümcesi.
 
-Bir saatten önce itibariyle ziyaret edilen web sayfalarının sayısı bazında ilk 10 kullanıcılar görmek için bu sorguyu çalıştırın:
+itibariyle bir saatten önce ziyaret edilen web sayfalarını hello sayısına göre sıralanmış toosee hello ilk 10 kullanıcılar bu sorguyu çalıştırın:
 
 ````
 DECLARE @hourAgo datetime2 = DATEADD(HOUR, -1, SYSUTCDATETIME());
@@ -131,9 +131,9 @@ SELECT TOP 10 * FROM dbo.WebsiteUserInfo FOR SYSTEM_TIME AS OF @hourAgo
 ORDER BY PagesVisited DESC
 ````
 
-Geçmişteki herhangi bir noktada, istediğiniz veya bir ay önce bir gün önce itibariyle site ziyaret çözümlemek için bu sorguyu kolayca değiştirebilirsiniz.
+Bu sorgu kolayca değiştirebilirsiniz tooanalyze hello sitesini ziyaret gün önce itibariyle bir ay önce veya hello geçmiş herhangi bir noktada istediğiniz.
 
-Önceki gün için temel istatistiksel analizler yapmak için aşağıdaki örneği kullanın:
+önceki gün tooperform temel istatistiksel çözümleme hello için aşağıdaki örneğine hello kullanın:
 
 ````
 DECLARE @twoDaysAgo datetime2 = DATEADD(DAY, -2, SYSUTCDATETIME());
@@ -147,7 +147,7 @@ FOR SYSTEM_TIME BETWEEN @twoDaysAgo AND @aDayAgo
 GROUP BY UserId
 ````
 
-Bir süre sonunda süresi, belirli bir kullanıcı etkinlikleri için aranacak bulunan yan tümcesi kullanın:
+toosearch belirli bir kullanıcının bir süre, kullanım hello KAPSANAN yan tümcesi içindeki etkinlikler için:
 
 ````
 DECLARE @hourAgo datetime2 = DATEADD(HOUR, -1, SYSUTCDATETIME());
@@ -162,7 +162,7 @@ Eğilimleri ve kullanım düzenlerini sezgisel bir yolla kolayca gösterebilirsi
 ![TemporalGraph](./media/sql-database-temporal-tables/AzureTemporal6.png)
 
 ## <a name="evolving-table-schema"></a>Tablo şemasını gelişen
-Genellikle, uygulama geliştirme yaparken zamana bağlı tablo şemasını değiştirmeniz gerekir. Bunun için çalıştırmanız yeterlidir normal ALTER TABLE deyimleri ve Azure SQL veritabanı uygun şekilde geçmiş tablosu değişiklikleri yayılır. Aşağıdaki komut dosyası, izleme için ek öznitelik nasıl ekleyebileceğiniz gösterilmektedir:
+Genellikle, uygulama geliştirme yaparken toochange hello zamana bağlı tablo şemasını gerekir. Yalnızca normal ALTER TABLE deyimleri çalıştırın ve Azure SQL veritabanı uygun şekilde değişiklikleri toohello geçmiş tablosu yayılır. Merhaba aşağıdaki betiği izleme için ek öznitelik nasıl ekleyebileceğiniz gösterilmektedir:
 
 ````
 /*Add new column for tracking source IP address*/
@@ -173,7 +173,7 @@ ADD  [IPAddress] varchar(128) NOT NULL CONSTRAINT DF_Address DEFAULT 'N/A';
 Benzer şekilde, iş yükünüzü etkinken sütun tanımı değiştirebilirsiniz:
 
 ````
-/*Increase the length of name column*/
+/*Increase hello length of name column*/
 ALTER TABLE dbo.WebsiteUserInfo 
     ALTER COLUMN  UserName nvarchar(256) NOT NULL;
 ````
@@ -186,15 +186,15 @@ ALTER TABLE dbo.WebsiteUserInfo
     DROP COLUMN TemporaryColumn; 
 ````
 
-Alternatif olarak, en son kullanın [SSDT](https://msdn.microsoft.com/library/mt204009.aspx) (çevrimiçi mod) veritabanı veya veritabanı projesi (Çevrimdışı mod) bir parçası olarak bağlıyken zamana bağlı tablo şemasını değiştirmek için.
+Alternatif olarak, en son kullanın [SSDT](https://msdn.microsoft.com/library/mt204009.aspx) toochange zamana bağlı tablo şeması bağlı toohello veritabanı (çevrimiçi mod) durumdayken veya hello veritabanı projesi (Çevrimdışı mod) bir parçası olarak.
 
 ## <a name="controlling-retention-of-historical-data"></a>Geçmiş verilerin bekletilmesini denetleme
-Sistem sürümü tutulan zamana bağlı tablolarda ile geçmiş tablosu normal tablolardaki birden çok veritabanı boyutunu artırabilir. Büyük ve sürekli büyüyen geçmiş tablosu, hem saf depolama maliyetleri yanı sıra bir performans etkileyici nedeniyle zamana bağlı sorgulama vergi bir sorun olabilir. Bu nedenle, geçmiş tablosundaki verileri yönetmek için bir veri bekletme ilkesi geliştirme planlama ve her zamana bağlı tablo yaşam döngüsü yönetiminden önemli bir özelliği olan. Azure SQL veritabanı ile zamana bağlı tabloda geçmiş verileri yönetmek için aşağıdaki yaklaşımlardan vardır:
+Sistem sürümü tutulan zamana bağlı tablolarda ile Merhaba geçmiş tablosu normal tablolardaki'birden fazla hello veritabanı boyutunu artırabilir. Büyük ve sürekli büyüyen geçmiş tablosu, hem toopure depolama maliyetleri yanı sıra bir performans etkileyici son zamana bağlı sorgulama vergi bir sorun olabilir. Bu nedenle, hello geçmiş tablosundaki verileri yönetmek için bir veri bekletme ilkesi geliştirme planlama ve her zamana bağlı tablo hello yaşam döngüsü yönetiminden önemli bir özelliği olan. Azure SQL veritabanı ile yaklaşımlar hello zamana bağlı tabloda geçmiş verileri yönetmek için aşağıdaki hello vardır:
 
 * [Tablo bölümleme](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_2)
 * [Özel temizleme betiğini](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_3)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Zamana bağlı tablolarda hakkında ayrıntılı bilgi için kullanıma [MSDN belgelerine](https://msdn.microsoft.com/library/dn935015.aspx).
-Dinlemek için kanal 9 ziyaret bir [gerçek müşteri zamana bağlı implemenation başarı Öykü](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) ve izleme bir [zamana bağlı tanıtım canlı](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
+Ziyaret kanal 9 toohear bir [gerçek müşteri zamana bağlı implemenation başarı Öykü](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) ve izleme bir [zamana bağlı tanıtım canlı](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Notification Hubs Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "Notification Hubs ile herhangi bir arka uçtan herhangi bir mobil cihaza nasıl anında iletme bildirimleri gönderebileceğinizi öğrenin. Öğreticiler, API başvuruları ve diğer belgeler."
+title: "aaaAzure bildirim hub'ları belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
+description: "Nasıl toosend anında iletme bildirimleri bir arka uç tooany mobil aygıttan Notification Hubs ile bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler."
 services: notification-hubs
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 8657415f61d9977ad90883278f8737609248fed6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 050c70c32f50eb495cd53a6bfa5549d6ae189d89
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 10/06/2017
 ---
 #<a name="notification-hubs-documentation"></a>Notification Hubs Belgeleri
 
-Milyonlarca mesajı hızla göndermeye yönelik çok platformlu, ölçeklenebilir bir anında iletme bildirimi altyapısı olan Notification Hubs’ı nasıl kullanacağınızı öğrenin. Öğreticiler, API başvuruları ve diğer belgelerde, arka uçlardan mobil cihazlara yönelik anında iletme bildirimleri ayarlama ve gönderme hakkında bilgi sağlanmıştır. 
+Toouse bildirim hub'ları, bir çok platformlu, ölçeklenebilir anında iletme bildirimi altyapısı nasıl hızlı bir şekilde milyonlarca ileti göndermek için öğrenin. Öğreticiler, API başvuru ve diğer belgeleri nasıl tooset yukarı ve gönderme tüm arka uç tooany mobil aygıttan anında iletme bildirimleri göster. 
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -70,7 +70,7 @@ Milyonlarca mesajı hızla göndermeye yönelik çok platformlu, ölçeklenebili
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Notification Hubs ile Android'e (FCM) anında iletme bildirimleri göndermeye başlama</h3>
+                        <h3>Azure Notification Hubs ile anında iletme bildirimleri tooAndroid (FCM) gönderme kullanmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@ Milyonlarca mesajı hızla göndermeye yönelik çok platformlu, ölçeklenebili
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Notification Hubs ile Chrome uygulamalarına anında iletme bildirimleri göndermeye başlama</h3>
+                        <h3>Anında iletme bildirimleri tooChrome uygulamaları Azure Notification Hubs ile gönderme kullanmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -124,7 +124,7 @@ Milyonlarca mesajı hızla göndermeye yönelik çok platformlu, ölçeklenebili
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Notification Hubs ile iOS’a anında iletme bildirimleri göndermeye başlama</h3>
+                        <h3>Azure Notification Hubs ile anında iletme bildirimleri tooiOS gönderme kullanmaya başlama</h3>
                     </div>
                 </div>
             </div>

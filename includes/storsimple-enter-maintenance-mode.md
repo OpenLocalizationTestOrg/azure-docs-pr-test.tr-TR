@@ -1,12 +1,12 @@
 <!--author=SharS last changed: 12/01/15-->
 
-#### <a name="to-enter-maintenance-mode"></a>Bakım modu girmek için
-1. Seri konsol menüsünde seçeneği 1, **oturum oturum tam erişim**.
-2. Parolayı yazın. Varsayılan parola **Parola1**.
-3. Komut istemine yazın
+#### <a name="tooenter-maintenance-mode"></a>tooenter Bakım modu
+1. Merhaba seri konsol menüsünde seçeneği 1, **oturum oturum tam erişim**.
+2. Merhaba parolayı girin. Merhaba varsayılan parola **Parola1**.
+3. Merhaba komut istemine yazın
    
      `Enter-HcsMaintenanceMode`
-4. Bakım modu tüm g/ç istekleri kesintiye ve klasik Azure portalı bağlantısı sever ve onaylamanız istenir bildiren bir uyarı iletisi görürsünüz. Tür **Y** bakım moduna girmek için.
+4. Bakım modu tüm g/ç istekleri kesintiye ve sever bağlantı toohello Klasik Azure portalı hello ve onaylamanız istenir bildiren bir uyarı iletisi görürsünüz. Tür **Y** tooenter Bakım modu.
    
-    Hem denetleyicileri yeniden başlatılır. Yeniden başlatma tamamlandıktan sonra aygıtın bakım modunda olduğunu gösteren başka bir ileti görüntülenir.
+    Hem denetleyicileri yeniden başlatılır. Merhaba yeniden başlatma tamamlandıktan sonra hello aygıt bakım modunda olduğunu gösteren başka bir ileti görüntülenir.
 

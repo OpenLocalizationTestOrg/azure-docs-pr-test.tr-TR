@@ -1,7 +1,7 @@
 ---
-title: "Performans İpuçları - Azure Cosmos DB NoSQL | Microsoft Docs"
-description: "Azure Cosmos DB veritabanı performansını iyileştirmek için istemci yapılandırma seçenekleri öğrenin"
-keywords: "Veritabanı performansı nasıl"
+title: "aaaPerformance ipuçları - Azure Cosmos DB NoSQL | Microsoft Docs"
+description: "İstemci yapılandırma seçenekleri tooimprove Azure Cosmos DB veritabanı performansını öğrenin"
+keywords: "nasıl tooimprove veritabanı performansı"
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -15,45 +15,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: mimig
-ms.openlocfilehash: a94cda90eca9dca2b93adb8f5091d829e7375aa5
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 4f3e82ae5048e3dbc20b0fd891a2d3aa22adf3fc
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="performance-tips-for-azure-cosmos-db"></a>Azure Cosmos DB performans ipuçları
-Azure Cosmos DB garantili gecikme süresi ve verimlilik ile sorunsuz bir şekilde ölçeklendirilebilen bir hızlı ve esnek dağıtılmış veritabanıdır. Büyük mimari değişiklikler yaptığınızda veya veritabanınızla Cosmos DB ölçeklendirmek için karmaşık kodlar yazmak zorunda değildir. Yukarı ve aşağı doğru ölçeklendirme tek bir API çağrısı yapma olarak kadar kolay veya [SDK yöntem çağrısı](set-throughput.md#set-throughput-sdk). Ancak, Cosmos DB ağ çağrıları erişilir en yüksek performans elde etmek için yapabileceğiniz istemci-tarafı iyileştirmeler vardır.
+Azure Cosmos DB garantili gecikme süresi ve verimlilik ile sorunsuz bir şekilde ölçeklendirilebilen bir hızlı ve esnek dağıtılmış veritabanıdır. Değil toomake büyük mimari değişikliklerinin veya karmaşık kodlar tooscale veritabanınızla Cosmos DB yazma. Yukarı ve aşağı doğru ölçeklendirme tek bir API çağrısı yapma olarak kadar kolay veya [SDK yöntem çağrısı](set-throughput.md#set-throughput-sdk). Ancak, Cosmos DB aracılığıyla erişilir ağ çağrıları tooachieve en yüksek performans yapabileceğiniz istemci-tarafı iyileştirmeler değildir.
 
-Soran, "nasıl ı my veritabanı performansını geliştirebilir şekilde?" Aşağıdaki seçenekleri göz önünde bulundurun:
+Soran, "nasıl ı my veritabanı performansını geliştirebilir şekilde?" Seçenekler aşağıdaki hello göz önünde bulundurun:
 
 ## <a name="networking"></a>Ağ
 <a id="direct-connection"></a>
 
 1. **Bağlantı İlkesi: doğrudan bağlantı modu kullan**
 
-    Bir istemci Cosmos DB nasıl bağlandığını gözlemlenen istemci-tarafı gecikme açısından özellikle performansı önemli etkilere sahiptir. İki anahtar yapılandırma ayarlarını istemci bağlantı İlkesi – bağlantı yapılandırmak için kullanılabilir *modu* ve [bağlantı *Protokolü*](#connection-protocol).  İki kullanılabilir modları şunlardır:
+    Bir istemci tooCosmos DB nasıl bağlandığını gözlemlenen istemci-tarafı gecikme açısından özellikle performansı önemli etkilere sahiptir. İki anahtar yapılandırma ayarlarını istemci bağlantı İlkesi – hello bağlantısı yapılandırmak için kullanılabilir *modu* ve hello [bağlantı *Protokolü*](#connection-protocol).  Merhaba iki kullanılabilir modları şunlardır:
 
    1. Ağ geçidi modunda (varsayılan)
    2. Doğrudan modu
 
-      Ağ geçidi modu tüm SDK platformlarda desteklenir ve yapılandırılmış varsayılandır.  Uygulamanız bir şirket ağı içinde katı güvenlik duvarı kısıtlamalarıyla çalışıyorsa standart HTTPS bağlantı noktası ve tek bir uç nokta kullandığından ağ geçidi modu en iyi seçimdir. Performans kolaylığını ancak, veri okuma veya Cosmos Veritabanına yazılan her zaman ağ geçidi modu ek ağ atlama içermesidir. Bu nedenle, doğrudan modu daha az ağ atlamalarını nedeniyle daha iyi performans sunar.
+      Ağ geçidi modu tüm SDK platformlarda desteklenir ve yapılandırılmış hello varsayılandır.  Uygulamanız bir şirket ağı içinde katı güvenlik duvarı kısıtlamalarıyla çalışıyorsa hello standart HTTPS bağlantı noktası ve tek bir uç nokta kullandığından ağ geçidi modu hello en iyi seçimdir. Performans kolaylığını Merhaba, ancak veri okuma veya tooCosmos DB yazılan her zaman ağ geçidi modu ek ağ atlama içermesidir. Bu nedenle, doğrudan modu toofewer ağ atlamalarını nedeniyle daha iyi performans sunar.
 <a id="use-tcp"></a>
-2. **Bağlantı İlkesi: TCP protokolünü kullanır**
+2. **Bağlantı İlkesi: hello TCP protokolünü kullanır**
 
     Doğrudan modu kullanırken, kullanılabilir iki protokolü seçenek vardır:
 
    * TCP
    * HTTPS
 
-     Cosmos DB Basit bir sunar ve HTTPS üzerinden RESTful programlama modeli açın. Ayrıca, aynı zamanda RESTful kendi iletişim modelini ve .NET İstemci SDK kullanılabilir verimli bir TCP protokolü sunar. Doğrudan TCP ve HTTPS SSL ilk kimlik doğrulaması ve şifreleme trafiği için kullanın. En iyi performans için mümkün olduğunda TCP protokolünü kullanır.
+     Cosmos DB Basit bir sunar ve HTTPS üzerinden RESTful programlama modeli açın. Ayrıca, aynı zamanda RESTful kendi iletişim modelini ve hello .NET İstemci SDK kullanılabilir verimli bir TCP protokolü sunar. Doğrudan TCP ve HTTPS SSL ilk kimlik doğrulaması ve şifreleme trafiği için kullanın. En iyi performans için mümkün olduğunda hello TCP protokolü kullanın.
 
-     TCP ağ geçidi modunda kullanılırken, TCP bağlantı noktası 443 Cosmos DB bağlantı noktası ve 10255 değerini bulur MongoDB API bağlantı noktası. TCP ağ geçidi bağlantı noktalarına ek olarak doğrudan modunda kullanılırken, bağlantı noktası sağlamak zorunda Cosmos DB dinamik TCP bağlantı noktaları kullandığından 10000 20000 arasındaki aralığı açın. Bu bağlantı noktalarının açık değildir ve TCP kullanma girişimi 503 Hizmet kullanılamıyor hatası alıyorsunuz.
+     TCP ağ geçidi modunda kullanılırken, TCP bağlantı noktası 443 hello Cosmos DB bağlantı noktası ve 10255 değerini bulur hello MongoDB API bağlantı noktası. TCP toplama toohello ağ geçidi bağlantı noktaları, doğrudan modunda kullanırken tooensure hello bağlantı noktası gerekir Cosmos DB dinamik TCP bağlantı noktaları kullandığından 10000 20000 arasındaki aralığı açın. Bu bağlantı noktalarının açık değildir ve toouse TCP çalışırsanız, 503 Hizmet kullanılamıyor hatası alırsınız.
 
-     Bağlantı modunu ConnectionPolicy parametresi DocumentClient örneğiyle yapımı sırasında yapılandırılır. Doğrudan modunda kullanılırsa, Protokolü içinde ConnectionPolicy parametresi de ayarlayabilirsiniz.
+     Bağlantı modunu Hello hello ConnectionPolicy parametresiyle hello DocumentClient örneğinin hello oluşturma sırasında yapılandırılır. Doğrudan modunda kullanılırsa, hello Protokolü hello ConnectionPolicy parametresi içinde de ayarlayabilirsiniz.
 
     ```C#
     var serviceEndpoint = new Uri("https://contoso.documents.net");
-    var authKey = new "your authKey from the Azure portal";
+    var authKey = new "your authKey from hello Azure portal";
     DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
     new ConnectionPolicy
     {
@@ -62,98 +62,98 @@ Soran, "nasıl ı my veritabanı performansını geliştirebilir şekilde?" Aşa
     });
     ```
 
-    Ağ geçidi modunda kullanılırsa, TCP yalnızca doğrudan modunda desteklendiğinden, HTTPS protokolünü her zaman ağ geçidi ile iletişim kurmak için kullanılır ve ConnectionPolicy Protokolü değeri yoksayılır.
+    Ağ geçidi modunda kullanılırsa, TCP yalnızca doğrudan modunda desteklendiğinden, ardından HTTPS protokolünü her zaman olduğu hello toocommunicate hello ağ geçidi ile ve hello protokol değeri ConnectionPolicy göz ardı hello kullanılır.
 
-    ![Azure Cosmos DB bağlantı İlkesi çizimi](./media/performance-tips/connection-policy.png)
+    ![Hello Azure Cosmos DB bağlantı İlkesi çizimi](./media/performance-tips/connection-policy.png)
 
-3. **İlk istek başlatma gecikmesine önlemek için OpenAsync çağırın**
+3. **İlk isteği OpenAsync tooavoid başlatma gecikmesi çağırın**
 
-    Adres yönlendirme tablosu getirilemedi içerdiğinden varsayılan olarak, ilk isteği daha yüksek gecikme vardır. Bu ilk istek başlatma gecikmesine önlemek için OpenAsync() kez başlatma sırasında şu şekilde çağırmalıdır.
+    Toofetch hello adresi yönlendirme tablosu olduğundan varsayılan olarak, daha yüksek gecikme hello ilk istek sahiptir. tooavoid hello bu başlangıç gecikmesine ilk istek, bir kez başlatma sırasında şu şekilde OpenAsync() çağırmalıdır.
 
         await client.OpenAsync();
    <a id="same-region"></a>
 4. **Performans için aynı Azure bölgesinde istemciler birlikte bulundurma**
 
-    Mümkün olduğunda, Cosmos DB veritabanı ile aynı bölgede Cosmos DB çağırma herhangi bir uygulama yerleştirin. Yaklaşık bir karşılaştırma için 1-2 ms içinde Cosmos DB çağrıları aynı bölge içinde tamamlanması, ancak Batı ABD, Doğu Yakası arasındaki gecikme süresi > 50 ms. Bu gecikme, Azure veri merkezi sınır istemciden geçerken istek tarafından izlenen yolu bağlı olarak istemek için büyük olasılıkla farklılık gösterebilir. Olası en düşük gecikme, çağıran uygulama sağlanan Cosmos DB uç nokta olduğu Azure bölgesinin içinde bulunduğu sağlanarak elde edilir. Kullanılabilir bölgelerin bir listesi için bkz: [Azure bölgeleri](https://azure.microsoft.com/regions/#services).
+    Ne zaman mümkün Cosmos DB arayan herhangi bir uygulama ile aynı bölgeye hello yerine Cosmos DB veritabanı hello. Yaklaşık bir karşılaştırma için aynı bölgede tamamlamak 1-2 ms ancak hello Batı ve us Merhaba, Doğu Yakası arasındaki hello gecikme süresi içinde hello içinde tooCosmos DB çağırır > 50 ms. Bu gecikme, büyük olasılıkla gelen isteği toorequest hello istemci toohello Azure veri merkezi bir sınır geçerken hello istek tarafından alınan hello rota bağlı olarak değişebilir. Merhaba olası en düşük gecikme süresi hello arama sağlayarak gerçekleştirilir uygulama hello içinde bulunduğu hello olduğu Azure bölgesinin sağlanan Cosmos DB uç noktası. Kullanılabilir bölgelerin bir listesi için bkz: [Azure bölgeleri](https://azure.microsoft.com/regions/#services).
 
-    ![Azure Cosmos DB bağlantı İlkesi çizimi](./media/performance-tips/same-region.png)
+    ![Hello Azure Cosmos DB bağlantı İlkesi çizimi](./media/performance-tips/same-region.png)
    <a id="increase-threads"></a>
 5. **İş parçacıkları/görevleri sayısını artırın**
 
-    Azure Cosmos DB çağrıları ağ üzerinden yapılan olduğundan, böylece istemci uygulaması bekleyen istekler arasında çok az zaman harcayan, istekleri paralellik derecesini farklılık gerekebilir. Örneğin, kullanıyorsanız. NET'in [görev paralel Kitaplığı](https://msdn.microsoft.com//library/dd460717.aspx), 100s okunurken veya yazılırken Cosmos DB görev sırasına göre oluşturun.
+    Merhaba ağ üzerinden çağrıları tooAzure Cosmos DB yapılma olduğundan, böylece hello istemci uygulamanın bekleyen istekler arasında çok az zaman geçirdiği toovary Merhaba, istekleri paralellik derecesini gerekebilir. Örneğin, kullanıyorsanız. NET'in [görev paralel Kitaplığı](https://msdn.microsoft.com//library/dd460717.aspx), okuma veya yazma tooCosmos DB görevlerin 100s hello sırada oluşturun.
 
 ## <a name="sdk-usage"></a>SDK kullanımı
-1. **En son SDK'sını yükleyin**
+1. **Yükleme son SDK hello**
 
-    Cosmos DB SDK'ları en iyi performansı sağlamak için sürekli geliştirilen. Bkz: [Cosmos DB SDK](documentdb-sdk-dotnet.md) en son SDK belirlemek ve geliştirmeleri gözden geçirmek için sayfaları.
-2. **Bir singleton Cosmos DB istemci uygulamanızın ömrü boyunca kullanın**
+    Merhaba Cosmos DB SDK'ları sürekli geliştirilmiş tooprovide hello en iyi performansı bırakılıyor. Merhaba bkz [Cosmos DB SDK](documentdb-sdk-dotnet.md) sayfaları toodetermine en son SDK hello ve geliştirmeleri gözden geçirin.
+2. **Bir singleton Cosmos DB istemci uygulamanız hello ömrü boyunca kullanın**
 
-    Her DocumentClient örnek iş parçacığı açısından güvenli ve verimli bağlantı yönetimi ve doğrudan modunda çalışırken adresi önbelleğe alma gerçekleştirir unutmayın. Verimli bağlantı yönetimi ve daha iyi performans DocumentClient ile izin vermek için uygulama yaşam süresi için DocumentClient AppDomain başına tek bir örneğini kullanmak için önerilir.
+    Her DocumentClient örnek iş parçacığı açısından güvenli ve verimli bağlantı yönetimi ve doğrudan modunda çalışırken adresi önbelleğe alma gerçekleştirir unutmayın. tooallow verimli bağlantı yönetimi ve daha iyi performans DocumentClient ile toouse DocumentClient AppDomain başına tek bir örneğini Merhaba uygulaması hello ömrü boyunca önerilir.
 
    <a id="max-connection"></a>
 3. **Ağ geçidi modu kullanırken System.Net MaxConnections ana bilgisayar başına artırın**
 
-    Cosmos DB istekleri, HTTPS/REST yapılır, ağ geçidi modu kullanırken ve varsayılan bağlantı sınırını ana bilgisayar adı veya IP adresi başına tabi. Böylece istemci kitaplığı Cosmos DB birden çok eşzamanlı bağlantıların kullanabilir MaxConnections daha yüksek bir değer (100-1000) ayarlamanız gerekebilir. .NET SDK'sındaki 1.8.0 ve varsayılan değerin üzerinde [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) 50'dir ve değerini değiştirmek için ayarlayabileceğiniz [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx)daha yüksek bir değere.   
+    Cosmos DB istekler ağ geçidi modu kullanırken HTTPS/REST yapılan ve ana bilgisayar adı veya IP adresi başına tabi toohello varsayılan bağlantı sınırı. Böylece Hello istemci kitaplığı birden çok eşzamanlı bağlantı tooCosmos DB kullanabilir tooset hello MaxConnections tooa daha yüksek değere (100-1000) gerekebilir. .NET SDK'sı 1.8.0 hello ve yukarıdaki için varsayılan değer hello [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) olan 50 ve toochange Merhaba değeri, hello ayarlayabilirsiniz [Documents.Client.ConnectionPolicy.MaxConnectionLimit ](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) tooa daha yüksek değer.   
 4. **Paralel sorgular bölümlenmiş koleksiyonlar için ayarlama**
 
-     DocumentDB .NET SDK sürüm 1.9.0 ve paralel bölümlendirilmiş bir koleksiyon sorgulamak etkinleştirme desteği paralel sorgular yukarıda (bkz [SDK'ları ile çalışma](documentdb-partition-data.md#working-with-the-azure-cosmos-db-sdks) ve ilgili [kod örnekleri](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) daha fazla bilgi için bilgileri). Paralel sorgular seri bunların karşılık gelen sorgu gecikme süresi ve üretilen işi artırmak için tasarlanmıştır. Paralel sorguları, kullanıcılar için özel Sığdır gereksinimlerine, (a) MaxDegreeOfParallelism ayarlayabilirsiniz iki parametre sağlar: en çok sonra bölüm sayısı sorgulanan paralel ve (b) MaxBufferedItemCount denetlemek için: sayısını kontrol etmek için önceden getirilen sonuç.
+     DocumentDB .NET SDK sürüm 1.9.0 ve tooquery paralel bölümlendirilmiş bir koleksiyon etkinleştirme desteği paralel sorgular yukarıda (bkz [hello SDK'ları ile çalışma](documentdb-partition-data.md#working-with-the-azure-cosmos-db-sdks) ve ilgili hello [kod örnekleri](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) için Daha fazla bilgi). Paralel sorgular tasarlanmış tooimprove sorgu gecikme süresi ve verimlilik seri bunların karşılık gelen ' dir. Paralel sorgular sağlayan iki parametre kullanıcıların gereksinimlerine, (a) MaxDegreeOfParallelism toocustom sığacak şekilde ayarlayabilirsiniz: toocontrol hello en fazla bölüm sayısı ardından sorgulanan paralel ve (b) MaxBufferedItemCount: toocontrol hello sayısı önceden getirilen sonuç.
 
-    (a) ***ayarlama MaxDegreeOfParallelism\: *** paralel sorgu works birden çok bölümü paralel sorgulayarak. Ancak, tek bir bölümlenmiş toplama verileri seri olarak sorgu göre getirilir. Bu nedenle, diğer tüm sistem koşulları aynı kalır sağlanan çoğu kullanıcı sorgu elde maksimum fırsat bir bölüm sayısı MaxDegreeOfParallelism ayarlama sahiptir. Bölüm sayısı bilmiyorsanız, yüksek bir sayıya MaxDegreeOfParallelism ayarlayabilir ve sistem MaxDegreeOfParallelism en az (bölüm, kullanıcı tarafından sağlanan girdi sayısı) seçer.
+    (a) ***ayarlama MaxDegreeOfParallelism\: *** paralel sorgu works birden çok bölümü paralel sorgulayarak. Ancak, tek bir bölümlenmiş toplama verileri seri olarak saygı toohello sorguyla getirilir. Bu nedenle, ayarı hello MaxDegreeOfParallelism toohello bölüm sayısı çoğu kullanıcı sorgu Merhaba, diğer tüm sistem koşulları kalır sağlanan aynı hello elde hello maksimum fırsat sahiptir. Bölüm sayısı hello bilmiyorsanız, hello MaxDegreeOfParallelism tooa yüksek sayı ayarlayabilirsiniz ve MaxDegreeOfParallelism hello gibi hello sistem hello minimum (bölüm, kullanıcı tarafından sağlanan girdi sayısı) seçer.
 
-    Verileri sorgu göre tüm bölümleri arasında eşit olarak dağıtılır, paralel sorgular en iyi avantajları oluşturduğunun dikkate almak önemlidir. Bölümlenmiş koleksiyonu (en kötü durumda bir bölüm) birkaç bölümlerdeki tamamı veya bir sorgu tarafından döndürülen verilerin çoğunu bir yoğunlaşmıştır, ardından sorgu performansını tarafından bu bölümler nedeniyle düşük performansa şekilde bölümlenmiş durumunda.
+    Merhaba veri saygı toohello sorgusuyla tüm bölümleri arasında eşit olarak dağıtılır, bu sorguları üretim hello en iyi avantajları paralel önemli toonote olur. Merhaba koleksiyon bölümlendiğinde ise (en kötü durumda bir bölüm) birkaç bölümlerdeki tamamı veya bir sorgu tarafından döndürülen hello veri çoğunluğu bir yoğunlaşmıştır sonra hello hello sorgu performansını tarafından bu bölümler nedeniyle düşük performansa şekilde bölümlenmiş.
 
-    (b) ***ayarlama MaxBufferedItemCount\: *** paralel sorgu sonuçlarının geçerli toplu işlem istemci tarafından gerçekleştirilirken sonuçları önceden getirmek için tasarlanmıştır. Önceden getirme sorgu genel gecikme gelişme yardımcı olur. MaxBufferedItemCount önceden getirilen sonuç sayısını sınırlamak için parametresidir. Döndürülen sonuçları beklenen sayıda MaxBufferedItemCount (veya daha yüksek bir sayı) ayarlamayı önceden getirme maksimum avantajı almak sorgu sağlar.
+    (b) ***ayarlama MaxBufferedItemCount\: *** paralel sorgudur hello istemci tarafından hello sonuçları geçerli toplu işlem gerçekleştirilirken tasarlanmış toopre fetch sonuçları. bir sorgunun genel gecikme geliştirme yardımcı önceden getirme hello. MaxBufferedItemCount hello parametresi toolimit hello önceden getirilen sonuçları sayısıdır. MaxBufferedItemCount ayarı toohello döndürülen sonuçları (veya daha yüksek bir sayı) sayısı önceden getirme gelen hello sorgu tooreceive maksimum avantajı sağlar bekleniyordu.
 
-    Önceden getirme MaxDegreeOfParallelism bağımsız olarak aynı şekilde çalışır ve tüm bölümleri verileri için tek bir arabelleğe olduğunu unutmayın.  
+    Önceden getirilirken works MaxDegreeOfParallelism Merhaba şekilde belirtilmediğine aynı hello ve tüm bölümleri hello verileri için tek bir arabelleğe olduğunu unutmayın.  
 5. **Sunucu tarafı GC üzerinde Aç**
 
-    Çöp toplama sıklığını azaltmayı bazı durumlarda yardımcı olabilir. .NET ile ayarlamak [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) true.
+    Çöp toplama Hello sıklığını azaltmayı bazı durumlarda yardımcı olabilir. .NET ile ayarlamak [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) tootrue.
 6. **Geri Çekilme RetryAfter aralıklarla uygulama**
 
-    Performans testi sırasında istekleri küçük oranını kısıtlanan kadar yük artırmanız gerekir. Kısıtlanan, istemci uygulamasına geri Çekilme kısıtlama üzerinde sunucu belirtilen yeniden deneme aralığını gerekir. Geri Çekilme uyarak denemeler arasındaki bekleme süresi en az miktarda harcamanızı sağlar. Yeniden deneme ilkesi desteği eklenmiştir sürümünde 1.8.0 ve yukarıdaki documentdb'nin [.NET](documentdb-sdk-dotnet.md) ve [Java](documentdb-sdk-java.md), sürüm 1.9.0 ve üstü, [Node.js](documentdb-sdk-node.md) ve [Python ](documentdb-sdk-python.md), ve tüm desteklenen sürümlerinde [.NET Core](documentdb-sdk-dotnet-core.md) SDK'ları. Daha fazla bilgi için bkz: [Exceeding ayrılmış işleme sınırları](request-units.md#RequestRateTooLarge) ve [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+    Performans testi sırasında istekleri küçük oranını kısıtlanan kadar yük artırmanız gerekir. Kısıtlanan, Merhaba istemci uygulaması kısıtlama üzerinde geri Çekilme hello sunucu belirtilen yeniden deneme aralığını gerekir. Merhaba geri Çekilme uyarak denemeler arasındaki bekleme süresi en az miktarda harcamanızı sağlar. Yeniden deneme ilkesi desteği eklenmiştir sürümünde 1.8.0 ve yukarıdaki hello DocumentDB, [.NET](documentdb-sdk-dotnet.md) ve [Java](documentdb-sdk-java.md), sürüm 1.9.0 ve yukarıdaki Merhaba, [Node.js](documentdb-sdk-node.md) ve [ Python](documentdb-sdk-python.md), ve tüm desteklenen sürümlerinde hello [.NET Core](documentdb-sdk-dotnet-core.md) SDK'ları. Daha fazla bilgi için bkz: [Exceeding ayrılmış işleme sınırları](request-units.md#RequestRateTooLarge) ve [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
 7. **İstemci-iş yükünü ölçeklendirme**
 
-    Yüksek işleme düzeyleri sınıyorsanız (> 50.000 RU/s), istemci uygulaması makine çıkışı CPU veya ağ kullanımını capping nedeniyle ayak bağı. Bu noktaya ulaştıysanız, birden çok sunucu arasında istemci uygulamalarının ölçeklendirme tarafından Cosmos DB hesap ek itme devam edebilirsiniz.
+    Yüksek işleme düzeyleri sınıyorsanız (> 50.000 RU/s), Merhaba istemci uygulaması toohello capping CPU veya ağ kullanımını makine çıkışı son hello performans sorunu hale. Bu noktaya ulaştıysanız, birden çok sunucu arasında istemci uygulamalarının ölçeklendirme tarafından toopush hello Cosmos DB hesap ek devam edebilirsiniz.
 8. **Daha düşük okuma gecikmesi için önbellek belge URI'ler**
 
-    Önbellek belge URI'ler okuma en iyi performans için mümkün.
+    Önbellek belge URI'ler hello okuma en iyi performans için mümkün.
    <a id="tune-page-size"></a>
-9. **Sorguları/okuma akışları daha iyi performans için sayfa boyutunu ayarlama**
+9. **Merhaba sayfa boyutu sorguları/okuma akışları daha iyi performans için ayarlama**
 
-    Bir toplu gerçekleştirme belgeleri okuma akışı işlevleri (örneğin, ReadDocumentFeedAsync) kullanarak veya bir DocumentDB SQL sorgu gönderirken okurken sonuç kümesi çok büyük ise sonuçları bölümlenmiş bir şekilde döndürülür. Varsayılan olarak, ilk isabet sınırlarından hangisi olduğunu, sonuçları 100 öğeleri ya da 1 MB yığınlar halinde döndürdü.
+    Bir toplu gerçekleştirme belgeleri okuma akışı işlevleri (örneğin, ReadDocumentFeedAsync) kullanarak veya bir DocumentDB SQL sorgu gönderirken okurken hello sonuç kümesi çok büyük ise hello sonuçları bölümlenmiş bir şekilde döndürülür. Varsayılan olarak, ilk isabet sınırlarından hangisi olduğunu, sonuçları 100 öğeleri ya da 1 MB yığınlar halinde döndürdü.
 
-    Sayısını azaltmak için ağ gidiş dönüşleri tüm geçerli sonuçları almak için gerekli, en fazla 1000 x-ms-max-öğesi-count istek üstbilgisi kullanarak sayfa boyutunu artırabilirsiniz. Burada yalnızca birkaç sonuçları görüntülemek için gereken durumlarda Örneğin, kullanıcı arabirimi veya uygulama API yalnızca 10 döndürürse birer sonuçları, aynı zamanda okuma ve sorgular için tüketilen verimlilik azaltmak için 10 sayfa boyutunu azaltabilirsiniz.
+    tooreduce hello sayısı, tüm geçerli sonuçları gidiş dönüş gerekli tooretrieve ağ, x-ms-max-öğesi-count istek üstbilgisi tooup too1000 kullanarak hello sayfa boyutunu artırabilirsiniz. Yalnızca birkaç sonuçları toodisplay gereken yeri durumlarda Örneğin, kullanıcı arabirimi veya uygulama API yalnızca 10 döndürürse birer sonuçları, okuma ve sorgular için tüketilen hello sayfa boyutu too10 tooreduce hello üretilen iş da azaltabilirsiniz.
 
-    Sayfa boyutu kullanılabilir Cosmos DB SDK'ları kullanarak da ayarlayabilirsiniz.  Örneğin:
+    Merhaba sayfa boyutu da yerleştirebilir hello kullanılabilir Cosmos DB SDK'ları kullanarak.  Örneğin:
 
         IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
 10. **İş parçacıkları/görevleri sayısını artırın**
 
-    Bkz: [iş parçacıkları/görevlerin sayısını artırmak](#increase-threads) ağ bölümünde.
+    Bkz: [iş parçacıkları/görevlerin sayısını artırmak](#increase-threads) hello ağ bölüm içinde.
 
 11. **64-bit ana bilgisayar işleme kullanın**
 
-    DocumentDB SDK'sı bir 32-bit ana işlem DocumentDB .NET SDK sürüm 1.11.4 kullanırken ve üstünde çalışır. Ancak, çapraz bölüm sorguları kullanıyorsanız, 64-bit ana bilgisayar işleme Gelişmiş performans için önerilir. 64 bit izleyin değiştirmek için aşağıdaki adımları uygulamanız türüne bağlı şekilde aşağıdaki uygulama türlerini varsayılan olarak, 32-bit ana bilgisayar işlemi vardır:
+    Hello DocumentDB SDK'sı, DocumentDB .NET SDK sürüm 1.11.4 kullanırken ve üzerini 32-bit ana işleminde çalışır. Ancak, çapraz bölüm sorguları kullanıyorsanız, 64-bit ana bilgisayar işleme Gelişmiş performans için önerilir. Şu uygulama türlerini hello hello varsayılan işlemi, sipariş toochange bu too64 bit'da, uygulamanızın hello türüne göre aşağıdaki adımları izleyin 32-bit barındırmasını:
 
-    - Yürütülebilir uygulamalar için bu kaldırarak yapılabilir **tercih 32-bit** seçeneğini **proje özelliklerini** penceresi, **yapı** sekmesi.
+    - Yürütülebilir uygulamalar için bu in işaretini kaldırarak hello tarafından yapılabilir **tercih 32-bit** hello seçeneğinde **proje özelliklerini** penceresinde hello **yapı** sekmesi.
 
-    - Test projeleri VSTest tabanlı için bu seçerek yapılabilir **Test**->**Test ayarlarını**->**varsayılan İşlemci mimarisi X64 olarak**, gelen **Visual Studio Test** menü seçeneği.
+    - Test projeleri VSTest tabanlı için bu seçerek yapılabilir **Test**->**Test ayarlarını**->**varsayılan İşlemci mimarisi X64 olarak**, Merhaba gelen **Visual Studio Test** menü seçeneği.
 
-    - Yerel olarak dağıtılan ASP.NET Web uygulamaları için bu kontrol ederek yapılabilir **web siteleri ve projeler için IIS Express 64-bit sürümünü kullanmanız**altında **Araçları**->**seçenekleri**  -> **Projeler ve çözümler**->**Web projeleri**.
+    - Yerel olarak dağıtılan ASP.NET Web uygulamaları için bu hello denetleyerek yapılabilir **hello 64-bit sürümünü kullanın IIS Express web siteleri ve projeler için**altında **Araçları** ->  **Seçenekler**->**projeler ve çözümler**->**Web projeleri**.
 
-    - Azure üzerinde dağıtılan ASP.NET Web uygulamaları için bu seçerek yapılabilir **64-bit olarak Platform** içinde **uygulama ayarları** Azure portalındaki.
+    - Azure üzerinde dağıtılan ASP.NET Web uygulamaları için bu hello seçerek yapılabilir **64-bit olarak Platform** hello içinde **uygulama ayarları** hello Azure portalı üzerinde.
 
 ## <a name="indexing-policy"></a>Dizin oluşturma ilkesi
 1. **Kullanım için daha hızlı yoğun zamanı alım hızlarını dizin geç**
 
-    Cosmos DB belgeleri otomatik olarak veya olmayan listelenecek koleksiyonundaki isteyip istemediğinizi seçmenize olanak tanıyan bir dizin oluşturma ilkesi – koleksiyon düzeyinde – belirtmenize olanak tanır.  Ayrıca, zaman uyumlu (CONSISTENT) ve zaman uyumsuz (Lazy) dizin güncelleştirmeleri arasında da seçebilirsiniz. Varsayılan olarak, dizin her ekleme, değiştirme veya koleksiyona bir belgeyi silme zaman uyumlu olarak güncelleştirilir. Zaman uyumlu olarak aynı vermenizin sorguları modunu etkinleştirir [tutarlılık düzeyi](consistency-levels.md) belgenin "yakala" dizin için herhangi bir gecikme olmadan okuyan gibi.
+    Cosmos DB toospecify – hello koleksiyonu düzeyinde – otomatik olarak veya dizini oluşturulmuş bir koleksiyon toobe hello belgelerde istiyorsanız, toochoose sağlayan bir dizin oluşturma ilkesi sağlar.  Ayrıca, zaman uyumlu (CONSISTENT) ve zaman uyumsuz (Lazy) dizin güncelleştirmeleri arasında da seçebilirsiniz. Varsayılan olarak, her ekleme, değiştirme veya belge toohello koleksiyonu silme işlemi hello dizini zaman uyumlu olarak güncelleştirilir. Zaman uyumlu olarak modunu etkinleştirir hello sorguları toohonor hello aynı [tutarlılık düzeyi](consistency-levels.md) hello dizin için herhangi bir gecikme çok "Yakala olmadan" hello, belgesini okur.
 
-    Yavaş dizin oluşturma verileri WINS'e içinde yazılmış senaryoları için düşünülebilecek ve daha uzun bir süre boyunca dizin içerik için gereken iş İtfası istiyorsunuz. Yavaş dizin oluşturma, sağlanan işleme etkili bir şekilde kullanmak ve en düşük gecikme süresi ile yoğun saatlerde yazma isteklerine hizmet sağlar. Ancak, yavaş dizin oluşturma etkin olduğunda, sorgu sonuçları Cosmos DB hesabı için yapılandırılan tutarlılık düzeyi bakılmaksızın sonunda tutarlı olduğunu dikkate almak önemlidir.
+    Yavaş dizin oluşturma verileri WINS'e içinde yazılmış senaryoları için düşünülebilecek ve tooamortize hello gerekli iş tooindex daha uzun bir süre boyunca içerik istiyorsunuz. Yavaş dizin de sağlar, toouse, üretilen iş etkili bir şekilde sağlanabilen ve hizmet vermemesini yazma isteği yoğun saatlerde en düşük gecikme süresine sahip. Yavaş dizin oluşturma etkin olduğunda, sorgu sonuçları hello Cosmos DB hesabı için yapılandırılan hello tutarlılık düzeyi bağımsız olarak tutarlı sonunda önemli toonote, ancak olur.
 
-    Bu nedenle, (IndexingPolicy.IndexingMode CONSISTENT için ayarlanır) tutarlı dizin oluşturma modu Lazy modu (Lazy için IndexingPolicy.IndexingMode ayarlanır) ve dizin oluşturma dizin oluşturma işlemi sırasında yazma başına en yüksek istek birimi ücret doğurur (IndexingPolicy.Automatic ayarlanır False) dizin sıfır maliyet yazma zamanda vardır.
+    Bu nedenle, (IndexingPolicy.IndexingMode tooConsistent ayarlanır) tutarlı dizin oluşturma modu hello en yüksek istek birimi ücret Lazy modu (IndexingPolicy.IndexingMode tooLazy ayarlanır) ve dizin oluşturma dizin oluşturma sırasında yazma başına doğurur (IndexingPolicy.Automatic ayarlanır tooFalse) yazma hello zamanda sıfır dizin maliyeti vardır.
 2. **Daha hızlı yazmalar için dizin oluşturma kullanılmayan yolu dışla**
 
-    Cosmos veritabanı dizin oluşturma ilkesini de dahil etmek veya hariç dizin yolları (IndexingPolicy.IncludedPaths ve IndexingPolicy.ExcludedPaths) yararlanarak dizin hangi belge yolları belirtmenize olanak tanır. Dizin oluşturma maliyetleri doğrudan dizine benzersiz yolları sayısı bağıntılı gibi yolları dizin kullanımını geliştirilmiş yazma performansı ve sorgu desenlerine önceden bilinir senaryoları için alt dizini depolama sunabilir.  Örneğin, aşağıdaki kod belgeleri bölümünün tamamını (paketini dışlama gösterir bir alt ağacı) dizin kullanarak "*" joker karakter.
+    Cosmos veritabanı dizin oluşturma ilkesi Ayrıca hangi yolları tooinclude belge veya dizin yolları (IndexingPolicy.IncludedPaths ve IndexingPolicy.ExcludedPaths) yararlanarak dizin hariç toospecify sağlar. Merhaba kullanımını yollarda dizin oluşturmayı, geliştirilmiş yazma performansı ve dizin oluşturma maliyetleri doğrudan olarak hangi hello sorgu desenlerine önceden bilinen senaryolar için alt dizini depolama dizini benzersiz yol toohello sayısını bağıntılı sunabilir.  Örneğin, kod aşağıdaki hello nasıl tooexclude hello bölümünün tamamını (paketini belgeleri gösterir. bir alt ağacı) hello kullanarak dizin gelen "*" joker karakter.
 
     ```C#
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
@@ -169,19 +169,19 @@ Soran, "nasıl ı my veritabanı performansını geliştirebilir şekilde?" Aşa
 
 1. **Ölçmek ve alt istek için saniye başına birim kullanım ayarlayın.**
 
-    Cosmos DB zengin bir ilişkisel ve hiyerarşik sorgularıyla UDF'ler, saklı yordamları ve Tetikleyicileri – tüm işletim veritabanı koleksiyon içindeki belgelerde dahil olmak üzere veritabanı işlemleri sunar. Bu işlemlerin her biri ile ilişkili maliyet CPU, g/ç ve işlemi tamamlamak için gereken bellek göre değişir. Göz önünde bulundurulması ve donanım kaynaklarını yönetmek yerine, bir uygulama isteği hizmet ve çeşitli veritabanı işlemlerini gerçekleştirmek için gereken kaynakları için tek bir ölçü olarak bir istek birimi (RU) düşünebilirsiniz.
+    Cosmos DB zengin bir ilişkisel ve hiyerarşik sorgularıyla UDF'ler, saklı yordamları ve Tetikleyicileri – hello belgelerde veritabanı koleksiyonundaki tüm işletim dahil olmak üzere veritabanı işlemleri sunar. Bu işlemlerin her biri ile ilişkili hello maliyet hello CPU, g/ç ve gerekli bellek toocomplete hello işlemi göre değişir. Göz önünde bulundurulması ve donanım kaynaklarını yönetmek yerine, bir istek birimi (RU) hello kaynakları gerekli tooperform için tek bir ölçü olarak çeşitli veritabanı işlemleri ve hizmeti bir uygulama isteği düşünebilirsiniz.
 
-    [İstek birimleri](request-units.md) satın aldığınız kapasite birimlerinin sayısına göre her bir veritabanı hesabı için sağlanır. İstek birimi tüketim saniye başına oranı olarak değerlendirilir. Sağlanan istek birimi oranı oranı hesabı için ayrılmış düzeyinin altına düşene kadar hesaplarında sınırlıdır aşan uygulamalar. Uygulamanız daha yüksek düzeyde üretilen iş gerektiriyorsa, ek kapasite birimleri satın alabilirsiniz.
+    [İstek birimleri](request-units.md) hello satın aldığınız kapasite birimlerinin sayısına göre her bir veritabanı hesabı için sağlanır. İstek birimi tüketim saniye başına oranı olarak değerlendirilir. Merhaba oranı hello hello hesabı için bir düzey ayrılmış altına düşene kadar hesaplarında sınırlıdır hello sağlanan istek birimi aşan uygulamaları oranı. Uygulamanız daha yüksek düzeyde üretilen iş gerektiriyorsa, ek kapasite birimleri satın alabilirsiniz.
 
-    Kaç tane istek birimlerine bir işlem için kullanılan bir sorgu karmaşıklığını etkiler. Koşulları sayısı, koşulları, UDF'ler sayısı ve tüm kaynak veri kümesi boyutunu yapısını sorgu işlemlerinin maliyetini etkiler.
+    bir sorgu Hello karmaşıklığını kaç tane istek birimleri için bir işlem tüketilen etkiler. koşulları Hello sayısı, hello koşulları, UDF'ler sayısı ve tüm hello maliyetini etkilemek hello kaynak veri kümesinin hello boyutu yapısını işlemleri sorgu.
 
-    Herhangi bir işlem yükü ölçmek için (oluşturma, güncelleştirme veya silme), x-ms-istek-ücret üstbilgi inceleyin (veya eşdeğer RequestCharge özelliği ResourceResponse ile<T> veya FeedResponse<T> .NET SDK'sındaki) sayısını ölçmek için Bu işlemler tarafından tüketilen istek birimleri.
+    herhangi bir işlem, toomeasure hello yükünü (oluşturma, güncelleştirme veya silme) hello x-ms-istek-ücret üstbilgi inceleyin (veya ResourceResponse eşdeğer RequestCharge özelliğinde hello<T> veya FeedResponse<T> hello .NET SDK içinde) toomeasure Bu işlemler tarafından tüketilen istek birimleri Hello sayısı.
 
     ```C#
-    // Measure the performance (request units) of writes
+    // Measure hello performance (request units) of writes
     ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument);
     Console.WriteLine("Insert of document consumed {0} request units", response.RequestCharge);
-    // Measure the performance (request units) of queries
+    // Measure hello performance (request units) of queries
     IDocumentQuery<dynamic> queryable = client.CreateDocumentQuery(collectionSelfLink, queryString).AsDocumentQuery();
     while (queryable.HasMoreResults)
          {
@@ -190,26 +190,26 @@ Soran, "nasıl ı my veritabanı performansını geliştirebilir şekilde?" Aşa
          }
     ```             
 
-    Bu üstbilgisinde döndürülen istek ücret bir sağlanan işleme bölümüdür (yani, 2000 RUs / saniye). Örneğin, önceki sorgunun 1000 1 KB-belgeleri döndürürse, işlem maliyetini 1000'dir. Bu nedenle, bir saniye içinde sonraki istekler azaltma önce sunucunun yalnızca iki tür isteklere korur. Daha fazla bilgi için bkz: [istek birimleri](request-units.md) ve [istek birimi hesaplayıcı](https://www.documentdb.com/capacityplanner).
+    Merhaba bu üstbilgisinde döndürülen istek ücret bir sağlanan işleme bölümüdür (yani, 2000 RUs / saniye). Örneğin, Hello önceki sorgu 1000 1 KB-belgeleri döndürürse, hello işlemi hello maliyetini 1000'dir. Bu nedenle, bir saniye içinde sonraki istekler azaltma önce hello sunucu yalnızca iki tür isteklere korur. Daha fazla bilgi için bkz: [istek birimleri](request-units.md) ve hello [istek birimi hesaplayıcı](https://www.documentdb.com/capacityplanner).
 <a id="429"></a>
 2. **Tanıtıcı oranı sınırlama istek oranı çok büyük**
 
-    Bir istemci bir hesap için ayrılmış işleme aşan girişiminde bulunduğunda, sunucuda bir performans düşüşü olmadan ve işleme kapasitesi ayrılmış düzeyinin ötesine hiçbir kullanımını yoktur. Sunucu erken önlem isteği RequestRateTooLarge (HTTP durum kodu 429) ile bitmelidir ve kullanıcı isteği reattempting önce beklemesi gereken milisaniye cinsinden süreyi belirten x-ms-yeniden deneme-sonra-ms üstbilgi döndürür.
+    Bir istemci bir hesap için tooexceed hello ayrılmış işleme çalıştığında hello sunucuda bir performans düşüşü olmadan ve hiçbir ayrılmış hello düzeyinin ötesine işleme kapasitesi kullanımını yoktur. Merhaba sunucu erken önlem hello istekle RequestRateTooLarge (HTTP durum kodu 429) ve kullanıcı hello milisaniye cinsinden süre hello miktarını hello isteği reattempting önce beklemesi gereken x-ms-yeniden deneme-sonra-ms üstbilgi dönüş hello belirten sona erer.
 
         HTTP Status 429,
         Status Line: RequestRateTooLarge
         x-ms-retry-after-ms :100
 
-    SDK'ları tüm örtük olarak bu yanıt catch, yeniden deneme sonra sunucu tarafından belirtilen üstbilgi saygı ve isteği yeniden deneyin. Hesabınızı eşzamanlı olarak birden çok istemci tarafından erişilen sürece, sonraki yeniden deneme işlemi başarılı olur.
+    Merhaba SDK'ları tüm örtük olarak bu yanıt catch, yeniden deneme sonrasında hello sunucu belirtilen üstbilgi saygı ve hello isteği yeniden deneyin. Hesabınızı eşzamanlı olarak birden çok istemci tarafından erişilen sürece hello sonraki yeniden deneme işlemi başarılı olur.
 
-    Birden fazla istemci üst üste istek hızı tutarlı bir şekilde işletim varsa, 9 istemci tarafından dahili olarak ayarlanmış varsayılan yeniden deneme sayısı yeterli değil; Bu durumda, istemci uygulamaya 429 durum koduyla bir DocumentClientException oluşturur. Varsayılan yeniden deneme sayısı ConnectionPolicy örneğinde RetryOptions ayarlayarak değiştirilebilir. İstek istek hızı çalışmaya devam ederse, varsayılan olarak, 30 saniye sonra bir toplam bekleme süresi 429 durum koduyla DocumentClientException döndürülür. Bu geçerli yeniden deneme sayısı en fazla yeniden deneme sayısından daha az olduğunda bile oluşur, varsayılan 9 veya kullanıcı tanımlı bir değer olmalıdır.
+    Üst üste hello istek hızı tutarlı bir şekilde işletim birden fazla istemciniz varsa kümesi too9 hello istemci tarafından dahili olarak değil yeterli varsayılan yeniden deneme sayısı şu anda hello; Bu durumda, hello istemci durum kodu 429 toohello uygulama ile bir DocumentClientException oluşturur. Hello varsayılan yeniden deneme sayısına ayar hello RetryOptions hello ConnectionPolicy örneğinde tarafından değiştirilebilir. Merhaba isteği hello istek hızı yukarıda toooperate devam ederse, varsayılan olarak 30 saniye sonra bir toplam bekleme süresi hello DocumentClientException 429 durum koduyla döndürülür. Merhaba varsayılan 9 veya kullanıcı tanımlı bir değer olması, bu hello geçerli yeniden deneme sayısı hello en fazla yeniden deneme sayısından daha az olduğunda bile oluşur.
 
-    Dayanıklılık ve kullanılabilirlik çoğu uygulamalar geliştirmek için otomatik yeniden deneme davranışı yardımcı olsa da, bu performans kıyaslamaları, özellikle gecikme süresini ölçme zaman yaparken at odds gelebilir.  Denemeyi sunucu kısıtlama isabetler ve sessiz bir şekilde yeniden denemek için SDK istemci neden olursa istemci gözlenen gecikme çıkmasına. Performans denemeleri sırasında gecikme ani önlemek için her işlem tarafından döndürülen farkı ölçmek ve istekleri ayrılmış istek hızı çalıştığından emin olun. Daha fazla bilgi için bkz: [istek birimleri](request-units.md).
+    Merhaba otomatik sırada yeniden deneme davranışı tooimprove dayanıklılık ve kullanılabilirlik hello için uygulamaların çoğu yardımcı olur, bu performans kıyaslamaları, özellikle olduğunda gecikme süresini ölçme yaparken at odds gelebilir.  Merhaba deneme hello sunucu kısıtlama isabetler ve hello istemci SDK toosilently yeniden deneme neden olursa hello istemci gözlenen gecikme çıkmasına. tooavoid gecikme ölçü hello ücret her işlem tarafından döndürülen performans denemeleri sırasında ani ve istekleri hello ayrılmış istek hızı çalıştığından emin olun. Daha fazla bilgi için bkz: [istek birimleri](request-units.md).
 3. **Daha fazla üretilen işi için daha küçük belgeler için Tasarım**
 
-    Belirli bir işlemi isteği giderleri (yani istek işleme maliyet) doğrudan belgenin boyutunu ilişkilendirilir. Büyük belgeleri işlemleri birden çok küçük belgeler için işlemleri maliyeti.
+    Merhaba verilen işlemi isteği giderleri (yani istek işleme maliyet) doğrudan olduğu hello belgenin toohello boyutu bağıntılı. Büyük belgeleri işlemleri birden çok küçük belgeler için işlemleri maliyeti.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Birkaç istemci makineler yüksek performanslı senaryoları için Cosmos DB değerlendirmek için kullanılan örnek bir uygulama için bkz: [performansı ve ölçeği Cosmos DB ile test](performance-testing.md).
+Bir örnek kullanılan uygulama tooevaluate için Cosmos DB birkaç istemci makineler yüksek performanslı senaryoları için bkz: [performansı ve ölçeği Cosmos DB ile test](performance-testing.md).
 
-Ayrıca, uygulamanız ölçeği ve yüksek performans için tasarlama hakkında daha fazla bilgi için bkz. [bölümleme ve Azure Cosmos DB'de ölçeklendirme](partition-data.md).
+Ayrıca, uygulamanız ölçeği ve yüksek performans için tasarlama hakkında daha fazla toolearn bkz [bölümleme ve Azure Cosmos DB'de ölçeklendirme](partition-data.md).

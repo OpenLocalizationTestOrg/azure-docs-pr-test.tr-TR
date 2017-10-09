@@ -1,6 +1,6 @@
 ---
-title: "Azure mikro hataları benzetimini | Microsoft Docs"
-description: "Hizmetlerinizin normal ve durunda hatalarına karşı sağlamlaştırmak yapma."
+title: "Azure mikro aaaSimulate hataları | Microsoft Docs"
+description: "Nasıl tooharden hizmetlerinizi normal ve durunda hatalarına karşı."
 services: service-fabric
 documentationcenter: .net
 author: anmolah
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: 7ec671c23e101d0f7401bd4656fb201111602cad
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 05467e291dfc0f12a021955f8ea540881ec10746
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Hizmet iş yükleri sırasında hata benzetimleri yapma
-Azure Service Fabric Test Edilebilirlik senaryolarda, tek tek hatalarıyla yapılacağı hakkında endişelenmeye gerek yok geliştiricilerin. Burada bir açık istemcisi iş yükünü ve hataları Interleaving gerekebilecek senaryo vardır. İstemci iş yükü ve hataları Interleaving başarısızlık gerçekleştiğinde hizmeti bazı eylemleri gerçekte gerçekleştirmeyi sağlar. Test Edilebilirlik sağlar denetim düzeyini göz önüne alındığında, bu iş yükü yürütmeye kesin noktalarda olabilir. Farklı durumlarda uygulama hatalarını, bu endüksiyon hataları bulma ve kalitesini artırmak.
+Azure Service Fabric Hello Test Edilebilirlik senaryolarda geliştiriciler toonot ilgilenen bireysel hatalarıyla endişe etkinleştirin. Burada bir açık istemcisi iş yükünü ve hataları Interleaving gerekebilecek senaryo vardır. istemci iş yükü ve hataları Hello Interleaving hatası olduğunda hello hizmeti bazı eylemleri gerçekte gerçekleştirmeyi sağlar. Test Edilebilirlik sağlayan denetimi Hello düzeyini verildiğinde, bunlar hello iş yükü yürütmeye kesin noktalarda olabilir. Bu endüksiyon hatalarının Merhaba uygulaması farklı durumlarda sırasında hatalar bulabilir ve kalitesini artırmak.
 
 ## <a name="sample-custom-scenario"></a>Örnek özel senaryosu
-Bu test iş yüküyle interleaves bir senaryo gösterilmektedir [normal ve durunda hatalarını](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). Hataları, hizmet işlemleri veya en iyi sonuçlar için işlem ortasında kopyaladığınızda.
+Bu test, o interleaves hello iş yüküyle bir senaryo gösterilmektedir [normal ve durunda hatalarını](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). Hizmet işlemleri veya en iyi sonuçlar için işlem hello ortasında Hello hataları kopyaladığınızda.
 
-Şimdi dört iş yükleri kullanıma sunan bir hizmet örneği yol: A, B, C ve D. her iş akışları için karşılık gelen ve işlem, depolama veya bir karışımı olabilir. Basitleştirmek amacıyla, biz örneğimizde iş yükleri soyut. Bu örnekte yürütülen farklı hataları şunlardır:
+Şimdi dört iş yükleri kullanıma sunan bir hizmet örneği yol: A, B, C ve her karşılık gelen tooa iş akışları ve olması işlem D., depolama veya bir karışımını. Basitlik Hello artırmak amacıyla için biz örneğimizde hello iş yükleri soyut. Bu örnekte yürütülen hello farklı hataları şunlardır:
 
-* RestartNode: makinenin yeniden başlatılması benzetimini yapmak için durunda hatası.
-* RestartDeployedCodePackage: hizmet ana bilgisayar işlemi benzetimini yapmak için durunda hataya çöküyor.
-* RemoveReplica: yineleme kaldırma benzetimini yapmak için normal hatası.
-* MovePrimary: çoğaltma benzetimini yapmak için normal hata Service Fabric yük dengeleyici tarafından tetiklenen taşır.
+* RestartNode: Durunda hataya toosimulate bir makineyi yeniden başlatın.
+* RestartDeployedCodePackage: Durunda hataya toosimulate hizmeti ana bilgisayar işlemi çöküyor.
+* RemoveReplica: Normal hataya toosimulate yineleme kaldırma.
+* MovePrimary: Normal hataya toosimulate çoğaltma hello Service Fabric yük dengeleyici tarafından tetiklenen taşır.
 
 ```csharp
-// Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.
+// Add a reference tooSystem.Fabric.Testability.dll and System.Fabric.dll.
 
 using System;
 using System.Fabric;
@@ -46,7 +46,7 @@ class Test
 {
     public static int Main(string[] args)
     {
-        // Replace these strings with the actual version for your cluster and application.
+        // Replace these strings with hello actual version for your cluster and application.
         string clusterConnection = "localhost:19000";
         Uri applicationName = new Uri("fabric:/samples/PersistentToDoListApp");
         Uri serviceName = new Uri("fabric:/samples/PersistentToDoListApp/PersistentToDoListService");
@@ -93,31 +93,31 @@ class Test
     {
         // Create FabricClient with connection and security information here.
         FabricClient fabricClient = new FabricClient(clusterConnection);
-        // Maximum time to wait for a service to stabilize.
+        // Maximum time toowait for a service toostabilize.
         TimeSpan maxServiceStabilizationTime = TimeSpan.FromSeconds(120);
 
-        // How many loops of faults you want to execute.
+        // How many loops of faults you want tooexecute.
         uint testLoopCount = 20;
         Random random = new Random();
 
         for (var i = 0; i < testLoopCount; ++i)
         {
             var workload = SelectRandomValue<ServiceWorkloads>(random);
-            // Start the workload.
+            // Start hello workload.
             var workloadTask = RunWorkloadAsync(workload);
 
-            // While the task is running, induce faults into the service. They can be ungraceful faults like
+            // While hello task is running, induce faults into hello service. They can be ungraceful faults like
             // RestartNode and RestartDeployedCodePackage or graceful faults like RemoveReplica or MovePrimary.
             var fault = SelectRandomValue<ServiceFabricFaults>(random);
 
-            // Create a replica selector, which will select a primary replica from the given service to test.
+            // Create a replica selector, which will select a primary replica from hello given service tootest.
             var replicaSelector = ReplicaSelector.PrimaryOf(PartitionSelector.RandomOf(serviceName));
-            // Run the selected random fault.
+            // Run hello selected random fault.
             await RunFaultAsync(applicationName, fault, replicaSelector, fabricClient);
-            // Validate the health and stability of the service.
+            // Validate hello health and stability of hello service.
             await fabricClient.ServiceManager.ValidateServiceAsync(serviceName, maxServiceStabilizationTime);
 
-            // Wait for the workload to finish successfully.
+            // Wait for hello workload toofinish successfully.
             await workloadTask;
         }
     }
@@ -145,9 +145,9 @@ class Test
     {
         throw new NotImplementedException();
         // This is where you trigger and complete your service workload.
-        // Note that the faults induced while your service workload is running will
-        // fault the primary service. Hence, you will need to reconnect to complete or check
-        // the status of the workload.
+        // Note that hello faults induced while your service workload is running will
+        // fault hello primary service. Hence, you will need tooreconnect toocomplete or check
+        // hello status of hello workload.
     }
 
     private static T SelectRandomValue<T>(Random random)

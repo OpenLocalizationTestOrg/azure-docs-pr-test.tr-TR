@@ -1,11 +1,11 @@
-[Azure Resource Manager belgelerini](../articles/azure-resource-manager/resource-group-template-deploy.md) izleyerek yukarıdaki şablonu dağıtabilirsiniz.
+Şablon tarafından aşağıdaki hello önceki hello dağıtabilirsiniz [Azure Resource Manager belgeleri](../articles/azure-resource-manager/resource-group-template-deploy.md).
 
-Bu öğretici serisine [en düşük uygun ölçek kümesi şablonu makalesinden](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) başlayabilirsiniz.
+Bu öğretici seri hello başlatabilirsiniz [minimum uygun ölçek kümesi şablon makale](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md).
 
-[Ölçek kümesini mevcut sanal ağa dağıtmak](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md) için [en düşük uygun ölçek kümesi şablonunu](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) nasıl değiştireceğinize bakabilirsiniz.
+Gördüğünüz nasıl toomodify hello [minimum uygun ölçek kümesi şablonu](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) çok[hello ölçeği mevcut bir sanal ağı Ayarla dağıtmak](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md).
 
-[Ölçek kümesini özel bir görüntü ile dağıtmak](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-custom-image.md) için [en düşük uygun ölçek kümesi şablonunu](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) nasıl değiştireceğinize bakabilirsiniz.
+Gördüğünüz nasıl toomodify hello [minimum uygun ölçek kümesi şablonu](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) çok[hello ölçeği ile özel bir görüntü Ayarla dağıtmak](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-custom-image.md).
 
-[Linux ölçek kümesini konuk tabanlı bir otomatik ölçeklendirmeyle dağıtmak](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md) için [en düşük uygun ölçek kümesi şablonunu](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) nasıl değiştireceğinize bakabilirsiniz.
+Gördüğünüz nasıl toomodify hello [minimum uygun ölçek kümesi şablonu](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md) çok[Linux ölçeği konuk tabanlı otomatik ölçeklendirme ile Ayarla dağıtmak](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md).
 
-Ölçek kümeleri hakkında daha fazla genel bilgi için [ölçek kümesine genel bakış sayfasına](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) bakın.
+Ölçek kümeleri hakkında daha fazla genel bilgi için toohello başvuran [ölçek kümesi genel bakış sayfasında](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md).

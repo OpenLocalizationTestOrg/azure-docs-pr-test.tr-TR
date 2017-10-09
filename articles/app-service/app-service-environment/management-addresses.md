@@ -1,6 +1,6 @@
 ---
-title: "Azure uygulama hizmeti ortamı yönetimi adresleri"
-description: "Bir uygulama hizmeti ortamı komutu için kullanılan yönetim adreslerini listeler"
+title: "aaaAzure uygulama hizmeti ortamı yönetimi adresleri"
+description: "Bir uygulama hizmeti ortamı toocommand kullanılan listeleri hello yönetim adresleri"
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: e97a084772fd16252d925b62498d2e696629a25d
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.openlocfilehash: b34b6266dc3a35915421b14bf34eddc07c2825c0
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="app-service-environment-management-addresses"></a>Uygulama hizmeti ortamı yönetimi adresleri
 
-Uygulama hizmeti Environment(ASE) Azure uygulama hizmeti dağıtımı Azure sanal ağınızda (VNet) bir alt ağ içinde ' dir.  Böylece, yönetilebilmesi için ana Azure App hizmetinden erişilebilir olması gerekir.  Bu ana yönetim trafiği, kullanıcı tarafından denetlenen ağ erişir.  Azure uygulama hizmeti yönetim sunucularından ana ile ilişkili ortak VIP için gelir.  Ana hakkında ayrıntılı bilgi için ağ okuma bağımlılıkları [ağ konuları ve uygulama hizmeti ortamı][networking].  Ana hakkında genel bilgi için ile başlatabilirsiniz [uygulama hizmeti ortamı giriş][intro].
+Merhaba App Service Environment(ASE) Azure sanal ağınızda (VNet) bir alt ağ içinde hello Azure App Service dağıtımı ' dir.  Böylece, yönetilebilmesi için hello ana hello Azure App Service ' erişilebilir olması gerekir.  Bu ana yönetim trafiği hello kullanıcı tarafından denetlenen ağ erişir.  Merhaba ana ile ilişkili Azure uygulama hizmeti yönetim sunucuları toohello genel VIP geldiği.  Bağımlılıklar ağ hello ana hakkında ayrıntılı bilgi için okuma [ağ konuları ve hello uygulama hizmeti ortamı][networking].  Merhaba ana hakkında genel bilgi için ile başlatabilirsiniz [giriş toohello uygulama hizmeti ortamı][intro].
 
-Bu belge, yönetim trafiği için ana IP'leri kaynak listeler. Bu adreslerden gelen trafiği kilitlemek veya bunları gerektiği gibi rota tablolarda kullanmak için ağ güvenlik grupları oluşturmak için kullanabilirsiniz.  Bu bilgileri kullanmak için kullanmanız gerekir:
+Bu belge hello kaynağı IP'leri yönetim trafiğini toohello ana listeler. Bu adresleri toocreate ağ güvenlik grupları toolock gelen trafiği tuşunu kullanın veya bunları gerektiği gibi rota tablolarda kullanın.  toouse toouse bu gerekenler:
 
-* Tüm bölgeler için listelenen IP adresleri
-* içine, ana dağıtılan bölge için aynı IP adresleri.
+* Tüm bölgeler için listelenen hello IP adresleri
+* içine, ana dağıtılan o eşleşme toohello bölge Hello IP adresleri.
 
-Gelen yönetim trafiğini bu IP adreslerinden 454 ve 455 bağlantı noktalarına gelir.
+Merhaba gelen yönetim trafiğini bu IP adreslerinden tooports 454 ve 455 gelir.
 
 | Bölge | Adresler |
 |--------|-----------|

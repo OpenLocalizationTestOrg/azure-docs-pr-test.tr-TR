@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory B2B işbirliği API ve özelleştirme | Microsoft Docs"
-description: "Azure Active Directory B2B işbirliği, iş ortaklarının kurumsal uygulamalarınıza seçmeli olarak erişmelerini mümkün kılarak şirketler arası ilişkilerinizi destekler."
+title: "aaaAzure Active Directory B2B işbirliği API ve özelleştirme | Microsoft Docs"
+description: "Azure Active Directory B2B işbirliği Kurumsal uygulamalarınıza iş ortakları tooselectively erişim sağlayarak, şirketler arası ilişkilerinizi destekler."
 services: active-directory
 documentationcenter: 
 author: sasubram
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/11/2017
 ms.author: sasubram
-ms.openlocfilehash: c85e05b38b4a9525e13ec510a17b7ef4841198d7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 2609971ffa5d2ebc9466c61f4e4af11f5b045ecb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B işbirliği API ve özelleştirme
 
-Sizi davet işlemi kuruluşları için en iyi şekilde özelleştirmek istedikleri bize birçok müşteri karşılaşmışsınız. Bizim API'si ile tam olarak bunu yapabilirsiniz. [https://Developer.microsoft.com/Graph/docs/api-Reference/V1.0/Resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
+Biz toocustomize hello davet işlem kuruluşlarının en iyi şekilde çalışır şekilde istedikleri bize birçok müşteri karşılaşmışsınız. Bizim API'si ile tam olarak bunu yapabilirsiniz. [https://Developer.microsoft.com/Graph/docs/api-Reference/V1.0/Resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
 
-## <a name="capabilities-of-the-invitation-api"></a>API davet özellikleri
-API aşağıdaki özellikleri sunar:
+## <a name="capabilities-of-hello-invitation-api"></a>Merhaba davet API özellikleri
+Hello API hello aşağıdaki özellikleri sunmaktadır:
 
 1. Bir dış kullanıcı ile davet *herhangi* e-posta adresi.
 
@@ -35,35 +35,35 @@ API aşağıdaki özellikleri sunar:
     "invitedUserEmailAddress": "gsamoogle@gmail.com"
     ```
 
-2. Bunlar, daveti kabul ettikten sonra güden kullanıcılarınıza istediğiniz özelleştirin.
+2. Bunlar, daveti kabul ettikten sonra kullanıcılar tooland istediğiniz özelleştirin.
 
     ```
     "inviteRedirectUrl": "https://myapps.microsoft.com/"
     ```
 
-3. Bize aracılığıyla standart davet posta göndermeyi seçin
+3. Bize aracılığıyla toosend hello standart davet posta seçin
 
     ```
     "sendInvitationMessage": true
     ```
 
-  içeren bir ileti özelleştirebileceğiniz alıcısına
+  özelleştirebileceğiniz bir ileti toohello alıcı
 
     ```
     "customizedMessageBody": "Hello Sam, let's collaborate!"
     ```
 
-4. Ve cc seçin: Bu ortak çalışanı davet hakkında Döngüdeki tutmak istediğiniz kişilerin.
+4. Ve toocc seçin: Merhaba tookeep istediğiniz kişilerin döngü, bu ortak çalışanı davet hakkında.
 
-5. Veya Azure AD aracılığıyla bildirimleri göndermek seçerek daveti ve hazırlama iş akışı tamamen özelleştirebilirsiniz.
+5. Veya Azure AD aracılığıyla değil toosend bildirimleri seçerek daveti ve hazırlama iş akışı tamamen özelleştirebilirsiniz.
 
     ```
     "sendInvitationMessage": false
     ```
 
-  Bu durumda, bir kullanım URL bir e-posta şablonu, anlık ileti veya tercih ettiğiniz başka bir dağıtım yöntem katıştırma API'sinden ulaşırsınız.
+  Bu durumda, bir kullanım URL hello bir e-posta şablonu, anlık ileti veya tercih ettiğiniz başka bir dağıtım yöntem katıştırma API öğesinden ulaşırsınız.
 
-6. Son olarak, bir yönetici, üye olarak kullanıcı davet seçebilirsiniz.
+6. Son olarak, bir yönetici, üye olarak tooinvite hello kullanıcı seçebilirsiniz.
 
     ```
     "invitedUserType": "Member"
@@ -71,32 +71,32 @@ API aşağıdaki özellikleri sunar:
 
 
 ## <a name="authorization-model"></a>Yetkilendirme modeli
-API şu yetkilendirme modlarında çalıştırabilirsiniz:
+Merhaba API yetkilendirme modları aşağıdaki hello çalıştırabilirsiniz:
 
 ### <a name="app--user-mode"></a>Uygulama + kullanıcı modu
-Bu modda, aktaranın B2B davetleri olması oluşturma izinlerine sahip olmasını API gereksinimlerini kullanıyor.
+Bu modda, aktaranın kullanarak hello API gereksinimlerini toohave hello izinleri toobe B2B davetleri oluşturun.
 
 ### <a name="app-only-mode"></a>Uygulama yalnızca modu
-Uygulama yalnızca bağlamda uygulamanın başarılı olması davet için User.ReadWrite.All veya Directory.ReadWrite.All kapsamı gerekir.
+Uygulama yalnızca bağlamda hello uygulamanın hello davet toosucceed için hello User.ReadWrite.All veya Directory.ReadWrite.All kapsamı gerekir.
 
 Daha fazla bilgi için bkz: https://graph.microsoft.io/docs/authorization/permission_scopes
 
 
 ## <a name="powershell"></a>PowerShell
-Şimdi, ekleme ve bir kuruluş için dış kullanıcılar kolayca davet etmek için PowerShell kullanmak da mümkündür. Cmdlet'ini kullanarak bir davet oluşturun:
+Şimdi olası toouse PowerShell tooadd ve davet dış kullanıcılar tooan kuruluş kolayca değil. Merhaba cmdlet'ini kullanarak bir davet oluşturun:
 
 ```
 New-AzureADMSInvitation
 ```
 
-Aşağıdaki seçenekleri kullanabilirsiniz:
+Hello aşağıdaki seçenekleri kullanabilirsiniz:
 
 * -InvitedUserDisplayName
 * -InvitedUserEmailAddress
 * -SendInvitationMessage
 * -InvitedUserMessageInfo
 
-Ayrıca daveti API Başvurusu'nda uğradı kontrol edebilirsiniz [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
+Merhaba davet API Başvurusu'nda uğradı kontrol edebilirsiniz [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -105,7 +105,7 @@ Azure AD B2B işbirliği ile ilgili diğer makalelerimize göz atın:
 * [Azure AD B2B işbirliği nedir?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Azure Active Directory yöneticileri B2B işbirliği kullanıcıların nasıl eklenir?](active-directory-b2b-admin-add-users.md)
 * [Bilgi çalışanları B2B işbirliği kullanıcıların nasıl eklenir?](active-directory-b2b-iw-add-users.md)
-* [B2B işbirliği davet e-posta öğeleri](active-directory-b2b-invitation-email.md)
+* [Merhaba B2B işbirliği davet e-posta Hello öğeleri](active-directory-b2b-invitation-email.md)
 * [B2B işbirliği davet kullanım](active-directory-b2b-redemption-experience.md)
 * [Azure AD B2B işbirliği lisanslama](active-directory-b2b-licensing.md)
 * [Azure Active Directory B2B işbirliği sorunlarını giderme](active-directory-b2b-troubleshooting.md)

@@ -1,19 +1,19 @@
-1. [Azure Portal]’da oturum açın.
+1. Merhaba oturum açma [Azure Portal].
 2. **+YENİ** > **Web + Mobil** > **Mobil Uygulama**’ya tıklayıp Mobile Uygulama arka ucu için bir ad verin.
-3. **Kaynak Grubu** için yeni bir kaynak grubu seçin ya da yeni bir tane oluşturun (uygulamanızla aynı adı kullanarak). 
+3. Hello için **kaynak grubu**, varolan bir kaynak grubu seçin veya yeni bir tane oluşturun (kullanarak Merhaba, uygulamanızın adıyla aynı.) 
    
-    Başka bir App Service planı seçin veya yeni bir tane oluşturun. Uygulama Hizmetleri planları, farklı fiyatlandırma katmanında ve tercih ettiğiniz konumda yeni plan oluşturma hakkında daha fazla bilgi için bkz. [Azure App Service planlarına ayrıntılı genel bakış](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-4. **App Service planı** için, varsayılan plan ([Standart katman](https://azure.microsoft.com/pricing/details/app-service/)’da) seçilidir. Ayrıca, farklı bir plan seçebilirsiniz veya [yeni bir tane oluşturun](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). App Service planının ayarları, uygulamanızla ilişkili [konumu, özellikleri, maliyeti ve işlem kaynaklarını](https://azure.microsoft.com/pricing/details/app-service/) saptar. 
+    Başka bir App Service planı seçin veya yeni bir tane oluşturun. Uygulama Hizmetleri planları ve nasıl toocreate farklı fiyatlandırma içinde yeni bir plan katmanı ve tercih ettiğiniz konumda bkz hakkında daha fazla bilgi için [Azure App Service planlarına ayrıntılı genel bakış](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+4. Hello için **uygulama hizmeti planı**, hello varsayılan plan (Merhaba içinde [standart katmanı](https://azure.microsoft.com/pricing/details/app-service/)) seçilidir. Ayrıca, farklı bir plan seçebilirsiniz veya [yeni bir tane oluşturun](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). Merhaba uygulama hizmeti planının ayarları belirlemek hello [konumu, özellikleri, maliyeti ve işlem kaynaklarını](https://azure.microsoft.com/pricing/details/app-service/) uygulamanızla ilişkili. 
    
-    Planla ilgili kararı verdikten sonra **Oluştur**’a tıklayın. Böylece Mobil Uygulama arka uç oluşturulur. 
-5. Yeni Mobil Uygulama arka ucunun **Ayarlar** dikey penceresinde **Hızlı başlangıç** > istemci uygulaması platformunuz > **Veritabanına bağlan**’a tıklayın. 
+    Merhaba planla ilgili kararı verdikten sonra tıklayın **oluşturma**. Merhaba mobil uygulama arka ucu oluşturur. 
+5. Merhaba, **ayarları** hello yeni mobil uygulama arka ucu, dikey tıklayın **Hızlı Başlangıç** > istemci uygulaması platformunuz > **bir veritabanına bağlanmak**. 
    
     ![](./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-data-connection.png)
-6. **Veri bağlantısı ekle** dikey penceresinde **SQL Database** > **Yeni veritabanı oluşturun**’a tıklayın, veritabanı için **Ad** yazın, fiyatlandırma katmanını seçin ve ardından **Sunucu**’ya tıklayın.  Bu yeni veritabanını yeniden kullanabilirsiniz. Aynı konumda zaten bir veritabanınız varsa, bunun yerine **Mevcut veritabanlarından birini kullanın**’ı seçebilirsiniz. Farklı bir konumdaki veritabanının kullanımı, bant genişliği maliyetleri ve daha yüksek gecikme nedeniyle önerilmez.
+6. Merhaba, **veri bağlantısı Ekle** dikey penceresinde tıklatın **SQL veritabanı** > **yeni bir veritabanı oluşturmak**, türü hello veritabanı **adı**, bir fiyatlandırma katmanı seçin ve ardından **Server**.  Bu yeni veritabanını yeniden kullanabilirsiniz. Hello bir veritabanı zaten varsa, aynı konumda, bunun yerine seçebilirsiniz **varolan veritabanını kullan**. bir veritabanı farklı bir konumda Hello kullanımını toobandwidth maliyetleri ve daha yüksek gecikme önerilmez.
    
     ![](./media/app-service-mobile-dotnet-backend-create-new-service/dotnet-backend-create-db.png)
-7. **Yeni Sunucu** dikey penceresinin **sunucu adı** alanına benzersiz bir sunucu adın yazın, oturum açma ve parola verin, **Azure hizmetlerinin sunucuya erişmesine izin ver**’i denetleyin ve **Tamam**’a tıklayın. Böylece yeni bir veritabanı oluşturulur.
-8. **Veri bağlantısı ekle** dikey penceresine dönün, **Bağlantı dizesi**’ne tıklayın, oturum açma ve parola değerlerini yazın ve **Tamam**’a tıklayın. Devam etmeden önce veritabanın sorunsuz dağıtılması için birkaç dakika bekleyin.
+7. Merhaba, **yeni sunucu** dikey penceresinde hello benzersiz sunucu adını yazın **sunucu adı** alanında, bir oturum açma ve parola, denetleme sağlayın **izin azure Hizmetleri tooaccess sunucusu**ve'ı tıklatın **Tamam**. Merhaba yeni bir veritabanı oluşturur.
+8. Merhaba edilene **veri bağlantısı Ekle** dikey penceresinde tıklatın **bağlantı dizesi**, veritabanınızı hello oturum açma ve parola değerlerini yazın ve'ı tıklatın **Tamam**. Devam etmeden önce başarıyla dağıtılan hello veritabanı toobe birkaç dakika bekleyin.
 
 <!-- URLs. -->
 [Azure Portal]: https://portal.azure.com/

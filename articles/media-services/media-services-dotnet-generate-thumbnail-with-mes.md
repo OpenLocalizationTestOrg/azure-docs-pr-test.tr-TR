@@ -1,6 +1,6 @@
 ---
-title: "Media Encoder Standard ve .NET kullanarak küçük resim oluşturma"
-description: "Bu konu, .NET bir varlık kodlama ve küçük resimleri medya Kodlayıcı standart kullanarak aynı anda oluşturmak için nasıl kullanılacağını gösterir."
+title: "aaaHow toogenerate küçük resimleri Medya Kodlayıcısı standart .NET ile kullanma"
+description: "Bu konuda gösterilmektedir nasıl toouse .NET tooencode bir varlık ve hello en küçük resimler oluşturma medya Kodlayıcı standart kullanarak aynı anda."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: juliako
-ms.openlocfilehash: 89d15cbdf71a140e78f34e07ff208776b7d4cab3
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 23d3e4d9bf64a688d45499c045f19d2792167990
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Media Encoder Standard ve .NET kullanarak küçük resim oluşturma
+# <a name="how-toogenerate-thumbnails-using-media-encoder-standard-with-net"></a>Nasıl toogenerate küçük resimleri Medya Kodlayıcısı standart .NET ile kullanma
 
-Medya Kodlayıcısı standart bir veya daha fazla küçük resimleri girişinizi video oluşturmak için kullanabileceğiniz [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), veya [BMP](https://en.wikipedia.org/wiki/BMP_file_format) görüntü dosyası biçimlerini. Yalnızca görüntü üretmek görevler gönderebilir veya kodlamalı küçük resim oluşturma birleştirebilirsiniz. Bu konu, bu tür senaryoları için birkaç örnek XML ve JSON küçük resim hazır sağlar. Konunun sonunda yoktur bir [örnek koduna](#code_sample) Media Services .NET SDK'sı kodlama görevi gerçekleştirmek için nasıl kullanılacağını gösterir.
+Video giriş öğesinden bir veya daha fazla küçük resimleri Medya Kodlayıcısı standart toogenerate kullanabilirsiniz [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics), veya [BMP](https://en.wikipedia.org/wiki/BMP_file_format) görüntü dosyası biçimlerini. Yalnızca görüntü üretmek görevler gönderebilir veya kodlamalı küçük resim oluşturma birleştirebilirsiniz. Bu konu, bu tür senaryoları için birkaç örnek XML ve JSON küçük resim hazır sağlar. Hello konunun Hello sonunda, var olan bir [örnek koduna](#code_sample) nasıl toouse hello Media Services .NET SDK'sı tooaccomplish hello kodlama görev gösterir.
 
-Örnek hazır kullanılan öğeleri hakkında daha fazla ayrıntı için gözden geçirmeniz gereken [Medya Kodlayıcısı standart şema](media-services-mes-schema.md).
+Örnek hazır kullanılan hello öğeleri hakkında daha fazla ayrıntı için gözden geçirmeniz gereken [Medya Kodlayıcısı standart şema](media-services-mes-schema.md).
 
-Gözden geçirdiğinizden emin olun [konuları](media-services-dotnet-generate-thumbnail-with-mes.md#considerations) bölümü.
+Tooreview hello emin olun [konuları](media-services-dotnet-generate-thumbnail-with-mes.md#considerations) bölümü.
 
 ## <a name="example--single-png-file"></a>Örnek – tek bir PNG dosyası
 
-Aşağıdaki JSON ve XML hazır burada Kodlayıcı "ilginç" Çerçeve bulma sırasında bir en yüksek çaba girişiminde bulunur tek bir çıktı PNG dosya video giriş ilk birkaç saniye dışında oluşturmak için kullanılabilir. Bunlar anlamı % 100'e, çıktı görüntü boyutları ayarlanan Not video giriş boyutlarını eşleşir. Ayrıca "Çıktı" içindeki "Format" ayarı "Codec bileşenleri" bölümündeki "PngLayers" kullanımını eşleşecek şekilde nasıl gerekli unutmayın. 
+JSON aşağıdaki hello ve XML hazır, tek bir çıktı PNG dosya hello dışında ilk birkaç kullanılan tooproduce olabilir burada hello Kodlayıcı kılar "ilginç" Çerçeve bulma sırasında bir en yüksek çaba girişimi hello giriş video saniye. Merhaba çıktı görüntü boyutları too100%, bunlar hello video boyutlarını hello giriş eşleşir anlamı ayarlanan unutmayın. Ayrıca nasıl "Çıktı" hello "Format" ayarında gerekli Not "PngLayers" Merhaba "Codec bileşenleri" bölümünde toomatch hello kullanımı. 
 
 ### <a name="json-preset"></a>JSON hazır
 
@@ -82,7 +82,7 @@ Aşağıdaki JSON ve XML hazır burada Kodlayıcı "ilginç" Çerçeve bulma sı
 
 ## <a name="example--a-series-of-jpeg-images"></a>Örnek – bir dizi JPEG görüntüleri
 
-Zaman damgaları 5 10 görüntülere kümesi oluşturmak için aşağıdaki JSON ve XML hazır kullanılabilir %, % 15,..., burada görüntü boyutu belirtildiği için giriş çizelgesinin % 95 quarter, video girişi.
+JSON aşağıdaki hello ve XML hazır kullanılan tooproduce zaman damgaları % 5, 10 görüntülere bir dizi olabilir % 15,..., burada hello görüntü boyutu, belirtilen toobe bir video girişi, hello Çeyrek hello Giriş zaman çizelgesi % 95.
 
 ### <a name="json-preset"></a>JSON hazır
 
@@ -138,7 +138,7 @@ Zaman damgaları 5 10 görüntülere kümesi oluşturmak için aşağıdaki JSON
 
 ## <a name="example--one-image-at-a-specific-timestamp"></a>Örnek – belirli bir zaman damgası konumundaki bir görüntüsü
 
-Aşağıdaki JSON ve XML hazır giriş videonun 30 ikinci işaretten tek bir JPEG görüntüsü oluşturmak için kullanılabilir. Bu hazır süresi 30 saniyeden fazla girişin olmasını bekliyor (else işi başarısız olur).
+JSON ve XML hazır aşağıdaki hello hello tek bir JPEG görüntüsüne 30 saniye işaretlemek hello giriş video kullanılan tooproduce olabilir. Bu hazır hello giriş toobe süresi 30 saniyeden fazla bekliyor (başka hello işi başarısız olur).
 
 ### <a name="json-preset"></a>JSON hazır
 
@@ -194,21 +194,21 @@ Aşağıdaki JSON ve XML hazır giriş videonun 30 ikinci işaretten tek bir JPE
 
 ## <a id="code_sample"></a>Örnek – videoyu kodlamak ve küçük resim oluşturma
 
-Aşağıdaki kod örneği, aşağıdaki görevleri gerçekleştirmek için Media Services .NET SDK'sını kullanır:
+Aşağıdaki kod örneğine hello görevleri aşağıdaki Media Services .NET SDK'sı tooperform hello kullanır:
 
 * Bir kodlama işi oluşturun.
-* Medya Kodlayıcısı standart Kodlayıcı başvuru alın.
-* Önceden ayarlanmış yük [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) veya [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) içeren küçük resimleri oluşturmak için gereken bilgileri yanı sıra önceden kodlama. Bu kaydedebilirsiniz [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) veya [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) bir dosya ve Kullan dosyayı yüklemek için aşağıdaki kod.
+* Bir başvuru toohello Medya Kodlayıcısı standart Kodlayıcısı alın.
+* Yük hello önceden [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) veya [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) içeren yanı sıra toogenerate küçük resimleri gerekli bilgiler önceden hello kodlama. Bu kaydedebilirsiniz [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) veya [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json) aşağıdaki kodu tooload hello dosyasına bir dosya ve kullanım hello içinde.
   
-        // Load the XML (or JSON) from the local file.
+        // Load hello XML (or JSON) from hello local file.
         string configuration = File.ReadAllText(fileName);  
-* Tek bir kodlama görev projeye ekleyin. 
-* Kodlanacak giriş varlık belirtin.
-* Kodlanmış varlık içerecek bir çıkış varlığı oluşturun.
-* İş ilerleme durumunu denetlemek için olay işleyici ekleyin.
-* İşi göndermek.
+* Tek bir kodlama görev toohello işi ekleyin. 
+* Merhaba giriş belirtin kodlanmış varlık toobe.
+* Kodlanmış hello varlık içerecek bir çıkış varlığı oluşturun.
+* Bir olay işleyicisi toocheck hello ilerleyişini ekleyin.
+* Merhaba işi gönderin.
 
-Bkz: [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) konu geliştirme ortamınızı ayarlama konusunda yönergeler için.
+Merhaba bkz [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) konu konusunda yönergeler için geliştirme ortamınızı tooset.
 
         using System;
         using System.Configuration;
@@ -221,7 +221,7 @@ Bkz: [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) 
         {
         class Program
         {
-            // Read values from the App.config file.
+            // Read values from hello App.config file.
             private static readonly string _AADTenantDomain =
             ConfigurationManager.AppSettings["AADTenantDomain"];
             private static readonly string _RESTAPIEndpoint =
@@ -245,7 +245,7 @@ Bkz: [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) 
             // Get an uploaded asset.
             var asset = _context.Assets.FirstOrDefault();
 
-            // Encode and generate the thumbnails.
+            // Encode and generate hello thumbnails.
             EncodeToAdaptiveBitrateMP4Set(asset);
 
             Console.ReadLine();
@@ -255,11 +255,11 @@ Bkz: [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) 
             {
             // Declare a new job.
             IJob job = _context.Jobs.Create("Media Encoder Standard Job");
-            // Get a media processor reference, and pass to it the name of the 
-            // processor to use for the specific task.
+            // Get a media processor reference, and pass tooit hello name of hello 
+            // processor toouse for hello specific task.
             IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
-            // Load the XML (or JSON) from the local file.
+            // Load hello XML (or JSON) from hello local file.
             string configuration = File.ReadAllText("ThumbnailPreset_JSON.json");
 
             // Create a task
@@ -268,11 +268,11 @@ Bkz: [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) 
                 configuration,
                 TaskOptions.None);
 
-            // Specify the input asset to be encoded.
+            // Specify hello input asset toobe encoded.
             task.InputAssets.Add(asset);
-            // Add an output asset to contain the results of the job. 
+            // Add an output asset toocontain hello results of hello job. 
             // This output is specified as AssetCreationOptions.None, which 
-            // means the output asset is not encrypted. 
+            // means hello output asset is not encrypted. 
             task.OutputAssets.AddNew("Output asset",
                 AssetCreationOptions.None);
 
@@ -443,24 +443,24 @@ Bkz: [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) 
     </Preset>
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
-Aşağıdaki maddeler geçerlidir:
+ilgili önemli noktalar aşağıdaki hello Uygula:
 
-* Başlangıç/adım/aralığı için açık zaman damgaları kullanımını giriş kaynağı en az 1 dakika uzun olduğunu varsayar.
+* Merhaba kullanımına açık zaman damgaları Başlat/adım/aralık en az 1 dakika uzun bu hello giriş kaynağı olduğunu varsayar.
 * Başlangıç, adım ve öznitelikleri dize aralığı Png/jpg/BmpImage öğeleri sahip – bu olarak yorumlanacak:
   
   * Negatif olmayan tamsayılar ör olmaları durumunda çerçeve numarası. "Başlat": "120",
-  * Göreli % sonekine olarak ör ifade, kaynak süresi. "Başlat": "% 15", veya
+  * % Sonekine olarak ör ifade, göreli toosource süresi. "Başlat": "% 15", veya
   * Ss: dd: ifade edilen, zaman damgası... biçimi. Ör. "Başlat": "00: 01:00"
     
     Karışık ve yazarken gösterimler Lütfen eşleşmesi.
     
-    Ayrıca, başlangıç özel makrosu de destekler: {, hangi içerik Not ilk "ilginç" çerçevesi belirlemeyi dener en iyi}: (adım ve aralık yok sayılır başlangıç {iyi} olarak ayarlandığında geçerlidir)
+    Ayrıca, başlangıç özel makrosu de destekler: {, hangi toodetermine hello ilk "ilginç" Çerçeve hello içeriğin Not çalışır en iyi}: (adım ve aralığı dikkate alınmaz başlangıç çok ayarlandığında {en iyi})
   * Varsayılan: Başlat: {en iyi}
-* Çıktı biçimi her resim biçimi için açıkça sağlanması gerekiyor: Png/Jpg/BmpFormat. Varsa, MES JpgFormat JpgVideo vb. ile eşleşir. Yeni bir görüntü codec belirli makrosu OutputFormat sunar: {Index} olması gerekiyor hangi sunmak (bir kez ve yalnızca bir kez) görüntü Çıkış biçimleri.
+* Çıktı biçimi açıkça her resim biçimi için sağlanan toobe gerekiyor: Png/Jpg/BmpFormat. Varsa, MES JpgVideo tooJpgFormat vb. ile eşleşir. Yeni bir görüntü codec belirli makrosu OutputFormat sunar: {, hangi toobe mevcut (bir kez ve yalnızca bir kez) gereken görüntü Çıkış biçimleri için dizin}.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Kontrol edebilirsiniz [iş ilerleme](media-services-check-job-progress.md) kodlama işinin beklemedeyken.
+Merhaba denetleyebilirsiniz [iş ilerleme](media-services-check-job-progress.md) sırasında hello kodlama işinin bekliyor.
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

@@ -1,5 +1,5 @@
 ---
-title: "Entity Framework ile esnek veritabanı istemci kitaplığı kullanılarak | Microsoft Docs"
+title: "Entity Framework aaaUsing esnek veritabanı istemci kitaplığı | Microsoft Docs"
 description: "Esnek veritabanı istemci kitaplığı ve Entity Framework veritabanları kodlama için kullanın"
 services: sql-database
 documentationcenter: 
@@ -15,73 +15,73 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: torsteng
-ms.openlocfilehash: 2f0bff394c1e11a270cb324be5a1a45e9e531d7f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 917f6d28d9855c0b42afe2c008613a9bbb3ec6b6
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Entity Framework ile esnek veritabanı istemci kitaplığı
-Bu belge, Entity Framework uygulamada bütünleştirmek için gereken değişiklikleri gösterir. [esnek veritabanı araçlarını](sql-database-elastic-scale-introduction.md). Oluşturma üzerinde odak noktasıdır [parça eşleme Yönetim](sql-database-elastic-scale-shard-map-management.md) ve [veri bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md) Entity Framework **Code First** yaklaşım. [İlk - yeni veritabanı kod](http://msdn.microsoft.com/data/jj193542.aspx) öğretici EF için bu belge boyunca çalışan bizim örnek olarak hizmet verir. Bu belge ile birlikte gelen örnek kod, esnek veritabanı araçlarını Visual Studio kod örnekleri örnekleri kümesi parçasıdır.
+Bu belge, uygulamada hello ile gerekli toointegrate olan Entity Framework hello değişiklikleri gösterir. [esnek veritabanı araçlarını](sql-database-elastic-scale-introduction.md). Merhaba odak noktasıdır oluşturma üzerinde [parça eşleme Yönetim](sql-database-elastic-scale-shard-map-management.md) ve [veri bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md) hello Entity Framework ile **Code First** yaklaşım. Merhaba [ilk - yeni veritabanı kod](http://msdn.microsoft.com/data/jj193542.aspx) öğretici EF için bu belge boyunca çalışan bizim örnek olarak hizmet verir. Bu belge eşlik hello örnek kod, esnek veritabanı araçlarını hello Visual Studio kod örnekleri örnekleri kümesi parçasıdır.
 
-## <a name="downloading-and-running-the-sample-code"></a>Yükleme ve örnek kodu çalıştırma
-Bu makale için kod karşıdan yüklemek için:
+## <a name="downloading-and-running-hello-sample-code"></a>Yükleme ve başlangıç örnek kodu çalıştırma
+Bu makale için toodownload hello kodu:
 
 * Visual Studio 2012 veya üzeri gereklidir. 
-* Karşıdan [Azure SQL - Entity Framework tümleştirme örneği için esnek DB Araçları](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-bae904ba) MSDN'den. Örnek seçtiğiniz bir konuma ayıklayın.
+* Merhaba karşıdan [Azure SQL - Entity Framework tümleştirme örneği için esnek DB Araçları](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-bae904ba) MSDN'den. Seçtiğiniz hello örnek tooa konumu sıkıştırmasını açın.
 * Visual Studio’yu çalıştırın. 
 * Visual Studio'da Aç proje/çözüm dosyasını seçin ->. 
-* İçinde **Proje Aç** iletişim kutusunda, indirdiğiniz örnek gidin ve seçin **EntityFrameworkCodeFirst.sln** örneği açın. 
+* Merhaba, **Proje Aç** iletişim kutusunda, indirdiğiniz toohello örnek gidin ve seçin **EntityFrameworkCodeFirst.sln** tooopen hello örnek. 
 
-Örneği çalıştırmak için Azure SQL veritabanı'nda üç boş veritabanları oluşturmanız gerekir:
+toorun hello örnek toocreate üç boş veritabanları, Azure SQL veritabanında gerekir:
 
 * Parça eşleme Manager veritabanı
 * Parça 1 veritabanı
 * Parça 2 veritabanı
 
-Bu veritabanları oluşturduktan sonra yer tutucu doldurun **Program.cs** Azure SQL veritabanı sunucunuzun adını, veritabanı adları ve veritabanlarına bağlanmak için kimlik bilgileriniz ile. Visual Studio çözümü oluşturun. Visual Studio gerekli NuGet paketlerini esnek veritabanı istemci kitaplığı için Entity Framework ve geçici oluşturma işleminin bir parçası olarak işleme hata indirir. NuGet paketleri geri çözümünüz için etkinleştirildiğinden emin olun. Visual Studio Çözüm Gezgini'nde çözüme sağ tıklayarak bu ayarı etkinleştirebilirsiniz. 
+Bu veritabanları oluşturduktan sonra hello yer tutucu doldurun **Program.cs** Azure SQL veritabanı sunucunuzun adını, hello veritabanı adları ve kimlik bilgilerini tooconnect toohello veritabanlarınızı. Visual Studio'da Hello çözümü oluşturun. Visual Studio hello esnek veritabanı istemci kitaplığı, Entity Framework ve geçici hello derleme işleminin bir parçası işleme hata için gerekli hello NuGet paketlerini indirir. NuGet paketleri geri çözümünüz için etkinleştirildiğinden emin olun. Visual Studio Çözüm Gezgini hello hello çözüm dosyasında sağ tıklayarak bu ayarı etkinleştirebilirsiniz. 
 
 ## <a name="entity-framework-workflows"></a>Entity Framework iş akışları
-Entity Framework geliştiriciler aşağıdaki dört iş uygulamaları geliştirmek ve uygulama nesneleri kalıcılığını sağlamak için birini kullanır: 
+Entity Framework geliştiriciler dört iş akışları toobuild uygulamalar ve uygulama nesneleri tooensure kalıcılığını aşağıdaki hello birini kullanır: 
 
-* **(Yeni veritabanı) ilk kod**: EF Geliştirici uygulama kodunda modeli oluşturur ve ardından EF veritabanı ondan oluşturur. 
-* **İlk (var olan veritabanı) kod**: Geliştirici model uygulama kodunu oluşturmak varolan bir veritabanından EF olanak sağlar.
-* **Model ilk**: Geliştirici model EF Designer'da ve ardından EF modelden veritabanı oluşturur.
-* **Veritabanı ilk**: varolan bir veritabanını modelden gerçekleştirip tooling EF Geliştirici kullanır. 
+* **(Yeni veritabanı) ilk kod**: hello EF Geliştirici hello uygulama kodunda hello modeli oluşturur ve ardından EF hello veritabanı ondan oluşturur. 
+* **İlk (var olan veritabanı) kod**: hello Geliştirici hello uygulama kodu hello modeli için varolan bir veritabanından oluşturmak EF olanak sağlar.
+* **Model ilk**: hello Geliştirici hello modeli hello EF Designer'da ve ardından EF hello veritabanı hello modelden oluşturur.
+* **Veritabanı ilk**: hello Geliştirici tooinfer hello varolan bir veritabanını modelden tooling EF kullanır. 
 
-Bu yaklaşım veritabanı bağlantılarını ve veritabanı şeması bir uygulama için şeffaf bir şekilde yönetmek için DbContext sınıfını kullanır. Belgenin sonraki bölümlerinde daha ayrıntılı bağlantı oluşturma üzerinde denetim farklı düzeylerde DbContext temel sınıfından farklı oluşturucular izin aşağıdakiler ele alınacaktır olarak önyükleme ve şema oluşturma veritabanı. Öncelikle veri bağımlı yönlendirme arabirimlerini bağlantı yönetimi özellikleriyle EF tarafından sağlanan veritabanı bağlantı yönetimi kestiği olgu zorluklar esnek veritabanı istemci kitaplığı tarafından kaynaklanır. 
+Veritabanı bağlantılarını ve veritabanı şeması bir uygulama için tüm bu yaklaşımlar hello DbContext sınıfı tootransparently üzerinde kullanan yönetin. Merhaba belgenin ilerleyen bölümlerinde daha ayrıntılı bağlantı oluşturma üzerinde denetim farklı düzeylerde hello DbContext temel sınıf farklı oluşturucularda izin aşağıdakiler ele alınacaktır olarak önyükleme ve şema oluşturma veritabanı. Öncelikle Itanium tabanlı sistemler için hello bağlantı yönetim özellikleri, sağlanan hello veri bağımlı yönlendirme arabirimleri ile Merhaba veritabanı bağlantısı yönetimini EF tarafından sağlanan kesiştiğinden hello olgu zorluklar hello esnek veritabanı istemci kitaplığı tarafından kaynaklanır. 
 
 ## <a name="elastic-database-tools-assumptions"></a>Varsayımlar esnek veritabanı araçları
 Terim tanımları için bkz: [esnek veritabanı araçlarını sözlüğü](sql-database-elastic-scale-glossary.md).
 
-Esnek veritabanı istemci kitaplığı ile uygulama verilerinizi shardlets adlı Bölüm tanımlayın. Shardlets bir parçalama anahtar tarafından tanımlanır ve belirli veritabanlarına eşleştirilir. Bir uygulama gerekli tüm veritabanı ve yeterli kapasitesi veya geçerli iş gereksinimlerini verilen performans sağlamak için shardlets dağıtmak olabilirsiniz. Parçalama anahtar değerlerin veritabanlarına esnek veritabanı istemci API tarafından sağlanan bir parça eşleme tarafından depolanır. Bu özellik diyoruz **parça eşleme Yönetim**, veya kısaca SMM. Parça eşleme, ayrıca bir parçalama anahtar taşımak istekleri için veritabanı bağlantılarını aracısı olarak görev yapar. Biz bu özelliği başvurmak **veri bağımlı yönlendirme**. 
+Esnek veritabanı istemci kitaplığı ile uygulama verilerinizi shardlets adlı Bölüm tanımlayın. Shardlets bir parçalama anahtar tarafından tanımlanır ve eşlenen toospecific veritabanlarıdır. Bir uygulama gerekli tüm veritabanı ve yeterli kapasitesi veya geçerli iş gereksinimlerini verilen performans hello shardlets tooprovide dağıtmak olabilirsiniz. Merhaba eşleme parçalama anahtar değerleri toohello veritabanlarının hello esnek veritabanı istemci API tarafından sağlanan bir parça eşleme tarafından depolanır. Bu özellik diyoruz **parça eşleme Yönetim**, veya kısaca SMM. Merhaba parça eşleme hello Aracısı parçalama anahtar taşımak istekleri için veritabanı bağlantılarının de görür. Biz toothis özelliği olarak başvuran **veri bağımlı yönlendirme**. 
 
-Parça eşleme Yöneticisi kullanıcıları tutarsız görünümleri eşzamanlı shardlet management işlemleri (örneğin, verileri bir parça diğerine yerini değiştirme) gerçekleştiği yüklendiğinde oluşabilecek shardlet verilerini korur. Bunu yapmak için parça eşlemeleri veritabanı bağlantılarını bir uygulama için İstemci Kitaplığı Aracısı tarafından yönetiliyor. Bu bağlantı için oluşturulan shardlet parça yönetim işlemlerini etkileyebilir olduğunda otomatik olarak bir veritabanı bağlantısı sonlandırılamadı parça eşleme işlevselliği sağlar. Mevcut bir veritabanı varlığını denetlemek için yeni bağlantı oluşturma gibi EF'ın işlevlerini bazıları ile tümleştirmek bu yaklaşım gerekir. Genel olarak, bizim gözlem güvenilir bir şekilde EF için güvenli bir şekilde kopyalanıp kapalı veritabanı bağlantıları için yalnızca iş standart DbContext oluşturucular çalıştığını olmuştur. Esnek veritabanı tasarım ilkesini bunun yerine yalnızca açık bağlantıları Aracısı sağlamaktır. Bir istemci kitaplığı tarafından EF DbContext vermekten önce aracılı bağlantı kesiliyor bu sorunu çözebilir düşünebilirsiniz. Ancak, bağlantı kesiliyor ve yeniden açın EF bağlı olan bir kitaplık tarafından gerçekleştirilen doğrulama ve tutarlılık denetimleri sağlamlığın gerisinde kalır. EF, geçişler işlevi, bu bağlantıları ancak, temel alınan veritabanı şeması uygulamaya saydam bir şekilde yönetmek için kullanır. İdeal olarak, korur ve tüm bu özellikler esnek veritabanı istemci kitaplığı ve EF aynı uygulamada birleştirmek isteriz. Aşağıdaki bölümde, bu özellikleri ve gereksinimleri daha ayrıntılı açıklanır. 
+Merhaba parça eşleme Yöneticisi kullanıcıları tutarsız görünümleri eşzamanlı shardlet yönetim işlemlerini (örneğin, bir parça tooanother verileri yeniden konumlandırma) gerçekleştiği yüklendiğinde oluşabilecek shardlet verilerini korur. toodo, bu nedenle, parça eşlemeleri hello istemci Kitaplığı Aracısı hello veritabanı bağlantıları için bir uygulama tarafından yönetilen hello. Parça yönetim işlemlerini hello bağlantı için oluşturulan hello shardlet etkileyebilir olduğunda bu bir veritabanı bağlantısı hello parça eşleme işlevselliği tooautomatically KILL izin verir. Bu yaklaşım, bazı veritabanı varlığı için varolan bir tek toocheck yeni bağlantı oluşturma gibi EF'ın işlevlerini toointegrate gerekir. Genel olarak, bizim gözlem hello standart DbContext oluşturucular yalnızca güvenilir bir şekilde güvenli bir şekilde kopyalanıp kapalı veritabanı bağlantıları için çalıştığını bırakıldı EF iş için. Merhaba tasarım esnek veritabanı yerine tooonly açılan Aracısı bağlantıları ilkesidir. Bir hello istemci kitaplığı tarafından EF DbContext toohello teslim etmeden önce aracılı bağlantı kesiliyor bu sorunu çözebilir düşünebilirsiniz. Ancak, hello bağlantı kesiliyor ve EF toore-Aç bağlı olan bir hello kitaplığı tarafından gerçekleştirilen hello doğrulama ve tutarlılık denetimleri sağlamlığın gerisinde kalır. EF, Hello geçişler işlevi ancak, bu bağlantıları toomanage hello saydam toohello uygulama şekilde veritabanı şemasını temel kullanır. İdeal olarak, biz gibi tooretain ve tüm bu özelliklere hello esnek veritabanı istemci kitaplığı ve EF hello birleştirmek aynı uygulama. Merhaba aşağıdaki bölümde bu özellikleri ve gereksinimleri daha ayrıntılı açıklanmıştır. 
 
 ## <a name="requirements"></a>Gereksinimler
-Esnek veritabanı istemci kitaplığı ve Entity Framework API'leri ile çalışırken, aşağıdaki özellikleri korumak istiyor: 
+Merhaba esnek veritabanı istemci kitaplığı ve Entity Framework API'leri ile çalışırken, aşağıdaki özelliklere tooretain hello istiyoruz: 
 
-* **Genişleme**: eklemek veya uygulamanın parçalı uygulama kapasite gereksinimlerini karşılamak için gerekli olarak veri katmanından veritabanlarını kaldırmak için. Bu denetim üzerinden anlamına gelir oluşturulması ve veritabanları ve esnek veritabanı parça kullanarak silinmesini veritabanları ve shardlets eşlemelerini yönetmek için manager API'leri eşleyin. 
-* **Tutarlılık**: uygulama parçalama kullanır ve veri bağımlı yönlendirme yeteneklerini istemci kitaplığını kullanır. Bozulma veya yanlış sorgu sonuçları önlemek için bağlantılar parça eşleme Yöneticisi aracılığıyla aracılı. Bu ayrıca doğrulama ve tutarlılık korur.
-* **İlk kod**: EF'ın kod ilk kip kolaylık korumak için. Code First içinde uygulama sınıflarda saydam temel alınan veritabanı yapılarını eşlenir. Uygulama kodu birçok yönüyle temel alınan veritabanı işleme, söz konusu maske DbSets ile etkileşim kurar.
-* **Şema**: Entity Framework ilk veritabanı şeması oluşturma ve sonraki şema evrimi geçişleri üzerinden işler. Veri geliştikçe yeteneklere koruyarak uygulamanızı uyarlama kolaydır. 
+* **Genişleme**: hello veri katmanı uygulamasının hello parçalı hello kapasite talebi için gerektikçe hello uygulamasının tooadd veya kaldırma veritabanlarından. Bu hello hello oluşturulması ve veritabanları ve hello esnek veritabanı parça eşleme manager API'leri toomanage veritabanları ve shardlets eşlemelerini kullanma silinmesini üzerinde denetim anlamına gelir. 
+* **Tutarlılık**: Merhaba uygulaması parçalama kullanır ve kullandığı veri bağımlı yönlendirme özellikleri hello istemci kitaplığının hello. bağlantıları aracılı tooavoid bozulma veya yanlış sorgu sonuçları, aracılığıyla hello parça eşleme Yöneticisi. Bu ayrıca doğrulama ve tutarlılık korur.
+* **İlk kod**: tooretain hello EF'ın kod ilk kip kolaylığı. Code First içinde Merhaba uygulaması sınıflarda saydam eşlenen veritabanı yapılarını temel toohello. Merhaba uygulama kodu birçok yönüyle veritabanı işleme temel hello söz konusu maske DbSets ile etkileşim kurar.
+* **Şema**: Entity Framework ilk veritabanı şeması oluşturma ve sonraki şema evrimi geçişleri üzerinden işler. Bu özellikler koruyarak uygulamanızı uyarlama veri dönüşmesi hello kolaydır. 
 
-Aşağıdaki kılavuz esnek veritabanı araçlarını kullanarak Code First uygulamalar için bu gereksinimleri karşılamak nasıl bildirir. 
+Merhaba aşağıdaki kılavuz kaldırmasını nasıl toosatisfy esnek veritabanı araçlarını kullanarak Code First uygulamalar için bu gereksinimleri. 
 
 ## <a name="data-dependent-routing-using-ef-dbcontext"></a>Veri bağımlı yönlendirme EF DbContext kullanma
-Entity Framework veritabanı bağlantılarıyla genellikle alt sınıflarının yönetilen **DbContext**. Bu alt sınıflarından türetme tarafından oluşturma **DbContext**. Burada, tanımlarsınız, **DbSets** CLR nesnesi, uygulamanız için veritabanı yedeği koleksiyonları uygulayın. Veri bağımlı yönlendirme bağlamında, biz diğer EF kodu ilk uygulama senaryoları için mutlaka tutmayın çeşitli yararlı özelliklerini tanımlayabilirsiniz: 
+Entity Framework veritabanı bağlantılarıyla genellikle alt sınıflarının yönetilen **DbContext**. Bu alt sınıflarından türetme tarafından oluşturma **DbContext**. Burada, tanımlarsınız, **DbSets** uygulamanız için CLR nesnesi hello veritabanı yedeği koleksiyonları uygulayın. Veri bağımlı yönlendirme hello bağlamında, biz diğer EF kodu ilk uygulama senaryoları için mutlaka tutmayın çeşitli yararlı özelliklerini tanımlayabilirsiniz: 
 
-* Veritabanı zaten var ve esnek veritabanı parça eşlemesinde kaydedildi. 
-* Uygulama şeması (aşağıda açıklanmıştır) veritabanı için zaten dağıtılmış. 
-* Veri bağımlı yönlendirme bağlantıları veritabanı tarafından parça eşleme aracılı. 
+* Merhaba veritabanı zaten var ve hello esnek veritabanı parça eşlemesinde kaydedildi. 
+* Merhaba uygulaması Hello şeması (aşağıda açıklanmıştır) dağıtılan toohello veritabanı zaten etkinleştirilmiş. 
+* Veri bağımlı yönlendirme bağlantıları toohello veritabanı hello parça eşleme tarafından aracılı. 
 
-Tümleştirmek için **DbContexts** veri bağımlı genişleme için Yönlendirme:
+toointegrate **DbContexts** veri bağımlı genişleme için Yönlendirme:
 
-1. Parça eşleme Yöneticisi'nin esnek veritabanı istemci arabirimleri aracılığıyla fiziksel veritabanı bağlantıları oluşturma, 
-2. Bağlantı ile kaydırma **DbContext** alt sınıfı
-3. İçine bağlantı geçirmek **DbContext** temel sınıflar EF tarafında tüm işleme olacağını da emin olun. 
+1. Merhaba parça eşleme Yöneticisi'nin hello esnek veritabanı istemci arabirimleri aracılığıyla fiziksel veritabanı bağlantıları oluşturma, 
+2. Merhaba Hello bağlantıyla kaydırma **DbContext** alt sınıfı
+3. Merhaba bağlantı hello geçirmek **DbContext** temel sınıfları tooensure tüm hello işleme hello EF tarafında gerçekleşir de. 
 
-Aşağıdaki kod örneği, bu yaklaşım gösterilmektedir. (Ayrıca bu kodu eşlik eden Visual Studio projesinde '.)
+Aşağıdaki kod örneğine hello bu yaklaşımı açıklar. (Bu da Visual Studio projesi eşlik hello kodudur)
 
     public class ElasticScaleContext<T> : DbContext
     {
@@ -89,10 +89,10 @@ Aşağıdaki kod örneği, bu yaklaşım gösterilmektedir. (Ayrıca bu kodu eş
     …
 
         // C'tor for data dependent routing. This call will open a validated connection 
-        // routed to the proper shard by the shard map manager. 
-        // Note that the base class c'tor call will fail for an open connection
-        // if migrations need to be done and SQL credentials are used. This is the reason for the 
-        // separation of c'tors into the data-dependent routing case (this c'tor) and the internal c'tor for new shards.
+        // routed toohello proper shard by hello shard map manager. 
+        // Note that hello base class c'tor call will fail for an open connection
+        // if migrations need toobe done and SQL credentials are used. This is hello reason for hello 
+        // separation of c'tors into hello data-dependent routing case (this c'tor) and hello internal c'tor for new shards.
         public ElasticScaleContext(ShardMap shardMap, T shardingKey, string connectionStr)
             : base(CreateDDRConnection(shardMap, shardingKey, connectionStr), 
             true /* contextOwnsConnection */)
@@ -108,26 +108,26 @@ Aşağıdaki kod örneği, bu yaklaşım gösterilmektedir. (Ayrıca bu kodu eş
             // No initialization
             Database.SetInitializer<ElasticScaleContext<T>>(null);
 
-            // Ask shard map to broker a validated connection for the given key
+            // Ask shard map toobroker a validated connection for hello given key
             SqlConnection conn = shardMap.OpenConnectionForKey<T>
                                 (shardingKey, connectionStr, ConnectionOptions.Validate);
             return conn;
         }    
 
 ## <a name="main-points"></a>Ana noktaları
-* Varsayılan Oluşturucu DbContext alt yeni oluşturucuyu değiştirir 
-* Yeni Oluşturucusu veri bağımlı esnek veritabanı istemci kitaplığı yönlendirme için gerekli olan bağımsız değişkenler alır:
+* Yeni bir oluşturucu hello varsayılan oluşturucu hello DbContext alt sınıfta değiştirir 
+* Merhaba yeni Oluşturucusu veri bağımlı esnek veritabanı istemci kitaplığı yönlendirme için gerekli olan hello bağımsız değişkenleri alır:
   
-  * veri bağımlı yönlendirme arabirimlerini erişmek için parça eşleme
-  * shardlet tanımlamak için parçalama anahtarı
-  * Parça veri bağımlı yönlendirme bağlantısı için kimlik bilgileri ile bir bağlantı dizesi. 
-* Taban sınıf oluşturucu çağrısı veri bağımlı yönlendirme için gerekli tüm adımları gerçekleştirir statik bir yönteme bir detour alır. 
+  * veri bağımlı yönlendirme arabirimlerini Hello parça eşleme tooaccess hello
+  * Merhaba parçalama anahtar tooidentify hello shardlet
+  * Merhaba veri bağımlı yönlendirme bağlantısı toohello parça hello kimlik bilgileri ile bir bağlantı dizesi. 
+* Merhaba çağrısı toohello temel sınıf oluşturucu tüm hello adımları gerçekleştirir statik bir yönteme bir detour veri bağımlı yönlendirme için gerekli alır. 
   
-  * Esnek veritabanı istemci arabirimlerin OpenConnectionForKey çağrısı, açık bir bağlantı kurmak için parça haritada kullanır.
-  * Parça eşlemesi belirtilen parçalama anahtar shardlet tutan parça açık bağlantısı oluşturur.
-  * Bu açık bağlantı geri bu bağlantının otomatik olarak yeni bir bağlantı oluşturmak EF yapmasına izin vermek yerine EF tarafından kullanılacak olduğunu belirtmek için DbContext temel sınıf oluşturucusunun geçirilir. Böylece parça eşleme yönetim işlemleri altında tutarlılığı garanti edebilir bu şekilde bağlantı esnek veritabanı istemci API tarafından etiketlendiği.
+  * Merhaba parça eşleme tooestablish açık bir bağlantı hello OpenConnectionForKey çağrısı hello esnek veritabanı istemci arabirimlerini kullanır.
+  * Merhaba parça eşlemesi parçalama anahtarı verilen hello hello shardlet tutan hello açık bağlantı toohello parça oluşturur.
+  * Bu açık bağlantı geri toohello temel sınıf bu bağlantının otomatik olarak yeni bir bağlantı oluşturmak EF yapmasına izin vermek yerine EF tarafından kullanılan toobe olduğunu DbContext tooindicate oluşturucusunun geçirilir. Böylece parça eşleme yönetim işlemleri altında tutarlılığı garanti edebilir bu şekilde hello bağlantı hello esnek veritabanı istemci API tarafından etiketlendiği.
 
-Varsayılan Oluşturucu, kodunuzda yerine, bir DbContext alt için yeni bir oluşturucu kullanın. Örnek aşağıda verilmiştir: 
+Merhaba varsayılan oluşturucu, kodunuzda yerine, bir DbContext alt için Hello yeni Oluşturucu kullanın. Örnek aşağıda verilmiştir: 
 
     // Create and save a new blog.
 
@@ -150,12 +150,12 @@ Varsayılan Oluşturucu, kodunuzda yerine, bir DbContext alt için yeni bir olu�
      … 
     }
 
-Yeni Oluşturucusu değeri tarafından tanımlanan shardlet verilerini tutan parça bağlantı açar **tenantid1**. Kodda **kullanarak** blok erişimi değişmeden kalır **DbSet** için parça EF kullanarak Web günlükleri için **tenantid1**. Kullanarak kod bloğu için gibi tüm veritabanı işlemleri için bir parça şimdi kapsamındaki bu semantiğini değiştirir nerede **tenantid1** tutulur. Örneğin, bir LINQ sorgusu bloglar üzerinden **DbSet** yalnızca üzerinde geçerli parça depolanan bloglar, ancak diğer parça üzerinde depolanan olanları döndürür.  
+Merhaba yeni Oluşturucusu açar hello değeri tarafından tanımlanan hello shardlet hello verilerini tutan hello bağlantı toohello parça **tenantid1**. Merhaba hello kodda **kullanarak** blok kalır değişmeden tooaccess hello **DbSet** EF hello parça kullanarak Web günlükleri için **tenantid1**. Tüm veritabanı işlemleri sunulmuştur gibi blok kullanarak hello Hello kodda toohello bir parça kapsamlı için bu semantiğini değiştirir nerede **tenantid1** tutulur. Örneğin, bir LINQ sorgusu hello bloglar üzerinden **DbSet** yalnızca hello geçerli parça üzerinde depolanan bloglar dönün, ancak olanları diğer parça üzerinde depolanan hello değil.  
 
 #### <a name="transient-faults-handling"></a>Geçici hataları işleme
-Microsoft Patterns & yöntemler takım yayımlanan [geçici hata işleme uygulama blok](https://msdn.microsoft.com/library/dn440719.aspx). Kitaplık esnek ölçek istemci kitaplığı EF ile birlikte kullanılır. Ancak, geçici bir özel durumla burada biz böylece biz tweaked oluşturucuları kullanarak herhangi bir yeni bağlantı denemesi yapılan yeni oluşturucusunun sonra geçici bir hata kullanıldığından emin olabilirsiniz bir yere döndürdüğünden emin olun. Aksi takdirde doğru parça bağlantı garanti edilmez ve parça eşleme değişiklikler oldukça bağlantının korunacağı hiçbir garanti vermediğini vardır. 
+Merhaba Microsoft Patterns & yöntemler yayımlanan hello ekip [hello geçici hata işleme uygulama blok](https://msdn.microsoft.com/library/dn440719.aspx). Merhaba kitaplığı esnek ölçek istemci kitaplığı EF ile birlikte kullanılır. Ancak, geçici bir özel durumla burada biz böylece biz tweaked hello oluşturucuları kullanarak herhangi bir yeni bağlantı denemesi yapıldıktan sonra geçici bir hata bu hello yeni oluşturucusunun kullanıldığından emin olabilirsiniz tooa yer döndürdüğünden emin olun. Aksi takdirde, parça garanti edilmez ve hello bağlantı hiçbir garanti vermediğini olan doğru bir bağlantı toohello toohello parça eşleme oluşacak değişiklikler korunur. 
 
-Aşağıdaki kod örneği nasıl bir SQL yeniden deneme ilkesi yeni kullanılabileceğini gösterir **DbContext** alt sınıf oluşturucular: 
+Merhaba aşağıdaki kod örneği nasıl bir SQL yeniden deneme ilkesi hello yeni kullanılabileceğini gösterir **DbContext** alt sınıf oluşturucular: 
 
     SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() => 
     { 
@@ -171,38 +171,38 @@ Aşağıdaki kod örneği nasıl bir SQL yeniden deneme ilkesi yeni kullanılabi
             } 
         }); 
 
-**SqlDatabaseUtils.SqlRetryPolicy** Yukarıdaki kod olarak tanımlanan bir **SqlDatabaseTransientErrorDetectionStrategy** bir yeniden deneme sayısı 10 ve 5 saniye ile yeniden denemeler arasındaki süre bekleyin. Bu yaklaşım EF ve kullanıcı tarafından başlatılan işlemleri için yönergeler benzer (bkz [yeniden deneniyor yürütme stratejileri (veya sonraki sürümleri EF6) kısıtlamalarla](http://msdn.microsoft.com/data/dn307226). Her iki durumlarda uygulama programı geçici özel durumu döndüren kapsam denetimleri gerektirir: esnek veritabanı istemci kitaplığı kullanan işlem yeniden veya (gösterildiği gibi) uygun Oluşturucusu bağlamından yeniden oluşturun.
+**SqlDatabaseUtils.SqlRetryPolicy** hello Yukarıdaki kod olarak tanımlanan bir **SqlDatabaseTransientErrorDetectionStrategy** bir yeniden deneme sayısı 10 ve 5 saniye ile yeniden denemeler arasındaki süre bekleyin. Bu yaklaşım EF ve kullanıcı tarafından başlatılan işlemleri için benzer toohello kılavuzunu olur (bkz [yeniden deneniyor yürütme stratejileri (veya sonraki sürümleri EF6) kısıtlamalarla](http://msdn.microsoft.com/data/dn307226). Her iki durumlarda bu hello uygulama programı denetimleri hello kapsam toowhich hello geçici özel durum döndürür gerektirir: tooeither hello işlem yeniden veya (gösterildiği gibi) kullanımları esnek veritabanı hello hello uygun Oluşturucusu hello bağlamından yeniden İstemci Kitaplığı.
 
-Burada geçici özel durumlar bize geri kapsamında olması denetlemek için gereken ayrıca yerleşik kullanımını önleyen **SqlAzureExecutionStrategy** EF ile birlikte gelir. **SqlAzureExecutionStrategy** bir bağlantıyı yeniden, ancak kullanmaz **OpenConnectionForKey** ve bu nedenle bir parçası olarak gerçekleştirilen tüm doğrulama atlama **OpenConnectionForKey**çağırın. Bunun yerine, yerleşik kod örneğini kullanan **DefaultExecutionStrategy** EF ile de gelir. Tersine **SqlAzureExecutionStrategy**, doğru geçici hata işleme yeniden deneme ilkesi ile birlikte çalışır. Yürütme ilkesini ayarlama **ElasticScaleDbConfiguration** sınıfı. Kullanmamaya karar Not **DefaultSqlExecutionStrategy** kullanmak için önerdiği beri **SqlAzureExecutionStrategy** geçici özel durumlar oluşursa - hangi neden yanlış davranışa açıklandığı gibi. EF ve farklı yeniden deneme ilkeleri hakkında daha fazla bilgi için bkz: [EF bağlantı dayanıklılığı](http://msdn.microsoft.com/data/dn456835.aspx).     
+Merhaba burada geçici özel durumlar ele bize geri kapsamda gerek toocontrol de hello yerleşik hello kullanımını önleyen **SqlAzureExecutionStrategy** EF ile birlikte gelir. **SqlAzureExecutionStrategy** bir bağlantıyı yeniden, ancak kullanmaz **OpenConnectionForKey** ve bu nedenle hello bir parçası olarak gerçekleştirilen tüm hello Doğrulamayı atla **OpenConnectionForKey** çağırın. Bunun yerine, hello yerleşik hello kod örneği kullanan **DefaultExecutionStrategy** EF ile de gelir. Çok aygıtlardır**SqlAzureExecutionStrategy**, doğru geçici hata işleme hello yeniden deneme ilkesi ile birlikte çalışır. Merhaba yürütme İlkesi hello ayarlanmış **ElasticScaleDbConfiguration** sınıfı. Biz değil toouse karar Not **DefaultSqlExecutionStrategy** toouse öneren beri **SqlAzureExecutionStrategy** geçici özel durumlar oluşursa - hangi neden toowrong davranışı açıklandığı gibi. Merhaba farklı yeniden deneme ilkelerini ve EF ile ilgili daha fazla bilgi için bkz: [EF bağlantı dayanıklılığı](http://msdn.microsoft.com/data/dn456835.aspx).     
 
 #### <a name="constructor-rewrites"></a>Oluşturucu yeniden yazmalar
-Yukarıdaki kod örnekleri Entity Framework ile yönlendirme bağımlı veri kullanmak için uygulamanız için gereken varsayılan oluşturucusu yeniden yazar gösterilmektedir. Aşağıdaki tabloda bu yaklaşımı diğer oluşturucular genelleştirir. 
+Merhaba Yukarıdaki kod örnekleri göstermeye hello varsayılan sipariş toouse veri hello Entity Framework ile yönlendirme bağımlı, uygulamanız için gerekli Oluşturucusu yeniden yazar. Aşağıdaki tablonun hello bu yaklaşım tooother oluşturucular genelleştirir. 
 
 | Geçerli Oluşturucusu | Verileri yeniden Oluşturucusu | Temel Oluşturucusu | Notlar |
 | --- | --- | --- | --- |
-| MyContext() |ElasticScaleContext (ShardMap, TKey) |DbContext (DbConnection, bool) |Bağlantı bir işlev parça eşleme ve veri bağımlı yönlendirme anahtarı olması gerekir. Parça eşleme Bağlantı Aracısı kullanın ve atlama otomatik bağlantı oluşturma EF işlemi yapmanız gerekir. |
-| MyContext(string) |ElasticScaleContext (ShardMap, TKey) |DbContext (DbConnection, bool) |Bağlantı parça eşleme ve veri bağımlı yönlendirme anahtarı bir işlevdir. Sabit veritabanı adı veya bağlantı dizesi çalışmazlar parça eşleme tarafından atlama doğrulama. |
-| MyContext(DbCompiledModel) |ElasticScaleContext (ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, DbCompiledModel, Boole) |Bağlantı verilen parça eşleme ve parçalama anahtarı için sağlanan modeliyle oluşturulur. Derlenmiş modeli temel c'tor geçirilecektir. |
-| MyContext (DbConnection, bool) |ElasticScaleContext (ShardMap, TKey, Boole) |DbContext (DbConnection, bool) |Bağlantı parça eşleme ve anahtar olayla gerekiyor. (Bu girişi zaten parça eşleme ve anahtarı kullanmadığı sürece) bir giriş olarak sağlanamaz. Boolean geçirilir. |
-| MyContext (dize, DbCompiledModel) |ElasticScaleContext (ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, DbCompiledModel, Boole) |Bağlantı parça eşleme ve anahtar olayla gerekiyor. (Bu giriş parça eşleme ve anahtarı kullanmadığı sürece) bir giriş olarak sağlanamaz. Derlenmiş modeli geçirilir. |
-| MyContext (ObjectContext, bool) |ElasticScaleContext (ShardMap, TKey, ObjectContext, bool) |DbContext (ObjectContext, bool) |Herhangi bir giriş olarak geçirilen ObjectContext bağlantısında esnek ölçek tarafından yönetilen bir bağlantıya yeniden yönlendirilmiş olduğundan emin olmak yeni Oluşturucusu gerekir. ObjectContexts hakkında ayrıntılı bilgi, bu belgenin kapsamında değildir. |
-| MyContext (DbConnection, DbCompiledModel, Boole) |ElasticScaleContext (ShardMap, TKey, DbCompiledModel, bool) |DbContext (DbConnection, DbCompiledModel, bool); |Bağlantı parça eşleme ve anahtar olayla gerekiyor. (Bu girişi zaten parça eşleme ve anahtarı kullanmadığı sürece) bir giriş olarak bağlantı sağlanamaz. Model ve Boolean temel sınıf oluşturucu geçirilir. |
+| MyContext() |ElasticScaleContext (ShardMap, TKey) |DbContext (DbConnection, bool) |Merhaba bağlantı toobe işlevi hello parça eşleme ve hello veri bağımlı yönlendirme anahtarı gerekiyor. Bunun yerine hello parça eşleme toobroker hello bağlantı kullanın ve EF tooby geçişi otomatik bağlantı oluşturması gerekir. |
+| MyContext(string) |ElasticScaleContext (ShardMap, TKey) |DbContext (DbConnection, bool) |Merhaba bağlantı hello parça eşleme ve hello veri bağımlı yönlendirme anahtarı bir işlevdir. Sabit veritabanı adı veya bağlantı dizesi çalışmazlar hello parça eşleme tarafından atlama doğrulama. |
+| MyContext(DbCompiledModel) |ElasticScaleContext (ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, DbCompiledModel, Boole) |Merhaba bağlantısı için sağlanan hello modeliyle parça eşleme ve parçalama anahtarı verilen hello oluşturulur. Merhaba derlenmiş model üzerinde temel c'tor toohello geçirilir. |
+| MyContext (DbConnection, bool) |ElasticScaleContext (ShardMap, TKey, Boole) |DbContext (DbConnection, bool) |Merhaba bağlantı hello parça eşleme ve başlangıç anahtarı çıkarımı yapılan toobe gerekir. (Bu girişi zaten hello parça eşleme ve başlangıç anahtarı kullanmadığı sürece) bir giriş olarak sağlanamaz. Merhaba Boolean geçirilir. |
+| MyContext (dize, DbCompiledModel) |ElasticScaleContext (ShardMap, TKey, DbCompiledModel) |DbContext (DbConnection, DbCompiledModel, Boole) |Merhaba bağlantı hello parça eşleme ve başlangıç anahtarı çıkarımı yapılan toobe gerekir. (Bu giriş hello parça eşleme ve başlangıç anahtarı kullanmadığı sürece) bir giriş olarak sağlanamaz. Merhaba derlenmiş modeli geçirilir. |
+| MyContext (ObjectContext, bool) |ElasticScaleContext (ShardMap, TKey, ObjectContext, bool) |DbContext (ObjectContext, bool) |Merhaba yeni Oluşturucusu herhangi bir giriş olarak ObjectContext geçirilen hello bağlantısında esnek ölçek tarafından yönetilen yeniden yönlendirilmiş tooa bağlantıdır tooensure gerekir. ObjectContexts hakkında ayrıntılı bilgi hello bu belgenin kapsamında değildir. |
+| MyContext (DbConnection, DbCompiledModel, Boole) |ElasticScaleContext (ShardMap, TKey, DbCompiledModel, bool) |DbContext (DbConnection, DbCompiledModel, bool); |Merhaba bağlantı hello parça eşleme ve başlangıç anahtarı çıkarımı yapılan toobe gerekir. (Bu girişi zaten hello parça eşleme ve başlangıç anahtarı kullanmadığı sürece) bir giriş olarak hello bağlantı sağlanamaz. Model ve Boolean toohello temel sınıf oluşturucu geçirilir. |
 
 ## <a name="shard-schema-deployment-through-ef-migrations"></a>EF geçişler aracılığıyla parça şema dağıtımı
-Otomatik şema, Entity Framework tarafından sağlanan bir kolaylık yönetimidir. Esnek veritabanı araçlarını kullanarak uygulamaları bağlamında veritabanları parçalı uygulamaya eklendiğinde otomatik olarak yeni oluşturulan parça şemaya sağlamak üzere bu özellikten korumak istiyoruz. EF kullanan parçalı uygulamalar için veri katmanı kapasitesini artırmak için birincil kullanım durumdur. Şema Yönetimi için EF'in özellikleri güvenmek EF üzerinde oluşturulmuş parçalı bir uygulama ile veritabanı yönetim çaba azaltır. 
+Otomatik şema, hello Entity Framework tarafından sağlanan bir kolaylık yönetimidir. Veritabanlarını toohello parçalı uygulama eklendiğinde esnek veritabanı araçlarını kullanarak uygulamaları hello bağlamda tooretain Bu yetenek tooautomatically sağlama hello şema oluşturulan toonewly parça istiyoruz. Merhaba birincil kullanım hello veri katmanı tooincrease kapasitede EF kullanan parçalı uygulamalar için bir durumdur. Şema Yönetimi için EF'in özellikleri güvenmek EF üzerinde oluşturulmuş parçalı bir uygulama ile Merhaba veritabanı yönetim çaba azaltır. 
 
-Şema dağıtımı EF geçişler aracılığıyla en iyi şekilde çalışır **açılmamış bağlantıları**. Bu senaryo için veri bağımlı aksine esnek veritabanı istemci API tarafından sağlanan bağlantısı açıldı güvenen gönderiyor. Başka bir fark tutarlılık gereksinimdir: eşzamanlı parça eşleme işleme karşı korumak tüm veri bağımlı yönlendirme bağlantılarında tutarlılığını sağlamak için daha fazla tercih sırasında bu ilk ile ilgili bir sorun değildir şema dağıtım yeni bir veritabanı Parça eşlemesinde kayıtlı değil henüz ve shardlets tutmak için ayrılmamış henüz vardır. Biz, bu nedenle veri bağımlı yönlendirme bu senaryoları için normal veritabanı bağlantılarında güvenebilirsiniz.  
+Şema dağıtımı EF geçişler aracılığıyla en iyi şekilde çalışır **açılmamış bağlantıları**. Buna karşılık hello esnek veritabanı istemci API'si tarafından sağlanan açılan hello bağlantı dayanan veri bağımlı yönlendirme için toohello senaryo budur. Başka bir fark hello tutarlılık gereksinimdir: tüm veri bağımlı yönlendirme bağlantıları tooprotect karşı eş zamanlı parça eşleme işleme sırasında tutarlılık arzu tooensure, bu ilk şema dağıtım tooa yeni veritabanı ile ilgili bir sorun değildir Merhaba parça eşlemesinde kayıtlı değil henüz ve toohold shardlets ayrılmamış henüz sahip. Biz, bu nedenle normal veritabanı bağlantısı karşılıklı yönlendirme toodata bağlı olarak bu senaryoları için güvenebilirsiniz.  
 
-Bu, bir yaklaşım nerede EF geçişler aracılığıyla şema dağıtımın sıkı şekilde yeni bir veritabanı kaydını ile uygulamanın parça eşlemesindeki bir parça olarak bağlı yol açar. Bu, aşağıdaki önkoşulların üzerinde dayanır: 
+Bu, tooan yaklaşım nerede EF geçişler aracılığıyla şema dağıtımın sıkı şekilde hello yeni veritabanının hello kaydı hello uygulamanın parça eşlemesindeki bir parça olarak bağlı yol açar. Bu Önkoşullar aşağıdaki hello üzerinde dayanır: 
 
-* Veritabanı zaten oluşturuldu. 
-* Veritabanı boş - kullanıcı şeması yok ve hiçbir kullanıcı verileri tutar.
-* Veritabanı, esnek veritabanı istemci API'leri veri bağımlı yönlendirme için henüz erişilemiyor. 
+* Merhaba veritabanı zaten oluşturuldu. 
+* Merhaba veritabanı boş - kullanıcı şeması yok ve hiçbir kullanıcı verileri tutar.
+* Merhaba veritabanı henüz veri bağımlı yönlendirme için hello esnek veritabanı istemci API erişilemiyor. 
 
-Bu önkoşulları yerine getirilince, bir normal oluşturabilir açılmamış **SqlConnection** EF geçişler şema dağıtımı için devre dışı tetiklersiniz için. Aşağıdaki kod örneği, bu yaklaşım gösterilmektedir. 
+Bu önkoşulları yerine getirilince, bir normal oluşturabilir açılmamış **SqlConnection** tookick EF geçişler şema dağıtımı için devre dışı. Aşağıdaki kod örneği hello bu yaklaşım gösterilmektedir. 
 
-        // Enter a new shard - i.e. an empty database - to the shard map, allocate a first tenant to it  
-        // and kick off EF intialization of the database to deploy schema 
+        // Enter a new shard - i.e. an empty database - toohello shard map, allocate a first tenant tooit  
+        // and kick off EF intialization of hello database toodeploy schema 
 
         public void RegisterNewShard(string server, string database, string connStr, int key) 
         { 
@@ -213,25 +213,25 @@ Bu önkoşulları yerine getirilince, bir normal oluşturabilir açılmamış **
             connStrBldr.DataSource = server; 
             connStrBldr.InitialCatalog = database; 
 
-            // Go into a DbContext to trigger migrations and schema deployment for the new shard. 
+            // Go into a DbContext tootrigger migrations and schema deployment for hello new shard. 
             // This requires an un-opened connection. 
             using (var db = new ElasticScaleContext<int>(connStrBldr.ConnectionString)) 
             { 
-                // Run a query to engage EF migrations 
+                // Run a query tooengage EF migrations 
                 (from b in db.Blogs 
                     select b).Count(); 
             } 
 
-            // Register the mapping of the tenant to the shard in the shard map. 
-            // After this step, data-dependent routing on the shard map can be used 
+            // Register hello mapping of hello tenant toohello shard in hello shard map. 
+            // After this step, data-dependent routing on hello shard map can be used 
 
             this.ShardMap.CreatePointMapping(key, shard); 
         } 
 
 
-Bu örnek yöntemi gösterilir **RegisterNewShard** parça parça eşlemesinde kaydeder, şemanın EF geçişler aracılığıyla dağıtır ve parça parçalama anahtarına eşlemesi depolar. Bir oluşturucusuna dayanır **DbContext** bir alt kümesi (**ElasticScaleContext** örnekteki), bir SQL bağlantı dizesi giriş olarak alır. Bu oluşturucu doğrudan İleri aşağıdaki örnekte gösterildiği gibi koddur: 
+Bu örnek hello yöntemi gösterilir **RegisterNewShard** yazmaçlar hello parça eşlemesindeki parça hello hello şema EF geçişler aracılığıyla dağıtır ve parçalama anahtar toohello parça eşlemesi depolar. Merhaba, bir oluşturucusuna dayanır **DbContext** alt (**ElasticScaleContext** hello örnekteki), bir SQL bağlantı dizesi giriş olarak alır. Bu oluşturucu Hello kodunu düz iletme örnekte gösterildiği aşağıdaki hello, şöyledir: 
 
-        // C'tor to deploy schema and migrations to a new shard 
+        // C'tor toodeploy schema and migrations tooa new shard 
         protected internal ElasticScaleContext(string connectionString) 
             : base(SetInitializerForConnection(connectionString)) 
         { 
@@ -240,24 +240,24 @@ Bu örnek yöntemi gösterilir **RegisterNewShard** parça parça eşlemesinde k
         // Only static methods are allowed in calls into base class c'tors 
         private static string SetInitializerForConnection(string connnectionString) 
         { 
-            // We want existence checks so that the schema can get deployed 
+            // We want existence checks so that hello schema can get deployed 
             Database.SetInitializer<ElasticScaleContext<T>>( 
         new CreateDatabaseIfNotExists<ElasticScaleContext<T>>()); 
 
             return connnectionString; 
         } 
 
-Bir taban sınıftan devralınan Oluşturucusu sürümünü kullanmış olabilirsiniz. Ancak EF varsayılan Başlatıcı bağlanırken kullanıldığından emin olmak kod gerekiyor. Bu nedenle kısa saptıran statik yöntemiyle bağlantı dizesiyle temel sınıf oluşturucu içine çağırmadan önce. Parça kaydını farklı uygulama etki alanı ya da EF Başlatıcı ayarlarını çakışmasını emin olmak için işlem çalışması gerektiğini unutmayın. 
+Bir hello taban sınıfından devralınan hello Oluşturucusu hello sürümünü kullanmış olabilirsiniz. Ancak EF varsayılan Başlatıcısı hello hello Kod gereksinimlerini tooensure bağlanırken kullanılır. Bu nedenle hello statik yöntemiyle hello temel sınıf oluşturucu hello bağlantı dizesiyle içine çağırmadan önce kısa detour hello. Parça Hello kaydı EF hello Başlatıcı ayarlarını değil çakışan bir farklı uygulama etki alanı ya da işlem tooensure içinde çalışması gerektiğini unutmayın. 
 
 ## <a name="limitations"></a>Sınırlamalar
-Bu belgede özetlenen yaklaşımlar birkaç sınırlama oluşturulmasını gerektirir: 
+Bu belgede özetlenen hello yaklaşımlar birkaç sınırlama oluşturulmasını gerektirir: 
 
-* Kullanan EF uygulamaları **LocalDb** esnek veritabanı istemci kitaplığı kullanmadan önce normal bir SQL Server veritabanına geçirmek önce gerekir. Esnek ölçeklendirme ile parçalama aracılığıyla bir uygulama ölçeğini mümkün değil **LocalDb**. Geliştirme hala kullanabileceğinizi unutmayın **LocalDb**. 
-* Veritabanı şema değişiklikleri kapsıyor değişiklikleri uygulamaya tüm parça EF geçişleri geçmeniz. Bu belge için örnek kod, bunun nasıl yapılacağı gösterilmemiştir. Tüm parça yinelemek için ConnectionString parametresiyle Update-Database kullanmayı düşünün; veya Update-Database kullanarak bekleyen geçiş T-SQL komut dosyasını ayıklamak komut dosyası seçeneği ve T-SQL betiği, parça uygulayın.  
-* Bir istek göz önüne alındığında, tüm veritabanı işleme içinde yer alır, tek bir parça istek tarafından sağlanan parçalama anahtarı tarafından tanımlandığı gibi varsayılır. Ancak, bu varsayım her zaman true tutmaz. Örneğin, ne zaman bir parçalama anahtarı kullanılabilir hale getirmek mümkündür değil. Bu sorunu çözmek için istemci kitaplığı sağlayan **MultiShardQuery** birkaç parça sorgulama için bir bağlantı Özet uygulayan sınıf. Kullanmayı öğrenme **MultiShardQuery** EF ile birlikte bu belgenin kapsamında değildir
+* Kullanan EF uygulamaları **LocalDb** ilk gereksinim toomigrate tooa normal SQL Server veritabanının esnek veritabanı istemci kitaplığı kullanmadan önce. Esnek ölçeklendirme ile parçalama aracılığıyla bir uygulama ölçeğini mümkün değil **LocalDb**. Geliştirme hala kullanabileceğinizi unutmayın **LocalDb**. 
+* Veritabanı şema değişiklikleri kapsıyor herhangi bir değişiklik toohello uygulama tüm parça EF geçişleri üzerinden toogo gerekir. Bu belge için örnek kod Hello göstermek değil nasıl toodo bu. Update-Database tüm parça ConnectionString parametresi tooiterate ile kullanmayı düşünün; veya hello - komut dosyası seçeneği ve hello T-SQL komut dosyası tooyour parça uygulamak extract hello T-SQL komut dosyası için Update-Database kullanarak geçiş bekleyen hello.  
+* Bir istek göz önüne alındığında, tüm veritabanı işleme içinde yer alır, tek bir parça içinde hello isteğiyle sağlanan hello parçalama anahtarı tarafından tanımlandığı gibi varsayılır. Ancak, bu varsayım her zaman true tutmaz. Örneğin, ne zaman olası toomake parçalama anahtarına sahip değil. tooaddress Bu, hello istemci kitaplığı sağlayan hello **MultiShardQuery** birkaç parça sorgulama için bir bağlantı Özet uygulayan sınıf. Toouse hello öğrenme **MultiShardQuery** EF ile birlikte hello bu belgenin kapsamında değildir.
 
 ## <a name="conclusion"></a>Sonuç
-Bu belgede özetlenen adımları, Oluşturucular, yeniden düzenleme yönlendirme bağımlı veriler için esnek veritabanı istemci kitaplığının yetenek EF uygulamaları kullanabilir **DbContext** EF uygulamada kullanılan alt sınıflar. Bu yerlerin gerekli değişiklikler bu sınırlar nerede **DbContext** sınıflar zaten mevcut. Ayrıca, EF uygulamaları yeni parça parça eşlemesindeki eşlemeleri ve gerekli EF geçişler kayıt ile çağırma adımları birleştirerek otomatik şema dağıtımından yararlanmaya devam edebilirsiniz. 
+Bu belgede özetlenen hello adımlara EF uygulamaları hello esnek veritabanı istemci kitaplığının yetenek hello oluşturucular yeniden düzenleme yönlendirme bağımlı veri kullanabilirsiniz **DbContext** hello EF kullanılan alt sınıflar uygulama. Bu sınırları hello değişiklik gerekli toothose yerleştirir nerede **DbContext** sınıflar zaten mevcut. Ayrıca, EF uygulamaları hello gerekli EF geçirilmesi hello kayıt ile yeni parça ve eşlemelerini hello parça eşlemesindeki çağırma hello adımları birleştirerek otomatik şema dağıtımından toobenefit devam edebilir. 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

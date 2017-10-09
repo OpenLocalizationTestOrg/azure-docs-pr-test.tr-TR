@@ -1,6 +1,6 @@
 ---
-title: "Araç durumu tahmin etmek ve alışkanlık - Azure yürüten | Microsoft Docs"
-description: "Araç sistem durumu ve yürüten gerçek zamanlı ve Tahmine dayalı Öngörüler elde etmek için Cortana Intelligence yeteneklerini kullanabilir alışkanlıklarınıza."
+title: "aaaPredict araç sistem durumu ve alışkanlık - Azure yürüten | Microsoft Docs"
+description: "Yürüten alışkanlıklarınıza ve araç sistem durumunu Cortana Intelligence toogain gerçek zamanlı ve Tahmine dayalı Öngörüler Hello özelliklerini kullanın."
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -14,47 +14,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.openlocfilehash: d202d314c61416cf306f760f93e0a4a88a1ab42b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 54cc890ff39493bc040bb809721388349665720f
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook"></a>Araç telemetri analizi çözüm kitabı
-Bu **menü** bu playbook bölümlerde bağlanır. 
+Bu **menü** bu playbook toohello bölümlerde bağlar. 
 
 [!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Süper bilgisayarlar Laboratuvarın dışına taşınmış ve şimdi bizim Garaj yerleşmiş durumdayken! Bu modern otomobiller algılayıcılar, izlemek ve saniyede milyonlarca olayı izleme olanağı veren çok sayıda içerir. 2020 tarafından bu araba çoğunu Internet'e bağlı, bekliyoruz. Bu bol miktarda büyük güvenlik, güvenilirlik ve daha iyi yönlendirmeli bir deneyim sağlamak için veri içine dokunma düşünün! Microsoft, bu gerçekte Cortana Intelligence ile düş yapmıştır.
+Süper bilgisayarlar hello Laboratuvarın dışına taşınmış ve şimdi bizim Garaj yerleşmiş durumdayken! Bu modern otomobiller saniyede milyonlarca etkinliği izlemek ve hello özelliği tootrack vermiş algılayıcılar, çok sayıda içerir. 2020 tarafından bu araba çoğunu bağlı toohello Internet yapıldığını bekliyoruz. Bu bol miktarda veri tooprovide büyük güvenlik, güvenilirlik ve daha iyi yönlendirmeli deneyimi içine dokunma düşünün! Microsoft, bu gerçekte Cortana Intelligence ile düş yapmıştır.
 
-Microsoft'un Cortana Intelligence tam olarak yönetilen büyük veri ve akıllı eyleme verilerinizi dönüştürmenizi sağlar Gelişmiş analytics suite ' dir. Cortana Intelligence araç Telemetri analizi çözüm şablonu tanıtmak istiyoruz. Bu çözümün nasıl araba dealerships, otomobil üreticileri ve sigorta şirketler Cortana Intelligence yeteneklerini gerçek zamanlı kazanmak için kullanabilir ve araç sistem durumu ve yürüten Tahmine dayalı Öngörüler alışkanlıklarınıza gösterir. 
+Microsoft'un Cortana Intelligence tam olarak yönetilen bir büyük veri ve tootransform etkinleştirir analytics suite verilerinizi akıllı eyleme Gelişmiş. Toointroduce istiyoruz Cortana Intelligence araç Telemetri analizi çözüm şablonu toohello. Bu çözümün nasıl araba dealerships, otomobil üreticileri ve sigorta şirketler Cortana Intelligence toogain gerçek zamanlı hello yeteneklerini kullanabilir ve araç sistem durumu ve yürüten Tahmine dayalı Öngörüler alışkanlıklarınıza gösterir. 
 
-Çözüm olarak uygulanan bir [lambda mimarisi deseni](https://en.wikipedia.org/wiki/Lambda_architecture) tam için Cortana Intelligence platformun olası gösteren gerçek zamanlı ve toplu işleme. Çözüm: 
+Merhaba çözümü olarak gerçekleştirilen bir [lambda mimarisi deseni](https://en.wikipedia.org/wiki/Lambda_architecture) hello Cortana Intelligence platformu için tam potansiyelinin hello gösteren gerçek zamanlı ve toplu işleme. Merhaba çözüm: 
 
 * bir araç telematik simulator sağlar
 * Event Hubs Azure'da sanal araç telemetri olayları milyonlarca alma yararlanır 
-* araç sistem üzerinde gerçek zamanlı Öngörüler elde etmek için Stream Analytics kullanır
-* verileri daha zengin toplu analiz için uzun vadeli depolamaya devam eder. 
-* Machine Learning avantajlarından anomali algılama gerçek zamanlı yararlanır getirin ve Tahmine dayalı Öngörüler elde etmek için işleme toplu.
-* ölçekli veri ve orchestration, planlama, kaynak yönetimi ve izleme toplu işleme ardışık işlemek için veri fabrikası dönüştürmek için Hdınsight yararlanır 
+* Stream Analytics toogain gerçek zamanlı Öngörüler araç sistem durumunu kullanır
+* Merhaba verileri daha zengin toplu analiz için uzun vadeli depolamaya devam eder. 
+* Machine Learning avantajlarından anomali algılama gerçek zamanlı yararlanır getirin ve toplu işleme toogain Tahmine dayalı Öngörüler.
+* Ölçek ve Data Factory toohandle orchestration, planlama, kaynak yönetimi ve hello toplu işleme ardışık izleme Hdınsight tootransform veri yararlanır 
 * Bu çözüm gerçek zamanlı veri ve Power BI kullanarak Tahmine dayalı analiz görselleştirmeleri için zengin bir Pano sağlar
 
 ## <a name="architecture"></a>Mimari
 ![Çözüm mimarisi diyagramı](./media/cortana-analytics-playbook-vehicle-telemetry/fig1-vehicle-telemetry-annalytics-solution-architecture.png)
 *Şekil 1 – araç Telemetri analizi çözüm mimarisi*
 
-Bu çözümü şunlardır **Cortana Intelligence bileşenleri** ve bunların uçtan uca tümleştirme genişletilebileceğini gösterir:
+Bu çözüm hello aşağıdakileri içeren **Cortana Intelligence bileşenleri** ve bunların son tooend tümleştirme genişletilebileceğini gösterir:
 
 * **Olay hub'ları** Azure'da araç telemetri olayları milyonlarca alma için.
 * **Akış analizi** araç sistem üzerinde gerçek zamanlı Öngörüler öğrenilmesi ve bu verileri daha zengin toplu analiz için uzun vadeli depolamaya devam eder.
-* **Machine Learning** anomali algılama gerçek zamanlı ve toplu işleme Tahmine dayalı Öngörüler elde edin.
-* **Hdınsight** ölçeğinde veri dönüştürme için de
-* **Veri Fabrikası** planlama, kaynak yönetimi ve izleme toplu işleme ardışık orchestration işler.
+* **Machine Learning** anomali algılama gerçek zamanlı ve toplu toogain Tahmine dayalı Öngörüler işleme.
+* **Hdınsight** ölçekte çevrelerini tootransform veriler
+* **Veri Fabrikası** planlama, kaynak yönetimi ve izleme hello toplu işleme ardışık orchestration işler.
 * **Power BI** gerçek zamanlı veri ve Tahmine dayalı analiz görselleştirmeleri için zengin bir Pano bu çözümü sunar.
 
 Bu çözüm iki farklı erişen **veri kaynakları**: 
 
-* **Benzetimli araç sinyalleri ve tanılama**: araç telematik simulator tanılama bilgileri ve karşılık gelen sinyalleri araç ve belirli bir noktada yönlendirmeli düzeni durumuna zamanında yayar. 
-* **Araç katalog**: Toplamıdır modeli eşleme içeren bir başvuru veri kümesi.
+* **Benzetimli araç sinyalleri ve tanılama**: tanı bilgilerini ve toohello durumunu hello araç ve düzeni, zaman içinde belirli bir anda yürüten hello karşılık gelen sinyalleri bir araç telematik simulator yayar. 
+* **Araç katalog**: Toplamıdır toomodel eşleme içeren bir başvuru veri kümesi.
 

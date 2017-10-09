@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory kimlik doğrulaması - SQL yapılandırma | Microsoft Docs"
-description: "SQL Database ve SQL Data Warehouse için Azure Active Directory kimlik doğrulaması kullanarak bağlanmak öğrenin."
+title: "aaaConfigure Azure Active Directory kimlik doğrulaması - SQL | Microsoft Docs"
+description: "Bilgi nasıl tooconnect tooSQL veritabanı ve Azure Active Directory kimlik doğrulamasını kullanarak SQL Data Warehouse."
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -16,118 +16,118 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 07/10/2017
 ms.author: rickbyh
-ms.openlocfilehash: 61a52813769891aa63373437e9300d4f8f47fab2
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.openlocfilehash: d6222da0b840f96d4bcfbc02964dc7c54d5ea1ee
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-or-sql-data-warehouse"></a>Yapılandırma ve SQL Database veya SQL Data Warehouse ile Azure Active Directory kimlik doğrulaması yönetme
 
-Bu makalede oluşturun ve Azure AD doldurmak ve Azure SQL Database ve SQL Data Warehouse ile Azure AD kullanın gösterilmektedir. Genel bir bakış için bkz: [Azure Active Directory kimlik doğrulaması](sql-database-aad-authentication.md).
+Bu makale size nasıl gösterir toocreate ve Azure AD doldurun ve ardından Azure SQL Database ve SQL Data Warehouse ile Azure AD kullanın. Genel bir bakış için bkz: [Azure Active Directory kimlik doğrulaması](sql-database-aad-authentication.md).
 
 >  [!NOTE]  
->  Bir Azure Active Directory hesabı kullanarak bir Azure VM üzerinde çalışan SQL Server için bağlanması desteklenmiyor. Etki alanı Active Directory hesabı kullanın.
+>  Bir Azure VM çalıştıran sunucu bir Azure Active Directory hesabı kullanarak desteklenmiyor tooSQL bağlanılıyor. Etki alanı Active Directory hesabı kullanın.
 
 ## <a name="create-and-populate-an-azure-ad"></a>Oluşturma ve Azure AD doldurma
-Azure AD oluşturabilir ve kullanıcılar ve gruplar ile doldurabilirsiniz. Azure AD ilk etki alanı Azure AD yönetilen etki alanı olabilir. Azure AD, bir şirket içi Active Directory etki alanı birleştirildiyse Hizmetleri'nde Azure AD ile de olabilir.
+Azure AD oluşturabilir ve kullanıcılar ve gruplar ile doldurabilirsiniz. Azure AD hello ilk etki alanı Azure AD yönetilen etki alanı olabilir. Azure AD, bir şirket içi Active Directory etki alanı hello Azure AD ile Federasyon Hizmetleri de olabilir.
 
-Daha fazla bilgi edinmek için bkz. [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](../active-directory/active-directory-aadconnect.md), [Kendi etki alanı adınızı Azure AD'ye ekleme](../active-directory/active-directory-add-domain.md), [Microsoft Azure artık Windows Server Active Directory ile federasyonu destekliyor](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Azure AD dizininizi yönetme](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Azure AD'yi Windows PowerShell kullanarak yönetme](/powershell/azure/overview?view=azureadps-2.0) ve [Karma Kimlik için gerekli bağlantı noktaları ve protokoller](../active-directory/active-directory-aadconnect-ports.md).
+Daha fazla bilgi için bkz: [şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](../active-directory/active-directory-aadconnect.md), [kendi etki alanı adı tooAzure AD eklemek](../active-directory/active-directory-add-domain.md), [Microsoft Azure artık, Federasyon ile destekler Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/), [Azure AD dizininizi yönetme](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Yönet Windows PowerShell kullanarak Azure AD](/powershell/azure/overview?view=azureadps-2.0), ve [karma kimlik Gerekli bağlantı noktalarını ve protokolleri](../active-directory/active-directory-aadconnect-ports.md).
 
-## <a name="optional-associate-or-change-the-active-directory-that-is-currently-associated-with-your-azure-subscription"></a>İsteğe bağlı: İlişkilendir ya da şu anda Azure aboneliğinizle ilişkili olan active directory değiştirme
-Kuruluşunuz için Azure AD dizini veritabanınızı ilişkilendirmek için dizin veritabanını barındıran Azure aboneliği için güvenilen bir dizin oluşturun. Daha fazla bilgi için bkz. [Azure aboneliklerinin Azure AD ile ilişkisi](https://msdn.microsoft.com/library/azure/dn629581.aspx).
+## <a name="optional-associate-or-change-hello-active-directory-that-is-currently-associated-with-your-azure-subscription"></a>İsteğe bağlı: İlişkilendir ya da şu anda Azure aboneliğinizle ilişkili hello active directory değiştirme
+tooassociate veritabanınızı, kuruluşunuz için hello Azure AD diziniyle hello dizin hello Azure aboneliği barındırma hello veritabanı için güvenilen bir dizin olun. Daha fazla bilgi için bkz. [Azure aboneliklerinin Azure AD ile ilişkisi](https://msdn.microsoft.com/library/azure/dn629581.aspx).
 
-**Ek bilgi:** her Azure aboneliği Azure AD örneğiyle birlikte bir güven ilişkisi vardır. Bu; Azure aboneliğinin kullanıcılar, hizmetler ve cihazlar için kimlik doğrulaması yapmak üzere bu dizine güvendiği anlamına gelir. Birden çok abonelik aynı dizine güvenebilir ancak bir abonelik yalnızca bir dizine güvenir. Dizin, aboneliğinizde güvendiği görebilirsiniz **ayarları** adresindeki sekmesinde [https://manage.windowsazure.com/](https://manage.windowsazure.com/). Aboneliğin bir dizinle arasındaki bu güven ilişkisi, bir aboneliğin daha çok abonelik alt kaynakları gibi olan, Azure'daki tüm diğer kaynaklarla (web siteleri, veritabanları ve benzeri) sahip olduğu ilişkiye benzer nitelikte değildir. Bir aboneliğin süresi dolarsa abonelikle ilişkili bu diğer kaynaklara erişim de durdurulur. Ancak dizin Azure içinde kalır, siz de başka bir aboneliği bu dizinle ilişkilendirebilir, dizin kullanıcılarını yönetmeye devam edebilirsiniz. Kaynaklar hakkında daha fazla bilgi için bkz: [azure'da kaynak erişimini anlama](https://msdn.microsoft.com/library/azure/dn584083.aspx).
+**Ek bilgi:** her Azure aboneliği Azure AD örneğiyle birlikte bir güven ilişkisi vardır. Bu dizin tooauthenticate güvenler bu anlamına gelir kullanıcılar, hizmetler ve cihazlar. Birden çok abonelik hello güvenebileceği aynı dizinde, ancak bir abonelik yalnızca bir dizine güvenir. Aboneliğinizi hello altında hangi dizine güvendiği görebilirsiniz **ayarları** adresindeki sekmesinde [https://manage.windowsazure.com/](https://manage.windowsazure.com/). Bir aboneliğin bir dizinle arasındaki bu güven ilişkisini daha fazla abonelik alt kaynakları gibi olan tüm diğer azure'deki kaynaklarla (Web siteleri, veritabanları ve benzeri) bir aboneliğe sahip hello ilişki benzemez. Bir abonelik süresi dolmadan sonra toothose hello aboneliği ile ilişkili diğer kaynaklara erişim de durdurulur. Ancak hello dizin Azure içinde kalır ve başka bir aboneliği bu dizinle ilişkilendirebilir ve toomanage hello dizin kullanıcılar devam edebilirsiniz. Kaynaklar hakkında daha fazla bilgi için bkz: [azure'da kaynak erişimini anlama](https://msdn.microsoft.com/library/azure/dn584083.aspx).
 
-Aşağıdaki yordamlar belirli bir aboneliğe için ilişkili dizininin nasıl değiştirileceğini gösterir.
-1. Bağlanma, [Klasik Azure portalı](https://manage.windowsazure.com/) Azure Abonelik Yöneticisi kullanarak.
-2. Sol başlığında seçin **ayarları**.
-3. Aboneliklerinizi ayarları ekranında görüntülenir. İstenen abonelik görünmüyorsa tıklatın **abonelikleri** en üstte açılan **FİLTRESİ tarafından dizin** kutusuna ve aboneliklerinizi içeren dizini seçin ve ardından tıklatın**UYGULA**.
+Merhaba aşağıdaki yordamlar belirli bir aboneliğe ilişkin dizin toochange hello nasıl ilişkili gösterir.
+1. Tooyour bağlanmak [Klasik Azure portalı](https://manage.windowsazure.com/) Azure Abonelik Yöneticisi kullanarak.
+2. Merhaba sol başlığında, seçin **ayarları**.
+3. Aboneliklerinizi hello ayarları ekranında görüntülenir. Hello abonelik görünmez isterseniz tıklayın **abonelikleri** hello hello üstünde bırakma **FİLTRESİ tarafından dizin** kutusunda ve aboneliklerinizi içeren hello dizin seçin ve ardından **UYGULA**.
    
     ![Abonelik seç][4]
-4. İçinde **ayarları** alanında, aboneliğinizi tıklayın ve ardından **dizini Düzenle** sayfanın sonundaki.
+4. Merhaba, **ayarları** alanında, aboneliğinizi tıklayın ve ardından **dizini Düzenle** hello sayfanın hello sonundaki.
    
     ![ad ayarları portalı][5]
-5. İçinde **dizini Düzenle** kutusuna SQL Server veya SQL Data Warehouse ile ilişkili Azure Active Directory'yi seçin ve ardından sonraki oka tıklayın.
+5. Merhaba, **dizini Düzenle** kutusunda, hello SQL Server veya SQL Data Warehouse ile ilişkili Azure Active Directory seçin ve ardından İleri hello oka tıklayın.
    
     ![Düzen dizini seçin][6]
-6. İçinde **Onayla** dizin eşleme iletişim kutusunu Onayla "**tüm ortak Yöneticiler kaldırılır.**"
+6. Merhaba, **Onayla** dizin eşleme iletişim kutusunu Onayla "**tüm ortak Yöneticiler kaldırılır.**"
    
     ![Edit directory onaylayın][7]
-7. Portal yeniden Denetle'yi tıklatın.
+7. Merhaba onay tooreload hello portal'ı tıklatın.
 
    > [!NOTE]
-   > Ne zaman dizini, tüm ortak Yöneticiler, Azure AD kullanıcıları ve grupları, erişimi değiştirin ve yedeklenen dizin kaynak kullanıcıları kaldırılır ve artık bu abonelik veya kaynaklarına erişimi. Yalnızca, Hizmet Yöneticisi olarak, erişim için yeni dizinine göre ilkeleri yapılandırabilirsiniz. Bu değişiklik, tüm kaynaklara yaymak için önemli bir süre alabilir. Dizini değiştirme ayrıca SQL Database ve SQL Data Warehouse için Azure AD Yöneticisi değiştirir ve veritabanı erişimi var olan Azure AD kullanıcısı için izin verme. Azure AD yönetim olmalıdır (aşağıda açıklandığı gibi) sıfırlama ve yeni Azure AD kullanıcıları oluşturulmalıdır.
+   > Ne zaman hello dizin, erişim tooall ortak Yöneticiler, Azure AD kullanıcıları ve grupları, değiştirmek ve yedeklenen dizin kaynak kullanıcıları kaldırılır ve artık erişim toothis abonelik veya kaynaklarına sahiptir. Yalnızca, Hizmet Yöneticisi olarak, erişim hello yeni dizinine göre Sorumlular için yapılandırabilirsiniz. Bu değişiklik, önemli miktarda zaman toopropagate tooall kaynak sürebilir. Merhaba dizinini değiştirme, ayrıca değişiklikleri SQL Database ve SQL Data Warehouse için Azure AD Yöneticisi hello ve mevcut Azure AD kullanıcısı için veritabanı erişimine izin vermeyecek. Azure AD Hello Yöneticisi olması gerekir (aşağıda açıklandığı gibi) sıfırlama ve yeni Azure AD kullanıcıları oluşturulmalıdır.
    >  
 
 ## <a name="create-an-azure-ad-administrator-for-azure-sql-server"></a>Azure SQL server için Azure AD Yöneticisi oluşturma
-(Bir SQL veritabanı ya da SQL veri ambarı barındıran) her Azure SQL sunucusu, tüm Azure SQL server'ın yönetici haklarına sahip tek sunucu yöneticisi hesabı ile başlar. İkinci bir SQL Server Yöneticisi, bir Azure AD hesabı olan oluşturulması gerekir. Bu asıl ana veritabanı bir kapsanan veritabanı kullanıcı olarak oluşturulur. Yönetici olarak, sunucu yönetici hesapları, üyesi **db_owner** her kullanıcı rolünde veritabanı ve her kullanıcı veritabanı olarak girin **dbo** kullanıcı. Sunucu yönetici hesapları hakkında daha fazla bilgi için bkz: [yönetme veritabanları ve oturum açma bilgileri Azure SQL veritabanında](sql-database-manage-logins.md).
+(Bu, bir SQL veritabanı ya da SQL veri ambarı barındıran) her bir Azure SQL server hello tüm Azure SQL server'ın hello yöneticisi olan bir tek sunucu yöneticisi hesabı ile başlar. İkinci bir SQL Server Yöneticisi, bir Azure AD hesabı olan oluşturulması gerekir. Bu asıl hello ana veritabanında bir kapsanan veritabanı kullanıcı olarak oluşturulur. Yönetici olarak hello server yönetici hesabı hello üyesi **db_owner** her kullanıcı rolünde veritabanı ve her bir kullanıcı veritabanını hello girin **dbo** kullanıcı. Merhaba sunucu yönetici hesapları hakkında daha fazla bilgi için bkz: [yönetme veritabanları ve oturum açma bilgileri Azure SQL veritabanında](sql-database-manage-logins.md).
 
-Azure Active Directory coğrafi çoğaltma ile kullanırken, Azure Active Directory Yöneticisi hem birincil hem de ikincil sunucular için yapılandırılması gerekir. Bir sunucu bir Azure Active Directory yönetici sahip değilse daha sonra Azure Active Directory oturumları ve kullanıcıları bir "sunucu hatası bağlanılamıyor" alırlar.
+Azure Active Directory coğrafi çoğaltma ile kullanırken, hello Azure Active Directory Yöneticisi hello birincil ve ikincil sunucular hello için yapılandırılması gerekir. Daha sonra bir sunucu bir Azure Active Directory yönetici yoksa, Azure Active Directory oturumları ve kullanıcıları bir "bağlanılamıyor" tooserver hatası alırsınız.
 
 > [!NOTE]
-> (Azure SQL server yönetici hesabı dahil) bir Azure AD hesabında dayalı olmayan kullanıcılar önerilen veritabanı kullanıcıları Azure AD ile doğrulama izni olmadığı için Azure AD tabanlı kullanıcılar, oluşturamıyor.
+> (Hello Azure SQL server yönetici hesabı dahil) bir Azure AD hesabında dayalı olmayan kullanıcılar hello Azure AD ile veritabanı kullanıcıları önerilen izni toovalidate olmadığı için Azure AD tabanlı kullanıcılar, oluşturamıyor.
 > 
 
 ## <a name="provision-an-azure-active-directory-administrator-for-your-azure-sql-server"></a>Azure Active Directory yönetici Azure SQL sunucunuzun sağlama
 
-Aşağıdaki iki yordamdan Azure portalında ve PowerShell kullanarak Azure SQL server için Azure Active Directory yönetici sağlama gösterir.
+Aşağıdaki iki yordamlarını hello Göster, nasıl tooprovision Azure SQL sunucunuza hello Azure portal ve PowerShell kullanarak Azure Active Directory Yöneticisi.
 
 ### <a name="azure-portal"></a>Azure portalına
-1. İçinde [Azure portal](https://portal.azure.com/), sağ üst köşede, açılan olası etkin dizinlerin bir liste için bağlantınızı tıklatın. Doğru Active Directory varsayılan olarak Azure AD seçin. Bu adım, her ikisi için aynı abonelik kullanılır emin Azure SQL server ile Active Directory ile abonelik ilişkisi bağlar. Azure AD ve SQL Server. (Azure SQL Azure SQL Database veya Azure SQL Data Warehouse barındırma sunucusu olması.)   
+1. Merhaba, [Azure portal](https://portal.azure.com/), buna hello sağ üst köşesinde, olası Active dizinlerin listesini aşağı, bağlantı toodrop'ı tıklatın. Merhaba seçin Azure AD hello varsayılan olarak Active Directory düzeltin. Bu adım bağlantılar hello abonelik ilişkisi Active Directory ile aynı abonelik hello emin Azure SQL server ile her ikisi için kullanılan Azure AD ve SQL Server. (hello Azure SQL Azure SQL Database veya Azure SQL Data Warehouse barındırma sunucusu.)   
     ![ad seçin][8]   
     
-2. Sol başlığında seçin **SQL sunucuları**seçin, **SQL server**ve ardından **SQL Server** dikey penceresinde tıklatın **Active Directory Yöneticisi** .   
-3. İçinde **Active Directory Yöneticisi** dikey penceresinde tıklatın **ayarlamak yönetici**.   
+2. Başlık seçin sol hello içinde **SQL sunucuları**seçin, **SQL server**ve ardından hello **SQL Server** dikey penceresinde tıklatın **Active Directory Yöneticisi**.   
+3. Merhaba, **Active Directory Yönetim** dikey penceresinde tıklatın **ayarlamak yönetici**.   
     ![Active Directory'yi seçin](./media/sql-database-aad-authentication/select-active-directory.png)  
     
-4. İçinde **yönetici ekleme** dikey penceresinde, bir kullanıcı ara seçin kullanıcı veya gruba bir yönetici olmanız ve ardından **seçin**. (Active Directory Yönetim dikey tüm üyeleri ve grupları, Active Directory gösterir. Kullanıcıları veya gri renkte grupları Azure AD Yöneticiler desteklenmediği için seçilemez. (Desteklenen admins listesini görmek **Azure AD özelliklerini ve sınırlamalarını** bölümünü [Azure Active Directory kimlik doğrulamasını kullan SQL Database veya SQL Data Warehouse ile kimlik doğrulaması için](sql-database-aad-authentication.md).) Rol tabanlı erişim denetimi (RBAC) yalnızca portalına uygular ve SQL Server'a dağıtılmaz.   
+4. Merhaba, **yönetici ekleme** dikey penceresinde, bir kullanıcı, select hello kullanıcı veya grup toobe yönetici için arama yapın ve ardından **seçin**. (tüm üyeleri ve grupları, Active Directory hello Active Directory Yönetim dikey gösterir. Kullanıcıları veya gri renkte grupları Azure AD Yöneticiler desteklenmediği için seçilemez. (Merhaba desteklenen admins hello listesini **Azure AD özelliklerini ve sınırlamalarını** bölümünü [Azure Active Directory kimlik doğrulamasını kullan SQL Database veya SQL Data Warehouse ile kimlik doğrulaması için](sql-database-aad-authentication.md).) Rol tabanlı erişim denetimi (RBAC) yalnızca toohello portalı uygular ve yayılan tooSQL sunucusu değil.   
     ![yönetici seçin](./media/sql-database-aad-authentication/select-admin.png)  
     
-5. Üstündeki **Active Directory Yöneticisi** dikey penceresinde tıklatın **KAYDETMEK**.   
+5. Merhaba hello üstündeki **Active Directory Yöneticisi** dikey penceresinde tıklatın **KAYDETMEK**.   
     ![Yönetici Kaydet](./media/sql-database-aad-authentication/save-admin.png)   
 
-Yönetici değiştirme işlemi birkaç dakika sürebilir. Yeni yönetici görünür sonra **Active Directory Yöneticisi** kutusu.
+hello Yöneticisi değiştirme hello işlemi birkaç dakika sürebilir. Merhaba yeni yönetici hello görünür sonra **Active Directory Yöneticisi** kutusu.
 
    > [!NOTE]
-   > Azure AD yönetim ayarlarken, yeni yönetici adı (kullanıcı veya grup) zaten bir SQL Server kimlik doğrulama kullanıcı olarak sanal ana veritabanında var olamaz. Varsa, Azure AD yönetim kurulum başarısız olur; Bu oluşturma geri alınıyor ve böyle bir yöneticinin (ad) zaten belirten bulunmaktadır. Böyle bir SQL Server kimlik doğrulama kullanıcı Azure AD parçası olmadığından, Azure AD kimlik doğrulaması kullanarak sunucuya bağlanmak için tüm çaba başarısız olur.
+   > Hello Azure AD yönetim ayarlarken hello yeni yönetici adı (kullanıcı veya grup) zaten bir SQL Server kimlik doğrulama kullanıcı olarak hello sanal ana veritabanında var olamaz. Varsa, hello Azure AD yönetim kurulum başarısız olur; Bu oluşturma geri alınıyor ve böyle bir yöneticinin (ad) zaten belirten bulunmaktadır. Böyle bir SQL Server kimlik doğrulama kullanıcı hello Azure AD parçası olmadığından, Azure AD kimlik doğrulaması kullanan tüm çaba tooconnect toohello server başarısız olur.
    > 
 
 
-Daha sonra en üstündeki bir yönetici kaldırmak için **Active Directory Yönetim** dikey penceresinde tıklatın **kaldırmak yönetici**ve ardından **kaydetmek**.
+toolater kaldırmak hello hello üstündeki bir yönetici **Active Directory Yönetim** dikey penceresinde tıklatın **kaldırmak yönetici**ve ardından **kaydetmek**.
 
 ### <a name="powershell"></a>PowerShell
-PowerShell cmdlet'lerini çalıştırmak için Azure PowerShell yüklenmiş ve çalışıyor olması gerekir. Ayrıntılı bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview).
+toorun PowerShell cmdlet'leri, toohave Azure yüklü ve çalışan PowerShell gerekir. Ayrıntılı bilgi için bkz: [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azure/overview).
 
-Bir Azure AD yönetim sağlamak için aşağıdaki Azure PowerShell komutları yürütün:
+bir Azure AD yönetim tooprovision Azure PowerShell komutlarını aşağıdaki hello yürütün:
 
 * Add-AzureRmAccount
 * Select-AzureRmSubscription
 
-Sağlamak ve Azure AD yönetim yönetmek için cmdlet'ler kullanılır:
+Cmdlet'leri tooprovision kullanılan ve Azure AD yönetim yönetebilirsiniz:
 
 | Cmdlet adı | Açıklama |
 | --- | --- |
-| [Set-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/set-azurermsqlserveractivedirectoryadministrator) |Azure SQL server veya Azure SQL Data Warehouse için Azure Active Directory yönetici sağlar. (Geçerli abonelikten olması gerekir.) |
+| [Set-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/set-azurermsqlserveractivedirectoryadministrator) |Azure SQL server veya Azure SQL Data Warehouse için Azure Active Directory yönetici sağlar. (Merhaba geçerli abonelikten olması gerekir.) |
 | [Remove-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/remove-azurermsqlserveractivedirectoryadministrator) |Azure SQL server veya Azure SQL Data Warehouse için Azure Active Directory yönetici kaldırır. |
-| [Get-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/get-azurermsqlserveractivedirectoryadministrator) |Azure SQL sunucusu veya Azure SQL Data Warehouse için yapılandırılmış bir Azure Active Directory Yöneticisi hakkında bilgi verir. |
+| [Get-AzureRmSqlServerActiveDirectoryAdministrator](/powershell/module/azurerm.sql/get-azurermsqlserveractivedirectoryadministrator) |Hello Azure SQL sunucusu veya Azure SQL Data Warehouse için yapılandırılmış bir Azure Active Directory Yöneticisi hakkında bilgi verir. |
 
-Örneğin her bu komutları için daha fazla ayrıntı görmek için PowerShell komutu get-help kullanın ``get-help Set-AzureRmSqlServerActiveDirectoryAdministrator``.
+PowerShell komutu get-help toosee daha ayrıntılı her bu komutları için örneğin kullanma ``get-help Set-AzureRmSqlServerActiveDirectoryAdministrator``.
 
-Aşağıdaki komut dosyası Azure AD yönetici grubuna adlı hükümleri **DBA_Group** (nesne kimliği `40b79501-b343-44ed-9ce7-da4c8cc7353f`) için **demo_server** adlı bir kaynak grubunda sunucu **Grup-23**:
+Azure AD yönetici grubuna adlı komut dosyası hazırlar aşağıdaki hello **DBA_Group** (nesne kimliği `40b79501-b343-44ed-9ce7-da4c8cc7353f`) hello için **demo_server** adlı bir kaynak grubunda sunucu **Grup 23** :
 
 ```
 Set-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23"
 -ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
-**DisplayName** giriş parametresi Azure AD görünen adı veya kullanıcı asıl adını kabul eder. Örneğin, ``DisplayName="John Smith"`` ve ``DisplayName="johns@contoso.com"``. Azure AD grupları yalnızca Azure AD görünen adı desteklenir.
+Merhaba **DisplayName** giriş parametresi hello Azure AD görünen adı veya kullanıcı asıl adı hello kabul eder. Örneğin, ``DisplayName="John Smith"`` ve ``DisplayName="johns@contoso.com"``. Azure AD grupları yalnızca hello için Azure AD görünen adı desteklenir.
 
 > [!NOTE]
-> Azure PowerShell komutunu ```Set-AzureRmSqlServerActiveDirectoryAdministrator``` desteklenmeyen kullanıcılar için Azure AD yöneticileri sağlama engellemez. Desteklenmeyen bir kullanıcı sağlanabilir, ancak bir veritabanına bağlanamıyor. 
+> Hello Azure PowerShell komutunu ```Set-AzureRmSqlServerActiveDirectoryAdministrator``` desteklenmeyen kullanıcılar için Azure AD yöneticileri sağlama engellemez. Desteklenmeyen bir kullanıcı sağlanabilir ancak tooa veritabanına bağlanamıyor. 
 > 
 
-Aşağıdaki örnek isteğe bağlı kullanır **objectID**:
+Merhaba aşağıdaki örnek kullanır hello isteğe bağlı **objectID**:
 
 ```
 Set-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23"
@@ -135,144 +135,144 @@ Set-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23"
 ```
 
 > [!NOTE]
-> Azure AD **objectID** gerekli olduğunda **DisplayName** benzersiz değil. Alınacak **objectID** ve **DisplayName** değerleri, Klasik Azure portalı Active Directory bölümünü kullanın ve bir kullanıcının veya grubun özelliklerini görüntüleyin.
+> Hello Azure AD **objectID** hello gereklidir **DisplayName** benzersiz değil. tooretrieve hello **objectID** ve **DisplayName** değerleri, Klasik Azure portalı hello Active Directory bölümünü kullanın ve bir kullanıcı veya grup hello özelliklerini görüntüleme.
 > 
 
-Aşağıdaki örnek geçerli hakkında bilgi verir Azure SQL server için Azure AD yönetim:
+Aşağıdaki örnek hello Azure SQL server için geçerli Azure AD hello Yöneticisi hakkında bilgi verir:
 
 ```
 Get-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" | Format-List
 ```
 
-Aşağıdaki örnek, Azure AD yönetici kaldırır:
+Aşağıdaki örnek hello Azure AD yönetici kaldırır:
 
 ```
 Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server"
 ```
 
-Azure Active Directory yönetici REST API'lerini kullanarak da sağlayabilirsiniz. Daha fazla bilgi için bkz: [Hizmet Yönetimi REST API Başvurusu ve Azure SQL veritabanları için Azure SQL veritabanı işlemleri için işlemler](https://msdn.microsoft.com/library/azure/dn505719.aspx)
+Azure Active Directory yönetici hello REST API'lerini kullanarak da sağlayabilirsiniz. Daha fazla bilgi için bkz: [Hizmet Yönetimi REST API Başvurusu ve Azure SQL veritabanları için Azure SQL veritabanı işlemleri için işlemler](https://msdn.microsoft.com/library/azure/dn505719.aspx)
 
 ### <a name="cli"></a>CLI  
-Bir Azure AD yönetim aşağıdaki CLI komutları çağırarak de sağlayabilirsiniz:
+Ayrıca, bir Azure AD yönetim CLI komutları aşağıdaki arama hello tarafından sağlayabilirsiniz:
 | Komut | Açıklama |
 | --- | --- |
-|[az sql server ad-Yöneticisi oluşturma](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#create) |Azure SQL server veya Azure SQL Data Warehouse için Azure Active Directory yönetici sağlar. (Geçerli abonelikten olması gerekir.) |
+|[az sql server ad-Yöneticisi oluşturma](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#create) |Azure SQL server veya Azure SQL Data Warehouse için Azure Active Directory yönetici sağlar. (Merhaba geçerli abonelikten olması gerekir.) |
 |[az sql server yönetici ad silme](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#delete) |Azure SQL server veya Azure SQL Data Warehouse için Azure Active Directory yönetici kaldırır. |
-|[az sql server yönetici ad listesi](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#list) |Azure SQL sunucusu veya Azure SQL Data Warehouse için yapılandırılmış bir Azure Active Directory Yöneticisi hakkında bilgi verir. |
-|[az sql server ad Yönetim Güncelleştirme](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#update) |Bir Azure SQL sunucusu veya Azure SQL Data Warehouse için Active Directory Yöneticisi güncelleştirir. |
+|[az sql server yönetici ad listesi](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#list) |Hello Azure SQL sunucusu veya Azure SQL Data Warehouse için yapılandırılmış bir Azure Active Directory Yöneticisi hakkında bilgi verir. |
+|[az sql server ad Yönetim Güncelleştirme](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#update) |Bir Azure SQL sunucusu veya Azure SQL Data Warehouse için Hello Active Directory Yöneticisi güncelleştirir. |
 
 CLI komutları hakkında daha fazla bilgi için bkz: [SQL - az sql](https://docs.microsoft.com/cli/azure/sql/server).  
 
 
 ## <a name="configure-your-client-computers"></a>İstemci bilgisayarları yapılandırın
-Uygulama veya kullanıcıların Azure SQL veritabanı veya Azure SQL Data Warehouse kullanarak Azure AD kimlikleri bağlanmak tüm istemci makinelerde aşağıdaki yazılımları yüklemeniz gerekir:
+Uygulama veya kullanıcıların tooAzure SQL veritabanı veya Azure SQL Data Warehouse kullanarak Azure AD kimlikleri bağlanmak tüm istemci bilgisayarlarında yazılım aşağıdaki hello yüklemeniz gerekir:
 
 * .NET framework 4.6 veya sonrası gelen [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx).
-* SQL Server için Azure Active Directory kimlik doğrulama kitaplığı (**ADALSQL. DLL**) birden çok dilde kullanılabilir (x86 ve amd64) İndirme Merkezi'nden [Microsoft Active Directory kimlik doğrulama kitaplığı için Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=48742).
+* SQL Server için Azure Active Directory kimlik doğrulama kitaplığı (**ADALSQL. DLL**) birden çok dilde kullanılabilir (x86 ve amd64) hello İndirme Merkezi'nden [Microsoft Active Directory kimlik doğrulama kitaplığı için Microsoft SQL Server](http://www.microsoft.com/download/details.aspx?id=48742).
 
 Tarafından bu gereksinimleri karşılayabilirsiniz:
 
-* Ya da yükleme [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) veya [SQL Server veri araçları Visual Studio 2015 için](https://msdn.microsoft.com/library/mt204009.aspx) .NET Framework 4.6 gereksinimini karşılar.
-* SSMS yükler x86 sürümü **ADALSQL. DLL**.
-* SSDT amd64 sürümünü yükler **ADALSQL. DLL**.
-* En son Visual Studio'dan [Visual Studio indirmeleri](https://www.visualstudio.com/downloads/download-visual-studio-vs) .NET Framework 4.6 gereksinimini karşılıyor ancak gerekli amd64 sürümü yüklemez **ADALSQL. DLL**.
+* Ya da yükleme [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) veya [SQL Server veri araçları Visual Studio 2015 için](https://msdn.microsoft.com/library/mt204009.aspx) hello .NET Framework 4.6 gereksinimi karşılar.
+* SSMS hello x86 sürümünü yükler **ADALSQL. DLL**.
+* SSDT hello amd64 sürümünü yükler **ADALSQL. DLL**.
+* Merhaba en son Visual Studio'dan [Visual Studio indirmeleri](https://www.visualstudio.com/downloads/download-visual-studio-vs) hello .NET Framework 4.6 gereksinimini karşılıyor ancak hello gerekli amd64 sürümü yüklemez **ADALSQL. DLL**.
 
-## <a name="create-contained-database-users-in-your-database-mapped-to-azure-ad-identities"></a>Azure AD kimlikleri eşlenen veritabanınızdaki kapsanan veritabanı kullanıcıları oluşturun
+## <a name="create-contained-database-users-in-your-database-mapped-tooazure-ad-identities"></a>Kapsanan veritabanı kullanıcıları, eşlenen veritabanı tooAzure AD kimlikleri oluşturma
 
-Azure Active Directory kimlik doğrulaması kapsanan veritabanı kullanıcıları oluşturulacak veritabanı kullanıcıları gerektirir. Bir Azure AD kimliğine göre bir kapsanan veritabanı kullanıcısı olan bir oturum açma ana veritabanında sahip olmayan bir veritabanı kullanıcısı ve veritabanı ile ilişkili Azure AD dizininde bir kimliğine eşler. Azure AD kimlik bireysel bir kullanıcı hesabı veya bir grup olabilir. Kapsanan veritabanı kullanıcıları hakkında daha fazla bilgi için bkz: [bulunan veritabanı kullanıcıları yapma bilgisayarınızı veritabanı taşınabilir](https://msdn.microsoft.com/library/ff929188.aspx).
+Azure Active Directory kimlik doğrulaması kapsanan veritabanı kullanıcıları oluşturulan veritabanı kullanıcıları toobe gerektirir. Bir Azure AD kimliğine göre bir kapsanan veritabanı kullanıcı, bir oturum açma hello ana veritabanında yok ve hangi eşlemeleri tooan kimliğinde hello hello veritabanıyla ilişkili Azure AD dizini bir veritabanı kullanıcısı değil. Hello Azure AD kimlik bireysel bir kullanıcı hesabı veya bir grup olabilir. Kapsanan veritabanı kullanıcıları hakkında daha fazla bilgi için bkz: [bulunan veritabanı kullanıcıları yapma bilgisayarınızı veritabanı taşınabilir](https://msdn.microsoft.com/library/ff929188.aspx).
 
 > [!NOTE]
-> Veritabanı kullanıcıları (yöneticiler dışında) portal kullanarak oluşturulamıyor. SQL Server, SQL Database veya SQL Data Warehouse için RBAC rolleri yayılmaz. Azure RBAC rolleri Azure kaynaklarını yönetmek için kullanılır ve veritabanı izinleri için geçerli değildir. Örneğin, **SQL Server Katılımcısı** rolü, SQL Database veya SQL Data Warehouse bağlanmak için erişim vermez. Transact-SQL deyimlerini kullanarak veritabanına doğrudan erişim izni verilmesi gerekir.
+> Portal kullanarak veritabanı kullanıcıları (Yöneticiler hello durumla) oluşturulamıyor. RBAC rolleri yayılan tooSQL Server, SQL Database veya SQL Data Warehouse değildir. Azure RBAC rolleri Azure kaynaklarını yönetmek için kullanılır ve toodatabase izinleri geçerli değildir. Örneğin, hello **SQL Server Katılımcısı** rol erişim tooconnect toohello SQL Database veya SQL Data Warehouse vermez. Transact-SQL deyimlerini kullanarak doğrudan hello veritabanında Hello erişim izni verilmesi gerekir.
 >
 
-Bir Azure AD tabanlı bulunan veritabanı (başka kullanıcı veritabanı sahibi Sunucu Yöneticisi) oluşturmak, bir Azure AD kimlik veritabanıyla olan bir kullanıcı olarak bağlanmak için en az **ALTER herhangi bir kullanıcı** izni. Ardından aşağıdaki Transact-SQL söz dizimini kullanın:
+en az bir Azure AD tabanlı bulunan veritabanı kullanıcı (Merhaba veritabanı sahibi hello sunucu yönetici dışında), bir kullanıcı olarak bir Azure AD kimlik ile toohello veritabanı bağlanmak toocreate hello **ALTER herhangi bir kullanıcı** izni. Ardından, Transact-SQL söz dizimi aşağıdaki hello kullanın:
 
 ```
 CREATE USER <Azure_AD_principal_name> FROM EXTERNAL PROVIDER;
 ```
 
-*Azure_AD_principal_name* bir Azure AD kullanıcısının kullanıcı asıl adını veya Azure AD grubundaki görünen adı olabilir.
+*Azure_AD_principal_name* hello kullanıcı asıl adı bir Azure AD kullanıcı veya hello görünen adı Azure AD grubu ile ilgili olabilir.
 
-**Örnekler:** kapsanan bir veritabanı oluşturmak için Azure AD temsil eden kullanıcı federe veya yönetilen etki alanı kullanıcısı:
+**Örnekler:** toocreate Azure AD temsil eden bir kapsanan veritabanı kullanıcı federe veya yönetilen etki alanı kullanıcısı:
 ```
 CREATE USER [bob@contoso.com] FROM EXTERNAL PROVIDER;
 CREATE USER [alice@fabrikam.onmicrosoft.com] FROM EXTERNAL PROVIDER;
 ```
 
-Azure AD temsil eden veya etki alanı grubu federe bir kapsanan veritabanı kullanıcısı oluşturmak için bir güvenlik grubu görünen adını sağlayın:
+Azure AD temsil eden veya etki alanı grubu federe bir kapsanan veritabanı kullanıcı toocreate hello görünen bir güvenlik grubu adını sağlayın:
 ```
 CREATE USER [ICU Nurses] FROM EXTERNAL PROVIDER;
 ```
 
-Bir Azure AD belirteci kullanarak bağlanan bir uygulama temsil eden bir kapsanan veritabanı kullanıcısı oluşturmak için:
+toocreate bir uygulamayı temsil eden bir kapsanan veritabanı kullanıcısı, bir Azure AD belirteci kullanarak bağlanır:
 
 ```
 CREATE USER [appName] FROM EXTERNAL PROVIDER;
 ```
 
 >  [!TIP]
->  Bir kullanıcı, Azure aboneliğinizle ilişkili Azure Active Directory dışındaki bir Azure Active Directory'den doğrudan oluşturulamıyor. Ancak, ilişkili Active Directory'de (dış kullanıcılar olarak da bilinir) içeri aktarılan kullanıcılar olan diğer etkin dizinleri üyeleri Active Directory kiracısındaki bir Active Directory grubuna eklenebilir. Bu AD grubu için kapsanan veritabanı kullanıcı oluşturarak, dış Active Directory'den kullanıcıları SQL veritabanına erişebilir.   
+>  Merhaba, Azure aboneliğinizle ilişkili Azure Active Directory dışındaki bir Azure Active Directory'den kullanıcı doğrudan oluşturulamıyor. Ancak, Active Directory hello içeri aktarılan kullanıcılar olan diğer etkin dizinleri üyeleri ilişkili (dış kullanıcılar olarak bilinir) eklenebilir tooan Active Directory grubu hello Kiracı Active Directory. Bu AD grubu için kapsanan veritabanı kullanıcı oluşturarak hello hello kullanıcılardan dış Active Directory erişim tooSQL veritabanı kaynaklara erişebilir.   
 
 Bulunan oluşturma hakkında daha fazla bilgi için veritabanı kullanıcıları Azure Active Directory kimliği temel, bakın [kullanıcı oluştur (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx).
 
 > [!NOTE]
-> Azure SQL server için Azure Active Directory Yöneticisi kaldırma, herhangi bir Azure AD kimlik doğrulama kullanıcı sunucusuna bağlanmasını engeller. Gerekli olduğunda, kullanılamaz Azure AD kullanıcıları bırakılan el ile bir SQL veritabanı yöneticisi tarafından.   
+> Azure SQL server kaldırma hello Azure Active Directory Yöneticisi herhangi bir Azure AD kimlik doğrulama kullanıcı toohello sunucu bağlanmasını engeller. Gerekli olduğunda, kullanılamaz Azure AD kullanıcıları bırakılan el ile bir SQL veritabanı yöneticisi tarafından.   
 
 >  [!NOTE]
->  Alırsanız, bir **bağlantı zaman aşımı süresi doldu**, ayarlamanız gerekebilir `TransparentNetworkIPResolution` yanlış bağlantı dizesi parametresi. Daha fazla bilgi için bkz: [bağlantı zaman aşımı .NET Framework 4.6.1 - TransparentNetworkIPResolution sorun](https://blogs.msdn.microsoft.com/dataaccesstechnologies/2016/05/07/connection-timeout-issue-with-net-framework-4-6-1-transparentnetworkipresolution/).   
+>  Alırsanız, bir **bağlantı zaman aşımı süresi doldu**, tooset hello gerekebilir `TransparentNetworkIPResolution` hello bağlantı dizesi toofalse parametresi. Daha fazla bilgi için bkz: [bağlantı zaman aşımı .NET Framework 4.6.1 - TransparentNetworkIPResolution sorun](https://blogs.msdn.microsoft.com/dataaccesstechnologies/2016/05/07/connection-timeout-issue-with-net-framework-4-6-1-transparentnetworkipresolution/).   
 
    
-Bir veritabanı kullanıcısı oluşturduğunuzda, bu kullanıcının aldığı **BAĞLAN** izni ve bir üyesi olarak o veritabanına bağlanabilir **ortak** rol. Başlangıçta yalnızca kullanıcı tarafından kullanılabilir verilen izinler izinlerdir **ortak** rol ya da herhangi bir Windows gruplarının üyesi olan tüm izinler. Bir Azure AD tabanlı bulunan veritabanı kullanıcı sağlamak sonra başka bir kullanıcı türüne izni gibi kullanıcı ek, aynı şekilde izin verebilirsiniz. Genellikle veritabanı rolleri izinleri ve kullanıcıları rollere ekleyin. Daha fazla bilgi için bkz: [veritabanı altyapısı izni Temelleri](http://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Özel SQL veritabanı rolleri hakkında daha fazla bilgi için bkz: [yönetme veritabanları ve oturum açma bilgileri Azure SQL veritabanında](sql-database-manage-logins.md).
-Bir Yönet etki alanına içe aktarılan bir Federasyon etki alanı kullanıcısı yönetilen etki alanı kimliği kullanmanız gerekir.
+Bir veritabanı kullanıcısı oluşturduğunuzda, bu kullanıcının hello aldığı **BAĞLAN** izni ve toothat veritabanı hello bir üyesi olarak bağlanabilir **ortak** rol. Başlangıçta yalnızca kullanılabilir toohello kullanıcı olan tüm izinlerin toohello izinleri hello **ortak** rol ya da herhangi bir izin verilen tooany Windows gruplarının bir üyesi olduğundan emin. Hello kullanıcı ek izinler vermeniz bir Azure AD tabanlı bulunan veritabanı kullanıcısı, sağlama sonra aynı şekilde türdeki başka kullanıcı izni tooany vermek gibi hello. Genellikle toodatabase rolleri izinleri ve kullanıcıların tooroles ekleyin. Daha fazla bilgi için bkz: [veritabanı altyapısı izni Temelleri](http://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). Özel SQL veritabanı rolleri hakkında daha fazla bilgi için bkz: [yönetme veritabanları ve oturum açma bilgileri Azure SQL veritabanında](sql-database-manage-logins.md).
+Bir Yönet etki alanına içe aktarılan bir Federasyon etki alanı kullanıcısı hello yönetilen etki alanı kimliği kullanmanız gerekir.
 
 > [!NOTE]
-> Azure AD kullanıcıları veritabanı meta verilerde E (EXTERNAL_USER) türüyle ve gruplar için türü X (EXTERNAL_GROUPS) ile işaretlenir. Daha fazla bilgi için bkz: [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx). 
+> Azure AD kullanıcıları hello veritabanı meta verilerde E (EXTERNAL_USER) türüyle ve grupları için türü X (EXTERNAL_GROUPS) ile işaretlenir. Daha fazla bilgi için bkz: [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx). 
 >
 
-## <a name="connect-to-the-user-database-or-data-warehouse-by-using-ssms-or-ssdt"></a>Kullanıcı veritabanı veya veri ambarı SSMS veya SSDT kullanarak bağlanın  
-Azure AD Yöneticisi düzgün ayarlandığından onaylamak için bağlanmak **ana** Azure AD yönetici hesabını kullanarak veritabanı.
-Bir Azure AD tabanlı bulunan veritabanı (başka kullanıcı veritabanı sahibi Sunucu Yöneticisi) sağlamak için veritabanına erişimi olan bir Azure AD kimlik veritabanıyla bağlayın.
+## <a name="connect-toohello-user-database-or-data-warehouse-by-using-ssms-or-ssdt"></a>SSMS veya SSDT kullanarak bağlantı toohello kullanıcı veritabanı veya veri ambarı  
+tooconfirm hello Azure AD yönetici düzgün ayarlandığından, toohello bağlanmak **ana** hello Azure AD yönetici hesabını kullanarak veritabanı.
+tooprovision bir Azure AD tabanlı bulunan veritabanı kullanıcı (Merhaba veritabanı sahibi hello sunucu yönetici dışında), access toohello veritabanı olan bir Azure AD kimlik toohello veritabanı bağlayın.
 
 > [!IMPORTANT]
-> Azure Active Directory kimlik doğrulaması için destek ile kullanılabilir [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) ve [SQL Server veri Araçları](https://msdn.microsoft.com/library/mt204009.aspx) Visual Studio 2015'te. SSMS Ağustos 2016 sürümü, Active Directory Evrensel yöneticilerin çok faktörlü kimlik doğrulaması kullanarak bir telefon araması, SMS mesajı, akıllı kartlar ve PIN ya da mobil uygulama bildirimi gerektiren olanak sağlayan kimlik doğrulaması için destek de içerir.
+> Azure Active Directory kimlik doğrulaması için destek ile kullanılabilir [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) ve [SQL Server veri Araçları](https://msdn.microsoft.com/library/mt204009.aspx) Visual Studio 2015'te. Merhaba SSMS Ağustos 2016 sürümünü de Active Directory Evrensel yöneticilerin sağlayan kimlik doğrulaması için destek içerir toorequire bir telefon araması, SMS mesajı, akıllı kart PIN ya da mobil uygulama bildirimi kullanarak çok faktörlü kimlik doğrulaması.
  
-## <a name="using-an-azure-ad-identity-to-connect-using-ssms-or-ssdt"></a>SSMS veya SSDT kullanarak bağlanmak için bir Azure AD kimlik kullanma  
+## <a name="using-an-azure-ad-identity-tooconnect-using-ssms-or-ssdt"></a>SSMS veya SSDT kullanarak bir Azure AD kimlik tooconnect kullanma  
 
-Aşağıdaki yordamlar SQL Server Management Studio veya SQL Server veritabanı araçları kullanarak bir Azure AD kimlik ile bir SQL veritabanına bağlanma gösterir.
+yordamları izleyerek hello nasıl tooconnect tooa SQL veritabanı SQL Server Management Studio veya SQL Server veritabanı araçları kullanarak bir Azure AD kimlik ile gösterir.
 
 ### <a name="active-directory-integrated-authentication"></a>Active Directory tümleşik kimlik doğrulaması
 
-Bir Federasyon etki alanına ait Azure Active Directory kimlik bilgilerinizi kullanarak Windows'a oturum açarsanız, bu yöntemi kullanın.
+Bir Federasyon etki alanına ait Azure Active Directory kimlik bilgilerinizi kullanarak tooWindows kaydedilir, bu yöntemi kullanın.
 
-1. Management Studio veya veri araçları başlatın ve **sunucuya Bağlan** (veya **veritabanı motoruna Bağlan**) iletişim kutusunda **kimlik doğrulaması** kutusunda  **Active Directory - tümleşik**. Parola gereklidir veya var olan kimlik bilgilerinizle bağlantı için sunulur çünkü girilebilir.   
+1. Management Studio veya veri araçları başlatın ve hello **tooServer bağlanmak** (veya **tooDatabase altyapısı bağlanmak**) iletişim kutusunda hello **kimlik doğrulaması** kutusunda, seçin**Active Directory - tümleşik**. Parolasız gerekli olduğunu veya varolan kimlik bilgilerinizi hello bağlantı için sunulur çünkü girilebilir.   
 
     ![AD tümleşik kimlik doğrulaması seçin][11]
-2. Tıklatın **seçenekleri** düğmesi ve **bağlantı özelliklerini** sayfasında **veritabanına bağlan** kutusuna, bağlanmak istediğiniz kullanıcı veritabanının adını yazın. ( **AD etki alanı adı veya Kiracı kimliği**"seçeneği için desteklenen yalnızca **MFA bağlantısıyla Evrensel** seçenekleri, aksi takdirde, griyse.)  
+2. Merhaba tıklatın **seçenekleri** düğmesi ve hello **bağlantı özelliklerini** sayfasında hello **toodatabase bağlanmak** kutusu, tür hello adı tooconnect istediğiniz hello kullanıcı veritabanı Hedef. (Merhaba **AD etki alanı adı veya Kiracı kimliği**"seçeneği için desteklenen yalnızca **MFA bağlantısıyla Evrensel** seçenekleri, aksi takdirde, griyse.)  
 
-    ![Veritabanı adını seçin][13]
+    ![Merhaba veritabanı adını seçin][13]
 
 ## <a name="active-directory-password-authentication"></a>Active Directory parola kimlik doğrulaması
 
-Azure AD kullanarak bir Azure AD asıl adı ile bağlanma etki alanı yönetildiğinde bu yöntemi kullanın. Uzaktan çalışırken, örneğin etki alanı erişimi olmadan birleştirilmiş hesap için de kullanabilirsiniz.
+Bir Azure AD asıl adı Hello Azure AD kullanarak bağlanma etki alanı yönetildiğinde bu yöntemi kullanın. Uzaktan çalışırken, örneğin erişim toohello etki alanı olmayan birleştirilmiş hesap için de kullanabilirsiniz.
 
-Windows Azure ile Federasyon olmayan bir etki alanı kimlik bilgilerini kullanarak oturum açarsanız, ya da Azure AD kullanarak Azure AD kimlik doğrulaması kullanarak ilk veya istemci etki alanına göre bu yöntemi kullanın.
+Azure ile Federasyon olmayan bir etki alanı kimlik bilgilerini kullanarak tooWindows kaydedilir veya Azure AD kimlik doğrulaması kullanarak kullanırken, Azure AD hello ilk dayalı'yı veya istemci etki alanı hello bu yöntemi kullanın.
 
-1. Management Studio veya veri araçları başlatın ve **sunucuya Bağlan** (veya **veritabanı motoruna Bağlan**) iletişim kutusunda **kimlik doğrulaması** kutusunda  **Active Directory - parola**.
-2. İçinde **kullanıcı adı** biçiminde Azure Active Directory kullanıcı adınızı yazın  **username@domain.com** . Bir etki alanındaki bir hesabı Azure Active Directory ile birleştirmek veya bu Azure Active Directory'den bir hesabı olmalıdır.
-3. İçinde **parola** kutusunda, Azure Active Directory hesabı için kullanıcı parolanızı yazın veya Federasyon etki alanı hesabı.
+1. Management Studio veya veri araçları başlatın ve hello **tooServer bağlanmak** (veya **tooDatabase altyapısı bağlanmak**) iletişim kutusunda hello **kimlik doğrulaması** kutusunda, seçin**Active Directory - parola**.
+2. Merhaba, **kullanıcı adı** hello biçiminde Azure Active Directory kullanıcı adınızı yazın  **username@domain.com** . Bu bir hesaptan hello Azure Active Directory olmalıdır veya bir etki alanındaki bir hesabı hello Azure Active Directory ile birleştirmek.
+3. Merhaba, **parola** kutusunda hello Azure Active Directory hesabı için kullanıcı parolanızı yazın veya Federasyon etki alanı hesabı.
 
     ![AD parola kimlik doğrulaması][12]
-4. Tıklatın **seçenekleri** düğmesi ve **bağlantı özelliklerini** sayfasında **veritabanına bağlan** kutusuna, bağlanmak istediğiniz kullanıcı veritabanının adını yazın. (Bkz. önceki seçenek grafikte.)
+4. Merhaba tıklatın **seçenekleri** düğmesi ve hello **bağlantı özelliklerini** sayfasında hello **toodatabase bağlanmak** kutusu, tür hello adı tooconnect istediğiniz hello kullanıcı veritabanı Hedef. (Merhaba önceki seçenek hello grafikte bakın.)
 
-## <a name="using-an-azure-ad-identity-to-connect-from-a-client-application"></a>Bir istemci uygulamadan bağlanmak için bir Azure AD kimlik kullanma
+## <a name="using-an-azure-ad-identity-tooconnect-from-a-client-application"></a>Bir istemci uygulamadan bir Azure AD kimlik tooconnect kullanma
 
-Aşağıdaki yordamlar bir istemci uygulamadan bir Azure AD kimlik olan bir SQL veritabanına bağlanma gösterir.
+yordamları izleyerek hello nasıl tooconnect tooa SQL veritabanı ile bir istemci uygulamadan bir Azure AD kimlik gösterir.
 
 ###  <a name="active-directory-integrated-authentication"></a>Active Directory tümleşik kimlik doğrulaması
 
-Tümleşik Windows kimlik doğrulaması kullanmak için Azure Active Directory ile etki alanınızın Active Directory Federasyon gerekir. Veritabanına bağlanırken istemci uygulamanız (veya bir hizmeti), bir etki alanına katılmış makinede kullanıcının etki alanı kimlik bilgileri altında çalışmalıdır.
+toouse tümleşik Windows kimlik doğrulaması, etki alanınızın Active Directory, Azure Active Directory ile Federasyon gerekir. Toohello veritabanına bağlanma istemci uygulamanız (veya bir hizmeti), bir etki alanına katılmış makinede kullanıcının etki alanı kimlik bilgileri altında çalışmalıdır.
 
-Tümleşik kimlik doğrulaması ve Azure AD kimlik kullanarak bir veritabanına bağlanmak için kimlik doğrulama anahtar sözcüğü veritabanı bağlantı dizesinde Active Directory tümleşik için ayarlanmalıdır. Aşağıdaki C# kod örneği ADO .NET kullanır.
+tümleşik kimlik doğrulaması ve Azure AD kimlik tooconnect tooa veritabanı kullanarak, hello kimlik doğrulama anahtar sözcüğü hello veritabanı bağlantı dizesinde tooActive Directory tümleşik ayarlamanız gerekir. Merhaba aşağıdaki C# kod örneği ADO .NET kullanır.
 
 ```
 string ConnectionString =
@@ -281,11 +281,11 @@ SqlConnection conn = new SqlConnection(ConnectionString);
 conn.Open();
 ```
 
-Bağlantı dizesi anahtar sözcüğü ``Integrated Security=True`` Azure SQL veritabanına bağlanmak için desteklenmiyor. ODBC bağlantısı yaparken boşlukları kaldırın ve kimlik doğrulama 'ActiveDirectoryIntegrated' olarak ayarlanabilir gerekecektir.
+bağlantı dizesi anahtar sözcüğü hello ``Integrated Security=True`` tooAzure SQL veritabanına bağlanmak için desteklenmiyor. ODBC bağlantısı yaparken tooremove alanları ihtiyacınız ve kimlik doğrulama too'ActiveDirectoryIntegrated ayarlayın '.
 
 ### <a name="active-directory-password-authentication"></a>Active Directory parola kimlik doğrulaması
 
-Tümleşik kimlik doğrulaması ve Azure AD kimlik kullanarak bir veritabanına bağlanmak için Active Directory parola kimlik doğrulaması anahtar sözcüğü ayarlanması gerekir. Bağlantı dizesi, kullanıcı kimliği/kullanıcı kimliği ve parola/PWD anahtar sözcükleri ve değerleri içermesi gerekir. Aşağıdaki C# kod örneği ADO .NET kullanır.
+tümleşik kimlik doğrulaması ve Azure AD kimlik tooconnect tooa veritabanı kullanarak, hello kimlik doğrulama anahtar sözcüğü tooActive dizin parolası ayarlamanız gerekir. Merhaba bağlantı dizesi, kullanıcı kimliği/kullanıcı kimliği ve parola/PWD anahtar sözcükleri ve değerleri içermesi gerekir. Merhaba aşağıdaki C# kod örneği ADO .NET kullanır.
 
 ```
 string ConnectionString =
@@ -294,15 +294,15 @@ SqlConnection conn = new SqlConnection(ConnectionString);
 conn.Open();
 ```
 
-Kullanarak gösteri kod örnekleri adresinde Azure AD kimlik doğrulama yöntemleri hakkında daha fazla bilgi [Azure AD kimlik doğrulama GitHub Demo](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/security/azure-active-directory-auth).
+Merhaba demo kod örnekleri adresinde kullanarak Azure AD kimlik doğrulama yöntemleri hakkında daha fazla bilgi [Azure AD kimlik doğrulama GitHub Demo](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/security/azure-active-directory-auth).
 
 ## <a name="azure-ad-token"></a>Azure AD simgesi
-Bu kimlik doğrulama yöntemini orta katman Hizmetleri Azure Active Directory (AAD gelen) bir belirteç elde ederek Azure SQL Database veya Azure SQL Data Warehouse bağlanmasına izin verir. Sertifika tabanlı kimlik doğrulaması dahil olmak üzere Gelişmiş senaryoları etkinleştirir. Azure AD belirteci kimlik doğrulaması kullanmak için dört temel adımları tamamlamanız gerekir:
+Bu kimlik doğrulama yöntemi, Azure Active Directory (AAD gelen) bir belirteç elde ederek orta katman Hizmetleri tooconnect tooAzure SQL veritabanına veya Azure SQL Data Warehouse sağlar. Sertifika tabanlı kimlik doğrulaması dahil olmak üzere Gelişmiş senaryoları etkinleştirir. Dört temel adımlar toouse Azure AD belirteci kimlik doğrulaması tamamlamanız gerekir:
 
-1. Azure Active Directory ile uygulamanızı kaydetme ve kodunuz için istemci kimliği alın. 
-2. Uygulamayı temsil eden bir veritabanı kullanıcısı oluşturmalıdır. (6. adımda daha önce tamamlandı.)
-3. Bir sertifika istemci bilgisayar çalışır uygulama oluşturun.
-4. Uygulamanız için bir anahtar olarak sertifika ekleyin.
+1. Azure Active Directory ile uygulamanızı kaydetme ve kodunuz için hello istemci kimliği alın. 
+2. Bir veritabanı kullanıcı temsil eden hello uygulaması oluşturun. (6. adımda daha önce tamamlandı.)
+3. Bir sertifika hello istemci bilgisayar çalışır Merhaba uygulaması oluşturun.
+4. Uygulamanız için bir anahtar olarak Hello sertifika ekleyin.
 
 Örnek bağlantı dizesi:
 
@@ -317,7 +317,7 @@ Daha fazla bilgi için bkz: [SQL Server güvenlik blogu](https://blogs.msdn.micr
 
 ### <a name="sqlcmd"></a>sqlcmd
 
-Aşağıdaki deyimleri bağlanmak kullanılabilir sqlcmd 13,1 sürümü kullanılarak [Yükleme Merkezi'nden](http://go.microsoft.com/fwlink/?LinkID=825643).
+Merhaba deyimleri, hello kullanılabilir sqlcmd 13,1 sürümünü kullanarak bağlan [Yükleme Merkezi'nden](http://go.microsoft.com/fwlink/?LinkID=825643).
 
 ```
 sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net  -G  

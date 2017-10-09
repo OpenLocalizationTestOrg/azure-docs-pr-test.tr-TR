@@ -1,6 +1,6 @@
 ---
-title: "Azure Dosya depolamaya giriş | Microsoft Docs"
-description: "Microsoft Bulut’ta ağ dosya paylaşımları sağlayan Azure Dosya depolamaya giriş"
+title: Dosya depolama aaaIntroduction tooAzure | Microsoft Docs
+description: "Giriş tooAzure ağ dosyası sağlar dosya depolama hello Microsoft Cloud paylaşır"
 services: storage
 documentationcenter: 
 author: RenaShahMSFT
@@ -14,74 +14,74 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
-ms.openlocfilehash: 498af5cffb76e026c9a87127cab238f0f23b668a
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: fe6826e79c364a6956831d2e273c4342a5fd47f3
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="introduction-to-azure-file-storage"></a>Azure Dosya depolamaya giriş
+# <a name="introduction-tooazure-file-storage"></a>Giriş tooAzure dosya depolama
 
-Azure Dosya depolama, endüstri standardı [Sunucu İleti Blogu (SMB) Protokolü](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)’nü ve [Ortak İnternet Dosya Sistemi (CIFS)](https://technet.microsoft.com/library/cc939973.aspx) protokolünü kullanarak bulutta ağ dosya paylaşımları sağlar. Azure Dosya paylaşımları, Windows, macOS, Linux’ın şirket içi dağıtımlarında ve Azure Sanal Makineleri tarafından eşzamanlı olarak bağlanabilir. Genel amaçlı bir depolama hesabı Azure Dosya depolama, Azure Blob Depolama ve Azure Kuyruk depolamaya erişmenizi sağlar.
+Azure File storage sağlar ağ dosya paylaşımları hello endüstri standardı kullanarak hello bulutta [sunucu ileti bloğu (SMB) Protokolü](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) ve [ortak Internet dosya sistemi (CIFS)](https://technet.microsoft.com/library/cc939973.aspx). Azure Dosya paylaşımları, Windows, macOS, Linux’ın şirket içi dağıtımlarında ve Azure Sanal Makineleri tarafından eşzamanlı olarak bağlanabilir. Bir genel amaçlı depolama hesabı tooAzure File storage, Azure Blob Depolama ve Azure kuyruk depolama erişim sağlar.
 
 ## <a name="videos"></a>Videolar
 | Azure Dosya depolamaya giriş (27 dakika) | Azure Dosya depolama Öğreticisi (5 dakika)  |
 |-|-|
-| [![Azure Dosya depolamaya giriş videosunun yayını - oynatmak için tıklayın!](./media/storage-files-introduction/azure-files-introduction-video-snapshot1.png)](https://www.youtube.com/watch?v=zlrpomv5RLs) | [![Azure Dosya depolama Öğreticisi yayını - oynatmak için tıklayın!](./media/storage-files-introduction/azure-files-introduction-video-snapshot2.png)](https://channel9.msdn.com/Blogs/Azure/Azure-File-storage-with-Windows/) |
+| [![Merhaba Tanıtımı Azure File storage video - ekran kaydı tooplay tıklayın!](./media/storage-files-introduction/azure-files-introduction-video-snapshot1.png)](https://www.youtube.com/watch?v=zlrpomv5RLs) | [![Ekran kaydı hello Azure File Storage Öğreticisi - tooplay tıklayın!](./media/storage-files-introduction/azure-files-introduction-video-snapshot2.png)](https://channel9.msdn.com/Blogs/Azure/Azure-File-storage-with-Windows/) |
 
 ## <a name="why-azure-file-storage-is-useful"></a>Azure Dosya depolama neden yararlıdır
 
-Azure Dosya depolama, şirket içinde veya bulutta barındırılan Windows Server, Linux veya NAS tabanlı dosya sunucularını işletim sisteminden bağımsız bir bulut dosya paylaşımıyla değiştirmenize olanak tanır. Azure Dosya depolamanın aşağıdaki faydaları vardır:
+Azure File storage tooreplace Windows Server, Linux, izin verir veya NAS tabanlı dosya sunucuları şirket içi barındırılan veya bir işletim sistemi serbest bulut dosyasıyla hello bulutta paylaşabilirsiniz. Azure File storage hello aşağıdaki faydaları vardır:
 
-* **Paylaşılan erişim** Azure Dosya paylaşımları endüstri standardı SMB protokolünü destekler. Bu, şirket içi dosya paylaşımlarınızı uygulama uyumluluğu konusunda kaygılanmadan rahatça Azure Dosya paylaşımlarıyla değiştirebileceğiniz anlamına gelir. Dosya paylaşımına birden çok makine, uygulama/örnek arasında erişebilmek, Azure Dosya depolamanın önemli bir avantajıdır.
+* **Paylaşılan erişim** Azure dosya paylaşımları desteği hello endüstri standart SMB protokolü, başka bir deyişle, sorunsuz bir şekilde yerine, şirket içi dosya paylaşımları Azure dosya paylaşımları ile uygulama uyumluluğu hakkında endişelenmeden. Mümkün tooaccess olan önemli bir avantajı Azure File storage ile birden çok makinelerden ve uygulamalar/örnekleri bir dosya paylaşımı olması.
 
-* **Tam Olarak Yönetilen** Azure Dosya paylaşımları, donanım veya işletim sistemi yönetmenizi gerektirmez. Bu da sunucu işletim sisteminde kritik güvenlik yükseltmeleri uygulamanız veya arızalı sabit diskleri değiştirmeniz gerekmediği anlamına gelir.
+* **Tam olarak yönetilen** Azure dosya paylaşımları, hello gerek toomanage donanım ya da hello sunucu işletim sistemi kritik güvenlik yükseltme düzeltme eki uygulama veya hatalı sabit disklerin yerini toodeal sahip olmayan anlamına gelir. bir işletim sistemi olmadan oluşturulabilir.
 
-* **Betikler ve Araçlar** PowerShell cmdlet'leri ve Azure CLI’sı, Azure uygulamaları yönetiminin bir parçası olarak Azure dosya paylaşımlarını oluşturmak, bağlamak ve yönetmek için kullanılabilir. [Azure portal](https://portal.azure.com) ve [Azure Depolama Gezgini](https://storageexplorer.com) kullanarak Azure dosya paylaşımlarını oluşturabilir ve yönetebilirsiniz. 
+* **Komut dosyası çalıştırma ve Tooling** PowerShell cmdlet'leri ve Azure CLI kullanılan toocreate olabilir bağlayın ve Azure uygulamalarının hello yönetiminin bir parçası Azure dosya paylaşımlarını yönetmek. Oluşturma ve hello kullanarak Azure dosya paylaşımlarını yönetmek [Azure portal](https://portal.azure.com) ve hello [Azure Storage Gezgini](https://storageexplorer.com). 
 
-* **Dayanıklılık** Azure Dosya depolama, baştan sonra her zaman kullanılabilir olacak şekilde hazırlanmıştır. Şirket içi dosya paylaşımlarını Azure dosya depolama ile değiştirmek, artık kalkıp bölgesel elektrik kesintileriyle veya ağ sorunlarıyla uğraşmak zorunda kalmayacağınız anlamına gelir. 
+* **Dayanıklılık** Azure File storage, her zaman kullanılabilir toobe plan hello gelen derlendiğinden. Depolama, şirket içi dosya paylaşımları Azure dosyasıyla değiştirme işlemi artık yerel güç kesintileri veya ağ sorunları toodeal yukarı toowake gerektiği anlamına gelir. 
 
-* **Tanıdık Programlama** Azure’da çalışan uygulamalar paylaşımdaki verilere [dosya sistemi G/Ç API’leri](https://msdn.microsoft.com/library/system.io.file.aspx) yoluyla erişebilir. Böylece geliştiriciler mevcut uygulamalarını taşımak üzere kullandıkları kodlar ve yeteneklerden yararlanabilir. Sistem G/Ç API’lerine ek olarak, [.NET](/dotnet/api/overview/azure/storage?view=azure-dotnet) için olan gibi Azure depolama istemci kitaplıkları veya [Azure Depolama REST API’si](/rest/api/storageservices/file-service-rest-api) de kullanılabilir.
+* **Tanıdık programlama** Azure'da çalışan uygulamalar, veri hello paylaşımında erişebilir [dosya sistemi g/ç API'leri](https://msdn.microsoft.com/library/system.io.file.aspx). Geliştiriciler, bu nedenle becerileri toomigrate uygulamalarınız ve var olan kodu yararlanabilirsiniz. Ayrıca tooSystem g/ç API'leri, herhangi bir hello gibi hello Azure storage istemci kitaplıkları için kullanabileceğiniz [.NET](/dotnet/api/overview/azure/storage?view=azure-dotnet), veya hello [Azure Storage REST API'sini](/rest/api/storageservices/file-service-rest-api).
 
 Azure Dosya paylaşımları şunları yapmak için kullanılabilir:
 
-* **Şirket içi dosya sunucuları değiştirme** Azure Dosya depolama geleneksel şirket içi dosya sunucularında veya NAS cihazlarındaki dosya paylaşımlarını tamamen değiştirmek için kullanılabilir. Windows, macOS ve Linux gibi yaygın işletim sistemleri, dünyanın neresinde olursa olsun Azure Dosya paylaşımına kolayca bağlanabilir.
+* **Değiştir şirket içi dosya sunucuları** Azure File storage kullanılan toocompletely Değiştir dosya paylaşımlarında geleneksel şirket içi dosya sunucularında veya NAS cihazları olabilir. Hello world olsunlar Windows, macOS ve Linux gibi yaygın işletim sistemlerini kolayca bir Azure dosya paylaşımı bağlayabilir.
 
 * **Uygulamaları "kaldırma ve kaydırma"**
 
-    Azure Dosya depolama, uygulama bölümleri arasında veri paylaşımı için şirket içi paylaşımları kullanan uygulamaları buluta “kaldırma ve kaydırma” işlemini kolaylaştırır. Bunu gerçekleştirmek için, her sanal makine dosya paylaşımına bağlanır ve ardından aynı şirket içi dosya paylaşımında yapabileceği gibi dosyaları okuyup yazabilir.
+    Azure File storage çok şirket içi dosya kullanma "kaldırın ve shift" uygulamaları toohello bulut hello uygulama bölümleri arasında tooshare veri paylaşır kolaylaştırır. tooimplement Bu, her bir VM toohello dosya paylaşımı bağlanır ve ardından onu okuyabilir ve bir şirket içi dosya karşı paylaştığınız gibi dosyaları yazma.
 
 * **Bulut Geliştirmeyi Basitleştirme**
     
-    Azure Dosya depolama, yeni bulut geliştirme projelerini basitleştirmek üzere çeşitli yollarla kullanılabilir.
+    Azure File storage farklı şekillerde toosimplify yeni bulut geliştirme projelerini sayısında kullanılabilir.
     
     * **Paylaşılan Uygulama Ayarları**
     
-        Dağıtılmış uygulamalar için yaygın bir düzen, yapılandırma dosyalarının birçok farklı sanal makinenin erişebildiği merkezi bir konumda tutulmasıdır. Bu tür yapılandırma dosyaları artık Azure Dosya paylaşımında depolanabilir ve tüm uygulama örnekleri tarafından okunabilir. Bu ayarlar, yapılandırma dosyalarına dünya genelinde erişime olanak tanıyan REST arabirimi üzerinden de yönetilebilir.
+        Dağıtılmış uygulamalar için genel bir desen toohave yapılandırma dosyaları burada Bunlar pek çok farklı Vm'lerden erişilip merkezi bir konumda'dır. Bu tür yapılandırma dosyaları artık Azure Dosya paylaşımında depolanabilir ve tüm uygulama örnekleri tarafından okunabilir. Bu ayarları da toohello yapılandırma dosyalarını dünya çapında erişime hello REST arabirimi, yönetilebilir.
 
     * **Tanılama Paylaşımı**
     
-        Azure Dosya paylaşımı günlükler, ölçümler ve kilitlenme bilgi dökümleri gibi tanılama dosyalarını saklamak için de kullanılabilir. Dosya paylaşımlarının hem SMB hem de REST arabirimi aracılığıyla kullanılabilir olması, uygulamaların tanılama verilerini işlemek ve çözümlemek için çeşitli çözümleme araçları oluşturmasına veya böyle araçlardan yararlanmasına olanak sağlar.
+        Bir Azure dosya paylaşımı kullanılan toosave günlükler, Ölçümler ve kilitlenme bilgi dökümleri gibi Tanılama dosyalarını da olabilir. Dosya paylaşımları hello SMB ve REST arabirimi kullanılabilir olan uygulamalar toobuild izin verir veya çeşitli işleme ve hello tanılama verilerini çözümleme analiz araçları yararlanın.
 
     * **Geliştirme/Test/Hata Ayıklama**
 
-        Geliştiriciler veya yöneticiler bulutta sanal makinelerle çalışırken, sıklıkla bir dizi araca veya yardımcı programa ihtiyaçları olur. Bu yardımcı programların gerekli oldukları her sanal makineye yüklenmesi ve dağıtılması, çok zaman alan bir çalışma olabilir. Azure Dosya depolama ile, geliştirici veya yönetici sık kullandığı araçları dosya paylaşımında depolayabilir ve bu dosya paylaşımına herhangi bir sanal makineden kolayca bağlanılabilir.
+        Geliştiriciler veya Yöneticiler hello bulutta sanal makineleri üzerinde çalışırken, genellikle birtakım Araçlar ve yardımcı programlar ihtiyaç duyar. Bu yardımcı programların gerekli oldukları her sanal makineye yüklenmesi ve dağıtılması, çok zaman alan bir çalışma olabilir. Azure File storage ile bir geliştirici veya yönetici, sık kullandığınız araçları kolayca bağlı toofrom olabilen bir dosya paylaşımında herhangi bir sanal makine depolayabilirsiniz.
         
 ## <a name="how-does-it-work"></a>Nasıl çalışır?
 
-Azure Dosya paylaşımlarını yönetmek, şirket içi dosya paylaşımlarını yönetmekten çok daha basittir. Aşağıdaki diyagramda Azure Dosya depolama yönetim yapıları gösterilir:
+Azure Dosya paylaşımlarını yönetmek, şirket içi dosya paylaşımlarını yönetmekten çok daha basittir. Aşağıdaki diyagramda hello hello Azure dosya depolama yönetimi yapıları gösterilmektedir:
 
 ![Dosya Yapısı](./media/storage-files-introduction/files-concepts.png)
 
-* **Depolama Hesabı** Tüm Azure Depolama erişimi bir depolama hesabı üzerinden yapılır. Depolama hesabı kapasitesi hakkında ayrıntılı bilgi için, [Ölçeklenebilirlik ve Performans Hedefleri](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) konusuna bakın.
+* **Depolama hesabı** üzerinden depolama hesabı tüm erişim tooAzure depolama yapılır. Depolama hesabı kapasitesi hakkında ayrıntılı bilgi için, [Ölçeklenebilirlik ve Performans Hedefleri](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) konusuna bakın.
 
-* **Paylaşım** Dosya Depolama paylaşımı Azure’daki bir SMB dosyası paylaşımıdır. Tüm dizinler ve dosyalar üst paylaşımda oluşturulmalıdır. Bir hesapta sınırsız sayıda paylaşım olabilir; paylaşım da 5 TB toplam kapasiteye kadar dosya paylaşımıyla sınırsız sayıda dosya depolayabilir.
+* **Paylaşım** Dosya Depolama paylaşımı Azure’daki bir SMB dosyası paylaşımıdır. Tüm dizinler ve dosyalar üst paylaşımda oluşturulmalıdır. Bir hesapta sınırsız sayıda paylaşım olabilir ve bir paylaşım dosyaları, toohello 5 TB toplam kapasiteye hello dosya paylaşımının sınırsız sayıda depolayabilirsiniz.
 
 * **Dizin** Dizinlerin isteğe bağlı hiyerarşisi.
 
-* **Dosya** Paylaşımdaki bir dosya. Bir dosyanın boyutu 1 TB'ye kadar olabilir.
+* **Dosya** hello paylaşımda bir dosya. Bir dosya boyutu too1 TB yukarı olabilir.
 
-* **URL biçimi** Dosyalar şu URL biçimi kullanılarak adreslenebilir:  
+* **URL biçimi** dosyaları hello şu URL biçimi kullanılarak adreslenebilir:  
 
     ```
     https://<storage account>.file.core.windows.net/<share>/<directory/directories>/<file>
@@ -102,14 +102,14 @@ Azure Dosya paylaşımlarını yönetmek, şirket içi dosya paylaşımlarını 
 * [Azure Dosya depolama: Windows ve Linux için uyumlu bulut SMB dosya sistemi](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 
 ### <a name="tooling-support-for-azure-file-storage"></a>Azure Dosya depolama için araç desteği
-* [Microsoft Azure Depolama ile AzCopy kullanma](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
-* [Azure Depolama ile Azure CLI kullanma](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
+* [Nasıl toouse Microsoft Azure Storage ile AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+* [Azure Storage ile Hello Azure CLI kullanma](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
 
 ### <a name="blog-posts"></a>Blog yazıları
 * [Azure Dosya Depolama genel kullanıma sunulmuştur](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
 * [Azure Dosya depolama incelemesi](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Microsoft Azure Dosya Hizmeti’ne Giriş](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Azure Dosya Hizmeti’ne verileri geçirme ](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
+* [Geçirme verilerini tooAzure dosyası](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
 
 ### <a name="reference"></a>Başvuru
 * [.NET başvurusu için Depolama İstemci Kitaplığı](https://msdn.microsoft.com/library/azure/dn261237.aspx)

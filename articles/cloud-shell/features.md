@@ -1,5 +1,5 @@
 ---
-title: "Azure bulut Kabuk (Önizleme) özellikleri | Microsoft Docs"
+title: "aaaAzure bulut Kabuk (Önizleme) özellikleri | Microsoft Docs"
 description: "Azure bulut Kabuk özelliklerine genel bakış"
 services: 
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: juluk
-ms.openlocfilehash: 67f03d5857e37b253ac57536e289b5468d69e9b5
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 65482ca6caeac01dda18a6b12eabe943e3d68a96
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="features-and-tools-for-azure-cloud-shell"></a>Özellikler ve Araçlar Azure bulut Kabuğu
-Azure bulut Kabuk, yönetmek ve Azure kaynaklarını geliştirmek için bir tarayıcı tabanlı kabuk deneyimidir.
+Azure bulut Kabuk tarayıcı tabanlı Kabuğu deneyiminin toomanage olduğunu ve Azure kaynaklarını geliştirin.
 
-Bulut Kabuk, sürümü, yükleme ve bir makineyi kendiniz koruma yükünü olmadan Azure kaynaklarını yönetmek için bir tarayıcı erişilebilir, önceden yapılandırılmış Kabuk deneyimi sunar.
+Bulut Kabuk Kabuğu deneyiminin hello yükünü, sürümü, yükleme ve bir makineyi kendiniz koruma olmadan Azure kaynaklarını yönetmek için önceden yapılandırılmış, bir tarayıcı erişilebilir sunar.
 
 İstek başına temelinde makineler bulut Kabuk sağlar ve sonuç olarak makine durumu oturumlarında kalıcı olmaz. Bulut Kabuk etkileşimli oturumları için kurulu olduğundan Kabukları Kabuğu kaldıktan 20 dakika sonra otomatik olarak sonlanır.
 
@@ -50,14 +50,14 @@ Bulut Kabuk, sürümü, yükleme ve bir makineyi kendiniz koruma yükünü olmad
 |Python     |2.7 ve 3.5 (varsayılan)|
 
 ## <a name="secure-automatic-authentication"></a>Güvenli otomatik kimlik doğrulaması
-Bulut Kabuğu güvenli bir şekilde ve otomatik olarak hesap erişim için Azure CLI 2.0 kimliğini doğrular.
+Bulut Kabuk hesap erişim hello Azure CLI 2.0 için güvenli bir şekilde ve otomatik olarak doğrular.
 
 ## <a name="azure-files-persistence"></a>Azure dosyaları kalıcılığı
 Bulut Kabuğu'nu kullanarak geçici bir makine bir istek başına temelinde ayrıldığından dosyaları $Home ve makine durumu dışında oturumlarında kalıcı değildir.
-Dosyaları oturumlarında kalıcı hale getirmek için bulut Kabuk, ilk kez başlatıldığında Azure dosya paylaşımında ekleme aracılığıyla açıklanmaktadır.
+oturumlar, Azure dosya ekleme aracılığıyla paylaştığınız bulut Kabuk yetenekte, ilk başlatılırken arasında toopersist dosyaları.
 Bir kez tamamlanmış bulut Kabuk otomatik olarak tüm sonraki oturumlar için depolama alanınızı ekleyecek.
 
-[Azure dosya paylaşımları için bulut Kabuk ekleme hakkında daha fazla bilgi edinin.](persisting-shell-storage.md)
+[Azure dosya paylaşımları tooCloud Kabuk ekleme hakkında daha fazla bilgi edinin.](persisting-shell-storage.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Bulut Kabuk hızlı başlangıç](quickstart.md) <br>

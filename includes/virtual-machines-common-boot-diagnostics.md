@@ -1,16 +1,16 @@
 Azure’da artık iki hata ayıklama özelliği desteklenmektedir: Azure Sanal Makineler Kaynak Yöneticisi dağıtım modelinde Konsol Çıktısı ve Ekran Görüntüsü desteği vardır. 
 
-Azure’a kendi görüntünüzü ekleme ve hatta bir platform görüntüsünden önyükleme yapma sırasında bir Sanal Makineni önyüklenebilir olmayan bir duruma gelmesinin birçok nedeni olabilir. Bu özellikler sanal makinelerinizin önyükleme hatalarını kolayca tanılamanızı ve düzeltmenizi sağlar.
+Kendi görüntü tooAzure veya hello platform görüntüleri bile önyükleme biri getirilirken bir sanal makine önyüklenebilir olmayan bir duruma neden alır birçok nedeni olabilir. Bu özellikler, tooeasily tanılamak ve sanal makinelerinizi önyükleme hatalarını kurtarıp etkinleştir.
 
-Linux sanal makineleri için Portal'dan konsol oturum çıktısını kolayca görüntüleyebilirsiniz:
+Linux sanal makineleri için hello Portal, konsol günlüğünden hello çıktısını kolayca görüntüleyebilirsiniz:
 
 ![Azure portalına](./media/virtual-machines-common-boot-diagnostics/screenshot1.png)
  
-Ancak, hem Windows hem de Linux sanal makineleri için Azure, hiper yöneticiden VM'nin ekran görüntüsünü görmenizi de sağlar:
+Ancak, Windows ve Linux sanal makineleri için Azure ayrıca bir ekran görüntüsünü hello VM hello hiper yönetici gelen toosee sağlar:
 
 ![Hata](./media/virtual-machines-common-boot-diagnostics/screenshot2.png)
 
-Bu özelliklerin her ikisi de tüm bölgelerdeki Azure sanal makineler için desteklenir. Not, ekran görüntüleri ve çıktının depolama hesabınızda görünmesi 10 dakika sürebilir.
+Bu özelliklerin her ikisi de tüm bölgelerdeki Azure sanal makineler için desteklenir. Not, ekran görüntüleri ve çıktı too10 dakika tooappear depolama hesabınızdaki yukarı alabilir.
 
 ## <a name="common-boot-errors"></a>Sık karşılaşılan önyükleme hataları
 
@@ -29,15 +29,15 @@ Bu özelliklerin her ikisi de tüm bölgelerdeki Azure sanal makineler için des
 - [Önyükleme hatası veya INACCESSIBLE_BOOT_DEVICE](https://support.microsoft.com/help/4010143)
 
 ## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>Yeni bir sanal makine üzerinde tanılamayı etkinleştir
-1. Önizleme Portalı'ndan yeni bir sanal makine oluştururken dağıtım modeli açılır menüsünde **Azure Resource Manager**’ı seçin:
+1. Önizleme portalı hello yeni bir sanal makine oluştururken, hello seçin **Azure Resource Manager** gelen hello dağıtım modeli açılır:
  
     ![Resource Manager](./media/virtual-machines-common-boot-diagnostics/screenshot3.jpg)
 
-2. Burada bu tanılama dosyalarını yerleştirmek istediğiniz depolama hesabını seçmek için izleme seçeneğini yapılandırın.
+2. Bu tanılama dosyaları Hello tooplace oluşturulacağı yeri izleme seçeneği tooselect hello depolama hesabı yapılandırın.
  
     ![VM oluşturma](./media/virtual-machines-common-boot-diagnostics/screenshot4.jpg)
 
-3. Bir Azure Resource Manager şablonu dağıtıyorsanız, sanal makine kaynağınıza gidin ve tanılama profili bölümünü ekleyin. "2015-06-15" API sürümü üst bilgisini kullanmayı unutmayın.
+3. Bir Azure Resource Manager şablonu dağıtıyorsanız, tooyour sanal makine kaynağı gidin ve hello tanılama profil bölümü ekleyin. Toouse hello "2015-06-15" API sürümü üstbilgisi unutmayın.
 
     ```json
     {
@@ -46,7 +46,7 @@ Bu özelliklerin her ikisi de tüm bölgelerdeki Azure sanal makineler için des
           … 
     ```
 
-4. Tanılama profili, bu günlükleri yerleştirmek istediğiniz depolama hesabını seçmenize olanak sağlar.
+4. Merhaba tanılama profili Bu günlükler tooput istediğiniz yere tooselect hello depolama hesabını etkinleştirir.
 
     ```json
             "diagnosticsProfile": {
@@ -59,11 +59,11 @@ Bu özelliklerin her ikisi de tüm bölgelerdeki Azure sanal makineler için des
         }
     ```
 
-Önyükleme tanılaması etkin bir örnek sanal makine dağıtmak için buradaki depomuza göz atın.
+Örnek bir sanal makine önyükleme tanılaması etkin, burada bizim depodaki kullanıma toodeploy.
 
 ## <a name="update-an-existing-virtual-machine"></a>Mevcut bir sanal makineyi güncelleştirme ##
 
-Portal üzerinden önyükleme tanılamasını etkinleştirmek için mevcut bir sanal makineyi Portalı aracılığıyla da güncelleştirebilirsiniz. Önyükleme Tanılaması seçeneğini ve Kaydet’i seçin. Etkili olması için VM'yi yeniden başlatın.
+tooenable önyükleme tanılaması hello Portal aracılığıyla, mevcut bir sanal makine hello Portal aracılığıyla güncelleştirebilirsiniz. Select hello önyükleme tanılaması seçeneği ve kaydedin. Merhaba VM tootake etkisi yeniden başlatın.
 
 ![Mevcut VM’yi güncelleştirme](./media/virtual-machines-common-boot-diagnostics/screenshot5.png)
 

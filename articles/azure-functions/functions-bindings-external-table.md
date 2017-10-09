@@ -1,5 +1,5 @@
 ---
-title: "Azure işlevleri dış tablo bağlama (Önizleme) | Microsoft Docs"
+title: "aaaAzure işlevleri dış tablo bağlama (Önizleme) | Microsoft Docs"
 description: "Dış tablo bağlamaları Azure işlevlerini kullanma"
 services: functions
 documentationcenter: 
@@ -14,22 +14,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.openlocfilehash: 716438e5ea490f6716999813112305499dbe61a8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: bf19d7d377232edc91087d5f4110602bb82c67ef
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="azure-functions-external-table-binding-preview"></a>Azure işlevleri dış tablo bağlama (Önizleme)
-Bu makalede SaaS sağlayıcıları (örneğin, Sharepoint, Dynamics) tablo verileri işlemek işlev içinde yerleşik bağlamalarla gösterilmiştir. Azure işlevleri, harici tablolar için girdi ve çıktı bağlamaları destekler.
+Bu makalede gösterilmektedir nasıl toomanipulate tablo veri işlevinizi yerleşik bağlamalarla içinde SaaS sağlayıcıları (örneğin, Sharepoint, Dynamics). Azure işlevleri, harici tablolar için girdi ve çıktı bağlamaları destekler.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 ## <a name="api-connections"></a>API bağlantıları
 
-Tablo bağlamaları ile 3. taraf SaaS sağlayıcılar kimliğini doğrulamak için harici API bağlantıları yararlanın. 
+Tablo bağlamaları ile 3. taraf SaaS sağlayıcılar dış API bağlantıları tooauthenticate yararlanın. 
 
-Bir bağlama atarken, yeni bir API bağlantı oluşturabilir veya var olan bir API bağlantısını aynı kaynak grubunda kullanın
+Bir bağlama atarken, yeni bir API bağlantı oluşturabilir veya var olan bir API bağlantısını hello içinde kullanmak aynı kaynak grubu
 
 ### <a name="supported-api-connections-tables"></a>Desteklenen API bağlantıları (tablo) s
 
@@ -62,14 +62,14 @@ Bir bağlama atarken, yeni bir API bağlantı oluşturabilir veya var olan bir A
 1. Senaryo `Experimental`  >  `ExternalTable-CSharp` şablonu > Yeni bir `External Table connection` 
  ![Seç tablo giriş şablonu](./media/functions-bindings-storage-table/create-template-table.jpg)
 1. SaaS sağlayıcınızı seçin > bir bağlantı seçin/oluşturmak ![yapılandırma SaaS bağlantı](./media/functions-bindings-storage-table/authorize-API-connection.jpg)
-1. API bağlantınızı seçin > fonksiyon ![Create table işlevi](./media/functions-bindings-storage-table/table-template-options.jpg)
+1. API bağlantınızı seçin > merhaba fonksiyon ![Create table işlevi](./media/functions-bindings-storage-table/table-template-options.jpg)
 1. seçin`Integrate` > `External Table`
-    1. Bağlantıyı hedef tablo kullanacak şekilde yapılandırın. Bu ayarlar, SaaS sağlayıcılar arasında çok olur. Aşağıda anahat oldukları [veri kaynağı ayarları](#datasourcesettings)
+    1. Merhaba bağlantı toouse hedef tablo yapılandırın. Bu ayarlar, SaaS sağlayıcılar arasında çok olur. Aşağıda anahat oldukları [veri kaynağı ayarları](#datasourcesettings)
 ![yapılandırma tablosu](./media/functions-bindings-storage-table/configure-API-connection.jpg)
 
 ## <a name="usage"></a>Kullanım
 
-Bu örnek kimliği, Soyadı ve FirstName sütunlarla "Başvurun" adlı bir tablo bağlanır. Kod tablosundaki kişi varlıkları listeler ve adları ve soyadları günlüğe kaydeder.
+Bu örnek kimliği, Soyadı ve FirstName sütunlarla "Başvurun" adlı tooa tablo bağlanır. hello kişi varlıkları hello tablosundaki Hello kodunu listeler ve günlükleri adları ve soyadları hello.
 
 ### <a name="bindings"></a>Bağlamalar
 ```json
@@ -95,9 +95,9 @@ Bu örnek kimliği, Soyadı ve FirstName sütunlarla "Başvurun" adlı bir tablo
 ```
 `entityId`Tablo bağlamaları için boş olması gerekir.
 
-`ConnectionAppSettingsKey`API bağlantı dizesi depolar uygulama ayarı tanımlar. Bir API bağlantısı tümleştir UI eklediğinizde, uygulama ayarı otomatik olarak oluşturulur.
+`ConnectionAppSettingsKey`Merhaba API bağlantı dizesi depolar hello uygulama ayarı tanımlar. bir API eklediğinizde hello uygulama ayarı otomatik olarak oluşturulan hello bağlantısında UI tümleştirin.
 
-Veri kümeleri tablo Bağlayıcısı sağlar ve her bir veri kümesi tabloları içerir. "Varsayılan" varsayılan veri kümesinin adıdır Bir veri kümesi ve bir tablo çeşitli SaaS sağlayıcıları başlıklarını aşağıda listelenmiştir:
+Veri kümeleri tablo Bağlayıcısı sağlar ve her bir veri kümesi tabloları içerir. "varsayılan" Merhaba hello varsayılan veri kümesinin adıdır Merhaba başlıkları bir veri kümesi ve bir tablo çeşitli SaaS sağlayıcıları için aşağıda listelenmiştir:
 
 |Bağlayıcı|Veri kümesi|Tablo|
 |:-----|:---|:---| 
@@ -107,7 +107,7 @@ Veri kümeleri tablo Bağlayıcısı sağlar ve her bir veri kümesi tabloları 
 |**Excel**|Excel dosyası|Sayfası 
 
 <!--
-See the language-specific sample that copies the input file to the output file.
+See hello language-specific sample that copies hello input file toohello output file.
 
 * [C#](#incsharp)
 * [Node.js](#innodejs)
@@ -125,7 +125,7 @@ using System;
 using Microsoft.Azure.ApiHub;
 
 //Variable name must match column type
-//Variable type is dynamically bound to the incoming data
+//Variable type is dynamically bound toohello incoming data
 public class Contact
 {
     public string Id { get; set; }
@@ -135,7 +135,7 @@ public class Contact
 
 public static async Task Run(string input, ITable<Contact> table, TraceWriter log)
 {
-    //Iterate over every value in the source table
+    //Iterate over every value in hello source table
     ContinuationToken continuationToken = null;
     do
     {   
@@ -172,7 +172,7 @@ module.exports = function(context) {
 
 ### <a name="sql-server"></a>SQL Server
 
-Komut dosyasını oluşturun ve ilgili kişi tabloyu doldurmak için aşağıda yer almaktadır. dataSetName "." varsayılandır
+komut dosyası toocreate hello ve doldurmak hello kişi tablosu aşağıdadır. dataSetName "." varsayılandır
 
 ```sql
 CREATE TABLE Contact
@@ -192,7 +192,7 @@ GO
 ```
 
 ### <a name="google-sheets"></a>Google E-Tablolar
-Google belgeleri elektronik tablo adında bir çalışma sayfasıyla oluşturmak `Contact`. Bağlayıcı, elektronik tablo görünen adı kullanamazsınız. Örneğin dataSetName kullanılacak iç adını (kalın) gereksinimlerini: `docs.google.com/spreadsheets/d/`  **`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`**  sütun adlarını eklemek `Id`, `LastName`, `FirstName` ilk satırın üzerinde veri sonra doldurma sonraki satır.
+Google belgeleri elektronik tablo adında bir çalışma sayfasıyla oluşturmak `Contact`. Merhaba bağlayıcı hello elektronik tablo görünen adı kullanamazsınız. Hello iç adını (kalın) dataSetName örneğin kullanılan toobe gerekiyor: `docs.google.com/spreadsheets/d/`  **`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`**  hello sütun adları eklemek `Id`, `LastName`, `FirstName` toohello ilk satır, ardından üzerinde veri doldurma sonraki satır.
 
 ### <a name="salesforce"></a>Salesforce
 dataSetName "." varsayılandır

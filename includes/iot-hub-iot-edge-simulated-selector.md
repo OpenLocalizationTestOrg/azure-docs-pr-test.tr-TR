@@ -2,65 +2,65 @@
 > * [Linux](../articles/iot-hub/iot-hub-linux-iot-edge-simulated-device.md)
 > * [Windows](../articles/iot-hub/iot-hub-windows-iot-edge-simulated-device.md)
 
-Bu kılavuz [sanal cihaz bulut karşıya örnek] nasıl kullanılacağını gösterir [Azure IOT kenar] [ lnk-sdk] sanal cihazlar IOT Hub'ına cihaz bulut telemetri göndermek için .
+Bu kılavuz hello [sanal cihaz bulut karşıya örnek] nasıl gösterir toouse [Azure IOT kenar] [ lnk-sdk] benzetimli gelen toosend cihaz bulut telemetri tooIoT Hub cihazlar.
 
 Bu kılavuzda aşağıdaki konular ele alınmaktadır:
 
-* **Mimari**: Mimari bilgilerini [sanal cihaz bulut karşıya örnek].
-* **Derleme ve çalıştırma**: örneği derlemek ve çalıştırmak için gerekli adımlar.
+* **Mimari**: hello mimari bilgilerini [sanal cihaz bulut karşıya örnek].
+* **Derleme ve çalıştırma**: hello adımları gerekli toobuild ve çalışma hello örnek.
 
 ## <a name="architecture"></a>Mimari
 
-[sanal cihaz bulut karşıya örnek] telemetri benzetimli aygıtlardan bir IOT hub'ına gönderir. bir ağ geçidi oluşturulacağını gösterir. Bir aygıt için doğrudan IOT Hub'ına bağlanmak mümkün olmayabilir cihaz:
+Merhaba [sanal cihaz bulut karşıya örnek] toocreate telemetri gönderen bir ağ geçidi aygıtları tooan IOT hub'ı nasıl benzetimli gösterir. Bir aygıt mümkün tooconnect olmayabilir doğrudan tooIoT Hub çünkü hello cihaz:
 
 * IOT Hub tarafından anlaşılan bir iletişim protokolü kullanmaz.
-* IOT Hub tarafından atanmış kimlik anımsaması akıllı değil.
+* IOT Hub tarafından yeterince akıllı tooremember hello atanan kimlik tooit değil.
 
-Bir IOT sınır ağ geçidi aşağıdaki yollarla bu sorunları çözebilir:
+Bir IOT sınır ağ geçidi yolları aşağıdaki hello'de bu sorunları çözebilir:
 
-* Ağ Geçidi aygıt tarafından kullanılan protokol CİHAZDAN cihaz bulut telemetri alır ve IOT hub'ın IOT hub tarafından anlaşılan protokolünü kullanarak bu iletileri iletir bilir.
+* Merhaba ağ geçidi hello aygıt tarafından kullanılan hello Protokolü anlayan, cihaz bulut telemetri hello aygıttan alır ve bu iletileri tooIoT hello IOT hub tarafından anlaşılan protokolünü kullanarak Hub iletir.
 
-* Ağ geçidi aygıtına IOT hub'ı kimlikleri eşler ve bir cihaz IOT Hub'ına iletileri gönderdiğinde bir proxy gibi davranır.
+* Merhaba ağ geçidi IOT hub'ı kimlikleri toodevices eşler ve bir cihaz iletileri tooIoT Hub gönderdiğinde bir proxy gibi davranır.
 
-Aşağıdaki diyagramda IOT kenar modüller de dahil olmak üzere örnek ana bileşenlerini gösterir:
+Aşağıdaki diyagramda hello hello örnek ana bileşenlerinin Merhaba, hello IOT kenar modüller de dahil olmak üzere gösterir:
 
 ![][1]
 
-Modüller iletileri doğrudan birbirine geçirmez. Modülleri iletilerini bir abonelik mekanizması kullanarak diğer modüller ve iletileri teslim bir iç aracısı için yayımlayın. Daha fazla bilgi için bkz: [Azure IOT Edge ile çalışmaya başlama][lnk-gw-getstarted].
+Merhaba modülleri iletileri geçirmek değil doğrudan tooeach diğer. Merhaba modülleri hello iletileri toohello abonelik mekanizmasını kullanarak diğer modüller sunar iletileri tooan iç Aracısı yayımlayın. Daha fazla bilgi için bkz: [Azure IOT Edge ile çalışmaya başlama][lnk-gw-getstarted].
 
 ### <a name="protocol-ingestion-module"></a>Protokol alım modülü
 
-Bu modül veri aygıtlar, ağ geçidi üzerinden ve buluta gönderimini için başlangıç noktasıdır. Aşağıdaki örnekte, modül:
+Bu modül için alıcı veri aygıtlardan hello ağ geçidi üzerinden ve hello buluta başlangıç noktası hello ' dir. Merhaba örnek hello Modülü:
 
-1. Benzetimli sıcaklık veri oluşturur. Fiziksel aygıtların kullanırsanız, modül fiziksel aygıtların verileri okur.
+1. Benzetimli sıcaklık veri oluşturur. Fiziksel aygıtların kullanırsanız, hello modülü fiziksel aygıtların verileri okur.
 1. Bir ileti oluşturur.
-1. Benzetimli sıcaklık verileri ileti içeriği yerleştirir.
-1. Sahte bir MAC adresine sahip bir özellik iletiye ekler.
-1. İleti zincirinde sonraki modülü için kullanılabilir hale getirir.
+1. Merhaba benzetimli sıcaklık verileri hello ileti içeriği yerleştirir.
+1. Sahte bir MAC adresi toohello iletisiyle bir özellik ekler.
+1. Merhaba ileti kullanılabilir toohello sonraki modüle hello zincirinde yapar.
 
-Modül adı verilen **Protokolü X alım** önceki diyagramda adlı **sanal cihaz** kaynak kodundaki.
+adlı hello Modülü **Protokolü X alım** hello önceki diyagramda adlı **sanal cihaz** hello kaynak kodunda.
 
 ### <a name="mac-lt-gt-iot-hub-id-module"></a>MAC &lt;-&gt; IoT Hub kimlik modülü
 
-Bu modül için bir Mac adresi özelliğine sahip iletileri tarar. Aşağıdaki örnekte Protokolü alım modülü MAC adres özelliği ekler. Modül böyle bir özellik bulursa, iletiyi bir IOT Hub cihaz anahtarı ile başka bir özellik ekler. Modül sonra ileti sonraki modüle zincirinde kullanılabilmesini sağlar.
+Bu modül için bir Mac adresi özelliğine sahip iletileri tarar. Hello örnek hello Protokolü alım modülü hello MAC adres özelliği ekler. Merhaba modülü böyle bir özellik bulursa, bir IOT Hub cihaz anahtar toohello iletisi içeren başka bir özellik ekler. Merhaba modülü hello zincirinde sonra hello ileti kullanılabilir toohello sonraki modüle hale getirir.
 
-Sanal cihazlar IOT Hub cihaz kimliklerini ile ilişkilendirmek için MAC adreslerinin ve IOT hub'ı kimlikleri arasında bir eşleme Geliştirici ayarlar. Geliştirici eşleme modülü yapılandırmasının bir parçası el ile ekler.
+MAC adreslerinin ve IOT hub'ı kimlikleri tooassociate benzetimli hello IOT Hub cihaz kimliklerini aygıtlarla arasında bir eşleme Hello Geliştirici ayarlar. Merhaba Geliştirici hello eşleme hello modülü yapılandırmasının bir parçası el ile ekler.
 
 > [!NOTE]
-> Bu örnekte benzersiz cihaz tanımlayıcısı olarak bir MAC adresi kullanılır ve bir IoT Hub cihaz kimliğiyle ilişkilendirilir. Bununla birlikte, farklı bir benzersiz tanımlayıcı kullanan kendi modülünüzü yazabilirsiniz. Örneğin, cihazlarınızı benzersiz seri numarasına sahip veya telemetri verilerini benzersiz katıştırılmış cihaz adı içerebilir.
+> Bu örnekte benzersiz cihaz tanımlayıcısı olarak bir MAC adresi kullanılır ve bir IoT Hub cihaz kimliğiyle ilişkilendirilir. Bununla birlikte, farklı bir benzersiz tanımlayıcı kullanan kendi modülünüzü yazabilirsiniz. Örneğin, aygıtlarınızı benzersiz seri numarasına sahip veya bir benzersiz katıştırılmış cihaz adı hello telemetri verileri içerebilir.
 
 ### <a name="iot-hub-communication-module"></a>IoT Hub iletişim modülü
 
-Bu modül iletileri bir IOT Hub ile önceki modülü tarafından atanan aygıt anahtar özelliği alır. Modül HTTP protokolünü kullanarak ileti içeriği IOT Hub'ına gönderir. HTTP, IoT Hub tarafından anlaşılan üç protokolden biridir.
+Bu modül iletileri bir IOT Hub ile Merhaba önceki modülü tarafından atanan aygıt anahtar özelliği alır. Merhaba modülü içerik tooIoT hub'ı kullanarak HTTP protokolü hello hello iletisi gönderir. HTTP IOT Hub tarafından anlaşılan üç protokolden Merhaba biridir.
 
-Her sanal cihaz için bir bağlantı açarak yerine bu modül IOT hub'ına geçidinden tek bir HTTP bağlantısı açar. Modül, tüm sanal cihazların gelen bağlantıları Bu bağlantı üzerinden sonra multiplexes. Bu yaklaşım, pek çok daha fazla cihazları bağlamak tek bir ağ geçidi sağlar.
+Her sanal cihaz için bir bağlantı açarak yerine bu modül hello ağ geçidi toohello IOT hub'ından HTTP tek bir bağlantı açar. Merhaba modülü tüm benzetimli hello cihazlar gelen bağlantıları Bu bağlantı üzerinden sonra multiplexes. Bu yaklaşım, tek bir ağ geçidi tooconnect pek çok daha fazla aygıtları sağlar.
 
 ## <a name="before-you-get-started"></a>Başlamadan önce
 
 Başlamadan önce şunları yapmalısınız:
 
-* [IOT hub oluşturma] [ lnk-create-hub] Azure aboneliğinizde bu yönlendirmeyi tamamlamak için hub adı gerekiyor. Hesabınız yoksa, yalnızca birkaç dakika içinde [ücretsiz bir hesap][lnk-free-trial] oluşturabilirsiniz.
-* İki cihazlar IOT hub'ınızı ekleyin ve kendi kimlikleri ve cihaz anahtarlarını not edin. Kullanabilirsiniz [aygıt explorer] [ lnk-device-explorer] veya [iothub-explorer] [ lnk-iothub-explorer] cihazlarınızı IOT hub'ı önceki adımda oluşturduğunuz eklemek için aracı ve kendi anahtarları alır.
+* [IOT hub oluşturma] [ lnk-create-hub] Azure aboneliğinizde bu kılavuzda, hub toocomplete hello adı gerekir. Hesabınız yoksa, yalnızca birkaç dakika içinde [ücretsiz bir hesap][lnk-free-trial] oluşturabilirsiniz.
+* İki aygıtları tooyour IOT hub'ı ekleyin ve kendi kimlikleri ve cihaz anahtarlarını not edin. Merhaba kullanabilirsiniz [aygıt explorer] [ lnk-device-explorer] veya [iothub-explorer] [ lnk-iothub-explorer] tooadd hello oluşturduğunuz aygıtları toohello IOT hub'ınızı aracı Önceki adım ve kendi anahtarları alır.
 
 ![][2]
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric bir kapsayıcıda .NET uygulaması dağıtma | Microsoft Docs"
-description: "Docker kapsayıcısı içinde Visual Studio'da .NET uygulaması paketlemek öğretir. Bu yeni \"kapsayıcı\" uygulaması, ardından bir Service Fabric kümesi dağıtılır."
+title: "aaaDeploy kapsayıcı tooAzure Service Fabric, bir .NET uygulamasında | Microsoft Docs"
+description: "Nasıl öğretilmektedir toopackage Docker kapsayıcısı içinde Visual Studio'da .NET uygulaması. Bu yeni \"kapsayıcı\" uygulama sonra dağıtılan tooa Service Fabric kümesi."
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2017
 ms.author: mikhegn
-ms.openlocfilehash: 484db494e7975df950543d19bf841a4df7cdd139
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.openlocfilehash: 094b0e71d76b2e56ffb9b23638dd8154b3aff5fb
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Azure Service Fabric Windows kapsayıcısında .NET uygulaması dağıtma
+# <a name="deploy-a-net-application-in-a-windows-container-tooazure-service-fabric"></a>Bir Windows kapsayıcı tooAzure Service Fabric bir .NET uygulamasında dağıtma
 
-Bu öğretici, Azure üzerinde bir Windows kapsayıcıda mevcut bir ASP.NET uygulamasını dağıtma gösterir.
+Bu öğretici şunların nasıl yapıldığını gösterir toodeploy Azure üzerinde bir Windows kapsayıcıda mevcut bir ASP.NET uygulamasını.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -34,21 +34,21 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 ## <a name="prerequisites"></a>Ön koşullar
 
 1. Yükleme [Docker Windows CE](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) kapsayıcıları üzerinde Windows 10 çalıştırabilmeniz için.
-2. İle öğrenmeniz [Windows 10 kapsayıcıları quickstart][link-container-quickstart].
-3. Karşıdan [Fabrikam Fiber CallCenter] [ link-fabrikam-github] örnek uygulama.
+2. Merhaba ile öğrenmeniz [Windows 10 kapsayıcıları quickstart][link-container-quickstart].
+3. Merhaba karşıdan [Fabrikam Fiber CallCenter] [ link-fabrikam-github] örnek uygulama.
 4. Yükleme [Azure PowerShell][link-azure-powershell-install]
-5. Yükleme [Visual Studio 2017 için sürekli teslim araçları uzantısı][link-visualstudio-cd-extension]
+5. Merhaba yüklemek [Visual Studio 2017 için sürekli teslim araçları uzantısı][link-visualstudio-cd-extension]
 6. Oluşturma bir [Azure aboneliği] [ link-azure-subscription] ve [Visual Studio Team Services hesabı][link-vsts-account]. 
 7. [Azure üzerinde bir küme oluşturun](service-fabric-tutorial-create-cluster-azure-ps.md)
 
-## <a name="containerize-the-application"></a>Uygulama containerize
+## <a name="containerize-hello-application"></a>Merhaba uygulaması containerize
 
-Sahip olduğunuza göre bir [Service Fabric kümesi Azure'da çalışan](service-fabric-tutorial-create-cluster-azure-ps.md) oluşturup kapsayıcılı uygulama dağıtmak hazır olursunuz. Uygulamamız bir kapsayıcıda çalışan başlatmak için eklemek ihtiyacımız **Docker Destek** Visual Studio'da projeye. Eklediğinizde **Docker Destek** uygulamaya iki şey olur. İlk olarak, bir _Dockerfile_ projeye eklenir. Bu yeni dosya nasıl kapsayıcı görüntünün oluşturulması açıklanmaktadır. Ardından ikinci, yeni bir _docker compose'u_ proje çözüme eklenir. Yeni Proje birkaç içeren dosyaları docker compose'u. Docker compose'u dosyaları kapsayıcı nasıl yürütüleceğini tanımlamak için kullanılabilir.
+Sahip olduğunuza göre bir [Service Fabric kümesi Azure'da çalışan](service-fabric-tutorial-create-cluster-azure-ps.md) hazır toocreate olan ve kapsayıcılı uygulamayı dağıtın. uygulamamız bir kapsayıcıda çalışan toostart tooadd ihtiyacımız **Docker Destek** Visual Studio'da toohello projesi. Eklediğinizde **Docker Destek** iki şey toohello uygulama olur. İlk olarak, bir _Dockerfile_ toohello projesi eklenir. Bu yeni dosya nasıl hello kapsayıcı görüntü yerleşik toobe açıklanmaktadır. Ardından ikinci, yeni bir _docker compose'u_ proje toohello çözüm eklenir. Merhaba yeni proje içeren birkaç dosyaları docker compose'u. Docker compose'u dosyaları hello kapsayıcı nasıl yürütüleceğini kullanılan toodescribe olabilir.
 
 İle çalışma hakkında daha fazla bilgi [Visual Studio kapsayıcı Araçları][link-visualstudio-container-tools].
 
 >[!NOTE]
->Windows kapsayıcı görüntülerini bilgisayarınızda çalıştırdığınız ilk kez ise, Docker CE kapsayıcılarınızı temel görüntülerde aşağı çekmek gerekir. Bu öğreticide kullanılan görüntüleri 14 GB bağımsızdır. Bir tane temel görüntüleri çıkarmak için terminal aşağıdaki komutu çalıştırın:
+>Bu hello Windows kapsayıcı görüntülerini bilgisayarınızda çalıştırdığınız ilk kez kullanıyorsanız, Docker CE hello temel görüntüler, kapsayıcıları için aşağı çekmek gerekir. Bu öğreticide kullanılan hello görüntüleri 14 GB bağımsızdır. Bir tane terminal komutu toopull hello taban görüntüleri aşağıdaki hello çalıştırın:
 >```cmd
 >docker pull microsoft/mssql-server-windows-developer
 >docker pull microsoft/aspnet:4.6.2
@@ -56,17 +56,17 @@ Sahip olduğunuza göre bir [Service Fabric kümesi Azure'da çalışan](service
 
 ### <a name="add-docker-support"></a>Docker desteği ekleme
 
-Açık [FabrikamFiber.CallCenter.sln] [ link-fabrikam-github] dosyasını Visual Studio'da.
+Açık hello [FabrikamFiber.CallCenter.sln] [ link-fabrikam-github] dosyasını Visual Studio'da.
 
-Sağ **FabrikamFiber.Web** Proje > **Ekle** > **Docker Destek**.
+Sağ hello **FabrikamFiber.Web** Proje > **Ekle** > **Docker Destek**.
 
 ### <a name="add-support-for-sql"></a>SQL desteği ekleme
 
-Bu uygulama, bir SQL server uygulamayı çalıştırmak için gerekli olacak şekilde SQL veri sağlayıcısı olarak kullanır. Bizim docker compose.override.yml dosyasındaki bir SQL Server kapsayıcı yansıma başvuru.
+Bir SQL server gerekli toorun Merhaba uygulaması olacak şekilde bu uygulama SQL hello veri sağlayıcısı olarak kullanır. Bizim docker compose.override.yml dosyasındaki bir SQL Server kapsayıcı yansıma başvuru.
 
-Visual Studio'da açın **Çözüm Gezgini**, bulma **docker compose'u**ve dosyayı açmak **docker compose.override.yml**.
+Visual Studio'da açın **Çözüm Gezgini**, bulma **docker compose'u**ve açık hello dosya **docker compose.override.yml**.
 
-Gidin `services:` düğümü, adlandırılmış bir düğüm eklemek `db:` kapsayıcısı için SQL Server giriş tanımlar.
+Toohello gidin `services:` düğümü, adlandırılmış bir düğüm eklemek `db:` hello SQL Server girişi hello kapsayıcısı için tanımlar.
 
 ```yml
   db:
@@ -86,9 +86,9 @@ Gidin `services:` düğümü, adlandırılmış bir düğüm eklemek `db:` kapsa
 >Ana bilgisayardan erişilebilir olduğu müddetçe, yerel hata ayıklama için tercih ettiğiniz herhangi bir SQL sunucusu kullanabilirsiniz. Ancak, **localdb** desteklemediği `container -> host` iletişim.
 
 >[!WARNING]
->SQL Server çalıştıran bir kapsayıcıda kalıcı veri desteklemiyor. Kapsayıcı sona erdiğinde, verileriniz silinir. Bu yapılandırma, üretim için kullanmayın.
+>SQL Server çalıştıran bir kapsayıcıda kalıcı veri desteklemiyor. Merhaba kapsayıcı sona erdiğinde, verileriniz silinir. Bu yapılandırma, üretim için kullanmayın.
 
-Gidin `fabrikamfiber.web:` düğümü ve adlı bir alt düğüm eklemek `depends_on:`. Bu sağlar `db` hizmetini (SQL Server kapsayıcısı) web uygulamamız önce (fabrikamfiber.web) başlatır.
+Toohello gidin `fabrikamfiber.web:` düğümü ve adlı bir alt düğüm eklemek `depends_on:`. Bu, hello sağlar `db` hizmetini (Merhaba SQL Server kapsayıcısı) web uygulamamız önce (fabrikamfiber.web) başlatır.
 
 ```yml
   fabrikamfiber.web:
@@ -96,9 +96,9 @@ Gidin `fabrikamfiber.web:` düğümü ve adlı bir alt düğüm eklemek `depends
       - db
 ```
 
-### <a name="update-the-web-config"></a>Güncelleştirme web yapılandırma
+### <a name="update-hello-web-config"></a>Merhaba web yapılandırma güncelleştir
 
-Geri **FabrikamFiber.Web** proje, bağlantı dizesinde güncelleştirme **web.config** kapsayıcısında SQL sunucusunu işaret edecek şekilde dosya.
+Merhaba edilene **FabrikamFiber.Web** proje, güncelleştirme hello bağlantı dizesine hello **web.config** dosya, SQL Server hello kapsayıcısında toopoint toohello.
 
 ```xml
 <add name="FabrikamFiber-Express" connectionString="Data Source=db,1433;Database=FabrikamFiber;User Id=sa;Password=Password1;MultipleActiveResultSets=True" providerName="System.Data.SqlClient" />
@@ -107,31 +107,31 @@ Geri **FabrikamFiber.Web** proje, bağlantı dizesinde güncelleştirme **web.co
 ```
 
 >[!NOTE]
->Farklı bir kullanmak istiyorsanız, bir yayın oluştururken, SQL Server web uygulamanızın veya derleme, başka bir bağlantı dizesi web.release.config dosyanıza ekleyin.
+>Bir yayın oluştururken farklı SQL Server web uygulamanızın veya yapı toouse istiyorsanız, başka bir bağlantı dizesi tooyour web.release.config dosyası ekleyin.
 
 ### <a name="test-your-container"></a>Test, kapsayıcısı
 
-Tuşuna **F5** çalıştırıp, kapsayıcı uygulamada hata ayıklama için.
+Tuşuna **F5** , kapsayıcı toorun ve hata ayıklama hello uygulamada.
 
-Edge iç NAT ağdaki (genellikle 172.x.x.x) kapsayıcı IP adresini kullanarak uygulamanızın tanımlanmış başlatma sayfasını açar. Visual Studio 2017 kullanarak kapsayıcıları uygulamalarında hata ayıklama hakkında daha fazla bilgi için bkz: [bu makalede][link-debug-container].
+Kenar başlangıç IP adresi hello kapsayıcısının hello iç NAT ağda (genellikle 172.x.x.x) kullanan uygulamanızın tanımlanmış başlatma sayfasını açar. Visual Studio 2017 kullanarak kapsayıcıları uygulamalarında hata ayıklama hakkında daha fazla toolearn bkz [bu makalede][link-debug-container].
 
 ![bir kapsayıcıda fabrikam örneği][image-web-preview]
 
-Kapsayıcı şimdi oluşturulur ve bir Service Fabric uygulaması paketlenmiş hazırdır. Makinenizde yerleşik kapsayıcı görüntü olduktan sonra kapsayıcı kayıt defterine itme ve çalıştırmak için herhangi bir ana aşağıya doğru çekme.
+Merhaba kapsayıcı oluşturulur ve bir Service Fabric uygulaması paketlenmiş hazır toobe sunulmuştur. Makinenizde yerleşik hello kapsayıcı görüntüsünü oluşturduktan sonra tooany kapsayıcı kayıt defteri itme ve tooany konak toorun çekmek.
 
-## <a name="get-the-application-ready-for-the-cloud"></a>Uygulamayı bulut için hazırlanma
+## <a name="get-hello-application-ready-for-hello-cloud"></a>Merhaba uygulaması hello bulut için hazırlanma
 
-Uygulama Azure Service Fabric içinde çalıştırmak için hazır hale getirmek için iki adımı tamamlamak ihtiyacımız var:
+tooget Merhaba uygulaması Azure Service Fabric içinde çalıştırmak için hazır, toocomplete iki adım gerekir:
 
-1. Burada web uygulamamız Service Fabric kümesindeki ulaşabilmesi istiyoruz bağlantı noktasını kullanıma sunar.
+1. Başlangıç bağlantı noktası toobe mümkün tooreach web uygulamamız hello Service Fabric kümesindeki burada istiyoruz kullanıma sunar.
 2. Bir üretim hazır SQL veritabanı uygulamamız için sağlayın.
 
-### <a name="expose-the-port-for-the-app"></a>Uygulama için bağlantı noktası kullanıma sunma
-Yapılandırılmış, Service Fabric kümesi olan bağlantı noktası *80* açık Azure yük dengeleyici varsayılan olarak, kümeye gelen trafiği dengeler. Biz bu bağlantı noktasında bizim kapsayıcı bizim docker-compose.yml dosyası getirebilir.
+### <a name="expose-hello-port-for-hello-app"></a>Merhaba uygulama için başlangıç bağlantı noktası kullanıma sunma
+Merhaba Service Fabric kümesi yapılandırılmış, bağlantı noktası olan *80* açık varsayılan olarak hello Azure yük dengeleyici, gelen trafiği toohello küme dengeler. Biz bu bağlantı noktasında bizim kapsayıcı bizim docker-compose.yml dosyası getirebilir.
 
-Visual Studio'da açın **Çözüm Gezgini**, bulma **docker compose'u**ve dosyayı açmak **docker compose.override.yml**.
+Visual Studio'da açın **Çözüm Gezgini**, bulma **docker compose'u**ve açık hello dosya **docker compose.override.yml**.
 
-Değiştirme `fabrikamfiber.web:` düğümü adlı bir alt düğüm eklemek `ports:`.
+Merhaba değiştirme `fabrikamfiber.web:` düğümü adlı bir alt düğüm eklemek `ports:`.
 
 Bir dize girişi ekleme `- "80:80"`.
 
@@ -149,62 +149,62 @@ Bir dize girişi ekleme `- "80:80"`.
 ```
 
 ### <a name="use-a-production-sql-database"></a>Bir üretim SQL veritabanını kullan
-Üretimde çalıştırırken, verilerimizi ihtiyacımız bizim veritabanında kalıcı. Şu anda bir kapsayıcıda kalıcı veri güvence altına almak için bir yolu yoktur, bu nedenle bir kapsayıcıda SQL Server'daki üretim verileri depolanamıyor.
+Üretimde çalıştırırken, verilerimizi ihtiyacımız bizim veritabanında kalıcı. Bir kapsayıcıda şu anda yolu tooguarantee kalıcı veri yok, bu nedenle bir kapsayıcıda SQL Server'daki üretim verileri depolanamıyor.
 
-Bir Azure SQL veritabanı kullanan öneririz. Ayarlama ve yönetilen bir SQL Server Azure'da çalışması için ziyaret edin [Azure SQL veritabanı hızlı başlangıç ipuçları] [ link-azure-sql] makalesi.
+Bir Azure SQL veritabanı kullanan öneririz. tooset ayarlama ve çalıştırma Azure, yönetilen bir SQL Server'da ziyaret hello [Azure SQL veritabanı hızlı başlangıç ipuçları] [ link-azure-sql] makalesi.
 
 >[!NOTE]
->SQL server için bağlantı dizelerini değiştirmeyi unutmayın **web.release.config** dosyasını **FabrikamFiber.Web** projesi.
+>Toochange hello bağlantı dizeleri toohello SQL Server'da hello unutmayın **web.release.config** hello dosyasında **FabrikamFiber.Web** projesi.
 >
->SQL veritabanı erişilebilir olduğundan, bu uygulama düzgün biçimde başarısız olur. Devam edin ve SQL server ile uygulama dağıtmak seçebilirsiniz.
+>SQL veritabanı erişilebilir olduğundan, bu uygulama düzgün biçimde başarısız olur. Şimdi toogo seçin ve SQL server ile Merhaba uygulaması dağıtın.
 
 ## <a name="deploy-with-visual-studio-team-services"></a>Visual Studio Team Services ile dağıtma
 
-Visual Studio Team Services kullanarak dağıtımı ayarlamak için yüklemeniz gerekir [sürekli teslim araçları uzantısı için Visual Studio 2017][link-visualstudio-cd-extension]. Bu uzantıyı Visual Studio Team Services yapılandırarak Azure'a dağıtma ve, Service Fabric kümesi dağıtılmış uygulamanızı alma daha kolay hale getirir.
+tooset Visual Studio Team Services kullanarak dağıtım, gereksinim duyduğunuz tooinstall hello [sürekli teslim araçları uzantısı için Visual Studio 2017][link-visualstudio-cd-extension]. Bu uzantıyı Visual Studio Team Services yapılandırarak kolay toodeploy tooAzure kolaylaştırır ve dağıtılmış uygulama tooyour Service Fabric kümesi alın.
 
-Başlamak için kaynak denetiminde kodunuzun barındırılması gerekir. Bu bölümde rest varsayar **git** kullanılıyor.
+başlatıldı, tooget kaynak denetiminde kodunuzun barındırılması gerekir. Bu bölümde Hello kalan varsayar **git** kullanılıyor.
 
 ### <a name="set-up-a-vsts-repo"></a>VSTS depodaki ayarlayın
-Visual Studio sağ alt köşesinde tıklatın **eklemek için kaynak denetimi** > **Git** (veya hangi seçeneği tercih).
+Merhaba sağ alt köşesinde Visual Studio, tıklatın **tooSource denetim eklemek** > **Git** (veya hangi seçeneği tercih).
 
-![Kaynak denetimi düğmesine basın][image-source-control]
+![Merhaba kaynak denetimi düğmesine basın][image-source-control]
 
-İçinde _Takım Gezgini_ bölmesi, basın **yayımlama Git deposuna**.
+Merhaba, _Takım Gezgini_ bölmesi, basın **yayımlama Git deposuna**.
 
 VSTS havuz adı ve tuşuna seçin **depo**.
 
-![Depodaki VSTS yayımlama][image-publish-repo]
+![Depodaki tooVSTS yayımlama][image-publish-repo]
 
 Kodunuzu VSTS kaynak deposu ile eşitlenir, sürekli tümleştirme ve kesintisiz teslim yapılandırabilirsiniz.
 
 ### <a name="setup-continuous-delivery"></a>Kurulum kesintisiz teslim
 
-İçinde _Çözüm Gezgini_, sağ **çözüm** > **yapılandırma kesintisiz teslim**.
+İçinde _Çözüm Gezgini_, sağ hello **çözüm** > **yapılandırma kesintisiz teslim**.
 
-Azure aboneliğini seçin.
+Hello Azure aboneliği seçin.
 
-Ayarlama **ana bilgisayar türü** için **Service Fabric kümesi**.
+Ayarlama **ana bilgisayar türü** çok**Service Fabric kümesi**.
 
-Ayarlama **hedef ana bilgisayarın** önceki bölümde oluşturduğunuz service fabric kümesi için.
+Ayarlama **hedef ana bilgisayarın** hello önceki bölümde oluşturduğunuz toohello service fabric kümesi.
 
-Seçin bir **kapsayıcı kayıt defteri** , kapsayıcıya yayımlamak için.
+Seçin bir **kapsayıcı kayıt defteri** toopublish, kapsayıcıya.
 
 >[!TIP]
->Kullanım **Düzenle** kapsayıcı kayıt oluşturmak üzere düğmesi.
+>Kullanım hello **Düzenle** düğmesini toocreate bir kapsayıcı kayıt defteri.
 
 **Tamam**'a basın.
 
 ![Kurulum service fabric sürekli tümleştirme][image-setup-ci]
    
-   Yapılandırma tamamlandıktan sonra kapsayıcı için Service Fabric dağıtılır. Her değiştiğinde, anında iletme depoya yeni bir yapı güncelleştirir ve yayın yürütülür.
+   Merhaba Yapılandırma tamamlandıktan sonra dağıtılan tooService doku kapsayıcıdır. Güncelleştirmeleri toohello depo itme her bir yeni derleme ve sürüm gerçekleştirilir.
    
    >[!NOTE]
-   >Kapsayıcı görüntüleri alma yaklaşık 15 dakika oluşturma.
-   >Service Fabric kümesi ilk dağıtımda yüklenmek üzere temel Windows Server Core kapsayıcı görüntüleri neden olur. Yüklemeyi tamamlamak için ek 5-10 dakika sürer.
+   >Yapı hello kapsayıcı görüntüleri yaklaşık 15 dakika sürebilir.
+   >Merhaba ilk dağıtım toohello Service Fabric kümesi hello temel Windows Server Core kapsayıcı görüntüleri toobe indirilen neden olur. Merhaba indirme ek 5-10 dakika toocomplete alır.
 
-Kümenizin URL'yi kullanarak Fabrikam çağrı merkezi uygulaması'na göz: Örneğin, *http://mycluster.westeurope.cloudapp.azure.com*
+Kümenizin Hello URL'yi kullanarak toohello Fabrikam çağrı merkezi uygulama göz atın: Örneğin, *http://mycluster.westeurope.cloudapp.azure.com*
 
-Kapsayıcılı ve Fabrikam çağrı merkezi çözümü dağıtılmış göre açabilirsiniz [Azure portal] [ link-azure-portal] ve Service Fabric içinde çalışan uygulama bakın. Uygulama denemek için bir web tarayıcısı açın ve Service Fabric kümesi URL'sine gidin.
+Kapsayıcılı ve hello Fabrikam çağrı merkezi çözümü dağıtılmış göre hello açabilirsiniz [Azure portal] [ link-azure-portal] ve Service Fabric çalışan hello uygulama bakın. tootry Merhaba uygulaması, bir web tarayıcısı açın ve Service Fabric kümesi toohello URL'sini gidin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -217,10 +217,10 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 <!--   NOTE SURE WHAT WE SHOULD DO YET HERE
 
-Advance to the next tutorial to learn how to bind a custom SSL certificate to it.
+Advance toohello next tutorial toolearn how toobind a custom SSL certificate tooit.
 
 > [!div class="nextstepaction"]
-> [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
+> [Bind an existing custom SSL certificate tooAzure Web Apps](app-service-web-tutorial-custom-ssl.md)
 
 ## Next steps
 

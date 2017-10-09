@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI ile Linux VM görüntüleri seçin | Microsoft Docs"
-description: "Yayımcı, teklif, SKU ve sürümü Market VM görüntüleri belirlemek için Azure CLI kullanmayı öğrenin."
+title: "aaaSelect Linux VM görüntüleri hello Azure CLI ile | Microsoft Docs"
+description: "Toouse nasıl hello Azure CLI toodetermine hello yayımcı, teklif, SKU ve sürümü Market VM görüntüleri öğrenin."
 services: virtual-machines-linux
 documentationcenter: 
 author: dlepow
@@ -16,41 +16,41 @@ ms.workload: infrastructure
 ms.date: 08/24/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e0c27a7ee9e9a7ab1a3b004e070fa556b56a36a5
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 0b115b8654bc156b5bfadba53a6b002a105acb68
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
-# <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Linux VM görüntüleri Azure CLI ile Azure Marketi bulmak nasıl
-Bu konuda, Azure Marketi'nde VM görüntüleri bulmak için Azure CLI 2.0 kullanmayı açıklar. Bir Linux VM oluşturduğunuzda bir Market görüntüsü belirtmek için bu bilgileri kullanın.
+# <a name="how-toofind-linux-vm-images-in-hello-azure-marketplace-with-hello-azure-cli"></a>Nasıl hello Azure CLI ile Azure Marketi hello içinde toofind Linux VM görüntüleri
+Bu konuda nasıl toouse hello Azure CLI 2.0 toofind VM görüntüleri hello Azure Marketi açıklanmaktadır. Bir Linux VM oluşturduğunuzda, bu bilgileri toospecify bir Market görüntüsü kullanın.
 
-En son yüklendiğinden emin olmak [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabına günlüğe kaydedilir (`az login`).
+Merhaba son yüklü olduğundan emin olun [Azure CLI 2.0](/cli/azure/install-az-cli2) ve tooan Azure hesabı günlüğe kaydedilir (`az login`).
 
 ## <a name="terminology"></a>Terminoloji
 
-Market görüntülerini CLI ve diğer Azure araçlarını bir hiyerarşi göre tanımlanır:
+Market görüntülerini hello CLI ve diğer Azure Araçları tooa hiyerarşi göre tanımlanır:
 
-* **Yayımcı** -görüntüyü oluşturan kuruluş. Örnek: kurallı
+* **Yayımcı** -hello hello görüntüyü oluşturan kuruluş. Örnek: kurallı
 * **Teklif** -bir yayımcı tarafından oluşturulan ilgili görüntüler grubudur. Örnek: Ubuntu Server
 * **SKU** - bir dağıtım büyük sürümü gibi bir teklif ait bir örnek. Örnek: 16.04-LTS
-* **Sürüm** -SKU görüntü sürüm numarası. Görüntü belirtirken, hangi dağıtım en son sürümünü seçer sürüm numarasıyla "son" değiştirebilirsiniz.
+* **Sürüm** -hello görüntünün SKU sürüm numarası. Merhaba görüntü belirtirken, hangi hello dağıtım en son sürümünü hello seçer hello sürüm numarasıyla "son" değiştirebilirsiniz.
 
-Bir Market görüntüsü belirtmek için genellikle görüntünün kullanın *URN*. İki nokta üst üste (:) karakteriyle ayrılmış bu değerleri URN birleştirir: *yayımcı*:*teklif*:*Sku*:*sürüm*. 
+toospecify bir Market görüntüsü, genellikle kullandığınız hello görüntü *URN*. Merhaba URN hello iki nokta üst üste (:) karakteriyle ayrılmış bu değerleri birleştirir: *yayımcı*:*teklif*:*Sku*:*sürüm*. 
 
 
 ## <a name="list-popular-images"></a>Liste popüler görüntüleri
 
-Çalıştırma [az vm görüntü listesi](/cli/azure/vm/image#list) olmadan komutu `--all` Azure Marketi popüler VM görüntüleri listesini görmek için seçeneği. Örneğin, tablo biçiminde popüler görüntüleri önbelleğe alınmış bir listesini görüntülemek için aşağıdaki komutu çalıştırın:
+Merhaba çalıştırmak [az vm görüntü listesi](/cli/azure/vm/image#list) hello olmadan komutu `--all` seçeneği, popüler VM listesini görüntüleri hello Azure Marketi toosee. Örneğin, komut toodisplay aşağıdaki hello önbelleğe alınmış popüler görüntüleri listesini tablo biçiminde çalıştırın:
 
 ```azurecli
 az vm image list --output table
 ```
 
-Çıktı URN içerir (değeri *Urn* sütun), görüntüyü belirtmek için kullanın. Bir VM Bu popüler Market görüntülerden birini oluştururken, alternatif olarak, URN diğer adı gibi belirleyebilirsiniz *UbuntuLTS*.
+Merhaba çıktı hello URN içerir (Merhaba hello değerinde *Urn* sütun), hangi toospecify hello görüntü kullanın. Bir VM Bu popüler Market görüntülerden birini oluştururken, alternatif olarak hello URN diğer gibi belirleyebilirsiniz *UbuntuLTS*.
 
 ```
-You are viewing an offline list of images, use --all to retrieve an up-to-date list
+You are viewing an offline list of images, use --all tooretrieve an up-to-date list
 Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
 -------------  ----------------------  ------------------  --------------------------------------------------------------  -------------------  ---------
 CentOS         OpenLogic               7.3                 OpenLogic:CentOS:7.3:latest                                     CentOS               latest
@@ -65,9 +65,9 @@ UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServe
 
 ## <a name="find-specific-images"></a>Belirli görüntüleri bulma
 
-Belirli bir VM görüntüsü markette bulmak için `az vm image list` komutunu `--all` seçeneği. Komutun bu sürümü tamamlamak ve biraz zaman alabilir genellikle listeyi filtrelemek için uzun output dönüş `--publisher` veya başka bir parametre. 
+toofind hello Market, belirli bir VM görüntüsündeki kullanmak hello `az vm image list` hello komutunu `--all` seçeneği. Merhaba komutunun bu sürümü, bazı zaman toocomplete alır ve genellikle hello listeyi filtrelemek için uzun çıkış döndürebilirsiniz `--publisher` veya başka bir parametre. 
 
-Örneğin, aşağıdaki komut tüm Debian teklifleri görüntüler (olmadan unutmamanız `--all` geçiş, yalnızca yerel önbelleğe ortak görüntülerinin arar):
+Örneğin, komutu aşağıdaki hello tüm Debian teklifleri görüntüler (Merhaba unutmayın `--all` geçiş, yalnızca ortak görüntülerinin hello yerel önbelleği arar):
 
 ```azurecli
 az vm image list --offer Debian --all --output table 
@@ -102,11 +102,11 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201708040        
 ...
 ```
 
-Benzer filtreleri ile uygulama `--location`, `--publisher`, ve `--sku` seçenekleri. Kısmi eşleşmeler arama gibi bir filtre bile gerçekleştirebileceğiniz `--offer Deb` tüm Debian görüntüleri bulunamıyor.
+Merhaba ile benzer filtre uygulamak `--location`, `--publisher`, ve `--sku` seçenekleri. Kısmi eşleşmeler arama gibi bir filtre bile gerçekleştirebileceğiniz `--offer Deb` toofind tüm Debian görüntüler.
 
-Belirli bir konumla belirtmezseniz `--location` seçeneğini değerlerini `westus` varsayılan olarak döndürülür. (Çalıştırarak farklı varsayılan konumunu ayarla `az configure --defaults location=<location>`.)
+Belirli bir konuma hello ile belirtmezseniz `--location` seçeneğini hello değerlerini `westus` varsayılan olarak döndürülür. (Çalıştırarak farklı varsayılan konumunu ayarla `az configure --defaults location=<location>`.)
 
-Örneğin, aşağıdaki komut, tüm Debian 8 SKU listeler `westeurope`:
+Örneğin, tüm Debian 8 SKU'ları, komutu aşağıdaki hello listeler `westeurope`:
 
 ```azurecli
 az vm image list --location westeurope --offer Deb --publisher credativ --sku 8 --all --output table
@@ -133,15 +133,15 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201706210        
 ...
 ```
 
-## <a name="navigate-the-images"></a>Görüntüleri gidin 
-Görüntüyü bir konumda bulmak için başka bir yolu çalıştırmaktır [az vm görüntü listesi-yayımcılar](/cli/azure/vm/image#list-publishers), [az vm görüntü listesi-teklifleri](/cli/azure/vm/image#list-offers), ve [az vm görüntü listesi-SKU'ları](/cli/azure/vm/image#list-skus) komutları sırayla. Bu komutları ile bu değerler belirler:
+## <a name="navigate-hello-images"></a>Merhaba görüntüleri gidin 
+Başka bir şekilde toofind görüntünün bir konumda toorun hello olan [az vm görüntü listesi-yayımcılar](/cli/azure/vm/image#list-publishers), [az vm görüntü listesi-teklifleri](/cli/azure/vm/image#list-offers), ve [az vm görüntü listesi-SKU'ları](/cli/azure/vm/image#list-skus) komutları sırayla. Bu komutları ile bu değerler belirler:
 
-1. Görüntü yayımcılarını listeleyin.
+1. Liste hello görüntü yayımcılar.
 2. Belirli bir yayımcı varsa yayımcının tekliflerini listeleyin.
 3. Belirli bir teklif varsa SKU’larını listeleyin.
 
 
-Örneğin, aşağıdaki komut, Batı ABD konumunda görüntü yayımcılar listeler:
+Örneğin, hello aşağıdaki komut hello Batı ABD konumu hello görüntü yayımcıları listeler:
 
 ```azurecli
 az vm image list-publishers --location westus --output table
@@ -166,7 +166,7 @@ westus      activeeon
 westus      adatao
 ...
 ```
-Belirli bir yayımcıdan teklifleri bulmak için bu bilgileri kullanın. Canonical Batı ABD konumunda bir görüntü yayımcı ise, örneğin, kendi teklifleri çalıştırarak bulabileceğiniz `azure vm image list-offers`. Konum ve yayıncıya aşağıdaki örnekteki gibi geçirin:
+Bu bilgi toofind belirli bir yayımcıdan sunar kullanın. Canonical hello Batı ABD konumu görüntü Publisher'da ise, örneğin, kendi teklifleri çalıştırarak bulabileceğiniz `azure vm image list-offers`. Merhaba konumunu ve örnek aşağıdaki hello olduğu gibi hello yayımcı geçirin:
 
 ```azurecli
 az vm image list-offers --location westus --publisher Canonical --output table
@@ -185,7 +185,7 @@ westus      Ubuntu_Core
 westus      Ubuntu_Snappy_Core
 westus      Ubuntu_Snappy_Core_Docker
 ```
-Batı ABD bölgesi Canonical yayımlar gördüğünüz **UbuntuServer** Azure üzerinde sunar. Peki bunların SKU’su ne? Bu değerleri almak için şunu çalıştırın `azure vm image list-skus` ve konumu, yayımcı ve bulunan teklif ayarlayın:
+Merhaba Batı ABD bölgesinde hello Canonical yayımlar gördüğünüz **UbuntuServer** Azure üzerinde sunar. Ancak hangi SKU'ları? Bu değerleri tooget çalıştırmak `azure vm image list-skus` ve hello konumu, yayımcı ve bulunan teklif ayarlayın:
 
 ```azurecli
 az vm image list-skus --location westus --publisher Canonical --offer UbuntuServer --output table
@@ -219,7 +219,7 @@ westus      17.04-DAILY
 westus      17.10-DAILY
 ```
 
-Son olarak, `az vm image list` istediğiniz, örneğin, belirli bir SKU sürümünü bulmak için komutu **16.04 LTS**:
+Son olarak, hello kullan `az vm image list` komutu toofind hello SKU istediğiniz, örneğin, belirli bir sürümünü **16.04 LTS**:
 
 ```azurecli
 az vm image list --location westus --publisher Canonical --offer UbuntuServer --sku 16.04-LTS --all --output table
@@ -257,4 +257,4 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708151  16.04.201708151
 ```
 ## <a name="next-steps"></a>Sonraki adımlar
-Artık tam olarak URN değeri not gerçekleştirerek kullanmak istediğiniz görüntü seçebilirsiniz. Bu değer ile geçirmek `--image` bir VM ile oluşturduğunuzda parametresi [az vm oluşturma](/cli/azure/vm#create) komutu. "Son" URN sürüm numarası isteğe bağlı olarak değiştirebilirsiniz unutmayın. Bu her zaman en son sürümünü dağıtım sürümüdür. URN bilgileri kullanarak hızlı bir şekilde bir sanal makine oluşturmak için bkz: [oluşturma ve yönetme Linux VM'ler Azure CLI ile](tutorial-manage-vm.md).
+Tam olarak hello görüntüsünü seçebilirsiniz artık alma Not hello URN değeri tarafından toouse istiyor. Bu değeri hello ile geçirmek `--image` bir VM ile Merhaba oluşturduğunuzda parametresi [az vm oluşturma](/cli/azure/vm#create) komutu. "Son" Merhaba URN hello sürüm numarası isteğe bağlı olarak değiştirebilirsiniz unutmayın. Bu her zaman en son sürümünü hello dağıtım hello sürümüdür. toocreate hello URN bilgileri kullanarak hızlı bir şekilde bir sanal makine bkz [oluşturma ve yönetme Linux VM'ler hello Azure CLI ile](tutorial-manage-vm.md).

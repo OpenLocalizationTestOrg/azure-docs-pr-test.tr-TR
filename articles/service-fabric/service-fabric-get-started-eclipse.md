@@ -1,6 +1,6 @@
 ---
-title: "Eclipse için Azure Service Fabric eklentisi | Microsoft Docs"
-description: "Eclipse için Service Fabric eklentisini kullanmaya başlayın."
+title: "Service Fabric Eclipse için eklenti aaaAzure | Microsoft Docs"
+description: "Service Fabric eklenti Hello ile Eclipse için kullanmaya başlayın."
 services: service-fabric
 documentationcenter: java
 author: sayantancs
@@ -14,39 +14,39 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/21/2016
 ms.author: saysa
-ms.openlocfilehash: 98c1b99972b9ad7a396d72b98e727286f6822e42
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.openlocfilehash: 4ba5a28a6282387249a2bd4e62314e891ff04162
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Eclipse Java uygulama geliştirmesi için Service Fabric eklentisi
-Eclipse, Java geliştiricileri için en yaygın kullanılan tümleşik geliştirme ortamlarından (IDE’ler) biridir. Bu makalede, Azure Service Fabric ile çalışmak için Eclipse geliştirme ortamınızı ayarlama işlemi ele alınmaktadır. Service Fabric eklentisini kurma, Service fabric uygulamaları oluşturup Service Fabric uygulamanızı yerel veya Eclipse Neon’daki uzak bir Service Fabric kümesine dağıtma hakkında bilgi edinin yardımcı olur.
+Eclipse en yaygın olarak kullanılan hello biridir Java geliştiriciler için tümleşik geliştirme ortamlarını (IDE). Bu makalede, sizi tanımlamak nasıl tooset, Eclipse geliştirme ortamı toowork Azure Service Fabric ile ayarlama. Tooinstall hello Service Fabric eklentisi, Service Fabric uygulaması oluşturma ve Service Fabric uygulaması tooa yerel veya uzak Service Fabric kümenizdeki Eclipse Neon dağıtmak öğrenin.
 
-## <a name="install-or-update-the-service-fabric-plug-in-in-eclipse-neon"></a>Eclipse Neon’da Service Fabric eklentisi yükleme veya güncelleştirme
-Eclipse'te Service Fabric eklentisi yükleyebilirsiniz. Eklenti, Java hizmetleri oluşturup dağıtma işlemini kolaylaştırmaya yardımcı olur.
+## <a name="install-or-update-hello-service-fabric-plug-in-in-eclipse-neon"></a>Yükleme veya hello Service Fabric Eclipse Neon eklenti güncelleştir
+Eclipse'te Service Fabric eklentisi yükleyebilirsiniz. Merhaba eklentisi oluşturma ve Java Hizmetleri dağıtma hello işlemini kolaylaştırmaya yardımcı olabilir.
 
-1.  En son Eclipse Neon sürümüne sahip olduğunuzdan ve en son Buildship sürümünün (1.0.17 veya sonraki bir sürüm) yüklü olduğundan emin olun:
-    -   **Yardım** > **Yükleme Ayrıntıları**’nı seçerek Eclipse Neon’da yüklü bileşenlerin sürümlerini denetleyebilirsiniz.
-    -   Buildship’i güncelleştirmek için bkz. [Eclipse Buildship: Gradle için Eclipse Eklentileri][buildship-update].
-    -   Eclipse Neon güncelleştirmelerini denetleyip yüklemek için **Yardım** > **Güncelleştirmeleri Denetle** menüsüne gidin.
+1.  Eclipse Neon hello en son sürümünü ve en son sürümünü Buildship hello olduğundan emin olun (1.0.17 veya sonraki bir sürümü) yüklü:
+    -   Eclipse Neon içinde yüklü bileşenlerin toocheck hello sürümleri Git çok**yardımcı** > **Yükleme ayrıntıları**.
+    -   tooupdate Buildship, bkz: [Eclipse Buildship: Eclipse için eklentilerini Gradle][buildship-update].
+    -   için toocheck ve güncelleştirmeleri yükleme için Eclipse Neon Git çok**yardımcı** > **Güncelleştirmeleri denetle**.
 
-2.  Service Fabric eklentisini yüklemek için, Eclipse Neon’da **Yardım** > **Yeni Yazılım Yükle**’ye gidin.
-  1.    **Birlikte çalışın** kutusuna şunu girin: **http://dl.microsoft.com/eclipse**.
+2.  tooinstall hello Service Fabric Eclipse Neon içinde eklenti Git çok**yardımcı** > **yeni yazılımı yükle**.
+  1.    Merhaba, **çalışmak** kutusuna **http://dl.microsoft.com/eclipse**.
   2.    **Ekle**'ye tıklayın.
 
          ![Eclipse Neon için Service Fabric eklentisi][sf-eclipse-plugin-install]
-  3.    Service Fabric eklentisini seçip **İleri**’ye tıklayın.
-  4.    Yükleme adımlarını tamamlayın ve ardından Microsoft Yazılım Lisans Koşulları’nı kabul edin.
+  3.    Merhaba Service Fabric eklenti seçin ve ardından **sonraki**.
+  4.    Merhaba yükleme adımlarını tamamlayın ve hello Microsoft Yazılımı Lisans koşulları kabul edin.
 
-Service Fabric eklentisi zaten yüklüyse, en yeni sürümü kullandığınızdan emin olun. Kullanılabilir güncelleştirmeleri denetlemek için **Yardım** > **Yükleme Ayrıntıları**’na gidin. Yüklü eklentiler listesinde Service Fabric’i seçip **Güncelleştir**’e tıklayın. Kullanılabilir güncelleştirmeler yüklenir.
+Hello Service yüklü Fabric eklenti zaten varsa, hello en son sürümüne sahip olduğunuzdan emin olun. kullanılabilir güncelleştirmeleri toocheck Git çok**yardımcı** > **Yükleme ayrıntıları**. Yüklü eklentileri listesi Merhaba, Service Fabric seçin ve ardından **güncelleştirme**. Kullanılabilir güncelleştirmeler yüklenir.
 
 > [!NOTE]
-> Service Fabric eklentisi yavaş yükleniyor veya güncelleştiriliyorsa, bunun nedeni bir Eclipse ayarı olabilir. Eclipse, Eclipse örneğinize kaydedilmiş siteleri güncelleştirmek üzere tüm değişikliklere ait meta verileri toplar. Bir Service Fabric eklenti güncelleştirmesini denetleme ve yükleme işlemini hızlandırmak için **Kullanılabilir Yazılım Siteleri** bölümüne gidin. Service Fabric eklenti konumunu (http://dl.microsoft.com/eclipse/azure/servicefabric) işaret eden site dışındaki tüm sitelerin onay kutularını temizleyin.
+> Yükleme veya hello Service Fabric eklenti güncelleştirme yavaşsa, tooan Eclipse ayarı nedeniyle olabilir. Eclipse Eclipse örneğinizle kayıtlı tüm değişiklikleri tooupdate sitelerindeki meta verileri toplar. toospeed denetleniyor ve Service Fabric eklenti güncelleştirmeyi yükleme işlemini hello Git çok**kullanılabilir yazılım siteleri**. Merhaba toohello Service Fabric eklenti konumu (http://dl.microsoft.com/eclipse/azure/servicefabric) işaret eden bir dışında tüm siteler için Hello onay kutularını temizleyin.
 
 ## <a name="create-a-service-fabric-application-in-eclipse"></a>Eclipse’te Service Fabric uygulaması oluşturma
 
-1.  Eclipse Neon’da **Dosya** > **Yeni** > **Diğer** öğesine gidin. **Service Fabric Projesi**’ni seçip **İleri**’ye tıklayın.
+1.  Eclipse Neon içinde çok Git**dosya** > **yeni** > **diğer**. **Service Fabric Projesi**’ni seçip **İleri**’ye tıklayın.
 
     ![Service Fabric Yeni Proje sayfa 1][create-application/p1]
 
@@ -54,15 +54,15 @@ Service Fabric eklentisi zaten yüklüyse, en yeni sürümü kullandığınızda
 
     ![Service Fabric Yeni Proje sayfa 2][create-application/p2]
 
-3.  Şablonlar listesinde **Hizmet Şablonu**’nu seçin. Hizmet şablonu türünüzü (Aktör, Durum Bilgisi Olmayan, Kapsayıcı veya Konuk İkili) seçip **İleri**’ye tıklayın.
+3.  Şablonları Hello listesinde seçin **hizmet şablonu**. Hizmet şablonu türünüzü (Aktör, Durum Bilgisi Olmayan, Kapsayıcı veya Konuk İkili) seçip **İleri**’ye tıklayın.
 
     ![Service Fabric Yeni Proje sayfa 3][create-application/p3]
 
-4.  Hizmet adını ve hizmet ayrıntılarını girip **Son**’a tıklayın.
+4.  Merhaba hizmet adı girin ve hizmet ayrıntılarını ve ardından **son**.
 
     ![Service Fabric Yeni Proje sayfa 4][create-application/p4]
 
-5. İlk Service Fabric projenizi oluşturduktan sonra, **İlişkili Perspektifi Aç** iletişim kutusunda **Evet**’e tıklayın.
+5. Hello ilk Service Fabric projenizi oluşturduğunuzda **açık ilişkili perspektif** iletişim kutusu, tıklatın **Evet**.
 
     ![Service Fabric Yeni Proje sayfa 5][create-application/p5]
 
@@ -76,77 +76,77 @@ Service Fabric eklentisi zaten yüklüyse, en yeni sürümü kullandığınızda
 
     ![Service Fabric sağ tıklama menüsü][publish/RightClick]
 
-2. Alt menüde istediğiniz seçeneği belirleyin:
-    -   Uygulamayı temizlemeden derlemek için **Uygulamayı Derle**’ye tıklayın.
-    -   Uygulamanın temiz bir derlemesini gerçekleştirmek için **Uygulamayı Yeniden Derle**’ye tıklayın.
-    -   Derlenen yapıtları uygulamadan temizlemek için **Uygulamayı Temizle**’ye tıklayın.
+2. Merhaba alt menüde hello seçeneği belirleyin:
+    -   Temizleme, olmadan toobuild hello uygulama'yı tıklatın **yapı uygulama**.
+    -   toodo hello uygulamasının temiz bir yapı tıklatın **yeniden uygulama**.
+    -   Yerleşik yapılarının tooclean hello uygulama'yı tıklatın **temiz uygulama**.
 
 3.  Bu menüden ayrıca uygulamanızı dağıtabilir, dağıtımını kaldırabilir ve yayımlayabilirsiniz:
-    -   Yerel kümenize dağıtmak için **Uygulamayı Dağıt**’a tıklayın.
-    -   **Uygulamayı Yayımla** iletişim kutusunda bir yayımlama profili seçin:
+    -   toodeploy tooyour yerel küme, tıklatın **dağıtmak uygulama**.
+    -   Merhaba, **uygulamasını Yayımla** iletişim kutusunda, bir yayımlama profili seçin:
         -  **Local.json**
         -  **Cloud.json**
 
-     Bu JavaScript Nesne Gösterimi (JSON) dosyaları, yerel veya bulut (Azure) kümenize bağlanmak için gereken bilgileri (bağlantı uç noktaları ve güvenlik bilgileri gibi) depolar.
+     Bu JavaScript nesne gösterimi (JSON) dosyaları gerekli tooconnect tooyour yerel veya buluta (Azure'a) küme bilgilerini (örneğin, bağlantı uç ve güvenlik bilgileri) depolar.
 
   ![Service Fabric Yayımla menüsü][publish/Publish]
 
-Service Fabric uygulamanızı dağıtmanın alternatif bir yolu, Eclipse çalıştırma yapılandırmalarının kullanılmasıdır.
+Bir alternatif bir yol toodeploy yapılandırmaları Service Fabric uygulamanızı Eclipse kullanılarak çalıştırılır.
 
-  1.    **Çalıştır** > **Çalıştırma Yapılandırmaları** öğesine gidin.
-  2.    **Grade Projesi** altındaki **ServiceFabricDeployer** çalıştırma yapılandırmasını seçin.
-  3.    Sağ bölmedeki **Bağımsız Değişkenler** sekmesinde **publishProfile** için **yerel** veya **bulut** seçeneğini belirtin.  Varsayılan seçenek **yerel**’dir. Uzak kümeye veya bulut kümesine dağıtmak için **bulut** seçeneğini belirleyin.
-  4.    Yayımlama profillerine doğru bilgilerin doldurulduğundan emin olmak için **Local.json** veya **Cloud.json** dosyasını gereken şekilde düzenleyin. Uç nokta bilgilerini ve güvenlik kimlik bilgilerini ekleyebilir ya da güncelleştirebilirsiniz.
-  5.    **Çalışma Dizini** öğesinin, dağıtmak istediğiniz uygulamayı işaret ettiğinden emin olun. Uygulamayı değiştirmek için, **Çalışma Alanı** düğmesine tıklayın ve istediğiniz uygulamayı seçin.
+  1.    Çok Git**çalıştırmak** > **yapılandırmaları Çalıştır**.
+  2.    Altında **Gradle proje**seçin hello **ServiceFabricDeployer** yapılandırma çalıştırın.
+  3.    Merhaba üzerinde hello sağ bölmede **bağımsız değişkenleri** sekmesinde için **publishProfile**seçin **yerel** veya **bulut**.  Merhaba varsayılandır **yerel**. Uzak toodeploy tooa veya Bulut küme, select **bulut**.
+  4.    Merhaba uygun bilgileri hello doldurulur tooensure yayımlama profillerini, düzenleme **Local.json** veya **Cloud.json** gerektiğinde. Uç nokta bilgilerini ve güvenlik kimlik bilgilerini ekleyebilir ya da güncelleştirebilirsiniz.
+  5.    Emin **çalışma dizini** toohello uygulamasıyla toodeploy işaret eder. toochange Merhaba uygulama, hello tıklatın **çalışma** düğmesine tıklayın ve ardından istediğiniz hello uygulamayı seçin.
   6.    **Uygula** ve ardından **Çalıştır** seçeneğine tıklayın.
 
-Uygulamanız birkaç dakika içinde derlenip dağıtılır. Dağıtım durumunu Service Fabric Explorer’dan izleyebilirsiniz.  
+Uygulamanız birkaç dakika içinde derlenip dağıtılır. Service Fabric Explorer hello dağıtım durumunu izleyebilirsiniz.  
 
-## <a name="add-a-service-fabric-service-to-your-service-fabric-application"></a>Service Fabric uygulamanıza Service Fabric hizmeti ekleme
+## <a name="add-a-service-fabric-service-tooyour-service-fabric-application"></a>Service Fabric hizmeti tooyour Service Fabric uygulaması ekleyin
 
-Var olan bir Service Fabric uygulamasına Service Fabric hizmeti eklemek için aşağıdaki adımları uygulayın:
+tooadd bir Service Fabric hizmeti tooan mevcut Service Fabric uygulaması, adımları hello:
 
-1.  Hizmet eklemek istediğiniz projeye sağ tıklayın ve ardından **Service Fabric**’e tıklayın.
+1.  Bir hizmete tooadd istediğiniz ve ardından sağ hello proje **Service Fabric**.
 
     ![Service Fabric Hizmet Ekleme sayfa 1][add-service/p1]
 
-2.  **Service Fabric Hizmeti Ekle**’ye tıklayın ve projeye bir hizmet eklemek için adımları tamamlayın.
-3.  Projenize eklemek istediğiniz hizmet şablonunu seçip **İleri**’ye tıklayın.
+2.  Tıklatın **Service Fabric Hizmet Ekle**, ve tam hello hizmeti toohello projesi adımları tooadd ayarlayın.
+3.  Tooadd tooyour proje istediğiniz ve ardından select hello hizmet şablonu **sonraki**.
 
     ![Service Fabric Hizmet Ekleme sayfa 2][add-service/p2]
 
-4.  Hizmet adını (ve gereken diğer ayrıntıları) girip **Hizmet Ekle** düğmesine tıklayın.  
+4.  Hello hizmet adı (ve diğer ayrıntıları gerektiği gibi) girin ve hello ardından **Hizmet Ekle** düğmesi.  
 
     ![Service Fabric Hizmet Ekleme sayfa 3][add-service/p3]
 
-5.  Hizmet eklendikten sonra projenizin genel yapısı aşağıdaki projeye benzer:
+5.  Merhaba hizmet eklendikten sonra genel proje yapınızı proje aşağıdaki benzer toohello görünür:
 
     ![Service Fabric Hizmet Ekleme sayfa 4][add-service/p4]
 
 ## <a name="edit-manifest-versions-of-your-service-fabric-java-application"></a>Service Fabric Java uygulamanızın Bildirim sürümlerini düzenleme
 
-Bildirim sürümlerini düzenlemek için projeye sağ tıklayın, **Service Fabric**'e gidin ve açılan menüden **Bildirim Sürümlerini Düzenle...** seçeneğini belirleyin. Sihirbazda uygulama bildiriminin ve hizmet bildiriminin yanı sıra **Kod**, **Yapılandırma** ve **Veriler** adlı paketlere ilişkin sürümlere yönelik bildirim sürümlerini güncelleştirebilirsiniz.
+tooedit bildirim sürümleri hello projeye sağ tıklayın, çok Git**Service Fabric** seçip **bildirim sürümleri Düzenle...**  gelen hello menüsü açılır. Başlangıç Sihirbazı'nda hello bildirim uygulama bildirimi, hizmet bildirimi için ve hello sürümleri için güncelleştirebilirsiniz **kod**, **Config** ve **veri** paketler.
 
-**Uygulama ve hizmet sürümlerini otomatik olarak güncelleştir** seçeneğini işaretler ve ardından bir sürümü güncelleştirirseniz bildirim sürümleri de otomatik olarak güncelleştirilir. Örneğin, onay kutusunu işaretleyip **Kod** sürümünü 0.0.0'dan 0.0.1'e güncelleştirir ve ardından **Son**'a tıklarsanız hizmet bildirim sürümü ve uygulama bildirim sürümü otomatik olarak 0.0.1'e güncelleştirilir.
+Merhaba seçeneğini işaretlerseniz **otomatik olarak uygulama ve hizmet sürümleri güncelleştirme** ve bir sürümüne güncelleştirin, ardından hello bildirim sürümlerini otomatik olarak güncelleştirilir. toogive örnek ilk seçtiğiniz hello onay kutusunu ve ardından güncelleştirme hello sürümü **kod** 0.0.0 sürümünden too0.0.1 ve tıklayarak **son**, bildirimi sürümü ve uygulama bildirimi hizmeti sürümü otomatik olarak güncelleştirilen too0.0.1 olacaktır.
 
 ## <a name="upgrade-your-service-fabric-java-application"></a>Service Fabric Java uygulamanızı yükseltme
 
-Bir yükseltme senaryosu için, Eclips’te Service Fabric eklentisini kullanarak **App1** projesini oluşturduğunuzu varsayalım. **fabric:/App1Application** adlı bir uygulama oluşturmak için eklentiyi kullanarak projeyi dağıttınız. Uygulama türü **App1AppicationType**, uygulama sürümü ise 1.0’dır. Şimdi de uygulamanızı kesinti olmadan yükseltmek istiyorsunuz.
+Bir yükseltme senaryosu için oluşturduğunuz hello söyleyin **App1** hello Service Fabric Eclipse'te eklentisini kullanarak proje. Merhaba eklenti toocreate kullanarak adlı bir uygulama dağıttıktan **fabric: / App1Application**. Merhaba uygulama türü **App1AppicationType**, ve hello uygulama sürümü 1.0. Şimdi, kullanılabilirliğini kesintiye uğratmadan uygulamanızı tooupgrade istiyorsunuz.
 
-İlk olarak, uygulamanızda değişiklikleri yapın ve değiştirilen hizmeti yeniden derleyin. Değiştirilen hizmetin bildirim dosyasını (ServiceManifest.xml) hizmetin güncel sürümleriyle (ve uygun olan Kod, Yapılandırma ya da Veriler ile) güncelleştirin. Uygulamanın bildirim dosyasını (ApplicationManifest.xml), uygulamanın ve değiştirilen hizmetin güncel sürüm numarasıyla da değiştirin.  
+İlk olarak, herhangi bir değişiklik tooyour uygulama ve değiştiren hello hizmeti yeniden oluşturun. Güncelleştirme hello hello hizmeti (ve kod, yapılandırma veya ilgili olarak veri) için güncelleştirilmiş hello sürümleri ile hizmetin bildirim dosyası (ServiceManifest.xml) değiştirdi. Ayrıca, güncelleştirilmiş hello sürüm numarasıyla Merhaba uygulaması için hello uygulama bildirimi (ApplicationManifest.xml) değiştirin ve değiştirilen hizmet hello.  
 
-Eclipse Neon kullanarak uygulamanızı yükseltmek için, yinelenen bir çalıştırma yapılandırma profili oluşturabilirsiniz. Ardından, uygulamanızı gereken şekilde yükseltmek için bu profili kullanın.
+tooupgrade Eclipse Neon kullanarak uygulamanızı yinelenen çalıştırma yapılandırma profili oluşturabilirsiniz. Ardından tooupgrade kullanın uygulamanız gerektiğinde.
 
-1.  **Çalıştır** > **Çalıştırma Yapılandırmaları** öğesine gidin. Sol bölmede, **Grade Projesi** öğesinin sol tarafında bulunan küçük oka tıklayın.
+1.  Çok Git**çalıştırmak** > **yapılandırmaları Çalıştır**. Hello sol hello küçük oka toohello solundaki bölmesinde **Gradle proje**.
 2.  **ServiceFabricDeployer**’a sağ tıklayıp **Yinelenen**’i seçin. Bu yapılandırma için **ServiceFabricUpgrader** gibi yeni bir ad girin.
-3.  Sağ paneldeki **Bağımsız Değişkenler** sekmesinde **-Pconfig='deploy'** değerini **-Pconfig='upgrade'** olarak değiştirip **Uygula**’ya tıklayın.
+3.  Merhaba sağ masasındaki hello **bağımsız değişkenleri** sekmesinde, değiştirmek **- Pconfig 'dağıtma' =** çok**- Pconfig 'yükseltme' =**ve ardından **Uygula**.
 
-Bu işlem, uygulamanızı yükseltmek için dilediğiniz zaman kullanabileceğiniz bir çalıştırma yapılandırma profili oluşturup kaydeder. Ayrıca, en son güncelleştirilmiş uygulama türü sürümünü uygulama bildirim dosyasından alır.
+Bu işlem oluşturur ve bir çalışma yapılandırma profili kaydeder uygulamanız hiçbir zaman tooupgrade kullanabilir. Ayrıca hello en son güncelleştirilen uygulama türü sürümü hello uygulama bildirim dosyasından alır.
 
-Uygulama yükseltmesi birkaç dakika sürer. Uygulama yükseltme işlemini Service Fabric Explorer’dan izleyebilirsiniz.
+Merhaba uygulama yükseltme, birkaç dakika sürer. Service Fabric Explorer'da uygulama yükseltme hello izleyebilirsiniz.
 
-## <a name="migrating-old-service-fabric-java-applications-to-be-used-with-maven"></a>Eski Service Fabric Java uygulamalarını Maven ile kullanılmak üzere geçirme
-Service Fabric Java kitaplıklarını yakın zamanda Service Fabric Java SDK’sından Maven deposuna taşıdık. Eclipse kullanarak oluşturduğunuz yeni uygulamalar en son güncelleştirilen projeleri oluşturur (Maven ile çalışırlar), ancak daha önce Service Fabric Java SDK’sı kullanan mevcut Service Fabric durum bilgisi olmayan ya da aktör Java uygulamalarını Maven’ın Service Fabric Java bağımlılıklarını kullanacak şekilde güncelleştirebilirsiniz. Eski uygulamanızın Maven ile çalıştığından emin olmak için lütfen [burada](service-fabric-migrate-old-javaapp-to-use-maven.md) belirtilen adımları izleyin.
+## <a name="migrating-old-service-fabric-java-applications-toobe-used-with-maven"></a>Maven ile kullanılan eski Service Fabric Java uygulamaları toobe geçirme
+Service Fabric Java kitaplıkları yakın zamanda Service Fabric Java SDK tooMaven depodan taşınmış. Eclipse, kullanarak Oluştur hello yeni uygulamalar üretir (Maven ile mümkün toowork olacaktır) en son güncelleştirilen projeleri, ancak varolan Service Fabric durum bilgisiz veya hello Service Fabric Java SDK kullanmakta olduğunuz aktör Java uygulamalarını güncelleştirebilirsiniz önceki sürümlerde, toouse hello Service Fabric Java bağımlılıklardan Maven. Lütfen belirtilen hello adımları [burada](service-fabric-migrate-old-javaapp-to-use-maven.md) tooensure eski uygulamanızı Maven ile çalışır.
 
 <!-- Images -->
 

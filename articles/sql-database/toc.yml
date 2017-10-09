@@ -1,0 +1,422 @@
+- name: SQL DB Belgeleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+    - name: SQL DB hakkında
+      href: sql-database-technical-overview.md
+- name: Hızlı Başlangıçlar
+  expanded: true
+  items:
+    - name: DB Oluşturma - Portal
+      href: sql-database-get-started-portal.md
+    - name: DB Oluşturma - Azure CLI
+      href: sql-database-get-started-cli.md
+    - name: DB Oluşturma - PowerShell
+      href: sql-database-get-started-powershell.md
+    - name: Bağlanma ve sorgulama
+      items:
+        - name: SSMS
+          href: sql-database-connect-query-ssms.md
+        - name: VS Code
+          href: sql-database-connect-query-vscode.md
+        - name: Visual Studio ile .NET
+          href: sql-database-connect-query-dotnet-visual-studio.md
+        - name: .NET core
+          href: sql-database-connect-query-dotnet-core.md
+        - name: PHP
+          href: sql-database-connect-query-php.md
+        - name: Node.js
+          href: sql-database-connect-query-nodejs.md
+        - name: Java
+          href: sql-database-connect-query-java.md
+        - name: Python
+          href: sql-database-connect-query-python.md
+        - name: Ruby
+          href: sql-database-connect-query-ruby.md
+- name: Öğreticiler
+  items:
+    - name: 1 - SSMS kullanarak DB tasarlama
+      href: sql-database-design-first-database.md
+    - name: 1 - .NET kullanarak DB tasarlama
+      href: sql-database-design-first-database-csharp.md
+    - name: 2 - SQL Server DB’yi geçirme
+      href: sql-database-migrate-your-sql-server-database.md
+    - name: 3 - SQL veritabanınızı güvenli hale getirme
+      href: sql-database-security-tutorial.md
+    - name: 4 - SQL DB performansını iyileştirme
+      href: sql-database-performance-tutorial.md
+    - name: 5 - Çok kiracılı uygulamayı yerleştirme
+      href: sql-database-multi-tenant-application.md
+    - name: 6 - Coğrafi olarak dağıtılmış bir veritabanı uygulama
+      href: sql-database-implement-geo-distributed-database.md
+- name: Örnekler
+  items:
+    - name: Kod örnekleri
+      href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
+    - name: Azure CLI
+      href: sql-database-cli-samples.md
+    - name: PowerShell
+      href: sql-database-powershell-samples.md
+- name: Kavramlar
+  items:
+    - name: Hizmet özellikleri
+      items:
+        - name: Genel Bakış
+          href: sql-database-servers-databases.md
+        - name: Hizmet katmanları
+          href: sql-database-service-tiers.md
+        - name: Esnek havuzlar
+          href: sql-database-elastic-pool.md
+        - name: Bağlantı mimarisi
+          href: sql-database-connectivity-architecture.md
+        - name: Güvenlik duvarı kuralları
+          href: sql-database-firewall-configure.md
+        - name: DTU ve eDTU
+          href: sql-database-what-is-a-dtu.md
+        - name: DTU kıyaslama
+          href: sql-database-benchmark-overview.md
+        - name: Sınırlar
+          href: sql-database-resource-limits.md
+        - name: PaaS veya IaaS
+          href: sql-database-paas-vs-sql-server-iaas.md
+        - name: Denetim
+          href: sql-database-auditing.md
+        - name: Tehdit algılama
+          href: sql-database-threat-detection.md
+        - name: Veritabanı yedeklemeleri
+          href: sql-database-automated-backups.md
+        - name: Yedekleri bekletme
+          href: sql-database-long-term-retention.md
+        - name: Yük devretme grupları
+          href: sql-database-geo-replication-overview.md
+        - name: Elastik istemci kitaplığı
+          href: sql-database-elastic-database-client-library.md
+        - name: Esnek sorgular
+          href: sql-database-elastic-query-overview.md
+        - name: Elastik işlemler
+          href: sql-database-elastic-transactions-overview.md
+        - name: Esnek işler
+          href: sql-database-elastic-jobs-overview.md
+        - name: SQL Server genel özellikleri
+          href: sql-database-features.md
+    - name: Güvenlik
+      items:
+        - name: Genel Bakış
+          href: sql-database-security-overview.md
+        - name: Erişim denetimi
+          href: sql-database-control-access.md
+        - name: Azure AD
+          href: sql-database-aad-authentication.md
+        - name: Oturum açma bilgileri ve kullanıcılar
+          href: sql-database-manage-logins.md
+        - name: Multi-Factor Authentication
+          href: sql-database-ssms-mfa-authentication.md
+        - name: Tablo denetimi ve TDS
+          href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
+        - name: Veri maskeleme
+          href: sql-database-dynamic-data-masking-get-started.md
+    - name: İş sürekliliği
+      items:
+        - name: Genel Bakış
+          href: sql-database-business-continuity.md
+        - name: Veritabanı kurtarma
+          href: sql-database-recovery-using-backups.md
+        - name: Güvenliği yapılandırma
+          href: sql-database-geo-replication-security-config.md
+        - name: Uygulama tasarımı ve kurtarma
+          href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
+        - name: Uygulama tasarımı ve havuzlar
+          href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
+        - name: Uygulama tasarımı ve uygulama yükseltmeleri
+          href: sql-database-manage-application-rolling-upgrade.md
+        - name: Kesintiden kurtarma
+          href: sql-database-disaster-recovery.md
+        - name: Kurtarma tatbikatı gerçekleştirme
+          href: sql-database-disaster-recovery-drills.md
+    - name: Verileri yükleme ve taşıma
+      items:
+        - name: SQL Server DB’yi geçirme
+          href: sql-database-cloud-migrate.md
+        - name: T-SQL değişiklikleri
+          href: sql-database-transact-sql-information.md
+        - name: Veritabanı kopyalama
+          href: sql-database-copy.md
+        - name: Veritabanını içeri aktarma
+          href: sql-database-import.md
+        - name: Veritabanını dışarı aktarma
+          href: sql-database-export.md
+        - name: Veri eşitleme
+          href: sql-database-sync-data.md
+    - name: İzleme ve ayarlama
+      items:
+        - name: Genel Bakış
+          href: sql-database-troubleshoot-performance.md
+        - name: Performans izleme
+          href: sql-database-single-database-monitor.md
+        - name: Performans önerileri
+          href: sql-database-advisor.md
+        - name: Otomatik ayarlama
+          href: sql-database-automatic-tuning.md
+        - name: El ile ayarlama
+          href: sql-database-performance-guidance.md
+        - name: Sorgu deposunu çalıştırma
+          href: sql-database-operate-query-store.md
+        - name: Genişletilmiş olaylar
+          href: sql-database-xevent-db-diff-from-svr.md
+        - name: Uyumluluk düzeyleri
+          href: sql-database-compatibility-level-query-performance-130.md
+        - name: Bellek içi izleme
+          href: sql-database-in-memory-oltp-monitoring.md
+    - name: Ölçeği genişletme
+      items:
+        - name: Genel Bakış
+          href: sql-database-elastic-scale-introduction.md
+        - name: Parça eşlemeleri
+          href: sql-database-elastic-scale-shard-map-management.md
+        - name: Sorgu yönlendirme
+          href: sql-database-elastic-scale-data-dependent-routing.md
+        - name: Kimlik bilgilerini yönetme
+          href: sql-database-elastic-scale-manage-credentials.md
+        - name: Parça sorgulama
+          href: sql-database-elastic-scale-multishard-querying.md
+        - name: Elastik araçlar
+          href: sql-database-elastic-scale-glossary.md
+        - name: Parçalı verileri taşıma
+          href: sql-database-elastic-scale-overview-split-and-merge.md
+        - name: Elastik istemci kitaplığı - Dapper
+          href: sql-database-elastic-scale-working-with-dapper.md
+        - name: Elastik araçlar hakkında SSS
+          href: sql-database-elastic-scale-faq.md
+    - name: Çok kiracılı SaaS
+      items:
+        - name: SaaS tasarım desenleri
+          href: sql-database-design-patterns-multi-tenancy-saas-applications.md
+        - name: SaaS uygulama güvenliği
+          href: sql-database-elastic-tools-multi-tenant-row-level-security.md
+    - name: Veritabanlarını geliştirme
+      items:
+        - name: JSON verileri
+          href: sql-database-json-features.md
+        - name: Bellek içi
+          href: sql-database-in-memory.md
+        - name: Zamana bağlı tablolar
+          href: sql-database-temporal-tables.md
+        - name: Elde tutma ilkeleri
+          href: sql-database-temporal-tables-retention-policy.md
+        - name: Bellek içi yapılandırma
+          href: sql-database-in-memory-oltp-migration.md
+    - name: Uygulamaları geliştirme
+      items:
+        - name: Genel Bakış
+          href: sql-database-develop-overview.md
+        - name: Bağlantı
+          href: sql-database-libraries.md
+        - name: Uygulamanın kimliğini doğrulama
+          href: sql-database-client-id-keys.md
+        - name: Hata iletileri
+          href: sql-database-develop-error-messages.md
+        - name: Performans için işlem grubu oluşturma
+          href: sql-database-use-batching-to-improve-performance.md
+        - name: Bağlantı kılavuzu
+          href: sql-database-connectivity-issues.md
+        - name: Bağlantı noktaları - ADO.NET
+          href: sql-database-develop-direct-route-ports-adonet-v12.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Hizmet özellikleri
+      items:
+        - name: Elastik veritabanı istemci kitaplığını yükseltme
+          href: sql-database-elastic-scale-upgrade-client-library.md
+        - name: Elastik işleri yükleme
+          href: sql-database-elastic-jobs-service-installation.md
+        - name: İş oluşturma - Portal
+          href: sql-database-elastic-jobs-create-and-manage.md
+        - name: İş oluşturma - PowerShell
+          href: sql-database-elastic-jobs-powershell.md
+        - name: İş oluşturma - Örnek uygulama
+          href: sql-database-elastic-jobs-getting-started.md
+        - name: Elastik işin yüklemesini kaldırma
+          href: sql-database-elastic-jobs-uninstall.md
+        - name: Dikey olarak bölümlenmiş verileri sorgulama
+          href: sql-database-elastic-query-getting-started-vertical.md
+        - name: Ölçeklendirilmiş veri katmanı üzerinden raporlama
+          href: sql-database-elastic-query-horizontal-partitioning.md
+        - name: Farklı şemalarla tablolar üzerinden sorgulama
+          href: sql-database-elastic-query-vertical-partitioning.md
+    - name: Güvenlik
+      items:
+        - name: Azure AD kimlik doğrulamasını yapılandırma
+          href: sql-database-aad-authentication-configure.md
+        - name: Koşullu erişim
+          href: sql-database-conditional-access.md
+        - name: Always Encrypted sertifika deposu
+          href: sql-database-always-encrypted.md
+        - name: Always Encrypted anahtar kasası
+          href: sql-database-always-encrypted-azure-key-vault.md
+        - name: Maskelemeyi yapılandırma
+          href: sql-database-dynamic-data-masking-get-started-portal.md
+        - name: Çok faktörlü kimlik doğrulamasını yapılandırma
+          href: sql-database-ssms-mfa-authentication-configure.md
+    - name: İş sürekliliği
+      items:
+        - name: Kasayı yapılandırma - yedekler
+          href: sql-database-long-term-backup-retention-configure.md
+        - name: Coğrafi çoğaltma - Portal
+          href: sql-database-geo-replication-portal.md
+        - name: Coğrafi çoğaltma - T-SQL - Yapılandırma
+          href: sql-database-geo-replication-transact-sql.md
+        - name: Coğrafi çoğaltma - T-SQL - Yük devretme
+          href: sql-database-geo-replication-failover-transact-sql.md
+        - name: Tek bir tabloyu kurtarma
+          href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
+    - name: Verileri yükleme ve taşıma
+      items:
+        - name: BCP ile veri yükleme
+          href: sql-database-load-from-csv-with-bcp.md
+        - name: ADF ile veri yükleme
+          href: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+        - name: Veri eşitleme
+          href: sql-database-get-started-sql-data-sync.md
+    - name: İzleme ve ayarlama
+      items:
+        - name: Performansı izleme ve artırma
+          href: sql-database-performance.md
+        - name: Sorgu Performansı Öngörüleri’ni kullanma
+          href: sql-database-query-performance.md
+        - name: Performans önerilerini uygulama
+          href: sql-database-advisor-portal.md
+        - name: Otomatik ayarlamayı etkinleştirme
+          href: sql-database-automatic-tuning-enable.md
+        - name: Performansı izlemek için DMV’leri kullanma
+          href: sql-database-monitoring-with-dmvs.md
+        - name: Uyarı oluşturma
+          href: sql-database-insights-alerts-portal.md
+        - name: Genişletilmiş olaylar - olay dosyası
+          href: sql-database-xevent-code-event-file.md
+        - name: Genişletilmiş olaylar - halka arabelleği
+          href: sql-database-xevent-code-ring-buffer.md
+        - name: Tanılama günlüğüne kaydetme
+          href: sql-database-metrics-diag-logging.md
+        - name: Bağlantı sorunlarını giderme
+          href: sql-database-troubleshoot-common-connection-issues.md
+        - name: Azure Otomasyonu
+          href: sql-database-manage-automation.md
+        - name: Azure RemoteApp
+          href: sql-database-ssms-remoteapp.md
+    - name: Ölçeği genişletme
+      items:
+        - name: Parçalı uygulama oluşturma
+          href: sql-database-elastic-scale-get-started.md
+        - name: Yatay olarak parçalı verileri sorgulama
+          href: sql-database-elastic-query-getting-started.md
+        - name: Parçalı verileri taşıma
+          href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
+        - name: Güvenlik yapılandırması
+          href: sql-database-elastic-scale-split-merge-security-configuration.md
+        - name: Parça ekleme
+          href: sql-database-elastic-scale-add-a-shard.md
+        - name: Parça eşleme sorunlarını giderme
+          href: sql-database-elastic-database-recovery-manager.md
+        - name: Parçalı veritabanını geçirme
+          href: sql-database-elastic-convert-to-use-elastic-tools.md
+        - name: Sayaç oluşturma
+          href: sql-database-elastic-database-perf-counters.md
+        - name: Entity framework kullanma
+          href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
+    - name: Çok kiracılı SaaS
+      items:
+        - name: Öğreticiye giriş
+          href: sql-database-wtp-overview.md
+        - name: Örnek uygulamayı dağıtma
+          href: sql-database-saas-tutorial.md
+        - name: Kiracı sağlama
+          href: sql-database-saas-tutorial-provision-and-catalog.md
+        - name: Veritabanı performansını izleme
+          href: sql-database-saas-tutorial-performance-monitoring.md
+        - name: Log analytics ile izleme
+          href: sql-database-saas-tutorial-log-analytics.md
+        - name: Tek kiracıyı geri yükleme
+          href: sql-database-saas-tutorial-restore-single-tenant.md
+        - name: Kiracı şemasını yönetme
+          href: sql-database-saas-tutorial-schema-management.md
+        - name: Geçici sorgular çalıştırma
+          href: sql-database-saas-tutorial-adhoc-analytics.md
+        - name: Analiz için ETL
+          href: sql-database-saas-tutorial-tenant-analytics.md
+    - name: Uygulamaları geliştirme
+      items:
+        - name: C ve C++
+          href: sql-database-develop-cplusplus-simple.md
+        - name: Excel
+          href: sql-database-connect-excel.md
+- name: Başvuru
+  items:
+    - name: PowerShell
+      href: '/powershell/module/azurerm.sql/#sql'
+    - name: PowerShell (Elastik Veritabanı)
+      href: '/powershell/module/elasticdatabasejobs/#elasticdatabasejobs'
+    - name: Azure CLI 2.0
+      href: /cli/azure/sql
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.sql.models
+    - name: Java
+      href: /java/api/com.microsoft.azure.management.sql
+    - name: Node.js
+      href: /sql/connect/node-js/node-js-driver-for-sql-server
+    - name: Python
+      href: /sql/connect/python/python-driver-for-sql-server
+    - name: Ruby
+      href: /sql/connect/ruby/ruby-driver-for-sql-server
+    - name: PHP
+      href: /sql/connect/php/microsoft-php-driver-for-sql-server
+    - name: T-SQL
+      href: /sql/t-sql/language-reference
+    - name: REST
+      href: /rest/api/sql/
+    - name: SQL Server araçları
+      href: /sql/tools/overview-sql-tools
+    - name: SQL Server Management Studio (SSMS)
+      href: /sql/ssms/download-sql-server-management-studio-ssms
+    - name: SQL Server Veri Araçları (SSDT)
+      href: /sql/ssdt/download-sql-server-data-tools-ssdt
+    - name: BCP
+      href: /sql/tools/bcp-utility
+    - name: SQLCMD
+      href: /sql/tools/sqlcmd-utility
+    - name: SqlPackage
+      href: 'https://msdn.microsoft.com/hh550080.aspx'
+    - name: SQL Veritabanı Yönetim Kitaplığı paketi
+      href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Sql'
+    - name: SQL Server sürücüleri
+      href: /sql/connect/sql-server-drivers
+      items:
+        - name: ADO.NET
+          href: /sql/connect/ado-net/microsoft-ado-net-for-sql-server
+        - name: JDBC
+          href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
+        - name: ODBC
+          href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
+- name: Kaynaklar
+  items:
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: SSS
+      href: sql-database-faq.md
+    - name: Genel veri kümeleri
+      href: sql-database-public-data-sets.md
+    - name: Bağlantı sorunlarını giderme
+      href: 'https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/sql-database/'
+    - name: MSDN forumu
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/sql-azure'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=sql-database'
+    - name: Hizmet güncelleştirmeleri
+      href: 'https://azure.microsoft.com/updates/?service=sql-database'
+    - name: Mimari merkezi
+      href: /azure/architecture/
+    - name: Müşteri hikayeleri
+      href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'

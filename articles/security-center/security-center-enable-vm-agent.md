@@ -1,6 +1,6 @@
 ---
-title: "Azure Güvenlik Merkezi'nde VM Aracısı etkinleştirme | Microsoft Docs"
-description: "Bu belgede Azure Güvenlik Merkezi öneriyi uygulamayı gösterilmiştir ** etkinleştirmek VM Aracısı **."
+title: "Azure Güvenlik Merkezi'nde VM Aracısı aaaEnable | Microsoft Docs"
+description: "Bu belge size nasıl tooimplement hello Azure Güvenlik Merkezi öneri gösterir. ** etkinleştirmek VM Aracısı **."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,38 +14,38 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 337a7adfd93c76882a749685702bea6d1524c96a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.openlocfilehash: 9bd71e638b020780537da25fd4cf7baf34d3e11a
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="enable-vm-agent-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde VM aracısını etkinleştir
-Aşağıdakileri yapmak için sanal makineleri (VM'ler) üzerinde VM Aracısı yüklenmelidir [veri toplamayı etkinleştirmek](security-center-enable-data-collection.md).  Azure Güvenlik Merkezi, hangi VM'ler VM Aracısı gerektirir ve bu vm'lerde VM Aracısı etkinleştirmenizi öneririz görmenize olanak sağlar.
+Merhaba VM Aracısı sanal makineleri (VM'ler) sırayla çok yüklenmelidir[veri toplamayı etkinleştirmek](security-center-enable-data-collection.md).  Sanal makineleri gerektiren, toosee VM Aracısı hello ve işlem etkinleştirmenizi öneririz azure Güvenlik Merkezi sağlar, bu vm'lerde VM Aracısı hello.
 
-VM Aracısı, Azure Marketi’nden dağıtılan VM’ler için varsayılan olarak yüklüdür. [VM Aracısı ve Uzantılar – 2. Kısım](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/) makalesinde VM Aracısının nasıl yüklendiğine ilişkin bilgiler verilmektedir.
+Merhaba VM Aracısı, Azure Marketi hello dağıtılan VM'ler için varsayılan olarak yüklenir. Merhaba makale [VM aracısı ve uzantılar – Kısım 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/) nasıl tooinstall hello üzerinde VM aracısı bilgi sağlar.
 
 > [!NOTE]
-> Bu belge, örnek bir dağıtım kullanarak hizmeti tanıtır. Bu, adım adım ilerleyen bir kılavuz değildir.
+> Bu belge, örnek bir dağıtım kullanarak hello hizmeti sunar. Bu, adım adım ilerleyen bir kılavuz değildir.
 >
 >
 
-## <a name="implement-the-recommendation"></a>Öneriyi uygulamayı
-1. İçinde **öneriler dikey**seçin **etkinleştirmek VM Aracısı**.
+## <a name="implement-hello-recommendation"></a>Merhaba öneriyi uygulamayı
+1. Merhaba, **öneriler dikey**seçin **etkinleştirmek VM Aracısı**.
    ![VM Aracısını etkinleştirin][1]
-2. Bu dikey pencere açılır **VM Aracısı eksik veya yanıt vermiyor**. Bu dikey VM Aracısı gerektiren sanal makineleri listeler. Dikey VM Aracısı'nı yüklemek için yönergeleri izleyin.
+2. Bu hello dikey pencere açılır **VM Aracısı eksik veya yanıt vermiyor**. Bu dikey penceresinde hello VM Aracısı gerektiren hello sanal makineleri listeler. Merhaba dikey tooinstall hello VM Aracısı'nı Hello yönergeleri izleyin.
    ![VM Aracısı eksik.][2]
 
 ## <a name="see-also"></a>Ayrıca bkz.
-Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
+Güvenlik Merkezi hakkında daha fazla toolearn hello aşağıdaki bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) - Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md)--öğrenin nasıl tooconfigure Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkeleri.
 * [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md) - Önerilerin Azure kaynaklarınızı korumanıza nasıl yardım edeceği hakkında bilgi edinin.
-* [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) - Azure kaynaklarınızın sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
-* [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) - Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
-* [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) - İş ortağı çözümlerinizin sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
-* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) - Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
-* [Azure Güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/) - En son Azure güvenlik haberlerini ve bilgilerini edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md)--nasıl toomonitor hello Azure kaynaklarınızın sistem durumunu öğrenin.
+* [Azure Güvenlik Merkezi'nde Uyarıları yönetme ve yanıt toosecurity](security-center-managing-and-responding-alerts.md)--öğrenin nasıl toomanage ve yanıt toosecurity uyarıları.
+* [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) --nasıl toomonitor hello iş ortağı çözümlerinizin sistem durumunu öğrenin.
+* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md)--hello hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
+* [Azure güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/)--hello en son Azure güvenlik haberlerini ve bilgilerini alın.
 
 <!--Image references-->
 [1]: ./media/security-center-enable-vm-agent/enable-vm-agent.png
